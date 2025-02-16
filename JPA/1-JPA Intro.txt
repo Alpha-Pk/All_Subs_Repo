@@ -482,91 +482,92 @@ JDBC example - UserDAO Class
   Okay, so you have to handle the SQL exception and finally you have to close it.
   15:28.950 --> 15:29.910
   Resources.
-  
-15:30.780 --> 15:35.520
-So this is very, very basic uh plain JDBC.
-15:35.550 --> 15:39.720
-We are using no spring boot is used here.
-15:40.110 --> 15:40.950
-Okay.
-15:40.980 --> 15:42.720
-So I will show you running it.
-15:42.720 --> 15:46.650
-But what is the problem you are seeing with this.
-15:46.920 --> 15:50.640
-So there are so many boiler code we are writing.
-15:50.640 --> 15:52.830
-First is driver class loading.
-15:52.830 --> 15:57.780
-You have to load the driver right class dot four name.
-15:58.290 --> 16:02.520
-Then you have to make a DB connection.
-16:02.580 --> 16:07.650
-Now here if you see you are doing a data driver manager dot get connection.
-16:07.680 --> 16:14.190
-Hey give me one connection of the database and you are providing the url username password and this
-16:14.190 --> 16:15.510
-will get you one connection.
-16:15.660 --> 16:20.190
-So you have to manually get the database connection.
-16:20.250 --> 16:22.230
-Third is exception handling.
-16:22.230 --> 16:26.430
-So here if you see what exception you are getting.
-16:26.490 --> 16:32.510
-SQL exception This is very high level or abstracted exception, I would say.
-16:32.510 --> 16:35.090
-So SQL exception can be of anything.
-16:35.330 --> 16:41.060
-Maybe a primary key violation duplicate key found you are not able to insert.
-16:41.090 --> 16:49.460
-Like there are so many different ways through which your query fails, but it gives a very high level
-16:49.460 --> 16:51.710
-abstracted error SQL exception.
-16:51.710 --> 16:56.300
-So you have to do a lot of uh, kind of if else check.
-16:56.330 --> 16:56.540
-Okay.
-16:56.570 --> 16:58.760
-If this is the issue, then okay.
-16:58.820 --> 16:59.690
-Do this.
-16:59.690 --> 17:06.590
-So here SQL exception I would say that it's not very clear okay.
-17:06.950 --> 17:10.340
-Closing of the DB connection and other objects like statement.
-17:10.370 --> 17:16.700
-So here if you see that every time you take out a connection or use a resource, now here you are creating
-17:16.700 --> 17:20.930
-a prepared statement executing the query in the finally block.
-17:20.960 --> 17:26.950
-You ultimately have to close the DB connection and close the prepared query also because if you don't
-17:26.950 --> 17:31.240
-do that, there is a possibility of memory leak also.
-17:31.390 --> 17:37.240
-So as normal JDBC you have to handle the closing of the DB connection also.
-17:37.780 --> 17:41.170
-And the last one is manual handling of DB connection pool.
-17:41.200 --> 17:48.730
-So here if you see that currently every time somebody is calling new instance dot get connection I am
-17:48.730 --> 17:50.980
-creating blindly creating one connection.
-17:51.400 --> 17:53.680
-But it is not an ideal way.
-17:53.710 --> 17:59.590
-Generally ideal way would be like okay, there should be one pool of JDBC connection.
-18:01.600 --> 18:05.380
-Pool in which already I have pre-created few connections.
-18:05.380 --> 18:12.490
-Use it once, use it, return it back to the pool so you have to manually add it or handle it.
-18:12.520 --> 18:15.460
-DB connection pool okay with the JDBC.
-18:16.510 --> 18:20.770
-So these are the few issues with the plain JDBC.
-18:21.040 --> 18:25.590
-But before I jump to spring boot JDBC.
-18:25.620 --> 18:26.580
-How it handles it.
+Drawbacks of Plain JDBC  
+  15:30.780 --> 15:35.520
+  So this is very, very basic uh plain JDBC.
+  15:35.550 --> 15:39.720
+  We are using no spring boot is used here.
+  15:40.110 --> 15:40.950
+  Okay.
+  15:40.980 --> 15:42.720
+  So I will show you running it.
+  15:42.720 --> 15:46.650
+  But what is the problem you are seeing with this.
+  15:46.920 --> 15:50.640
+  So there are so many boiler code we are writing.
+  15:50.640 --> 15:52.830
+  First is driver class loading.
+  15:52.830 --> 15:57.780
+  You have to load the driver right class dot four name.
+  15:58.290 --> 16:02.520
+  Then you have to make a DB connection.
+  16:02.580 --> 16:07.650
+  Now here if you see you are doing a data driver manager dot get connection.
+  16:07.680 --> 16:14.190
+  Hey give me one connection of the database and you are providing the url username password and this
+  16:14.190 --> 16:15.510
+  will get you one connection.
+  16:15.660 --> 16:20.190
+  So you have to manually get the database connection.
+  16:20.250 --> 16:22.230
+  Third is exception handling.
+  16:22.230 --> 16:26.430
+  So here if you see what exception you are getting.
+  16:26.490 --> 16:32.510
+  SQL exception This is very high level or abstracted exception, I would say.
+  16:32.510 --> 16:35.090
+  So SQL exception can be of anything.
+  16:35.330 --> 16:41.060
+  Maybe a primary key violation duplicate key found you are not able to insert.
+  16:41.090 --> 16:49.460
+  Like there are so many different ways through which your query fails, but it gives a very high level
+  16:49.460 --> 16:51.710
+  abstracted error SQL exception.
+  16:51.710 --> 16:56.300
+  So you have to do a lot of uh, kind of if else check.
+  16:56.330 --> 16:56.540
+  Okay.
+  16:56.570 --> 16:58.760
+  If this is the issue, then okay.
+  16:58.820 --> 16:59.690
+  Do this.
+  16:59.690 --> 17:06.590
+  So here SQL exception I would say that it's not very clear okay.
+  17:06.950 --> 17:10.340
+  Closing of the DB connection and other objects like statement.
+  17:10.370 --> 17:16.700
+  So here if you see that every time you take out a connection or use a resource, now here you are creating
+  17:16.700 --> 17:20.930
+  a prepared statement executing the query in the finally block.
+  17:20.960 --> 17:26.950
+  You ultimately have to close the DB connection and close the prepared query also because if you don't
+  17:26.950 --> 17:31.240
+  do that, there is a possibility of memory leak also.
+  17:31.390 --> 17:37.240
+  So as normal JDBC you have to handle the closing of the DB connection also.
+  17:37.780 --> 17:41.170
+  And the last one is manual handling of DB connection pool.
+  17:41.200 --> 17:48.730
+  So here if you see that currently every time somebody is calling new instance dot get connection I am
+  17:48.730 --> 17:50.980
+  creating blindly creating one connection.
+  17:51.400 --> 17:53.680
+  But it is not an ideal way.
+  17:53.710 --> 17:59.590
+  Generally ideal way would be like okay, there should be one pool of JDBC connection.
+  18:01.600 --> 18:05.380
+  Pool in which already I have pre-created few connections.
+  18:05.380 --> 18:12.490
+  Use it once, use it, return it back to the pool so you have to manually add it or handle it.
+  18:12.520 --> 18:15.460
+  DB connection pool okay with the JDBC.
+  18:16.510 --> 18:20.770
+  So these are the few issues with the plain JDBC.
+  18:21.040 --> 18:25.590
+  But before I jump to spring boot JDBC.
+  18:25.620 --> 18:26.580
+  How it handles it.
+
 18:26.610 --> 18:27.750
 Let's see that.
 18:28.320 --> 18:31.500
