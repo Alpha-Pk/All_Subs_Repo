@@ -1066,37 +1066,38 @@ Advantages of JDBC with Springboot = Part 2
   And no matter if you are using SQL, Postgres or S2, Spring boot by default uses this only, this data
   35:18.900 --> 35:19.710
   source only.
+Custom JDBC Connection Pool
+  35:20.250 --> 35:26.460
+  But if you want to use any other specific JDBC connection pool, you don't want to use Hikari.
+  35:26.490 --> 35:30.150
+  You don't you you want to use some other one, right?
+  35:30.360 --> 35:35.310
+  Maybe some from Apache or some something, some other JDBC connection pool.
+  35:35.520 --> 35:42.030
+  Then instead of putting into the application.properties you don't have to put into Application.properties.
+  35:42.150 --> 35:47.940
+  Then you can in your configuration at the right configuration class App.config.
+  35:47.960 --> 35:55.220
+  class, you can create a bin of data source, and then you can use whichever data source you want.
+  35:55.250 --> 35:58.910
+  Here in this, for example, I am using the same Hikari data source only.
+  35:59.060 --> 36:06.140
+  Okay, but you can change it to any other JDBC connection pool which is available and you can use it
+  36:06.140 --> 36:06.650
+  on your own.
+  36:06.650 --> 36:13.970
+  So here driver class name JDBC instead of now Application.properties I am providing the configuration
+  36:13.970 --> 36:18.350
+  for the data source like this JDBC pool username password.
+  36:18.350 --> 36:23.990
+  Like this okay now here I don't need to provide in the Application.properties.
+  36:24.020 --> 36:26.090
+  Now this data source would be used.
+  36:26.090 --> 36:29.690
+  So currently here I am using Hikari only but you can use any.
+  36:29.720 --> 36:31.640
+  You can replace it with anything okay.
 
-35:20.250 --> 35:26.460
-But if you want to use any other specific JDBC connection pool, you don't want to use Hikari.
-35:26.490 --> 35:30.150
-You don't you you want to use some other one, right?
-35:30.360 --> 35:35.310
-Maybe some from Apache or some something, some other JDBC connection pool.
-35:35.520 --> 35:42.030
-Then instead of putting into the application.properties you don't have to put into Application.properties.
-35:42.150 --> 35:47.940
-Then you can in your configuration at the right configuration class App.config.
-35:47.960 --> 35:55.220
-class, you can create a bin of data source, and then you can use whichever data source you want.
-35:55.250 --> 35:58.910
-Here in this, for example, I am using the same Hikari data source only.
-35:59.060 --> 36:06.140
-Okay, but you can change it to any other JDBC connection pool which is available and you can use it
-36:06.140 --> 36:06.650
-on your own.
-36:06.650 --> 36:13.970
-So here driver class name JDBC instead of now Application.properties I am providing the configuration
-36:13.970 --> 36:18.350
-for the data source like this JDBC pool username password.
-36:18.350 --> 36:23.990
-Like this okay now here I don't need to provide in the Application.properties.
-36:24.020 --> 36:26.090
-Now this data source would be used.
-36:26.090 --> 36:29.690
-So currently here I am using Hikari only but you can use any.
-36:29.720 --> 36:31.640
-You can replace it with anything okay.
 36:33.590 --> 36:37.790
 And yeah we can show the complete demo here.
 36:42.140 --> 36:45.900
