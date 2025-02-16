@@ -1130,107 +1130,108 @@ Complete JDBC springboot Demo
   And also I was printing it so two users got printed.
   37:40.470 --> 37:41.100
   Okay.
+JDBC Template = Frequently used methods = Update and Update with pss
+  37:41.220 --> 37:46.820
+  So JDBC template in spring boot has couple of methods very frequently used method.
+  37:46.850 --> 37:47.780
+  I will tell you.
+  37:48.440 --> 37:57.470
+  One is update and it takes two parameter, one is SQL string and another is where.
+  37:57.500 --> 38:00.260
+  Where are variable arguments okay.
+  38:00.470 --> 38:06.170
+  So this update method can be used for insert, update and delete operation.
+  38:06.950 --> 38:10.910
+  So like this insert into user.
+  38:10.910 --> 38:16.640
+  So I have written my SQL query as a string and two dynamic values which I need to insert.
+  38:16.790 --> 38:17.090
+  Okay.
+  38:17.120 --> 38:18.350
+  So this is my string.
+  38:18.560 --> 38:22.640
+  Now I am using JDBC template dot update your query.
+  38:22.700 --> 38:29.720
+  And second is variable arguments like variable arguments 123 could be anything right.
+  38:29.750 --> 38:31.640
+  So two dynamic right.
+  38:31.640 --> 38:33.950
+  So one is your string.
+  38:33.950 --> 38:38.300
+  Second is your integer in this one okay.
+  38:38.330 --> 38:40.250
+  Similarly it can be used for update.
+  38:40.250 --> 38:44.290
+  So this is one method very very commonly used method of JDBC template.
+  38:44.860 --> 38:53.710
+  Another is this one for updating update the same your query and the second is prepared statement setter.
+  38:54.010 --> 38:58.060
+  So you can say it is also you can use for insert update delete.
+  38:58.060 --> 39:00.610
+  It is just for like more granular level.
+  39:00.640 --> 39:01.720
+  Or you can say that more.
+  39:01.720 --> 39:09.100
+  If your queries are very very complex then prepare the statement setter is can be useful the similar.
+  39:09.130 --> 39:12.520
+  First thing is insert query like you can write your string.
+  39:12.880 --> 39:16.330
+  Okay, uh, you have to set dynamic values.
+  39:16.360 --> 39:23.620
+  Now I am instead of uh using the previous I am now using prepared statement setter JDBC template dot
+  39:23.650 --> 39:24.220
+  update.
+  39:24.250 --> 39:27.640
+  The first parameter is your string query.
+  39:27.940 --> 39:30.820
+  Now second is prepared statement setter.
+  39:30.820 --> 39:39.790
+  So here if you see uh JDBC template update string SQL.
+  39:40.800 --> 39:46.290
+  So yeah, this prepared statement setter here, if you see it, is a functional interface.
+  39:46.440 --> 39:46.890
+  Okay.
+  39:46.920 --> 39:48.390
+  So you can use lambda expression.
+  39:48.390 --> 39:51.630
+  And it has only one method which need to be implemented.
+  39:52.410 --> 39:52.830
+  Okay.
+  39:52.830 --> 39:56.850
+  So one method which accepts prepared statement.
+  39:56.850 --> 40:01.710
+  So that's why I am using lambda expression in Java playlist.
+  40:01.710 --> 40:04.770
+  I have already explained it in depth how you can use lambda expression.
+  40:05.160 --> 40:10.860
+  So here I am just providing the implementation for that getvalues itself that whatever the prepared
+  40:10.860 --> 40:13.170
+  statement set the string.
+  40:13.170 --> 40:15.750
+  The first one is a string username.
+  40:15.840 --> 40:20.580
+  So for the first index it's the string second index.
+  40:20.610 --> 40:23.850
+  This one second is integer right.
+  40:23.880 --> 40:25.170
+  So I am providing h.
+  40:25.170 --> 40:26.400
+  So this is one two.
+  40:26.430 --> 40:29.580
+  This is our indexing 1234 right.
+  40:29.610 --> 40:31.350
+  So this is one this is two.
+  40:31.380 --> 40:32.280
+  Another question mark.
+  40:32.310 --> 40:33.120
+  This would be three.
+  40:33.120 --> 40:36.210
+  So this way you can add it okay.
+  40:36.240 --> 40:38.460
+  So you can use it for insert update delete.
+  40:38.470 --> 40:39.760
+  These are the two ways.
 
-37:41.220 --> 37:46.820
-So JDBC template in spring boot has couple of methods very frequently used method.
-37:46.850 --> 37:47.780
-I will tell you.
-37:48.440 --> 37:57.470
-One is update and it takes two parameter, one is SQL string and another is where.
-37:57.500 --> 38:00.260
-Where are variable arguments okay.
-38:00.470 --> 38:06.170
-So this update method can be used for insert, update and delete operation.
-38:06.950 --> 38:10.910
-So like this insert into user.
-38:10.910 --> 38:16.640
-So I have written my SQL query as a string and two dynamic values which I need to insert.
-38:16.790 --> 38:17.090
-Okay.
-38:17.120 --> 38:18.350
-So this is my string.
-38:18.560 --> 38:22.640
-Now I am using JDBC template dot update your query.
-38:22.700 --> 38:29.720
-And second is variable arguments like variable arguments 123 could be anything right.
-38:29.750 --> 38:31.640
-So two dynamic right.
-38:31.640 --> 38:33.950
-So one is your string.
-38:33.950 --> 38:38.300
-Second is your integer in this one okay.
-38:38.330 --> 38:40.250
-Similarly it can be used for update.
-38:40.250 --> 38:44.290
-So this is one method very very commonly used method of JDBC template.
-38:44.860 --> 38:53.710
-Another is this one for updating update the same your query and the second is prepared statement setter.
-38:54.010 --> 38:58.060
-So you can say it is also you can use for insert update delete.
-38:58.060 --> 39:00.610
-It is just for like more granular level.
-39:00.640 --> 39:01.720
-Or you can say that more.
-39:01.720 --> 39:09.100
-If your queries are very very complex then prepare the statement setter is can be useful the similar.
-39:09.130 --> 39:12.520
-First thing is insert query like you can write your string.
-39:12.880 --> 39:16.330
-Okay, uh, you have to set dynamic values.
-39:16.360 --> 39:23.620
-Now I am instead of uh using the previous I am now using prepared statement setter JDBC template dot
-39:23.650 --> 39:24.220
-update.
-39:24.250 --> 39:27.640
-The first parameter is your string query.
-39:27.940 --> 39:30.820
-Now second is prepared statement setter.
-39:30.820 --> 39:39.790
-So here if you see uh JDBC template update string SQL.
-39:40.800 --> 39:46.290
-So yeah, this prepared statement setter here, if you see it, is a functional interface.
-39:46.440 --> 39:46.890
-Okay.
-39:46.920 --> 39:48.390
-So you can use lambda expression.
-39:48.390 --> 39:51.630
-And it has only one method which need to be implemented.
-39:52.410 --> 39:52.830
-Okay.
-39:52.830 --> 39:56.850
-So one method which accepts prepared statement.
-39:56.850 --> 40:01.710
-So that's why I am using lambda expression in Java playlist.
-40:01.710 --> 40:04.770
-I have already explained it in depth how you can use lambda expression.
-40:05.160 --> 40:10.860
-So here I am just providing the implementation for that getvalues itself that whatever the prepared
-40:10.860 --> 40:13.170
-statement set the string.
-40:13.170 --> 40:15.750
-The first one is a string username.
-40:15.840 --> 40:20.580
-So for the first index it's the string second index.
-40:20.610 --> 40:23.850
-This one second is integer right.
-40:23.880 --> 40:25.170
-So I am providing h.
-40:25.170 --> 40:26.400
-So this is one two.
-40:26.430 --> 40:29.580
-This is our indexing 1234 right.
-40:29.610 --> 40:31.350
-So this is one this is two.
-40:31.380 --> 40:32.280
-Another question mark.
-40:32.310 --> 40:33.120
-This would be three.
-40:33.120 --> 40:36.210
-So this way you can add it okay.
-40:36.240 --> 40:38.460
-So you can use it for insert update delete.
-40:38.470 --> 40:39.760
-These are the two ways.
 40:40.000 --> 40:43.660
 Similarly, now you have to fetch it right?
 40:43.660 --> 40:45.130
