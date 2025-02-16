@@ -1,0 +1,1394 @@
+00:00.020 --> 00:00.890
+Hey guys on this side.
+00:00.890 --> 00:02.120
+Welcome to Concept and Coding.
+00:02.120 --> 00:06.440
+And today we are going to see the Spring Boot JPA part one.
+00:06.440 --> 00:09.560
+And let's start without wasting any time.
+00:09.770 --> 00:16.820
+So here if you see that till now, whatever we have done it's mostly a part of application logic.
+00:16.910 --> 00:24.050
+Now we have reached to a stage where we have to insert data into the database, how we can do that.
+00:24.050 --> 00:28.850
+So that's where the JPA, JDBC comes into the picture okay.
+00:28.850 --> 00:36.860
+So before even jumping into the JPA we have to first understand the complete sequence.
+00:36.890 --> 00:37.430
+Right.
+00:37.460 --> 00:41.480
+Who who what all components actually get involved into this.
+00:41.480 --> 00:45.890
+So here if you see that let's say that you are writing a spring boot application.
+00:45.890 --> 00:49.760
+You have an application logic or you have written so many beans okay.
+00:49.790 --> 00:54.110
+Now what you do is if you have to use JPA, what is the sequence?
+00:54.110 --> 00:59.290
+What happen is you interact with the APIs, which is provided by JPL.
+00:59.560 --> 01:03.850
+So always remember that JPL is mostly an interface.
+01:03.880 --> 01:04.450
+Right.
+01:04.450 --> 01:11.440
+It provided an API which you can interact with, but it does not provide you the implementation.
+01:11.440 --> 01:14.680
+Implementation is provided by another component.
+01:14.710 --> 01:16.300
+Let's say in this case hibernate.
+01:16.330 --> 01:21.610
+Or if you don't want to use hibernate, there is something like open JPA, right?
+01:21.640 --> 01:25.600
+Or there are I think eclipse link.
+01:25.750 --> 01:29.590
+And so these are different implementation of JPA.
+01:29.740 --> 01:30.250
+Okay.
+01:30.250 --> 01:33.160
+So your application talks to JPA.
+01:33.280 --> 01:41.020
+JPA internally has to be implemented by some other uh component which you decide which you want to use.
+01:41.020 --> 01:43.330
+So generally hibernate is the most popular one.
+01:43.720 --> 01:51.160
+So hibernate internally talks to or utilizes JDBC APIs.
+01:51.160 --> 01:54.880
+So again JDBC is again an interface.
+01:54.880 --> 01:56.950
+So hibernate uses its.
+01:57.930 --> 02:01.500
+APIs its interfaces.
+02:01.710 --> 02:05.910
+And then there are specific DB drivers.
+02:05.910 --> 02:12.090
+So this DB drivers is nothing but an implementation of this JDBC APIs.
+02:12.120 --> 02:12.780
+Okay.
+02:12.780 --> 02:19.710
+So for example you are using a MySQL DB.
+02:19.920 --> 02:20.670
+Okay.
+02:20.700 --> 02:22.410
+You are using a MySQL db.
+02:22.440 --> 02:25.650
+Then there would be a specific DB driver for it.
+02:25.890 --> 02:26.370
+Okay.
+02:26.400 --> 02:35.460
+Let's say it is connector J db driver which is very very specific for MySQL which knows how to connect
+02:35.460 --> 02:36.420
+to MySQL.
+02:36.420 --> 02:40.140
+And it provided the implementation of JDBC API.
+02:40.170 --> 02:49.050
+Similarly, if you have something called uh Postgres PostgreSQL okay.
+02:49.080 --> 02:51.540
+Then it has its own DB driver.
+02:52.170 --> 02:54.210
+It has its own DB driver.
+02:55.360 --> 03:04.360
+Okay, so depending upon which DB you are using is specific, that's why I written specific DB driver
+03:04.360 --> 03:05.440
+is required.
+03:05.470 --> 03:11.050
+Okay, this DB drivers is nothing but an implementation of JDBC APIs.
+03:11.080 --> 03:19.540
+This JDBC right Java database connection connectivity helps you to connect to a database.
+03:19.630 --> 03:20.230
+Okay.
+03:20.260 --> 03:22.720
+Through this API you can connect.
+03:22.720 --> 03:23.860
+You can query.
+03:23.860 --> 03:25.990
+You can fetch the data okay.
+03:26.020 --> 03:31.540
+But remember JDBC JDBC is nothing but an APIs interface.
+03:31.570 --> 03:33.700
+Actual work is done by drivers itself.
+03:33.700 --> 03:37.990
+If you are using MySQL then MySQL drivers know how to fetch the data okay.
+03:38.470 --> 03:39.910
+Then this JDBC.
+03:39.940 --> 03:45.400
+Now there is something called ORM framework is built up object relational mapping framework.
+03:45.400 --> 03:59.520
+So this is nothing but a bridge between Java object and your relational databases.
+03:59.730 --> 04:00.360
+Okay.
+04:00.360 --> 04:08.820
+So here if you see that in the JDBC and specific DB driver, everything we are in the form of SQL right.
+04:08.820 --> 04:16.710
+We write queries and we try to connect through db, create db or fetch the data insert.
+04:16.710 --> 04:18.900
+Everything is in SQL form.
+04:19.500 --> 04:26.640
+But here with the ORM framework where this JPA and let's say it's implementation hibernate we are using.
+04:26.640 --> 04:32.400
+If this comes into the picture, we don't have to your application don't have to directly work with
+04:32.400 --> 04:34.050
+the JDBC APIs.
+04:34.050 --> 04:36.840
+You don't have to write SQL queries to insert.
+04:36.840 --> 04:41.550
+You can directly work with Java objects itself.
+04:42.810 --> 04:47.460
+Okay, through Java objects itself, you can maintain your relational databases.
+04:47.460 --> 04:53.360
+So remember JPA, JDBC is just for maintaining relational databases.
+04:53.360 --> 04:57.350
+So before going to JPA let's recall JDBC.
+04:57.950 --> 05:00.080
+Java database connectivity.
+05:00.950 --> 05:05.990
+Okay so here if you see that it provides an interface.
+05:06.020 --> 05:13.400
+To make connection with db query db and process the result whatever the data we get out of DB.
+05:13.430 --> 05:18.230
+We also have to process it so it provide an API through which we can process it.
+05:18.650 --> 05:19.160
+And.
+05:19.190 --> 05:22.460
+Implementation is provided by a specific DB drivers.
+05:22.460 --> 05:24.980
+If you are using MySQL db then it has its.
+05:25.070 --> 05:26.900
+Specific drivers right.
+05:26.900 --> 05:28.070
+So likewise.
+05:28.070 --> 05:32.570
+So here if you see MySQL if you are using this DB what is the.
+05:32.600 --> 05:34.160
+Driver connector J.
+05:34.460 --> 05:41.030
+And this is the class we have to load for it if you are using Postgres SQL.
+05:41.060 --> 05:46.010
+This is the driver and this is the class through which we can load this driver.
+05:46.370 --> 05:47.750
+Similarly S2.
+05:47.780 --> 05:53.290
+Which is In-memory relational database and its driver is this one.
+05:53.320 --> 05:54.970
+S two database engine.
+05:54.970 --> 05:57.460
+And this is the class to load this driver.
+05:58.090 --> 06:01.060
+So this driver now anybody say that what is the driver.
+06:01.060 --> 06:05.350
+You know the driver is nothing but an implementation of JDBC APIs.
+06:05.350 --> 06:08.830
+So this expose JDBC API expose that okay.
+06:09.100 --> 06:14.470
+Get me connection uh insert let's say update delete.
+06:14.470 --> 06:16.120
+But is it actually doing it.
+06:16.120 --> 06:17.470
+No it's just an interface.
+06:17.470 --> 06:24.310
+This drivers is actually has all the implementation how to get a connection how to insert it, how to
+06:24.340 --> 06:31.000
+update it that from your application wise, you don't have to worry about the specific driver code because
+06:31.000 --> 06:33.130
+you are dealing with the JDBC APIs.
+06:33.160 --> 06:35.050
+You do just get connection.
+06:35.050 --> 06:37.300
+Your application would do get connection.
+06:37.420 --> 06:42.340
+Okay, you do update, let's say and update and you provide it.
+06:42.370 --> 06:44.200
+It's provided us the interface.
+06:44.200 --> 06:52.490
+Right now it's driver which is Abstracted to us how it actually converted to something which is understand
+06:52.520 --> 06:53.780
+by relational database.
+06:53.810 --> 06:55.670
+We don't have to worry about it.
+06:55.670 --> 07:01.910
+So you don't worry like okay, if I am using MySQL driver, my code will get changed.
+07:01.910 --> 07:05.810
+If I am using PostgreSQL, lot of code changes would be done.
+07:05.810 --> 07:07.340
+No, nothing like this.
+07:07.370 --> 07:08.930
+You already got it right?
+07:08.960 --> 07:09.290
+Why?
+07:09.320 --> 07:10.580
+Because we are dealing.
+07:10.580 --> 07:13.160
+We are just invoking that get connection.
+07:13.160 --> 07:17.750
+Now this specific driver will take care of getting the connection.
+07:17.750 --> 07:21.800
+So if you change from MySQL to Postgres your code will not change.
+07:21.800 --> 07:23.180
+You are still calling get connection.
+07:23.180 --> 07:27.050
+Only internal implementation will change and that's okay.
+07:27.080 --> 07:30.020
+So you can use anything okay.
+07:32.210 --> 07:38.270
+So let's start very basic using JDBC without spring boot.
+07:38.300 --> 07:43.520
+Let's say that if you are not using spring boot what how you would make a connection.
+07:43.520 --> 07:48.130
+What are the challenges what that spring boot resolves, actually.
+07:48.130 --> 07:51.730
+And once we know that, then ultimately we move to JPA.
+07:53.050 --> 07:55.210
+So see this class first.
+07:55.210 --> 08:04.510
+So very basic example I have created one public class database connection as the class name.
+08:04.510 --> 08:08.260
+This is used to create a connection database connection.
+08:08.260 --> 08:12.700
+So I have created one method called get connection okay.
+08:12.730 --> 08:16.090
+And it's returning me the connection object.
+08:16.870 --> 08:24.190
+So now here if you see that the first step in getting a connection is to load the driver is to load
+08:24.190 --> 08:25.480
+the driver into the JVM.
+08:25.480 --> 08:32.320
+So when you do class dot four for name and you provide the driver, uh, this is the class.
+08:32.350 --> 08:32.710
+Okay.
+08:32.740 --> 08:36.430
+So I am using S two, this one in memory.
+08:36.430 --> 08:41.740
+I don't want to install MySQL and start its server for testing.
+08:41.740 --> 08:43.320
+We can always use s two S2.
+08:43.350 --> 08:45.300
+And I told you that doesn't matter.
+08:45.330 --> 08:51.030
+Like your code will not change at all either you use MySQL, Postgres or S2, right?
+08:51.060 --> 08:53.880
+You are just calling APIs, JDBC APIs.
+08:54.390 --> 08:56.130
+So no matter what.
+08:56.160 --> 08:58.530
+First step is you have to load the driver.
+08:58.530 --> 08:59.730
+So I am using S2.
+08:59.760 --> 09:00.690
+So S2 driver.
+09:00.690 --> 09:04.890
+If you are using MySQL you have to load the MySQL driver.
+09:04.890 --> 09:06.570
+So this is the first step.
+09:06.930 --> 09:13.410
+Now once the driver is loaded into the JVM the second step is to establish a connection with DB.
+09:13.770 --> 09:18.300
+Okay so here if I am using there is a class called driver manager.
+09:18.570 --> 09:21.180
+And you do dot get connection.
+09:21.240 --> 09:23.370
+So you pass the URL.
+09:23.370 --> 09:27.480
+So now here if you see this URL we are using JDBC.
+09:27.810 --> 09:28.770
+Yes.
+09:28.980 --> 09:31.470
+What is the db type.
+09:31.470 --> 09:33.960
+We are using S2 not MySQL, not Postgres.
+09:33.960 --> 09:35.160
+I am using s2.
+09:35.760 --> 09:38.850
+Even the S2 has two variants like in-memory.
+09:38.880 --> 09:41.990
+In-memory is like once till your application is running.
+09:41.990 --> 09:43.220
+Data is there in the DB.
+09:43.670 --> 09:47.930
+So as soon as your application shut down, data is also gone.
+09:47.930 --> 09:49.550
+So it's a transient data.
+09:49.550 --> 09:53.210
+So I am using memory in memory like till my application is up.
+09:53.210 --> 09:53.990
+Data is there.
+09:54.020 --> 09:57.830
+As soon as my application is shut down uh the data will be lost.
+09:57.860 --> 10:02.510
+There is another variant that you can even change it to that to persist the data.
+10:02.540 --> 10:05.570
+Even your application, uh, shut down also.
+10:05.600 --> 10:06.020
+So.
+10:06.020 --> 10:08.720
+But I am using the transient flavor of it.
+10:08.720 --> 10:11.810
+And this is the DB name which I want to create.
+10:11.810 --> 10:13.580
+So I am creating a user db.
+10:13.940 --> 10:19.310
+So when I do get connection and give the url, if this db is not there, it will create.
+10:19.310 --> 10:24.380
+If it is already there, it will do a connection for that one okay.
+10:24.410 --> 10:26.120
+And username and password.
+10:26.120 --> 10:33.440
+So default username for s2 is SC which is I think system administrator and password is nothing.
+10:33.560 --> 10:40.020
+So you need this to get a connection of your database Okay.
+10:40.020 --> 10:42.540
+So first is loader driver.
+10:42.540 --> 10:44.700
+Second is establish a connection.
+10:44.760 --> 10:50.370
+So this is two things are present into my database connection class.
+10:50.850 --> 10:56.400
+Now here if you see another class which I have written user to class.
+10:56.820 --> 10:57.450
+Okay.
+10:57.450 --> 11:05.790
+In this Dao the first method I have like creating a table, generally understanding is whenever you
+11:05.820 --> 11:10.560
+are running your application database is table is already present.
+11:10.560 --> 11:17.550
+But since we are just starting, I have also created one method where I am creating a table also.
+11:17.580 --> 11:19.560
+Okay, DB is already created here.
+11:19.560 --> 11:21.840
+If not present it will create a db user db.
+11:22.200 --> 11:25.710
+So inside this db it will create a table one method.
+11:25.740 --> 11:30.210
+Second method I have written create user okay.
+11:30.510 --> 11:34.200
+Third is I have written to read a user.
+11:34.200 --> 11:36.240
+So three methods I have written.
+11:36.240 --> 11:39.710
+So see what happening is like how you can do that.
+11:40.310 --> 11:47.870
+So in this one first thing, whenever you have to query, insert, update, delete, create anything.
+11:47.900 --> 11:51.410
+First thing you need is get a connection of a database.
+11:51.410 --> 11:55.040
+So it's creating a new database connection object.
+11:55.040 --> 12:01.400
+So it's getting an instance of this class and then calling the get connection method.
+12:01.400 --> 12:03.020
+It's calling this method.
+12:03.050 --> 12:05.930
+What this method does is it will load the driver.
+12:05.930 --> 12:13.730
+It will get one fresh connection of this database and provide this connection.
+12:14.120 --> 12:17.480
+Once you got the connection then you can run the query.
+12:17.480 --> 12:21.920
+So I have written one query create table users.
+12:21.920 --> 12:29.060
+So I am creating a users table only with two column three.
+12:29.060 --> 12:30.530
+Column one is user ID.
+12:32.570 --> 12:34.430
+Which is auto incremented.
+12:34.730 --> 12:38.800
+Another is username and the third one is age.
+12:40.570 --> 12:44.140
+Okay so this is the table I am creating.
+12:44.140 --> 12:48.280
+So here whatever the SQL query string you have created.
+12:48.370 --> 12:54.040
+Now you just with this statement you just execute update okay.
+12:54.040 --> 12:57.640
+So it will create your table.
+12:58.780 --> 13:03.940
+Also notice that there is if any exception comes, you have to handle the SQL exception.
+13:03.940 --> 13:07.540
+And in the final block you have to close the resources.
+13:07.540 --> 13:09.040
+You have to close the statement.
+13:09.040 --> 13:10.570
+You have to close the connection.
+13:12.130 --> 13:17.260
+Similarly create user whenever you have to create one user okay.
+13:17.290 --> 13:19.420
+The first step is get the connection.
+13:19.510 --> 13:23.740
+Create a new database connection instance and then call this method.
+13:23.920 --> 13:27.040
+It will give you one connection database connection.
+13:27.340 --> 13:35.100
+Then you write your SQL query which you want to insert into users username, age and user ID is auto
+13:35.130 --> 13:37.500
+incremented already, so no problem in that.
+13:37.530 --> 13:41.280
+So these two values I want to dynamically insert.
+13:41.280 --> 13:43.890
+So I can use prepared statement.
+13:44.340 --> 13:44.910
+Okay.
+13:45.240 --> 13:48.300
+So connection dot prepared statement.
+13:48.330 --> 13:50.520
+You provide this SQL query.
+13:50.550 --> 13:57.840
+And here these two dynamic values would be set the values like set string.
+13:57.870 --> 14:00.180
+First one is the string user name.
+14:00.510 --> 14:05.190
+So index one provide the user name whatever it is coming.
+14:06.060 --> 14:12.240
+The second uh the second question mark is that integer which is age.
+14:12.240 --> 14:17.280
+So I am doing set in index is two and the age whatever it is coming.
+14:17.280 --> 14:20.400
+And then simply prepared query execute update.
+14:20.400 --> 14:24.570
+So this will insert one row okay.
+14:24.600 --> 14:27.390
+And similarly you have to catch the SQL exception.
+14:27.390 --> 14:31.910
+And in the finally block you have to close the prepared query and the DB connection.
+14:33.410 --> 14:36.740
+If you see the third method, read query the read users.
+14:36.740 --> 14:38.390
+It is also exactly same.
+14:38.390 --> 14:40.790
+So I think now you are understanding the crux.
+14:40.790 --> 14:42.650
+You have to get the connection.
+14:42.680 --> 14:52.280
+Then you can use Preparedstatement and you can use this Preparedstatement uh, to run the SQL query.
+14:52.280 --> 14:55.310
+So I run the SQL query select asterisk from user.
+14:55.310 --> 14:57.170
+So this is the SQL query string.
+14:57.290 --> 15:01.640
+So connection dot preparedstatement I provided this SQL query.
+15:01.970 --> 15:03.710
+So there is no dynamic value.
+15:03.710 --> 15:05.810
+So I don't need to set anything.
+15:05.810 --> 15:08.750
+I just run prepared query execute query.
+15:09.590 --> 15:13.550
+When I run this execute query it will give me a result set.
+15:13.850 --> 15:16.940
+Result set is nothing but a list of rows.
+15:16.940 --> 15:23.000
+So I am iterating and just concatenating just and printing it.
+15:23.870 --> 15:28.850
+Okay, so you have to handle the SQL exception and finally you have to close it.
+15:28.950 --> 15:29.910
+Resources.
+15:30.780 --> 15:35.520
+So this is very, very basic uh plain JDBC.
+15:35.550 --> 15:39.720
+We are using no spring boot is used here.
+15:40.110 --> 15:40.950
+Okay.
+15:40.980 --> 15:42.720
+So I will show you running it.
+15:42.720 --> 15:46.650
+But what is the problem you are seeing with this.
+15:46.920 --> 15:50.640
+So there are so many boiler code we are writing.
+15:50.640 --> 15:52.830
+First is driver class loading.
+15:52.830 --> 15:57.780
+You have to load the driver right class dot four name.
+15:58.290 --> 16:02.520
+Then you have to make a DB connection.
+16:02.580 --> 16:07.650
+Now here if you see you are doing a data driver manager dot get connection.
+16:07.680 --> 16:14.190
+Hey give me one connection of the database and you are providing the url username password and this
+16:14.190 --> 16:15.510
+will get you one connection.
+16:15.660 --> 16:20.190
+So you have to manually get the database connection.
+16:20.250 --> 16:22.230
+Third is exception handling.
+16:22.230 --> 16:26.430
+So here if you see what exception you are getting.
+16:26.490 --> 16:32.510
+SQL exception This is very high level or abstracted exception, I would say.
+16:32.510 --> 16:35.090
+So SQL exception can be of anything.
+16:35.330 --> 16:41.060
+Maybe a primary key violation duplicate key found you are not able to insert.
+16:41.090 --> 16:49.460
+Like there are so many different ways through which your query fails, but it gives a very high level
+16:49.460 --> 16:51.710
+abstracted error SQL exception.
+16:51.710 --> 16:56.300
+So you have to do a lot of uh, kind of if else check.
+16:56.330 --> 16:56.540
+Okay.
+16:56.570 --> 16:58.760
+If this is the issue, then okay.
+16:58.820 --> 16:59.690
+Do this.
+16:59.690 --> 17:06.590
+So here SQL exception I would say that it's not very clear okay.
+17:06.950 --> 17:10.340
+Closing of the DB connection and other objects like statement.
+17:10.370 --> 17:16.700
+So here if you see that every time you take out a connection or use a resource, now here you are creating
+17:16.700 --> 17:20.930
+a prepared statement executing the query in the finally block.
+17:20.960 --> 17:26.950
+You ultimately have to close the DB connection and close the prepared query also because if you don't
+17:26.950 --> 17:31.240
+do that, there is a possibility of memory leak also.
+17:31.390 --> 17:37.240
+So as normal JDBC you have to handle the closing of the DB connection also.
+17:37.780 --> 17:41.170
+And the last one is manual handling of DB connection pool.
+17:41.200 --> 17:48.730
+So here if you see that currently every time somebody is calling new instance dot get connection I am
+17:48.730 --> 17:50.980
+creating blindly creating one connection.
+17:51.400 --> 17:53.680
+But it is not an ideal way.
+17:53.710 --> 17:59.590
+Generally ideal way would be like okay, there should be one pool of JDBC connection.
+18:01.600 --> 18:05.380
+Pool in which already I have pre-created few connections.
+18:05.380 --> 18:12.490
+Use it once, use it, return it back to the pool so you have to manually add it or handle it.
+18:12.520 --> 18:15.460
+DB connection pool okay with the JDBC.
+18:16.510 --> 18:20.770
+So these are the few issues with the plain JDBC.
+18:21.040 --> 18:25.590
+But before I jump to spring boot JDBC.
+18:25.620 --> 18:26.580
+How it handles it.
+18:26.610 --> 18:27.750
+Let's see that.
+18:28.320 --> 18:31.500
+So the plain JDBC the same thing.
+18:31.620 --> 18:37.680
+I have database connection class first class uh loader.
+18:37.980 --> 18:39.270
+We are loading it.
+18:39.270 --> 18:41.910
+And then we are establishing a DB connection.
+18:42.510 --> 18:48.120
+And in the user Dao we are creating a user table first.
+18:49.620 --> 18:53.850
+And then I have also have create user method and read user method.
+18:54.300 --> 18:55.080
+Okay.
+18:55.080 --> 18:59.100
+So every time I use it I handle the exception.
+18:59.100 --> 19:03.540
+And also in the finally block I close it properly.
+19:03.540 --> 19:05.190
+So I have just written the comment here.
+19:05.190 --> 19:08.070
+So just to that we have to close it here.
+19:08.340 --> 19:10.710
+So let's start the server.
+19:12.210 --> 19:12.600
+Okay.
+19:12.630 --> 19:19.320
+And here I have a user controller which is like plain JDBC is like get user call plain JDBC.
+19:19.920 --> 19:24.130
+So here I am using get getuser this I am hitting this get API.
+19:24.160 --> 19:24.910
+Okay.
+19:25.330 --> 19:31.450
+Uh, so this get API just for testing purpose, you can say that don't go with like why in the get why
+19:31.450 --> 19:34.480
+we are doing a create and this one.
+19:34.480 --> 19:37.570
+So this is just for testing purpose that my control comes here.
+19:37.840 --> 19:40.570
+So once the controls will come here.
+19:40.570 --> 19:42.460
+So let me put a debugger point.
+19:43.480 --> 19:45.640
+That means start in a debug mode.
+19:46.990 --> 19:49.570
+So here once the control comes here.
+19:49.570 --> 19:53.470
+So what happen is I am creating a user Dao object.
+19:53.500 --> 19:56.950
+Now I am creating two users x and y.
+19:56.980 --> 19:59.470
+So I am creating x and y.
+19:59.470 --> 20:02.080
+And then ultimately I am doing read user.
+20:02.230 --> 20:04.960
+So in the read user the same thing I told you, right?
+20:04.990 --> 20:14.260
+First, get an object of the connection and your query and you can use prepared query to run this execute
+20:14.260 --> 20:17.500
+query and you can iterate it to print it here.
+20:17.500 --> 20:22.170
+So I am Iterated it and return.
+20:23.010 --> 20:24.510
+So success is printed.
+20:24.510 --> 20:26.310
+And if you see the console log.
+20:28.500 --> 20:30.000
+The two rows got printed.
+20:30.000 --> 20:33.180
+This is the user ID which is auto incremented one and two.
+20:33.210 --> 20:36.120
+This is the user name and this is the age.
+20:36.660 --> 20:37.170
+Okay.
+20:37.170 --> 20:39.090
+So this is currently in memory.
+20:39.120 --> 20:44.370
+Now spring boot helps to remove all this boiler code for us.
+20:46.380 --> 20:49.830
+So now let's see using JDBC with spring boot.
+20:50.490 --> 20:54.840
+So the first thing you have to do is include the dependency in Pom.xml.
+20:55.470 --> 21:00.360
+So this is spring boot starter JDBC.
+21:00.930 --> 21:01.350
+Okay.
+21:01.380 --> 21:06.000
+So this is for JDBC interfaces and all it will bring.
+21:06.000 --> 21:13.200
+And the second dependency you need for this s2 s2 database we are using right in memory one.
+21:13.200 --> 21:14.850
+So this is for the database.
+21:14.850 --> 21:20.390
+You can replace it with the Um, uh, MySQL or Postgres, whichever you like.
+21:20.390 --> 21:25.400
+So currently I'm using in-memory S2, so I'm uh, added its dependency.
+21:26.720 --> 21:27.320
+Okay.
+21:27.320 --> 21:37.520
+So Springboot provide JDBC template class, which helps to remove all the boiler code which we see at
+21:37.520 --> 21:39.260
+top how.
+21:39.290 --> 21:42.020
+Now let's see that once you have added the dependency.
+21:42.050 --> 21:44.090
+Now let's see this example.
+21:44.600 --> 21:55.790
+So now here if you see the first I have created one basic Pojo of user user ID user name age and it's
+21:55.790 --> 21:56.810
+getter and setter.
+21:56.840 --> 21:58.790
+Very basic user class.
+21:59.960 --> 22:08.450
+Now the second I have created User repository class, I have given a name User Repository class and
+22:08.480 --> 22:10.940
+annotated with at the rate repository.
+22:11.240 --> 22:14.690
+So it work as at the rate component.
+22:16.150 --> 22:24.550
+So it will help us to create a being of user repository and also help us in the scanning of those been
+22:24.700 --> 22:26.710
+like what the component does.
+22:27.340 --> 22:34.960
+The second is that at the top in the plain JDBC you see SQL exception comes right.
+22:34.960 --> 22:39.580
+But here this repository whenever a spring boot see that okay.
+22:39.610 --> 22:42.130
+It is annotated with at the root repository.
+22:42.130 --> 22:44.710
+Any SQL exception comes.
+22:44.710 --> 22:51.940
+It gives a granular level of exception okay we will see how.
+22:52.660 --> 23:00.070
+So after creating this user class Pojo class I am creating a user repository annotated with at the root
+23:00.070 --> 23:01.030
+repository.
+23:01.030 --> 23:08.110
+And here if you see that I have added a dependency in this one of JDBC template, this is the class
+23:08.110 --> 23:11.110
+which I am talking about, which help us to remove all the boiler code.
+23:11.110 --> 23:14.210
+So JDBC template I have auto wired it.
+23:14.240 --> 23:17.510
+Okay, so bean will get inserted into it.
+23:18.290 --> 23:21.320
+So here I have also have the same methods I have written.
+23:21.320 --> 23:26.600
+One is create, one is insert and another is read three methods same like above.
+23:27.260 --> 23:29.000
+So create table.
+23:29.090 --> 23:33.290
+Now here if you see JDBC template execute okay.
+23:33.320 --> 23:37.580
+And you can directly write your query in the execute.
+23:37.580 --> 23:45.560
+You can directly write your plain SQL query itself in the insert JDBC template dot update.
+23:45.650 --> 23:47.990
+You provide your insert query.
+23:48.020 --> 23:54.620
+Now if your Insert query is need to be like certain values which need to be dynamically filled, it
+23:54.620 --> 23:55.790
+can be added like this.
+23:55.790 --> 24:01.310
+There are different methods I will tell you don't go inside like how this update is used.
+24:01.340 --> 24:07.700
+I will tell you what are the different ways but currently understand this like you are just calling
+24:07.700 --> 24:09.770
+the method JDBC template dot update.
+24:09.770 --> 24:17.110
+Put the query and all the values which has to be goes into this field and similarly get users.
+24:17.110 --> 24:24.160
+What I am doing is I have written the query, I am doing just JDBC template dot query and given the
+24:24.160 --> 24:24.640
+query.
+24:24.670 --> 24:27.970
+Now here I am just iterating over the result set.
+24:28.000 --> 24:31.900
+I will go later into deep what I am doing it.
+24:32.920 --> 24:38.110
+Now the difference you might be seeing that I am not creating DB connection here.
+24:38.950 --> 24:39.400
+Okay.
+24:39.430 --> 24:41.530
+I am not written any.
+24:41.530 --> 24:46.690
+Finally block where I am closing the DB connection or closing the prepared statement.
+24:46.690 --> 24:47.830
+Anything nothing.
+24:48.340 --> 24:54.760
+All I am using is just the JDBC template execute just for executing the plain query.
+24:55.270 --> 25:01.090
+There is something like update where for more complex queries where you have to dynamically fill the
+25:01.090 --> 25:08.140
+values and it also provide for read like dot query where which is used for fetching the data.
+25:09.720 --> 25:13.560
+So this is your second class which you have to create.
+25:13.560 --> 25:22.110
+And here if you see the service class which uses this, actually this is more of a helper class.
+25:22.110 --> 25:30.030
+I would say that this is your business logic class okay.
+25:30.030 --> 25:32.880
+So this is I have annotated with at the right component.
+25:32.880 --> 25:35.460
+You can also annotate it with at the right service.
+25:35.490 --> 25:36.330
+Okay.
+25:36.360 --> 25:41.850
+So I have auto wired this user repository okay.
+25:43.020 --> 25:48.690
+Now anybody wants to create a table they will invoke this.
+25:48.690 --> 25:53.310
+And ultimately it will call user repository create table insert user.
+25:53.400 --> 26:00.450
+This will ultimately go and call this method get user ultimately this and call this method.
+26:00.450 --> 26:01.830
+It will get the list.
+26:01.860 --> 26:03.450
+Currently I'm doing my business.
+26:03.450 --> 26:08.420
+Logic is I'm just simply system dot dot dot print and I'm writing and simply return the user.
+26:09.560 --> 26:16.520
+Okay, so this class is nothing but a user service class is nothing but which is calling the repository
+26:16.520 --> 26:17.270
+class.
+26:17.450 --> 26:17.900
+Okay.
+26:17.930 --> 26:21.830
+And it is your business logic class.
+26:21.920 --> 26:27.020
+Like after fetching the data from the DB, any business logic you have to perform, you can perform
+26:27.020 --> 26:28.640
+here at this level.
+26:30.410 --> 26:34.730
+And the last is you have to use an application dot properties.
+26:34.760 --> 26:40.550
+Now here if you see that we are providing certain properties data source property like I am providing
+26:40.550 --> 26:41.540
+the URL.
+26:42.590 --> 26:50.750
+So now here if you see at the top plain JDBC you are providing the Or you are doing a connection and
+26:50.750 --> 26:57.770
+then providing a URL username password, driver link, all you have to do here is in the spring boot
+26:57.770 --> 27:00.920
+is in this application dot properties you provide.
+27:00.920 --> 27:02.360
+What is the URL?
+27:02.360 --> 27:03.200
+The same thing.
+27:03.200 --> 27:04.010
+This is your db.
+27:04.040 --> 27:10.840
+I am using memory version of S2 and JDBC the driver username password.
+27:11.020 --> 27:11.860
+Okay.
+27:12.820 --> 27:23.950
+So now this data source this data source object data source object in spring boot helps with two things.
+27:24.310 --> 27:28.840
+One is database connection.
+27:29.920 --> 27:38.680
+It creates a connection, returns it, manage it, and also it helps with the connection pooling connection
+27:38.680 --> 27:41.560
+pool okay.
+27:41.590 --> 27:43.330
+It manages the connection pool.
+27:43.420 --> 27:45.340
+So this data source object.
+27:45.370 --> 27:51.400
+So internally spring boot help us to do whatever we were doing.
+27:51.400 --> 27:56.710
+Class dot four name okay then do create a connection.
+27:56.710 --> 27:59.020
+And everything is spring boot does it.
+27:59.020 --> 28:05.850
+And surprisingly I will tell you spring Boot also by default provide providers a connection pool.
+28:05.850 --> 28:11.640
+Also it is Hikari CP connection pool.
+28:11.670 --> 28:12.870
+Hikari connection pool.
+28:13.530 --> 28:19.920
+I will show you the demo, but before going, proceed further.
+28:19.950 --> 28:21.330
+Is this clear?
+28:21.510 --> 28:24.210
+Like how it is helping us resolving it?
+28:24.210 --> 28:28.440
+So here if you see driver class loading are we doing anywhere?
+28:28.470 --> 28:32.550
+Driver class loading no, we are not in the spring boot JDBC.
+28:32.580 --> 28:37.710
+We are not doing class.forname and the driver path we are not doing anywhere.
+28:37.710 --> 28:39.210
+This is just a business logic class.
+28:39.210 --> 28:44.760
+So here if you see we are just directly using repository and Application.properties.
+28:44.760 --> 28:46.950
+We are not doing driver class.
+28:46.950 --> 28:53.730
+So JDBC template loaded at the time of application startup in driver manager class.
+28:53.730 --> 28:55.080
+Let's see that now.
+28:56.160 --> 29:00.330
+So now let's see the driver manager class.
+29:00.330 --> 29:02.200
+And I'm just starting an application.
+29:02.200 --> 29:08.770
+So driver manager, what we are saying is JDBC loaded at the time of application startup itself.
+29:08.800 --> 29:12.100
+So now I am starting the application in a debug mode.
+29:12.520 --> 29:19.690
+Now here if you see during application startup itself it is doing class.forname for us.
+29:19.960 --> 29:21.910
+Earlier we used to do in the plain JDBC.
+29:21.940 --> 29:23.170
+Now it is doing it.
+29:23.260 --> 29:23.860
+Okay.
+29:23.890 --> 29:29.350
+And here if you see that it has the data which we provided all dot to dot driver in the application
+29:29.350 --> 29:30.460
+dot properties.
+29:30.760 --> 29:31.300
+Okay.
+29:31.330 --> 29:36.940
+So one thing is driver class loading is now get abstracted from us JDBC template.
+29:36.940 --> 29:40.420
+Does it database connection making.
+29:40.870 --> 29:45.670
+Now you can ask in this when is the database connection happening happen.
+29:45.700 --> 29:54.280
+Whenever we run any particular query through JDBC template like like dot update dot query.
+29:54.280 --> 29:59.530
+At that point of time it tried to create a connection.
+30:00.150 --> 30:00.690
+Okay.
+30:00.690 --> 30:06.390
+So connection making from the either it has to make a new connection, it will create that time or it
+30:06.390 --> 30:07.920
+has to take from the pool.
+30:07.920 --> 30:09.660
+It will do that time itself.
+30:09.690 --> 30:13.560
+Now let's say that insert user I am trying to insert.
+30:13.560 --> 30:21.210
+So if you go inside this update, update this method it do execute.
+30:21.240 --> 30:29.490
+If you go inside this it do this data source utils get connection okay.
+30:29.490 --> 30:37.230
+So if you go inside this it will actually handles like the connection making do get connection from
+30:37.230 --> 30:41.100
+the data source okay exception handling.
+30:41.100 --> 30:42.240
+So exception.
+30:42.240 --> 30:46.530
+In plain JDBC we get very abstracted SQL exception.
+30:46.890 --> 30:54.780
+But in JDBC template we get granule error like duplicate key exception query timeout exception.
+30:54.840 --> 31:01.790
+So if you go this package org dot spring framework dot Dao package.
+31:01.790 --> 31:04.460
+So let's see that package here.
+31:04.610 --> 31:07.160
+If we see this package Dao.
+31:07.790 --> 31:10.550
+Org dot spring framework dot Dao package.
+31:10.580 --> 31:12.590
+These are the different type of exception.
+31:12.590 --> 31:15.200
+It provide cannot acquire lock exception.
+31:15.230 --> 31:17.270
+Data access exception.
+31:17.270 --> 31:22.250
+Data integrity violation exception duplicate key exception.
+31:22.370 --> 31:24.260
+Empty results exception.
+31:24.260 --> 31:28.700
+So there are different type of exceptions can come.
+31:28.790 --> 31:30.530
+Query timeout exception.
+31:30.530 --> 31:35.420
+So all this JDBC template do mapping internally from.
+31:35.420 --> 31:41.600
+Instead of just throwing SQL exception it throws a granular level of exception and through spring boot.
+31:41.600 --> 31:47.810
+In the previous video, I have already told you how you can handle a exception of any particular type.
+31:47.960 --> 31:55.790
+Okay, but you get some granular level exception and uh, you can handle it properly.
+31:55.820 --> 31:57.660
+It is not very like abstraction.
+31:57.660 --> 31:59.070
+Some SQL exception happen.
+31:59.100 --> 32:00.360
+What we don't know.
+32:02.400 --> 32:04.800
+Closing of the DB connection and other resources.
+32:04.800 --> 32:11.340
+Now again you can ask me like in the spring boot JDBC we are just using JDBC JDBC template to execute
+32:11.340 --> 32:14.370
+the query okay plain query update.
+32:14.370 --> 32:16.140
+But where are we closing it.
+32:16.170 --> 32:22.200
+Again that is handled by your JDBC template itself.
+32:22.200 --> 32:29.730
+Now let's go to uh here let's say JDBC template dot update I am trying to insert right.
+32:29.760 --> 32:35.190
+If you go inside this in the finally block it.
+32:35.190 --> 32:38.910
+Do clean up parameters okay okay.
+32:38.940 --> 32:45.660
+So here it has a proper knowledge that whether I have to close the connection or whether I have to put
+32:45.660 --> 32:48.510
+it back into the pool okay.
+32:48.540 --> 32:50.100
+So you don't have to handle it.
+32:50.100 --> 32:53.010
+That is also handled by your JDBC itself.
+32:53.640 --> 32:57.890
+And the last thing is, hey, what about the DB connection pool?
+32:58.040 --> 32:58.730
+Still here?
+32:58.730 --> 33:04.340
+I do not see where we are writing the connection pool logic.
+33:04.430 --> 33:05.900
+Like in a connection pool.
+33:05.900 --> 33:07.670
+I have only this, uh.
+33:09.830 --> 33:17.270
+Five JDBC connection pool and only this five would be used.
+33:17.900 --> 33:19.190
+Who is doing that?
+33:19.580 --> 33:27.620
+So here, if you see when you have defined this application dot properties in data source okay.
+33:27.980 --> 33:38.240
+So means you are relying on spring boot that hey you use the data source, the data source object.
+33:38.240 --> 33:38.780
+Right?
+33:38.870 --> 33:42.230
+It helps you to connect to the database and helps to manage connection pool.
+33:42.260 --> 33:46.220
+But here we just provided like what is the driver?
+33:46.220 --> 33:51.770
+What is the URL username password we didn't tell like what data source we want to use.
+33:52.120 --> 33:57.220
+There are different data sources which we can use, but here we haven't told it so.
+33:57.250 --> 33:58.270
+Spring boot use.
+33:58.300 --> 33:59.470
+By default.
+34:00.940 --> 34:07.690
+Hikari Data Source and Hikari Data Source also provide Hikari connection pool.
+34:08.410 --> 34:16.600
+So now here if you see Hikari provide default JDBC connection pool that is Hikari TCP connection pool
+34:16.600 --> 34:19.510
+with minimum and maximum pool size of ten.
+34:20.590 --> 34:24.100
+And we can change the configuration in Application.properties.
+34:24.100 --> 34:28.120
+So in Application.properties you can put like spring dot data source.
+34:28.150 --> 34:33.310
+Hikari maximum pool is ten and the minimum is five by default is 1010.
+34:33.880 --> 34:40.180
+So here if you see we can check like how it is making a connection.
+34:40.180 --> 34:45.250
+So uh, Hikari data source whenever it will do.
+34:45.280 --> 34:46.450
+Get connection.
+34:46.750 --> 34:48.310
+Let's see that.
+34:50.460 --> 34:52.410
+Okay, so Hikari data source.
+34:52.440 --> 34:53.250
+It came.
+34:54.600 --> 35:00.300
+So here, if you see Hikari pool, it is using connection timeout.
+35:00.330 --> 35:01.290
+Idle timeout.
+35:01.290 --> 35:01.890
+Maximum.
+35:01.890 --> 35:03.060
+Maximum pool size ten.
+35:03.060 --> 35:04.380
+Minimum is ten.
+35:04.950 --> 35:07.320
+Okay, so spring boot.
+35:07.350 --> 35:11.700
+Actually this Hikari is actually very efficient and it's very fast actually.
+35:11.700 --> 35:18.870
+And no matter if you are using SQL, Postgres or S2, Spring boot by default uses this only, this data
+35:18.900 --> 35:19.710
+source only.
+35:20.250 --> 35:26.460
+But if you want to use any other specific JDBC connection pool, you don't want to use Hikari.
+35:26.490 --> 35:30.150
+You don't you you want to use some other one, right?
+35:30.360 --> 35:35.310
+Maybe some from Apache or some something, some other JDBC connection pool.
+35:35.520 --> 35:42.030
+Then instead of putting into the application.properties you don't have to put into Application.properties.
+35:42.150 --> 35:47.940
+Then you can in your configuration at the right configuration class App.config.
+35:47.960 --> 35:55.220
+class, you can create a bin of data source, and then you can use whichever data source you want.
+35:55.250 --> 35:58.910
+Here in this, for example, I am using the same Hikari data source only.
+35:59.060 --> 36:06.140
+Okay, but you can change it to any other JDBC connection pool which is available and you can use it
+36:06.140 --> 36:06.650
+on your own.
+36:06.650 --> 36:13.970
+So here driver class name JDBC instead of now Application.properties I am providing the configuration
+36:13.970 --> 36:18.350
+for the data source like this JDBC pool username password.
+36:18.350 --> 36:23.990
+Like this okay now here I don't need to provide in the Application.properties.
+36:24.020 --> 36:26.090
+Now this data source would be used.
+36:26.090 --> 36:29.690
+So currently here I am using Hikari only but you can use any.
+36:29.720 --> 36:31.640
+You can replace it with anything okay.
+36:33.590 --> 36:37.790
+And yeah we can show the complete demo here.
+36:42.140 --> 36:45.900
+So here if you see that let's see that I am calling this API JDBC ABC.
+36:46.410 --> 36:46.830
+Okay.
+36:46.860 --> 36:49.260
+First it will do create table.
+36:50.490 --> 36:52.260
+User table is created.
+36:53.010 --> 36:57.000
+If it's not then user one is added.
+36:57.000 --> 36:58.380
+User two is added.
+36:59.460 --> 37:03.180
+And after that what it is doing is we are doing get user.
+37:03.180 --> 37:12.090
+So we are using user service dot get user and this get user service layer calls repository.
+37:12.240 --> 37:14.010
+It do get users.
+37:14.010 --> 37:17.370
+So ultimately what are how many users we created two.
+37:17.400 --> 37:22.170
+So I got a list of two users and I am iterating it and printing it.
+37:24.570 --> 37:31.080
+So two times it printed and ultimately it returns list of user itself finish.
+37:31.080 --> 37:34.350
+So here if you see two users it returns.
+37:35.460 --> 37:39.360
+And also I was printing it so two users got printed.
+37:40.470 --> 37:41.100
+Okay.
+37:41.220 --> 37:46.820
+So JDBC template in spring boot has couple of methods very frequently used method.
+37:46.850 --> 37:47.780
+I will tell you.
+37:48.440 --> 37:57.470
+One is update and it takes two parameter, one is SQL string and another is where.
+37:57.500 --> 38:00.260
+Where are variable arguments okay.
+38:00.470 --> 38:06.170
+So this update method can be used for insert, update and delete operation.
+38:06.950 --> 38:10.910
+So like this insert into user.
+38:10.910 --> 38:16.640
+So I have written my SQL query as a string and two dynamic values which I need to insert.
+38:16.790 --> 38:17.090
+Okay.
+38:17.120 --> 38:18.350
+So this is my string.
+38:18.560 --> 38:22.640
+Now I am using JDBC template dot update your query.
+38:22.700 --> 38:29.720
+And second is variable arguments like variable arguments 123 could be anything right.
+38:29.750 --> 38:31.640
+So two dynamic right.
+38:31.640 --> 38:33.950
+So one is your string.
+38:33.950 --> 38:38.300
+Second is your integer in this one okay.
+38:38.330 --> 38:40.250
+Similarly it can be used for update.
+38:40.250 --> 38:44.290
+So this is one method very very commonly used method of JDBC template.
+38:44.860 --> 38:53.710
+Another is this one for updating update the same your query and the second is prepared statement setter.
+38:54.010 --> 38:58.060
+So you can say it is also you can use for insert update delete.
+38:58.060 --> 39:00.610
+It is just for like more granular level.
+39:00.640 --> 39:01.720
+Or you can say that more.
+39:01.720 --> 39:09.100
+If your queries are very very complex then prepare the statement setter is can be useful the similar.
+39:09.130 --> 39:12.520
+First thing is insert query like you can write your string.
+39:12.880 --> 39:16.330
+Okay, uh, you have to set dynamic values.
+39:16.360 --> 39:23.620
+Now I am instead of uh using the previous I am now using prepared statement setter JDBC template dot
+39:23.650 --> 39:24.220
+update.
+39:24.250 --> 39:27.640
+The first parameter is your string query.
+39:27.940 --> 39:30.820
+Now second is prepared statement setter.
+39:30.820 --> 39:39.790
+So here if you see uh JDBC template update string SQL.
+39:40.800 --> 39:46.290
+So yeah, this prepared statement setter here, if you see it, is a functional interface.
+39:46.440 --> 39:46.890
+Okay.
+39:46.920 --> 39:48.390
+So you can use lambda expression.
+39:48.390 --> 39:51.630
+And it has only one method which need to be implemented.
+39:52.410 --> 39:52.830
+Okay.
+39:52.830 --> 39:56.850
+So one method which accepts prepared statement.
+39:56.850 --> 40:01.710
+So that's why I am using lambda expression in Java playlist.
+40:01.710 --> 40:04.770
+I have already explained it in depth how you can use lambda expression.
+40:05.160 --> 40:10.860
+So here I am just providing the implementation for that getvalues itself that whatever the prepared
+40:10.860 --> 40:13.170
+statement set the string.
+40:13.170 --> 40:15.750
+The first one is a string username.
+40:15.840 --> 40:20.580
+So for the first index it's the string second index.
+40:20.610 --> 40:23.850
+This one second is integer right.
+40:23.880 --> 40:25.170
+So I am providing h.
+40:25.170 --> 40:26.400
+So this is one two.
+40:26.430 --> 40:29.580
+This is our indexing 1234 right.
+40:29.610 --> 40:31.350
+So this is one this is two.
+40:31.380 --> 40:32.280
+Another question mark.
+40:32.310 --> 40:33.120
+This would be three.
+40:33.120 --> 40:36.210
+So this way you can add it okay.
+40:36.240 --> 40:38.460
+So you can use it for insert update delete.
+40:38.470 --> 40:39.760
+These are the two ways.
+40:40.000 --> 40:43.660
+Similarly, now you have to fetch it right?
+40:43.660 --> 40:45.130
+So one is query.
+40:45.760 --> 40:46.780
+Query method.
+40:46.780 --> 40:49.600
+It takes one flavor is it takes two parameter.
+40:49.600 --> 40:52.570
+One is string which is your SQL query.
+40:52.600 --> 40:54.340
+Second is row mapper.
+40:54.580 --> 40:57.940
+Now it is used to fetch get multiple rows.
+40:57.940 --> 41:00.190
+You have to fetch multiple rows.
+41:00.280 --> 41:03.760
+So now here if you see this query the JDBC template dot query.
+41:03.760 --> 41:06.880
+The first one is your Select query string.
+41:06.880 --> 41:11.590
+And the second one is your row mapper.
+41:11.590 --> 41:18.580
+So this row mapper is a functional interface which has one method map row which takes two parameters.
+41:18.580 --> 41:21.310
+So that's why this two parameters.
+41:21.310 --> 41:29.110
+And whenever this method get invoked this map row this is the implementation should run okay.
+41:29.110 --> 41:31.900
+So see that what might be happening inside.
+41:31.900 --> 41:37.950
+So in the user repository when I am doing get users.
+41:37.950 --> 41:38.820
+Let's see.
+41:38.970 --> 41:50.340
+It might be doing query it going inside query uh here execute query.
+41:51.840 --> 41:54.720
+After it executed the query it got a result set.
+41:54.720 --> 41:57.210
+So result set can be like ten rows 20 rows.
+41:57.240 --> 41:59.730
+Then it has to extract data out of it.
+42:00.720 --> 42:01.860
+Row mapper.
+42:02.160 --> 42:03.210
+Now it is here.
+42:03.210 --> 42:10.740
+If you see it is iterating over this each row set each row and calling the map row okay.
+42:10.770 --> 42:14.250
+So now this will get executed for each row set.
+42:14.280 --> 42:15.990
+Uh there are total five rows.
+42:15.990 --> 42:25.020
+Then for each row I am creating a user object and do a mapping like in the row this column row dot get
+42:25.050 --> 42:26.430
+in user id.
+42:26.820 --> 42:29.820
+So I am putting into this user ID field.
+42:30.330 --> 42:34.470
+It's just a mapping between a column and the object user object.
+42:34.470 --> 42:40.910
+So row set dot get string is like user name I am putting into username like this.
+42:40.910 --> 42:43.760
+And ultimately it will return a list.
+42:43.790 --> 42:49.880
+It will just keep on adding into the result list and ultimately return this list of user.
+42:51.560 --> 42:54.770
+The second flavor is query for list.
+42:55.010 --> 42:58.940
+Again, first parameter is a string and second is class.
+42:59.270 --> 43:06.770
+The purpose is to get single column of multiple rows single column of multiple rows.
+43:06.980 --> 43:09.980
+So here JDBC template dot query for list.
+43:10.280 --> 43:11.930
+Provide the query.
+43:12.440 --> 43:16.160
+Select user name from users.
+43:16.400 --> 43:23.150
+If there are total ten users, you will get user name for all the ten users only.
+43:23.150 --> 43:31.730
+So one column whenever you want to fetch the one specific column for multiple rows, then go ahead use
+43:31.730 --> 43:35.110
+this query for list okay.
+43:35.590 --> 43:37.750
+So the second parameter is class type.
+43:37.750 --> 43:42.370
+So this username is string dot class okay.
+43:42.400 --> 43:48.850
+So here if you see query for list and we can search for it here query for list.
+43:48.850 --> 43:50.980
+What it does get single column row mapper.
+43:50.980 --> 43:52.990
+So it is a single column.
+43:52.990 --> 43:57.850
+It's a mapping is based on single column like a single type string.
+43:59.170 --> 44:02.500
+Then the third query could be like query for object.
+44:02.500 --> 44:09.040
+The first is your SQL query, then arguments and the required type get single row.
+44:09.070 --> 44:11.440
+This is used for fetching a single row.
+44:11.920 --> 44:14.890
+So JDBC template that query for object.
+44:15.250 --> 44:17.200
+The first is your SQL query.
+44:17.470 --> 44:20.530
+Select star from user where user id equals to.
+44:20.560 --> 44:21.850
+It could be dynamic.
+44:22.270 --> 44:27.370
+So that's where your second parameter comes into the picture object array.
+44:27.400 --> 44:31.490
+So I'm creating an object array only one right in the area.
+44:31.490 --> 44:33.860
+So I'm putting like it should be replaced with one.
+44:34.190 --> 44:39.380
+If there are more question mark you can just put into arrays, it will sequentially it will update the
+44:39.380 --> 44:40.220
+question mark.
+44:40.430 --> 44:43.670
+So it will change user ID equals to one with this.
+44:44.030 --> 44:45.770
+And the third one is required.
+44:45.800 --> 44:50.510
+Type is the object in which this row has to be mapped to.
+44:50.540 --> 44:52.640
+So I want to map to the user.
+44:52.640 --> 44:54.140
+So internally it will do mapping.
+44:54.170 --> 45:00.890
+You make use of getters and setters of user and it will map this each column of this row into this user
+45:00.920 --> 45:01.610
+object.
+45:03.290 --> 45:12.770
+And the last is like query for object SQL and required type get only single value.
+45:12.770 --> 45:17.060
+It is used for get only single value like JDBC template.
+45:17.060 --> 45:21.740
+Get query for object select count as trace from user.
+45:21.770 --> 45:23.990
+You do integer dot class.
+45:24.170 --> 45:27.560
+So now here if you see it, return only one single value.
+45:27.890 --> 45:35.020
+So if you have any requirement where you get only one single value, then you can use this get for object.
+45:35.050 --> 45:43.780
+So these are generally different flavors which JDBC template provides which you can do to insert, update
+45:43.780 --> 45:45.520
+delete or fetch the data.
+45:46.540 --> 45:47.380
+Okay.
+45:48.190 --> 45:59.020
+So but with this I hope that at least this JDBC and this driver part should be properly clear where
+45:59.020 --> 46:00.640
+this exactly comes into the picture.
+46:00.640 --> 46:02.140
+How you can connect to the DB.
+46:03.310 --> 46:05.740
+What all problems are there in the plain JDBC.
+46:05.770 --> 46:13.300
+What spring boot JDBC resolves is and how it resolves it, because then only it makes sense to understand
+46:13.330 --> 46:15.550
+ORM framework and JPA and hibernate.
+46:16.120 --> 46:16.510
+Okay.
+46:16.540 --> 46:19.990
+So next we will start with the ORM object relational mapping.
+46:20.080 --> 46:22.630
+But we'll see you in the part two.
+46:22.660 --> 46:26.020
+But if the part one if you have any doubts let's discuss in the comment section.
+46:26.020 --> 46:26.650
+Thank you.
+46:26.650 --> 46:27.130
+Bye.
