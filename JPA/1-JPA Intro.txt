@@ -805,57 +805,58 @@ SpringBoot JDBC = Service Class
   Like after fetching the data from the DB, any business logic you have to perform, you can perform
   26:27.020 --> 26:28.640
   here at this level.
+Application properties file
+  26:30.410 --> 26:34.730
+  And the last is you have to use an application dot properties.
+  26:34.760 --> 26:40.550
+  Now here if you see that we are providing certain properties data source property like I am providing
+  26:40.550 --> 26:41.540
+  the URL.
+  26:42.590 --> 26:50.750
+  So now here if you see at the top plain JDBC you are providing the Or you are doing a connection and
+  26:50.750 --> 26:57.770
+  then providing a URL username password, driver link, all you have to do here is in the spring boot
+  26:57.770 --> 27:00.920
+  is in this application dot properties you provide.
+  27:00.920 --> 27:02.360
+  What is the URL?
+  27:02.360 --> 27:03.200
+  The same thing.
+  27:03.200 --> 27:04.010
+  This is your db.
+  27:04.040 --> 27:10.840
+  I am using memory version of S2 and JDBC the driver username password.
+  27:11.020 --> 27:11.860
+  Okay.
+  27:12.820 --> 27:23.950
+  So now this data source this data source object data source object in spring boot helps with two things.
+  27:24.310 --> 27:28.840
+  One is database connection.
+  27:29.920 --> 27:38.680
+  It creates a connection, returns it, manage it, and also it helps with the connection pooling connection
+  27:38.680 --> 27:41.560
+  pool okay.
+  27:41.590 --> 27:43.330
+  It manages the connection pool.
+  27:43.420 --> 27:45.340
+  So this data source object.
+  27:45.370 --> 27:51.400
+  So internally spring boot help us to do whatever we were doing.
+  27:51.400 --> 27:56.710
+  Class dot four name okay then do create a connection.
+  27:56.710 --> 27:59.020
+  And everything is spring boot does it.
+  27:59.020 --> 28:05.850
+  And surprisingly I will tell you spring Boot also by default provide providers a connection pool.
+  28:05.850 --> 28:11.640
+  Also it is Hikari CP connection pool.
+  28:11.670 --> 28:12.870
+  Hikari connection pool.
+  28:13.530 --> 28:19.920
+  I will show you the demo, but before going, proceed further.
+  28:19.950 --> 28:21.330
+  Is this clear?
 
-26:30.410 --> 26:34.730
-And the last is you have to use an application dot properties.
-26:34.760 --> 26:40.550
-Now here if you see that we are providing certain properties data source property like I am providing
-26:40.550 --> 26:41.540
-the URL.
-26:42.590 --> 26:50.750
-So now here if you see at the top plain JDBC you are providing the Or you are doing a connection and
-26:50.750 --> 26:57.770
-then providing a URL username password, driver link, all you have to do here is in the spring boot
-26:57.770 --> 27:00.920
-is in this application dot properties you provide.
-27:00.920 --> 27:02.360
-What is the URL?
-27:02.360 --> 27:03.200
-The same thing.
-27:03.200 --> 27:04.010
-This is your db.
-27:04.040 --> 27:10.840
-I am using memory version of S2 and JDBC the driver username password.
-27:11.020 --> 27:11.860
-Okay.
-27:12.820 --> 27:23.950
-So now this data source this data source object data source object in spring boot helps with two things.
-27:24.310 --> 27:28.840
-One is database connection.
-27:29.920 --> 27:38.680
-It creates a connection, returns it, manage it, and also it helps with the connection pooling connection
-27:38.680 --> 27:41.560
-pool okay.
-27:41.590 --> 27:43.330
-It manages the connection pool.
-27:43.420 --> 27:45.340
-So this data source object.
-27:45.370 --> 27:51.400
-So internally spring boot help us to do whatever we were doing.
-27:51.400 --> 27:56.710
-Class dot four name okay then do create a connection.
-27:56.710 --> 27:59.020
-And everything is spring boot does it.
-27:59.020 --> 28:05.850
-And surprisingly I will tell you spring Boot also by default provide providers a connection pool.
-28:05.850 --> 28:11.640
-Also it is Hikari CP connection pool.
-28:11.670 --> 28:12.870
-Hikari connection pool.
-28:13.530 --> 28:19.920
-I will show you the demo, but before going, proceed further.
-28:19.950 --> 28:21.330
-Is this clear?
 28:21.510 --> 28:24.210
 Like how it is helping us resolving it?
 28:24.210 --> 28:28.440
