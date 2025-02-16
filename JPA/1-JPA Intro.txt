@@ -1,141 +1,143 @@
-00:00.020 --> 00:00.890
-Hey guys on this side.
-00:00.890 --> 00:02.120
-Welcome to Concept and Coding.
-00:02.120 --> 00:06.440
-And today we are going to see the Spring Boot JPA part one.
-00:06.440 --> 00:09.560
-And let's start without wasting any time.
-00:09.770 --> 00:16.820
-So here if you see that till now, whatever we have done it's mostly a part of application logic.
-00:16.910 --> 00:24.050
-Now we have reached to a stage where we have to insert data into the database, how we can do that.
-00:24.050 --> 00:28.850
-So that's where the JPA, JDBC comes into the picture okay.
-00:28.850 --> 00:36.860
-So before even jumping into the JPA we have to first understand the complete sequence.
-00:36.890 --> 00:37.430
-Right.
-00:37.460 --> 00:41.480
-Who who what all components actually get involved into this.
-00:41.480 --> 00:45.890
-So here if you see that let's say that you are writing a spring boot application.
-00:45.890 --> 00:49.760
-You have an application logic or you have written so many beans okay.
-00:49.790 --> 00:54.110
-Now what you do is if you have to use JPA, what is the sequence?
-00:54.110 --> 00:59.290
-What happen is you interact with the APIs, which is provided by JPL.
-00:59.560 --> 01:03.850
-So always remember that JPL is mostly an interface.
-01:03.880 --> 01:04.450
-Right.
-01:04.450 --> 01:11.440
-It provided an API which you can interact with, but it does not provide you the implementation.
-01:11.440 --> 01:14.680
-Implementation is provided by another component.
-01:14.710 --> 01:16.300
-Let's say in this case hibernate.
-01:16.330 --> 01:21.610
-Or if you don't want to use hibernate, there is something like open JPA, right?
-01:21.640 --> 01:25.600
-Or there are I think eclipse link.
-01:25.750 --> 01:29.590
-And so these are different implementation of JPA.
-01:29.740 --> 01:30.250
-Okay.
-01:30.250 --> 01:33.160
-So your application talks to JPA.
-01:33.280 --> 01:41.020
-JPA internally has to be implemented by some other uh component which you decide which you want to use.
-01:41.020 --> 01:43.330
-So generally hibernate is the most popular one.
-01:43.720 --> 01:51.160
-So hibernate internally talks to or utilizes JDBC APIs.
-01:51.160 --> 01:54.880
-So again JDBC is again an interface.
-01:54.880 --> 01:56.950
-So hibernate uses its.
-01:57.930 --> 02:01.500
-APIs its interfaces.
-02:01.710 --> 02:05.910
-And then there are specific DB drivers.
-02:05.910 --> 02:12.090
-So this DB drivers is nothing but an implementation of this JDBC APIs.
-02:12.120 --> 02:12.780
-Okay.
-02:12.780 --> 02:19.710
-So for example you are using a MySQL DB.
-02:19.920 --> 02:20.670
-Okay.
-02:20.700 --> 02:22.410
-You are using a MySQL db.
-02:22.440 --> 02:25.650
-Then there would be a specific DB driver for it.
-02:25.890 --> 02:26.370
-Okay.
-02:26.400 --> 02:35.460
-Let's say it is connector J db driver which is very very specific for MySQL which knows how to connect
-02:35.460 --> 02:36.420
-to MySQL.
-02:36.420 --> 02:40.140
-And it provided the implementation of JDBC API.
-02:40.170 --> 02:49.050
-Similarly, if you have something called uh Postgres PostgreSQL okay.
-02:49.080 --> 02:51.540
-Then it has its own DB driver.
-02:52.170 --> 02:54.210
-It has its own DB driver.
-02:55.360 --> 03:04.360
-Okay, so depending upon which DB you are using is specific, that's why I written specific DB driver
-03:04.360 --> 03:05.440
-is required.
-03:05.470 --> 03:11.050
-Okay, this DB drivers is nothing but an implementation of JDBC APIs.
-03:11.080 --> 03:19.540
-This JDBC right Java database connection connectivity helps you to connect to a database.
-03:19.630 --> 03:20.230
-Okay.
-03:20.260 --> 03:22.720
-Through this API you can connect.
-03:22.720 --> 03:23.860
-You can query.
-03:23.860 --> 03:25.990
-You can fetch the data okay.
-03:26.020 --> 03:31.540
-But remember JDBC JDBC is nothing but an APIs interface.
-03:31.570 --> 03:33.700
-Actual work is done by drivers itself.
-03:33.700 --> 03:37.990
-If you are using MySQL then MySQL drivers know how to fetch the data okay.
-03:38.470 --> 03:39.910
-Then this JDBC.
-03:39.940 --> 03:45.400
-Now there is something called ORM framework is built up object relational mapping framework.
-03:45.400 --> 03:59.520
-So this is nothing but a bridge between Java object and your relational databases.
-03:59.730 --> 04:00.360
-Okay.
-04:00.360 --> 04:08.820
-So here if you see that in the JDBC and specific DB driver, everything we are in the form of SQL right.
-04:08.820 --> 04:16.710
-We write queries and we try to connect through db, create db or fetch the data insert.
-04:16.710 --> 04:18.900
-Everything is in SQL form.
-04:19.500 --> 04:26.640
-But here with the ORM framework where this JPA and let's say it's implementation hibernate we are using.
-04:26.640 --> 04:32.400
-If this comes into the picture, we don't have to your application don't have to directly work with
-04:32.400 --> 04:34.050
-the JDBC APIs.
-04:34.050 --> 04:36.840
-You don't have to write SQL queries to insert.
-04:36.840 --> 04:41.550
-You can directly work with Java objects itself.
-04:42.810 --> 04:47.460
-Okay, through Java objects itself, you can maintain your relational databases.
-04:47.460 --> 04:53.360
-So remember JPA, JDBC is just for maintaining relational databases.
+JPA Intro  
+  00:00.020 --> 00:00.890
+  Hey guys on this side.
+  00:00.890 --> 00:02.120
+  Welcome to Concept and Coding.
+  00:02.120 --> 00:06.440
+  And today we are going to see the Spring Boot JPA part one.
+  00:06.440 --> 00:09.560
+  And let's start without wasting any time.
+  00:09.770 --> 00:16.820
+  So here if you see that till now, whatever we have done it's mostly a part of application logic.
+  00:16.910 --> 00:24.050
+  Now we have reached to a stage where we have to insert data into the database, how we can do that.
+  00:24.050 --> 00:28.850
+  So that's where the JPA, JDBC comes into the picture okay.
+  00:28.850 --> 00:36.860
+  So before even jumping into the JPA we have to first understand the complete sequence.
+  00:36.890 --> 00:37.430
+  Right.
+  00:37.460 --> 00:41.480
+  Who who what all components actually get involved into this.
+  00:41.480 --> 00:45.890
+  So here if you see that let's say that you are writing a spring boot application.
+  00:45.890 --> 00:49.760
+  You have an application logic or you have written so many beans okay.
+  00:49.790 --> 00:54.110
+  Now what you do is if you have to use JPA, what is the sequence?
+  00:54.110 --> 00:59.290
+  What happen is you interact with the APIs, which is provided by JPL.
+  00:59.560 --> 01:03.850
+  So always remember that JPL is mostly an interface.
+  01:03.880 --> 01:04.450
+  Right.
+  01:04.450 --> 01:11.440
+  It provided an API which you can interact with, but it does not provide you the implementation.
+  01:11.440 --> 01:14.680
+  Implementation is provided by another component.
+  01:14.710 --> 01:16.300
+  Let's say in this case hibernate.
+  01:16.330 --> 01:21.610
+  Or if you don't want to use hibernate, there is something like open JPA, right?
+  01:21.640 --> 01:25.600
+  Or there are I think eclipse link.
+  01:25.750 --> 01:29.590
+  And so these are different implementation of JPA.
+  01:29.740 --> 01:30.250
+  Okay.
+  01:30.250 --> 01:33.160
+  So your application talks to JPA.
+  01:33.280 --> 01:41.020
+  JPA internally has to be implemented by some other uh component which you decide which you want to use.
+  01:41.020 --> 01:43.330
+  So generally hibernate is the most popular one.
+  01:43.720 --> 01:51.160
+  So hibernate internally talks to or utilizes JDBC APIs.
+  01:51.160 --> 01:54.880
+  So again JDBC is again an interface.
+  01:54.880 --> 01:56.950
+  So hibernate uses its.
+  01:57.930 --> 02:01.500
+  APIs its interfaces.
+  02:01.710 --> 02:05.910
+  And then there are specific DB drivers.
+  02:05.910 --> 02:12.090
+  So this DB drivers is nothing but an implementation of this JDBC APIs.
+  02:12.120 --> 02:12.780
+  Okay.
+  02:12.780 --> 02:19.710
+  So for example you are using a MySQL DB.
+  02:19.920 --> 02:20.670
+  Okay.
+  02:20.700 --> 02:22.410
+  You are using a MySQL db.
+  02:22.440 --> 02:25.650
+  Then there would be a specific DB driver for it.
+  02:25.890 --> 02:26.370
+  Okay.
+  02:26.400 --> 02:35.460
+  Let's say it is connector J db driver which is very very specific for MySQL which knows how to connect
+  02:35.460 --> 02:36.420
+  to MySQL.
+  02:36.420 --> 02:40.140
+  And it provided the implementation of JDBC API.
+  02:40.170 --> 02:49.050
+  Similarly, if you have something called uh Postgres PostgreSQL okay.
+  02:49.080 --> 02:51.540
+  Then it has its own DB driver.
+  02:52.170 --> 02:54.210
+  It has its own DB driver.
+  02:55.360 --> 03:04.360
+  Okay, so depending upon which DB you are using is specific, that's why I written specific DB driver
+  03:04.360 --> 03:05.440
+  is required.
+  03:05.470 --> 03:11.050
+  Okay, this DB drivers is nothing but an implementation of JDBC APIs.
+  03:11.080 --> 03:19.540
+  This JDBC right Java database connection connectivity helps you to connect to a database.
+  03:19.630 --> 03:20.230
+  Okay.
+  03:20.260 --> 03:22.720
+  Through this API you can connect.
+  03:22.720 --> 03:23.860
+  You can query.
+  03:23.860 --> 03:25.990
+  You can fetch the data okay.
+  03:26.020 --> 03:31.540
+  But remember JDBC JDBC is nothing but an APIs interface.
+  03:31.570 --> 03:33.700
+  Actual work is done by drivers itself.
+  03:33.700 --> 03:37.990
+  If you are using MySQL then MySQL drivers know how to fetch the data okay.
+  03:38.470 --> 03:39.910
+  Then this JDBC.
+  03:39.940 --> 03:45.400
+  Now there is something called ORM framework is built up object relational mapping framework.
+  03:45.400 --> 03:59.520
+  So this is nothing but a bridge between Java object and your relational databases.
+  03:59.730 --> 04:00.360
+  Okay.
+  04:00.360 --> 04:08.820
+  So here if you see that in the JDBC and specific DB driver, everything we are in the form of SQL right.
+  04:08.820 --> 04:16.710
+  We write queries and we try to connect through db, create db or fetch the data insert.
+  04:16.710 --> 04:18.900
+  Everything is in SQL form.
+  04:19.500 --> 04:26.640
+  But here with the ORM framework where this JPA and let's say it's implementation hibernate we are using.
+  04:26.640 --> 04:32.400
+  If this comes into the picture, we don't have to your application don't have to directly work with
+  04:32.400 --> 04:34.050
+  the JDBC APIs.
+  04:34.050 --> 04:36.840
+  You don't have to write SQL queries to insert.
+  04:36.840 --> 04:41.550
+  You can directly work with Java objects itself.
+  04:42.810 --> 04:47.460
+  Okay, through Java objects itself, you can maintain your relational databases.
+  04:47.460 --> 04:53.360
+  So remember JPA, JDBC is just for maintaining relational databases.
+
 04:53.360 --> 04:57.350
 So before going to JPA let's recall JDBC.
 04:57.950 --> 05:00.080
