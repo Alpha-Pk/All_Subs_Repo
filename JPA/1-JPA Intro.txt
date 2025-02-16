@@ -1231,74 +1231,75 @@ JDBC Template = Frequently used methods = Update and Update with pss
   So you can use it for insert update delete.
   40:38.470 --> 40:39.760
   These are the two ways.
+JDBC Template = Frequently used methods = Query
+  40:40.000 --> 40:43.660
+  Similarly, now you have to fetch it right?
+  40:43.660 --> 40:45.130
+  So one is query.
+  40:45.760 --> 40:46.780
+  Query method.
+  40:46.780 --> 40:49.600
+  It takes one flavor is it takes two parameter.
+  40:49.600 --> 40:52.570
+  One is string which is your SQL query.
+  40:52.600 --> 40:54.340
+  Second is row mapper.
+  40:54.580 --> 40:57.940
+  Now it is used to fetch get multiple rows.
+  40:57.940 --> 41:00.190
+  You have to fetch multiple rows.
+  41:00.280 --> 41:03.760
+  So now here if you see this query the JDBC template dot query.
+  41:03.760 --> 41:06.880
+  The first one is your Select query string.
+  41:06.880 --> 41:11.590
+  And the second one is your row mapper.
+  41:11.590 --> 41:18.580
+  So this row mapper is a functional interface which has one method map row which takes two parameters.
+  41:18.580 --> 41:21.310
+  So that's why this two parameters.
+  41:21.310 --> 41:29.110
+  And whenever this method get invoked this map row this is the implementation should run okay.
+  41:29.110 --> 41:31.900
+  So see that what might be happening inside.
+  41:31.900 --> 41:37.950
+  So in the user repository when I am doing get users.
+  41:37.950 --> 41:38.820
+  Let's see.
+  41:38.970 --> 41:50.340
+  It might be doing query it going inside query uh here execute query.
+  41:51.840 --> 41:54.720
+  After it executed the query it got a result set.
+  41:54.720 --> 41:57.210
+  So result set can be like ten rows 20 rows.
+  41:57.240 --> 41:59.730
+  Then it has to extract data out of it.
+  42:00.720 --> 42:01.860
+  Row mapper.
+  42:02.160 --> 42:03.210
+  Now it is here.
+  42:03.210 --> 42:10.740
+  If you see it is iterating over this each row set each row and calling the map row okay.
+  42:10.770 --> 42:14.250
+  So now this will get executed for each row set.
+  42:14.280 --> 42:15.990
+  Uh there are total five rows.
+  42:15.990 --> 42:25.020
+  Then for each row I am creating a user object and do a mapping like in the row this column row dot get
+  42:25.050 --> 42:26.430
+  in user id.
+  42:26.820 --> 42:29.820
+  So I am putting into this user ID field.
+  42:30.330 --> 42:34.470
+  It's just a mapping between a column and the object user object.
+  42:34.470 --> 42:40.910
+  So row set dot get string is like user name I am putting into username like this.
+  42:40.910 --> 42:43.760
+  And ultimately it will return a list.
+  42:43.790 --> 42:49.880
+  It will just keep on adding into the result list and ultimately return this list of user.
+  42:51.560 --> 42:54.770
 
-40:40.000 --> 40:43.660
-Similarly, now you have to fetch it right?
-40:43.660 --> 40:45.130
-So one is query.
-40:45.760 --> 40:46.780
-Query method.
-40:46.780 --> 40:49.600
-It takes one flavor is it takes two parameter.
-40:49.600 --> 40:52.570
-One is string which is your SQL query.
-40:52.600 --> 40:54.340
-Second is row mapper.
-40:54.580 --> 40:57.940
-Now it is used to fetch get multiple rows.
-40:57.940 --> 41:00.190
-You have to fetch multiple rows.
-41:00.280 --> 41:03.760
-So now here if you see this query the JDBC template dot query.
-41:03.760 --> 41:06.880
-The first one is your Select query string.
-41:06.880 --> 41:11.590
-And the second one is your row mapper.
-41:11.590 --> 41:18.580
-So this row mapper is a functional interface which has one method map row which takes two parameters.
-41:18.580 --> 41:21.310
-So that's why this two parameters.
-41:21.310 --> 41:29.110
-And whenever this method get invoked this map row this is the implementation should run okay.
-41:29.110 --> 41:31.900
-So see that what might be happening inside.
-41:31.900 --> 41:37.950
-So in the user repository when I am doing get users.
-41:37.950 --> 41:38.820
-Let's see.
-41:38.970 --> 41:50.340
-It might be doing query it going inside query uh here execute query.
-41:51.840 --> 41:54.720
-After it executed the query it got a result set.
-41:54.720 --> 41:57.210
-So result set can be like ten rows 20 rows.
-41:57.240 --> 41:59.730
-Then it has to extract data out of it.
-42:00.720 --> 42:01.860
-Row mapper.
-42:02.160 --> 42:03.210
-Now it is here.
-42:03.210 --> 42:10.740
-If you see it is iterating over this each row set each row and calling the map row okay.
-42:10.770 --> 42:14.250
-So now this will get executed for each row set.
-42:14.280 --> 42:15.990
-Uh there are total five rows.
-42:15.990 --> 42:25.020
-Then for each row I am creating a user object and do a mapping like in the row this column row dot get
-42:25.050 --> 42:26.430
-in user id.
-42:26.820 --> 42:29.820
-So I am putting into this user ID field.
-42:30.330 --> 42:34.470
-It's just a mapping between a column and the object user object.
-42:34.470 --> 42:40.910
-So row set dot get string is like user name I am putting into username like this.
-42:40.910 --> 42:43.760
-And ultimately it will return a list.
-42:43.790 --> 42:49.880
-It will just keep on adding into the result list and ultimately return this list of user.
-42:51.560 --> 42:54.770
 The second flavor is query for list.
 42:55.010 --> 42:58.940
 Again, first parameter is a string and second is class.
