@@ -646,109 +646,110 @@ Demo of Plain JDBC
   Okay.
   20:37.170 --> 20:39.090
   So this is currently in memory.
+JDBC with Spring Boot
+  20:39.120 --> 20:44.370
+  Now spring boot helps to remove all this boiler code for us.
+  20:46.380 --> 20:49.830
+  So now let's see using JDBC with spring boot.
+  20:50.490 --> 20:54.840
+  So the first thing you have to do is include the dependency in Pom.xml.
+  20:55.470 --> 21:00.360
+  So this is spring boot starter JDBC.
+  21:00.930 --> 21:01.350
+  Okay.
+  21:01.380 --> 21:06.000
+  So this is for JDBC interfaces and all it will bring.
+  21:06.000 --> 21:13.200
+  And the second dependency you need for this s2 s2 database we are using right in memory one.
+  21:13.200 --> 21:14.850
+  So this is for the database.
+  21:14.850 --> 21:20.390
+  You can replace it with the Um, uh, MySQL or Postgres, whichever you like.
+  21:20.390 --> 21:25.400
+  So currently I'm using in-memory S2, so I'm uh, added its dependency.
+  21:26.720 --> 21:27.320
+  Okay.
+  21:27.320 --> 21:37.520
+  So Springboot provide JDBC template class, which helps to remove all the boiler code which we see at
+  21:37.520 --> 21:39.260
+  top how.
+  21:39.290 --> 21:42.020
+  Now let's see that once you have added the dependency.
+  21:42.050 --> 21:44.090
+  Now let's see this example.
+  21:44.600 --> 21:55.790
+  So now here if you see the first I have created one basic Pojo of user user ID user name age and it's
+  21:55.790 --> 21:56.810
+  getter and setter.
+  21:56.840 --> 21:58.790
+  Very basic user class.
+  21:59.960 --> 22:08.450
+  Now the second I have created User repository class, I have given a name User Repository class and
+  22:08.480 --> 22:10.940
+  annotated with at the rate repository.
+  22:11.240 --> 22:14.690
+  So it work as at the rate component.
+  22:16.150 --> 22:24.550
+  So it will help us to create a being of user repository and also help us in the scanning of those been
+  22:24.700 --> 22:26.710
+  like what the component does.
+  22:27.340 --> 22:34.960
+  The second is that at the top in the plain JDBC you see SQL exception comes right.
+  22:34.960 --> 22:39.580
+  But here this repository whenever a spring boot see that okay.
+  22:39.610 --> 22:42.130
+  It is annotated with at the root repository.
+  22:42.130 --> 22:44.710
+  Any SQL exception comes.
+  22:44.710 --> 22:51.940
+  It gives a granular level of exception okay we will see how.
+  22:52.660 --> 23:00.070
+  So after creating this user class Pojo class I am creating a user repository annotated with at the root
+  23:00.070 --> 23:01.030
+  repository.
+  23:01.030 --> 23:08.110
+  And here if you see that I have added a dependency in this one of JDBC template, this is the class
+  23:08.110 --> 23:11.110
+  which I am talking about, which help us to remove all the boiler code.
+  23:11.110 --> 23:14.210
+  So JDBC template I have auto wired it.
+  23:14.240 --> 23:17.510
+  Okay, so bean will get inserted into it.
+  23:18.290 --> 23:21.320
+  So here I have also have the same methods I have written.
+  23:21.320 --> 23:26.600
+  One is create, one is insert and another is read three methods same like above.
+  23:27.260 --> 23:29.000
+  So create table.
+  23:29.090 --> 23:33.290
+  Now here if you see JDBC template execute okay.
+  23:33.320 --> 23:37.580
+  And you can directly write your query in the execute.
+  23:37.580 --> 23:45.560
+  You can directly write your plain SQL query itself in the insert JDBC template dot update.
+  23:45.650 --> 23:47.990
+  You provide your insert query.
+  23:48.020 --> 23:54.620
+  Now if your Insert query is need to be like certain values which need to be dynamically filled, it
+  23:54.620 --> 23:55.790
+  can be added like this.
+  23:55.790 --> 24:01.310
+  There are different methods I will tell you don't go inside like how this update is used.
+  24:01.340 --> 24:07.700
+  I will tell you what are the different ways but currently understand this like you are just calling
+  24:07.700 --> 24:09.770
+  the method JDBC template dot update.
+  24:09.770 --> 24:17.110
+  Put the query and all the values which has to be goes into this field and similarly get users.
+  24:17.110 --> 24:24.160
+  What I am doing is I have written the query, I am doing just JDBC template dot query and given the
+  24:24.160 --> 24:24.640
+  query.
+  24:24.670 --> 24:27.970
+  Now here I am just iterating over the result set.
+  24:28.000 --> 24:31.900
+  I will go later into deep what I am doing it.
 
-20:39.120 --> 20:44.370
-Now spring boot helps to remove all this boiler code for us.
-20:46.380 --> 20:49.830
-So now let's see using JDBC with spring boot.
-20:50.490 --> 20:54.840
-So the first thing you have to do is include the dependency in Pom.xml.
-20:55.470 --> 21:00.360
-So this is spring boot starter JDBC.
-21:00.930 --> 21:01.350
-Okay.
-21:01.380 --> 21:06.000
-So this is for JDBC interfaces and all it will bring.
-21:06.000 --> 21:13.200
-And the second dependency you need for this s2 s2 database we are using right in memory one.
-21:13.200 --> 21:14.850
-So this is for the database.
-21:14.850 --> 21:20.390
-You can replace it with the Um, uh, MySQL or Postgres, whichever you like.
-21:20.390 --> 21:25.400
-So currently I'm using in-memory S2, so I'm uh, added its dependency.
-21:26.720 --> 21:27.320
-Okay.
-21:27.320 --> 21:37.520
-So Springboot provide JDBC template class, which helps to remove all the boiler code which we see at
-21:37.520 --> 21:39.260
-top how.
-21:39.290 --> 21:42.020
-Now let's see that once you have added the dependency.
-21:42.050 --> 21:44.090
-Now let's see this example.
-21:44.600 --> 21:55.790
-So now here if you see the first I have created one basic Pojo of user user ID user name age and it's
-21:55.790 --> 21:56.810
-getter and setter.
-21:56.840 --> 21:58.790
-Very basic user class.
-21:59.960 --> 22:08.450
-Now the second I have created User repository class, I have given a name User Repository class and
-22:08.480 --> 22:10.940
-annotated with at the rate repository.
-22:11.240 --> 22:14.690
-So it work as at the rate component.
-22:16.150 --> 22:24.550
-So it will help us to create a being of user repository and also help us in the scanning of those been
-22:24.700 --> 22:26.710
-like what the component does.
-22:27.340 --> 22:34.960
-The second is that at the top in the plain JDBC you see SQL exception comes right.
-22:34.960 --> 22:39.580
-But here this repository whenever a spring boot see that okay.
-22:39.610 --> 22:42.130
-It is annotated with at the root repository.
-22:42.130 --> 22:44.710
-Any SQL exception comes.
-22:44.710 --> 22:51.940
-It gives a granular level of exception okay we will see how.
-22:52.660 --> 23:00.070
-So after creating this user class Pojo class I am creating a user repository annotated with at the root
-23:00.070 --> 23:01.030
-repository.
-23:01.030 --> 23:08.110
-And here if you see that I have added a dependency in this one of JDBC template, this is the class
-23:08.110 --> 23:11.110
-which I am talking about, which help us to remove all the boiler code.
-23:11.110 --> 23:14.210
-So JDBC template I have auto wired it.
-23:14.240 --> 23:17.510
-Okay, so bean will get inserted into it.
-23:18.290 --> 23:21.320
-So here I have also have the same methods I have written.
-23:21.320 --> 23:26.600
-One is create, one is insert and another is read three methods same like above.
-23:27.260 --> 23:29.000
-So create table.
-23:29.090 --> 23:33.290
-Now here if you see JDBC template execute okay.
-23:33.320 --> 23:37.580
-And you can directly write your query in the execute.
-23:37.580 --> 23:45.560
-You can directly write your plain SQL query itself in the insert JDBC template dot update.
-23:45.650 --> 23:47.990
-You provide your insert query.
-23:48.020 --> 23:54.620
-Now if your Insert query is need to be like certain values which need to be dynamically filled, it
-23:54.620 --> 23:55.790
-can be added like this.
-23:55.790 --> 24:01.310
-There are different methods I will tell you don't go inside like how this update is used.
-24:01.340 --> 24:07.700
-I will tell you what are the different ways but currently understand this like you are just calling
-24:07.700 --> 24:09.770
-the method JDBC template dot update.
-24:09.770 --> 24:17.110
-Put the query and all the values which has to be goes into this field and similarly get users.
-24:17.110 --> 24:24.160
-What I am doing is I have written the query, I am doing just JDBC template dot query and given the
-24:24.160 --> 24:24.640
-query.
-24:24.670 --> 24:27.970
-Now here I am just iterating over the result set.
-24:28.000 --> 24:31.900
-I will go later into deep what I am doing it.
 24:32.920 --> 24:38.110
 Now the difference you might be seeing that I am not creating DB connection here.
 24:38.950 --> 24:39.400
