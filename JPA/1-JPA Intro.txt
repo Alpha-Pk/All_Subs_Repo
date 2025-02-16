@@ -137,99 +137,100 @@ JPA Intro
   Okay, through Java objects itself, you can maintain your relational databases.
   04:47.460 --> 04:53.360
   So remember JPA, JDBC is just for maintaining relational databases.
+JDBC Overview
+  04:53.360 --> 04:57.350
+  So before going to JPA let's recall JDBC.
+  04:57.950 --> 05:00.080
+  Java database connectivity.
+  05:00.950 --> 05:05.990
+  Okay so here if you see that it provides an interface.
+  05:06.020 --> 05:13.400
+  To make connection with db query db and process the result whatever the data we get out of DB.
+  05:13.430 --> 05:18.230
+  We also have to process it so it provide an API through which we can process it.
+  05:18.650 --> 05:19.160
+  And.
+  05:19.190 --> 05:22.460
+  Implementation is provided by a specific DB drivers.
+  05:22.460 --> 05:24.980
+  If you are using MySQL db then it has its.
+  05:25.070 --> 05:26.900
+  Specific drivers right.
+  05:26.900 --> 05:28.070
+  So likewise.
+  05:28.070 --> 05:32.570
+  So here if you see MySQL if you are using this DB what is the.
+  05:32.600 --> 05:34.160
+  Driver connector J.
+  05:34.460 --> 05:41.030
+  And this is the class we have to load for it if you are using Postgres SQL.
+  05:41.060 --> 05:46.010
+  This is the driver and this is the class through which we can load this driver.
+  05:46.370 --> 05:47.750
+  Similarly S2.
+  05:47.780 --> 05:53.290
+  Which is In-memory relational database and its driver is this one.
+  05:53.320 --> 05:54.970
+  S two database engine.
+  05:54.970 --> 05:57.460
+  And this is the class to load this driver.
+  05:58.090 --> 06:01.060
+  So this driver now anybody say that what is the driver.
+  06:01.060 --> 06:05.350
+  You know the driver is nothing but an implementation of JDBC APIs.
+  06:05.350 --> 06:08.830
+  So this expose JDBC API expose that okay.
+  06:09.100 --> 06:14.470
+  Get me connection uh insert let's say update delete.
+  06:14.470 --> 06:16.120
+  But is it actually doing it.
+  06:16.120 --> 06:17.470
+  No it's just an interface.
+  06:17.470 --> 06:24.310
+  This drivers is actually has all the implementation how to get a connection how to insert it, how to
+  06:24.340 --> 06:31.000
+  update it that from your application wise, you don't have to worry about the specific driver code because
+  06:31.000 --> 06:33.130
+  you are dealing with the JDBC APIs.
+  06:33.160 --> 06:35.050
+  You do just get connection.
+  06:35.050 --> 06:37.300
+  Your application would do get connection.
+  06:37.420 --> 06:42.340
+  Okay, you do update, let's say and update and you provide it.
+  06:42.370 --> 06:44.200
+  It's provided us the interface.
+  06:44.200 --> 06:52.490
+  Right now it's driver which is Abstracted to us how it actually converted to something which is understand
+  06:52.520 --> 06:53.780
+  by relational database.
+  06:53.810 --> 06:55.670
+  We don't have to worry about it.
+  06:55.670 --> 07:01.910
+  So you don't worry like okay, if I am using MySQL driver, my code will get changed.
+  07:01.910 --> 07:05.810
+  If I am using PostgreSQL, lot of code changes would be done.
+  07:05.810 --> 07:07.340
+  No, nothing like this.
+  07:07.370 --> 07:08.930
+  You already got it right?
+  07:08.960 --> 07:09.290
+  Why?
+  07:09.320 --> 07:10.580
+  Because we are dealing.
+  07:10.580 --> 07:13.160
+  We are just invoking that get connection.
+  07:13.160 --> 07:17.750
+  Now this specific driver will take care of getting the connection.
+  07:17.750 --> 07:21.800
+  So if you change from MySQL to Postgres your code will not change.
+  07:21.800 --> 07:23.180
+  You are still calling get connection.
+  07:23.180 --> 07:27.050
+  Only internal implementation will change and that's okay.
+  07:27.080 --> 07:30.020
+  So you can use anything okay.
 
-04:53.360 --> 04:57.350
-So before going to JPA let's recall JDBC.
-04:57.950 --> 05:00.080
-Java database connectivity.
-05:00.950 --> 05:05.990
-Okay so here if you see that it provides an interface.
-05:06.020 --> 05:13.400
-To make connection with db query db and process the result whatever the data we get out of DB.
-05:13.430 --> 05:18.230
-We also have to process it so it provide an API through which we can process it.
-05:18.650 --> 05:19.160
-And.
-05:19.190 --> 05:22.460
-Implementation is provided by a specific DB drivers.
-05:22.460 --> 05:24.980
-If you are using MySQL db then it has its.
-05:25.070 --> 05:26.900
-Specific drivers right.
-05:26.900 --> 05:28.070
-So likewise.
-05:28.070 --> 05:32.570
-So here if you see MySQL if you are using this DB what is the.
-05:32.600 --> 05:34.160
-Driver connector J.
-05:34.460 --> 05:41.030
-And this is the class we have to load for it if you are using Postgres SQL.
-05:41.060 --> 05:46.010
-This is the driver and this is the class through which we can load this driver.
-05:46.370 --> 05:47.750
-Similarly S2.
-05:47.780 --> 05:53.290
-Which is In-memory relational database and its driver is this one.
-05:53.320 --> 05:54.970
-S two database engine.
-05:54.970 --> 05:57.460
-And this is the class to load this driver.
-05:58.090 --> 06:01.060
-So this driver now anybody say that what is the driver.
-06:01.060 --> 06:05.350
-You know the driver is nothing but an implementation of JDBC APIs.
-06:05.350 --> 06:08.830
-So this expose JDBC API expose that okay.
-06:09.100 --> 06:14.470
-Get me connection uh insert let's say update delete.
-06:14.470 --> 06:16.120
-But is it actually doing it.
-06:16.120 --> 06:17.470
-No it's just an interface.
-06:17.470 --> 06:24.310
-This drivers is actually has all the implementation how to get a connection how to insert it, how to
-06:24.340 --> 06:31.000
-update it that from your application wise, you don't have to worry about the specific driver code because
-06:31.000 --> 06:33.130
-you are dealing with the JDBC APIs.
-06:33.160 --> 06:35.050
-You do just get connection.
-06:35.050 --> 06:37.300
-Your application would do get connection.
-06:37.420 --> 06:42.340
-Okay, you do update, let's say and update and you provide it.
-06:42.370 --> 06:44.200
-It's provided us the interface.
-06:44.200 --> 06:52.490
-Right now it's driver which is Abstracted to us how it actually converted to something which is understand
-06:52.520 --> 06:53.780
-by relational database.
-06:53.810 --> 06:55.670
-We don't have to worry about it.
-06:55.670 --> 07:01.910
-So you don't worry like okay, if I am using MySQL driver, my code will get changed.
-07:01.910 --> 07:05.810
-If I am using PostgreSQL, lot of code changes would be done.
-07:05.810 --> 07:07.340
-No, nothing like this.
-07:07.370 --> 07:08.930
-You already got it right?
-07:08.960 --> 07:09.290
-Why?
-07:09.320 --> 07:10.580
-Because we are dealing.
-07:10.580 --> 07:13.160
-We are just invoking that get connection.
-07:13.160 --> 07:17.750
-Now this specific driver will take care of getting the connection.
-07:17.750 --> 07:21.800
-So if you change from MySQL to Postgres your code will not change.
-07:21.800 --> 07:23.180
-You are still calling get connection.
-07:23.180 --> 07:27.050
-Only internal implementation will change and that's okay.
-07:27.080 --> 07:30.020
-So you can use anything okay.
 07:32.210 --> 07:38.270
 So let's start very basic using JDBC without spring boot.
 07:38.300 --> 07:43.520
