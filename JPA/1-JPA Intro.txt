@@ -856,215 +856,217 @@ Application properties file
   I will show you the demo, but before going, proceed further.
   28:19.950 --> 28:21.330
   Is this clear?
+Advantages of JDBC with Springboot = Part 1
+  28:21.510 --> 28:24.210
+  Like how it is helping us resolving it?
+  28:24.210 --> 28:28.440
+  So here if you see driver class loading are we doing anywhere?
+  28:28.470 --> 28:32.550
+  Driver class loading no, we are not in the spring boot JDBC.
+  28:32.580 --> 28:37.710
+  We are not doing class.forname and the driver path we are not doing anywhere.
+  28:37.710 --> 28:39.210
+  This is just a business logic class.
+  28:39.210 --> 28:44.760
+  So here if you see we are just directly using repository and Application.properties.
+  28:44.760 --> 28:46.950
+  We are not doing driver class.
+  28:46.950 --> 28:53.730
+  So JDBC template loaded at the time of application startup in driver manager class.
+  28:53.730 --> 28:55.080
+  Let's see that now.
+  28:56.160 --> 29:00.330
+  So now let's see the driver manager class.
+  29:00.330 --> 29:02.200
+  And I'm just starting an application.
+  29:02.200 --> 29:08.770
+  So driver manager, what we are saying is JDBC loaded at the time of application startup itself.
+  29:08.800 --> 29:12.100
+  So now I am starting the application in a debug mode.
+  29:12.520 --> 29:19.690
+  Now here if you see during application startup itself it is doing class.forname for us.
+  29:19.960 --> 29:21.910
+  Earlier we used to do in the plain JDBC.
+  29:21.940 --> 29:23.170
+  Now it is doing it.
+  29:23.260 --> 29:23.860
+  Okay.
+  29:23.890 --> 29:29.350
+  And here if you see that it has the data which we provided all dot to dot driver in the application
+  29:29.350 --> 29:30.460
+  dot properties.
+  29:30.760 --> 29:31.300
+  Okay.
+  29:31.330 --> 29:36.940
+  So one thing is driver class loading is now get abstracted from us JDBC template.
+  29:36.940 --> 29:40.420
+  Does it database connection making.
+  29:40.870 --> 29:45.670
+  Now you can ask in this when is the database connection happening happen.
+  29:45.700 --> 29:54.280
+  Whenever we run any particular query through JDBC template like like dot update dot query.
+  29:54.280 --> 29:59.530
+  At that point of time it tried to create a connection.
+  30:00.150 --> 30:00.690
+  Okay.
+  30:00.690 --> 30:06.390
+  So connection making from the either it has to make a new connection, it will create that time or it
+  30:06.390 --> 30:07.920
+  has to take from the pool.
+  30:07.920 --> 30:09.660
+  It will do that time itself.
+  30:09.690 --> 30:13.560
+  Now let's say that insert user I am trying to insert.
+  30:13.560 --> 30:21.210
+  So if you go inside this update, update this method it do execute.
+  30:21.240 --> 30:29.490
+  If you go inside this it do this data source utils get connection okay.
+  30:29.490 --> 30:37.230
+  So if you go inside this it will actually handles like the connection making do get connection from
+  30:37.230 --> 30:41.100
+  the data source okay exception handling.
+  30:41.100 --> 30:42.240
+  So exception.
+  30:42.240 --> 30:46.530
+  In plain JDBC we get very abstracted SQL exception.
+  30:46.890 --> 30:54.780
+  But in JDBC template we get granule error like duplicate key exception query timeout exception.
+  30:54.840 --> 31:01.790
+  So if you go this package org dot spring framework dot Dao package.
+  31:01.790 --> 31:04.460
+  So let's see that package here.
+  31:04.610 --> 31:07.160
+  If we see this package Dao.
+  31:07.790 --> 31:10.550
+  Org dot spring framework dot Dao package.
+  31:10.580 --> 31:12.590
+  These are the different type of exception.
+  31:12.590 --> 31:15.200
+  It provide cannot acquire lock exception.
+  31:15.230 --> 31:17.270
+  Data access exception.
+  31:17.270 --> 31:22.250
+  Data integrity violation exception duplicate key exception.
+  31:22.370 --> 31:24.260
+  Empty results exception.
+  31:24.260 --> 31:28.700
+  So there are different type of exceptions can come.
+  31:28.790 --> 31:30.530
+  Query timeout exception.
+  31:30.530 --> 31:35.420
+  So all this JDBC template do mapping internally from.
+  31:35.420 --> 31:41.600
+  Instead of just throwing SQL exception it throws a granular level of exception and through spring boot.
+  31:41.600 --> 31:47.810
+  In the previous video, I have already told you how you can handle a exception of any particular type.
+  31:47.960 --> 31:55.790
+  Okay, but you get some granular level exception and uh, you can handle it properly.
+  31:55.820 --> 31:57.660
+  It is not very like abstraction.
+  31:57.660 --> 31:59.070
+  Some SQL exception happen.
+  31:59.100 --> 32:00.360
+  What we don't know.
+Advantages of JDBC with Springboot = Part 2
+  32:02.400 --> 32:04.800
+  Closing of the DB connection and other resources.
+  32:04.800 --> 32:11.340
+  Now again you can ask me like in the spring boot JDBC we are just using JDBC JDBC template to execute
+  32:11.340 --> 32:14.370
+  the query okay plain query update.
+  32:14.370 --> 32:16.140
+  But where are we closing it.
+  32:16.170 --> 32:22.200
+  Again that is handled by your JDBC template itself.
+  32:22.200 --> 32:29.730
+  Now let's go to uh here let's say JDBC template dot update I am trying to insert right.
+  32:29.760 --> 32:35.190
+  If you go inside this in the finally block it.
+  32:35.190 --> 32:38.910
+  Do clean up parameters okay okay.
+  32:38.940 --> 32:45.660
+  So here it has a proper knowledge that whether I have to close the connection or whether I have to put
+  32:45.660 --> 32:48.510
+  it back into the pool okay.
+  32:48.540 --> 32:50.100
+  So you don't have to handle it.
+  32:50.100 --> 32:53.010
+  That is also handled by your JDBC itself.
+  32:53.640 --> 32:57.890
+  And the last thing is, hey, what about the DB connection pool?
+  32:58.040 --> 32:58.730
+  Still here?
+  32:58.730 --> 33:04.340
+  I do not see where we are writing the connection pool logic.
+  33:04.430 --> 33:05.900
+  Like in a connection pool.
+  33:05.900 --> 33:07.670
+  I have only this, uh.
+  33:09.830 --> 33:17.270
+  Five JDBC connection pool and only this five would be used.
+  33:17.900 --> 33:19.190
+  Who is doing that?
+  33:19.580 --> 33:27.620
+  So here, if you see when you have defined this application dot properties in data source okay.
+  33:27.980 --> 33:38.240
+  So means you are relying on spring boot that hey you use the data source, the data source object.
+  33:38.240 --> 33:38.780
+  Right?
+  33:38.870 --> 33:42.230
+  It helps you to connect to the database and helps to manage connection pool.
+  33:42.260 --> 33:46.220
+  But here we just provided like what is the driver?
+  33:46.220 --> 33:51.770
+  What is the URL username password we didn't tell like what data source we want to use.
+  33:52.120 --> 33:57.220
+  There are different data sources which we can use, but here we haven't told it so.
+  33:57.250 --> 33:58.270
+  Spring boot use.
+  33:58.300 --> 33:59.470
+  By default.
+  34:00.940 --> 34:07.690
+  Hikari Data Source and Hikari Data Source also provide Hikari connection pool.
+  34:08.410 --> 34:16.600
+  So now here if you see Hikari provide default JDBC connection pool that is Hikari TCP connection pool
+  34:16.600 --> 34:19.510
+  with minimum and maximum pool size of ten.
+  34:20.590 --> 34:24.100
+  And we can change the configuration in Application.properties.
+  34:24.100 --> 34:28.120
+  So in Application.properties you can put like spring dot data source.
+  34:28.150 --> 34:33.310
+  Hikari maximum pool is ten and the minimum is five by default is 1010.
+  34:33.880 --> 34:40.180
+  So here if you see we can check like how it is making a connection.
+  34:40.180 --> 34:45.250
+  So uh, Hikari data source whenever it will do.
+  34:45.280 --> 34:46.450
+  Get connection.
+  34:46.750 --> 34:48.310
+  Let's see that.
+  34:50.460 --> 34:52.410
+  Okay, so Hikari data source.
+  34:52.440 --> 34:53.250
+  It came.
+  34:54.600 --> 35:00.300
+  So here, if you see Hikari pool, it is using connection timeout.
+  35:00.330 --> 35:01.290
+  Idle timeout.
+  35:01.290 --> 35:01.890
+  Maximum.
+  35:01.890 --> 35:03.060
+  Maximum pool size ten.
+  35:03.060 --> 35:04.380
+  Minimum is ten.
+  35:04.950 --> 35:07.320
+  Okay, so spring boot.
+  35:07.350 --> 35:11.700
+  Actually this Hikari is actually very efficient and it's very fast actually.
+  35:11.700 --> 35:18.870
+  And no matter if you are using SQL, Postgres or S2, Spring boot by default uses this only, this data
+  35:18.900 --> 35:19.710
+  source only.
 
-28:21.510 --> 28:24.210
-Like how it is helping us resolving it?
-28:24.210 --> 28:28.440
-So here if you see driver class loading are we doing anywhere?
-28:28.470 --> 28:32.550
-Driver class loading no, we are not in the spring boot JDBC.
-28:32.580 --> 28:37.710
-We are not doing class.forname and the driver path we are not doing anywhere.
-28:37.710 --> 28:39.210
-This is just a business logic class.
-28:39.210 --> 28:44.760
-So here if you see we are just directly using repository and Application.properties.
-28:44.760 --> 28:46.950
-We are not doing driver class.
-28:46.950 --> 28:53.730
-So JDBC template loaded at the time of application startup in driver manager class.
-28:53.730 --> 28:55.080
-Let's see that now.
-28:56.160 --> 29:00.330
-So now let's see the driver manager class.
-29:00.330 --> 29:02.200
-And I'm just starting an application.
-29:02.200 --> 29:08.770
-So driver manager, what we are saying is JDBC loaded at the time of application startup itself.
-29:08.800 --> 29:12.100
-So now I am starting the application in a debug mode.
-29:12.520 --> 29:19.690
-Now here if you see during application startup itself it is doing class.forname for us.
-29:19.960 --> 29:21.910
-Earlier we used to do in the plain JDBC.
-29:21.940 --> 29:23.170
-Now it is doing it.
-29:23.260 --> 29:23.860
-Okay.
-29:23.890 --> 29:29.350
-And here if you see that it has the data which we provided all dot to dot driver in the application
-29:29.350 --> 29:30.460
-dot properties.
-29:30.760 --> 29:31.300
-Okay.
-29:31.330 --> 29:36.940
-So one thing is driver class loading is now get abstracted from us JDBC template.
-29:36.940 --> 29:40.420
-Does it database connection making.
-29:40.870 --> 29:45.670
-Now you can ask in this when is the database connection happening happen.
-29:45.700 --> 29:54.280
-Whenever we run any particular query through JDBC template like like dot update dot query.
-29:54.280 --> 29:59.530
-At that point of time it tried to create a connection.
-30:00.150 --> 30:00.690
-Okay.
-30:00.690 --> 30:06.390
-So connection making from the either it has to make a new connection, it will create that time or it
-30:06.390 --> 30:07.920
-has to take from the pool.
-30:07.920 --> 30:09.660
-It will do that time itself.
-30:09.690 --> 30:13.560
-Now let's say that insert user I am trying to insert.
-30:13.560 --> 30:21.210
-So if you go inside this update, update this method it do execute.
-30:21.240 --> 30:29.490
-If you go inside this it do this data source utils get connection okay.
-30:29.490 --> 30:37.230
-So if you go inside this it will actually handles like the connection making do get connection from
-30:37.230 --> 30:41.100
-the data source okay exception handling.
-30:41.100 --> 30:42.240
-So exception.
-30:42.240 --> 30:46.530
-In plain JDBC we get very abstracted SQL exception.
-30:46.890 --> 30:54.780
-But in JDBC template we get granule error like duplicate key exception query timeout exception.
-30:54.840 --> 31:01.790
-So if you go this package org dot spring framework dot Dao package.
-31:01.790 --> 31:04.460
-So let's see that package here.
-31:04.610 --> 31:07.160
-If we see this package Dao.
-31:07.790 --> 31:10.550
-Org dot spring framework dot Dao package.
-31:10.580 --> 31:12.590
-These are the different type of exception.
-31:12.590 --> 31:15.200
-It provide cannot acquire lock exception.
-31:15.230 --> 31:17.270
-Data access exception.
-31:17.270 --> 31:22.250
-Data integrity violation exception duplicate key exception.
-31:22.370 --> 31:24.260
-Empty results exception.
-31:24.260 --> 31:28.700
-So there are different type of exceptions can come.
-31:28.790 --> 31:30.530
-Query timeout exception.
-31:30.530 --> 31:35.420
-So all this JDBC template do mapping internally from.
-31:35.420 --> 31:41.600
-Instead of just throwing SQL exception it throws a granular level of exception and through spring boot.
-31:41.600 --> 31:47.810
-In the previous video, I have already told you how you can handle a exception of any particular type.
-31:47.960 --> 31:55.790
-Okay, but you get some granular level exception and uh, you can handle it properly.
-31:55.820 --> 31:57.660
-It is not very like abstraction.
-31:57.660 --> 31:59.070
-Some SQL exception happen.
-31:59.100 --> 32:00.360
-What we don't know.
-32:02.400 --> 32:04.800
-Closing of the DB connection and other resources.
-32:04.800 --> 32:11.340
-Now again you can ask me like in the spring boot JDBC we are just using JDBC JDBC template to execute
-32:11.340 --> 32:14.370
-the query okay plain query update.
-32:14.370 --> 32:16.140
-But where are we closing it.
-32:16.170 --> 32:22.200
-Again that is handled by your JDBC template itself.
-32:22.200 --> 32:29.730
-Now let's go to uh here let's say JDBC template dot update I am trying to insert right.
-32:29.760 --> 32:35.190
-If you go inside this in the finally block it.
-32:35.190 --> 32:38.910
-Do clean up parameters okay okay.
-32:38.940 --> 32:45.660
-So here it has a proper knowledge that whether I have to close the connection or whether I have to put
-32:45.660 --> 32:48.510
-it back into the pool okay.
-32:48.540 --> 32:50.100
-So you don't have to handle it.
-32:50.100 --> 32:53.010
-That is also handled by your JDBC itself.
-32:53.640 --> 32:57.890
-And the last thing is, hey, what about the DB connection pool?
-32:58.040 --> 32:58.730
-Still here?
-32:58.730 --> 33:04.340
-I do not see where we are writing the connection pool logic.
-33:04.430 --> 33:05.900
-Like in a connection pool.
-33:05.900 --> 33:07.670
-I have only this, uh.
-33:09.830 --> 33:17.270
-Five JDBC connection pool and only this five would be used.
-33:17.900 --> 33:19.190
-Who is doing that?
-33:19.580 --> 33:27.620
-So here, if you see when you have defined this application dot properties in data source okay.
-33:27.980 --> 33:38.240
-So means you are relying on spring boot that hey you use the data source, the data source object.
-33:38.240 --> 33:38.780
-Right?
-33:38.870 --> 33:42.230
-It helps you to connect to the database and helps to manage connection pool.
-33:42.260 --> 33:46.220
-But here we just provided like what is the driver?
-33:46.220 --> 33:51.770
-What is the URL username password we didn't tell like what data source we want to use.
-33:52.120 --> 33:57.220
-There are different data sources which we can use, but here we haven't told it so.
-33:57.250 --> 33:58.270
-Spring boot use.
-33:58.300 --> 33:59.470
-By default.
-34:00.940 --> 34:07.690
-Hikari Data Source and Hikari Data Source also provide Hikari connection pool.
-34:08.410 --> 34:16.600
-So now here if you see Hikari provide default JDBC connection pool that is Hikari TCP connection pool
-34:16.600 --> 34:19.510
-with minimum and maximum pool size of ten.
-34:20.590 --> 34:24.100
-And we can change the configuration in Application.properties.
-34:24.100 --> 34:28.120
-So in Application.properties you can put like spring dot data source.
-34:28.150 --> 34:33.310
-Hikari maximum pool is ten and the minimum is five by default is 1010.
-34:33.880 --> 34:40.180
-So here if you see we can check like how it is making a connection.
-34:40.180 --> 34:45.250
-So uh, Hikari data source whenever it will do.
-34:45.280 --> 34:46.450
-Get connection.
-34:46.750 --> 34:48.310
-Let's see that.
-34:50.460 --> 34:52.410
-Okay, so Hikari data source.
-34:52.440 --> 34:53.250
-It came.
-34:54.600 --> 35:00.300
-So here, if you see Hikari pool, it is using connection timeout.
-35:00.330 --> 35:01.290
-Idle timeout.
-35:01.290 --> 35:01.890
-Maximum.
-35:01.890 --> 35:03.060
-Maximum pool size ten.
-35:03.060 --> 35:04.380
-Minimum is ten.
-35:04.950 --> 35:07.320
-Okay, so spring boot.
-35:07.350 --> 35:11.700
-Actually this Hikari is actually very efficient and it's very fast actually.
-35:11.700 --> 35:18.870
-And no matter if you are using SQL, Postgres or S2, Spring boot by default uses this only, this data
-35:18.900 --> 35:19.710
-source only.
 35:20.250 --> 35:26.460
 But if you want to use any other specific JDBC connection pool, you don't want to use Hikari.
 35:26.490 --> 35:30.150
