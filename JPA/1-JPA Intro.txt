@@ -1298,114 +1298,114 @@ JDBC Template = Frequently used methods = Query
   And ultimately it will return a list.
   42:43.790 --> 42:49.880
   It will just keep on adding into the result list and ultimately return this list of user.
+JDBC Template = Frequently used methods = Query for list, Query for Object
   42:51.560 --> 42:54.770
-
-The second flavor is query for list.
-42:55.010 --> 42:58.940
-Again, first parameter is a string and second is class.
-42:59.270 --> 43:06.770
-The purpose is to get single column of multiple rows single column of multiple rows.
-43:06.980 --> 43:09.980
-So here JDBC template dot query for list.
-43:10.280 --> 43:11.930
-Provide the query.
-43:12.440 --> 43:16.160
-Select user name from users.
-43:16.400 --> 43:23.150
-If there are total ten users, you will get user name for all the ten users only.
-43:23.150 --> 43:31.730
-So one column whenever you want to fetch the one specific column for multiple rows, then go ahead use
-43:31.730 --> 43:35.110
-this query for list okay.
-43:35.590 --> 43:37.750
-So the second parameter is class type.
-43:37.750 --> 43:42.370
-So this username is string dot class okay.
-43:42.400 --> 43:48.850
-So here if you see query for list and we can search for it here query for list.
-43:48.850 --> 43:50.980
-What it does get single column row mapper.
-43:50.980 --> 43:52.990
-So it is a single column.
-43:52.990 --> 43:57.850
-It's a mapping is based on single column like a single type string.
-43:59.170 --> 44:02.500
-Then the third query could be like query for object.
-44:02.500 --> 44:09.040
-The first is your SQL query, then arguments and the required type get single row.
-44:09.070 --> 44:11.440
-This is used for fetching a single row.
-44:11.920 --> 44:14.890
-So JDBC template that query for object.
-44:15.250 --> 44:17.200
-The first is your SQL query.
-44:17.470 --> 44:20.530
-Select star from user where user id equals to.
-44:20.560 --> 44:21.850
-It could be dynamic.
-44:22.270 --> 44:27.370
-So that's where your second parameter comes into the picture object array.
-44:27.400 --> 44:31.490
-So I'm creating an object array only one right in the area.
-44:31.490 --> 44:33.860
-So I'm putting like it should be replaced with one.
-44:34.190 --> 44:39.380
-If there are more question mark you can just put into arrays, it will sequentially it will update the
-44:39.380 --> 44:40.220
-question mark.
-44:40.430 --> 44:43.670
-So it will change user ID equals to one with this.
-44:44.030 --> 44:45.770
-And the third one is required.
-44:45.800 --> 44:50.510
-Type is the object in which this row has to be mapped to.
-44:50.540 --> 44:52.640
-So I want to map to the user.
-44:52.640 --> 44:54.140
-So internally it will do mapping.
-44:54.170 --> 45:00.890
-You make use of getters and setters of user and it will map this each column of this row into this user
-45:00.920 --> 45:01.610
-object.
-45:03.290 --> 45:12.770
-And the last is like query for object SQL and required type get only single value.
-45:12.770 --> 45:17.060
-It is used for get only single value like JDBC template.
-45:17.060 --> 45:21.740
-Get query for object select count as trace from user.
-45:21.770 --> 45:23.990
-You do integer dot class.
-45:24.170 --> 45:27.560
-So now here if you see it, return only one single value.
-45:27.890 --> 45:35.020
-So if you have any requirement where you get only one single value, then you can use this get for object.
-45:35.050 --> 45:43.780
-So these are generally different flavors which JDBC template provides which you can do to insert, update
-45:43.780 --> 45:45.520
-delete or fetch the data.
-45:46.540 --> 45:47.380
-Okay.
-45:48.190 --> 45:59.020
-So but with this I hope that at least this JDBC and this driver part should be properly clear where
-45:59.020 --> 46:00.640
-this exactly comes into the picture.
-46:00.640 --> 46:02.140
-How you can connect to the DB.
-46:03.310 --> 46:05.740
-What all problems are there in the plain JDBC.
-46:05.770 --> 46:13.300
-What spring boot JDBC resolves is and how it resolves it, because then only it makes sense to understand
-46:13.330 --> 46:15.550
-ORM framework and JPA and hibernate.
-46:16.120 --> 46:16.510
-Okay.
-46:16.540 --> 46:19.990
-So next we will start with the ORM object relational mapping.
-46:20.080 --> 46:22.630
-But we'll see you in the part two.
-46:22.660 --> 46:26.020
-But if the part one if you have any doubts let's discuss in the comment section.
-46:26.020 --> 46:26.650
-Thank you.
-46:26.650 --> 46:27.130
-Bye.
+  The second flavor is query for list.
+  42:55.010 --> 42:58.940
+  Again, first parameter is a string and second is class.
+  42:59.270 --> 43:06.770
+  The purpose is to get single column of multiple rows single column of multiple rows.
+  43:06.980 --> 43:09.980
+  So here JDBC template dot query for list.
+  43:10.280 --> 43:11.930
+  Provide the query.
+  43:12.440 --> 43:16.160
+  Select user name from users.
+  43:16.400 --> 43:23.150
+  If there are total ten users, you will get user name for all the ten users only.
+  43:23.150 --> 43:31.730
+  So one column whenever you want to fetch the one specific column for multiple rows, then go ahead use
+  43:31.730 --> 43:35.110
+  this query for list okay.
+  43:35.590 --> 43:37.750
+  So the second parameter is class type.
+  43:37.750 --> 43:42.370
+  So this username is string dot class okay.
+  43:42.400 --> 43:48.850
+  So here if you see query for list and we can search for it here query for list.
+  43:48.850 --> 43:50.980
+  What it does get single column row mapper.
+  43:50.980 --> 43:52.990
+  So it is a single column.
+  43:52.990 --> 43:57.850
+  It's a mapping is based on single column like a single type string.
+  43:59.170 --> 44:02.500
+  Then the third query could be like query for object.
+  44:02.500 --> 44:09.040
+  The first is your SQL query, then arguments and the required type get single row.
+  44:09.070 --> 44:11.440
+  This is used for fetching a single row.
+  44:11.920 --> 44:14.890
+  So JDBC template that query for object.
+  44:15.250 --> 44:17.200
+  The first is your SQL query.
+  44:17.470 --> 44:20.530
+  Select star from user where user id equals to.
+  44:20.560 --> 44:21.850
+  It could be dynamic.
+  44:22.270 --> 44:27.370
+  So that's where your second parameter comes into the picture object array.
+  44:27.400 --> 44:31.490
+  So I'm creating an object array only one right in the area.
+  44:31.490 --> 44:33.860
+  So I'm putting like it should be replaced with one.
+  44:34.190 --> 44:39.380
+  If there are more question mark you can just put into arrays, it will sequentially it will update the
+  44:39.380 --> 44:40.220
+  question mark.
+  44:40.430 --> 44:43.670
+  So it will change user ID equals to one with this.
+  44:44.030 --> 44:45.770
+  And the third one is required.
+  44:45.800 --> 44:50.510
+  Type is the object in which this row has to be mapped to.
+  44:50.540 --> 44:52.640
+  So I want to map to the user.
+  44:52.640 --> 44:54.140
+  So internally it will do mapping.
+  44:54.170 --> 45:00.890
+  You make use of getters and setters of user and it will map this each column of this row into this user
+  45:00.920 --> 45:01.610
+  object.
+  45:03.290 --> 45:12.770
+  And the last is like query for object SQL and required type get only single value.
+  45:12.770 --> 45:17.060
+  It is used for get only single value like JDBC template.
+  45:17.060 --> 45:21.740
+  Get query for object select count as trace from user.
+  45:21.770 --> 45:23.990
+  You do integer dot class.
+  45:24.170 --> 45:27.560
+  So now here if you see it, return only one single value.
+  45:27.890 --> 45:35.020
+  So if you have any requirement where you get only one single value, then you can use this get for object.
+  45:35.050 --> 45:43.780
+  So these are generally different flavors which JDBC template provides which you can do to insert, update
+  45:43.780 --> 45:45.520
+  delete or fetch the data.
+  45:46.540 --> 45:47.380
+  Okay.
+  45:48.190 --> 45:59.020
+  So but with this I hope that at least this JDBC and this driver part should be properly clear where
+  45:59.020 --> 46:00.640
+  this exactly comes into the picture.
+  46:00.640 --> 46:02.140
+  How you can connect to the DB.
+  46:03.310 --> 46:05.740
+  What all problems are there in the plain JDBC.
+  46:05.770 --> 46:13.300
+  What spring boot JDBC resolves is and how it resolves it, because then only it makes sense to understand
+  46:13.330 --> 46:15.550
+  ORM framework and JPA and hibernate.
+  46:16.120 --> 46:16.510
+  Okay.
+  46:16.540 --> 46:19.990
+  So next we will start with the ORM object relational mapping.
+  46:20.080 --> 46:22.630
+  But we'll see you in the part two.
+  46:22.660 --> 46:26.020
+  But if the part one if you have any doubts let's discuss in the comment section.
+  46:26.020 --> 46:26.650
+  Thank you.
+  46:26.650 --> 46:27.130
+  Bye.
