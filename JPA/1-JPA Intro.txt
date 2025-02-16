@@ -749,23 +749,24 @@ JDBC with Spring Boot
   Now here I am just iterating over the result set.
   24:28.000 --> 24:31.900
   I will go later into deep what I am doing it.
+Spring Boot JDBC Vs Plain JDBC
+  24:32.920 --> 24:38.110
+  Now the difference you might be seeing that I am not creating DB connection here.
+  24:38.950 --> 24:39.400
+  Okay.
+  24:39.430 --> 24:41.530
+  I am not written any.
+  24:41.530 --> 24:46.690
+  Finally block where I am closing the DB connection or closing the prepared statement.
+  24:46.690 --> 24:47.830
+  Anything nothing.
+  24:48.340 --> 24:54.760
+  All I am using is just the JDBC template execute just for executing the plain query.
+  24:55.270 --> 25:01.090
+  There is something like update where for more complex queries where you have to dynamically fill the
+  25:01.090 --> 25:08.140
+  values and it also provide for read like dot query where which is used for fetching the data.
 
-24:32.920 --> 24:38.110
-Now the difference you might be seeing that I am not creating DB connection here.
-24:38.950 --> 24:39.400
-Okay.
-24:39.430 --> 24:41.530
-I am not written any.
-24:41.530 --> 24:46.690
-Finally block where I am closing the DB connection or closing the prepared statement.
-24:46.690 --> 24:47.830
-Anything nothing.
-24:48.340 --> 24:54.760
-All I am using is just the JDBC template execute just for executing the plain query.
-24:55.270 --> 25:01.090
-There is something like update where for more complex queries where you have to dynamically fill the
-25:01.090 --> 25:08.140
-values and it also provide for read like dot query where which is used for fetching the data.
 25:09.720 --> 25:13.560
 So this is your second class which you have to create.
 25:13.560 --> 25:22.110
