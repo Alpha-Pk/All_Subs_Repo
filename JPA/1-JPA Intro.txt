@@ -230,119 +230,120 @@ JDBC Overview
   Only internal implementation will change and that's okay.
   07:27.080 --> 07:30.020
   So you can use anything okay.
+JDBC without Springboot - getConnection
+  07:32.210 --> 07:38.270
+  So let's start very basic using JDBC without spring boot.
+  07:38.300 --> 07:43.520
+  Let's say that if you are not using spring boot what how you would make a connection.
+  07:43.520 --> 07:48.130
+  What are the challenges what that spring boot resolves, actually.
+  07:48.130 --> 07:51.730
+  And once we know that, then ultimately we move to JPA.
+  07:53.050 --> 07:55.210
+  So see this class first.
+  07:55.210 --> 08:04.510
+  So very basic example I have created one public class database connection as the class name.
+  08:04.510 --> 08:08.260
+  This is used to create a connection database connection.
+  08:08.260 --> 08:12.700
+  So I have created one method called get connection okay.
+  08:12.730 --> 08:16.090
+  And it's returning me the connection object.
+  08:16.870 --> 08:24.190
+  So now here if you see that the first step in getting a connection is to load the driver is to load
+  08:24.190 --> 08:25.480
+  the driver into the JVM.
+  08:25.480 --> 08:32.320
+  So when you do class dot four for name and you provide the driver, uh, this is the class.
+  08:32.350 --> 08:32.710
+  Okay.
+  08:32.740 --> 08:36.430
+  So I am using S two, this one in memory.
+  08:36.430 --> 08:41.740
+  I don't want to install MySQL and start its server for testing.
+  08:41.740 --> 08:43.320
+  We can always use s two S2.
+  08:43.350 --> 08:45.300
+  And I told you that doesn't matter.
+  08:45.330 --> 08:51.030
+  Like your code will not change at all either you use MySQL, Postgres or S2, right?
+  08:51.060 --> 08:53.880
+  You are just calling APIs, JDBC APIs.
+  08:54.390 --> 08:56.130
+  So no matter what.
+  08:56.160 --> 08:58.530
+  First step is you have to load the driver.
+  08:58.530 --> 08:59.730
+  So I am using S2.
+  08:59.760 --> 09:00.690
+  So S2 driver.
+  09:00.690 --> 09:04.890
+  If you are using MySQL you have to load the MySQL driver.
+  09:04.890 --> 09:06.570
+  So this is the first step.
+  09:06.930 --> 09:13.410
+  Now once the driver is loaded into the JVM the second step is to establish a connection with DB.
+  09:13.770 --> 09:18.300
+  Okay so here if I am using there is a class called driver manager.
+  09:18.570 --> 09:21.180
+  And you do dot get connection.
+  09:21.240 --> 09:23.370
+  So you pass the URL.
+  09:23.370 --> 09:27.480
+  So now here if you see this URL we are using JDBC.
+  09:27.810 --> 09:28.770
+  Yes.
+  09:28.980 --> 09:31.470
+  What is the db type.
+  09:31.470 --> 09:33.960
+  We are using S2 not MySQL, not Postgres.
+  09:33.960 --> 09:35.160
+  I am using s2.
+  09:35.760 --> 09:38.850
+  Even the S2 has two variants like in-memory.
+  09:38.880 --> 09:41.990
+  In-memory is like once till your application is running.
+  09:41.990 --> 09:43.220
+  Data is there in the DB.
+  09:43.670 --> 09:47.930
+  So as soon as your application shut down, data is also gone.
+  09:47.930 --> 09:49.550
+  So it's a transient data.
+  09:49.550 --> 09:53.210
+  So I am using memory in memory like till my application is up.
+  09:53.210 --> 09:53.990
+  Data is there.
+  09:54.020 --> 09:57.830
+  As soon as my application is shut down uh the data will be lost.
+  09:57.860 --> 10:02.510
+  There is another variant that you can even change it to that to persist the data.
+  10:02.540 --> 10:05.570
+  Even your application, uh, shut down also.
+  10:05.600 --> 10:06.020
+  So.
+  10:06.020 --> 10:08.720
+  But I am using the transient flavor of it.
+  10:08.720 --> 10:11.810
+  And this is the DB name which I want to create.
+  10:11.810 --> 10:13.580
+  So I am creating a user db.
+  10:13.940 --> 10:19.310
+  So when I do get connection and give the url, if this db is not there, it will create.
+  10:19.310 --> 10:24.380
+  If it is already there, it will do a connection for that one okay.
+  10:24.410 --> 10:26.120
+  And username and password.
+  10:26.120 --> 10:33.440
+  So default username for s2 is SC which is I think system administrator and password is nothing.
+  10:33.560 --> 10:40.020
+  So you need this to get a connection of your database Okay.
+  10:40.020 --> 10:42.540
+  So first is loader driver.
+  10:42.540 --> 10:44.700
+  Second is establish a connection.
+  10:44.760 --> 10:50.370
+  So this is two things are present into my database connection class.
 
-07:32.210 --> 07:38.270
-So let's start very basic using JDBC without spring boot.
-07:38.300 --> 07:43.520
-Let's say that if you are not using spring boot what how you would make a connection.
-07:43.520 --> 07:48.130
-What are the challenges what that spring boot resolves, actually.
-07:48.130 --> 07:51.730
-And once we know that, then ultimately we move to JPA.
-07:53.050 --> 07:55.210
-So see this class first.
-07:55.210 --> 08:04.510
-So very basic example I have created one public class database connection as the class name.
-08:04.510 --> 08:08.260
-This is used to create a connection database connection.
-08:08.260 --> 08:12.700
-So I have created one method called get connection okay.
-08:12.730 --> 08:16.090
-And it's returning me the connection object.
-08:16.870 --> 08:24.190
-So now here if you see that the first step in getting a connection is to load the driver is to load
-08:24.190 --> 08:25.480
-the driver into the JVM.
-08:25.480 --> 08:32.320
-So when you do class dot four for name and you provide the driver, uh, this is the class.
-08:32.350 --> 08:32.710
-Okay.
-08:32.740 --> 08:36.430
-So I am using S two, this one in memory.
-08:36.430 --> 08:41.740
-I don't want to install MySQL and start its server for testing.
-08:41.740 --> 08:43.320
-We can always use s two S2.
-08:43.350 --> 08:45.300
-And I told you that doesn't matter.
-08:45.330 --> 08:51.030
-Like your code will not change at all either you use MySQL, Postgres or S2, right?
-08:51.060 --> 08:53.880
-You are just calling APIs, JDBC APIs.
-08:54.390 --> 08:56.130
-So no matter what.
-08:56.160 --> 08:58.530
-First step is you have to load the driver.
-08:58.530 --> 08:59.730
-So I am using S2.
-08:59.760 --> 09:00.690
-So S2 driver.
-09:00.690 --> 09:04.890
-If you are using MySQL you have to load the MySQL driver.
-09:04.890 --> 09:06.570
-So this is the first step.
-09:06.930 --> 09:13.410
-Now once the driver is loaded into the JVM the second step is to establish a connection with DB.
-09:13.770 --> 09:18.300
-Okay so here if I am using there is a class called driver manager.
-09:18.570 --> 09:21.180
-And you do dot get connection.
-09:21.240 --> 09:23.370
-So you pass the URL.
-09:23.370 --> 09:27.480
-So now here if you see this URL we are using JDBC.
-09:27.810 --> 09:28.770
-Yes.
-09:28.980 --> 09:31.470
-What is the db type.
-09:31.470 --> 09:33.960
-We are using S2 not MySQL, not Postgres.
-09:33.960 --> 09:35.160
-I am using s2.
-09:35.760 --> 09:38.850
-Even the S2 has two variants like in-memory.
-09:38.880 --> 09:41.990
-In-memory is like once till your application is running.
-09:41.990 --> 09:43.220
-Data is there in the DB.
-09:43.670 --> 09:47.930
-So as soon as your application shut down, data is also gone.
-09:47.930 --> 09:49.550
-So it's a transient data.
-09:49.550 --> 09:53.210
-So I am using memory in memory like till my application is up.
-09:53.210 --> 09:53.990
-Data is there.
-09:54.020 --> 09:57.830
-As soon as my application is shut down uh the data will be lost.
-09:57.860 --> 10:02.510
-There is another variant that you can even change it to that to persist the data.
-10:02.540 --> 10:05.570
-Even your application, uh, shut down also.
-10:05.600 --> 10:06.020
-So.
-10:06.020 --> 10:08.720
-But I am using the transient flavor of it.
-10:08.720 --> 10:11.810
-And this is the DB name which I want to create.
-10:11.810 --> 10:13.580
-So I am creating a user db.
-10:13.940 --> 10:19.310
-So when I do get connection and give the url, if this db is not there, it will create.
-10:19.310 --> 10:24.380
-If it is already there, it will do a connection for that one okay.
-10:24.410 --> 10:26.120
-And username and password.
-10:26.120 --> 10:33.440
-So default username for s2 is SC which is I think system administrator and password is nothing.
-10:33.560 --> 10:40.020
-So you need this to get a connection of your database Okay.
-10:40.020 --> 10:42.540
-So first is loader driver.
-10:42.540 --> 10:44.700
-Second is establish a connection.
-10:44.760 --> 10:50.370
-So this is two things are present into my database connection class.
 10:50.850 --> 10:56.400
 Now here if you see another class which I have written user to class.
 10:56.820 --> 10:57.450
