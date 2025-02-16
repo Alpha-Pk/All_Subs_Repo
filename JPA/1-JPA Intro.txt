@@ -567,85 +567,86 @@ Drawbacks of Plain JDBC
   But before I jump to spring boot JDBC.
   18:25.620 --> 18:26.580
   How it handles it.
+Demo of Plain JDBC
+  18:26.610 --> 18:27.750
+  Let's see that.
+  18:28.320 --> 18:31.500
+  So the plain JDBC the same thing.
+  18:31.620 --> 18:37.680
+  I have database connection class first class uh loader.
+  18:37.980 --> 18:39.270
+  We are loading it.
+  18:39.270 --> 18:41.910
+  And then we are establishing a DB connection.
+  18:42.510 --> 18:48.120
+  And in the user Dao we are creating a user table first.
+  18:49.620 --> 18:53.850
+  And then I have also have create user method and read user method.
+  18:54.300 --> 18:55.080
+  Okay.
+  18:55.080 --> 18:59.100
+  So every time I use it I handle the exception.
+  18:59.100 --> 19:03.540
+  And also in the finally block I close it properly.
+  19:03.540 --> 19:05.190
+  So I have just written the comment here.
+  19:05.190 --> 19:08.070
+  So just to that we have to close it here.
+  19:08.340 --> 19:10.710
+  So let's start the server.
+  19:12.210 --> 19:12.600
+  Okay.
+  19:12.630 --> 19:19.320
+  And here I have a user controller which is like plain JDBC is like get user call plain JDBC.
+  19:19.920 --> 19:24.130
+  So here I am using get getuser this I am hitting this get API.
+  19:24.160 --> 19:24.910
+  Okay.
+  19:25.330 --> 19:31.450
+  Uh, so this get API just for testing purpose, you can say that don't go with like why in the get why
+  19:31.450 --> 19:34.480
+  we are doing a create and this one.
+  19:34.480 --> 19:37.570
+  So this is just for testing purpose that my control comes here.
+  19:37.840 --> 19:40.570
+  So once the controls will come here.
+  19:40.570 --> 19:42.460
+  So let me put a debugger point.
+  19:43.480 --> 19:45.640
+  That means start in a debug mode.
+  19:46.990 --> 19:49.570
+  So here once the control comes here.
+  19:49.570 --> 19:53.470
+  So what happen is I am creating a user Dao object.
+  19:53.500 --> 19:56.950
+  Now I am creating two users x and y.
+  19:56.980 --> 19:59.470
+  So I am creating x and y.
+  19:59.470 --> 20:02.080
+  And then ultimately I am doing read user.
+  20:02.230 --> 20:04.960
+  So in the read user the same thing I told you, right?
+  20:04.990 --> 20:14.260
+  First, get an object of the connection and your query and you can use prepared query to run this execute
+  20:14.260 --> 20:17.500
+  query and you can iterate it to print it here.
+  20:17.500 --> 20:22.170
+  So I am Iterated it and return.
+  20:23.010 --> 20:24.510
+  So success is printed.
+  20:24.510 --> 20:26.310
+  And if you see the console log.
+  20:28.500 --> 20:30.000
+  The two rows got printed.
+  20:30.000 --> 20:33.180
+  This is the user ID which is auto incremented one and two.
+  20:33.210 --> 20:36.120
+  This is the user name and this is the age.
+  20:36.660 --> 20:37.170
+  Okay.
+  20:37.170 --> 20:39.090
+  So this is currently in memory.
 
-18:26.610 --> 18:27.750
-Let's see that.
-18:28.320 --> 18:31.500
-So the plain JDBC the same thing.
-18:31.620 --> 18:37.680
-I have database connection class first class uh loader.
-18:37.980 --> 18:39.270
-We are loading it.
-18:39.270 --> 18:41.910
-And then we are establishing a DB connection.
-18:42.510 --> 18:48.120
-And in the user Dao we are creating a user table first.
-18:49.620 --> 18:53.850
-And then I have also have create user method and read user method.
-18:54.300 --> 18:55.080
-Okay.
-18:55.080 --> 18:59.100
-So every time I use it I handle the exception.
-18:59.100 --> 19:03.540
-And also in the finally block I close it properly.
-19:03.540 --> 19:05.190
-So I have just written the comment here.
-19:05.190 --> 19:08.070
-So just to that we have to close it here.
-19:08.340 --> 19:10.710
-So let's start the server.
-19:12.210 --> 19:12.600
-Okay.
-19:12.630 --> 19:19.320
-And here I have a user controller which is like plain JDBC is like get user call plain JDBC.
-19:19.920 --> 19:24.130
-So here I am using get getuser this I am hitting this get API.
-19:24.160 --> 19:24.910
-Okay.
-19:25.330 --> 19:31.450
-Uh, so this get API just for testing purpose, you can say that don't go with like why in the get why
-19:31.450 --> 19:34.480
-we are doing a create and this one.
-19:34.480 --> 19:37.570
-So this is just for testing purpose that my control comes here.
-19:37.840 --> 19:40.570
-So once the controls will come here.
-19:40.570 --> 19:42.460
-So let me put a debugger point.
-19:43.480 --> 19:45.640
-That means start in a debug mode.
-19:46.990 --> 19:49.570
-So here once the control comes here.
-19:49.570 --> 19:53.470
-So what happen is I am creating a user Dao object.
-19:53.500 --> 19:56.950
-Now I am creating two users x and y.
-19:56.980 --> 19:59.470
-So I am creating x and y.
-19:59.470 --> 20:02.080
-And then ultimately I am doing read user.
-20:02.230 --> 20:04.960
-So in the read user the same thing I told you, right?
-20:04.990 --> 20:14.260
-First, get an object of the connection and your query and you can use prepared query to run this execute
-20:14.260 --> 20:17.500
-query and you can iterate it to print it here.
-20:17.500 --> 20:22.170
-So I am Iterated it and return.
-20:23.010 --> 20:24.510
-So success is printed.
-20:24.510 --> 20:26.310
-And if you see the console log.
-20:28.500 --> 20:30.000
-The two rows got printed.
-20:30.000 --> 20:33.180
-This is the user ID which is auto incremented one and two.
-20:33.210 --> 20:36.120
-This is the user name and this is the age.
-20:36.660 --> 20:37.170
-Okay.
-20:37.170 --> 20:39.090
-So this is currently in memory.
 20:39.120 --> 20:44.370
 Now spring boot helps to remove all this boiler code for us.
 20:46.380 --> 20:49.830
