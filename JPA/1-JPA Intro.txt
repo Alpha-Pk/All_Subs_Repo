@@ -343,145 +343,146 @@ JDBC without Springboot - getConnection
   Second is establish a connection.
   10:44.760 --> 10:50.370
   So this is two things are present into my database connection class.
-
-10:50.850 --> 10:56.400
-Now here if you see another class which I have written user to class.
-10:56.820 --> 10:57.450
-Okay.
-10:57.450 --> 11:05.790
-In this Dao the first method I have like creating a table, generally understanding is whenever you
-11:05.820 --> 11:10.560
-are running your application database is table is already present.
-11:10.560 --> 11:17.550
-But since we are just starting, I have also created one method where I am creating a table also.
-11:17.580 --> 11:19.560
-Okay, DB is already created here.
-11:19.560 --> 11:21.840
-If not present it will create a db user db.
-11:22.200 --> 11:25.710
-So inside this db it will create a table one method.
-11:25.740 --> 11:30.210
-Second method I have written create user okay.
-11:30.510 --> 11:34.200
-Third is I have written to read a user.
-11:34.200 --> 11:36.240
-So three methods I have written.
-11:36.240 --> 11:39.710
-So see what happening is like how you can do that.
-11:40.310 --> 11:47.870
-So in this one first thing, whenever you have to query, insert, update, delete, create anything.
-11:47.900 --> 11:51.410
-First thing you need is get a connection of a database.
-11:51.410 --> 11:55.040
-So it's creating a new database connection object.
-11:55.040 --> 12:01.400
-So it's getting an instance of this class and then calling the get connection method.
-12:01.400 --> 12:03.020
-It's calling this method.
-12:03.050 --> 12:05.930
-What this method does is it will load the driver.
-12:05.930 --> 12:13.730
-It will get one fresh connection of this database and provide this connection.
-12:14.120 --> 12:17.480
-Once you got the connection then you can run the query.
-12:17.480 --> 12:21.920
-So I have written one query create table users.
-12:21.920 --> 12:29.060
-So I am creating a users table only with two column three.
-12:29.060 --> 12:30.530
-Column one is user ID.
-12:32.570 --> 12:34.430
-Which is auto incremented.
-12:34.730 --> 12:38.800
-Another is username and the third one is age.
-12:40.570 --> 12:44.140
-Okay so this is the table I am creating.
-12:44.140 --> 12:48.280
-So here whatever the SQL query string you have created.
-12:48.370 --> 12:54.040
-Now you just with this statement you just execute update okay.
-12:54.040 --> 12:57.640
-So it will create your table.
-12:58.780 --> 13:03.940
-Also notice that there is if any exception comes, you have to handle the SQL exception.
-13:03.940 --> 13:07.540
-And in the final block you have to close the resources.
-13:07.540 --> 13:09.040
-You have to close the statement.
-13:09.040 --> 13:10.570
-You have to close the connection.
-13:12.130 --> 13:17.260
-Similarly create user whenever you have to create one user okay.
-13:17.290 --> 13:19.420
-The first step is get the connection.
-13:19.510 --> 13:23.740
-Create a new database connection instance and then call this method.
-13:23.920 --> 13:27.040
-It will give you one connection database connection.
-13:27.340 --> 13:35.100
-Then you write your SQL query which you want to insert into users username, age and user ID is auto
-13:35.130 --> 13:37.500
-incremented already, so no problem in that.
-13:37.530 --> 13:41.280
-So these two values I want to dynamically insert.
-13:41.280 --> 13:43.890
-So I can use prepared statement.
-13:44.340 --> 13:44.910
-Okay.
-13:45.240 --> 13:48.300
-So connection dot prepared statement.
-13:48.330 --> 13:50.520
-You provide this SQL query.
-13:50.550 --> 13:57.840
-And here these two dynamic values would be set the values like set string.
-13:57.870 --> 14:00.180
-First one is the string user name.
-14:00.510 --> 14:05.190
-So index one provide the user name whatever it is coming.
-14:06.060 --> 14:12.240
-The second uh the second question mark is that integer which is age.
-14:12.240 --> 14:17.280
-So I am doing set in index is two and the age whatever it is coming.
-14:17.280 --> 14:20.400
-And then simply prepared query execute update.
-14:20.400 --> 14:24.570
-So this will insert one row okay.
-14:24.600 --> 14:27.390
-And similarly you have to catch the SQL exception.
-14:27.390 --> 14:31.910
-And in the finally block you have to close the prepared query and the DB connection.
-14:33.410 --> 14:36.740
-If you see the third method, read query the read users.
-14:36.740 --> 14:38.390
-It is also exactly same.
-14:38.390 --> 14:40.790
-So I think now you are understanding the crux.
-14:40.790 --> 14:42.650
-You have to get the connection.
-14:42.680 --> 14:52.280
-Then you can use Preparedstatement and you can use this Preparedstatement uh, to run the SQL query.
-14:52.280 --> 14:55.310
-So I run the SQL query select asterisk from user.
-14:55.310 --> 14:57.170
-So this is the SQL query string.
-14:57.290 --> 15:01.640
-So connection dot preparedstatement I provided this SQL query.
-15:01.970 --> 15:03.710
-So there is no dynamic value.
-15:03.710 --> 15:05.810
-So I don't need to set anything.
-15:05.810 --> 15:08.750
-I just run prepared query execute query.
-15:09.590 --> 15:13.550
-When I run this execute query it will give me a result set.
-15:13.850 --> 15:16.940
-Result set is nothing but a list of rows.
-15:16.940 --> 15:23.000
-So I am iterating and just concatenating just and printing it.
-15:23.870 --> 15:28.850
-Okay, so you have to handle the SQL exception and finally you have to close it.
-15:28.950 --> 15:29.910
-Resources.
+JDBC example - UserDAO Class
+  10:50.850 --> 10:56.400
+  Now here if you see another class which I have written user to class.
+  10:56.820 --> 10:57.450
+  Okay.
+  10:57.450 --> 11:05.790
+  In this Dao the first method I have like creating a table, generally understanding is whenever you
+  11:05.820 --> 11:10.560
+  are running your application database is table is already present.
+  11:10.560 --> 11:17.550
+  But since we are just starting, I have also created one method where I am creating a table also.
+  11:17.580 --> 11:19.560
+  Okay, DB is already created here.
+  11:19.560 --> 11:21.840
+  If not present it will create a db user db.
+  11:22.200 --> 11:25.710
+  So inside this db it will create a table one method.
+  11:25.740 --> 11:30.210
+  Second method I have written create user okay.
+  11:30.510 --> 11:34.200
+  Third is I have written to read a user.
+  11:34.200 --> 11:36.240
+  So three methods I have written.
+  11:36.240 --> 11:39.710
+  So see what happening is like how you can do that.
+  11:40.310 --> 11:47.870
+  So in this one first thing, whenever you have to query, insert, update, delete, create anything.
+  11:47.900 --> 11:51.410
+  First thing you need is get a connection of a database.
+  11:51.410 --> 11:55.040
+  So it's creating a new database connection object.
+  11:55.040 --> 12:01.400
+  So it's getting an instance of this class and then calling the get connection method.
+  12:01.400 --> 12:03.020
+  It's calling this method.
+  12:03.050 --> 12:05.930
+  What this method does is it will load the driver.
+  12:05.930 --> 12:13.730
+  It will get one fresh connection of this database and provide this connection.
+  12:14.120 --> 12:17.480
+  Once you got the connection then you can run the query.
+  12:17.480 --> 12:21.920
+  So I have written one query create table users.
+  12:21.920 --> 12:29.060
+  So I am creating a users table only with two column three.
+  12:29.060 --> 12:30.530
+  Column one is user ID.
+  12:32.570 --> 12:34.430
+  Which is auto incremented.
+  12:34.730 --> 12:38.800
+  Another is username and the third one is age.
+  12:40.570 --> 12:44.140
+  Okay so this is the table I am creating.
+  12:44.140 --> 12:48.280
+  So here whatever the SQL query string you have created.
+  12:48.370 --> 12:54.040
+  Now you just with this statement you just execute update okay.
+  12:54.040 --> 12:57.640
+  So it will create your table.
+  12:58.780 --> 13:03.940
+  Also notice that there is if any exception comes, you have to handle the SQL exception.
+  13:03.940 --> 13:07.540
+  And in the final block you have to close the resources.
+  13:07.540 --> 13:09.040
+  You have to close the statement.
+  13:09.040 --> 13:10.570
+  You have to close the connection.
+  13:12.130 --> 13:17.260
+  Similarly create user whenever you have to create one user okay.
+  13:17.290 --> 13:19.420
+  The first step is get the connection.
+  13:19.510 --> 13:23.740
+  Create a new database connection instance and then call this method.
+  13:23.920 --> 13:27.040
+  It will give you one connection database connection.
+  13:27.340 --> 13:35.100
+  Then you write your SQL query which you want to insert into users username, age and user ID is auto
+  13:35.130 --> 13:37.500
+  incremented already, so no problem in that.
+  13:37.530 --> 13:41.280
+  So these two values I want to dynamically insert.
+  13:41.280 --> 13:43.890
+  So I can use prepared statement.
+  13:44.340 --> 13:44.910
+  Okay.
+  13:45.240 --> 13:48.300
+  So connection dot prepared statement.
+  13:48.330 --> 13:50.520
+  You provide this SQL query.
+  13:50.550 --> 13:57.840
+  And here these two dynamic values would be set the values like set string.
+  13:57.870 --> 14:00.180
+  First one is the string user name.
+  14:00.510 --> 14:05.190
+  So index one provide the user name whatever it is coming.
+  14:06.060 --> 14:12.240
+  The second uh the second question mark is that integer which is age.
+  14:12.240 --> 14:17.280
+  So I am doing set in index is two and the age whatever it is coming.
+  14:17.280 --> 14:20.400
+  And then simply prepared query execute update.
+  14:20.400 --> 14:24.570
+  So this will insert one row okay.
+  14:24.600 --> 14:27.390
+  And similarly you have to catch the SQL exception.
+  14:27.390 --> 14:31.910
+  And in the finally block you have to close the prepared query and the DB connection.
+  14:33.410 --> 14:36.740
+  If you see the third method, read query the read users.
+  14:36.740 --> 14:38.390
+  It is also exactly same.
+  14:38.390 --> 14:40.790
+  So I think now you are understanding the crux.
+  14:40.790 --> 14:42.650
+  You have to get the connection.
+  14:42.680 --> 14:52.280
+  Then you can use Preparedstatement and you can use this Preparedstatement uh, to run the SQL query.
+  14:52.280 --> 14:55.310
+  So I run the SQL query select asterisk from user.
+  14:55.310 --> 14:57.170
+  So this is the SQL query string.
+  14:57.290 --> 15:01.640
+  So connection dot preparedstatement I provided this SQL query.
+  15:01.970 --> 15:03.710
+  So there is no dynamic value.
+  15:03.710 --> 15:05.810
+  So I don't need to set anything.
+  15:05.810 --> 15:08.750
+  I just run prepared query execute query.
+  15:09.590 --> 15:13.550
+  When I run this execute query it will give me a result set.
+  15:13.850 --> 15:16.940
+  Result set is nothing but a list of rows.
+  15:16.940 --> 15:23.000
+  So I am iterating and just concatenating just and printing it.
+  15:23.870 --> 15:28.850
+  Okay, so you have to handle the SQL exception and finally you have to close it.
+  15:28.950 --> 15:29.910
+  Resources.
+  
 15:30.780 --> 15:35.520
 So this is very, very basic uh plain JDBC.
 15:35.550 --> 15:39.720
