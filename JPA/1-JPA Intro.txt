@@ -766,45 +766,46 @@ Spring Boot JDBC Vs Plain JDBC
   There is something like update where for more complex queries where you have to dynamically fill the
   25:01.090 --> 25:08.140
   values and it also provide for read like dot query where which is used for fetching the data.
+SpringBoot JDBC = Service Class
+  25:09.720 --> 25:13.560
+  So this is your second class which you have to create.
+  25:13.560 --> 25:22.110
+  And here if you see the service class which uses this, actually this is more of a helper class.
+  25:22.110 --> 25:30.030
+  I would say that this is your business logic class okay.
+  25:30.030 --> 25:32.880
+  So this is I have annotated with at the right component.
+  25:32.880 --> 25:35.460
+  You can also annotate it with at the right service.
+  25:35.490 --> 25:36.330
+  Okay.
+  25:36.360 --> 25:41.850
+  So I have auto wired this user repository okay.
+  25:43.020 --> 25:48.690
+  Now anybody wants to create a table they will invoke this.
+  25:48.690 --> 25:53.310
+  And ultimately it will call user repository create table insert user.
+  25:53.400 --> 26:00.450
+  This will ultimately go and call this method get user ultimately this and call this method.
+  26:00.450 --> 26:01.830
+  It will get the list.
+  26:01.860 --> 26:03.450
+  Currently I'm doing my business.
+  26:03.450 --> 26:08.420
+  Logic is I'm just simply system dot dot dot print and I'm writing and simply return the user.
+  26:09.560 --> 26:16.520
+  Okay, so this class is nothing but a user service class is nothing but which is calling the repository
+  26:16.520 --> 26:17.270
+  class.
+  26:17.450 --> 26:17.900
+  Okay.
+  26:17.930 --> 26:21.830
+  And it is your business logic class.
+  26:21.920 --> 26:27.020
+  Like after fetching the data from the DB, any business logic you have to perform, you can perform
+  26:27.020 --> 26:28.640
+  here at this level.
 
-25:09.720 --> 25:13.560
-So this is your second class which you have to create.
-25:13.560 --> 25:22.110
-And here if you see the service class which uses this, actually this is more of a helper class.
-25:22.110 --> 25:30.030
-I would say that this is your business logic class okay.
-25:30.030 --> 25:32.880
-So this is I have annotated with at the right component.
-25:32.880 --> 25:35.460
-You can also annotate it with at the right service.
-25:35.490 --> 25:36.330
-Okay.
-25:36.360 --> 25:41.850
-So I have auto wired this user repository okay.
-25:43.020 --> 25:48.690
-Now anybody wants to create a table they will invoke this.
-25:48.690 --> 25:53.310
-And ultimately it will call user repository create table insert user.
-25:53.400 --> 26:00.450
-This will ultimately go and call this method get user ultimately this and call this method.
-26:00.450 --> 26:01.830
-It will get the list.
-26:01.860 --> 26:03.450
-Currently I'm doing my business.
-26:03.450 --> 26:08.420
-Logic is I'm just simply system dot dot dot print and I'm writing and simply return the user.
-26:09.560 --> 26:16.520
-Okay, so this class is nothing but a user service class is nothing but which is calling the repository
-26:16.520 --> 26:17.270
-class.
-26:17.450 --> 26:17.900
-Okay.
-26:17.930 --> 26:21.830
-And it is your business logic class.
-26:21.920 --> 26:27.020
-Like after fetching the data from the DB, any business logic you have to perform, you can perform
-26:27.020 --> 26:28.640
-here at this level.
 26:30.410 --> 26:34.730
 And the last is you have to use an application dot properties.
 26:34.760 --> 26:40.550
