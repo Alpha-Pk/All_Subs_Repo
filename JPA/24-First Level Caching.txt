@@ -1,0 +1,777 @@
+Intro to First Level Caching
+	00:00.650 --> 00:01.910
+	Welcome to Concept and Coding.
+	00:01.910 --> 00:08.210
+	And in the previous video, we have already seen the JPA architecture and its lifecycle and how to set
+	00:08.240 --> 00:08.720
+	up.
+	00:08.900 --> 00:13.130
+	In this video I will tell you a very important first level caching.
+	00:13.760 --> 00:18.860
+	But if you have not seen the previous video, I would highly recommend it because it's totally dependent
+	00:18.860 --> 00:19.580
+	on it.
+	00:19.760 --> 00:24.140
+	In case if you missed it, I will just briefly explain the lifecycle.
+	00:24.140 --> 00:26.600
+	I will not again tell it in depth.
+	00:26.600 --> 00:31.940
+	Just one use case, because without this first level caching would be like incomplete.
+	00:31.940 --> 00:34.820
+	If you have not watched the previous video and directly jumping here.
+	00:34.820 --> 00:42.650
+	So just to maintain a context, uh, let me take two minutes to quickly revise the life cycle of it.
+	00:43.040 --> 00:46.910
+	So here, just with the very simple one example, I will show you this.
+	00:46.910 --> 00:56.450
+	Let's say that I am creating user entity A equals to new user entity.
+	00:56.840 --> 00:59.810
+	This is my one user entity created.
+	00:59.840 --> 01:02.210
+	I am creating a transaction.
+	01:02.570 --> 01:03.050
+	Okay.
+	01:03.080 --> 01:04.700
+	And I am doing begin.
+	01:05.720 --> 01:14.540
+	I am doing entitymanager dot persist.
+	01:15.470 --> 01:17.210
+	A this object.
+	01:17.930 --> 01:20.240
+	Then I am saying that.
+	01:20.240 --> 01:23.720
+	Okay, I want to remove it.
+	01:23.720 --> 01:27.620
+	Entitymanager dot remove a.
+	01:28.670 --> 01:30.440
+	Then again I change my mind.
+	01:30.470 --> 01:35.330
+	Hey Entitymanager dot persist.
+	01:36.050 --> 01:36.740
+	Okay.
+	01:36.770 --> 01:41.480
+	And then I say that commit finish.
+	01:41.480 --> 01:44.450
+	So what would happen as per the lifecycle of this.
+	01:44.450 --> 01:53.660
+	So whenever you are creating a new entity it is currently in the new state okay.
+	01:53.780 --> 02:00.860
+	So when you created a transaction and calls the entity manager dot persist means you want to insert
+	02:00.860 --> 02:04.730
+	into DB, you are not directly dealing with the DB.
+	02:05.210 --> 02:11.540
+	So Entity Manager is provider API and its API is provided by hibernate session dot impl.
+	02:11.540 --> 02:16.640
+	In that first it will go to persistence context.
+	02:16.640 --> 02:18.560
+	So this is your persistence context.
+	02:19.070 --> 02:21.680
+	It will manage this entity.
+	02:21.770 --> 02:26.030
+	So currently A is over here okay.
+	02:26.060 --> 02:29.360
+	It's not there into the DB even though you have called persist remember.
+	02:30.440 --> 02:33.050
+	Now let's say that you have called remove.
+	02:33.080 --> 02:34.580
+	Hey I want to remove it.
+	02:34.580 --> 02:35.510
+	Delete it.
+	02:35.900 --> 02:39.770
+	So it will goes to a new state called remove.
+	02:39.950 --> 02:44.150
+	So again it is inside a persistent context.
+	02:44.270 --> 02:47.150
+	But state of the entity has been changed.
+	02:47.180 --> 02:48.800
+	Now A is present here.
+	02:49.070 --> 02:51.170
+	Its state has been changed to remove.
+	02:51.170 --> 02:53.690
+	But again it is not there into the DB.
+	02:54.500 --> 03:01.130
+	Remove means whenever the data is flushed it will get removed from the DB.
+	03:01.580 --> 03:02.990
+	From your perspective.
+	03:03.020 --> 03:08.930
+	You have first inserted and then you are removing it, but actual DB is not yet comes into the picture
+	03:08.930 --> 03:13.250
+	because everything is currently happening in the persistence context.
+	03:14.120 --> 03:18.920
+	Now you said that no, no, I want it again and I want to persist it.
+	03:18.920 --> 03:22.730
+	So it will again goes back to the persistent state.
+	03:22.760 --> 03:24.050
+	Now A is here.
+	03:24.050 --> 03:31.730
+	So you know that your entity state, entity state.
+	03:31.730 --> 03:39.230
+	Or you can say that life cycle is current from new to manage to remove or you can even detach it.
+	03:39.260 --> 03:39.860
+	Okay.
+	03:39.890 --> 03:41.180
+	You can do whatever.
+	03:41.180 --> 03:44.720
+	But once you do commit means you are flushing it to the DB.
+	03:44.750 --> 03:46.160
+	You are syncing it with the DB.
+	03:46.190 --> 03:49.310
+	If it is manage then you are flushing it.
+	03:49.340 --> 03:51.200
+	It goes there and insert it.
+	03:51.230 --> 03:56.510
+	If it is already there, a is already there and it is in removed state.
+	03:56.540 --> 03:59.240
+	Now you do flush, it will remove it.
+	03:59.270 --> 04:01.520
+	Then it is actually removed from the DB.
+	04:01.880 --> 04:06.230
+	So till commit means commit is the time when actual flush happen.
+	04:06.230 --> 04:11.060
+	So till flush happens everything is handled in memory.
+	04:11.690 --> 04:14.690
+	That's handled through persistence context.
+	04:14.690 --> 04:17.840
+	And that's what helps in the first level caching.
+	04:17.840 --> 04:19.670
+	So now let's see one example.
+	04:19.670 --> 04:23.540
+	So very very basic example which in the previous video we have created.
+	04:23.540 --> 04:28.310
+	So I have created one test JPA interface or API.
+	04:28.460 --> 04:31.730
+	There I have created a user okay.
+	04:31.760 --> 04:34.430
+	Now I am trying to save it into DB.
+	04:34.520 --> 04:40.250
+	I am calling the user service API and after inserting I am doing a select query.
+	04:40.250 --> 04:41.660
+	So this is my expectation.
+	04:41.660 --> 04:45.170
+	First I am inserting and then I am fetching.
+	04:45.680 --> 04:54.320
+	So during insert I am calling User Detail Service Save and internally it is dealing with user repository.
+	04:54.380 --> 04:59.510
+	User detail repository is just an interface which I have written which extend JPA repository.
+	04:59.510 --> 05:00.200
+	That's all.
+	05:00.750 --> 05:03.870
+	So this is very, very basic, which we have already seen.
+	05:03.870 --> 05:09.210
+	Now, if I start an application now I am starting an application.
+	05:09.210 --> 05:15.540
+	You will see that the first it drops and create a table because we are using in-memory DB.
+	05:16.080 --> 05:21.480
+	Okay, now I am creating hitting this API test JPA.
+	05:21.840 --> 05:24.360
+	So what is the expectation before I hit?
+	05:24.390 --> 05:30.510
+	Expectation is first it will insert, then it will make one select query.
+	05:30.600 --> 05:32.070
+	Let's hit it.
+	05:32.490 --> 05:35.730
+	So here if you see that we are able to see the data.
+	05:36.360 --> 05:39.030
+	Now we are able to see one insert.
+	05:39.060 --> 05:39.660
+	Yes.
+	05:39.660 --> 05:41.340
+	But where is the select query.
+	05:42.240 --> 05:44.310
+	Why there is no Select query is there.
+	05:44.310 --> 05:46.680
+	But how come I am able to fetch the data.
+	05:47.130 --> 05:49.530
+	It is because of cache.
+	05:51.540 --> 05:55.050
+	Okay, so what is happening inside how the first level caching works.
+	05:55.050 --> 05:56.730
+	So let us see what is happening.
+	05:56.850 --> 06:01.310
+	So when this API is invoked when this API is invoked.
+	06:01.730 --> 06:03.410
+	What it is doing is.
+	06:05.660 --> 06:09.260
+	What it is doing is it is first calling save user.
+	06:09.710 --> 06:10.310
+	Okay.
+	06:10.310 --> 06:18.470
+	So when the save user is happening so it is calling this JPA repository save user okay.
+	06:18.500 --> 06:20.360
+	So internally you know that right.
+	06:20.390 --> 06:21.260
+	What would happen.
+	06:21.260 --> 06:23.240
+	So inside a save user.
+	06:25.730 --> 06:30.980
+	Internally it's using an Entitymanager calling persist okay.
+	06:31.010 --> 06:32.930
+	Internally it is calling
+	06:34.850 --> 06:38.780
+	Entitymanager dot persist.
+	06:39.620 --> 06:45.500
+	Now if you remember I told you that whenever entitymanager persist is there.
+	06:45.500 --> 06:54.320
+	So this is nothing but a method interface session impl is the one hibernate provide an implementation
+	06:54.320 --> 06:55.730
+	for this persist.
+	06:57.620 --> 07:05.540
+	And when the persist is happen, We are creating a persistence context.
+	07:06.350 --> 07:07.040
+	Okay.
+	07:07.070 --> 07:13.970
+	And this persistence context, whatever the object entity you want to create it first hold it.
+	07:15.380 --> 07:16.010
+	Okay.
+	07:16.010 --> 07:18.890
+	So you never interact directly with DB.
+	07:18.920 --> 07:24.560
+	If you understand this lifecycle, you will get to know that DB only comes into the picture when we
+	07:24.560 --> 07:25.130
+	do commit.
+	07:25.130 --> 07:26.390
+	When we do flush.
+	07:27.380 --> 07:29.870
+	Till then everything is there.
+	07:29.930 --> 07:35.030
+	State of the entity is there by the persistence context only.
+	07:35.180 --> 07:42.500
+	So we can say that one entity manager equals to one persistence context.
+	07:43.100 --> 07:47.360
+	If you have two entity manager it will have another persistence context.
+	07:47.390 --> 07:48.980
+	So 1 to 1 mapping.
+	07:49.070 --> 07:54.800
+	And the second persistence context is totally isolated from one other.
+	07:54.830 --> 07:59.960
+	There is no interaction if any data is present here.
+	08:00.380 --> 08:02.540
+	This data is not visible to us.
+	08:03.170 --> 08:03.770
+	Okay.
+	08:04.430 --> 08:11.150
+	So now in this, what's happening is when you are doing, uh, doing save user internally it is calling
+	08:11.150 --> 08:12.530
+	entity manager dot process.
+	08:12.530 --> 08:15.260
+	So means it is able to find an entity manager.
+	08:15.260 --> 08:18.290
+	First it is able to find an entity manager object.
+	08:18.290 --> 08:20.180
+	So means entity manager is there.
+	08:20.600 --> 08:28.730
+	And when it is doing persist internally it first create a persistence context and it stores the data.
+	08:28.790 --> 08:34.370
+	This entity user detail is stored there okay.
+	08:34.370 --> 08:35.450
+	So let's see that.
+	08:35.450 --> 08:38.120
+	So here it calls save user.
+	08:38.480 --> 08:47.060
+	So internally it calls this and the control comes to this save right.
+	08:47.090 --> 08:49.100
+	This is what simple JPA repository right.
+	08:49.130 --> 08:52.550
+	We are calling JPA repository itself user service.
+	08:52.550 --> 08:55.040
+	And user service is calling JPA repository.
+	08:55.070 --> 08:56.810
+	So it will come here.
+	08:57.080 --> 09:00.440
+	Now here it is calling Entity Manager dot persist.
+	09:01.430 --> 09:07.430
+	So you know that it will go into the session dot impl, and from that session it will create a persistence
+	09:07.430 --> 09:07.880
+	context.
+	09:07.880 --> 09:11.780
+	So now here if you see it is adding the entity.
+	09:12.650 --> 09:19.700
+	So it will put in in the map, it will put if it is absent.
+	09:19.700 --> 09:21.200
+	What this key.
+	09:21.470 --> 09:22.670
+	What is the key.
+	09:22.700 --> 09:25.160
+	This user which you are trying to insert.
+	09:26.210 --> 09:27.230
+	This one.
+	09:28.280 --> 09:30.770
+	This user which you are trying to save.
+	09:30.920 --> 09:37.280
+	So it will create a key and it will insert into the map and the object is your complete object.
+	09:38.390 --> 09:38.810
+	Okay.
+	09:38.840 --> 09:41.090
+	Now data is present here.
+	09:41.720 --> 09:44.750
+	Now data is present here from earlier.
+	09:44.750 --> 09:47.000
+	You created a new object you call persist.
+	09:47.030 --> 09:48.860
+	Now data is present here.
+	09:49.400 --> 09:53.930
+	Save is annotated with at the rate transactional means.
+	09:53.930 --> 10:00.170
+	If you remember from the transactional video there is an transactional interceptor which do begin and
+	10:00.170 --> 10:00.620
+	commit.
+	10:00.620 --> 10:02.360
+	So means commit has happened.
+	10:02.360 --> 10:07.910
+	So at this time flush would have happened, so it would have inserted.
+	10:07.940 --> 10:11.210
+	Make one insert query also.
+	10:11.780 --> 10:18.140
+	So data is there into this uh persistent and it has flushed into the DB also.
+	10:18.350 --> 10:19.730
+	Now DB is in sync.
+	10:21.560 --> 10:23.210
+	Now you are doing get query.
+	10:23.210 --> 10:24.740
+	So one insert query is done.
+	10:24.740 --> 10:26.630
+	One Insert query is done.
+	10:26.780 --> 10:29.360
+	Now you are doing get user again.
+	10:29.360 --> 10:34.280
+	When you are doing a get user okay by primary key, what happens?
+	10:34.280 --> 10:42.620
+	Let's see that when we are doing uh get user or let's say that find by ID one one ID I'm trying to fetch.
+	10:42.620 --> 10:42.830
+	Right.
+	10:42.860 --> 10:47.000
+	So internally what it does again entity manager.
+	10:47.540 --> 10:55.220
+	So currently it is trying able to find the same entity manager object okay.
+	10:55.220 --> 11:02.240
+	So this is also working with the same entity manager which this is working when this same entity manager
+	11:02.240 --> 11:07.160
+	is you are working with means the same persistence context it is aware of.
+	11:07.160 --> 11:12.590
+	And if that persistence context has that data, it will not even go to the DB.
+	11:12.740 --> 11:15.380
+	So when the get user happen.
+	11:15.380 --> 11:22.610
+	So what would happen is when you call find by ID, get user internally it call find by ID and find by
+	11:22.610 --> 11:23.000
+	ID.
+	11:23.330 --> 11:31.610
+	You know that session I am PL and session I am PL internally calls persistence context and their get
+	11:31.610 --> 11:32.300
+	entity.
+	11:32.720 --> 11:35.630
+	So whatever the key map we have created it.
+	11:35.660 --> 11:37.130
+	Try to fetch the key.
+	11:37.490 --> 11:47.780
+	Now here, since it is the same entity manager, we are using the same entity manager, same persistence
+	11:47.780 --> 11:52.130
+	context is used and that's why it is able to fetch the data.
+	11:52.130 --> 11:53.900
+	So no select query.
+	11:54.290 --> 11:57.830
+	No select query is hit it return from the cache.
+	11:59.830 --> 12:01.930
+	Now you can ask me a question that.
+	12:02.050 --> 12:06.010
+	Hey Shan, how the same entity manager is used.
+	12:06.730 --> 12:08.050
+	I'll show you in the dispatch.
+	12:08.080 --> 12:13.300
+	If you go a little deep, the you will already get to know if you go inside.
+	12:13.300 --> 12:14.290
+	Dispatcherservlet.
+	12:14.320 --> 12:17.320
+	You know that Dispatcherservlet is the first controller.
+	12:17.860 --> 12:23.410
+	So in the dispatcher servlet there is something called API pre handle before it actually invokes the
+	12:23.410 --> 12:23.950
+	controller.
+	12:23.950 --> 12:27.160
+	There is a pre handle and this pre handle here.
+	12:27.160 --> 12:31.540
+	If you see whatever the during application startup in the previous video we have seen right.
+	12:31.570 --> 12:33.370
+	It creates an entity manager factory.
+	12:33.400 --> 12:37.840
+	It fetches that factory and creates the entity manager.
+	12:38.320 --> 12:47.170
+	So for each HTTP request one entity manager is created by default.
+	12:48.100 --> 12:49.630
+	Remember that right?
+	12:49.900 --> 12:54.610
+	So I have created one HTTP request.
+	12:54.640 --> 13:00.610
+	Now if you see now when I call the first like test JPA.
+	13:02.530 --> 13:09.970
+	When I call this API, one HTTP request means one entitymanager and one persistence context.
+	13:10.240 --> 13:10.810
+	Okay.
+	13:10.840 --> 13:15.460
+	Now whenever I do db query save get right.
+	13:15.490 --> 13:17.830
+	So the same entity manager is used.
+	13:17.860 --> 13:19.540
+	Means same persistence context.
+	13:19.540 --> 13:23.770
+	So whatever the data is is present into the persistence context it will return me.
+	13:24.880 --> 13:25.420
+	Okay.
+	13:25.450 --> 13:29.110
+	Now here if you see I have created one more API read JPA.
+	13:29.200 --> 13:31.810
+	It is doing direct get user.
+	13:31.840 --> 13:34.030
+	This same only it is trying to fetch.
+	13:34.060 --> 13:43.270
+	If I call new API slash read hyphen JPA new API means new http request I am hitting I am hitting new
+	13:43.270 --> 13:43.750
+	API right?
+	13:43.780 --> 13:45.160
+	New HTTP request.
+	13:45.190 --> 13:48.730
+	New http request means second entity means new entity manager.
+	13:48.730 --> 13:56.830
+	It will create and new entity manager means new persistence context and it do not know about the data
+	13:56.830 --> 13:59.710
+	which is present into another persistence context.
+	13:59.980 --> 14:02.230
+	so it will make a Select query fresh.
+	14:02.230 --> 14:03.280
+	Select query here.
+	14:04.210 --> 14:06.610
+	It will make a fresh Select query here.
+	14:06.760 --> 14:07.960
+	Let's see this one.
+	14:07.990 --> 14:08.590
+	Okay.
+	14:08.980 --> 14:14.530
+	So in the entity controller I have two APIs one test JPA.
+	14:15.700 --> 14:19.360
+	This has saved user and find by id.
+	14:20.350 --> 14:22.570
+	And then I have read JPA.
+	14:22.600 --> 14:26.890
+	There I have two select query two times just two time fine.
+	14:27.340 --> 14:28.060
+	Okay.
+	14:28.270 --> 14:36.010
+	And also let me put a debugger point in stateful persistence manager add entity.
+	14:36.040 --> 14:36.730
+	It's there.
+	14:37.720 --> 14:40.390
+	So I am starting a debugger point.
+	14:41.530 --> 14:47.560
+	So when I started the application you know that fresh table started because we are using two database
+	14:47.560 --> 14:48.370
+	in memory.
+	14:48.640 --> 14:50.710
+	Now I am first calling test JPA.
+	14:50.860 --> 14:52.120
+	I am hitting it.
+	14:53.320 --> 14:58.210
+	So see I am trying to do first save because test JPA.
+	14:58.240 --> 14:59.350
+	What is the functionality?
+	14:59.380 --> 15:02.900
+	We are first inserting and then query.
+	15:03.680 --> 15:07.100
+	So first inserting it goes inside save.
+	15:07.910 --> 15:10.370
+	Okay so entity manager.
+	15:12.890 --> 15:15.620
+	So it goes to entity manager dot process.
+	15:15.620 --> 15:18.230
+	So now see if you are doing persist.
+	15:18.260 --> 15:28.430
+	What would happen is it will first try to insert this entity into the persistence context map cache.
+	15:28.430 --> 15:29.330
+	You can say that.
+	15:29.330 --> 15:30.470
+	So this is my entity.
+	15:30.470 --> 15:31.490
+	This is the key.
+	15:32.420 --> 15:34.760
+	So it is inserting into this.
+	15:35.660 --> 15:43.550
+	After that it has committed it because see save is transaction so committed happen okay.
+	15:43.550 --> 15:46.160
+	So means insert query might have happened.
+	15:46.340 --> 15:48.020
+	Now it is trying to do.
+	15:48.050 --> 15:51.170
+	Controller is trying to do the get query.
+	15:51.170 --> 15:53.150
+	So now it is doing find by ID.
+	15:53.930 --> 15:57.830
+	So here if you see will it go to DB first.
+	15:57.830 --> 16:03.790
+	It will check the persistence context that hey is data is present into the entities by k c.
+	16:03.790 --> 16:04.750
+	This is a map.
+	16:05.110 --> 16:06.640
+	The key is there.
+	16:07.060 --> 16:09.790
+	And what is the key is trying to look yes the same.
+	16:09.910 --> 16:14.170
+	So it has the data and it will return it.
+	16:14.560 --> 16:24.760
+	Now if you see the console insert query happened but there is no Select query because same persistence
+	16:24.760 --> 16:29.020
+	manager is used because it is created at a one HTTP request.
+	16:29.860 --> 16:33.130
+	Now C application is still running.
+	16:33.790 --> 16:42.190
+	Data might be present into the DB yet like if we connect the DB application is running, data is there.
+	16:42.460 --> 16:48.250
+	Now if I am running another read hyphen JPA.
+	16:48.250 --> 17:01.330
+	So in read hyphen JPA, what is happening two times two times find by id is happening Now, I told you
+	17:01.330 --> 17:02.560
+	whenever a new request.
+	17:02.560 --> 17:04.090
+	So I'm going to hit this.
+	17:04.090 --> 17:06.790
+	So new HTTP request new entity manager.
+	17:06.940 --> 17:12.220
+	New entity manager doesn't know about the previous entity manager persistence context.
+	17:12.220 --> 17:14.140
+	It will create its own.
+	17:14.140 --> 17:19.720
+	So for the first time it will have to go to the DB, fetch this data from the DB.
+	17:20.830 --> 17:24.400
+	But and then it will put into its persistence context.
+	17:24.400 --> 17:28.300
+	And the second time the Select query it would be a cache hit.
+	17:28.300 --> 17:31.240
+	So only one time select query we should be able to see.
+	17:31.270 --> 17:32.800
+	So let's hit it.
+	17:33.340 --> 17:37.210
+	So I am calling find by id okay.
+	17:37.240 --> 17:39.670
+	So first I am hitting get entity.
+	17:39.880 --> 17:42.280
+	Will it be able to get the entity here.
+	17:42.280 --> 17:48.070
+	If you see null no it will go to the DB found.
+	17:48.250 --> 17:49.990
+	Find the data insert it.
+	17:50.020 --> 17:51.220
+	It will add it.
+	17:51.250 --> 17:54.790
+	Now second time it is hitting, will it be able to find it.
+	17:54.790 --> 17:57.610
+	Yes it able to find holder.
+	17:57.610 --> 18:01.000
+	Is there Second time there is no hit.
+	18:01.030 --> 18:04.570
+	Now if you see the console, only one select query.
+	18:06.520 --> 18:10.540
+	Sometimes we get difficulty in understanding this.
+	18:10.540 --> 18:12.670
+	I have shown you by running this itself.
+	18:12.670 --> 18:19.150
+	So we can also run this uh, by using our own creating our own entity manager.
+	18:19.150 --> 18:20.890
+	So you can also try using this.
+	18:21.100 --> 18:26.170
+	So in the service class I am creating a entity manager factory auto wired.
+	18:26.170 --> 18:29.380
+	IT object is created at the time of application itself.
+	18:29.380 --> 18:30.460
+	I am just auto wiring it.
+	18:30.490 --> 18:31.780
+	Same object would be used.
+	18:31.840 --> 18:34.540
+	So now I am creating first session.
+	18:34.540 --> 18:40.390
+	In hibernate terms I will say that session is created means I am creating entity manager object through
+	18:40.420 --> 18:41.200
+	factory.
+	18:42.340 --> 18:51.520
+	After that started the transaction I am doing persist and two times fetch so means three db queries.
+	18:52.570 --> 18:57.250
+	Okay and then I am printing it and then I am committing the transaction.
+	18:57.250 --> 19:01.990
+	Here I am doing flushing here and then closing the entity.
+	19:02.590 --> 19:04.990
+	So this session is closed here.
+	19:06.520 --> 19:12.970
+	So now if you see that what's happening is when you are running this code, first session is created,
+	19:12.970 --> 19:14.890
+	means entity manager knows about the DB.
+	19:14.920 --> 19:17.680
+	Like from this entity manager factory.
+	19:17.800 --> 19:19.720
+	It knows how to interact with the DB.
+	19:19.870 --> 19:25.120
+	So it will entity manager would be created persist user.
+	19:25.120 --> 19:27.700
+	So this user would be inserted first.
+	19:27.700 --> 19:29.110
+	So what if it is a fresh user.
+	19:29.110 --> 19:30.520
+	So first insert.
+	19:31.090 --> 19:34.360
+	So first persistence context would be created.
+	19:34.960 --> 19:36.700
+	Insert this user.
+	19:36.730 --> 19:41.470
+	Let's say hashtag one key would be created and the value.
+	19:41.530 --> 19:42.370
+	So one.
+	19:42.370 --> 19:45.910
+	And then it make an insert query okay.
+	19:46.570 --> 19:51.400
+	Insert query would be made during this commit flush okay.
+	19:51.760 --> 19:53.950
+	Now after that a find come.
+	19:54.970 --> 19:57.310
+	So it is using the same entity manager.
+	19:57.310 --> 20:01.030
+	Right now it is easy to visualize same entity manager it's using.
+	20:01.030 --> 20:05.470
+	So when it do find means same persistence context.
+	20:05.500 --> 20:09.670
+	Currently data is not there into the DB because we have not done the flush.
+	20:10.330 --> 20:12.970
+	Okay, so it's there only in the persistence context.
+	20:13.000 --> 20:14.440
+	Now I am doing fine.
+	20:14.440 --> 20:16.480
+	So find it.
+	20:16.480 --> 20:17.380
+	Will it be able to find.
+	20:17.410 --> 20:18.130
+	Yes.
+	20:18.130 --> 20:20.920
+	So no DB query is required.
+	20:20.950 --> 20:24.820
+	Again I am doing will it record again DB query?
+	20:24.850 --> 20:25.420
+	No.
+	20:25.600 --> 20:29.680
+	Same entity manager, same persistence context able to find it.
+	20:29.680 --> 20:30.790
+	So no.
+	20:30.820 --> 20:33.610
+	After that I am printing it and doing committing.
+	20:33.610 --> 20:40.840
+	Now during this commit it do the flush so means now insert query will go and this user is also go here.
+	20:40.840 --> 20:42.610
+	Entry goes here into the DB.
+	20:44.110 --> 20:48.460
+	Now the second time I am doing another entity manager.
+	20:48.460 --> 20:50.290
+	Second entity manager is created.
+	20:50.980 --> 20:58.960
+	Second entity manager means new persistence context I am creating a transaction committing it here.
+	20:59.620 --> 21:02.230
+	So now I am first trying to find.
+	21:03.100 --> 21:04.660
+	Find the one.
+	21:04.690 --> 21:08.530
+	Does this entity manager knows about this persistence context?
+	21:08.560 --> 21:14.080
+	Let's say that even though I am not closing this entity manager, it's open, let's say.
+	21:14.560 --> 21:18.280
+	But will this know about this persistence context?
+	21:18.310 --> 21:20.560
+	No, this is separate entity manager.
+	21:20.860 --> 21:23.620
+	It knows about its persistence context only.
+	21:24.070 --> 21:28.480
+	So it will try to hit a query okay.
+	21:28.510 --> 21:29.920
+	It don't know about it.
+	21:29.920 --> 21:32.920
+	So when it do find it.
+	21:32.920 --> 21:33.370
+	Find it.
+	21:33.370 --> 21:33.730
+	No.
+	21:33.760 --> 21:35.200
+	Then it goes to the DB.
+	21:35.230 --> 21:37.480
+	DB already has the data user one.
+	21:37.870 --> 21:40.720
+	So it will bring it and add it here.
+	21:42.130 --> 21:42.880
+	Okay.
+	21:43.240 --> 21:46.150
+	So one time select query happen at this time.
+	21:47.320 --> 21:48.820
+	After that it will do again.
+	21:48.820 --> 21:50.380
+	Find second time find comes.
+	21:50.410 --> 21:52.840
+	Now it will go to persistence context.
+	21:53.620 --> 21:54.430
+	Now it find.
+	21:54.460 --> 21:54.850
+	Yes.
+	21:54.850 --> 21:56.440
+	Now does it need to go to the DB.
+	21:56.470 --> 21:56.800
+	No.
+	21:56.800 --> 21:58.270
+	It is already found the data.
+	21:58.270 --> 22:00.760
+	So it return it data is found.
+	22:00.760 --> 22:01.810
+	Then I do commit.
+	22:01.810 --> 22:03.550
+	So there is nothing to flush.
+	22:03.580 --> 22:06.880
+	It's only get query and then it will close it.
+	22:07.270 --> 22:10.060
+	So one insert one select query happens.
+	22:10.060 --> 22:23.830
+	So now here if you see application startup so one insert at this time and one select query at this time.
+	22:24.940 --> 22:29.560
+	So I hope you able to clarify how it is working.
+	22:30.550 --> 22:31.150
+	Okay.
+	22:32.200 --> 22:34.600
+	And I already told you very important.
+	22:34.600 --> 22:41.410
+	It is very easy to remember entity Manager is created at an HTTP request because even though we are
+	22:41.410 --> 22:51.430
+	calling a repository JPA repository like save query internally, it only goes ahead and find out the
+	22:51.430 --> 22:52.510
+	entity manager.
+	22:52.510 --> 22:53.830
+	We always find confusion.
+	22:53.860 --> 22:56.890
+	Hey, does it pick one entity manager, different entity manager?
+	22:56.890 --> 22:58.660
+	Will it be able to cache it or not?
+	22:59.200 --> 23:05.920
+	Always easy to remember that Dispatcherservlet is the one which creates a entitymanager at the time
+	23:05.920 --> 23:07.780
+	of every HTTP request.
+	23:08.980 --> 23:14.170
+	So this is known as first level caching.
+	23:15.100 --> 23:28.000
+	Okay, where two Entitymanager one Entitymanager have their own persistence context and they both are
+	23:28.000 --> 23:31.210
+	independent to each other and isolated.
+	23:31.960 --> 23:32.410
+	Okay.
+	23:32.440 --> 23:43.150
+	Any call from individual Entitymanager persistence context help in doing the managing the caching from
+	23:43.150 --> 23:48.100
+	this there is no knowledge of inter persistence context.
+	23:48.940 --> 23:54.070
+	That's where second level caching comes into the picture.
+	23:54.070 --> 23:55.330
+	We will see it later.
+	23:55.630 --> 23:56.500
+	Okay guys, thank you.
+	23:56.500 --> 23:58.780
+	If any question we can discuss in the comment section.
+	23:58.780 --> 23:59.170
+	Thank you.
+	23:59.170 --> 23:59.560
+	Bye.
