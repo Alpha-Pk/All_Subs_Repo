@@ -1,4 +1,4 @@
-Intro to ORM
+Introduction to ORM and JPA
 	00:00.260 --> 00:01.400
 	Welcome to Concept and Coding.
 	00:01.400 --> 00:06.470
@@ -47,6 +47,7 @@ Intro to ORM
 	to use open JPA or Eclipselink instead of hibernate as the implementation of JPA.
 	01:51.930 --> 01:52.650
 	Okay.
+JPA Setup and Configuration
 	01:52.740 --> 02:04.450
 	So we have to understand the Architecture of JPA to clearly see what actually happens underlying.
 	02:04.570 --> 02:14.440
@@ -219,6 +220,7 @@ Intro to ORM
 	So you can use this specific entity repository class.
 	07:54.180 --> 07:54.690
 	Okay.
+Created Support Classes
 	07:54.780 --> 07:57.420
 	So this is the fourth thing you require.
 	07:57.600 --> 07:59.880
@@ -343,6 +345,7 @@ Intro to ORM
 	So here you see one row is created Okay.
 	11:44.950 --> 11:46.510
 	So we can see that also.
+Practical JPA Implementation Demo
 	11:46.510 --> 11:48.760
 	Let's see we will do all this thing setup.
 	11:48.760 --> 11:58.060
@@ -545,6 +548,7 @@ Intro to ORM
 	Save and fetch is working.
 	17:34.180 --> 17:36.630
 	But that is not sufficient.
+JPA Architecture Deep Dive
 	17:36.660 --> 17:39.750
 	Like we have to know in depth of it.
 	17:40.800 --> 17:44.010
@@ -649,6 +653,7 @@ Intro to ORM
 	to create an entity manager factory.
 	21:04.500 --> 21:06.060
 	We will see how.
+How to Create Entity Manager Factory
 	21:07.320 --> 21:10.200
 	Okay now you have created the entity Manager factory.
 	21:10.230 --> 21:14.910
@@ -793,6 +798,7 @@ Intro to ORM
 	Entity manager I go.
 	25:34.890 --> 25:40.530
 	Let's say I got an entity manager object I call persist and I pass this user object.
+Entity Manager and Persistance
 	25:41.700 --> 25:48.510
 	So now here if you see whenever you are persisting right.
 	25:49.230 --> 25:59.220
@@ -889,6 +895,7 @@ Intro to ORM
 	Object yes, entity manager stores it but where inside a persistence context object.
 	28:43.960 --> 28:44.530
 	Okay.
+Persistence context - First Level Caching
 	28:45.280 --> 28:49.270
 	And if you remember from the first I told you right.
 	28:49.330 --> 28:52.720
@@ -959,6 +966,7 @@ Intro to ORM
 	Okay, ultimately dialects comes into the picture, dialect talks to JDBC and ultimately JDBC talks
 	31:15.000 --> 31:15.810
 	to Db1.
+Persistence unit
 	31:15.810 --> 31:20.600
 	One, so we have to see each and every things properly.
 	31:20.600 --> 31:23.510
@@ -1111,6 +1119,7 @@ Intro to ORM
 	DB.
 	36:14.810 --> 36:15.380
 	Okay.
+Entity manager factory
 	36:17.720 --> 36:20.840
 	Now let's see that entity manager factory.
 	36:21.230 --> 36:22.820
@@ -1163,6 +1172,7 @@ Intro to ORM
 	Whatever the properties you have provided, it creates into one only one persistence unit.
 	37:54.330 --> 37:57.540
 	And from that it creates an entity manager factory.
+Manually create entity manager factory
 	37:58.110 --> 38:06.270
 	But if I want to take the whole control how I can do it, that I create one at the configuration, let's
 	38:06.270 --> 38:09.400
@@ -1227,6 +1237,7 @@ Intro to ORM
 	All this configuration is considered as a persistence Unit.
 	40:05.940 --> 40:06.720
 	Okay.
+Transaction manager
 	40:09.150 --> 40:11.880
 	So now, till now, we have created an object.
 	40:12.420 --> 40:13.800
@@ -1303,6 +1314,7 @@ Intro to ORM
 	Like what if you remember from the high level design playlist two phase commit.
 	42:53.970 --> 42:57.420
 	So JTA does internally two phase commit only.
+Transaction Manager UseCase 1
 	42:59.290 --> 43:05.770
 	So here I will show you during application startup only after entity manager factory object created.
 	43:05.800 --> 43:14.350
@@ -1419,6 +1431,7 @@ Intro to ORM
 	got startup.
 	46:49.940 --> 46:53.360
 	So we have understand what is persistence unit.
+Entitymanager
 	46:53.360 --> 46:58.140
 	What is Entity Manager factory and what is also transaction manager comes into the picture.
 	46:59.130 --> 47:01.530
@@ -1595,6 +1608,7 @@ Intro to ORM
 	Now you can't interact with the DB.
 	52:24.480 --> 52:26.160
 	That's simple as it is.
+Persistence context
 	52:28.290 --> 52:30.510
 	And persistence context I told you right?
 	52:30.540 --> 52:35.790
@@ -1683,6 +1697,7 @@ Intro to ORM
 	And there might not be the methods which are available like pagination, sorting and also the uh, batch
 	55:34.890 --> 55:38.340
 	method like find all, get all, delete all, all those things.
+Life Cycle of Entity in Persistence Context
 	55:40.970 --> 55:44.600
 	And also I'll tell you a life cycle of entity in persistence context.
 	55:44.630 --> 55:52.880
