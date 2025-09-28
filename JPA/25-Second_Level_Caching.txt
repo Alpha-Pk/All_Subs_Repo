@@ -1,0 +1,1264 @@
+00:00.200 --> 00:00.830
+Hey guys.
+00:01.400 --> 00:02.630
+Welcome to Concept and Coding.
+00:02.630 --> 00:05.870
+And today in Spring Boot I will be covering the second level caching.
+00:05.870 --> 00:10.640
+Very very important very frequently used in the big MNC.
+00:10.670 --> 00:17.450
+Also it's not just like it's a concept, it's used actually in production level codes also.
+00:17.630 --> 00:21.290
+So before I start, this is the prerequisite.
+00:21.290 --> 00:28.430
+Like if you know the architecture of JPA and the first level of cache, but those who haven't seen the
+00:28.430 --> 00:34.910
+first level of cache, I will just give in a couple of minutes, give the quick overview of the first
+00:34.910 --> 00:35.840
+level caching.
+00:36.560 --> 00:40.820
+So in the first level caching, you already know that these are the basic setup.
+00:40.820 --> 00:45.440
+Like we have created one controller where we have post mapping, get mapping.
+00:45.440 --> 00:48.860
+We have a service class which talks to the repository.
+00:48.860 --> 00:56.180
+In repository we have extend the JPA repository you already know in depth like uh why?
+00:56.330 --> 00:59.390
+What is the API, what are the method IT support.
+00:59.490 --> 01:04.800
+And here, if you see that this is one entity which we have created.
+01:04.830 --> 01:05.460
+Okay.
+01:05.640 --> 01:15.780
+Now in if you can recall from the, uh, first level of caching, whenever you make a new request,
+01:15.840 --> 01:19.200
+a new entity manager object gets created.
+01:19.200 --> 01:26.970
+And for each entity manager object or one persistence context, which is helpful in the first level
+01:26.970 --> 01:28.440
+of caching is happened.
+01:28.470 --> 01:33.540
+So that's what I am doing here when I'm making a first HTTP request insert call.
+01:33.870 --> 01:40.770
+Okay, so we see a Insert query executed properly.
+01:41.010 --> 01:44.550
+Now when I make a second call get call.
+01:44.580 --> 01:46.800
+What happened here.
+01:46.800 --> 01:49.350
+If you see another Select query happened.
+01:49.500 --> 01:50.430
+Okay.
+01:50.640 --> 01:53.160
+Now here if you see I make another get call.
+01:53.160 --> 01:55.230
+Another get call means another new request.
+01:55.260 --> 01:59.290
+New request means new entity manager object.
+01:59.320 --> 01:59.890
+Okay.
+01:59.920 --> 02:04.360
+So here in this case you see another Select query.
+02:04.360 --> 02:11.410
+So there is no first level caching is applied here means there is no cache hit happening.
+02:11.440 --> 02:12.400
+Why?
+02:12.430 --> 02:20.080
+Because whenever any new call happen a new entity manager object is created.
+02:20.080 --> 02:25.660
+And for each entity manager object we have a different persistence context.
+02:26.230 --> 02:33.880
+Okay, so that's why you are not able to see any cache hit between here, even though it's the same
+02:33.910 --> 02:35.980
+two times I am doing a get call.
+02:36.160 --> 02:43.000
+Okay, so every time I make a new request, new object is created and it has its own persistent context.
+02:43.000 --> 02:48.370
+It is not aware of this one where this, uh, uh, object is present.
+02:48.580 --> 02:49.270
+Okay.
+02:49.270 --> 02:50.800
+So it's not aware of this.
+02:50.830 --> 02:53.170
+It is only aware of its persistent context.
+02:53.200 --> 02:57.980
+Since it is not there, it hit the DB, it will make a new Select query.
+02:58.010 --> 03:06.680
+Okay, but if you are using the same get call and same entity manager, if you are doing first get and
+03:06.680 --> 03:11.690
+then second time get, then the first time get it make a DB, call it.
+03:11.690 --> 03:19.040
+Put the object here the second time this object same persistence object is used, so it would be cache
+03:19.040 --> 03:20.630
+hit same entity.
+03:20.630 --> 03:25.970
+Manager object means same persistence context object would be used and the second time since the object
+03:25.970 --> 03:27.770
+is present, cache hit would happen.
+03:28.520 --> 03:29.120
+Okay.
+03:29.150 --> 03:33.320
+And with every HTTP request, new entity manager object was created.
+03:33.320 --> 03:37.790
+And that was the reason why we are seeing this behavior.
+03:38.450 --> 03:41.420
+Okay, so this is all about the first level caching.
+03:41.420 --> 03:43.400
+I have explained it in depth.
+03:43.430 --> 03:46.100
+If you find this little bit in hurry.
+03:46.130 --> 03:50.630
+First level caching because we have already covered in depth in the previous video.
+03:50.690 --> 03:57.960
+Now, since we have recalled a bit, now let's move to the second level caching, which is L2 caching.
+03:57.960 --> 04:03.900
+Also, many times in industry you will hear engineers are saying, hey, what about the L2 caching?
+04:03.900 --> 04:05.580
+What data is there in L2 caching?
+04:05.970 --> 04:08.880
+Second level caching is known as L2 caching.
+04:09.330 --> 04:12.180
+And what generally happens in this is here.
+04:12.960 --> 04:18.090
+So till between this persistence context and db.
+04:18.210 --> 04:23.250
+Now there is one more layer comes which is your second level caching.
+04:23.640 --> 04:29.190
+So whenever any call comes okay entity manager object is created.
+04:29.190 --> 04:32.010
+It has its own persistence context.
+04:32.040 --> 04:37.650
+Now before it looks for DB it again another layer.
+04:37.830 --> 04:40.710
+So you consider this as L1 and this is as L2.
+04:40.800 --> 04:42.900
+So now it checks second level caching.
+04:43.050 --> 04:44.910
+That data is present here or not.
+04:45.180 --> 04:46.920
+Data is present here or not.
+04:46.920 --> 04:54.670
+So even though you are hitting multiple requests different requests, different objects, different
+04:54.670 --> 04:59.860
+persistence contexts, but they are sharing a same second level caching now.
+05:00.880 --> 05:08.050
+So even for this, there is a chance that we are increasing the chance that the cache hit will increase
+05:08.050 --> 05:10.420
+because this is also in memory.
+05:10.540 --> 05:17.620
+So this is also fast, but only difference is it is shared among different persistence contexts.
+05:18.700 --> 05:19.090
+Okay.
+05:19.120 --> 05:21.910
+And then ultimately goes to the DB.
+05:21.910 --> 05:27.400
+And whatever the data comes from DB it first goes you can say that it goes to L2 cache and then L1 cache
+05:27.400 --> 05:28.960
+and then out.
+05:31.180 --> 05:31.840
+Okay.
+05:31.840 --> 05:38.800
+So let's see one happy flow and see what all it takes to enable the second level caching.
+05:38.830 --> 05:41.500
+If I want to enable it how we can do it.
+05:42.550 --> 05:46.090
+So first thing we have to add the dependencies.
+05:46.360 --> 05:51.760
+So we have to add this three dependencies okay.
+05:52.100 --> 05:53.300
+edge cache.
+05:53.990 --> 05:59.030
+Hibernate j cache and j cache API.
+05:59.630 --> 05:59.930
+Okay.
+05:59.960 --> 06:04.610
+You can check out the latest version which is applicable for Spring Boot three dot x version, which
+06:04.610 --> 06:05.390
+we are using.
+06:05.390 --> 06:11.270
+So you can check out the latest version of this, which is uh, applicable for this spring boot version.
+06:11.270 --> 06:12.350
+And we can use it.
+06:12.350 --> 06:14.870
+But this three dependency, we need it.
+06:14.900 --> 06:16.760
+Why we need that.
+06:16.910 --> 06:21.920
+I will tell you, but I am just telling you very quick overview.
+06:21.950 --> 06:24.800
+We will go one by one each and will tell you.
+06:24.800 --> 06:33.890
+But first thing is we required Pom in Application.properties we have to enable certain configurations
+06:33.920 --> 06:35.360
+like second level caching.
+06:35.390 --> 06:35.660
+True.
+06:35.690 --> 06:38.390
+Like we are enable the cache uh, second level caching.
+06:38.390 --> 06:40.070
+But don't worry about this.
+06:40.070 --> 06:42.440
+So this is the second changes we need.
+06:42.470 --> 06:43.760
+First you have added dependency.
+06:43.790 --> 06:50.090
+Second in Application.properties we have enabled some configuration here in the service layer.
+06:50.120 --> 06:51.060
+No change.
+06:51.090 --> 06:51.570
+Right?
+06:51.600 --> 06:53.940
+It is the basic like your repository.
+06:53.970 --> 06:55.380
+You are just calling the repository.
+06:55.410 --> 06:55.740
+Nothing.
+06:55.740 --> 06:56.640
+No change.
+06:56.670 --> 06:59.040
+Then you have repository.
+06:59.070 --> 07:00.030
+No change.
+07:00.660 --> 07:01.170
+Okay.
+07:01.200 --> 07:05.580
+Then after that you have your entity.
+07:07.230 --> 07:10.080
+So in the entity you will see this part.
+07:12.930 --> 07:14.550
+At the rate cache.
+07:14.730 --> 07:15.360
+Okay.
+07:15.360 --> 07:17.340
+So we are it.
+07:17.370 --> 07:26.370
+We are just telling the hibernate that do a second level caching for this entity okay.
+07:26.400 --> 07:33.150
+Whenever this request comes for this entity or whenever anybody is working on this entity, before touching
+07:33.180 --> 07:38.340
+to DB, first check in l2 l2 cache.
+07:39.270 --> 07:39.870
+Okay.
+07:39.900 --> 07:40.650
+We will see that.
+07:40.680 --> 07:42.510
+What does it mean region and all.
+07:42.990 --> 07:47.700
+And here if you see again don't worry about this.
+07:47.730 --> 07:48.900
+What's the purpose of each one.
+07:48.900 --> 07:50.310
+We will go one by one each.
+07:50.490 --> 07:56.130
+But here if you see palm application dot properties and this three no change.
+07:56.130 --> 07:57.180
+Fourth, no change.
+07:57.330 --> 08:02.910
+How you are using only fifth is like you have to put at the rate cash, which is like we are telling
+08:02.910 --> 08:07.530
+hibernate that we have to put a second level cash on this entity.
+08:07.560 --> 08:08.550
+User details.
+08:09.270 --> 08:10.230
+That's all.
+08:10.230 --> 08:16.560
+Now here, if you see first step I am doing an insert data is directly inserted into DB.
+08:16.590 --> 08:19.020
+No cash insertion on validation happens.
+08:19.020 --> 08:24.900
+So I am calling a post operation and data is inserted.
+08:24.900 --> 08:26.640
+So first happen.
+08:27.330 --> 08:31.440
+Second do I am making a one get call?
+08:32.220 --> 08:34.800
+Okay, whatever the data is inserted, I am doing a get call.
+08:34.830 --> 08:40.500
+Since this is the first get call cache, miss will happen and DB call will be made.
+08:40.500 --> 08:42.690
+So what would be the sequences?
+08:43.680 --> 08:49.180
+Get entity manager it will check its persistence context.
+08:49.210 --> 08:52.900
+It will check second level caching and then check DB.
+08:53.230 --> 08:56.770
+So data is present in two persistence context.
+08:56.800 --> 08:58.900
+No data is present in L2 caching.
+08:58.930 --> 09:00.370
+No because during insert.
+09:00.370 --> 09:03.550
+Also no data is inserted into L2.
+09:03.580 --> 09:14.050
+So it will hit a db and then it will put into L2, put into L1 and then ultimately goes out.
+09:15.310 --> 09:15.970
+Okay.
+09:16.690 --> 09:27.280
+So this is the second call where if you see that cache miss happened and it make a DB call, and then
+09:27.280 --> 09:30.250
+it will also caching data from load.
+09:30.250 --> 09:32.890
+So it will also load the data.
+09:33.640 --> 09:36.250
+Now the third time I am making a get call.
+09:36.250 --> 09:40.630
+Now this time data is present into L2.
+09:40.660 --> 09:43.570
+It don't have to go into the DB itself.
+09:43.600 --> 09:44.410
+Okay.
+09:44.800 --> 09:55.730
+Okay so this is a new get call means new get call means new entity manager object.
+09:56.000 --> 10:00.170
+And since it is a new entity manager object new persistence context.
+10:00.200 --> 10:02.600
+So data was present into this one.
+10:02.600 --> 10:03.950
+But this is a new request.
+10:03.950 --> 10:05.090
+So new persistence context.
+10:05.090 --> 10:08.330
+So there is no uh hit from the first L1.
+10:08.660 --> 10:12.260
+But L2 is same for multiple persistence context.
+10:12.290 --> 10:15.770
+Now it will check L2 data is present into L2 right from the previous call.
+10:15.770 --> 10:19.370
+So it would be cached and no DB hit required.
+10:19.940 --> 10:23.210
+So here if you see cache hit happened during the second.
+10:25.940 --> 10:26.750
+Okay.
+10:26.780 --> 10:32.420
+So this is very one functional flow for the second level caching.
+10:32.420 --> 10:35.990
+Now let's see why and what all things are required.
+10:35.990 --> 10:37.490
+What is the purpose for that.
+10:38.690 --> 10:43.880
+So in Pom.xml I told you that we need three dependencies okay.
+10:43.880 --> 10:52.710
+So here if you see first one is org dot cache and the version provide the core implementation of second
+10:52.710 --> 10:53.550
+level caching.
+10:53.550 --> 11:02.010
+So here if you see right there are multiple cache each cache caffeine cache Hazelcast okay.
+11:02.010 --> 11:08.610
+So which provider you want to use for the second level caching okay.
+11:08.640 --> 11:10.020
+We want to use one.
+11:10.020 --> 11:11.730
+I am going with the cache.
+11:11.730 --> 11:13.410
+You can also go with the caffeine cache.
+11:13.440 --> 11:15.060
+Doesn't matter okay.
+11:15.690 --> 11:18.660
+Because we don't have to go inside the working of this.
+11:18.690 --> 11:19.320
+Why?
+11:19.350 --> 11:22.710
+I'll tell you now because of this second.
+11:22.710 --> 11:25.350
+So this was first and now this is let's say second.
+11:25.380 --> 11:28.200
+What is this cache hyphen API.
+11:28.440 --> 11:32.250
+So this is like a interface okay.
+11:32.280 --> 11:40.260
+It exposes all the API let's say get cache I'm just saying that create cache okay.
+11:40.290 --> 11:42.720
+And they provide the implementation for it.
+11:43.210 --> 11:47.980
+So we are only interested in invoking the API.
+11:48.340 --> 11:49.000
+Okay.
+11:49.030 --> 11:54.700
+And this APIs are the interfaces which are implemented by this second level cache providers.
+11:54.730 --> 11:55.180
+Okay.
+11:55.210 --> 12:03.310
+So that's why we have to bring this dependency also, which says that this is the interface which your
+12:03.310 --> 12:09.940
+hibernate code can interact with so that in future if you change from cache to caffeine, your code
+12:09.940 --> 12:12.940
+will not impact at all because you are dealing with the interface.
+12:12.970 --> 12:14.260
+Who is the provider?
+12:14.260 --> 12:15.370
+It can change.
+12:16.360 --> 12:20.380
+Okay, so this is to bring this Jcache API interfaces.
+12:20.380 --> 12:22.330
+This dependency is required.
+12:23.230 --> 12:25.510
+Now this is the third which is required.
+12:25.510 --> 12:27.580
+So this is our hibernate code.
+12:27.610 --> 12:31.390
+Now this hibernate has to talk to this Jcache API.
+12:31.720 --> 12:36.790
+And there are many annotations like at the rate cache.
+12:36.940 --> 12:43.220
+Like there are like at the rate like Concurrency strategy.
+12:43.250 --> 12:44.900
+Cache concurrency strategy.
+12:44.930 --> 12:53.390
+There are so many specific annotation and variable fields we are going to use for caching.
+12:53.600 --> 12:57.500
+So those are understand by hibernate J cache.
+12:57.500 --> 13:05.360
+So you can consider it as a bridge bridge between hibernate and the J cache interface APIs.
+13:05.390 --> 13:05.870
+Right.
+13:05.870 --> 13:15.170
+So it provide a bridge that okay, whatever the annotation you are adding specifically for caching this
+13:15.170 --> 13:22.400
+understands it and hibernate knows how to talk with hibernate J cache.
+13:22.790 --> 13:25.640
+Okay, so that's why the name hibernate Hyphen j cache.
+13:25.640 --> 13:28.820
+So consider this as a bridge between hibernate and J cache.
+13:28.850 --> 13:31.160
+Hibernate cannot directly knows that.
+13:31.340 --> 13:36.140
+When to create create cache when to call get cache when to call put cache.
+13:36.140 --> 13:43.990
+No but this knows so you can consider this them as an orchestrator, like based on the value which you
+13:44.020 --> 13:45.160
+are using during caching.
+13:45.190 --> 13:46.660
+Let's say I am using read write.
+13:46.660 --> 13:51.370
+I am using read only what method to call what validations to add.
+13:51.370 --> 13:52.420
+It can have it.
+13:52.960 --> 13:58.900
+Okay, so considered as a bridge between Hibernate and Cache, which understand how to talk with the
+13:58.930 --> 14:01.750
+Jcache APIs.
+14:03.910 --> 14:06.490
+Okay, so these three are required.
+14:06.490 --> 14:13.720
+So no matter what you need cache API you need hibernate.
+14:13.720 --> 14:19.390
+But here you can instead you can use cache or you can use caffeine or Hazelcast whichever you want based
+14:19.390 --> 14:21.400
+upon your need, you can change it.
+14:22.330 --> 14:23.830
+So first thing is clear, right?
+14:23.860 --> 14:26.830
+Why these three dependencies in Pom.xml required?
+14:26.890 --> 14:29.740
+Now let's understand the application.properties.
+14:32.230 --> 14:36.850
+So this is the first configuration we have to enable by default.
+14:36.880 --> 14:38.680
+Second level cache is false.
+14:38.710 --> 14:39.280
+Okay.
+14:39.310 --> 14:41.710
+So we have to enable it to true.
+14:42.010 --> 14:42.520
+Okay.
+14:42.670 --> 14:47.680
+Once we enable it then only second level cache is start functioning.
+14:47.680 --> 14:51.130
+Then only like it will all these things comes into the picture.
+14:51.250 --> 14:52.420
+Otherwise no.
+14:53.440 --> 14:56.020
+The second is your region.
+14:56.980 --> 14:58.480
+Region factory class.
+14:58.480 --> 15:04.150
+But before understanding the region factory class, we need to first understand what is region.
+15:04.450 --> 15:06.040
+Okay, so let me tell you.
+15:06.040 --> 15:07.450
+In short like what is region?
+15:07.450 --> 15:10.450
+Then I will tell you why we need to set the factory class.
+15:11.410 --> 15:16.810
+So region helps in logical grouping of cached data.
+15:16.840 --> 15:18.370
+Logical grouping.
+15:18.970 --> 15:26.830
+For each region we can apply different caching strategy like what is the eviction policy like LFO,
+15:26.860 --> 15:29.860
+Fifo, LRU, whatever.
+15:30.340 --> 15:31.120
+Okay.
+15:31.390 --> 15:34.270
+Last in, first out, first in, first out, least recently used.
+15:34.270 --> 15:38.400
+So whatever the eviction policy you want to use, You can apply to different.
+15:38.430 --> 15:41.940
+Region wise time to live for the cash data.
+15:41.940 --> 15:44.340
+What is the cash size like?
+15:44.340 --> 15:48.600
+How many entries you can store in a cache like 1100 200?
+15:48.600 --> 15:50.880
+And what is the concurrency strategy?
+15:51.120 --> 15:56.130
+Okay, so here if you see an example, this is one entity Userdetails.
+15:56.130 --> 16:00.600
+And this is I am creating another entity order detail okay.
+16:00.630 --> 16:05.160
+Now here, if you see I am enabling at the rate cache annotation.
+16:05.160 --> 16:13.770
+So now you know that at the rate cache this is some cache specific annotation which is aware of aware
+16:13.770 --> 16:15.090
+by hibernate J cache.
+16:15.120 --> 16:17.010
+It knows what to do.
+16:17.040 --> 16:19.530
+And we have also enabled second level caching.
+16:19.530 --> 16:21.300
+So it comes into the picture.
+16:21.930 --> 16:26.520
+Now here if you see that what region we have given is user detail cache.
+16:26.520 --> 16:30.180
+So consider that one region is user detail cache.
+16:30.180 --> 16:36.810
+And for order what region I have given is order detail cache Order detail cache.
+16:37.020 --> 16:40.200
+Okay so here it stores this entity.
+16:40.230 --> 16:41.460
+User details.
+16:41.490 --> 16:43.830
+User details entity.
+16:43.950 --> 16:47.400
+It takes care of order details entity.
+16:47.430 --> 16:48.510
+Multiple entities.
+16:48.510 --> 16:52.470
+It can group like which I want to group inside this region.
+16:52.470 --> 16:56.160
+And multiple entities which are group want to group inside this region.
+16:56.160 --> 16:57.990
+We can give any name of the region.
+16:58.650 --> 17:06.900
+Now here if you see either in application dot properties or generally I feel comfortable with Ehcache
+17:06.900 --> 17:14.490
+dot XML like specific file which we can put in source main resources and provide this configuration.
+17:15.120 --> 17:22.920
+Okay for this catch alias user detail cache means this this region okay.
+17:22.950 --> 17:24.390
+This region.
+17:24.540 --> 17:26.730
+What is the in-memory.
+17:26.760 --> 17:29.940
+How many how many entries you want to put?
+17:29.970 --> 17:32.850
+What is the TTL for the data which is stored?
+17:32.850 --> 17:35.920
+What is the eviction strategy you want to use.
+17:35.920 --> 17:44.770
+So no matter how many entities you are grouping together, all this, uh, strategy like eviction,
+17:44.800 --> 17:55.960
+TTL and uh, your memory would be applicable for this, but may be possible that for the order one you
+17:55.960 --> 17:56.860
+want different.
+17:57.040 --> 17:58.150
+You don't want the same.
+17:58.180 --> 18:00.400
+So here I have TTL for 60s.
+18:00.460 --> 18:04.870
+Here you want a TTL for 500 seconds let's say okay.
+18:04.900 --> 18:07.720
+So that's why it's a logical grouping for each region.
+18:07.720 --> 18:08.980
+You can provide this one.
+18:08.980 --> 18:12.880
+So for order you can give time to live is 200 seconds.
+18:12.910 --> 18:15.640
+I want 1000 entries for this one.
+18:15.640 --> 18:17.320
+And the strategy is Fifo.
+18:18.580 --> 18:25.570
+So region provide you more granular way you can manage your cache okay.
+18:25.930 --> 18:29.860
+And the second property says that region factory class.
+18:29.890 --> 18:34.010
+Who is going to manage that Jcache region factory?
+18:34.040 --> 18:42.560
+So now here, if you see that this hibernate cache also has factory class okay.
+18:42.590 --> 18:45.980
+And also this cache also has factory class.
+18:46.820 --> 18:55.910
+If you want to directly work with this like hey you take care of managing all the cache directly, then
+18:55.910 --> 18:57.860
+you can directly use cache.
+18:58.280 --> 19:05.630
+But I would always say that it's better that if you use Hibernate cache, because in future if you change
+19:05.630 --> 19:13.250
+from cache to caffeine, you don't have to change lot of codes because this all work with interfaces
+19:13.250 --> 19:15.860
+beneath the provider can change over the time.
+19:16.640 --> 19:23.540
+Okay, so here I have used J cache region factory, this one which is present by hibernate J cache.
+19:25.190 --> 19:33.480
+So this manage everything like Insertion like get cash, create cash.
+19:33.480 --> 19:36.090
+It manages the region proper region.
+19:36.090 --> 19:38.340
+So for this region, what is the TTL?
+19:38.340 --> 19:39.990
+What is the cash eviction policy.
+19:39.990 --> 19:41.460
+So it will take care of it.
+19:41.460 --> 19:46.410
+But if you want to use directly you can use directly cash also.
+19:46.440 --> 19:49.890
+But that again it comes with like benefit is there.
+19:49.890 --> 19:52.710
+You don't have like abstraction you are directly working.
+19:52.710 --> 19:57.060
+But you know the disadvantage also like if future you have to change you might have to change the code
+19:57.060 --> 19:57.900
+also a lot.
+19:59.490 --> 20:00.060
+Okay.
+20:00.060 --> 20:00.900
+So.
+20:03.510 --> 20:09.570
+You can define the factory class which will take care of your management of the cash data.
+20:09.870 --> 20:10.650
+Okay.
+20:11.580 --> 20:15.570
+The third one is the provider like cash cashing provider.
+20:15.570 --> 20:21.600
+So even though we have added the dependency but this like you have added the cash, we need to tell
+20:21.600 --> 20:26.490
+the spring boot that which provider I am using just by adding the dependency in form.
+20:26.760 --> 20:31.560
+Uh, in this case hibernate J cash Jcache doesn't know which provider it has to use.
+20:31.560 --> 20:39.570
+So we have to set this configuration that, hey, I want to use Ehcache caching provider so that whenever
+20:39.570 --> 20:44.220
+it calls get cache, it creates an object for this one and it invokes its cache.
+20:44.370 --> 20:50.760
+So similarly you can uh, add differently if you are working with different cache provider.
+20:52.110 --> 20:52.590
+Okay.
+20:52.590 --> 20:54.180
+So these three are important.
+20:54.180 --> 20:55.350
+This is just for debug.
+20:55.350 --> 21:01.020
+So that whenever we hit a query uh, we will something that print out if insert query select query so
+21:01.020 --> 21:01.980
+that we can see.
+21:01.980 --> 21:06.300
+But this three only is application not property is important.
+21:09.570 --> 21:10.110
+Okay.
+21:10.140 --> 21:13.650
+Now let's say different cache concurrency strategy.
+21:14.550 --> 21:22.110
+Now here if you see if you have focus on the entity object we have put at the cache.
+21:22.140 --> 21:30.190
+At the right cache is like uh, hibernate hyphen J cache knows that this is used for second level caching
+21:30.190 --> 21:32.710
+and we have to cache this entity.
+21:32.980 --> 21:34.870
+Okay, in the L2 cache.
+21:35.260 --> 21:40.540
+But there is something called usage equals to cache concurrency strategy.
+21:40.750 --> 21:43.660
+There are four types of concurrency strategy.
+21:43.660 --> 21:48.340
+Read only read write non strict read write transactional.
+21:49.180 --> 21:53.620
+So which one you want to use depends upon business to business.
+21:54.550 --> 21:59.080
+So I will tell you what is this cache concurrency strategy is.
+22:01.210 --> 22:02.140
+Read only.
+22:02.140 --> 22:03.490
+Let's go with the first read only.
+22:03.490 --> 22:09.610
+But in short, if I give you a definition of cache concurrency strategy, I would say that, uh, this
+22:09.610 --> 22:17.830
+will guide how your operation insert update delete impact your cache data.
+22:18.460 --> 22:19.060
+Okay.
+22:19.060 --> 22:28.970
+So so that they can work in parallel without, uh, you can say that it's possible that in some business
+22:28.970 --> 22:31.220
+use cases, stale data is possible.
+22:31.220 --> 22:34.310
+So you select a proper, proper strategy.
+22:34.340 --> 22:39.380
+In some business scenario, stale data is not even applicable.
+22:39.380 --> 22:40.520
+It should not have happened.
+22:40.550 --> 22:43.580
+Then we have to pick up appropriate strategy.
+22:43.670 --> 22:49.550
+So concurrency strategy is like how you maintain handle the concurrent requests like get, update,
+22:49.550 --> 22:50.600
+delete is coming.
+22:50.600 --> 22:54.710
+Then you have the data in the cache in the DB how you want to handle it.
+22:55.850 --> 22:57.920
+So let's go ahead with the first one.
+22:57.920 --> 22:59.180
+Read only.
+22:59.930 --> 23:01.970
+Good for static data.
+23:02.990 --> 23:10.130
+Data which do not require any updates, any updates, not even I'm saying less update any update.
+23:10.670 --> 23:15.020
+If you try to update an entity, exception will come.
+23:15.830 --> 23:22.700
+So see this like here in the request controller I have put another put mapping just to make sure that
+23:22.700 --> 23:24.950
+I will also update some data.
+23:24.960 --> 23:29.730
+This is service where I am updating with the existing ID.
+23:29.760 --> 23:33.870
+I am first fetching the data and then I am saving it so it will try to update it.
+23:34.290 --> 23:35.310
+Repository.
+23:35.310 --> 23:39.390
+And here ultimately entity and the entity I am using read only.
+23:40.350 --> 23:48.480
+Now first let's say I have done insert okay insert directly put the data into db.
+23:48.750 --> 23:53.130
+User detail let's say then I am doing get.
+23:53.250 --> 24:01.410
+When you are do a get first cache miss will happen, then it will hit DB and then it will put the data
+24:01.410 --> 24:04.380
+into L2 cache also.
+24:04.380 --> 24:06.390
+So user detail let's say one here.
+24:06.420 --> 24:08.190
+User detail one here.
+24:08.610 --> 24:11.070
+This is your L2 cache and this is your DB.
+24:12.390 --> 24:14.910
+Now I am trying to do a put call.
+24:15.300 --> 24:17.070
+I am trying to do a put call.
+24:17.100 --> 24:20.820
+But here I have put read only this entity.
+24:20.850 --> 24:23.220
+User detail entity is read only.
+24:23.250 --> 24:28.570
+So now when I call a pull request, what I got.
+24:28.780 --> 24:30.160
+Internal error.
+24:30.160 --> 24:34.240
+What says that you can't update read only object.
+24:35.440 --> 24:36.040
+Okay.
+24:38.500 --> 24:41.950
+So here if you see who has this logic.
+24:41.950 --> 24:42.730
+Hibernate.
+24:42.730 --> 24:44.950
+Uh, this 16.5.2.
+24:44.980 --> 24:46.150
+Like hibernate.
+24:46.180 --> 24:48.010
+Just, uh, knows that.
+24:50.320 --> 24:53.620
+Understand this cache concurrency strategies.
+24:54.550 --> 24:55.150
+This one.
+24:58.090 --> 25:01.870
+Okay, then we have a read.
+25:01.870 --> 25:02.290
+Write.
+25:02.920 --> 25:11.590
+Now there are use cases where you have a scenario where multiple reads update delete can happen in parallel
+25:11.590 --> 25:13.360
+and you want to manage those.
+25:13.720 --> 25:16.600
+So this might be applicable.
+25:16.600 --> 25:23.360
+And also it's a scenario like where you don't want stale data to be written also.
+25:23.810 --> 25:25.070
+So this is better.
+25:25.070 --> 25:25.610
+In that case.
+25:25.610 --> 25:29.030
+Let's say during read it put a shared log.
+25:29.690 --> 25:34.520
+So other read can also acquire shared log but no write operation.
+25:34.520 --> 25:37.550
+So now let's say that you have L2 cache.
+25:37.550 --> 25:38.600
+You have DB.
+25:39.770 --> 25:42.110
+You have user detail one here.
+25:42.110 --> 25:43.790
+User detail one here.
+25:44.330 --> 25:47.720
+Now get call one is happening.
+25:47.750 --> 25:50.150
+Get call two is happening.
+25:50.150 --> 25:57.290
+It put a lock internally on the cache but it is not blocking other get calls also.
+25:57.290 --> 25:59.990
+So read call can happen multiple read call.
+25:59.990 --> 26:02.210
+So they can do a cache and multiple cache.
+26:02.210 --> 26:02.930
+It can happen.
+26:02.930 --> 26:04.550
+Nobody is stopping anybody.
+26:05.450 --> 26:08.990
+But it will not allow any write operation.
+26:08.990 --> 26:10.940
+But any write operation comes.
+26:10.940 --> 26:14.750
+Let's say put it will stop it okay.
+26:14.780 --> 26:23.490
+Because till the lock is present, read call and during update It put kind of a exclusive log where
+26:23.490 --> 26:25.830
+read and write operation are not allowed.
+26:27.450 --> 26:34.440
+So here, if you see that whenever any update happen, what happens is understand this scenario.
+26:34.560 --> 26:37.170
+What happen is how it handles this.
+26:37.740 --> 26:38.670
+This one is simple.
+26:38.670 --> 26:41.460
+Whenever you do an insert directly goes to the DB cache.
+26:41.460 --> 26:42.780
+Not even comes into the picture.
+26:42.810 --> 26:47.070
+L2 cache only comes into the picture once we do a first get call.
+26:47.700 --> 26:50.220
+Okay, then you do a get call.
+26:50.250 --> 26:52.020
+L2 cache comes into the picture.
+26:52.050 --> 26:54.060
+Cache miss happen goes to the DB.
+26:54.390 --> 26:59.190
+Then it load into the L2 cache and then kind of return it.
+26:59.220 --> 27:01.980
+If there is a cache hit happened directly return from here.
+27:02.010 --> 27:03.270
+No need to go to the DB.
+27:04.200 --> 27:06.390
+Now let's say update is happening.
+27:06.780 --> 27:07.770
+What it does.
+27:07.770 --> 27:10.770
+So now let's say you have a data into L2 cache.
+27:10.980 --> 27:12.840
+You have a data into db.
+27:13.830 --> 27:15.000
+One put call.
+27:15.030 --> 27:16.440
+Update call is happening.
+27:16.440 --> 27:18.810
+You have entity one here.
+27:18.810 --> 27:19.960
+Entity one here.
+27:19.960 --> 27:28.630
+How it will make sure that how it will update it, how it will make sure that any get call is happening
+27:28.630 --> 27:29.650
+in parallel.
+27:30.010 --> 27:32.350
+It do not read the stale data.
+27:32.680 --> 27:40.120
+So as you know that any update let's say transaction begins first it will do is acquire lock on cache
+27:40.570 --> 27:45.730
+it, prevent stale data, read from cache no read and write allowed after that.
+27:45.730 --> 27:54.250
+So once it has taken the lock, acquired a lock on this entity, what it will do, it will make it invalidate.
+27:54.520 --> 27:58.360
+So there is a flag here inside this cache data.
+27:58.360 --> 28:00.370
+It make it invalidate.
+28:01.870 --> 28:02.620
+Okay.
+28:02.680 --> 28:07.960
+After that it will update its DB whatever the update required.
+28:07.960 --> 28:11.500
+Let's say E one is changed to E one hash something.
+28:11.950 --> 28:19.730
+If it commit properly okay, then it will update the cache data with the latest data and remove the
+28:19.730 --> 28:20.750
+invalidate flag.
+28:20.780 --> 28:26.510
+So now while returning, it will update the cache here in the L2.
+28:26.540 --> 28:29.930
+Also E1 hash and remove the invalidate flag.
+28:29.960 --> 28:31.670
+Now this is also valid.
+28:31.970 --> 28:34.310
+And then it will release the lock on the cache.
+28:34.340 --> 28:36.890
+Now it will release the lock on the cache.
+28:38.030 --> 28:44.450
+But if there is any rollback happen, if there is any rollback happen, what it will do is it will just
+28:44.450 --> 28:46.130
+release the lock on cache.
+28:46.160 --> 28:49.280
+It won't remove the invalidate flag.
+28:50.120 --> 28:50.540
+Okay.
+28:50.540 --> 29:02.600
+So now let's say that L2 cache it was entity one DB entity one during put call it put make it invalidate.
+29:03.170 --> 29:08.090
+And while processing some issue happens and it rollback transaction got rollback.
+29:09.260 --> 29:11.630
+So it it just remove the lock.
+29:11.630 --> 29:12.950
+So it put a lock right.
+29:12.980 --> 29:13.940
+It acquired the lock.
+29:13.970 --> 29:19.650
+It will just release the lock on the cache but it will not remove this invalidate flag and no updation
+29:19.650 --> 29:20.520
+will happen.
+29:20.550 --> 29:26.880
+So now in future any get call will come and since the lock is released, any get call will come.
+29:26.880 --> 29:29.640
+It will see that hey it is marked as invalidate.
+29:29.670 --> 29:35.970
+It will read from the DB and then it will ultimately update the cache again.
+29:37.410 --> 29:37.980
+Okay.
+29:37.980 --> 29:41.880
+So this is how internally update logic is written.
+29:42.060 --> 29:43.860
+So this is very important.
+29:43.860 --> 29:47.640
+Like uh sometimes during rollback.
+29:49.050 --> 29:58.590
+See most of always one thing is the cache is sometimes it's a best effort call best effort.
+29:59.250 --> 30:03.630
+Some sometimes you are able trying to write it but fails.
+30:04.410 --> 30:06.540
+You are trying to update it but fails.
+30:06.960 --> 30:09.930
+So we should not fail the transaction itself.
+30:09.960 --> 30:12.840
+When transactions are very expensive, right?
+30:12.870 --> 30:17.590
+We should not fail the transaction itself that okay, my DB is also updated.
+30:17.590 --> 30:21.250
+Everything is done properly but I am not able to update the cache.
+30:21.250 --> 30:22.510
+So let me fail the transaction.
+30:22.510 --> 30:23.080
+No.
+30:23.320 --> 30:25.870
+So that's why sometime cache are best effort.
+30:25.870 --> 30:32.590
+So now here generally when you invalidate the cache and let's say even if the commit happen properly,
+30:32.620 --> 30:34.330
+now you are updating the cache.
+30:34.330 --> 30:43.630
+If some failure happened during update okay and it will release the lock, then also it's not an issue
+30:43.630 --> 30:45.520
+because you have already marked as invalidate.
+30:45.550 --> 30:49.900
+If it is not update properly happen any future call happen get call it.
+30:49.900 --> 30:50.680
+See the invalidate.
+30:50.680 --> 30:55.990
+It will do a fresh read from DB and later on overwrite the cache data properly.
+30:57.670 --> 30:59.770
+So that's why read write is more.
+30:59.770 --> 31:05.590
+You can say that generally in kind of a payment industry this is more frequently used.
+31:07.330 --> 31:08.680
+So this is one example.
+31:08.680 --> 31:15.770
+You can see that I am doing first post insert Insert happened directly inserted into DB.
+31:16.610 --> 31:17.990
+Then I made a Get call.
+31:17.990 --> 31:20.540
+You know that during a get call cache miss will happen.
+31:20.540 --> 31:27.950
+It will make a DB call and then it will insert into the cache load data into the cache.
+31:28.820 --> 31:31.430
+Now you are making a put call.
+31:31.430 --> 31:37.940
+When you are making a put call, what you do is you will put a lock first, you will put a invalidate,
+31:37.970 --> 31:44.360
+then you will hit the DB and after that you will release the lock releasing lock and all are not printing,
+31:44.360 --> 31:50.480
+but after that you know that it will update the cache also with the latest data and release the lock.
+31:50.840 --> 31:57.920
+And now when you are doing last get call cache has the updated data right.
+31:57.950 --> 32:03.320
+So cache hit will happen because updation happened properly.
+32:03.320 --> 32:05.180
+And then release lock happened.
+32:07.580 --> 32:12.870
+Okay then the second cache concurrency is non strict retry.
+32:13.110 --> 32:18.570
+This is you can say that little bit lenient than read write during read.
+32:18.600 --> 32:22.620
+No lock is acquired at all right.
+32:22.650 --> 32:23.640
+During read it.
+32:23.670 --> 32:27.030
+Do not even check whether there is a lock or not it directly.
+32:27.030 --> 32:27.870
+Go ahead and read.
+32:27.870 --> 32:37.170
+Try to read it during update after transaction commit successfully cache is marked invalidated and no
+32:37.200 --> 32:39.480
+update will with the fresh data.
+32:39.480 --> 32:40.920
+So consider this one.
+32:40.920 --> 32:42.780
+In this scenario it is little bit.
+32:42.780 --> 32:52.050
+So the here the purpose of non strict is that uh try to put a lock for the less time okay.
+32:52.080 --> 32:54.360
+So that's where like for read it.
+32:54.360 --> 32:57.360
+Remove the lock at all for update.
+32:57.360 --> 32:58.410
+During update.
+32:58.410 --> 33:01.560
+What happen is transaction begin.
+33:01.710 --> 33:15.430
+Then it will not uh acquire or it will acquire lock on cache It will not do any update or you can invalidate
+33:15.430 --> 33:15.850
+the cache.
+33:15.850 --> 33:17.770
+No cache is not invalidated.
+33:17.950 --> 33:18.490
+Okay.
+33:18.520 --> 33:23.860
+And then you can say that it goes ahead and update DB okay.
+33:23.890 --> 33:37.120
+And after that if transaction commit success then it will invalidate the cache, invalidate the cache
+33:37.120 --> 33:38.980
+and then release the lock.
+33:44.950 --> 33:45.460
+Okay.
+33:45.460 --> 33:56.620
+So now here if you see that if any transaction rollback happen, if rollback happen it won't do anything.
+33:56.620 --> 33:58.240
+It won't even invalidate thing.
+33:58.240 --> 34:01.900
+It will just release it simply right.
+34:02.710 --> 34:09.820
+Because uh, data is not even like it is not even updating the cache itself.
+34:09.820 --> 34:11.620
+So that is not even there.
+34:12.460 --> 34:15.700
+So that's not good for heavy read application.
+34:16.390 --> 34:22.420
+So if update and read happens in parallel, it's a chance that read operation might get stale data because
+34:22.450 --> 34:26.080
+read is not acquiring lock lock at all.
+34:26.080 --> 34:33.460
+And while update is happening, if read also comes in parallel, maybe during update it might have it
+34:33.460 --> 34:34.780
+might have updated the DB.
+34:35.890 --> 34:44.050
+Okay, but since read is not uh wait for any lock and everything and if it read the data from the cache,
+34:44.320 --> 34:49.390
+okay before this invalidated, it will get the stale data.
+34:49.540 --> 34:51.940
+But it's a very small window.
+34:51.940 --> 34:59.710
+But there is a chance here in the at the rate cache I have put non restrict read write okay.
+35:00.160 --> 35:03.130
+And also let me put one debugger point in J.
+35:03.430 --> 35:08.750
+We know that the factory which we are using is J cache region factory which is present into hibernate.
+35:08.900 --> 35:09.770
+Hibernate.
+35:09.800 --> 35:10.280
+Hyphen.
+35:10.280 --> 35:10.970
+Cache.
+35:11.240 --> 35:20.030
+So while during application startup it will create a cache and then ultimately it will goes to we have
+35:20.030 --> 35:21.050
+the only one provider.
+35:21.050 --> 35:24.980
+So this it will goes to this provider write cache.
+35:25.640 --> 35:28.460
+And then we'll see that like I'm starting the server.
+35:29.000 --> 35:35.660
+So during application startup server J cache region factory got invoked right.
+35:35.690 --> 35:39.380
+So now it takes care of creating the cache and everything.
+35:39.380 --> 35:41.090
+This factory okay.
+35:41.120 --> 35:46.610
+It will take care of like creating a cache object okay.
+35:47.210 --> 35:57.080
+And invoking a proper API of the uh, you can say that the J cache API interface, which eventually
+35:57.230 --> 36:00.050
+implemented by the your cache provider.
+36:00.050 --> 36:07.770
+So in that case, uh, here, if you see that this is the interface which is coming from cache.
+36:07.920 --> 36:08.370
+Cache.
+36:08.370 --> 36:09.360
+Hyphen API.
+36:09.390 --> 36:09.840
+Right.
+36:09.870 --> 36:13.860
+This is the interface and cache manager is providing the implementation.
+36:13.950 --> 36:14.610
+Okay.
+36:15.240 --> 36:21.240
+So once our server is started now let's perform it.
+36:21.360 --> 36:25.470
+First let's do a post call.
+36:25.890 --> 36:26.940
+So post.
+36:27.210 --> 36:28.740
+So post call is success.
+36:28.740 --> 36:29.760
+Now let's see the DB.
+36:29.790 --> 36:31.650
+What's the data stored in the DB.
+36:33.090 --> 36:35.130
+We have a data okay.
+36:35.160 --> 36:36.300
+Now.
+36:36.720 --> 36:40.140
+And here also we will check it like insert call is made.
+36:40.380 --> 36:46.680
+So now we are trying to make a get call in the get call.
+36:48.090 --> 36:49.200
+Get call is success.
+36:49.200 --> 36:50.730
+We got the data here.
+36:50.730 --> 36:53.610
+If you see it make a Select query.
+36:54.510 --> 36:56.160
+So first one is insert.
+36:56.160 --> 36:57.600
+Second one is select.
+36:57.600 --> 37:04.990
+And now in the non strict read, right?
+37:05.020 --> 37:08.950
+What we are saying is when you do a put call.
+37:08.980 --> 37:11.560
+Now I am changing from.
+37:11.590 --> 37:17.830
+Now I am changing the data from SJ to let's say SJ updated.
+37:18.970 --> 37:23.500
+If I run this data is change in the DB.
+37:23.530 --> 37:25.840
+Let's say that it's change SJ updated.
+37:26.500 --> 37:29.950
+But what would have happened internally inside the cache.
+37:30.400 --> 37:33.670
+So this transaction is committed properly.
+37:34.810 --> 37:36.820
+It has updated properly.
+37:37.750 --> 37:44.440
+It has also updated the cache invalidated in cache.
+37:44.470 --> 37:46.720
+It is not has the latest data.
+37:46.750 --> 37:48.520
+It didn't update.
+37:48.550 --> 37:52.000
+SJ updated only it marked as invalidated.
+37:52.030 --> 37:52.690
+Okay.
+37:52.720 --> 38:00.640
+Now if I do a Get call, I am able to get SJ updated properly.
+38:01.090 --> 38:04.280
+Is it coming from cache or new Select query would be made here.
+38:04.280 --> 38:11.720
+If you see that a new Select query is made after update, because update only marked invalidate, it
+38:11.720 --> 38:16.130
+will not update the cache itself.
+38:16.760 --> 38:20.330
+But if we change this to read write.
+38:23.540 --> 38:24.620
+Read write.
+38:29.480 --> 38:36.080
+So if you change it to read write, we can see that, uh, the we can double test the same behavior.
+38:36.080 --> 38:37.610
+I am running the insert.
+38:38.720 --> 38:41.210
+During insert we will see an insert call.
+38:41.900 --> 38:47.870
+Then during get call we will see a cache miss and then a Select query.
+38:47.900 --> 38:49.940
+Now it has inserted into the cache.
+38:50.240 --> 38:56.030
+Then during put call it has first marked as invalidated.
+38:56.060 --> 38:59.480
+Then update the DB after the success transaction success.
+38:59.510 --> 39:01.950
+It also have updated the cache also.
+39:01.980 --> 39:04.830
+So update happened after that.
+39:04.830 --> 39:07.830
+If I do a get call, will I get a updated data?
+39:07.860 --> 39:08.250
+Yes.
+39:08.250 --> 39:09.990
+So is it from DB or cache?
+39:10.020 --> 39:12.720
+There would not be any Select query cache.
+39:12.720 --> 39:14.700
+Hit okay.
+39:15.600 --> 39:20.190
+So in the read write it.
+39:20.190 --> 39:21.240
+Also update the cache.
+39:21.240 --> 39:25.650
+But in the non strict it don't update the cache, it just make it invalidate.
+39:27.750 --> 39:35.040
+And the last one is transactional in the transaction is you can say that it's a more strict.
+39:35.100 --> 39:42.750
+So it acquire read lock and also write lock update the cache to after transaction commit successfully
+39:43.200 --> 39:48.780
+similar to read underscore write like once the transaction commit successfully it update the cache properly.
+39:49.440 --> 39:53.640
+Any other read operation during cache lock goes directly to DB.
+39:54.300 --> 39:55.740
+What does it mean?
+39:55.860 --> 39:57.540
+I have an L2 cache.
+39:57.540 --> 40:03.550
+You have a DB if you have put in a transactional or cash concurrency.
+40:03.700 --> 40:05.260
+Now get call is there.
+40:05.260 --> 40:07.180
+Let's say it has entity one.
+40:07.210 --> 40:08.050
+Entity one.
+40:08.050 --> 40:11.020
+So it put a lock even though it put a lock.
+40:11.020 --> 40:15.310
+And now if any get call come it will say that it is locked.
+40:15.310 --> 40:19.720
+So get will try to fetch from the DB okay.
+40:19.750 --> 40:20.530
+And return.
+40:21.190 --> 40:26.680
+So in this during read also it act like it.
+40:26.710 --> 40:33.850
+Act like a hard lock where no other get call is also even allowed to read from the L2 cache.
+40:33.880 --> 40:35.470
+Go and directly read from the DB.
+40:36.130 --> 40:39.250
+If any other write operation comes, it has to wait in queue.
+40:39.670 --> 40:43.210
+Okay till the cache till the get lock is not released.
+40:45.820 --> 40:52.000
+Okay, you can test it like the way we have tested this read, write and non strict.
+40:52.000 --> 40:53.740
+You can test with this also.
+40:53.740 --> 40:57.640
+So debug is a very helpful tool to build this understanding.
+40:57.640 --> 40:59.200
+So you can do debug this one.
