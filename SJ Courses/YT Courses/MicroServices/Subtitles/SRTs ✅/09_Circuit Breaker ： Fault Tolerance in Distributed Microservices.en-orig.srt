@@ -1,0 +1,6515 @@
+1
+00:00:00,160 --> 00:00:01,670
+
+Hey guys, Shan this side. Welcome back
+
+2
+00:00:01,670 --> 00:00:01,680
+Hey guys, Shan this side. Welcome back
+ 
+
+3
+00:00:01,680 --> 00:00:04,309
+Hey guys, Shan this side. Welcome back
+to the channel and till now in the fall
+
+4
+00:00:04,309 --> 00:00:04,319
+to the channel and till now in the fall
+ 
+
+5
+00:00:04,319 --> 00:00:06,710
+to the channel and till now in the fall
+tolerant microservices we have seen rate
+
+6
+00:00:06,710 --> 00:00:06,720
+tolerant microservices we have seen rate
+ 
+
+7
+00:00:06,720 --> 00:00:10,070
+tolerant microservices we have seen rate
+limiter bulkhead retry and today we will
+
+8
+00:00:10,070 --> 00:00:10,080
+limiter bulkhead retry and today we will
+ 
+
+9
+00:00:10,080 --> 00:00:13,350
+limiter bulkhead retry and today we will
+see a circuit breaker. So let's start
+
+10
+00:00:13,350 --> 00:00:13,360
+see a circuit breaker. So let's start
+ 
+
+11
+00:00:13,360 --> 00:00:15,990
+see a circuit breaker. So let's start
+without wasting any time.
+
+12
+00:00:15,990 --> 00:00:16,000
+without wasting any time.
+ 
+
+13
+00:00:16,000 --> 00:00:19,029
+without wasting any time.
+What does circuit breaker says?
+
+14
+00:00:19,029 --> 00:00:19,039
+What does circuit breaker says?
+ 
+
+15
+00:00:19,039 --> 00:00:22,790
+What does circuit breaker says?
+This pattern prevents an application to
+
+16
+00:00:22,790 --> 00:00:22,800
+This pattern prevents an application to
+ 
+
+17
+00:00:22,800 --> 00:00:25,750
+This pattern prevents an application to
+make repeated calls to downstream
+
+18
+00:00:25,750 --> 00:00:25,760
+make repeated calls to downstream
+ 
+
+19
+00:00:25,760 --> 00:00:28,870
+make repeated calls to downstream
+service that is likely to fail. Okay. So
+
+20
+00:00:28,870 --> 00:00:28,880
+service that is likely to fail. Okay. So
+ 
+
+21
+00:00:28,880 --> 00:00:31,990
+service that is likely to fail. Okay. So
+we'll come to this line again but see
+
+22
+00:00:31,990 --> 00:00:32,000
+we'll come to this line again but see
+ 
+
+23
+00:00:32,000 --> 00:00:33,990
+we'll come to this line again but see
+this diagram. So let's say our
+
+24
+00:00:33,990 --> 00:00:34,000
+this diagram. So let's say our
+ 
+
+25
+00:00:34,000 --> 00:00:36,549
+this diagram. So let's say our
+application is order service right and
+
+26
+00:00:36,549 --> 00:00:36,559
+application is order service right and
+ 
+
+27
+00:00:36,559 --> 00:00:39,830
+application is order service right and
+we and this product is a downstream. So
+
+28
+00:00:39,830 --> 00:00:39,840
+we and this product is a downstream. So
+ 
+
+29
+00:00:39,840 --> 00:00:43,670
+we and this product is a downstream. So
+order is invoking product for now assume
+
+30
+00:00:43,670 --> 00:00:43,680
+order is invoking product for now assume
+ 
+
+31
+00:00:43,680 --> 00:00:45,430
+order is invoking product for now assume
+that this product service is
+
+32
+00:00:45,430 --> 00:00:45,440
+that this product service is
+ 
+
+33
+00:00:45,440 --> 00:00:49,190
+that this product service is
+unavailable. So no matter how many times
+
+34
+00:00:49,190 --> 00:00:49,200
+unavailable. So no matter how many times
+ 
+
+35
+00:00:49,200 --> 00:00:53,430
+unavailable. So no matter how many times
+you call this call will fail. Right? So
+
+36
+00:00:53,430 --> 00:00:53,440
+you call this call will fail. Right? So
+ 
+
+37
+00:00:53,440 --> 00:00:55,510
+you call this call will fail. Right? So
+product service is down. No matter how
+
+38
+00:00:55,510 --> 00:00:55,520
+product service is down. No matter how
+ 
+
+39
+00:00:55,520 --> 00:00:58,229
+product service is down. No matter how
+many times whether you are doing a retry
+
+40
+00:00:58,229 --> 00:00:58,239
+many times whether you are doing a retry
+ 
+
+41
+00:00:58,239 --> 00:01:00,150
+many times whether you are doing a retry
+of the same call or whether you are
+
+42
+00:01:00,150 --> 00:01:00,160
+of the same call or whether you are
+ 
+
+43
+00:01:00,160 --> 00:01:02,549
+of the same call or whether you are
+making a totally different call it will
+
+44
+00:01:02,549 --> 00:01:02,559
+making a totally different call it will
+ 
+
+45
+00:01:02,559 --> 00:01:06,469
+making a totally different call it will
+fail. So there is some disadvantages for
+
+46
+00:01:06,469 --> 00:01:06,479
+fail. So there is some disadvantages for
+ 
+
+47
+00:01:06,479 --> 00:01:10,630
+fail. So there is some disadvantages for
+it. The first disadvantage is we put
+
+48
+00:01:10,630 --> 00:01:10,640
+it. The first disadvantage is we put
+ 
+
+49
+00:01:10,640 --> 00:01:12,230
+it. The first disadvantage is we put
+unnecessarily
+
+50
+00:01:12,230 --> 00:01:12,240
+unnecessarily
+ 
+
+51
+00:01:12,240 --> 00:01:15,030
+unnecessarily
+add load to the product service and
+
+52
+00:01:15,030 --> 00:01:15,040
+add load to the product service and
+ 
+
+53
+00:01:15,040 --> 00:01:17,109
+add load to the product service and
+because of that product service might
+
+54
+00:01:17,109 --> 00:01:17,119
+because of that product service might
+ 
+
+55
+00:01:17,119 --> 00:01:19,749
+because of that product service might
+take longer time to recover. So see
+
+56
+00:01:19,749 --> 00:01:19,759
+take longer time to recover. So see
+ 
+
+57
+00:01:19,759 --> 00:01:22,230
+take longer time to recover. So see
+product service is already unavailable
+
+58
+00:01:22,230 --> 00:01:22,240
+product service is already unavailable
+ 
+
+59
+00:01:22,240 --> 00:01:25,990
+product service is already unavailable
+right it is facing some issue and we are
+
+60
+00:01:25,990 --> 00:01:26,000
+right it is facing some issue and we are
+ 
+
+61
+00:01:26,000 --> 00:01:28,950
+right it is facing some issue and we are
+adding more load to it. So there is a
+
+62
+00:01:28,950 --> 00:01:28,960
+adding more load to it. So there is a
+ 
+
+63
+00:01:28,960 --> 00:01:31,429
+adding more load to it. So there is a
+chance that product service might take
+
+64
+00:01:31,429 --> 00:01:31,439
+chance that product service might take
+ 
+
+65
+00:01:31,439 --> 00:01:34,469
+chance that product service might take
+little longer time to
+
+66
+00:01:34,469 --> 00:01:34,479
+little longer time to
+ 
+
+67
+00:01:34,479 --> 00:01:37,670
+little longer time to
+uh come up in the healthy state.
+
+68
+00:01:37,670 --> 00:01:37,680
+uh come up in the healthy state.
+ 
+
+69
+00:01:37,680 --> 00:01:40,390
+uh come up in the healthy state.
+The second is order service is
+
+70
+00:01:40,390 --> 00:01:40,400
+The second is order service is
+ 
+
+71
+00:01:40,400 --> 00:01:43,350
+The second is order service is
+unnecessarily wasting it resources both
+
+72
+00:01:43,350 --> 00:01:43,360
+unnecessarily wasting it resources both
+ 
+
+73
+00:01:43,360 --> 00:01:46,550
+unnecessarily wasting it resources both
+latency and the thread blocking. So just
+
+74
+00:01:46,550 --> 00:01:46,560
+latency and the thread blocking. So just
+ 
+
+75
+00:01:46,560 --> 00:01:50,630
+latency and the thread blocking. So just
+see that if let's say there are
+
+76
+00:01:50,630 --> 00:01:50,640
+see that if let's say there are
+ 
+
+77
+00:01:50,640 --> 00:01:53,510
+see that if let's say there are
+thousands and thousands of calls and
+
+78
+00:01:53,510 --> 00:01:53,520
+thousands and thousands of calls and
+ 
+
+79
+00:01:53,520 --> 00:01:55,510
+thousands and thousands of calls and
+product service is unavailable they all
+
+80
+00:01:55,510 --> 00:01:55,520
+product service is unavailable they all
+ 
+
+81
+00:01:55,520 --> 00:01:59,270
+product service is unavailable they all
+will fail. So order service is
+
+82
+00:01:59,270 --> 00:01:59,280
+will fail. So order service is
+ 
+
+83
+00:01:59,280 --> 00:02:01,429
+will fail. So order service is
+unnecessarily wasting its resource
+
+84
+00:02:01,429 --> 00:02:01,439
+unnecessarily wasting its resource
+ 
+
+85
+00:02:01,439 --> 00:02:03,590
+unnecessarily wasting its resource
+because there is a latency involved. It
+
+86
+00:02:03,590 --> 00:02:03,600
+because there is a latency involved. It
+ 
+
+87
+00:02:03,600 --> 00:02:06,310
+because there is a latency involved. It
+calls it it wait for the product service
+
+88
+00:02:06,310 --> 00:02:06,320
+calls it it wait for the product service
+ 
+
+89
+00:02:06,320 --> 00:02:09,749
+calls it it wait for the product service
+to response till time out and then only
+
+90
+00:02:09,749 --> 00:02:09,759
+to response till time out and then only
+ 
+
+91
+00:02:09,759 --> 00:02:11,670
+to response till time out and then only
+it will send to the client that hey it's
+
+92
+00:02:11,670 --> 00:02:11,680
+it will send to the client that hey it's
+ 
+
+93
+00:02:11,680 --> 00:02:16,949
+it will send to the client that hey it's
+a fail some 5xx error something okay so
+
+94
+00:02:16,949 --> 00:02:16,959
+a fail some 5xx error something okay so
+ 
+
+95
+00:02:16,959 --> 00:02:18,550
+a fail some 5xx error something okay so
+there is definitely increase in the
+
+96
+00:02:18,550 --> 00:02:18,560
+there is definitely increase in the
+ 
+
+97
+00:02:18,560 --> 00:02:20,790
+there is definitely increase in the
+latency and you are unnecessarily
+
+98
+00:02:20,790 --> 00:02:20,800
+latency and you are unnecessarily
+ 
+
+99
+00:02:20,800 --> 00:02:23,910
+latency and you are unnecessarily
+blocking your thread on this call okay
+
+100
+00:02:23,910 --> 00:02:23,920
+blocking your thread on this call okay
+ 
+
+101
+00:02:23,920 --> 00:02:26,790
+blocking your thread on this call okay
+so there is no need because even if you
+
+102
+00:02:26,790 --> 00:02:26,800
+so there is no need because even if you
+ 
+
+103
+00:02:26,800 --> 00:02:30,150
+so there is no need because even if you
+wait it the call is likely going to fail
+
+104
+00:02:30,150 --> 00:02:30,160
+wait it the call is likely going to fail
+ 
+
+105
+00:02:30,160 --> 00:02:31,430
+wait it the call is likely going to fail
+because the product service is
+
+106
+00:02:31,430 --> 00:02:31,440
+because the product service is
+ 
+
+107
+00:02:31,440 --> 00:02:33,350
+because the product service is
+unavailable
+
+108
+00:02:33,350 --> 00:02:33,360
+unavailable
+ 
+
+109
+00:02:33,360 --> 00:02:35,990
+unavailable
+But now
+
+110
+00:02:35,990 --> 00:02:36,000
+But now
+ 
+
+111
+00:02:36,000 --> 00:02:38,949
+But now
+what's the solution? How does order
+
+112
+00:02:38,949 --> 00:02:38,959
+what's the solution? How does order
+ 
+
+113
+00:02:38,959 --> 00:02:40,949
+what's the solution? How does order
+service know
+
+114
+00:02:40,949 --> 00:02:40,959
+service know
+ 
+
+115
+00:02:40,959 --> 00:02:44,710
+service know
+when to stop the downstream call? like
+
+116
+00:02:44,710 --> 00:02:44,720
+when to stop the downstream call? like
+ 
+
+117
+00:02:44,720 --> 00:02:47,030
+when to stop the downstream call? like
+we are saying that hey order don't make
+
+118
+00:02:47,030 --> 00:02:47,040
+we are saying that hey order don't make
+ 
+
+119
+00:02:47,040 --> 00:02:50,390
+we are saying that hey order don't make
+unnecessarily call to product because it
+
+120
+00:02:50,390 --> 00:02:50,400
+unnecessarily call to product because it
+ 
+
+121
+00:02:50,400 --> 00:02:52,390
+unnecessarily call to product because it
+is unavailable
+
+122
+00:02:52,390 --> 00:02:52,400
+is unavailable
+ 
+
+123
+00:02:52,400 --> 00:02:56,390
+is unavailable
+right but how order knows that when it
+
+124
+00:02:56,390 --> 00:02:56,400
+right but how order knows that when it
+ 
+
+125
+00:02:56,400 --> 00:02:59,589
+right but how order knows that when it
+is unavailable when it is up and when I
+
+126
+00:02:59,589 --> 00:02:59,599
+is unavailable when it is up and when I
+ 
+
+127
+00:02:59,599 --> 00:03:01,750
+is unavailable when it is up and when I
+have okay if it is unavailable when
+
+128
+00:03:01,750 --> 00:03:01,760
+have okay if it is unavailable when
+ 
+
+129
+00:03:01,760 --> 00:03:05,670
+have okay if it is unavailable when
+again I have to restart so something has
+
+130
+00:03:05,670 --> 00:03:05,680
+again I have to restart so something has
+ 
+
+131
+00:03:05,680 --> 00:03:08,309
+again I have to restart so something has
+to instruct this
+
+132
+00:03:08,309 --> 00:03:08,319
+to instruct this
+ 
+
+133
+00:03:08,319 --> 00:03:10,869
+to instruct this
+uh you can say that knowledge somebody
+
+134
+00:03:10,869 --> 00:03:10,879
+uh you can say that knowledge somebody
+ 
+
+135
+00:03:10,879 --> 00:03:13,190
+uh you can say that knowledge somebody
+has to put this knowledge to order right
+
+136
+00:03:13,190 --> 00:03:13,200
+has to put this knowledge to order right
+ 
+
+137
+00:03:13,200 --> 00:03:18,470
+has to put this knowledge to order right
+then only order would be able to stop or
+
+138
+00:03:18,470 --> 00:03:18,480
+then only order would be able to stop or
+ 
+
+139
+00:03:18,480 --> 00:03:20,710
+then only order would be able to stop or
+restart the call.
+
+140
+00:03:20,710 --> 00:03:20,720
+restart the call.
+ 
+
+141
+00:03:20,720 --> 00:03:23,589
+restart the call.
+So who add that knowledge that is
+
+142
+00:03:23,589 --> 00:03:23,599
+So who add that knowledge that is
+ 
+
+143
+00:03:23,599 --> 00:03:26,149
+So who add that knowledge that is
+circuit breaker.
+
+144
+00:03:26,149 --> 00:03:26,159
+circuit breaker.
+ 
+
+145
+00:03:26,159 --> 00:03:29,030
+circuit breaker.
+Okay. So again revisiting the line which
+
+146
+00:03:29,030 --> 00:03:29,040
+Okay. So again revisiting the line which
+ 
+
+147
+00:03:29,040 --> 00:03:31,750
+Okay. So again revisiting the line which
+we went ahead in the first place it
+
+148
+00:03:31,750 --> 00:03:31,760
+we went ahead in the first place it
+ 
+
+149
+00:03:31,760 --> 00:03:34,630
+we went ahead in the first place it
+prevents an application to make repeated
+
+150
+00:03:34,630 --> 00:03:34,640
+prevents an application to make repeated
+ 
+
+151
+00:03:34,640 --> 00:03:36,309
+prevents an application to make repeated
+calls to downstream service that is
+
+152
+00:03:36,309 --> 00:03:36,319
+calls to downstream service that is
+ 
+
+153
+00:03:36,319 --> 00:03:39,270
+calls to downstream service that is
+likely to fail. So see this diagram now.
+
+154
+00:03:39,270 --> 00:03:39,280
+likely to fail. So see this diagram now.
+ 
+
+155
+00:03:39,280 --> 00:03:41,670
+likely to fail. So see this diagram now.
+So now order service let's say make
+
+156
+00:03:41,670 --> 00:03:41,680
+So now order service let's say make
+ 
+
+157
+00:03:41,680 --> 00:03:45,670
+So now order service let's say make
+initial calls and both got failed. So
+
+158
+00:03:45,670 --> 00:03:45,680
+initial calls and both got failed. So
+ 
+
+159
+00:03:45,680 --> 00:03:47,990
+initial calls and both got failed. So
+now we will put some threshold value
+
+160
+00:03:47,990 --> 00:03:48,000
+now we will put some threshold value
+ 
+
+161
+00:03:48,000 --> 00:03:50,869
+now we will put some threshold value
+that hey if this many calls get failed
+
+162
+00:03:50,869 --> 00:03:50,879
+that hey if this many calls get failed
+ 
+
+163
+00:03:50,879 --> 00:03:52,949
+that hey if this many calls get failed
+means there is some issue with the
+
+164
+00:03:52,949 --> 00:03:52,959
+means there is some issue with the
+ 
+
+165
+00:03:52,959 --> 00:03:55,670
+means there is some issue with the
+product. So don't make any further calls
+
+166
+00:03:55,670 --> 00:03:55,680
+product. So don't make any further calls
+ 
+
+167
+00:03:55,680 --> 00:03:59,830
+product. So don't make any further calls
+to it. So now after that once that
+
+168
+00:03:59,830 --> 00:03:59,840
+to it. So now after that once that
+ 
+
+169
+00:03:59,840 --> 00:04:02,470
+to it. So now after that once that
+threshold limit is reached we will stop
+
+170
+00:04:02,470 --> 00:04:02,480
+threshold limit is reached we will stop
+ 
+
+171
+00:04:02,480 --> 00:04:04,470
+threshold limit is reached we will stop
+the future call to product. So now all
+
+172
+00:04:04,470 --> 00:04:04,480
+the future call to product. So now all
+ 
+
+173
+00:04:04,480 --> 00:04:08,390
+the future call to product. So now all
+the future calls there is no
+
+174
+00:04:08,390 --> 00:04:08,400
+the future calls there is no
+ 
+
+175
+00:04:08,400 --> 00:04:11,350
+the future calls there is no
+hit to the product we will fail the call
+
+176
+00:04:11,350 --> 00:04:11,360
+hit to the product we will fail the call
+ 
+
+177
+00:04:11,360 --> 00:04:12,869
+hit to the product we will fail the call
+immediately.
+
+178
+00:04:12,869 --> 00:04:12,879
+immediately.
+ 
+
+179
+00:04:12,879 --> 00:04:14,949
+immediately.
+We will not block the thread. We will
+
+180
+00:04:14,949 --> 00:04:14,959
+We will not block the thread. We will
+ 
+
+181
+00:04:14,959 --> 00:04:17,670
+We will not block the thread. We will
+fail the call immediately.
+
+182
+00:04:17,670 --> 00:04:17,680
+fail the call immediately.
+ 
+
+183
+00:04:17,680 --> 00:04:21,830
+fail the call immediately.
+Okay. And we will wait for some time.
+
+184
+00:04:21,830 --> 00:04:21,840
+Okay. And we will wait for some time.
+ 
+
+185
+00:04:21,840 --> 00:04:24,310
+Okay. And we will wait for some time.
+After that we will check if product
+
+186
+00:04:24,310 --> 00:04:24,320
+After that we will check if product
+ 
+
+187
+00:04:24,320 --> 00:04:26,629
+After that we will check if product
+service is healthy or not. So it will do
+
+188
+00:04:26,629 --> 00:04:26,639
+service is healthy or not. So it will do
+ 
+
+189
+00:04:26,639 --> 00:04:30,870
+service is healthy or not. So it will do
+a trial testing after some time. Hey, it
+
+190
+00:04:30,870 --> 00:04:30,880
+a trial testing after some time. Hey, it
+ 
+
+191
+00:04:30,880 --> 00:04:34,150
+a trial testing after some time. Hey, it
+will send some sample or you can say
+
+192
+00:04:34,150 --> 00:04:34,160
+will send some sample or you can say
+ 
+
+193
+00:04:34,160 --> 00:04:37,030
+will send some sample or you can say
+that the test calls. Hey, is product
+
+194
+00:04:37,030 --> 00:04:37,040
+that the test calls. Hey, is product
+ 
+
+195
+00:04:37,040 --> 00:04:40,150
+that the test calls. Hey, is product
+services responding properly or not? If
+
+196
+00:04:40,150 --> 00:04:40,160
+services responding properly or not? If
+ 
+
+197
+00:04:40,160 --> 00:04:43,990
+services responding properly or not? If
+yes then only it will allow future calls
+
+198
+00:04:43,990 --> 00:04:44,000
+yes then only it will allow future calls
+ 
+
+199
+00:04:44,000 --> 00:04:47,510
+yes then only it will allow future calls
+to the product. Okay. So whatever we
+
+200
+00:04:47,510 --> 00:04:47,520
+to the product. Okay. So whatever we
+ 
+
+201
+00:04:47,520 --> 00:04:51,830
+to the product. Okay. So whatever we
+have covered here it is
+
+202
+00:04:51,830 --> 00:04:51,840
+have covered here it is
+ 
+
+203
+00:04:51,840 --> 00:04:54,550
+have covered here it is
+can be understand it can be understand
+
+204
+00:04:54,550 --> 00:04:54,560
+can be understand it can be understand
+ 
+
+205
+00:04:54,560 --> 00:04:57,189
+can be understand it can be understand
+through this state diagram.
+
+206
+00:04:57,189 --> 00:04:57,199
+through this state diagram.
+ 
+
+207
+00:04:57,199 --> 00:05:00,390
+through this state diagram.
+So start from here. This is the initial
+
+208
+00:05:00,390 --> 00:05:00,400
+So start from here. This is the initial
+ 
+
+209
+00:05:00,400 --> 00:05:05,990
+So start from here. This is the initial
+state. Okay. So for any application
+
+210
+00:05:05,990 --> 00:05:06,000
+state. Okay. So for any application
+ 
+
+211
+00:05:06,000 --> 00:05:09,749
+state. Okay. So for any application
+the best case is closed. Closed means
+
+212
+00:05:09,749 --> 00:05:09,759
+the best case is closed. Closed means
+ 
+
+213
+00:05:09,759 --> 00:05:12,870
+the best case is closed. Closed means
+that all calls are allowed to downstream
+
+214
+00:05:12,870 --> 00:05:12,880
+that all calls are allowed to downstream
+ 
+
+215
+00:05:12,880 --> 00:05:16,230
+that all calls are allowed to downstream
+service means everything is going good.
+
+216
+00:05:16,230 --> 00:05:16,240
+service means everything is going good.
+ 
+
+217
+00:05:16,240 --> 00:05:19,110
+service means everything is going good.
+Okay. Circuit is closed. Circuit is
+
+218
+00:05:19,110 --> 00:05:19,120
+Okay. Circuit is closed. Circuit is
+ 
+
+219
+00:05:19,120 --> 00:05:21,270
+Okay. Circuit is closed. Circuit is
+closed means just remember always
+
+220
+00:05:21,270 --> 00:05:21,280
+closed means just remember always
+ 
+
+221
+00:05:21,280 --> 00:05:23,270
+closed means just remember always
+sometime many time engineer got confused
+
+222
+00:05:23,270 --> 00:05:23,280
+sometime many time engineer got confused
+ 
+
+223
+00:05:23,280 --> 00:05:25,749
+sometime many time engineer got confused
+that hey circuit is closed means no
+
+224
+00:05:25,749 --> 00:05:25,759
+that hey circuit is closed means no
+ 
+
+225
+00:05:25,759 --> 00:05:29,430
+that hey circuit is closed means no
+calls. No. So see consider this as a
+
+226
+00:05:29,430 --> 00:05:29,440
+calls. No. So see consider this as a
+ 
+
+227
+00:05:29,440 --> 00:05:31,270
+calls. No. So see consider this as a
+circuit. So when the circuit is closed
+
+228
+00:05:31,270 --> 00:05:31,280
+circuit. So when the circuit is closed
+ 
+
+229
+00:05:31,280 --> 00:05:33,430
+circuit. So when the circuit is closed
+then only electricity will flow. When
+
+230
+00:05:33,430 --> 00:05:33,440
+then only electricity will flow. When
+ 
+
+231
+00:05:33,440 --> 00:05:36,710
+then only electricity will flow. When
+the circuit is open then electricity
+
+232
+00:05:36,710 --> 00:05:36,720
+the circuit is open then electricity
+ 
+
+233
+00:05:36,720 --> 00:05:39,110
+the circuit is open then electricity
+current will break. Understand it is
+
+234
+00:05:39,110 --> 00:05:39,120
+current will break. Understand it is
+ 
+
+235
+00:05:39,120 --> 00:05:41,830
+current will break. Understand it is
+just to remember this. So when the
+
+236
+00:05:41,830 --> 00:05:41,840
+just to remember this. So when the
+ 
+
+237
+00:05:41,840 --> 00:05:43,909
+just to remember this. So when the
+circuit is closed
+
+238
+00:05:43,909 --> 00:05:43,919
+circuit is closed
+ 
+
+239
+00:05:43,919 --> 00:05:46,469
+circuit is closed
+all calls are allowed to downstream
+
+240
+00:05:46,469 --> 00:05:46,479
+all calls are allowed to downstream
+ 
+
+241
+00:05:46,479 --> 00:05:48,390
+all calls are allowed to downstream
+service.
+
+242
+00:05:48,390 --> 00:05:48,400
+service.
+ 
+
+243
+00:05:48,400 --> 00:05:51,830
+service.
+Now if failure limit cross the threshold
+
+244
+00:05:51,830 --> 00:05:51,840
+Now if failure limit cross the threshold
+ 
+
+245
+00:05:51,840 --> 00:05:54,150
+Now if failure limit cross the threshold
+let's say five failure, six failure
+
+246
+00:05:54,150 --> 00:05:54,160
+let's say five failure, six failure
+ 
+
+247
+00:05:54,160 --> 00:05:56,310
+let's say five failure, six failure
+whatever the threshold we will set. If
+
+248
+00:05:56,310 --> 00:05:56,320
+whatever the threshold we will set. If
+ 
+
+249
+00:05:56,320 --> 00:05:58,790
+whatever the threshold we will set. If
+that many failures so see there could be
+
+250
+00:05:58,790 --> 00:05:58,800
+that many failures so see there could be
+ 
+
+251
+00:05:58,800 --> 00:06:01,110
+that many failures so see there could be
+some success, there could be some
+
+252
+00:06:01,110 --> 00:06:01,120
+some success, there could be some
+ 
+
+253
+00:06:01,120 --> 00:06:03,590
+some success, there could be some
+failure while making a call to
+
+254
+00:06:03,590 --> 00:06:03,600
+failure while making a call to
+ 
+
+255
+00:06:03,600 --> 00:06:08,070
+failure while making a call to
+downstream. But if the failure limit
+
+256
+00:06:08,070 --> 00:06:08,080
+downstream. But if the failure limit
+ 
+
+257
+00:06:08,080 --> 00:06:13,670
+downstream. But if the failure limit
+threshold value is crossed then it moved
+
+258
+00:06:13,670 --> 00:06:13,680
+threshold value is crossed then it moved
+ 
+
+259
+00:06:13,680 --> 00:06:17,110
+threshold value is crossed then it moved
+from closed state to open state. Now
+
+260
+00:06:17,110 --> 00:06:17,120
+from closed state to open state. Now
+ 
+
+261
+00:06:17,120 --> 00:06:19,909
+from closed state to open state. Now
+open state means
+
+262
+00:06:19,909 --> 00:06:19,919
+open state means
+ 
+
+263
+00:06:19,919 --> 00:06:22,469
+open state means
+no calls allowed to downstream service
+
+264
+00:06:22,469 --> 00:06:22,479
+no calls allowed to downstream service
+ 
+
+265
+00:06:22,479 --> 00:06:25,909
+no calls allowed to downstream service
+and fail the call immediately.
+
+266
+00:06:25,909 --> 00:06:25,919
+and fail the call immediately.
+ 
+
+267
+00:06:25,919 --> 00:06:29,590
+and fail the call immediately.
+So after this it wait for certain time
+
+268
+00:06:29,590 --> 00:06:29,600
+So after this it wait for certain time
+ 
+
+269
+00:06:29,600 --> 00:06:31,189
+So after this it wait for certain time
+which is like you can say the timeout
+
+270
+00:06:31,189 --> 00:06:31,199
+which is like you can say the timeout
+ 
+
+271
+00:06:31,199 --> 00:06:33,590
+which is like you can say the timeout
+period. After that let's say it could be
+
+272
+00:06:33,590 --> 00:06:33,600
+period. After that let's say it could be
+ 
+
+273
+00:06:33,600 --> 00:06:36,790
+period. After that let's say it could be
+10 second 5 second 15 second that hey
+
+274
+00:06:36,790 --> 00:06:36,800
+10 second 5 second 15 second that hey
+ 
+
+275
+00:06:36,800 --> 00:06:39,749
+10 second 5 second 15 second that hey
+for 5 second or 10 second no call is
+
+276
+00:06:39,749 --> 00:06:39,759
+for 5 second or 10 second no call is
+ 
+
+277
+00:06:39,759 --> 00:06:43,029
+for 5 second or 10 second no call is
+allowed. After that it move to half open
+
+278
+00:06:43,029 --> 00:06:43,039
+allowed. After that it move to half open
+ 
+
+279
+00:06:43,039 --> 00:06:46,710
+allowed. After that it move to half open
+state. Half open state says that allow
+
+280
+00:06:46,710 --> 00:06:46,720
+state. Half open state says that allow
+ 
+
+281
+00:06:46,720 --> 00:06:49,110
+state. Half open state says that allow
+only limited number of test calls to
+
+282
+00:06:49,110 --> 00:06:49,120
+only limited number of test calls to
+ 
+
+283
+00:06:49,120 --> 00:06:52,150
+only limited number of test calls to
+downstream and track their success rate.
+
+284
+00:06:52,150 --> 00:06:52,160
+downstream and track their success rate.
+ 
+
+285
+00:06:52,160 --> 00:06:54,309
+downstream and track their success rate.
+Say I say that hey allowed only three
+
+286
+00:06:54,309 --> 00:06:54,319
+Say I say that hey allowed only three
+ 
+
+287
+00:06:54,319 --> 00:06:57,990
+Say I say that hey allowed only three
+calls allowed only five calls. So very
+
+288
+00:06:57,990 --> 00:06:58,000
+calls allowed only five calls. So very
+ 
+
+289
+00:06:58,000 --> 00:07:00,870
+calls allowed only five calls. So very
+limited number of calls we will send it
+
+290
+00:07:00,870 --> 00:07:00,880
+limited number of calls we will send it
+ 
+
+291
+00:07:00,880 --> 00:07:04,469
+limited number of calls we will send it
+to the downstream and then track their
+
+292
+00:07:04,469 --> 00:07:04,479
+to the downstream and then track their
+ 
+
+293
+00:07:04,479 --> 00:07:06,790
+to the downstream and then track their
+success rate. If the success rate is
+
+294
+00:07:06,790 --> 00:07:06,800
+success rate. If the success rate is
+ 
+
+295
+00:07:06,800 --> 00:07:11,189
+success rate. If the success rate is
+100% then circuit can be closed again.
+
+296
+00:07:11,189 --> 00:07:11,199
+100% then circuit can be closed again.
+ 
+
+297
+00:07:11,199 --> 00:07:16,870
+100% then circuit can be closed again.
+But if the success rate is not 100%
+
+298
+00:07:16,870 --> 00:07:16,880
+
+ 
+
+299
+00:07:16,880 --> 00:07:20,950
+
+the state goes back to open.
+
+300
+00:07:20,950 --> 00:07:20,960
+the state goes back to open.
+ 
+
+301
+00:07:20,960 --> 00:07:25,830
+the state goes back to open.
+Okay. So whatever we have seen this can
+
+302
+00:07:25,830 --> 00:07:25,840
+Okay. So whatever we have seen this can
+ 
+
+303
+00:07:25,840 --> 00:07:28,710
+Okay. So whatever we have seen this can
+be easily represented through this state
+
+304
+00:07:28,710 --> 00:07:28,720
+be easily represented through this state
+ 
+
+305
+00:07:28,720 --> 00:07:31,510
+be easily represented through this state
+of circuit breaker.
+
+306
+00:07:31,510 --> 00:07:31,520
+of circuit breaker.
+ 
+
+307
+00:07:31,520 --> 00:07:34,230
+of circuit breaker.
+Okay. And let's see its implementation.
+
+308
+00:07:34,230 --> 00:07:34,240
+Okay. And let's see its implementation.
+ 
+
+309
+00:07:34,240 --> 00:07:36,790
+Okay. And let's see its implementation.
+It's very easy. So we have already seen
+
+310
+00:07:36,790 --> 00:07:36,800
+It's very easy. So we have already seen
+ 
+
+311
+00:07:36,800 --> 00:07:39,270
+It's very easy. So we have already seen
+that we don't need uh individual
+
+312
+00:07:39,270 --> 00:07:39,280
+that we don't need uh individual
+ 
+
+313
+00:07:39,280 --> 00:07:42,070
+that we don't need uh individual
+dependency of circuit breaker. It's all
+
+314
+00:07:42,070 --> 00:07:42,080
+dependency of circuit breaker. It's all
+ 
+
+315
+00:07:42,080 --> 00:07:44,390
+dependency of circuit breaker. It's all
+come with the resilience 4j itself. So
+
+316
+00:07:44,390 --> 00:07:44,400
+come with the resilience 4j itself. So
+ 
+
+317
+00:07:44,400 --> 00:07:47,350
+come with the resilience 4j itself. So
+we already have that dependency added as
+
+318
+00:07:47,350 --> 00:07:47,360
+we already have that dependency added as
+ 
+
+319
+00:07:47,360 --> 00:07:51,430
+we already have that dependency added as
+part of previous u retry and all. So
+
+320
+00:07:51,430 --> 00:07:51,440
+part of previous u retry and all. So
+ 
+
+321
+00:07:51,440 --> 00:07:54,309
+part of previous u retry and all. So
+this pom.xml
+
+322
+00:07:54,309 --> 00:07:54,319
+this pom.xml
+ 
+
+323
+00:07:54,319 --> 00:07:56,629
+this pom.xml
+we need to add this resilience 4j
+
+324
+00:07:56,629 --> 00:07:56,639
+we need to add this resilience 4j
+ 
+
+325
+00:07:56,639 --> 00:07:59,670
+we need to add this resilience 4j
+dependency. This is the same no change
+
+326
+00:07:59,670 --> 00:07:59,680
+dependency. This is the same no change
+ 
+
+327
+00:07:59,680 --> 00:08:01,909
+dependency. This is the same no change
+it's just a controller class to expose
+
+328
+00:08:01,909 --> 00:08:01,919
+it's just a controller class to expose
+ 
+
+329
+00:08:01,919 --> 00:08:04,550
+it's just a controller class to expose
+an API through which we can invoke this
+
+330
+00:08:04,550 --> 00:08:04,560
+an API through which we can invoke this
+ 
+
+331
+00:08:04,560 --> 00:08:06,629
+an API through which we can invoke this
+order service
+
+332
+00:08:06,629 --> 00:08:06,639
+order service
+ 
+
+333
+00:08:06,639 --> 00:08:08,309
+order service
+uh method
+
+334
+00:08:08,309 --> 00:08:08,319
+uh method
+ 
+
+335
+00:08:08,319 --> 00:08:11,270
+uh method
+and this is a f client like no change
+
+336
+00:08:11,270 --> 00:08:11,280
+and this is a f client like no change
+ 
+
+337
+00:08:11,280 --> 00:08:13,589
+and this is a f client like no change
+it's like uh we are using ureka server
+
+338
+00:08:13,589 --> 00:08:13,599
+it's like uh we are using ureka server
+ 
+
+339
+00:08:13,599 --> 00:08:16,390
+it's like uh we are using ureka server
+so that's why I haven't provided any URL
+
+340
+00:08:16,390 --> 00:08:16,400
+so that's why I haven't provided any URL
+ 
+
+341
+00:08:16,400 --> 00:08:18,550
+so that's why I haven't provided any URL
+right so that's already we have seen in
+
+342
+00:08:18,550 --> 00:08:18,560
+right so that's already we have seen in
+ 
+
+343
+00:08:18,560 --> 00:08:20,309
+right so that's already we have seen in
+the previous one. So there is no change
+
+344
+00:08:20,309 --> 00:08:20,319
+the previous one. So there is no change
+ 
+
+345
+00:08:20,319 --> 00:08:24,070
+the previous one. So there is no change
+here. Now in the order service we have a
+
+346
+00:08:24,070 --> 00:08:24,080
+here. Now in the order service we have a
+ 
+
+347
+00:08:24,080 --> 00:08:25,749
+here. Now in the order service we have a
+method right it is invoking the order
+
+348
+00:08:25,749 --> 00:08:25,759
+method right it is invoking the order
+ 
+
+349
+00:08:25,759 --> 00:08:28,230
+method right it is invoking the order
+service method invoke product API. So
+
+350
+00:08:28,230 --> 00:08:28,240
+service method invoke product API. So
+ 
+
+351
+00:08:28,240 --> 00:08:31,749
+service method invoke product API. So
+this is actually where I am invoking the
+
+352
+00:08:31,749 --> 00:08:31,759
+this is actually where I am invoking the
+ 
+
+353
+00:08:31,759 --> 00:08:35,909
+this is actually where I am invoking the
+downstream product. So now at top of it
+
+354
+00:08:35,909 --> 00:08:35,919
+downstream product. So now at top of it
+ 
+
+355
+00:08:35,919 --> 00:08:38,550
+downstream product. So now at top of it
+I have put this circuit breaker. So I
+
+356
+00:08:38,550 --> 00:08:38,560
+I have put this circuit breaker. So I
+ 
+
+357
+00:08:38,560 --> 00:08:40,709
+I have put this circuit breaker. So I
+have given it a name. This is the name
+
+358
+00:08:40,709 --> 00:08:40,719
+have given it a name. This is the name
+ 
+
+359
+00:08:40,719 --> 00:08:43,509
+have given it a name. This is the name
+product service and this is the fallback
+
+360
+00:08:43,509 --> 00:08:43,519
+product service and this is the fallback
+ 
+
+361
+00:08:43,519 --> 00:08:46,790
+product service and this is the fallback
+method. So this is the fallback method.
+
+362
+00:08:46,790 --> 00:08:46,800
+method. So this is the fallback method.
+ 
+
+363
+00:08:46,800 --> 00:08:50,630
+method. So this is the fallback method.
+Remember that this fallback method
+
+364
+00:08:50,630 --> 00:08:50,640
+Remember that this fallback method
+ 
+
+365
+00:08:50,640 --> 00:08:54,710
+Remember that this fallback method
+always get invoked for each failure
+
+366
+00:08:54,710 --> 00:08:54,720
+always get invoked for each failure
+ 
+
+367
+00:08:54,720 --> 00:08:56,310
+always get invoked for each failure
+attempt.
+
+368
+00:08:56,310 --> 00:08:56,320
+attempt.
+ 
+
+369
+00:08:56,320 --> 00:08:59,590
+attempt.
+Okay. So whenever you are not able to
+
+370
+00:08:59,590 --> 00:08:59,600
+Okay. So whenever you are not able to
+ 
+
+371
+00:08:59,600 --> 00:09:01,350
+Okay. So whenever you are not able to
+invoke this product service, this
+
+372
+00:09:01,350 --> 00:09:01,360
+invoke this product service, this
+ 
+
+373
+00:09:01,360 --> 00:09:04,790
+invoke this product service, this
+fallback method get invoked.
+
+374
+00:09:04,790 --> 00:09:04,800
+fallback method get invoked.
+ 
+
+375
+00:09:04,800 --> 00:09:07,829
+fallback method get invoked.
+Okay. So this is one thing we have to
+
+376
+00:09:07,829 --> 00:09:07,839
+Okay. So this is one thing we have to
+ 
+
+377
+00:09:07,839 --> 00:09:10,550
+Okay. So this is one thing we have to
+add a circuit breaker annotation
+
+378
+00:09:10,550 --> 00:09:10,560
+add a circuit breaker annotation
+ 
+
+379
+00:09:10,560 --> 00:09:13,750
+add a circuit breaker annotation
+and this is the configuration we have to
+
+380
+00:09:13,750 --> 00:09:13,760
+and this is the configuration we have to
+ 
+
+381
+00:09:13,760 --> 00:09:15,750
+and this is the configuration we have to
+add in application.properties.
+
+382
+00:09:15,750 --> 00:09:15,760
+add in application.properties.
+ 
+
+383
+00:09:15,760 --> 00:09:17,509
+add in application.properties.
+So this is very important. So understand
+
+384
+00:09:17,509 --> 00:09:17,519
+So this is very important. So understand
+ 
+
+385
+00:09:17,519 --> 00:09:20,790
+So this is very important. So understand
+this configuration uh properly that why
+
+386
+00:09:20,790 --> 00:09:20,800
+this configuration uh properly that why
+ 
+
+387
+00:09:20,800 --> 00:09:23,430
+this configuration uh properly that why
+we need this many.
+
+388
+00:09:23,430 --> 00:09:23,440
+we need this many.
+ 
+
+389
+00:09:23,440 --> 00:09:26,230
+we need this many.
+So the first thing is
+
+390
+00:09:26,230 --> 00:09:26,240
+So the first thing is
+ 
+
+391
+00:09:26,240 --> 00:09:29,110
+So the first thing is
+resilience 4j.tcircuit breaker.instance.
+
+392
+00:09:29,110 --> 00:09:29,120
+resilience 4j.tcircuit breaker.instance.
+ 
+
+393
+00:09:29,120 --> 00:09:30,949
+resilience 4j.tcircuit breaker.instance.
+This is the name we have given product
+
+394
+00:09:30,949 --> 00:09:30,959
+This is the name we have given product
+ 
+
+395
+00:09:30,959 --> 00:09:33,269
+This is the name we have given product
+service. Now see the first one is
+
+396
+00:09:33,269 --> 00:09:33,279
+service. Now see the first one is
+ 
+
+397
+00:09:33,279 --> 00:09:36,070
+service. Now see the first one is
+sliding window type and the second one
+
+398
+00:09:36,070 --> 00:09:36,080
+sliding window type and the second one
+ 
+
+399
+00:09:36,080 --> 00:09:38,949
+sliding window type and the second one
+is sliding window size. So both are
+
+400
+00:09:38,949 --> 00:09:38,959
+is sliding window size. So both are
+ 
+
+401
+00:09:38,959 --> 00:09:41,190
+is sliding window size. So both are
+associated.
+
+402
+00:09:41,190 --> 00:09:41,200
+associated.
+ 
+
+403
+00:09:41,200 --> 00:09:43,509
+associated.
+So here if you see that when you are
+
+404
+00:09:43,509 --> 00:09:43,519
+So here if you see that when you are
+ 
+
+405
+00:09:43,519 --> 00:09:45,910
+So here if you see that when you are
+choosing the count based as the window
+
+406
+00:09:45,910 --> 00:09:45,920
+choosing the count based as the window
+ 
+
+407
+00:09:45,920 --> 00:09:48,790
+choosing the count based as the window
+type and the size what does it means is
+
+408
+00:09:48,790 --> 00:09:48,800
+type and the size what does it means is
+ 
+
+409
+00:09:48,800 --> 00:09:51,990
+type and the size what does it means is
+it will track the n number of recent
+
+410
+00:09:51,990 --> 00:09:52,000
+it will track the n number of recent
+ 
+
+411
+00:09:52,000 --> 00:09:55,190
+it will track the n number of recent
+call. So here it will track the 10
+
+412
+00:09:55,190 --> 00:09:55,200
+call. So here it will track the 10
+ 
+
+413
+00:09:55,200 --> 00:09:59,269
+call. So here it will track the 10
+recent calls and based on that it will
+
+414
+00:09:59,269 --> 00:09:59,279
+recent calls and based on that it will
+ 
+
+415
+00:09:59,279 --> 00:10:01,190
+recent calls and based on that it will
+find out whether there is any failure or
+
+416
+00:10:01,190 --> 00:10:01,200
+find out whether there is any failure or
+ 
+
+417
+00:10:01,200 --> 00:10:03,030
+find out whether there is any failure or
+not. So this is helpful when you are
+
+418
+00:10:03,030 --> 00:10:03,040
+not. So this is helpful when you are
+ 
+
+419
+00:10:03,040 --> 00:10:05,509
+not. So this is helpful when you are
+currently in a closed state.
+
+420
+00:10:05,509 --> 00:10:05,519
+currently in a closed state.
+ 
+
+421
+00:10:05,519 --> 00:10:09,190
+currently in a closed state.
+So when you are in a closed state and
+
+422
+00:10:09,190 --> 00:10:09,200
+So when you are in a closed state and
+ 
+
+423
+00:10:09,200 --> 00:10:12,310
+So when you are in a closed state and
+means all calls are allowed and you have
+
+424
+00:10:12,310 --> 00:10:12,320
+means all calls are allowed and you have
+ 
+
+425
+00:10:12,320 --> 00:10:14,630
+means all calls are allowed and you have
+to identify whether a threshold has been
+
+426
+00:10:14,630 --> 00:10:14,640
+to identify whether a threshold has been
+ 
+
+427
+00:10:14,640 --> 00:10:18,949
+to identify whether a threshold has been
+crossed or not. Okay. So there should be
+
+428
+00:10:18,949 --> 00:10:18,959
+crossed or not. Okay. So there should be
+ 
+
+429
+00:10:18,959 --> 00:10:22,150
+crossed or not. Okay. So there should be
+some window on which some request comes
+
+430
+00:10:22,150 --> 00:10:22,160
+some window on which some request comes
+ 
+
+431
+00:10:22,160 --> 00:10:23,590
+some window on which some request comes
+which could be success which could be
+
+432
+00:10:23,590 --> 00:10:23,600
+which could be success which could be
+ 
+
+433
+00:10:23,600 --> 00:10:25,030
+which could be success which could be
+failure which could be success which
+
+434
+00:10:25,030 --> 00:10:25,040
+failure which could be success which
+ 
+
+435
+00:10:25,040 --> 00:10:27,829
+failure which could be success which
+could be failure. Right? So this window
+
+436
+00:10:27,829 --> 00:10:27,839
+could be failure. Right? So this window
+ 
+
+437
+00:10:27,839 --> 00:10:31,430
+could be failure. Right? So this window
+size is this. Okay. So window size is
+
+438
+00:10:31,430 --> 00:10:31,440
+size is this. Okay. So window size is
+ 
+
+439
+00:10:31,440 --> 00:10:33,750
+size is this. Okay. So window size is
+this and I am using countbas. So count
+
+440
+00:10:33,750 --> 00:10:33,760
+this and I am using countbas. So count
+ 
+
+441
+00:10:33,760 --> 00:10:35,670
+this and I am using countbas. So count
+based means
+
+442
+00:10:35,670 --> 00:10:35,680
+based means
+ 
+
+443
+00:10:35,680 --> 00:10:37,590
+based means
+10 calls.
+
+444
+00:10:37,590 --> 00:10:37,600
+10 calls.
+ 
+
+445
+00:10:37,600 --> 00:10:41,590
+10 calls.
+So use the last 10 calls.
+
+446
+00:10:41,590 --> 00:10:41,600
+So use the last 10 calls.
+ 
+
+447
+00:10:41,600 --> 00:10:43,910
+So use the last 10 calls.
+Okay. There another is time based. So
+
+448
+00:10:43,910 --> 00:10:43,920
+Okay. There another is time based. So
+ 
+
+449
+00:10:43,920 --> 00:10:47,350
+Okay. There another is time based. So
+it's not call then 10 second.
+
+450
+00:10:47,350 --> 00:10:47,360
+it's not call then 10 second.
+ 
+
+451
+00:10:47,360 --> 00:10:49,590
+it's not call then 10 second.
+In 10 second
+
+452
+00:10:49,590 --> 00:10:49,600
+In 10 second
+ 
+
+453
+00:10:49,600 --> 00:10:51,990
+In 10 second
+how whatever the call it could be 10 20
+
+454
+00:10:51,990 --> 00:10:52,000
+how whatever the call it could be 10 20
+ 
+
+455
+00:10:52,000 --> 00:10:53,750
+how whatever the call it could be 10 20
+100 doesn't matter. Now it's a time
+
+456
+00:10:53,750 --> 00:10:53,760
+100 doesn't matter. Now it's a time
+ 
+
+457
+00:10:53,760 --> 00:10:56,550
+100 doesn't matter. Now it's a time
+base. So it's a time base. What is the
+
+458
+00:10:56,550 --> 00:10:56,560
+base. So it's a time base. What is the
+ 
+
+459
+00:10:56,560 --> 00:10:58,790
+base. So it's a time base. What is the
+size? 10 second.
+
+460
+00:10:58,790 --> 00:10:58,800
+size? 10 second.
+ 
+
+461
+00:10:58,800 --> 00:11:01,269
+size? 10 second.
+So in 10 seconds whatever the call is
+
+462
+00:11:01,269 --> 00:11:01,279
+So in 10 seconds whatever the call is
+ 
+
+463
+00:11:01,279 --> 00:11:03,030
+So in 10 seconds whatever the call is
+there
+
+464
+00:11:03,030 --> 00:11:03,040
+there
+ 
+
+465
+00:11:03,040 --> 00:11:04,949
+there
+right some call could be success some
+
+466
+00:11:04,949 --> 00:11:04,959
+right some call could be success some
+ 
+
+467
+00:11:04,959 --> 00:11:07,430
+right some call could be success some
+call could be failure now based on that
+
+468
+00:11:07,430 --> 00:11:07,440
+call could be failure now based on that
+ 
+
+469
+00:11:07,440 --> 00:11:09,269
+call could be failure now based on that
+we will find out whether the threshold
+
+470
+00:11:09,269 --> 00:11:09,279
+we will find out whether the threshold
+ 
+
+471
+00:11:09,279 --> 00:11:11,590
+we will find out whether the threshold
+has been crossed or not. So first we
+
+472
+00:11:11,590 --> 00:11:11,600
+has been crossed or not. So first we
+ 
+
+473
+00:11:11,600 --> 00:11:15,750
+has been crossed or not. So first we
+have to determine the window. So this is
+
+474
+00:11:15,750 --> 00:11:15,760
+have to determine the window. So this is
+ 
+
+475
+00:11:15,760 --> 00:11:20,389
+have to determine the window. So this is
+helping us to determine our window. Okay
+
+476
+00:11:20,389 --> 00:11:20,399
+helping us to determine our window. Okay
+ 
+
+477
+00:11:20,399 --> 00:11:23,350
+helping us to determine our window. Okay
+never get confused it with like uh rate
+
+478
+00:11:23,350 --> 00:11:23,360
+never get confused it with like uh rate
+ 
+
+479
+00:11:23,360 --> 00:11:25,750
+never get confused it with like uh rate
+limiter sliding windows and all right it
+
+480
+00:11:25,750 --> 00:11:25,760
+limiter sliding windows and all right it
+ 
+
+481
+00:11:25,760 --> 00:11:27,269
+limiter sliding windows and all right it
+is totally different. This is count
+
+482
+00:11:27,269 --> 00:11:27,279
+is totally different. This is count
+ 
+
+483
+00:11:27,279 --> 00:11:31,110
+is totally different. This is count
+based means when we are giving a 10 so
+
+484
+00:11:31,110 --> 00:11:31,120
+based means when we are giving a 10 so
+ 
+
+485
+00:11:31,120 --> 00:11:33,750
+based means when we are giving a 10 so
+means 10 calls
+
+486
+00:11:33,750 --> 00:11:33,760
+means 10 calls
+ 
+
+487
+00:11:33,760 --> 00:11:37,110
+means 10 calls
+last 10 calls we have to consider and
+
+488
+00:11:37,110 --> 00:11:37,120
+last 10 calls we have to consider and
+ 
+
+489
+00:11:37,120 --> 00:11:38,790
+last 10 calls we have to consider and
+based on that we will find out a
+
+490
+00:11:38,790 --> 00:11:38,800
+based on that we will find out a
+ 
+
+491
+00:11:38,800 --> 00:11:41,269
+based on that we will find out a
+threshold value okay so first two is
+
+492
+00:11:41,269 --> 00:11:41,279
+threshold value okay so first two is
+ 
+
+493
+00:11:41,279 --> 00:11:45,990
+threshold value okay so first two is
+clear then is minimum number of calls
+
+494
+00:11:45,990 --> 00:11:46,000
+clear then is minimum number of calls
+ 
+
+495
+00:11:46,000 --> 00:11:48,710
+clear then is minimum number of calls
+so minimum number of calls so see why we
+
+496
+00:11:48,710 --> 00:11:48,720
+so minimum number of calls so see why we
+ 
+
+497
+00:11:48,720 --> 00:11:53,110
+so minimum number of calls so see why we
+required is let's say uh we have only
+
+498
+00:11:53,110 --> 00:11:53,120
+required is let's say uh we have only
+ 
+
+499
+00:11:53,120 --> 00:11:56,230
+required is let's say uh we have only
+two calls let's say count based and And
+
+500
+00:11:56,230 --> 00:11:56,240
+two calls let's say count based and And
+ 
+
+501
+00:11:56,240 --> 00:11:58,150
+two calls let's say count based and And
+the window size you have given two say
+
+502
+00:11:58,150 --> 00:11:58,160
+the window size you have given two say
+ 
+
+503
+00:11:58,160 --> 00:12:00,630
+the window size you have given two say
+suppose or even if you are using time
+
+504
+00:12:00,630 --> 00:12:00,640
+suppose or even if you are using time
+ 
+
+505
+00:12:00,640 --> 00:12:03,190
+suppose or even if you are using time
+based 10 second in the 10 second you
+
+506
+00:12:03,190 --> 00:12:03,200
+based 10 second in the 10 second you
+ 
+
+507
+00:12:03,200 --> 00:12:05,430
+based 10 second in the 10 second you
+only got two calls
+
+508
+00:12:05,430 --> 00:12:05,440
+only got two calls
+ 
+
+509
+00:12:05,440 --> 00:12:08,150
+only got two calls
+and your threshold is let's say hey 50%
+
+510
+00:12:08,150 --> 00:12:08,160
+and your threshold is let's say hey 50%
+ 
+
+511
+00:12:08,160 --> 00:12:11,110
+and your threshold is let's say hey 50%
+of the traffic is fail
+
+512
+00:12:11,110 --> 00:12:11,120
+of the traffic is fail
+ 
+
+513
+00:12:11,120 --> 00:12:14,150
+of the traffic is fail
+then consider it as a failure
+
+514
+00:12:14,150 --> 00:12:14,160
+then consider it as a failure
+ 
+
+515
+00:12:14,160 --> 00:12:16,389
+then consider it as a failure
+but here when there is only two calls
+
+516
+00:12:16,389 --> 00:12:16,399
+but here when there is only two calls
+ 
+
+517
+00:12:16,399 --> 00:12:19,269
+but here when there is only two calls
+and what does 50% means only one even if
+
+518
+00:12:19,269 --> 00:12:19,279
+and what does 50% means only one even if
+ 
+
+519
+00:12:19,279 --> 00:12:20,870
+and what does 50% means only one even if
+there is one failure now you will
+
+520
+00:12:20,870 --> 00:12:20,880
+there is one failure now you will
+ 
+
+521
+00:12:20,880 --> 00:12:22,629
+there is one failure now you will
+consider that hey product service is
+
+522
+00:12:22,629 --> 00:12:22,639
+consider that hey product service is
+ 
+
+523
+00:12:22,639 --> 00:12:26,790
+consider that hey product service is
+down is it is it not a false positive
+
+524
+00:12:26,790 --> 00:12:26,800
+down is it is it not a false positive
+ 
+
+525
+00:12:26,800 --> 00:12:29,829
+down is it is it not a false positive
+Right? It's a false alarm. Only one
+
+526
+00:12:29,829 --> 00:12:29,839
+Right? It's a false alarm. Only one
+ 
+
+527
+00:12:29,839 --> 00:12:33,030
+Right? It's a false alarm. Only one
+request fails, it could be because of
+
+528
+00:12:33,030 --> 00:12:33,040
+request fails, it could be because of
+ 
+
+529
+00:12:33,040 --> 00:12:36,470
+request fails, it could be because of
+like uh if you retry it might pass.
+
+530
+00:12:36,470 --> 00:12:36,480
+like uh if you retry it might pass.
+ 
+
+531
+00:12:36,480 --> 00:12:39,910
+like uh if you retry it might pass.
+Okay? So when the number is very low
+
+532
+00:12:39,910 --> 00:12:39,920
+Okay? So when the number is very low
+ 
+
+533
+00:12:39,920 --> 00:12:43,269
+Okay? So when the number is very low
+then there is a chance that there is a
+
+534
+00:12:43,269 --> 00:12:43,279
+then there is a chance that there is a
+ 
+
+535
+00:12:43,279 --> 00:12:45,350
+then there is a chance that there is a
+false positive.
+
+536
+00:12:45,350 --> 00:12:45,360
+false positive.
+ 
+
+537
+00:12:45,360 --> 00:12:47,990
+false positive.
+Okay. So that's why minimum number of
+
+538
+00:12:47,990 --> 00:12:48,000
+Okay. So that's why minimum number of
+ 
+
+539
+00:12:48,000 --> 00:12:50,710
+Okay. So that's why minimum number of
+calls says that hey
+
+540
+00:12:50,710 --> 00:12:50,720
+calls says that hey
+ 
+
+541
+00:12:50,720 --> 00:12:54,069
+calls says that hey
+when this number of calls
+
+542
+00:12:54,069 --> 00:12:54,079
+when this number of calls
+ 
+
+543
+00:12:54,079 --> 00:12:56,470
+when this number of calls
+reach then only start evaluating the
+
+544
+00:12:56,470 --> 00:12:56,480
+reach then only start evaluating the
+ 
+
+545
+00:12:56,480 --> 00:13:00,949
+reach then only start evaluating the
+failure rate. Okay so minimum at least
+
+546
+00:13:00,949 --> 00:13:00,959
+failure rate. Okay so minimum at least
+ 
+
+547
+00:13:00,959 --> 00:13:04,310
+failure rate. Okay so minimum at least
+this many calls should be present then
+
+548
+00:13:04,310 --> 00:13:04,320
+this many calls should be present then
+ 
+
+549
+00:13:04,320 --> 00:13:06,710
+this many calls should be present then
+only after that start evaluating the
+
+550
+00:13:06,710 --> 00:13:06,720
+only after that start evaluating the
+ 
+
+551
+00:13:06,720 --> 00:13:08,710
+only after that start evaluating the
+failure.
+
+552
+00:13:08,710 --> 00:13:08,720
+failure.
+ 
+
+553
+00:13:08,720 --> 00:13:10,389
+failure.
+Okay.
+
+554
+00:13:10,389 --> 00:13:10,399
+Okay.
+ 
+
+555
+00:13:10,399 --> 00:13:13,509
+Okay.
+Then another is failure rate threshold.
+
+556
+00:13:13,509 --> 00:13:13,519
+Then another is failure rate threshold.
+ 
+
+557
+00:13:13,519 --> 00:13:16,790
+Then another is failure rate threshold.
+This is percentage. So
+
+558
+00:13:16,790 --> 00:13:16,800
+This is percentage. So
+ 
+
+559
+00:13:16,800 --> 00:13:19,750
+This is percentage. So
+circuit moves to open state once the
+
+560
+00:13:19,750 --> 00:13:19,760
+circuit moves to open state once the
+ 
+
+561
+00:13:19,760 --> 00:13:22,949
+circuit moves to open state once the
+threshold limit reach. So if 50% of the
+
+562
+00:13:22,949 --> 00:13:22,959
+threshold limit reach. So if 50% of the
+ 
+
+563
+00:13:22,959 --> 00:13:25,190
+threshold limit reach. So if 50% of the
+traffic
+
+564
+00:13:25,190 --> 00:13:25,200
+traffic
+ 
+
+565
+00:13:25,200 --> 00:13:29,350
+traffic
+is a failure in a window in this window
+
+566
+00:13:29,350 --> 00:13:29,360
+is a failure in a window in this window
+ 
+
+567
+00:13:29,360 --> 00:13:32,069
+is a failure in a window in this window
+in this window if 50% of the traffic
+
+568
+00:13:32,069 --> 00:13:32,079
+in this window if 50% of the traffic
+ 
+
+569
+00:13:32,079 --> 00:13:35,030
+in this window if 50% of the traffic
+failed then it move from closed to open
+
+570
+00:13:35,030 --> 00:13:35,040
+failed then it move from closed to open
+ 
+
+571
+00:13:35,040 --> 00:13:37,670
+failed then it move from closed to open
+state.
+
+572
+00:13:37,670 --> 00:13:37,680
+state.
+ 
+
+573
+00:13:37,680 --> 00:13:39,590
+state.
+Then another is wait duration in open
+
+574
+00:13:39,590 --> 00:13:39,600
+Then another is wait duration in open
+ 
+
+575
+00:13:39,600 --> 00:13:42,389
+Then another is wait duration in open
+state. So once the circuit moves to open
+
+576
+00:13:42,389 --> 00:13:42,399
+state. So once the circuit moves to open
+ 
+
+577
+00:13:42,399 --> 00:13:46,069
+state. So once the circuit moves to open
+state how much time it has to wait. Okay
+
+578
+00:13:46,069 --> 00:13:46,079
+state how much time it has to wait. Okay
+ 
+
+579
+00:13:46,079 --> 00:13:49,910
+state how much time it has to wait. Okay
+before it move to half open. So 10
+
+580
+00:13:49,910 --> 00:13:49,920
+before it move to half open. So 10
+ 
+
+581
+00:13:49,920 --> 00:13:53,990
+before it move to half open. So 10
+second it has to stay in the open state
+
+582
+00:13:53,990 --> 00:13:54,000
+second it has to stay in the open state
+ 
+
+583
+00:13:54,000 --> 00:13:57,110
+second it has to stay in the open state
+before it move to
+
+584
+00:13:57,110 --> 00:13:57,120
+before it move to
+ 
+
+585
+00:13:57,120 --> 00:13:59,350
+before it move to
+half open state.
+
+586
+00:13:59,350 --> 00:13:59,360
+half open state.
+ 
+
+587
+00:13:59,360 --> 00:14:02,470
+half open state.
+Now once the circuit move to the half
+
+588
+00:14:02,470 --> 00:14:02,480
+Now once the circuit move to the half
+ 
+
+589
+00:14:02,480 --> 00:14:05,110
+Now once the circuit move to the half
+open state then it has to try some
+
+590
+00:14:05,110 --> 00:14:05,120
+open state then it has to try some
+ 
+
+591
+00:14:05,120 --> 00:14:08,150
+open state then it has to try some
+calls. Okay. How many? So I have told
+
+592
+00:14:08,150 --> 00:14:08,160
+calls. Okay. How many? So I have told
+ 
+
+593
+00:14:08,160 --> 00:14:10,389
+calls. Okay. How many? So I have told
+three calls. So permitted number of
+
+594
+00:14:10,389 --> 00:14:10,399
+three calls. So permitted number of
+ 
+
+595
+00:14:10,399 --> 00:14:12,790
+three calls. So permitted number of
+calls in half open state is three. So
+
+596
+00:14:12,790 --> 00:14:12,800
+calls in half open state is three. So
+ 
+
+597
+00:14:12,800 --> 00:14:15,829
+calls in half open state is three. So
+means it will call three times. It will
+
+598
+00:14:15,829 --> 00:14:15,839
+means it will call three times. It will
+ 
+
+599
+00:14:15,839 --> 00:14:18,629
+means it will call three times. It will
+allow three calls to go to the
+
+600
+00:14:18,629 --> 00:14:18,639
+allow three calls to go to the
+ 
+
+601
+00:14:18,639 --> 00:14:21,350
+allow three calls to go to the
+downstream and then it will evaluate the
+
+602
+00:14:21,350 --> 00:14:21,360
+downstream and then it will evaluate the
+ 
+
+603
+00:14:21,360 --> 00:14:23,829
+downstream and then it will evaluate the
+success rate.
+
+604
+00:14:23,829 --> 00:14:23,839
+success rate.
+ 
+
+605
+00:14:23,839 --> 00:14:25,350
+success rate.
+Okay. So these are all the
+
+606
+00:14:25,350 --> 00:14:25,360
+Okay. So these are all the
+ 
+
+607
+00:14:25,360 --> 00:14:29,350
+Okay. So these are all the
+configurations uh which is important
+
+608
+00:14:29,350 --> 00:14:29,360
+configurations uh which is important
+ 
+
+609
+00:14:29,360 --> 00:14:31,829
+configurations uh which is important
+and we will see with an uh output also
+
+610
+00:14:31,829 --> 00:14:31,839
+and we will see with an uh output also
+ 
+
+611
+00:14:31,839 --> 00:14:34,069
+and we will see with an uh output also
+that would be a little bit more clear
+
+612
+00:14:34,069 --> 00:14:34,079
+that would be a little bit more clear
+ 
+
+613
+00:14:34,079 --> 00:14:36,470
+that would be a little bit more clear
+and also this is also important that by
+
+614
+00:14:36,470 --> 00:14:36,480
+and also this is also important that by
+ 
+
+615
+00:14:36,480 --> 00:14:38,949
+and also this is also important that by
+default circuit breaker record all
+
+616
+00:14:38,949 --> 00:14:38,959
+default circuit breaker record all
+ 
+
+617
+00:14:38,959 --> 00:14:41,430
+default circuit breaker record all
+runtime exception and error as a
+
+618
+00:14:41,430 --> 00:14:41,440
+runtime exception and error as a
+ 
+
+619
+00:14:41,440 --> 00:14:44,629
+runtime exception and error as a
+failure. If you don't specify anything
+
+620
+00:14:44,629 --> 00:14:44,639
+failure. If you don't specify anything
+ 
+
+621
+00:14:44,639 --> 00:14:47,110
+failure. If you don't specify anything
+all runtime exception and error it will
+
+622
+00:14:47,110 --> 00:14:47,120
+all runtime exception and error it will
+ 
+
+623
+00:14:47,120 --> 00:14:50,389
+all runtime exception and error it will
+track. But if you want this control in
+
+624
+00:14:50,389 --> 00:14:50,399
+track. But if you want this control in
+ 
+
+625
+00:14:50,399 --> 00:14:52,310
+track. But if you want this control in
+your hand you can use this two
+
+626
+00:14:52,310 --> 00:14:52,320
+your hand you can use this two
+ 
+
+627
+00:14:52,320 --> 00:14:54,069
+your hand you can use this two
+configuration.
+
+628
+00:14:54,069 --> 00:14:54,079
+configuration.
+ 
+
+629
+00:14:54,079 --> 00:14:56,310
+configuration.
+One is record exception. Another is
+
+630
+00:14:56,310 --> 00:14:56,320
+One is record exception. Another is
+ 
+
+631
+00:14:56,320 --> 00:14:58,310
+One is record exception. Another is
+ignore exception. So it's a
+
+632
+00:14:58,310 --> 00:14:58,320
+ignore exception. So it's a
+ 
+
+633
+00:14:58,320 --> 00:15:00,550
+ignore exception. So it's a
+commaepparated value you can give that
+
+634
+00:15:00,550 --> 00:15:00,560
+commaepparated value you can give that
+ 
+
+635
+00:15:00,560 --> 00:15:04,310
+commaepparated value you can give that
+what all the exception you only have to
+
+636
+00:15:04,310 --> 00:15:04,320
+what all the exception you only have to
+ 
+
+637
+00:15:04,320 --> 00:15:08,150
+what all the exception you only have to
+track. Okay. And what all exceptions you
+
+638
+00:15:08,150 --> 00:15:08,160
+track. Okay. And what all exceptions you
+ 
+
+639
+00:15:08,160 --> 00:15:11,189
+track. Okay. And what all exceptions you
+have to ignore. So this way you can have
+
+640
+00:15:11,189 --> 00:15:11,199
+have to ignore. So this way you can have
+ 
+
+641
+00:15:11,199 --> 00:15:13,110
+have to ignore. So this way you can have
+more control over it. Otherwise if you
+
+642
+00:15:13,110 --> 00:15:13,120
+more control over it. Otherwise if you
+ 
+
+643
+00:15:13,120 --> 00:15:14,949
+more control over it. Otherwise if you
+don't give it it will take care of all
+
+644
+00:15:14,949 --> 00:15:14,959
+don't give it it will take care of all
+ 
+
+645
+00:15:14,959 --> 00:15:18,389
+don't give it it will take care of all
+the runtime exceptions and error.
+
+646
+00:15:18,389 --> 00:15:18,399
+the runtime exceptions and error.
+ 
+
+647
+00:15:18,399 --> 00:15:21,670
+the runtime exceptions and error.
+Okay. So this is the very minimal code
+
+648
+00:15:21,670 --> 00:15:21,680
+Okay. So this is the very minimal code
+ 
+
+649
+00:15:21,680 --> 00:15:24,710
+Okay. So this is the very minimal code
+you required for the circuit breaker to
+
+650
+00:15:24,710 --> 00:15:24,720
+you required for the circuit breaker to
+ 
+
+651
+00:15:24,720 --> 00:15:27,750
+you required for the circuit breaker to
+work. Okay, only configurations and this
+
+652
+00:15:27,750 --> 00:15:27,760
+work. Okay, only configurations and this
+ 
+
+653
+00:15:27,760 --> 00:15:29,990
+work. Okay, only configurations and this
+circuit breaker annotation.
+
+654
+00:15:29,990 --> 00:15:30,000
+circuit breaker annotation.
+ 
+
+655
+00:15:30,000 --> 00:15:33,670
+circuit breaker annotation.
+Now with this configuration just check
+
+656
+00:15:33,670 --> 00:15:33,680
+Now with this configuration just check
+ 
+
+657
+00:15:33,680 --> 00:15:36,870
+Now with this configuration just check
+this output. Okay, so we can also run it
+
+658
+00:15:36,870 --> 00:15:36,880
+this output. Okay, so we can also run it
+ 
+
+659
+00:15:36,880 --> 00:15:39,509
+this output. Okay, so we can also run it
+in the intelligent but here we'll show
+
+660
+00:15:39,509 --> 00:15:39,519
+in the intelligent but here we'll show
+ 
+
+661
+00:15:39,519 --> 00:15:41,110
+in the intelligent but here we'll show
+you once then I will run in the
+
+662
+00:15:41,110 --> 00:15:41,120
+you once then I will run in the
+ 
+
+663
+00:15:41,120 --> 00:15:44,949
+you once then I will run in the
+intelligent. So first time I hit so this
+
+664
+00:15:44,949 --> 00:15:44,959
+intelligent. So first time I hit so this
+ 
+
+665
+00:15:44,959 --> 00:15:47,990
+intelligent. So first time I hit so this
+is the first call I made. What I did is
+
+666
+00:15:47,990 --> 00:15:48,000
+is the first call I made. What I did is
+ 
+
+667
+00:15:48,000 --> 00:15:49,749
+is the first call I made. What I did is
+order service is calling the product
+
+668
+00:15:49,749 --> 00:15:49,759
+order service is calling the product
+ 
+
+669
+00:15:49,759 --> 00:15:51,910
+order service is calling the product
+service and the product server I haven't
+
+670
+00:15:51,910 --> 00:15:51,920
+service and the product server I haven't
+ 
+
+671
+00:15:51,920 --> 00:15:54,550
+service and the product server I haven't
+started it. So no matter how many times
+
+672
+00:15:54,550 --> 00:15:54,560
+started it. So no matter how many times
+ 
+
+673
+00:15:54,560 --> 00:15:56,870
+started it. So no matter how many times
+order will try to invoke product it will
+
+674
+00:15:56,870 --> 00:15:56,880
+order will try to invoke product it will
+ 
+
+675
+00:15:56,880 --> 00:16:00,790
+order will try to invoke product it will
+always fail. So that's the uh use case I
+
+676
+00:16:00,790 --> 00:16:00,800
+always fail. So that's the uh use case I
+ 
+
+677
+00:16:00,800 --> 00:16:03,590
+always fail. So that's the uh use case I
+am going to test now with the above
+
+678
+00:16:03,590 --> 00:16:03,600
+am going to test now with the above
+ 
+
+679
+00:16:03,600 --> 00:16:05,189
+am going to test now with the above
+configurations.
+
+680
+00:16:05,189 --> 00:16:05,199
+configurations.
+ 
+
+681
+00:16:05,199 --> 00:16:08,230
+configurations.
+So let me zoom it a bit. So I made a
+
+682
+00:16:08,230 --> 00:16:08,240
+So let me zoom it a bit. So I made a
+ 
+
+683
+00:16:08,240 --> 00:16:12,389
+So let me zoom it a bit. So I made a
+first hit. I try to invoke this endpoint
+
+684
+00:16:12,389 --> 00:16:12,399
+first hit. I try to invoke this endpoint
+ 
+
+685
+00:16:12,399 --> 00:16:14,790
+first hit. I try to invoke this endpoint
+this endpoint. So this endpoint it will
+
+686
+00:16:14,790 --> 00:16:14,800
+this endpoint. So this endpoint it will
+ 
+
+687
+00:16:14,800 --> 00:16:16,629
+this endpoint. So this endpoint it will
+uh invoke this method invoke product
+
+688
+00:16:16,629 --> 00:16:16,639
+uh invoke this method invoke product
+ 
+
+689
+00:16:16,639 --> 00:16:18,949
+uh invoke this method invoke product
+API. Invoke product API will call get
+
+690
+00:16:18,949 --> 00:16:18,959
+API. Invoke product API will call get
+ 
+
+691
+00:16:18,959 --> 00:16:21,350
+API. Invoke product API will call get
+product by ID but the product server
+
+692
+00:16:21,350 --> 00:16:21,360
+product by ID but the product server
+ 
+
+693
+00:16:21,360 --> 00:16:23,110
+product by ID but the product server
+itself I haven't started it. So
+
+694
+00:16:23,110 --> 00:16:23,120
+itself I haven't started it. So
+ 
+
+695
+00:16:23,120 --> 00:16:26,470
+itself I haven't started it. So
+definitely it will fail. Okay.
+
+696
+00:16:26,470 --> 00:16:26,480
+definitely it will fail. Okay.
+ 
+
+697
+00:16:26,480 --> 00:16:28,310
+definitely it will fail. Okay.
+So
+
+698
+00:16:28,310 --> 00:16:28,320
+So
+ 
+
+699
+00:16:28,320 --> 00:16:31,590
+So
+it tried first time see it reached till
+
+700
+00:16:31,590 --> 00:16:31,600
+it tried first time see it reached till
+ 
+
+701
+00:16:31,600 --> 00:16:34,550
+it tried first time see it reached till
+it tried to hit it tried to find an
+
+702
+00:16:34,550 --> 00:16:34,560
+it tried to hit it tried to find an
+ 
+
+703
+00:16:34,560 --> 00:16:37,030
+it tried to hit it tried to find an
+instance of a product service but since
+
+704
+00:16:37,030 --> 00:16:37,040
+instance of a product service but since
+ 
+
+705
+00:16:37,040 --> 00:16:39,189
+instance of a product service but since
+it is not a load balancer not able to
+
+706
+00:16:39,189 --> 00:16:39,199
+it is not a load balancer not able to
+ 
+
+707
+00:16:39,199 --> 00:16:41,670
+it is not a load balancer not able to
+find the instance.
+
+708
+00:16:41,670 --> 00:16:41,680
+find the instance.
+ 
+
+709
+00:16:41,680 --> 00:16:44,629
+find the instance.
+So first call I made it got failed and
+
+710
+00:16:44,629 --> 00:16:44,639
+So first call I made it got failed and
+ 
+
+711
+00:16:44,639 --> 00:16:47,509
+So first call I made it got failed and
+it print this fallback method
+
+712
+00:16:47,509 --> 00:16:47,519
+it print this fallback method
+ 
+
+713
+00:16:47,519 --> 00:16:50,870
+it print this fallback method
+system.out.print which I am printing.
+
+714
+00:16:50,870 --> 00:16:50,880
+system.out.print which I am printing.
+ 
+
+715
+00:16:50,880 --> 00:16:52,310
+system.out.print which I am printing.
+Now what is how many is the failure
+
+716
+00:16:52,310 --> 00:16:52,320
+Now what is how many is the failure
+ 
+
+717
+00:16:52,320 --> 00:16:55,350
+Now what is how many is the failure
+count? One. What is the minimum count we
+
+718
+00:16:55,350 --> 00:16:55,360
+count? One. What is the minimum count we
+ 
+
+719
+00:16:55,360 --> 00:16:57,189
+count? One. What is the minimum count we
+have sent? Minimum call should be five.
+
+720
+00:16:57,189 --> 00:16:57,199
+have sent? Minimum call should be five.
+ 
+
+721
+00:16:57,199 --> 00:17:00,150
+have sent? Minimum call should be five.
+Till that don't even start counting the
+
+722
+00:17:00,150 --> 00:17:00,160
+Till that don't even start counting the
+ 
+
+723
+00:17:00,160 --> 00:17:02,470
+Till that don't even start counting the
+failure.
+
+724
+00:17:02,470 --> 00:17:02,480
+failure.
+ 
+
+725
+00:17:02,480 --> 00:17:04,630
+failure.
+The window size we have is 10. Threshold
+
+726
+00:17:04,630 --> 00:17:04,640
+The window size we have is 10. Threshold
+ 
+
+727
+00:17:04,640 --> 00:17:08,309
+The window size we have is 10. Threshold
+is 50. So 50 of a window size means five
+
+728
+00:17:08,309 --> 00:17:08,319
+is 50. So 50 of a window size means five
+ 
+
+729
+00:17:08,319 --> 00:17:11,909
+is 50. So 50 of a window size means five
+failure is a threshold. Once the five
+
+730
+00:17:11,909 --> 00:17:11,919
+failure is a threshold. Once the five
+ 
+
+731
+00:17:11,919 --> 00:17:14,870
+failure is a threshold. Once the five
+failure has been reached in a window, it
+
+732
+00:17:14,870 --> 00:17:14,880
+failure has been reached in a window, it
+ 
+
+733
+00:17:14,880 --> 00:17:16,949
+failure has been reached in a window, it
+will move to the open state. But till
+
+734
+00:17:16,949 --> 00:17:16,959
+will move to the open state. But till
+ 
+
+735
+00:17:16,959 --> 00:17:19,909
+will move to the open state. But till
+now failure is only one. Then I make a
+
+736
+00:17:19,909 --> 00:17:19,919
+now failure is only one. Then I make a
+ 
+
+737
+00:17:19,919 --> 00:17:21,990
+now failure is only one. Then I make a
+second call.
+
+738
+00:17:21,990 --> 00:17:22,000
+second call.
+ 
+
+739
+00:17:22,000 --> 00:17:23,909
+second call.
+Second call is also failed. Failure
+
+740
+00:17:23,909 --> 00:17:23,919
+Second call is also failed. Failure
+ 
+
+741
+00:17:23,919 --> 00:17:25,909
+Second call is also failed. Failure
+count is now two but minimum is five.
+
+742
+00:17:25,909 --> 00:17:25,919
+count is now two but minimum is five.
+ 
+
+743
+00:17:25,919 --> 00:17:30,549
+count is now two but minimum is five.
+Window is 10. Threshold is five.
+
+744
+00:17:30,549 --> 00:17:30,559
+
+ 
+
+745
+00:17:30,559 --> 00:17:33,190
+
+Third call is also failed. Again no
+
+746
+00:17:33,190 --> 00:17:33,200
+Third call is also failed. Again no
+ 
+
+747
+00:17:33,200 --> 00:17:35,669
+Third call is also failed. Again no
+issues. It is still in closed state. It
+
+748
+00:17:35,669 --> 00:17:35,679
+issues. It is still in closed state. It
+ 
+
+749
+00:17:35,679 --> 00:17:38,390
+issues. It is still in closed state. It
+is actually hitting try to hit the
+
+750
+00:17:38,390 --> 00:17:38,400
+is actually hitting try to hit the
+ 
+
+751
+00:17:38,400 --> 00:17:40,549
+is actually hitting try to hit the
+downstream but failure count is three.
+
+752
+00:17:40,549 --> 00:17:40,559
+downstream but failure count is three.
+ 
+
+753
+00:17:40,559 --> 00:17:43,110
+downstream but failure count is three.
+Minimum call is five. Window size is 10.
+
+754
+00:17:43,110 --> 00:17:43,120
+Minimum call is five. Window size is 10.
+ 
+
+755
+00:17:43,120 --> 00:17:45,350
+Minimum call is five. Window size is 10.
+Threshold is 50% of window size that is
+
+756
+00:17:45,350 --> 00:17:45,360
+Threshold is 50% of window size that is
+ 
+
+757
+00:17:45,360 --> 00:17:49,350
+Threshold is 50% of window size that is
+five. Fourth call is again it tried to
+
+758
+00:17:49,350 --> 00:17:49,360
+five. Fourth call is again it tried to
+ 
+
+759
+00:17:49,360 --> 00:17:51,510
+five. Fourth call is again it tried to
+go to the downstream.
+
+760
+00:17:51,510 --> 00:17:51,520
+go to the downstream.
+ 
+
+761
+00:17:51,520 --> 00:17:54,549
+go to the downstream.
+Fifth call. So now what if if you see
+
+762
+00:17:54,549 --> 00:17:54,559
+Fifth call. So now what if if you see
+ 
+
+763
+00:17:54,559 --> 00:17:57,750
+Fifth call. So now what if if you see
+that fifth call is also failed. So here
+
+764
+00:17:57,750 --> 00:17:57,760
+that fifth call is also failed. So here
+ 
+
+765
+00:17:57,760 --> 00:18:00,150
+that fifth call is also failed. So here
+if you see not able to invoke the
+
+766
+00:18:00,150 --> 00:18:00,160
+if you see not able to invoke the
+ 
+
+767
+00:18:00,160 --> 00:18:02,870
+if you see not able to invoke the
+product service. So it also tried to hit
+
+768
+00:18:02,870 --> 00:18:02,880
+product service. So it also tried to hit
+ 
+
+769
+00:18:02,880 --> 00:18:06,310
+product service. So it also tried to hit
+the downstream. fifth. Now the failure
+
+770
+00:18:06,310 --> 00:18:06,320
+the downstream. fifth. Now the failure
+ 
+
+771
+00:18:06,320 --> 00:18:08,150
+the downstream. fifth. Now the failure
+count is five. Now here if you see the
+
+772
+00:18:08,150 --> 00:18:08,160
+count is five. Now here if you see the
+ 
+
+773
+00:18:08,160 --> 00:18:10,230
+count is five. Now here if you see the
+minimum call
+
+774
+00:18:10,230 --> 00:18:10,240
+minimum call
+ 
+
+775
+00:18:10,240 --> 00:18:13,110
+minimum call
+now it is matched.
+
+776
+00:18:13,110 --> 00:18:13,120
+now it is matched.
+ 
+
+777
+00:18:13,120 --> 00:18:15,350
+now it is matched.
+So now the minimum call is matched. Now
+
+778
+00:18:15,350 --> 00:18:15,360
+So now the minimum call is matched. Now
+ 
+
+779
+00:18:15,360 --> 00:18:20,150
+So now the minimum call is matched. Now
+it will see hey in this window mine is
+
+780
+00:18:20,150 --> 00:18:20,160
+it will see hey in this window mine is
+ 
+
+781
+00:18:20,160 --> 00:18:24,549
+it will see hey in this window mine is
+count based right 10. So its threshold
+
+782
+00:18:24,549 --> 00:18:24,559
+count based right 10. So its threshold
+ 
+
+783
+00:18:24,559 --> 00:18:27,750
+count based right 10. So its threshold
+was 50%. So five failure if there is a
+
+784
+00:18:27,750 --> 00:18:27,760
+was 50%. So five failure if there is a
+ 
+
+785
+00:18:27,760 --> 00:18:31,270
+was 50%. So five failure if there is a
+five failure then it would be considered
+
+786
+00:18:31,270 --> 00:18:31,280
+five failure then it would be considered
+ 
+
+787
+00:18:31,280 --> 00:18:35,909
+five failure then it would be considered
+as like a threshold cross. So my
+
+788
+00:18:35,909 --> 00:18:35,919
+as like a threshold cross. So my
+ 
+
+789
+00:18:35,919 --> 00:18:38,870
+as like a threshold cross. So my
+failure count is five and the threshold
+
+790
+00:18:38,870 --> 00:18:38,880
+failure count is five and the threshold
+ 
+
+791
+00:18:38,880 --> 00:18:43,190
+failure count is five and the threshold
+is five and the window size is 10. Okay.
+
+792
+00:18:43,190 --> 00:18:43,200
+is five and the window size is 10. Okay.
+ 
+
+793
+00:18:43,200 --> 00:18:46,470
+is five and the window size is 10. Okay.
+So in the last within last 10 calls. So
+
+794
+00:18:46,470 --> 00:18:46,480
+So in the last within last 10 calls. So
+ 
+
+795
+00:18:46,480 --> 00:18:48,710
+So in the last within last 10 calls. So
+till till now the first five call itself
+
+796
+00:18:48,710 --> 00:18:48,720
+till till now the first five call itself
+ 
+
+797
+00:18:48,720 --> 00:18:51,430
+till till now the first five call itself
+got failed. So it's within a window and
+
+798
+00:18:51,430 --> 00:18:51,440
+got failed. So it's within a window and
+ 
+
+799
+00:18:51,440 --> 00:18:55,430
+got failed. So it's within a window and
+threshold is crossed. So see now it move
+
+800
+00:18:55,430 --> 00:18:55,440
+threshold is crossed. So see now it move
+ 
+
+801
+00:18:55,440 --> 00:18:57,190
+threshold is crossed. So see now it move
+from
+
+802
+00:18:57,190 --> 00:18:57,200
+from
+ 
+
+803
+00:18:57,200 --> 00:19:01,270
+from
+closed to open state. It change circuit
+
+804
+00:19:01,270 --> 00:19:01,280
+closed to open state. It change circuit
+ 
+
+805
+00:19:01,280 --> 00:19:04,470
+closed to open state. It change circuit
+breaker change the state and here after
+
+806
+00:19:04,470 --> 00:19:04,480
+breaker change the state and here after
+ 
+
+807
+00:19:04,480 --> 00:19:06,470
+breaker change the state and here after
+10 second we have configured that right
+
+808
+00:19:06,470 --> 00:19:06,480
+10 second we have configured that right
+ 
+
+809
+00:19:06,480 --> 00:19:08,390
+10 second we have configured that right
+what is the wait time in the open 10
+
+810
+00:19:08,390 --> 00:19:08,400
+what is the wait time in the open 10
+ 
+
+811
+00:19:08,400 --> 00:19:10,150
+what is the wait time in the open 10
+second we have configured that so here
+
+812
+00:19:10,150 --> 00:19:10,160
+second we have configured that so here
+ 
+
+813
+00:19:10,160 --> 00:19:13,590
+second we have configured that so here
+if you see after 10 second from 20 now
+
+814
+00:19:13,590 --> 00:19:13,600
+if you see after 10 second from 20 now
+ 
+
+815
+00:19:13,600 --> 00:19:16,549
+if you see after 10 second from 20 now
+after 10 second 30 it automatically
+
+816
+00:19:16,549 --> 00:19:16,559
+after 10 second 30 it automatically
+ 
+
+817
+00:19:16,559 --> 00:19:20,630
+after 10 second 30 it automatically
+change from open to half open so how
+
+818
+00:19:20,630 --> 00:19:20,640
+change from open to half open so how
+ 
+
+819
+00:19:20,640 --> 00:19:22,310
+change from open to half open so how
+automatically
+
+820
+00:19:22,310 --> 00:19:22,320
+automatically
+ 
+
+821
+00:19:22,320 --> 00:19:24,950
+automatically
+after a specific time it automatically
+
+822
+00:19:24,950 --> 00:19:24,960
+after a specific time it automatically
+ 
+
+823
+00:19:24,960 --> 00:19:26,710
+after a specific time it automatically
+change from open to half open I will
+
+824
+00:19:26,710 --> 00:19:26,720
+change from open to half open I will
+ 
+
+825
+00:19:26,720 --> 00:19:29,190
+change from open to half open I will
+tell you uh later in this uh video
+
+826
+00:19:29,190 --> 00:19:29,200
+tell you uh later in this uh video
+ 
+
+827
+00:19:29,200 --> 00:19:30,390
+tell you uh later in this uh video
+itself
+
+828
+00:19:30,390 --> 00:19:30,400
+itself
+ 
+
+829
+00:19:30,400 --> 00:19:33,110
+itself
+Okay. So here if you see like after
+
+830
+00:19:33,110 --> 00:19:33,120
+Okay. So here if you see like after
+ 
+
+831
+00:19:33,120 --> 00:19:35,590
+Okay. So here if you see like after
+exactly 10 seconds whatever we have
+
+832
+00:19:35,590 --> 00:19:35,600
+exactly 10 seconds whatever we have
+ 
+
+833
+00:19:35,600 --> 00:19:38,070
+exactly 10 seconds whatever we have
+configured the status changed from open
+
+834
+00:19:38,070 --> 00:19:38,080
+configured the status changed from open
+ 
+
+835
+00:19:38,080 --> 00:19:41,510
+configured the status changed from open
+to half open. Now after that I again so
+
+836
+00:19:41,510 --> 00:19:41,520
+to half open. Now after that I again so
+ 
+
+837
+00:19:41,520 --> 00:19:43,909
+to half open. Now after that I again so
+in half open how many permitted calls we
+
+838
+00:19:43,909 --> 00:19:43,919
+in half open how many permitted calls we
+ 
+
+839
+00:19:43,919 --> 00:19:46,630
+in half open how many permitted calls we
+have given three. So now I made a first
+
+840
+00:19:46,630 --> 00:19:46,640
+have given three. So now I made a first
+ 
+
+841
+00:19:46,640 --> 00:19:50,230
+have given three. So now I made a first
+trial call. Okay. So this is the maximum
+
+842
+00:19:50,230 --> 00:19:50,240
+trial call. Okay. So this is the maximum
+ 
+
+843
+00:19:50,240 --> 00:19:51,909
+trial call. Okay. So this is the maximum
+trial call we have set is three. So
+
+844
+00:19:51,909 --> 00:19:51,919
+trial call we have set is three. So
+ 
+
+845
+00:19:51,919 --> 00:19:54,630
+trial call we have set is three. So
+first trial call is also failed
+
+846
+00:19:54,630 --> 00:19:54,640
+first trial call is also failed
+ 
+
+847
+00:19:54,640 --> 00:19:57,029
+first trial call is also failed
+but it tried to invoke the load
+
+848
+00:19:57,029 --> 00:19:57,039
+but it tried to invoke the load
+ 
+
+849
+00:19:57,039 --> 00:19:59,190
+but it tried to invoke the load
+balancer. So means it is tried to invoke
+
+850
+00:19:59,190 --> 00:19:59,200
+balancer. So means it is tried to invoke
+ 
+
+851
+00:19:59,200 --> 00:20:01,990
+balancer. So means it is tried to invoke
+the downstream. The second call also it
+
+852
+00:20:01,990 --> 00:20:02,000
+the downstream. The second call also it
+ 
+
+853
+00:20:02,000 --> 00:20:03,669
+the downstream. The second call also it
+tried to invoke the downstream but that
+
+854
+00:20:03,669 --> 00:20:03,679
+tried to invoke the downstream but that
+ 
+
+855
+00:20:03,679 --> 00:20:07,270
+tried to invoke the downstream but that
+is also failed. The third trial also it
+
+856
+00:20:07,270 --> 00:20:07,280
+is also failed. The third trial also it
+ 
+
+857
+00:20:07,280 --> 00:20:09,350
+is also failed. The third trial also it
+got failed where it tried to invoke the
+
+858
+00:20:09,350 --> 00:20:09,360
+got failed where it tried to invoke the
+ 
+
+859
+00:20:09,360 --> 00:20:12,549
+got failed where it tried to invoke the
+downstream but now our limit is reach
+
+860
+00:20:12,549 --> 00:20:12,559
+downstream but now our limit is reach
+ 
+
+861
+00:20:12,559 --> 00:20:15,350
+downstream but now our limit is reach
+the third. So
+
+862
+00:20:15,350 --> 00:20:15,360
+the third. So
+ 
+
+863
+00:20:15,360 --> 00:20:18,070
+the third. So
+from half open it will go back to open
+
+864
+00:20:18,070 --> 00:20:18,080
+from half open it will go back to open
+ 
+
+865
+00:20:18,080 --> 00:20:22,789
+from half open it will go back to open
+again because all three failed success
+
+866
+00:20:22,789 --> 00:20:22,799
+again because all three failed success
+ 
+
+867
+00:20:22,799 --> 00:20:25,830
+again because all three failed success
+rate is zero. Okay. So only in case of
+
+868
+00:20:25,830 --> 00:20:25,840
+rate is zero. Okay. So only in case of
+ 
+
+869
+00:20:25,840 --> 00:20:30,070
+rate is zero. Okay. So only in case of
+100% success rate it move back to close.
+
+870
+00:20:30,070 --> 00:20:30,080
+100% success rate it move back to close.
+ 
+
+871
+00:20:30,080 --> 00:20:33,750
+100% success rate it move back to close.
+Okay. So it goes from half open to open
+
+872
+00:20:33,750 --> 00:20:33,760
+Okay. So it goes from half open to open
+ 
+
+873
+00:20:33,760 --> 00:20:39,270
+Okay. So it goes from half open to open
+because success rate is not 100%.
+
+874
+00:20:39,270 --> 00:20:39,280
+
+ 
+
+875
+00:20:39,280 --> 00:20:42,950
+
+So here if you see the we all know that
+
+876
+00:20:42,950 --> 00:20:42,960
+So here if you see the we all know that
+ 
+
+877
+00:20:42,960 --> 00:20:45,590
+So here if you see the we all know that
+resilience 4j uses a we till now we have
+
+878
+00:20:45,590 --> 00:20:45,600
+resilience 4j uses a we till now we have
+ 
+
+879
+00:20:45,600 --> 00:20:49,270
+resilience 4j uses a we till now we have
+seen. So AOP intercept this add the red
+
+880
+00:20:49,270 --> 00:20:49,280
+seen. So AOP intercept this add the red
+ 
+
+881
+00:20:49,280 --> 00:20:52,549
+seen. So AOP intercept this add the red
+circuit breaker uh annotation and it
+
+882
+00:20:52,549 --> 00:20:52,559
+circuit breaker uh annotation and it
+ 
+
+883
+00:20:52,559 --> 00:20:55,110
+circuit breaker uh annotation and it
+pass to this class circuit breaker state
+
+884
+00:20:55,110 --> 00:20:55,120
+pass to this class circuit breaker state
+ 
+
+885
+00:20:55,120 --> 00:20:57,190
+pass to this class circuit breaker state
+machine on Java. This is a framework
+
+886
+00:20:57,190 --> 00:20:57,200
+machine on Java. This is a framework
+ 
+
+887
+00:20:57,200 --> 00:20:59,430
+machine on Java. This is a framework
+which is available in resilience 4j. So
+
+888
+00:20:59,430 --> 00:20:59,440
+which is available in resilience 4j. So
+ 
+
+889
+00:20:59,440 --> 00:21:01,909
+which is available in resilience 4j. So
+open this class check it out. So this is
+
+890
+00:21:01,909 --> 00:21:01,919
+open this class check it out. So this is
+ 
+
+891
+00:21:01,919 --> 00:21:04,870
+open this class check it out. So this is
+just one sample method in this class.
+
+892
+00:21:04,870 --> 00:21:04,880
+just one sample method in this class.
+ 
+
+893
+00:21:04,880 --> 00:21:07,510
+just one sample method in this class.
+Okay. So here if you see that depending
+
+894
+00:21:07,510 --> 00:21:07,520
+Okay. So here if you see that depending
+ 
+
+895
+00:21:07,520 --> 00:21:09,830
+Okay. So here if you see that depending
+upon which state you are at. So let's
+
+896
+00:21:09,830 --> 00:21:09,840
+upon which state you are at. So let's
+ 
+
+897
+00:21:09,840 --> 00:21:13,110
+upon which state you are at. So let's
+say currently I am at closed state.
+
+898
+00:21:13,110 --> 00:21:13,120
+say currently I am at closed state.
+ 
+
+899
+00:21:13,120 --> 00:21:16,710
+say currently I am at closed state.
+Okay. At closed state you are making one
+
+900
+00:21:16,710 --> 00:21:16,720
+Okay. At closed state you are making one
+ 
+
+901
+00:21:16,720 --> 00:21:19,110
+Okay. At closed state you are making one
+call to downstream and if any error
+
+902
+00:21:19,110 --> 00:21:19,120
+call to downstream and if any error
+ 
+
+903
+00:21:19,120 --> 00:21:22,789
+call to downstream and if any error
+comes so it this method get invoked. So
+
+904
+00:21:22,789 --> 00:21:22,799
+comes so it this method get invoked. So
+ 
+
+905
+00:21:22,799 --> 00:21:26,789
+comes so it this method get invoked. So
+for every error every exception it check
+
+906
+00:21:26,789 --> 00:21:26,799
+for every error every exception it check
+ 
+
+907
+00:21:26,799 --> 00:21:29,669
+for every error every exception it check
+does it exceed the threshold.
+
+908
+00:21:29,669 --> 00:21:29,679
+does it exceed the threshold.
+ 
+
+909
+00:21:29,679 --> 00:21:32,950
+does it exceed the threshold.
+Okay if it exceed the threshold yes and
+
+910
+00:21:32,950 --> 00:21:32,960
+Okay if it exceed the threshold yes and
+ 
+
+911
+00:21:32,960 --> 00:21:35,750
+Okay if it exceed the threshold yes and
+it is closed state
+
+912
+00:21:35,750 --> 00:21:35,760
+it is closed state
+ 
+
+913
+00:21:35,760 --> 00:21:39,430
+it is closed state
+move to open now. So if yes threshold
+
+914
+00:21:39,430 --> 00:21:39,440
+move to open now. So if yes threshold
+ 
+
+915
+00:21:39,440 --> 00:21:41,669
+move to open now. So if yes threshold
+exceeded and it is in closed then move
+
+916
+00:21:41,669 --> 00:21:41,679
+exceeded and it is in closed then move
+ 
+
+917
+00:21:41,679 --> 00:21:47,029
+exceeded and it is in closed then move
+to open. So for every failure it checks
+
+918
+00:21:47,029 --> 00:21:47,039
+to open. So for every failure it checks
+ 
+
+919
+00:21:47,039 --> 00:21:50,390
+to open. So for every failure it checks
+this kind of method right and based on
+
+920
+00:21:50,390 --> 00:21:50,400
+this kind of method right and based on
+ 
+
+921
+00:21:50,400 --> 00:21:52,870
+this kind of method right and based on
+particular state it move to another
+
+922
+00:21:52,870 --> 00:21:52,880
+particular state it move to another
+ 
+
+923
+00:21:52,880 --> 00:21:56,390
+particular state it move to another
+state. So open this class put a debugger
+
+924
+00:21:56,390 --> 00:21:56,400
+state. So open this class put a debugger
+ 
+
+925
+00:21:56,400 --> 00:21:58,470
+state. So open this class put a debugger
+point you can check it out and you will
+
+926
+00:21:58,470 --> 00:21:58,480
+point you can check it out and you will
+ 
+
+927
+00:21:58,480 --> 00:22:00,390
+point you can check it out and you will
+get to know that how it move from one
+
+928
+00:22:00,390 --> 00:22:00,400
+get to know that how it move from one
+ 
+
+929
+00:22:00,400 --> 00:22:03,350
+get to know that how it move from one
+state to another.
+
+930
+00:22:03,350 --> 00:22:03,360
+state to another.
+ 
+
+931
+00:22:03,360 --> 00:22:05,990
+state to another.
+But one question might be coming to you
+
+932
+00:22:05,990 --> 00:22:06,000
+But one question might be coming to you
+ 
+
+933
+00:22:06,000 --> 00:22:10,149
+But one question might be coming to you
+right. Okay, for every failure call we
+
+934
+00:22:10,149 --> 00:22:10,159
+right. Okay, for every failure call we
+ 
+
+935
+00:22:10,159 --> 00:22:12,310
+right. Okay, for every failure call we
+are checking if a state need to be
+
+936
+00:22:12,310 --> 00:22:12,320
+are checking if a state need to be
+ 
+
+937
+00:22:12,320 --> 00:22:15,909
+are checking if a state need to be
+changed or not. That makes sense, right?
+
+938
+00:22:15,909 --> 00:22:15,919
+changed or not. That makes sense, right?
+ 
+
+939
+00:22:15,919 --> 00:22:19,110
+changed or not. That makes sense, right?
+I make a call got failed. I am tracking
+
+940
+00:22:19,110 --> 00:22:19,120
+I make a call got failed. I am tracking
+ 
+
+941
+00:22:19,120 --> 00:22:21,029
+I make a call got failed. I am tracking
+what is the threshold value. I do
+
+942
+00:22:21,029 --> 00:22:21,039
+what is the threshold value. I do
+ 
+
+943
+00:22:21,039 --> 00:22:23,510
+what is the threshold value. I do
+computation and if the threshold
+
+944
+00:22:23,510 --> 00:22:23,520
+computation and if the threshold
+ 
+
+945
+00:22:23,520 --> 00:22:25,350
+computation and if the threshold
+crossed, I change the state from close
+
+946
+00:22:25,350 --> 00:22:25,360
+crossed, I change the state from close
+ 
+
+947
+00:22:25,360 --> 00:22:27,590
+crossed, I change the state from close
+to open.
+
+948
+00:22:27,590 --> 00:22:27,600
+to open.
+ 
+
+949
+00:22:27,600 --> 00:22:30,710
+to open.
+Right? And even from half open if I am
+
+950
+00:22:30,710 --> 00:22:30,720
+Right? And even from half open if I am
+ 
+
+951
+00:22:30,720 --> 00:22:35,110
+Right? And even from half open if I am
+at half open if the trial all trial I
+
+952
+00:22:35,110 --> 00:22:35,120
+at half open if the trial all trial I
+ 
+
+953
+00:22:35,120 --> 00:22:36,710
+at half open if the trial all trial I
+make a call and based on that I will
+
+954
+00:22:36,710 --> 00:22:36,720
+make a call and based on that I will
+ 
+
+955
+00:22:36,720 --> 00:22:40,549
+make a call and based on that I will
+evaluate if it all 100% I will go back
+
+956
+00:22:40,549 --> 00:22:40,559
+evaluate if it all 100% I will go back
+ 
+
+957
+00:22:40,559 --> 00:22:45,750
+evaluate if it all 100% I will go back
+to closed or half open or open but one
+
+958
+00:22:45,750 --> 00:22:45,760
+to closed or half open or open but one
+ 
+
+959
+00:22:45,760 --> 00:22:49,590
+to closed or half open or open but one
+open question is when my state isn't
+
+960
+00:22:49,590 --> 00:22:49,600
+open question is when my state isn't
+ 
+
+961
+00:22:49,600 --> 00:22:52,390
+open question is when my state isn't
+currently open
+
+962
+00:22:52,390 --> 00:22:52,400
+currently open
+ 
+
+963
+00:22:52,400 --> 00:22:56,070
+currently open
+then how after a specific weight let's
+
+964
+00:22:56,070 --> 00:22:56,080
+then how after a specific weight let's
+ 
+
+965
+00:22:56,080 --> 00:22:59,590
+then how after a specific weight let's
+say 10 second It automatically moves to
+
+966
+00:22:59,590 --> 00:22:59,600
+say 10 second It automatically moves to
+ 
+
+967
+00:22:59,600 --> 00:23:04,789
+say 10 second It automatically moves to
+half open state. How
+
+968
+00:23:04,789 --> 00:23:04,799
+half open state. How
+ 
+
+969
+00:23:04,799 --> 00:23:06,870
+half open state. How
+how does it change from open to half
+
+970
+00:23:06,870 --> 00:23:06,880
+how does it change from open to half
+ 
+
+971
+00:23:06,880 --> 00:23:09,430
+how does it change from open to half
+open?
+
+972
+00:23:09,430 --> 00:23:09,440
+open?
+ 
+
+973
+00:23:09,440 --> 00:23:14,630
+open?
+Okay. So the answer is it uses scheduled
+
+974
+00:23:14,630 --> 00:23:14,640
+Okay. So the answer is it uses scheduled
+ 
+
+975
+00:23:14,640 --> 00:23:17,750
+Okay. So the answer is it uses scheduled
+threadpool executor.
+
+976
+00:23:17,750 --> 00:23:17,760
+threadpool executor.
+ 
+
+977
+00:23:17,760 --> 00:23:19,990
+threadpool executor.
+So if you see the circuit breaker state
+
+978
+00:23:19,990 --> 00:23:20,000
+So if you see the circuit breaker state
+ 
+
+979
+00:23:20,000 --> 00:23:22,549
+So if you see the circuit breaker state
+machine on Java itself the same class
+
+980
+00:23:22,549 --> 00:23:22,559
+machine on Java itself the same class
+ 
+
+981
+00:23:22,559 --> 00:23:24,470
+machine on Java itself the same class
+there you will find an open state
+
+982
+00:23:24,470 --> 00:23:24,480
+there you will find an open state
+ 
+
+983
+00:23:24,480 --> 00:23:27,590
+there you will find an open state
+method. So method for open state. So in
+
+984
+00:23:27,590 --> 00:23:27,600
+method. So method for open state. So in
+ 
+
+985
+00:23:27,600 --> 00:23:29,909
+method. So method for open state. So in
+that you will see
+
+986
+00:23:29,909 --> 00:23:29,919
+that you will see
+ 
+
+987
+00:23:29,919 --> 00:23:34,310
+that you will see
+okay. So schedule threadpull executor
+
+988
+00:23:34,310 --> 00:23:34,320
+okay. So schedule threadpull executor
+ 
+
+989
+00:23:34,320 --> 00:23:36,549
+okay. So schedule threadpull executor
+it schedule a task means it will submit
+
+990
+00:23:36,549 --> 00:23:36,559
+it schedule a task means it will submit
+ 
+
+991
+00:23:36,559 --> 00:23:38,549
+it schedule a task means it will submit
+a task to a scheduleuler to this
+
+992
+00:23:38,549 --> 00:23:38,559
+a task to a scheduleuler to this
+ 
+
+993
+00:23:38,559 --> 00:23:41,350
+a task to a scheduleuler to this
+executor and this is the task it submit.
+
+994
+00:23:41,350 --> 00:23:41,360
+executor and this is the task it submit.
+ 
+
+995
+00:23:41,360 --> 00:23:43,990
+executor and this is the task it submit.
+What is the task it is submitting to
+
+996
+00:23:43,990 --> 00:23:44,000
+What is the task it is submitting to
+ 
+
+997
+00:23:44,000 --> 00:23:46,710
+What is the task it is submitting to
+half open state means transition from
+
+998
+00:23:46,710 --> 00:23:46,720
+half open state means transition from
+ 
+
+999
+00:23:46,720 --> 00:23:49,669
+half open state means transition from
+open to
+
+1000
+00:23:49,669 --> 00:23:49,679
+open to
+ 
+
+1001
+00:23:49,679 --> 00:23:52,310
+open to
+half open
+
+1002
+00:23:52,310 --> 00:23:52,320
+half open
+ 
+
+1003
+00:23:52,320 --> 00:23:55,590
+half open
+after what time? This is the delay wait
+
+1004
+00:23:55,590 --> 00:23:55,600
+after what time? This is the delay wait
+ 
+
+1005
+00:23:55,600 --> 00:23:59,430
+after what time? This is the delay wait
+duration let's say 10
+
+1006
+00:23:59,430 --> 00:23:59,440
+duration let's say 10
+ 
+
+1007
+00:23:59,440 --> 00:24:01,510
+duration let's say 10
+it time unit is in millisecond let's say
+
+1008
+00:24:01,510 --> 00:24:01,520
+it time unit is in millisecond let's say
+ 
+
+1009
+00:24:01,520 --> 00:24:03,669
+it time unit is in millisecond let's say
+after 10 millisecond
+
+1010
+00:24:03,669 --> 00:24:03,679
+after 10 millisecond
+ 
+
+1011
+00:24:03,679 --> 00:24:06,470
+after 10 millisecond
+change from open to half open. So this
+
+1012
+00:24:06,470 --> 00:24:06,480
+change from open to half open. So this
+ 
+
+1013
+00:24:06,480 --> 00:24:09,909
+change from open to half open. So this
+is the task which need to be run after
+
+1014
+00:24:09,909 --> 00:24:09,919
+is the task which need to be run after
+ 
+
+1015
+00:24:09,919 --> 00:24:13,110
+is the task which need to be run after
+this much time.
+
+1016
+00:24:13,110 --> 00:24:13,120
+this much time.
+ 
+
+1017
+00:24:13,120 --> 00:24:15,269
+this much time.
+So scheduled threadpull exeutor with the
+
+1018
+00:24:15,269 --> 00:24:15,279
+So scheduled threadpull exeutor with the
+ 
+
+1019
+00:24:15,279 --> 00:24:17,029
+So scheduled threadpull exeutor with the
+usage of this scheduled threadpool
+
+1020
+00:24:17,029 --> 00:24:17,039
+usage of this scheduled threadpool
+ 
+
+1021
+00:24:17,039 --> 00:24:20,310
+usage of this scheduled threadpool
+executor we can
+
+1022
+00:24:20,310 --> 00:24:20,320
+executor we can
+ 
+
+1023
+00:24:20,320 --> 00:24:23,430
+executor we can
+change or we can perform certain task
+
+1024
+00:24:23,430 --> 00:24:23,440
+change or we can perform certain task
+ 
+
+1025
+00:24:23,440 --> 00:24:27,190
+change or we can perform certain task
+after a particular delay and I have
+
+1026
+00:24:27,190 --> 00:24:27,200
+after a particular delay and I have
+ 
+
+1027
+00:24:27,200 --> 00:24:29,590
+after a particular delay and I have
+already explained the schedule thread
+
+1028
+00:24:29,590 --> 00:24:29,600
+already explained the schedule thread
+ 
+
+1029
+00:24:29,600 --> 00:24:31,669
+already explained the schedule thread
+pool executor in the Java playlist. You
+
+1030
+00:24:31,669 --> 00:24:31,679
+pool executor in the Java playlist. You
+ 
+
+1031
+00:24:31,679 --> 00:24:34,549
+pool executor in the Java playlist. You
+can check it out how to use it.
+
+1032
+00:24:34,549 --> 00:24:34,559
+can check it out how to use it.
+ 
+
+1033
+00:24:34,559 --> 00:24:37,029
+can check it out how to use it.
+But in interview
+
+1034
+00:24:37,029 --> 00:24:37,039
+But in interview
+ 
+
+1035
+00:24:37,039 --> 00:24:40,149
+But in interview
+uh one level more deep information is
+
+1036
+00:24:40,149 --> 00:24:40,159
+uh one level more deep information is
+ 
+
+1037
+00:24:40,159 --> 00:24:44,390
+uh one level more deep information is
+useful because interviewer can ask okay
+
+1038
+00:24:44,390 --> 00:24:44,400
+useful because interviewer can ask okay
+ 
+
+1039
+00:24:44,400 --> 00:24:46,630
+useful because interviewer can ask okay
+with the usage of schedule threadpull
+
+1040
+00:24:46,630 --> 00:24:46,640
+with the usage of schedule threadpull
+ 
+
+1041
+00:24:46,640 --> 00:24:49,029
+with the usage of schedule threadpull
+executor
+
+1042
+00:24:49,029 --> 00:24:49,039
+executor
+ 
+
+1043
+00:24:49,039 --> 00:24:52,070
+executor
+I can perform this task but how this
+
+1044
+00:24:52,070 --> 00:24:52,080
+I can perform this task but how this
+ 
+
+1045
+00:24:52,080 --> 00:24:54,390
+I can perform this task but how this
+internally works.
+
+1046
+00:24:54,390 --> 00:24:54,400
+internally works.
+ 
+
+1047
+00:24:54,400 --> 00:24:56,310
+internally works.
+How does schedule threadpull executor
+
+1048
+00:24:56,310 --> 00:24:56,320
+How does schedule threadpull executor
+ 
+
+1049
+00:24:56,320 --> 00:24:59,990
+How does schedule threadpull executor
+works? So schedule thread pool executor
+
+1050
+00:24:59,990 --> 00:25:00,000
+works? So schedule thread pool executor
+ 
+
+1051
+00:25:00,000 --> 00:25:04,310
+works? So schedule thread pool executor
+actually make use of delayed Q.
+
+1052
+00:25:04,310 --> 00:25:04,320
+actually make use of delayed Q.
+ 
+
+1053
+00:25:04,320 --> 00:25:08,710
+actually make use of delayed Q.
+So consider this as a Q where
+
+1054
+00:25:08,710 --> 00:25:08,720
+So consider this as a Q where
+ 
+
+1055
+00:25:08,720 --> 00:25:10,950
+So consider this as a Q where
+whenever we put schedule right. So here
+
+1056
+00:25:10,950 --> 00:25:10,960
+whenever we put schedule right. So here
+ 
+
+1057
+00:25:10,960 --> 00:25:13,190
+whenever we put schedule right. So here
+I am putting dot schedule uh schedule
+
+1058
+00:25:13,190 --> 00:25:13,200
+I am putting dot schedule uh schedule
+ 
+
+1059
+00:25:13,200 --> 00:25:15,510
+I am putting dot schedule uh schedule
+executor service dot schedule. So this
+
+1060
+00:25:15,510 --> 00:25:15,520
+executor service dot schedule. So this
+ 
+
+1061
+00:25:15,520 --> 00:25:17,190
+executor service dot schedule. So this
+task
+
+1062
+00:25:17,190 --> 00:25:17,200
+task
+ 
+
+1063
+00:25:17,200 --> 00:25:21,430
+task
+is now handed over to this Q delayed Q
+
+1064
+00:25:21,430 --> 00:25:21,440
+is now handed over to this Q delayed Q
+ 
+
+1065
+00:25:21,440 --> 00:25:25,990
+is now handed over to this Q delayed Q
+which is known as delayed Q. So the task
+
+1066
+00:25:25,990 --> 00:25:26,000
+which is known as delayed Q. So the task
+ 
+
+1067
+00:25:26,000 --> 00:25:28,070
+which is known as delayed Q. So the task
+with the minimum delay is always at the
+
+1068
+00:25:28,070 --> 00:25:28,080
+with the minimum delay is always at the
+ 
+
+1069
+00:25:28,080 --> 00:25:31,190
+with the minimum delay is always at the
+head. Minimum delay means the task which
+
+1070
+00:25:31,190 --> 00:25:31,200
+head. Minimum delay means the task which
+ 
+
+1071
+00:25:31,200 --> 00:25:35,590
+head. Minimum delay means the task which
+will get expired first like uh this task
+
+1072
+00:25:35,590 --> 00:25:35,600
+will get expired first like uh this task
+ 
+
+1073
+00:25:35,600 --> 00:25:39,430
+will get expired first like uh this task
+will run after 1 second. This task will
+
+1074
+00:25:39,430 --> 00:25:39,440
+will run after 1 second. This task will
+ 
+
+1075
+00:25:39,440 --> 00:25:43,110
+will run after 1 second. This task will
+run task two will get run after uh 10
+
+1076
+00:25:43,110 --> 00:25:43,120
+run task two will get run after uh 10
+ 
+
+1077
+00:25:43,120 --> 00:25:46,230
+run task two will get run after uh 10
+seconds. So you can uh say that the task
+
+1078
+00:25:46,230 --> 00:25:46,240
+seconds. So you can uh say that the task
+ 
+
+1079
+00:25:46,240 --> 00:25:49,430
+seconds. So you can uh say that the task
+which is going to run very next is
+
+1080
+00:25:49,430 --> 00:25:49,440
+which is going to run very next is
+ 
+
+1081
+00:25:49,440 --> 00:25:53,029
+which is going to run very next is
+always at the head. Okay. So which data
+
+1082
+00:25:53,029 --> 00:25:53,039
+always at the head. Okay. So which data
+ 
+
+1083
+00:25:53,039 --> 00:25:55,190
+always at the head. Okay. So which data
+structure we can use to implement this
+
+1084
+00:25:55,190 --> 00:25:55,200
+structure we can use to implement this
+ 
+
+1085
+00:25:55,200 --> 00:25:59,029
+structure we can use to implement this
+delete Q is priority Q. We can make use
+
+1086
+00:25:59,029 --> 00:25:59,039
+delete Q is priority Q. We can make use
+ 
+
+1087
+00:25:59,039 --> 00:26:02,630
+delete Q is priority Q. We can make use
+of priority Q and sort based on this
+
+1088
+00:26:02,630 --> 00:26:02,640
+of priority Q and sort based on this
+ 
+
+1089
+00:26:02,640 --> 00:26:05,350
+of priority Q and sort based on this
+minimum delay time. Whichever task has
+
+1090
+00:26:05,350 --> 00:26:05,360
+minimum delay time. Whichever task has
+ 
+
+1091
+00:26:05,360 --> 00:26:07,830
+minimum delay time. Whichever task has
+the very minimum delay time, it should
+
+1092
+00:26:07,830 --> 00:26:07,840
+the very minimum delay time, it should
+ 
+
+1093
+00:26:07,840 --> 00:26:10,549
+the very minimum delay time, it should
+be at the head because this delay is
+
+1094
+00:26:10,549 --> 00:26:10,559
+be at the head because this delay is
+ 
+
+1095
+00:26:10,559 --> 00:26:13,669
+be at the head because this delay is
+going to expire early so that this task
+
+1096
+00:26:13,669 --> 00:26:13,679
+going to expire early so that this task
+ 
+
+1097
+00:26:13,679 --> 00:26:16,549
+going to expire early so that this task
+would be ready to get executed first.
+
+1098
+00:26:16,549 --> 00:26:16,559
+would be ready to get executed first.
+ 
+
+1099
+00:26:16,559 --> 00:26:19,430
+would be ready to get executed first.
+Okay. So one thing is delayed queue.
+
+1100
+00:26:19,430 --> 00:26:19,440
+Okay. So one thing is delayed queue.
+ 
+
+1101
+00:26:19,440 --> 00:26:21,909
+Okay. So one thing is delayed queue.
+Another thing is we have a worker
+
+1102
+00:26:21,909 --> 00:26:21,919
+Another thing is we have a worker
+ 
+
+1103
+00:26:21,919 --> 00:26:24,710
+Another thing is we have a worker
+thread. We have a worker thread. So
+
+1104
+00:26:24,710 --> 00:26:24,720
+thread. We have a worker thread. So
+ 
+
+1105
+00:26:24,720 --> 00:26:26,630
+thread. We have a worker thread. So
+whenever the schedule thread pool
+
+1106
+00:26:26,630 --> 00:26:26,640
+whenever the schedule thread pool
+ 
+
+1107
+00:26:26,640 --> 00:26:29,990
+whenever the schedule thread pool
+executor we are creating an object of
+
+1108
+00:26:29,990 --> 00:26:30,000
+executor we are creating an object of
+ 
+
+1109
+00:26:30,000 --> 00:26:32,630
+executor we are creating an object of
+this one, we also tell how many worker
+
+1110
+00:26:32,630 --> 00:26:32,640
+this one, we also tell how many worker
+ 
+
+1111
+00:26:32,640 --> 00:26:34,789
+this one, we also tell how many worker
+thread we want it which will work on
+
+1112
+00:26:34,789 --> 00:26:34,799
+thread we want it which will work on
+ 
+
+1113
+00:26:34,799 --> 00:26:36,549
+thread we want it which will work on
+this executor.
+
+1114
+00:26:36,549 --> 00:26:36,559
+this executor.
+ 
+
+1115
+00:26:36,559 --> 00:26:39,669
+this executor.
+Okay. So now what happen is let's say
+
+1116
+00:26:39,669 --> 00:26:39,679
+Okay. So now what happen is let's say
+ 
+
+1117
+00:26:39,679 --> 00:26:42,070
+Okay. So now what happen is let's say
+assume that
+
+1118
+00:26:42,070 --> 00:26:42,080
+assume that
+ 
+
+1119
+00:26:42,080 --> 00:26:45,110
+assume that
+in this delayed queue
+
+1120
+00:26:45,110 --> 00:26:45,120
+in this delayed queue
+ 
+
+1121
+00:26:45,120 --> 00:26:48,630
+in this delayed queue
+this is our task one which has let's say
+
+1122
+00:26:48,630 --> 00:26:48,640
+this is our task one which has let's say
+ 
+
+1123
+00:26:48,640 --> 00:26:52,789
+this is our task one which has let's say
+10 second is still time remaining before
+
+1124
+00:26:52,789 --> 00:26:52,799
+10 second is still time remaining before
+ 
+
+1125
+00:26:52,799 --> 00:26:55,990
+10 second is still time remaining before
+it delay get expired and the task one is
+
+1126
+00:26:55,990 --> 00:26:56,000
+it delay get expired and the task one is
+ 
+
+1127
+00:26:56,000 --> 00:26:58,630
+it delay get expired and the task one is
+ready to get executed. Now let's say
+
+1128
+00:26:58,630 --> 00:26:58,640
+ready to get executed. Now let's say
+ 
+
+1129
+00:26:58,640 --> 00:27:00,230
+ready to get executed. Now let's say
+thread
+
+1130
+00:27:00,230 --> 00:27:00,240
+thread
+ 
+
+1131
+00:27:00,240 --> 00:27:04,310
+thread
+one look at the head. Hey can I pick
+
+1132
+00:27:04,310 --> 00:27:04,320
+one look at the head. Hey can I pick
+ 
+
+1133
+00:27:04,320 --> 00:27:08,870
+one look at the head. Hey can I pick
+this task? Are you ready? Okay, so each
+
+1134
+00:27:08,870 --> 00:27:08,880
+this task? Are you ready? Okay, so each
+ 
+
+1135
+00:27:08,880 --> 00:27:11,029
+this task? Are you ready? Okay, so each
+available worker thread will look at the
+
+1136
+00:27:11,029 --> 00:27:11,039
+available worker thread will look at the
+ 
+
+1137
+00:27:11,039 --> 00:27:13,669
+available worker thread will look at the
+head of the delayed queue.
+
+1138
+00:27:13,669 --> 00:27:13,679
+head of the delayed queue.
+ 
+
+1139
+00:27:13,679 --> 00:27:16,710
+head of the delayed queue.
+If the task delay is not yet expired, so
+
+1140
+00:27:16,710 --> 00:27:16,720
+If the task delay is not yet expired, so
+ 
+
+1141
+00:27:16,720 --> 00:27:19,430
+If the task delay is not yet expired, so
+there is still 10 second left. Okay, it
+
+1142
+00:27:19,430 --> 00:27:19,440
+there is still 10 second left. Okay, it
+ 
+
+1143
+00:27:19,440 --> 00:27:22,630
+there is still 10 second left. Okay, it
+should not be executed now. Then what
+
+1144
+00:27:22,630 --> 00:27:22,640
+should not be executed now. Then what
+ 
+
+1145
+00:27:22,640 --> 00:27:25,909
+should not be executed now. Then what
+this thread will do? This thread will go
+
+1146
+00:27:25,909 --> 00:27:25,919
+this thread will do? This thread will go
+ 
+
+1147
+00:27:25,919 --> 00:27:28,710
+this thread will do? This thread will go
+in a block state. Okay, then thread will
+
+1148
+00:27:28,710 --> 00:27:28,720
+in a block state. Okay, then thread will
+ 
+
+1149
+00:27:28,720 --> 00:27:31,269
+in a block state. Okay, then thread will
+wait go into block state for how much
+
+1150
+00:27:31,269 --> 00:27:31,279
+wait go into block state for how much
+ 
+
+1151
+00:27:31,279 --> 00:27:34,870
+wait go into block state for how much
+time? For the same amount of time. So it
+
+1152
+00:27:34,870 --> 00:27:34,880
+time? For the same amount of time. So it
+ 
+
+1153
+00:27:34,880 --> 00:27:37,029
+time? For the same amount of time. So it
+will check okay this task will ready
+
+1154
+00:27:37,029 --> 00:27:37,039
+will check okay this task will ready
+ 
+
+1155
+00:27:37,039 --> 00:27:40,789
+will check okay this task will ready
+after 10 second. So let me also block
+
+1156
+00:27:40,789 --> 00:27:40,799
+after 10 second. So let me also block
+ 
+
+1157
+00:27:40,799 --> 00:27:43,110
+after 10 second. So let me also block
+for 10 second. It will go in a wait
+
+1158
+00:27:43,110 --> 00:27:43,120
+for 10 second. It will go in a wait
+ 
+
+1159
+00:27:43,120 --> 00:27:45,510
+for 10 second. It will go in a wait
+state for 10 second.
+
+1160
+00:27:45,510 --> 00:27:45,520
+state for 10 second.
+ 
+
+1161
+00:27:45,520 --> 00:27:48,230
+state for 10 second.
+After the 10 second the OS wake up the
+
+1162
+00:27:48,230 --> 00:27:48,240
+After the 10 second the OS wake up the
+ 
+
+1163
+00:27:48,240 --> 00:27:50,630
+After the 10 second the OS wake up the
+thread. OS wake up the thread after this
+
+1164
+00:27:50,630 --> 00:27:50,640
+thread. OS wake up the thread after this
+ 
+
+1165
+00:27:50,640 --> 00:27:52,950
+thread. OS wake up the thread after this
+10 second after this. So this whatever
+
+1166
+00:27:52,950 --> 00:27:52,960
+10 second after this. So this whatever
+ 
+
+1167
+00:27:52,960 --> 00:27:54,789
+10 second after this. So this whatever
+the delay is remaining right for the
+
+1168
+00:27:54,789 --> 00:27:54,799
+the delay is remaining right for the
+ 
+
+1169
+00:27:54,799 --> 00:27:57,190
+the delay is remaining right for the
+same remaining delay time this thread
+
+1170
+00:27:57,190 --> 00:27:57,200
+same remaining delay time this thread
+ 
+
+1171
+00:27:57,200 --> 00:27:59,990
+same remaining delay time this thread
+will go into the uh wait state block
+
+1172
+00:27:59,990 --> 00:28:00,000
+will go into the uh wait state block
+ 
+
+1173
+00:28:00,000 --> 00:28:02,549
+will go into the uh wait state block
+state and OS will wake it up after that
+
+1174
+00:28:02,549 --> 00:28:02,559
+state and OS will wake it up after that
+ 
+
+1175
+00:28:02,559 --> 00:28:04,710
+state and OS will wake it up after that
+much time and after that much time this
+
+1176
+00:28:04,710 --> 00:28:04,720
+much time and after that much time this
+ 
+
+1177
+00:28:04,720 --> 00:28:07,669
+much time and after that much time this
+thread will also be ready. uh this task
+
+1178
+00:28:07,669 --> 00:28:07,679
+thread will also be ready. uh this task
+ 
+
+1179
+00:28:07,679 --> 00:28:11,830
+thread will also be ready. uh this task
+is also ready to get executed. Okay. So
+
+1180
+00:28:11,830 --> 00:28:11,840
+is also ready to get executed. Okay. So
+ 
+
+1181
+00:28:11,840 --> 00:28:14,950
+is also ready to get executed. Okay. So
+this thread now will go and pick the
+
+1182
+00:28:14,950 --> 00:28:14,960
+this thread now will go and pick the
+ 
+
+1183
+00:28:14,960 --> 00:28:17,269
+this thread now will go and pick the
+task from the head and start executing
+
+1184
+00:28:17,269 --> 00:28:17,279
+task from the head and start executing
+ 
+
+1185
+00:28:17,279 --> 00:28:19,350
+task from the head and start executing
+it.
+
+1186
+00:28:19,350 --> 00:28:19,360
+it.
+ 
+
+1187
+00:28:19,360 --> 00:28:23,350
+it.
+Now other thread will start looking at
+
+1188
+00:28:23,350 --> 00:28:23,360
+Now other thread will start looking at
+ 
+
+1189
+00:28:23,360 --> 00:28:25,350
+Now other thread will start looking at
+the next task in the delayed queue.
+
+1190
+00:28:25,350 --> 00:28:25,360
+the next task in the delayed queue.
+ 
+
+1191
+00:28:25,360 --> 00:28:27,350
+the next task in the delayed queue.
+There could be multiple tasks. Task two,
+
+1192
+00:28:27,350 --> 00:28:27,360
+There could be multiple tasks. Task two,
+ 
+
+1193
+00:28:27,360 --> 00:28:30,870
+There could be multiple tasks. Task two,
+task three, task four. So now other
+
+1194
+00:28:30,870 --> 00:28:30,880
+task three, task four. So now other
+ 
+
+1195
+00:28:30,880 --> 00:28:35,110
+task three, task four. So now other
+threads will start looking at the next
+
+1196
+00:28:35,110 --> 00:28:35,120
+threads will start looking at the next
+ 
+
+1197
+00:28:35,120 --> 00:28:36,870
+threads will start looking at the next
+uh task which is present into the delay
+
+1198
+00:28:36,870 --> 00:28:36,880
+uh task which is present into the delay
+ 
+
+1199
+00:28:36,880 --> 00:28:39,510
+uh task which is present into the delay
+cube. If that task is not yet ready then
+
+1200
+00:28:39,510 --> 00:28:39,520
+cube. If that task is not yet ready then
+ 
+
+1201
+00:28:39,520 --> 00:28:42,710
+cube. If that task is not yet ready then
+thread will again get blocked.
+
+1202
+00:28:42,710 --> 00:28:42,720
+thread will again get blocked.
+ 
+
+1203
+00:28:42,720 --> 00:28:46,149
+thread will again get blocked.
+Okay. So it is possible that multiple
+
+1204
+00:28:46,149 --> 00:28:46,159
+Okay. So it is possible that multiple
+ 
+
+1205
+00:28:46,159 --> 00:28:48,230
+Okay. So it is possible that multiple
+threads which are available is looking
+
+1206
+00:28:48,230 --> 00:28:48,240
+threads which are available is looking
+ 
+
+1207
+00:28:48,240 --> 00:28:51,590
+threads which are available is looking
+at the head and all let's say thread one
+
+1208
+00:28:51,590 --> 00:28:51,600
+at the head and all let's say thread one
+ 
+
+1209
+00:28:51,600 --> 00:28:55,110
+at the head and all let's say thread one
+thread 2 thread three all are looking at
+
+1210
+00:28:55,110 --> 00:28:55,120
+thread 2 thread three all are looking at
+ 
+
+1211
+00:28:55,120 --> 00:28:59,990
+thread 2 thread three all are looking at
+this head task one which has 10 second
+
+1212
+00:28:59,990 --> 00:29:00,000
+this head task one which has 10 second
+ 
+
+1213
+00:29:00,000 --> 00:29:03,830
+this head task one which has 10 second
+to still delay time is present.
+
+1214
+00:29:03,830 --> 00:29:03,840
+to still delay time is present.
+ 
+
+1215
+00:29:03,840 --> 00:29:08,230
+to still delay time is present.
+So multiple thread look that hey can I
+
+1216
+00:29:08,230 --> 00:29:08,240
+So multiple thread look that hey can I
+ 
+
+1217
+00:29:08,240 --> 00:29:09,590
+So multiple thread look that hey can I
+pick the task because all threads are
+
+1218
+00:29:09,590 --> 00:29:09,600
+pick the task because all threads are
+ 
+
+1219
+00:29:09,600 --> 00:29:11,430
+pick the task because all threads are
+available. they have to look at the
+
+1220
+00:29:11,430 --> 00:29:11,440
+available. they have to look at the
+ 
+
+1221
+00:29:11,440 --> 00:29:13,990
+available. they have to look at the
+queue to see if any task is present so
+
+1222
+00:29:13,990 --> 00:29:14,000
+queue to see if any task is present so
+ 
+
+1223
+00:29:14,000 --> 00:29:16,230
+queue to see if any task is present so
+that they can pick it up. So now this
+
+1224
+00:29:16,230 --> 00:29:16,240
+that they can pick it up. So now this
+ 
+
+1225
+00:29:16,240 --> 00:29:19,110
+that they can pick it up. So now this
+task has still 10 seconds uh delay time
+
+1226
+00:29:19,110 --> 00:29:19,120
+task has still 10 seconds uh delay time
+ 
+
+1227
+00:29:19,120 --> 00:29:21,669
+task has still 10 seconds uh delay time
+present. So what this thread will do
+
+1228
+00:29:21,669 --> 00:29:21,679
+present. So what this thread will do
+ 
+
+1229
+00:29:21,679 --> 00:29:24,070
+present. So what this thread will do
+this thread can't do anything. Okay. So
+
+1230
+00:29:24,070 --> 00:29:24,080
+this thread can't do anything. Okay. So
+ 
+
+1231
+00:29:24,080 --> 00:29:28,310
+this thread can't do anything. Okay. So
+they all goes to wait
+
+1232
+00:29:28,310 --> 00:29:28,320
+
+ 
+
+1233
+00:29:28,320 --> 00:29:31,029
+
+and I told you that how much time the
+
+1234
+00:29:31,029 --> 00:29:31,039
+and I told you that how much time the
+ 
+
+1235
+00:29:31,039 --> 00:29:32,789
+and I told you that how much time the
+same amount of time the remaining delay
+
+1236
+00:29:32,789 --> 00:29:32,799
+same amount of time the remaining delay
+ 
+
+1237
+00:29:32,799 --> 00:29:36,149
+same amount of time the remaining delay
+time they will all goes to
+
+1238
+00:29:36,149 --> 00:29:36,159
+time they will all goes to
+ 
+
+1239
+00:29:36,159 --> 00:29:40,070
+time they will all goes to
+wait or block state then OS will invoke
+
+1240
+00:29:40,070 --> 00:29:40,080
+wait or block state then OS will invoke
+ 
+
+1241
+00:29:40,080 --> 00:29:44,630
+wait or block state then OS will invoke
+it and out of that only one will go and
+
+1242
+00:29:44,630 --> 00:29:44,640
+it and out of that only one will go and
+ 
+
+1243
+00:29:44,640 --> 00:29:47,590
+it and out of that only one will go and
+pick this task. So you can say that that
+
+1244
+00:29:47,590 --> 00:29:47,600
+pick this task. So you can say that that
+ 
+
+1245
+00:29:47,600 --> 00:29:51,830
+pick this task. So you can say that that
+is your uh lock one of the task one of
+
+1246
+00:29:51,830 --> 00:29:51,840
+is your uh lock one of the task one of
+ 
+
+1247
+00:29:51,840 --> 00:29:54,470
+is your uh lock one of the task one of
+the thread will use the lock and pick
+
+1248
+00:29:54,470 --> 00:29:54,480
+the thread will use the lock and pick
+ 
+
+1249
+00:29:54,480 --> 00:29:58,710
+the thread will use the lock and pick
+this task and then remaining thread will
+
+1250
+00:29:58,710 --> 00:29:58,720
+this task and then remaining thread will
+ 
+
+1251
+00:29:58,720 --> 00:30:01,669
+this task and then remaining thread will
+now start looking at the next item
+
+1252
+00:30:01,669 --> 00:30:01,679
+now start looking at the next item
+ 
+
+1253
+00:30:01,679 --> 00:30:05,590
+now start looking at the next item
+present into the delay Q. If that task
+
+1254
+00:30:05,590 --> 00:30:05,600
+present into the delay Q. If that task
+ 
+
+1255
+00:30:05,600 --> 00:30:08,549
+present into the delay Q. If that task
+is still not ready then again those
+
+1256
+00:30:08,549 --> 00:30:08,559
+is still not ready then again those
+ 
+
+1257
+00:30:08,559 --> 00:30:11,830
+is still not ready then again those
+thread will wait for the remaining delay
+
+1258
+00:30:11,830 --> 00:30:11,840
+thread will wait for the remaining delay
+ 
+
+1259
+00:30:11,840 --> 00:30:13,669
+thread will wait for the remaining delay
+time
+
+1260
+00:30:13,669 --> 00:30:13,679
+time
+ 
+
+1261
+00:30:13,679 --> 00:30:15,350
+time
+and it will be in the wait state till
+
+1262
+00:30:15,350 --> 00:30:15,360
+and it will be in the wait state till
+ 
+
+1263
+00:30:15,360 --> 00:30:18,310
+and it will be in the wait state till
+the task is ready.
+
+1264
+00:30:18,310 --> 00:30:18,320
+the task is ready.
+ 
+
+1265
+00:30:18,320 --> 00:30:22,149
+the task is ready.
+I hope if interviewer ask you about how
+
+1266
+00:30:22,149 --> 00:30:22,159
+I hope if interviewer ask you about how
+ 
+
+1267
+00:30:22,159 --> 00:30:23,990
+I hope if interviewer ask you about how
+there is a very similar question also
+
+1268
+00:30:23,990 --> 00:30:24,000
+there is a very similar question also
+ 
+
+1269
+00:30:24,000 --> 00:30:27,909
+there is a very similar question also
+you can say that uh the WhatsApp message
+
+1270
+00:30:27,909 --> 00:30:27,919
+you can say that uh the WhatsApp message
+ 
+
+1271
+00:30:27,919 --> 00:30:29,909
+you can say that uh the WhatsApp message
+the WhatsApp message get automatically
+
+1272
+00:30:29,909 --> 00:30:29,919
+the WhatsApp message get automatically
+ 
+
+1273
+00:30:29,919 --> 00:30:31,510
+the WhatsApp message get automatically
+deleted
+
+1274
+00:30:31,510 --> 00:30:31,520
+deleted
+ 
+
+1275
+00:30:31,520 --> 00:30:33,029
+deleted
+after
+
+1276
+00:30:33,029 --> 00:30:33,039
+after
+ 
+
+1277
+00:30:33,039 --> 00:30:36,549
+after
+24 hours let's say how how you will
+
+1278
+00:30:36,549 --> 00:30:36,559
+24 hours let's say how how you will
+ 
+
+1279
+00:30:36,559 --> 00:30:38,789
+24 hours let's say how how you will
+implement it so nothing but this delayed
+
+1280
+00:30:38,789 --> 00:30:38,799
+implement it so nothing but this delayed
+ 
+
+1281
+00:30:38,799 --> 00:30:43,269
+implement it so nothing but this delayed
+Q only okay so there are many uh big
+
+1282
+00:30:43,269 --> 00:30:43,279
+Q only okay so there are many uh big
+ 
+
+1283
+00:30:43,279 --> 00:30:46,389
+Q only okay so there are many uh big
+companies like you can say that delayed
+
+1284
+00:30:46,389 --> 00:30:46,399
+companies like you can say that delayed
+ 
+
+1285
+00:30:46,399 --> 00:30:47,430
+companies like you can say that delayed
+cues
+
+1286
+00:30:47,430 --> 00:30:47,440
+cues
+ 
+
+1287
+00:30:47,440 --> 00:30:50,870
+cues
+frameworks are available right and we
+
+1288
+00:30:50,870 --> 00:30:50,880
+frameworks are available right and we
+ 
+
+1289
+00:30:50,880 --> 00:30:53,510
+frameworks are available right and we
+can easily implement this feature using
+
+1290
+00:30:53,510 --> 00:30:53,520
+can easily implement this feature using
+ 
+
+1291
+00:30:53,520 --> 00:30:55,510
+can easily implement this feature using
+delete cube. So this is very popular
+
+1292
+00:30:55,510 --> 00:30:55,520
+delete cube. So this is very popular
+ 
+
+1293
+00:30:55,520 --> 00:30:58,549
+delete cube. So this is very popular
+interview questions like how you will
+
+1294
+00:30:58,549 --> 00:30:58,559
+interview questions like how you will
+ 
+
+1295
+00:30:58,559 --> 00:31:00,149
+interview questions like how you will
+implement the disappearing message
+
+1296
+00:31:00,149 --> 00:31:00,159
+implement the disappearing message
+ 
+
+1297
+00:31:00,159 --> 00:31:06,070
+implement the disappearing message
+feature through delete cube easy.
+
+1298
+00:31:06,070 --> 00:31:06,080
+
+ 
+
+1299
+00:31:06,080 --> 00:31:08,389
+
+Okay guys, so if you have any doubt let
+
+1300
+00:31:08,389 --> 00:31:08,399
+Okay guys, so if you have any doubt let
+ 
+
+1301
+00:31:08,399 --> 00:31:09,830
+Okay guys, so if you have any doubt let
+me know in the comment section we can
+
+1302
+00:31:09,830 --> 00:31:09,840
+me know in the comment section we can
+ 
+
+1303
+00:31:09,840 --> 00:31:14,720
+me know in the comment section we can
+discuss further. Okay, bye.
+

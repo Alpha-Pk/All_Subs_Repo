@@ -1,0 +1,5545 @@
+1
+00:00:00,000 --> 00:00:02,790
+
+Welcome back and today we going to cover
+
+2
+00:00:02,790 --> 00:00:02,800
+Welcome back and today we going to cover
+ 
+
+3
+00:00:02,800 --> 00:00:05,990
+Welcome back and today we going to cover
+distributeduling part two. So if you
+
+4
+00:00:05,990 --> 00:00:06,000
+distributeduling part two. So if you
+ 
+
+5
+00:00:06,000 --> 00:00:09,350
+distributeduling part two. So if you
+have not seen the part one where we have
+
+6
+00:00:09,350 --> 00:00:09,360
+have not seen the part one where we have
+ 
+
+7
+00:00:09,360 --> 00:00:11,589
+have not seen the part one where we have
+covered like what is scheduuler, how it
+
+8
+00:00:11,589 --> 00:00:11,599
+covered like what is scheduuler, how it
+ 
+
+9
+00:00:11,599 --> 00:00:16,230
+covered like what is scheduuler, how it
+internally works, we have also seen how
+
+10
+00:00:16,230 --> 00:00:16,240
+internally works, we have also seen how
+ 
+
+11
+00:00:16,240 --> 00:00:19,830
+internally works, we have also seen how
+threadpull executor works internally. So
+
+12
+00:00:19,830 --> 00:00:19,840
+threadpull executor works internally. So
+ 
+
+13
+00:00:19,840 --> 00:00:23,429
+threadpull executor works internally. So
+we have already seen in depth of it all
+
+14
+00:00:23,429 --> 00:00:23,439
+we have already seen in depth of it all
+ 
+
+15
+00:00:23,439 --> 00:00:25,990
+we have already seen in depth of it all
+its method like schedule method which
+
+16
+00:00:25,990 --> 00:00:26,000
+its method like schedule method which
+ 
+
+17
+00:00:26,000 --> 00:00:28,870
+its method like schedule method which
+runs only one schedule at schedule at
+
+18
+00:00:28,870 --> 00:00:28,880
+runs only one schedule at schedule at
+ 
+
+19
+00:00:28,880 --> 00:00:31,910
+runs only one schedule at schedule at
+fixed rate with example schedule with
+
+20
+00:00:31,910 --> 00:00:31,920
+fixed rate with example schedule with
+ 
+
+21
+00:00:31,920 --> 00:00:34,549
+fixed rate with example schedule with
+fixed delay with a proper example and
+
+22
+00:00:34,549 --> 00:00:34,559
+fixed delay with a proper example and
+ 
+
+23
+00:00:34,559 --> 00:00:37,990
+fixed delay with a proper example and
+also the internal functionality.
+
+24
+00:00:37,990 --> 00:00:38,000
+also the internal functionality.
+ 
+
+25
+00:00:38,000 --> 00:00:40,229
+also the internal functionality.
+So that's the prerequisite for this
+
+26
+00:00:40,229 --> 00:00:40,239
+So that's the prerequisite for this
+ 
+
+27
+00:00:40,239 --> 00:00:43,750
+So that's the prerequisite for this
+video. Okay. So a spring boot does not
+
+28
+00:00:43,750 --> 00:00:43,760
+video. Okay. So a spring boot does not
+ 
+
+29
+00:00:43,760 --> 00:00:46,389
+video. Okay. So a spring boot does not
+perform any magic. it internally make
+
+30
+00:00:46,389 --> 00:00:46,399
+perform any magic. it internally make
+ 
+
+31
+00:00:46,399 --> 00:00:48,389
+perform any magic. it internally make
+use of schedule threadpool executor
+
+32
+00:00:48,389 --> 00:00:48,399
+use of schedule threadpool executor
+ 
+
+33
+00:00:48,399 --> 00:00:50,549
+use of schedule threadpool executor
+itself. Okay. So in other words, it's
+
+34
+00:00:50,549 --> 00:00:50,559
+itself. Okay. So in other words, it's
+ 
+
+35
+00:00:50,559 --> 00:00:52,869
+itself. Okay. So in other words, it's
+just a wrapper above schedule threadpool
+
+36
+00:00:52,869 --> 00:00:52,879
+just a wrapper above schedule threadpool
+ 
+
+37
+00:00:52,879 --> 00:00:55,110
+just a wrapper above schedule threadpool
+executor. So let's see that how to
+
+38
+00:00:55,110 --> 00:00:55,120
+executor. So let's see that how to
+ 
+
+39
+00:00:55,120 --> 00:00:57,430
+executor. So let's see that how to
+configure theuling in spring boot. So
+
+40
+00:00:57,430 --> 00:00:57,440
+configure theuling in spring boot. So
+ 
+
+41
+00:00:57,440 --> 00:01:00,630
+configure theuling in spring boot. So
+the first step is enable theuling. Okay.
+
+42
+00:01:00,630 --> 00:01:00,640
+the first step is enable theuling. Okay.
+ 
+
+43
+00:01:00,640 --> 00:01:03,590
+the first step is enable theuling. Okay.
+So in your spring boot application you
+
+44
+00:01:03,590 --> 00:01:03,600
+So in your spring boot application you
+ 
+
+45
+00:01:03,600 --> 00:01:06,310
+So in your spring boot application you
+have to add this add the enablesuling
+
+46
+00:01:06,310 --> 00:01:06,320
+have to add this add the enablesuling
+ 
+
+47
+00:01:06,320 --> 00:01:09,109
+have to add this add the enablesuling
+annotation because after this only all
+
+48
+00:01:09,109 --> 00:01:09,119
+annotation because after this only all
+ 
+
+49
+00:01:09,119 --> 00:01:11,190
+annotation because after this only all
+the scheduleuler related beans will get
+
+50
+00:01:11,190 --> 00:01:11,200
+the scheduleuler related beans will get
+ 
+
+51
+00:01:11,200 --> 00:01:14,630
+the scheduleuler related beans will get
+loaded. Okay. And after this only it
+
+52
+00:01:14,630 --> 00:01:14,640
+loaded. Okay. And after this only it
+ 
+
+53
+00:01:14,640 --> 00:01:17,510
+loaded. Okay. And after this only it
+will be have the capability to scan for
+
+54
+00:01:17,510 --> 00:01:17,520
+will be have the capability to scan for
+ 
+
+55
+00:01:17,520 --> 00:01:19,910
+will be have the capability to scan for
+at the rate scheduled annotations.
+
+56
+00:01:19,910 --> 00:01:19,920
+at the rate scheduled annotations.
+ 
+
+57
+00:01:19,920 --> 00:01:22,390
+at the rate scheduled annotations.
+Without this theuling will not even
+
+58
+00:01:22,390 --> 00:01:22,400
+Without this theuling will not even
+ 
+
+59
+00:01:22,400 --> 00:01:25,350
+Without this theuling will not even
+work. It doesn't even know. Okay, it
+
+60
+00:01:25,350 --> 00:01:25,360
+work. It doesn't even know. Okay, it
+ 
+
+61
+00:01:25,360 --> 00:01:27,830
+work. It doesn't even know. Okay, it
+won't even scan the scheduled
+
+62
+00:01:27,830 --> 00:01:27,840
+won't even scan the scheduled
+ 
+
+63
+00:01:27,840 --> 00:01:29,429
+won't even scan the scheduled
+annotation.
+
+64
+00:01:29,429 --> 00:01:29,439
+annotation.
+ 
+
+65
+00:01:29,439 --> 00:01:32,870
+annotation.
+So that is a very basic step. After that
+
+66
+00:01:32,870 --> 00:01:32,880
+So that is a very basic step. After that
+ 
+
+67
+00:01:32,880 --> 00:01:34,789
+So that is a very basic step. After that
+we just need to see what type of
+
+68
+00:01:34,789 --> 00:01:34,799
+we just need to see what type of
+ 
+
+69
+00:01:34,799 --> 00:01:37,030
+we just need to see what type of
+shoulduling we want whe the fixed rate,
+
+70
+00:01:37,030 --> 00:01:37,040
+shoulduling we want whe the fixed rate,
+ 
+
+71
+00:01:37,040 --> 00:01:39,030
+shoulduling we want whe the fixed rate,
+fixed delay, one-time shoulduling and
+
+72
+00:01:39,030 --> 00:01:39,040
+fixed delay, one-time shoulduling and
+ 
+
+73
+00:01:39,040 --> 00:01:41,190
+fixed delay, one-time shoulduling and
+chron job. Now if you have already seen
+
+74
+00:01:41,190 --> 00:01:41,200
+chron job. Now if you have already seen
+ 
+
+75
+00:01:41,200 --> 00:01:45,350
+chron job. Now if you have already seen
+the part one we have already know in
+
+76
+00:01:45,350 --> 00:01:45,360
+the part one we have already know in
+ 
+
+77
+00:01:45,360 --> 00:01:47,350
+the part one we have already know in
+depth of how this three works. We have
+
+78
+00:01:47,350 --> 00:01:47,360
+depth of how this three works. We have
+ 
+
+79
+00:01:47,360 --> 00:01:51,590
+depth of how this three works. We have
+already have like schedule method
+
+80
+00:01:51,590 --> 00:01:51,600
+already have like schedule method
+ 
+
+81
+00:01:51,600 --> 00:01:54,389
+already have like schedule method
+schedule with
+
+82
+00:01:54,389 --> 00:01:54,399
+schedule with
+ 
+
+83
+00:01:54,399 --> 00:01:59,190
+schedule with
+fixed delay method and schedule at fixed
+
+84
+00:01:59,190 --> 00:01:59,200
+fixed delay method and schedule at fixed
+ 
+
+85
+00:01:59,200 --> 00:02:03,030
+fixed delay method and schedule at fixed
+rate method. So internally all these
+
+86
+00:02:03,030 --> 00:02:03,040
+rate method. So internally all these
+ 
+
+87
+00:02:03,040 --> 00:02:06,069
+rate method. So internally all these
+types in spring boot actually use what
+
+88
+00:02:06,069 --> 00:02:06,079
+types in spring boot actually use what
+ 
+
+89
+00:02:06,079 --> 00:02:09,749
+types in spring boot actually use what
+we have already seen in uh schedule
+
+90
+00:02:09,749 --> 00:02:09,759
+we have already seen in uh schedule
+ 
+
+91
+00:02:09,759 --> 00:02:13,430
+we have already seen in uh schedule
+threadpool executor methods. Okay. So
+
+92
+00:02:13,430 --> 00:02:13,440
+threadpool executor methods. Okay. So
+ 
+
+93
+00:02:13,440 --> 00:02:16,390
+threadpool executor methods. Okay. So
+only thing here new is like chron job.
+
+94
+00:02:16,390 --> 00:02:16,400
+only thing here new is like chron job.
+ 
+
+95
+00:02:16,400 --> 00:02:18,790
+only thing here new is like chron job.
+So let's see that the fixed rate. So how
+
+96
+00:02:18,790 --> 00:02:18,800
+So let's see that the fixed rate. So how
+ 
+
+97
+00:02:18,800 --> 00:02:22,229
+So let's see that the fixed rate. So how
+to use the fixed rate in spring boot. So
+
+98
+00:02:22,229 --> 00:02:22,239
+to use the fixed rate in spring boot. So
+ 
+
+99
+00:02:22,239 --> 00:02:26,390
+to use the fixed rate in spring boot. So
+we create a class. Okay. And I have
+
+100
+00:02:26,390 --> 00:02:26,400
+we create a class. Okay. And I have
+ 
+
+101
+00:02:26,400 --> 00:02:28,710
+we create a class. Okay. And I have
+annotated with at the rate component.
+
+102
+00:02:28,710 --> 00:02:28,720
+annotated with at the rate component.
+ 
+
+103
+00:02:28,720 --> 00:02:30,790
+annotated with at the rate component.
+Now this is the method. So this method
+
+104
+00:02:30,790 --> 00:02:30,800
+Now this is the method. So this method
+ 
+
+105
+00:02:30,800 --> 00:02:33,509
+Now this is the method. So this method
+consider this as a task which need to be
+
+106
+00:02:33,509 --> 00:02:33,519
+consider this as a task which need to be
+ 
+
+107
+00:02:33,519 --> 00:02:36,550
+consider this as a task which need to be
+scheduled. Okay. Now currently I am
+
+108
+00:02:36,550 --> 00:02:36,560
+scheduled. Okay. Now currently I am
+ 
+
+109
+00:02:36,560 --> 00:02:39,990
+scheduled. Okay. Now currently I am
+using fixed rate. Okay. I am not
+
+110
+00:02:39,990 --> 00:02:40,000
+using fixed rate. Okay. I am not
+ 
+
+111
+00:02:40,000 --> 00:02:42,070
+using fixed rate. Okay. I am not
+explaining how fixed rate works because
+
+112
+00:02:42,070 --> 00:02:42,080
+explaining how fixed rate works because
+ 
+
+113
+00:02:42,080 --> 00:02:44,869
+explaining how fixed rate works because
+in the part one itself we have seen it
+
+114
+00:02:44,869 --> 00:02:44,879
+in the part one itself we have seen it
+ 
+
+115
+00:02:44,879 --> 00:02:47,830
+in the part one itself we have seen it
+and this fixed rate is equivalent to
+
+116
+00:02:47,830 --> 00:02:47,840
+and this fixed rate is equivalent to
+ 
+
+117
+00:02:47,840 --> 00:02:49,670
+and this fixed rate is equivalent to
+schedule at fixed rate. What in the part
+
+118
+00:02:49,670 --> 00:02:49,680
+schedule at fixed rate. What in the part
+ 
+
+119
+00:02:49,680 --> 00:02:51,509
+schedule at fixed rate. What in the part
+one we have seen how it works. We have
+
+120
+00:02:51,509 --> 00:02:51,519
+one we have seen how it works. We have
+ 
+
+121
+00:02:51,519 --> 00:02:54,790
+one we have seen how it works. We have
+already seen the example. Okay. So here
+
+122
+00:02:54,790 --> 00:02:54,800
+already seen the example. Okay. So here
+ 
+
+123
+00:02:54,800 --> 00:02:58,309
+already seen the example. Okay. So here
+it just you can say that wrap in spring
+
+124
+00:02:58,309 --> 00:02:58,319
+it just you can say that wrap in spring
+ 
+
+125
+00:02:58,319 --> 00:03:00,550
+it just you can say that wrap in spring
+it's just a wrapper above it and we can
+
+126
+00:03:00,550 --> 00:03:00,560
+it's just a wrapper above it and we can
+ 
+
+127
+00:03:00,560 --> 00:03:03,190
+it's just a wrapper above it and we can
+use it like add the rate schedule
+
+128
+00:03:03,190 --> 00:03:03,200
+use it like add the rate schedule
+ 
+
+129
+00:03:03,200 --> 00:03:07,190
+use it like add the rate schedule
+initial delay is this 3 second and the
+
+130
+00:03:07,190 --> 00:03:07,200
+initial delay is this 3 second and the
+ 
+
+131
+00:03:07,200 --> 00:03:09,509
+initial delay is this 3 second and the
+delay after that which we wanted to
+
+132
+00:03:09,509 --> 00:03:09,519
+delay after that which we wanted to
+ 
+
+133
+00:03:09,519 --> 00:03:12,550
+delay after that which we wanted to
+maintain is 5 second okay so these are
+
+134
+00:03:12,550 --> 00:03:12,560
+maintain is 5 second okay so these are
+ 
+
+135
+00:03:12,560 --> 00:03:15,270
+maintain is 5 second okay so these are
+here in milliseconds
+
+136
+00:03:15,270 --> 00:03:15,280
+here in milliseconds
+ 
+
+137
+00:03:15,280 --> 00:03:17,509
+here in milliseconds
+and internally here I have used see
+
+138
+00:03:17,509 --> 00:03:17,519
+and internally here I have used see
+ 
+
+139
+00:03:17,519 --> 00:03:19,350
+and internally here I have used see
+fixed rate so internally it make use of
+
+140
+00:03:19,350 --> 00:03:19,360
+fixed rate so internally it make use of
+ 
+
+141
+00:03:19,360 --> 00:03:23,270
+fixed rate so internally it make use of
+schedule at fixed rate method only
+
+142
+00:03:23,270 --> 00:03:23,280
+schedule at fixed rate method only
+ 
+
+143
+00:03:23,280 --> 00:03:25,589
+schedule at fixed rate method only
+so Somewhere you will also see that many
+
+144
+00:03:25,589 --> 00:03:25,599
+so Somewhere you will also see that many
+ 
+
+145
+00:03:25,599 --> 00:03:27,509
+so Somewhere you will also see that many
+engineers don't even write a spring
+
+146
+00:03:27,509 --> 00:03:27,519
+engineers don't even write a spring
+ 
+
+147
+00:03:27,519 --> 00:03:29,990
+engineers don't even write a spring
+delay. So if you don't write it like
+
+148
+00:03:29,990 --> 00:03:30,000
+delay. So if you don't write it like
+ 
+
+149
+00:03:30,000 --> 00:03:34,630
+delay. So if you don't write it like
+this then default is zero means start as
+
+150
+00:03:34,630 --> 00:03:34,640
+this then default is zero means start as
+ 
+
+151
+00:03:34,640 --> 00:03:37,270
+this then default is zero means start as
+soon as the job is submitted.
+
+152
+00:03:37,270 --> 00:03:37,280
+soon as the job is submitted.
+ 
+
+153
+00:03:37,280 --> 00:03:39,670
+soon as the job is submitted.
+Okay. Otherwise if you here I have put 3
+
+154
+00:03:39,670 --> 00:03:39,680
+Okay. Otherwise if you here I have put 3
+ 
+
+155
+00:03:39,680 --> 00:03:41,750
+Okay. Otherwise if you here I have put 3
+seconds. So means once the job is
+
+156
+00:03:41,750 --> 00:03:41,760
+seconds. So means once the job is
+ 
+
+157
+00:03:41,760 --> 00:03:45,509
+seconds. So means once the job is
+submitted after 3 second itself
+
+158
+00:03:45,509 --> 00:03:45,519
+submitted after 3 second itself
+ 
+
+159
+00:03:45,519 --> 00:03:47,670
+submitted after 3 second itself
+after 3 second itself the task will get
+
+160
+00:03:47,670 --> 00:03:47,680
+after 3 second itself the task will get
+ 
+
+161
+00:03:47,680 --> 00:03:50,309
+after 3 second itself the task will get
+started.
+
+162
+00:03:50,309 --> 00:03:50,319
+started.
+ 
+
+163
+00:03:50,319 --> 00:03:52,789
+started.
+Okay. And if you see the output you can
+
+164
+00:03:52,789 --> 00:03:52,799
+Okay. And if you see the output you can
+ 
+
+165
+00:03:52,799 --> 00:03:57,670
+Okay. And if you see the output you can
+see that the application started at 38
+
+166
+00:03:57,670 --> 00:03:57,680
+see that the application started at 38
+ 
+
+167
+00:03:57,680 --> 00:04:01,030
+see that the application started at 38
+then it the one is 41. So it maintain an
+
+168
+00:04:01,030 --> 00:04:01,040
+then it the one is 41. So it maintain an
+ 
+
+169
+00:04:01,040 --> 00:04:04,630
+then it the one is 41. So it maintain an
+initial delay of 3 second after that
+
+170
+00:04:04,630 --> 00:04:04,640
+initial delay of 3 second after that
+ 
+
+171
+00:04:04,640 --> 00:04:07,910
+initial delay of 3 second after that
+every 5 seconds. So you remember from
+
+172
+00:04:07,910 --> 00:04:07,920
+every 5 seconds. So you remember from
+ 
+
+173
+00:04:07,920 --> 00:04:09,990
+every 5 seconds. So you remember from
+the previous video fixed rate what's the
+
+174
+00:04:09,990 --> 00:04:10,000
+the previous video fixed rate what's the
+ 
+
+175
+00:04:10,000 --> 00:04:13,750
+the previous video fixed rate what's the
+formula to find the next execution time?
+
+176
+00:04:13,750 --> 00:04:13,760
+formula to find the next execution time?
+ 
+
+177
+00:04:13,760 --> 00:04:17,349
+formula to find the next execution time?
+previous start time
+
+178
+00:04:17,349 --> 00:04:17,359
+previous start time
+ 
+
+179
+00:04:17,359 --> 00:04:20,789
+previous start time
+plus the delay which we wanted. So
+
+180
+00:04:20,789 --> 00:04:20,799
+plus the delay which we wanted. So
+ 
+
+181
+00:04:20,799 --> 00:04:23,990
+plus the delay which we wanted. So
+previous start time let's say 41
+
+182
+00:04:23,990 --> 00:04:24,000
+previous start time let's say 41
+ 
+
+183
+00:04:24,000 --> 00:04:27,510
+previous start time let's say 41
+plus delay we have set is five. So next
+
+184
+00:04:27,510 --> 00:04:27,520
+plus delay we have set is five. So next
+ 
+
+185
+00:04:27,520 --> 00:04:29,909
+plus delay we have set is five. So next
+it should run 46.
+
+186
+00:04:29,909 --> 00:04:29,919
+it should run 46.
+ 
+
+187
+00:04:29,919 --> 00:04:33,110
+it should run 46.
+Then after 46 once it get executed at 46
+
+188
+00:04:33,110 --> 00:04:33,120
+Then after 46 once it get executed at 46
+ 
+
+189
+00:04:33,120 --> 00:04:35,270
+Then after 46 once it get executed at 46
+the next time it has to find the next
+
+190
+00:04:35,270 --> 00:04:35,280
+the next time it has to find the next
+ 
+
+191
+00:04:35,280 --> 00:04:37,670
+the next time it has to find the next
+execution time. So previous start time.
+
+192
+00:04:37,670 --> 00:04:37,680
+execution time. So previous start time.
+ 
+
+193
+00:04:37,680 --> 00:04:42,550
+execution time. So previous start time.
+So 46 + 5 likewise 51 56 like this it
+
+194
+00:04:42,550 --> 00:04:42,560
+So 46 + 5 likewise 51 56 like this it
+ 
+
+195
+00:04:42,560 --> 00:04:45,189
+So 46 + 5 likewise 51 56 like this it
+keeps on going.
+
+196
+00:04:45,189 --> 00:04:45,199
+keeps on going.
+ 
+
+197
+00:04:45,199 --> 00:04:48,950
+keeps on going.
+Okay. So if you have any doubt with this
+
+198
+00:04:48,950 --> 00:04:48,960
+Okay. So if you have any doubt with this
+ 
+
+199
+00:04:48,960 --> 00:04:50,870
+Okay. So if you have any doubt with this
+method schedule should fix rate how this
+
+200
+00:04:50,870 --> 00:04:50,880
+method schedule should fix rate how this
+ 
+
+201
+00:04:50,880 --> 00:04:52,710
+method schedule should fix rate how this
+is working kindly check out the part one
+
+202
+00:04:52,710 --> 00:04:52,720
+is working kindly check out the part one
+ 
+
+203
+00:04:52,720 --> 00:04:56,230
+is working kindly check out the part one
+of this it will get super clear.
+
+204
+00:04:56,230 --> 00:04:56,240
+of this it will get super clear.
+ 
+
+205
+00:04:56,240 --> 00:04:58,790
+of this it will get super clear.
+The second is fixed delay. Again we have
+
+206
+00:04:58,790 --> 00:04:58,800
+The second is fixed delay. Again we have
+ 
+
+207
+00:04:58,800 --> 00:05:00,710
+The second is fixed delay. Again we have
+covered the functionality in the part
+
+208
+00:05:00,710 --> 00:05:00,720
+covered the functionality in the part
+ 
+
+209
+00:05:00,720 --> 00:05:02,790
+covered the functionality in the part
+one with this method schedule with fixed
+
+210
+00:05:02,790 --> 00:05:02,800
+one with this method schedule with fixed
+ 
+
+211
+00:05:02,800 --> 00:05:05,430
+one with this method schedule with fixed
+delay. So spring boot is provide no
+
+212
+00:05:05,430 --> 00:05:05,440
+delay. So spring boot is provide no
+ 
+
+213
+00:05:05,440 --> 00:05:07,670
+delay. So spring boot is provide no
+other functionality. just a wrapper
+
+214
+00:05:07,670 --> 00:05:07,680
+other functionality. just a wrapper
+ 
+
+215
+00:05:07,680 --> 00:05:09,830
+other functionality. just a wrapper
+above this method you can say schedule
+
+216
+00:05:09,830 --> 00:05:09,840
+above this method you can say schedule
+ 
+
+217
+00:05:09,840 --> 00:05:13,110
+above this method you can say schedule
+with fixed delay and here I have just
+
+218
+00:05:13,110 --> 00:05:13,120
+with fixed delay and here I have just
+ 
+
+219
+00:05:13,120 --> 00:05:15,270
+with fixed delay and here I have just
+put an annotation at the schedule so
+
+220
+00:05:15,270 --> 00:05:15,280
+put an annotation at the schedule so
+ 
+
+221
+00:05:15,280 --> 00:05:17,510
+put an annotation at the schedule so
+this is my let's say task which I want
+
+222
+00:05:17,510 --> 00:05:17,520
+this is my let's say task which I want
+ 
+
+223
+00:05:17,520 --> 00:05:20,710
+this is my let's say task which I want
+to run I put at the schedule initial
+
+224
+00:05:20,710 --> 00:05:20,720
+to run I put at the schedule initial
+ 
+
+225
+00:05:20,720 --> 00:05:23,350
+to run I put at the schedule initial
+delay whatever I want to provide and fix
+
+226
+00:05:23,350 --> 00:05:23,360
+delay whatever I want to provide and fix
+ 
+
+227
+00:05:23,360 --> 00:05:26,230
+delay whatever I want to provide and fix
+delay is 5 seconds so it just like use
+
+228
+00:05:26,230 --> 00:05:26,240
+delay is 5 seconds so it just like use
+ 
+
+229
+00:05:26,240 --> 00:05:29,749
+delay is 5 seconds so it just like use
+this method so here just for testing
+
+230
+00:05:29,749 --> 00:05:29,759
+this method so here just for testing
+ 
+
+231
+00:05:29,759 --> 00:05:32,950
+this method so here just for testing
+purpose I have recorded the start time
+
+232
+00:05:32,950 --> 00:05:32,960
+purpose I have recorded the start time
+ 
+
+233
+00:05:32,960 --> 00:05:35,189
+purpose I have recorded the start time
+and just make the thread sleep for 3
+
+234
+00:05:35,189 --> 00:05:35,199
+and just make the thread sleep for 3
+ 
+
+235
+00:05:35,199 --> 00:05:37,830
+and just make the thread sleep for 3
+seconds recorded the end time and just
+
+236
+00:05:37,830 --> 00:05:37,840
+seconds recorded the end time and just
+ 
+
+237
+00:05:37,840 --> 00:05:41,430
+seconds recorded the end time and just
+printing. So just if you see the outcome
+
+238
+00:05:41,430 --> 00:05:41,440
+printing. So just if you see the outcome
+ 
+
+239
+00:05:41,440 --> 00:05:43,350
+printing. So just if you see the outcome
+so you remember from the first video
+
+240
+00:05:43,350 --> 00:05:43,360
+so you remember from the first video
+ 
+
+241
+00:05:43,360 --> 00:05:46,390
+so you remember from the first video
+like for fixed delay
+
+242
+00:05:46,390 --> 00:05:46,400
+like for fixed delay
+ 
+
+243
+00:05:46,400 --> 00:05:48,230
+like for fixed delay
+what's the formula for calculating the
+
+244
+00:05:48,230 --> 00:05:48,240
+what's the formula for calculating the
+ 
+
+245
+00:05:48,240 --> 00:05:51,670
+what's the formula for calculating the
+next execution time is like previous
+
+246
+00:05:51,670 --> 00:05:51,680
+next execution time is like previous
+ 
+
+247
+00:05:51,680 --> 00:05:55,990
+next execution time is like previous
+task finish time not start time finish
+
+248
+00:05:55,990 --> 00:05:56,000
+task finish time not start time finish
+ 
+
+249
+00:05:56,000 --> 00:05:57,909
+task finish time not start time finish
+time
+
+250
+00:05:57,909 --> 00:05:57,919
+time
+ 
+
+251
+00:05:57,919 --> 00:06:00,070
+time
+plus delay.
+
+252
+00:06:00,070 --> 00:06:00,080
+plus delay.
+ 
+
+253
+00:06:00,080 --> 00:06:02,310
+plus delay.
+So here when task is submitted what's
+
+254
+00:06:02,310 --> 00:06:02,320
+So here when task is submitted what's
+ 
+
+255
+00:06:02,320 --> 00:06:04,710
+So here when task is submitted what's
+the initial delay is 1 second. So
+
+256
+00:06:04,710 --> 00:06:04,720
+the initial delay is 1 second. So
+ 
+
+257
+00:06:04,720 --> 00:06:07,590
+the initial delay is 1 second. So
+application started at uh here it is at
+
+258
+00:06:07,590 --> 00:06:07,600
+application started at uh here it is at
+ 
+
+259
+00:06:07,600 --> 00:06:11,029
+application started at uh here it is at
+31. So it is after 1 second delay you
+
+260
+00:06:11,029 --> 00:06:11,039
+31. So it is after 1 second delay you
+ 
+
+261
+00:06:11,039 --> 00:06:15,029
+31. So it is after 1 second delay you
+can say that 32 it started. So at 32 it
+
+262
+00:06:15,029 --> 00:06:15,039
+can say that 32 it started. So at 32 it
+ 
+
+263
+00:06:15,039 --> 00:06:19,350
+can say that 32 it started. So at 32 it
+started I have put sleep. Okay 3 seconds
+
+264
+00:06:19,350 --> 00:06:19,360
+started I have put sleep. Okay 3 seconds
+ 
+
+265
+00:06:19,360 --> 00:06:22,230
+started I have put sleep. Okay 3 seconds
+sleep. So when it got finished it got
+
+266
+00:06:22,230 --> 00:06:22,240
+sleep. So when it got finished it got
+ 
+
+267
+00:06:22,240 --> 00:06:25,270
+sleep. So when it got finished it got
+finished at 35. So what should be the
+
+268
+00:06:25,270 --> 00:06:25,280
+finished at 35. So what should be the
+ 
+
+269
+00:06:25,280 --> 00:06:27,510
+finished at 35. So what should be the
+next? So
+
+270
+00:06:27,510 --> 00:06:27,520
+next? So
+ 
+
+271
+00:06:27,520 --> 00:06:29,670
+next? So
+here in the fixed delay it's repetitive.
+
+272
+00:06:29,670 --> 00:06:29,680
+here in the fixed delay it's repetitive.
+ 
+
+273
+00:06:29,680 --> 00:06:31,350
+here in the fixed delay it's repetitive.
+We need to put the task again back to
+
+274
+00:06:31,350 --> 00:06:31,360
+We need to put the task again back to
+ 
+
+275
+00:06:31,360 --> 00:06:33,990
+We need to put the task again back to
+the queue but with a new execution time.
+
+276
+00:06:33,990 --> 00:06:34,000
+the queue but with a new execution time.
+ 
+
+277
+00:06:34,000 --> 00:06:36,070
+the queue but with a new execution time.
+So new execution time would be previous
+
+278
+00:06:36,070 --> 00:06:36,080
+So new execution time would be previous
+ 
+
+279
+00:06:36,080 --> 00:06:38,550
+So new execution time would be previous
+task finish time. So when it is finished
+
+280
+00:06:38,550 --> 00:06:38,560
+task finish time. So when it is finished
+ 
+
+281
+00:06:38,560 --> 00:06:41,749
+task finish time. So when it is finished
+35 plus the delay delay we have set is
+
+282
+00:06:41,749 --> 00:06:41,759
+35 plus the delay delay we have set is
+ 
+
+283
+00:06:41,759 --> 00:06:45,590
+35 plus the delay delay we have set is
+five. So it should run on next 40. So it
+
+284
+00:06:45,590 --> 00:06:45,600
+five. So it should run on next 40. So it
+ 
+
+285
+00:06:45,600 --> 00:06:47,830
+five. So it should run on next 40. So it
+run at 40. Let's say it finished at 43.
+
+286
+00:06:47,830 --> 00:06:47,840
+run at 40. Let's say it finished at 43.
+ 
+
+287
+00:06:47,840 --> 00:06:50,469
+run at 40. Let's say it finished at 43.
+So what should be the next finish time?
+
+288
+00:06:50,469 --> 00:06:50,479
+So what should be the next finish time?
+ 
+
+289
+00:06:50,479 --> 00:06:54,070
+So what should be the next finish time?
+Previous finish time 43 plus the delay
+
+290
+00:06:54,070 --> 00:06:54,080
+Previous finish time 43 plus the delay
+ 
+
+291
+00:06:54,080 --> 00:06:58,469
+Previous finish time 43 plus the delay
+48. Likewise it keeps on going.
+
+292
+00:06:58,469 --> 00:06:58,479
+48. Likewise it keeps on going.
+ 
+
+293
+00:06:58,479 --> 00:07:00,870
+48. Likewise it keeps on going.
+Okay. So again we have already covered
+
+294
+00:07:00,870 --> 00:07:00,880
+Okay. So again we have already covered
+ 
+
+295
+00:07:00,880 --> 00:07:02,469
+Okay. So again we have already covered
+this. So that's why I'm going a little
+
+296
+00:07:02,469 --> 00:07:02,479
+this. So that's why I'm going a little
+ 
+
+297
+00:07:02,479 --> 00:07:05,909
+this. So that's why I'm going a little
+bit fast over here. Now one is onetime
+
+298
+00:07:05,909 --> 00:07:05,919
+bit fast over here. Now one is onetime
+ 
+
+299
+00:07:05,919 --> 00:07:07,589
+bit fast over here. Now one is onetime
+that is also equivalent to schedule
+
+300
+00:07:07,589 --> 00:07:07,599
+that is also equivalent to schedule
+ 
+
+301
+00:07:07,599 --> 00:07:09,270
+that is also equivalent to schedule
+method in the part one which we have
+
+302
+00:07:09,270 --> 00:07:09,280
+method in the part one which we have
+ 
+
+303
+00:07:09,280 --> 00:07:13,110
+method in the part one which we have
+covered. Okay. So here means we have to
+
+304
+00:07:13,110 --> 00:07:13,120
+covered. Okay. So here means we have to
+ 
+
+305
+00:07:13,120 --> 00:07:16,309
+covered. Okay. So here means we have to
+run the job only one time only one time.
+
+306
+00:07:16,309 --> 00:07:16,319
+run the job only one time only one time.
+ 
+
+307
+00:07:16,319 --> 00:07:18,790
+run the job only one time only one time.
+So this is my task I put at the
+
+308
+00:07:18,790 --> 00:07:18,800
+So this is my task I put at the
+ 
+
+309
+00:07:18,800 --> 00:07:22,309
+So this is my task I put at the
+schedule. Now initial delay so when you
+
+310
+00:07:22,309 --> 00:07:22,319
+schedule. Now initial delay so when you
+ 
+
+311
+00:07:22,319 --> 00:07:23,830
+schedule. Now initial delay so when you
+need to start so they're the same thing
+
+312
+00:07:23,830 --> 00:07:23,840
+need to start so they're the same thing
+ 
+
+313
+00:07:23,840 --> 00:07:28,550
+need to start so they're the same thing
+the task and the delay. Okay. So here
+
+314
+00:07:28,550 --> 00:07:28,560
+the task and the delay. Okay. So here
+ 
+
+315
+00:07:28,560 --> 00:07:30,230
+the task and the delay. Okay. So here
+let's say if you want to start it
+
+316
+00:07:30,230 --> 00:07:30,240
+let's say if you want to start it
+ 
+
+317
+00:07:30,240 --> 00:07:32,390
+let's say if you want to start it
+immediately just put zero. If you want
+
+318
+00:07:32,390 --> 00:07:32,400
+immediately just put zero. If you want
+ 
+
+319
+00:07:32,400 --> 00:07:34,309
+immediately just put zero. If you want
+to start let's say after 2 seconds just
+
+320
+00:07:34,309 --> 00:07:34,319
+to start let's say after 2 seconds just
+ 
+
+321
+00:07:34,319 --> 00:07:35,670
+to start let's say after 2 seconds just
+put here. So all this is in
+
+322
+00:07:35,670 --> 00:07:35,680
+put here. So all this is in
+ 
+
+323
+00:07:35,680 --> 00:07:37,670
+put here. So all this is in
+milliseconds.
+
+324
+00:07:37,670 --> 00:07:37,680
+milliseconds.
+ 
+
+325
+00:07:37,680 --> 00:07:39,830
+milliseconds.
+Okay. But here initial delay is
+
+326
+00:07:39,830 --> 00:07:39,840
+Okay. But here initial delay is
+ 
+
+327
+00:07:39,840 --> 00:07:43,270
+Okay. But here initial delay is
+mandatory. You can't have you if you
+
+328
+00:07:43,270 --> 00:07:43,280
+mandatory. You can't have you if you
+ 
+
+329
+00:07:43,280 --> 00:07:44,629
+mandatory. You can't have you if you
+don't define it here you will get an
+
+330
+00:07:44,629 --> 00:07:44,639
+don't define it here you will get an
+ 
+
+331
+00:07:44,639 --> 00:07:47,990
+don't define it here you will get an
+exception. So you should define initial
+
+332
+00:07:47,990 --> 00:07:48,000
+exception. So you should define initial
+ 
+
+333
+00:07:48,000 --> 00:07:51,830
+exception. So you should define initial
+delay in case of one timeuling. Okay.
+
+334
+00:07:51,830 --> 00:07:51,840
+delay in case of one timeuling. Okay.
+ 
+
+335
+00:07:51,840 --> 00:07:55,589
+delay in case of one timeuling. Okay.
+But if you are using fixed delay or
+
+336
+00:07:55,589 --> 00:07:55,599
+But if you are using fixed delay or
+ 
+
+337
+00:07:55,599 --> 00:07:57,830
+But if you are using fixed delay or
+fixed rate if you don't add initial
+
+338
+00:07:57,830 --> 00:07:57,840
+fixed rate if you don't add initial
+ 
+
+339
+00:07:57,840 --> 00:08:00,550
+fixed rate if you don't add initial
+delay by default it will take zero.
+
+340
+00:08:00,550 --> 00:08:00,560
+delay by default it will take zero.
+ 
+
+341
+00:08:00,560 --> 00:08:02,550
+delay by default it will take zero.
+Okay. But only in case of one time
+
+342
+00:08:02,550 --> 00:08:02,560
+Okay. But only in case of one time
+ 
+
+343
+00:08:02,560 --> 00:08:04,309
+Okay. But only in case of one time
+shoulduling
+
+344
+00:08:04,309 --> 00:08:04,319
+shoulduling
+ 
+
+345
+00:08:04,319 --> 00:08:06,390
+shoulduling
+you have to specifically add the initial
+
+346
+00:08:06,390 --> 00:08:06,400
+you have to specifically add the initial
+ 
+
+347
+00:08:06,400 --> 00:08:09,510
+you have to specifically add the initial
+delay.
+
+348
+00:08:09,510 --> 00:08:09,520
+
+ 
+
+349
+00:08:09,520 --> 00:08:11,670
+
+So in this case what would happen is
+
+350
+00:08:11,670 --> 00:08:11,680
+So in this case what would happen is
+ 
+
+351
+00:08:11,680 --> 00:08:14,070
+So in this case what would happen is
+after an initial delay of 2 second job
+
+352
+00:08:14,070 --> 00:08:14,080
+after an initial delay of 2 second job
+ 
+
+353
+00:08:14,080 --> 00:08:16,390
+after an initial delay of 2 second job
+will start and it will get executed only
+
+354
+00:08:16,390 --> 00:08:16,400
+will start and it will get executed only
+ 
+
+355
+00:08:16,400 --> 00:08:20,950
+will start and it will get executed only
+one time.
+
+356
+00:08:20,950 --> 00:08:20,960
+
+ 
+
+357
+00:08:20,960 --> 00:08:24,070
+
+Cool. The main thing is now chron job
+
+358
+00:08:24,070 --> 00:08:24,080
+Cool. The main thing is now chron job
+ 
+
+359
+00:08:24,080 --> 00:08:28,710
+Cool. The main thing is now chron job
+which is new. Okay. So now let's see it
+
+360
+00:08:28,710 --> 00:08:28,720
+which is new. Okay. So now let's see it
+ 
+
+361
+00:08:28,720 --> 00:08:30,230
+which is new. Okay. So now let's see it
+clearly.
+
+362
+00:08:30,230 --> 00:08:30,240
+clearly.
+ 
+
+363
+00:08:30,240 --> 00:08:34,550
+clearly.
+What it says chron job is repeated one
+
+364
+00:08:34,550 --> 00:08:34,560
+What it says chron job is repeated one
+ 
+
+365
+00:08:34,560 --> 00:08:37,269
+What it says chron job is repeated one
+timeuling repeated. So it's also a
+
+366
+00:08:37,269 --> 00:08:37,279
+timeuling repeated. So it's also a
+ 
+
+367
+00:08:37,279 --> 00:08:39,829
+timeuling repeated. So it's also a
+repeat of
+
+368
+00:08:39,829 --> 00:08:39,839
+repeat of
+ 
+
+369
+00:08:39,839 --> 00:08:42,070
+repeat of
+whatever the clock time we give. So it
+
+370
+00:08:42,070 --> 00:08:42,080
+whatever the clock time we give. So it
+ 
+
+371
+00:08:42,080 --> 00:08:44,870
+whatever the clock time we give. So it
+based on wall clock time. This is very
+
+372
+00:08:44,870 --> 00:08:44,880
+based on wall clock time. This is very
+ 
+
+373
+00:08:44,880 --> 00:08:47,829
+based on wall clock time. This is very
+important. So and also very confusing
+
+374
+00:08:47,829 --> 00:08:47,839
+important. So and also very confusing
+ 
+
+375
+00:08:47,839 --> 00:08:50,710
+important. So and also very confusing
+too. What does wall clock time means? So
+
+376
+00:08:50,710 --> 00:08:50,720
+too. What does wall clock time means? So
+ 
+
+377
+00:08:50,720 --> 00:08:52,630
+too. What does wall clock time means? So
+in like in a wall clock time we have
+
+378
+00:08:52,630 --> 00:08:52,640
+in like in a wall clock time we have
+ 
+
+379
+00:08:52,640 --> 00:08:57,030
+in like in a wall clock time we have
+like seconds, minute, hour. Okay, the
+
+380
+00:08:57,030 --> 00:08:57,040
+like seconds, minute, hour. Okay, the
+ 
+
+381
+00:08:57,040 --> 00:09:00,470
+like seconds, minute, hour. Okay, the
+same way it follows. So example of wall
+
+382
+00:09:00,470 --> 00:09:00,480
+same way it follows. So example of wall
+ 
+
+383
+00:09:00,480 --> 00:09:01,829
+same way it follows. So example of wall
+clock time. Let's see the example
+
+384
+00:09:01,829 --> 00:09:01,839
+clock time. Let's see the example
+ 
+
+385
+00:09:01,839 --> 00:09:03,750
+clock time. Let's see the example
+clearly because this is where many
+
+386
+00:09:03,750 --> 00:09:03,760
+clearly because this is where many
+ 
+
+387
+00:09:03,760 --> 00:09:05,910
+clearly because this is where many
+confusion happen.
+
+388
+00:09:05,910 --> 00:09:05,920
+confusion happen.
+ 
+
+389
+00:09:05,920 --> 00:09:09,670
+confusion happen.
+Let's say current time is 10:14
+
+390
+00:09:09,670 --> 00:09:09,680
+Let's say current time is 10:14
+ 
+
+391
+00:09:09,680 --> 00:09:12,790
+Let's say current time is 10:14
+and what we wanted is every 3 minutes we
+
+392
+00:09:12,790 --> 00:09:12,800
+and what we wanted is every 3 minutes we
+ 
+
+393
+00:09:12,800 --> 00:09:16,310
+and what we wanted is every 3 minutes we
+need to run the task every 3 minutes. So
+
+394
+00:09:16,310 --> 00:09:16,320
+need to run the task every 3 minutes. So
+ 
+
+395
+00:09:16,320 --> 00:09:18,949
+need to run the task every 3 minutes. So
+with fixed rate what would what would
+
+396
+00:09:18,949 --> 00:09:18,959
+with fixed rate what would what would
+ 
+
+397
+00:09:18,959 --> 00:09:21,829
+with fixed rate what would what would
+have happened? So now let's say the
+
+398
+00:09:21,829 --> 00:09:21,839
+have happened? So now let's say the
+ 
+
+399
+00:09:21,839 --> 00:09:24,310
+have happened? So now let's say the
+first pick would happen 10:14 if it
+
+400
+00:09:24,310 --> 00:09:24,320
+first pick would happen 10:14 if it
+ 
+
+401
+00:09:24,320 --> 00:09:28,870
+first pick would happen 10:14 if it
+let's say if our initial delay is zero
+
+402
+00:09:28,870 --> 00:09:28,880
+let's say if our initial delay is zero
+ 
+
+403
+00:09:28,880 --> 00:09:32,550
+let's say if our initial delay is zero
+means as soon as the current time is
+
+404
+00:09:32,550 --> 00:09:32,560
+means as soon as the current time is
+ 
+
+405
+00:09:32,560 --> 00:09:34,790
+means as soon as the current time is
+10:14 as soon as the job is submitted it
+
+406
+00:09:34,790 --> 00:09:34,800
+10:14 as soon as the job is submitted it
+ 
+
+407
+00:09:34,800 --> 00:09:38,070
+10:14 as soon as the job is submitted it
+got picked up. So first pick is this.
+
+408
+00:09:38,070 --> 00:09:38,080
+got picked up. So first pick is this.
+ 
+
+409
+00:09:38,080 --> 00:09:42,470
+got picked up. So first pick is this.
+Now the next execution at what time? So
+
+410
+00:09:42,470 --> 00:09:42,480
+Now the next execution at what time? So
+ 
+
+411
+00:09:42,480 --> 00:09:44,870
+Now the next execution at what time? So
+we want every 3 minutes. So how what is
+
+412
+00:09:44,870 --> 00:09:44,880
+we want every 3 minutes. So how what is
+ 
+
+413
+00:09:44,880 --> 00:09:46,630
+we want every 3 minutes. So how what is
+the execution time formula? Next
+
+414
+00:09:46,630 --> 00:09:46,640
+the execution time formula? Next
+ 
+
+415
+00:09:46,640 --> 00:09:48,389
+the execution time formula? Next
+execution time calculation formula in
+
+416
+00:09:48,389 --> 00:09:48,399
+execution time calculation formula in
+ 
+
+417
+00:09:48,399 --> 00:09:51,350
+execution time calculation formula in
+fixed rate is previous
+
+418
+00:09:51,350 --> 00:09:51,360
+fixed rate is previous
+ 
+
+419
+00:09:51,360 --> 00:09:53,670
+fixed rate is previous
+start time previous start time. So it is
+
+420
+00:09:53,670 --> 00:09:53,680
+start time previous start time. So it is
+ 
+
+421
+00:09:53,680 --> 00:09:56,389
+start time previous start time. So it is
+started on 10:14
+
+422
+00:09:56,389 --> 00:09:56,399
+started on 10:14
+ 
+
+423
+00:09:56,399 --> 00:09:59,430
+started on 10:14
+plus interval we want three. So at 10:17
+
+424
+00:09:59,430 --> 00:09:59,440
+plus interval we want three. So at 10:17
+ 
+
+425
+00:09:59,440 --> 00:10:03,030
+plus interval we want three. So at 10:17
+it will run next execution time would be
+
+426
+00:10:03,030 --> 00:10:03,040
+it will run next execution time would be
+ 
+
+427
+00:10:03,040 --> 00:10:06,470
+it will run next execution time would be
+previous start time. So 1017 it started
+
+428
+00:10:06,470 --> 00:10:06,480
+previous start time. So 1017 it started
+ 
+
+429
+00:10:06,480 --> 00:10:08,790
+previous start time. So 1017 it started
+plus 3 1020.
+
+430
+00:10:08,790 --> 00:10:08,800
+plus 3 1020.
+ 
+
+431
+00:10:08,800 --> 00:10:11,110
+plus 3 1020.
+Okay. So this is how generally fixed
+
+432
+00:10:11,110 --> 00:10:11,120
+Okay. So this is how generally fixed
+ 
+
+433
+00:10:11,120 --> 00:10:14,790
+Okay. So this is how generally fixed
+rate might have worked.
+
+434
+00:10:14,790 --> 00:10:14,800
+rate might have worked.
+ 
+
+435
+00:10:14,800 --> 00:10:17,269
+rate might have worked.
+Fixed delay. How this scenario works in
+
+436
+00:10:17,269 --> 00:10:17,279
+Fixed delay. How this scenario works in
+ 
+
+437
+00:10:17,279 --> 00:10:20,069
+Fixed delay. How this scenario works in
+fixed delay is that
+
+438
+00:10:20,069 --> 00:10:20,079
+fixed delay is that
+ 
+
+439
+00:10:20,079 --> 00:10:22,310
+fixed delay is that
+let's say first pick started at 10:14
+
+440
+00:10:22,310 --> 00:10:22,320
+let's say first pick started at 10:14
+ 
+
+441
+00:10:22,320 --> 00:10:25,670
+let's say first pick started at 10:14
+but finished at 10:15. So when you have
+
+442
+00:10:25,670 --> 00:10:25,680
+but finished at 10:15. So when you have
+ 
+
+443
+00:10:25,680 --> 00:10:27,430
+but finished at 10:15. So when you have
+to put back again into the queue with
+
+444
+00:10:27,430 --> 00:10:27,440
+to put back again into the queue with
+ 
+
+445
+00:10:27,440 --> 00:10:29,190
+to put back again into the queue with
+the new execution time it would be like
+
+446
+00:10:29,190 --> 00:10:29,200
+the new execution time it would be like
+ 
+
+447
+00:10:29,200 --> 00:10:31,430
+the new execution time it would be like
+previous execution end time. So end time
+
+448
+00:10:31,430 --> 00:10:31,440
+previous execution end time. So end time
+ 
+
+449
+00:10:31,440 --> 00:10:36,150
+previous execution end time. So end time
+is 10:15 + 3 10810. Now let's say uh
+
+450
+00:10:36,150 --> 00:10:36,160
+is 10:15 + 3 10810. Now let's say uh
+ 
+
+451
+00:10:36,160 --> 00:10:38,069
+is 10:15 + 3 10810. Now let's say uh
+when it got picked at 10:18 complete at
+
+452
+00:10:38,069 --> 00:10:38,079
+when it got picked at 10:18 complete at
+ 
+
+453
+00:10:38,079 --> 00:10:41,910
+when it got picked at 10:18 complete at
+10:19. So next execution time is
+
+454
+00:10:41,910 --> 00:10:41,920
+10:19. So next execution time is
+ 
+
+455
+00:10:41,920 --> 00:10:45,269
+10:19. So next execution time is
+previous finish time 1019 + 3 10:22
+
+456
+00:10:45,269 --> 00:10:45,279
+previous finish time 1019 + 3 10:22
+ 
+
+457
+00:10:45,279 --> 00:10:47,030
+previous finish time 1019 + 3 10:22
+likewise
+
+458
+00:10:47,030 --> 00:10:47,040
+likewise
+ 
+
+459
+00:10:47,040 --> 00:10:50,470
+likewise
+but in case of chron it follows wall
+
+460
+00:10:50,470 --> 00:10:50,480
+but in case of chron it follows wall
+ 
+
+461
+00:10:50,480 --> 00:10:53,910
+but in case of chron it follows wall
+clock time. So when we are saying every
+
+462
+00:10:53,910 --> 00:10:53,920
+clock time. So when we are saying every
+ 
+
+463
+00:10:53,920 --> 00:10:56,790
+clock time. So when we are saying every
+3 minutes so in the clockwise it's like
+
+464
+00:10:56,790 --> 00:10:56,800
+3 minutes so in the clockwise it's like
+ 
+
+465
+00:10:56,800 --> 00:11:02,630
+3 minutes so in the clockwise it's like
+0 3 6 9 12 15 18 21 likewise. Okay. So
+
+466
+00:11:02,630 --> 00:11:02,640
+0 3 6 9 12 15 18 21 likewise. Okay. So
+ 
+
+467
+00:11:02,640 --> 00:11:05,030
+0 3 6 9 12 15 18 21 likewise. Okay. So
+currently it's 10 for 10. So currently
+
+468
+00:11:05,030 --> 00:11:05,040
+currently it's 10 for 10. So currently
+ 
+
+469
+00:11:05,040 --> 00:11:09,670
+currently it's 10 for 10. So currently
+it's 10 for 10. Okay. So now when so if
+
+470
+00:11:09,670 --> 00:11:09,680
+it's 10 for 10. Okay. So now when so if
+ 
+
+471
+00:11:09,680 --> 00:11:11,670
+it's 10 for 10. Okay. So now when so if
+task get completed on time let's say
+
+472
+00:11:11,670 --> 00:11:11,680
+task get completed on time let's say
+ 
+
+473
+00:11:11,680 --> 00:11:14,790
+task get completed on time let's say
+next run would be on 10:15
+
+474
+00:11:14,790 --> 00:11:14,800
+next run would be on 10:15
+ 
+
+475
+00:11:14,800 --> 00:11:17,350
+next run would be on 10:15
+okay so it follows wall clock time 0 3 6
+
+476
+00:11:17,350 --> 00:11:17,360
+okay so it follows wall clock time 0 3 6
+ 
+
+477
+00:11:17,360 --> 00:11:21,430
+okay so it follows wall clock time 0 3 6
+so every 3 minutes right 0 3 6 9 12 till
+
+478
+00:11:21,430 --> 00:11:21,440
+so every 3 minutes right 0 3 6 9 12 till
+ 
+
+479
+00:11:21,440 --> 00:11:25,430
+so every 3 minutes right 0 3 6 9 12 till
+you can say that uh like within 60 it
+
+480
+00:11:25,430 --> 00:11:25,440
+you can say that uh like within 60 it
+ 
+
+481
+00:11:25,440 --> 00:11:29,590
+you can say that uh like within 60 it
+goes so 59 0 to 59 so 0 to 59 it goes so
+
+482
+00:11:29,590 --> 00:11:29,600
+goes so 59 0 to 59 so 0 to 59 it goes so
+ 
+
+483
+00:11:29,600 --> 00:11:33,829
+goes so 59 0 to 59 so 0 to 59 it goes so
+likewise 333 minutes gap it will go
+
+484
+00:11:33,829 --> 00:11:33,839
+likewise 333 minutes gap it will go
+ 
+
+485
+00:11:33,839 --> 00:11:37,590
+likewise 333 minutes gap it will go
+so in this case if it is uh 104 A task
+
+486
+00:11:37,590 --> 00:11:37,600
+so in this case if it is uh 104 A task
+ 
+
+487
+00:11:37,600 --> 00:11:39,670
+so in this case if it is uh 104 A task
+get executed and if it get completed
+
+488
+00:11:39,670 --> 00:11:39,680
+get executed and if it get completed
+ 
+
+489
+00:11:39,680 --> 00:11:42,470
+get executed and if it get completed
+within time then the next run it would
+
+490
+00:11:42,470 --> 00:11:42,480
+within time then the next run it would
+ 
+
+491
+00:11:42,480 --> 00:11:46,150
+within time then the next run it would
+be at 15 after that 18 after that 21
+
+492
+00:11:46,150 --> 00:11:46,160
+be at 15 after that 18 after that 21
+ 
+
+493
+00:11:46,160 --> 00:11:49,509
+be at 15 after that 18 after that 21
+likewise but if the task takes longer
+
+494
+00:11:49,509 --> 00:11:49,519
+likewise but if the task takes longer
+ 
+
+495
+00:11:49,519 --> 00:11:51,509
+likewise but if the task takes longer
+let's say at 10:14 is started and
+
+496
+00:11:51,509 --> 00:11:51,519
+let's say at 10:14 is started and
+ 
+
+497
+00:11:51,519 --> 00:11:53,829
+let's say at 10:14 is started and
+completed at 10:16
+
+498
+00:11:53,829 --> 00:11:53,839
+completed at 10:16
+ 
+
+499
+00:11:53,839 --> 00:11:55,829
+completed at 10:16
+then what would be the nextuling time
+
+500
+00:11:55,829 --> 00:11:55,839
+then what would be the nextuling time
+ 
+
+501
+00:11:55,839 --> 00:11:58,310
+then what would be the nextuling time
+you can see from this itself the next at
+
+502
+00:11:58,310 --> 00:11:58,320
+you can see from this itself the next at
+ 
+
+503
+00:11:58,320 --> 00:11:59,829
+you can see from this itself the next at
+16 it get completed right so next
+
+504
+00:11:59,829 --> 00:11:59,839
+16 it get completed right so next
+ 
+
+505
+00:11:59,839 --> 00:12:02,630
+16 it get completed right so next
+shoulduling time would be at 8:10
+
+506
+00:12:02,630 --> 00:12:02,640
+shoulduling time would be at 8:10
+ 
+
+507
+00:12:02,640 --> 00:12:05,990
+shoulduling time would be at 8:10
+okay so that's the wall clock time
+
+508
+00:12:05,990 --> 00:12:06,000
+okay so that's the wall clock time
+ 
+
+509
+00:12:06,000 --> 00:12:06,949
+okay so that's the wall clock time
+scenario
+
+510
+00:12:06,949 --> 00:12:06,959
+scenario
+ 
+
+511
+00:12:06,959 --> 00:12:09,590
+scenario
+the things will get more clear with more
+
+512
+00:12:09,590 --> 00:12:09,600
+the things will get more clear with more
+ 
+
+513
+00:12:09,600 --> 00:12:12,150
+the things will get more clear with more
+further examples but that's the one
+
+514
+00:12:12,150 --> 00:12:12,160
+further examples but that's the one
+ 
+
+515
+00:12:12,160 --> 00:12:14,790
+further examples but that's the one
+thing it's a repeated job only repeated
+
+516
+00:12:14,790 --> 00:12:14,800
+thing it's a repeated job only repeated
+ 
+
+517
+00:12:14,800 --> 00:12:16,629
+thing it's a repeated job only repeated
+one time scheduleuler but based on wall
+
+518
+00:12:16,629 --> 00:12:16,639
+one time scheduleuler but based on wall
+ 
+
+519
+00:12:16,639 --> 00:12:19,509
+one time scheduleuler but based on wall
+clock time
+
+520
+00:12:19,509 --> 00:12:19,519
+clock time
+ 
+
+521
+00:12:19,519 --> 00:12:21,509
+clock time
+okay so this is just the same thing
+
+522
+00:12:21,509 --> 00:12:21,519
+okay so this is just the same thing
+ 
+
+523
+00:12:21,519 --> 00:12:24,470
+okay so this is just the same thing
+repeated like uh next execution time
+
+524
+00:12:24,470 --> 00:12:24,480
+repeated like uh next execution time
+ 
+
+525
+00:12:24,480 --> 00:12:26,870
+repeated like uh next execution time
+compute it and schedule it back to the
+
+526
+00:12:26,870 --> 00:12:26,880
+compute it and schedule it back to the
+ 
+
+527
+00:12:26,880 --> 00:12:30,389
+compute it and schedule it back to the
+queue like the same thing
+
+528
+00:12:30,389 --> 00:12:30,399
+queue like the same thing
+ 
+
+529
+00:12:30,399 --> 00:12:33,430
+queue like the same thing
+okay again one more example I am going
+
+530
+00:12:33,430 --> 00:12:33,440
+okay again one more example I am going
+ 
+
+531
+00:12:33,440 --> 00:12:35,590
+okay again one more example I am going
+one more example because see this is
+
+532
+00:12:35,590 --> 00:12:35,600
+one more example because see this is
+ 
+
+533
+00:12:35,600 --> 00:12:37,509
+one more example because see this is
+important before I goes to the
+
+534
+00:12:37,509 --> 00:12:37,519
+important before I goes to the
+ 
+
+535
+00:12:37,519 --> 00:12:39,190
+important before I goes to the
+expression which is very important in
+
+536
+00:12:39,190 --> 00:12:39,200
+expression which is very important in
+ 
+
+537
+00:12:39,200 --> 00:12:42,230
+expression which is very important in
+the chron job. Okay. So there should not
+
+538
+00:12:42,230 --> 00:12:42,240
+the chron job. Okay. So there should not
+ 
+
+539
+00:12:42,240 --> 00:12:46,230
+the chron job. Okay. So there should not
+be any doubt with like how chron jobs uh
+
+540
+00:12:46,230 --> 00:12:46,240
+be any doubt with like how chron jobs uh
+ 
+
+541
+00:12:46,240 --> 00:12:49,430
+be any doubt with like how chron jobs uh
+likeuling works. Okay. Consider this
+
+542
+00:12:49,430 --> 00:12:49,440
+likeuling works. Okay. Consider this
+ 
+
+543
+00:12:49,440 --> 00:12:52,629
+likeuling works. Okay. Consider this
+scenario. The requirement is that every
+
+544
+00:12:52,629 --> 00:12:52,639
+scenario. The requirement is that every
+ 
+
+545
+00:12:52,639 --> 00:12:54,550
+scenario. The requirement is that every
+10 minutes
+
+546
+00:12:54,550 --> 00:12:54,560
+10 minutes
+ 
+
+547
+00:12:54,560 --> 00:12:57,110
+10 minutes
+okay micron job should start or should
+
+548
+00:12:57,110 --> 00:12:57,120
+okay micron job should start or should
+ 
+
+549
+00:12:57,120 --> 00:13:01,430
+okay micron job should start or should
+work. The task is started at 10
+
+550
+00:13:01,430 --> 00:13:01,440
+work. The task is started at 10
+ 
+
+551
+00:13:01,440 --> 00:13:04,870
+work. The task is started at 10
+10 a.m. you can consider and it runs for
+
+552
+00:13:04,870 --> 00:13:04,880
+10 a.m. you can consider and it runs for
+ 
+
+553
+00:13:04,880 --> 00:13:08,389
+10 a.m. you can consider and it runs for
+25 minutes. Okay. So what is your
+
+554
+00:13:08,389 --> 00:13:08,399
+25 minutes. Okay. So what is your
+ 
+
+555
+00:13:08,399 --> 00:13:10,790
+25 minutes. Okay. So what is your
+expected chron times? Expected is that
+
+556
+00:13:10,790 --> 00:13:10,800
+expected chron times? Expected is that
+ 
+
+557
+00:13:10,800 --> 00:13:13,829
+expected chron times? Expected is that
+after 10 it should again wake up at
+
+558
+00:13:13,829 --> 00:13:13,839
+after 10 it should again wake up at
+ 
+
+559
+00:13:13,839 --> 00:13:18,949
+after 10 it should again wake up at
+10:10 then 10:20 then 10:30 likewise.
+
+560
+00:13:18,949 --> 00:13:18,959
+10:10 then 10:20 then 10:30 likewise.
+ 
+
+561
+00:13:18,959 --> 00:13:21,190
+10:10 then 10:20 then 10:30 likewise.
+Okay. But what happened is when it
+
+562
+00:13:21,190 --> 00:13:21,200
+Okay. But what happened is when it
+ 
+
+563
+00:13:21,200 --> 00:13:25,269
+Okay. But what happened is when it
+picked at 10 it takes long time and it
+
+564
+00:13:25,269 --> 00:13:25,279
+picked at 10 it takes long time and it
+ 
+
+565
+00:13:25,279 --> 00:13:28,949
+picked at 10 it takes long time and it
+take it took 25 minutes. So at 10 what
+
+566
+00:13:28,949 --> 00:13:28,959
+take it took 25 minutes. So at 10 what
+ 
+
+567
+00:13:28,959 --> 00:13:31,910
+take it took 25 minutes. So at 10 what
+actually happen is at 10 my task start
+
+568
+00:13:31,910 --> 00:13:31,920
+actually happen is at 10 my task start
+ 
+
+569
+00:13:31,920 --> 00:13:34,790
+actually happen is at 10 my task start
+at 10:10 you can say that chron time
+
+570
+00:13:34,790 --> 00:13:34,800
+at 10:10 you can say that chron time
+ 
+
+571
+00:13:34,800 --> 00:13:37,350
+at 10:10 you can say that chron time
+occurs but missed as task is still
+
+572
+00:13:37,350 --> 00:13:37,360
+occurs but missed as task is still
+ 
+
+573
+00:13:37,360 --> 00:13:40,949
+occurs but missed as task is still
+running. See in the part one also I told
+
+574
+00:13:40,949 --> 00:13:40,959
+running. See in the part one also I told
+ 
+
+575
+00:13:40,959 --> 00:13:43,990
+running. See in the part one also I told
+we have only one task which is present
+
+576
+00:13:43,990 --> 00:13:44,000
+we have only one task which is present
+ 
+
+577
+00:13:44,000 --> 00:13:48,069
+we have only one task which is present
+into the queue. Okay. So when the task
+
+578
+00:13:48,069 --> 00:13:48,079
+into the queue. Okay. So when the task
+ 
+
+579
+00:13:48,079 --> 00:13:50,550
+into the queue. Okay. So when the task
+is running
+
+580
+00:13:50,550 --> 00:13:50,560
+is running
+ 
+
+581
+00:13:50,560 --> 00:13:53,269
+is running
+it get receded only when it get
+
+582
+00:13:53,269 --> 00:13:53,279
+it get receded only when it get
+ 
+
+583
+00:13:53,279 --> 00:13:56,150
+it get receded only when it get
+completed. It's not possible that this
+
+584
+00:13:56,150 --> 00:13:56,160
+completed. It's not possible that this
+ 
+
+585
+00:13:56,160 --> 00:13:59,030
+completed. It's not possible that this
+task is running and let's say the next
+
+586
+00:13:59,030 --> 00:13:59,040
+task is running and let's say the next
+ 
+
+587
+00:13:59,040 --> 00:14:01,910
+task is running and let's say the next
+timer happens and some other thread
+
+588
+00:14:01,910 --> 00:14:01,920
+timer happens and some other thread
+ 
+
+589
+00:14:01,920 --> 00:14:04,310
+timer happens and some other thread
+again start this task. Not possible.
+
+590
+00:14:04,310 --> 00:14:04,320
+again start this task. Not possible.
+ 
+
+591
+00:14:04,320 --> 00:14:06,870
+again start this task. Not possible.
+Only have one task, one object.
+
+592
+00:14:06,870 --> 00:14:06,880
+Only have one task, one object.
+ 
+
+593
+00:14:06,880 --> 00:14:08,710
+Only have one task, one object.
+Currently it's in running state. Once it
+
+594
+00:14:08,710 --> 00:14:08,720
+Currently it's in running state. Once it
+ 
+
+595
+00:14:08,720 --> 00:14:11,750
+Currently it's in running state. Once it
+get finished, it again put back to the
+
+596
+00:14:11,750 --> 00:14:11,760
+get finished, it again put back to the
+ 
+
+597
+00:14:11,760 --> 00:14:15,670
+get finished, it again put back to the
+queue with the new execution time. So
+
+598
+00:14:15,670 --> 00:14:15,680
+queue with the new execution time. So
+ 
+
+599
+00:14:15,680 --> 00:14:18,949
+queue with the new execution time. So
+currently 10 task start but at 10:10
+
+600
+00:14:18,949 --> 00:14:18,959
+currently 10 task start but at 10:10
+ 
+
+601
+00:14:18,959 --> 00:14:20,710
+currently 10 task start but at 10:10
+generally expectation is it should get
+
+602
+00:14:20,710 --> 00:14:20,720
+generally expectation is it should get
+ 
+
+603
+00:14:20,720 --> 00:14:24,069
+generally expectation is it should get
+run but currently task is running 10:20
+
+604
+00:14:24,069 --> 00:14:24,079
+run but currently task is running 10:20
+ 
+
+605
+00:14:24,079 --> 00:14:26,629
+run but currently task is running 10:20
+expectation is is cron should wake up
+
+606
+00:14:26,629 --> 00:14:26,639
+expectation is is cron should wake up
+ 
+
+607
+00:14:26,639 --> 00:14:28,310
+expectation is is cron should wake up
+but currently my task is running so
+
+608
+00:14:28,310 --> 00:14:28,320
+but currently my task is running so
+ 
+
+609
+00:14:28,320 --> 00:14:31,750
+but currently my task is running so
+nothing will happen now 10:25 my task
+
+610
+00:14:31,750 --> 00:14:31,760
+nothing will happen now 10:25 my task
+ 
+
+611
+00:14:31,760 --> 00:14:36,550
+nothing will happen now 10:25 my task
+got finished okay at 10:25 my task is
+
+612
+00:14:36,550 --> 00:14:36,560
+got finished okay at 10:25 my task is
+ 
+
+613
+00:14:36,560 --> 00:14:38,949
+got finished okay at 10:25 my task is
+finished now it has to be recued back
+
+614
+00:14:38,949 --> 00:14:38,959
+finished now it has to be recued back
+ 
+
+615
+00:14:38,959 --> 00:14:43,990
+finished now it has to be recued back
+with new execution time so how it will
+
+616
+00:14:43,990 --> 00:14:44,000
+with new execution time so how it will
+ 
+
+617
+00:14:44,000 --> 00:14:46,790
+with new execution time so how it will
+compute new execution time. Okay. So
+
+618
+00:14:46,790 --> 00:14:46,800
+compute new execution time. Okay. So
+ 
+
+619
+00:14:46,800 --> 00:14:49,750
+compute new execution time. Okay. So
+what chron says that every 10 minute so
+
+620
+00:14:49,750 --> 00:14:49,760
+what chron says that every 10 minute so
+ 
+
+621
+00:14:49,760 --> 00:14:55,670
+what chron says that every 10 minute so
+it follows clock time 0 10 20 30
+
+622
+00:14:55,670 --> 00:14:55,680
+it follows clock time 0 10 20 30
+ 
+
+623
+00:14:55,680 --> 00:14:59,110
+it follows clock time 0 10 20 30
+till 50. Okay. So after because 59 60 is
+
+624
+00:14:59,110 --> 00:14:59,120
+till 50. Okay. So after because 59 60 is
+ 
+
+625
+00:14:59,120 --> 00:15:03,030
+till 50. Okay. So after because 59 60 is
+not counted 0 to 59. So these are the
+
+626
+00:15:03,030 --> 00:15:03,040
+not counted 0 to 59. So these are the
+ 
+
+627
+00:15:03,040 --> 00:15:04,710
+not counted 0 to 59. So these are the
+minutes.
+
+628
+00:15:04,710 --> 00:15:04,720
+minutes.
+ 
+
+629
+00:15:04,720 --> 00:15:08,870
+minutes.
+So now here if you say 10 the job runs
+
+630
+00:15:08,870 --> 00:15:08,880
+So now here if you say 10 the job runs
+ 
+
+631
+00:15:08,880 --> 00:15:13,509
+So now here if you say 10 the job runs
+the next time is that 1010 10
+
+632
+00:15:13,509 --> 00:15:13,519
+the next time is that 1010 10
+ 
+
+633
+00:15:13,519 --> 00:15:15,910
+the next time is that 1010 10
+already missed. We are at 1025. So it
+
+634
+00:15:15,910 --> 00:15:15,920
+already missed. We are at 1025. So it
+ 
+
+635
+00:15:15,920 --> 00:15:20,150
+already missed. We are at 1025. So it
+missed. Then after that 20 20 is also
+
+636
+00:15:20,150 --> 00:15:20,160
+missed. Then after that 20 20 is also
+ 
+
+637
+00:15:20,160 --> 00:15:23,509
+missed. Then after that 20 20 is also
+missed. We are at 25. After that 30 yes
+
+638
+00:15:23,509 --> 00:15:23,519
+missed. We are at 25. After that 30 yes
+ 
+
+639
+00:15:23,519 --> 00:15:26,389
+missed. We are at 25. After that 30 yes
+it's a future currently is this. So our
+
+640
+00:15:26,389 --> 00:15:26,399
+it's a future currently is this. So our
+ 
+
+641
+00:15:26,399 --> 00:15:30,550
+it's a future currently is this. So our
+delay is 5 minutes. And now like
+
+642
+00:15:30,550 --> 00:15:30,560
+delay is 5 minutes. And now like
+ 
+
+643
+00:15:30,560 --> 00:15:32,470
+delay is 5 minutes. And now like
+previous in the part one for five
+
+644
+00:15:32,470 --> 00:15:32,480
+previous in the part one for five
+ 
+
+645
+00:15:32,480 --> 00:15:34,069
+previous in the part one for five
+minutes it will go into the time wait
+
+646
+00:15:34,069 --> 00:15:34,079
+minutes it will go into the time wait
+ 
+
+647
+00:15:34,079 --> 00:15:37,269
+minutes it will go into the time wait
+state and after the timer complete the
+
+648
+00:15:37,269 --> 00:15:37,279
+state and after the timer complete the
+ 
+
+649
+00:15:37,279 --> 00:15:40,949
+state and after the timer complete the
+thread will wake up by the OS thread and
+
+650
+00:15:40,949 --> 00:15:40,959
+thread will wake up by the OS thread and
+ 
+
+651
+00:15:40,959 --> 00:15:45,269
+thread will wake up by the OS thread and
+at 10:30 it will pick the task.
+
+652
+00:15:45,269 --> 00:15:45,279
+at 10:30 it will pick the task.
+ 
+
+653
+00:15:45,279 --> 00:15:48,790
+at 10:30 it will pick the task.
+So I hope chron job functionality on the
+
+654
+00:15:48,790 --> 00:15:48,800
+So I hope chron job functionality on the
+ 
+
+655
+00:15:48,800 --> 00:15:51,670
+So I hope chron job functionality on the
+uh like wall clock scenario it's clear
+
+656
+00:15:51,670 --> 00:15:51,680
+uh like wall clock scenario it's clear
+ 
+
+657
+00:15:51,680 --> 00:15:53,670
+uh like wall clock scenario it's clear
+and it how to use it it's very simple
+
+658
+00:15:53,670 --> 00:15:53,680
+and it how to use it it's very simple
+ 
+
+659
+00:15:53,680 --> 00:15:56,310
+and it how to use it it's very simple
+that uh the same thing you have a class
+
+660
+00:15:56,310 --> 00:15:56,320
+that uh the same thing you have a class
+ 
+
+661
+00:15:56,320 --> 00:15:59,189
+that uh the same thing you have a class
+annotated with add the component this
+
+662
+00:15:59,189 --> 00:15:59,199
+annotated with add the component this
+ 
+
+663
+00:15:59,199 --> 00:16:01,829
+annotated with add the component this
+method is generally considered as task
+
+664
+00:16:01,829 --> 00:16:01,839
+method is generally considered as task
+ 
+
+665
+00:16:01,839 --> 00:16:04,069
+method is generally considered as task
+and here I have put add the schedule
+
+666
+00:16:04,069 --> 00:16:04,079
+and here I have put add the schedule
+ 
+
+667
+00:16:04,079 --> 00:16:08,150
+and here I have put add the schedule
+like and inside this we have chrome
+
+668
+00:16:08,150 --> 00:16:08,160
+like and inside this we have chrome
+ 
+
+669
+00:16:08,160 --> 00:16:11,110
+like and inside this we have chrome
+equals to chron expression this is
+
+670
+00:16:11,110 --> 00:16:11,120
+equals to chron expression this is
+ 
+
+671
+00:16:11,120 --> 00:16:15,430
+equals to chron expression this is
+important the chron expression so Here
+
+672
+00:16:15,430 --> 00:16:15,440
+important the chron expression so Here
+ 
+
+673
+00:16:15,440 --> 00:16:17,509
+important the chron expression so Here
+what I have said is job runs every 3
+
+674
+00:16:17,509 --> 00:16:17,519
+what I have said is job runs every 3
+ 
+
+675
+00:16:17,519 --> 00:16:20,790
+what I have said is job runs every 3
+seconds. So we need to understand this
+
+676
+00:16:20,790 --> 00:16:20,800
+seconds. So we need to understand this
+ 
+
+677
+00:16:20,800 --> 00:16:24,150
+seconds. So we need to understand this
+expression. Okay. So you can see the
+
+678
+00:16:24,150 --> 00:16:24,160
+expression. Okay. So you can see the
+ 
+
+679
+00:16:24,160 --> 00:16:27,829
+expression. Okay. So you can see the
+output that it run every 3 seconds. So
+
+680
+00:16:27,829 --> 00:16:27,839
+output that it run every 3 seconds. So
+ 
+
+681
+00:16:27,839 --> 00:16:33,269
+output that it run every 3 seconds. So
+12 15 18 214. So every 3 seconds I told
+
+682
+00:16:33,269 --> 00:16:33,279
+12 15 18 214. So every 3 seconds I told
+ 
+
+683
+00:16:33,279 --> 00:16:36,389
+12 15 18 214. So every 3 seconds I told
+to run. Okay.
+
+684
+00:16:36,389 --> 00:16:36,399
+to run. Okay.
+ 
+
+685
+00:16:36,399 --> 00:16:38,870
+to run. Okay.
+So like we need to understand this chron
+
+686
+00:16:38,870 --> 00:16:38,880
+So like we need to understand this chron
+ 
+
+687
+00:16:38,880 --> 00:16:41,829
+So like we need to understand this chron
+expression better and with if that got
+
+688
+00:16:41,829 --> 00:16:41,839
+expression better and with if that got
+ 
+
+689
+00:16:41,839 --> 00:16:44,550
+expression better and with if that got
+clear then I think chron job is nothing
+
+690
+00:16:44,550 --> 00:16:44,560
+clear then I think chron job is nothing
+ 
+
+691
+00:16:44,560 --> 00:16:46,470
+clear then I think chron job is nothing
+because in the part one we have already
+
+692
+00:16:46,470 --> 00:16:46,480
+because in the part one we have already
+ 
+
+693
+00:16:46,480 --> 00:16:50,069
+because in the part one we have already
+know the internal how it worked. So the
+
+694
+00:16:50,069 --> 00:16:50,079
+know the internal how it worked. So the
+ 
+
+695
+00:16:50,079 --> 00:16:53,030
+know the internal how it worked. So the
+same thing like we know what thread
+
+696
+00:16:53,030 --> 00:16:53,040
+same thing like we know what thread
+ 
+
+697
+00:16:53,040 --> 00:16:55,910
+same thing like we know what thread
+might be doing, how thread get to sleep
+
+698
+00:16:55,910 --> 00:16:55,920
+might be doing, how thread get to sleep
+ 
+
+699
+00:16:55,920 --> 00:16:57,430
+might be doing, how thread get to sleep
+for a specific time, how they got
+
+700
+00:16:57,430 --> 00:16:57,440
+for a specific time, how they got
+ 
+
+701
+00:16:57,440 --> 00:16:59,590
+for a specific time, how they got
+invoked up, how the delayed Q is
+
+702
+00:16:59,590 --> 00:16:59,600
+invoked up, how the delayed Q is
+ 
+
+703
+00:16:59,600 --> 00:17:02,949
+invoked up, how the delayed Q is
+maintained. So we already know that. So
+
+704
+00:17:02,949 --> 00:17:02,959
+maintained. So we already know that. So
+ 
+
+705
+00:17:02,959 --> 00:17:05,909
+maintained. So we already know that. So
+it's a piece of cake for us. Only thing
+
+706
+00:17:05,909 --> 00:17:05,919
+it's a piece of cake for us. Only thing
+ 
+
+707
+00:17:05,919 --> 00:17:09,110
+it's a piece of cake for us. Only thing
+is we need to understand the syntax.
+
+708
+00:17:09,110 --> 00:17:09,120
+is we need to understand the syntax.
+ 
+
+709
+00:17:09,120 --> 00:17:11,750
+is we need to understand the syntax.
+So here in the chron expression syntax,
+
+710
+00:17:11,750 --> 00:17:11,760
+So here in the chron expression syntax,
+ 
+
+711
+00:17:11,760 --> 00:17:14,630
+So here in the chron expression syntax,
+it has six part separated by a space.
+
+712
+00:17:14,630 --> 00:17:14,640
+it has six part separated by a space.
+ 
+
+713
+00:17:14,640 --> 00:17:20,390
+it has six part separated by a space.
+Second, minute are day of the month.
+
+714
+00:17:20,390 --> 00:17:20,400
+Second, minute are day of the month.
+ 
+
+715
+00:17:20,400 --> 00:17:24,470
+Second, minute are day of the month.
+Okay, month day of the week. So second
+
+716
+00:17:24,470 --> 00:17:24,480
+Okay, month day of the week. So second
+ 
+
+717
+00:17:24,480 --> 00:17:26,949
+Okay, month day of the week. So second
+is 0 to 59.
+
+718
+00:17:26,949 --> 00:17:26,959
+is 0 to 59.
+ 
+
+719
+00:17:26,959 --> 00:17:29,750
+is 0 to 59.
+Minute is 0 to 59.
+
+720
+00:17:29,750 --> 00:17:29,760
+Minute is 0 to 59.
+ 
+
+721
+00:17:29,760 --> 00:17:33,430
+Minute is 0 to 59.
+R is 0 to 23. This is like a normal wall
+
+722
+00:17:33,430 --> 00:17:33,440
+R is 0 to 23. This is like a normal wall
+ 
+
+723
+00:17:33,440 --> 00:17:39,350
+R is 0 to 23. This is like a normal wall
+clock. Okay. Starting from zero like 11
+
+724
+00:17:39,350 --> 00:17:39,360
+clock. Okay. Starting from zero like 11
+ 
+
+725
+00:17:39,360 --> 00:17:42,870
+clock. Okay. Starting from zero like 11
+59. It started from 11 0 to 1159 like
+
+726
+00:17:42,870 --> 00:17:42,880
+59. It started from 11 0 to 1159 like
+ 
+
+727
+00:17:42,880 --> 00:17:45,590
+59. It started from 11 0 to 1159 like
+the normal thing. the same thing. Now
+
+728
+00:17:45,590 --> 00:17:45,600
+the normal thing. the same thing. Now
+ 
+
+729
+00:17:45,600 --> 00:17:49,669
+the normal thing. the same thing. Now
+the day of the month 1 to 31st.
+
+730
+00:17:49,669 --> 00:17:49,679
+the day of the month 1 to 31st.
+ 
+
+731
+00:17:49,679 --> 00:17:51,909
+the day of the month 1 to 31st.
+Okay, day of the month is either 1 to
+
+732
+00:17:51,909 --> 00:17:51,919
+Okay, day of the month is either 1 to
+ 
+
+733
+00:17:51,919 --> 00:17:55,350
+Okay, day of the month is either 1 to
+31st. We can define month either you can
+
+734
+00:17:55,350 --> 00:17:55,360
+31st. We can define month either you can
+ 
+
+735
+00:17:55,360 --> 00:17:58,789
+31st. We can define month either you can
+give 1 2 3 or 12 or you can also give
+
+736
+00:17:58,789 --> 00:17:58,799
+give 1 2 3 or 12 or you can also give
+ 
+
+737
+00:17:58,799 --> 00:18:03,270
+give 1 2 3 or 12 or you can also give
+Jan, J and D C three words capital
+
+738
+00:18:03,270 --> 00:18:03,280
+Jan, J and D C three words capital
+ 
+
+739
+00:18:03,280 --> 00:18:05,190
+Jan, J and D C three words capital
+day of the week. Day of the week is like
+
+740
+00:18:05,190 --> 00:18:05,200
+day of the week. Day of the week is like
+ 
+
+741
+00:18:05,200 --> 00:18:09,029
+day of the week. Day of the week is like
+0 to 7. You can give or sun to set like
+
+742
+00:18:09,029 --> 00:18:09,039
+0 to 7. You can give or sun to set like
+ 
+
+743
+00:18:09,039 --> 00:18:12,710
+0 to 7. You can give or sun to set like
+three words capitals m o n t u e wed d
+
+744
+00:18:12,710 --> 00:18:12,720
+three words capitals m o n t u e wed d
+ 
+
+745
+00:18:12,720 --> 00:18:14,870
+three words capitals m o n t u e wed d
+likewise. Now here you might see that
+
+746
+00:18:14,870 --> 00:18:14,880
+likewise. Now here you might see that
+ 
+
+747
+00:18:14,880 --> 00:18:18,470
+likewise. Now here you might see that
+hey 0 to 7 is 8 but we have only 7 days
+
+748
+00:18:18,470 --> 00:18:18,480
+hey 0 to 7 is 8 but we have only 7 days
+ 
+
+749
+00:18:18,480 --> 00:18:22,630
+hey 0 to 7 is 8 but we have only 7 days
+in a week. So here 0 is also Sunday 7 is
+
+750
+00:18:22,630 --> 00:18:22,640
+in a week. So here 0 is also Sunday 7 is
+ 
+
+751
+00:18:22,640 --> 00:18:24,470
+in a week. So here 0 is also Sunday 7 is
+also Sunday
+
+752
+00:18:24,470 --> 00:18:24,480
+also Sunday
+ 
+
+753
+00:18:24,480 --> 00:18:28,950
+also Sunday
+1 2 3 4 5 6 it's like Monday Tuesday
+
+754
+00:18:28,950 --> 00:18:28,960
+1 2 3 4 5 6 it's like Monday Tuesday
+ 
+
+755
+00:18:28,960 --> 00:18:33,350
+1 2 3 4 5 6 it's like Monday Tuesday
+Thursday Friday but 0 and 7 is Sunday.
+
+756
+00:18:33,350 --> 00:18:33,360
+Thursday Friday but 0 and 7 is Sunday.
+ 
+
+757
+00:18:33,360 --> 00:18:37,430
+Thursday Friday but 0 and 7 is Sunday.
+Okay. So this is a very basic like uh
+
+758
+00:18:37,430 --> 00:18:37,440
+Okay. So this is a very basic like uh
+ 
+
+759
+00:18:37,440 --> 00:18:40,549
+Okay. So this is a very basic like uh
+syntax. Now it also has certain special
+
+760
+00:18:40,549 --> 00:18:40,559
+syntax. Now it also has certain special
+ 
+
+761
+00:18:40,559 --> 00:18:42,789
+syntax. Now it also has certain special
+characters. We need to see that. But
+
+762
+00:18:42,789 --> 00:18:42,799
+characters. We need to see that. But
+ 
+
+763
+00:18:42,799 --> 00:18:44,070
+characters. We need to see that. But
+then we will see some practical
+
+764
+00:18:44,070 --> 00:18:44,080
+then we will see some practical
+ 
+
+765
+00:18:44,080 --> 00:18:46,150
+then we will see some practical
+examples.
+
+766
+00:18:46,150 --> 00:18:46,160
+examples.
+ 
+
+767
+00:18:46,160 --> 00:18:48,310
+examples.
+The first is asteris. Astress means
+
+768
+00:18:48,310 --> 00:18:48,320
+The first is asteris. Astress means
+ 
+
+769
+00:18:48,320 --> 00:18:51,669
+The first is asteris. Astress means
+every. Okay. So let's say we have the
+
+770
+00:18:51,669 --> 00:18:51,679
+every. Okay. So let's say we have the
+ 
+
+771
+00:18:51,679 --> 00:18:54,950
+every. Okay. So let's say we have the
+six parts. Now in whichever part you put
+
+772
+00:18:54,950 --> 00:18:54,960
+six parts. Now in whichever part you put
+ 
+
+773
+00:18:54,960 --> 00:18:57,270
+six parts. Now in whichever part you put
+estress. So this is like second then you
+
+774
+00:18:57,270 --> 00:18:57,280
+estress. So this is like second then you
+ 
+
+775
+00:18:57,280 --> 00:19:00,070
+estress. So this is like second then you
+have minute. If you put estress in a
+
+776
+00:19:00,070 --> 00:19:00,080
+have minute. If you put estress in a
+ 
+
+777
+00:19:00,080 --> 00:19:02,070
+have minute. If you put estress in a
+minute, what does how do we read it?
+
+778
+00:19:02,070 --> 00:19:02,080
+minute, what does how do we read it?
+ 
+
+779
+00:19:02,080 --> 00:19:03,669
+minute, what does how do we read it?
+like
+
+780
+00:19:03,669 --> 00:19:03,679
+like
+ 
+
+781
+00:19:03,679 --> 00:19:05,669
+like
+every minute. So estrus means every
+
+782
+00:19:05,669 --> 00:19:05,679
+every minute. So estrus means every
+ 
+
+783
+00:19:05,679 --> 00:19:08,070
+every minute. So estrus means every
+every minute. If you put estrogen
+
+784
+00:19:08,070 --> 00:19:08,080
+every minute. If you put estrogen
+ 
+
+785
+00:19:08,080 --> 00:19:11,029
+every minute. If you put estrogen
+second, every second. Okay. If you put
+
+786
+00:19:11,029 --> 00:19:11,039
+second, every second. Okay. If you put
+ 
+
+787
+00:19:11,039 --> 00:19:13,350
+second, every second. Okay. If you put
+estrog in r, it's like every r. This is
+
+788
+00:19:13,350 --> 00:19:13,360
+estrog in r, it's like every r. This is
+ 
+
+789
+00:19:13,360 --> 00:19:15,990
+estrog in r, it's like every r. This is
+how we read it. Okay. So estster means
+
+790
+00:19:15,990 --> 00:19:16,000
+how we read it. Okay. So estster means
+ 
+
+791
+00:19:16,000 --> 00:19:17,830
+how we read it. Okay. So estster means
+every.
+
+792
+00:19:17,830 --> 00:19:17,840
+every.
+ 
+
+793
+00:19:17,840 --> 00:19:20,310
+every.
+Then we have comma. You can say it's a
+
+794
+00:19:20,310 --> 00:19:20,320
+Then we have comma. You can say it's a
+ 
+
+795
+00:19:20,320 --> 00:19:22,870
+Then we have comma. You can say it's a
+considered as list used to specify
+
+796
+00:19:22,870 --> 00:19:22,880
+considered as list used to specify
+ 
+
+797
+00:19:22,880 --> 00:19:27,430
+considered as list used to specify
+multiple values. Okay. Like 0, 20 in the
+
+798
+00:19:27,430 --> 00:19:27,440
+multiple values. Okay. Like 0, 20 in the
+ 
+
+799
+00:19:27,440 --> 00:19:29,510
+multiple values. Okay. Like 0, 20 in the
+second field. So in the second field I
+
+800
+00:19:29,510 --> 00:19:29,520
+second field. So in the second field I
+ 
+
+801
+00:19:29,520 --> 00:19:34,310
+second field. So in the second field I
+put 0, 20. So a star. So let's say
+
+802
+00:19:34,310 --> 00:19:34,320
+put 0, 20. So a star. So let's say
+ 
+
+803
+00:19:34,320 --> 00:19:36,230
+put 0, 20. So a star. So let's say
+something else. So what I will say that
+
+804
+00:19:36,230 --> 00:19:36,240
+something else. So what I will say that
+ 
+
+805
+00:19:36,240 --> 00:19:39,750
+something else. So what I will say that
+for every minute
+
+806
+00:19:39,750 --> 00:19:39,760
+for every minute
+ 
+
+807
+00:19:39,760 --> 00:19:42,950
+for every minute
+in the second is 0 and 20th second only.
+
+808
+00:19:42,950 --> 00:19:42,960
+in the second is 0 and 20th second only.
+ 
+
+809
+00:19:42,960 --> 00:19:47,190
+in the second is 0 and 20th second only.
+0 and 20th second task runs. Okay? Not
+
+810
+00:19:47,190 --> 00:19:47,200
+0 and 20th second task runs. Okay? Not
+ 
+
+811
+00:19:47,200 --> 00:19:51,350
+0 and 20th second task runs. Okay? Not
+every second only 0 and 20.
+
+812
+00:19:51,350 --> 00:19:51,360
+every second only 0 and 20.
+ 
+
+813
+00:19:51,360 --> 00:19:54,390
+every second only 0 and 20.
+If I put 9, 15 in the hour. So this is
+
+814
+00:19:54,390 --> 00:19:54,400
+If I put 9, 15 in the hour. So this is
+ 
+
+815
+00:19:54,400 --> 00:19:56,310
+If I put 9, 15 in the hour. So this is
+second, this is minute, this is hour. If
+
+816
+00:19:56,310 --> 00:19:56,320
+second, this is minute, this is hour. If
+ 
+
+817
+00:19:56,320 --> 00:19:59,830
+second, this is minute, this is hour. If
+I put 9, 15, what does it mean?
+
+818
+00:19:59,830 --> 00:19:59,840
+I put 9, 15, what does it mean?
+ 
+
+819
+00:19:59,840 --> 00:20:02,230
+I put 9, 15, what does it mean?
+uh here in the means that the job need
+
+820
+00:20:02,230 --> 00:20:02,240
+uh here in the means that the job need
+ 
+
+821
+00:20:02,240 --> 00:20:08,230
+uh here in the means that the job need
+to run 9 a.m. or 15 means 3 p.m. So it's
+
+822
+00:20:08,230 --> 00:20:08,240
+to run 9 a.m. or 15 means 3 p.m. So it's
+ 
+
+823
+00:20:08,240 --> 00:20:10,549
+to run 9 a.m. or 15 means 3 p.m. So it's
+a list
+
+824
+00:20:10,549 --> 00:20:10,559
+a list
+ 
+
+825
+00:20:10,559 --> 00:20:12,310
+a list
+then we have hyphen which is known as
+
+826
+00:20:12,310 --> 00:20:12,320
+then we have hyphen which is known as
+ 
+
+827
+00:20:12,320 --> 00:20:17,190
+then we have hyphen which is known as
+range. So in the r 2 minute r if I put 9
+
+828
+00:20:17,190 --> 00:20:17,200
+range. So in the r 2 minute r if I put 9
+ 
+
+829
+00:20:17,200 --> 00:20:22,390
+range. So in the r 2 minute r if I put 9
+- 15 means every hour between 900 a.m.
+
+830
+00:20:22,390 --> 00:20:22,400
+- 15 means every hour between 900 a.m.
+ 
+
+831
+00:20:22,400 --> 00:20:26,390
+- 15 means every hour between 900 a.m.
+to 300 p.m. every hour. So between this
+
+832
+00:20:26,390 --> 00:20:26,400
+to 300 p.m. every hour. So between this
+ 
+
+833
+00:20:26,400 --> 00:20:29,909
+to 300 p.m. every hour. So between this
+including job need to be run.
+
+834
+00:20:29,909 --> 00:20:29,919
+including job need to be run.
+ 
+
+835
+00:20:29,919 --> 00:20:32,710
+including job need to be run.
+So every hour from 9:00 a.m. to 3 p.m.
+
+836
+00:20:32,710 --> 00:20:32,720
+So every hour from 9:00 a.m. to 3 p.m.
+ 
+
+837
+00:20:32,720 --> 00:20:35,190
+So every hour from 9:00 a.m. to 3 p.m.
+that is range.
+
+838
+00:20:35,190 --> 00:20:35,200
+that is range.
+ 
+
+839
+00:20:35,200 --> 00:20:37,590
+that is range.
+Then we have a slash. It is used to
+
+840
+00:20:37,590 --> 00:20:37,600
+Then we have a slash. It is used to
+ 
+
+841
+00:20:37,600 --> 00:20:39,909
+Then we have a slash. It is used to
+specify intervals.
+
+842
+00:20:39,909 --> 00:20:39,919
+specify intervals.
+ 
+
+843
+00:20:39,919 --> 00:20:41,510
+specify intervals.
+So
+
+844
+00:20:41,510 --> 00:20:41,520
+So
+ 
+
+845
+00:20:41,520 --> 00:20:43,430
+So
+like here you can say that we have a
+
+846
+00:20:43,430 --> 00:20:43,440
+like here you can say that we have a
+ 
+
+847
+00:20:43,440 --> 00:20:46,310
+like here you can say that we have a
+start and step.
+
+848
+00:20:46,310 --> 00:20:46,320
+start and step.
+ 
+
+849
+00:20:46,320 --> 00:20:49,350
+start and step.
+For example 4/10
+
+850
+00:20:49,350 --> 00:20:49,360
+For example 4/10
+ 
+
+851
+00:20:49,360 --> 00:20:50,789
+For example 4/10
+let's say in the second field. What does
+
+852
+00:20:50,789 --> 00:20:50,799
+let's say in the second field. What does
+ 
+
+853
+00:20:50,799 --> 00:20:54,549
+let's say in the second field. What does
+it mean? Job need to be executed at 4th
+
+854
+00:20:54,549 --> 00:20:54,559
+it mean? Job need to be executed at 4th
+ 
+
+855
+00:20:54,559 --> 00:20:58,070
+it mean? Job need to be executed at 4th
+second then keep adding 10 second. So
+
+856
+00:20:58,070 --> 00:20:58,080
+second then keep adding 10 second. So
+ 
+
+857
+00:20:58,080 --> 00:20:59,990
+second then keep adding 10 second. So
+it's just like an step over like add on
+
+858
+00:20:59,990 --> 00:21:00,000
+it's just like an step over like add on
+ 
+
+859
+00:21:00,000 --> 00:21:03,350
+it's just like an step over like add on
+to this. So after 4 second you need to
+
+860
+00:21:03,350 --> 00:21:03,360
+to this. So after 4 second you need to
+ 
+
+861
+00:21:03,360 --> 00:21:07,190
+to this. So after 4 second you need to
+keep add 10 10 10 seconds. So 4 14 24 34
+
+862
+00:21:07,190 --> 00:21:07,200
+keep add 10 10 10 seconds. So 4 14 24 34
+ 
+
+863
+00:21:07,200 --> 00:21:11,190
+keep add 10 10 10 seconds. So 4 14 24 34
+44 54. Okay. So 0 to 59 is the seconds
+
+864
+00:21:11,190 --> 00:21:11,200
+44 54. Okay. So 0 to 59 is the seconds
+ 
+
+865
+00:21:11,200 --> 00:21:13,909
+44 54. Okay. So 0 to 59 is the seconds
+right? So 4 by 10 in the second field
+
+866
+00:21:13,909 --> 00:21:13,919
+right? So 4 by 10 in the second field
+ 
+
+867
+00:21:13,919 --> 00:21:17,830
+right? So 4 by 10 in the second field
+means start at four after that 10 10 10
+
+868
+00:21:17,830 --> 00:21:17,840
+means start at four after that 10 10 10
+ 
+
+869
+00:21:17,840 --> 00:21:20,549
+means start at four after that 10 10 10
+uh interval we need to maintain
+
+870
+00:21:20,549 --> 00:21:20,559
+uh interval we need to maintain
+ 
+
+871
+00:21:20,559 --> 00:21:22,390
+uh interval we need to maintain
+/ash by 10 in the second field means
+
+872
+00:21:22,390 --> 00:21:22,400
+/ash by 10 in the second field means
+ 
+
+873
+00:21:22,400 --> 00:21:26,149
+/ash by 10 in the second field means
+start from zero zero then plus 10 10 20
+
+874
+00:21:26,149 --> 00:21:26,159
+start from zero zero then plus 10 10 20
+ 
+
+875
+00:21:26,159 --> 00:21:29,990
+start from zero zero then plus 10 10 20
+30 40 50 likewise
+
+876
+00:21:29,990 --> 00:21:30,000
+30 40 50 likewise
+ 
+
+877
+00:21:30,000 --> 00:21:33,990
+30 40 50 likewise
+then we have L. L means last and it is
+
+878
+00:21:33,990 --> 00:21:34,000
+then we have L. L means last and it is
+ 
+
+879
+00:21:34,000 --> 00:21:37,270
+then we have L. L means last and it is
+only allowed in day of the month and day
+
+880
+00:21:37,270 --> 00:21:37,280
+only allowed in day of the month and day
+ 
+
+881
+00:21:37,280 --> 00:21:39,430
+only allowed in day of the month and day
+of the week.
+
+882
+00:21:39,430 --> 00:21:39,440
+of the week.
+ 
+
+883
+00:21:39,440 --> 00:21:41,750
+of the week.
+Okay. So day of the month, L in the day
+
+884
+00:21:41,750 --> 00:21:41,760
+Okay. So day of the month, L in the day
+ 
+
+885
+00:21:41,760 --> 00:21:43,750
+Okay. So day of the month, L in the day
+of the month means last day of the
+
+886
+00:21:43,750 --> 00:21:43,760
+of the month means last day of the
+ 
+
+887
+00:21:43,760 --> 00:21:46,789
+of the month means last day of the
+month. Last day if it's a February
+
+888
+00:21:46,789 --> 00:21:46,799
+month. Last day if it's a February
+ 
+
+889
+00:21:46,799 --> 00:21:49,750
+month. Last day if it's a February
+month, the last day could be the 28 29.
+
+890
+00:21:49,750 --> 00:21:49,760
+month, the last day could be the 28 29.
+ 
+
+891
+00:21:49,760 --> 00:21:52,710
+month, the last day could be the 28 29.
+It it takes out into the calculation. If
+
+892
+00:21:52,710 --> 00:21:52,720
+It it takes out into the calculation. If
+ 
+
+893
+00:21:52,720 --> 00:21:55,270
+It it takes out into the calculation. If
+it's April, it's 30. If it's December,
+
+894
+00:21:55,270 --> 00:21:55,280
+it's April, it's 30. If it's December,
+ 
+
+895
+00:21:55,280 --> 00:22:00,950
+it's April, it's 30. If it's December,
+it is 31. So last day of the month
+
+896
+00:22:00,950 --> 00:22:00,960
+it is 31. So last day of the month
+ 
+
+897
+00:22:00,960 --> 00:22:03,029
+it is 31. So last day of the month
+and L in the day of the week is like
+
+898
+00:22:03,029 --> 00:22:03,039
+and L in the day of the week is like
+ 
+
+899
+00:22:03,039 --> 00:22:06,630
+and L in the day of the week is like
+last day of the week. Uh last occurrence
+
+900
+00:22:06,630 --> 00:22:06,640
+last day of the week. Uh last occurrence
+ 
+
+901
+00:22:06,640 --> 00:22:09,830
+last day of the week. Uh last occurrence
+of the given weekday in the month. Okay.
+
+902
+00:22:09,830 --> 00:22:09,840
+of the given weekday in the month. Okay.
+ 
+
+903
+00:22:09,840 --> 00:22:12,789
+of the given weekday in the month. Okay.
+So now let's say you have given Friday
+
+904
+00:22:12,789 --> 00:22:12,799
+So now let's say you have given Friday
+ 
+
+905
+00:22:12,799 --> 00:22:17,830
+So now let's say you have given Friday
+last. So it's syntax is day and l. Okay.
+
+906
+00:22:17,830 --> 00:22:17,840
+last. So it's syntax is day and l. Okay.
+ 
+
+907
+00:22:17,840 --> 00:22:19,430
+last. So it's syntax is day and l. Okay.
+So day is like like if you have put
+
+908
+00:22:19,430 --> 00:22:19,440
+So day is like like if you have put
+ 
+
+909
+00:22:19,440 --> 00:22:23,909
+So day is like like if you have put
+Friday L. So last Friday of the month.
+
+910
+00:22:23,909 --> 00:22:23,919
+Friday L. So last Friday of the month.
+ 
+
+911
+00:22:23,919 --> 00:22:27,270
+Friday L. So last Friday of the month.
+If you have put Monday Last Monday of
+
+912
+00:22:27,270 --> 00:22:27,280
+If you have put Monday Last Monday of
+ 
+
+913
+00:22:27,280 --> 00:22:29,669
+If you have put Monday Last Monday of
+the month.
+
+914
+00:22:29,669 --> 00:22:29,679
+the month.
+ 
+
+915
+00:22:29,679 --> 00:22:31,990
+the month.
+Okay. Then there is something called
+
+916
+00:22:31,990 --> 00:22:32,000
+Okay. Then there is something called
+ 
+
+917
+00:22:32,000 --> 00:22:35,029
+Okay. Then there is something called
+question mark. It is used to tell that
+
+918
+00:22:35,029 --> 00:22:35,039
+question mark. It is used to tell that
+ 
+
+919
+00:22:35,039 --> 00:22:37,909
+question mark. It is used to tell that
+ignore this field. Okay. also allowed
+
+920
+00:22:37,909 --> 00:22:37,919
+ignore this field. Okay. also allowed
+ 
+
+921
+00:22:37,919 --> 00:22:39,830
+ignore this field. Okay. also allowed
+only in these two field day of the month
+
+922
+00:22:39,830 --> 00:22:39,840
+only in these two field day of the month
+ 
+
+923
+00:22:39,840 --> 00:22:42,390
+only in these two field day of the month
+and day of the week. So generally its
+
+924
+00:22:42,390 --> 00:22:42,400
+and day of the week. So generally its
+ 
+
+925
+00:22:42,400 --> 00:22:45,029
+and day of the week. So generally its
+main purpose is to remove the ambiguity.
+
+926
+00:22:45,029 --> 00:22:45,039
+main purpose is to remove the ambiguity.
+ 
+
+927
+00:22:45,039 --> 00:22:47,190
+main purpose is to remove the ambiguity.
+So see understand this how ambiguity can
+
+928
+00:22:47,190 --> 00:22:47,200
+So see understand this how ambiguity can
+ 
+
+929
+00:22:47,200 --> 00:22:49,029
+So see understand this how ambiguity can
+come. Let's say if I have used this
+
+930
+00:22:49,029 --> 00:22:49,039
+come. Let's say if I have used this
+ 
+
+931
+00:22:49,039 --> 00:22:52,310
+come. Let's say if I have used this
+expression how you will read.
+
+932
+00:22:52,310 --> 00:22:52,320
+expression how you will read.
+ 
+
+933
+00:22:52,320 --> 00:22:56,390
+expression how you will read.
+So is it every day? See second [snorts]
+
+934
+00:22:56,390 --> 00:22:56,400
+So is it every day? See second [snorts]
+ 
+
+935
+00:22:56,400 --> 00:23:00,470
+So is it every day? See second [snorts]
+this is second this is minute this is
+
+936
+00:23:00,470 --> 00:23:00,480
+this is second this is minute this is
+ 
+
+937
+00:23:00,480 --> 00:23:05,510
+this is second this is minute this is
+hour. Okay. Day of the month. A star.
+
+938
+00:23:05,510 --> 00:23:05,520
+hour. Okay. Day of the month. A star.
+ 
+
+939
+00:23:05,520 --> 00:23:08,789
+hour. Okay. Day of the month. A star.
+Every day. Okay. This what a star means.
+
+940
+00:23:08,789 --> 00:23:08,799
+Every day. Okay. This what a star means.
+ 
+
+941
+00:23:08,799 --> 00:23:12,310
+Every day. Okay. This what a star means.
+Every day. Day of the month. Every day.
+
+942
+00:23:12,310 --> 00:23:12,320
+Every day. Day of the month. Every day.
+ 
+
+943
+00:23:12,320 --> 00:23:14,870
+Every day. Day of the month. Every day.
+But here I am saying day of the week
+
+944
+00:23:14,870 --> 00:23:14,880
+But here I am saying day of the week
+ 
+
+945
+00:23:14,880 --> 00:23:18,070
+But here I am saying day of the week
+Monday. So now it's confusing. Are you
+
+946
+00:23:18,070 --> 00:23:18,080
+Monday. So now it's confusing. Are you
+ 
+
+947
+00:23:18,080 --> 00:23:19,990
+Monday. So now it's confusing. Are you
+trying to say every day you should run
+
+948
+00:23:19,990 --> 00:23:20,000
+trying to say every day you should run
+ 
+
+949
+00:23:20,000 --> 00:23:23,270
+trying to say every day you should run
+or every month Monday? Every Monday I
+
+950
+00:23:23,270 --> 00:23:23,280
+or every month Monday? Every Monday I
+ 
+
+951
+00:23:23,280 --> 00:23:25,190
+or every month Monday? Every Monday I
+you want to run. So it's become
+
+952
+00:23:25,190 --> 00:23:25,200
+you want to run. So it's become
+ 
+
+953
+00:23:25,200 --> 00:23:27,190
+you want to run. So it's become
+ambiguity. So what to do in that case?
+
+954
+00:23:27,190 --> 00:23:27,200
+ambiguity. So what to do in that case?
+ 
+
+955
+00:23:27,200 --> 00:23:29,270
+ambiguity. So what to do in that case?
+We can make use of question mark. Hey,
+
+956
+00:23:29,270 --> 00:23:29,280
+We can make use of question mark. Hey,
+ 
+
+957
+00:23:29,280 --> 00:23:32,070
+We can make use of question mark. Hey,
+when I want every Monday, ignore this
+
+958
+00:23:32,070 --> 00:23:32,080
+when I want every Monday, ignore this
+ 
+
+959
+00:23:32,080 --> 00:23:33,669
+when I want every Monday, ignore this
+field. Day of the month. I don't want to
+
+960
+00:23:33,669 --> 00:23:33,679
+field. Day of the month. I don't want to
+ 
+
+961
+00:23:33,679 --> 00:23:35,750
+field. Day of the month. I don't want to
+put a star or I don't want to put a day
+
+962
+00:23:35,750 --> 00:23:35,760
+put a star or I don't want to put a day
+ 
+
+963
+00:23:35,760 --> 00:23:38,390
+put a star or I don't want to put a day
+itself. I just want to put every Monday.
+
+964
+00:23:38,390 --> 00:23:38,400
+itself. I just want to put every Monday.
+ 
+
+965
+00:23:38,400 --> 00:23:40,149
+itself. I just want to put every Monday.
+So day, you can ignore it. Question
+
+966
+00:23:40,149 --> 00:23:40,159
+So day, you can ignore it. Question
+ 
+
+967
+00:23:40,159 --> 00:23:42,870
+So day, you can ignore it. Question
+mark.
+
+968
+00:23:42,870 --> 00:23:42,880
+mark.
+ 
+
+969
+00:23:42,880 --> 00:23:45,430
+mark.
+Okay.
+
+970
+00:23:45,430 --> 00:23:45,440
+Okay.
+ 
+
+971
+00:23:45,440 --> 00:23:47,909
+Okay.
+So these are some practical examples you
+
+972
+00:23:47,909 --> 00:23:47,919
+So these are some practical examples you
+ 
+
+973
+00:23:47,919 --> 00:23:50,950
+So these are some practical examples you
+can practice it with it.
+
+974
+00:23:50,950 --> 00:23:50,960
+can practice it with it.
+ 
+
+975
+00:23:50,960 --> 00:23:54,070
+can practice it with it.
+So first is every 5 seconds. So every 5
+
+976
+00:23:54,070 --> 00:23:54,080
+So first is every 5 seconds. So every 5
+ 
+
+977
+00:23:54,080 --> 00:23:56,070
+So first is every 5 seconds. So every 5
+seconds is like if you see this syntax
+
+978
+00:23:56,070 --> 00:23:56,080
+seconds is like if you see this syntax
+ 
+
+979
+00:23:56,080 --> 00:23:59,190
+seconds is like if you see this syntax
+on the second part I put estster five
+
+980
+00:23:59,190 --> 00:23:59,200
+on the second part I put estster five
+ 
+
+981
+00:23:59,200 --> 00:24:02,549
+on the second part I put estster five
+and everything else like uh every so
+
+982
+00:24:02,549 --> 00:24:02,559
+and everything else like uh every so
+ 
+
+983
+00:24:02,559 --> 00:24:05,029
+and everything else like uh every so
+like it would run on zero then five then
+
+984
+00:24:05,029 --> 00:24:05,039
+like it would run on zero then five then
+ 
+
+985
+00:24:05,039 --> 00:24:08,549
+like it would run on zero then five then
+10 then 15 likewise if you have like
+
+986
+00:24:08,549 --> 00:24:08,559
+10 then 15 likewise if you have like
+ 
+
+987
+00:24:08,559 --> 00:24:10,789
+10 then 15 likewise if you have like
+every 4 minute job need to be run so in
+
+988
+00:24:10,789 --> 00:24:10,799
+every 4 minute job need to be run so in
+ 
+
+989
+00:24:10,799 --> 00:24:14,950
+every 4 minute job need to be run so in
+the minute part I have put estress 4. So
+
+990
+00:24:14,950 --> 00:24:14,960
+the minute part I have put estress 4. So
+ 
+
+991
+00:24:14,960 --> 00:24:17,350
+the minute part I have put estress 4. So
+currently what happen is my job would
+
+992
+00:24:17,350 --> 00:24:17,360
+currently what happen is my job would
+ 
+
+993
+00:24:17,360 --> 00:24:19,510
+currently what happen is my job would
+start at
+
+994
+00:24:19,510 --> 00:24:19,520
+start at
+ 
+
+995
+00:24:19,520 --> 00:24:24,470
+start at
+0 then 4 then 8 then 12 likewise
+
+996
+00:24:24,470 --> 00:24:24,480
+0 then 4 then 8 then 12 likewise
+ 
+
+997
+00:24:24,480 --> 00:24:28,310
+0 then 4 then 8 then 12 likewise
+then like every day at 11:15 a.m. Okay.
+
+998
+00:24:28,310 --> 00:24:28,320
+then like every day at 11:15 a.m. Okay.
+ 
+
+999
+00:24:28,320 --> 00:24:31,590
+then like every day at 11:15 a.m. Okay.
+So here I have put this is r I have put
+
+1000
+00:24:31,590 --> 00:24:31,600
+So here I have put this is r I have put
+ 
+
+1001
+00:24:31,600 --> 00:24:34,549
+So here I have put this is r I have put
+11 this is minute and seconds I have
+
+1002
+00:24:34,549 --> 00:24:34,559
+11 this is minute and seconds I have
+ 
+
+1003
+00:24:34,559 --> 00:24:37,990
+11 this is minute and seconds I have
+specifically put zero okay and the day
+
+1004
+00:24:37,990 --> 00:24:38,000
+specifically put zero okay and the day
+ 
+
+1005
+00:24:38,000 --> 00:24:39,430
+specifically put zero okay and the day
+of the month I have put everywhere
+
+1006
+00:24:39,430 --> 00:24:39,440
+of the month I have put everywhere
+ 
+
+1007
+00:24:39,440 --> 00:24:43,029
+of the month I have put everywhere
+start. So it's like every day it will
+
+1008
+00:24:43,029 --> 00:24:43,039
+start. So it's like every day it will
+ 
+
+1009
+00:24:43,039 --> 00:24:45,190
+start. So it's like every day it will
+run this job will get executed every day
+
+1010
+00:24:45,190 --> 00:24:45,200
+run this job will get executed every day
+ 
+
+1011
+00:24:45,200 --> 00:24:50,230
+run this job will get executed every day
+at 11:15 a.m.
+
+1012
+00:24:50,230 --> 00:24:50,240
+
+ 
+
+1013
+00:24:50,240 --> 00:24:53,830
+
+Every weekday at 9:00 a.m. Every weekday
+
+1014
+00:24:53,830 --> 00:24:53,840
+Every weekday at 9:00 a.m. Every weekday
+ 
+
+1015
+00:24:53,840 --> 00:24:56,630
+Every weekday at 9:00 a.m. Every weekday
+let's say weekday is Monday to Friday.
+
+1016
+00:24:56,630 --> 00:24:56,640
+let's say weekday is Monday to Friday.
+ 
+
+1017
+00:24:56,640 --> 00:24:58,710
+let's say weekday is Monday to Friday.
+So in the day of the week I have put
+
+1018
+00:24:58,710 --> 00:24:58,720
+So in the day of the week I have put
+ 
+
+1019
+00:24:58,720 --> 00:25:02,390
+So in the day of the week I have put
+specifically Monday to Friday only. Okay
+
+1020
+00:25:02,390 --> 00:25:02,400
+specifically Monday to Friday only. Okay
+ 
+
+1021
+00:25:02,400 --> 00:25:05,269
+specifically Monday to Friday only. Okay
+every months this week. So I have put a
+
+1022
+00:25:05,269 --> 00:25:05,279
+every months this week. So I have put a
+ 
+
+1023
+00:25:05,279 --> 00:25:06,789
+every months this week. So I have put a
+star
+
+1024
+00:25:06,789 --> 00:25:06,799
+star
+ 
+
+1025
+00:25:06,799 --> 00:25:09,830
+star
+day of the month whether it's 1 to I
+
+1026
+00:25:09,830 --> 00:25:09,840
+day of the month whether it's 1 to I
+ 
+
+1027
+00:25:09,840 --> 00:25:11,750
+day of the month whether it's 1 to I
+don't care. So that's why I put question
+
+1028
+00:25:11,750 --> 00:25:11,760
+don't care. So that's why I put question
+ 
+
+1029
+00:25:11,760 --> 00:25:14,230
+don't care. So that's why I put question
+mark. Okay please ignore here I'm
+
+1030
+00:25:14,230 --> 00:25:14,240
+mark. Okay please ignore here I'm
+ 
+
+1031
+00:25:14,240 --> 00:25:16,630
+mark. Okay please ignore here I'm
+telling ignore this. I want to run
+
+1032
+00:25:16,630 --> 00:25:16,640
+telling ignore this. I want to run
+ 
+
+1033
+00:25:16,640 --> 00:25:19,430
+telling ignore this. I want to run
+Monday Friday no matter what the day is
+
+1034
+00:25:19,430 --> 00:25:19,440
+Monday Friday no matter what the day is
+ 
+
+1035
+00:25:19,440 --> 00:25:22,549
+Monday Friday no matter what the day is
+whether it's the 5th or 6th or 7th
+
+1036
+00:25:22,549 --> 00:25:22,559
+whether it's the 5th or 6th or 7th
+ 
+
+1037
+00:25:22,559 --> 00:25:25,190
+whether it's the 5th or 6th or 7th
+whatever the date is I don't care day
+
+1038
+00:25:25,190 --> 00:25:25,200
+whatever the date is I don't care day
+ 
+
+1039
+00:25:25,200 --> 00:25:28,230
+whatever the date is I don't care day
+matter. Okay. And 9:00 a.m. So this is
+
+1040
+00:25:28,230 --> 00:25:28,240
+matter. Okay. And 9:00 a.m. So this is
+ 
+
+1041
+00:25:28,240 --> 00:25:30,710
+matter. Okay. And 9:00 a.m. So this is
+9:00 a.m.
+
+1042
+00:25:30,710 --> 00:25:30,720
+9:00 a.m.
+ 
+
+1043
+00:25:30,720 --> 00:25:33,750
+9:00 a.m.
+every Sunday at midnight. Sunday at
+
+1044
+00:25:33,750 --> 00:25:33,760
+every Sunday at midnight. Sunday at
+ 
+
+1045
+00:25:33,760 --> 00:25:36,070
+every Sunday at midnight. Sunday at
+midnight. So day I am talking about this
+
+1046
+00:25:36,070 --> 00:25:36,080
+midnight. So day I am talking about this
+ 
+
+1047
+00:25:36,080 --> 00:25:38,950
+midnight. So day I am talking about this
+Sunday. I don't care about what's the
+
+1048
+00:25:38,950 --> 00:25:38,960
+Sunday. I don't care about what's the
+ 
+
+1049
+00:25:38,960 --> 00:25:41,830
+Sunday. I don't care about what's the
+date. So that's why I put question mark
+
+1050
+00:25:41,830 --> 00:25:41,840
+date. So that's why I put question mark
+ 
+
+1051
+00:25:41,840 --> 00:25:44,149
+date. So that's why I put question mark
+every month. So I put asteris midnight
+
+1052
+00:25:44,149 --> 00:25:44,159
+every month. So I put asteris midnight
+ 
+
+1053
+00:25:44,159 --> 00:25:48,230
+every month. So I put asteris midnight
+is 0000. Start from here
+
+1054
+00:25:48,230 --> 00:25:48,240
+is 0000. Start from here
+ 
+
+1055
+00:25:48,240 --> 00:25:50,870
+is 0000. Start from here
+runs at midnight on first day of every
+
+1056
+00:25:50,870 --> 00:25:50,880
+runs at midnight on first day of every
+ 
+
+1057
+00:25:50,880 --> 00:25:53,430
+runs at midnight on first day of every
+month. Every month's first day. Okay.
+
+1058
+00:25:53,430 --> 00:25:53,440
+month. Every month's first day. Okay.
+ 
+
+1059
+00:25:53,440 --> 00:25:56,310
+month. Every month's first day. Okay.
+Midnight. So what I have told is the
+
+1060
+00:25:56,310 --> 00:25:56,320
+Midnight. So what I have told is the
+ 
+
+1061
+00:25:56,320 --> 00:25:59,590
+Midnight. So what I have told is the
+date I'm interested in like date
+
+1062
+00:25:59,590 --> 00:25:59,600
+date I'm interested in like date
+ 
+
+1063
+00:25:59,600 --> 00:26:02,470
+date I'm interested in like date
+one. Now the day I don't care whether on
+
+1064
+00:26:02,470 --> 00:26:02,480
+one. Now the day I don't care whether on
+ 
+
+1065
+00:26:02,480 --> 00:26:04,230
+one. Now the day I don't care whether on
+the first it's Monday or Sunday I don't
+
+1066
+00:26:04,230 --> 00:26:04,240
+the first it's Monday or Sunday I don't
+ 
+
+1067
+00:26:04,240 --> 00:26:08,630
+the first it's Monday or Sunday I don't
+care that's why I put koshima okay month
+
+1068
+00:26:08,630 --> 00:26:08,640
+care that's why I put koshima okay month
+ 
+
+1069
+00:26:08,640 --> 00:26:12,950
+care that's why I put koshima okay month
+every month and midnight I want it zero
+
+1070
+00:26:12,950 --> 00:26:12,960
+every month and midnight I want it zero
+ 
+
+1071
+00:26:12,960 --> 00:26:16,070
+every month and midnight I want it zero
+last day of every month at midnight so
+
+1072
+00:26:16,070 --> 00:26:16,080
+last day of every month at midnight so
+ 
+
+1073
+00:26:16,080 --> 00:26:19,510
+last day of every month at midnight so
+if this is the requirement so midnight
+
+1074
+00:26:19,510 --> 00:26:19,520
+if this is the requirement so midnight
+ 
+
+1075
+00:26:19,520 --> 00:26:21,510
+if this is the requirement so midnight
+so this is the hour minute second for
+
+1076
+00:26:21,510 --> 00:26:21,520
+so this is the hour minute second for
+ 
+
+1077
+00:26:21,520 --> 00:26:24,470
+so this is the hour minute second for
+the midnight okay and then we are saying
+
+1078
+00:26:24,470 --> 00:26:24,480
+the midnight okay and then we are saying
+ 
+
+1079
+00:26:24,480 --> 00:26:29,750
+the midnight okay and then we are saying
+is day last date okay uh so it's like a
+
+1080
+00:26:29,750 --> 00:26:29,760
+is day last date okay uh so it's like a
+ 
+
+1081
+00:26:29,760 --> 00:26:33,029
+is day last date okay uh so it's like a
+last date this is the last date.
+
+1082
+00:26:33,029 --> 00:26:33,039
+last date this is the last date.
+ 
+
+1083
+00:26:33,039 --> 00:26:37,510
+last date this is the last date.
+So if the month last date is 29 or uh 30
+
+1084
+00:26:37,510 --> 00:26:37,520
+So if the month last date is 29 or uh 30
+ 
+
+1085
+00:26:37,520 --> 00:26:41,669
+So if the month last date is 29 or uh 30
+or 31 or 28 so pick whatever the last
+
+1086
+00:26:41,669 --> 00:26:41,679
+or 31 or 28 so pick whatever the last
+ 
+
+1087
+00:26:41,679 --> 00:26:44,310
+or 31 or 28 so pick whatever the last
+date of a month is for every month pick
+
+1088
+00:26:44,310 --> 00:26:44,320
+date of a month is for every month pick
+ 
+
+1089
+00:26:44,320 --> 00:26:47,269
+date of a month is for every month pick
+a last date I don't care about the day
+
+1090
+00:26:47,269 --> 00:26:47,279
+a last date I don't care about the day
+ 
+
+1091
+00:26:47,279 --> 00:26:49,590
+a last date I don't care about the day
+whether the last date is Sunday Monday I
+
+1092
+00:26:49,590 --> 00:26:49,600
+whether the last date is Sunday Monday I
+ 
+
+1093
+00:26:49,600 --> 00:26:52,149
+whether the last date is Sunday Monday I
+don't care so this is just practical
+
+1094
+00:26:52,149 --> 00:26:52,159
+don't care so this is just practical
+ 
+
+1095
+00:26:52,159 --> 00:26:55,750
+don't care so this is just practical
+example of chron jobs like you can
+
+1096
+00:26:55,750 --> 00:26:55,760
+example of chron jobs like you can
+ 
+
+1097
+00:26:55,760 --> 00:26:59,669
+example of chron jobs like you can
+practice it more and you can try it out
+
+1098
+00:26:59,669 --> 00:26:59,679
+practice it more and you can try it out
+ 
+
+1099
+00:26:59,679 --> 00:27:03,190
+practice it more and you can try it out
+but if you understood the part one the
+
+1100
+00:27:03,190 --> 00:27:03,200
+but if you understood the part one the
+ 
+
+1101
+00:27:03,200 --> 00:27:05,830
+but if you understood the part one the
+internal is clear and then this is all
+
+1102
+00:27:05,830 --> 00:27:05,840
+internal is clear and then this is all
+ 
+
+1103
+00:27:05,840 --> 00:27:08,470
+internal is clear and then this is all
+about syntax.
+
+1104
+00:27:08,470 --> 00:27:08,480
+about syntax.
+ 
+
+1105
+00:27:08,480 --> 00:27:10,549
+about syntax.
+I hope uh this is clear. If there is any
+
+1106
+00:27:10,549 --> 00:27:10,559
+I hope uh this is clear. If there is any
+ 
+
+1107
+00:27:10,559 --> 00:27:12,549
+I hope uh this is clear. If there is any
+doubt let me know we can discuss further
+
+1108
+00:27:12,549 --> 00:27:12,559
+doubt let me know we can discuss further
+ 
+
+1109
+00:27:12,559 --> 00:27:16,159
+doubt let me know we can discuss further
+into the comment section. Bye.
+

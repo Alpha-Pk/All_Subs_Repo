@@ -1,0 +1,9485 @@
+1
+00:00:00,000 --> 00:00:01,990
+
+Hey guys, Shandid welcome back to the
+
+2
+00:00:01,990 --> 00:00:02,000
+Hey guys, Shandid welcome back to the
+ 
+
+3
+00:00:02,000 --> 00:00:03,990
+Hey guys, Shandid welcome back to the
+channel and today in micros service
+
+4
+00:00:03,990 --> 00:00:04,000
+channel and today in micros service
+ 
+
+5
+00:00:04,000 --> 00:00:06,309
+channel and today in micros service
+topic we are going to cover load
+
+6
+00:00:06,309 --> 00:00:06,319
+topic we are going to cover load
+ 
+
+7
+00:00:06,319 --> 00:00:08,950
+topic we are going to cover load
+balancer. So let's start without wasting
+
+8
+00:00:08,950 --> 00:00:08,960
+balancer. So let's start without wasting
+ 
+
+9
+00:00:08,960 --> 00:00:11,509
+balancer. So let's start without wasting
+any time. So we all know what load
+
+10
+00:00:11,509 --> 00:00:11,519
+any time. So we all know what load
+ 
+
+11
+00:00:11,519 --> 00:00:13,669
+any time. So we all know what load
+balancer is. Generally it helps in
+
+12
+00:00:13,669 --> 00:00:13,679
+balancer is. Generally it helps in
+ 
+
+13
+00:00:13,679 --> 00:00:16,150
+balancer is. Generally it helps in
+distributing the traffic to multiple
+
+14
+00:00:16,150 --> 00:00:16,160
+distributing the traffic to multiple
+ 
+
+15
+00:00:16,160 --> 00:00:19,029
+distributing the traffic to multiple
+instances of a server, right? Which
+
+16
+00:00:19,029 --> 00:00:19,039
+instances of a server, right? Which
+ 
+
+17
+00:00:19,039 --> 00:00:21,429
+instances of a server, right? Which
+helps in preventing single server from
+
+18
+00:00:21,429 --> 00:00:21,439
+helps in preventing single server from
+ 
+
+19
+00:00:21,439 --> 00:00:23,750
+helps in preventing single server from
+being overloaded with huge traffic. This
+
+20
+00:00:23,750 --> 00:00:23,760
+being overloaded with huge traffic. This
+ 
+
+21
+00:00:23,760 --> 00:00:25,750
+being overloaded with huge traffic. This
+is very very basic definition of load
+
+22
+00:00:25,750 --> 00:00:25,760
+is very very basic definition of load
+ 
+
+23
+00:00:25,760 --> 00:00:28,390
+is very very basic definition of load
+balancer which we all know. But things
+
+24
+00:00:28,390 --> 00:00:28,400
+balancer which we all know. But things
+ 
+
+25
+00:00:28,400 --> 00:00:30,950
+balancer which we all know. But things
+got more interesting when we go into its
+
+26
+00:00:30,950 --> 00:00:30,960
+got more interesting when we go into its
+ 
+
+27
+00:00:30,960 --> 00:00:33,510
+got more interesting when we go into its
+type. So generally it's of two type.
+
+28
+00:00:33,510 --> 00:00:33,520
+type. So generally it's of two type.
+ 
+
+29
+00:00:33,520 --> 00:00:35,830
+type. So generally it's of two type.
+Serverside load balancer and client side
+
+30
+00:00:35,830 --> 00:00:35,840
+Serverside load balancer and client side
+ 
+
+31
+00:00:35,840 --> 00:00:39,110
+Serverside load balancer and client side
+load balancer. So in serverside load
+
+32
+00:00:39,110 --> 00:00:39,120
+load balancer. So in serverside load
+ 
+
+33
+00:00:39,120 --> 00:00:41,910
+load balancer. So in serverside load
+balancer what generally happen is it has
+
+34
+00:00:41,910 --> 00:00:41,920
+balancer what generally happen is it has
+ 
+
+35
+00:00:41,920 --> 00:00:44,950
+balancer what generally happen is it has
+centralized load balancer. Right? So
+
+36
+00:00:44,950 --> 00:00:44,960
+centralized load balancer. Right? So
+ 
+
+37
+00:00:44,960 --> 00:00:46,470
+centralized load balancer. Right? So
+here if you see this is your client.
+
+38
+00:00:46,470 --> 00:00:46,480
+here if you see this is your client.
+ 
+
+39
+00:00:46,480 --> 00:00:48,549
+here if you see this is your client.
+Let's say this is our spring boot app.
+
+40
+00:00:48,549 --> 00:00:48,559
+Let's say this is our spring boot app.
+ 
+
+41
+00:00:48,559 --> 00:00:50,229
+Let's say this is our spring boot app.
+This is our spring boot app which we
+
+42
+00:00:50,229 --> 00:00:50,239
+This is our spring boot app which we
+ 
+
+43
+00:00:50,239 --> 00:00:53,750
+This is our spring boot app which we
+have written. Now we are calling a
+
+44
+00:00:53,750 --> 00:00:53,760
+have written. Now we are calling a
+ 
+
+45
+00:00:53,760 --> 00:00:56,229
+have written. Now we are calling a
+dedicated you can say that uh server
+
+46
+00:00:56,229 --> 00:00:56,239
+dedicated you can say that uh server
+ 
+
+47
+00:00:56,239 --> 00:00:59,750
+dedicated you can say that uh server
+which do the role of load balancing. So
+
+48
+00:00:59,750 --> 00:00:59,760
+which do the role of load balancing. So
+ 
+
+49
+00:00:59,760 --> 00:01:02,549
+which do the role of load balancing. So
+it has a centralized load balancer.
+
+50
+00:01:02,549 --> 00:01:02,559
+it has a centralized load balancer.
+ 
+
+51
+00:01:02,559 --> 00:01:06,870
+it has a centralized load balancer.
+Okay. So our client do not contains any
+
+52
+00:01:06,870 --> 00:01:06,880
+Okay. So our client do not contains any
+ 
+
+53
+00:01:06,880 --> 00:01:09,990
+Okay. So our client do not contains any
+logic of load balancing. Okay. So it
+
+54
+00:01:09,990 --> 00:01:10,000
+logic of load balancing. Okay. So it
+ 
+
+55
+00:01:10,000 --> 00:01:13,590
+logic of load balancing. Okay. So it
+calls a dedicated load balancer server
+
+56
+00:01:13,590 --> 00:01:13,600
+calls a dedicated load balancer server
+ 
+
+57
+00:01:13,600 --> 00:01:16,230
+calls a dedicated load balancer server
+which does and forward the request to
+
+58
+00:01:16,230 --> 00:01:16,240
+which does and forward the request to
+ 
+
+59
+00:01:16,240 --> 00:01:20,469
+which does and forward the request to
+one of the service requested service.
+
+60
+00:01:20,469 --> 00:01:20,479
+one of the service requested service.
+ 
+
+61
+00:01:20,479 --> 00:01:22,310
+one of the service requested service.
+But in the client side load balancer
+
+62
+00:01:22,310 --> 00:01:22,320
+But in the client side load balancer
+ 
+
+63
+00:01:22,320 --> 00:01:25,190
+But in the client side load balancer
+what generally happen is load balancing
+
+64
+00:01:25,190 --> 00:01:25,200
+what generally happen is load balancing
+ 
+
+65
+00:01:25,200 --> 00:01:28,630
+what generally happen is load balancing
+capability present inside the client the
+
+66
+00:01:28,630 --> 00:01:28,640
+capability present inside the client the
+ 
+
+67
+00:01:28,640 --> 00:01:32,469
+capability present inside the client the
+caller itself. Okay. So here if you see
+
+68
+00:01:32,469 --> 00:01:32,479
+caller itself. Okay. So here if you see
+ 
+
+69
+00:01:32,479 --> 00:01:35,510
+caller itself. Okay. So here if you see
+this is what we are doing today and this
+
+70
+00:01:35,510 --> 00:01:35,520
+this is what we are doing today and this
+ 
+
+71
+00:01:35,520 --> 00:01:37,429
+this is what we are doing today and this
+is what we have done in the service
+
+72
+00:01:37,429 --> 00:01:37,439
+is what we have done in the service
+ 
+
+73
+00:01:37,439 --> 00:01:39,510
+is what we have done in the service
+discovery if you remember. So this is
+
+74
+00:01:39,510 --> 00:01:39,520
+discovery if you remember. So this is
+ 
+
+75
+00:01:39,520 --> 00:01:41,749
+discovery if you remember. So this is
+our spring boot application which we
+
+76
+00:01:41,749 --> 00:01:41,759
+our spring boot application which we
+ 
+
+77
+00:01:41,759 --> 00:01:44,230
+our spring boot application which we
+have developed let's say. So what it
+
+78
+00:01:44,230 --> 00:01:44,240
+have developed let's say. So what it
+ 
+
+79
+00:01:44,240 --> 00:01:48,950
+have developed let's say. So what it
+does it first invokes service discovery.
+
+80
+00:01:48,950 --> 00:01:48,960
+does it first invokes service discovery.
+ 
+
+81
+00:01:48,960 --> 00:01:51,350
+does it first invokes service discovery.
+Let's say it say that hey give me all
+
+82
+00:01:51,350 --> 00:01:51,360
+Let's say it say that hey give me all
+ 
+
+83
+00:01:51,360 --> 00:01:54,630
+Let's say it say that hey give me all
+the instances of service A. Now service
+
+84
+00:01:54,630 --> 00:01:54,640
+the instances of service A. Now service
+ 
+
+85
+00:01:54,640 --> 00:01:57,510
+the instances of service A. Now service
+discovery return the list of all the
+
+86
+00:01:57,510 --> 00:01:57,520
+discovery return the list of all the
+ 
+
+87
+00:01:57,520 --> 00:01:59,830
+discovery return the list of all the
+possible instances available for the
+
+88
+00:01:59,830 --> 00:01:59,840
+possible instances available for the
+ 
+
+89
+00:01:59,840 --> 00:02:04,230
+possible instances available for the
+service A. Now this client holds the
+
+90
+00:02:04,230 --> 00:02:04,240
+service A. Now this client holds the
+ 
+
+91
+00:02:04,240 --> 00:02:06,870
+service A. Now this client holds the
+logic of the load balancing. Either it
+
+92
+00:02:06,870 --> 00:02:06,880
+logic of the load balancing. Either it
+ 
+
+93
+00:02:06,880 --> 00:02:09,830
+logic of the load balancing. Either it
+could be a library or either it return
+
+94
+00:02:09,830 --> 00:02:09,840
+could be a library or either it return
+ 
+
+95
+00:02:09,840 --> 00:02:13,030
+could be a library or either it return
+its own logic but client has the logic.
+
+96
+00:02:13,030 --> 00:02:13,040
+its own logic but client has the logic.
+ 
+
+97
+00:02:13,040 --> 00:02:15,430
+its own logic but client has the logic.
+Client does the load balancing and pass
+
+98
+00:02:15,430 --> 00:02:15,440
+Client does the load balancing and pass
+ 
+
+99
+00:02:15,440 --> 00:02:18,710
+Client does the load balancing and pass
+the request to one of the server.
+
+100
+00:02:18,710 --> 00:02:18,720
+the request to one of the server.
+ 
+
+101
+00:02:18,720 --> 00:02:20,710
+the request to one of the server.
+Okay. So that's the difference between
+
+102
+00:02:20,710 --> 00:02:20,720
+Okay. So that's the difference between
+ 
+
+103
+00:02:20,720 --> 00:02:22,550
+Okay. So that's the difference between
+serverside load balancing and client
+
+104
+00:02:22,550 --> 00:02:22,560
+serverside load balancing and client
+ 
+
+105
+00:02:22,560 --> 00:02:25,510
+serverside load balancing and client
+side load balancing. And this is what we
+
+106
+00:02:25,510 --> 00:02:25,520
+side load balancing. And this is what we
+ 
+
+107
+00:02:25,520 --> 00:02:27,910
+side load balancing. And this is what we
+are going to cover client side load
+
+108
+00:02:27,910 --> 00:02:27,920
+are going to cover client side load
+ 
+
+109
+00:02:27,920 --> 00:02:30,470
+are going to cover client side load
+balancer. Serverside load balancer when
+
+110
+00:02:30,470 --> 00:02:30,480
+balancer. Serverside load balancer when
+ 
+
+111
+00:02:30,480 --> 00:02:34,550
+balancer. Serverside load balancer when
+we cover API gateway engine X right so
+
+112
+00:02:34,550 --> 00:02:34,560
+we cover API gateway engine X right so
+ 
+
+113
+00:02:34,560 --> 00:02:38,550
+we cover API gateway engine X right so
+that time we can cover it. Okay.
+
+114
+00:02:38,550 --> 00:02:38,560
+that time we can cover it. Okay.
+ 
+
+115
+00:02:38,560 --> 00:02:40,150
+that time we can cover it. Okay.
+So
+
+116
+00:02:40,150 --> 00:02:40,160
+So
+ 
+
+117
+00:02:40,160 --> 00:02:42,070
+So
+client side load balancers is something
+
+118
+00:02:42,070 --> 00:02:42,080
+client side load balancers is something
+ 
+
+119
+00:02:42,080 --> 00:02:44,390
+client side load balancers is something
+which we are going to see. So the
+
+120
+00:02:44,390 --> 00:02:44,400
+which we are going to see. So the
+ 
+
+121
+00:02:44,400 --> 00:02:47,430
+which we are going to see. So the
+prerequisite is the service discovery
+
+122
+00:02:47,430 --> 00:02:47,440
+prerequisite is the service discovery
+ 
+
+123
+00:02:47,440 --> 00:02:49,589
+prerequisite is the service discovery
+because if you remember in the service
+
+124
+00:02:49,589 --> 00:02:49,599
+because if you remember in the service
+ 
+
+125
+00:02:49,599 --> 00:02:53,430
+because if you remember in the service
+discovery when we use fain client right
+
+126
+00:02:53,430 --> 00:02:53,440
+discovery when we use fain client right
+ 
+
+127
+00:02:53,440 --> 00:02:57,110
+discovery when we use fain client right
+in the flank client it automatically
+
+128
+00:02:57,110 --> 00:02:57,120
+in the flank client it automatically
+ 
+
+129
+00:02:57,120 --> 00:02:59,110
+in the flank client it automatically
+it automatically
+
+130
+00:02:59,110 --> 00:02:59,120
+it automatically
+ 
+
+131
+00:02:59,120 --> 00:03:02,149
+it automatically
+internally uses load balancer in case of
+
+132
+00:03:02,149 --> 00:03:02,159
+internally uses load balancer in case of
+ 
+
+133
+00:03:02,159 --> 00:03:06,869
+internally uses load balancer in case of
+service discovery. Okay. So we have to
+
+134
+00:03:06,869 --> 00:03:06,879
+service discovery. Okay. So we have to
+ 
+
+135
+00:03:06,879 --> 00:03:09,430
+service discovery. Okay. So we have to
+know the service discovery before we
+
+136
+00:03:09,430 --> 00:03:09,440
+know the service discovery before we
+ 
+
+137
+00:03:09,440 --> 00:03:11,030
+know the service discovery before we
+start with the load balancer. So that's
+
+138
+00:03:11,030 --> 00:03:11,040
+start with the load balancer. So that's
+ 
+
+139
+00:03:11,040 --> 00:03:12,550
+start with the load balancer. So that's
+a prerequisite you can check in the
+
+140
+00:03:12,550 --> 00:03:12,560
+a prerequisite you can check in the
+ 
+
+141
+00:03:12,560 --> 00:03:14,149
+a prerequisite you can check in the
+playlist.
+
+142
+00:03:14,149 --> 00:03:14,159
+playlist.
+ 
+
+143
+00:03:14,159 --> 00:03:15,910
+playlist.
+So let's start with the client side load
+
+144
+00:03:15,910 --> 00:03:15,920
+So let's start with the client side load
+ 
+
+145
+00:03:15,920 --> 00:03:17,670
+So let's start with the client side load
+balancing with rest template because if
+
+146
+00:03:17,670 --> 00:03:17,680
+balancing with rest template because if
+ 
+
+147
+00:03:17,680 --> 00:03:20,149
+balancing with rest template because if
+you understand the rest template then
+
+148
+00:03:20,149 --> 00:03:20,159
+you understand the rest template then
+ 
+
+149
+00:03:20,159 --> 00:03:23,270
+you understand the rest template then
+for either rest client f client web
+
+150
+00:03:23,270 --> 00:03:23,280
+for either rest client f client web
+ 
+
+151
+00:03:23,280 --> 00:03:25,910
+for either rest client f client web
+client whatever you are going to do the
+
+152
+00:03:25,910 --> 00:03:25,920
+client whatever you are going to do the
+ 
+
+153
+00:03:25,920 --> 00:03:28,630
+client whatever you are going to do the
+load balancing logic would be same it
+
+154
+00:03:28,630 --> 00:03:28,640
+load balancing logic would be same it
+ 
+
+155
+00:03:28,640 --> 00:03:30,949
+load balancing logic would be same it
+not going to differ.
+
+156
+00:03:30,949 --> 00:03:30,959
+not going to differ.
+ 
+
+157
+00:03:30,959 --> 00:03:34,309
+not going to differ.
+So in service discovery topic previous
+
+158
+00:03:34,309 --> 00:03:34,319
+So in service discovery topic previous
+ 
+
+159
+00:03:34,319 --> 00:03:36,949
+So in service discovery topic previous
+video we have seen that after we have
+
+160
+00:03:36,949 --> 00:03:36,959
+video we have seen that after we have
+ 
+
+161
+00:03:36,959 --> 00:03:39,589
+video we have seen that after we have
+set the service discovery the rest
+
+162
+00:03:39,589 --> 00:03:39,599
+set the service discovery the rest
+ 
+
+163
+00:03:39,599 --> 00:03:42,949
+set the service discovery the rest
+template we fetch the list of instances
+
+164
+00:03:42,949 --> 00:03:42,959
+template we fetch the list of instances
+ 
+
+165
+00:03:42,959 --> 00:03:45,110
+template we fetch the list of instances
+using discovery client object. We have
+
+166
+00:03:45,110 --> 00:03:45,120
+using discovery client object. We have
+ 
+
+167
+00:03:45,120 --> 00:03:47,670
+using discovery client object. We have
+already seen that right and then client
+
+168
+00:03:47,670 --> 00:03:47,680
+already seen that right and then client
+ 
+
+169
+00:03:47,680 --> 00:03:50,229
+already seen that right and then client
+is manually choosing the instances from
+
+170
+00:03:50,229 --> 00:03:50,239
+is manually choosing the instances from
+ 
+
+171
+00:03:50,239 --> 00:03:52,550
+is manually choosing the instances from
+the list and invoking the endpoint. See
+
+172
+00:03:52,550 --> 00:03:52,560
+the list and invoking the endpoint. See
+ 
+
+173
+00:03:52,560 --> 00:03:54,710
+the list and invoking the endpoint. See
+if you can recall from the previous
+
+174
+00:03:54,710 --> 00:03:54,720
+if you can recall from the previous
+ 
+
+175
+00:03:54,720 --> 00:03:58,229
+if you can recall from the previous
+video service uh discovery one. So I'm
+
+176
+00:03:58,229 --> 00:03:58,239
+video service uh discovery one. So I'm
+ 
+
+177
+00:03:58,239 --> 00:04:01,110
+video service uh discovery one. So I'm
+showing you an example of rest template.
+
+178
+00:04:01,110 --> 00:04:01,120
+showing you an example of rest template.
+ 
+
+179
+00:04:01,120 --> 00:04:04,309
+showing you an example of rest template.
+not faint line. Okay. So in the rest
+
+180
+00:04:04,309 --> 00:04:04,319
+not faint line. Okay. So in the rest
+ 
+
+181
+00:04:04,319 --> 00:04:06,390
+not faint line. Okay. So in the rest
+template if you remember we were first
+
+182
+00:04:06,390 --> 00:04:06,400
+template if you remember we were first
+ 
+
+183
+00:04:06,400 --> 00:04:09,030
+template if you remember we were first
+creating the object of rest template
+
+184
+00:04:09,030 --> 00:04:09,040
+creating the object of rest template
+ 
+
+185
+00:04:09,040 --> 00:04:11,190
+creating the object of rest template
+inside a configuration which we have
+
+186
+00:04:11,190 --> 00:04:11,200
+inside a configuration which we have
+ 
+
+187
+00:04:11,200 --> 00:04:15,110
+inside a configuration which we have
+autowired it. Okay. Now here if you see
+
+188
+00:04:15,110 --> 00:04:15,120
+autowired it. Okay. Now here if you see
+ 
+
+189
+00:04:15,120 --> 00:04:17,909
+autowired it. Okay. Now here if you see
+we are using an object of discovery
+
+190
+00:04:17,909 --> 00:04:17,919
+we are using an object of discovery
+ 
+
+191
+00:04:17,919 --> 00:04:21,189
+we are using an object of discovery
+client. With discovery client we are
+
+192
+00:04:21,189 --> 00:04:21,199
+client. With discovery client we are
+ 
+
+193
+00:04:21,199 --> 00:04:25,030
+client. With discovery client we are
+fetching the instances of this service
+
+194
+00:04:25,030 --> 00:04:25,040
+fetching the instances of this service
+ 
+
+195
+00:04:25,040 --> 00:04:28,230
+fetching the instances of this service
+product service from Ureka server. Hey
+
+196
+00:04:28,230 --> 00:04:28,240
+product service from Ureka server. Hey
+ 
+
+197
+00:04:28,240 --> 00:04:30,469
+product service from Ureka server. Hey
+Ureka server give me all the instances
+
+198
+00:04:30,469 --> 00:04:30,479
+Ureka server give me all the instances
+ 
+
+199
+00:04:30,479 --> 00:04:33,749
+Ureka server give me all the instances
+of this product servers. Once you get it
+
+200
+00:04:33,749 --> 00:04:33,759
+of this product servers. Once you get it
+ 
+
+201
+00:04:33,759 --> 00:04:36,710
+of this product servers. Once you get it
+and here if you see this is we were
+
+202
+00:04:36,710 --> 00:04:36,720
+and here if you see this is we were
+ 
+
+203
+00:04:36,720 --> 00:04:39,030
+and here if you see this is we were
+choosing like you can say that this is a
+
+204
+00:04:39,030 --> 00:04:39,040
+choosing like you can say that this is a
+ 
+
+205
+00:04:39,040 --> 00:04:42,150
+choosing like you can say that this is a
+very bad uh load balancing algorithm. We
+
+206
+00:04:42,150 --> 00:04:42,160
+very bad uh load balancing algorithm. We
+ 
+
+207
+00:04:42,160 --> 00:04:43,749
+very bad uh load balancing algorithm. We
+were always picking get zero but this is
+
+208
+00:04:43,749 --> 00:04:43,759
+were always picking get zero but this is
+ 
+
+209
+00:04:43,759 --> 00:04:46,310
+were always picking get zero but this is
+just an example that hey after you get
+
+210
+00:04:46,310 --> 00:04:46,320
+just an example that hey after you get
+ 
+
+211
+00:04:46,320 --> 00:04:49,270
+just an example that hey after you get
+all the instances we have to have a load
+
+212
+00:04:49,270 --> 00:04:49,280
+all the instances we have to have a load
+ 
+
+213
+00:04:49,280 --> 00:04:52,150
+all the instances we have to have a load
+balancing logic and we have to pick one
+
+214
+00:04:52,150 --> 00:04:52,160
+balancing logic and we have to pick one
+ 
+
+215
+00:04:52,160 --> 00:04:57,189
+balancing logic and we have to pick one
+instance and call it. Okay, use that
+
+216
+00:04:57,189 --> 00:04:57,199
+instance and call it. Okay, use that
+ 
+
+217
+00:04:57,199 --> 00:04:59,590
+instance and call it. Okay, use that
+host and port number.
+
+218
+00:04:59,590 --> 00:04:59,600
+host and port number.
+ 
+
+219
+00:04:59,600 --> 00:05:03,830
+host and port number.
+Okay, so if you can recall this one here
+
+220
+00:05:03,830 --> 00:05:03,840
+Okay, so if you can recall this one here
+ 
+
+221
+00:05:03,840 --> 00:05:05,909
+Okay, so if you can recall this one here
+we haven't used any load balancing
+
+222
+00:05:05,909 --> 00:05:05,919
+we haven't used any load balancing
+ 
+
+223
+00:05:05,919 --> 00:05:09,510
+we haven't used any load balancing
+capability now. Okay, so here we are
+
+224
+00:05:09,510 --> 00:05:09,520
+capability now. Okay, so here we are
+ 
+
+225
+00:05:09,520 --> 00:05:11,590
+capability now. Okay, so here we are
+fetching it. We are writing our
+
+226
+00:05:11,590 --> 00:05:11,600
+fetching it. We are writing our
+ 
+
+227
+00:05:11,600 --> 00:05:14,950
+fetching it. We are writing our
+capability and we are then invoking a
+
+228
+00:05:14,950 --> 00:05:14,960
+capability and we are then invoking a
+ 
+
+229
+00:05:14,960 --> 00:05:19,029
+capability and we are then invoking a
+particular server. So we can use a
+
+230
+00:05:19,029 --> 00:05:19,039
+particular server. So we can use a
+ 
+
+231
+00:05:19,039 --> 00:05:21,350
+particular server. So we can use a
+spring cloud load balancer which is a
+
+232
+00:05:21,350 --> 00:05:21,360
+spring cloud load balancer which is a
+ 
+
+233
+00:05:21,360 --> 00:05:24,390
+spring cloud load balancer which is a
+spring cloud load balancer is your
+
+234
+00:05:24,390 --> 00:05:24,400
+spring cloud load balancer is your
+ 
+
+235
+00:05:24,400 --> 00:05:26,230
+spring cloud load balancer is your
+clientside
+
+236
+00:05:26,230 --> 00:05:26,240
+clientside
+ 
+
+237
+00:05:26,240 --> 00:05:29,670
+clientside
+load balancer. Okay. So spring cloud
+
+238
+00:05:29,670 --> 00:05:29,680
+load balancer. Okay. So spring cloud
+ 
+
+239
+00:05:29,680 --> 00:05:31,510
+load balancer. Okay. So spring cloud
+load balancer there are more uh client
+
+240
+00:05:31,510 --> 00:05:31,520
+load balancer there are more uh client
+ 
+
+241
+00:05:31,520 --> 00:05:34,710
+load balancer there are more uh client
+side load balancer like Netflix reborn
+
+242
+00:05:34,710 --> 00:05:34,720
+side load balancer like Netflix reborn
+ 
+
+243
+00:05:34,720 --> 00:05:37,430
+side load balancer like Netflix reborn
+which is I think deprecated now it's
+
+244
+00:05:37,430 --> 00:05:37,440
+which is I think deprecated now it's
+ 
+
+245
+00:05:37,440 --> 00:05:39,430
+which is I think deprecated now it's
+deprecated.
+
+246
+00:05:39,430 --> 00:05:39,440
+deprecated.
+ 
+
+247
+00:05:39,440 --> 00:05:41,430
+deprecated.
+So spring cloud load balancer is
+
+248
+00:05:41,430 --> 00:05:41,440
+So spring cloud load balancer is
+ 
+
+249
+00:05:41,440 --> 00:05:43,909
+So spring cloud load balancer is
+something which is frequently used and
+
+250
+00:05:43,909 --> 00:05:43,919
+something which is frequently used and
+ 
+
+251
+00:05:43,919 --> 00:05:47,510
+something which is frequently used and
+stto uh service mesh that is also very
+
+252
+00:05:47,510 --> 00:05:47,520
+stto uh service mesh that is also very
+ 
+
+253
+00:05:47,520 --> 00:05:50,550
+stto uh service mesh that is also very
+frequently used. Okay. So we can use any
+
+254
+00:05:50,550 --> 00:05:50,560
+frequently used. Okay. So we can use any
+ 
+
+255
+00:05:50,560 --> 00:05:52,629
+frequently used. Okay. So we can use any
+of the client side load balancer which
+
+256
+00:05:52,629 --> 00:05:52,639
+of the client side load balancer which
+ 
+
+257
+00:05:52,639 --> 00:05:54,310
+of the client side load balancer which
+we want.
+
+258
+00:05:54,310 --> 00:05:54,320
+we want.
+ 
+
+259
+00:05:54,320 --> 00:05:57,590
+we want.
+So now here if you see
+
+260
+00:05:57,590 --> 00:05:57,600
+So now here if you see
+ 
+
+261
+00:05:57,600 --> 00:06:00,469
+So now here if you see
+if we have to use the uh spring cloud
+
+262
+00:06:00,469 --> 00:06:00,479
+if we have to use the uh spring cloud
+ 
+
+263
+00:06:00,479 --> 00:06:03,110
+if we have to use the uh spring cloud
+load balancer into the above this rest
+
+264
+00:06:03,110 --> 00:06:03,120
+load balancer into the above this rest
+ 
+
+265
+00:06:03,120 --> 00:06:06,309
+load balancer into the above this rest
+template what we can do the first thing
+
+266
+00:06:06,309 --> 00:06:06,319
+template what we can do the first thing
+ 
+
+267
+00:06:06,319 --> 00:06:08,629
+template what we can do the first thing
+first we have to add in dependency of
+
+268
+00:06:08,629 --> 00:06:08,639
+first we have to add in dependency of
+ 
+
+269
+00:06:08,639 --> 00:06:11,830
+first we have to add in dependency of
+the load balancer spring cloud load
+
+270
+00:06:11,830 --> 00:06:11,840
+the load balancer spring cloud load
+ 
+
+271
+00:06:11,840 --> 00:06:13,830
+the load balancer spring cloud load
+balancer cap uh dependency we have to
+
+272
+00:06:13,830 --> 00:06:13,840
+balancer cap uh dependency we have to
+ 
+
+273
+00:06:13,840 --> 00:06:17,909
+balancer cap uh dependency we have to
+add in our pom. Okay. Now the second
+
+274
+00:06:17,909 --> 00:06:17,919
+add in our pom. Okay. Now the second
+ 
+
+275
+00:06:17,919 --> 00:06:20,550
+add in our pom. Okay. Now the second
+thing is
+
+276
+00:06:20,550 --> 00:06:20,560
+thing is
+ 
+
+277
+00:06:20,560 --> 00:06:22,950
+thing is
+we have to annotate where we are
+
+278
+00:06:22,950 --> 00:06:22,960
+we have to annotate where we are
+ 
+
+279
+00:06:22,960 --> 00:06:25,510
+we have to annotate where we are
+creating an object of rest template we
+
+280
+00:06:25,510 --> 00:06:25,520
+creating an object of rest template we
+ 
+
+281
+00:06:25,520 --> 00:06:27,909
+creating an object of rest template we
+have to annotate with at the rate load
+
+282
+00:06:27,909 --> 00:06:27,919
+have to annotate with at the rate load
+ 
+
+283
+00:06:27,919 --> 00:06:31,270
+have to annotate with at the rate load
+balanced. Why? Because this annotation
+
+284
+00:06:31,270 --> 00:06:31,280
+balanced. Why? Because this annotation
+ 
+
+285
+00:06:31,280 --> 00:06:33,990
+balanced. Why? Because this annotation
+tells the framework that hey intercept
+
+286
+00:06:33,990 --> 00:06:34,000
+tells the framework that hey intercept
+ 
+
+287
+00:06:34,000 --> 00:06:37,350
+tells the framework that hey intercept
+the request intercept the request and
+
+288
+00:06:37,350 --> 00:06:37,360
+the request intercept the request and
+ 
+
+289
+00:06:37,360 --> 00:06:39,830
+the request intercept the request and
+call service discovery get an instance
+
+290
+00:06:39,830 --> 00:06:39,840
+call service discovery get an instance
+ 
+
+291
+00:06:39,840 --> 00:06:43,029
+call service discovery get an instance
+and apply load balancing algorithm. So
+
+292
+00:06:43,029 --> 00:06:43,039
+and apply load balancing algorithm. So
+ 
+
+293
+00:06:43,039 --> 00:06:46,950
+and apply load balancing algorithm. So
+there is something called load balancer
+
+294
+00:06:46,950 --> 00:06:46,960
+there is something called load balancer
+ 
+
+295
+00:06:46,960 --> 00:06:49,510
+there is something called load balancer
+interceptor.
+
+296
+00:06:49,510 --> 00:06:49,520
+interceptor.
+ 
+
+297
+00:06:49,520 --> 00:06:52,950
+interceptor.
+Load balancer interceptor. So this class
+
+298
+00:06:52,950 --> 00:06:52,960
+Load balancer interceptor. So this class
+ 
+
+299
+00:06:52,960 --> 00:06:56,550
+Load balancer interceptor. So this class
+will get invoked. Okay. So this is the
+
+300
+00:06:56,550 --> 00:06:56,560
+will get invoked. Okay. So this is the
+ 
+
+301
+00:06:56,560 --> 00:06:58,390
+will get invoked. Okay. So this is the
+purpose of this annotation. It tells the
+
+302
+00:06:58,390 --> 00:06:58,400
+purpose of this annotation. It tells the
+ 
+
+303
+00:06:58,400 --> 00:07:02,230
+purpose of this annotation. It tells the
+framework that add this interceptor.
+
+304
+00:07:02,230 --> 00:07:02,240
+framework that add this interceptor.
+ 
+
+305
+00:07:02,240 --> 00:07:04,950
+framework that add this interceptor.
+Okay. We will see that. So this is one
+
+306
+00:07:04,950 --> 00:07:04,960
+Okay. We will see that. So this is one
+ 
+
+307
+00:07:04,960 --> 00:07:06,790
+Okay. We will see that. So this is one
+thing is we have to annotate our rest
+
+308
+00:07:06,790 --> 00:07:06,800
+thing is we have to annotate our rest
+ 
+
+309
+00:07:06,800 --> 00:07:09,589
+thing is we have to annotate our rest
+template with this annotation. Another
+
+310
+00:07:09,589 --> 00:07:09,599
+template with this annotation. Another
+ 
+
+311
+00:07:09,599 --> 00:07:11,830
+template with this annotation. Another
+difference you will see that earlier we
+
+312
+00:07:11,830 --> 00:07:11,840
+difference you will see that earlier we
+ 
+
+313
+00:07:11,840 --> 00:07:13,909
+difference you will see that earlier we
+were using discovery discovery client
+
+314
+00:07:13,909 --> 00:07:13,919
+were using discovery discovery client
+ 
+
+315
+00:07:13,919 --> 00:07:15,909
+were using discovery discovery client
+right now you don't need discovery
+
+316
+00:07:15,909 --> 00:07:15,919
+right now you don't need discovery
+ 
+
+317
+00:07:15,919 --> 00:07:20,469
+right now you don't need discovery
+client itself because this interceptor
+
+318
+00:07:20,469 --> 00:07:20,479
+client itself because this interceptor
+ 
+
+319
+00:07:20,479 --> 00:07:21,990
+client itself because this interceptor
+internally
+
+320
+00:07:21,990 --> 00:07:22,000
+internally
+ 
+
+321
+00:07:22,000 --> 00:07:25,189
+internally
+will call service discovery fetch an
+
+322
+00:07:25,189 --> 00:07:25,199
+will call service discovery fetch an
+ 
+
+323
+00:07:25,199 --> 00:07:28,629
+will call service discovery fetch an
+instances do load balancing and call one
+
+324
+00:07:28,629 --> 00:07:28,639
+instances do load balancing and call one
+ 
+
+325
+00:07:28,639 --> 00:07:30,390
+instances do load balancing and call one
+server.
+
+326
+00:07:30,390 --> 00:07:30,400
+server.
+ 
+
+327
+00:07:30,400 --> 00:07:33,110
+server.
+Okay. So you don't manually need to do
+
+328
+00:07:33,110 --> 00:07:33,120
+Okay. So you don't manually need to do
+ 
+
+329
+00:07:33,120 --> 00:07:36,230
+Okay. So you don't manually need to do
+that. All you have to do that is just
+
+330
+00:07:36,230 --> 00:07:36,240
+that. All you have to do that is just
+ 
+
+331
+00:07:36,240 --> 00:07:39,029
+that. All you have to do that is just
+provide the name of the service which
+
+332
+00:07:39,029 --> 00:07:39,039
+provide the name of the service which
+ 
+
+333
+00:07:39,039 --> 00:07:41,830
+provide the name of the service which
+you have to invoke. Okay. So I have
+
+334
+00:07:41,830 --> 00:07:41,840
+you have to invoke. Okay. So I have
+ 
+
+335
+00:07:41,840 --> 00:07:44,629
+you have to invoke. Okay. So I have
+written into the application.properties
+
+336
+00:07:44,629 --> 00:07:44,639
+written into the application.properties
+ 
+
+337
+00:07:44,639 --> 00:07:47,670
+written into the application.properties
+that http product hyphen service. Now I
+
+338
+00:07:47,670 --> 00:07:47,680
+that http product hyphen service. Now I
+ 
+
+339
+00:07:47,680 --> 00:07:51,670
+that http product hyphen service. Now I
+am not using let's say 192.80.60.3
+
+340
+00:07:51,670 --> 00:07:51,680
+am not using let's say 192.80.60.3
+ 
+
+341
+00:07:51,680 --> 00:07:55,430
+am not using let's say 192.80.60.3
+hey call 8082. I am not using the
+
+342
+00:07:55,430 --> 00:07:55,440
+hey call 8082. I am not using the
+ 
+
+343
+00:07:55,440 --> 00:07:59,589
+hey call 8082. I am not using the
+hardcoded host and port number right. I
+
+344
+00:07:59,589 --> 00:07:59,599
+hardcoded host and port number right. I
+ 
+
+345
+00:07:59,599 --> 00:08:01,830
+hardcoded host and port number right. I
+have just invoked that hey product
+
+346
+00:08:01,830 --> 00:08:01,840
+have just invoked that hey product
+ 
+
+347
+00:08:01,840 --> 00:08:04,390
+have just invoked that hey product
+service this is the name of the service
+
+348
+00:08:04,390 --> 00:08:04,400
+service this is the name of the service
+ 
+
+349
+00:08:04,400 --> 00:08:06,469
+service this is the name of the service
+I have given into the application like
+
+350
+00:08:06,469 --> 00:08:06,479
+I have given into the application like
+ 
+
+351
+00:08:06,479 --> 00:08:08,070
+I have given into the application like
+here for this order application I have
+
+352
+00:08:08,070 --> 00:08:08,080
+here for this order application I have
+ 
+
+353
+00:08:08,080 --> 00:08:10,469
+here for this order application I have
+given the name order I order hyphen
+
+354
+00:08:10,469 --> 00:08:10,479
+given the name order I order hyphen
+ 
+
+355
+00:08:10,479 --> 00:08:12,469
+given the name order I order hyphen
+service right similarly for the product
+
+356
+00:08:12,469 --> 00:08:12,479
+service right similarly for the product
+ 
+
+357
+00:08:12,479 --> 00:08:14,469
+service right similarly for the product
+service I have given that name so I'm
+
+358
+00:08:14,469 --> 00:08:14,479
+service I have given that name so I'm
+ 
+
+359
+00:08:14,479 --> 00:08:16,390
+service I have given that name so I'm
+using that name which service you are
+
+360
+00:08:16,390 --> 00:08:16,400
+using that name which service you are
+ 
+
+361
+00:08:16,400 --> 00:08:18,309
+using that name which service you are
+going to invoke
+
+362
+00:08:18,309 --> 00:08:18,319
+going to invoke
+ 
+
+363
+00:08:18,319 --> 00:08:23,029
+going to invoke
+okay so the same here this is the URL
+
+364
+00:08:23,029 --> 00:08:23,039
+okay so the same here this is the URL
+ 
+
+365
+00:08:23,039 --> 00:08:27,749
+okay so the same here this is the URL
+okay so this http colon product service
+
+366
+00:08:27,749 --> 00:08:27,759
+okay so this http colon product service
+ 
+
+367
+00:08:27,759 --> 00:08:30,629
+okay so this http colon product service
+and this is the URI
+
+368
+00:08:30,629 --> 00:08:30,639
+and this is the URI
+ 
+
+369
+00:08:30,639 --> 00:08:33,509
+and this is the URI
+relative path which we have to invoke.
+
+370
+00:08:33,509 --> 00:08:33,519
+relative path which we have to invoke.
+ 
+
+371
+00:08:33,519 --> 00:08:35,350
+relative path which we have to invoke.
+Now this
+
+372
+00:08:35,350 --> 00:08:35,360
+Now this
+ 
+
+373
+00:08:35,360 --> 00:08:40,709
+Now this
+will get resolved by our load balancer.
+
+374
+00:08:40,709 --> 00:08:40,719
+will get resolved by our load balancer.
+ 
+
+375
+00:08:40,719 --> 00:08:43,190
+will get resolved by our load balancer.
+Okay. So now here if you see lot of
+
+376
+00:08:43,190 --> 00:08:43,200
+Okay. So now here if you see lot of
+ 
+
+377
+00:08:43,200 --> 00:08:45,910
+Okay. So now here if you see lot of
+things become simpler for us. Okay. We
+
+378
+00:08:45,910 --> 00:08:45,920
+things become simpler for us. Okay. We
+ 
+
+379
+00:08:45,920 --> 00:08:48,870
+things become simpler for us. Okay. We
+just have added the dependency and just
+
+380
+00:08:48,870 --> 00:08:48,880
+just have added the dependency and just
+ 
+
+381
+00:08:48,880 --> 00:08:50,870
+just have added the dependency and just
+uh tell through this annotation that
+
+382
+00:08:50,870 --> 00:08:50,880
+uh tell through this annotation that
+ 
+
+383
+00:08:50,880 --> 00:08:53,590
+uh tell through this annotation that
+intercept intercept the request and use
+
+384
+00:08:53,590 --> 00:08:53,600
+intercept intercept the request and use
+ 
+
+385
+00:08:53,600 --> 00:08:56,389
+intercept intercept the request and use
+load balancer interceptor. Now here we
+
+386
+00:08:56,389 --> 00:08:56,399
+load balancer interceptor. Now here we
+ 
+
+387
+00:08:56,399 --> 00:08:59,430
+load balancer interceptor. Now here we
+don't have to do
+
+388
+00:08:59,430 --> 00:08:59,440
+don't have to do
+ 
+
+389
+00:08:59,440 --> 00:09:01,670
+don't have to do
+the calling of the service direct uh
+
+390
+00:09:01,670 --> 00:09:01,680
+the calling of the service direct uh
+ 
+
+391
+00:09:01,680 --> 00:09:04,870
+the calling of the service direct uh
+service discovery we don't have to put
+
+392
+00:09:04,870 --> 00:09:04,880
+service discovery we don't have to put
+ 
+
+393
+00:09:04,880 --> 00:09:06,949
+service discovery we don't have to put
+an algorithm for choosing one of the
+
+394
+00:09:06,949 --> 00:09:06,959
+an algorithm for choosing one of the
+ 
+
+395
+00:09:06,959 --> 00:09:09,829
+an algorithm for choosing one of the
+particular service all internally got
+
+396
+00:09:09,829 --> 00:09:09,839
+particular service all internally got
+ 
+
+397
+00:09:09,839 --> 00:09:12,310
+particular service all internally got
+handled but the question should comes to
+
+398
+00:09:12,310 --> 00:09:12,320
+handled but the question should comes to
+ 
+
+399
+00:09:12,320 --> 00:09:15,269
+handled but the question should comes to
+you now how what algorithm how we can
+
+400
+00:09:15,269 --> 00:09:15,279
+you now how what algorithm how we can
+ 
+
+401
+00:09:15,279 --> 00:09:19,670
+you now how what algorithm how we can
+change it that's we going to see it okay
+
+402
+00:09:19,670 --> 00:09:19,680
+change it that's we going to see it okay
+ 
+
+403
+00:09:19,680 --> 00:09:23,110
+change it that's we going to see it okay
+so if you face any doubt with the rest
+
+404
+00:09:23,110 --> 00:09:23,120
+so if you face any doubt with the rest
+ 
+
+405
+00:09:23,120 --> 00:09:25,509
+so if you face any doubt with the rest
+template like hey you are not able to
+
+406
+00:09:25,509 --> 00:09:25,519
+template like hey you are not able to
+ 
+
+407
+00:09:25,519 --> 00:09:27,750
+template like hey you are not able to
+understand this. So I would say that
+
+408
+00:09:27,750 --> 00:09:27,760
+understand this. So I would say that
+ 
+
+409
+00:09:27,760 --> 00:09:29,750
+understand this. So I would say that
+like please go through this rest
+
+410
+00:09:29,750 --> 00:09:29,760
+like please go through this rest
+ 
+
+411
+00:09:29,760 --> 00:09:33,110
+like please go through this rest
+template first right and I even I have
+
+412
+00:09:33,110 --> 00:09:33,120
+template first right and I even I have
+ 
+
+413
+00:09:33,120 --> 00:09:35,670
+template first right and I even I have
+shown the in-depth of this rest template
+
+414
+00:09:35,670 --> 00:09:35,680
+shown the in-depth of this rest template
+ 
+
+415
+00:09:35,680 --> 00:09:38,710
+shown the in-depth of this rest template
+framework how the control flows whenever
+
+416
+00:09:38,710 --> 00:09:38,720
+framework how the control flows whenever
+ 
+
+417
+00:09:38,720 --> 00:09:41,670
+framework how the control flows whenever
+we do this one right get for object in
+
+418
+00:09:41,670 --> 00:09:41,680
+we do this one right get for object in
+ 
+
+419
+00:09:41,680 --> 00:09:44,389
+we do this one right get for object in
+the rest template what exactly happened
+
+420
+00:09:44,389 --> 00:09:44,399
+the rest template what exactly happened
+ 
+
+421
+00:09:44,399 --> 00:09:47,590
+the rest template what exactly happened
+I have already explained in depth so the
+
+422
+00:09:47,590 --> 00:09:47,600
+I have already explained in depth so the
+ 
+
+423
+00:09:47,600 --> 00:09:50,310
+I have already explained in depth so the
+thing is once you put this at the rate
+
+424
+00:09:50,310 --> 00:09:50,320
+thing is once you put this at the rate
+ 
+
+425
+00:09:50,320 --> 00:09:53,190
+thing is once you put this at the rate
+load balance annotation so in this
+
+426
+00:09:53,190 --> 00:09:53,200
+load balance annotation so in this
+ 
+
+427
+00:09:53,200 --> 00:09:55,430
+load balance annotation so in this
+framework I am just assuming that you
+
+428
+00:09:55,430 --> 00:09:55,440
+framework I am just assuming that you
+ 
+
+429
+00:09:55,440 --> 00:09:56,870
+framework I am just assuming that you
+have already seen the rest template
+
+430
+00:09:56,870 --> 00:09:56,880
+have already seen the rest template
+ 
+
+431
+00:09:56,880 --> 00:09:58,710
+have already seen the rest template
+video and you know this how internally
+
+432
+00:09:58,710 --> 00:09:58,720
+video and you know this how internally
+ 
+
+433
+00:09:58,720 --> 00:10:01,590
+video and you know this how internally
+it works. So in the rest template flow
+
+434
+00:10:01,590 --> 00:10:01,600
+it works. So in the rest template flow
+ 
+
+435
+00:10:01,600 --> 00:10:04,230
+it works. So in the rest template flow
+when when we used to call the execute
+
+436
+00:10:04,230 --> 00:10:04,240
+when when we used to call the execute
+ 
+
+437
+00:10:04,240 --> 00:10:06,710
+when when we used to call the execute
+method that's where the interception
+
+438
+00:10:06,710 --> 00:10:06,720
+method that's where the interception
+ 
+
+439
+00:10:06,720 --> 00:10:09,750
+method that's where the interception
+works and that's where first this will
+
+440
+00:10:09,750 --> 00:10:09,760
+works and that's where first this will
+ 
+
+441
+00:10:09,760 --> 00:10:12,150
+works and that's where first this will
+get invoked load balancer interceptor do
+
+442
+00:10:12,150 --> 00:10:12,160
+get invoked load balancer interceptor do
+ 
+
+443
+00:10:12,160 --> 00:10:15,829
+get invoked load balancer interceptor do
+java at this point of time. Okay. So
+
+444
+00:10:15,829 --> 00:10:15,839
+java at this point of time. Okay. So
+ 
+
+445
+00:10:15,839 --> 00:10:19,190
+java at this point of time. Okay. So
+before execution of this first this
+
+446
+00:10:19,190 --> 00:10:19,200
+before execution of this first this
+ 
+
+447
+00:10:19,200 --> 00:10:22,389
+before execution of this first this
+interceptor now get invoked. Now here if
+
+448
+00:10:22,389 --> 00:10:22,399
+interceptor now get invoked. Now here if
+ 
+
+449
+00:10:22,399 --> 00:10:24,470
+interceptor now get invoked. Now here if
+you see if you debug this interceptor
+
+450
+00:10:24,470 --> 00:10:24,480
+you see if you debug this interceptor
+ 
+
+451
+00:10:24,480 --> 00:10:28,310
+you see if you debug this interceptor
+code you will see this piece of code
+
+452
+00:10:28,310 --> 00:10:28,320
+code you will see this piece of code
+ 
+
+453
+00:10:28,320 --> 00:10:32,230
+code you will see this piece of code
+where it try to does this two thing.
+
+454
+00:10:32,230 --> 00:10:32,240
+where it try to does this two thing.
+ 
+
+455
+00:10:32,240 --> 00:10:35,030
+where it try to does this two thing.
+So first it does load balancer client
+
+456
+00:10:35,030 --> 00:10:35,040
+So first it does load balancer client
+ 
+
+457
+00:10:35,040 --> 00:10:37,829
+So first it does load balancer client
+factory get instance for this service
+
+458
+00:10:37,829 --> 00:10:37,839
+factory get instance for this service
+ 
+
+459
+00:10:37,839 --> 00:10:41,190
+factory get instance for this service
+ID. What it does it will pick the load
+
+460
+00:10:41,190 --> 00:10:41,200
+ID. What it does it will pick the load
+ 
+
+461
+00:10:41,200 --> 00:10:44,310
+ID. What it does it will pick the load
+balancing algorithm for you.
+
+462
+00:10:44,310 --> 00:10:44,320
+balancing algorithm for you.
+ 
+
+463
+00:10:44,320 --> 00:10:45,670
+balancing algorithm for you.
+It will pick the load balancing
+
+464
+00:10:45,670 --> 00:10:45,680
+It will pick the load balancing
+ 
+
+465
+00:10:45,680 --> 00:10:49,750
+It will pick the load balancing
+algorithm like a roundroin or random
+
+466
+00:10:49,750 --> 00:10:49,760
+algorithm like a roundroin or random
+ 
+
+467
+00:10:49,760 --> 00:10:51,990
+algorithm like a roundroin or random
+whatever. So it will pick one load
+
+468
+00:10:51,990 --> 00:10:52,000
+whatever. So it will pick one load
+ 
+
+469
+00:10:52,000 --> 00:10:55,110
+whatever. So it will pick one load
+balancing algorithm for you first. Okay.
+
+470
+00:10:55,110 --> 00:10:55,120
+balancing algorithm for you first. Okay.
+ 
+
+471
+00:10:55,120 --> 00:10:58,069
+balancing algorithm for you first. Okay.
+After that it calls load balancer dot
+
+472
+00:10:58,069 --> 00:10:58,079
+After that it calls load balancer dot
+ 
+
+473
+00:10:58,079 --> 00:11:01,910
+After that it calls load balancer dot
+choose request. So internally it calls
+
+474
+00:11:01,910 --> 00:11:01,920
+choose request. So internally it calls
+ 
+
+475
+00:11:01,920 --> 00:11:04,230
+choose request. So internally it calls
+service discovery.
+
+476
+00:11:04,230 --> 00:11:04,240
+service discovery.
+ 
+
+477
+00:11:04,240 --> 00:11:07,590
+service discovery.
+Pick one instance based on the above
+
+478
+00:11:07,590 --> 00:11:07,600
+Pick one instance based on the above
+ 
+
+479
+00:11:07,600 --> 00:11:10,790
+Pick one instance based on the above
+load balancing algorithm. So internally
+
+480
+00:11:10,790 --> 00:11:10,800
+load balancing algorithm. So internally
+ 
+
+481
+00:11:10,800 --> 00:11:12,710
+load balancing algorithm. So internally
+it calls service discovery. Get a list
+
+482
+00:11:12,710 --> 00:11:12,720
+it calls service discovery. Get a list
+ 
+
+483
+00:11:12,720 --> 00:11:14,470
+it calls service discovery. Get a list
+of instance and whatever the load
+
+484
+00:11:14,470 --> 00:11:14,480
+of instance and whatever the load
+ 
+
+485
+00:11:14,480 --> 00:11:17,750
+of instance and whatever the load
+balancer algorithm you have got using
+
+486
+00:11:17,750 --> 00:11:17,760
+balancer algorithm you have got using
+ 
+
+487
+00:11:17,760 --> 00:11:21,829
+balancer algorithm you have got using
+that it will pick one instance of it.
+
+488
+00:11:21,829 --> 00:11:21,839
+that it will pick one instance of it.
+ 
+
+489
+00:11:21,839 --> 00:11:24,150
+that it will pick one instance of it.
+Okay. So all this code logic is present
+
+490
+00:11:24,150 --> 00:11:24,160
+Okay. So all this code logic is present
+ 
+
+491
+00:11:24,160 --> 00:11:27,910
+Okay. So all this code logic is present
+inside this interceptor.
+
+492
+00:11:27,910 --> 00:11:27,920
+
+ 
+
+493
+00:11:27,920 --> 00:11:31,590
+
+Okay. So there are different types of
+
+494
+00:11:31,590 --> 00:11:31,600
+Okay. So there are different types of
+ 
+
+495
+00:11:31,600 --> 00:11:34,150
+Okay. So there are different types of
+algorithms present into load balancing.
+
+496
+00:11:34,150 --> 00:11:34,160
+algorithms present into load balancing.
+ 
+
+497
+00:11:34,160 --> 00:11:35,829
+algorithms present into load balancing.
+Like I have already covered into this
+
+498
+00:11:35,829 --> 00:11:35,839
+Like I have already covered into this
+ 
+
+499
+00:11:35,839 --> 00:11:37,990
+Like I have already covered into this
+HLD playlist. If you go into the HLD
+
+500
+00:11:37,990 --> 00:11:38,000
+HLD playlist. If you go into the HLD
+ 
+
+501
+00:11:38,000 --> 00:11:40,069
+HLD playlist. If you go into the HLD
+playlist, you will see I think around
+
+502
+00:11:40,069 --> 00:11:40,079
+playlist, you will see I think around
+ 
+
+503
+00:11:40,079 --> 00:11:43,430
+playlist, you will see I think around
+18th video like we have discussed a lot
+
+504
+00:11:43,430 --> 00:11:43,440
+18th video like we have discussed a lot
+ 
+
+505
+00:11:43,440 --> 00:11:45,430
+18th video like we have discussed a lot
+of algorithm round robin, least
+
+506
+00:11:45,430 --> 00:11:45,440
+of algorithm round robin, least
+ 
+
+507
+00:11:45,440 --> 00:11:48,310
+of algorithm round robin, least
+connection, IP hash, least response
+
+508
+00:11:48,310 --> 00:11:48,320
+connection, IP hash, least response
+ 
+
+509
+00:11:48,320 --> 00:11:52,630
+connection, IP hash, least response
+time, random. So I am not going to cover
+
+510
+00:11:52,630 --> 00:11:52,640
+time, random. So I am not going to cover
+ 
+
+511
+00:11:52,640 --> 00:11:55,269
+time, random. So I am not going to cover
+what exactly the algorithm does that is
+
+512
+00:11:55,269 --> 00:11:55,279
+what exactly the algorithm does that is
+ 
+
+513
+00:11:55,279 --> 00:11:57,670
+what exactly the algorithm does that is
+already present into the HL playlist.
+
+514
+00:11:57,670 --> 00:11:57,680
+already present into the HL playlist.
+ 
+
+515
+00:11:57,680 --> 00:11:59,670
+already present into the HL playlist.
+But today our main purpose is to
+
+516
+00:11:59,670 --> 00:11:59,680
+But today our main purpose is to
+ 
+
+517
+00:11:59,680 --> 00:12:02,069
+But today our main purpose is to
+understand that how framework does it.
+
+518
+00:12:02,069 --> 00:12:02,079
+understand that how framework does it.
+ 
+
+519
+00:12:02,079 --> 00:12:06,710
+understand that how framework does it.
+Okay. So if you see this line again
+
+520
+00:12:06,710 --> 00:12:06,720
+Okay. So if you see this line again
+ 
+
+521
+00:12:06,720 --> 00:12:08,949
+Okay. So if you see this line again
+where it picks the load balancing
+
+522
+00:12:08,949 --> 00:12:08,959
+where it picks the load balancing
+ 
+
+523
+00:12:08,959 --> 00:12:10,949
+where it picks the load balancing
+algorithm. This is very very important.
+
+524
+00:12:10,949 --> 00:12:10,959
+algorithm. This is very very important.
+ 
+
+525
+00:12:10,959 --> 00:12:13,269
+algorithm. This is very very important.
+We have to understand it better because
+
+526
+00:12:13,269 --> 00:12:13,279
+We have to understand it better because
+ 
+
+527
+00:12:13,279 --> 00:12:16,550
+We have to understand it better because
+remember when you are about to code it I
+
+528
+00:12:16,550 --> 00:12:16,560
+remember when you are about to code it I
+ 
+
+529
+00:12:16,560 --> 00:12:18,710
+remember when you are about to code it I
+am pretty much sure you will face lot of
+
+530
+00:12:18,710 --> 00:12:18,720
+am pretty much sure you will face lot of
+ 
+
+531
+00:12:18,720 --> 00:12:22,949
+am pretty much sure you will face lot of
+challenge because of this service ID
+
+532
+00:12:22,949 --> 00:12:22,959
+challenge because of this service ID
+ 
+
+533
+00:12:22,959 --> 00:12:25,670
+challenge because of this service ID
+because of the service ID. So understand
+
+534
+00:12:25,670 --> 00:12:25,680
+because of the service ID. So understand
+ 
+
+535
+00:12:25,680 --> 00:12:28,629
+because of the service ID. So understand
+this service ID concept properly. This
+
+536
+00:12:28,629 --> 00:12:28,639
+this service ID concept properly. This
+ 
+
+537
+00:12:28,639 --> 00:12:30,710
+this service ID concept properly. This
+going to help you when you write it.
+
+538
+00:12:30,710 --> 00:12:30,720
+going to help you when you write it.
+ 
+
+539
+00:12:30,720 --> 00:12:32,949
+going to help you when you write it.
+Right. This is I from based on my
+
+540
+00:12:32,949 --> 00:12:32,959
+Right. This is I from based on my
+ 
+
+541
+00:12:32,959 --> 00:12:34,550
+Right. This is I from based on my
+experience I'm telling you lot of
+
+542
+00:12:34,550 --> 00:12:34,560
+experience I'm telling you lot of
+ 
+
+543
+00:12:34,560 --> 00:12:36,389
+experience I'm telling you lot of
+engineers get stuck this how it's
+
+544
+00:12:36,389 --> 00:12:36,399
+engineers get stuck this how it's
+ 
+
+545
+00:12:36,399 --> 00:12:41,509
+engineers get stuck this how it's
+working okay so we will look at this
+
+546
+00:12:41,509 --> 00:12:41,519
+working okay so we will look at this
+ 
+
+547
+00:12:41,519 --> 00:12:45,750
+working okay so we will look at this
+little bit better where this line
+
+548
+00:12:45,750 --> 00:12:45,760
+little bit better where this line
+ 
+
+549
+00:12:45,760 --> 00:12:48,550
+little bit better where this line
+choosing the load balancer for us it
+
+550
+00:12:48,550 --> 00:12:48,560
+choosing the load balancer for us it
+ 
+
+551
+00:12:48,560 --> 00:12:50,069
+choosing the load balancer for us it
+will choosing the load balancer right
+
+552
+00:12:50,069 --> 00:12:50,079
+will choosing the load balancer right
+ 
+
+553
+00:12:50,079 --> 00:12:53,430
+will choosing the load balancer right
+for us so one thing question comes to
+
+554
+00:12:53,430 --> 00:12:53,440
+for us so one thing question comes to
+ 
+
+555
+00:12:53,440 --> 00:12:55,910
+for us so one thing question comes to
+our mind is what is this service ID
+
+556
+00:12:55,910 --> 00:12:55,920
+our mind is what is this service ID
+ 
+
+557
+00:12:55,920 --> 00:13:00,949
+our mind is what is this service ID
+getting passed okay and what its purpose
+
+558
+00:13:00,949 --> 00:13:00,959
+getting passed okay and what its purpose
+ 
+
+559
+00:13:00,959 --> 00:13:03,910
+getting passed okay and what its purpose
+Why and what its purpose? So one thing
+
+560
+00:13:03,910 --> 00:13:03,920
+Why and what its purpose? So one thing
+ 
+
+561
+00:13:03,920 --> 00:13:08,230
+Why and what its purpose? So one thing
+is this service ID is nothing but a
+
+562
+00:13:08,230 --> 00:13:08,240
+is this service ID is nothing but a
+ 
+
+563
+00:13:08,240 --> 00:13:10,389
+is this service ID is nothing but a
+client ID or you can say that client
+
+564
+00:13:10,389 --> 00:13:10,399
+client ID or you can say that client
+ 
+
+565
+00:13:10,399 --> 00:13:13,269
+client ID or you can say that client
+name. So here in this case say like a
+
+566
+00:13:13,269 --> 00:13:13,279
+name. So here in this case say like a
+ 
+
+567
+00:13:13,279 --> 00:13:17,269
+name. So here in this case say like a
+product service is also known as service
+
+568
+00:13:17,269 --> 00:13:17,279
+product service is also known as service
+ 
+
+569
+00:13:17,279 --> 00:13:20,629
+product service is also known as service
+ID. Let's say order service. This is my
+
+570
+00:13:20,629 --> 00:13:20,639
+ID. Let's say order service. This is my
+ 
+
+571
+00:13:20,639 --> 00:13:23,590
+ID. Let's say order service. This is my
+application name right at you can say
+
+572
+00:13:23,590 --> 00:13:23,600
+application name right at you can say
+ 
+
+573
+00:13:23,600 --> 00:13:26,069
+application name right at you can say
+that ureka server we have used this
+
+574
+00:13:26,069 --> 00:13:26,079
+that ureka server we have used this
+ 
+
+575
+00:13:26,079 --> 00:13:28,150
+that ureka server we have used this
+application names. So these are known as
+
+576
+00:13:28,150 --> 00:13:28,160
+application names. So these are known as
+ 
+
+577
+00:13:28,160 --> 00:13:31,750
+application names. So these are known as
+service ID. Okay. So each why we are
+
+578
+00:13:31,750 --> 00:13:31,760
+service ID. Okay. So each why we are
+ 
+
+579
+00:13:31,760 --> 00:13:34,790
+service ID. Okay. So each why we are
+passing this client name or service ID
+
+580
+00:13:34,790 --> 00:13:34,800
+passing this client name or service ID
+ 
+
+581
+00:13:34,800 --> 00:13:37,910
+passing this client name or service ID
+to this load balancer
+
+582
+00:13:37,910 --> 00:13:37,920
+to this load balancer
+ 
+
+583
+00:13:37,920 --> 00:13:39,829
+to this load balancer
+remember that
+
+584
+00:13:39,829 --> 00:13:39,839
+remember that
+ 
+
+585
+00:13:39,839 --> 00:13:44,069
+remember that
+each load balancer algorithm is attached
+
+586
+00:13:44,069 --> 00:13:44,079
+each load balancer algorithm is attached
+ 
+
+587
+00:13:44,079 --> 00:13:47,190
+each load balancer algorithm is attached
+to a service ID. So now let's say that
+
+588
+00:13:47,190 --> 00:13:47,200
+to a service ID. So now let's say that
+ 
+
+589
+00:13:47,200 --> 00:13:49,030
+to a service ID. So now let's say that
+this is your application. Just
+
+590
+00:13:49,030 --> 00:13:49,040
+this is your application. Just
+ 
+
+591
+00:13:49,040 --> 00:13:50,230
+this is your application. Just
+understand that this is your
+
+592
+00:13:50,230 --> 00:13:50,240
+understand that this is your
+ 
+
+593
+00:13:50,240 --> 00:13:51,910
+understand that this is your
+application.
+
+594
+00:13:51,910 --> 00:13:51,920
+application.
+ 
+
+595
+00:13:51,920 --> 00:13:56,790
+application.
+Now you have a dependency on product.
+
+596
+00:13:56,790 --> 00:13:56,800
+Now you have a dependency on product.
+ 
+
+597
+00:13:56,800 --> 00:14:00,069
+Now you have a dependency on product.
+You have a dependency on sales.
+
+598
+00:14:00,069 --> 00:14:00,079
+You have a dependency on sales.
+ 
+
+599
+00:14:00,079 --> 00:14:02,710
+You have a dependency on sales.
+You have a dependency on some XY Z
+
+600
+00:14:02,710 --> 00:14:02,720
+You have a dependency on some XY Z
+ 
+
+601
+00:14:02,720 --> 00:14:05,670
+You have a dependency on some XY Z
+application. Okay. So I have given its
+
+602
+00:14:05,670 --> 00:14:05,680
+application. Okay. So I have given its
+ 
+
+603
+00:14:05,680 --> 00:14:07,910
+application. Okay. So I have given its
+name product
+
+604
+00:14:07,910 --> 00:14:07,920
+name product
+ 
+
+605
+00:14:07,920 --> 00:14:12,230
+name product
+service. I have given it a name sales -
+
+606
+00:14:12,230 --> 00:14:12,240
+service. I have given it a name sales -
+ 
+
+607
+00:14:12,240 --> 00:14:16,470
+service. I have given it a name sales -
+service. Similarly XY Z - service some
+
+608
+00:14:16,470 --> 00:14:16,480
+service. Similarly XY Z - service some
+ 
+
+609
+00:14:16,480 --> 00:14:18,150
+service. Similarly XY Z - service some
+something something. So these are the
+
+610
+00:14:18,150 --> 00:14:18,160
+something something. So these are the
+ 
+
+611
+00:14:18,160 --> 00:14:21,430
+something something. So these are the
+application name. Remember that load
+
+612
+00:14:21,430 --> 00:14:21,440
+application name. Remember that load
+ 
+
+613
+00:14:21,440 --> 00:14:25,590
+application name. Remember that load
+balancing algorithm is for attached to a
+
+614
+00:14:25,590 --> 00:14:25,600
+balancing algorithm is for attached to a
+ 
+
+615
+00:14:25,600 --> 00:14:28,310
+balancing algorithm is for attached to a
+specific service. So for this service I
+
+616
+00:14:28,310 --> 00:14:28,320
+specific service. So for this service I
+ 
+
+617
+00:14:28,320 --> 00:14:31,990
+specific service. So for this service I
+am using round robin. For this service I
+
+618
+00:14:31,990 --> 00:14:32,000
+am using round robin. For this service I
+ 
+
+619
+00:14:32,000 --> 00:14:35,350
+am using round robin. For this service I
+am attaching it with random.
+
+620
+00:14:35,350 --> 00:14:35,360
+am attaching it with random.
+ 
+
+621
+00:14:35,360 --> 00:14:37,430
+am attaching it with random.
+For this service I am attaching it with
+
+622
+00:14:37,430 --> 00:14:37,440
+For this service I am attaching it with
+ 
+
+623
+00:14:37,440 --> 00:14:40,470
+For this service I am attaching it with
+let's say weighted algorithm. So
+
+624
+00:14:40,470 --> 00:14:40,480
+let's say weighted algorithm. So
+ 
+
+625
+00:14:40,480 --> 00:14:43,030
+let's say weighted algorithm. So
+whatever the algorithm of a load
+
+626
+00:14:43,030 --> 00:14:43,040
+whatever the algorithm of a load
+ 
+
+627
+00:14:43,040 --> 00:14:45,910
+whatever the algorithm of a load
+balancer is attached to a particular
+
+628
+00:14:45,910 --> 00:14:45,920
+balancer is attached to a particular
+ 
+
+629
+00:14:45,920 --> 00:14:47,590
+balancer is attached to a particular
+service
+
+630
+00:14:47,590 --> 00:14:47,600
+service
+ 
+
+631
+00:14:47,600 --> 00:14:49,509
+service
+always.
+
+632
+00:14:49,509 --> 00:14:49,519
+always.
+ 
+
+633
+00:14:49,519 --> 00:14:51,509
+always.
+Okay.
+
+634
+00:14:51,509 --> 00:14:51,519
+Okay.
+ 
+
+635
+00:14:51,519 --> 00:14:55,110
+Okay.
+So this going to help us very this is
+
+636
+00:14:55,110 --> 00:14:55,120
+So this going to help us very this is
+ 
+
+637
+00:14:55,120 --> 00:14:56,790
+So this going to help us very this is
+the main concept actually we will see
+
+638
+00:14:56,790 --> 00:14:56,800
+the main concept actually we will see
+ 
+
+639
+00:14:56,800 --> 00:14:59,670
+the main concept actually we will see
+that when we will override it right this
+
+640
+00:14:59,670 --> 00:14:59,680
+that when we will override it right this
+ 
+
+641
+00:14:59,680 --> 00:15:03,189
+that when we will override it right this
+is where the challenge comes that hey
+
+642
+00:15:03,189 --> 00:15:03,199
+is where the challenge comes that hey
+ 
+
+643
+00:15:03,199 --> 00:15:05,110
+is where the challenge comes that hey
+how why this product service is
+
+644
+00:15:05,110 --> 00:15:05,120
+how why this product service is
+ 
+
+645
+00:15:05,120 --> 00:15:07,350
+how why this product service is
+important it is important because
+
+646
+00:15:07,350 --> 00:15:07,360
+important it is important because
+ 
+
+647
+00:15:07,360 --> 00:15:10,069
+important it is important because
+whatever the algorithm we are picking
+
+648
+00:15:10,069 --> 00:15:10,079
+whatever the algorithm we are picking
+ 
+
+649
+00:15:10,079 --> 00:15:12,069
+whatever the algorithm we are picking
+load balancing algorithm it's attached
+
+650
+00:15:12,069 --> 00:15:12,079
+load balancing algorithm it's attached
+ 
+
+651
+00:15:12,079 --> 00:15:14,389
+load balancing algorithm it's attached
+to one of the service it's not like I
+
+652
+00:15:14,389 --> 00:15:14,399
+to one of the service it's not like I
+ 
+
+653
+00:15:14,399 --> 00:15:17,030
+to one of the service it's not like I
+choose uh round robin now it's roundroin
+
+654
+00:15:17,030 --> 00:15:17,040
+choose uh round robin now it's roundroin
+ 
+
+655
+00:15:17,040 --> 00:15:18,790
+choose uh round robin now it's roundroin
+is for product service also sales
+
+656
+00:15:18,790 --> 00:15:18,800
+is for product service also sales
+ 
+
+657
+00:15:18,800 --> 00:15:21,509
+is for product service also sales
+service also this also no It's always
+
+658
+00:15:21,509 --> 00:15:21,519
+service also this also no It's always
+ 
+
+659
+00:15:21,519 --> 00:15:24,790
+service also this also no It's always
+get attached to one of the service.
+
+660
+00:15:24,790 --> 00:15:24,800
+get attached to one of the service.
+ 
+
+661
+00:15:24,800 --> 00:15:28,629
+get attached to one of the service.
+Okay. So we will see that more but at
+
+662
+00:15:28,629 --> 00:15:28,639
+Okay. So we will see that more but at
+ 
+
+663
+00:15:28,639 --> 00:15:32,310
+Okay. So we will see that more but at
+this point of only this thing keep in at
+
+664
+00:15:32,310 --> 00:15:32,320
+this point of only this thing keep in at
+ 
+
+665
+00:15:32,320 --> 00:15:34,150
+this point of only this thing keep in at
+the back of your mind that yes whatever
+
+666
+00:15:34,150 --> 00:15:34,160
+the back of your mind that yes whatever
+ 
+
+667
+00:15:34,160 --> 00:15:36,230
+the back of your mind that yes whatever
+the load balancing algorithm we are
+
+668
+00:15:36,230 --> 00:15:36,240
+the load balancing algorithm we are
+ 
+
+669
+00:15:36,240 --> 00:15:38,870
+the load balancing algorithm we are
+picking it is attached to one of the
+
+670
+00:15:38,870 --> 00:15:38,880
+picking it is attached to one of the
+ 
+
+671
+00:15:38,880 --> 00:15:40,470
+picking it is attached to one of the
+service.
+
+672
+00:15:40,470 --> 00:15:40,480
+service.
+ 
+
+673
+00:15:40,480 --> 00:15:44,870
+service.
+Okay. So each load balancing algorithm
+
+674
+00:15:44,870 --> 00:15:44,880
+Okay. So each load balancing algorithm
+ 
+
+675
+00:15:44,880 --> 00:15:48,069
+Okay. So each load balancing algorithm
+is attached to a service ID. Service ID
+
+676
+00:15:48,069 --> 00:15:48,079
+is attached to a service ID. Service ID
+ 
+
+677
+00:15:48,079 --> 00:15:49,430
+is attached to a service ID. Service ID
+is nothing but a client name like
+
+678
+00:15:49,430 --> 00:15:49,440
+is nothing but a client name like
+ 
+
+679
+00:15:49,440 --> 00:15:51,590
+is nothing but a client name like
+product service.
+
+680
+00:15:51,590 --> 00:15:51,600
+product service.
+ 
+
+681
+00:15:51,600 --> 00:15:54,949
+product service.
+By default, Spring Cloud load balancer
+
+682
+00:15:54,949 --> 00:15:54,959
+By default, Spring Cloud load balancer
+ 
+
+683
+00:15:54,959 --> 00:15:57,670
+By default, Spring Cloud load balancer
+picks round robin load balancer. So this
+
+684
+00:15:57,670 --> 00:15:57,680
+picks round robin load balancer. So this
+ 
+
+685
+00:15:57,680 --> 00:16:01,430
+picks round robin load balancer. So this
+is the default load balancer algorithm.
+
+686
+00:16:01,430 --> 00:16:01,440
+is the default load balancer algorithm.
+ 
+
+687
+00:16:01,440 --> 00:16:04,790
+is the default load balancer algorithm.
+We can change it for a specific service
+
+688
+00:16:04,790 --> 00:16:04,800
+We can change it for a specific service
+ 
+
+689
+00:16:04,800 --> 00:16:06,949
+We can change it for a specific service
+for all the service also. We will see
+
+690
+00:16:06,949 --> 00:16:06,959
+for all the service also. We will see
+ 
+
+691
+00:16:06,959 --> 00:16:09,509
+for all the service also. We will see
+that how. But this is the by default for
+
+692
+00:16:09,509 --> 00:16:09,519
+that how. But this is the by default for
+ 
+
+693
+00:16:09,519 --> 00:16:12,389
+that how. But this is the by default for
+all the service. Okay. No matter how
+
+694
+00:16:12,389 --> 00:16:12,399
+all the service. Okay. No matter how
+ 
+
+695
+00:16:12,399 --> 00:16:17,910
+all the service. Okay. No matter how
+many service you add for all the service
+
+696
+00:16:17,910 --> 00:16:17,920
+many service you add for all the service
+ 
+
+697
+00:16:17,920 --> 00:16:20,550
+many service you add for all the service
+round robin get attached. Round robin
+
+698
+00:16:20,550 --> 00:16:20,560
+round robin get attached. Round robin
+ 
+
+699
+00:16:20,560 --> 00:16:23,189
+round robin get attached. Round robin
+for product service, roundroin for sales
+
+700
+00:16:23,189 --> 00:16:23,199
+for product service, roundroin for sales
+ 
+
+701
+00:16:23,199 --> 00:16:26,150
+for product service, roundroin for sales
+service, roundroin for XY Z service.
+
+702
+00:16:26,150 --> 00:16:26,160
+service, roundroin for XY Z service.
+ 
+
+703
+00:16:26,160 --> 00:16:30,470
+service, roundroin for XY Z service.
+Okay. So for each service roundroin load
+
+704
+00:16:30,470 --> 00:16:30,480
+Okay. So for each service roundroin load
+ 
+
+705
+00:16:30,480 --> 00:16:32,550
+Okay. So for each service roundroin load
+balancer is the default algorithm is
+
+706
+00:16:32,550 --> 00:16:32,560
+balancer is the default algorithm is
+ 
+
+707
+00:16:32,560 --> 00:16:34,629
+balancer is the default algorithm is
+chosen.
+
+708
+00:16:34,629 --> 00:16:34,639
+chosen.
+ 
+
+709
+00:16:34,639 --> 00:16:36,790
+chosen.
+So
+
+710
+00:16:36,790 --> 00:16:36,800
+So
+ 
+
+711
+00:16:36,800 --> 00:16:38,790
+So
+if we are not going with default
+
+712
+00:16:38,790 --> 00:16:38,800
+if we are not going with default
+ 
+
+713
+00:16:38,800 --> 00:16:40,470
+if we are not going with default
+algorithm, if you don't want to go with
+
+714
+00:16:40,470 --> 00:16:40,480
+algorithm, if you don't want to go with
+ 
+
+715
+00:16:40,480 --> 00:16:43,670
+algorithm, if you don't want to go with
+roundroin, then we need to define for
+
+716
+00:16:43,670 --> 00:16:43,680
+roundroin, then we need to define for
+ 
+
+717
+00:16:43,680 --> 00:16:46,550
+roundroin, then we need to define for
+which client or service ID which
+
+718
+00:16:46,550 --> 00:16:46,560
+which client or service ID which
+ 
+
+719
+00:16:46,560 --> 00:16:49,829
+which client or service ID which
+algorithm we need. Again it's just a
+
+720
+00:16:49,829 --> 00:16:49,839
+algorithm we need. Again it's just a
+ 
+
+721
+00:16:49,839 --> 00:16:52,069
+algorithm we need. Again it's just a
+different way of saying that each
+
+722
+00:16:52,069 --> 00:16:52,079
+different way of saying that each
+ 
+
+723
+00:16:52,079 --> 00:16:54,069
+different way of saying that each
+algorithm load balancing algorithm is
+
+724
+00:16:54,069 --> 00:16:54,079
+algorithm load balancing algorithm is
+ 
+
+725
+00:16:54,079 --> 00:16:56,069
+algorithm load balancing algorithm is
+attached to a particular service ID. So
+
+726
+00:16:56,069 --> 00:16:56,079
+attached to a particular service ID. So
+ 
+
+727
+00:16:56,079 --> 00:16:58,230
+attached to a particular service ID. So
+we have to tell okay you don't want to
+
+728
+00:16:58,230 --> 00:16:58,240
+we have to tell okay you don't want to
+ 
+
+729
+00:16:58,240 --> 00:17:00,710
+we have to tell okay you don't want to
+go with roundroin what algorithm you
+
+730
+00:17:00,710 --> 00:17:00,720
+go with roundroin what algorithm you
+ 
+
+731
+00:17:00,720 --> 00:17:02,870
+go with roundroin what algorithm you
+want to choose but for which service we
+
+732
+00:17:02,870 --> 00:17:02,880
+want to choose but for which service we
+ 
+
+733
+00:17:02,880 --> 00:17:06,069
+want to choose but for which service we
+have to tell the both
+
+734
+00:17:06,069 --> 00:17:06,079
+have to tell the both
+ 
+
+735
+00:17:06,079 --> 00:17:09,189
+have to tell the both
+a spring cloud load balancer
+
+736
+00:17:09,189 --> 00:17:09,199
+a spring cloud load balancer
+ 
+
+737
+00:17:09,199 --> 00:17:11,990
+a spring cloud load balancer
+supports only two algorithm roundroin
+
+738
+00:17:11,990 --> 00:17:12,000
+supports only two algorithm roundroin
+ 
+
+739
+00:17:12,000 --> 00:17:13,750
+supports only two algorithm roundroin
+and random
+
+740
+00:17:13,750 --> 00:17:13,760
+and random
+ 
+
+741
+00:17:13,760 --> 00:17:16,150
+and random
+okay so here this is the class hierarchy
+
+742
+00:17:16,150 --> 00:17:16,160
+okay so here this is the class hierarchy
+ 
+
+743
+00:17:16,160 --> 00:17:18,309
+okay so here this is the class hierarchy
+if you see that
+
+744
+00:17:18,309 --> 00:17:18,319
+if you see that
+ 
+
+745
+00:17:18,319 --> 00:17:20,710
+if you see that
+this is one of the load balancer round
+
+746
+00:17:20,710 --> 00:17:20,720
+this is one of the load balancer round
+ 
+
+747
+00:17:20,720 --> 00:17:22,150
+this is one of the load balancer round
+robin load balancer and this is the
+
+748
+00:17:22,150 --> 00:17:22,160
+robin load balancer and this is the
+ 
+
+749
+00:17:22,160 --> 00:17:25,110
+robin load balancer and this is the
+another random load balancer we can if
+
+750
+00:17:25,110 --> 00:17:25,120
+another random load balancer we can if
+ 
+
+751
+00:17:25,120 --> 00:17:30,390
+another random load balancer we can if
+you need more or different you can
+
+752
+00:17:30,390 --> 00:17:30,400
+you need more or different you can
+ 
+
+753
+00:17:30,400 --> 00:17:33,669
+you need more or different you can
+create a child class you write a custom
+
+754
+00:17:33,669 --> 00:17:33,679
+create a child class you write a custom
+ 
+
+755
+00:17:33,679 --> 00:17:35,750
+create a child class you write a custom
+load balancer and use it. We will see
+
+756
+00:17:35,750 --> 00:17:35,760
+load balancer and use it. We will see
+ 
+
+757
+00:17:35,760 --> 00:17:39,350
+load balancer and use it. We will see
+that how we can do that. Okay. So but by
+
+758
+00:17:39,350 --> 00:17:39,360
+that how we can do that. Okay. So but by
+ 
+
+759
+00:17:39,360 --> 00:17:41,430
+that how we can do that. Okay. So but by
+default only two algorithms are present
+
+760
+00:17:41,430 --> 00:17:41,440
+default only two algorithms are present
+ 
+
+761
+00:17:41,440 --> 00:17:42,950
+default only two algorithms are present
+into the spring cloud load balancer
+
+762
+00:17:42,950 --> 00:17:42,960
+into the spring cloud load balancer
+ 
+
+763
+00:17:42,960 --> 00:17:44,950
+into the spring cloud load balancer
+round robin and random. If you want
+
+764
+00:17:44,950 --> 00:17:44,960
+round robin and random. If you want
+ 
+
+765
+00:17:44,960 --> 00:17:46,950
+round robin and random. If you want
+different algorithm like weighted lease
+
+766
+00:17:46,950 --> 00:17:46,960
+different algorithm like weighted lease
+ 
+
+767
+00:17:46,960 --> 00:17:48,470
+different algorithm like weighted lease
+connection then we need to write either
+
+768
+00:17:48,470 --> 00:17:48,480
+connection then we need to write either
+ 
+
+769
+00:17:48,480 --> 00:17:51,430
+connection then we need to write either
+custom or we need to use different uh
+
+770
+00:17:51,430 --> 00:17:51,440
+custom or we need to use different uh
+ 
+
+771
+00:17:51,440 --> 00:17:55,830
+custom or we need to use different uh
+library maybe stto with sidecar it has
+
+772
+00:17:55,830 --> 00:17:55,840
+library maybe stto with sidecar it has
+ 
+
+773
+00:17:55,840 --> 00:17:57,750
+library maybe stto with sidecar it has
+wide variety of algorithms present
+
+774
+00:17:57,750 --> 00:17:57,760
+wide variety of algorithms present
+ 
+
+775
+00:17:57,760 --> 00:17:59,909
+wide variety of algorithms present
+inside it sidecar
+
+776
+00:17:59,909 --> 00:17:59,919
+inside it sidecar
+ 
+
+777
+00:17:59,919 --> 00:18:02,950
+inside it sidecar
+okay
+
+778
+00:18:02,950 --> 00:18:02,960
+
+ 
+
+779
+00:18:02,960 --> 00:18:04,630
+
+so
+
+780
+00:18:04,630 --> 00:18:04,640
+so
+ 
+
+781
+00:18:04,640 --> 00:18:07,909
+so
+now your requirement is that hey we want
+
+782
+00:18:07,909 --> 00:18:07,919
+now your requirement is that hey we want
+ 
+
+783
+00:18:07,919 --> 00:18:09,990
+now your requirement is that hey we want
+to use random load balancer I don't want
+
+784
+00:18:09,990 --> 00:18:10,000
+to use random load balancer I don't want
+ 
+
+785
+00:18:10,000 --> 00:18:13,669
+to use random load balancer I don't want
+to use round robin we want to use random
+
+786
+00:18:13,669 --> 00:18:13,679
+to use round robin we want to use random
+ 
+
+787
+00:18:13,679 --> 00:18:16,549
+to use round robin we want to use random
+how we can override it.
+
+788
+00:18:16,549 --> 00:18:16,559
+how we can override it.
+ 
+
+789
+00:18:16,559 --> 00:18:20,870
+how we can override it.
+So very very simple. Okay, this is same
+
+790
+00:18:20,870 --> 00:18:20,880
+So very very simple. Okay, this is same
+ 
+
+791
+00:18:20,880 --> 00:18:23,669
+So very very simple. Okay, this is same
+like uh the configuration I am just
+
+792
+00:18:23,669 --> 00:18:23,679
+like uh the configuration I am just
+ 
+
+793
+00:18:23,679 --> 00:18:26,549
+like uh the configuration I am just
+creating an object of rest template and
+
+794
+00:18:26,549 --> 00:18:26,559
+creating an object of rest template and
+ 
+
+795
+00:18:26,559 --> 00:18:28,390
+creating an object of rest template and
+while creating a rest template object I
+
+796
+00:18:28,390 --> 00:18:28,400
+while creating a rest template object I
+ 
+
+797
+00:18:28,400 --> 00:18:30,710
+while creating a rest template object I
+have annotated with add the rate load
+
+798
+00:18:30,710 --> 00:18:30,720
+have annotated with add the rate load
+ 
+
+799
+00:18:30,720 --> 00:18:33,270
+have annotated with add the rate load
+balance so that my load balancer uh
+
+800
+00:18:33,270 --> 00:18:33,280
+balance so that my load balancer uh
+ 
+
+801
+00:18:33,280 --> 00:18:36,549
+balance so that my load balancer uh
+interceptor can catch it and here
+
+802
+00:18:36,549 --> 00:18:36,559
+interceptor can catch it and here
+ 
+
+803
+00:18:36,559 --> 00:18:39,669
+interceptor can catch it and here
+exactly same like uh no difference while
+
+804
+00:18:39,669 --> 00:18:39,679
+exactly same like uh no difference while
+ 
+
+805
+00:18:39,679 --> 00:18:41,750
+exactly same like uh no difference while
+invoking it in the
+
+806
+00:18:41,750 --> 00:18:41,760
+invoking it in the
+ 
+
+807
+00:18:41,760 --> 00:18:43,270
+invoking it in the
+application.properties properties no
+
+808
+00:18:43,270 --> 00:18:43,280
+application.properties properties no
+ 
+
+809
+00:18:43,280 --> 00:18:45,350
+application.properties properties no
+difference I have provided the base URL
+
+810
+00:18:45,350 --> 00:18:45,360
+difference I have provided the base URL
+ 
+
+811
+00:18:45,360 --> 00:18:48,950
+difference I have provided the base URL
+which is this here I'm using the service
+
+812
+00:18:48,950 --> 00:18:48,960
+which is this here I'm using the service
+ 
+
+813
+00:18:48,960 --> 00:18:52,310
+which is this here I'm using the service
+name now the difference which comes in
+
+814
+00:18:52,310 --> 00:18:52,320
+name now the difference which comes in
+ 
+
+815
+00:18:52,320 --> 00:18:55,190
+name now the difference which comes in
+that first
+
+816
+00:18:55,190 --> 00:18:55,200
+that first
+ 
+
+817
+00:18:55,200 --> 00:18:57,750
+that first
+in your application let's say this is my
+
+818
+00:18:57,750 --> 00:18:57,760
+in your application let's say this is my
+ 
+
+819
+00:18:57,760 --> 00:18:59,430
+in your application let's say this is my
+order application in the order service
+
+820
+00:18:59,430 --> 00:18:59,440
+order application in the order service
+ 
+
+821
+00:18:59,440 --> 00:19:03,350
+order application in the order service
+application we have to put load balancer
+
+822
+00:19:03,350 --> 00:19:03,360
+application we have to put load balancer
+ 
+
+823
+00:19:03,360 --> 00:19:06,310
+application we have to put load balancer
+client annotation okay in this load
+
+824
+00:19:06,310 --> 00:19:06,320
+client annotation okay in this load
+ 
+
+825
+00:19:06,320 --> 00:19:09,669
+client annotation okay in this load
+balancer client annotation we tell that
+
+826
+00:19:09,669 --> 00:19:09,679
+balancer client annotation we tell that
+ 
+
+827
+00:19:09,679 --> 00:19:13,190
+balancer client annotation we tell that
+hey for this service product service
+
+828
+00:19:13,190 --> 00:19:13,200
+hey for this service product service
+ 
+
+829
+00:19:13,200 --> 00:19:15,750
+hey for this service product service
+this is the configuration which we have
+
+830
+00:19:15,750 --> 00:19:15,760
+this is the configuration which we have
+ 
+
+831
+00:19:15,760 --> 00:19:19,270
+this is the configuration which we have
+to use okay so this is very very
+
+832
+00:19:19,270 --> 00:19:19,280
+to use okay so this is very very
+ 
+
+833
+00:19:19,280 --> 00:19:21,990
+to use okay so this is very very
+specific for the load balancer
+
+834
+00:19:21,990 --> 00:19:22,000
+specific for the load balancer
+ 
+
+835
+00:19:22,000 --> 00:19:24,230
+specific for the load balancer
+okay so now here if you see I have
+
+836
+00:19:24,230 --> 00:19:24,240
+okay so now here if you see I have
+ 
+
+837
+00:19:24,240 --> 00:19:26,789
+okay so now here if you see I have
+provided a load balancer product client
+
+838
+00:19:26,789 --> 00:19:26,799
+provided a load balancer product client
+ 
+
+839
+00:19:26,799 --> 00:19:30,390
+provided a load balancer product client
+config load balancer product client this
+
+840
+00:19:30,390 --> 00:19:30,400
+config load balancer product client this
+ 
+
+841
+00:19:30,400 --> 00:19:32,789
+config load balancer product client this
+is very very specific
+
+842
+00:19:32,789 --> 00:19:32,799
+is very very specific
+ 
+
+843
+00:19:32,799 --> 00:19:36,470
+is very very specific
+just see it red again load balancer
+
+844
+00:19:36,470 --> 00:19:36,480
+just see it red again load balancer
+ 
+
+845
+00:19:36,480 --> 00:19:39,270
+just see it red again load balancer
+client this client is for name is
+
+846
+00:19:39,270 --> 00:19:39,280
+client this client is for name is
+ 
+
+847
+00:19:39,280 --> 00:19:41,350
+client this client is for name is
+product service so I am writing this
+
+848
+00:19:41,350 --> 00:19:41,360
+product service so I am writing this
+ 
+
+849
+00:19:41,360 --> 00:19:43,830
+product service so I am writing this
+config very very specific for this
+
+850
+00:19:43,830 --> 00:19:43,840
+config very very specific for this
+ 
+
+851
+00:19:43,840 --> 00:19:46,230
+config very very specific for this
+product service very very specific for
+
+852
+00:19:46,230 --> 00:19:46,240
+product service very very specific for
+ 
+
+853
+00:19:46,240 --> 00:19:48,549
+product service very very specific for
+this product service okay so I have
+
+854
+00:19:48,549 --> 00:19:48,559
+this product service okay so I have
+ 
+
+855
+00:19:48,559 --> 00:19:51,190
+this product service okay so I have
+written this configuration and now here
+
+856
+00:19:51,190 --> 00:19:51,200
+written this configuration and now here
+ 
+
+857
+00:19:51,200 --> 00:19:55,430
+written this configuration and now here
+if you see I am creating reactor load
+
+858
+00:19:55,430 --> 00:19:55,440
+if you see I am creating reactor load
+ 
+
+859
+00:19:55,440 --> 00:19:57,270
+if you see I am creating reactor load
+balancer so I am creating from this
+
+860
+00:19:57,270 --> 00:19:57,280
+balancer so I am creating from this
+ 
+
+861
+00:19:57,280 --> 00:19:59,830
+balancer so I am creating from this
+hierarchy you know that all this rand
+
+862
+00:19:59,830 --> 00:19:59,840
+hierarchy you know that all this rand
+ 
+
+863
+00:19:59,840 --> 00:20:02,470
+hierarchy you know that all this rand
+round robin random these are the
+
+864
+00:20:02,470 --> 00:20:02,480
+round robin random these are the
+ 
+
+865
+00:20:02,480 --> 00:20:06,230
+round robin random these are the
+hierarchy so it returns the object of
+
+866
+00:20:06,230 --> 00:20:06,240
+hierarchy so it returns the object of
+ 
+
+867
+00:20:06,240 --> 00:20:10,150
+hierarchy so it returns the object of
+this one reactor load balancer okay
+
+868
+00:20:10,150 --> 00:20:10,160
+this one reactor load balancer okay
+ 
+
+869
+00:20:10,160 --> 00:20:13,990
+this one reactor load balancer okay
+So I am returning now random load
+
+870
+00:20:13,990 --> 00:20:14,000
+So I am returning now random load
+ 
+
+871
+00:20:14,000 --> 00:20:15,510
+So I am returning now random load
+balancer.
+
+872
+00:20:15,510 --> 00:20:15,520
+balancer.
+ 
+
+873
+00:20:15,520 --> 00:20:18,310
+balancer.
+I am returning now random load balancer.
+
+874
+00:20:18,310 --> 00:20:18,320
+I am returning now random load balancer.
+ 
+
+875
+00:20:18,320 --> 00:20:22,230
+I am returning now random load balancer.
+But slowly understand it what exactly
+
+876
+00:20:22,230 --> 00:20:22,240
+But slowly understand it what exactly
+ 
+
+877
+00:20:22,240 --> 00:20:25,990
+But slowly understand it what exactly
+happened. So first by first
+
+878
+00:20:25,990 --> 00:20:26,000
+happened. So first by first
+ 
+
+879
+00:20:26,000 --> 00:20:29,110
+happened. So first by first
+let's start it from here.
+
+880
+00:20:29,110 --> 00:20:29,120
+let's start it from here.
+ 
+
+881
+00:20:29,120 --> 00:20:31,830
+let's start it from here.
+This config this load balancer product
+
+882
+00:20:31,830 --> 00:20:31,840
+This config this load balancer product
+ 
+
+883
+00:20:31,840 --> 00:20:34,310
+This config this load balancer product
+client config is different from this
+
+884
+00:20:34,310 --> 00:20:34,320
+client config is different from this
+ 
+
+885
+00:20:34,320 --> 00:20:37,510
+client config is different from this
+normal config class. Here I have created
+
+886
+00:20:37,510 --> 00:20:37,520
+normal config class. Here I have created
+ 
+
+887
+00:20:37,520 --> 00:20:40,310
+normal config class. Here I have created
+this uh configuration class. Right? You
+
+888
+00:20:40,310 --> 00:20:40,320
+this uh configuration class. Right? You
+ 
+
+889
+00:20:40,320 --> 00:20:42,149
+this uh configuration class. Right? You
+already understand that when you start
+
+890
+00:20:42,149 --> 00:20:42,159
+already understand that when you start
+ 
+
+891
+00:20:42,159 --> 00:20:43,990
+already understand that when you start
+an application, when you start an
+
+892
+00:20:43,990 --> 00:20:44,000
+an application, when you start an
+ 
+
+893
+00:20:44,000 --> 00:20:46,470
+an application, when you start an
+application, what would happen is this
+
+894
+00:20:46,470 --> 00:20:46,480
+application, what would happen is this
+ 
+
+895
+00:20:46,480 --> 00:20:49,590
+application, what would happen is this
+bean will get created at the time of
+
+896
+00:20:49,590 --> 00:20:49,600
+bean will get created at the time of
+ 
+
+897
+00:20:49,600 --> 00:20:52,149
+bean will get created at the time of
+startup. Correct?
+
+898
+00:20:52,149 --> 00:20:52,159
+startup. Correct?
+ 
+
+899
+00:20:52,159 --> 00:20:55,110
+startup. Correct?
+This is different. This configuration is
+
+900
+00:20:55,110 --> 00:20:55,120
+This is different. This configuration is
+ 
+
+901
+00:20:55,120 --> 00:20:57,669
+This is different. This configuration is
+lazy. This configuration is different.
+
+902
+00:20:57,669 --> 00:20:57,679
+lazy. This configuration is different.
+ 
+
+903
+00:20:57,679 --> 00:20:59,270
+lazy. This configuration is different.
+Load balancer configuration is
+
+904
+00:20:59,270 --> 00:20:59,280
+Load balancer configuration is
+ 
+
+905
+00:20:59,280 --> 00:21:02,470
+Load balancer configuration is
+different. the configuration again I'm
+
+906
+00:21:02,470 --> 00:21:02,480
+different. the configuration again I'm
+ 
+
+907
+00:21:02,480 --> 00:21:03,909
+different. the configuration again I'm
+saying the configuration which is
+
+908
+00:21:03,909 --> 00:21:03,919
+saying the configuration which is
+ 
+
+909
+00:21:03,919 --> 00:21:07,270
+saying the configuration which is
+associated with load balancer client is
+
+910
+00:21:07,270 --> 00:21:07,280
+associated with load balancer client is
+ 
+
+911
+00:21:07,280 --> 00:21:10,230
+associated with load balancer client is
+different from the normal config class
+
+912
+00:21:10,230 --> 00:21:10,240
+different from the normal config class
+ 
+
+913
+00:21:10,240 --> 00:21:13,270
+different from the normal config class
+because normal config class like above
+
+914
+00:21:13,270 --> 00:21:13,280
+because normal config class like above
+ 
+
+915
+00:21:13,280 --> 00:21:15,669
+because normal config class like above
+where we are creating an object of rest
+
+916
+00:21:15,669 --> 00:21:15,679
+where we are creating an object of rest
+ 
+
+917
+00:21:15,679 --> 00:21:18,390
+where we are creating an object of rest
+template right like this
+
+918
+00:21:18,390 --> 00:21:18,400
+template right like this
+ 
+
+919
+00:21:18,400 --> 00:21:21,110
+template right like this
+get invokes at application startup only
+
+920
+00:21:21,110 --> 00:21:21,120
+get invokes at application startup only
+ 
+
+921
+00:21:21,120 --> 00:21:24,789
+get invokes at application startup only
+all the beans will get created but this
+
+922
+00:21:24,789 --> 00:21:24,799
+all the beans will get created but this
+ 
+
+923
+00:21:24,799 --> 00:21:26,950
+all the beans will get created but this
+load balancer client config right this
+
+924
+00:21:26,950 --> 00:21:26,960
+load balancer client config right this
+ 
+
+925
+00:21:26,960 --> 00:21:28,789
+load balancer client config right this
+load balancer config whatever you will
+
+926
+00:21:28,789 --> 00:21:28,799
+load balancer config whatever you will
+ 
+
+927
+00:21:28,799 --> 00:21:30,710
+load balancer config whatever you will
+define the config here for the load
+
+928
+00:21:30,710 --> 00:21:30,720
+define the config here for the load
+ 
+
+929
+00:21:30,720 --> 00:21:34,950
+define the config here for the load
+balancer invokes at runtime two.
+
+930
+00:21:34,950 --> 00:21:34,960
+balancer invokes at runtime two.
+ 
+
+931
+00:21:34,960 --> 00:21:36,789
+balancer invokes at runtime two.
+So whenever you are going to invoke this
+
+932
+00:21:36,789 --> 00:21:36,799
+So whenever you are going to invoke this
+ 
+
+933
+00:21:36,799 --> 00:21:41,190
+So whenever you are going to invoke this
+right http colon product service some
+
+934
+00:21:41,190 --> 00:21:41,200
+right http colon product service some
+ 
+
+935
+00:21:41,200 --> 00:21:43,750
+right http colon product service some
+relative path whenever you are trying to
+
+936
+00:21:43,750 --> 00:21:43,760
+relative path whenever you are trying to
+ 
+
+937
+00:21:43,760 --> 00:21:48,310
+relative path whenever you are trying to
+invoke this endpoint product service at
+
+938
+00:21:48,310 --> 00:21:48,320
+invoke this endpoint product service at
+ 
+
+939
+00:21:48,320 --> 00:21:51,029
+invoke this endpoint product service at
+that point of time this configuration
+
+940
+00:21:51,029 --> 00:21:51,039
+that point of time this configuration
+ 
+
+941
+00:21:51,039 --> 00:21:53,909
+that point of time this configuration
+will invoke also
+
+942
+00:21:53,909 --> 00:21:53,919
+will invoke also
+ 
+
+943
+00:21:53,919 --> 00:21:56,230
+will invoke also
+okay at that point of time it will
+
+944
+00:21:56,230 --> 00:21:56,240
+okay at that point of time it will
+ 
+
+945
+00:21:56,240 --> 00:21:58,470
+okay at that point of time it will
+decide what is the load balancing
+
+946
+00:21:58,470 --> 00:21:58,480
+decide what is the load balancing
+ 
+
+947
+00:21:58,480 --> 00:22:01,190
+decide what is the load balancing
+algorithm you are picking
+
+948
+00:22:01,190 --> 00:22:01,200
+algorithm you are picking
+ 
+
+949
+00:22:01,200 --> 00:22:03,669
+algorithm you are picking
+why I will tell you the reason for it
+
+950
+00:22:03,669 --> 00:22:03,679
+why I will tell you the reason for it
+ 
+
+951
+00:22:03,679 --> 00:22:05,110
+why I will tell you the reason for it
+also when we
+
+952
+00:22:05,110 --> 00:22:05,120
+also when we
+ 
+
+953
+00:22:05,120 --> 00:22:08,070
+also when we
+go for the global. Okay, but remember
+
+954
+00:22:08,070 --> 00:22:08,080
+go for the global. Okay, but remember
+ 
+
+955
+00:22:08,080 --> 00:22:12,070
+go for the global. Okay, but remember
+this, this is very important.
+
+956
+00:22:12,070 --> 00:22:12,080
+
+ 
+
+957
+00:22:12,080 --> 00:22:13,990
+
+This config differs from the normal
+
+958
+00:22:13,990 --> 00:22:14,000
+This config differs from the normal
+ 
+
+959
+00:22:14,000 --> 00:22:16,710
+This config differs from the normal
+config because this configuration load
+
+960
+00:22:16,710 --> 00:22:16,720
+config because this configuration load
+ 
+
+961
+00:22:16,720 --> 00:22:19,110
+config because this configuration load
+balancer configuration
+
+962
+00:22:19,110 --> 00:22:19,120
+balancer configuration
+ 
+
+963
+00:22:19,120 --> 00:22:23,350
+balancer configuration
+invokes at runtime two. Okay, so that is
+
+964
+00:22:23,350 --> 00:22:23,360
+invokes at runtime two. Okay, so that is
+ 
+
+965
+00:22:23,360 --> 00:22:25,590
+invokes at runtime two. Okay, so that is
+first part. The second part is now here
+
+966
+00:22:25,590 --> 00:22:25,600
+first part. The second part is now here
+ 
+
+967
+00:22:25,600 --> 00:22:27,430
+first part. The second part is now here
+if you see when I am creating a random
+
+968
+00:22:27,430 --> 00:22:27,440
+if you see when I am creating a random
+ 
+
+969
+00:22:27,440 --> 00:22:31,270
+if you see when I am creating a random
+load balancer this random load balancer
+
+970
+00:22:31,270 --> 00:22:31,280
+load balancer this random load balancer
+ 
+
+971
+00:22:31,280 --> 00:22:33,990
+load balancer this random load balancer
+constructor takes two
+
+972
+00:22:33,990 --> 00:22:34,000
+constructor takes two
+ 
+
+973
+00:22:34,000 --> 00:22:36,149
+constructor takes two
+parameter one is service instance list
+
+974
+00:22:36,149 --> 00:22:36,159
+parameter one is service instance list
+ 
+
+975
+00:22:36,159 --> 00:22:40,549
+parameter one is service instance list
+supplier another is service ID. Okay. So
+
+976
+00:22:40,549 --> 00:22:40,559
+supplier another is service ID. Okay. So
+ 
+
+977
+00:22:40,559 --> 00:22:43,510
+supplier another is service ID. Okay. So
+now here this is the this will return me
+
+978
+00:22:43,510 --> 00:22:43,520
+now here this is the this will return me
+ 
+
+979
+00:22:43,520 --> 00:22:46,549
+now here this is the this will return me
+an object of service instance list
+
+980
+00:22:46,549 --> 00:22:46,559
+an object of service instance list
+ 
+
+981
+00:22:46,559 --> 00:22:49,510
+an object of service instance list
+supplier this one. So what is the use of
+
+982
+00:22:49,510 --> 00:22:49,520
+supplier this one. So what is the use of
+ 
+
+983
+00:22:49,520 --> 00:22:52,149
+supplier this one. So what is the use of
+this service instance list supplier?
+
+984
+00:22:52,149 --> 00:22:52,159
+this service instance list supplier?
+ 
+
+985
+00:22:52,159 --> 00:22:55,029
+this service instance list supplier?
+This object service instance list
+
+986
+00:22:55,029 --> 00:22:55,039
+This object service instance list
+ 
+
+987
+00:22:55,039 --> 00:22:58,390
+This object service instance list
+supplier is actually the one which helps
+
+988
+00:22:58,390 --> 00:22:58,400
+supplier is actually the one which helps
+ 
+
+989
+00:22:58,400 --> 00:23:00,950
+supplier is actually the one which helps
+to invoke the service discovery. So
+
+990
+00:23:00,950 --> 00:23:00,960
+to invoke the service discovery. So
+ 
+
+991
+00:23:00,960 --> 00:23:04,310
+to invoke the service discovery. So
+using this object using this supplier
+
+992
+00:23:04,310 --> 00:23:04,320
+using this object using this supplier
+ 
+
+993
+00:23:04,320 --> 00:23:07,990
+using this object using this supplier
+object service instance list supplier
+
+994
+00:23:07,990 --> 00:23:08,000
+object service instance list supplier
+ 
+
+995
+00:23:08,000 --> 00:23:11,110
+object service instance list supplier
+using this object we invoke the service
+
+996
+00:23:11,110 --> 00:23:11,120
+using this object we invoke the service
+ 
+
+997
+00:23:11,120 --> 00:23:15,909
+using this object we invoke the service
+discovery. Okay. And for what uh what
+
+998
+00:23:15,909 --> 00:23:15,919
+discovery. Okay. And for what uh what
+ 
+
+999
+00:23:15,919 --> 00:23:18,710
+discovery. Okay. And for what uh what
+name what server we have to ask for
+
+1000
+00:23:18,710 --> 00:23:18,720
+name what server we have to ask for
+ 
+
+1001
+00:23:18,720 --> 00:23:22,630
+name what server we have to ask for
+instance is this one product service. So
+
+1002
+00:23:22,630 --> 00:23:22,640
+instance is this one product service. So
+ 
+
+1003
+00:23:22,640 --> 00:23:25,110
+instance is this one product service. So
+that's what it it gives us a lazy object
+
+1004
+00:23:25,110 --> 00:23:25,120
+that's what it it gives us a lazy object
+ 
+
+1005
+00:23:25,120 --> 00:23:28,630
+that's what it it gives us a lazy object
+means it's not call now okay whenever we
+
+1006
+00:23:28,630 --> 00:23:28,640
+means it's not call now okay whenever we
+ 
+
+1007
+00:23:28,640 --> 00:23:30,870
+means it's not call now okay whenever we
+call it whenever we required it then
+
+1008
+00:23:30,870 --> 00:23:30,880
+call it whenever we required it then
+ 
+
+1009
+00:23:30,880 --> 00:23:33,110
+call it whenever we required it then
+only its object will provide it to us.
+
+1010
+00:23:33,110 --> 00:23:33,120
+only its object will provide it to us.
+ 
+
+1011
+00:23:33,120 --> 00:23:36,149
+only its object will provide it to us.
+So it give us an object lazily that's
+
+1012
+00:23:36,149 --> 00:23:36,159
+So it give us an object lazily that's
+ 
+
+1013
+00:23:36,159 --> 00:23:39,669
+So it give us an object lazily that's
+what generally it does. So the first
+
+1014
+00:23:39,669 --> 00:23:39,679
+what generally it does. So the first
+ 
+
+1015
+00:23:39,679 --> 00:23:41,590
+what generally it does. So the first
+thing it does is it provides an object
+
+1016
+00:23:41,590 --> 00:23:41,600
+thing it does is it provides an object
+ 
+
+1017
+00:23:41,600 --> 00:23:44,789
+thing it does is it provides an object
+of the service instance list supplier.
+
+1018
+00:23:44,789 --> 00:23:44,799
+of the service instance list supplier.
+ 
+
+1019
+00:23:44,799 --> 00:23:47,350
+of the service instance list supplier.
+Using this we will invoke service
+
+1020
+00:23:47,350 --> 00:23:47,360
+Using this we will invoke service
+ 
+
+1021
+00:23:47,360 --> 00:23:48,870
+Using this we will invoke service
+discovery
+
+1022
+00:23:48,870 --> 00:23:48,880
+discovery
+ 
+
+1023
+00:23:48,880 --> 00:23:51,590
+discovery
+for which instance this instance product
+
+1024
+00:23:51,590 --> 00:23:51,600
+for which instance this instance product
+ 
+
+1025
+00:23:51,600 --> 00:23:55,430
+for which instance this instance product
+service. Now the second is this product
+
+1026
+00:23:55,430 --> 00:23:55,440
+service. Now the second is this product
+ 
+
+1027
+00:23:55,440 --> 00:23:57,909
+service. Now the second is this product
+hyphen service. Why we need this? I told
+
+1028
+00:23:57,909 --> 00:23:57,919
+hyphen service. Why we need this? I told
+ 
+
+1029
+00:23:57,919 --> 00:24:01,350
+hyphen service. Why we need this? I told
+you each load balancing algorithm. Here
+
+1030
+00:24:01,350 --> 00:24:01,360
+you each load balancing algorithm. Here
+ 
+
+1031
+00:24:01,360 --> 00:24:03,750
+you each load balancing algorithm. Here
+I am picking random load balancer is
+
+1032
+00:24:03,750 --> 00:24:03,760
+I am picking random load balancer is
+ 
+
+1033
+00:24:03,760 --> 00:24:06,549
+I am picking random load balancer is
+associated with a particular service ID
+
+1034
+00:24:06,549 --> 00:24:06,559
+associated with a particular service ID
+ 
+
+1035
+00:24:06,559 --> 00:24:10,230
+associated with a particular service ID
+or client name. So that's where so this
+
+1036
+00:24:10,230 --> 00:24:10,240
+or client name. So that's where so this
+ 
+
+1037
+00:24:10,240 --> 00:24:12,230
+or client name. So that's where so this
+random load balancer is now associated
+
+1038
+00:24:12,230 --> 00:24:12,240
+random load balancer is now associated
+ 
+
+1039
+00:24:12,240 --> 00:24:15,669
+random load balancer is now associated
+with this service ID. Only when you are
+
+1040
+00:24:15,669 --> 00:24:15,679
+with this service ID. Only when you are
+ 
+
+1041
+00:24:15,679 --> 00:24:17,990
+with this service ID. Only when you are
+invoking this product hyphen service
+
+1042
+00:24:17,990 --> 00:24:18,000
+invoking this product hyphen service
+ 
+
+1043
+00:24:18,000 --> 00:24:20,549
+invoking this product hyphen service
+then only random load balancer is used
+
+1044
+00:24:20,549 --> 00:24:20,559
+then only random load balancer is used
+ 
+
+1045
+00:24:20,559 --> 00:24:23,909
+then only random load balancer is used
+otherwise it is not used.
+
+1046
+00:24:23,909 --> 00:24:23,919
+otherwise it is not used.
+ 
+
+1047
+00:24:23,919 --> 00:24:25,669
+otherwise it is not used.
+Okay.
+
+1048
+00:24:25,669 --> 00:24:25,679
+Okay.
+ 
+
+1049
+00:24:25,679 --> 00:24:29,909
+Okay.
+So again very simple uh we have to first
+
+1050
+00:24:29,909 --> 00:24:29,919
+So again very simple uh we have to first
+ 
+
+1051
+00:24:29,919 --> 00:24:33,510
+So again very simple uh we have to first
+annotate it with in your application
+
+1052
+00:24:33,510 --> 00:24:33,520
+annotate it with in your application
+ 
+
+1053
+00:24:33,520 --> 00:24:36,310
+annotate it with in your application
+load balancer client annotation
+
+1054
+00:24:36,310 --> 00:24:36,320
+load balancer client annotation
+ 
+
+1055
+00:24:36,320 --> 00:24:40,070
+load balancer client annotation
+we will provide a name for which service
+
+1056
+00:24:40,070 --> 00:24:40,080
+we will provide a name for which service
+ 
+
+1057
+00:24:40,080 --> 00:24:42,390
+we will provide a name for which service
+which configuration has to look for. So
+
+1058
+00:24:42,390 --> 00:24:42,400
+which configuration has to look for. So
+ 
+
+1059
+00:24:42,400 --> 00:24:44,310
+which configuration has to look for. So
+product hyphen service go for this
+
+1060
+00:24:44,310 --> 00:24:44,320
+product hyphen service go for this
+ 
+
+1061
+00:24:44,320 --> 00:24:47,269
+product hyphen service go for this
+configuration. Okay then here we have
+
+1062
+00:24:47,269 --> 00:24:47,279
+configuration. Okay then here we have
+ 
+
+1063
+00:24:47,279 --> 00:24:49,190
+configuration. Okay then here we have
+defined that which load balancing
+
+1064
+00:24:49,190 --> 00:24:49,200
+defined that which load balancing
+ 
+
+1065
+00:24:49,200 --> 00:24:54,230
+defined that which load balancing
+algorithm has to be used. Okay,
+
+1066
+00:24:54,230 --> 00:24:54,240
+algorithm has to be used. Okay,
+ 
+
+1067
+00:24:54,240 --> 00:24:57,269
+algorithm has to be used. Okay,
+that's all. Okay, so this is only we
+
+1068
+00:24:57,269 --> 00:24:57,279
+that's all. Okay, so this is only we
+ 
+
+1069
+00:24:57,279 --> 00:25:00,470
+that's all. Okay, so this is only we
+need it. But now the question comes is
+
+1070
+00:25:00,470 --> 00:25:00,480
+need it. But now the question comes is
+ 
+
+1071
+00:25:00,480 --> 00:25:03,269
+need it. But now the question comes is
+what if for product service I want
+
+1072
+00:25:03,269 --> 00:25:03,279
+what if for product service I want
+ 
+
+1073
+00:25:03,279 --> 00:25:06,549
+what if for product service I want
+algorithm A for
+
+1074
+00:25:06,549 --> 00:25:06,559
+algorithm A for
+ 
+
+1075
+00:25:06,559 --> 00:25:10,149
+algorithm A for
+order - service I want something XY Z
+
+1076
+00:25:10,149 --> 00:25:10,159
+order - service I want something XY Z
+ 
+
+1077
+00:25:10,159 --> 00:25:15,909
+order - service I want something XY Z
+algo and for all I want algorithm B.
+
+1078
+00:25:15,909 --> 00:25:15,919
+algo and for all I want algorithm B.
+ 
+
+1079
+00:25:15,919 --> 00:25:17,830
+algo and for all I want algorithm B.
+Okay. What I'm trying to say is that
+
+1080
+00:25:17,830 --> 00:25:17,840
+Okay. What I'm trying to say is that
+ 
+
+1081
+00:25:17,840 --> 00:25:18,950
+Okay. What I'm trying to say is that
+what if you have different different
+
+1082
+00:25:18,950 --> 00:25:18,960
+what if you have different different
+ 
+
+1083
+00:25:18,960 --> 00:25:21,990
+what if you have different different
+requirement. Let's say for service one I
+
+1084
+00:25:21,990 --> 00:25:22,000
+requirement. Let's say for service one I
+ 
+
+1085
+00:25:22,000 --> 00:25:24,149
+requirement. Let's say for service one I
+want algo A.
+
+1086
+00:25:24,149 --> 00:25:24,159
+want algo A.
+ 
+
+1087
+00:25:24,159 --> 00:25:27,430
+want algo A.
+For service 2 I want algo B. But for all
+
+1088
+00:25:27,430 --> 00:25:27,440
+For service 2 I want algo B. But for all
+ 
+
+1089
+00:25:27,440 --> 00:25:30,549
+For service 2 I want algo B. But for all
+of the service 3, service 4, service 5,
+
+1090
+00:25:30,549 --> 00:25:30,559
+of the service 3, service 4, service 5,
+ 
+
+1091
+00:25:30,559 --> 00:25:34,870
+of the service 3, service 4, service 5,
+I want some default elgo. Default lo
+
+1092
+00:25:34,870 --> 00:25:34,880
+I want some default elgo. Default lo
+ 
+
+1093
+00:25:34,880 --> 00:25:39,190
+I want some default elgo. Default lo
+balancing algo same for all. How we can
+
+1094
+00:25:39,190 --> 00:25:39,200
+balancing algo same for all. How we can
+ 
+
+1095
+00:25:39,200 --> 00:25:43,029
+balancing algo same for all. How we can
+do that? Again very simple the same
+
+1096
+00:25:43,029 --> 00:25:43,039
+do that? Again very simple the same
+ 
+
+1097
+00:25:43,039 --> 00:25:46,070
+do that? Again very simple the same
+thing. Now we have one more annotation
+
+1098
+00:25:46,070 --> 00:25:46,080
+thing. Now we have one more annotation
+ 
+
+1099
+00:25:46,080 --> 00:25:48,950
+thing. Now we have one more annotation
+called load balancer clients
+
+1100
+00:25:48,950 --> 00:25:48,960
+called load balancer clients
+ 
+
+1101
+00:25:48,960 --> 00:25:52,870
+called load balancer clients
+not earlier it was client
+
+1102
+00:25:52,870 --> 00:25:52,880
+not earlier it was client
+ 
+
+1103
+00:25:52,880 --> 00:25:56,950
+not earlier it was client
+client now we have is clients so the
+
+1104
+00:25:56,950 --> 00:25:56,960
+client now we have is clients so the
+ 
+
+1105
+00:25:56,960 --> 00:26:00,310
+client now we have is clients so the
+client here has two parts one is default
+
+1106
+00:26:00,310 --> 00:26:00,320
+client here has two parts one is default
+ 
+
+1107
+00:26:00,320 --> 00:26:03,830
+client here has two parts one is default
+configuration okay and another is inside
+
+1108
+00:26:03,830 --> 00:26:03,840
+configuration okay and another is inside
+ 
+
+1109
+00:26:03,840 --> 00:26:07,269
+configuration okay and another is inside
+a value we can provide comma separated
+
+1110
+00:26:07,269 --> 00:26:07,279
+a value we can provide comma separated
+ 
+
+1111
+00:26:07,279 --> 00:26:09,510
+a value we can provide comma separated
+different load balancer client so now
+
+1112
+00:26:09,510 --> 00:26:09,520
+different load balancer client so now
+ 
+
+1113
+00:26:09,520 --> 00:26:12,230
+different load balancer client so now
+let's say that one I have provided
+
+1114
+00:26:12,230 --> 00:26:12,240
+let's say that one I have provided
+ 
+
+1115
+00:26:12,240 --> 00:26:13,750
+let's say that one I have provided
+similarly at the rate load balance
+
+1116
+00:26:13,750 --> 00:26:13,760
+similarly at the rate load balance
+ 
+
+1117
+00:26:13,760 --> 00:26:15,830
+similarly at the rate load balance
+balancer client for product service.
+
+1118
+00:26:15,830 --> 00:26:15,840
+balancer client for product service.
+ 
+
+1119
+00:26:15,840 --> 00:26:18,390
+balancer client for product service.
+This is the configuration. Similarly,
+
+1120
+00:26:18,390 --> 00:26:18,400
+This is the configuration. Similarly,
+ 
+
+1121
+00:26:18,400 --> 00:26:20,390
+This is the configuration. Similarly,
+comma separated you can put load
+
+1122
+00:26:20,390 --> 00:26:20,400
+comma separated you can put load
+ 
+
+1123
+00:26:20,400 --> 00:26:24,950
+comma separated you can put load
+balancer client name order service what
+
+1124
+00:26:24,950 --> 00:26:24,960
+balancer client name order service what
+ 
+
+1125
+00:26:24,960 --> 00:26:26,950
+balancer client name order service what
+is the configuration you want to put
+
+1126
+00:26:26,950 --> 00:26:26,960
+is the configuration you want to put
+ 
+
+1127
+00:26:26,960 --> 00:26:29,830
+is the configuration you want to put
+give it. Okay. So different different
+
+1128
+00:26:29,830 --> 00:26:29,840
+give it. Okay. So different different
+ 
+
+1129
+00:26:29,840 --> 00:26:31,909
+give it. Okay. So different different
+configuration we can give for different
+
+1130
+00:26:31,909 --> 00:26:31,919
+configuration we can give for different
+ 
+
+1131
+00:26:31,919 --> 00:26:33,830
+configuration we can give for different
+different service if required different
+
+1132
+00:26:33,830 --> 00:26:33,840
+different service if required different
+ 
+
+1133
+00:26:33,840 --> 00:26:35,909
+different service if required different
+algorithm because here I can use random
+
+1134
+00:26:35,909 --> 00:26:35,919
+algorithm because here I can use random
+ 
+
+1135
+00:26:35,919 --> 00:26:38,390
+algorithm because here I can use random
+algorithm for order service I can in
+
+1136
+00:26:38,390 --> 00:26:38,400
+algorithm for order service I can in
+ 
+
+1137
+00:26:38,400 --> 00:26:39,909
+algorithm for order service I can in
+this configuration I can use some
+
+1138
+00:26:39,909 --> 00:26:39,919
+this configuration I can use some
+ 
+
+1139
+00:26:39,919 --> 00:26:42,230
+this configuration I can use some
+different algorithm for rest of the
+
+1140
+00:26:42,230 --> 00:26:42,240
+different algorithm for rest of the
+ 
+
+1141
+00:26:42,240 --> 00:26:45,909
+different algorithm for rest of the
+service I want default right so what is
+
+1142
+00:26:45,909 --> 00:26:45,919
+service I want default right so what is
+ 
+
+1143
+00:26:45,919 --> 00:26:47,750
+service I want default right so what is
+the default configuration I want to use
+
+1144
+00:26:47,750 --> 00:26:47,760
+the default configuration I want to use
+ 
+
+1145
+00:26:47,760 --> 00:26:50,230
+the default configuration I want to use
+let's say this is the load balancer
+
+1146
+00:26:50,230 --> 00:26:50,240
+let's say this is the load balancer
+ 
+
+1147
+00:26:50,240 --> 00:26:52,870
+let's say this is the load balancer
+global config plus
+
+1148
+00:26:52,870 --> 00:26:52,880
+global config plus
+ 
+
+1149
+00:26:52,880 --> 00:26:56,310
+global config plus
+okay so this is the first place where we
+
+1150
+00:26:56,310 --> 00:26:56,320
+okay so this is the first place where we
+ 
+
+1151
+00:26:56,320 --> 00:26:59,990
+okay so this is the first place where we
+have to define that for Each service one
+
+1152
+00:26:59,990 --> 00:27:00,000
+have to define that for Each service one
+ 
+
+1153
+00:27:00,000 --> 00:27:01,909
+have to define that for Each service one
+what is the algo? Algo is generally
+
+1154
+00:27:01,909 --> 00:27:01,919
+what is the algo? Algo is generally
+ 
+
+1155
+00:27:01,919 --> 00:27:03,909
+what is the algo? Algo is generally
+defined in a configuration class. So for
+
+1156
+00:27:03,909 --> 00:27:03,919
+defined in a configuration class. So for
+ 
+
+1157
+00:27:03,919 --> 00:27:05,510
+defined in a configuration class. So for
+service one what is a configuration
+
+1158
+00:27:05,510 --> 00:27:05,520
+service one what is a configuration
+ 
+
+1159
+00:27:05,520 --> 00:27:08,149
+service one what is a configuration
+class? For service two what is a
+
+1160
+00:27:08,149 --> 00:27:08,159
+class? For service two what is a
+ 
+
+1161
+00:27:08,159 --> 00:27:11,510
+class? For service two what is a
+configuration class? And default what
+
+1162
+00:27:11,510 --> 00:27:11,520
+configuration class? And default what
+ 
+
+1163
+00:27:11,520 --> 00:27:14,549
+configuration class? And default what
+are the configuration. Okay. So this is
+
+1164
+00:27:14,549 --> 00:27:14,559
+are the configuration. Okay. So this is
+ 
+
+1165
+00:27:14,559 --> 00:27:17,269
+are the configuration. Okay. So this is
+the first thing.
+
+1166
+00:27:17,269 --> 00:27:17,279
+the first thing.
+ 
+
+1167
+00:27:17,279 --> 00:27:20,390
+the first thing.
+So now here if you see that
+
+1168
+00:27:20,390 --> 00:27:20,400
+So now here if you see that
+ 
+
+1169
+00:27:20,400 --> 00:27:22,950
+So now here if you see that
+I will tell you the first the global
+
+1170
+00:27:22,950 --> 00:27:22,960
+I will tell you the first the global
+ 
+
+1171
+00:27:22,960 --> 00:27:26,230
+I will tell you the first the global
+config this default one right? default
+
+1172
+00:27:26,230 --> 00:27:26,240
+config this default one right? default
+ 
+
+1173
+00:27:26,240 --> 00:27:30,230
+config this default one right? default
+one I will tell you.
+
+1174
+00:27:30,230 --> 00:27:30,240
+
+ 
+
+1175
+00:27:30,240 --> 00:27:32,710
+
+So now here if you see this is first
+
+1176
+00:27:32,710 --> 00:27:32,720
+So now here if you see this is first
+ 
+
+1177
+00:27:32,720 --> 00:27:37,430
+So now here if you see this is first
+part and in this global configuration
+
+1178
+00:27:37,430 --> 00:27:37,440
+part and in this global configuration
+ 
+
+1179
+00:27:37,440 --> 00:27:40,149
+part and in this global configuration
+what we want to do is you recall one
+
+1180
+00:27:40,149 --> 00:27:40,159
+what we want to do is you recall one
+ 
+
+1181
+00:27:40,159 --> 00:27:43,750
+what we want to do is you recall one
+part one is each
+
+1182
+00:27:43,750 --> 00:27:43,760
+part one is each
+ 
+
+1183
+00:27:43,760 --> 00:27:47,430
+part one is each
+for each product or each service ID like
+
+1184
+00:27:47,430 --> 00:27:47,440
+for each product or each service ID like
+ 
+
+1185
+00:27:47,440 --> 00:27:50,710
+for each product or each service ID like
+a product service order service no
+
+1186
+00:27:50,710 --> 00:27:50,720
+a product service order service no
+ 
+
+1187
+00:27:50,720 --> 00:27:52,470
+a product service order service no
+matter how many service you have in your
+
+1188
+00:27:52,470 --> 00:27:52,480
+matter how many service you have in your
+ 
+
+1189
+00:27:52,480 --> 00:27:54,230
+matter how many service you have in your
+application which you are dependent on a
+
+1190
+00:27:54,230 --> 00:27:54,240
+application which you are dependent on a
+ 
+
+1191
+00:27:54,240 --> 00:27:56,549
+application which you are dependent on a
+sales service
+
+1192
+00:27:56,549 --> 00:27:56,559
+sales service
+ 
+
+1193
+00:27:56,559 --> 00:28:00,389
+sales service
+like for each one
+
+1194
+00:28:00,389 --> 00:28:00,399
+like for each one
+ 
+
+1195
+00:28:00,399 --> 00:28:05,430
+like for each one
+for each one load balancer algorithm
+
+1196
+00:28:05,430 --> 00:28:05,440
+for each one load balancer algorithm
+ 
+
+1197
+00:28:05,440 --> 00:28:07,750
+for each one load balancer algorithm
+would be mapped what algorithm have to
+
+1198
+00:28:07,750 --> 00:28:07,760
+would be mapped what algorithm have to
+ 
+
+1199
+00:28:07,760 --> 00:28:12,310
+would be mapped what algorithm have to
+be created okay so now here if you see
+
+1200
+00:28:12,310 --> 00:28:12,320
+be created okay so now here if you see
+ 
+
+1201
+00:28:12,320 --> 00:28:15,430
+be created okay so now here if you see
+that now let's say that for product
+
+1202
+00:28:15,430 --> 00:28:15,440
+that now let's say that for product
+ 
+
+1203
+00:28:15,440 --> 00:28:18,389
+that now let's say that for product
+service I have already defined that go
+
+1204
+00:28:18,389 --> 00:28:18,399
+service I have already defined that go
+ 
+
+1205
+00:28:18,399 --> 00:28:20,870
+service I have already defined that go
+for this load balancer product client so
+
+1206
+00:28:20,870 --> 00:28:20,880
+for this load balancer product client so
+ 
+
+1207
+00:28:20,880 --> 00:28:23,029
+for this load balancer product client so
+this is the first first child client
+
+1208
+00:28:23,029 --> 00:28:23,039
+this is the first first child client
+ 
+
+1209
+00:28:23,039 --> 00:28:25,190
+this is the first first child client
+config will load it then the default one
+
+1210
+00:28:25,190 --> 00:28:25,200
+config will load it then the default one
+ 
+
+1211
+00:28:25,200 --> 00:28:28,149
+config will load it then the default one
+so it has an order so First all the
+
+1212
+00:28:28,149 --> 00:28:28,159
+so it has an order so First all the
+ 
+
+1213
+00:28:28,159 --> 00:28:30,470
+so it has an order so First all the
+childs if there are more child load
+
+1214
+00:28:30,470 --> 00:28:30,480
+childs if there are more child load
+ 
+
+1215
+00:28:30,480 --> 00:28:33,510
+childs if there are more child load
+balancer client that bean will get
+
+1216
+00:28:33,510 --> 00:28:33,520
+balancer client that bean will get
+ 
+
+1217
+00:28:33,520 --> 00:28:35,830
+balancer client that bean will get
+created. After that the default one will
+
+1218
+00:28:35,830 --> 00:28:35,840
+created. After that the default one will
+ 
+
+1219
+00:28:35,840 --> 00:28:39,990
+created. After that the default one will
+get created. Okay. So now let's say that
+
+1220
+00:28:39,990 --> 00:28:40,000
+get created. Okay. So now let's say that
+ 
+
+1221
+00:28:40,000 --> 00:28:41,990
+get created. Okay. So now let's say that
+for product service it goes to this
+
+1222
+00:28:41,990 --> 00:28:42,000
+for product service it goes to this
+ 
+
+1223
+00:28:42,000 --> 00:28:44,230
+for product service it goes to this
+particular load balancer product client
+
+1224
+00:28:44,230 --> 00:28:44,240
+particular load balancer product client
+ 
+
+1225
+00:28:44,240 --> 00:28:47,110
+particular load balancer product client
+config. Okay. There it's we have already
+
+1226
+00:28:47,110 --> 00:28:47,120
+config. Okay. There it's we have already
+ 
+
+1227
+00:28:47,120 --> 00:28:49,590
+config. Okay. There it's we have already
+seen that how we can attach a particular
+
+1228
+00:28:49,590 --> 00:28:49,600
+seen that how we can attach a particular
+ 
+
+1229
+00:28:49,600 --> 00:28:52,070
+seen that how we can attach a particular
+algorithm to a product service. But now
+
+1230
+00:28:52,070 --> 00:28:52,080
+algorithm to a product service. But now
+ 
+
+1231
+00:28:52,080 --> 00:28:55,909
+algorithm to a product service. But now
+let's say for these two I want
+
+1232
+00:28:55,909 --> 00:28:55,919
+let's say for these two I want
+ 
+
+1233
+00:28:55,919 --> 00:28:57,909
+let's say for these two I want
+common algorithm like a default or even
+
+1234
+00:28:57,909 --> 00:28:57,919
+common algorithm like a default or even
+ 
+
+1235
+00:28:57,919 --> 00:29:00,789
+common algorithm like a default or even
+if I have more XY Z service for all
+
+1236
+00:29:00,789 --> 00:29:00,799
+if I have more XY Z service for all
+ 
+
+1237
+00:29:00,799 --> 00:29:06,310
+if I have more XY Z service for all
+these three my service I need one common
+
+1238
+00:29:06,310 --> 00:29:06,320
+these three my service I need one common
+ 
+
+1239
+00:29:06,320 --> 00:29:09,269
+these three my service I need one common
+algorithm one common algorithm for this
+
+1240
+00:29:09,269 --> 00:29:09,279
+algorithm one common algorithm for this
+ 
+
+1241
+00:29:09,279 --> 00:29:12,230
+algorithm one common algorithm for this
+one so
+
+1242
+00:29:12,230 --> 00:29:12,240
+one so
+ 
+
+1243
+00:29:12,240 --> 00:29:14,950
+one so
+while defining while defining a new
+
+1244
+00:29:14,950 --> 00:29:14,960
+while defining while defining a new
+ 
+
+1245
+00:29:14,960 --> 00:29:18,549
+while defining while defining a new
+roundroin load balancer I told you that
+
+1246
+00:29:18,549 --> 00:29:18,559
+roundroin load balancer I told you that
+ 
+
+1247
+00:29:18,559 --> 00:29:20,470
+roundroin load balancer I told you that
+it's attached with the particular
+
+1248
+00:29:20,470 --> 00:29:20,480
+it's attached with the particular
+ 
+
+1249
+00:29:20,480 --> 00:29:21,830
+it's attached with the particular
+service ID
+
+1250
+00:29:21,830 --> 00:29:21,840
+service ID
+ 
+
+1251
+00:29:21,840 --> 00:29:24,710
+service ID
+Now this is dynamic right
+
+1252
+00:29:24,710 --> 00:29:24,720
+Now this is dynamic right
+ 
+
+1253
+00:29:24,720 --> 00:29:26,549
+Now this is dynamic right
+we have order service we have sales
+
+1254
+00:29:26,549 --> 00:29:26,559
+we have order service we have sales
+ 
+
+1255
+00:29:26,559 --> 00:29:29,110
+we have order service we have sales
+service we have XYZ service we can't
+
+1256
+00:29:29,110 --> 00:29:29,120
+service we have XYZ service we can't
+ 
+
+1257
+00:29:29,120 --> 00:29:31,909
+service we have XYZ service we can't
+hardcode it at this place we can't
+
+1258
+00:29:31,909 --> 00:29:31,919
+hardcode it at this place we can't
+ 
+
+1259
+00:29:31,919 --> 00:29:35,430
+hardcode it at this place we can't
+hardcode it right it's it is dynamic at
+
+1260
+00:29:35,430 --> 00:29:35,440
+hardcode it right it's it is dynamic at
+ 
+
+1261
+00:29:35,440 --> 00:29:38,070
+hardcode it right it's it is dynamic at
+runtime that is one of the reason if you
+
+1262
+00:29:38,070 --> 00:29:38,080
+runtime that is one of the reason if you
+ 
+
+1263
+00:29:38,080 --> 00:29:40,950
+runtime that is one of the reason if you
+remember I told you all the load
+
+1264
+00:29:40,950 --> 00:29:40,960
+remember I told you all the load
+ 
+
+1265
+00:29:40,960 --> 00:29:43,750
+remember I told you all the load
+balancer configuration
+
+1266
+00:29:43,750 --> 00:29:43,760
+balancer configuration
+ 
+
+1267
+00:29:43,760 --> 00:29:47,510
+balancer configuration
+loads at runtime like which service you
+
+1268
+00:29:47,510 --> 00:29:47,520
+loads at runtime like which service you
+ 
+
+1269
+00:29:47,520 --> 00:29:49,590
+loads at runtime like which service you
+are invoking
+
+1270
+00:29:49,590 --> 00:29:49,600
+are invoking
+ 
+
+1271
+00:29:49,600 --> 00:29:51,669
+are invoking
+okay now let's say that you are invoking
+
+1272
+00:29:51,669 --> 00:29:51,679
+okay now let's say that you are invoking
+ 
+
+1273
+00:29:51,679 --> 00:29:54,789
+okay now let's say that you are invoking
+order - service at runtime. So at
+
+1274
+00:29:54,789 --> 00:29:54,799
+order - service at runtime. So at
+ 
+
+1275
+00:29:54,799 --> 00:29:57,269
+order - service at runtime. So at
+runtime from the environment it will get
+
+1276
+00:29:57,269 --> 00:29:57,279
+runtime from the environment it will get
+ 
+
+1277
+00:29:57,279 --> 00:30:00,230
+runtime from the environment it will get
+a property name. So this is will give
+
+1278
+00:30:00,230 --> 00:30:00,240
+a property name. So this is will give
+ 
+
+1279
+00:30:00,240 --> 00:30:03,190
+a property name. So this is will give
+you the service ID dynamically.
+
+1280
+00:30:03,190 --> 00:30:03,200
+you the service ID dynamically.
+ 
+
+1281
+00:30:03,200 --> 00:30:05,750
+you the service ID dynamically.
+And now like similarly I can create an
+
+1282
+00:30:05,750 --> 00:30:05,760
+And now like similarly I can create an
+ 
+
+1283
+00:30:05,760 --> 00:30:08,070
+And now like similarly I can create an
+object of a roundroin load balancer like
+
+1284
+00:30:08,070 --> 00:30:08,080
+object of a roundroin load balancer like
+ 
+
+1285
+00:30:08,080 --> 00:30:10,710
+object of a roundroin load balancer like
+whatever the algorithm you want to pick
+
+1286
+00:30:10,710 --> 00:30:10,720
+whatever the algorithm you want to pick
+ 
+
+1287
+00:30:10,720 --> 00:30:12,710
+whatever the algorithm you want to pick
+I can create a roundroin load balancer
+
+1288
+00:30:12,710 --> 00:30:12,720
+I can create a roundroin load balancer
+ 
+
+1289
+00:30:12,720 --> 00:30:15,029
+I can create a roundroin load balancer
+algorithm and I can put a service ID. I
+
+1290
+00:30:15,029 --> 00:30:15,039
+algorithm and I can put a service ID. I
+ 
+
+1291
+00:30:15,039 --> 00:30:17,750
+algorithm and I can put a service ID. I
+don't have to hardcode it now. Okay. So
+
+1292
+00:30:17,750 --> 00:30:17,760
+don't have to hardcode it now. Okay. So
+ 
+
+1293
+00:30:17,760 --> 00:30:21,190
+don't have to hardcode it now. Okay. So
+I put a service ID and this is the same
+
+1294
+00:30:21,190 --> 00:30:21,200
+I put a service ID and this is the same
+ 
+
+1295
+00:30:21,200 --> 00:30:23,350
+I put a service ID and this is the same
+here service ID used which is used for
+
+1296
+00:30:23,350 --> 00:30:23,360
+here service ID used which is used for
+ 
+
+1297
+00:30:23,360 --> 00:30:27,750
+here service ID used which is used for
+service discovery that hey use this
+
+1298
+00:30:27,750 --> 00:30:27,760
+service discovery that hey use this
+ 
+
+1299
+00:30:27,760 --> 00:30:29,190
+service discovery that hey use this
+call the service discovery for this
+
+1300
+00:30:29,190 --> 00:30:29,200
+call the service discovery for this
+ 
+
+1301
+00:30:29,200 --> 00:30:31,750
+call the service discovery for this
+service ID.
+
+1302
+00:30:31,750 --> 00:30:31,760
+service ID.
+ 
+
+1303
+00:30:31,760 --> 00:30:34,630
+service ID.
+Okay. Now when you are trying to invoke
+
+1304
+00:30:34,630 --> 00:30:34,640
+Okay. Now when you are trying to invoke
+ 
+
+1305
+00:30:34,640 --> 00:30:37,029
+Okay. Now when you are trying to invoke
+sales service
+
+1306
+00:30:37,029 --> 00:30:37,039
+sales service
+ 
+
+1307
+00:30:37,039 --> 00:30:41,269
+sales service
+with this dynamic runtime it will get a
+
+1308
+00:30:41,269 --> 00:30:41,279
+with this dynamic runtime it will get a
+ 
+
+1309
+00:30:41,279 --> 00:30:45,510
+with this dynamic runtime it will get a
+context get this config invoke this.
+
+1310
+00:30:45,510 --> 00:30:45,520
+context get this config invoke this.
+ 
+
+1311
+00:30:45,520 --> 00:30:47,510
+context get this config invoke this.
+Now this service ID would be salesy
+
+1312
+00:30:47,510 --> 00:30:47,520
+Now this service ID would be salesy
+ 
+
+1313
+00:30:47,520 --> 00:30:50,070
+Now this service ID would be salesy
+service. Now this algorithm now also
+
+1314
+00:30:50,070 --> 00:30:50,080
+service. Now this algorithm now also
+ 
+
+1315
+00:30:50,080 --> 00:30:52,950
+service. Now this algorithm now also
+attached with this service ID also. So
+
+1316
+00:30:52,950 --> 00:30:52,960
+attached with this service ID also. So
+ 
+
+1317
+00:30:52,960 --> 00:30:55,909
+attached with this service ID also. So
+for each service ID
+
+1318
+00:30:55,909 --> 00:30:55,919
+for each service ID
+ 
+
+1319
+00:30:55,919 --> 00:31:00,950
+for each service ID
+it will have this bean.
+
+1320
+00:31:00,950 --> 00:31:00,960
+
+ 
+
+1321
+00:31:00,960 --> 00:31:02,470
+
+Okay.
+
+1322
+00:31:02,470 --> 00:31:02,480
+Okay.
+ 
+
+1323
+00:31:02,480 --> 00:31:05,669
+Okay.
+So this is how global configuration we
+
+1324
+00:31:05,669 --> 00:31:05,679
+So this is how global configuration we
+ 
+
+1325
+00:31:05,679 --> 00:31:09,830
+So this is how global configuration we
+can write. Okay. Now you can ask that
+
+1326
+00:31:09,830 --> 00:31:09,840
+can write. Okay. Now you can ask that
+ 
+
+1327
+00:31:09,840 --> 00:31:11,510
+can write. Okay. Now you can ask that
+hey why you have put at the rate
+
+1328
+00:31:11,510 --> 00:31:11,520
+hey why you have put at the rate
+ 
+
+1329
+00:31:11,520 --> 00:31:13,990
+hey why you have put at the rate
+conditional on missing beam.
+
+1330
+00:31:13,990 --> 00:31:14,000
+conditional on missing beam.
+ 
+
+1331
+00:31:14,000 --> 00:31:17,269
+conditional on missing beam.
+Remember that
+
+1332
+00:31:17,269 --> 00:31:17,279
+Remember that
+ 
+
+1333
+00:31:17,279 --> 00:31:21,350
+Remember that
+here if you see at top
+
+1334
+00:31:21,350 --> 00:31:21,360
+here if you see at top
+ 
+
+1335
+00:31:21,360 --> 00:31:24,070
+here if you see at top
+we have
+
+1336
+00:31:24,070 --> 00:31:24,080
+we have
+ 
+
+1337
+00:31:24,080 --> 00:31:28,070
+we have
+one global config. We have a global
+
+1338
+00:31:28,070 --> 00:31:28,080
+one global config. We have a global
+ 
+
+1339
+00:31:28,080 --> 00:31:30,950
+one global config. We have a global
+global config in which we are
+
+1340
+00:31:30,950 --> 00:31:30,960
+global config in which we are
+ 
+
+1341
+00:31:30,960 --> 00:31:35,269
+global config in which we are
+dynamically finding out a service ID.
+
+1342
+00:31:35,269 --> 00:31:35,279
+dynamically finding out a service ID.
+ 
+
+1343
+00:31:35,279 --> 00:31:40,549
+dynamically finding out a service ID.
+Okay. And then we are creating a round
+
+1344
+00:31:40,549 --> 00:31:40,559
+Okay. And then we are creating a round
+ 
+
+1345
+00:31:40,559 --> 00:31:44,070
+Okay. And then we are creating a round
+robin load balancer algo and attach that
+
+1346
+00:31:44,070 --> 00:31:44,080
+robin load balancer algo and attach that
+ 
+
+1347
+00:31:44,080 --> 00:31:49,509
+robin load balancer algo and attach that
+service ID with that and we have one
+
+1348
+00:31:49,509 --> 00:31:49,519
+service ID with that and we have one
+ 
+
+1349
+00:31:49,519 --> 00:31:53,590
+service ID with that and we have one
+product hyphen service also in that
+
+1350
+00:31:53,590 --> 00:31:53,600
+product hyphen service also in that
+ 
+
+1351
+00:31:53,600 --> 00:31:56,630
+product hyphen service also in that
+configuration we we hardcoded it service
+
+1352
+00:31:56,630 --> 00:31:56,640
+configuration we we hardcoded it service
+ 
+
+1353
+00:31:56,640 --> 00:31:58,310
+configuration we we hardcoded it service
+ID because it's specific for product
+
+1354
+00:31:58,310 --> 00:31:58,320
+ID because it's specific for product
+ 
+
+1355
+00:31:58,320 --> 00:32:00,070
+ID because it's specific for product
+service but there we are creating a
+
+1356
+00:32:00,070 --> 00:32:00,080
+service but there we are creating a
+ 
+
+1357
+00:32:00,080 --> 00:32:04,470
+service but there we are creating a
+random load balancer algo.
+
+1358
+00:32:04,470 --> 00:32:04,480
+random load balancer algo.
+ 
+
+1359
+00:32:04,480 --> 00:32:08,389
+random load balancer algo.
+So we have to we have to make
+
+1360
+00:32:08,389 --> 00:32:08,399
+So we have to we have to make
+ 
+
+1361
+00:32:08,399 --> 00:32:10,950
+So we have to we have to make
+sure that duplicate product service is
+
+1362
+00:32:10,950 --> 00:32:10,960
+sure that duplicate product service is
+ 
+
+1363
+00:32:10,960 --> 00:32:14,149
+sure that duplicate product service is
+not created. So at runtime now let's say
+
+1364
+00:32:14,149 --> 00:32:14,159
+not created. So at runtime now let's say
+ 
+
+1365
+00:32:14,159 --> 00:32:16,870
+not created. So at runtime now let's say
+you are trying to invoke http colon
+
+1366
+00:32:16,870 --> 00:32:16,880
+you are trying to invoke http colon
+ 
+
+1367
+00:32:16,880 --> 00:32:19,110
+you are trying to invoke http colon
+product
+
+1368
+00:32:19,110 --> 00:32:19,120
+product
+ 
+
+1369
+00:32:19,120 --> 00:32:20,710
+product
+service.
+
+1370
+00:32:20,710 --> 00:32:20,720
+service.
+ 
+
+1371
+00:32:20,720 --> 00:32:22,870
+service.
+Okay at this point of time now we have
+
+1372
+00:32:22,870 --> 00:32:22,880
+Okay at this point of time now we have
+ 
+
+1373
+00:32:22,880 --> 00:32:24,630
+Okay at this point of time now we have
+two configuration two load balancer
+
+1374
+00:32:24,630 --> 00:32:24,640
+two configuration two load balancer
+ 
+
+1375
+00:32:24,640 --> 00:32:26,950
+two configuration two load balancer
+configuration. One is global and one is
+
+1376
+00:32:26,950 --> 00:32:26,960
+configuration. One is global and one is
+ 
+
+1377
+00:32:26,960 --> 00:32:29,269
+configuration. One is global and one is
+specific for product.
+
+1378
+00:32:29,269 --> 00:32:29,279
+specific for product.
+ 
+
+1379
+00:32:29,279 --> 00:32:31,430
+specific for product.
+Okay. So I told you that the first
+
+1380
+00:32:31,430 --> 00:32:31,440
+Okay. So I told you that the first
+ 
+
+1381
+00:32:31,440 --> 00:32:33,990
+Okay. So I told you that the first
+priority is for the internal one the
+
+1382
+00:32:33,990 --> 00:32:34,000
+priority is for the internal one the
+ 
+
+1383
+00:32:34,000 --> 00:32:36,630
+priority is for the internal one the
+child one before it goes to the global.
+
+1384
+00:32:36,630 --> 00:32:36,640
+child one before it goes to the global.
+ 
+
+1385
+00:32:36,640 --> 00:32:38,389
+child one before it goes to the global.
+So first it will get invoked this
+
+1386
+00:32:38,389 --> 00:32:38,399
+So first it will get invoked this
+ 
+
+1387
+00:32:38,399 --> 00:32:40,549
+So first it will get invoked this
+configuration will get invoked and when
+
+1388
+00:32:40,549 --> 00:32:40,559
+configuration will get invoked and when
+ 
+
+1389
+00:32:40,559 --> 00:32:42,230
+configuration will get invoked and when
+this configuration will get invoked it
+
+1390
+00:32:42,230 --> 00:32:42,240
+this configuration will get invoked it
+ 
+
+1391
+00:32:42,240 --> 00:32:43,830
+this configuration will get invoked it
+will create a load balancer algorithm
+
+1392
+00:32:43,830 --> 00:32:43,840
+will create a load balancer algorithm
+ 
+
+1393
+00:32:43,840 --> 00:32:48,310
+will create a load balancer algorithm
+and tied with the product service.
+
+1394
+00:32:48,310 --> 00:32:48,320
+and tied with the product service.
+ 
+
+1395
+00:32:48,320 --> 00:32:50,710
+and tied with the product service.
+Now after that internal according to the
+
+1396
+00:32:50,710 --> 00:32:50,720
+Now after that internal according to the
+ 
+
+1397
+00:32:50,720 --> 00:32:53,350
+Now after that internal according to the
+ordering now global will get invoke. Now
+
+1398
+00:32:53,350 --> 00:32:53,360
+ordering now global will get invoke. Now
+ 
+
+1399
+00:32:53,360 --> 00:32:55,190
+ordering now global will get invoke. Now
+dynamically if you see that dynamically
+
+1400
+00:32:55,190 --> 00:32:55,200
+dynamically if you see that dynamically
+ 
+
+1401
+00:32:55,200 --> 00:32:57,029
+dynamically if you see that dynamically
+it will find out it's a product hyphen
+
+1402
+00:32:57,029 --> 00:32:57,039
+it will find out it's a product hyphen
+ 
+
+1403
+00:32:57,039 --> 00:32:58,549
+it will find out it's a product hyphen
+service and it will try to create a
+
+1404
+00:32:58,549 --> 00:32:58,559
+service and it will try to create a
+ 
+
+1405
+00:32:58,559 --> 00:33:02,070
+service and it will try to create a
+roundroin algo. So for one service two
+
+1406
+00:33:02,070 --> 00:33:02,080
+roundroin algo. So for one service two
+ 
+
+1407
+00:33:02,080 --> 00:33:03,669
+roundroin algo. So for one service two
+algo will get attached and you will get
+
+1408
+00:33:03,669 --> 00:33:03,679
+algo will get attached and you will get
+ 
+
+1409
+00:33:03,679 --> 00:33:06,470
+algo will get attached and you will get
+an exception runtime exception. So to
+
+1410
+00:33:06,470 --> 00:33:06,480
+an exception runtime exception. So to
+ 
+
+1411
+00:33:06,480 --> 00:33:08,710
+an exception runtime exception. So to
+avoid that runtime exception we have to
+
+1412
+00:33:08,710 --> 00:33:08,720
+avoid that runtime exception we have to
+ 
+
+1413
+00:33:08,720 --> 00:33:11,590
+avoid that runtime exception we have to
+add that and we have to tell that hey if
+
+1414
+00:33:11,590 --> 00:33:11,600
+add that and we have to tell that hey if
+ 
+
+1415
+00:33:11,600 --> 00:33:14,389
+add that and we have to tell that hey if
+already a load balancer algorithm is
+
+1416
+00:33:14,389 --> 00:33:14,399
+already a load balancer algorithm is
+ 
+
+1417
+00:33:14,399 --> 00:33:17,110
+already a load balancer algorithm is
+chosen for a particular product service
+
+1418
+00:33:17,110 --> 00:33:17,120
+chosen for a particular product service
+ 
+
+1419
+00:33:17,120 --> 00:33:22,470
+chosen for a particular product service
+ID don't go inside it that's all.
+
+1420
+00:33:22,470 --> 00:33:22,480
+ID don't go inside it that's all.
+ 
+
+1421
+00:33:22,480 --> 00:33:25,029
+ID don't go inside it that's all.
+Okay, this is required in the global
+
+1422
+00:33:25,029 --> 00:33:25,039
+Okay, this is required in the global
+ 
+
+1423
+00:33:25,039 --> 00:33:27,669
+Okay, this is required in the global
+because we have a specific
+
+1424
+00:33:27,669 --> 00:33:27,679
+because we have a specific
+ 
+
+1425
+00:33:27,679 --> 00:33:29,750
+because we have a specific
+configuration for the particular service
+
+1426
+00:33:29,750 --> 00:33:29,760
+configuration for the particular service
+ 
+
+1427
+00:33:29,760 --> 00:33:32,149
+configuration for the particular service
+and we don't want that in the global
+
+1428
+00:33:32,149 --> 00:33:32,159
+and we don't want that in the global
+ 
+
+1429
+00:33:32,159 --> 00:33:36,149
+and we don't want that in the global
+also its load balancer get created or
+
+1430
+00:33:36,149 --> 00:33:36,159
+also its load balancer get created or
+ 
+
+1431
+00:33:36,159 --> 00:33:40,549
+also its load balancer get created or
+get mapped. So we have to tell
+
+1432
+00:33:40,549 --> 00:33:40,559
+get mapped. So we have to tell
+ 
+
+1433
+00:33:40,559 --> 00:33:43,830
+get mapped. So we have to tell
+okay only in case of missing bean go
+
+1434
+00:33:43,830 --> 00:33:43,840
+okay only in case of missing bean go
+ 
+
+1435
+00:33:43,840 --> 00:33:45,669
+okay only in case of missing bean go
+inside it. If bean is already present
+
+1436
+00:33:45,669 --> 00:33:45,679
+inside it. If bean is already present
+ 
+
+1437
+00:33:45,679 --> 00:33:49,029
+inside it. If bean is already present
+for that product service don't go don't
+
+1438
+00:33:49,029 --> 00:33:49,039
+for that product service don't go don't
+ 
+
+1439
+00:33:49,039 --> 00:33:51,509
+for that product service don't go don't
+go inside it.
+
+1440
+00:33:51,509 --> 00:33:51,519
+go inside it.
+ 
+
+1441
+00:33:51,519 --> 00:33:53,830
+go inside it.
+Okay so product service already got run
+
+1442
+00:33:53,830 --> 00:33:53,840
+Okay so product service already got run
+ 
+
+1443
+00:33:53,840 --> 00:33:55,269
+Okay so product service already got run
+and we have already seen that for
+
+1444
+00:33:55,269 --> 00:33:55,279
+and we have already seen that for
+ 
+
+1445
+00:33:55,279 --> 00:33:57,269
+and we have already seen that for
+product service we are using random load
+
+1446
+00:33:57,269 --> 00:33:57,279
+product service we are using random load
+ 
+
+1447
+00:33:57,279 --> 00:33:59,350
+product service we are using random load
+balancer and we have hardcoded it. We
+
+1448
+00:33:59,350 --> 00:33:59,360
+balancer and we have hardcoded it. We
+ 
+
+1449
+00:33:59,360 --> 00:34:01,990
+balancer and we have hardcoded it. We
+know that it is specific for product but
+
+1450
+00:34:01,990 --> 00:34:02,000
+know that it is specific for product but
+ 
+
+1451
+00:34:02,000 --> 00:34:03,669
+know that it is specific for product but
+in the global we can't hardcode it
+
+1452
+00:34:03,669 --> 00:34:03,679
+in the global we can't hardcode it
+ 
+
+1453
+00:34:03,679 --> 00:34:05,269
+in the global we can't hardcode it
+right. So that's why we are using this
+
+1454
+00:34:05,269 --> 00:34:05,279
+right. So that's why we are using this
+ 
+
+1455
+00:34:05,279 --> 00:34:07,750
+right. So that's why we are using this
+environment and you already know that
+
+1456
+00:34:07,750 --> 00:34:07,760
+environment and you already know that
+ 
+
+1457
+00:34:07,760 --> 00:34:10,069
+environment and you already know that
+why it's uh load balancer configs are
+
+1458
+00:34:10,069 --> 00:34:10,079
+why it's uh load balancer configs are
+ 
+
+1459
+00:34:10,079 --> 00:34:13,990
+why it's uh load balancer configs are
+run at runtime. Maybe at runtime this is
+
+1460
+00:34:13,990 --> 00:34:14,000
+run at runtime. Maybe at runtime this is
+ 
+
+1461
+00:34:14,000 --> 00:34:16,629
+run at runtime. Maybe at runtime this is
+not much helpful because uh during
+
+1462
+00:34:16,629 --> 00:34:16,639
+not much helpful because uh during
+ 
+
+1463
+00:34:16,639 --> 00:34:18,230
+not much helpful because uh during
+application startup we know product
+
+1464
+00:34:18,230 --> 00:34:18,240
+application startup we know product
+ 
+
+1465
+00:34:18,240 --> 00:34:20,869
+application startup we know product
+hyphen service is present is this is the
+
+1466
+00:34:20,869 --> 00:34:20,879
+hyphen service is present is this is the
+ 
+
+1467
+00:34:20,879 --> 00:34:23,669
+hyphen service is present is this is the
+service but for global
+
+1468
+00:34:23,669 --> 00:34:23,679
+service but for global
+ 
+
+1469
+00:34:23,679 --> 00:34:25,109
+service but for global
+this is important because we can't
+
+1470
+00:34:25,109 --> 00:34:25,119
+this is important because we can't
+ 
+
+1471
+00:34:25,119 --> 00:34:27,669
+this is important because we can't
+hardcode it. So at runtime we need to
+
+1472
+00:34:27,669 --> 00:34:27,679
+hardcode it. So at runtime we need to
+ 
+
+1473
+00:34:27,679 --> 00:34:30,310
+hardcode it. So at runtime we need to
+know which service we are trying to
+
+1474
+00:34:30,310 --> 00:34:30,320
+know which service we are trying to
+ 
+
+1475
+00:34:30,320 --> 00:34:35,430
+know which service we are trying to
+invoke and for that service it creates a
+
+1476
+00:34:35,430 --> 00:34:35,440
+invoke and for that service it creates a
+ 
+
+1477
+00:34:35,440 --> 00:34:41,349
+invoke and for that service it creates a
+load balancer algorithm.
+
+1478
+00:34:41,349 --> 00:34:41,359
+
+ 
+
+1479
+00:34:41,359 --> 00:34:43,750
+
+Okay. So now question next come is what
+
+1480
+00:34:43,750 --> 00:34:43,760
+Okay. So now question next come is what
+ 
+
+1481
+00:34:43,760 --> 00:34:45,669
+Okay. So now question next come is what
+if you want to write your own custom
+
+1482
+00:34:45,669 --> 00:34:45,679
+if you want to write your own custom
+ 
+
+1483
+00:34:45,679 --> 00:34:47,270
+if you want to write your own custom
+load balancer. You don't want to use
+
+1484
+00:34:47,270 --> 00:34:47,280
+load balancer. You don't want to use
+ 
+
+1485
+00:34:47,280 --> 00:34:50,389
+load balancer. You don't want to use
+roundroin. You don't want to use random.
+
+1486
+00:34:50,389 --> 00:34:50,399
+roundroin. You don't want to use random.
+ 
+
+1487
+00:34:50,399 --> 00:34:52,869
+roundroin. You don't want to use random.
+You want to write your own custom logic.
+
+1488
+00:34:52,869 --> 00:34:52,879
+You want to write your own custom logic.
+ 
+
+1489
+00:34:52,879 --> 00:34:56,310
+You want to write your own custom logic.
+So if you understand this hierarchy like
+
+1490
+00:34:56,310 --> 00:34:56,320
+So if you understand this hierarchy like
+ 
+
+1491
+00:34:56,320 --> 00:34:57,990
+So if you understand this hierarchy like
+these are interfaces reactive load
+
+1492
+00:34:57,990 --> 00:34:58,000
+these are interfaces reactive load
+ 
+
+1493
+00:34:58,000 --> 00:35:00,150
+these are interfaces reactive load
+balancer reactor load balancer reactor
+
+1494
+00:35:00,150 --> 00:35:00,160
+balancer reactor load balancer reactor
+ 
+
+1495
+00:35:00,160 --> 00:35:02,390
+balancer reactor load balancer reactor
+service instance load balancer and these
+
+1496
+00:35:02,390 --> 00:35:02,400
+service instance load balancer and these
+ 
+
+1497
+00:35:02,400 --> 00:35:04,390
+service instance load balancer and these
+are the concrete classes round robin and
+
+1498
+00:35:04,390 --> 00:35:04,400
+are the concrete classes round robin and
+ 
+
+1499
+00:35:04,400 --> 00:35:07,589
+are the concrete classes round robin and
+random so we have to create a child
+
+1500
+00:35:07,589 --> 00:35:07,599
+random so we have to create a child
+ 
+
+1501
+00:35:07,599 --> 00:35:12,310
+random so we have to create a child
+custom load balancer just in inside this
+
+1502
+00:35:12,310 --> 00:35:12,320
+custom load balancer just in inside this
+ 
+
+1503
+00:35:12,320 --> 00:35:13,990
+custom load balancer just in inside this
+okay and we have to provide an
+
+1504
+00:35:13,990 --> 00:35:14,000
+okay and we have to provide an
+ 
+
+1505
+00:35:14,000 --> 00:35:16,870
+okay and we have to provide an
+implementation of this choose method
+
+1506
+00:35:16,870 --> 00:35:16,880
+implementation of this choose method
+ 
+
+1507
+00:35:16,880 --> 00:35:20,230
+implementation of this choose method
+so that's what I did so here I provide
+
+1508
+00:35:20,230 --> 00:35:20,240
+so that's what I did so here I provide
+ 
+
+1509
+00:35:20,240 --> 00:35:22,470
+so that's what I did so here I provide
+my custom load balancer
+
+1510
+00:35:22,470 --> 00:35:22,480
+my custom load balancer
+ 
+
+1511
+00:35:22,480 --> 00:35:24,710
+my custom load balancer
+created a child of reactor service
+
+1512
+00:35:24,710 --> 00:35:24,720
+created a child of reactor service
+ 
+
+1513
+00:35:24,720 --> 00:35:27,430
+created a child of reactor service
+instance load balancer. This one child
+
+1514
+00:35:27,430 --> 00:35:27,440
+instance load balancer. This one child
+ 
+
+1515
+00:35:27,440 --> 00:35:31,750
+instance load balancer. This one child
+of this. Okay. And here I have a
+
+1516
+00:35:31,750 --> 00:35:31,760
+of this. Okay. And here I have a
+ 
+
+1517
+00:35:31,760 --> 00:35:33,910
+of this. Okay. And here I have a
+constructor. The constructor take two
+
+1518
+00:35:33,910 --> 00:35:33,920
+constructor. The constructor take two
+ 
+
+1519
+00:35:33,920 --> 00:35:37,589
+constructor. The constructor take two
+part like we have seen like in here if
+
+1520
+00:35:37,589 --> 00:35:37,599
+part like we have seen like in here if
+ 
+
+1521
+00:35:37,599 --> 00:35:39,270
+part like we have seen like in here if
+you see like new round robin load
+
+1522
+00:35:39,270 --> 00:35:39,280
+you see like new round robin load
+ 
+
+1523
+00:35:39,280 --> 00:35:41,190
+you see like new round robin load
+balancer. It this does constructor take
+
+1524
+00:35:41,190 --> 00:35:41,200
+balancer. It this does constructor take
+ 
+
+1525
+00:35:41,200 --> 00:35:43,829
+balancer. It this does constructor take
+two parts. One is your service instance
+
+1526
+00:35:43,829 --> 00:35:43,839
+two parts. One is your service instance
+ 
+
+1527
+00:35:43,839 --> 00:35:45,589
+two parts. One is your service instance
+list supplier object and another is
+
+1528
+00:35:45,589 --> 00:35:45,599
+list supplier object and another is
+ 
+
+1529
+00:35:45,599 --> 00:35:48,230
+list supplier object and another is
+service ID. the same thing the
+
+1530
+00:35:48,230 --> 00:35:48,240
+service ID. the same thing the
+ 
+
+1531
+00:35:48,240 --> 00:35:50,230
+service ID. the same thing the
+constructor which require service
+
+1532
+00:35:50,230 --> 00:35:50,240
+constructor which require service
+ 
+
+1533
+00:35:50,240 --> 00:35:53,030
+constructor which require service
+instance supplier and the service id and
+
+1534
+00:35:53,030 --> 00:35:53,040
+instance supplier and the service id and
+ 
+
+1535
+00:35:53,040 --> 00:35:54,550
+instance supplier and the service id and
+we have to provide an implementation of
+
+1536
+00:35:54,550 --> 00:35:54,560
+we have to provide an implementation of
+ 
+
+1537
+00:35:54,560 --> 00:35:57,430
+we have to provide an implementation of
+the choose so this is where what it does
+
+1538
+00:35:57,430 --> 00:35:57,440
+the choose so this is where what it does
+ 
+
+1539
+00:35:57,440 --> 00:35:59,990
+the choose so this is where what it does
+so this is the first
+
+1540
+00:35:59,990 --> 00:36:00,000
+so this is the first
+ 
+
+1541
+00:36:00,000 --> 00:36:01,910
+so this is the first
+using this object service instance
+
+1542
+00:36:01,910 --> 00:36:01,920
+using this object service instance
+ 
+
+1543
+00:36:01,920 --> 00:36:05,910
+using this object service instance
+supplier I am doing get if available
+
+1544
+00:36:05,910 --> 00:36:05,920
+supplier I am doing get if available
+ 
+
+1545
+00:36:05,920 --> 00:36:08,790
+supplier I am doing get if available
+internally it will call service
+
+1546
+00:36:08,790 --> 00:36:08,800
+internally it will call service
+ 
+
+1547
+00:36:08,800 --> 00:36:10,710
+internally it will call service
+discovery
+
+1548
+00:36:10,710 --> 00:36:10,720
+discovery
+ 
+
+1549
+00:36:10,720 --> 00:36:13,109
+discovery
+once you get the instances for each
+
+1550
+00:36:13,109 --> 00:36:13,119
+once you get the instances for each
+ 
+
+1551
+00:36:13,119 --> 00:36:15,030
+once you get the instances for each
+instance
+
+1552
+00:36:15,030 --> 00:36:15,040
+instance
+ 
+
+1553
+00:36:15,040 --> 00:36:19,270
+instance
+okay like H you can do an load balancing
+
+1554
+00:36:19,270 --> 00:36:19,280
+okay like H you can do an load balancing
+ 
+
+1555
+00:36:19,280 --> 00:36:22,230
+okay like H you can do an load balancing
+algorithm. If instances are not null so
+
+1556
+00:36:22,230 --> 00:36:22,240
+algorithm. If instances are not null so
+ 
+
+1557
+00:36:22,240 --> 00:36:25,750
+algorithm. If instances are not null so
+here if instances are present we have to
+
+1558
+00:36:25,750 --> 00:36:25,760
+here if instances are present we have to
+ 
+
+1559
+00:36:25,760 --> 00:36:27,910
+here if instances are present we have to
+pick one of the instance. So we can
+
+1560
+00:36:27,910 --> 00:36:27,920
+pick one of the instance. So we can
+ 
+
+1561
+00:36:27,920 --> 00:36:30,470
+pick one of the instance. So we can
+write custom algorithm here. So
+
+1562
+00:36:30,470 --> 00:36:30,480
+write custom algorithm here. So
+ 
+
+1563
+00:36:30,480 --> 00:36:31,910
+write custom algorithm here. So
+currently I'm picking only first
+
+1564
+00:36:31,910 --> 00:36:31,920
+currently I'm picking only first
+ 
+
+1565
+00:36:31,920 --> 00:36:34,870
+currently I'm picking only first
+instance get zero but you can write your
+
+1566
+00:36:34,870 --> 00:36:34,880
+instance get zero but you can write your
+ 
+
+1567
+00:36:34,880 --> 00:36:36,710
+instance get zero but you can write your
+custom algorithm.
+
+1568
+00:36:36,710 --> 00:36:36,720
+custom algorithm.
+ 
+
+1569
+00:36:36,720 --> 00:36:39,750
+custom algorithm.
+Okay. So this is the choose method which
+
+1570
+00:36:39,750 --> 00:36:39,760
+Okay. So this is the choose method which
+ 
+
+1571
+00:36:39,760 --> 00:36:43,190
+Okay. So this is the choose method which
+does this thing. Okay. So round robin
+
+1572
+00:36:43,190 --> 00:36:43,200
+does this thing. Okay. So round robin
+ 
+
+1573
+00:36:43,200 --> 00:36:45,430
+does this thing. Okay. So round robin
+you can uh debug the choose roundroin.
+
+1574
+00:36:45,430 --> 00:36:45,440
+you can uh debug the choose roundroin.
+ 
+
+1575
+00:36:45,440 --> 00:36:47,430
+you can uh debug the choose roundroin.
+Go to the roundrobin load balancer class
+
+1576
+00:36:47,430 --> 00:36:47,440
+Go to the roundrobin load balancer class
+ 
+
+1577
+00:36:47,440 --> 00:36:50,069
+Go to the roundrobin load balancer class
+check its choose. So it first does the
+
+1578
+00:36:50,069 --> 00:36:50,079
+check its choose. So it first does the
+ 
+
+1579
+00:36:50,079 --> 00:36:52,069
+check its choose. So it first does the
+same thing get if available which calls
+
+1580
+00:36:52,069 --> 00:36:52,079
+same thing get if available which calls
+ 
+
+1581
+00:36:52,079 --> 00:36:53,910
+same thing get if available which calls
+the service discovery you get the
+
+1582
+00:36:53,910 --> 00:36:53,920
+the service discovery you get the
+ 
+
+1583
+00:36:53,920 --> 00:36:56,150
+the service discovery you get the
+instances and for those instances you
+
+1584
+00:36:56,150 --> 00:36:56,160
+instances and for those instances you
+ 
+
+1585
+00:36:56,160 --> 00:36:58,150
+instances and for those instances you
+are doing a roundrobing algorithm
+
+1586
+00:36:58,150 --> 00:36:58,160
+are doing a roundrobing algorithm
+ 
+
+1587
+00:36:58,160 --> 00:37:00,230
+are doing a roundrobing algorithm
+performing in random it just called
+
+1588
+00:37:00,230 --> 00:37:00,240
+performing in random it just called
+ 
+
+1589
+00:37:00,240 --> 00:37:03,030
+performing in random it just called
+random method. Now if you write a custom
+
+1590
+00:37:03,030 --> 00:37:03,040
+random method. Now if you write a custom
+ 
+
+1591
+00:37:03,040 --> 00:37:05,910
+random method. Now if you write a custom
+logic in after you get the instances if
+
+1592
+00:37:05,910 --> 00:37:05,920
+logic in after you get the instances if
+ 
+
+1593
+00:37:05,920 --> 00:37:08,150
+logic in after you get the instances if
+you got zero instances you return empty
+
+1594
+00:37:08,150 --> 00:37:08,160
+you got zero instances you return empty
+ 
+
+1595
+00:37:08,160 --> 00:37:10,550
+you got zero instances you return empty
+response or throw exception. If you got
+
+1596
+00:37:10,550 --> 00:37:10,560
+response or throw exception. If you got
+ 
+
+1597
+00:37:10,560 --> 00:37:12,710
+response or throw exception. If you got
+the instances pick one instance based on
+
+1598
+00:37:12,710 --> 00:37:12,720
+the instances pick one instance based on
+ 
+
+1599
+00:37:12,720 --> 00:37:14,870
+the instances pick one instance based on
+your algorithm.
+
+1600
+00:37:14,870 --> 00:37:14,880
+your algorithm.
+ 
+
+1601
+00:37:14,880 --> 00:37:17,349
+your algorithm.
+Now once you have written this now let's
+
+1602
+00:37:17,349 --> 00:37:17,359
+Now once you have written this now let's
+ 
+
+1603
+00:37:17,359 --> 00:37:19,589
+Now once you have written this now let's
+say that for product service I want to
+
+1604
+00:37:19,589 --> 00:37:19,599
+say that for product service I want to
+ 
+
+1605
+00:37:19,599 --> 00:37:23,270
+say that for product service I want to
+use this algorithm how to do that we
+
+1606
+00:37:23,270 --> 00:37:23,280
+use this algorithm how to do that we
+ 
+
+1607
+00:37:23,280 --> 00:37:27,030
+use this algorithm how to do that we
+know right in the
+
+1608
+00:37:27,030 --> 00:37:27,040
+know right in the
+ 
+
+1609
+00:37:27,040 --> 00:37:29,750
+know right in the
+first in this application startup we
+
+1610
+00:37:29,750 --> 00:37:29,760
+first in this application startup we
+ 
+
+1611
+00:37:29,760 --> 00:37:33,510
+first in this application startup we
+have put load balancer client give name
+
+1612
+00:37:33,510 --> 00:37:33,520
+have put load balancer client give name
+ 
+
+1613
+00:37:33,520 --> 00:37:36,630
+have put load balancer client give name
+equals to product service and whatever
+
+1614
+00:37:36,630 --> 00:37:36,640
+equals to product service and whatever
+ 
+
+1615
+00:37:36,640 --> 00:37:39,430
+equals to product service and whatever
+the configuration is this okay in our
+
+1616
+00:37:39,430 --> 00:37:39,440
+the configuration is this okay in our
+ 
+
+1617
+00:37:39,440 --> 00:37:41,829
+the configuration is this okay in our
+application order service application
+
+1618
+00:37:41,829 --> 00:37:41,839
+application order service application
+ 
+
+1619
+00:37:41,839 --> 00:37:44,150
+application order service application
+and inside the config load balancer
+
+1620
+00:37:44,150 --> 00:37:44,160
+and inside the config load balancer
+ 
+
+1621
+00:37:44,160 --> 00:37:47,670
+and inside the config load balancer
+product config we can now tell that hey
+
+1622
+00:37:47,670 --> 00:37:47,680
+product config we can now tell that hey
+ 
+
+1623
+00:37:47,680 --> 00:37:51,109
+product config we can now tell that hey
+this is the load balancer use this the
+
+1624
+00:37:51,109 --> 00:37:51,119
+this is the load balancer use this the
+ 
+
+1625
+00:37:51,119 --> 00:37:52,870
+this is the load balancer use this the
+first one is we have to runtime during
+
+1626
+00:37:52,870 --> 00:37:52,880
+first one is we have to runtime during
+ 
+
+1627
+00:37:52,880 --> 00:37:55,589
+first one is we have to runtime during
+runtime right so we have to provide an
+
+1628
+00:37:55,589 --> 00:37:55,599
+runtime right so we have to provide an
+ 
+
+1629
+00:37:55,599 --> 00:38:03,270
+runtime right so we have to provide an
+object here and the service
+
+1630
+00:38:03,270 --> 00:38:03,280
+
+ 
+
+1631
+00:38:03,280 --> 00:38:06,230
+
+so you got it right so this is how
+
+1632
+00:38:06,230 --> 00:38:06,240
+so you got it right so this is how
+ 
+
+1633
+00:38:06,240 --> 00:38:09,670
+so you got it right so this is how
+internally the load balancing happens
+
+1634
+00:38:09,670 --> 00:38:09,680
+internally the load balancing happens
+ 
+
+1635
+00:38:09,680 --> 00:38:11,589
+internally the load balancing happens
+you can write your custom load balancer
+
+1636
+00:38:11,589 --> 00:38:11,599
+you can write your custom load balancer
+ 
+
+1637
+00:38:11,599 --> 00:38:13,910
+you can write your custom load balancer
+you want or by default is round robin
+
+1638
+00:38:13,910 --> 00:38:13,920
+you want or by default is round robin
+ 
+
+1639
+00:38:13,920 --> 00:38:17,670
+you want or by default is round robin
+you can change it to random to a
+
+1640
+00:38:17,670 --> 00:38:17,680
+you can change it to random to a
+ 
+
+1641
+00:38:17,680 --> 00:38:19,750
+you can change it to random to a
+particular service or to all the
+
+1642
+00:38:19,750 --> 00:38:19,760
+particular service or to all the
+ 
+
+1643
+00:38:19,760 --> 00:38:23,589
+particular service or to all the
+service. The major major major problems
+
+1644
+00:38:23,589 --> 00:38:23,599
+service. The major major major problems
+ 
+
+1645
+00:38:23,599 --> 00:38:26,630
+service. The major major major problems
+or difficulty comes into the global only
+
+1646
+00:38:26,630 --> 00:38:26,640
+or difficulty comes into the global only
+ 
+
+1647
+00:38:26,640 --> 00:38:29,910
+or difficulty comes into the global only
+global and perk config. We only have to
+
+1648
+00:38:29,910 --> 00:38:29,920
+global and perk config. We only have to
+ 
+
+1649
+00:38:29,920 --> 00:38:32,630
+global and perk config. We only have to
+understand the importance of service ID
+
+1650
+00:38:32,630 --> 00:38:32,640
+understand the importance of service ID
+ 
+
+1651
+00:38:32,640 --> 00:38:36,470
+understand the importance of service ID
+because these configs runs at runtime
+
+1652
+00:38:36,470 --> 00:38:36,480
+because these configs runs at runtime
+ 
+
+1653
+00:38:36,480 --> 00:38:39,190
+because these configs runs at runtime
+when you actually from your service when
+
+1654
+00:38:39,190 --> 00:38:39,200
+when you actually from your service when
+ 
+
+1655
+00:38:39,200 --> 00:38:41,510
+when you actually from your service when
+you are actually invoking product
+
+1656
+00:38:41,510 --> 00:38:41,520
+you are actually invoking product
+ 
+
+1657
+00:38:41,520 --> 00:38:44,870
+you are actually invoking product
+service or sales service at that time
+
+1658
+00:38:44,870 --> 00:38:44,880
+service or sales service at that time
+ 
+
+1659
+00:38:44,880 --> 00:38:47,030
+service or sales service at that time
+the particular ser uh config get
+
+1660
+00:38:47,030 --> 00:38:47,040
+the particular ser uh config get
+ 
+
+1661
+00:38:47,040 --> 00:38:48,950
+the particular ser uh config get
+invoked.
+
+1662
+00:38:48,950 --> 00:38:48,960
+invoked.
+ 
+
+1663
+00:38:48,960 --> 00:38:52,069
+invoked.
+Okay. So that is important and you can
+
+1664
+00:38:52,069 --> 00:38:52,079
+Okay. So that is important and you can
+ 
+
+1665
+00:38:52,079 --> 00:38:53,670
+Okay. So that is important and you can
+change the algorithm which you want. I
+
+1666
+00:38:53,670 --> 00:38:53,680
+change the algorithm which you want. I
+ 
+
+1667
+00:38:53,680 --> 00:38:56,790
+change the algorithm which you want. I
+have already told you you can uh know
+
+1668
+00:38:56,790 --> 00:38:56,800
+have already told you you can uh know
+ 
+
+1669
+00:38:56,800 --> 00:39:00,069
+have already told you you can uh know
+that if global and specific configs are
+
+1670
+00:39:00,069 --> 00:39:00,079
+that if global and specific configs are
+ 
+
+1671
+00:39:00,079 --> 00:39:01,670
+that if global and specific configs are
+present you make you have to make sure
+
+1672
+00:39:01,670 --> 00:39:01,680
+present you make you have to make sure
+ 
+
+1673
+00:39:01,680 --> 00:39:03,190
+present you make you have to make sure
+that
+
+1674
+00:39:03,190 --> 00:39:03,200
+that
+ 
+
+1675
+00:39:03,200 --> 00:39:06,069
+that
+uh duplicate uh for one product service
+
+1676
+00:39:06,069 --> 00:39:06,079
+uh duplicate uh for one product service
+ 
+
+1677
+00:39:06,079 --> 00:39:09,589
+uh duplicate uh for one product service
+or one service two algorithm is not uh
+
+1678
+00:39:09,589 --> 00:39:09,599
+or one service two algorithm is not uh
+ 
+
+1679
+00:39:09,599 --> 00:39:14,390
+or one service two algorithm is not uh
+created. So we have to also handle that.
+
+1680
+00:39:14,390 --> 00:39:14,400
+created. So we have to also handle that.
+ 
+
+1681
+00:39:14,400 --> 00:39:16,230
+created. So we have to also handle that.
+So once you understand this rest
+
+1682
+00:39:16,230 --> 00:39:16,240
+So once you understand this rest
+ 
+
+1683
+00:39:16,240 --> 00:39:17,910
+So once you understand this rest
+template
+
+1684
+00:39:17,910 --> 00:39:17,920
+template
+ 
+
+1685
+00:39:17,920 --> 00:39:23,750
+template
+you can even the f client rest client
+
+1686
+00:39:23,750 --> 00:39:23,760
+
+ 
+
+1687
+00:39:23,760 --> 00:39:26,790
+
+is using the same load balancing
+
+1688
+00:39:26,790 --> 00:39:26,800
+is using the same load balancing
+ 
+
+1689
+00:39:26,800 --> 00:39:31,109
+is using the same load balancing
+interceptor only no change at all. So if
+
+1690
+00:39:31,109 --> 00:39:31,119
+interceptor only no change at all. So if
+ 
+
+1691
+00:39:31,119 --> 00:39:33,270
+interceptor only no change at all. So if
+you recall from the service discovery
+
+1692
+00:39:33,270 --> 00:39:33,280
+you recall from the service discovery
+ 
+
+1693
+00:39:33,280 --> 00:39:37,349
+you recall from the service discovery
+video right if you recall for the fing
+
+1694
+00:39:37,349 --> 00:39:37,359
+video right if you recall for the fing
+ 
+
+1695
+00:39:37,359 --> 00:39:39,670
+video right if you recall for the fing
+client service discovery I told you that
+
+1696
+00:39:39,670 --> 00:39:39,680
+client service discovery I told you that
+ 
+
+1697
+00:39:39,680 --> 00:39:42,630
+client service discovery I told you that
+we have to add a load balancer also
+
+1698
+00:39:42,630 --> 00:39:42,640
+we have to add a load balancer also
+ 
+
+1699
+00:39:42,640 --> 00:39:45,990
+we have to add a load balancer also
+because internally fing framework
+
+1700
+00:39:45,990 --> 00:39:46,000
+because internally fing framework
+ 
+
+1701
+00:39:46,000 --> 00:39:49,670
+because internally fing framework
+does the same thing okay because it once
+
+1702
+00:39:49,670 --> 00:39:49,680
+does the same thing okay because it once
+ 
+
+1703
+00:39:49,680 --> 00:39:51,829
+does the same thing okay because it once
+you get a multiple instances it has to
+
+1704
+00:39:51,829 --> 00:39:51,839
+you get a multiple instances it has to
+ 
+
+1705
+00:39:51,839 --> 00:39:54,230
+you get a multiple instances it has to
+pick one instance right so it use a load
+
+1706
+00:39:54,230 --> 00:39:54,240
+pick one instance right so it use a load
+ 
+
+1707
+00:39:54,240 --> 00:39:55,910
+pick one instance right so it use a load
+balancer
+
+1708
+00:39:55,910 --> 00:39:55,920
+balancer
+ 
+
+1709
+00:39:55,920 --> 00:40:00,390
+balancer
+okay so for fink client we don't have to
+
+1710
+00:40:00,390 --> 00:40:00,400
+okay so for fink client we don't have to
+ 
+
+1711
+00:40:00,400 --> 00:40:01,589
+okay so for fink client we don't have to
+do anything whatever the service
+
+1712
+00:40:01,589 --> 00:40:01,599
+do anything whatever the service
+ 
+
+1713
+00:40:01,599 --> 00:40:03,270
+do anything whatever the service
+discovery we have to do it's the same
+
+1714
+00:40:03,270 --> 00:40:03,280
+discovery we have to do it's the same
+ 
+
+1715
+00:40:03,280 --> 00:40:07,750
+discovery we have to do it's the same
+thing right now
+
+1716
+00:40:07,750 --> 00:40:07,760
+thing right now
+ 
+
+1717
+00:40:07,760 --> 00:40:10,550
+thing right now
+see this one like I I'm hoping that you
+
+1718
+00:40:10,550 --> 00:40:10,560
+see this one like I I'm hoping that you
+ 
+
+1719
+00:40:10,560 --> 00:40:12,550
+see this one like I I'm hoping that you
+have seen the service discovery video
+
+1720
+00:40:12,550 --> 00:40:12,560
+have seen the service discovery video
+ 
+
+1721
+00:40:12,560 --> 00:40:14,950
+have seen the service discovery video
+and you can correlate this like without
+
+1722
+00:40:14,950 --> 00:40:14,960
+and you can correlate this like without
+ 
+
+1723
+00:40:14,960 --> 00:40:17,589
+and you can correlate this like without
+service discovery in the f client we
+
+1724
+00:40:17,589 --> 00:40:17,599
+service discovery in the f client we
+ 
+
+1725
+00:40:17,599 --> 00:40:20,069
+service discovery in the f client we
+have to provide the URL
+
+1726
+00:40:20,069 --> 00:40:20,079
+have to provide the URL
+ 
+
+1727
+00:40:20,079 --> 00:40:21,910
+have to provide the URL
+but with service discovery we have to
+
+1728
+00:40:21,910 --> 00:40:21,920
+but with service discovery we have to
+ 
+
+1729
+00:40:21,920 --> 00:40:24,550
+but with service discovery we have to
+only give the name hey I want only
+
+1730
+00:40:24,550 --> 00:40:24,560
+only give the name hey I want only
+ 
+
+1731
+00:40:24,560 --> 00:40:27,030
+only give the name hey I want only
+product service
+
+1732
+00:40:27,030 --> 00:40:27,040
+product service
+ 
+
+1733
+00:40:27,040 --> 00:40:32,150
+product service
+that's all okay and we just invoke it.
+
+1734
+00:40:32,150 --> 00:40:32,160
+that's all okay and we just invoke it.
+ 
+
+1735
+00:40:32,160 --> 00:40:34,150
+that's all okay and we just invoke it.
+Now let's say that if you want to change
+
+1736
+00:40:34,150 --> 00:40:34,160
+Now let's say that if you want to change
+ 
+
+1737
+00:40:34,160 --> 00:40:35,990
+Now let's say that if you want to change
+the algorithm you don't want faint
+
+1738
+00:40:35,990 --> 00:40:36,000
+the algorithm you don't want faint
+ 
+
+1739
+00:40:36,000 --> 00:40:37,750
+the algorithm you don't want faint
+client to use by default you know that
+
+1740
+00:40:37,750 --> 00:40:37,760
+client to use by default you know that
+ 
+
+1741
+00:40:37,760 --> 00:40:39,910
+client to use by default you know that
+internally if it's using a load balancer
+
+1742
+00:40:39,910 --> 00:40:39,920
+internally if it's using a load balancer
+ 
+
+1743
+00:40:39,920 --> 00:40:42,230
+internally if it's using a load balancer
+it might be using round robin you want
+
+1744
+00:40:42,230 --> 00:40:42,240
+it might be using round robin you want
+ 
+
+1745
+00:40:42,240 --> 00:40:44,710
+it might be using round robin you want
+that hey I don't want round robin I want
+
+1746
+00:40:44,710 --> 00:40:44,720
+that hey I don't want round robin I want
+ 
+
+1747
+00:40:44,720 --> 00:40:47,030
+that hey I don't want round robin I want
+some different algorithm can you even if
+
+1748
+00:40:47,030 --> 00:40:47,040
+some different algorithm can you even if
+ 
+
+1749
+00:40:47,040 --> 00:40:49,190
+some different algorithm can you even if
+you are using faint client can you
+
+1750
+00:40:49,190 --> 00:40:49,200
+you are using faint client can you
+ 
+
+1751
+00:40:49,200 --> 00:40:52,390
+you are using faint client can you
+change it now easily same in the
+
+1752
+00:40:52,390 --> 00:40:52,400
+change it now easily same in the
+ 
+
+1753
+00:40:52,400 --> 00:40:54,150
+change it now easily same in the
+application
+
+1754
+00:40:54,150 --> 00:40:54,160
+application
+ 
+
+1755
+00:40:54,160 --> 00:40:55,990
+application
+if it is only one client then you can
+
+1756
+00:40:55,990 --> 00:40:56,000
+if it is only one client then you can
+ 
+
+1757
+00:40:56,000 --> 00:40:58,390
+if it is only one client then you can
+use load balancer client provide a name
+
+1758
+00:40:58,390 --> 00:40:58,400
+use load balancer client provide a name
+ 
+
+1759
+00:40:58,400 --> 00:41:00,790
+use load balancer client provide a name
+service this for this service this
+
+1760
+00:41:00,790 --> 00:41:00,800
+service this for this service this
+ 
+
+1761
+00:41:00,800 --> 00:41:03,190
+service this for this service this
+configuration have to be use I have
+
+1762
+00:41:03,190 --> 00:41:03,200
+configuration have to be use I have
+ 
+
+1763
+00:41:03,200 --> 00:41:05,670
+configuration have to be use I have
+written this configuration which will
+
+1764
+00:41:05,670 --> 00:41:05,680
+written this configuration which will
+ 
+
+1765
+00:41:05,680 --> 00:41:07,670
+written this configuration which will
+get also get invoked at runtime when I'm
+
+1766
+00:41:07,670 --> 00:41:07,680
+get also get invoked at runtime when I'm
+ 
+
+1767
+00:41:07,680 --> 00:41:09,829
+get also get invoked at runtime when I'm
+going to invoke this service get product
+
+1768
+00:41:09,829 --> 00:41:09,839
+going to invoke this service get product
+ 
+
+1769
+00:41:09,839 --> 00:41:11,829
+going to invoke this service get product
+by ID.
+
+1770
+00:41:11,829 --> 00:41:11,839
+by ID.
+ 
+
+1771
+00:41:11,839 --> 00:41:13,990
+by ID.
+So here I just changed the load
+
+1772
+00:41:13,990 --> 00:41:14,000
+So here I just changed the load
+ 
+
+1773
+00:41:14,000 --> 00:41:17,670
+So here I just changed the load
+balancing algorithm new load balancer
+
+1774
+00:41:17,670 --> 00:41:17,680
+balancing algorithm new load balancer
+ 
+
+1775
+00:41:17,680 --> 00:41:22,950
+balancing algorithm new load balancer
+okay and attach it with this service ID.
+
+1776
+00:41:22,950 --> 00:41:22,960
+
+ 
+
+1777
+00:41:22,960 --> 00:41:25,030
+
+Okay. Now if you go inside this load
+
+1778
+00:41:25,030 --> 00:41:25,040
+Okay. Now if you go inside this load
+ 
+
+1779
+00:41:25,040 --> 00:41:30,230
+Okay. Now if you go inside this load
+balancer choose method
+
+1780
+00:41:30,230 --> 00:41:30,240
+
+ 
+
+1781
+00:41:30,240 --> 00:41:33,030
+
+this choose method for that one that
+
+1782
+00:41:33,030 --> 00:41:33,040
+this choose method for that one that
+ 
+
+1783
+00:41:33,040 --> 00:41:35,030
+this choose method for that one that
+internally it will do what we did first
+
+1784
+00:41:35,030 --> 00:41:35,040
+internally it will do what we did first
+ 
+
+1785
+00:41:35,040 --> 00:41:37,190
+internally it will do what we did first
+call service discovery and then it will
+
+1786
+00:41:37,190 --> 00:41:37,200
+call service discovery and then it will
+ 
+
+1787
+00:41:37,200 --> 00:41:40,150
+call service discovery and then it will
+randomly pick one of the time
+
+1788
+00:41:40,150 --> 00:41:40,160
+randomly pick one of the time
+ 
+
+1789
+00:41:40,160 --> 00:41:43,430
+randomly pick one of the time
+the same thing.
+
+1790
+00:41:43,430 --> 00:41:43,440
+the same thing.
+ 
+
+1791
+00:41:43,440 --> 00:41:46,710
+the same thing.
+Okay. So even though everything is
+
+1792
+00:41:46,710 --> 00:41:46,720
+Okay. So even though everything is
+ 
+
+1793
+00:41:46,720 --> 00:41:50,069
+Okay. So even though everything is
+abstracted from us in case of fain and
+
+1794
+00:41:50,069 --> 00:41:50,079
+abstracted from us in case of fain and
+ 
+
+1795
+00:41:50,079 --> 00:41:52,950
+abstracted from us in case of fain and
+even in case of rest template we only
+
+1796
+00:41:52,950 --> 00:41:52,960
+even in case of rest template we only
+ 
+
+1797
+00:41:52,960 --> 00:41:55,829
+even in case of rest template we only
+have to use this annotation
+
+1798
+00:41:55,829 --> 00:41:55,839
+have to use this annotation
+ 
+
+1799
+00:41:55,839 --> 00:41:58,790
+have to use this annotation
+at the rate load balance
+
+1800
+00:41:58,790 --> 00:41:58,800
+at the rate load balance
+ 
+
+1801
+00:41:58,800 --> 00:42:02,710
+at the rate load balance
+and everything is got abstracted
+
+1802
+00:42:02,710 --> 00:42:02,720
+and everything is got abstracted
+ 
+
+1803
+00:42:02,720 --> 00:42:06,230
+and everything is got abstracted
+under the load balancer interceptor.
+
+1804
+00:42:06,230 --> 00:42:06,240
+under the load balancer interceptor.
+ 
+
+1805
+00:42:06,240 --> 00:42:08,069
+under the load balancer interceptor.
+is still better. It's better to
+
+1806
+00:42:08,069 --> 00:42:08,079
+is still better. It's better to
+ 
+
+1807
+00:42:08,079 --> 00:42:12,630
+is still better. It's better to
+understand this little framework so that
+
+1808
+00:42:12,630 --> 00:42:12,640
+understand this little framework so that
+ 
+
+1809
+00:42:12,640 --> 00:42:15,510
+understand this little framework so that
+in any scenario if an interviewer or you
+
+1810
+00:42:15,510 --> 00:42:15,520
+in any scenario if an interviewer or you
+ 
+
+1811
+00:42:15,520 --> 00:42:17,990
+in any scenario if an interviewer or you
+are in company use case come that you
+
+1812
+00:42:17,990 --> 00:42:18,000
+are in company use case come that you
+ 
+
+1813
+00:42:18,000 --> 00:42:19,910
+are in company use case come that you
+have to write your own load balancing
+
+1814
+00:42:19,910 --> 00:42:19,920
+have to write your own load balancing
+ 
+
+1815
+00:42:19,920 --> 00:42:22,630
+have to write your own load balancing
+logic or for one of the service you have
+
+1816
+00:42:22,630 --> 00:42:22,640
+logic or for one of the service you have
+ 
+
+1817
+00:42:22,640 --> 00:42:25,349
+logic or for one of the service you have
+to change the load balancing capability.
+
+1818
+00:42:25,349 --> 00:42:25,359
+to change the load balancing capability.
+ 
+
+1819
+00:42:25,359 --> 00:42:28,069
+to change the load balancing capability.
+How you can do that?
+
+1820
+00:42:28,069 --> 00:42:28,079
+How you can do that?
+ 
+
+1821
+00:42:28,079 --> 00:42:31,670
+How you can do that?
+Okay. So play with this. Okay. Play with
+
+1822
+00:42:31,670 --> 00:42:31,680
+Okay. So play with this. Okay. Play with
+ 
+
+1823
+00:42:31,680 --> 00:42:34,710
+Okay. So play with this. Okay. Play with
+this config. put a debugger point here
+
+1824
+00:42:34,710 --> 00:42:34,720
+this config. put a debugger point here
+ 
+
+1825
+00:42:34,720 --> 00:42:37,829
+this config. put a debugger point here
+that uh system.out.printland
+
+1826
+00:42:37,829 --> 00:42:37,839
+that uh system.out.printland
+ 
+
+1827
+00:42:37,839 --> 00:42:40,390
+that uh system.out.printland
+put something that I am inside this run
+
+1828
+00:42:40,390 --> 00:42:40,400
+put something that I am inside this run
+ 
+
+1829
+00:42:40,400 --> 00:42:43,190
+put something that I am inside this run
+it during application startup. So during
+
+1830
+00:42:43,190 --> 00:42:43,200
+it during application startup. So during
+ 
+
+1831
+00:42:43,200 --> 00:42:45,510
+it during application startup. So during
+application startup you will see and at
+
+1832
+00:42:45,510 --> 00:42:45,520
+application startup you will see and at
+ 
+
+1833
+00:42:45,520 --> 00:42:48,309
+application startup you will see and at
+the time of
+
+1834
+00:42:48,309 --> 00:42:48,319
+the time of
+ 
+
+1835
+00:42:48,319 --> 00:42:50,390
+the time of
+actual invoking the service that time
+
+1836
+00:42:50,390 --> 00:42:50,400
+actual invoking the service that time
+ 
+
+1837
+00:42:50,400 --> 00:42:52,390
+actual invoking the service that time
+also you will see that it will get
+
+1838
+00:42:52,390 --> 00:42:52,400
+also you will see that it will get
+ 
+
+1839
+00:42:52,400 --> 00:42:54,710
+also you will see that it will get
+invoked.
+
+1840
+00:42:54,710 --> 00:42:54,720
+invoked.
+ 
+
+1841
+00:42:54,720 --> 00:42:56,630
+invoked.
+Okay
+
+1842
+00:42:56,630 --> 00:42:56,640
+Okay
+ 
+
+1843
+00:42:56,640 --> 00:42:58,790
+Okay
+and I already told you again it's
+
+1844
+00:42:58,790 --> 00:42:58,800
+and I already told you again it's
+ 
+
+1845
+00:42:58,800 --> 00:43:00,790
+and I already told you again it's
+runtime uh functionality is very
+
+1846
+00:43:00,790 --> 00:43:00,800
+runtime uh functionality is very
+ 
+
+1847
+00:43:00,800 --> 00:43:03,190
+runtime uh functionality is very
+important for the global part because in
+
+1848
+00:43:03,190 --> 00:43:03,200
+important for the global part because in
+ 
+
+1849
+00:43:03,200 --> 00:43:05,109
+important for the global part because in
+global this service ID has to be run
+
+1850
+00:43:05,109 --> 00:43:05,119
+global this service ID has to be run
+ 
+
+1851
+00:43:05,119 --> 00:43:07,109
+global this service ID has to be run
+dynamically because during application
+
+1852
+00:43:07,109 --> 00:43:07,119
+dynamically because during application
+ 
+
+1853
+00:43:07,119 --> 00:43:09,750
+dynamically because during application
+startup this would be null because we
+
+1854
+00:43:09,750 --> 00:43:09,760
+startup this would be null because we
+ 
+
+1855
+00:43:09,760 --> 00:43:12,550
+startup this would be null because we
+haven't invoked anything. So this
+
+1856
+00:43:12,550 --> 00:43:12,560
+haven't invoked anything. So this
+ 
+
+1857
+00:43:12,560 --> 00:43:15,670
+haven't invoked anything. So this
+roundroin load balancer algorithm would
+
+1858
+00:43:15,670 --> 00:43:15,680
+roundroin load balancer algorithm would
+ 
+
+1859
+00:43:15,680 --> 00:43:19,990
+roundroin load balancer algorithm would
+get tied up to null service ID. Okay. So
+
+1860
+00:43:19,990 --> 00:43:20,000
+get tied up to null service ID. Okay. So
+ 
+
+1861
+00:43:20,000 --> 00:43:21,829
+get tied up to null service ID. Okay. So
+at runtime when you are calling product
+
+1862
+00:43:21,829 --> 00:43:21,839
+at runtime when you are calling product
+ 
+
+1863
+00:43:21,839 --> 00:43:24,790
+at runtime when you are calling product
+hyphen service again this got called.
+
+1864
+00:43:24,790 --> 00:43:24,800
+hyphen service again this got called.
+ 
+
+1865
+00:43:24,800 --> 00:43:27,510
+hyphen service again this got called.
+Okay. And that time this service ID is
+
+1866
+00:43:27,510 --> 00:43:27,520
+Okay. And that time this service ID is
+ 
+
+1867
+00:43:27,520 --> 00:43:30,470
+Okay. And that time this service ID is
+got set and then this roundroin is also
+
+1868
+00:43:30,470 --> 00:43:30,480
+got set and then this roundroin is also
+ 
+
+1869
+00:43:30,480 --> 00:43:34,150
+got set and then this roundroin is also
+get mapped to product service. Okay. And
+
+1870
+00:43:34,150 --> 00:43:34,160
+get mapped to product service. Okay. And
+ 
+
+1871
+00:43:34,160 --> 00:43:36,790
+get mapped to product service. Okay. And
+once it is mapped now no matter you call
+
+1872
+00:43:36,790 --> 00:43:36,800
+once it is mapped now no matter you call
+ 
+
+1873
+00:43:36,800 --> 00:43:38,950
+once it is mapped now no matter you call
+100 time product service it will not
+
+1874
+00:43:38,950 --> 00:43:38,960
+100 time product service it will not
+ 
+
+1875
+00:43:38,960 --> 00:43:41,750
+100 time product service it will not
+call again only one time. till its bean
+
+1876
+00:43:41,750 --> 00:43:41,760
+call again only one time. till its bean
+ 
+
+1877
+00:43:41,760 --> 00:43:45,829
+call again only one time. till its bean
+has to be created load balancer bean.
+
+1878
+00:43:45,829 --> 00:43:45,839
+has to be created load balancer bean.
+ 
+
+1879
+00:43:45,839 --> 00:43:47,990
+has to be created load balancer bean.
+Okay.
+
+1880
+00:43:47,990 --> 00:43:48,000
+Okay.
+ 
+
+1881
+00:43:48,000 --> 00:43:51,109
+Okay.
+So hope this uh give you a little bit
+
+1882
+00:43:51,109 --> 00:43:51,119
+So hope this uh give you a little bit
+ 
+
+1883
+00:43:51,119 --> 00:43:53,589
+So hope this uh give you a little bit
+insight on lo how spring framework
+
+1884
+00:43:53,589 --> 00:43:53,599
+insight on lo how spring framework
+ 
+
+1885
+00:43:53,599 --> 00:43:56,550
+insight on lo how spring framework
+handles the load balancing capability
+
+1886
+00:43:56,550 --> 00:43:56,560
+handles the load balancing capability
+ 
+
+1887
+00:43:56,560 --> 00:43:58,630
+handles the load balancing capability
+and
+
+1888
+00:43:58,630 --> 00:43:58,640
+and
+ 
+
+1889
+00:43:58,640 --> 00:44:00,230
+and
+I hope this something you will find
+
+1890
+00:44:00,230 --> 00:44:00,240
+I hope this something you will find
+ 
+
+1891
+00:44:00,240 --> 00:44:02,870
+I hope this something you will find
+useful. If you find it uh helpful please
+
+1892
+00:44:02,870 --> 00:44:02,880
+useful. If you find it uh helpful please
+ 
+
+1893
+00:44:02,880 --> 00:44:06,069
+useful. If you find it uh helpful please
+u do comment out or if there is doubt
+
+1894
+00:44:06,069 --> 00:44:06,079
+u do comment out or if there is doubt
+ 
+
+1895
+00:44:06,079 --> 00:44:07,910
+u do comment out or if there is doubt
+please put into the comment section. We
+
+1896
+00:44:07,910 --> 00:44:07,920
+please put into the comment section. We
+ 
+
+1897
+00:44:07,920 --> 00:44:12,800
+please put into the comment section. We
+can discuss further. Thank you. Bye.
+

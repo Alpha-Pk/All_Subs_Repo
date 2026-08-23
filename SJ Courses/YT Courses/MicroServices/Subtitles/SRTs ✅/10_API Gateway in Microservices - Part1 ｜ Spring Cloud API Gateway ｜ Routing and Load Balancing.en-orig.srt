@@ -1,0 +1,5275 @@
+1
+00:00:00,560 --> 00:00:02,310
+
+Hey guys, Shan this side. Welcome back
+
+2
+00:00:02,310 --> 00:00:02,320
+Hey guys, Shan this side. Welcome back
+ 
+
+3
+00:00:02,320 --> 00:00:04,550
+Hey guys, Shan this side. Welcome back
+to the channel and today we are going to
+
+4
+00:00:04,550 --> 00:00:04,560
+to the channel and today we are going to
+ 
+
+5
+00:00:04,560 --> 00:00:07,110
+to the channel and today we are going to
+cover one of the very important topic of
+
+6
+00:00:07,110 --> 00:00:07,120
+cover one of the very important topic of
+ 
+
+7
+00:00:07,120 --> 00:00:09,589
+cover one of the very important topic of
+micros service that is API gateway. So
+
+8
+00:00:09,589 --> 00:00:09,599
+micros service that is API gateway. So
+ 
+
+9
+00:00:09,599 --> 00:00:12,230
+micros service that is API gateway. So
+let's start without wasting any time. So
+
+10
+00:00:12,230 --> 00:00:12,240
+let's start without wasting any time. So
+ 
+
+11
+00:00:12,240 --> 00:00:15,910
+let's start without wasting any time. So
+what this feature provides? It provides
+
+12
+00:00:15,910 --> 00:00:15,920
+what this feature provides? It provides
+ 
+
+13
+00:00:15,920 --> 00:00:19,750
+what this feature provides? It provides
+a single entry point to access all
+
+14
+00:00:19,750 --> 00:00:19,760
+a single entry point to access all
+ 
+
+15
+00:00:19,760 --> 00:00:22,630
+a single entry point to access all
+microser. So let's say you have one
+
+16
+00:00:22,630 --> 00:00:22,640
+microser. So let's say you have one
+ 
+
+17
+00:00:22,640 --> 00:00:24,710
+microser. So let's say you have one
+client and if you are working in a
+
+18
+00:00:24,710 --> 00:00:24,720
+client and if you are working in a
+ 
+
+19
+00:00:24,720 --> 00:00:27,429
+client and if you are working in a
+product based company or any company you
+
+20
+00:00:27,429 --> 00:00:27,439
+product based company or any company you
+ 
+
+21
+00:00:27,439 --> 00:00:29,189
+product based company or any company you
+know that there is not like only one
+
+22
+00:00:29,189 --> 00:00:29,199
+know that there is not like only one
+ 
+
+23
+00:00:29,199 --> 00:00:31,269
+know that there is not like only one
+client there might be hundreds of
+
+24
+00:00:31,269 --> 00:00:31,279
+client there might be hundreds of
+ 
+
+25
+00:00:31,279 --> 00:00:34,709
+client there might be hundreds of
+clients okay and you have multiple
+
+26
+00:00:34,709 --> 00:00:34,719
+clients okay and you have multiple
+ 
+
+27
+00:00:34,719 --> 00:00:37,270
+clients okay and you have multiple
+microservices like invoice microser
+
+28
+00:00:37,270 --> 00:00:37,280
+microservices like invoice microser
+ 
+
+29
+00:00:37,280 --> 00:00:41,190
+microservices like invoice microser
+order microser sales microser and also
+
+30
+00:00:41,190 --> 00:00:41,200
+order microser sales microser and also
+ 
+
+31
+00:00:41,200 --> 00:00:43,590
+order microser sales microser and also
+there are hundreds of microservices in a
+
+32
+00:00:43,590 --> 00:00:43,600
+there are hundreds of microservices in a
+ 
+
+33
+00:00:43,600 --> 00:00:48,630
+there are hundreds of microservices in a
+very big companies. Okay. So
+
+34
+00:00:48,630 --> 00:00:48,640
+very big companies. Okay. So
+ 
+
+35
+00:00:48,640 --> 00:00:50,630
+very big companies. Okay. So
+what happen is API gateway provide a
+
+36
+00:00:50,630 --> 00:00:50,640
+what happen is API gateway provide a
+ 
+
+37
+00:00:50,640 --> 00:00:52,709
+what happen is API gateway provide a
+single entry point. So API gateway sit
+
+38
+00:00:52,709 --> 00:00:52,719
+single entry point. So API gateway sit
+ 
+
+39
+00:00:52,719 --> 00:00:54,389
+single entry point. So API gateway sit
+between your client and your
+
+40
+00:00:54,389 --> 00:00:54,399
+between your client and your
+ 
+
+41
+00:00:54,399 --> 00:00:57,910
+between your client and your
+microservices and all the calls pass
+
+42
+00:00:57,910 --> 00:00:57,920
+microservices and all the calls pass
+ 
+
+43
+00:00:57,920 --> 00:01:00,869
+microservices and all the calls pass
+through this API gateway. So your client
+
+44
+00:01:00,869 --> 00:01:00,879
+through this API gateway. So your client
+ 
+
+45
+00:01:00,879 --> 00:01:03,110
+through this API gateway. So your client
+never directly talk with your micros
+
+46
+00:01:03,110 --> 00:01:03,120
+never directly talk with your micros
+ 
+
+47
+00:01:03,120 --> 00:01:05,670
+never directly talk with your micros
+service. All the clients call pass
+
+48
+00:01:05,670 --> 00:01:05,680
+service. All the clients call pass
+ 
+
+49
+00:01:05,680 --> 00:01:08,070
+service. All the clients call pass
+through the API gateway. So that's what
+
+50
+00:01:08,070 --> 00:01:08,080
+through the API gateway. So that's what
+ 
+
+51
+00:01:08,080 --> 00:01:12,149
+through the API gateway. So that's what
+it means single entry point. Okay. And
+
+52
+00:01:12,149 --> 00:01:12,159
+it means single entry point. Okay. And
+ 
+
+53
+00:01:12,159 --> 00:01:16,710
+it means single entry point. Okay. And
+why this exact position of API gateway
+
+54
+00:01:16,710 --> 00:01:16,720
+why this exact position of API gateway
+ 
+
+55
+00:01:16,720 --> 00:01:19,830
+why this exact position of API gateway
+make it so important? Because lot of
+
+56
+00:01:19,830 --> 00:01:19,840
+make it so important? Because lot of
+ 
+
+57
+00:01:19,840 --> 00:01:22,149
+make it so important? Because lot of
+benefits get added. So one of the
+
+58
+00:01:22,149 --> 00:01:22,159
+benefits get added. So one of the
+ 
+
+59
+00:01:22,159 --> 00:01:25,670
+benefits get added. So one of the
+important benefit is routing means it
+
+60
+00:01:25,670 --> 00:01:25,680
+important benefit is routing means it
+ 
+
+61
+00:01:25,680 --> 00:01:28,550
+important benefit is routing means it
+forward request to write micros service.
+
+62
+00:01:28,550 --> 00:01:28,560
+forward request to write micros service.
+ 
+
+63
+00:01:28,560 --> 00:01:31,350
+forward request to write micros service.
+So assume this that
+
+64
+00:01:31,350 --> 00:01:31,360
+So assume this that
+ 
+
+65
+00:01:31,360 --> 00:01:34,630
+So assume this that
+client just invoking hey invoke this
+
+66
+00:01:34,630 --> 00:01:34,640
+client just invoking hey invoke this
+ 
+
+67
+00:01:34,640 --> 00:01:36,870
+client just invoking hey invoke this
+API.
+
+68
+00:01:36,870 --> 00:01:36,880
+API.
+ 
+
+69
+00:01:36,880 --> 00:01:39,270
+API.
+Now client doesn't need to know about
+
+70
+00:01:39,270 --> 00:01:39,280
+Now client doesn't need to know about
+ 
+
+71
+00:01:39,280 --> 00:01:42,469
+Now client doesn't need to know about
+all 100 microservices right it doesn't
+
+72
+00:01:42,469 --> 00:01:42,479
+all 100 microservices right it doesn't
+ 
+
+73
+00:01:42,479 --> 00:01:45,350
+all 100 microservices right it doesn't
+have to configure that hey for invoice
+
+74
+00:01:45,350 --> 00:01:45,360
+have to configure that hey for invoice
+ 
+
+75
+00:01:45,360 --> 00:01:48,230
+have to configure that hey for invoice
+this is the host and this is the port
+
+76
+00:01:48,230 --> 00:01:48,240
+this is the host and this is the port
+ 
+
+77
+00:01:48,240 --> 00:01:49,990
+this is the host and this is the port
+for order this is the host and this is
+
+78
+00:01:49,990 --> 00:01:50,000
+for order this is the host and this is
+ 
+
+79
+00:01:50,000 --> 00:01:52,310
+for order this is the host and this is
+the port so it doesn't need to maintain
+
+80
+00:01:52,310 --> 00:01:52,320
+the port so it doesn't need to maintain
+ 
+
+81
+00:01:52,320 --> 00:01:54,789
+the port so it doesn't need to maintain
+that all different clients all 100
+
+82
+00:01:54,789 --> 00:01:54,799
+that all different clients all 100
+ 
+
+83
+00:01:54,799 --> 00:01:56,870
+that all different clients all 100
+clients all need to maintain that okay
+
+84
+00:01:56,870 --> 00:01:56,880
+clients all need to maintain that okay
+ 
+
+85
+00:01:56,880 --> 00:01:59,830
+clients all need to maintain that okay
+this is my source of truth API gateway
+
+86
+00:01:59,830 --> 00:01:59,840
+this is my source of truth API gateway
+ 
+
+87
+00:01:59,840 --> 00:02:03,270
+this is my source of truth API gateway
+only one server internally server does
+
+88
+00:02:03,270 --> 00:02:03,280
+only one server internally server does
+ 
+
+89
+00:02:03,280 --> 00:02:06,310
+only one server internally server does
+the routing okay you client you want to
+
+90
+00:02:06,310 --> 00:02:06,320
+the routing okay you client you want to
+ 
+
+91
+00:02:06,320 --> 00:02:09,830
+the routing okay you client you want to
+hit / API/ invoice pass the request to
+
+92
+00:02:09,830 --> 00:02:09,840
+hit / API/ invoice pass the request to
+ 
+
+93
+00:02:09,840 --> 00:02:12,070
+hit / API/ invoice pass the request to
+the invoice microser pass the request to
+
+94
+00:02:12,070 --> 00:02:12,080
+the invoice microser pass the request to
+ 
+
+95
+00:02:12,080 --> 00:02:13,910
+the invoice microser pass the request to
+the order microser pass the request to
+
+96
+00:02:13,910 --> 00:02:13,920
+the order microser pass the request to
+ 
+
+97
+00:02:13,920 --> 00:02:16,949
+the order microser pass the request to
+the sales microser respectively
+
+98
+00:02:16,949 --> 00:02:16,959
+the sales microser respectively
+ 
+
+99
+00:02:16,959 --> 00:02:20,070
+the sales microser respectively
+another is load balancing okay so even
+
+100
+00:02:20,070 --> 00:02:20,080
+another is load balancing okay so even
+ 
+
+101
+00:02:20,080 --> 00:02:22,470
+another is load balancing okay so even
+you have multiple
+
+102
+00:02:22,470 --> 00:02:22,480
+you have multiple
+ 
+
+103
+00:02:22,480 --> 00:02:25,589
+you have multiple
+instances of invoice microser so API
+
+104
+00:02:25,589 --> 00:02:25,599
+instances of invoice microser so API
+ 
+
+105
+00:02:25,599 --> 00:02:27,750
+instances of invoice microser so API
+gateway can also take care of load
+
+106
+00:02:27,750 --> 00:02:27,760
+gateway can also take care of load
+ 
+
+107
+00:02:27,760 --> 00:02:29,990
+gateway can also take care of load
+balancing so that when it forward the
+
+108
+00:02:29,990 --> 00:02:30,000
+balancing so that when it forward the
+ 
+
+109
+00:02:30,000 --> 00:02:33,190
+balancing so that when it forward the
+request to the particular microser it is
+
+110
+00:02:33,190 --> 00:02:33,200
+request to the particular microser it is
+ 
+
+111
+00:02:33,200 --> 00:02:35,830
+request to the particular microser it is
+according to the properly load balancing
+
+112
+00:02:35,830 --> 00:02:35,840
+according to the properly load balancing
+ 
+
+113
+00:02:35,840 --> 00:02:37,430
+according to the properly load balancing
+algorithm
+
+114
+00:02:37,430 --> 00:02:37,440
+algorithm
+ 
+
+115
+00:02:37,440 --> 00:02:40,150
+algorithm
+authentication like JWT. So whenever any
+
+116
+00:02:40,150 --> 00:02:40,160
+authentication like JWT. So whenever any
+ 
+
+117
+00:02:40,160 --> 00:02:42,710
+authentication like JWT. So whenever any
+request comes in API gateway also have
+
+118
+00:02:42,710 --> 00:02:42,720
+request comes in API gateway also have
+ 
+
+119
+00:02:42,720 --> 00:02:45,990
+request comes in API gateway also have
+the capability to do authentication. So
+
+120
+00:02:45,990 --> 00:02:46,000
+the capability to do authentication. So
+ 
+
+121
+00:02:46,000 --> 00:02:48,309
+the capability to do authentication. So
+no need to have authentication here.
+
+122
+00:02:48,309 --> 00:02:48,319
+no need to have authentication here.
+ 
+
+123
+00:02:48,319 --> 00:02:49,910
+no need to have authentication here.
+Authentication and order service
+
+124
+00:02:49,910 --> 00:02:49,920
+Authentication and order service
+ 
+
+125
+00:02:49,920 --> 00:02:51,990
+Authentication and order service
+authentication is sales service. You
+
+126
+00:02:51,990 --> 00:02:52,000
+authentication is sales service. You
+ 
+
+127
+00:02:52,000 --> 00:02:55,030
+authentication is sales service. You
+don't need code duplicacy. Okay. So we
+
+128
+00:02:55,030 --> 00:02:55,040
+don't need code duplicacy. Okay. So we
+ 
+
+129
+00:02:55,040 --> 00:02:57,110
+don't need code duplicacy. Okay. So we
+can put the authentication logic at the
+
+130
+00:02:57,110 --> 00:02:57,120
+can put the authentication logic at the
+ 
+
+131
+00:02:57,120 --> 00:03:00,229
+can put the authentication logic at the
+API gate gateway itself.
+
+132
+00:03:00,229 --> 00:03:00,239
+API gate gateway itself.
+ 
+
+133
+00:03:00,239 --> 00:03:02,070
+API gate gateway itself.
+Okay. So because it is act as a first
+
+134
+00:03:02,070 --> 00:03:02,080
+Okay. So because it is act as a first
+ 
+
+135
+00:03:02,080 --> 00:03:06,229
+Okay. So because it is act as a first
+entry point then your rate limiting
+
+136
+00:03:06,229 --> 00:03:06,239
+entry point then your rate limiting
+ 
+
+137
+00:03:06,239 --> 00:03:08,470
+entry point then your rate limiting
+like we can put a rate limit here like
+
+138
+00:03:08,470 --> 00:03:08,480
+like we can put a rate limit here like
+ 
+
+139
+00:03:08,480 --> 00:03:12,309
+like we can put a rate limit here like
+on each microservices itself. So API
+
+140
+00:03:12,309 --> 00:03:12,319
+on each microservices itself. So API
+ 
+
+141
+00:03:12,319 --> 00:03:14,070
+on each microservices itself. So API
+gateway also provide that feature
+
+142
+00:03:14,070 --> 00:03:14,080
+gateway also provide that feature
+ 
+
+143
+00:03:14,080 --> 00:03:15,670
+gateway also provide that feature
+because API gateway is the one which
+
+144
+00:03:15,670 --> 00:03:15,680
+because API gateway is the one which
+ 
+
+145
+00:03:15,680 --> 00:03:17,670
+because API gateway is the one which
+will always forward the request to a
+
+146
+00:03:17,670 --> 00:03:17,680
+will always forward the request to a
+ 
+
+147
+00:03:17,680 --> 00:03:20,229
+will always forward the request to a
+particular microser right. So we can put
+
+148
+00:03:20,229 --> 00:03:20,239
+particular microser right. So we can put
+ 
+
+149
+00:03:20,239 --> 00:03:23,270
+particular microser right. So we can put
+a rate limit here itself. Okay. So that
+
+150
+00:03:23,270 --> 00:03:23,280
+a rate limit here itself. Okay. So that
+ 
+
+151
+00:03:23,280 --> 00:03:26,390
+a rate limit here itself. Okay. So that
+we can avoid flooding our micros
+
+152
+00:03:26,390 --> 00:03:26,400
+we can avoid flooding our micros
+ 
+
+153
+00:03:26,400 --> 00:03:28,949
+we can avoid flooding our micros
+service. So we will stop the traffic at
+
+154
+00:03:28,949 --> 00:03:28,959
+service. So we will stop the traffic at
+ 
+
+155
+00:03:28,959 --> 00:03:31,589
+service. So we will stop the traffic at
+the front gate itself.
+
+156
+00:03:31,589 --> 00:03:31,599
+the front gate itself.
+ 
+
+157
+00:03:31,599 --> 00:03:33,830
+the front gate itself.
+Resilience circuit breaker retry all
+
+158
+00:03:33,830 --> 00:03:33,840
+Resilience circuit breaker retry all
+ 
+
+159
+00:03:33,840 --> 00:03:38,390
+Resilience circuit breaker retry all
+these features API gateway is capable of
+
+160
+00:03:38,390 --> 00:03:38,400
+these features API gateway is capable of
+ 
+
+161
+00:03:38,400 --> 00:03:40,869
+these features API gateway is capable of
+request response transformation. So what
+
+162
+00:03:40,869 --> 00:03:40,879
+request response transformation. So what
+ 
+
+163
+00:03:40,879 --> 00:03:42,789
+request response transformation. So what
+the request is coming it can do some
+
+164
+00:03:42,789 --> 00:03:42,799
+the request is coming it can do some
+ 
+
+165
+00:03:42,799 --> 00:03:45,110
+the request is coming it can do some
+transformation and whatever the response
+
+166
+00:03:45,110 --> 00:03:45,120
+transformation and whatever the response
+ 
+
+167
+00:03:45,120 --> 00:03:47,190
+transformation and whatever the response
+it we are returning from the microser
+
+168
+00:03:47,190 --> 00:03:47,200
+it we are returning from the microser
+ 
+
+169
+00:03:47,200 --> 00:03:49,830
+it we are returning from the microser
+API gateway intercepted do some changes
+
+170
+00:03:49,830 --> 00:03:49,840
+API gateway intercepted do some changes
+ 
+
+171
+00:03:49,840 --> 00:03:51,990
+API gateway intercepted do some changes
+and then can return to the client that
+
+172
+00:03:51,990 --> 00:03:52,000
+and then can return to the client that
+ 
+
+173
+00:03:52,000 --> 00:03:55,750
+and then can return to the client that
+is also possible monitoring and logging.
+
+174
+00:03:55,750 --> 00:03:55,760
+is also possible monitoring and logging.
+ 
+
+175
+00:03:55,760 --> 00:03:57,509
+is also possible monitoring and logging.
+So for each request which is coming we
+
+176
+00:03:57,509 --> 00:03:57,519
+So for each request which is coming we
+ 
+
+177
+00:03:57,519 --> 00:03:59,509
+So for each request which is coming we
+can put a centralized log here also that
+
+178
+00:03:59,509 --> 00:03:59,519
+can put a centralized log here also that
+ 
+
+179
+00:03:59,519 --> 00:04:01,350
+can put a centralized log here also that
+is also possible. So we will see
+
+180
+00:04:01,350 --> 00:04:01,360
+is also possible. So we will see
+ 
+
+181
+00:04:01,360 --> 00:04:04,309
+is also possible. So we will see
+everything like how we can achieve this
+
+182
+00:04:04,309 --> 00:04:04,319
+everything like how we can achieve this
+ 
+
+183
+00:04:04,319 --> 00:04:07,910
+everything like how we can achieve this
+through Microsoft uh API gateway. Okay.
+
+184
+00:04:07,910 --> 00:04:07,920
+through Microsoft uh API gateway. Okay.
+ 
+
+185
+00:04:07,920 --> 00:04:10,550
+through Microsoft uh API gateway. Okay.
+So first thing first
+
+186
+00:04:10,550 --> 00:04:10,560
+So first thing first
+ 
+
+187
+00:04:10,560 --> 00:04:13,190
+So first thing first
+routing forward request to a right
+
+188
+00:04:13,190 --> 00:04:13,200
+routing forward request to a right
+ 
+
+189
+00:04:13,200 --> 00:04:15,830
+routing forward request to a right
+microser. So assume this I have already
+
+190
+00:04:15,830 --> 00:04:15,840
+microser. So assume this I have already
+ 
+
+191
+00:04:15,840 --> 00:04:18,629
+microser. So assume this I have already
+explained. So we can have multiple
+
+192
+00:04:18,629 --> 00:04:18,639
+explained. So we can have multiple
+ 
+
+193
+00:04:18,639 --> 00:04:20,629
+explained. So we can have multiple
+clients we can have multiple
+
+194
+00:04:20,629 --> 00:04:20,639
+clients we can have multiple
+ 
+
+195
+00:04:20,639 --> 00:04:22,629
+clients we can have multiple
+microservices all running on different
+
+196
+00:04:22,629 --> 00:04:22,639
+microservices all running on different
+ 
+
+197
+00:04:22,639 --> 00:04:27,510
+microservices all running on different
+ports. Okay. So and it is possible that
+
+198
+00:04:27,510 --> 00:04:27,520
+ports. Okay. So and it is possible that
+ 
+
+199
+00:04:27,520 --> 00:04:30,550
+ports. Okay. So and it is possible that
+in future one microser is divided into
+
+200
+00:04:30,550 --> 00:04:30,560
+in future one microser is divided into
+ 
+
+201
+00:04:30,560 --> 00:04:33,189
+in future one microser is divided into
+multiple or multiple microser merge
+
+202
+00:04:33,189 --> 00:04:33,199
+multiple or multiple microser merge
+ 
+
+203
+00:04:33,199 --> 00:04:36,390
+multiple or multiple microser merge
+together. So this is keep on going in a
+
+204
+00:04:36,390 --> 00:04:36,400
+together. So this is keep on going in a
+ 
+
+205
+00:04:36,400 --> 00:04:38,950
+together. So this is keep on going in a
+world of microservices. This is keep on
+
+206
+00:04:38,950 --> 00:04:38,960
+world of microservices. This is keep on
+ 
+
+207
+00:04:38,960 --> 00:04:41,270
+world of microservices. This is keep on
+going. You can add new microser or even
+
+208
+00:04:41,270 --> 00:04:41,280
+going. You can add new microser or even
+ 
+
+209
+00:04:41,280 --> 00:04:43,990
+going. You can add new microser or even
+for one microser if this become huge it
+
+210
+00:04:43,990 --> 00:04:44,000
+for one microser if this become huge it
+ 
+
+211
+00:04:44,000 --> 00:04:45,350
+for one microser if this become huge it
+breaks into smaller smaller
+
+212
+00:04:45,350 --> 00:04:45,360
+breaks into smaller smaller
+ 
+
+213
+00:04:45,360 --> 00:04:48,070
+breaks into smaller smaller
+microservices further.
+
+214
+00:04:48,070 --> 00:04:48,080
+microservices further.
+ 
+
+215
+00:04:48,080 --> 00:04:50,629
+microservices further.
+So if clients are directly interacting
+
+216
+00:04:50,629 --> 00:04:50,639
+So if clients are directly interacting
+ 
+
+217
+00:04:50,639 --> 00:04:53,030
+So if clients are directly interacting
+with the microservices and if there is
+
+218
+00:04:53,030 --> 00:04:53,040
+with the microservices and if there is
+ 
+
+219
+00:04:53,040 --> 00:04:55,670
+with the microservices and if there is
+any change then all clients need to
+
+220
+00:04:55,670 --> 00:04:55,680
+any change then all clients need to
+ 
+
+221
+00:04:55,680 --> 00:04:58,310
+any change then all clients need to
+update the routing logic. Okay. Now
+
+222
+00:04:58,310 --> 00:04:58,320
+update the routing logic. Okay. Now
+ 
+
+223
+00:04:58,320 --> 00:05:00,070
+update the routing logic. Okay. Now
+let's say that in this example order
+
+224
+00:05:00,070 --> 00:05:00,080
+let's say that in this example order
+ 
+
+225
+00:05:00,080 --> 00:05:03,189
+let's say that in this example order
+microservices is gone. It's merged with
+
+226
+00:05:03,189 --> 00:05:03,199
+microservices is gone. It's merged with
+ 
+
+227
+00:05:03,199 --> 00:05:05,510
+microservices is gone. It's merged with
+your sale microser. Now this microser
+
+228
+00:05:05,510 --> 00:05:05,520
+your sale microser. Now this microser
+ 
+
+229
+00:05:05,520 --> 00:05:09,110
+your sale microser. Now this microser
+order and sale microser. So all this 100
+
+230
+00:05:09,110 --> 00:05:09,120
+order and sale microser. So all this 100
+ 
+
+231
+00:05:09,120 --> 00:05:11,590
+order and sale microser. So all this 100
+client need to update the routing logic.
+
+232
+00:05:11,590 --> 00:05:11,600
+client need to update the routing logic.
+ 
+
+233
+00:05:11,600 --> 00:05:13,189
+client need to update the routing logic.
+Earlier they whatever the traffic they
+
+234
+00:05:13,189 --> 00:05:13,199
+Earlier they whatever the traffic they
+ 
+
+235
+00:05:13,199 --> 00:05:15,110
+Earlier they whatever the traffic they
+are passing it to here now they have to
+
+236
+00:05:15,110 --> 00:05:15,120
+are passing it to here now they have to
+ 
+
+237
+00:05:15,120 --> 00:05:18,550
+are passing it to here now they have to
+pass it to this one. So it impact is
+
+238
+00:05:18,550 --> 00:05:18,560
+pass it to this one. So it impact is
+ 
+
+239
+00:05:18,560 --> 00:05:22,150
+pass it to this one. So it impact is
+huge and because of that
+
+240
+00:05:22,150 --> 00:05:22,160
+huge and because of that
+ 
+
+241
+00:05:22,160 --> 00:05:25,430
+huge and because of that
+the decision of creation merging it's
+
+242
+00:05:25,430 --> 00:05:25,440
+the decision of creation merging it's
+ 
+
+243
+00:05:25,440 --> 00:05:27,590
+the decision of creation merging it's
+not easy
+
+244
+00:05:27,590 --> 00:05:27,600
+not easy
+ 
+
+245
+00:05:27,600 --> 00:05:31,110
+not easy
+but with API gateway in mid the clients
+
+246
+00:05:31,110 --> 00:05:31,120
+but with API gateway in mid the clients
+ 
+
+247
+00:05:31,120 --> 00:05:34,950
+but with API gateway in mid the clients
+are not even bothered about it they only
+
+248
+00:05:34,950 --> 00:05:34,960
+are not even bothered about it they only
+ 
+
+249
+00:05:34,960 --> 00:05:38,150
+are not even bothered about it they only
+talk with API gateway now only API
+
+250
+00:05:38,150 --> 00:05:38,160
+talk with API gateway now only API
+ 
+
+251
+00:05:38,160 --> 00:05:39,909
+talk with API gateway now only API
+gateway we need to update the routing
+
+252
+00:05:39,909 --> 00:05:39,919
+gateway we need to update the routing
+ 
+
+253
+00:05:39,919 --> 00:05:42,550
+gateway we need to update the routing
+logic okay if this is the API earlier it
+
+254
+00:05:42,550 --> 00:05:42,560
+logic okay if this is the API earlier it
+ 
+
+255
+00:05:42,560 --> 00:05:45,430
+logic okay if this is the API earlier it
+was passing to here now it knows that it
+
+256
+00:05:45,430 --> 00:05:45,440
+was passing to here now it knows that it
+ 
+
+257
+00:05:45,440 --> 00:05:48,790
+was passing to here now it knows that it
+need to pass to this new microser.
+
+258
+00:05:48,790 --> 00:05:48,800
+need to pass to this new microser.
+ 
+
+259
+00:05:48,800 --> 00:05:53,270
+need to pass to this new microser.
+Okay. So only one application is changed
+
+260
+00:05:53,270 --> 00:05:53,280
+Okay. So only one application is changed
+ 
+
+261
+00:05:53,280 --> 00:05:56,710
+Okay. So only one application is changed
+not hundreds.
+
+262
+00:05:56,710 --> 00:05:56,720
+not hundreds.
+ 
+
+263
+00:05:56,720 --> 00:05:58,390
+not hundreds.
+Okay.
+
+264
+00:05:58,390 --> 00:05:58,400
+Okay.
+ 
+
+265
+00:05:58,400 --> 00:06:00,870
+Okay.
+So let's implement this. What we are
+
+266
+00:06:00,870 --> 00:06:00,880
+So let's implement this. What we are
+ 
+
+267
+00:06:00,880 --> 00:06:02,390
+So let's implement this. What we are
+going to implement? So we are creating
+
+268
+00:06:02,390 --> 00:06:02,400
+going to implement? So we are creating
+ 
+
+269
+00:06:02,400 --> 00:06:04,710
+going to implement? So we are creating
+two microser product microser order
+
+270
+00:06:04,710 --> 00:06:04,720
+two microser product microser order
+ 
+
+271
+00:06:04,720 --> 00:06:07,670
+two microser product microser order
+micros service. Okay. And we are going
+
+272
+00:06:07,670 --> 00:06:07,680
+micros service. Okay. And we are going
+ 
+
+273
+00:06:07,680 --> 00:06:11,110
+micros service. Okay. And we are going
+to create an API gateway service. Now
+
+274
+00:06:11,110 --> 00:06:11,120
+to create an API gateway service. Now
+ 
+
+275
+00:06:11,120 --> 00:06:13,510
+to create an API gateway service. Now
+whenever any request comes so our client
+
+276
+00:06:13,510 --> 00:06:13,520
+whenever any request comes so our client
+ 
+
+277
+00:06:13,520 --> 00:06:15,670
+whenever any request comes so our client
+would be here postman
+
+278
+00:06:15,670 --> 00:06:15,680
+would be here postman
+ 
+
+279
+00:06:15,680 --> 00:06:18,790
+would be here postman
+from postman when we invoke slash
+
+280
+00:06:18,790 --> 00:06:18,800
+from postman when we invoke slash
+ 
+
+281
+00:06:18,800 --> 00:06:20,309
+from postman when we invoke slash
+product
+
+282
+00:06:20,309 --> 00:06:20,319
+product
+ 
+
+283
+00:06:20,319 --> 00:06:23,270
+product
+let's say / id1.
+
+284
+00:06:23,270 --> 00:06:23,280
+let's say / id1.
+ 
+
+285
+00:06:23,280 --> 00:06:27,189
+let's say / id1.
+So API gateway should intercept it and
+
+286
+00:06:27,189 --> 00:06:27,199
+So API gateway should intercept it and
+ 
+
+287
+00:06:27,199 --> 00:06:30,870
+So API gateway should intercept it and
+decide okay any request which is
+
+288
+00:06:30,870 --> 00:06:30,880
+decide okay any request which is
+ 
+
+289
+00:06:30,880 --> 00:06:33,510
+decide okay any request which is
+starting with / products I need to
+
+290
+00:06:33,510 --> 00:06:33,520
+starting with / products I need to
+ 
+
+291
+00:06:33,520 --> 00:06:36,950
+starting with / products I need to
+forward it to product micros service and
+
+292
+00:06:36,950 --> 00:06:36,960
+forward it to product micros service and
+ 
+
+293
+00:06:36,960 --> 00:06:38,790
+forward it to product micros service and
+the second is let's say if client calls
+
+294
+00:06:38,790 --> 00:06:38,800
+the second is let's say if client calls
+ 
+
+295
+00:06:38,800 --> 00:06:40,309
+the second is let's say if client calls
+orders
+
+296
+00:06:40,309 --> 00:06:40,319
+orders
+ 
+
+297
+00:06:40,319 --> 00:06:43,270
+orders
+/ one something now it intercept that
+
+298
+00:06:43,270 --> 00:06:43,280
+/ one something now it intercept that
+ 
+
+299
+00:06:43,280 --> 00:06:46,629
+/ one something now it intercept that
+any API starts with / order I need to
+
+300
+00:06:46,629 --> 00:06:46,639
+any API starts with / order I need to
+ 
+
+301
+00:06:46,639 --> 00:06:49,110
+any API starts with / order I need to
+pass it order microser
+
+302
+00:06:49,110 --> 00:06:49,120
+pass it order microser
+ 
+
+303
+00:06:49,120 --> 00:06:52,870
+pass it order microser
+so this we have to implement it now
+
+304
+00:06:52,870 --> 00:06:52,880
+so this we have to implement it now
+ 
+
+305
+00:06:52,880 --> 00:06:54,870
+so this we have to implement it now
+So first thing products product
+
+306
+00:06:54,870 --> 00:06:54,880
+So first thing products product
+ 
+
+307
+00:06:54,880 --> 00:06:57,350
+So first thing products product
+microservices you can goes to spring
+
+308
+00:06:57,350 --> 00:06:57,360
+microservices you can goes to spring
+ 
+
+309
+00:06:57,360 --> 00:07:00,790
+microservices you can goes to spring
+initializer okay just java you can
+
+310
+00:07:00,790 --> 00:07:00,800
+initializer okay just java you can
+ 
+
+311
+00:07:00,800 --> 00:07:03,589
+initializer okay just java you can
+select the latest version java 17 java
+
+312
+00:07:03,589 --> 00:07:03,599
+select the latest version java 17 java
+ 
+
+313
+00:07:03,599 --> 00:07:05,589
+select the latest version java 17 java
+21 whichever you want to work with and
+
+314
+00:07:05,589 --> 00:07:05,599
+21 whichever you want to work with and
+ 
+
+315
+00:07:05,599 --> 00:07:08,230
+21 whichever you want to work with and
+normal spring web normal application
+
+316
+00:07:08,230 --> 00:07:08,240
+normal spring web normal application
+ 
+
+317
+00:07:08,240 --> 00:07:11,909
+normal spring web normal application
+okay so once you done that we can have
+
+318
+00:07:11,909 --> 00:07:11,919
+okay so once you done that we can have
+ 
+
+319
+00:07:11,919 --> 00:07:14,870
+okay so once you done that we can have
+one rest controller where we are just
+
+320
+00:07:14,870 --> 00:07:14,880
+one rest controller where we are just
+ 
+
+321
+00:07:14,880 --> 00:07:20,150
+one rest controller where we are just
+exposed one endpoint / products slash id
+
+322
+00:07:20,150 --> 00:07:20,160
+exposed one endpoint / products slash id
+ 
+
+323
+00:07:20,160 --> 00:07:22,629
+exposed one endpoint / products slash id
+like / product one whatever the client
+
+324
+00:07:22,629 --> 00:07:22,639
+like / product one whatever the client
+ 
+
+325
+00:07:22,639 --> 00:07:25,029
+like / product one whatever the client
+will pass and it will just returning
+
+326
+00:07:25,029 --> 00:07:25,039
+will pass and it will just returning
+ 
+
+327
+00:07:25,039 --> 00:07:26,950
+will pass and it will just returning
+fetch the product details with id that's
+
+328
+00:07:26,950 --> 00:07:26,960
+fetch the product details with id that's
+ 
+
+329
+00:07:26,960 --> 00:07:30,469
+fetch the product details with id that's
+all nothing else okay and we are running
+
+330
+00:07:30,469 --> 00:07:30,479
+all nothing else okay and we are running
+ 
+
+331
+00:07:30,479 --> 00:07:33,589
+all nothing else okay and we are running
+this application on port number 8082
+
+332
+00:07:33,589 --> 00:07:33,599
+this application on port number 8082
+ 
+
+333
+00:07:33,599 --> 00:07:37,909
+this application on port number 8082
+so our product setup is complete order
+
+334
+00:07:37,909 --> 00:07:37,919
+so our product setup is complete order
+ 
+
+335
+00:07:37,919 --> 00:07:40,629
+so our product setup is complete order
+microservices is also very simple create
+
+336
+00:07:40,629 --> 00:07:40,639
+microservices is also very simple create
+ 
+
+337
+00:07:40,639 --> 00:07:43,589
+microservices is also very simple create
+a new micros service give it a name
+
+338
+00:07:43,589 --> 00:07:43,599
+a new micros service give it a name
+ 
+
+339
+00:07:43,599 --> 00:07:46,710
+a new micros service give it a name
+order like is spring web just we need
+
+340
+00:07:46,710 --> 00:07:46,720
+order like is spring web just we need
+ 
+
+341
+00:07:46,720 --> 00:07:49,670
+order like is spring web just we need
+this uh dependency and just create a
+
+342
+00:07:49,670 --> 00:07:49,680
+this uh dependency and just create a
+ 
+
+343
+00:07:49,680 --> 00:07:52,950
+this uh dependency and just create a
+very basic controller /order/ / id we
+
+344
+00:07:52,950 --> 00:07:52,960
+very basic controller /order/ / id we
+ 
+
+345
+00:07:52,960 --> 00:07:54,950
+very basic controller /order/ / id we
+will expose one endpoint and we will
+
+346
+00:07:54,950 --> 00:07:54,960
+will expose one endpoint and we will
+ 
+
+347
+00:07:54,960 --> 00:07:57,270
+will expose one endpoint and we will
+just print f the order details with id
+
+348
+00:07:57,270 --> 00:07:57,280
+just print f the order details with id
+ 
+
+349
+00:07:57,280 --> 00:08:00,869
+just print f the order details with id
+this one that's all nothing else and the
+
+350
+00:08:00,869 --> 00:08:00,879
+this one that's all nothing else and the
+ 
+
+351
+00:08:00,879 --> 00:08:03,029
+this one that's all nothing else and the
+port number on which we are running the
+
+352
+00:08:03,029 --> 00:08:03,039
+port number on which we are running the
+ 
+
+353
+00:08:03,039 --> 00:08:05,350
+port number on which we are running the
+order is 80081
+
+354
+00:08:05,350 --> 00:08:05,360
+order is 80081
+ 
+
+355
+00:08:05,360 --> 00:08:07,589
+order is 80081
+so this is also run it is running on
+
+356
+00:08:07,589 --> 00:08:07,599
+so this is also run it is running on
+ 
+
+357
+00:08:07,599 --> 00:08:10,550
+so this is also run it is running on
+8081 and this is on 8082 so this is also
+
+358
+00:08:10,550 --> 00:08:10,560
+8081 and this is on 8082 so this is also
+ 
+
+359
+00:08:10,560 --> 00:08:13,110
+8081 and this is on 8082 so this is also
+setup completed
+
+360
+00:08:13,110 --> 00:08:13,120
+setup completed
+ 
+
+361
+00:08:13,120 --> 00:08:16,230
+setup completed
+now we need to set up
+
+362
+00:08:16,230 --> 00:08:16,240
+now we need to set up
+ 
+
+363
+00:08:16,240 --> 00:08:20,230
+now we need to set up
+gateway so on the spring initializer you
+
+364
+00:08:20,230 --> 00:08:20,240
+gateway so on the spring initializer you
+ 
+
+365
+00:08:20,240 --> 00:08:22,950
+gateway so on the spring initializer you
+can choose java maven one the version
+
+366
+00:08:22,950 --> 00:08:22,960
+can choose java maven one the version
+ 
+
+367
+00:08:22,960 --> 00:08:26,950
+can choose java maven one the version
+give the name API gateway jar Java 17
+
+368
+00:08:26,950 --> 00:08:26,960
+give the name API gateway jar Java 17
+ 
+
+369
+00:08:26,960 --> 00:08:30,070
+give the name API gateway jar Java 17
+whichever we are running now we have to
+
+370
+00:08:30,070 --> 00:08:30,080
+whichever we are running now we have to
+ 
+
+371
+00:08:30,080 --> 00:08:33,430
+whichever we are running now we have to
+choose this dependency reactive gateway
+
+372
+00:08:33,430 --> 00:08:33,440
+choose this dependency reactive gateway
+ 
+
+373
+00:08:33,440 --> 00:08:36,310
+choose this dependency reactive gateway
+okay so what it will do is it will bring
+
+374
+00:08:36,310 --> 00:08:36,320
+okay so what it will do is it will bring
+ 
+
+375
+00:08:36,320 --> 00:08:39,990
+okay so what it will do is it will bring
+this dependency into our pom doxml
+
+376
+00:08:39,990 --> 00:08:40,000
+this dependency into our pom doxml
+ 
+
+377
+00:08:40,000 --> 00:08:42,949
+this dependency into our pom doxml
+spring cloud starter gateway so this
+
+378
+00:08:42,949 --> 00:08:42,959
+spring cloud starter gateway so this
+ 
+
+379
+00:08:42,959 --> 00:08:45,030
+spring cloud starter gateway so this
+dependency will get added because of
+
+380
+00:08:45,030 --> 00:08:45,040
+dependency will get added because of
+ 
+
+381
+00:08:45,040 --> 00:08:48,070
+dependency will get added because of
+this when we add into spring initializer
+
+382
+00:08:48,070 --> 00:08:48,080
+this when we add into spring initializer
+ 
+
+383
+00:08:48,080 --> 00:08:49,829
+this when we add into spring initializer
+through UI
+
+384
+00:08:49,829 --> 00:08:49,839
+through UI
+ 
+
+385
+00:08:49,839 --> 00:08:52,150
+through UI
+so this is the first thing So now our
+
+386
+00:08:52,150 --> 00:08:52,160
+so this is the first thing So now our
+ 
+
+387
+00:08:52,160 --> 00:08:55,590
+so this is the first thing So now our
+dependency is present. Now in
+
+388
+00:08:55,590 --> 00:08:55,600
+dependency is present. Now in
+ 
+
+389
+00:08:55,600 --> 00:08:57,269
+dependency is present. Now in
+application.property
+
+390
+00:08:57,269 --> 00:08:57,279
+application.property
+ 
+
+391
+00:08:57,279 --> 00:09:01,990
+application.property
+of this project API gateway.
+
+392
+00:09:01,990 --> 00:09:02,000
+of this project API gateway.
+ 
+
+393
+00:09:02,000 --> 00:09:04,150
+of this project API gateway.
+First thing is we are running it on port
+
+394
+00:09:04,150 --> 00:09:04,160
+First thing is we are running it on port
+ 
+
+395
+00:09:04,160 --> 00:09:06,389
+First thing is we are running it on port
+number 8083.
+
+396
+00:09:06,389 --> 00:09:06,399
+number 8083.
+ 
+
+397
+00:09:06,399 --> 00:09:09,030
+number 8083.
+Okay. Now
+
+398
+00:09:09,030 --> 00:09:09,040
+Okay. Now
+ 
+
+399
+00:09:09,040 --> 00:09:12,150
+Okay. Now
+we are adding the routing logic. So I
+
+400
+00:09:12,150 --> 00:09:12,160
+we are adding the routing logic. So I
+ 
+
+401
+00:09:12,160 --> 00:09:15,030
+we are adding the routing logic. So I
+have added two routing logic. Why two?
+
+402
+00:09:15,030 --> 00:09:15,040
+have added two routing logic. Why two?
+ 
+
+403
+00:09:15,040 --> 00:09:18,630
+have added two routing logic. Why two?
+One is for product, another is for
+
+404
+00:09:18,630 --> 00:09:18,640
+One is for product, another is for
+ 
+
+405
+00:09:18,640 --> 00:09:20,870
+One is for product, another is for
+order. Okay. Okay. And this is running
+
+406
+00:09:20,870 --> 00:09:20,880
+order. Okay. Okay. And this is running
+ 
+
+407
+00:09:20,880 --> 00:09:24,949
+order. Okay. Okay. And this is running
+on 8083 port number. So let's add a
+
+408
+00:09:24,949 --> 00:09:24,959
+on 8083 port number. So let's add a
+ 
+
+409
+00:09:24,959 --> 00:09:26,550
+on 8083 port number. So let's add a
+product
+
+410
+00:09:26,550 --> 00:09:26,560
+product
+ 
+
+411
+00:09:26,560 --> 00:09:29,990
+product
+routing logic. So see this one
+
+412
+00:09:29,990 --> 00:09:30,000
+routing logic. So see this one
+ 
+
+413
+00:09:30,000 --> 00:09:31,590
+routing logic. So see this one
+configuration is like spring
+
+414
+00:09:31,590 --> 00:09:31,600
+configuration is like spring
+ 
+
+415
+00:09:31,600 --> 00:09:35,350
+configuration is like spring
+dotcloud.gateway
+
+416
+00:09:35,350 --> 00:09:35,360
+
+ 
+
+417
+00:09:35,360 --> 00:09:38,870
+
+route zero. So it is like we can gateway
+
+418
+00:09:38,870 --> 00:09:38,880
+route zero. So it is like we can gateway
+ 
+
+419
+00:09:38,880 --> 00:09:40,870
+route zero. So it is like we can gateway
+is might be connecting to multiple
+
+420
+00:09:40,870 --> 00:09:40,880
+is might be connecting to multiple
+ 
+
+421
+00:09:40,880 --> 00:09:43,190
+is might be connecting to multiple
+microservices like product like order
+
+422
+00:09:43,190 --> 00:09:43,200
+microservices like product like order
+ 
+
+423
+00:09:43,200 --> 00:09:46,389
+microservices like product like order
+like sales like payment multiple. So
+
+424
+00:09:46,389 --> 00:09:46,399
+like sales like payment multiple. So
+ 
+
+425
+00:09:46,399 --> 00:09:48,790
+like sales like payment multiple. So
+it's like
+
+426
+00:09:48,790 --> 00:09:48,800
+it's like
+ 
+
+427
+00:09:48,800 --> 00:09:51,190
+it's like
+route 01. It's like an array. You can
+
+428
+00:09:51,190 --> 00:09:51,200
+route 01. It's like an array. You can
+ 
+
+429
+00:09:51,200 --> 00:09:53,910
+route 01. It's like an array. You can
+consider it as an array. So route zero
+
+430
+00:09:53,910 --> 00:09:53,920
+consider it as an array. So route zero
+ 
+
+431
+00:09:53,920 --> 00:09:56,710
+consider it as an array. So route zero
+is for product. Route one is for order.
+
+432
+00:09:56,710 --> 00:09:56,720
+is for product. Route one is for order.
+ 
+
+433
+00:09:56,720 --> 00:09:59,670
+is for product. Route one is for order.
+Similarly, if there are more, route two
+
+434
+00:09:59,670 --> 00:09:59,680
+Similarly, if there are more, route two
+ 
+
+435
+00:09:59,680 --> 00:10:02,150
+Similarly, if there are more, route two
+is maybe for your sales. Then route four
+
+436
+00:10:02,150 --> 00:10:02,160
+is maybe for your sales. Then route four
+ 
+
+437
+00:10:02,160 --> 00:10:04,070
+is maybe for your sales. Then route four
+maybe you are for payment. Likewise.
+
+438
+00:10:04,070 --> 00:10:04,080
+maybe you are for payment. Likewise.
+ 
+
+439
+00:10:04,080 --> 00:10:07,269
+maybe you are for payment. Likewise.
+Okay. So route zero dot id. So this is
+
+440
+00:10:07,269 --> 00:10:07,279
+Okay. So route zero dot id. So this is
+ 
+
+441
+00:10:07,279 --> 00:10:09,990
+Okay. So route zero dot id. So this is
+any unique name we can provide. So I'm
+
+442
+00:10:09,990 --> 00:10:10,000
+any unique name we can provide. So I'm
+ 
+
+443
+00:10:10,000 --> 00:10:11,750
+any unique name we can provide. So I'm
+just giving product service. You can
+
+444
+00:10:11,750 --> 00:10:11,760
+just giving product service. You can
+ 
+
+445
+00:10:11,760 --> 00:10:14,710
+just giving product service. You can
+give any name in this one.
+
+446
+00:10:14,710 --> 00:10:14,720
+give any name in this one.
+ 
+
+447
+00:10:14,720 --> 00:10:17,990
+give any name in this one.
+Okay. The second is route0. URI. So this
+
+448
+00:10:17,990 --> 00:10:18,000
+Okay. The second is route0. URI. So this
+ 
+
+449
+00:10:18,000 --> 00:10:20,069
+Okay. The second is route0. URI. So this
+is the URI
+
+450
+00:10:20,069 --> 00:10:20,079
+is the URI
+ 
+
+451
+00:10:20,079 --> 00:10:22,710
+is the URI
+for this microservices.
+
+452
+00:10:22,710 --> 00:10:22,720
+for this microservices.
+ 
+
+453
+00:10:22,720 --> 00:10:26,150
+for this microservices.
+So let's say API gateway is forwarding
+
+454
+00:10:26,150 --> 00:10:26,160
+So let's say API gateway is forwarding
+ 
+
+455
+00:10:26,160 --> 00:10:29,430
+So let's say API gateway is forwarding
+to this microser. It is like running on
+
+456
+00:10:29,430 --> 00:10:29,440
+to this microser. It is like running on
+ 
+
+457
+00:10:29,440 --> 00:10:31,190
+to this microser. It is like running on
+localhost
+
+458
+00:10:31,190 --> 00:10:31,200
+localhost
+ 
+
+459
+00:10:31,200 --> 00:10:32,870
+localhost
+8082.
+
+460
+00:10:32,870 --> 00:10:32,880
+8082.
+ 
+
+461
+00:10:32,880 --> 00:10:36,470
+8082.
+So that's what I am passing it here
+
+462
+00:10:36,470 --> 00:10:36,480
+So that's what I am passing it here
+ 
+
+463
+00:10:36,480 --> 00:10:39,670
+So that's what I am passing it here
+http localhost 8082 where this microser
+
+464
+00:10:39,670 --> 00:10:39,680
+http localhost 8082 where this microser
+ 
+
+465
+00:10:39,680 --> 00:10:42,710
+http localhost 8082 where this microser
+is running host and port.
+
+466
+00:10:42,710 --> 00:10:42,720
+is running host and port.
+ 
+
+467
+00:10:42,720 --> 00:10:44,790
+is running host and port.
+Now the third one is route zero
+
+468
+00:10:44,790 --> 00:10:44,800
+Now the third one is route zero
+ 
+
+469
+00:10:44,800 --> 00:10:48,230
+Now the third one is route zero
+predicates zero. So predicate is also an
+
+470
+00:10:48,230 --> 00:10:48,240
+predicates zero. So predicate is also an
+ 
+
+471
+00:10:48,240 --> 00:10:50,630
+predicates zero. So predicate is also an
+array. There can be multiple predicates.
+
+472
+00:10:50,630 --> 00:10:50,640
+array. There can be multiple predicates.
+ 
+
+473
+00:10:50,640 --> 00:10:53,030
+array. There can be multiple predicates.
+Okay. So predicate 0, predicate 1,
+
+474
+00:10:53,030 --> 00:10:53,040
+Okay. So predicate 0, predicate 1,
+ 
+
+475
+00:10:53,040 --> 00:10:54,630
+Okay. So predicate 0, predicate 1,
+predicate 2, there can be multiple
+
+476
+00:10:54,630 --> 00:10:54,640
+predicate 2, there can be multiple
+ 
+
+477
+00:10:54,640 --> 00:10:56,630
+predicate 2, there can be multiple
+predicates also. Predicate considered as
+
+478
+00:10:56,630 --> 00:10:56,640
+predicates also. Predicate considered as
+ 
+
+479
+00:10:56,640 --> 00:10:58,310
+predicates also. Predicate considered as
+a filter.
+
+480
+00:10:58,310 --> 00:10:58,320
+a filter.
+ 
+
+481
+00:10:58,320 --> 00:11:00,470
+a filter.
+Okay. So the first filter which I am
+
+482
+00:11:00,470 --> 00:11:00,480
+Okay. So the first filter which I am
+ 
+
+483
+00:11:00,480 --> 00:11:05,509
+Okay. So the first filter which I am
+putting is path equals to /rouct/star
+
+484
+00:11:05,509 --> 00:11:05,519
+putting is path equals to /rouct/star
+ 
+
+485
+00:11:05,519 --> 00:11:09,350
+putting is path equals to /rouct/star
+star means any traffic which start with
+
+486
+00:11:09,350 --> 00:11:09,360
+star means any traffic which start with
+ 
+
+487
+00:11:09,360 --> 00:11:13,829
+star means any traffic which start with
+/ products I need to forward it to this
+
+488
+00:11:13,829 --> 00:11:13,839
+/ products I need to forward it to this
+ 
+
+489
+00:11:13,839 --> 00:11:15,509
+/ products I need to forward it to this
+path
+
+490
+00:11:15,509 --> 00:11:15,519
+path
+ 
+
+491
+00:11:15,519 --> 00:11:17,269
+path
+this URI.
+
+492
+00:11:17,269 --> 00:11:17,279
+this URI.
+ 
+
+493
+00:11:17,279 --> 00:11:20,710
+this URI.
+Okay. So you can have more you can add
+
+494
+00:11:20,710 --> 00:11:20,720
+Okay. So you can have more you can add
+ 
+
+495
+00:11:20,720 --> 00:11:22,069
+Okay. So you can have more you can add
+more predicates. So let's say I am
+
+496
+00:11:22,069 --> 00:11:22,079
+more predicates. So let's say I am
+ 
+
+497
+00:11:22,079 --> 00:11:25,910
+more predicates. So let's say I am
+adding this spring.cloud.gateway.troo0.
+
+498
+00:11:25,910 --> 00:11:25,920
+
+ 
+
+499
+00:11:25,920 --> 00:11:28,550
+
+Route0 means this product one. So route
+
+500
+00:11:28,550 --> 00:11:28,560
+Route0 means this product one. So route
+ 
+
+501
+00:11:28,560 --> 00:11:31,030
+Route0 means this product one. So route
+0 route zero this one. So we are in the
+
+502
+00:11:31,030 --> 00:11:31,040
+0 route zero this one. So we are in the
+ 
+
+503
+00:11:31,040 --> 00:11:33,269
+0 route zero this one. So we are in the
+0 one we are adding for product service.
+
+504
+00:11:33,269 --> 00:11:33,279
+0 one we are adding for product service.
+ 
+
+505
+00:11:33,279 --> 00:11:36,069
+0 one we are adding for product service.
+So route 0 dot predicate one. So
+
+506
+00:11:36,069 --> 00:11:36,079
+So route 0 dot predicate one. So
+ 
+
+507
+00:11:36,079 --> 00:11:37,750
+So route 0 dot predicate one. So
+predicate is also an array right in the
+
+508
+00:11:37,750 --> 00:11:37,760
+predicate is also an array right in the
+ 
+
+509
+00:11:37,760 --> 00:11:40,710
+predicate is also an array right in the
+zeroth one I added for path. In the
+
+510
+00:11:40,710 --> 00:11:40,720
+zeroth one I added for path. In the
+ 
+
+511
+00:11:40,720 --> 00:11:42,710
+zeroth one I added for path. In the
+predicate one I added for method. So
+
+512
+00:11:42,710 --> 00:11:42,720
+predicate one I added for method. So
+ 
+
+513
+00:11:42,720 --> 00:11:45,350
+predicate one I added for method. So
+equals to method
+
+514
+00:11:45,350 --> 00:11:45,360
+equals to method
+ 
+
+515
+00:11:45,360 --> 00:11:50,069
+equals to method
+is allowed only get post. So what now it
+
+516
+00:11:50,069 --> 00:11:50,079
+is allowed only get post. So what now it
+ 
+
+517
+00:11:50,079 --> 00:11:54,470
+is allowed only get post. So what now it
+will match any API which start with /
+
+518
+00:11:54,470 --> 00:11:54,480
+will match any API which start with /
+ 
+
+519
+00:11:54,480 --> 00:11:58,310
+will match any API which start with /
+product star or any API start with this
+
+520
+00:11:58,310 --> 00:11:58,320
+product star or any API start with this
+ 
+
+521
+00:11:58,320 --> 00:12:01,829
+product star or any API start with this
+after this it we can have anything okay
+
+522
+00:12:01,829 --> 00:12:01,839
+after this it we can have anything okay
+ 
+
+523
+00:12:01,839 --> 00:12:04,790
+after this it we can have anything okay
+but any API which start with / products
+
+524
+00:12:04,790 --> 00:12:04,800
+but any API which start with / products
+ 
+
+525
+00:12:04,800 --> 00:12:08,069
+but any API which start with / products
+but it should be get and post then we
+
+526
+00:12:08,069 --> 00:12:08,079
+but it should be get and post then we
+ 
+
+527
+00:12:08,079 --> 00:12:11,110
+but it should be get and post then we
+will a root matching will success and it
+
+528
+00:12:11,110 --> 00:12:11,120
+will a root matching will success and it
+ 
+
+529
+00:12:11,120 --> 00:12:14,069
+will a root matching will success and it
+will pass to this URL
+
+530
+00:12:14,069 --> 00:12:14,079
+will pass to this URL
+ 
+
+531
+00:12:14,079 --> 00:12:15,750
+will pass to this URL
+okay
+
+532
+00:12:15,750 --> 00:12:15,760
+okay
+ 
+
+533
+00:12:15,760 --> 00:12:17,990
+okay
+so this is just an example but uh In the
+
+534
+00:12:17,990 --> 00:12:18,000
+so this is just an example but uh In the
+ 
+
+535
+00:12:18,000 --> 00:12:19,990
+so this is just an example but uh In the
+application.properties, I have only one
+
+536
+00:12:19,990 --> 00:12:20,000
+application.properties, I have only one
+ 
+
+537
+00:12:20,000 --> 00:12:22,150
+application.properties, I have only one
+predicate or one filter that is for
+
+538
+00:12:22,150 --> 00:12:22,160
+predicate or one filter that is for
+ 
+
+539
+00:12:22,160 --> 00:12:24,710
+predicate or one filter that is for
+path. So whenever we will hit through
+
+540
+00:12:24,710 --> 00:12:24,720
+path. So whenever we will hit through
+ 
+
+541
+00:12:24,720 --> 00:12:26,790
+path. So whenever we will hit through
+our postman
+
+542
+00:12:26,790 --> 00:12:26,800
+our postman
+ 
+
+543
+00:12:26,800 --> 00:12:28,790
+our postman
+/ product/
+
+544
+00:12:28,790 --> 00:12:28,800
+/ product/
+ 
+
+545
+00:12:28,800 --> 00:12:32,470
+/ product/
+let's say id anything it will pass it to
+
+546
+00:12:32,470 --> 00:12:32,480
+let's say id anything it will pass it to
+ 
+
+547
+00:12:32,480 --> 00:12:35,269
+let's say id anything it will pass it to
+this product microser no matter it's a
+
+548
+00:12:35,269 --> 00:12:35,279
+this product microser no matter it's a
+ 
+
+549
+00:12:35,279 --> 00:12:38,470
+this product microser no matter it's a
+get or put or post or delete because we
+
+550
+00:12:38,470 --> 00:12:38,480
+get or put or post or delete because we
+ 
+
+551
+00:12:38,480 --> 00:12:40,790
+get or put or post or delete because we
+have only one predicate
+
+552
+00:12:40,790 --> 00:12:40,800
+have only one predicate
+ 
+
+553
+00:12:40,800 --> 00:12:43,590
+have only one predicate
+not many. Similarly for order you can
+
+554
+00:12:43,590 --> 00:12:43,600
+not many. Similarly for order you can
+ 
+
+555
+00:12:43,600 --> 00:12:45,990
+not many. Similarly for order you can
+also define first is now spring.cloud
+
+556
+00:12:45,990 --> 00:12:46,000
+also define first is now spring.cloud
+ 
+
+557
+00:12:46,000 --> 00:12:48,470
+also define first is now spring.cloud
+Cloud gateway route one. So now one is
+
+558
+00:12:48,470 --> 00:12:48,480
+Cloud gateway route one. So now one is
+ 
+
+559
+00:12:48,480 --> 00:12:51,590
+Cloud gateway route one. So now one is
+our our order. So you can give any
+
+560
+00:12:51,590 --> 00:12:51,600
+our our order. So you can give any
+ 
+
+561
+00:12:51,600 --> 00:12:55,509
+our our order. So you can give any
+unique ID then provide a URI what is the
+
+562
+00:12:55,509 --> 00:12:55,519
+unique ID then provide a URI what is the
+ 
+
+563
+00:12:55,519 --> 00:12:58,310
+unique ID then provide a URI what is the
+microser order microservices located at
+
+564
+00:12:58,310 --> 00:12:58,320
+microser order microservices located at
+ 
+
+565
+00:12:58,320 --> 00:13:01,030
+microser order microservices located at
+your host and port number and the
+
+566
+00:13:01,030 --> 00:13:01,040
+your host and port number and the
+ 
+
+567
+00:13:01,040 --> 00:13:03,350
+your host and port number and the
+filters. So route one which is for order
+
+568
+00:13:03,350 --> 00:13:03,360
+filters. So route one which is for order
+ 
+
+569
+00:13:03,360 --> 00:13:05,430
+filters. So route one which is for order
+and predicate zero then you can have
+
+570
+00:13:05,430 --> 00:13:05,440
+and predicate zero then you can have
+ 
+
+571
+00:13:05,440 --> 00:13:09,750
+and predicate zero then you can have
+predicates one two likewise. So
+
+572
+00:13:09,750 --> 00:13:09,760
+predicates one two likewise. So
+ 
+
+573
+00:13:09,760 --> 00:13:11,750
+predicates one two likewise. So
+currently we have only one predicate
+
+574
+00:13:11,750 --> 00:13:11,760
+currently we have only one predicate
+ 
+
+575
+00:13:11,760 --> 00:13:14,550
+currently we have only one predicate
+which is based on path. So path equals
+
+576
+00:13:14,550 --> 00:13:14,560
+which is based on path. So path equals
+ 
+
+577
+00:13:14,560 --> 00:13:18,790
+which is based on path. So path equals
+to any API which start with or
+
+578
+00:13:18,790 --> 00:13:18,800
+to any API which start with or
+ 
+
+579
+00:13:18,800 --> 00:13:22,150
+to any API which start with or
+then pass it to this URI. So you can
+
+580
+00:13:22,150 --> 00:13:22,160
+then pass it to this URI. So you can
+ 
+
+581
+00:13:22,160 --> 00:13:27,110
+then pass it to this URI. So you can
+have like method. So here we have like
+
+582
+00:13:27,110 --> 00:13:27,120
+have like method. So here we have like
+ 
+
+583
+00:13:27,120 --> 00:13:29,910
+have like method. So here we have like
+method. Then also you can have header.
+
+584
+00:13:29,910 --> 00:13:29,920
+method. Then also you can have header.
+ 
+
+585
+00:13:29,920 --> 00:13:32,230
+method. Then also you can have header.
+There are I think four five predicates
+
+586
+00:13:32,230 --> 00:13:32,240
+There are I think four five predicates
+ 
+
+587
+00:13:32,240 --> 00:13:35,190
+There are I think four five predicates
+we can use that but
+
+588
+00:13:35,190 --> 00:13:35,200
+we can use that but
+ 
+
+589
+00:13:35,200 --> 00:13:38,150
+we can use that but
+these are the most important use path
+
+590
+00:13:38,150 --> 00:13:38,160
+these are the most important use path
+ 
+
+591
+00:13:38,160 --> 00:13:42,150
+these are the most important use path
+and method. Generally method also is not
+
+592
+00:13:42,150 --> 00:13:42,160
+and method. Generally method also is not
+ 
+
+593
+00:13:42,160 --> 00:13:44,389
+and method. Generally method also is not
+heavily used. path is the one which is
+
+594
+00:13:44,389 --> 00:13:44,399
+heavily used. path is the one which is
+ 
+
+595
+00:13:44,399 --> 00:13:47,110
+heavily used. path is the one which is
+very frequently used like if this path
+
+596
+00:13:47,110 --> 00:13:47,120
+very frequently used like if this path
+ 
+
+597
+00:13:47,120 --> 00:13:48,790
+very frequently used like if this path
+match
+
+598
+00:13:48,790 --> 00:13:48,800
+match
+ 
+
+599
+00:13:48,800 --> 00:13:50,949
+match
+pass it to
+
+600
+00:13:50,949 --> 00:13:50,959
+pass it to
+ 
+
+601
+00:13:50,959 --> 00:13:55,509
+pass it to
+this specific service.
+
+602
+00:13:55,509 --> 00:13:55,519
+
+ 
+
+603
+00:13:55,519 --> 00:13:57,750
+
+Okay.
+
+604
+00:13:57,750 --> 00:13:57,760
+Okay.
+ 
+
+605
+00:13:57,760 --> 00:14:03,189
+Okay.
+So we have added the routing
+
+606
+00:14:03,189 --> 00:14:03,199
+So we have added the routing
+ 
+
+607
+00:14:03,199 --> 00:14:05,350
+So we have added the routing
+and now let's start all the three
+
+608
+00:14:05,350 --> 00:14:05,360
+and now let's start all the three
+ 
+
+609
+00:14:05,360 --> 00:14:07,750
+and now let's start all the three
+servers. So my product service is
+
+610
+00:14:07,750 --> 00:14:07,760
+servers. So my product service is
+ 
+
+611
+00:14:07,760 --> 00:14:10,629
+servers. So my product service is
+running on 80082. My order service is
+
+612
+00:14:10,629 --> 00:14:10,639
+running on 80082. My order service is
+ 
+
+613
+00:14:10,639 --> 00:14:14,310
+running on 80082. My order service is
+running on 8081 and my API gateway is
+
+614
+00:14:14,310 --> 00:14:14,320
+running on 8081 and my API gateway is
+ 
+
+615
+00:14:14,320 --> 00:14:17,030
+running on 8081 and my API gateway is
+running on 8083. So now all three
+
+616
+00:14:17,030 --> 00:14:17,040
+running on 8083. So now all three
+ 
+
+617
+00:14:17,040 --> 00:14:19,269
+running on 8083. So now all three
+servers are started.
+
+618
+00:14:19,269 --> 00:14:19,279
+servers are started.
+ 
+
+619
+00:14:19,279 --> 00:14:22,710
+servers are started.
+Now from the client which is now our
+
+620
+00:14:22,710 --> 00:14:22,720
+Now from the client which is now our
+ 
+
+621
+00:14:22,720 --> 00:14:24,470
+Now from the client which is now our
+postman
+
+622
+00:14:24,470 --> 00:14:24,480
+postman
+ 
+
+623
+00:14:24,480 --> 00:14:26,710
+postman
+I am not calling here if you see
+
+624
+00:14:26,710 --> 00:14:26,720
+I am not calling here if you see
+ 
+
+625
+00:14:26,720 --> 00:14:29,829
+I am not calling here if you see
+localhost 8083 I am calling. I am not
+
+626
+00:14:29,829 --> 00:14:29,839
+localhost 8083 I am calling. I am not
+ 
+
+627
+00:14:29,839 --> 00:14:31,750
+localhost 8083 I am calling. I am not
+calling product endpoint product is
+
+628
+00:14:31,750 --> 00:14:31,760
+calling product endpoint product is
+ 
+
+629
+00:14:31,760 --> 00:14:33,990
+calling product endpoint product is
+running on 8082
+
+630
+00:14:33,990 --> 00:14:34,000
+running on 8082
+ 
+
+631
+00:14:34,000 --> 00:14:37,110
+running on 8082
+but here if you see I am calling 8083. I
+
+632
+00:14:37,110 --> 00:14:37,120
+but here if you see I am calling 8083. I
+ 
+
+633
+00:14:37,120 --> 00:14:40,550
+but here if you see I am calling 8083. I
+am hitting API gateway where my API
+
+634
+00:14:40,550 --> 00:14:40,560
+am hitting API gateway where my API
+ 
+
+635
+00:14:40,560 --> 00:14:42,870
+am hitting API gateway where my API
+gateway is running.
+
+636
+00:14:42,870 --> 00:14:42,880
+gateway is running.
+ 
+
+637
+00:14:42,880 --> 00:14:46,790
+gateway is running.
+So now I pass /roucts /1.
+
+638
+00:14:46,790 --> 00:14:46,800
+So now I pass /roucts /1.
+ 
+
+639
+00:14:46,800 --> 00:14:49,590
+So now I pass /roucts /1.
+So what it will do? It will do a
+
+640
+00:14:49,590 --> 00:14:49,600
+So what it will do? It will do a
+ 
+
+641
+00:14:49,600 --> 00:14:51,269
+So what it will do? It will do a
+matching.
+
+642
+00:14:51,269 --> 00:14:51,279
+matching.
+ 
+
+643
+00:14:51,279 --> 00:14:55,110
+matching.
+So any API started with / products, it
+
+644
+00:14:55,110 --> 00:14:55,120
+So any API started with / products, it
+ 
+
+645
+00:14:55,120 --> 00:14:57,110
+So any API started with / products, it
+will pass it to product endpoint and it
+
+646
+00:14:57,110 --> 00:14:57,120
+will pass it to product endpoint and it
+ 
+
+647
+00:14:57,120 --> 00:14:59,030
+will pass it to product endpoint and it
+will fetch the product details with ID
+
+648
+00:14:59,030 --> 00:14:59,040
+will fetch the product details with ID
+ 
+
+649
+00:14:59,040 --> 00:15:01,590
+will fetch the product details with ID
+1. This is what the controller we have
+
+650
+00:15:01,590 --> 00:15:01,600
+1. This is what the controller we have
+ 
+
+651
+00:15:01,600 --> 00:15:03,110
+1. This is what the controller we have
+added.
+
+652
+00:15:03,110 --> 00:15:03,120
+added.
+ 
+
+653
+00:15:03,120 --> 00:15:06,150
+added.
+F the product with ID.
+
+654
+00:15:06,150 --> 00:15:06,160
+F the product with ID.
+ 
+
+655
+00:15:06,160 --> 00:15:08,550
+F the product with ID.
+If it is an order, it will pass it API
+
+656
+00:15:08,550 --> 00:15:08,560
+If it is an order, it will pass it API
+ 
+
+657
+00:15:08,560 --> 00:15:10,389
+If it is an order, it will pass it API
+gateway pass it to proper order service
+
+658
+00:15:10,389 --> 00:15:10,399
+gateway pass it to proper order service
+ 
+
+659
+00:15:10,399 --> 00:15:13,110
+gateway pass it to proper order service
+and it will able to invoke this endpoint
+
+660
+00:15:13,110 --> 00:15:13,120
+and it will able to invoke this endpoint
+ 
+
+661
+00:15:13,120 --> 00:15:17,189
+and it will able to invoke this endpoint
+f the order details with id. So now here
+
+662
+00:15:17,189 --> 00:15:17,199
+f the order details with id. So now here
+ 
+
+663
+00:15:17,199 --> 00:15:20,310
+f the order details with id. So now here
+I am calling same API gateway endpoint
+
+664
+00:15:20,310 --> 00:15:20,320
+I am calling same API gateway endpoint
+ 
+
+665
+00:15:20,320 --> 00:15:21,990
+I am calling same API gateway endpoint
+80083
+
+666
+00:15:21,990 --> 00:15:22,000
+80083
+ 
+
+667
+00:15:22,000 --> 00:15:25,350
+80083
+/1. So it will
+
+668
+00:15:25,350 --> 00:15:25,360
+/1. So it will
+ 
+
+669
+00:15:25,360 --> 00:15:27,110
+/1. So it will
+properly forward the request to the
+
+670
+00:15:27,110 --> 00:15:27,120
+properly forward the request to the
+ 
+
+671
+00:15:27,120 --> 00:15:31,430
+properly forward the request to the
+order micros service f the order details
+
+672
+00:15:31,430 --> 00:15:31,440
+order micros service f the order details
+ 
+
+673
+00:15:31,440 --> 00:15:33,910
+order micros service f the order details
+with id1. So properly it invoked the
+
+674
+00:15:33,910 --> 00:15:33,920
+with id1. So properly it invoked the
+ 
+
+675
+00:15:33,920 --> 00:15:36,150
+with id1. So properly it invoked the
+order service.
+
+676
+00:15:36,150 --> 00:15:36,160
+order service.
+ 
+
+677
+00:15:36,160 --> 00:15:37,910
+order service.
+Okay.
+
+678
+00:15:37,910 --> 00:15:37,920
+Okay.
+ 
+
+679
+00:15:37,920 --> 00:15:39,990
+Okay.
+So one thing you might be thinking hey
+
+680
+00:15:39,990 --> 00:15:40,000
+So one thing you might be thinking hey
+ 
+
+681
+00:15:40,000 --> 00:15:41,670
+So one thing you might be thinking hey
+Shange
+
+682
+00:15:41,670 --> 00:15:41,680
+Shange
+ 
+
+683
+00:15:41,680 --> 00:15:45,110
+Shange
+you have hardcoded the URI here.
+
+684
+00:15:45,110 --> 00:15:45,120
+you have hardcoded the URI here.
+ 
+
+685
+00:15:45,120 --> 00:15:47,829
+you have hardcoded the URI here.
+Okay. Means it will always forward the
+
+686
+00:15:47,829 --> 00:15:47,839
+Okay. Means it will always forward the
+ 
+
+687
+00:15:47,839 --> 00:15:50,629
+Okay. Means it will always forward the
+request to a particular microser. What
+
+688
+00:15:50,629 --> 00:15:50,639
+request to a particular microser. What
+ 
+
+689
+00:15:50,639 --> 00:15:52,710
+request to a particular microser. What
+if we have multiple instances of a
+
+690
+00:15:52,710 --> 00:15:52,720
+if we have multiple instances of a
+ 
+
+691
+00:15:52,720 --> 00:15:55,590
+if we have multiple instances of a
+microser? It's possible right? So our
+
+692
+00:15:55,590 --> 00:15:55,600
+microser? It's possible right? So our
+ 
+
+693
+00:15:55,600 --> 00:15:57,990
+microser? It's possible right? So our
+second thing second benefit of API
+
+694
+00:15:57,990 --> 00:15:58,000
+second thing second benefit of API
+ 
+
+695
+00:15:58,000 --> 00:16:00,069
+second thing second benefit of API
+gateway comes into the picture which is
+
+696
+00:16:00,069 --> 00:16:00,079
+gateway comes into the picture which is
+ 
+
+697
+00:16:00,079 --> 00:16:03,030
+gateway comes into the picture which is
+load balancer. Okay. So we can have
+
+698
+00:16:03,030 --> 00:16:03,040
+load balancer. Okay. So we can have
+ 
+
+699
+00:16:03,040 --> 00:16:05,269
+load balancer. Okay. So we can have
+multiple instances of product, right? So
+
+700
+00:16:05,269 --> 00:16:05,279
+multiple instances of product, right? So
+ 
+
+701
+00:16:05,279 --> 00:16:07,829
+multiple instances of product, right? So
+this is instance one. Then we have
+
+702
+00:16:07,829 --> 00:16:07,839
+this is instance one. Then we have
+ 
+
+703
+00:16:07,839 --> 00:16:09,590
+this is instance one. Then we have
+instance two. We can have instance
+
+704
+00:16:09,590 --> 00:16:09,600
+instance two. We can have instance
+ 
+
+705
+00:16:09,600 --> 00:16:10,710
+instance two. We can have instance
+three, instance four, multiple
+
+706
+00:16:10,710 --> 00:16:10,720
+three, instance four, multiple
+ 
+
+707
+00:16:10,720 --> 00:16:13,430
+three, instance four, multiple
+instances. Okay.
+
+708
+00:16:13,430 --> 00:16:13,440
+instances. Okay.
+ 
+
+709
+00:16:13,440 --> 00:16:16,870
+instances. Okay.
+Now this API gateway should also perform
+
+710
+00:16:16,870 --> 00:16:16,880
+Now this API gateway should also perform
+ 
+
+711
+00:16:16,880 --> 00:16:20,310
+Now this API gateway should also perform
+load balancing. So if you know we have
+
+712
+00:16:20,310 --> 00:16:20,320
+load balancing. So if you know we have
+ 
+
+713
+00:16:20,320 --> 00:16:22,470
+load balancing. So if you know we have
+already covered service discovery and
+
+714
+00:16:22,470 --> 00:16:22,480
+already covered service discovery and
+ 
+
+715
+00:16:22,480 --> 00:16:25,110
+already covered service discovery and
+the client side load balancer. So that
+
+716
+00:16:25,110 --> 00:16:25,120
+the client side load balancer. So that
+ 
+
+717
+00:16:25,120 --> 00:16:26,870
+the client side load balancer. So that
+comes into the picture. If you haven't
+
+718
+00:16:26,870 --> 00:16:26,880
+comes into the picture. If you haven't
+ 
+
+719
+00:16:26,880 --> 00:16:29,749
+comes into the picture. If you haven't
+seen these two videos, uh I would highly
+
+720
+00:16:29,749 --> 00:16:29,759
+seen these two videos, uh I would highly
+ 
+
+721
+00:16:29,759 --> 00:16:31,430
+seen these two videos, uh I would highly
+recommend kindly check this out because
+
+722
+00:16:31,430 --> 00:16:31,440
+recommend kindly check this out because
+ 
+
+723
+00:16:31,440 --> 00:16:34,310
+recommend kindly check this out because
+in this one we have internally discussed
+
+724
+00:16:34,310 --> 00:16:34,320
+in this one we have internally discussed
+ 
+
+725
+00:16:34,320 --> 00:16:36,790
+in this one we have internally discussed
+how client side load balancer works, how
+
+726
+00:16:36,790 --> 00:16:36,800
+how client side load balancer works, how
+ 
+
+727
+00:16:36,800 --> 00:16:40,870
+how client side load balancer works, how
+service discovery works because now API
+
+728
+00:16:40,870 --> 00:16:40,880
+service discovery works because now API
+ 
+
+729
+00:16:40,880 --> 00:16:44,310
+service discovery works because now API
+gateway make use of this since there are
+
+730
+00:16:44,310 --> 00:16:44,320
+gateway make use of this since there are
+ 
+
+731
+00:16:44,320 --> 00:16:47,990
+gateway make use of this since there are
+multiple instances present
+
+732
+00:16:47,990 --> 00:16:48,000
+multiple instances present
+ 
+
+733
+00:16:48,000 --> 00:16:49,829
+multiple instances present
+that's where we need service discovery
+
+734
+00:16:49,829 --> 00:16:49,839
+that's where we need service discovery
+ 
+
+735
+00:16:49,839 --> 00:16:51,829
+that's where we need service discovery
+because now API gateway need to know
+
+736
+00:16:51,829 --> 00:16:51,839
+because now API gateway need to know
+ 
+
+737
+00:16:51,839 --> 00:16:54,150
+because now API gateway need to know
+that what are the instances present
+
+738
+00:16:54,150 --> 00:16:54,160
+that what are the instances present
+ 
+
+739
+00:16:54,160 --> 00:16:56,790
+that what are the instances present
+let's say for product instance one is
+
+740
+00:16:56,790 --> 00:16:56,800
+let's say for product instance one is
+ 
+
+741
+00:16:56,800 --> 00:17:00,230
+let's say for product instance one is
+running on this host and this port.
+
+742
+00:17:00,230 --> 00:17:00,240
+running on this host and this port.
+ 
+
+743
+00:17:00,240 --> 00:17:02,470
+running on this host and this port.
+Instance two is running on this host
+
+744
+00:17:02,470 --> 00:17:02,480
+Instance two is running on this host
+ 
+
+745
+00:17:02,480 --> 00:17:05,429
+Instance two is running on this host
+this port. Okay. Similarly for order
+
+746
+00:17:05,429 --> 00:17:05,439
+this port. Okay. Similarly for order
+ 
+
+747
+00:17:05,439 --> 00:17:08,069
+this port. Okay. Similarly for order
+these are the list host and port for
+
+748
+00:17:08,069 --> 00:17:08,079
+these are the list host and port for
+ 
+
+749
+00:17:08,079 --> 00:17:11,029
+these are the list host and port for
+each instances. So who will provide this
+
+750
+00:17:11,029 --> 00:17:11,039
+each instances. So who will provide this
+ 
+
+751
+00:17:11,039 --> 00:17:14,069
+each instances. So who will provide this
+list? Service discovery. Okay. So that's
+
+752
+00:17:14,069 --> 00:17:14,079
+list? Service discovery. Okay. So that's
+ 
+
+753
+00:17:14,079 --> 00:17:16,150
+list? Service discovery. Okay. So that's
+why we need to integrate with service
+
+754
+00:17:16,150 --> 00:17:16,160
+why we need to integrate with service
+ 
+
+755
+00:17:16,160 --> 00:17:19,909
+why we need to integrate with service
+discovery and after this we have to do a
+
+756
+00:17:19,909 --> 00:17:19,919
+discovery and after this we have to do a
+ 
+
+757
+00:17:19,919 --> 00:17:22,470
+discovery and after this we have to do a
+load balancing and for that we will use
+
+758
+00:17:22,470 --> 00:17:22,480
+load balancing and for that we will use
+ 
+
+759
+00:17:22,480 --> 00:17:24,870
+load balancing and for that we will use
+a spring load balancer. Spring crowd
+
+760
+00:17:24,870 --> 00:17:24,880
+a spring load balancer. Spring crowd
+ 
+
+761
+00:17:24,880 --> 00:17:26,949
+a spring load balancer. Spring crowd
+load balancer which does client side
+
+762
+00:17:26,949 --> 00:17:26,959
+load balancer which does client side
+ 
+
+763
+00:17:26,959 --> 00:17:29,029
+load balancer which does client side
+load balancing
+
+764
+00:17:29,029 --> 00:17:29,039
+load balancing
+ 
+
+765
+00:17:29,039 --> 00:17:30,870
+load balancing
+framework is going to same the
+
+766
+00:17:30,870 --> 00:17:30,880
+framework is going to same the
+ 
+
+767
+00:17:30,880 --> 00:17:33,750
+framework is going to same the
+internally API gateway itself use the
+
+768
+00:17:33,750 --> 00:17:33,760
+internally API gateway itself use the
+ 
+
+769
+00:17:33,760 --> 00:17:35,590
+internally API gateway itself use the
+same framework. So internally whatever
+
+770
+00:17:35,590 --> 00:17:35,600
+same framework. So internally whatever
+ 
+
+771
+00:17:35,600 --> 00:17:37,750
+same framework. So internally whatever
+the internal framework we saw right how
+
+772
+00:17:37,750 --> 00:17:37,760
+the internal framework we saw right how
+ 
+
+773
+00:17:37,760 --> 00:17:40,070
+the internal framework we saw right how
+the client side load balancer works that
+
+774
+00:17:40,070 --> 00:17:40,080
+the client side load balancer works that
+ 
+
+775
+00:17:40,080 --> 00:17:42,710
+the client side load balancer works that
+going to be same so no changing in that
+
+776
+00:17:42,710 --> 00:17:42,720
+going to be same so no changing in that
+ 
+
+777
+00:17:42,720 --> 00:17:46,789
+going to be same so no changing in that
+one. So now product service now we have
+
+778
+00:17:46,789 --> 00:17:46,799
+one. So now product service now we have
+ 
+
+779
+00:17:46,799 --> 00:17:49,510
+one. So now product service now we have
+to integrate with service discovery
+
+780
+00:17:49,510 --> 00:17:49,520
+to integrate with service discovery
+ 
+
+781
+00:17:49,520 --> 00:17:51,990
+to integrate with service discovery
+right. the product service. So now you
+
+782
+00:17:51,990 --> 00:17:52,000
+right. the product service. So now you
+ 
+
+783
+00:17:52,000 --> 00:17:53,430
+right. the product service. So now you
+know if you have seen the service
+
+784
+00:17:53,430 --> 00:17:53,440
+know if you have seen the service
+ 
+
+785
+00:17:53,440 --> 00:17:57,750
+know if you have seen the service
+discovery you know this is our server
+
+786
+00:17:57,750 --> 00:17:57,760
+discovery you know this is our server
+ 
+
+787
+00:17:57,760 --> 00:17:59,750
+discovery you know this is our server
+this is our client this is our client
+
+788
+00:17:59,750 --> 00:17:59,760
+this is our client this is our client
+ 
+
+789
+00:17:59,760 --> 00:18:03,270
+this is our client this is our client
+this is our client okay
+
+790
+00:18:03,270 --> 00:18:03,280
+this is our client okay
+ 
+
+791
+00:18:03,280 --> 00:18:07,029
+this is our client okay
+so the product service we have added as
+
+792
+00:18:07,029 --> 00:18:07,039
+so the product service we have added as
+ 
+
+793
+00:18:07,039 --> 00:18:09,590
+so the product service we have added as
+a ureka client okay and in the
+
+794
+00:18:09,590 --> 00:18:09,600
+a ureka client okay and in the
+ 
+
+795
+00:18:09,600 --> 00:18:11,270
+a ureka client okay and in the
+application.properties properties we
+
+796
+00:18:11,270 --> 00:18:11,280
+application.properties properties we
+ 
+
+797
+00:18:11,280 --> 00:18:13,270
+application.properties properties we
+have
+
+798
+00:18:13,270 --> 00:18:13,280
+have
+ 
+
+799
+00:18:13,280 --> 00:18:16,630
+have
+put the path of the ureka. So now with
+
+800
+00:18:16,630 --> 00:18:16,640
+put the path of the ureka. So now with
+ 
+
+801
+00:18:16,640 --> 00:18:21,110
+put the path of the ureka. So now with
+this one it will tell any instance of a
+
+802
+00:18:21,110 --> 00:18:21,120
+this one it will tell any instance of a
+ 
+
+803
+00:18:21,120 --> 00:18:22,710
+this one it will tell any instance of a
+product service is created it will
+
+804
+00:18:22,710 --> 00:18:22,720
+product service is created it will
+ 
+
+805
+00:18:22,720 --> 00:18:24,789
+product service is created it will
+register itself with the service
+
+806
+00:18:24,789 --> 00:18:24,799
+register itself with the service
+ 
+
+807
+00:18:24,799 --> 00:18:27,029
+register itself with the service
+discovery also we have already discussed
+
+808
+00:18:27,029 --> 00:18:27,039
+discovery also we have already discussed
+ 
+
+809
+00:18:27,039 --> 00:18:28,549
+discovery also we have already discussed
+that in the service discovery video.
+
+810
+00:18:28,549 --> 00:18:28,559
+that in the service discovery video.
+ 
+
+811
+00:18:28,559 --> 00:18:30,789
+that in the service discovery video.
+Similarly for the order we have make it
+
+812
+00:18:30,789 --> 00:18:30,799
+Similarly for the order we have make it
+ 
+
+813
+00:18:30,799 --> 00:18:32,710
+Similarly for the order we have make it
+a client ureka client and in the
+
+814
+00:18:32,710 --> 00:18:32,720
+a client ureka client and in the
+ 
+
+815
+00:18:32,720 --> 00:18:34,230
+a client ureka client and in the
+application.properties
+
+816
+00:18:34,230 --> 00:18:34,240
+application.properties
+ 
+
+817
+00:18:34,240 --> 00:18:37,110
+application.properties
+we have provided a link for the ureka uh
+
+818
+00:18:37,110 --> 00:18:37,120
+we have provided a link for the ureka uh
+ 
+
+819
+00:18:37,120 --> 00:18:41,029
+we have provided a link for the ureka uh
+service server. Okay.
+
+820
+00:18:41,029 --> 00:18:41,039
+service server. Okay.
+ 
+
+821
+00:18:41,039 --> 00:18:43,190
+service server. Okay.
+And we already have this controller same
+
+822
+00:18:43,190 --> 00:18:43,200
+And we already have this controller same
+ 
+
+823
+00:18:43,200 --> 00:18:45,190
+And we already have this controller same
+like previously we have. So no change
+
+824
+00:18:45,190 --> 00:18:45,200
+like previously we have. So no change
+ 
+
+825
+00:18:45,200 --> 00:18:47,430
+like previously we have. So no change
+into that one. So now this become my
+
+826
+00:18:47,430 --> 00:18:47,440
+into that one. So now this become my
+ 
+
+827
+00:18:47,440 --> 00:18:50,630
+into that one. So now this become my
+client uh Ureka client. This is Ureka
+
+828
+00:18:50,630 --> 00:18:50,640
+client uh Ureka client. This is Ureka
+ 
+
+829
+00:18:50,640 --> 00:18:53,510
+client uh Ureka client. This is Ureka
+client. Ureka server. So this is our
+
+830
+00:18:53,510 --> 00:18:53,520
+client. Ureka server. So this is our
+ 
+
+831
+00:18:53,520 --> 00:18:55,350
+client. Ureka server. So this is our
+service discovery server. So we have
+
+832
+00:18:55,350 --> 00:18:55,360
+service discovery server. So we have
+ 
+
+833
+00:18:55,360 --> 00:18:59,029
+service discovery server. So we have
+added a dependency ureka server. In the
+
+834
+00:18:59,029 --> 00:18:59,039
+added a dependency ureka server. In the
+ 
+
+835
+00:18:59,039 --> 00:19:00,789
+added a dependency ureka server. In the
+application.properties
+
+836
+00:19:00,789 --> 00:19:00,799
+application.properties
+ 
+
+837
+00:19:00,799 --> 00:19:02,950
+application.properties
+we put the endpoint on which it is
+
+838
+00:19:02,950 --> 00:19:02,960
+we put the endpoint on which it is
+ 
+
+839
+00:19:02,960 --> 00:19:05,909
+we put the endpoint on which it is
+running 8761.
+
+840
+00:19:05,909 --> 00:19:05,919
+running 8761.
+ 
+
+841
+00:19:05,919 --> 00:19:08,789
+running 8761.
+and we make it these two things false.
+
+842
+00:19:08,789 --> 00:19:08,799
+and we make it these two things false.
+ 
+
+843
+00:19:08,799 --> 00:19:10,630
+and we make it these two things false.
+I've already shared in the service
+
+844
+00:19:10,630 --> 00:19:10,640
+I've already shared in the service
+ 
+
+845
+00:19:10,640 --> 00:19:13,430
+I've already shared in the service
+discovery video what its purpose. So I'm
+
+846
+00:19:13,430 --> 00:19:13,440
+discovery video what its purpose. So I'm
+ 
+
+847
+00:19:13,440 --> 00:19:16,710
+discovery video what its purpose. So I'm
+not going to uh again going into that
+
+848
+00:19:16,710 --> 00:19:16,720
+not going to uh again going into that
+ 
+
+849
+00:19:16,720 --> 00:19:19,350
+not going to uh again going into that
+but if you see if you have any doubt
+
+850
+00:19:19,350 --> 00:19:19,360
+but if you see if you have any doubt
+ 
+
+851
+00:19:19,360 --> 00:19:20,870
+but if you see if you have any doubt
+with service discovery I would highly
+
+852
+00:19:20,870 --> 00:19:20,880
+with service discovery I would highly
+ 
+
+853
+00:19:20,880 --> 00:19:24,390
+with service discovery I would highly
+recommend again check this out. Okay. So
+
+854
+00:19:24,390 --> 00:19:24,400
+recommend again check this out. Okay. So
+ 
+
+855
+00:19:24,400 --> 00:19:27,590
+recommend again check this out. Okay. So
+I created the service discovery server.
+
+856
+00:19:27,590 --> 00:19:27,600
+I created the service discovery server.
+ 
+
+857
+00:19:27,600 --> 00:19:30,710
+I created the service discovery server.
+Now API gateway. So till now what I have
+
+858
+00:19:30,710 --> 00:19:30,720
+Now API gateway. So till now what I have
+ 
+
+859
+00:19:30,720 --> 00:19:33,029
+Now API gateway. So till now what I have
+done is I have set up my product
+
+860
+00:19:33,029 --> 00:19:33,039
+done is I have set up my product
+ 
+
+861
+00:19:33,039 --> 00:19:34,390
+done is I have set up my product
+service. I have set up my order
+
+862
+00:19:34,390 --> 00:19:34,400
+service. I have set up my order
+ 
+
+863
+00:19:34,400 --> 00:19:37,750
+service. I have set up my order
+microser. I have set up my Ureka server.
+
+864
+00:19:37,750 --> 00:19:37,760
+microser. I have set up my Ureka server.
+ 
+
+865
+00:19:37,760 --> 00:19:40,710
+microser. I have set up my Ureka server.
+Now API gateway whatever I have now I
+
+866
+00:19:40,710 --> 00:19:40,720
+Now API gateway whatever I have now I
+ 
+
+867
+00:19:40,720 --> 00:19:42,870
+Now API gateway whatever I have now I
+need to make it
+
+868
+00:19:42,870 --> 00:19:42,880
+need to make it
+ 
+
+869
+00:19:42,880 --> 00:19:47,510
+need to make it
+client also ureka client. So API gateway
+
+870
+00:19:47,510 --> 00:19:47,520
+client also ureka client. So API gateway
+ 
+
+871
+00:19:47,520 --> 00:19:49,909
+client also ureka client. So API gateway
+we already have this dependency spring
+
+872
+00:19:49,909 --> 00:19:49,919
+we already have this dependency spring
+ 
+
+873
+00:19:49,919 --> 00:19:52,549
+we already have this dependency spring
+cloud gateway starter gateway. Now I
+
+874
+00:19:52,549 --> 00:19:52,559
+cloud gateway starter gateway. Now I
+ 
+
+875
+00:19:52,559 --> 00:19:55,669
+cloud gateway starter gateway. Now I
+added as a ureka client dependency also.
+
+876
+00:19:55,669 --> 00:19:55,679
+added as a ureka client dependency also.
+ 
+
+877
+00:19:55,679 --> 00:19:57,510
+added as a ureka client dependency also.
+Okay. And in application.property
+
+878
+00:19:57,510 --> 00:19:57,520
+Okay. And in application.property
+ 
+
+879
+00:19:57,520 --> 00:19:59,590
+Okay. And in application.property
+property.
+
+880
+00:19:59,590 --> 00:19:59,600
+property.
+ 
+
+881
+00:19:59,600 --> 00:20:02,310
+property.
+We already have this route one for route
+
+882
+00:20:02,310 --> 00:20:02,320
+We already have this route one for route
+ 
+
+883
+00:20:02,320 --> 00:20:05,430
+We already have this route one for route
+zero for product, route one for order.
+
+884
+00:20:05,430 --> 00:20:05,440
+zero for product, route one for order.
+ 
+
+885
+00:20:05,440 --> 00:20:09,029
+zero for product, route one for order.
+Now I have added the Ureka server on
+
+886
+00:20:09,029 --> 00:20:09,039
+Now I have added the Ureka server on
+ 
+
+887
+00:20:09,039 --> 00:20:12,630
+Now I have added the Ureka server on
+which server on which URI URA server is
+
+888
+00:20:12,630 --> 00:20:12,640
+which server on which URI URA server is
+ 
+
+889
+00:20:12,640 --> 00:20:17,830
+which server on which URI URA server is
+running. Okay. So that is also done. Now
+
+890
+00:20:17,830 --> 00:20:17,840
+running. Okay. So that is also done. Now
+ 
+
+891
+00:20:17,840 --> 00:20:22,390
+running. Okay. So that is also done. Now
+here if you see one difference is in the
+
+892
+00:20:22,390 --> 00:20:22,400
+here if you see one difference is in the
+ 
+
+893
+00:20:22,400 --> 00:20:27,029
+here if you see one difference is in the
+product route and order route in the URI
+
+894
+00:20:27,029 --> 00:20:27,039
+product route and order route in the URI
+ 
+
+895
+00:20:27,039 --> 00:20:30,870
+product route and order route in the URI
+instead of hard coding the URI http
+
+896
+00:20:30,870 --> 00:20:30,880
+instead of hard coding the URI http
+ 
+
+897
+00:20:30,880 --> 00:20:33,669
+instead of hard coding the URI http
+localhost 8082
+
+898
+00:20:33,669 --> 00:20:33,679
+localhost 8082
+ 
+
+899
+00:20:33,679 --> 00:20:38,710
+localhost 8082
+and here 8081 something I put lb colon
+
+900
+00:20:38,710 --> 00:20:38,720
+and here 8081 something I put lb colon
+ 
+
+901
+00:20:38,720 --> 00:20:42,390
+and here 8081 something I put lb colon
+and give the
+
+902
+00:20:42,390 --> 00:20:42,400
+
+ 
+
+903
+00:20:42,400 --> 00:20:45,270
+
+service name which they have registered
+
+904
+00:20:45,270 --> 00:20:45,280
+service name which they have registered
+ 
+
+905
+00:20:45,280 --> 00:20:48,710
+service name which they have registered
+with the ureka server. Okay. So they are
+
+906
+00:20:48,710 --> 00:20:48,720
+with the ureka server. Okay. So they are
+ 
+
+907
+00:20:48,720 --> 00:20:50,870
+with the ureka server. Okay. So they are
+registered with this order service
+
+908
+00:20:50,870 --> 00:20:50,880
+registered with this order service
+ 
+
+909
+00:20:50,880 --> 00:20:53,110
+registered with this order service
+product service with this name. It will
+
+910
+00:20:53,110 --> 00:20:53,120
+product service with this name. It will
+ 
+
+911
+00:20:53,120 --> 00:20:55,510
+product service with this name. It will
+get registered to this service
+
+912
+00:20:55,510 --> 00:20:55,520
+get registered to this service
+ 
+
+913
+00:20:55,520 --> 00:20:59,669
+get registered to this service
+discovery. Okay. So I provided this name
+
+914
+00:20:59,669 --> 00:20:59,679
+discovery. Okay. So I provided this name
+ 
+
+915
+00:20:59,679 --> 00:21:03,510
+discovery. Okay. So I provided this name
+load balancer order service.
+
+916
+00:21:03,510 --> 00:21:03,520
+load balancer order service.
+ 
+
+917
+00:21:03,520 --> 00:21:06,870
+load balancer order service.
+Now what it will do is internally it
+
+918
+00:21:06,870 --> 00:21:06,880
+Now what it will do is internally it
+ 
+
+919
+00:21:06,880 --> 00:21:09,190
+Now what it will do is internally it
+will make use of spring cloud load
+
+920
+00:21:09,190 --> 00:21:09,200
+will make use of spring cloud load
+ 
+
+921
+00:21:09,200 --> 00:21:11,350
+will make use of spring cloud load
+balancer.
+
+922
+00:21:11,350 --> 00:21:11,360
+balancer.
+ 
+
+923
+00:21:11,360 --> 00:21:14,390
+balancer.
+Okay. So it will fetch the instances. So
+
+924
+00:21:14,390 --> 00:21:14,400
+Okay. So it will fetch the instances. So
+ 
+
+925
+00:21:14,400 --> 00:21:17,669
+Okay. So it will fetch the instances. So
+first it will fetch the instances from
+
+926
+00:21:17,669 --> 00:21:17,679
+first it will fetch the instances from
+ 
+
+927
+00:21:17,679 --> 00:21:20,230
+first it will fetch the instances from
+service discovery. Now service discovery
+
+928
+00:21:20,230 --> 00:21:20,240
+service discovery. Now service discovery
+ 
+
+929
+00:21:20,240 --> 00:21:22,230
+service discovery. Now service discovery
+will give you the all the possible
+
+930
+00:21:22,230 --> 00:21:22,240
+will give you the all the possible
+ 
+
+931
+00:21:22,240 --> 00:21:25,990
+will give you the all the possible
+instances present for a product or order
+
+932
+00:21:25,990 --> 00:21:26,000
+instances present for a product or order
+ 
+
+933
+00:21:26,000 --> 00:21:27,830
+instances present for a product or order
+and after that it will perform load
+
+934
+00:21:27,830 --> 00:21:27,840
+and after that it will perform load
+ 
+
+935
+00:21:27,840 --> 00:21:30,870
+and after that it will perform load
+balancing algorithm and it will pick one
+
+936
+00:21:30,870 --> 00:21:30,880
+balancing algorithm and it will pick one
+ 
+
+937
+00:21:30,880 --> 00:21:35,990
+balancing algorithm and it will pick one
+it will pick one instance and call the
+
+938
+00:21:35,990 --> 00:21:36,000
+it will pick one instance and call the
+ 
+
+939
+00:21:36,000 --> 00:21:39,350
+it will pick one instance and call the
+particular instance.
+
+940
+00:21:39,350 --> 00:21:39,360
+particular instance.
+ 
+
+941
+00:21:39,360 --> 00:21:43,590
+particular instance.
+So these two videos you can say that you
+
+942
+00:21:43,590 --> 00:21:43,600
+So these two videos you can say that you
+ 
+
+943
+00:21:43,600 --> 00:21:45,830
+So these two videos you can say that you
+need to know how the internals client
+
+944
+00:21:45,830 --> 00:21:45,840
+need to know how the internals client
+ 
+
+945
+00:21:45,840 --> 00:21:48,549
+need to know how the internals client
+side load balancer working so that you
+
+946
+00:21:48,549 --> 00:21:48,559
+side load balancer working so that you
+ 
+
+947
+00:21:48,559 --> 00:21:50,549
+side load balancer working so that you
+can uh easily understand what I did
+
+948
+00:21:50,549 --> 00:21:50,559
+can uh easily understand what I did
+ 
+
+949
+00:21:50,559 --> 00:21:53,190
+can uh easily understand what I did
+here.
+
+950
+00:21:53,190 --> 00:21:53,200
+here.
+ 
+
+951
+00:21:53,200 --> 00:21:55,190
+here.
+Okay.
+
+952
+00:21:55,190 --> 00:21:55,200
+Okay.
+ 
+
+953
+00:21:55,200 --> 00:21:57,430
+Okay.
+So we
+
+954
+00:21:57,430 --> 00:21:57,440
+So we
+ 
+
+955
+00:21:57,440 --> 00:21:59,430
+So we
+our API gateway is able to do load
+
+956
+00:21:59,430 --> 00:21:59,440
+our API gateway is able to do load
+ 
+
+957
+00:21:59,440 --> 00:22:01,669
+our API gateway is able to do load
+balancing also through spring cloud load
+
+958
+00:22:01,669 --> 00:22:01,679
+balancing also through spring cloud load
+ 
+
+959
+00:22:01,679 --> 00:22:04,710
+balancing also through spring cloud load
+balancer.
+
+960
+00:22:04,710 --> 00:22:04,720
+
+ 
+
+961
+00:22:04,720 --> 00:22:06,549
+
+All we need to do is integrate with the
+
+962
+00:22:06,549 --> 00:22:06,559
+All we need to do is integrate with the
+ 
+
+963
+00:22:06,559 --> 00:22:08,470
+All we need to do is integrate with the
+service discovery.
+
+964
+00:22:08,470 --> 00:22:08,480
+service discovery.
+ 
+
+965
+00:22:08,480 --> 00:22:11,110
+service discovery.
+Okay. And we just enable the Spring
+
+966
+00:22:11,110 --> 00:22:11,120
+Okay. And we just enable the Spring
+ 
+
+967
+00:22:11,120 --> 00:22:12,549
+Okay. And we just enable the Spring
+Cloud load balancer. Through this, it
+
+968
+00:22:12,549 --> 00:22:12,559
+Cloud load balancer. Through this, it
+ 
+
+969
+00:22:12,559 --> 00:22:14,549
+Cloud load balancer. Through this, it
+will intercept the request, call the
+
+970
+00:22:14,549 --> 00:22:14,559
+will intercept the request, call the
+ 
+
+971
+00:22:14,559 --> 00:22:16,630
+will intercept the request, call the
+service discovery first, fetch fetches
+
+972
+00:22:16,630 --> 00:22:16,640
+service discovery first, fetch fetches
+ 
+
+973
+00:22:16,640 --> 00:22:18,870
+service discovery first, fetch fetches
+the instance and then do a load
+
+974
+00:22:18,870 --> 00:22:18,880
+the instance and then do a load
+ 
+
+975
+00:22:18,880 --> 00:22:20,789
+the instance and then do a load
+balancing algorithm and call one
+
+976
+00:22:20,789 --> 00:22:20,799
+balancing algorithm and call one
+ 
+
+977
+00:22:20,799 --> 00:22:23,430
+balancing algorithm and call one
+particular instance.
+
+978
+00:22:23,430 --> 00:22:23,440
+particular instance.
+ 
+
+979
+00:22:23,440 --> 00:22:26,710
+particular instance.
+Okay. So you can uh so I will also share
+
+980
+00:22:26,710 --> 00:22:26,720
+Okay. So you can uh so I will also share
+ 
+
+981
+00:22:26,720 --> 00:22:29,990
+Okay. So you can uh so I will also share
+the repo with you uh git link gitlab
+
+982
+00:22:29,990 --> 00:22:30,000
+the repo with you uh git link gitlab
+ 
+
+983
+00:22:30,000 --> 00:22:32,950
+the repo with you uh git link gitlab
+link with where we have all this code
+
+984
+00:22:32,950 --> 00:22:32,960
+link with where we have all this code
+ 
+
+985
+00:22:32,960 --> 00:22:36,950
+link with where we have all this code
+present. Okay. So I have an API gateway
+
+986
+00:22:36,950 --> 00:22:36,960
+present. Okay. So I have an API gateway
+ 
+
+987
+00:22:36,960 --> 00:22:39,510
+present. Okay. So I have an API gateway
+which is running
+
+988
+00:22:39,510 --> 00:22:39,520
+which is running
+ 
+
+989
+00:22:39,520 --> 00:22:41,909
+which is running
+which is running then I have ureka
+
+990
+00:22:41,909 --> 00:22:41,919
+which is running then I have ureka
+ 
+
+991
+00:22:41,919 --> 00:22:43,510
+which is running then I have ureka
+server
+
+992
+00:22:43,510 --> 00:22:43,520
+server
+ 
+
+993
+00:22:43,520 --> 00:22:45,990
+server
+okay so in ureka server we have it is
+
+994
+00:22:45,990 --> 00:22:46,000
+okay so in ureka server we have it is
+ 
+
+995
+00:22:46,000 --> 00:22:48,390
+okay so in ureka server we have it is
+running on 8761 then I have order
+
+996
+00:22:48,390 --> 00:22:48,400
+running on 8761 then I have order
+ 
+
+997
+00:22:48,400 --> 00:22:51,430
+running on 8761 then I have order
+service then product service so all are
+
+998
+00:22:51,430 --> 00:22:51,440
+service then product service so all are
+ 
+
+999
+00:22:51,440 --> 00:22:56,310
+service then product service so all are
+running so if you try to hit let's say
+
+1000
+00:22:56,310 --> 00:22:56,320
+running so if you try to hit let's say
+ 
+
+1001
+00:22:56,320 --> 00:22:59,350
+running so if you try to hit let's say
+80083 is our API gateway run right API
+
+1002
+00:22:59,350 --> 00:22:59,360
+80083 is our API gateway run right API
+ 
+
+1003
+00:22:59,360 --> 00:23:02,310
+80083 is our API gateway run right API
+gateway but I am calling orders one if
+
+1004
+00:23:02,310 --> 00:23:02,320
+gateway but I am calling orders one if
+ 
+
+1005
+00:23:02,320 --> 00:23:05,029
+gateway but I am calling orders one if
+it call it's running so currently My
+
+1006
+00:23:05,029 --> 00:23:05,039
+it call it's running so currently My
+ 
+
+1007
+00:23:05,039 --> 00:23:07,510
+it call it's running so currently My
+product service is not running. So let
+
+1008
+00:23:07,510 --> 00:23:07,520
+product service is not running. So let
+ 
+
+1009
+00:23:07,520 --> 00:23:13,190
+product service is not running. So let
+me start its application.
+
+1010
+00:23:13,190 --> 00:23:13,200
+
+ 
+
+1011
+00:23:13,200 --> 00:23:14,789
+
+So my product application is also
+
+1012
+00:23:14,789 --> 00:23:14,799
+So my product application is also
+ 
+
+1013
+00:23:14,799 --> 00:23:20,390
+So my product application is also
+running now on 8082. So now lets
+
+1014
+00:23:20,390 --> 00:23:20,400
+
+ 
+
+1015
+00:23:20,400 --> 00:23:24,470
+
+product /1
+
+1016
+00:23:24,470 --> 00:23:24,480
+
+ 
+
+1017
+00:23:24,480 --> 00:23:26,950
+
+it's product or products
+
+1018
+00:23:26,950 --> 00:23:26,960
+it's product or products
+ 
+
+1019
+00:23:26,960 --> 00:23:30,310
+it's product or products
+products
+
+1020
+00:23:30,310 --> 00:23:30,320
+
+ 
+
+1021
+00:23:30,320 --> 00:23:32,630
+
+f the product details with ID1. So even
+
+1022
+00:23:32,630 --> 00:23:32,640
+f the product details with ID1. So even
+ 
+
+1023
+00:23:32,640 --> 00:23:35,190
+f the product details with ID1. So even
+though I'm hitting API gateway so I will
+
+1024
+00:23:35,190 --> 00:23:35,200
+though I'm hitting API gateway so I will
+ 
+
+1025
+00:23:35,200 --> 00:23:37,669
+though I'm hitting API gateway so I will
+share the GitLab link also where I have
+
+1026
+00:23:37,669 --> 00:23:37,679
+share the GitLab link also where I have
+ 
+
+1027
+00:23:37,679 --> 00:23:40,950
+share the GitLab link also where I have
+provided all the links all the code. Now
+
+1028
+00:23:40,950 --> 00:23:40,960
+provided all the links all the code. Now
+ 
+
+1029
+00:23:40,960 --> 00:23:43,110
+provided all the links all the code. Now
+the next part in the next API gateway
+
+1030
+00:23:43,110 --> 00:23:43,120
+the next part in the next API gateway
+ 
+
+1031
+00:23:43,120 --> 00:23:45,590
+the next part in the next API gateway
+part where we will see the
+
+1032
+00:23:45,590 --> 00:23:45,600
+part where we will see the
+ 
+
+1033
+00:23:45,600 --> 00:23:47,270
+part where we will see the
+authentication
+
+1034
+00:23:47,270 --> 00:23:47,280
+authentication
+ 
+
+1035
+00:23:47,280 --> 00:23:50,310
+authentication
+rate limiting uh resilience circuit
+
+1036
+00:23:50,310 --> 00:23:50,320
+rate limiting uh resilience circuit
+ 
+
+1037
+00:23:50,320 --> 00:23:54,710
+rate limiting uh resilience circuit
+breaker retry and everything how the API
+
+1038
+00:23:54,710 --> 00:23:54,720
+breaker retry and everything how the API
+ 
+
+1039
+00:23:54,720 --> 00:23:56,470
+breaker retry and everything how the API
+gateway
+
+1040
+00:23:56,470 --> 00:23:56,480
+gateway
+ 
+
+1041
+00:23:56,480 --> 00:23:59,590
+gateway
+handles that that is also very important
+
+1042
+00:23:59,590 --> 00:23:59,600
+handles that that is also very important
+ 
+
+1043
+00:23:59,600 --> 00:24:02,070
+handles that that is also very important
+part right. So today at least in the
+
+1044
+00:24:02,070 --> 00:24:02,080
+part right. So today at least in the
+ 
+
+1045
+00:24:02,080 --> 00:24:06,149
+part right. So today at least in the
+first basic part we know how API gateway
+
+1046
+00:24:06,149 --> 00:24:06,159
+first basic part we know how API gateway
+ 
+
+1047
+00:24:06,159 --> 00:24:07,990
+first basic part we know how API gateway
+route the logic plus does load
+
+1048
+00:24:07,990 --> 00:24:08,000
+route the logic plus does load
+ 
+
+1049
+00:24:08,000 --> 00:24:10,310
+route the logic plus does load
+balancing. If you have any doubt with
+
+1050
+00:24:10,310 --> 00:24:10,320
+balancing. If you have any doubt with
+ 
+
+1051
+00:24:10,320 --> 00:24:11,909
+balancing. If you have any doubt with
+this one we can discuss further in the
+
+1052
+00:24:11,909 --> 00:24:11,919
+this one we can discuss further in the
+ 
+
+1053
+00:24:11,919 --> 00:24:14,310
+this one we can discuss further in the
+comment section. Okay guys, thank you.
+
+1054
+00:24:14,310 --> 00:24:14,320
+comment section. Okay guys, thank you.
+ 
+
+1055
+00:24:14,320 --> 00:24:16,880
+comment section. Okay guys, thank you.
+Bye.
+

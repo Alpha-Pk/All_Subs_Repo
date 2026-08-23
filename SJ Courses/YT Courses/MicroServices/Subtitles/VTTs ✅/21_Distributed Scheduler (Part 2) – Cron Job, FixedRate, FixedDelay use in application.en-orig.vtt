@@ -1,0 +1,4440 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.790 align:start position:0%
+ 
+Welcome<00:00:00.320><c> back</c><00:00:01.040><c> and</c><00:00:01.439><c> today</c><00:00:01.760><c> we</c><00:00:02.080><c> going</c><00:00:02.240><c> to</c><00:00:02.399><c> cover</c>
+
+00:00:02.790 --> 00:00:02.800 align:start position:0%
+Welcome back and today we going to cover
+ 
+
+00:00:02.800 --> 00:00:05.990 align:start position:0%
+Welcome back and today we going to cover
+distributeduling<00:00:04.080><c> part</c><00:00:04.400><c> two.</c><00:00:05.440><c> So</c><00:00:05.600><c> if</c><00:00:05.839><c> you</c>
+
+00:00:05.990 --> 00:00:06.000 align:start position:0%
+distributeduling part two. So if you
+ 
+
+00:00:06.000 --> 00:00:09.350 align:start position:0%
+distributeduling part two. So if you
+have<00:00:06.240><c> not</c><00:00:06.400><c> seen</c><00:00:06.640><c> the</c><00:00:06.879><c> part</c><00:00:07.279><c> one</c><00:00:08.400><c> where</c><00:00:08.800><c> we</c><00:00:09.120><c> have</c>
+
+00:00:09.350 --> 00:00:09.360 align:start position:0%
+have not seen the part one where we have
+ 
+
+00:00:09.360 --> 00:00:11.589 align:start position:0%
+have not seen the part one where we have
+covered<00:00:09.760><c> like</c><00:00:10.160><c> what</c><00:00:10.480><c> is</c><00:00:10.639><c> scheduuler,</c><00:00:11.200><c> how</c><00:00:11.440><c> it</c>
+
+00:00:11.589 --> 00:00:11.599 align:start position:0%
+covered like what is scheduuler, how it
+ 
+
+00:00:11.599 --> 00:00:16.230 align:start position:0%
+covered like what is scheduuler, how it
+internally<00:00:12.240><c> works,</c><00:00:13.200><c> we</c><00:00:13.440><c> have</c><00:00:13.679><c> also</c><00:00:14.000><c> seen</c><00:00:14.559><c> how</c>
+
+00:00:16.230 --> 00:00:16.240 align:start position:0%
+internally works, we have also seen how
+ 
+
+00:00:16.240 --> 00:00:19.830 align:start position:0%
+internally works, we have also seen how
+threadpull<00:00:16.960><c> executor</c><00:00:18.160><c> works</c><00:00:18.560><c> internally.</c><00:00:19.600><c> So</c>
+
+00:00:19.830 --> 00:00:19.840 align:start position:0%
+threadpull executor works internally. So
+ 
+
+00:00:19.840 --> 00:00:23.429 align:start position:0%
+threadpull executor works internally. So
+we<00:00:20.080><c> have</c><00:00:20.480><c> already</c><00:00:21.119><c> seen</c><00:00:21.680><c> in</c><00:00:22.000><c> depth</c><00:00:22.240><c> of</c><00:00:22.480><c> it</c><00:00:23.119><c> all</c>
+
+00:00:23.429 --> 00:00:23.439 align:start position:0%
+we have already seen in depth of it all
+ 
+
+00:00:23.439 --> 00:00:25.990 align:start position:0%
+we have already seen in depth of it all
+its<00:00:24.000><c> method</c><00:00:24.320><c> like</c><00:00:24.560><c> schedule</c><00:00:25.039><c> method</c><00:00:25.760><c> which</c>
+
+00:00:25.990 --> 00:00:26.000 align:start position:0%
+its method like schedule method which
+ 
+
+00:00:26.000 --> 00:00:28.870 align:start position:0%
+its method like schedule method which
+runs<00:00:26.320><c> only</c><00:00:26.560><c> one</c><00:00:27.279><c> schedule</c><00:00:27.760><c> at</c><00:00:28.320><c> schedule</c><00:00:28.640><c> at</c>
+
+00:00:28.870 --> 00:00:28.880 align:start position:0%
+runs only one schedule at schedule at
+ 
+
+00:00:28.880 --> 00:00:31.910 align:start position:0%
+runs only one schedule at schedule at
+fixed<00:00:29.119><c> rate</c><00:00:29.840><c> with</c><00:00:30.720><c> example</c><00:00:31.359><c> schedule</c><00:00:31.679><c> with</c>
+
+00:00:31.910 --> 00:00:31.920 align:start position:0%
+fixed rate with example schedule with
+ 
+
+00:00:31.920 --> 00:00:34.549 align:start position:0%
+fixed rate with example schedule with
+fixed<00:00:32.239><c> delay</c><00:00:32.719><c> with</c><00:00:32.960><c> a</c><00:00:33.120><c> proper</c><00:00:33.440><c> example</c><00:00:34.239><c> and</c>
+
+00:00:34.549 --> 00:00:34.559 align:start position:0%
+fixed delay with a proper example and
+ 
+
+00:00:34.559 --> 00:00:37.990 align:start position:0%
+fixed delay with a proper example and
+also<00:00:34.960><c> the</c><00:00:35.280><c> internal</c><00:00:36.079><c> functionality.</c>
+
+00:00:37.990 --> 00:00:38.000 align:start position:0%
+also the internal functionality.
+ 
+
+00:00:38.000 --> 00:00:40.229 align:start position:0%
+also the internal functionality.
+So<00:00:38.320><c> that's</c><00:00:38.719><c> the</c><00:00:38.960><c> prerequisite</c><00:00:39.680><c> for</c><00:00:39.920><c> this</c>
+
+00:00:40.229 --> 00:00:40.239 align:start position:0%
+So that's the prerequisite for this
+ 
+
+00:00:40.239 --> 00:00:43.750 align:start position:0%
+So that's the prerequisite for this
+video.<00:00:40.960><c> Okay.</c><00:00:42.000><c> So</c><00:00:42.320><c> a</c><00:00:42.480><c> spring</c><00:00:42.800><c> boot</c><00:00:43.280><c> does</c><00:00:43.600><c> not</c>
+
+00:00:43.750 --> 00:00:43.760 align:start position:0%
+video. Okay. So a spring boot does not
+ 
+
+00:00:43.760 --> 00:00:46.389 align:start position:0%
+video. Okay. So a spring boot does not
+perform<00:00:44.079><c> any</c><00:00:44.320><c> magic.</c><00:00:44.800><c> it</c><00:00:45.120><c> internally</c><00:00:46.079><c> make</c>
+
+00:00:46.389 --> 00:00:46.399 align:start position:0%
+perform any magic. it internally make
+ 
+
+00:00:46.399 --> 00:00:48.389 align:start position:0%
+perform any magic. it internally make
+use<00:00:46.719><c> of</c><00:00:46.960><c> schedule</c><00:00:47.360><c> threadpool</c><00:00:47.920><c> executor</c>
+
+00:00:48.389 --> 00:00:48.399 align:start position:0%
+use of schedule threadpool executor
+ 
+
+00:00:48.399 --> 00:00:50.549 align:start position:0%
+use of schedule threadpool executor
+itself.<00:00:49.360><c> Okay.</c><00:00:49.680><c> So</c><00:00:49.760><c> in</c><00:00:50.000><c> other</c><00:00:50.079><c> words,</c><00:00:50.320><c> it's</c>
+
+00:00:50.549 --> 00:00:50.559 align:start position:0%
+itself. Okay. So in other words, it's
+ 
+
+00:00:50.559 --> 00:00:52.869 align:start position:0%
+itself. Okay. So in other words, it's
+just<00:00:50.719><c> a</c><00:00:50.879><c> wrapper</c><00:00:51.360><c> above</c><00:00:52.079><c> schedule</c><00:00:52.399><c> threadpool</c>
+
+00:00:52.869 --> 00:00:52.879 align:start position:0%
+just a wrapper above schedule threadpool
+ 
+
+00:00:52.879 --> 00:00:55.110 align:start position:0%
+just a wrapper above schedule threadpool
+executor.<00:00:53.760><c> So</c><00:00:54.000><c> let's</c><00:00:54.239><c> see</c><00:00:54.399><c> that</c><00:00:54.719><c> how</c><00:00:54.960><c> to</c>
+
+00:00:55.110 --> 00:00:55.120 align:start position:0%
+executor. So let's see that how to
+ 
+
+00:00:55.120 --> 00:00:57.430 align:start position:0%
+executor. So let's see that how to
+configure<00:00:55.440><c> theuling</c><00:00:56.000><c> in</c><00:00:56.239><c> spring</c><00:00:56.480><c> boot.</c><00:00:57.280><c> So</c>
+
+00:00:57.430 --> 00:00:57.440 align:start position:0%
+configure theuling in spring boot. So
+ 
+
+00:00:57.440 --> 00:01:00.630 align:start position:0%
+configure theuling in spring boot. So
+the<00:00:57.680><c> first</c><00:00:57.840><c> step</c><00:00:58.079><c> is</c><00:00:58.480><c> enable</c><00:00:58.879><c> theuling.</c><00:01:00.160><c> Okay.</c>
+
+00:01:00.630 --> 00:01:00.640 align:start position:0%
+the first step is enable theuling. Okay.
+ 
+
+00:01:00.640 --> 00:01:03.590 align:start position:0%
+the first step is enable theuling. Okay.
+So<00:01:00.800><c> in</c><00:01:01.039><c> your</c><00:01:01.440><c> spring</c><00:01:02.079><c> boot</c><00:01:02.480><c> application</c><00:01:03.359><c> you</c>
+
+00:01:03.590 --> 00:01:03.600 align:start position:0%
+So in your spring boot application you
+ 
+
+00:01:03.600 --> 00:01:06.310 align:start position:0%
+So in your spring boot application you
+have<00:01:03.760><c> to</c><00:01:04.000><c> add</c><00:01:04.239><c> this</c><00:01:04.479><c> add</c><00:01:04.720><c> the</c><00:01:05.119><c> enablesuling</c>
+
+00:01:06.310 --> 00:01:06.320 align:start position:0%
+have to add this add the enablesuling
+ 
+
+00:01:06.320 --> 00:01:09.109 align:start position:0%
+have to add this add the enablesuling
+annotation<00:01:07.439><c> because</c><00:01:07.760><c> after</c><00:01:08.080><c> this</c><00:01:08.400><c> only</c><00:01:08.880><c> all</c>
+
+00:01:09.109 --> 00:01:09.119 align:start position:0%
+annotation because after this only all
+ 
+
+00:01:09.119 --> 00:01:11.190 align:start position:0%
+annotation because after this only all
+the<00:01:09.360><c> scheduleuler</c><00:01:09.920><c> related</c><00:01:10.320><c> beans</c><00:01:10.720><c> will</c><00:01:11.040><c> get</c>
+
+00:01:11.190 --> 00:01:11.200 align:start position:0%
+the scheduleuler related beans will get
+ 
+
+00:01:11.200 --> 00:01:14.630 align:start position:0%
+the scheduleuler related beans will get
+loaded.<00:01:12.320><c> Okay.</c><00:01:12.960><c> And</c><00:01:13.200><c> after</c><00:01:13.600><c> this</c><00:01:14.000><c> only</c><00:01:14.400><c> it</c>
+
+00:01:14.630 --> 00:01:14.640 align:start position:0%
+loaded. Okay. And after this only it
+ 
+
+00:01:14.640 --> 00:01:17.510 align:start position:0%
+loaded. Okay. And after this only it
+will<00:01:14.880><c> be</c><00:01:15.520><c> have</c><00:01:15.760><c> the</c><00:01:16.000><c> capability</c><00:01:16.479><c> to</c><00:01:16.880><c> scan</c><00:01:17.200><c> for</c>
+
+00:01:17.510 --> 00:01:17.520 align:start position:0%
+will be have the capability to scan for
+ 
+
+00:01:17.520 --> 00:01:19.910 align:start position:0%
+will be have the capability to scan for
+at<00:01:17.759><c> the</c><00:01:17.920><c> rate</c><00:01:18.159><c> scheduled</c><00:01:18.560><c> annotations.</c>
+
+00:01:19.910 --> 00:01:19.920 align:start position:0%
+at the rate scheduled annotations.
+ 
+
+00:01:19.920 --> 00:01:22.390 align:start position:0%
+at the rate scheduled annotations.
+Without<00:01:20.320><c> this</c><00:01:20.960><c> theuling</c><00:01:21.759><c> will</c><00:01:22.000><c> not</c><00:01:22.159><c> even</c>
+
+00:01:22.390 --> 00:01:22.400 align:start position:0%
+Without this theuling will not even
+ 
+
+00:01:22.400 --> 00:01:25.350 align:start position:0%
+Without this theuling will not even
+work.<00:01:22.799><c> It</c><00:01:23.280><c> doesn't</c><00:01:23.600><c> even</c><00:01:23.920><c> know.</c><00:01:24.799><c> Okay,</c><00:01:25.119><c> it</c>
+
+00:01:25.350 --> 00:01:25.360 align:start position:0%
+work. It doesn't even know. Okay, it
+ 
+
+00:01:25.360 --> 00:01:27.830 align:start position:0%
+work. It doesn't even know. Okay, it
+won't<00:01:25.680><c> even</c><00:01:26.000><c> scan</c><00:01:26.960><c> the</c><00:01:27.439><c> scheduled</c>
+
+00:01:27.830 --> 00:01:27.840 align:start position:0%
+won't even scan the scheduled
+ 
+
+00:01:27.840 --> 00:01:29.429 align:start position:0%
+won't even scan the scheduled
+annotation.
+
+00:01:29.429 --> 00:01:29.439 align:start position:0%
+annotation.
+ 
+
+00:01:29.439 --> 00:01:32.870 align:start position:0%
+annotation.
+So<00:01:29.600><c> that</c><00:01:29.840><c> is</c><00:01:29.920><c> a</c><00:01:30.159><c> very</c><00:01:30.320><c> basic</c><00:01:30.720><c> step.</c><00:01:32.000><c> After</c><00:01:32.320><c> that</c>
+
+00:01:32.870 --> 00:01:32.880 align:start position:0%
+So that is a very basic step. After that
+ 
+
+00:01:32.880 --> 00:01:34.789 align:start position:0%
+So that is a very basic step. After that
+we<00:01:33.119><c> just</c><00:01:33.360><c> need</c><00:01:33.520><c> to</c><00:01:33.680><c> see</c><00:01:34.159><c> what</c><00:01:34.400><c> type</c><00:01:34.560><c> of</c>
+
+00:01:34.789 --> 00:01:34.799 align:start position:0%
+we just need to see what type of
+ 
+
+00:01:34.799 --> 00:01:37.030 align:start position:0%
+we just need to see what type of
+shoulduling<00:01:35.200><c> we</c><00:01:35.439><c> want</c><00:01:35.840><c> whe</c><00:01:36.079><c> the</c><00:01:36.240><c> fixed</c><00:01:36.479><c> rate,</c>
+
+00:01:37.030 --> 00:01:37.040 align:start position:0%
+shoulduling we want whe the fixed rate,
+ 
+
+00:01:37.040 --> 00:01:39.030 align:start position:0%
+shoulduling we want whe the fixed rate,
+fixed<00:01:37.360><c> delay,</c><00:01:38.079><c> one-time</c><00:01:38.479><c> shoulduling</c><00:01:38.799><c> and</c>
+
+00:01:39.030 --> 00:01:39.040 align:start position:0%
+fixed delay, one-time shoulduling and
+ 
+
+00:01:39.040 --> 00:01:41.190 align:start position:0%
+fixed delay, one-time shoulduling and
+chron<00:01:39.360><c> job.</c><00:01:40.079><c> Now</c><00:01:40.320><c> if</c><00:01:40.479><c> you</c><00:01:40.640><c> have</c><00:01:40.799><c> already</c><00:01:41.040><c> seen</c>
+
+00:01:41.190 --> 00:01:41.200 align:start position:0%
+chron job. Now if you have already seen
+ 
+
+00:01:41.200 --> 00:01:45.350 align:start position:0%
+chron job. Now if you have already seen
+the<00:01:41.439><c> part</c><00:01:41.680><c> one</c><00:01:42.960><c> we</c><00:01:43.280><c> have</c><00:01:44.000><c> already</c><00:01:44.799><c> know</c><00:01:45.119><c> in</c>
+
+00:01:45.350 --> 00:01:45.360 align:start position:0%
+the part one we have already know in
+ 
+
+00:01:45.360 --> 00:01:47.350 align:start position:0%
+the part one we have already know in
+depth<00:01:45.680><c> of</c><00:01:45.840><c> how</c><00:01:46.079><c> this</c><00:01:46.320><c> three</c><00:01:46.640><c> works.</c><00:01:46.880><c> We</c><00:01:47.119><c> have</c>
+
+00:01:47.350 --> 00:01:47.360 align:start position:0%
+depth of how this three works. We have
+ 
+
+00:01:47.360 --> 00:01:51.590 align:start position:0%
+depth of how this three works. We have
+already<00:01:48.079><c> have</c><00:01:48.320><c> like</c><00:01:48.560><c> schedule</c><00:01:49.040><c> method</c>
+
+00:01:51.590 --> 00:01:51.600 align:start position:0%
+already have like schedule method
+ 
+
+00:01:51.600 --> 00:01:54.389 align:start position:0%
+already have like schedule method
+schedule<00:01:52.720><c> with</c>
+
+00:01:54.389 --> 00:01:54.399 align:start position:0%
+schedule with
+ 
+
+00:01:54.399 --> 00:01:59.190 align:start position:0%
+schedule with
+fixed<00:01:55.200><c> delay</c><00:01:55.600><c> method</c><00:01:56.880><c> and</c><00:01:57.280><c> schedule</c><00:01:58.000><c> at</c><00:01:58.799><c> fixed</c>
+
+00:01:59.190 --> 00:01:59.200 align:start position:0%
+fixed delay method and schedule at fixed
+ 
+
+00:01:59.200 --> 00:02:03.030 align:start position:0%
+fixed delay method and schedule at fixed
+rate<00:01:59.439><c> method.</c><00:02:00.479><c> So</c><00:02:00.799><c> internally</c><00:02:02.240><c> all</c><00:02:02.640><c> these</c>
+
+00:02:03.030 --> 00:02:03.040 align:start position:0%
+rate method. So internally all these
+ 
+
+00:02:03.040 --> 00:02:06.069 align:start position:0%
+rate method. So internally all these
+types<00:02:03.439><c> in</c><00:02:03.759><c> spring</c><00:02:04.079><c> boot</c><00:02:04.560><c> actually</c><00:02:05.040><c> use</c><00:02:05.840><c> what</c>
+
+00:02:06.069 --> 00:02:06.079 align:start position:0%
+types in spring boot actually use what
+ 
+
+00:02:06.079 --> 00:02:09.749 align:start position:0%
+types in spring boot actually use what
+we<00:02:06.320><c> have</c><00:02:06.719><c> already</c><00:02:07.200><c> seen</c><00:02:08.560><c> in</c><00:02:09.200><c> uh</c><00:02:09.360><c> schedule</c>
+
+00:02:09.749 --> 00:02:09.759 align:start position:0%
+we have already seen in uh schedule
+ 
+
+00:02:09.759 --> 00:02:13.430 align:start position:0%
+we have already seen in uh schedule
+threadpool<00:02:10.319><c> executor</c><00:02:11.200><c> methods.</c><00:02:12.480><c> Okay.</c><00:02:13.200><c> So</c>
+
+00:02:13.430 --> 00:02:13.440 align:start position:0%
+threadpool executor methods. Okay. So
+ 
+
+00:02:13.440 --> 00:02:16.390 align:start position:0%
+threadpool executor methods. Okay. So
+only<00:02:13.680><c> thing</c><00:02:13.840><c> here</c><00:02:14.160><c> new</c><00:02:14.319><c> is</c><00:02:14.480><c> like</c><00:02:14.720><c> chron</c><00:02:15.040><c> job.</c>
+
+00:02:16.390 --> 00:02:16.400 align:start position:0%
+only thing here new is like chron job.
+ 
+
+00:02:16.400 --> 00:02:18.790 align:start position:0%
+only thing here new is like chron job.
+So<00:02:16.640><c> let's</c><00:02:16.879><c> see</c><00:02:17.040><c> that</c><00:02:17.280><c> the</c><00:02:17.520><c> fixed</c><00:02:17.840><c> rate.</c><00:02:18.239><c> So</c><00:02:18.480><c> how</c>
+
+00:02:18.790 --> 00:02:18.800 align:start position:0%
+So let's see that the fixed rate. So how
+ 
+
+00:02:18.800 --> 00:02:22.229 align:start position:0%
+So let's see that the fixed rate. So how
+to<00:02:19.120><c> use</c><00:02:19.680><c> the</c><00:02:19.920><c> fixed</c><00:02:20.239><c> rate</c><00:02:20.560><c> in</c><00:02:20.879><c> spring</c><00:02:21.200><c> boot.</c><00:02:22.080><c> So</c>
+
+00:02:22.229 --> 00:02:22.239 align:start position:0%
+to use the fixed rate in spring boot. So
+ 
+
+00:02:22.239 --> 00:02:26.390 align:start position:0%
+to use the fixed rate in spring boot. So
+we<00:02:22.480><c> create</c><00:02:22.720><c> a</c><00:02:22.879><c> class.</c><00:02:24.319><c> Okay.</c><00:02:24.959><c> And</c><00:02:26.080><c> I</c><00:02:26.319><c> have</c>
+
+00:02:26.390 --> 00:02:26.400 align:start position:0%
+we create a class. Okay. And I have
+ 
+
+00:02:26.400 --> 00:02:28.710 align:start position:0%
+we create a class. Okay. And I have
+annotated<00:02:26.879><c> with</c><00:02:27.040><c> at</c><00:02:27.280><c> the</c><00:02:27.360><c> rate</c><00:02:27.599><c> component.</c>
+
+00:02:28.710 --> 00:02:28.720 align:start position:0%
+annotated with at the rate component.
+ 
+
+00:02:28.720 --> 00:02:30.790 align:start position:0%
+annotated with at the rate component.
+Now<00:02:29.040><c> this</c><00:02:29.280><c> is</c><00:02:29.440><c> the</c><00:02:29.680><c> method.</c><00:02:30.080><c> So</c><00:02:30.239><c> this</c><00:02:30.480><c> method</c>
+
+00:02:30.790 --> 00:02:30.800 align:start position:0%
+Now this is the method. So this method
+ 
+
+00:02:30.800 --> 00:02:33.509 align:start position:0%
+Now this is the method. So this method
+consider<00:02:31.120><c> this</c><00:02:31.280><c> as</c><00:02:31.440><c> a</c><00:02:31.599><c> task</c><00:02:32.000><c> which</c><00:02:32.319><c> need</c><00:02:32.720><c> to</c><00:02:33.040><c> be</c>
+
+00:02:33.509 --> 00:02:33.519 align:start position:0%
+consider this as a task which need to be
+ 
+
+00:02:33.519 --> 00:02:36.550 align:start position:0%
+consider this as a task which need to be
+scheduled.<00:02:34.640><c> Okay.</c><00:02:35.360><c> Now</c><00:02:35.599><c> currently</c><00:02:36.080><c> I</c><00:02:36.400><c> am</c>
+
+00:02:36.550 --> 00:02:36.560 align:start position:0%
+scheduled. Okay. Now currently I am
+ 
+
+00:02:36.560 --> 00:02:39.990 align:start position:0%
+scheduled. Okay. Now currently I am
+using<00:02:37.280><c> fixed</c><00:02:37.680><c> rate.</c><00:02:38.480><c> Okay.</c><00:02:38.879><c> I</c><00:02:39.200><c> am</c><00:02:39.360><c> not</c>
+
+00:02:39.990 --> 00:02:40.000 align:start position:0%
+using fixed rate. Okay. I am not
+ 
+
+00:02:40.000 --> 00:02:42.070 align:start position:0%
+using fixed rate. Okay. I am not
+explaining<00:02:40.480><c> how</c><00:02:40.720><c> fixed</c><00:02:41.040><c> rate</c><00:02:41.519><c> works</c><00:02:41.840><c> because</c>
+
+00:02:42.070 --> 00:02:42.080 align:start position:0%
+explaining how fixed rate works because
+ 
+
+00:02:42.080 --> 00:02:44.869 align:start position:0%
+explaining how fixed rate works because
+in<00:02:42.319><c> the</c><00:02:42.480><c> part</c><00:02:42.720><c> one</c><00:02:42.959><c> itself</c><00:02:43.760><c> we</c><00:02:44.000><c> have</c><00:02:44.160><c> seen</c><00:02:44.400><c> it</c>
+
+00:02:44.869 --> 00:02:44.879 align:start position:0%
+in the part one itself we have seen it
+ 
+
+00:02:44.879 --> 00:02:47.830 align:start position:0%
+in the part one itself we have seen it
+and<00:02:45.120><c> this</c><00:02:45.440><c> fixed</c><00:02:45.760><c> rate</c><00:02:46.160><c> is</c><00:02:46.480><c> equivalent</c><00:02:46.959><c> to</c>
+
+00:02:47.830 --> 00:02:47.840 align:start position:0%
+and this fixed rate is equivalent to
+ 
+
+00:02:47.840 --> 00:02:49.670 align:start position:0%
+and this fixed rate is equivalent to
+schedule<00:02:48.319><c> at</c><00:02:48.480><c> fixed</c><00:02:48.720><c> rate.</c><00:02:49.040><c> What</c><00:02:49.200><c> in</c><00:02:49.360><c> the</c><00:02:49.519><c> part</c>
+
+00:02:49.670 --> 00:02:49.680 align:start position:0%
+schedule at fixed rate. What in the part
+ 
+
+00:02:49.680 --> 00:02:51.509 align:start position:0%
+schedule at fixed rate. What in the part
+one<00:02:49.920><c> we</c><00:02:50.080><c> have</c><00:02:50.160><c> seen</c><00:02:50.400><c> how</c><00:02:50.560><c> it</c><00:02:50.800><c> works.</c><00:02:51.120><c> We</c><00:02:51.360><c> have</c>
+
+00:02:51.509 --> 00:02:51.519 align:start position:0%
+one we have seen how it works. We have
+ 
+
+00:02:51.519 --> 00:02:54.790 align:start position:0%
+one we have seen how it works. We have
+already<00:02:51.760><c> seen</c><00:02:52.000><c> the</c><00:02:52.239><c> example.</c><00:02:53.599><c> Okay.</c><00:02:54.080><c> So</c><00:02:54.319><c> here</c>
+
+00:02:54.790 --> 00:02:54.800 align:start position:0%
+already seen the example. Okay. So here
+ 
+
+00:02:54.800 --> 00:02:58.309 align:start position:0%
+already seen the example. Okay. So here
+it<00:02:55.120><c> just</c><00:02:56.160><c> you</c><00:02:56.400><c> can</c><00:02:56.480><c> say</c><00:02:56.640><c> that</c><00:02:56.959><c> wrap</c><00:02:57.519><c> in</c><00:02:57.840><c> spring</c>
+
+00:02:58.309 --> 00:02:58.319 align:start position:0%
+it just you can say that wrap in spring
+ 
+
+00:02:58.319 --> 00:03:00.550 align:start position:0%
+it just you can say that wrap in spring
+it's<00:02:58.480><c> just</c><00:02:58.560><c> a</c><00:02:58.720><c> wrapper</c><00:02:59.120><c> above</c><00:02:59.440><c> it</c><00:02:59.920><c> and</c><00:03:00.160><c> we</c><00:03:00.400><c> can</c>
+
+00:03:00.550 --> 00:03:00.560 align:start position:0%
+it's just a wrapper above it and we can
+ 
+
+00:03:00.560 --> 00:03:03.190 align:start position:0%
+it's just a wrapper above it and we can
+use<00:03:00.720><c> it</c><00:03:00.879><c> like</c><00:03:01.120><c> add</c><00:03:01.360><c> the</c><00:03:01.519><c> rate</c><00:03:01.840><c> schedule</c>
+
+00:03:03.190 --> 00:03:03.200 align:start position:0%
+use it like add the rate schedule
+ 
+
+00:03:03.200 --> 00:03:07.190 align:start position:0%
+use it like add the rate schedule
+initial<00:03:03.680><c> delay</c><00:03:04.560><c> is</c><00:03:04.879><c> this</c><00:03:05.360><c> 3</c><00:03:05.680><c> second</c><00:03:06.640><c> and</c><00:03:06.959><c> the</c>
+
+00:03:07.190 --> 00:03:07.200 align:start position:0%
+initial delay is this 3 second and the
+ 
+
+00:03:07.200 --> 00:03:09.509 align:start position:0%
+initial delay is this 3 second and the
+delay<00:03:07.920><c> after</c><00:03:08.239><c> that</c><00:03:08.480><c> which</c><00:03:08.800><c> we</c><00:03:08.959><c> wanted</c><00:03:09.360><c> to</c>
+
+00:03:09.509 --> 00:03:09.519 align:start position:0%
+delay after that which we wanted to
+ 
+
+00:03:09.519 --> 00:03:12.550 align:start position:0%
+delay after that which we wanted to
+maintain<00:03:09.840><c> is</c><00:03:10.560><c> 5</c><00:03:10.879><c> second</c><00:03:11.760><c> okay</c><00:03:12.000><c> so</c><00:03:12.159><c> these</c><00:03:12.400><c> are</c>
+
+00:03:12.550 --> 00:03:12.560 align:start position:0%
+maintain is 5 second okay so these are
+ 
+
+00:03:12.560 --> 00:03:15.270 align:start position:0%
+maintain is 5 second okay so these are
+here<00:03:12.720><c> in</c><00:03:12.959><c> milliseconds</c>
+
+00:03:15.270 --> 00:03:15.280 align:start position:0%
+here in milliseconds
+ 
+
+00:03:15.280 --> 00:03:17.509 align:start position:0%
+here in milliseconds
+and<00:03:15.680><c> internally</c><00:03:16.480><c> here</c><00:03:16.720><c> I</c><00:03:16.879><c> have</c><00:03:17.040><c> used</c><00:03:17.280><c> see</c>
+
+00:03:17.509 --> 00:03:17.519 align:start position:0%
+and internally here I have used see
+ 
+
+00:03:17.519 --> 00:03:19.350 align:start position:0%
+and internally here I have used see
+fixed<00:03:17.760><c> rate</c><00:03:17.920><c> so</c><00:03:18.159><c> internally</c><00:03:18.560><c> it</c><00:03:18.800><c> make</c><00:03:19.040><c> use</c><00:03:19.200><c> of</c>
+
+00:03:19.350 --> 00:03:19.360 align:start position:0%
+fixed rate so internally it make use of
+ 
+
+00:03:19.360 --> 00:03:23.270 align:start position:0%
+fixed rate so internally it make use of
+schedule<00:03:19.760><c> at</c><00:03:19.920><c> fixed</c><00:03:20.159><c> rate</c><00:03:20.400><c> method</c><00:03:20.720><c> only</c>
+
+00:03:23.270 --> 00:03:23.280 align:start position:0%
+schedule at fixed rate method only
+ 
+
+00:03:23.280 --> 00:03:25.589 align:start position:0%
+schedule at fixed rate method only
+so<00:03:23.599><c> Somewhere</c><00:03:24.000><c> you</c><00:03:24.239><c> will</c><00:03:24.400><c> also</c><00:03:24.640><c> see</c><00:03:24.800><c> that</c><00:03:25.280><c> many</c>
+
+00:03:25.589 --> 00:03:25.599 align:start position:0%
+so Somewhere you will also see that many
+ 
+
+00:03:25.599 --> 00:03:27.509 align:start position:0%
+so Somewhere you will also see that many
+engineers<00:03:26.080><c> don't</c><00:03:26.400><c> even</c><00:03:26.640><c> write</c><00:03:27.040><c> a</c><00:03:27.200><c> spring</c>
+
+00:03:27.509 --> 00:03:27.519 align:start position:0%
+engineers don't even write a spring
+ 
+
+00:03:27.519 --> 00:03:29.990 align:start position:0%
+engineers don't even write a spring
+delay.<00:03:28.080><c> So</c><00:03:28.239><c> if</c><00:03:28.400><c> you</c><00:03:28.640><c> don't</c><00:03:28.800><c> write</c><00:03:29.120><c> it</c><00:03:29.680><c> like</c>
+
+00:03:29.990 --> 00:03:30.000 align:start position:0%
+delay. So if you don't write it like
+ 
+
+00:03:30.000 --> 00:03:34.630 align:start position:0%
+delay. So if you don't write it like
+this<00:03:30.560><c> then</c><00:03:30.879><c> default</c><00:03:31.360><c> is</c><00:03:31.599><c> zero</c><00:03:32.480><c> means</c><00:03:33.840><c> start</c><00:03:34.400><c> as</c>
+
+00:03:34.630 --> 00:03:34.640 align:start position:0%
+this then default is zero means start as
+ 
+
+00:03:34.640 --> 00:03:37.270 align:start position:0%
+this then default is zero means start as
+soon<00:03:34.799><c> as</c><00:03:34.959><c> the</c><00:03:35.200><c> job</c><00:03:35.440><c> is</c><00:03:35.599><c> submitted.</c>
+
+00:03:37.270 --> 00:03:37.280 align:start position:0%
+soon as the job is submitted.
+ 
+
+00:03:37.280 --> 00:03:39.670 align:start position:0%
+soon as the job is submitted.
+Okay.<00:03:37.760><c> Otherwise</c><00:03:38.239><c> if</c><00:03:38.400><c> you</c><00:03:38.720><c> here</c><00:03:38.879><c> I</c><00:03:39.120><c> have</c><00:03:39.200><c> put</c><00:03:39.440><c> 3</c>
+
+00:03:39.670 --> 00:03:39.680 align:start position:0%
+Okay. Otherwise if you here I have put 3
+ 
+
+00:03:39.680 --> 00:03:41.750 align:start position:0%
+Okay. Otherwise if you here I have put 3
+seconds.<00:03:40.000><c> So</c><00:03:40.159><c> means</c><00:03:40.879><c> once</c><00:03:41.200><c> the</c><00:03:41.440><c> job</c><00:03:41.599><c> is</c>
+
+00:03:41.750 --> 00:03:41.760 align:start position:0%
+seconds. So means once the job is
+ 
+
+00:03:41.760 --> 00:03:45.509 align:start position:0%
+seconds. So means once the job is
+submitted<00:03:42.799><c> after</c><00:03:43.200><c> 3</c><00:03:43.519><c> second</c><00:03:43.760><c> itself</c>
+
+00:03:45.509 --> 00:03:45.519 align:start position:0%
+submitted after 3 second itself
+ 
+
+00:03:45.519 --> 00:03:47.670 align:start position:0%
+submitted after 3 second itself
+after<00:03:45.840><c> 3</c><00:03:46.080><c> second</c><00:03:46.319><c> itself</c><00:03:46.640><c> the</c><00:03:46.799><c> task</c><00:03:47.120><c> will</c><00:03:47.360><c> get</c>
+
+00:03:47.670 --> 00:03:47.680 align:start position:0%
+after 3 second itself the task will get
+ 
+
+00:03:47.680 --> 00:03:50.309 align:start position:0%
+after 3 second itself the task will get
+started.
+
+00:03:50.309 --> 00:03:50.319 align:start position:0%
+started.
+ 
+
+00:03:50.319 --> 00:03:52.789 align:start position:0%
+started.
+Okay.<00:03:50.720><c> And</c><00:03:50.879><c> if</c><00:03:51.040><c> you</c><00:03:51.200><c> see</c><00:03:51.360><c> the</c><00:03:51.519><c> output</c><00:03:52.400><c> you</c><00:03:52.640><c> can</c>
+
+00:03:52.789 --> 00:03:52.799 align:start position:0%
+Okay. And if you see the output you can
+ 
+
+00:03:52.799 --> 00:03:57.670 align:start position:0%
+Okay. And if you see the output you can
+see<00:03:53.680><c> that</c><00:03:54.879><c> the</c><00:03:55.680><c> application</c><00:03:56.319><c> started</c><00:03:56.640><c> at</c><00:03:56.959><c> 38</c>
+
+00:03:57.670 --> 00:03:57.680 align:start position:0%
+see that the application started at 38
+ 
+
+00:03:57.680 --> 00:04:01.030 align:start position:0%
+see that the application started at 38
+then<00:03:57.920><c> it</c><00:03:58.080><c> the</c><00:03:58.480><c> one</c><00:03:58.640><c> is</c><00:03:58.879><c> 41.</c><00:03:59.680><c> So</c><00:03:59.920><c> it</c><00:04:00.319><c> maintain</c><00:04:00.799><c> an</c>
+
+00:04:01.030 --> 00:04:01.040 align:start position:0%
+then it the one is 41. So it maintain an
+ 
+
+00:04:01.040 --> 00:04:04.630 align:start position:0%
+then it the one is 41. So it maintain an
+initial<00:04:01.439><c> delay</c><00:04:01.760><c> of</c><00:04:01.920><c> 3</c><00:04:02.159><c> second</c><00:04:03.360><c> after</c><00:04:03.760><c> that</c>
+
+00:04:04.630 --> 00:04:04.640 align:start position:0%
+initial delay of 3 second after that
+ 
+
+00:04:04.640 --> 00:04:07.910 align:start position:0%
+initial delay of 3 second after that
+every<00:04:05.040><c> 5</c><00:04:05.360><c> seconds.</c><00:04:06.239><c> So</c><00:04:07.120><c> you</c><00:04:07.439><c> remember</c><00:04:07.680><c> from</c>
+
+00:04:07.910 --> 00:04:07.920 align:start position:0%
+every 5 seconds. So you remember from
+ 
+
+00:04:07.920 --> 00:04:09.990 align:start position:0%
+every 5 seconds. So you remember from
+the<00:04:08.080><c> previous</c><00:04:08.400><c> video</c><00:04:08.959><c> fixed</c><00:04:09.280><c> rate</c><00:04:09.599><c> what's</c><00:04:09.840><c> the</c>
+
+00:04:09.990 --> 00:04:10.000 align:start position:0%
+the previous video fixed rate what's the
+ 
+
+00:04:10.000 --> 00:04:13.750 align:start position:0%
+the previous video fixed rate what's the
+formula<00:04:10.319><c> to</c><00:04:10.480><c> find</c><00:04:10.640><c> the</c><00:04:10.879><c> next</c><00:04:11.120><c> execution</c><00:04:11.599><c> time?</c>
+
+00:04:13.750 --> 00:04:13.760 align:start position:0%
+formula to find the next execution time?
+ 
+
+00:04:13.760 --> 00:04:17.349 align:start position:0%
+formula to find the next execution time?
+previous<00:04:14.319><c> start</c><00:04:14.640><c> time</c>
+
+00:04:17.349 --> 00:04:17.359 align:start position:0%
+previous start time
+ 
+
+00:04:17.359 --> 00:04:20.789 align:start position:0%
+previous start time
+plus<00:04:18.720><c> the</c><00:04:18.959><c> delay</c><00:04:19.280><c> which</c><00:04:19.519><c> we</c><00:04:19.759><c> wanted.</c><00:04:20.560><c> So</c>
+
+00:04:20.789 --> 00:04:20.799 align:start position:0%
+plus the delay which we wanted. So
+ 
+
+00:04:20.799 --> 00:04:23.990 align:start position:0%
+plus the delay which we wanted. So
+previous<00:04:21.359><c> start</c><00:04:21.600><c> time</c><00:04:21.840><c> let's</c><00:04:22.079><c> say</c><00:04:22.320><c> 41</c>
+
+00:04:23.990 --> 00:04:24.000 align:start position:0%
+previous start time let's say 41
+ 
+
+00:04:24.000 --> 00:04:27.510 align:start position:0%
+previous start time let's say 41
+plus<00:04:24.320><c> delay</c><00:04:24.720><c> we</c><00:04:24.960><c> have</c><00:04:25.120><c> set</c><00:04:25.360><c> is</c><00:04:25.600><c> five.</c><00:04:26.960><c> So</c><00:04:27.199><c> next</c>
+
+00:04:27.510 --> 00:04:27.520 align:start position:0%
+plus delay we have set is five. So next
+ 
+
+00:04:27.520 --> 00:04:29.909 align:start position:0%
+plus delay we have set is five. So next
+it<00:04:27.680><c> should</c><00:04:27.919><c> run</c><00:04:28.240><c> 46.</c>
+
+00:04:29.909 --> 00:04:29.919 align:start position:0%
+it should run 46.
+ 
+
+00:04:29.919 --> 00:04:33.110 align:start position:0%
+it should run 46.
+Then<00:04:30.160><c> after</c><00:04:30.560><c> 46</c><00:04:31.199><c> once</c><00:04:31.440><c> it</c><00:04:31.600><c> get</c><00:04:31.840><c> executed</c><00:04:32.320><c> at</c><00:04:32.560><c> 46</c>
+
+00:04:33.110 --> 00:04:33.120 align:start position:0%
+Then after 46 once it get executed at 46
+ 
+
+00:04:33.120 --> 00:04:35.270 align:start position:0%
+Then after 46 once it get executed at 46
+the<00:04:33.360><c> next</c><00:04:33.680><c> time</c><00:04:34.080><c> it</c><00:04:34.400><c> has</c><00:04:34.560><c> to</c><00:04:34.720><c> find</c><00:04:34.880><c> the</c><00:04:35.120><c> next</c>
+
+00:04:35.270 --> 00:04:35.280 align:start position:0%
+the next time it has to find the next
+ 
+
+00:04:35.280 --> 00:04:37.670 align:start position:0%
+the next time it has to find the next
+execution<00:04:35.759><c> time.</c><00:04:36.320><c> So</c><00:04:36.560><c> previous</c><00:04:37.120><c> start</c><00:04:37.360><c> time.</c>
+
+00:04:37.670 --> 00:04:37.680 align:start position:0%
+execution time. So previous start time.
+ 
+
+00:04:37.680 --> 00:04:42.550 align:start position:0%
+execution time. So previous start time.
+So<00:04:37.840><c> 46</c><00:04:38.720><c> +</c><00:04:39.040><c> 5</c><00:04:40.080><c> likewise</c><00:04:40.720><c> 51</c><00:04:41.280><c> 56</c><00:04:41.840><c> like</c><00:04:42.080><c> this</c><00:04:42.240><c> it</c>
+
+00:04:42.550 --> 00:04:42.560 align:start position:0%
+So 46 + 5 likewise 51 56 like this it
+ 
+
+00:04:42.560 --> 00:04:45.189 align:start position:0%
+So 46 + 5 likewise 51 56 like this it
+keeps<00:04:42.720><c> on</c><00:04:42.960><c> going.</c>
+
+00:04:45.189 --> 00:04:45.199 align:start position:0%
+keeps on going.
+ 
+
+00:04:45.199 --> 00:04:48.950 align:start position:0%
+keeps on going.
+Okay.<00:04:46.160><c> So</c><00:04:46.800><c> if</c><00:04:46.960><c> you</c><00:04:47.120><c> have</c><00:04:47.280><c> any</c><00:04:47.600><c> doubt</c><00:04:47.919><c> with</c><00:04:48.720><c> this</c>
+
+00:04:48.950 --> 00:04:48.960 align:start position:0%
+Okay. So if you have any doubt with this
+ 
+
+00:04:48.960 --> 00:04:50.870 align:start position:0%
+Okay. So if you have any doubt with this
+method<00:04:49.360><c> schedule</c><00:04:49.440><c> should</c><00:04:49.919><c> fix</c><00:04:50.160><c> rate</c><00:04:50.400><c> how</c><00:04:50.639><c> this</c>
+
+00:04:50.870 --> 00:04:50.880 align:start position:0%
+method schedule should fix rate how this
+ 
+
+00:04:50.880 --> 00:04:52.710 align:start position:0%
+method schedule should fix rate how this
+is<00:04:51.040><c> working</c><00:04:51.360><c> kindly</c><00:04:51.680><c> check</c><00:04:51.840><c> out</c><00:04:52.000><c> the</c><00:04:52.240><c> part</c><00:04:52.479><c> one</c>
+
+00:04:52.710 --> 00:04:52.720 align:start position:0%
+is working kindly check out the part one
+ 
+
+00:04:52.720 --> 00:04:56.230 align:start position:0%
+is working kindly check out the part one
+of<00:04:52.960><c> this</c><00:04:53.600><c> it</c><00:04:53.840><c> will</c><00:04:54.000><c> get</c><00:04:54.160><c> super</c><00:04:54.479><c> clear.</c>
+
+00:04:56.230 --> 00:04:56.240 align:start position:0%
+of this it will get super clear.
+ 
+
+00:04:56.240 --> 00:04:58.790 align:start position:0%
+of this it will get super clear.
+The<00:04:56.479><c> second</c><00:04:56.720><c> is</c><00:04:57.040><c> fixed</c><00:04:57.360><c> delay.</c><00:04:58.000><c> Again</c><00:04:58.320><c> we</c><00:04:58.639><c> have</c>
+
+00:04:58.790 --> 00:04:58.800 align:start position:0%
+The second is fixed delay. Again we have
+ 
+
+00:04:58.800 --> 00:05:00.710 align:start position:0%
+The second is fixed delay. Again we have
+covered<00:04:59.120><c> the</c><00:04:59.360><c> functionality</c><00:05:00.080><c> in</c><00:05:00.320><c> the</c><00:05:00.479><c> part</c>
+
+00:05:00.710 --> 00:05:00.720 align:start position:0%
+covered the functionality in the part
+ 
+
+00:05:00.720 --> 00:05:02.790 align:start position:0%
+covered the functionality in the part
+one<00:05:00.880><c> with</c><00:05:01.120><c> this</c><00:05:01.360><c> method</c><00:05:01.759><c> schedule</c><00:05:02.160><c> with</c><00:05:02.479><c> fixed</c>
+
+00:05:02.790 --> 00:05:02.800 align:start position:0%
+one with this method schedule with fixed
+ 
+
+00:05:02.800 --> 00:05:05.430 align:start position:0%
+one with this method schedule with fixed
+delay.<00:05:03.440><c> So</c><00:05:03.759><c> spring</c><00:05:04.080><c> boot</c><00:05:04.320><c> is</c><00:05:04.880><c> provide</c><00:05:05.280><c> no</c>
+
+00:05:05.430 --> 00:05:05.440 align:start position:0%
+delay. So spring boot is provide no
+ 
+
+00:05:05.440 --> 00:05:07.670 align:start position:0%
+delay. So spring boot is provide no
+other<00:05:05.680><c> functionality.</c><00:05:06.400><c> just</c><00:05:06.960><c> a</c><00:05:07.199><c> wrapper</c>
+
+00:05:07.670 --> 00:05:07.680 align:start position:0%
+other functionality. just a wrapper
+ 
+
+00:05:07.680 --> 00:05:09.830 align:start position:0%
+other functionality. just a wrapper
+above<00:05:08.160><c> this</c><00:05:08.400><c> method</c><00:05:08.800><c> you</c><00:05:08.960><c> can</c><00:05:09.120><c> say</c><00:05:09.520><c> schedule</c>
+
+00:05:09.830 --> 00:05:09.840 align:start position:0%
+above this method you can say schedule
+ 
+
+00:05:09.840 --> 00:05:13.110 align:start position:0%
+above this method you can say schedule
+with<00:05:10.080><c> fixed</c><00:05:10.320><c> delay</c><00:05:11.120><c> and</c><00:05:11.360><c> here</c><00:05:12.560><c> I</c><00:05:12.800><c> have</c><00:05:12.960><c> just</c>
+
+00:05:13.110 --> 00:05:13.120 align:start position:0%
+with fixed delay and here I have just
+ 
+
+00:05:13.120 --> 00:05:15.270 align:start position:0%
+with fixed delay and here I have just
+put<00:05:13.280><c> an</c><00:05:13.520><c> annotation</c><00:05:14.000><c> at</c><00:05:14.160><c> the</c><00:05:14.479><c> schedule</c><00:05:15.039><c> so</c>
+
+00:05:15.270 --> 00:05:15.280 align:start position:0%
+put an annotation at the schedule so
+ 
+
+00:05:15.280 --> 00:05:17.510 align:start position:0%
+put an annotation at the schedule so
+this<00:05:15.520><c> is</c><00:05:15.680><c> my</c><00:05:16.000><c> let's</c><00:05:16.240><c> say</c><00:05:16.479><c> task</c><00:05:16.960><c> which</c><00:05:17.199><c> I</c><00:05:17.360><c> want</c>
+
+00:05:17.510 --> 00:05:17.520 align:start position:0%
+this is my let's say task which I want
+ 
+
+00:05:17.520 --> 00:05:20.710 align:start position:0%
+this is my let's say task which I want
+to<00:05:17.680><c> run</c><00:05:18.720><c> I</c><00:05:19.039><c> put</c><00:05:19.199><c> at</c><00:05:19.360><c> the</c><00:05:19.680><c> schedule</c><00:05:20.240><c> initial</c>
+
+00:05:20.710 --> 00:05:20.720 align:start position:0%
+to run I put at the schedule initial
+ 
+
+00:05:20.720 --> 00:05:23.350 align:start position:0%
+to run I put at the schedule initial
+delay<00:05:21.199><c> whatever</c><00:05:21.600><c> I</c><00:05:21.840><c> want</c><00:05:21.919><c> to</c><00:05:22.080><c> provide</c><00:05:22.720><c> and</c><00:05:23.039><c> fix</c>
+
+00:05:23.350 --> 00:05:23.360 align:start position:0%
+delay whatever I want to provide and fix
+ 
+
+00:05:23.360 --> 00:05:26.230 align:start position:0%
+delay whatever I want to provide and fix
+delay<00:05:23.680><c> is</c><00:05:24.479><c> 5</c><00:05:24.800><c> seconds</c><00:05:25.120><c> so</c><00:05:25.360><c> it</c><00:05:25.520><c> just</c><00:05:25.759><c> like</c><00:05:25.919><c> use</c>
+
+00:05:26.230 --> 00:05:26.240 align:start position:0%
+delay is 5 seconds so it just like use
+ 
+
+00:05:26.240 --> 00:05:29.749 align:start position:0%
+delay is 5 seconds so it just like use
+this<00:05:26.479><c> method</c><00:05:27.840><c> so</c><00:05:28.240><c> here</c><00:05:28.639><c> just</c><00:05:28.880><c> for</c><00:05:29.199><c> testing</c>
+
+00:05:29.749 --> 00:05:29.759 align:start position:0%
+this method so here just for testing
+ 
+
+00:05:29.759 --> 00:05:32.950 align:start position:0%
+this method so here just for testing
+purpose<00:05:30.880><c> I</c><00:05:31.120><c> have</c><00:05:31.360><c> recorded</c><00:05:31.759><c> the</c><00:05:32.000><c> start</c><00:05:32.320><c> time</c>
+
+00:05:32.950 --> 00:05:32.960 align:start position:0%
+purpose I have recorded the start time
+ 
+
+00:05:32.960 --> 00:05:35.189 align:start position:0%
+purpose I have recorded the start time
+and<00:05:33.280><c> just</c><00:05:33.600><c> make</c><00:05:33.840><c> the</c><00:05:34.000><c> thread</c><00:05:34.400><c> sleep</c><00:05:34.639><c> for</c><00:05:34.880><c> 3</c>
+
+00:05:35.189 --> 00:05:35.199 align:start position:0%
+and just make the thread sleep for 3
+ 
+
+00:05:35.199 --> 00:05:37.830 align:start position:0%
+and just make the thread sleep for 3
+seconds<00:05:36.320><c> recorded</c><00:05:36.720><c> the</c><00:05:36.960><c> end</c><00:05:37.199><c> time</c><00:05:37.440><c> and</c><00:05:37.600><c> just</c>
+
+00:05:37.830 --> 00:05:37.840 align:start position:0%
+seconds recorded the end time and just
+ 
+
+00:05:37.840 --> 00:05:41.430 align:start position:0%
+seconds recorded the end time and just
+printing.<00:05:38.720><c> So</c><00:05:38.960><c> just</c><00:05:39.280><c> if</c><00:05:39.600><c> you</c><00:05:39.759><c> see</c><00:05:39.840><c> the</c><00:05:40.080><c> outcome</c>
+
+00:05:41.430 --> 00:05:41.440 align:start position:0%
+printing. So just if you see the outcome
+ 
+
+00:05:41.440 --> 00:05:43.350 align:start position:0%
+printing. So just if you see the outcome
+so<00:05:41.840><c> you</c><00:05:42.160><c> remember</c><00:05:42.400><c> from</c><00:05:42.639><c> the</c><00:05:42.880><c> first</c><00:05:43.039><c> video</c>
+
+00:05:43.350 --> 00:05:43.360 align:start position:0%
+so you remember from the first video
+ 
+
+00:05:43.360 --> 00:05:46.390 align:start position:0%
+so you remember from the first video
+like<00:05:43.600><c> for</c><00:05:43.840><c> fixed</c><00:05:44.160><c> delay</c>
+
+00:05:46.390 --> 00:05:46.400 align:start position:0%
+like for fixed delay
+ 
+
+00:05:46.400 --> 00:05:48.230 align:start position:0%
+like for fixed delay
+what's<00:05:46.720><c> the</c><00:05:46.880><c> formula</c><00:05:47.199><c> for</c><00:05:47.520><c> calculating</c><00:05:48.000><c> the</c>
+
+00:05:48.230 --> 00:05:48.240 align:start position:0%
+what's the formula for calculating the
+ 
+
+00:05:48.240 --> 00:05:51.670 align:start position:0%
+what's the formula for calculating the
+next<00:05:48.479><c> execution</c><00:05:48.960><c> time</c><00:05:49.199><c> is</c><00:05:49.440><c> like</c><00:05:49.680><c> previous</c>
+
+00:05:51.670 --> 00:05:51.680 align:start position:0%
+next execution time is like previous
+ 
+
+00:05:51.680 --> 00:05:55.990 align:start position:0%
+next execution time is like previous
+task<00:05:53.039><c> finish</c><00:05:53.440><c> time</c><00:05:54.720><c> not</c><00:05:55.039><c> start</c><00:05:55.280><c> time</c><00:05:55.600><c> finish</c>
+
+00:05:55.990 --> 00:05:56.000 align:start position:0%
+task finish time not start time finish
+ 
+
+00:05:56.000 --> 00:05:57.909 align:start position:0%
+task finish time not start time finish
+time
+
+00:05:57.909 --> 00:05:57.919 align:start position:0%
+time
+ 
+
+00:05:57.919 --> 00:06:00.070 align:start position:0%
+time
+plus<00:05:58.320><c> delay.</c>
+
+00:06:00.070 --> 00:06:00.080 align:start position:0%
+plus delay.
+ 
+
+00:06:00.080 --> 00:06:02.310 align:start position:0%
+plus delay.
+So<00:06:00.320><c> here</c><00:06:00.560><c> when</c><00:06:00.880><c> task</c><00:06:01.199><c> is</c><00:06:01.440><c> submitted</c><00:06:02.000><c> what's</c>
+
+00:06:02.310 --> 00:06:02.320 align:start position:0%
+So here when task is submitted what's
+ 
+
+00:06:02.320 --> 00:06:04.710 align:start position:0%
+So here when task is submitted what's
+the<00:06:02.560><c> initial</c><00:06:02.960><c> delay</c><00:06:03.280><c> is</c><00:06:03.520><c> 1</c><00:06:03.759><c> second.</c><00:06:04.400><c> So</c>
+
+00:06:04.710 --> 00:06:04.720 align:start position:0%
+the initial delay is 1 second. So
+ 
+
+00:06:04.720 --> 00:06:07.590 align:start position:0%
+the initial delay is 1 second. So
+application<00:06:05.440><c> started</c><00:06:05.919><c> at</c><00:06:06.560><c> uh</c><00:06:06.720><c> here</c><00:06:06.960><c> it</c><00:06:07.199><c> is</c><00:06:07.360><c> at</c>
+
+00:06:07.590 --> 00:06:07.600 align:start position:0%
+application started at uh here it is at
+ 
+
+00:06:07.600 --> 00:06:11.029 align:start position:0%
+application started at uh here it is at
+31.<00:06:08.639><c> So</c><00:06:08.800><c> it</c><00:06:09.039><c> is</c><00:06:09.280><c> after</c><00:06:09.600><c> 1</c><00:06:10.000><c> second</c><00:06:10.319><c> delay</c><00:06:10.800><c> you</c>
+
+00:06:11.029 --> 00:06:11.039 align:start position:0%
+31. So it is after 1 second delay you
+ 
+
+00:06:11.039 --> 00:06:15.029 align:start position:0%
+31. So it is after 1 second delay you
+can<00:06:11.120><c> say</c><00:06:11.280><c> that</c><00:06:12.160><c> 32</c><00:06:12.639><c> it</c><00:06:12.960><c> started.</c><00:06:13.919><c> So</c><00:06:14.160><c> at</c><00:06:14.319><c> 32</c><00:06:14.720><c> it</c>
+
+00:06:15.029 --> 00:06:15.039 align:start position:0%
+can say that 32 it started. So at 32 it
+ 
+
+00:06:15.039 --> 00:06:19.350 align:start position:0%
+can say that 32 it started. So at 32 it
+started<00:06:16.240><c> I</c><00:06:16.560><c> have</c><00:06:16.720><c> put</c><00:06:17.440><c> sleep.</c><00:06:18.400><c> Okay</c><00:06:18.800><c> 3</c><00:06:19.039><c> seconds</c>
+
+00:06:19.350 --> 00:06:19.360 align:start position:0%
+started I have put sleep. Okay 3 seconds
+ 
+
+00:06:19.360 --> 00:06:22.230 align:start position:0%
+started I have put sleep. Okay 3 seconds
+sleep.<00:06:19.840><c> So</c><00:06:20.000><c> when</c><00:06:20.240><c> it</c><00:06:20.400><c> got</c><00:06:20.639><c> finished</c><00:06:21.520><c> it</c><00:06:21.840><c> got</c>
+
+00:06:22.230 --> 00:06:22.240 align:start position:0%
+sleep. So when it got finished it got
+ 
+
+00:06:22.240 --> 00:06:25.270 align:start position:0%
+sleep. So when it got finished it got
+finished<00:06:22.639><c> at</c><00:06:23.039><c> 35.</c><00:06:24.319><c> So</c><00:06:24.479><c> what</c><00:06:24.720><c> should</c><00:06:24.880><c> be</c><00:06:25.039><c> the</c>
+
+00:06:25.270 --> 00:06:25.280 align:start position:0%
+finished at 35. So what should be the
+ 
+
+00:06:25.280 --> 00:06:27.510 align:start position:0%
+finished at 35. So what should be the
+next?<00:06:25.840><c> So</c>
+
+00:06:27.510 --> 00:06:27.520 align:start position:0%
+next? So
+ 
+
+00:06:27.520 --> 00:06:29.670 align:start position:0%
+next? So
+here<00:06:27.840><c> in</c><00:06:28.080><c> the</c><00:06:28.240><c> fixed</c><00:06:28.479><c> delay</c><00:06:28.800><c> it's</c><00:06:29.039><c> repetitive.</c>
+
+00:06:29.670 --> 00:06:29.680 align:start position:0%
+here in the fixed delay it's repetitive.
+ 
+
+00:06:29.680 --> 00:06:31.350 align:start position:0%
+here in the fixed delay it's repetitive.
+We<00:06:29.840><c> need</c><00:06:30.000><c> to</c><00:06:30.080><c> put</c><00:06:30.240><c> the</c><00:06:30.479><c> task</c><00:06:30.720><c> again</c><00:06:31.039><c> back</c><00:06:31.199><c> to</c>
+
+00:06:31.350 --> 00:06:31.360 align:start position:0%
+We need to put the task again back to
+ 
+
+00:06:31.360 --> 00:06:33.990 align:start position:0%
+We need to put the task again back to
+the<00:06:31.520><c> queue</c><00:06:32.319><c> but</c><00:06:32.560><c> with</c><00:06:32.720><c> a</c><00:06:32.960><c> new</c><00:06:33.120><c> execution</c><00:06:33.600><c> time.</c>
+
+00:06:33.990 --> 00:06:34.000 align:start position:0%
+the queue but with a new execution time.
+ 
+
+00:06:34.000 --> 00:06:36.070 align:start position:0%
+the queue but with a new execution time.
+So<00:06:34.160><c> new</c><00:06:34.400><c> execution</c><00:06:34.880><c> time</c><00:06:35.120><c> would</c><00:06:35.280><c> be</c><00:06:35.520><c> previous</c>
+
+00:06:36.070 --> 00:06:36.080 align:start position:0%
+So new execution time would be previous
+ 
+
+00:06:36.080 --> 00:06:38.550 align:start position:0%
+So new execution time would be previous
+task<00:06:36.560><c> finish</c><00:06:36.880><c> time.</c><00:06:37.280><c> So</c><00:06:37.440><c> when</c><00:06:37.600><c> it</c><00:06:37.759><c> is</c><00:06:37.919><c> finished</c>
+
+00:06:38.550 --> 00:06:38.560 align:start position:0%
+task finish time. So when it is finished
+ 
+
+00:06:38.560 --> 00:06:41.749 align:start position:0%
+task finish time. So when it is finished
+35<00:06:39.520><c> plus</c><00:06:39.759><c> the</c><00:06:40.000><c> delay</c><00:06:40.560><c> delay</c><00:06:40.960><c> we</c><00:06:41.199><c> have</c><00:06:41.280><c> set</c><00:06:41.520><c> is</c>
+
+00:06:41.749 --> 00:06:41.759 align:start position:0%
+35 plus the delay delay we have set is
+ 
+
+00:06:41.759 --> 00:06:45.590 align:start position:0%
+35 plus the delay delay we have set is
+five.<00:06:42.800><c> So</c><00:06:42.960><c> it</c><00:06:43.199><c> should</c><00:06:43.360><c> run</c><00:06:43.520><c> on</c><00:06:43.759><c> next</c><00:06:44.000><c> 40.</c><00:06:45.199><c> So</c><00:06:45.360><c> it</c>
+
+00:06:45.590 --> 00:06:45.600 align:start position:0%
+five. So it should run on next 40. So it
+ 
+
+00:06:45.600 --> 00:06:47.830 align:start position:0%
+five. So it should run on next 40. So it
+run<00:06:45.759><c> at</c><00:06:46.000><c> 40.</c><00:06:46.319><c> Let's</c><00:06:46.479><c> say</c><00:06:46.560><c> it</c><00:06:46.720><c> finished</c><00:06:46.960><c> at</c><00:06:47.199><c> 43.</c>
+
+00:06:47.830 --> 00:06:47.840 align:start position:0%
+run at 40. Let's say it finished at 43.
+ 
+
+00:06:47.840 --> 00:06:50.469 align:start position:0%
+run at 40. Let's say it finished at 43.
+So<00:06:48.080><c> what</c><00:06:48.319><c> should</c><00:06:48.479><c> be</c><00:06:48.560><c> the</c><00:06:48.800><c> next</c><00:06:49.360><c> finish</c><00:06:49.680><c> time?</c>
+
+00:06:50.469 --> 00:06:50.479 align:start position:0%
+So what should be the next finish time?
+ 
+
+00:06:50.479 --> 00:06:54.070 align:start position:0%
+So what should be the next finish time?
+Previous<00:06:50.880><c> finish</c><00:06:51.199><c> time</c><00:06:51.440><c> 43</c><00:06:51.919><c> plus</c><00:06:52.160><c> the</c><00:06:52.319><c> delay</c>
+
+00:06:54.070 --> 00:06:54.080 align:start position:0%
+Previous finish time 43 plus the delay
+ 
+
+00:06:54.080 --> 00:06:58.469 align:start position:0%
+Previous finish time 43 plus the delay
+48.<00:06:54.720><c> Likewise</c><00:06:55.280><c> it</c><00:06:55.520><c> keeps</c><00:06:55.759><c> on</c><00:06:55.919><c> going.</c>
+
+00:06:58.469 --> 00:06:58.479 align:start position:0%
+48. Likewise it keeps on going.
+ 
+
+00:06:58.479 --> 00:07:00.870 align:start position:0%
+48. Likewise it keeps on going.
+Okay.<00:06:58.880><c> So</c><00:06:59.120><c> again</c><00:06:59.440><c> we</c><00:06:59.680><c> have</c><00:07:00.319><c> already</c><00:07:00.639><c> covered</c>
+
+00:07:00.870 --> 00:07:00.880 align:start position:0%
+Okay. So again we have already covered
+ 
+
+00:07:00.880 --> 00:07:02.469 align:start position:0%
+Okay. So again we have already covered
+this.<00:07:01.199><c> So</c><00:07:01.280><c> that's</c><00:07:01.520><c> why</c><00:07:01.759><c> I'm</c><00:07:02.000><c> going</c><00:07:02.160><c> a</c><00:07:02.240><c> little</c>
+
+00:07:02.469 --> 00:07:02.479 align:start position:0%
+this. So that's why I'm going a little
+ 
+
+00:07:02.479 --> 00:07:05.909 align:start position:0%
+this. So that's why I'm going a little
+bit<00:07:02.639><c> fast</c><00:07:02.960><c> over</c><00:07:03.280><c> here.</c><00:07:04.479><c> Now</c><00:07:04.639><c> one</c><00:07:04.800><c> is</c><00:07:04.880><c> onetime</c>
+
+00:07:05.909 --> 00:07:05.919 align:start position:0%
+bit fast over here. Now one is onetime
+ 
+
+00:07:05.919 --> 00:07:07.589 align:start position:0%
+bit fast over here. Now one is onetime
+that<00:07:06.240><c> is</c><00:07:06.319><c> also</c><00:07:06.639><c> equivalent</c><00:07:07.039><c> to</c><00:07:07.199><c> schedule</c>
+
+00:07:07.589 --> 00:07:07.599 align:start position:0%
+that is also equivalent to schedule
+ 
+
+00:07:07.599 --> 00:07:09.270 align:start position:0%
+that is also equivalent to schedule
+method<00:07:07.919><c> in</c><00:07:08.080><c> the</c><00:07:08.240><c> part</c><00:07:08.479><c> one</c><00:07:08.720><c> which</c><00:07:08.960><c> we</c><00:07:09.120><c> have</c>
+
+00:07:09.270 --> 00:07:09.280 align:start position:0%
+method in the part one which we have
+ 
+
+00:07:09.280 --> 00:07:13.110 align:start position:0%
+method in the part one which we have
+covered.<00:07:10.080><c> Okay.</c><00:07:10.639><c> So</c><00:07:10.880><c> here</c><00:07:12.080><c> means</c><00:07:12.479><c> we</c><00:07:12.800><c> have</c><00:07:12.880><c> to</c>
+
+00:07:13.110 --> 00:07:13.120 align:start position:0%
+covered. Okay. So here means we have to
+ 
+
+00:07:13.120 --> 00:07:16.309 align:start position:0%
+covered. Okay. So here means we have to
+run<00:07:13.280><c> the</c><00:07:13.440><c> job</c><00:07:13.759><c> only</c><00:07:14.240><c> one</c><00:07:14.560><c> time</c><00:07:15.440><c> only</c><00:07:15.759><c> one</c><00:07:16.000><c> time.</c>
+
+00:07:16.309 --> 00:07:16.319 align:start position:0%
+run the job only one time only one time.
+ 
+
+00:07:16.319 --> 00:07:18.790 align:start position:0%
+run the job only one time only one time.
+So<00:07:16.400><c> this</c><00:07:16.560><c> is</c><00:07:16.720><c> my</c><00:07:16.960><c> task</c><00:07:18.000><c> I</c><00:07:18.160><c> put</c><00:07:18.400><c> at</c><00:07:18.560><c> the</c>
+
+00:07:18.790 --> 00:07:18.800 align:start position:0%
+So this is my task I put at the
+ 
+
+00:07:18.800 --> 00:07:22.309 align:start position:0%
+So this is my task I put at the
+schedule.<00:07:19.360><c> Now</c><00:07:19.680><c> initial</c><00:07:20.080><c> delay</c><00:07:21.039><c> so</c><00:07:21.759><c> when</c><00:07:22.160><c> you</c>
+
+00:07:22.309 --> 00:07:22.319 align:start position:0%
+schedule. Now initial delay so when you
+ 
+
+00:07:22.319 --> 00:07:23.830 align:start position:0%
+schedule. Now initial delay so when you
+need<00:07:22.479><c> to</c><00:07:22.720><c> start</c><00:07:23.039><c> so</c><00:07:23.199><c> they're</c><00:07:23.360><c> the</c><00:07:23.520><c> same</c><00:07:23.680><c> thing</c>
+
+00:07:23.830 --> 00:07:23.840 align:start position:0%
+need to start so they're the same thing
+ 
+
+00:07:23.840 --> 00:07:28.550 align:start position:0%
+need to start so they're the same thing
+the<00:07:24.080><c> task</c><00:07:24.960><c> and</c><00:07:25.199><c> the</c><00:07:25.440><c> delay.</c><00:07:26.880><c> Okay.</c><00:07:27.759><c> So</c><00:07:28.160><c> here</c>
+
+00:07:28.550 --> 00:07:28.560 align:start position:0%
+the task and the delay. Okay. So here
+ 
+
+00:07:28.560 --> 00:07:30.230 align:start position:0%
+the task and the delay. Okay. So here
+let's<00:07:28.800><c> say</c><00:07:29.039><c> if</c><00:07:29.280><c> you</c><00:07:29.440><c> want</c><00:07:29.599><c> to</c><00:07:29.840><c> start</c><00:07:30.080><c> it</c>
+
+00:07:30.230 --> 00:07:30.240 align:start position:0%
+let's say if you want to start it
+ 
+
+00:07:30.240 --> 00:07:32.390 align:start position:0%
+let's say if you want to start it
+immediately<00:07:30.720><c> just</c><00:07:30.960><c> put</c><00:07:31.199><c> zero.</c><00:07:31.919><c> If</c><00:07:32.080><c> you</c><00:07:32.240><c> want</c>
+
+00:07:32.390 --> 00:07:32.400 align:start position:0%
+immediately just put zero. If you want
+ 
+
+00:07:32.400 --> 00:07:34.309 align:start position:0%
+immediately just put zero. If you want
+to<00:07:32.560><c> start</c><00:07:32.800><c> let's</c><00:07:33.039><c> say</c><00:07:33.120><c> after</c><00:07:33.360><c> 2</c><00:07:33.680><c> seconds</c><00:07:34.080><c> just</c>
+
+00:07:34.309 --> 00:07:34.319 align:start position:0%
+to start let's say after 2 seconds just
+ 
+
+00:07:34.319 --> 00:07:35.670 align:start position:0%
+to start let's say after 2 seconds just
+put<00:07:34.560><c> here.</c><00:07:34.800><c> So</c><00:07:35.039><c> all</c><00:07:35.199><c> this</c><00:07:35.360><c> is</c><00:07:35.440><c> in</c>
+
+00:07:35.670 --> 00:07:35.680 align:start position:0%
+put here. So all this is in
+ 
+
+00:07:35.680 --> 00:07:37.670 align:start position:0%
+put here. So all this is in
+milliseconds.
+
+00:07:37.670 --> 00:07:37.680 align:start position:0%
+milliseconds.
+ 
+
+00:07:37.680 --> 00:07:39.830 align:start position:0%
+milliseconds.
+Okay.<00:07:38.400><c> But</c><00:07:38.639><c> here</c><00:07:38.960><c> initial</c><00:07:39.360><c> delay</c><00:07:39.680><c> is</c>
+
+00:07:39.830 --> 00:07:39.840 align:start position:0%
+Okay. But here initial delay is
+ 
+
+00:07:39.840 --> 00:07:43.270 align:start position:0%
+Okay. But here initial delay is
+mandatory.<00:07:40.400><c> You</c><00:07:40.560><c> can't</c><00:07:40.800><c> have</c><00:07:42.080><c> you</c><00:07:42.800><c> if</c><00:07:43.039><c> you</c>
+
+00:07:43.270 --> 00:07:43.280 align:start position:0%
+mandatory. You can't have you if you
+ 
+
+00:07:43.280 --> 00:07:44.629 align:start position:0%
+mandatory. You can't have you if you
+don't<00:07:43.440><c> define</c><00:07:43.680><c> it</c><00:07:43.840><c> here</c><00:07:44.080><c> you</c><00:07:44.240><c> will</c><00:07:44.319><c> get</c><00:07:44.479><c> an</c>
+
+00:07:44.629 --> 00:07:44.639 align:start position:0%
+don't define it here you will get an
+ 
+
+00:07:44.639 --> 00:07:47.990 align:start position:0%
+don't define it here you will get an
+exception.<00:07:46.000><c> So</c><00:07:46.240><c> you</c><00:07:46.560><c> should</c><00:07:47.120><c> define</c><00:07:47.520><c> initial</c>
+
+00:07:47.990 --> 00:07:48.000 align:start position:0%
+exception. So you should define initial
+ 
+
+00:07:48.000 --> 00:07:51.830 align:start position:0%
+exception. So you should define initial
+delay<00:07:48.639><c> in</c><00:07:48.880><c> case</c><00:07:49.039><c> of</c><00:07:49.360><c> one</c><00:07:49.520><c> timeuling.</c><00:07:50.960><c> Okay.</c>
+
+00:07:51.830 --> 00:07:51.840 align:start position:0%
+delay in case of one timeuling. Okay.
+ 
+
+00:07:51.840 --> 00:07:55.589 align:start position:0%
+delay in case of one timeuling. Okay.
+But<00:07:52.000><c> if</c><00:07:52.240><c> you</c><00:07:52.319><c> are</c><00:07:52.479><c> using</c><00:07:53.599><c> fixed</c><00:07:53.919><c> delay</c><00:07:55.199><c> or</c>
+
+00:07:55.589 --> 00:07:55.599 align:start position:0%
+But if you are using fixed delay or
+ 
+
+00:07:55.599 --> 00:07:57.830 align:start position:0%
+But if you are using fixed delay or
+fixed<00:07:56.000><c> rate</c><00:07:56.560><c> if</c><00:07:56.720><c> you</c><00:07:56.960><c> don't</c><00:07:57.120><c> add</c><00:07:57.360><c> initial</c>
+
+00:07:57.830 --> 00:07:57.840 align:start position:0%
+fixed rate if you don't add initial
+ 
+
+00:07:57.840 --> 00:08:00.550 align:start position:0%
+fixed rate if you don't add initial
+delay<00:07:58.319><c> by</c><00:07:58.639><c> default</c><00:07:58.879><c> it</c><00:07:59.120><c> will</c><00:07:59.199><c> take</c><00:07:59.440><c> zero.</c>
+
+00:08:00.550 --> 00:08:00.560 align:start position:0%
+delay by default it will take zero.
+ 
+
+00:08:00.560 --> 00:08:02.550 align:start position:0%
+delay by default it will take zero.
+Okay.<00:08:01.120><c> But</c><00:08:01.360><c> only</c><00:08:01.599><c> in</c><00:08:01.759><c> case</c><00:08:01.919><c> of</c><00:08:02.160><c> one</c><00:08:02.319><c> time</c>
+
+00:08:02.550 --> 00:08:02.560 align:start position:0%
+Okay. But only in case of one time
+ 
+
+00:08:02.560 --> 00:08:04.309 align:start position:0%
+Okay. But only in case of one time
+shoulduling
+
+00:08:04.309 --> 00:08:04.319 align:start position:0%
+shoulduling
+ 
+
+00:08:04.319 --> 00:08:06.390 align:start position:0%
+shoulduling
+you<00:08:04.720><c> have</c><00:08:04.879><c> to</c><00:08:05.120><c> specifically</c><00:08:05.680><c> add</c><00:08:05.919><c> the</c><00:08:06.080><c> initial</c>
+
+00:08:06.390 --> 00:08:06.400 align:start position:0%
+you have to specifically add the initial
+ 
+
+00:08:06.400 --> 00:08:09.510 align:start position:0%
+you have to specifically add the initial
+delay.
+
+00:08:09.510 --> 00:08:09.520 align:start position:0%
+ 
+ 
+
+00:08:09.520 --> 00:08:11.670 align:start position:0%
+ 
+So<00:08:09.680><c> in</c><00:08:09.840><c> this</c><00:08:10.000><c> case</c><00:08:10.240><c> what</c><00:08:10.479><c> would</c><00:08:10.720><c> happen</c><00:08:10.960><c> is</c>
+
+00:08:11.670 --> 00:08:11.680 align:start position:0%
+So in this case what would happen is
+ 
+
+00:08:11.680 --> 00:08:14.070 align:start position:0%
+So in this case what would happen is
+after<00:08:12.000><c> an</c><00:08:12.319><c> initial</c><00:08:12.800><c> delay</c><00:08:13.039><c> of</c><00:08:13.280><c> 2</c><00:08:13.520><c> second</c><00:08:13.759><c> job</c>
+
+00:08:14.070 --> 00:08:14.080 align:start position:0%
+after an initial delay of 2 second job
+ 
+
+00:08:14.080 --> 00:08:16.390 align:start position:0%
+after an initial delay of 2 second job
+will<00:08:14.319><c> start</c><00:08:14.560><c> and</c><00:08:14.800><c> it</c><00:08:14.960><c> will</c><00:08:15.120><c> get</c><00:08:15.360><c> executed</c><00:08:15.919><c> only</c>
+
+00:08:16.390 --> 00:08:16.400 align:start position:0%
+will start and it will get executed only
+ 
+
+00:08:16.400 --> 00:08:20.950 align:start position:0%
+will start and it will get executed only
+one<00:08:16.800><c> time.</c>
+
+00:08:20.950 --> 00:08:20.960 align:start position:0%
+ 
+ 
+
+00:08:20.960 --> 00:08:24.070 align:start position:0%
+ 
+Cool.<00:08:21.680><c> The</c><00:08:22.479><c> main</c><00:08:22.800><c> thing</c><00:08:22.879><c> is</c><00:08:23.120><c> now</c><00:08:23.440><c> chron</c><00:08:23.759><c> job</c>
+
+00:08:24.070 --> 00:08:24.080 align:start position:0%
+Cool. The main thing is now chron job
+ 
+
+00:08:24.080 --> 00:08:28.710 align:start position:0%
+Cool. The main thing is now chron job
+which<00:08:24.319><c> is</c><00:08:24.479><c> new.</c><00:08:25.440><c> Okay.</c><00:08:26.800><c> So</c><00:08:27.759><c> now</c><00:08:28.000><c> let's</c><00:08:28.319><c> see</c><00:08:28.479><c> it</c>
+
+00:08:28.710 --> 00:08:28.720 align:start position:0%
+which is new. Okay. So now let's see it
+ 
+
+00:08:28.720 --> 00:08:30.230 align:start position:0%
+which is new. Okay. So now let's see it
+clearly.
+
+00:08:30.230 --> 00:08:30.240 align:start position:0%
+clearly.
+ 
+
+00:08:30.240 --> 00:08:34.550 align:start position:0%
+clearly.
+What<00:08:30.479><c> it</c><00:08:30.639><c> says</c><00:08:31.440><c> chron</c><00:08:31.840><c> job</c><00:08:32.080><c> is</c><00:08:33.039><c> repeated</c><00:08:34.240><c> one</c>
+
+00:08:34.550 --> 00:08:34.560 align:start position:0%
+What it says chron job is repeated one
+ 
+
+00:08:34.560 --> 00:08:37.269 align:start position:0%
+What it says chron job is repeated one
+timeuling<00:08:35.680><c> repeated.</c><00:08:36.240><c> So</c><00:08:36.399><c> it's</c><00:08:36.640><c> also</c><00:08:36.959><c> a</c>
+
+00:08:37.269 --> 00:08:37.279 align:start position:0%
+timeuling repeated. So it's also a
+ 
+
+00:08:37.279 --> 00:08:39.829 align:start position:0%
+timeuling repeated. So it's also a
+repeat<00:08:38.159><c> of</c>
+
+00:08:39.829 --> 00:08:39.839 align:start position:0%
+repeat of
+ 
+
+00:08:39.839 --> 00:08:42.070 align:start position:0%
+repeat of
+whatever<00:08:40.320><c> the</c><00:08:40.479><c> clock</c><00:08:40.719><c> time</c><00:08:40.959><c> we</c><00:08:41.200><c> give.</c><00:08:41.599><c> So</c><00:08:41.760><c> it</c>
+
+00:08:42.070 --> 00:08:42.080 align:start position:0%
+whatever the clock time we give. So it
+ 
+
+00:08:42.080 --> 00:08:44.870 align:start position:0%
+whatever the clock time we give. So it
+based<00:08:42.479><c> on</c><00:08:42.800><c> wall</c><00:08:43.120><c> clock</c><00:08:43.519><c> time.</c><00:08:44.080><c> This</c><00:08:44.320><c> is</c><00:08:44.480><c> very</c>
+
+00:08:44.870 --> 00:08:44.880 align:start position:0%
+based on wall clock time. This is very
+ 
+
+00:08:44.880 --> 00:08:47.829 align:start position:0%
+based on wall clock time. This is very
+important.<00:08:46.160><c> So</c><00:08:46.320><c> and</c><00:08:46.640><c> also</c><00:08:46.959><c> very</c><00:08:47.279><c> confusing</c>
+
+00:08:47.829 --> 00:08:47.839 align:start position:0%
+important. So and also very confusing
+ 
+
+00:08:47.839 --> 00:08:50.710 align:start position:0%
+important. So and also very confusing
+too.<00:08:48.240><c> What</c><00:08:48.480><c> does</c><00:08:49.120><c> wall</c><00:08:49.519><c> clock</c><00:08:49.839><c> time</c><00:08:50.080><c> means?</c><00:08:50.560><c> So</c>
+
+00:08:50.710 --> 00:08:50.720 align:start position:0%
+too. What does wall clock time means? So
+ 
+
+00:08:50.720 --> 00:08:52.630 align:start position:0%
+too. What does wall clock time means? So
+in<00:08:50.959><c> like</c><00:08:51.200><c> in</c><00:08:51.440><c> a</c><00:08:51.600><c> wall</c><00:08:51.839><c> clock</c><00:08:52.080><c> time</c><00:08:52.320><c> we</c><00:08:52.480><c> have</c>
+
+00:08:52.630 --> 00:08:52.640 align:start position:0%
+in like in a wall clock time we have
+ 
+
+00:08:52.640 --> 00:08:57.030 align:start position:0%
+in like in a wall clock time we have
+like<00:08:53.440><c> seconds,</c><00:08:54.240><c> minute,</c><00:08:55.120><c> hour.</c><00:08:56.080><c> Okay,</c><00:08:56.720><c> the</c>
+
+00:08:57.030 --> 00:08:57.040 align:start position:0%
+like seconds, minute, hour. Okay, the
+ 
+
+00:08:57.040 --> 00:09:00.470 align:start position:0%
+like seconds, minute, hour. Okay, the
+same<00:08:57.360><c> way</c><00:08:57.600><c> it</c><00:08:57.920><c> follows.</c><00:08:59.360><c> So</c><00:08:59.600><c> example</c><00:09:00.000><c> of</c><00:09:00.240><c> wall</c>
+
+00:09:00.470 --> 00:09:00.480 align:start position:0%
+same way it follows. So example of wall
+ 
+
+00:09:00.480 --> 00:09:01.829 align:start position:0%
+same way it follows. So example of wall
+clock<00:09:00.720><c> time.</c><00:09:01.040><c> Let's</c><00:09:01.200><c> see</c><00:09:01.360><c> the</c><00:09:01.519><c> example</c>
+
+00:09:01.829 --> 00:09:01.839 align:start position:0%
+clock time. Let's see the example
+ 
+
+00:09:01.839 --> 00:09:03.750 align:start position:0%
+clock time. Let's see the example
+clearly<00:09:02.240><c> because</c><00:09:02.480><c> this</c><00:09:02.640><c> is</c><00:09:02.800><c> where</c><00:09:03.040><c> many</c>
+
+00:09:03.750 --> 00:09:03.760 align:start position:0%
+clearly because this is where many
+ 
+
+00:09:03.760 --> 00:09:05.910 align:start position:0%
+clearly because this is where many
+confusion<00:09:04.399><c> happen.</c>
+
+00:09:05.910 --> 00:09:05.920 align:start position:0%
+confusion happen.
+ 
+
+00:09:05.920 --> 00:09:09.670 align:start position:0%
+confusion happen.
+Let's<00:09:06.240><c> say</c><00:09:06.959><c> current</c><00:09:07.279><c> time</c><00:09:07.519><c> is</c><00:09:07.920><c> 10:14</c>
+
+00:09:09.670 --> 00:09:09.680 align:start position:0%
+Let's say current time is 10:14
+ 
+
+00:09:09.680 --> 00:09:12.790 align:start position:0%
+Let's say current time is 10:14
+and<00:09:10.000><c> what</c><00:09:10.320><c> we</c><00:09:10.560><c> wanted</c><00:09:10.880><c> is</c><00:09:11.279><c> every</c><00:09:11.680><c> 3</c><00:09:12.000><c> minutes</c><00:09:12.480><c> we</c>
+
+00:09:12.790 --> 00:09:12.800 align:start position:0%
+and what we wanted is every 3 minutes we
+ 
+
+00:09:12.800 --> 00:09:16.310 align:start position:0%
+and what we wanted is every 3 minutes we
+need<00:09:12.880><c> to</c><00:09:13.120><c> run</c><00:09:13.279><c> the</c><00:09:13.519><c> task</c><00:09:14.480><c> every</c><00:09:14.880><c> 3</c><00:09:15.120><c> minutes.</c><00:09:16.160><c> So</c>
+
+00:09:16.310 --> 00:09:16.320 align:start position:0%
+need to run the task every 3 minutes. So
+ 
+
+00:09:16.320 --> 00:09:18.949 align:start position:0%
+need to run the task every 3 minutes. So
+with<00:09:16.640><c> fixed</c><00:09:17.040><c> rate</c><00:09:17.920><c> what</c><00:09:18.160><c> would</c><00:09:18.560><c> what</c><00:09:18.800><c> would</c>
+
+00:09:18.949 --> 00:09:18.959 align:start position:0%
+with fixed rate what would what would
+ 
+
+00:09:18.959 --> 00:09:21.829 align:start position:0%
+with fixed rate what would what would
+have<00:09:19.200><c> happened?</c><00:09:20.000><c> So</c><00:09:20.160><c> now</c><00:09:20.399><c> let's</c><00:09:20.640><c> say</c><00:09:21.519><c> the</c>
+
+00:09:21.829 --> 00:09:21.839 align:start position:0%
+have happened? So now let's say the
+ 
+
+00:09:21.839 --> 00:09:24.310 align:start position:0%
+have happened? So now let's say the
+first<00:09:22.160><c> pick</c><00:09:22.480><c> would</c><00:09:22.720><c> happen</c><00:09:23.200><c> 10:14</c><00:09:23.920><c> if</c><00:09:24.160><c> it</c>
+
+00:09:24.310 --> 00:09:24.320 align:start position:0%
+first pick would happen 10:14 if it
+ 
+
+00:09:24.320 --> 00:09:28.870 align:start position:0%
+first pick would happen 10:14 if it
+let's<00:09:24.560><c> say</c><00:09:24.720><c> if</c><00:09:24.880><c> our</c><00:09:25.200><c> initial</c><00:09:26.560><c> delay</c><00:09:27.839><c> is</c><00:09:28.160><c> zero</c>
+
+00:09:28.870 --> 00:09:28.880 align:start position:0%
+let's say if our initial delay is zero
+ 
+
+00:09:28.880 --> 00:09:32.550 align:start position:0%
+let's say if our initial delay is zero
+means<00:09:29.839><c> as</c><00:09:30.160><c> soon</c><00:09:30.320><c> as</c><00:09:30.480><c> the</c><00:09:31.279><c> current</c><00:09:31.600><c> time</c><00:09:31.839><c> is</c>
+
+00:09:32.550 --> 00:09:32.560 align:start position:0%
+means as soon as the current time is
+ 
+
+00:09:32.560 --> 00:09:34.790 align:start position:0%
+means as soon as the current time is
+10:14<00:09:33.279><c> as</c><00:09:33.440><c> soon</c><00:09:33.519><c> as</c><00:09:33.600><c> the</c><00:09:33.839><c> job</c><00:09:34.000><c> is</c><00:09:34.240><c> submitted</c><00:09:34.560><c> it</c>
+
+00:09:34.790 --> 00:09:34.800 align:start position:0%
+10:14 as soon as the job is submitted it
+ 
+
+00:09:34.800 --> 00:09:38.070 align:start position:0%
+10:14 as soon as the job is submitted it
+got<00:09:34.959><c> picked</c><00:09:35.200><c> up.</c><00:09:35.920><c> So</c><00:09:36.160><c> first</c><00:09:36.480><c> pick</c><00:09:36.720><c> is</c><00:09:36.959><c> this.</c>
+
+00:09:38.070 --> 00:09:38.080 align:start position:0%
+got picked up. So first pick is this.
+ 
+
+00:09:38.080 --> 00:09:42.470 align:start position:0%
+got picked up. So first pick is this.
+Now<00:09:38.959><c> the</c><00:09:39.279><c> next</c><00:09:39.600><c> execution</c><00:09:41.040><c> at</c><00:09:41.279><c> what</c><00:09:41.600><c> time?</c><00:09:42.240><c> So</c>
+
+00:09:42.470 --> 00:09:42.480 align:start position:0%
+Now the next execution at what time? So
+ 
+
+00:09:42.480 --> 00:09:44.870 align:start position:0%
+Now the next execution at what time? So
+we<00:09:42.640><c> want</c><00:09:42.880><c> every</c><00:09:43.200><c> 3</c><00:09:43.440><c> minutes.</c><00:09:43.760><c> So</c><00:09:43.920><c> how</c><00:09:44.399><c> what</c><00:09:44.720><c> is</c>
+
+00:09:44.870 --> 00:09:44.880 align:start position:0%
+we want every 3 minutes. So how what is
+ 
+
+00:09:44.880 --> 00:09:46.630 align:start position:0%
+we want every 3 minutes. So how what is
+the<00:09:45.279><c> execution</c><00:09:45.839><c> time</c><00:09:46.000><c> formula?</c><00:09:46.480><c> Next</c>
+
+00:09:46.630 --> 00:09:46.640 align:start position:0%
+the execution time formula? Next
+ 
+
+00:09:46.640 --> 00:09:48.389 align:start position:0%
+the execution time formula? Next
+execution<00:09:47.120><c> time</c><00:09:47.440><c> calculation</c><00:09:47.920><c> formula</c><00:09:48.240><c> in</c>
+
+00:09:48.389 --> 00:09:48.399 align:start position:0%
+execution time calculation formula in
+ 
+
+00:09:48.399 --> 00:09:51.350 align:start position:0%
+execution time calculation formula in
+fixed<00:09:48.640><c> rate</c><00:09:48.800><c> is</c><00:09:49.440><c> previous</c>
+
+00:09:51.350 --> 00:09:51.360 align:start position:0%
+fixed rate is previous
+ 
+
+00:09:51.360 --> 00:09:53.670 align:start position:0%
+fixed rate is previous
+start<00:09:51.680><c> time</c><00:09:52.000><c> previous</c><00:09:52.880><c> start</c><00:09:53.040><c> time.</c><00:09:53.279><c> So</c><00:09:53.360><c> it</c><00:09:53.519><c> is</c>
+
+00:09:53.670 --> 00:09:53.680 align:start position:0%
+start time previous start time. So it is
+ 
+
+00:09:53.680 --> 00:09:56.389 align:start position:0%
+start time previous start time. So it is
+started<00:09:53.920><c> on</c><00:09:54.080><c> 10:14</c>
+
+00:09:56.389 --> 00:09:56.399 align:start position:0%
+started on 10:14
+ 
+
+00:09:56.399 --> 00:09:59.430 align:start position:0%
+started on 10:14
+plus<00:09:56.720><c> interval</c><00:09:57.279><c> we</c><00:09:57.519><c> want</c><00:09:57.680><c> three.</c><00:09:58.399><c> So</c><00:09:58.560><c> at</c><00:09:58.800><c> 10:17</c>
+
+00:09:59.430 --> 00:09:59.440 align:start position:0%
+plus interval we want three. So at 10:17
+ 
+
+00:09:59.440 --> 00:10:03.030 align:start position:0%
+plus interval we want three. So at 10:17
+it<00:09:59.680><c> will</c><00:09:59.839><c> run</c><00:10:01.200><c> next</c><00:10:01.600><c> execution</c><00:10:02.160><c> time</c><00:10:02.399><c> would</c><00:10:02.640><c> be</c>
+
+00:10:03.030 --> 00:10:03.040 align:start position:0%
+it will run next execution time would be
+ 
+
+00:10:03.040 --> 00:10:06.470 align:start position:0%
+it will run next execution time would be
+previous<00:10:04.080><c> start</c><00:10:04.320><c> time.</c><00:10:04.640><c> So</c><00:10:04.800><c> 1017</c><00:10:05.440><c> it</c><00:10:05.760><c> started</c>
+
+00:10:06.470 --> 00:10:06.480 align:start position:0%
+previous start time. So 1017 it started
+ 
+
+00:10:06.480 --> 00:10:08.790 align:start position:0%
+previous start time. So 1017 it started
+plus<00:10:06.800><c> 3</c><00:10:07.040><c> 1020.</c>
+
+00:10:08.790 --> 00:10:08.800 align:start position:0%
+plus 3 1020.
+ 
+
+00:10:08.800 --> 00:10:11.110 align:start position:0%
+plus 3 1020.
+Okay.<00:10:09.200><c> So</c><00:10:09.360><c> this</c><00:10:09.600><c> is</c><00:10:09.760><c> how</c><00:10:10.160><c> generally</c><00:10:10.720><c> fixed</c>
+
+00:10:11.110 --> 00:10:11.120 align:start position:0%
+Okay. So this is how generally fixed
+ 
+
+00:10:11.120 --> 00:10:14.790 align:start position:0%
+Okay. So this is how generally fixed
+rate<00:10:11.839><c> might</c><00:10:12.080><c> have</c><00:10:12.320><c> worked.</c>
+
+00:10:14.790 --> 00:10:14.800 align:start position:0%
+rate might have worked.
+ 
+
+00:10:14.800 --> 00:10:17.269 align:start position:0%
+rate might have worked.
+Fixed<00:10:15.120><c> delay.</c><00:10:15.680><c> How</c><00:10:16.000><c> this</c><00:10:16.320><c> scenario</c><00:10:16.800><c> works</c><00:10:17.040><c> in</c>
+
+00:10:17.269 --> 00:10:17.279 align:start position:0%
+Fixed delay. How this scenario works in
+ 
+
+00:10:17.279 --> 00:10:20.069 align:start position:0%
+Fixed delay. How this scenario works in
+fixed<00:10:17.519><c> delay</c><00:10:17.920><c> is</c><00:10:18.160><c> that</c>
+
+00:10:20.069 --> 00:10:20.079 align:start position:0%
+fixed delay is that
+ 
+
+00:10:20.079 --> 00:10:22.310 align:start position:0%
+fixed delay is that
+let's<00:10:20.320><c> say</c><00:10:20.560><c> first</c><00:10:20.800><c> pick</c><00:10:21.200><c> started</c><00:10:21.519><c> at</c><00:10:21.760><c> 10:14</c>
+
+00:10:22.310 --> 00:10:22.320 align:start position:0%
+let's say first pick started at 10:14
+ 
+
+00:10:22.320 --> 00:10:25.670 align:start position:0%
+let's say first pick started at 10:14
+but<00:10:22.640><c> finished</c><00:10:22.880><c> at</c><00:10:23.120><c> 10:15.</c><00:10:24.560><c> So</c><00:10:25.040><c> when</c><00:10:25.360><c> you</c><00:10:25.519><c> have</c>
+
+00:10:25.670 --> 00:10:25.680 align:start position:0%
+but finished at 10:15. So when you have
+ 
+
+00:10:25.680 --> 00:10:27.430 align:start position:0%
+but finished at 10:15. So when you have
+to<00:10:25.839><c> put</c><00:10:26.000><c> back</c><00:10:26.240><c> again</c><00:10:26.480><c> into</c><00:10:26.800><c> the</c><00:10:26.959><c> queue</c><00:10:27.200><c> with</c>
+
+00:10:27.430 --> 00:10:27.440 align:start position:0%
+to put back again into the queue with
+ 
+
+00:10:27.440 --> 00:10:29.190 align:start position:0%
+to put back again into the queue with
+the<00:10:27.600><c> new</c><00:10:27.839><c> execution</c><00:10:28.240><c> time</c><00:10:28.560><c> it</c><00:10:28.720><c> would</c><00:10:28.800><c> be</c><00:10:28.959><c> like</c>
+
+00:10:29.190 --> 00:10:29.200 align:start position:0%
+the new execution time it would be like
+ 
+
+00:10:29.200 --> 00:10:31.430 align:start position:0%
+the new execution time it would be like
+previous<00:10:29.600><c> execution</c><00:10:30.480><c> end</c><00:10:30.720><c> time.</c><00:10:30.959><c> So</c><00:10:31.120><c> end</c><00:10:31.360><c> time</c>
+
+00:10:31.430 --> 00:10:31.440 align:start position:0%
+previous execution end time. So end time
+ 
+
+00:10:31.440 --> 00:10:36.150 align:start position:0%
+previous execution end time. So end time
+is<00:10:31.680><c> 10:15</c><00:10:32.800><c> +</c><00:10:33.120><c> 3</c><00:10:33.519><c> 10810.</c><00:10:34.880><c> Now</c><00:10:35.200><c> let's</c><00:10:35.440><c> say</c><00:10:36.000><c> uh</c>
+
+00:10:36.150 --> 00:10:36.160 align:start position:0%
+is 10:15 + 3 10810. Now let's say uh
+ 
+
+00:10:36.160 --> 00:10:38.069 align:start position:0%
+is 10:15 + 3 10810. Now let's say uh
+when<00:10:36.399><c> it</c><00:10:36.560><c> got</c><00:10:36.720><c> picked</c><00:10:36.959><c> at</c><00:10:37.120><c> 10:18</c><00:10:37.680><c> complete</c><00:10:37.920><c> at</c>
+
+00:10:38.069 --> 00:10:38.079 align:start position:0%
+when it got picked at 10:18 complete at
+ 
+
+00:10:38.079 --> 00:10:41.910 align:start position:0%
+when it got picked at 10:18 complete at
+10:19.<00:10:39.360><c> So</c><00:10:39.920><c> next</c><00:10:40.240><c> execution</c><00:10:40.720><c> time</c><00:10:40.959><c> is</c>
+
+00:10:41.910 --> 00:10:41.920 align:start position:0%
+10:19. So next execution time is
+ 
+
+00:10:41.920 --> 00:10:45.269 align:start position:0%
+10:19. So next execution time is
+previous<00:10:42.560><c> finish</c><00:10:42.800><c> time</c><00:10:43.120><c> 1019</c><00:10:43.760><c> +</c><00:10:44.000><c> 3</c><00:10:44.240><c> 10:22</c>
+
+00:10:45.269 --> 00:10:45.279 align:start position:0%
+previous finish time 1019 + 3 10:22
+ 
+
+00:10:45.279 --> 00:10:47.030 align:start position:0%
+previous finish time 1019 + 3 10:22
+likewise
+
+00:10:47.030 --> 00:10:47.040 align:start position:0%
+likewise
+ 
+
+00:10:47.040 --> 00:10:50.470 align:start position:0%
+likewise
+but<00:10:47.360><c> in</c><00:10:47.600><c> case</c><00:10:47.920><c> of</c><00:10:48.240><c> chron</c><00:10:49.360><c> it</c><00:10:49.600><c> follows</c><00:10:50.160><c> wall</c>
+
+00:10:50.470 --> 00:10:50.480 align:start position:0%
+but in case of chron it follows wall
+ 
+
+00:10:50.480 --> 00:10:53.910 align:start position:0%
+but in case of chron it follows wall
+clock<00:10:50.959><c> time.</c><00:10:52.320><c> So</c><00:10:52.480><c> when</c><00:10:52.720><c> we</c><00:10:52.959><c> are</c><00:10:53.120><c> saying</c><00:10:53.600><c> every</c>
+
+00:10:53.910 --> 00:10:53.920 align:start position:0%
+clock time. So when we are saying every
+ 
+
+00:10:53.920 --> 00:10:56.790 align:start position:0%
+clock time. So when we are saying every
+3<00:10:54.240><c> minutes</c><00:10:54.720><c> so</c><00:10:54.880><c> in</c><00:10:55.120><c> the</c><00:10:55.279><c> clockwise</c><00:10:56.240><c> it's</c><00:10:56.560><c> like</c>
+
+00:10:56.790 --> 00:10:56.800 align:start position:0%
+3 minutes so in the clockwise it's like
+ 
+
+00:10:56.800 --> 00:11:02.630 align:start position:0%
+3 minutes so in the clockwise it's like
+0<00:10:57.440><c> 3</c><00:10:57.920><c> 6</c><00:10:58.399><c> 9</c><00:10:58.800><c> 12</c><00:10:59.200><c> 15</c><00:10:59.680><c> 18</c><00:11:00.079><c> 21</c><00:11:00.560><c> likewise.</c><00:11:01.680><c> Okay.</c><00:11:02.399><c> So</c>
+
+00:11:02.630 --> 00:11:02.640 align:start position:0%
+0 3 6 9 12 15 18 21 likewise. Okay. So
+ 
+
+00:11:02.640 --> 00:11:05.030 align:start position:0%
+0 3 6 9 12 15 18 21 likewise. Okay. So
+currently<00:11:02.959><c> it's</c><00:11:03.279><c> 10</c><00:11:03.600><c> for</c><00:11:03.839><c> 10.</c><00:11:04.480><c> So</c><00:11:04.720><c> currently</c>
+
+00:11:05.030 --> 00:11:05.040 align:start position:0%
+currently it's 10 for 10. So currently
+ 
+
+00:11:05.040 --> 00:11:09.670 align:start position:0%
+currently it's 10 for 10. So currently
+it's<00:11:05.279><c> 10</c><00:11:05.600><c> for</c><00:11:05.839><c> 10.</c><00:11:06.800><c> Okay.</c><00:11:07.600><c> So</c><00:11:07.920><c> now</c><00:11:08.160><c> when</c><00:11:09.279><c> so</c><00:11:09.440><c> if</c>
+
+00:11:09.670 --> 00:11:09.680 align:start position:0%
+it's 10 for 10. Okay. So now when so if
+ 
+
+00:11:09.680 --> 00:11:11.670 align:start position:0%
+it's 10 for 10. Okay. So now when so if
+task<00:11:10.000><c> get</c><00:11:10.240><c> completed</c><00:11:10.640><c> on</c><00:11:10.959><c> time</c><00:11:11.200><c> let's</c><00:11:11.440><c> say</c>
+
+00:11:11.670 --> 00:11:11.680 align:start position:0%
+task get completed on time let's say
+ 
+
+00:11:11.680 --> 00:11:14.790 align:start position:0%
+task get completed on time let's say
+next<00:11:12.000><c> run</c><00:11:12.240><c> would</c><00:11:12.480><c> be</c><00:11:12.560><c> on</c><00:11:12.800><c> 10:15</c>
+
+00:11:14.790 --> 00:11:14.800 align:start position:0%
+next run would be on 10:15
+ 
+
+00:11:14.800 --> 00:11:17.350 align:start position:0%
+next run would be on 10:15
+okay<00:11:15.040><c> so</c><00:11:15.279><c> it</c><00:11:15.519><c> follows</c><00:11:15.839><c> wall</c><00:11:16.079><c> clock</c><00:11:16.320><c> time</c><00:11:16.560><c> 0</c><00:11:16.880><c> 3</c><00:11:17.200><c> 6</c>
+
+00:11:17.350 --> 00:11:17.360 align:start position:0%
+okay so it follows wall clock time 0 3 6
+ 
+
+00:11:17.360 --> 00:11:21.430 align:start position:0%
+okay so it follows wall clock time 0 3 6
+so<00:11:17.519><c> every</c><00:11:17.680><c> 3</c><00:11:17.920><c> minutes</c><00:11:18.160><c> right</c><00:11:18.480><c> 0</c><00:11:18.800><c> 3</c><00:11:19.040><c> 6</c><00:11:19.279><c> 9</c><00:11:19.680><c> 12</c><00:11:20.240><c> till</c>
+
+00:11:21.430 --> 00:11:21.440 align:start position:0%
+so every 3 minutes right 0 3 6 9 12 till
+ 
+
+00:11:21.440 --> 00:11:25.430 align:start position:0%
+so every 3 minutes right 0 3 6 9 12 till
+you<00:11:21.680><c> can</c><00:11:21.920><c> say</c><00:11:22.079><c> that</c><00:11:23.200><c> uh</c><00:11:24.000><c> like</c><00:11:24.240><c> within</c><00:11:24.959><c> 60</c><00:11:25.279><c> it</c>
+
+00:11:25.430 --> 00:11:25.440 align:start position:0%
+you can say that uh like within 60 it
+ 
+
+00:11:25.440 --> 00:11:29.590 align:start position:0%
+you can say that uh like within 60 it
+goes<00:11:25.680><c> so</c><00:11:25.839><c> 59</c><00:11:26.240><c> 0</c><00:11:26.560><c> to</c><00:11:26.720><c> 59</c><00:11:27.440><c> so</c><00:11:27.839><c> 0</c><00:11:28.079><c> to</c><00:11:28.320><c> 59</c><00:11:28.640><c> it</c><00:11:28.880><c> goes</c><00:11:29.360><c> so</c>
+
+00:11:29.590 --> 00:11:29.600 align:start position:0%
+goes so 59 0 to 59 so 0 to 59 it goes so
+ 
+
+00:11:29.600 --> 00:11:33.829 align:start position:0%
+goes so 59 0 to 59 so 0 to 59 it goes so
+likewise<00:11:30.079><c> 333</c><00:11:30.880><c> minutes</c><00:11:31.200><c> gap</c><00:11:31.519><c> it</c><00:11:31.760><c> will</c><00:11:31.920><c> go</c>
+
+00:11:33.829 --> 00:11:33.839 align:start position:0%
+likewise 333 minutes gap it will go
+ 
+
+00:11:33.839 --> 00:11:37.590 align:start position:0%
+likewise 333 minutes gap it will go
+so<00:11:34.079><c> in</c><00:11:34.320><c> this</c><00:11:34.560><c> case</c><00:11:35.120><c> if</c><00:11:35.360><c> it</c><00:11:35.600><c> is</c><00:11:36.079><c> uh</c><00:11:36.480><c> 104</c><00:11:37.200><c> A</c><00:11:37.360><c> task</c>
+
+00:11:37.590 --> 00:11:37.600 align:start position:0%
+so in this case if it is uh 104 A task
+ 
+
+00:11:37.600 --> 00:11:39.670 align:start position:0%
+so in this case if it is uh 104 A task
+get<00:11:37.839><c> executed</c><00:11:38.399><c> and</c><00:11:38.640><c> if</c><00:11:38.800><c> it</c><00:11:38.959><c> get</c><00:11:39.200><c> completed</c>
+
+00:11:39.670 --> 00:11:39.680 align:start position:0%
+get executed and if it get completed
+ 
+
+00:11:39.680 --> 00:11:42.470 align:start position:0%
+get executed and if it get completed
+within<00:11:40.079><c> time</c><00:11:41.200><c> then</c><00:11:41.440><c> the</c><00:11:41.680><c> next</c><00:11:41.839><c> run</c><00:11:42.079><c> it</c><00:11:42.320><c> would</c>
+
+00:11:42.470 --> 00:11:42.480 align:start position:0%
+within time then the next run it would
+ 
+
+00:11:42.480 --> 00:11:46.150 align:start position:0%
+within time then the next run it would
+be<00:11:42.560><c> at</c><00:11:43.120><c> 15</c><00:11:44.000><c> after</c><00:11:44.240><c> that</c><00:11:44.640><c> 18</c><00:11:45.120><c> after</c><00:11:45.360><c> that</c><00:11:45.600><c> 21</c>
+
+00:11:46.150 --> 00:11:46.160 align:start position:0%
+be at 15 after that 18 after that 21
+ 
+
+00:11:46.160 --> 00:11:49.509 align:start position:0%
+be at 15 after that 18 after that 21
+likewise<00:11:47.519><c> but</c><00:11:47.760><c> if</c><00:11:47.920><c> the</c><00:11:48.079><c> task</c><00:11:48.399><c> takes</c><00:11:48.720><c> longer</c>
+
+00:11:49.509 --> 00:11:49.519 align:start position:0%
+likewise but if the task takes longer
+ 
+
+00:11:49.519 --> 00:11:51.509 align:start position:0%
+likewise but if the task takes longer
+let's<00:11:49.760><c> say</c><00:11:49.920><c> at</c><00:11:50.160><c> 10:14</c><00:11:50.720><c> is</c><00:11:50.959><c> started</c><00:11:51.279><c> and</c>
+
+00:11:51.509 --> 00:11:51.519 align:start position:0%
+let's say at 10:14 is started and
+ 
+
+00:11:51.519 --> 00:11:53.829 align:start position:0%
+let's say at 10:14 is started and
+completed<00:11:51.839><c> at</c><00:11:52.079><c> 10:16</c>
+
+00:11:53.829 --> 00:11:53.839 align:start position:0%
+completed at 10:16
+ 
+
+00:11:53.839 --> 00:11:55.829 align:start position:0%
+completed at 10:16
+then<00:11:54.079><c> what</c><00:11:54.320><c> would</c><00:11:54.480><c> be</c><00:11:54.640><c> the</c><00:11:54.720><c> nextuling</c><00:11:55.360><c> time</c>
+
+00:11:55.829 --> 00:11:55.839 align:start position:0%
+then what would be the nextuling time
+ 
+
+00:11:55.839 --> 00:11:58.310 align:start position:0%
+then what would be the nextuling time
+you<00:11:56.000><c> can</c><00:11:56.160><c> see</c><00:11:56.399><c> from</c><00:11:56.640><c> this</c><00:11:56.800><c> itself</c><00:11:57.200><c> the</c><00:11:57.360><c> next</c><00:11:58.000><c> at</c>
+
+00:11:58.310 --> 00:11:58.320 align:start position:0%
+you can see from this itself the next at
+ 
+
+00:11:58.320 --> 00:11:59.829 align:start position:0%
+you can see from this itself the next at
+16<00:11:58.560><c> it</c><00:11:58.800><c> get</c><00:11:58.959><c> completed</c><00:11:59.360><c> right</c><00:11:59.519><c> so</c><00:11:59.680><c> next</c>
+
+00:11:59.829 --> 00:11:59.839 align:start position:0%
+16 it get completed right so next
+ 
+
+00:11:59.839 --> 00:12:02.630 align:start position:0%
+16 it get completed right so next
+shoulduling<00:12:00.240><c> time</c><00:12:00.399><c> would</c><00:12:00.560><c> be</c><00:12:00.640><c> at</c><00:12:00.800><c> 8:10</c>
+
+00:12:02.630 --> 00:12:02.640 align:start position:0%
+shoulduling time would be at 8:10
+ 
+
+00:12:02.640 --> 00:12:05.990 align:start position:0%
+shoulduling time would be at 8:10
+okay<00:12:03.839><c> so</c><00:12:04.079><c> that's</c><00:12:04.480><c> the</c><00:12:05.120><c> wall</c><00:12:05.440><c> clock</c><00:12:05.760><c> time</c>
+
+00:12:05.990 --> 00:12:06.000 align:start position:0%
+okay so that's the wall clock time
+ 
+
+00:12:06.000 --> 00:12:06.949 align:start position:0%
+okay so that's the wall clock time
+scenario
+
+00:12:06.949 --> 00:12:06.959 align:start position:0%
+scenario
+ 
+
+00:12:06.959 --> 00:12:09.590 align:start position:0%
+scenario
+the<00:12:07.279><c> things</c><00:12:07.519><c> will</c><00:12:07.680><c> get</c><00:12:07.920><c> more</c><00:12:08.160><c> clear</c><00:12:08.800><c> with</c><00:12:09.279><c> more</c>
+
+00:12:09.590 --> 00:12:09.600 align:start position:0%
+the things will get more clear with more
+ 
+
+00:12:09.600 --> 00:12:12.150 align:start position:0%
+the things will get more clear with more
+further<00:12:09.920><c> examples</c><00:12:10.880><c> but</c><00:12:11.279><c> that's</c><00:12:11.680><c> the</c><00:12:11.920><c> one</c>
+
+00:12:12.150 --> 00:12:12.160 align:start position:0%
+further examples but that's the one
+ 
+
+00:12:12.160 --> 00:12:14.790 align:start position:0%
+further examples but that's the one
+thing<00:12:12.399><c> it's</c><00:12:12.639><c> a</c><00:12:12.959><c> repeated</c><00:12:13.680><c> job</c><00:12:14.000><c> only</c><00:12:14.399><c> repeated</c>
+
+00:12:14.790 --> 00:12:14.800 align:start position:0%
+thing it's a repeated job only repeated
+ 
+
+00:12:14.800 --> 00:12:16.629 align:start position:0%
+thing it's a repeated job only repeated
+one<00:12:14.959><c> time</c><00:12:15.120><c> scheduleuler</c><00:12:15.680><c> but</c><00:12:15.920><c> based</c><00:12:16.160><c> on</c><00:12:16.399><c> wall</c>
+
+00:12:16.629 --> 00:12:16.639 align:start position:0%
+one time scheduleuler but based on wall
+ 
+
+00:12:16.639 --> 00:12:19.509 align:start position:0%
+one time scheduleuler but based on wall
+clock<00:12:16.959><c> time</c>
+
+00:12:19.509 --> 00:12:19.519 align:start position:0%
+clock time
+ 
+
+00:12:19.519 --> 00:12:21.509 align:start position:0%
+clock time
+okay<00:12:19.920><c> so</c><00:12:20.320><c> this</c><00:12:20.560><c> is</c><00:12:20.720><c> just</c><00:12:20.880><c> the</c><00:12:21.120><c> same</c><00:12:21.279><c> thing</c>
+
+00:12:21.509 --> 00:12:21.519 align:start position:0%
+okay so this is just the same thing
+ 
+
+00:12:21.519 --> 00:12:24.470 align:start position:0%
+okay so this is just the same thing
+repeated<00:12:22.000><c> like</c><00:12:22.720><c> uh</c><00:12:23.360><c> next</c><00:12:23.680><c> execution</c><00:12:24.160><c> time</c>
+
+00:12:24.470 --> 00:12:24.480 align:start position:0%
+repeated like uh next execution time
+ 
+
+00:12:24.480 --> 00:12:26.870 align:start position:0%
+repeated like uh next execution time
+compute<00:12:24.800><c> it</c><00:12:25.519><c> and</c><00:12:25.839><c> schedule</c><00:12:26.160><c> it</c><00:12:26.399><c> back</c><00:12:26.560><c> to</c><00:12:26.720><c> the</c>
+
+00:12:26.870 --> 00:12:26.880 align:start position:0%
+compute it and schedule it back to the
+ 
+
+00:12:26.880 --> 00:12:30.389 align:start position:0%
+compute it and schedule it back to the
+queue<00:12:27.279><c> like</c><00:12:27.839><c> the</c><00:12:28.160><c> same</c><00:12:28.320><c> thing</c>
+
+00:12:30.389 --> 00:12:30.399 align:start position:0%
+queue like the same thing
+ 
+
+00:12:30.399 --> 00:12:33.430 align:start position:0%
+queue like the same thing
+okay<00:12:31.200><c> again</c><00:12:31.680><c> one</c><00:12:31.920><c> more</c><00:12:32.079><c> example</c><00:12:32.880><c> I</c><00:12:33.040><c> am</c><00:12:33.200><c> going</c>
+
+00:12:33.430 --> 00:12:33.440 align:start position:0%
+okay again one more example I am going
+ 
+
+00:12:33.440 --> 00:12:35.590 align:start position:0%
+okay again one more example I am going
+one<00:12:33.680><c> more</c><00:12:33.839><c> example</c><00:12:34.480><c> because</c><00:12:34.959><c> see</c><00:12:35.279><c> this</c><00:12:35.440><c> is</c>
+
+00:12:35.590 --> 00:12:35.600 align:start position:0%
+one more example because see this is
+ 
+
+00:12:35.600 --> 00:12:37.509 align:start position:0%
+one more example because see this is
+important<00:12:36.160><c> before</c><00:12:36.639><c> I</c><00:12:36.880><c> goes</c><00:12:37.120><c> to</c><00:12:37.279><c> the</c>
+
+00:12:37.509 --> 00:12:37.519 align:start position:0%
+important before I goes to the
+ 
+
+00:12:37.519 --> 00:12:39.190 align:start position:0%
+important before I goes to the
+expression<00:12:38.160><c> which</c><00:12:38.399><c> is</c><00:12:38.560><c> very</c><00:12:38.800><c> important</c><00:12:39.040><c> in</c>
+
+00:12:39.190 --> 00:12:39.200 align:start position:0%
+expression which is very important in
+ 
+
+00:12:39.200 --> 00:12:42.230 align:start position:0%
+expression which is very important in
+the<00:12:39.360><c> chron</c><00:12:39.680><c> job.</c><00:12:40.800><c> Okay.</c><00:12:41.279><c> So</c><00:12:41.440><c> there</c><00:12:41.760><c> should</c><00:12:42.000><c> not</c>
+
+00:12:42.230 --> 00:12:42.240 align:start position:0%
+the chron job. Okay. So there should not
+ 
+
+00:12:42.240 --> 00:12:46.230 align:start position:0%
+the chron job. Okay. So there should not
+be<00:12:42.720><c> any</c><00:12:43.200><c> doubt</c><00:12:43.680><c> with</c><00:12:44.079><c> like</c><00:12:44.480><c> how</c><00:12:44.800><c> chron</c><00:12:45.120><c> jobs</c><00:12:45.839><c> uh</c>
+
+00:12:46.230 --> 00:12:46.240 align:start position:0%
+be any doubt with like how chron jobs uh
+ 
+
+00:12:46.240 --> 00:12:49.430 align:start position:0%
+be any doubt with like how chron jobs uh
+likeuling<00:12:47.200><c> works.</c><00:12:47.920><c> Okay.</c><00:12:48.800><c> Consider</c><00:12:49.200><c> this</c>
+
+00:12:49.430 --> 00:12:49.440 align:start position:0%
+likeuling works. Okay. Consider this
+ 
+
+00:12:49.440 --> 00:12:52.629 align:start position:0%
+likeuling works. Okay. Consider this
+scenario.<00:12:50.880><c> The</c><00:12:51.120><c> requirement</c><00:12:51.519><c> is</c><00:12:51.760><c> that</c><00:12:52.079><c> every</c>
+
+00:12:52.629 --> 00:12:52.639 align:start position:0%
+scenario. The requirement is that every
+ 
+
+00:12:52.639 --> 00:12:54.550 align:start position:0%
+scenario. The requirement is that every
+10<00:12:52.880><c> minutes</c>
+
+00:12:54.550 --> 00:12:54.560 align:start position:0%
+10 minutes
+ 
+
+00:12:54.560 --> 00:12:57.110 align:start position:0%
+10 minutes
+okay<00:12:55.120><c> micron</c><00:12:55.600><c> job</c><00:12:55.839><c> should</c><00:12:56.160><c> start</c><00:12:56.560><c> or</c><00:12:56.880><c> should</c>
+
+00:12:57.110 --> 00:12:57.120 align:start position:0%
+okay micron job should start or should
+ 
+
+00:12:57.120 --> 00:13:01.430 align:start position:0%
+okay micron job should start or should
+work.<00:12:58.399><c> The</c><00:12:58.560><c> task</c><00:12:58.959><c> is</c><00:12:59.120><c> started</c><00:12:59.440><c> at</c><00:12:59.839><c> 10</c>
+
+00:13:01.430 --> 00:13:01.440 align:start position:0%
+work. The task is started at 10
+ 
+
+00:13:01.440 --> 00:13:04.870 align:start position:0%
+work. The task is started at 10
+10<00:13:02.079><c> a.m.</c><00:13:02.639><c> you</c><00:13:02.880><c> can</c><00:13:02.959><c> consider</c><00:13:03.600><c> and</c><00:13:03.920><c> it</c><00:13:04.160><c> runs</c><00:13:04.480><c> for</c>
+
+00:13:04.870 --> 00:13:04.880 align:start position:0%
+10 a.m. you can consider and it runs for
+ 
+
+00:13:04.880 --> 00:13:08.389 align:start position:0%
+10 a.m. you can consider and it runs for
+25<00:13:05.600><c> minutes.</c><00:13:06.959><c> Okay.</c><00:13:07.600><c> So</c><00:13:07.839><c> what</c><00:13:08.000><c> is</c><00:13:08.160><c> your</c>
+
+00:13:08.389 --> 00:13:08.399 align:start position:0%
+25 minutes. Okay. So what is your
+ 
+
+00:13:08.399 --> 00:13:10.790 align:start position:0%
+25 minutes. Okay. So what is your
+expected<00:13:08.959><c> chron</c><00:13:09.279><c> times?</c><00:13:09.839><c> Expected</c><00:13:10.240><c> is</c><00:13:10.480><c> that</c>
+
+00:13:10.790 --> 00:13:10.800 align:start position:0%
+expected chron times? Expected is that
+ 
+
+00:13:10.800 --> 00:13:13.829 align:start position:0%
+expected chron times? Expected is that
+after<00:13:11.200><c> 10</c><00:13:11.760><c> it</c><00:13:12.079><c> should</c><00:13:12.959><c> again</c><00:13:13.279><c> wake</c><00:13:13.519><c> up</c><00:13:13.680><c> at</c>
+
+00:13:13.829 --> 00:13:13.839 align:start position:0%
+after 10 it should again wake up at
+ 
+
+00:13:13.839 --> 00:13:18.949 align:start position:0%
+after 10 it should again wake up at
+10:10<00:13:14.880><c> then</c><00:13:15.200><c> 10:20</c><00:13:16.240><c> then</c><00:13:16.560><c> 10:30</c><00:13:17.760><c> likewise.</c>
+
+00:13:18.949 --> 00:13:18.959 align:start position:0%
+10:10 then 10:20 then 10:30 likewise.
+ 
+
+00:13:18.959 --> 00:13:21.190 align:start position:0%
+10:10 then 10:20 then 10:30 likewise.
+Okay.<00:13:19.760><c> But</c><00:13:20.000><c> what</c><00:13:20.240><c> happened</c><00:13:20.480><c> is</c><00:13:20.800><c> when</c><00:13:21.040><c> it</c>
+
+00:13:21.190 --> 00:13:21.200 align:start position:0%
+Okay. But what happened is when it
+ 
+
+00:13:21.200 --> 00:13:25.269 align:start position:0%
+Okay. But what happened is when it
+picked<00:13:21.519><c> at</c><00:13:21.680><c> 10</c><00:13:23.040><c> it</c><00:13:23.839><c> takes</c><00:13:24.320><c> long</c><00:13:24.639><c> time</c><00:13:24.880><c> and</c><00:13:25.040><c> it</c>
+
+00:13:25.269 --> 00:13:25.279 align:start position:0%
+picked at 10 it takes long time and it
+ 
+
+00:13:25.279 --> 00:13:28.949 align:start position:0%
+picked at 10 it takes long time and it
+take<00:13:25.760><c> it</c><00:13:26.000><c> took</c><00:13:26.320><c> 25</c><00:13:26.800><c> minutes.</c><00:13:27.839><c> So</c><00:13:28.079><c> at</c><00:13:28.320><c> 10</c><00:13:28.720><c> what</c>
+
+00:13:28.949 --> 00:13:28.959 align:start position:0%
+take it took 25 minutes. So at 10 what
+ 
+
+00:13:28.959 --> 00:13:31.910 align:start position:0%
+take it took 25 minutes. So at 10 what
+actually<00:13:29.200><c> happen</c><00:13:29.440><c> is</c><00:13:29.600><c> at</c><00:13:29.760><c> 10</c><00:13:30.000><c> my</c><00:13:30.240><c> task</c><00:13:30.639><c> start</c>
+
+00:13:31.910 --> 00:13:31.920 align:start position:0%
+actually happen is at 10 my task start
+ 
+
+00:13:31.920 --> 00:13:34.790 align:start position:0%
+actually happen is at 10 my task start
+at<00:13:32.240><c> 10:10</c><00:13:33.440><c> you</c><00:13:33.680><c> can</c><00:13:33.760><c> say</c><00:13:33.920><c> that</c><00:13:34.160><c> chron</c><00:13:34.560><c> time</c>
+
+00:13:34.790 --> 00:13:34.800 align:start position:0%
+at 10:10 you can say that chron time
+ 
+
+00:13:34.800 --> 00:13:37.350 align:start position:0%
+at 10:10 you can say that chron time
+occurs<00:13:35.519><c> but</c><00:13:35.839><c> missed</c><00:13:36.320><c> as</c><00:13:36.560><c> task</c><00:13:36.800><c> is</c><00:13:37.120><c> still</c>
+
+00:13:37.350 --> 00:13:37.360 align:start position:0%
+occurs but missed as task is still
+ 
+
+00:13:37.360 --> 00:13:40.949 align:start position:0%
+occurs but missed as task is still
+running.<00:13:38.000><c> See</c><00:13:38.720><c> in</c><00:13:38.959><c> the</c><00:13:39.120><c> part</c><00:13:39.360><c> one</c><00:13:39.600><c> also</c><00:13:39.839><c> I</c><00:13:40.079><c> told</c>
+
+00:13:40.949 --> 00:13:40.959 align:start position:0%
+running. See in the part one also I told
+ 
+
+00:13:40.959 --> 00:13:43.990 align:start position:0%
+running. See in the part one also I told
+we<00:13:41.279><c> have</c><00:13:41.440><c> only</c><00:13:41.839><c> one</c><00:13:42.560><c> task</c><00:13:43.200><c> which</c><00:13:43.519><c> is</c><00:13:43.680><c> present</c>
+
+00:13:43.990 --> 00:13:44.000 align:start position:0%
+we have only one task which is present
+ 
+
+00:13:44.000 --> 00:13:48.069 align:start position:0%
+we have only one task which is present
+into<00:13:44.320><c> the</c><00:13:44.560><c> queue.</c><00:13:46.000><c> Okay.</c><00:13:47.120><c> So</c><00:13:47.279><c> when</c><00:13:47.519><c> the</c><00:13:47.760><c> task</c>
+
+00:13:48.069 --> 00:13:48.079 align:start position:0%
+into the queue. Okay. So when the task
+ 
+
+00:13:48.079 --> 00:13:50.550 align:start position:0%
+into the queue. Okay. So when the task
+is<00:13:48.399><c> running</c>
+
+00:13:50.550 --> 00:13:50.560 align:start position:0%
+is running
+ 
+
+00:13:50.560 --> 00:13:53.269 align:start position:0%
+is running
+it<00:13:50.880><c> get</c><00:13:51.279><c> receded</c><00:13:52.240><c> only</c><00:13:52.560><c> when</c><00:13:52.800><c> it</c><00:13:53.040><c> get</c>
+
+00:13:53.269 --> 00:13:53.279 align:start position:0%
+it get receded only when it get
+ 
+
+00:13:53.279 --> 00:13:56.150 align:start position:0%
+it get receded only when it get
+completed.<00:13:54.639><c> It's</c><00:13:54.959><c> not</c><00:13:55.120><c> possible</c><00:13:55.519><c> that</c><00:13:55.839><c> this</c>
+
+00:13:56.150 --> 00:13:56.160 align:start position:0%
+completed. It's not possible that this
+ 
+
+00:13:56.160 --> 00:13:59.030 align:start position:0%
+completed. It's not possible that this
+task<00:13:56.480><c> is</c><00:13:56.800><c> running</c><00:13:57.600><c> and</c><00:13:57.920><c> let's</c><00:13:58.160><c> say</c><00:13:58.399><c> the</c><00:13:58.800><c> next</c>
+
+00:13:59.030 --> 00:13:59.040 align:start position:0%
+task is running and let's say the next
+ 
+
+00:13:59.040 --> 00:14:01.910 align:start position:0%
+task is running and let's say the next
+timer<00:14:00.000><c> happens</c><00:14:00.480><c> and</c><00:14:01.040><c> some</c><00:14:01.279><c> other</c><00:14:01.519><c> thread</c>
+
+00:14:01.910 --> 00:14:01.920 align:start position:0%
+timer happens and some other thread
+ 
+
+00:14:01.920 --> 00:14:04.310 align:start position:0%
+timer happens and some other thread
+again<00:14:02.399><c> start</c><00:14:02.639><c> this</c><00:14:02.800><c> task.</c><00:14:03.199><c> Not</c><00:14:03.440><c> possible.</c>
+
+00:14:04.310 --> 00:14:04.320 align:start position:0%
+again start this task. Not possible.
+ 
+
+00:14:04.320 --> 00:14:06.870 align:start position:0%
+again start this task. Not possible.
+Only<00:14:04.639><c> have</c><00:14:04.880><c> one</c><00:14:05.120><c> task,</c><00:14:05.680><c> one</c><00:14:05.920><c> object.</c>
+
+00:14:06.870 --> 00:14:06.880 align:start position:0%
+Only have one task, one object.
+ 
+
+00:14:06.880 --> 00:14:08.710 align:start position:0%
+Only have one task, one object.
+Currently<00:14:07.199><c> it's</c><00:14:07.440><c> in</c><00:14:07.600><c> running</c><00:14:07.839><c> state.</c><00:14:08.240><c> Once</c><00:14:08.480><c> it</c>
+
+00:14:08.710 --> 00:14:08.720 align:start position:0%
+Currently it's in running state. Once it
+ 
+
+00:14:08.720 --> 00:14:11.750 align:start position:0%
+Currently it's in running state. Once it
+get<00:14:09.040><c> finished,</c><00:14:10.160><c> it</c><00:14:10.480><c> again</c><00:14:10.880><c> put</c><00:14:11.199><c> back</c><00:14:11.360><c> to</c><00:14:11.519><c> the</c>
+
+00:14:11.750 --> 00:14:11.760 align:start position:0%
+get finished, it again put back to the
+ 
+
+00:14:11.760 --> 00:14:15.670 align:start position:0%
+get finished, it again put back to the
+queue<00:14:13.040><c> with</c><00:14:13.279><c> the</c><00:14:13.519><c> new</c><00:14:13.760><c> execution</c><00:14:14.240><c> time.</c><00:14:15.440><c> So</c>
+
+00:14:15.670 --> 00:14:15.680 align:start position:0%
+queue with the new execution time. So
+ 
+
+00:14:15.680 --> 00:14:18.949 align:start position:0%
+queue with the new execution time. So
+currently<00:14:16.160><c> 10</c><00:14:17.040><c> task</c><00:14:17.600><c> start</c><00:14:17.920><c> but</c><00:14:18.160><c> at</c><00:14:18.399><c> 10:10</c>
+
+00:14:18.949 --> 00:14:18.959 align:start position:0%
+currently 10 task start but at 10:10
+ 
+
+00:14:18.959 --> 00:14:20.710 align:start position:0%
+currently 10 task start but at 10:10
+generally<00:14:19.440><c> expectation</c><00:14:19.920><c> is</c><00:14:20.160><c> it</c><00:14:20.399><c> should</c><00:14:20.560><c> get</c>
+
+00:14:20.710 --> 00:14:20.720 align:start position:0%
+generally expectation is it should get
+ 
+
+00:14:20.720 --> 00:14:24.069 align:start position:0%
+generally expectation is it should get
+run<00:14:20.959><c> but</c><00:14:21.760><c> currently</c><00:14:22.240><c> task</c><00:14:22.560><c> is</c><00:14:22.800><c> running</c><00:14:23.440><c> 10:20</c>
+
+00:14:24.069 --> 00:14:24.079 align:start position:0%
+run but currently task is running 10:20
+ 
+
+00:14:24.079 --> 00:14:26.629 align:start position:0%
+run but currently task is running 10:20
+expectation<00:14:24.639><c> is</c><00:14:24.800><c> is</c><00:14:25.279><c> cron</c><00:14:25.600><c> should</c><00:14:25.839><c> wake</c><00:14:26.079><c> up</c>
+
+00:14:26.629 --> 00:14:26.639 align:start position:0%
+expectation is is cron should wake up
+ 
+
+00:14:26.639 --> 00:14:28.310 align:start position:0%
+expectation is is cron should wake up
+but<00:14:26.880><c> currently</c><00:14:27.279><c> my</c><00:14:27.440><c> task</c><00:14:27.680><c> is</c><00:14:27.839><c> running</c><00:14:28.079><c> so</c>
+
+00:14:28.310 --> 00:14:28.320 align:start position:0%
+but currently my task is running so
+ 
+
+00:14:28.320 --> 00:14:31.750 align:start position:0%
+but currently my task is running so
+nothing<00:14:28.480><c> will</c><00:14:28.720><c> happen</c><00:14:29.920><c> now</c><00:14:30.240><c> 10:25</c><00:14:31.199><c> my</c><00:14:31.440><c> task</c>
+
+00:14:31.750 --> 00:14:31.760 align:start position:0%
+nothing will happen now 10:25 my task
+ 
+
+00:14:31.760 --> 00:14:36.550 align:start position:0%
+nothing will happen now 10:25 my task
+got<00:14:32.000><c> finished</c><00:14:33.279><c> okay</c><00:14:33.680><c> at</c><00:14:33.920><c> 10:25</c><00:14:35.199><c> my</c><00:14:35.519><c> task</c><00:14:35.839><c> is</c>
+
+00:14:36.550 --> 00:14:36.560 align:start position:0%
+got finished okay at 10:25 my task is
+ 
+
+00:14:36.560 --> 00:14:38.949 align:start position:0%
+got finished okay at 10:25 my task is
+finished<00:14:37.279><c> now</c><00:14:37.519><c> it</c><00:14:37.760><c> has</c><00:14:37.920><c> to</c><00:14:38.079><c> be</c><00:14:38.240><c> recued</c><00:14:38.720><c> back</c>
+
+00:14:38.949 --> 00:14:38.959 align:start position:0%
+finished now it has to be recued back
+ 
+
+00:14:38.959 --> 00:14:43.990 align:start position:0%
+finished now it has to be recued back
+with<00:14:39.360><c> new</c><00:14:40.800><c> execution</c><00:14:42.079><c> time</c><00:14:43.120><c> so</c><00:14:43.360><c> how</c><00:14:43.600><c> it</c><00:14:43.760><c> will</c>
+
+00:14:43.990 --> 00:14:44.000 align:start position:0%
+with new execution time so how it will
+ 
+
+00:14:44.000 --> 00:14:46.790 align:start position:0%
+with new execution time so how it will
+compute<00:14:44.320><c> new</c><00:14:44.560><c> execution</c><00:14:45.199><c> time.</c><00:14:46.160><c> Okay.</c><00:14:46.639><c> So</c>
+
+00:14:46.790 --> 00:14:46.800 align:start position:0%
+compute new execution time. Okay. So
+ 
+
+00:14:46.800 --> 00:14:49.750 align:start position:0%
+compute new execution time. Okay. So
+what<00:14:47.120><c> chron</c><00:14:47.519><c> says</c><00:14:47.680><c> that</c><00:14:48.240><c> every</c><00:14:48.720><c> 10</c><00:14:49.040><c> minute</c><00:14:49.519><c> so</c>
+
+00:14:49.750 --> 00:14:49.760 align:start position:0%
+what chron says that every 10 minute so
+ 
+
+00:14:49.760 --> 00:14:55.670 align:start position:0%
+what chron says that every 10 minute so
+it<00:14:50.160><c> follows</c><00:14:51.120><c> clock</c><00:14:51.440><c> time</c><00:14:51.760><c> 0</c><00:14:52.480><c> 10</c><00:14:53.279><c> 20</c><00:14:54.079><c> 30</c>
+
+00:14:55.670 --> 00:14:55.680 align:start position:0%
+it follows clock time 0 10 20 30
+ 
+
+00:14:55.680 --> 00:14:59.110 align:start position:0%
+it follows clock time 0 10 20 30
+till<00:14:56.000><c> 50.</c><00:14:56.800><c> Okay.</c><00:14:57.279><c> So</c><00:14:57.440><c> after</c><00:14:57.680><c> because</c><00:14:58.000><c> 59</c><00:14:58.480><c> 60</c><00:14:58.880><c> is</c>
+
+00:14:59.110 --> 00:14:59.120 align:start position:0%
+till 50. Okay. So after because 59 60 is
+ 
+
+00:14:59.120 --> 00:15:03.030 align:start position:0%
+till 50. Okay. So after because 59 60 is
+not<00:14:59.360><c> counted</c><00:14:59.760><c> 0</c><00:15:00.079><c> to</c><00:15:00.240><c> 59.</c><00:15:00.959><c> So</c><00:15:01.279><c> these</c><00:15:01.680><c> are</c><00:15:01.839><c> the</c>
+
+00:15:03.030 --> 00:15:03.040 align:start position:0%
+not counted 0 to 59. So these are the
+ 
+
+00:15:03.040 --> 00:15:04.710 align:start position:0%
+not counted 0 to 59. So these are the
+minutes.
+
+00:15:04.710 --> 00:15:04.720 align:start position:0%
+minutes.
+ 
+
+00:15:04.720 --> 00:15:08.870 align:start position:0%
+minutes.
+So<00:15:04.959><c> now</c><00:15:05.199><c> here</c><00:15:05.360><c> if</c><00:15:05.600><c> you</c><00:15:05.760><c> say</c><00:15:06.720><c> 10</c><00:15:07.040><c> the</c><00:15:07.199><c> job</c><00:15:07.440><c> runs</c>
+
+00:15:08.870 --> 00:15:08.880 align:start position:0%
+So now here if you say 10 the job runs
+ 
+
+00:15:08.880 --> 00:15:13.509 align:start position:0%
+So now here if you say 10 the job runs
+the<00:15:09.199><c> next</c><00:15:09.920><c> time</c><00:15:10.320><c> is</c><00:15:10.560><c> that</c><00:15:10.959><c> 1010</c><00:15:11.279><c> 10</c>
+
+00:15:13.509 --> 00:15:13.519 align:start position:0%
+the next time is that 1010 10
+ 
+
+00:15:13.519 --> 00:15:15.910 align:start position:0%
+the next time is that 1010 10
+already<00:15:13.760><c> missed.</c><00:15:14.079><c> We</c><00:15:14.320><c> are</c><00:15:14.399><c> at</c><00:15:14.560><c> 1025.</c><00:15:15.360><c> So</c><00:15:15.519><c> it</c>
+
+00:15:15.910 --> 00:15:15.920 align:start position:0%
+already missed. We are at 1025. So it
+ 
+
+00:15:15.920 --> 00:15:20.150 align:start position:0%
+already missed. We are at 1025. So it
+missed.<00:15:17.120><c> Then</c><00:15:17.440><c> after</c><00:15:17.680><c> that</c><00:15:18.480><c> 20</c><00:15:19.360><c> 20</c><00:15:19.600><c> is</c><00:15:19.839><c> also</c>
+
+00:15:20.150 --> 00:15:20.160 align:start position:0%
+missed. Then after that 20 20 is also
+ 
+
+00:15:20.160 --> 00:15:23.509 align:start position:0%
+missed. Then after that 20 20 is also
+missed.<00:15:20.480><c> We</c><00:15:20.639><c> are</c><00:15:20.800><c> at</c><00:15:20.959><c> 25.</c><00:15:21.680><c> After</c><00:15:22.000><c> that</c><00:15:22.560><c> 30</c><00:15:23.199><c> yes</c>
+
+00:15:23.509 --> 00:15:23.519 align:start position:0%
+missed. We are at 25. After that 30 yes
+ 
+
+00:15:23.519 --> 00:15:26.389 align:start position:0%
+missed. We are at 25. After that 30 yes
+it's<00:15:23.760><c> a</c><00:15:23.920><c> future</c><00:15:24.320><c> currently</c><00:15:24.720><c> is</c><00:15:25.120><c> this.</c><00:15:25.839><c> So</c><00:15:26.079><c> our</c>
+
+00:15:26.389 --> 00:15:26.399 align:start position:0%
+it's a future currently is this. So our
+ 
+
+00:15:26.399 --> 00:15:30.550 align:start position:0%
+it's a future currently is this. So our
+delay<00:15:26.720><c> is</c><00:15:27.120><c> 5</c><00:15:27.360><c> minutes.</c><00:15:28.000><c> And</c><00:15:28.240><c> now</c><00:15:29.040><c> like</c>
+
+00:15:30.550 --> 00:15:30.560 align:start position:0%
+delay is 5 minutes. And now like
+ 
+
+00:15:30.560 --> 00:15:32.470 align:start position:0%
+delay is 5 minutes. And now like
+previous<00:15:30.959><c> in</c><00:15:31.120><c> the</c><00:15:31.279><c> part</c><00:15:31.519><c> one</c><00:15:31.920><c> for</c><00:15:32.240><c> five</c>
+
+00:15:32.470 --> 00:15:32.480 align:start position:0%
+previous in the part one for five
+ 
+
+00:15:32.480 --> 00:15:34.069 align:start position:0%
+previous in the part one for five
+minutes<00:15:32.720><c> it</c><00:15:32.959><c> will</c><00:15:33.040><c> go</c><00:15:33.199><c> into</c><00:15:33.360><c> the</c><00:15:33.519><c> time</c><00:15:33.760><c> wait</c>
+
+00:15:34.069 --> 00:15:34.079 align:start position:0%
+minutes it will go into the time wait
+ 
+
+00:15:34.079 --> 00:15:37.269 align:start position:0%
+minutes it will go into the time wait
+state<00:15:34.639><c> and</c><00:15:34.880><c> after</c><00:15:35.120><c> the</c><00:15:35.360><c> timer</c><00:15:35.760><c> complete</c><00:15:36.959><c> the</c>
+
+00:15:37.269 --> 00:15:37.279 align:start position:0%
+state and after the timer complete the
+ 
+
+00:15:37.279 --> 00:15:40.949 align:start position:0%
+state and after the timer complete the
+thread<00:15:37.680><c> will</c><00:15:37.839><c> wake</c><00:15:38.079><c> up</c><00:15:38.240><c> by</c><00:15:38.480><c> the</c><00:15:38.639><c> OS</c><00:15:38.959><c> thread</c><00:15:39.920><c> and</c>
+
+00:15:40.949 --> 00:15:40.959 align:start position:0%
+thread will wake up by the OS thread and
+ 
+
+00:15:40.959 --> 00:15:45.269 align:start position:0%
+thread will wake up by the OS thread and
+at<00:15:41.199><c> 10:30</c><00:15:41.760><c> it</c><00:15:41.920><c> will</c><00:15:42.079><c> pick</c><00:15:42.320><c> the</c><00:15:42.480><c> task.</c>
+
+00:15:45.269 --> 00:15:45.279 align:start position:0%
+at 10:30 it will pick the task.
+ 
+
+00:15:45.279 --> 00:15:48.790 align:start position:0%
+at 10:30 it will pick the task.
+So<00:15:45.519><c> I</c><00:15:45.839><c> hope</c><00:15:46.160><c> chron</c><00:15:46.639><c> job</c><00:15:47.040><c> functionality</c><00:15:47.760><c> on</c><00:15:48.079><c> the</c>
+
+00:15:48.790 --> 00:15:48.800 align:start position:0%
+So I hope chron job functionality on the
+ 
+
+00:15:48.800 --> 00:15:51.670 align:start position:0%
+So I hope chron job functionality on the
+uh<00:15:48.959><c> like</c><00:15:49.279><c> wall</c><00:15:49.600><c> clock</c><00:15:49.920><c> scenario</c><00:15:50.320><c> it's</c><00:15:50.560><c> clear</c>
+
+00:15:51.670 --> 00:15:51.680 align:start position:0%
+uh like wall clock scenario it's clear
+ 
+
+00:15:51.680 --> 00:15:53.670 align:start position:0%
+uh like wall clock scenario it's clear
+and<00:15:51.920><c> it</c><00:15:52.079><c> how</c><00:15:52.320><c> to</c><00:15:52.480><c> use</c><00:15:52.560><c> it</c><00:15:52.800><c> it's</c><00:15:53.040><c> very</c><00:15:53.279><c> simple</c>
+
+00:15:53.670 --> 00:15:53.680 align:start position:0%
+and it how to use it it's very simple
+ 
+
+00:15:53.680 --> 00:15:56.310 align:start position:0%
+and it how to use it it's very simple
+that<00:15:54.399><c> uh</c><00:15:54.959><c> the</c><00:15:55.199><c> same</c><00:15:55.440><c> thing</c><00:15:55.600><c> you</c><00:15:55.839><c> have</c><00:15:55.920><c> a</c><00:15:56.079><c> class</c>
+
+00:15:56.310 --> 00:15:56.320 align:start position:0%
+that uh the same thing you have a class
+ 
+
+00:15:56.320 --> 00:15:59.189 align:start position:0%
+that uh the same thing you have a class
+annotated<00:15:56.880><c> with</c><00:15:57.040><c> add</c><00:15:57.199><c> the</c><00:15:57.519><c> component</c><00:15:58.959><c> this</c>
+
+00:15:59.189 --> 00:15:59.199 align:start position:0%
+annotated with add the component this
+ 
+
+00:15:59.199 --> 00:16:01.829 align:start position:0%
+annotated with add the component this
+method<00:15:59.680><c> is</c><00:16:00.000><c> generally</c><00:16:00.399><c> considered</c><00:16:00.720><c> as</c><00:16:00.959><c> task</c>
+
+00:16:01.829 --> 00:16:01.839 align:start position:0%
+method is generally considered as task
+ 
+
+00:16:01.839 --> 00:16:04.069 align:start position:0%
+method is generally considered as task
+and<00:16:02.079><c> here</c><00:16:02.240><c> I</c><00:16:02.399><c> have</c><00:16:02.480><c> put</c><00:16:02.639><c> add</c><00:16:02.880><c> the</c><00:16:03.199><c> schedule</c>
+
+00:16:04.069 --> 00:16:04.079 align:start position:0%
+and here I have put add the schedule
+ 
+
+00:16:04.079 --> 00:16:08.150 align:start position:0%
+and here I have put add the schedule
+like<00:16:04.639><c> and</c><00:16:04.959><c> inside</c><00:16:05.360><c> this</c><00:16:06.800><c> we</c><00:16:07.120><c> have</c><00:16:07.519><c> chrome</c>
+
+00:16:08.150 --> 00:16:08.160 align:start position:0%
+like and inside this we have chrome
+ 
+
+00:16:08.160 --> 00:16:11.110 align:start position:0%
+like and inside this we have chrome
+equals<00:16:08.560><c> to</c><00:16:09.040><c> chron</c><00:16:09.440><c> expression</c><00:16:10.560><c> this</c><00:16:10.880><c> is</c>
+
+00:16:11.110 --> 00:16:11.120 align:start position:0%
+equals to chron expression this is
+ 
+
+00:16:11.120 --> 00:16:15.430 align:start position:0%
+equals to chron expression this is
+important<00:16:12.560><c> the</c><00:16:12.880><c> chron</c><00:16:13.360><c> expression</c><00:16:14.079><c> so</c><00:16:14.399><c> Here</c>
+
+00:16:15.430 --> 00:16:15.440 align:start position:0%
+important the chron expression so Here
+ 
+
+00:16:15.440 --> 00:16:17.509 align:start position:0%
+important the chron expression so Here
+what<00:16:15.680><c> I</c><00:16:15.839><c> have</c><00:16:15.920><c> said</c><00:16:16.079><c> is</c><00:16:16.320><c> job</c><00:16:16.639><c> runs</c><00:16:16.880><c> every</c><00:16:17.279><c> 3</c>
+
+00:16:17.509 --> 00:16:17.519 align:start position:0%
+what I have said is job runs every 3
+ 
+
+00:16:17.519 --> 00:16:20.790 align:start position:0%
+what I have said is job runs every 3
+seconds.<00:16:18.959><c> So</c><00:16:19.199><c> we</c><00:16:19.440><c> need</c><00:16:19.600><c> to</c><00:16:19.839><c> understand</c><00:16:20.399><c> this</c>
+
+00:16:20.790 --> 00:16:20.800 align:start position:0%
+seconds. So we need to understand this
+ 
+
+00:16:20.800 --> 00:16:24.150 align:start position:0%
+seconds. So we need to understand this
+expression.<00:16:22.160><c> Okay.</c><00:16:23.360><c> So</c><00:16:23.519><c> you</c><00:16:23.759><c> can</c><00:16:23.920><c> see</c><00:16:24.000><c> the</c>
+
+00:16:24.150 --> 00:16:24.160 align:start position:0%
+expression. Okay. So you can see the
+ 
+
+00:16:24.160 --> 00:16:27.829 align:start position:0%
+expression. Okay. So you can see the
+output<00:16:24.480><c> that</c><00:16:25.519><c> it</c><00:16:25.839><c> run</c><00:16:26.160><c> every</c><00:16:26.480><c> 3</c><00:16:26.800><c> seconds.</c><00:16:27.519><c> So</c>
+
+00:16:27.829 --> 00:16:27.839 align:start position:0%
+output that it run every 3 seconds. So
+ 
+
+00:16:27.839 --> 00:16:33.269 align:start position:0%
+output that it run every 3 seconds. So
+12<00:16:28.320><c> 15</c><00:16:28.720><c> 18</c><00:16:29.199><c> 214.</c><00:16:30.160><c> So</c><00:16:30.320><c> every</c><00:16:30.639><c> 3</c><00:16:30.880><c> seconds</c><00:16:32.079><c> I</c><00:16:33.040><c> told</c>
+
+00:16:33.269 --> 00:16:33.279 align:start position:0%
+12 15 18 214. So every 3 seconds I told
+ 
+
+00:16:33.279 --> 00:16:36.389 align:start position:0%
+12 15 18 214. So every 3 seconds I told
+to<00:16:33.519><c> run.</c><00:16:34.399><c> Okay.</c>
+
+00:16:36.389 --> 00:16:36.399 align:start position:0%
+to run. Okay.
+ 
+
+00:16:36.399 --> 00:16:38.870 align:start position:0%
+to run. Okay.
+So<00:16:36.720><c> like</c><00:16:37.279><c> we</c><00:16:37.519><c> need</c><00:16:37.680><c> to</c><00:16:37.839><c> understand</c><00:16:38.160><c> this</c><00:16:38.480><c> chron</c>
+
+00:16:38.870 --> 00:16:38.880 align:start position:0%
+So like we need to understand this chron
+ 
+
+00:16:38.880 --> 00:16:41.829 align:start position:0%
+So like we need to understand this chron
+expression<00:16:39.440><c> better</c><00:16:40.399><c> and</c><00:16:40.800><c> with</c><00:16:41.040><c> if</c><00:16:41.360><c> that</c><00:16:41.600><c> got</c>
+
+00:16:41.829 --> 00:16:41.839 align:start position:0%
+expression better and with if that got
+ 
+
+00:16:41.839 --> 00:16:44.550 align:start position:0%
+expression better and with if that got
+clear<00:16:42.560><c> then</c><00:16:42.880><c> I</c><00:16:43.120><c> think</c><00:16:43.279><c> chron</c><00:16:43.600><c> job</c><00:16:43.759><c> is</c><00:16:44.000><c> nothing</c>
+
+00:16:44.550 --> 00:16:44.560 align:start position:0%
+clear then I think chron job is nothing
+ 
+
+00:16:44.560 --> 00:16:46.470 align:start position:0%
+clear then I think chron job is nothing
+because<00:16:45.040><c> in</c><00:16:45.279><c> the</c><00:16:45.440><c> part</c><00:16:45.600><c> one</c><00:16:45.839><c> we</c><00:16:46.000><c> have</c><00:16:46.160><c> already</c>
+
+00:16:46.470 --> 00:16:46.480 align:start position:0%
+because in the part one we have already
+ 
+
+00:16:46.480 --> 00:16:50.069 align:start position:0%
+because in the part one we have already
+know<00:16:46.720><c> the</c><00:16:47.040><c> internal</c><00:16:48.320><c> how</c><00:16:48.560><c> it</c><00:16:48.800><c> worked.</c><00:16:49.600><c> So</c><00:16:49.759><c> the</c>
+
+00:16:50.069 --> 00:16:50.079 align:start position:0%
+know the internal how it worked. So the
+ 
+
+00:16:50.079 --> 00:16:53.030 align:start position:0%
+know the internal how it worked. So the
+same<00:16:50.320><c> thing</c><00:16:50.959><c> like</c><00:16:51.440><c> we</c><00:16:51.680><c> know</c><00:16:52.399><c> what</c><00:16:52.639><c> thread</c>
+
+00:16:53.030 --> 00:16:53.040 align:start position:0%
+same thing like we know what thread
+ 
+
+00:16:53.040 --> 00:16:55.910 align:start position:0%
+same thing like we know what thread
+might<00:16:53.279><c> be</c><00:16:53.440><c> doing,</c><00:16:53.759><c> how</c><00:16:54.000><c> thread</c><00:16:54.959><c> get</c><00:16:55.279><c> to</c><00:16:55.519><c> sleep</c>
+
+00:16:55.910 --> 00:16:55.920 align:start position:0%
+might be doing, how thread get to sleep
+ 
+
+00:16:55.920 --> 00:16:57.430 align:start position:0%
+might be doing, how thread get to sleep
+for<00:16:56.160><c> a</c><00:16:56.320><c> specific</c><00:16:56.639><c> time,</c><00:16:56.959><c> how</c><00:16:57.120><c> they</c><00:16:57.279><c> got</c>
+
+00:16:57.430 --> 00:16:57.440 align:start position:0%
+for a specific time, how they got
+ 
+
+00:16:57.440 --> 00:16:59.590 align:start position:0%
+for a specific time, how they got
+invoked<00:16:57.920><c> up,</c><00:16:58.480><c> how</c><00:16:58.720><c> the</c><00:16:58.959><c> delayed</c><00:16:59.279><c> Q</c><00:16:59.440><c> is</c>
+
+00:16:59.590 --> 00:16:59.600 align:start position:0%
+invoked up, how the delayed Q is
+ 
+
+00:16:59.600 --> 00:17:02.949 align:start position:0%
+invoked up, how the delayed Q is
+maintained.<00:17:00.399><c> So</c><00:17:00.560><c> we</c><00:17:00.800><c> already</c><00:17:01.199><c> know</c><00:17:01.360><c> that.</c><00:17:02.079><c> So</c>
+
+00:17:02.949 --> 00:17:02.959 align:start position:0%
+maintained. So we already know that. So
+ 
+
+00:17:02.959 --> 00:17:05.909 align:start position:0%
+maintained. So we already know that. So
+it's<00:17:03.279><c> a</c><00:17:03.440><c> piece</c><00:17:03.600><c> of</c><00:17:03.759><c> cake</c><00:17:04.000><c> for</c><00:17:04.160><c> us.</c><00:17:05.520><c> Only</c><00:17:05.760><c> thing</c>
+
+00:17:05.909 --> 00:17:05.919 align:start position:0%
+it's a piece of cake for us. Only thing
+ 
+
+00:17:05.919 --> 00:17:09.110 align:start position:0%
+it's a piece of cake for us. Only thing
+is<00:17:06.160><c> we</c><00:17:06.319><c> need</c><00:17:06.480><c> to</c><00:17:06.640><c> understand</c><00:17:06.880><c> the</c><00:17:07.120><c> syntax.</c>
+
+00:17:09.110 --> 00:17:09.120 align:start position:0%
+is we need to understand the syntax.
+ 
+
+00:17:09.120 --> 00:17:11.750 align:start position:0%
+is we need to understand the syntax.
+So<00:17:09.360><c> here</c><00:17:09.520><c> in</c><00:17:09.760><c> the</c><00:17:10.000><c> chron</c><00:17:10.480><c> expression</c><00:17:11.039><c> syntax,</c>
+
+00:17:11.750 --> 00:17:11.760 align:start position:0%
+So here in the chron expression syntax,
+ 
+
+00:17:11.760 --> 00:17:14.630 align:start position:0%
+So here in the chron expression syntax,
+it<00:17:12.000><c> has</c><00:17:12.160><c> six</c><00:17:12.480><c> part</c><00:17:12.799><c> separated</c><00:17:13.280><c> by</c><00:17:13.520><c> a</c><00:17:13.679><c> space.</c>
+
+00:17:14.630 --> 00:17:14.640 align:start position:0%
+it has six part separated by a space.
+ 
+
+00:17:14.640 --> 00:17:20.390 align:start position:0%
+it has six part separated by a space.
+Second,<00:17:15.919><c> minute</c><00:17:17.360><c> are</c><00:17:18.720><c> day</c><00:17:18.959><c> of</c><00:17:19.120><c> the</c><00:17:19.360><c> month.</c>
+
+00:17:20.390 --> 00:17:20.400 align:start position:0%
+Second, minute are day of the month.
+ 
+
+00:17:20.400 --> 00:17:24.470 align:start position:0%
+Second, minute are day of the month.
+Okay,<00:17:21.280><c> month</c><00:17:22.240><c> day</c><00:17:22.400><c> of</c><00:17:22.559><c> the</c><00:17:22.799><c> week.</c><00:17:23.839><c> So</c><00:17:24.160><c> second</c>
+
+00:17:24.470 --> 00:17:24.480 align:start position:0%
+Okay, month day of the week. So second
+ 
+
+00:17:24.480 --> 00:17:26.949 align:start position:0%
+Okay, month day of the week. So second
+is<00:17:24.640><c> 0</c><00:17:24.959><c> to</c><00:17:25.199><c> 59.</c>
+
+00:17:26.949 --> 00:17:26.959 align:start position:0%
+is 0 to 59.
+ 
+
+00:17:26.959 --> 00:17:29.750 align:start position:0%
+is 0 to 59.
+Minute<00:17:27.280><c> is</c><00:17:27.439><c> 0</c><00:17:27.760><c> to</c><00:17:28.000><c> 59.</c>
+
+00:17:29.750 --> 00:17:29.760 align:start position:0%
+Minute is 0 to 59.
+ 
+
+00:17:29.760 --> 00:17:33.430 align:start position:0%
+Minute is 0 to 59.
+R<00:17:30.000><c> is</c><00:17:30.240><c> 0</c><00:17:30.559><c> to</c><00:17:30.799><c> 23.</c><00:17:31.679><c> This</c><00:17:31.840><c> is</c><00:17:32.000><c> like</c><00:17:32.160><c> a</c><00:17:32.320><c> normal</c><00:17:33.200><c> wall</c>
+
+00:17:33.430 --> 00:17:33.440 align:start position:0%
+R is 0 to 23. This is like a normal wall
+ 
+
+00:17:33.440 --> 00:17:39.350 align:start position:0%
+R is 0 to 23. This is like a normal wall
+clock.<00:17:34.720><c> Okay.</c><00:17:35.280><c> Starting</c><00:17:35.600><c> from</c><00:17:35.840><c> zero</c><00:17:36.720><c> like</c><00:17:37.840><c> 11</c>
+
+00:17:39.350 --> 00:17:39.360 align:start position:0%
+clock. Okay. Starting from zero like 11
+ 
+
+00:17:39.360 --> 00:17:42.870 align:start position:0%
+clock. Okay. Starting from zero like 11
+59.<00:17:40.320><c> It</c><00:17:40.480><c> started</c><00:17:40.799><c> from</c><00:17:40.960><c> 11</c><00:17:41.360><c> 0</c><00:17:41.760><c> to</c><00:17:41.919><c> 1159</c><00:17:42.720><c> like</c>
+
+00:17:42.870 --> 00:17:42.880 align:start position:0%
+59. It started from 11 0 to 1159 like
+ 
+
+00:17:42.880 --> 00:17:45.590 align:start position:0%
+59. It started from 11 0 to 1159 like
+the<00:17:43.120><c> normal</c><00:17:43.440><c> thing.</c><00:17:44.000><c> the</c><00:17:44.240><c> same</c><00:17:44.400><c> thing.</c><00:17:45.360><c> Now</c>
+
+00:17:45.590 --> 00:17:45.600 align:start position:0%
+the normal thing. the same thing. Now
+ 
+
+00:17:45.600 --> 00:17:49.669 align:start position:0%
+the normal thing. the same thing. Now
+the<00:17:45.840><c> day</c><00:17:46.000><c> of</c><00:17:46.160><c> the</c><00:17:46.320><c> month</c><00:17:47.280><c> 1</c><00:17:47.600><c> to</c><00:17:47.840><c> 31st.</c>
+
+00:17:49.669 --> 00:17:49.679 align:start position:0%
+the day of the month 1 to 31st.
+ 
+
+00:17:49.679 --> 00:17:51.909 align:start position:0%
+the day of the month 1 to 31st.
+Okay,<00:17:50.400><c> day</c><00:17:50.559><c> of</c><00:17:50.720><c> the</c><00:17:50.880><c> month</c><00:17:51.039><c> is</c><00:17:51.200><c> either</c><00:17:51.440><c> 1</c><00:17:51.760><c> to</c>
+
+00:17:51.909 --> 00:17:51.919 align:start position:0%
+Okay, day of the month is either 1 to
+ 
+
+00:17:51.919 --> 00:17:55.350 align:start position:0%
+Okay, day of the month is either 1 to
+31st.<00:17:52.320><c> We</c><00:17:52.480><c> can</c><00:17:52.640><c> define</c><00:17:53.679><c> month</c><00:17:54.640><c> either</c><00:17:54.960><c> you</c><00:17:55.120><c> can</c>
+
+00:17:55.350 --> 00:17:55.360 align:start position:0%
+31st. We can define month either you can
+ 
+
+00:17:55.360 --> 00:17:58.789 align:start position:0%
+31st. We can define month either you can
+give<00:17:55.679><c> 1</c><00:17:56.320><c> 2</c><00:17:56.640><c> 3</c><00:17:57.039><c> or</c><00:17:57.360><c> 12</c><00:17:57.840><c> or</c><00:17:58.080><c> you</c><00:17:58.240><c> can</c><00:17:58.320><c> also</c><00:17:58.559><c> give</c>
+
+00:17:58.789 --> 00:17:58.799 align:start position:0%
+give 1 2 3 or 12 or you can also give
+ 
+
+00:17:58.799 --> 00:18:03.270 align:start position:0%
+give 1 2 3 or 12 or you can also give
+Jan,<00:17:59.679><c> J</c><00:18:00.080><c> and</c><00:18:00.240><c> D</c><00:18:00.559><c> C</c><00:18:00.799><c> three</c><00:18:00.960><c> words</c><00:18:01.679><c> capital</c>
+
+00:18:03.270 --> 00:18:03.280 align:start position:0%
+Jan, J and D C three words capital
+ 
+
+00:18:03.280 --> 00:18:05.190 align:start position:0%
+Jan, J and D C three words capital
+day<00:18:03.520><c> of</c><00:18:03.600><c> the</c><00:18:03.760><c> week.</c><00:18:04.240><c> Day</c><00:18:04.400><c> of</c><00:18:04.559><c> the</c><00:18:04.720><c> week</c><00:18:04.880><c> is</c><00:18:05.039><c> like</c>
+
+00:18:05.190 --> 00:18:05.200 align:start position:0%
+day of the week. Day of the week is like
+ 
+
+00:18:05.200 --> 00:18:09.029 align:start position:0%
+day of the week. Day of the week is like
+0<00:18:05.520><c> to</c><00:18:05.760><c> 7.</c><00:18:06.000><c> You</c><00:18:06.160><c> can</c><00:18:06.320><c> give</c><00:18:06.960><c> or</c><00:18:07.360><c> sun</c><00:18:07.600><c> to</c><00:18:07.919><c> set</c><00:18:08.559><c> like</c>
+
+00:18:09.029 --> 00:18:09.039 align:start position:0%
+0 to 7. You can give or sun to set like
+ 
+
+00:18:09.039 --> 00:18:12.710 align:start position:0%
+0 to 7. You can give or sun to set like
+three<00:18:09.280><c> words</c><00:18:09.600><c> capitals</c><00:18:10.400><c> m</c><00:18:10.559><c> o</c><00:18:10.799><c> n</c><00:18:11.360><c> t</c><00:18:11.679><c> u</c><00:18:11.760><c> e</c><00:18:12.080><c> wed</c><00:18:12.480><c> d</c>
+
+00:18:12.710 --> 00:18:12.720 align:start position:0%
+three words capitals m o n t u e wed d
+ 
+
+00:18:12.720 --> 00:18:14.870 align:start position:0%
+three words capitals m o n t u e wed d
+likewise.<00:18:13.679><c> Now</c><00:18:13.919><c> here</c><00:18:14.160><c> you</c><00:18:14.320><c> might</c><00:18:14.480><c> see</c><00:18:14.640><c> that</c>
+
+00:18:14.870 --> 00:18:14.880 align:start position:0%
+likewise. Now here you might see that
+ 
+
+00:18:14.880 --> 00:18:18.470 align:start position:0%
+likewise. Now here you might see that
+hey<00:18:15.360><c> 0</c><00:18:15.600><c> to</c><00:18:15.840><c> 7</c><00:18:16.160><c> is</c><00:18:16.320><c> 8</c><00:18:17.360><c> but</c><00:18:17.600><c> we</c><00:18:17.760><c> have</c><00:18:17.919><c> only</c><00:18:18.080><c> 7</c><00:18:18.320><c> days</c>
+
+00:18:18.470 --> 00:18:18.480 align:start position:0%
+hey 0 to 7 is 8 but we have only 7 days
+ 
+
+00:18:18.480 --> 00:18:22.630 align:start position:0%
+hey 0 to 7 is 8 but we have only 7 days
+in<00:18:18.640><c> a</c><00:18:18.799><c> week.</c><00:18:19.280><c> So</c><00:18:19.520><c> here</c><00:18:20.000><c> 0</c><00:18:20.320><c> is</c><00:18:20.480><c> also</c><00:18:20.880><c> Sunday</c><00:18:22.160><c> 7</c><00:18:22.480><c> is</c>
+
+00:18:22.630 --> 00:18:22.640 align:start position:0%
+in a week. So here 0 is also Sunday 7 is
+ 
+
+00:18:22.640 --> 00:18:24.470 align:start position:0%
+in a week. So here 0 is also Sunday 7 is
+also<00:18:22.960><c> Sunday</c>
+
+00:18:24.470 --> 00:18:24.480 align:start position:0%
+also Sunday
+ 
+
+00:18:24.480 --> 00:18:28.950 align:start position:0%
+also Sunday
+1<00:18:24.880><c> 2</c><00:18:25.120><c> 3</c><00:18:25.440><c> 4</c><00:18:25.760><c> 5</c><00:18:26.000><c> 6</c><00:18:26.240><c> it's</c><00:18:26.480><c> like</c><00:18:26.640><c> Monday</c><00:18:27.520><c> Tuesday</c>
+
+00:18:28.950 --> 00:18:28.960 align:start position:0%
+1 2 3 4 5 6 it's like Monday Tuesday
+ 
+
+00:18:28.960 --> 00:18:33.350 align:start position:0%
+1 2 3 4 5 6 it's like Monday Tuesday
+Thursday<00:18:29.440><c> Friday</c><00:18:30.080><c> but</c><00:18:30.400><c> 0</c><00:18:30.720><c> and</c><00:18:30.960><c> 7</c><00:18:31.360><c> is</c><00:18:31.679><c> Sunday.</c>
+
+00:18:33.350 --> 00:18:33.360 align:start position:0%
+Thursday Friday but 0 and 7 is Sunday.
+ 
+
+00:18:33.360 --> 00:18:37.430 align:start position:0%
+Thursday Friday but 0 and 7 is Sunday.
+Okay.<00:18:34.720><c> So</c><00:18:34.960><c> this</c><00:18:35.200><c> is</c><00:18:35.440><c> a</c><00:18:35.679><c> very</c><00:18:36.000><c> basic</c><00:18:36.400><c> like</c><00:18:37.039><c> uh</c>
+
+00:18:37.430 --> 00:18:37.440 align:start position:0%
+Okay. So this is a very basic like uh
+ 
+
+00:18:37.440 --> 00:18:40.549 align:start position:0%
+Okay. So this is a very basic like uh
+syntax.<00:18:38.559><c> Now</c><00:18:38.960><c> it</c><00:18:39.200><c> also</c><00:18:39.440><c> has</c><00:18:39.679><c> certain</c><00:18:40.160><c> special</c>
+
+00:18:40.549 --> 00:18:40.559 align:start position:0%
+syntax. Now it also has certain special
+ 
+
+00:18:40.559 --> 00:18:42.789 align:start position:0%
+syntax. Now it also has certain special
+characters.<00:18:41.679><c> We</c><00:18:41.919><c> need</c><00:18:42.000><c> to</c><00:18:42.160><c> see</c><00:18:42.320><c> that.</c><00:18:42.640><c> But</c>
+
+00:18:42.789 --> 00:18:42.799 align:start position:0%
+characters. We need to see that. But
+ 
+
+00:18:42.799 --> 00:18:44.070 align:start position:0%
+characters. We need to see that. But
+then<00:18:42.960><c> we</c><00:18:43.120><c> will</c><00:18:43.280><c> see</c><00:18:43.440><c> some</c><00:18:43.679><c> practical</c>
+
+00:18:44.070 --> 00:18:44.080 align:start position:0%
+then we will see some practical
+ 
+
+00:18:44.080 --> 00:18:46.150 align:start position:0%
+then we will see some practical
+examples.
+
+00:18:46.150 --> 00:18:46.160 align:start position:0%
+examples.
+ 
+
+00:18:46.160 --> 00:18:48.310 align:start position:0%
+examples.
+The<00:18:46.400><c> first</c><00:18:46.640><c> is</c><00:18:46.960><c> asteris.</c><00:18:47.520><c> Astress</c><00:18:47.919><c> means</c>
+
+00:18:48.310 --> 00:18:48.320 align:start position:0%
+The first is asteris. Astress means
+ 
+
+00:18:48.320 --> 00:18:51.669 align:start position:0%
+The first is asteris. Astress means
+every.<00:18:49.360><c> Okay.</c><00:18:50.240><c> So</c><00:18:50.720><c> let's</c><00:18:50.960><c> say</c><00:18:51.120><c> we</c><00:18:51.280><c> have</c><00:18:51.440><c> the</c>
+
+00:18:51.669 --> 00:18:51.679 align:start position:0%
+every. Okay. So let's say we have the
+ 
+
+00:18:51.679 --> 00:18:54.950 align:start position:0%
+every. Okay. So let's say we have the
+six<00:18:51.919><c> parts.</c><00:18:53.360><c> Now</c><00:18:53.600><c> in</c><00:18:53.840><c> whichever</c><00:18:54.320><c> part</c><00:18:54.559><c> you</c><00:18:54.799><c> put</c>
+
+00:18:54.950 --> 00:18:54.960 align:start position:0%
+six parts. Now in whichever part you put
+ 
+
+00:18:54.960 --> 00:18:57.270 align:start position:0%
+six parts. Now in whichever part you put
+estress.<00:18:55.840><c> So</c><00:18:56.000><c> this</c><00:18:56.240><c> is</c><00:18:56.320><c> like</c><00:18:56.559><c> second</c><00:18:56.960><c> then</c><00:18:57.120><c> you</c>
+
+00:18:57.270 --> 00:18:57.280 align:start position:0%
+estress. So this is like second then you
+ 
+
+00:18:57.280 --> 00:19:00.070 align:start position:0%
+estress. So this is like second then you
+have<00:18:57.440><c> minute.</c><00:18:58.480><c> If</c><00:18:58.720><c> you</c><00:18:58.880><c> put</c><00:18:59.360><c> estress</c><00:18:59.760><c> in</c><00:18:59.919><c> a</c>
+
+00:19:00.070 --> 00:19:00.080 align:start position:0%
+have minute. If you put estress in a
+ 
+
+00:19:00.080 --> 00:19:02.070 align:start position:0%
+have minute. If you put estress in a
+minute,<00:19:00.559><c> what</c><00:19:00.799><c> does</c><00:19:01.120><c> how</c><00:19:01.360><c> do</c><00:19:01.440><c> we</c><00:19:01.600><c> read</c><00:19:01.760><c> it?</c>
+
+00:19:02.070 --> 00:19:02.080 align:start position:0%
+minute, what does how do we read it?
+ 
+
+00:19:02.080 --> 00:19:03.669 align:start position:0%
+minute, what does how do we read it?
+like
+
+00:19:03.669 --> 00:19:03.679 align:start position:0%
+like
+ 
+
+00:19:03.679 --> 00:19:05.669 align:start position:0%
+like
+every<00:19:04.080><c> minute.</c><00:19:04.480><c> So</c><00:19:04.720><c> estrus</c><00:19:05.120><c> means</c><00:19:05.360><c> every</c>
+
+00:19:05.669 --> 00:19:05.679 align:start position:0%
+every minute. So estrus means every
+ 
+
+00:19:05.679 --> 00:19:08.070 align:start position:0%
+every minute. So estrus means every
+every<00:19:06.000><c> minute.</c><00:19:06.960><c> If</c><00:19:07.200><c> you</c><00:19:07.280><c> put</c><00:19:07.440><c> estrogen</c>
+
+00:19:08.070 --> 00:19:08.080 align:start position:0%
+every minute. If you put estrogen
+ 
+
+00:19:08.080 --> 00:19:11.029 align:start position:0%
+every minute. If you put estrogen
+second,<00:19:08.400><c> every</c><00:19:08.720><c> second.</c><00:19:10.080><c> Okay.</c><00:19:10.559><c> If</c><00:19:10.720><c> you</c><00:19:10.880><c> put</c>
+
+00:19:11.029 --> 00:19:11.039 align:start position:0%
+second, every second. Okay. If you put
+ 
+
+00:19:11.039 --> 00:19:13.350 align:start position:0%
+second, every second. Okay. If you put
+estrog<00:19:11.440><c> in</c><00:19:11.600><c> r,</c><00:19:11.919><c> it's</c><00:19:12.160><c> like</c><00:19:12.400><c> every</c><00:19:12.799><c> r.</c><00:19:13.039><c> This</c><00:19:13.280><c> is</c>
+
+00:19:13.350 --> 00:19:13.360 align:start position:0%
+estrog in r, it's like every r. This is
+ 
+
+00:19:13.360 --> 00:19:15.990 align:start position:0%
+estrog in r, it's like every r. This is
+how<00:19:13.440><c> we</c><00:19:13.679><c> read</c><00:19:13.840><c> it.</c><00:19:14.559><c> Okay.</c><00:19:15.039><c> So</c><00:19:15.200><c> estster</c><00:19:15.679><c> means</c>
+
+00:19:15.990 --> 00:19:16.000 align:start position:0%
+how we read it. Okay. So estster means
+ 
+
+00:19:16.000 --> 00:19:17.830 align:start position:0%
+how we read it. Okay. So estster means
+every.
+
+00:19:17.830 --> 00:19:17.840 align:start position:0%
+every.
+ 
+
+00:19:17.840 --> 00:19:20.310 align:start position:0%
+every.
+Then<00:19:18.080><c> we</c><00:19:18.240><c> have</c><00:19:18.400><c> comma.</c><00:19:19.120><c> You</c><00:19:19.280><c> can</c><00:19:19.360><c> say</c><00:19:19.600><c> it's</c><00:19:19.840><c> a</c>
+
+00:19:20.310 --> 00:19:20.320 align:start position:0%
+Then we have comma. You can say it's a
+ 
+
+00:19:20.320 --> 00:19:22.870 align:start position:0%
+Then we have comma. You can say it's a
+considered<00:19:20.640><c> as</c><00:19:20.880><c> list</c><00:19:21.760><c> used</c><00:19:22.080><c> to</c><00:19:22.240><c> specify</c>
+
+00:19:22.870 --> 00:19:22.880 align:start position:0%
+considered as list used to specify
+ 
+
+00:19:22.880 --> 00:19:27.430 align:start position:0%
+considered as list used to specify
+multiple<00:19:23.600><c> values.</c><00:19:24.799><c> Okay.</c><00:19:25.440><c> Like</c><00:19:26.000><c> 0,</c><00:19:26.799><c> 20</c><00:19:27.039><c> in</c><00:19:27.200><c> the</c>
+
+00:19:27.430 --> 00:19:27.440 align:start position:0%
+multiple values. Okay. Like 0, 20 in the
+ 
+
+00:19:27.440 --> 00:19:29.510 align:start position:0%
+multiple values. Okay. Like 0, 20 in the
+second<00:19:27.679><c> field.</c><00:19:28.160><c> So</c><00:19:28.480><c> in</c><00:19:28.720><c> the</c><00:19:28.880><c> second</c><00:19:29.039><c> field</c><00:19:29.280><c> I</c>
+
+00:19:29.510 --> 00:19:29.520 align:start position:0%
+second field. So in the second field I
+ 
+
+00:19:29.520 --> 00:19:34.310 align:start position:0%
+second field. So in the second field I
+put<00:19:29.679><c> 0,</c><00:19:30.720><c> 20.</c><00:19:31.679><c> So</c><00:19:32.080><c> a</c><00:19:32.240><c> star.</c><00:19:33.039><c> So</c><00:19:33.919><c> let's</c><00:19:34.160><c> say</c>
+
+00:19:34.310 --> 00:19:34.320 align:start position:0%
+put 0, 20. So a star. So let's say
+ 
+
+00:19:34.320 --> 00:19:36.230 align:start position:0%
+put 0, 20. So a star. So let's say
+something<00:19:34.640><c> else.</c><00:19:35.120><c> So</c><00:19:35.280><c> what</c><00:19:35.440><c> I</c><00:19:35.600><c> will</c><00:19:35.760><c> say</c><00:19:35.840><c> that</c>
+
+00:19:36.230 --> 00:19:36.240 align:start position:0%
+something else. So what I will say that
+ 
+
+00:19:36.240 --> 00:19:39.750 align:start position:0%
+something else. So what I will say that
+for<00:19:36.480><c> every</c><00:19:36.880><c> minute</c>
+
+00:19:39.750 --> 00:19:39.760 align:start position:0%
+for every minute
+ 
+
+00:19:39.760 --> 00:19:42.950 align:start position:0%
+for every minute
+in<00:19:40.000><c> the</c><00:19:40.160><c> second</c><00:19:40.400><c> is</c><00:19:40.640><c> 0</c><00:19:40.960><c> and</c><00:19:41.280><c> 20th</c><00:19:41.760><c> second</c><00:19:42.000><c> only.</c>
+
+00:19:42.950 --> 00:19:42.960 align:start position:0%
+in the second is 0 and 20th second only.
+ 
+
+00:19:42.960 --> 00:19:47.190 align:start position:0%
+in the second is 0 and 20th second only.
+0<00:19:43.280><c> and</c><00:19:43.520><c> 20th</c><00:19:44.000><c> second</c><00:19:44.799><c> task</c><00:19:45.200><c> runs.</c><00:19:46.559><c> Okay?</c><00:19:46.960><c> Not</c>
+
+00:19:47.190 --> 00:19:47.200 align:start position:0%
+0 and 20th second task runs. Okay? Not
+ 
+
+00:19:47.200 --> 00:19:51.350 align:start position:0%
+0 and 20th second task runs. Okay? Not
+every<00:19:47.520><c> second</c><00:19:48.320><c> only</c><00:19:48.720><c> 0</c><00:19:49.120><c> and</c><00:19:49.520><c> 20.</c>
+
+00:19:51.350 --> 00:19:51.360 align:start position:0%
+every second only 0 and 20.
+ 
+
+00:19:51.360 --> 00:19:54.390 align:start position:0%
+every second only 0 and 20.
+If<00:19:51.600><c> I</c><00:19:51.760><c> put</c><00:19:52.000><c> 9,</c><00:19:52.720><c> 15</c><00:19:52.960><c> in</c><00:19:53.120><c> the</c><00:19:53.280><c> hour.</c><00:19:53.919><c> So</c><00:19:54.080><c> this</c><00:19:54.320><c> is</c>
+
+00:19:54.390 --> 00:19:54.400 align:start position:0%
+If I put 9, 15 in the hour. So this is
+ 
+
+00:19:54.400 --> 00:19:56.310 align:start position:0%
+If I put 9, 15 in the hour. So this is
+second,<00:19:54.880><c> this</c><00:19:55.039><c> is</c><00:19:55.200><c> minute,</c><00:19:55.600><c> this</c><00:19:55.679><c> is</c><00:19:55.840><c> hour.</c><00:19:56.160><c> If</c>
+
+00:19:56.310 --> 00:19:56.320 align:start position:0%
+second, this is minute, this is hour. If
+ 
+
+00:19:56.320 --> 00:19:59.830 align:start position:0%
+second, this is minute, this is hour. If
+I<00:19:56.400><c> put</c><00:19:56.559><c> 9,</c><00:19:57.200><c> 15,</c><00:19:57.679><c> what</c><00:19:57.919><c> does</c><00:19:58.080><c> it</c><00:19:58.240><c> mean?</c>
+
+00:19:59.830 --> 00:19:59.840 align:start position:0%
+I put 9, 15, what does it mean?
+ 
+
+00:19:59.840 --> 00:20:02.230 align:start position:0%
+I put 9, 15, what does it mean?
+uh<00:20:00.400><c> here</c><00:20:00.640><c> in</c><00:20:00.799><c> the</c><00:20:00.960><c> means</c><00:20:01.200><c> that</c><00:20:01.440><c> the</c><00:20:01.760><c> job</c><00:20:02.080><c> need</c>
+
+00:20:02.230 --> 00:20:02.240 align:start position:0%
+uh here in the means that the job need
+ 
+
+00:20:02.240 --> 00:20:08.230 align:start position:0%
+uh here in the means that the job need
+to<00:20:02.400><c> run</c><00:20:02.960><c> 9</c><00:20:03.760><c> a.m.</c><00:20:04.880><c> or</c><00:20:05.200><c> 15</c><00:20:05.520><c> means</c><00:20:06.080><c> 3</c><00:20:06.480><c> p.m.</c><00:20:07.679><c> So</c><00:20:08.000><c> it's</c>
+
+00:20:08.230 --> 00:20:08.240 align:start position:0%
+to run 9 a.m. or 15 means 3 p.m. So it's
+ 
+
+00:20:08.240 --> 00:20:10.549 align:start position:0%
+to run 9 a.m. or 15 means 3 p.m. So it's
+a<00:20:08.559><c> list</c>
+
+00:20:10.549 --> 00:20:10.559 align:start position:0%
+a list
+ 
+
+00:20:10.559 --> 00:20:12.310 align:start position:0%
+a list
+then<00:20:10.799><c> we</c><00:20:10.960><c> have</c><00:20:11.120><c> hyphen</c><00:20:11.600><c> which</c><00:20:11.840><c> is</c><00:20:11.919><c> known</c><00:20:12.080><c> as</c>
+
+00:20:12.310 --> 00:20:12.320 align:start position:0%
+then we have hyphen which is known as
+ 
+
+00:20:12.320 --> 00:20:17.190 align:start position:0%
+then we have hyphen which is known as
+range.<00:20:13.200><c> So</c><00:20:13.360><c> in</c><00:20:13.520><c> the</c><00:20:13.840><c> r</c><00:20:14.640><c> 2</c><00:20:15.200><c> minute</c><00:20:15.600><c> r</c><00:20:15.919><c> if</c><00:20:16.080><c> I</c><00:20:16.240><c> put</c><00:20:16.720><c> 9</c>
+
+00:20:17.190 --> 00:20:17.200 align:start position:0%
+range. So in the r 2 minute r if I put 9
+ 
+
+00:20:17.200 --> 00:20:22.390 align:start position:0%
+range. So in the r 2 minute r if I put 9
+-<00:20:17.760><c> 15</c><00:20:18.720><c> means</c><00:20:19.600><c> every</c><00:20:20.080><c> hour</c><00:20:20.480><c> between</c><00:20:21.120><c> 900</c><00:20:21.600><c> a.m.</c>
+
+00:20:22.390 --> 00:20:22.400 align:start position:0%
+- 15 means every hour between 900 a.m.
+ 
+
+00:20:22.400 --> 00:20:26.390 align:start position:0%
+- 15 means every hour between 900 a.m.
+to<00:20:22.799><c> 300</c><00:20:23.200><c> p.m.</c><00:20:24.480><c> every</c><00:20:24.799><c> hour.</c><00:20:25.200><c> So</c><00:20:25.520><c> between</c><00:20:25.919><c> this</c>
+
+00:20:26.390 --> 00:20:26.400 align:start position:0%
+to 300 p.m. every hour. So between this
+ 
+
+00:20:26.400 --> 00:20:29.909 align:start position:0%
+to 300 p.m. every hour. So between this
+including<00:20:27.600><c> job</c><00:20:27.919><c> need</c><00:20:28.080><c> to</c><00:20:28.240><c> be</c><00:20:28.320><c> run.</c>
+
+00:20:29.909 --> 00:20:29.919 align:start position:0%
+including job need to be run.
+ 
+
+00:20:29.919 --> 00:20:32.710 align:start position:0%
+including job need to be run.
+So<00:20:30.159><c> every</c><00:20:30.480><c> hour</c><00:20:30.720><c> from</c><00:20:30.960><c> 9:00</c><00:20:31.200><c> a.m.</c><00:20:31.440><c> to</c><00:20:31.600><c> 3</c><00:20:31.919><c> p.m.</c>
+
+00:20:32.710 --> 00:20:32.720 align:start position:0%
+So every hour from 9:00 a.m. to 3 p.m.
+ 
+
+00:20:32.720 --> 00:20:35.190 align:start position:0%
+So every hour from 9:00 a.m. to 3 p.m.
+that<00:20:32.960><c> is</c><00:20:33.280><c> range.</c>
+
+00:20:35.190 --> 00:20:35.200 align:start position:0%
+that is range.
+ 
+
+00:20:35.200 --> 00:20:37.590 align:start position:0%
+that is range.
+Then<00:20:35.440><c> we</c><00:20:35.679><c> have</c><00:20:35.840><c> a</c><00:20:36.080><c> slash.</c><00:20:36.880><c> It</c><00:20:37.039><c> is</c><00:20:37.200><c> used</c><00:20:37.360><c> to</c>
+
+00:20:37.590 --> 00:20:37.600 align:start position:0%
+Then we have a slash. It is used to
+ 
+
+00:20:37.600 --> 00:20:39.909 align:start position:0%
+Then we have a slash. It is used to
+specify<00:20:38.320><c> intervals.</c>
+
+00:20:39.909 --> 00:20:39.919 align:start position:0%
+specify intervals.
+ 
+
+00:20:39.919 --> 00:20:41.510 align:start position:0%
+specify intervals.
+So
+
+00:20:41.510 --> 00:20:41.520 align:start position:0%
+So
+ 
+
+00:20:41.520 --> 00:20:43.430 align:start position:0%
+So
+like<00:20:41.840><c> here</c><00:20:42.320><c> you</c><00:20:42.559><c> can</c><00:20:42.640><c> say</c><00:20:42.799><c> that</c><00:20:42.960><c> we</c><00:20:43.200><c> have</c><00:20:43.280><c> a</c>
+
+00:20:43.430 --> 00:20:43.440 align:start position:0%
+like here you can say that we have a
+ 
+
+00:20:43.440 --> 00:20:46.310 align:start position:0%
+like here you can say that we have a
+start<00:20:44.159><c> and</c><00:20:44.640><c> step.</c>
+
+00:20:46.310 --> 00:20:46.320 align:start position:0%
+start and step.
+ 
+
+00:20:46.320 --> 00:20:49.350 align:start position:0%
+start and step.
+For<00:20:46.480><c> example</c><00:20:47.360><c> 4/10</c>
+
+00:20:49.350 --> 00:20:49.360 align:start position:0%
+For example 4/10
+ 
+
+00:20:49.360 --> 00:20:50.789 align:start position:0%
+For example 4/10
+let's<00:20:49.520><c> say</c><00:20:49.679><c> in</c><00:20:49.840><c> the</c><00:20:50.000><c> second</c><00:20:50.159><c> field.</c><00:20:50.559><c> What</c><00:20:50.720><c> does</c>
+
+00:20:50.789 --> 00:20:50.799 align:start position:0%
+let's say in the second field. What does
+ 
+
+00:20:50.799 --> 00:20:54.549 align:start position:0%
+let's say in the second field. What does
+it<00:20:50.960><c> mean?</c><00:20:52.240><c> Job</c><00:20:52.559><c> need</c><00:20:52.799><c> to</c><00:20:52.880><c> be</c><00:20:53.039><c> executed</c><00:20:53.679><c> at</c><00:20:54.080><c> 4th</c>
+
+00:20:54.549 --> 00:20:54.559 align:start position:0%
+it mean? Job need to be executed at 4th
+ 
+
+00:20:54.559 --> 00:20:58.070 align:start position:0%
+it mean? Job need to be executed at 4th
+second<00:20:56.000><c> then</c><00:20:56.320><c> keep</c><00:20:56.559><c> adding</c><00:20:57.039><c> 10</c><00:20:57.360><c> second.</c><00:20:57.919><c> So</c>
+
+00:20:58.070 --> 00:20:58.080 align:start position:0%
+second then keep adding 10 second. So
+ 
+
+00:20:58.080 --> 00:20:59.990 align:start position:0%
+second then keep adding 10 second. So
+it's<00:20:58.320><c> just</c><00:20:58.480><c> like</c><00:20:58.640><c> an</c><00:20:58.880><c> step</c><00:20:59.039><c> over</c><00:20:59.360><c> like</c><00:20:59.520><c> add</c><00:20:59.760><c> on</c>
+
+00:20:59.990 --> 00:21:00.000 align:start position:0%
+it's just like an step over like add on
+ 
+
+00:21:00.000 --> 00:21:03.350 align:start position:0%
+it's just like an step over like add on
+to<00:21:00.240><c> this.</c><00:21:00.720><c> So</c><00:21:00.960><c> after</c><00:21:01.280><c> 4</c><00:21:01.600><c> second</c><00:21:02.799><c> you</c><00:21:03.120><c> need</c><00:21:03.200><c> to</c>
+
+00:21:03.350 --> 00:21:03.360 align:start position:0%
+to this. So after 4 second you need to
+ 
+
+00:21:03.360 --> 00:21:07.190 align:start position:0%
+to this. So after 4 second you need to
+keep<00:21:03.600><c> add</c><00:21:04.080><c> 10</c><00:21:04.640><c> 10</c><00:21:04.720><c> 10</c><00:21:05.120><c> seconds.</c><00:21:05.440><c> So</c><00:21:05.600><c> 4</c><00:21:06.000><c> 14</c><00:21:06.400><c> 24</c><00:21:06.799><c> 34</c>
+
+00:21:07.190 --> 00:21:07.200 align:start position:0%
+keep add 10 10 10 seconds. So 4 14 24 34
+ 
+
+00:21:07.200 --> 00:21:11.190 align:start position:0%
+keep add 10 10 10 seconds. So 4 14 24 34
+44<00:21:07.600><c> 54.</c><00:21:08.960><c> Okay.</c><00:21:09.360><c> So</c><00:21:09.600><c> 0</c><00:21:09.840><c> to</c><00:21:10.080><c> 59</c><00:21:10.480><c> is</c><00:21:10.640><c> the</c><00:21:10.799><c> seconds</c>
+
+00:21:11.190 --> 00:21:11.200 align:start position:0%
+44 54. Okay. So 0 to 59 is the seconds
+ 
+
+00:21:11.200 --> 00:21:13.909 align:start position:0%
+44 54. Okay. So 0 to 59 is the seconds
+right?<00:21:11.840><c> So</c><00:21:12.320><c> 4</c><00:21:12.640><c> by</c><00:21:12.880><c> 10</c><00:21:13.120><c> in</c><00:21:13.280><c> the</c><00:21:13.440><c> second</c><00:21:13.679><c> field</c>
+
+00:21:13.909 --> 00:21:13.919 align:start position:0%
+right? So 4 by 10 in the second field
+ 
+
+00:21:13.919 --> 00:21:17.830 align:start position:0%
+right? So 4 by 10 in the second field
+means<00:21:14.320><c> start</c><00:21:14.559><c> at</c><00:21:14.799><c> four</c><00:21:15.440><c> after</c><00:21:15.760><c> that</c><00:21:16.000><c> 10</c><00:21:16.240><c> 10</c><00:21:16.320><c> 10</c>
+
+00:21:17.830 --> 00:21:17.840 align:start position:0%
+means start at four after that 10 10 10
+ 
+
+00:21:17.840 --> 00:21:20.549 align:start position:0%
+means start at four after that 10 10 10
+uh<00:21:18.000><c> interval</c><00:21:18.480><c> we</c><00:21:18.640><c> need</c><00:21:18.720><c> to</c><00:21:18.880><c> maintain</c>
+
+00:21:20.549 --> 00:21:20.559 align:start position:0%
+uh interval we need to maintain
+ 
+
+00:21:20.559 --> 00:21:22.390 align:start position:0%
+uh interval we need to maintain
+/ash<00:21:20.880><c> by</c><00:21:21.120><c> 10</c><00:21:21.360><c> in</c><00:21:21.520><c> the</c><00:21:21.600><c> second</c><00:21:21.840><c> field</c><00:21:22.000><c> means</c>
+
+00:21:22.390 --> 00:21:22.400 align:start position:0%
+/ash by 10 in the second field means
+ 
+
+00:21:22.400 --> 00:21:26.149 align:start position:0%
+/ash by 10 in the second field means
+start<00:21:22.559><c> from</c><00:21:22.799><c> zero</c><00:21:23.679><c> zero</c><00:21:24.240><c> then</c><00:21:24.559><c> plus</c><00:21:24.799><c> 10</c><00:21:25.360><c> 10</c><00:21:25.760><c> 20</c>
+
+00:21:26.149 --> 00:21:26.159 align:start position:0%
+start from zero zero then plus 10 10 20
+ 
+
+00:21:26.159 --> 00:21:29.990 align:start position:0%
+start from zero zero then plus 10 10 20
+30<00:21:26.480><c> 40</c><00:21:26.799><c> 50</c><00:21:27.120><c> likewise</c>
+
+00:21:29.990 --> 00:21:30.000 align:start position:0%
+30 40 50 likewise
+ 
+
+00:21:30.000 --> 00:21:33.990 align:start position:0%
+30 40 50 likewise
+then<00:21:30.320><c> we</c><00:21:30.480><c> have</c><00:21:30.799><c> L.</c><00:21:31.600><c> L</c><00:21:31.840><c> means</c><00:21:32.240><c> last</c><00:21:33.280><c> and</c><00:21:33.520><c> it</c><00:21:33.760><c> is</c>
+
+00:21:33.990 --> 00:21:34.000 align:start position:0%
+then we have L. L means last and it is
+ 
+
+00:21:34.000 --> 00:21:37.270 align:start position:0%
+then we have L. L means last and it is
+only<00:21:34.480><c> allowed</c><00:21:34.799><c> in</c><00:21:35.200><c> day</c><00:21:35.520><c> of</c><00:21:35.679><c> the</c><00:21:35.840><c> month</c><00:21:36.720><c> and</c><00:21:37.039><c> day</c>
+
+00:21:37.270 --> 00:21:37.280 align:start position:0%
+only allowed in day of the month and day
+ 
+
+00:21:37.280 --> 00:21:39.430 align:start position:0%
+only allowed in day of the month and day
+of<00:21:37.440><c> the</c><00:21:37.600><c> week.</c>
+
+00:21:39.430 --> 00:21:39.440 align:start position:0%
+of the week.
+ 
+
+00:21:39.440 --> 00:21:41.750 align:start position:0%
+of the week.
+Okay.<00:21:40.000><c> So</c><00:21:40.320><c> day</c><00:21:40.559><c> of</c><00:21:40.640><c> the</c><00:21:40.799><c> month,</c><00:21:41.039><c> L</c><00:21:41.280><c> in</c><00:21:41.440><c> the</c><00:21:41.600><c> day</c>
+
+00:21:41.750 --> 00:21:41.760 align:start position:0%
+Okay. So day of the month, L in the day
+ 
+
+00:21:41.760 --> 00:21:43.750 align:start position:0%
+Okay. So day of the month, L in the day
+of<00:21:41.919><c> the</c><00:21:42.080><c> month</c><00:21:42.320><c> means</c><00:21:42.799><c> last</c><00:21:43.200><c> day</c><00:21:43.440><c> of</c><00:21:43.600><c> the</c>
+
+00:21:43.750 --> 00:21:43.760 align:start position:0%
+of the month means last day of the
+ 
+
+00:21:43.760 --> 00:21:46.789 align:start position:0%
+of the month means last day of the
+month.<00:21:44.720><c> Last</c><00:21:45.120><c> day</c><00:21:45.679><c> if</c><00:21:45.919><c> it's</c><00:21:46.159><c> a</c><00:21:46.400><c> February</c>
+
+00:21:46.789 --> 00:21:46.799 align:start position:0%
+month. Last day if it's a February
+ 
+
+00:21:46.799 --> 00:21:49.750 align:start position:0%
+month. Last day if it's a February
+month,<00:21:47.120><c> the</c><00:21:47.360><c> last</c><00:21:47.600><c> day</c><00:21:47.760><c> could</c><00:21:48.000><c> be</c><00:21:48.080><c> the</c><00:21:48.320><c> 28</c><00:21:48.799><c> 29.</c>
+
+00:21:49.750 --> 00:21:49.760 align:start position:0%
+month, the last day could be the 28 29.
+ 
+
+00:21:49.760 --> 00:21:52.710 align:start position:0%
+month, the last day could be the 28 29.
+It<00:21:50.000><c> it</c><00:21:50.320><c> takes</c><00:21:50.559><c> out</c><00:21:51.360><c> into</c><00:21:51.679><c> the</c><00:21:51.840><c> calculation.</c><00:21:52.480><c> If</c>
+
+00:21:52.710 --> 00:21:52.720 align:start position:0%
+It it takes out into the calculation. If
+ 
+
+00:21:52.720 --> 00:21:55.270 align:start position:0%
+It it takes out into the calculation. If
+it's<00:21:52.960><c> April,</c><00:21:53.679><c> it's</c><00:21:54.080><c> 30.</c><00:21:54.400><c> If</c><00:21:54.640><c> it's</c><00:21:54.799><c> December,</c>
+
+00:21:55.270 --> 00:21:55.280 align:start position:0%
+it's April, it's 30. If it's December,
+ 
+
+00:21:55.280 --> 00:22:00.950 align:start position:0%
+it's April, it's 30. If it's December,
+it<00:21:55.520><c> is</c><00:21:55.679><c> 31.</c><00:21:56.640><c> So</c><00:21:57.360><c> last</c><00:21:57.840><c> day</c><00:21:58.159><c> of</c><00:21:58.400><c> the</c><00:21:58.720><c> month</c>
+
+00:22:00.950 --> 00:22:00.960 align:start position:0%
+it is 31. So last day of the month
+ 
+
+00:22:00.960 --> 00:22:03.029 align:start position:0%
+it is 31. So last day of the month
+and<00:22:01.200><c> L</c><00:22:01.440><c> in</c><00:22:01.600><c> the</c><00:22:01.919><c> day</c><00:22:02.080><c> of</c><00:22:02.240><c> the</c><00:22:02.400><c> week</c><00:22:02.559><c> is</c><00:22:02.720><c> like</c>
+
+00:22:03.029 --> 00:22:03.039 align:start position:0%
+and L in the day of the week is like
+ 
+
+00:22:03.039 --> 00:22:06.630 align:start position:0%
+and L in the day of the week is like
+last<00:22:03.440><c> day</c><00:22:03.600><c> of</c><00:22:03.840><c> the</c><00:22:04.080><c> week.</c><00:22:04.640><c> Uh</c><00:22:05.760><c> last</c><00:22:06.159><c> occurrence</c>
+
+00:22:06.630 --> 00:22:06.640 align:start position:0%
+last day of the week. Uh last occurrence
+ 
+
+00:22:06.640 --> 00:22:09.830 align:start position:0%
+last day of the week. Uh last occurrence
+of<00:22:06.960><c> the</c><00:22:07.280><c> given</c><00:22:07.679><c> weekday</c><00:22:08.080><c> in</c><00:22:08.320><c> the</c><00:22:08.480><c> month.</c><00:22:09.440><c> Okay.</c>
+
+00:22:09.830 --> 00:22:09.840 align:start position:0%
+of the given weekday in the month. Okay.
+ 
+
+00:22:09.840 --> 00:22:12.789 align:start position:0%
+of the given weekday in the month. Okay.
+So<00:22:10.000><c> now</c><00:22:10.240><c> let's</c><00:22:10.400><c> say</c><00:22:10.559><c> you</c><00:22:10.720><c> have</c><00:22:10.799><c> given</c><00:22:11.280><c> Friday</c>
+
+00:22:12.789 --> 00:22:12.799 align:start position:0%
+So now let's say you have given Friday
+ 
+
+00:22:12.799 --> 00:22:17.830 align:start position:0%
+So now let's say you have given Friday
+last.<00:22:13.600><c> So</c><00:22:13.760><c> it's</c><00:22:14.240><c> syntax</c><00:22:14.640><c> is</c><00:22:15.039><c> day</c><00:22:16.159><c> and</c><00:22:16.480><c> l.</c><00:22:17.360><c> Okay.</c>
+
+00:22:17.830 --> 00:22:17.840 align:start position:0%
+last. So it's syntax is day and l. Okay.
+ 
+
+00:22:17.840 --> 00:22:19.430 align:start position:0%
+last. So it's syntax is day and l. Okay.
+So<00:22:18.080><c> day</c><00:22:18.240><c> is</c><00:22:18.400><c> like</c><00:22:18.640><c> like</c><00:22:18.799><c> if</c><00:22:18.960><c> you</c><00:22:19.120><c> have</c><00:22:19.200><c> put</c>
+
+00:22:19.430 --> 00:22:19.440 align:start position:0%
+So day is like like if you have put
+ 
+
+00:22:19.440 --> 00:22:23.909 align:start position:0%
+So day is like like if you have put
+Friday<00:22:20.080><c> L.</c><00:22:20.720><c> So</c><00:22:21.120><c> last</c><00:22:21.679><c> Friday</c><00:22:22.080><c> of</c><00:22:22.400><c> the</c><00:22:22.559><c> month.</c>
+
+00:22:23.909 --> 00:22:23.919 align:start position:0%
+Friday L. So last Friday of the month.
+ 
+
+00:22:23.919 --> 00:22:27.270 align:start position:0%
+Friday L. So last Friday of the month.
+If<00:22:24.159><c> you</c><00:22:24.240><c> have</c><00:22:24.480><c> put</c><00:22:24.640><c> Monday</c><00:22:25.120><c> Last</c><00:22:26.080><c> Monday</c><00:22:27.039><c> of</c>
+
+00:22:27.270 --> 00:22:27.280 align:start position:0%
+If you have put Monday Last Monday of
+ 
+
+00:22:27.280 --> 00:22:29.669 align:start position:0%
+If you have put Monday Last Monday of
+the<00:22:27.520><c> month.</c>
+
+00:22:29.669 --> 00:22:29.679 align:start position:0%
+the month.
+ 
+
+00:22:29.679 --> 00:22:31.990 align:start position:0%
+the month.
+Okay.<00:22:30.799><c> Then</c><00:22:31.039><c> there</c><00:22:31.200><c> is</c><00:22:31.360><c> something</c><00:22:31.760><c> called</c>
+
+00:22:31.990 --> 00:22:32.000 align:start position:0%
+Okay. Then there is something called
+ 
+
+00:22:32.000 --> 00:22:35.029 align:start position:0%
+Okay. Then there is something called
+question<00:22:32.320><c> mark.</c><00:22:32.799><c> It</c><00:22:33.039><c> is</c><00:22:33.200><c> used</c><00:22:33.600><c> to</c><00:22:34.400><c> tell</c><00:22:34.559><c> that</c>
+
+00:22:35.029 --> 00:22:35.039 align:start position:0%
+question mark. It is used to tell that
+ 
+
+00:22:35.039 --> 00:22:37.909 align:start position:0%
+question mark. It is used to tell that
+ignore<00:22:35.280><c> this</c><00:22:35.600><c> field.</c><00:22:36.480><c> Okay.</c><00:22:37.039><c> also</c><00:22:37.440><c> allowed</c>
+
+00:22:37.909 --> 00:22:37.919 align:start position:0%
+ignore this field. Okay. also allowed
+ 
+
+00:22:37.919 --> 00:22:39.830 align:start position:0%
+ignore this field. Okay. also allowed
+only<00:22:38.240><c> in</c><00:22:38.480><c> these</c><00:22:38.720><c> two</c><00:22:38.880><c> field</c><00:22:39.200><c> day</c><00:22:39.360><c> of</c><00:22:39.520><c> the</c><00:22:39.679><c> month</c>
+
+00:22:39.830 --> 00:22:39.840 align:start position:0%
+only in these two field day of the month
+ 
+
+00:22:39.840 --> 00:22:42.390 align:start position:0%
+only in these two field day of the month
+and<00:22:40.080><c> day</c><00:22:40.240><c> of</c><00:22:40.320><c> the</c><00:22:40.480><c> week.</c><00:22:41.520><c> So</c><00:22:41.760><c> generally</c><00:22:42.159><c> its</c>
+
+00:22:42.390 --> 00:22:42.400 align:start position:0%
+and day of the week. So generally its
+ 
+
+00:22:42.400 --> 00:22:45.029 align:start position:0%
+and day of the week. So generally its
+main<00:22:42.640><c> purpose</c><00:22:42.880><c> is</c><00:22:43.120><c> to</c><00:22:43.360><c> remove</c><00:22:43.600><c> the</c><00:22:43.840><c> ambiguity.</c>
+
+00:22:45.029 --> 00:22:45.039 align:start position:0%
+main purpose is to remove the ambiguity.
+ 
+
+00:22:45.039 --> 00:22:47.190 align:start position:0%
+main purpose is to remove the ambiguity.
+So<00:22:45.360><c> see</c><00:22:45.679><c> understand</c><00:22:46.080><c> this</c><00:22:46.320><c> how</c><00:22:46.480><c> ambiguity</c><00:22:47.039><c> can</c>
+
+00:22:47.190 --> 00:22:47.200 align:start position:0%
+So see understand this how ambiguity can
+ 
+
+00:22:47.200 --> 00:22:49.029 align:start position:0%
+So see understand this how ambiguity can
+come.<00:22:47.520><c> Let's</c><00:22:47.679><c> say</c><00:22:47.840><c> if</c><00:22:48.000><c> I</c><00:22:48.159><c> have</c><00:22:48.480><c> used</c><00:22:48.799><c> this</c>
+
+00:22:49.029 --> 00:22:49.039 align:start position:0%
+come. Let's say if I have used this
+ 
+
+00:22:49.039 --> 00:22:52.310 align:start position:0%
+come. Let's say if I have used this
+expression<00:22:50.080><c> how</c><00:22:50.320><c> you</c><00:22:50.480><c> will</c><00:22:50.640><c> read.</c>
+
+00:22:52.310 --> 00:22:52.320 align:start position:0%
+expression how you will read.
+ 
+
+00:22:52.320 --> 00:22:56.390 align:start position:0%
+expression how you will read.
+So<00:22:52.960><c> is</c><00:22:53.200><c> it</c><00:22:53.440><c> every</c><00:22:53.840><c> day?</c><00:22:54.320><c> See</c><00:22:54.799><c> second</c><00:22:56.170><c> [snorts]</c>
+
+00:22:56.390 --> 00:22:56.400 align:start position:0%
+So is it every day? See second [snorts]
+ 
+
+00:22:56.400 --> 00:23:00.470 align:start position:0%
+So is it every day? See second [snorts]
+this<00:22:56.640><c> is</c><00:22:56.799><c> second</c><00:22:58.159><c> this</c><00:22:58.320><c> is</c><00:22:58.559><c> minute</c><00:23:00.000><c> this</c><00:23:00.240><c> is</c>
+
+00:23:00.470 --> 00:23:00.480 align:start position:0%
+this is second this is minute this is
+ 
+
+00:23:00.480 --> 00:23:05.510 align:start position:0%
+this is second this is minute this is
+hour.<00:23:01.520><c> Okay.</c><00:23:02.320><c> Day</c><00:23:02.559><c> of</c><00:23:02.799><c> the</c><00:23:02.960><c> month.</c><00:23:03.919><c> A</c><00:23:04.159><c> star.</c>
+
+00:23:05.510 --> 00:23:05.520 align:start position:0%
+hour. Okay. Day of the month. A star.
+ 
+
+00:23:05.520 --> 00:23:08.789 align:start position:0%
+hour. Okay. Day of the month. A star.
+Every<00:23:05.919><c> day.</c><00:23:06.960><c> Okay.</c><00:23:07.280><c> This</c><00:23:07.520><c> what</c><00:23:07.919><c> a</c><00:23:08.080><c> star</c><00:23:08.400><c> means.</c>
+
+00:23:08.789 --> 00:23:08.799 align:start position:0%
+Every day. Okay. This what a star means.
+ 
+
+00:23:08.799 --> 00:23:12.310 align:start position:0%
+Every day. Okay. This what a star means.
+Every<00:23:09.120><c> day.</c><00:23:09.760><c> Day</c><00:23:10.000><c> of</c><00:23:10.080><c> the</c><00:23:10.240><c> month.</c><00:23:10.480><c> Every</c><00:23:10.720><c> day.</c>
+
+00:23:12.310 --> 00:23:12.320 align:start position:0%
+Every day. Day of the month. Every day.
+ 
+
+00:23:12.320 --> 00:23:14.870 align:start position:0%
+Every day. Day of the month. Every day.
+But<00:23:12.559><c> here</c><00:23:12.880><c> I</c><00:23:13.120><c> am</c><00:23:13.280><c> saying</c><00:23:13.840><c> day</c><00:23:14.080><c> of</c><00:23:14.240><c> the</c><00:23:14.480><c> week</c>
+
+00:23:14.870 --> 00:23:14.880 align:start position:0%
+But here I am saying day of the week
+ 
+
+00:23:14.880 --> 00:23:18.070 align:start position:0%
+But here I am saying day of the week
+Monday.<00:23:16.000><c> So</c><00:23:16.240><c> now</c><00:23:16.400><c> it's</c><00:23:16.640><c> confusing.</c><00:23:17.679><c> Are</c><00:23:17.919><c> you</c>
+
+00:23:18.070 --> 00:23:18.080 align:start position:0%
+Monday. So now it's confusing. Are you
+ 
+
+00:23:18.080 --> 00:23:19.990 align:start position:0%
+Monday. So now it's confusing. Are you
+trying<00:23:18.159><c> to</c><00:23:18.320><c> say</c><00:23:18.559><c> every</c><00:23:18.799><c> day</c><00:23:18.960><c> you</c><00:23:19.120><c> should</c><00:23:19.280><c> run</c>
+
+00:23:19.990 --> 00:23:20.000 align:start position:0%
+trying to say every day you should run
+ 
+
+00:23:20.000 --> 00:23:23.270 align:start position:0%
+trying to say every day you should run
+or<00:23:20.559><c> every</c><00:23:20.880><c> month</c><00:23:21.200><c> Monday?</c><00:23:22.240><c> Every</c><00:23:22.559><c> Monday</c><00:23:22.960><c> I</c>
+
+00:23:23.270 --> 00:23:23.280 align:start position:0%
+or every month Monday? Every Monday I
+ 
+
+00:23:23.280 --> 00:23:25.190 align:start position:0%
+or every month Monday? Every Monday I
+you<00:23:23.440><c> want</c><00:23:23.600><c> to</c><00:23:23.760><c> run.</c><00:23:24.480><c> So</c><00:23:24.640><c> it's</c><00:23:24.880><c> become</c>
+
+00:23:25.190 --> 00:23:25.200 align:start position:0%
+you want to run. So it's become
+ 
+
+00:23:25.200 --> 00:23:27.190 align:start position:0%
+you want to run. So it's become
+ambiguity.<00:23:26.000><c> So</c><00:23:26.159><c> what</c><00:23:26.400><c> to</c><00:23:26.559><c> do</c><00:23:26.640><c> in</c><00:23:26.799><c> that</c><00:23:26.960><c> case?</c>
+
+00:23:27.190 --> 00:23:27.200 align:start position:0%
+ambiguity. So what to do in that case?
+ 
+
+00:23:27.200 --> 00:23:29.270 align:start position:0%
+ambiguity. So what to do in that case?
+We<00:23:27.360><c> can</c><00:23:27.440><c> make</c><00:23:27.600><c> use</c><00:23:27.760><c> of</c><00:23:27.919><c> question</c><00:23:28.159><c> mark.</c><00:23:28.559><c> Hey,</c>
+
+00:23:29.270 --> 00:23:29.280 align:start position:0%
+We can make use of question mark. Hey,
+ 
+
+00:23:29.280 --> 00:23:32.070 align:start position:0%
+We can make use of question mark. Hey,
+when<00:23:29.520><c> I</c><00:23:29.679><c> want</c><00:23:29.919><c> every</c><00:23:30.159><c> Monday,</c><00:23:31.360><c> ignore</c><00:23:31.679><c> this</c>
+
+00:23:32.070 --> 00:23:32.080 align:start position:0%
+when I want every Monday, ignore this
+ 
+
+00:23:32.080 --> 00:23:33.669 align:start position:0%
+when I want every Monday, ignore this
+field.<00:23:32.480><c> Day</c><00:23:32.720><c> of</c><00:23:32.880><c> the</c><00:23:32.960><c> month.</c><00:23:33.200><c> I</c><00:23:33.360><c> don't</c><00:23:33.520><c> want</c><00:23:33.600><c> to</c>
+
+00:23:33.669 --> 00:23:33.679 align:start position:0%
+field. Day of the month. I don't want to
+ 
+
+00:23:33.679 --> 00:23:35.750 align:start position:0%
+field. Day of the month. I don't want to
+put<00:23:33.840><c> a</c><00:23:34.080><c> star</c><00:23:34.320><c> or</c><00:23:34.640><c> I</c><00:23:34.880><c> don't</c><00:23:34.960><c> want</c><00:23:35.120><c> to</c><00:23:35.200><c> put</c><00:23:35.360><c> a</c><00:23:35.520><c> day</c>
+
+00:23:35.750 --> 00:23:35.760 align:start position:0%
+put a star or I don't want to put a day
+ 
+
+00:23:35.760 --> 00:23:38.390 align:start position:0%
+put a star or I don't want to put a day
+itself.<00:23:36.640><c> I</c><00:23:36.880><c> just</c><00:23:37.039><c> want</c><00:23:37.200><c> to</c><00:23:37.280><c> put</c><00:23:37.520><c> every</c><00:23:37.679><c> Monday.</c>
+
+00:23:38.390 --> 00:23:38.400 align:start position:0%
+itself. I just want to put every Monday.
+ 
+
+00:23:38.400 --> 00:23:40.149 align:start position:0%
+itself. I just want to put every Monday.
+So<00:23:38.720><c> day,</c><00:23:39.039><c> you</c><00:23:39.280><c> can</c><00:23:39.440><c> ignore</c><00:23:39.679><c> it.</c><00:23:39.840><c> Question</c>
+
+00:23:40.149 --> 00:23:40.159 align:start position:0%
+So day, you can ignore it. Question
+ 
+
+00:23:40.159 --> 00:23:42.870 align:start position:0%
+So day, you can ignore it. Question
+mark.
+
+00:23:42.870 --> 00:23:42.880 align:start position:0%
+mark.
+ 
+
+00:23:42.880 --> 00:23:45.430 align:start position:0%
+mark.
+Okay.
+
+00:23:45.430 --> 00:23:45.440 align:start position:0%
+Okay.
+ 
+
+00:23:45.440 --> 00:23:47.909 align:start position:0%
+Okay.
+So<00:23:45.679><c> these</c><00:23:46.000><c> are</c><00:23:46.159><c> some</c><00:23:46.320><c> practical</c><00:23:46.799><c> examples</c><00:23:47.600><c> you</c>
+
+00:23:47.909 --> 00:23:47.919 align:start position:0%
+So these are some practical examples you
+ 
+
+00:23:47.919 --> 00:23:50.950 align:start position:0%
+So these are some practical examples you
+can<00:23:48.080><c> practice</c><00:23:48.480><c> it</c><00:23:48.640><c> with</c><00:23:49.120><c> it.</c>
+
+00:23:50.950 --> 00:23:50.960 align:start position:0%
+can practice it with it.
+ 
+
+00:23:50.960 --> 00:23:54.070 align:start position:0%
+can practice it with it.
+So<00:23:51.200><c> first</c><00:23:51.440><c> is</c><00:23:51.760><c> every</c><00:23:52.240><c> 5</c><00:23:52.640><c> seconds.</c><00:23:53.280><c> So</c><00:23:53.520><c> every</c><00:23:53.840><c> 5</c>
+
+00:23:54.070 --> 00:23:54.080 align:start position:0%
+So first is every 5 seconds. So every 5
+ 
+
+00:23:54.080 --> 00:23:56.070 align:start position:0%
+So first is every 5 seconds. So every 5
+seconds<00:23:54.320><c> is</c><00:23:54.559><c> like</c><00:23:54.960><c> if</c><00:23:55.200><c> you</c><00:23:55.360><c> see</c><00:23:55.520><c> this</c><00:23:55.679><c> syntax</c>
+
+00:23:56.070 --> 00:23:56.080 align:start position:0%
+seconds is like if you see this syntax
+ 
+
+00:23:56.080 --> 00:23:59.190 align:start position:0%
+seconds is like if you see this syntax
+on<00:23:56.240><c> the</c><00:23:56.400><c> second</c><00:23:56.640><c> part</c><00:23:56.880><c> I</c><00:23:57.120><c> put</c><00:23:57.360><c> estster</c><00:23:58.400><c> five</c>
+
+00:23:59.190 --> 00:23:59.200 align:start position:0%
+on the second part I put estster five
+ 
+
+00:23:59.200 --> 00:24:02.549 align:start position:0%
+on the second part I put estster five
+and<00:23:59.679><c> everything</c><00:24:00.159><c> else</c><00:24:00.559><c> like</c><00:24:01.200><c> uh</c><00:24:01.520><c> every</c><00:24:02.320><c> so</c>
+
+00:24:02.549 --> 00:24:02.559 align:start position:0%
+and everything else like uh every so
+ 
+
+00:24:02.559 --> 00:24:05.029 align:start position:0%
+and everything else like uh every so
+like<00:24:02.799><c> it</c><00:24:03.039><c> would</c><00:24:03.200><c> run</c><00:24:03.360><c> on</c><00:24:03.600><c> zero</c><00:24:04.000><c> then</c><00:24:04.320><c> five</c><00:24:04.720><c> then</c>
+
+00:24:05.029 --> 00:24:05.039 align:start position:0%
+like it would run on zero then five then
+ 
+
+00:24:05.039 --> 00:24:08.549 align:start position:0%
+like it would run on zero then five then
+10<00:24:05.440><c> then</c><00:24:05.760><c> 15</c><00:24:06.240><c> likewise</c><00:24:07.679><c> if</c><00:24:07.919><c> you</c><00:24:08.080><c> have</c><00:24:08.240><c> like</c>
+
+00:24:08.549 --> 00:24:08.559 align:start position:0%
+10 then 15 likewise if you have like
+ 
+
+00:24:08.559 --> 00:24:10.789 align:start position:0%
+10 then 15 likewise if you have like
+every<00:24:09.039><c> 4</c><00:24:09.280><c> minute</c><00:24:09.520><c> job</c><00:24:09.840><c> need</c><00:24:10.000><c> to</c><00:24:10.159><c> be</c><00:24:10.240><c> run</c><00:24:10.480><c> so</c><00:24:10.640><c> in</c>
+
+00:24:10.789 --> 00:24:10.799 align:start position:0%
+every 4 minute job need to be run so in
+ 
+
+00:24:10.799 --> 00:24:14.950 align:start position:0%
+every 4 minute job need to be run so in
+the<00:24:10.960><c> minute</c><00:24:11.200><c> part</c><00:24:11.919><c> I</c><00:24:12.240><c> have</c><00:24:12.400><c> put</c><00:24:12.960><c> estress</c><00:24:13.520><c> 4.</c><00:24:14.720><c> So</c>
+
+00:24:14.950 --> 00:24:14.960 align:start position:0%
+the minute part I have put estress 4. So
+ 
+
+00:24:14.960 --> 00:24:17.350 align:start position:0%
+the minute part I have put estress 4. So
+currently<00:24:15.279><c> what</c><00:24:15.520><c> happen</c><00:24:15.760><c> is</c><00:24:16.240><c> my</c><00:24:16.640><c> job</c><00:24:16.960><c> would</c>
+
+00:24:17.350 --> 00:24:17.360 align:start position:0%
+currently what happen is my job would
+ 
+
+00:24:17.360 --> 00:24:19.510 align:start position:0%
+currently what happen is my job would
+start<00:24:17.919><c> at</c>
+
+00:24:19.510 --> 00:24:19.520 align:start position:0%
+start at
+ 
+
+00:24:19.520 --> 00:24:24.470 align:start position:0%
+start at
+0<00:24:20.240><c> then</c><00:24:20.559><c> 4</c><00:24:21.120><c> then</c><00:24:21.440><c> 8</c><00:24:22.080><c> then</c><00:24:22.320><c> 12</c><00:24:22.720><c> likewise</c>
+
+00:24:24.470 --> 00:24:24.480 align:start position:0%
+0 then 4 then 8 then 12 likewise
+ 
+
+00:24:24.480 --> 00:24:28.310 align:start position:0%
+0 then 4 then 8 then 12 likewise
+then<00:24:24.960><c> like</c><00:24:25.279><c> every</c><00:24:25.600><c> day</c><00:24:26.000><c> at</c><00:24:26.240><c> 11:15</c><00:24:27.200><c> a.m.</c><00:24:28.000><c> Okay.</c>
+
+00:24:28.310 --> 00:24:28.320 align:start position:0%
+then like every day at 11:15 a.m. Okay.
+ 
+
+00:24:28.320 --> 00:24:31.590 align:start position:0%
+then like every day at 11:15 a.m. Okay.
+So<00:24:28.480><c> here</c><00:24:28.640><c> I</c><00:24:28.880><c> have</c><00:24:29.120><c> put</c><00:24:29.679><c> this</c><00:24:29.919><c> is</c><00:24:30.159><c> r</c><00:24:31.039><c> I</c><00:24:31.279><c> have</c><00:24:31.360><c> put</c>
+
+00:24:31.590 --> 00:24:31.600 align:start position:0%
+So here I have put this is r I have put
+ 
+
+00:24:31.600 --> 00:24:34.549 align:start position:0%
+So here I have put this is r I have put
+11<00:24:32.159><c> this</c><00:24:32.320><c> is</c><00:24:32.559><c> minute</c><00:24:33.520><c> and</c><00:24:33.919><c> seconds</c><00:24:34.240><c> I</c><00:24:34.480><c> have</c>
+
+00:24:34.549 --> 00:24:34.559 align:start position:0%
+11 this is minute and seconds I have
+ 
+
+00:24:34.559 --> 00:24:37.990 align:start position:0%
+11 this is minute and seconds I have
+specifically<00:24:35.039><c> put</c><00:24:35.200><c> zero</c><00:24:36.320><c> okay</c><00:24:36.880><c> and</c><00:24:37.600><c> the</c><00:24:37.840><c> day</c>
+
+00:24:37.990 --> 00:24:38.000 align:start position:0%
+specifically put zero okay and the day
+ 
+
+00:24:38.000 --> 00:24:39.430 align:start position:0%
+specifically put zero okay and the day
+of<00:24:38.159><c> the</c><00:24:38.320><c> month</c><00:24:38.480><c> I</c><00:24:38.640><c> have</c><00:24:38.799><c> put</c><00:24:38.960><c> everywhere</c>
+
+00:24:39.430 --> 00:24:39.440 align:start position:0%
+of the month I have put everywhere
+ 
+
+00:24:39.440 --> 00:24:43.029 align:start position:0%
+of the month I have put everywhere
+start.<00:24:39.760><c> So</c><00:24:40.000><c> it's</c><00:24:40.240><c> like</c><00:24:40.640><c> every</c><00:24:42.000><c> day</c><00:24:42.559><c> it</c><00:24:42.880><c> will</c>
+
+00:24:43.029 --> 00:24:43.039 align:start position:0%
+start. So it's like every day it will
+ 
+
+00:24:43.039 --> 00:24:45.190 align:start position:0%
+start. So it's like every day it will
+run<00:24:43.360><c> this</c><00:24:43.520><c> job</c><00:24:43.760><c> will</c><00:24:44.000><c> get</c><00:24:44.159><c> executed</c><00:24:44.720><c> every</c><00:24:44.960><c> day</c>
+
+00:24:45.190 --> 00:24:45.200 align:start position:0%
+run this job will get executed every day
+ 
+
+00:24:45.200 --> 00:24:50.230 align:start position:0%
+run this job will get executed every day
+at<00:24:45.440><c> 11:15</c><00:24:46.320><c> a.m.</c>
+
+00:24:50.230 --> 00:24:50.240 align:start position:0%
+ 
+ 
+
+00:24:50.240 --> 00:24:53.830 align:start position:0%
+ 
+Every<00:24:50.799><c> weekday</c><00:24:51.919><c> at</c><00:24:52.320><c> 9:00</c><00:24:52.640><c> a.m.</c><00:24:53.039><c> Every</c><00:24:53.360><c> weekday</c>
+
+00:24:53.830 --> 00:24:53.840 align:start position:0%
+Every weekday at 9:00 a.m. Every weekday
+ 
+
+00:24:53.840 --> 00:24:56.630 align:start position:0%
+Every weekday at 9:00 a.m. Every weekday
+let's<00:24:54.080><c> say</c><00:24:54.240><c> weekday</c><00:24:54.559><c> is</c><00:24:54.720><c> Monday</c><00:24:55.039><c> to</c><00:24:55.360><c> Friday.</c>
+
+00:24:56.630 --> 00:24:56.640 align:start position:0%
+let's say weekday is Monday to Friday.
+ 
+
+00:24:56.640 --> 00:24:58.710 align:start position:0%
+let's say weekday is Monday to Friday.
+So<00:24:56.880><c> in</c><00:24:57.120><c> the</c><00:24:57.360><c> day</c><00:24:57.520><c> of</c><00:24:57.679><c> the</c><00:24:57.840><c> week</c><00:24:58.080><c> I</c><00:24:58.240><c> have</c><00:24:58.400><c> put</c>
+
+00:24:58.710 --> 00:24:58.720 align:start position:0%
+So in the day of the week I have put
+ 
+
+00:24:58.720 --> 00:25:02.390 align:start position:0%
+So in the day of the week I have put
+specifically<00:24:59.200><c> Monday</c><00:24:59.520><c> to</c><00:24:59.760><c> Friday</c><00:25:00.400><c> only.</c><00:25:01.440><c> Okay</c>
+
+00:25:02.390 --> 00:25:02.400 align:start position:0%
+specifically Monday to Friday only. Okay
+ 
+
+00:25:02.400 --> 00:25:05.269 align:start position:0%
+specifically Monday to Friday only. Okay
+every<00:25:02.799><c> months</c><00:25:03.679><c> this</c><00:25:04.000><c> week.</c><00:25:04.400><c> So</c><00:25:04.559><c> I</c><00:25:04.799><c> have</c><00:25:04.960><c> put</c><00:25:05.120><c> a</c>
+
+00:25:05.269 --> 00:25:05.279 align:start position:0%
+every months this week. So I have put a
+ 
+
+00:25:05.279 --> 00:25:06.789 align:start position:0%
+every months this week. So I have put a
+star
+
+00:25:06.789 --> 00:25:06.799 align:start position:0%
+star
+ 
+
+00:25:06.799 --> 00:25:09.830 align:start position:0%
+star
+day<00:25:07.039><c> of</c><00:25:07.200><c> the</c><00:25:07.360><c> month</c><00:25:08.000><c> whether</c><00:25:08.480><c> it's</c><00:25:08.799><c> 1</c><00:25:09.200><c> to</c><00:25:09.520><c> I</c>
+
+00:25:09.830 --> 00:25:09.840 align:start position:0%
+day of the month whether it's 1 to I
+ 
+
+00:25:09.840 --> 00:25:11.750 align:start position:0%
+day of the month whether it's 1 to I
+don't<00:25:10.000><c> care.</c><00:25:10.559><c> So</c><00:25:10.720><c> that's</c><00:25:10.880><c> why</c><00:25:11.039><c> I</c><00:25:11.200><c> put</c><00:25:11.440><c> question</c>
+
+00:25:11.750 --> 00:25:11.760 align:start position:0%
+don't care. So that's why I put question
+ 
+
+00:25:11.760 --> 00:25:14.230 align:start position:0%
+don't care. So that's why I put question
+mark.<00:25:12.400><c> Okay</c><00:25:12.720><c> please</c><00:25:13.039><c> ignore</c><00:25:13.679><c> here</c><00:25:14.000><c> I'm</c>
+
+00:25:14.230 --> 00:25:14.240 align:start position:0%
+mark. Okay please ignore here I'm
+ 
+
+00:25:14.240 --> 00:25:16.630 align:start position:0%
+mark. Okay please ignore here I'm
+telling<00:25:14.640><c> ignore</c><00:25:14.880><c> this.</c><00:25:15.440><c> I</c><00:25:15.679><c> want</c><00:25:15.840><c> to</c><00:25:16.080><c> run</c>
+
+00:25:16.630 --> 00:25:16.640 align:start position:0%
+telling ignore this. I want to run
+ 
+
+00:25:16.640 --> 00:25:19.430 align:start position:0%
+telling ignore this. I want to run
+Monday<00:25:17.039><c> Friday</c><00:25:17.600><c> no</c><00:25:17.760><c> matter</c><00:25:18.080><c> what</c><00:25:18.240><c> the</c><00:25:18.480><c> day</c><00:25:18.640><c> is</c>
+
+00:25:19.430 --> 00:25:19.440 align:start position:0%
+Monday Friday no matter what the day is
+ 
+
+00:25:19.440 --> 00:25:22.549 align:start position:0%
+Monday Friday no matter what the day is
+whether<00:25:19.760><c> it's</c><00:25:19.919><c> the</c><00:25:20.159><c> 5th</c><00:25:20.720><c> or</c><00:25:21.039><c> 6th</c><00:25:21.360><c> or</c><00:25:21.520><c> 7th</c>
+
+00:25:22.549 --> 00:25:22.559 align:start position:0%
+whether it's the 5th or 6th or 7th
+ 
+
+00:25:22.559 --> 00:25:25.190 align:start position:0%
+whether it's the 5th or 6th or 7th
+whatever<00:25:22.960><c> the</c><00:25:23.200><c> date</c><00:25:23.440><c> is</c><00:25:23.679><c> I</c><00:25:23.840><c> don't</c><00:25:24.000><c> care</c><00:25:24.880><c> day</c>
+
+00:25:25.190 --> 00:25:25.200 align:start position:0%
+whatever the date is I don't care day
+ 
+
+00:25:25.200 --> 00:25:28.230 align:start position:0%
+whatever the date is I don't care day
+matter.<00:25:26.240><c> Okay.</c><00:25:26.720><c> And</c><00:25:27.039><c> 9:00</c><00:25:27.360><c> a.m.</c><00:25:27.679><c> So</c><00:25:27.840><c> this</c><00:25:28.080><c> is</c>
+
+00:25:28.230 --> 00:25:28.240 align:start position:0%
+matter. Okay. And 9:00 a.m. So this is
+ 
+
+00:25:28.240 --> 00:25:30.710 align:start position:0%
+matter. Okay. And 9:00 a.m. So this is
+9:00<00:25:28.480><c> a.m.</c>
+
+00:25:30.710 --> 00:25:30.720 align:start position:0%
+9:00 a.m.
+ 
+
+00:25:30.720 --> 00:25:33.750 align:start position:0%
+9:00 a.m.
+every<00:25:31.200><c> Sunday</c><00:25:31.840><c> at</c><00:25:32.240><c> midnight.</c><00:25:33.039><c> Sunday</c><00:25:33.440><c> at</c>
+
+00:25:33.750 --> 00:25:33.760 align:start position:0%
+every Sunday at midnight. Sunday at
+ 
+
+00:25:33.760 --> 00:25:36.070 align:start position:0%
+every Sunday at midnight. Sunday at
+midnight.<00:25:34.240><c> So</c><00:25:34.480><c> day</c><00:25:34.799><c> I</c><00:25:35.039><c> am</c><00:25:35.200><c> talking</c><00:25:35.440><c> about</c><00:25:35.679><c> this</c>
+
+00:25:36.070 --> 00:25:36.080 align:start position:0%
+midnight. So day I am talking about this
+ 
+
+00:25:36.080 --> 00:25:38.950 align:start position:0%
+midnight. So day I am talking about this
+Sunday.<00:25:37.279><c> I</c><00:25:37.600><c> don't</c><00:25:37.840><c> care</c><00:25:38.080><c> about</c><00:25:38.400><c> what's</c><00:25:38.720><c> the</c>
+
+00:25:38.950 --> 00:25:38.960 align:start position:0%
+Sunday. I don't care about what's the
+ 
+
+00:25:38.960 --> 00:25:41.830 align:start position:0%
+Sunday. I don't care about what's the
+date.<00:25:39.760><c> So</c><00:25:39.919><c> that's</c><00:25:40.159><c> why</c><00:25:40.320><c> I</c><00:25:40.480><c> put</c><00:25:40.640><c> question</c><00:25:40.960><c> mark</c>
+
+00:25:41.830 --> 00:25:41.840 align:start position:0%
+date. So that's why I put question mark
+ 
+
+00:25:41.840 --> 00:25:44.149 align:start position:0%
+date. So that's why I put question mark
+every<00:25:42.159><c> month.</c><00:25:42.480><c> So</c><00:25:42.559><c> I</c><00:25:42.720><c> put</c><00:25:43.039><c> asteris</c><00:25:43.760><c> midnight</c>
+
+00:25:44.149 --> 00:25:44.159 align:start position:0%
+every month. So I put asteris midnight
+ 
+
+00:25:44.159 --> 00:25:48.230 align:start position:0%
+every month. So I put asteris midnight
+is<00:25:44.400><c> 0000.</c><00:25:45.120><c> Start</c><00:25:45.360><c> from</c><00:25:45.520><c> here</c>
+
+00:25:48.230 --> 00:25:48.240 align:start position:0%
+is 0000. Start from here
+ 
+
+00:25:48.240 --> 00:25:50.870 align:start position:0%
+is 0000. Start from here
+runs<00:25:48.640><c> at</c><00:25:48.799><c> midnight</c><00:25:49.200><c> on</c><00:25:49.520><c> first</c><00:25:49.919><c> day</c><00:25:50.240><c> of</c><00:25:50.640><c> every</c>
+
+00:25:50.870 --> 00:25:50.880 align:start position:0%
+runs at midnight on first day of every
+ 
+
+00:25:50.880 --> 00:25:53.430 align:start position:0%
+runs at midnight on first day of every
+month.<00:25:51.279><c> Every</c><00:25:51.520><c> month's</c><00:25:52.000><c> first</c><00:25:52.320><c> day.</c><00:25:53.039><c> Okay.</c>
+
+00:25:53.430 --> 00:25:53.440 align:start position:0%
+month. Every month's first day. Okay.
+ 
+
+00:25:53.440 --> 00:25:56.310 align:start position:0%
+month. Every month's first day. Okay.
+Midnight.<00:25:54.799><c> So</c><00:25:55.039><c> what</c><00:25:55.279><c> I</c><00:25:55.440><c> have</c><00:25:55.600><c> told</c><00:25:55.760><c> is</c><00:25:56.000><c> the</c>
+
+00:25:56.310 --> 00:25:56.320 align:start position:0%
+Midnight. So what I have told is the
+ 
+
+00:25:56.320 --> 00:25:59.590 align:start position:0%
+Midnight. So what I have told is the
+date<00:25:56.640><c> I'm</c><00:25:56.960><c> interested</c><00:25:57.279><c> in</c><00:25:57.520><c> like</c><00:25:57.919><c> date</c>
+
+00:25:59.590 --> 00:25:59.600 align:start position:0%
+date I'm interested in like date
+ 
+
+00:25:59.600 --> 00:26:02.470 align:start position:0%
+date I'm interested in like date
+one.<00:26:00.799><c> Now</c><00:26:01.039><c> the</c><00:26:01.279><c> day</c><00:26:01.520><c> I</c><00:26:01.679><c> don't</c><00:26:01.760><c> care</c><00:26:02.000><c> whether</c><00:26:02.240><c> on</c>
+
+00:26:02.470 --> 00:26:02.480 align:start position:0%
+one. Now the day I don't care whether on
+ 
+
+00:26:02.480 --> 00:26:04.230 align:start position:0%
+one. Now the day I don't care whether on
+the<00:26:02.559><c> first</c><00:26:02.799><c> it's</c><00:26:03.120><c> Monday</c><00:26:03.360><c> or</c><00:26:03.600><c> Sunday</c><00:26:03.919><c> I</c><00:26:04.080><c> don't</c>
+
+00:26:04.230 --> 00:26:04.240 align:start position:0%
+the first it's Monday or Sunday I don't
+ 
+
+00:26:04.240 --> 00:26:08.630 align:start position:0%
+the first it's Monday or Sunday I don't
+care<00:26:05.120><c> that's</c><00:26:05.360><c> why</c><00:26:05.440><c> I</c><00:26:05.600><c> put</c><00:26:05.760><c> koshima</c><00:26:07.039><c> okay</c><00:26:08.000><c> month</c>
+
+00:26:08.630 --> 00:26:08.640 align:start position:0%
+care that's why I put koshima okay month
+ 
+
+00:26:08.640 --> 00:26:12.950 align:start position:0%
+care that's why I put koshima okay month
+every<00:26:08.960><c> month</c><00:26:09.679><c> and</c><00:26:09.919><c> midnight</c><00:26:10.400><c> I</c><00:26:10.559><c> want</c><00:26:10.720><c> it</c><00:26:11.039><c> zero</c>
+
+00:26:12.950 --> 00:26:12.960 align:start position:0%
+every month and midnight I want it zero
+ 
+
+00:26:12.960 --> 00:26:16.070 align:start position:0%
+every month and midnight I want it zero
+last<00:26:13.520><c> day</c><00:26:13.760><c> of</c><00:26:14.240><c> every</c><00:26:14.559><c> month</c><00:26:15.039><c> at</c><00:26:15.279><c> midnight</c><00:26:15.840><c> so</c>
+
+00:26:16.070 --> 00:26:16.080 align:start position:0%
+last day of every month at midnight so
+ 
+
+00:26:16.080 --> 00:26:19.510 align:start position:0%
+last day of every month at midnight so
+if<00:26:16.320><c> this</c><00:26:16.480><c> is</c><00:26:16.640><c> the</c><00:26:16.799><c> requirement</c><00:26:17.679><c> so</c><00:26:18.960><c> midnight</c>
+
+00:26:19.510 --> 00:26:19.520 align:start position:0%
+if this is the requirement so midnight
+ 
+
+00:26:19.520 --> 00:26:21.510 align:start position:0%
+if this is the requirement so midnight
+so<00:26:19.840><c> this</c><00:26:20.000><c> is</c><00:26:20.080><c> the</c><00:26:20.320><c> hour</c><00:26:20.640><c> minute</c><00:26:21.039><c> second</c><00:26:21.360><c> for</c>
+
+00:26:21.510 --> 00:26:21.520 align:start position:0%
+so this is the hour minute second for
+ 
+
+00:26:21.520 --> 00:26:24.470 align:start position:0%
+so this is the hour minute second for
+the<00:26:21.679><c> midnight</c><00:26:22.720><c> okay</c><00:26:23.279><c> and</c><00:26:23.600><c> then</c><00:26:23.760><c> we</c><00:26:24.000><c> are</c><00:26:24.159><c> saying</c>
+
+00:26:24.470 --> 00:26:24.480 align:start position:0%
+the midnight okay and then we are saying
+ 
+
+00:26:24.480 --> 00:26:29.750 align:start position:0%
+the midnight okay and then we are saying
+is<00:26:25.520><c> day</c><00:26:26.000><c> last</c><00:26:26.480><c> date</c><00:26:27.840><c> okay</c><00:26:28.799><c> uh</c><00:26:28.960><c> so</c><00:26:29.120><c> it's</c><00:26:29.360><c> like</c><00:26:29.520><c> a</c>
+
+00:26:29.750 --> 00:26:29.760 align:start position:0%
+is day last date okay uh so it's like a
+ 
+
+00:26:29.760 --> 00:26:33.029 align:start position:0%
+is day last date okay uh so it's like a
+last<00:26:30.159><c> date</c><00:26:30.559><c> this</c><00:26:30.640><c> is</c><00:26:30.799><c> the</c><00:26:31.039><c> last</c><00:26:31.440><c> date.</c>
+
+00:26:33.029 --> 00:26:33.039 align:start position:0%
+last date this is the last date.
+ 
+
+00:26:33.039 --> 00:26:37.510 align:start position:0%
+last date this is the last date.
+So<00:26:33.200><c> if</c><00:26:33.440><c> the</c><00:26:33.600><c> month</c><00:26:33.840><c> last</c><00:26:34.159><c> date</c><00:26:34.320><c> is</c><00:26:34.559><c> 29</c><00:26:35.120><c> or</c><00:26:36.240><c> uh</c><00:26:37.279><c> 30</c>
+
+00:26:37.510 --> 00:26:37.520 align:start position:0%
+So if the month last date is 29 or uh 30
+ 
+
+00:26:37.520 --> 00:26:41.669 align:start position:0%
+So if the month last date is 29 or uh 30
+or<00:26:37.840><c> 31</c><00:26:38.159><c> or</c><00:26:38.400><c> 28</c><00:26:39.360><c> so</c><00:26:40.480><c> pick</c><00:26:40.799><c> whatever</c><00:26:41.200><c> the</c><00:26:41.440><c> last</c>
+
+00:26:41.669 --> 00:26:41.679 align:start position:0%
+or 31 or 28 so pick whatever the last
+ 
+
+00:26:41.679 --> 00:26:44.310 align:start position:0%
+or 31 or 28 so pick whatever the last
+date<00:26:41.919><c> of</c><00:26:42.080><c> a</c><00:26:42.320><c> month</c><00:26:42.480><c> is</c><00:26:43.039><c> for</c><00:26:43.279><c> every</c><00:26:43.600><c> month</c><00:26:44.159><c> pick</c>
+
+00:26:44.310 --> 00:26:44.320 align:start position:0%
+date of a month is for every month pick
+ 
+
+00:26:44.320 --> 00:26:47.269 align:start position:0%
+date of a month is for every month pick
+a<00:26:44.480><c> last</c><00:26:44.720><c> date</c><00:26:45.440><c> I</c><00:26:45.679><c> don't</c><00:26:45.840><c> care</c><00:26:46.080><c> about</c><00:26:46.240><c> the</c><00:26:46.480><c> day</c>
+
+00:26:47.269 --> 00:26:47.279 align:start position:0%
+a last date I don't care about the day
+ 
+
+00:26:47.279 --> 00:26:49.590 align:start position:0%
+a last date I don't care about the day
+whether<00:26:47.600><c> the</c><00:26:48.080><c> last</c><00:26:48.320><c> date</c><00:26:48.480><c> is</c><00:26:48.640><c> Sunday</c><00:26:49.039><c> Monday</c><00:26:49.360><c> I</c>
+
+00:26:49.590 --> 00:26:49.600 align:start position:0%
+whether the last date is Sunday Monday I
+ 
+
+00:26:49.600 --> 00:26:52.149 align:start position:0%
+whether the last date is Sunday Monday I
+don't<00:26:49.679><c> care</c><00:26:50.799><c> so</c><00:26:51.120><c> this</c><00:26:51.279><c> is</c><00:26:51.440><c> just</c><00:26:51.679><c> practical</c>
+
+00:26:52.149 --> 00:26:52.159 align:start position:0%
+don't care so this is just practical
+ 
+
+00:26:52.159 --> 00:26:55.750 align:start position:0%
+don't care so this is just practical
+example<00:26:52.880><c> of</c><00:26:53.600><c> chron</c><00:26:53.919><c> jobs</c><00:26:54.799><c> like</c><00:26:55.279><c> you</c><00:26:55.520><c> can</c>
+
+00:26:55.750 --> 00:26:55.760 align:start position:0%
+example of chron jobs like you can
+ 
+
+00:26:55.760 --> 00:26:59.669 align:start position:0%
+example of chron jobs like you can
+practice<00:26:56.080><c> it</c><00:26:56.320><c> more</c><00:26:57.360><c> and</c><00:26:57.760><c> you</c><00:26:58.000><c> can</c><00:26:58.159><c> try</c><00:26:58.320><c> it</c><00:26:58.559><c> out</c>
+
+00:26:59.669 --> 00:26:59.679 align:start position:0%
+practice it more and you can try it out
+ 
+
+00:26:59.679 --> 00:27:03.190 align:start position:0%
+practice it more and you can try it out
+but<00:27:00.720><c> if</c><00:27:01.039><c> you</c><00:27:01.279><c> understood</c><00:27:01.679><c> the</c><00:27:01.919><c> part</c><00:27:02.320><c> one</c><00:27:02.880><c> the</c>
+
+00:27:03.190 --> 00:27:03.200 align:start position:0%
+but if you understood the part one the
+ 
+
+00:27:03.200 --> 00:27:05.830 align:start position:0%
+but if you understood the part one the
+internal<00:27:03.679><c> is</c><00:27:03.919><c> clear</c><00:27:04.640><c> and</c><00:27:04.880><c> then</c><00:27:05.200><c> this</c><00:27:05.440><c> is</c><00:27:05.600><c> all</c>
+
+00:27:05.830 --> 00:27:05.840 align:start position:0%
+internal is clear and then this is all
+ 
+
+00:27:05.840 --> 00:27:08.470 align:start position:0%
+internal is clear and then this is all
+about<00:27:06.159><c> syntax.</c>
+
+00:27:08.470 --> 00:27:08.480 align:start position:0%
+about syntax.
+ 
+
+00:27:08.480 --> 00:27:10.549 align:start position:0%
+about syntax.
+I<00:27:08.799><c> hope</c><00:27:09.360><c> uh</c><00:27:09.440><c> this</c><00:27:09.600><c> is</c><00:27:09.760><c> clear.</c><00:27:10.000><c> If</c><00:27:10.080><c> there</c><00:27:10.240><c> is</c><00:27:10.320><c> any</c>
+
+00:27:10.549 --> 00:27:10.559 align:start position:0%
+I hope uh this is clear. If there is any
+ 
+
+00:27:10.559 --> 00:27:12.549 align:start position:0%
+I hope uh this is clear. If there is any
+doubt<00:27:10.960><c> let</c><00:27:11.200><c> me</c><00:27:11.279><c> know</c><00:27:11.520><c> we</c><00:27:11.760><c> can</c><00:27:11.840><c> discuss</c><00:27:12.240><c> further</c>
+
+00:27:12.549 --> 00:27:12.559 align:start position:0%
+doubt let me know we can discuss further
+ 
+
+00:27:12.559 --> 00:27:16.159 align:start position:0%
+doubt let me know we can discuss further
+into<00:27:12.799><c> the</c><00:27:12.960><c> comment</c><00:27:13.200><c> section.</c><00:27:13.600><c> Bye.</c>
+

@@ -1,0 +1,8435 @@
+1
+00:00:00,880 --> 00:00:02,790
+
+Hey guys, Shandide welcome back to the
+
+2
+00:00:02,790 --> 00:00:02,800
+Hey guys, Shandide welcome back to the
+ 
+
+3
+00:00:02,800 --> 00:00:05,190
+Hey guys, Shandide welcome back to the
+channel and let's start today with the
+
+4
+00:00:05,190 --> 00:00:05,200
+channel and let's start today with the
+ 
+
+5
+00:00:05,200 --> 00:00:07,829
+channel and let's start today with the
+fall tolerant microservices part two. So
+
+6
+00:00:07,829 --> 00:00:07,839
+fall tolerant microservices part two. So
+ 
+
+7
+00:00:07,839 --> 00:00:09,990
+fall tolerant microservices part two. So
+in part one we have already seen about
+
+8
+00:00:09,990 --> 00:00:10,000
+in part one we have already seen about
+ 
+
+9
+00:00:10,000 --> 00:00:13,190
+in part one we have already seen about
+rate limiter and uh if you have not seen
+
+10
+00:00:13,190 --> 00:00:13,200
+rate limiter and uh if you have not seen
+ 
+
+11
+00:00:13,200 --> 00:00:15,509
+rate limiter and uh if you have not seen
+it kindly have a look because that's uh
+
+12
+00:00:15,509 --> 00:00:15,519
+it kindly have a look because that's uh
+ 
+
+13
+00:00:15,519 --> 00:00:17,189
+it kindly have a look because that's uh
+you will understand what is actually
+
+14
+00:00:17,189 --> 00:00:17,199
+you will understand what is actually
+ 
+
+15
+00:00:17,199 --> 00:00:19,910
+you will understand what is actually
+fault tolerant microservices are. So
+
+16
+00:00:19,910 --> 00:00:19,920
+fault tolerant microservices are. So
+ 
+
+17
+00:00:19,920 --> 00:00:22,390
+fault tolerant microservices are. So
+today we will start with the bulk ahead
+
+18
+00:00:22,390 --> 00:00:22,400
+today we will start with the bulk ahead
+ 
+
+19
+00:00:22,400 --> 00:00:25,990
+today we will start with the bulk ahead
+and see what are the various use cases
+
+20
+00:00:25,990 --> 00:00:26,000
+and see what are the various use cases
+ 
+
+21
+00:00:26,000 --> 00:00:28,070
+and see what are the various use cases
+it supports. That's also very important
+
+22
+00:00:28,070 --> 00:00:28,080
+it supports. That's also very important
+ 
+
+23
+00:00:28,080 --> 00:00:29,990
+it supports. That's also very important
+like when we are going to build the
+
+24
+00:00:29,990 --> 00:00:30,000
+like when we are going to build the
+ 
+
+25
+00:00:30,000 --> 00:00:31,990
+like when we are going to build the
+bulkhead.
+
+26
+00:00:31,990 --> 00:00:32,000
+bulkhead.
+ 
+
+27
+00:00:32,000 --> 00:00:36,470
+bulkhead.
+So very quick rate limiter it protects
+
+28
+00:00:36,470 --> 00:00:36,480
+So very quick rate limiter it protects
+ 
+
+29
+00:00:36,480 --> 00:00:39,590
+So very quick rate limiter it protects
+our application from clients. This is
+
+30
+00:00:39,590 --> 00:00:39,600
+our application from clients. This is
+ 
+
+31
+00:00:39,600 --> 00:00:41,990
+our application from clients. This is
+why I am telling you again about rate
+
+32
+00:00:41,990 --> 00:00:42,000
+why I am telling you again about rate
+ 
+
+33
+00:00:42,000 --> 00:00:44,310
+why I am telling you again about rate
+limiter in just 1 minute is because
+
+34
+00:00:44,310 --> 00:00:44,320
+limiter in just 1 minute is because
+ 
+
+35
+00:00:44,320 --> 00:00:46,790
+limiter in just 1 minute is because
+clear distinction need to be present
+
+36
+00:00:46,790 --> 00:00:46,800
+clear distinction need to be present
+ 
+
+37
+00:00:46,800 --> 00:00:49,190
+clear distinction need to be present
+between rate limiter and bulkhead
+
+38
+00:00:49,190 --> 00:00:49,200
+between rate limiter and bulkhead
+ 
+
+39
+00:00:49,200 --> 00:00:51,110
+between rate limiter and bulkhead
+because many time a confusion happens
+
+40
+00:00:51,110 --> 00:00:51,120
+because many time a confusion happens
+ 
+
+41
+00:00:51,120 --> 00:00:52,950
+because many time a confusion happens
+like which one is bulkhead which one is
+
+42
+00:00:52,950 --> 00:00:52,960
+like which one is bulkhead which one is
+ 
+
+43
+00:00:52,960 --> 00:00:56,709
+like which one is bulkhead which one is
+rate limiter. So focus here is that rate
+
+44
+00:00:56,709 --> 00:00:56,719
+rate limiter. So focus here is that rate
+ 
+
+45
+00:00:56,719 --> 00:01:00,069
+rate limiter. So focus here is that rate
+limiter protects our application. Let's
+
+46
+00:01:00,069 --> 00:01:00,079
+limiter protects our application. Let's
+ 
+
+47
+00:01:00,079 --> 00:01:02,389
+limiter protects our application. Let's
+say our application is order. It
+
+48
+00:01:02,389 --> 00:01:02,399
+say our application is order. It
+ 
+
+49
+00:01:02,399 --> 00:01:05,350
+say our application is order. It
+protects our application from whom? From
+
+50
+00:01:05,350 --> 00:01:05,360
+protects our application from whom? From
+ 
+
+51
+00:01:05,360 --> 00:01:07,910
+protects our application from whom? From
+clients. So let's say this is my client
+
+52
+00:01:07,910 --> 00:01:07,920
+clients. So let's say this is my client
+ 
+
+53
+00:01:07,920 --> 00:01:10,070
+clients. So let's say this is my client
+and client is sending me too many
+
+54
+00:01:10,070 --> 00:01:10,080
+and client is sending me too many
+ 
+
+55
+00:01:10,080 --> 00:01:13,750
+and client is sending me too many
+requests. So it limited limit them. Hey,
+
+56
+00:01:13,750 --> 00:01:13,760
+requests. So it limited limit them. Hey,
+ 
+
+57
+00:01:13,760 --> 00:01:16,710
+requests. So it limited limit them. Hey,
+how many requests we can accept within a
+
+58
+00:01:16,710 --> 00:01:16,720
+how many requests we can accept within a
+ 
+
+59
+00:01:16,720 --> 00:01:20,710
+how many requests we can accept within a
+specific window. Right?
+
+60
+00:01:20,710 --> 00:01:20,720
+specific window. Right?
+ 
+
+61
+00:01:20,720 --> 00:01:22,710
+specific window. Right?
+And also one more thing is rate limiter
+
+62
+00:01:22,710 --> 00:01:22,720
+And also one more thing is rate limiter
+ 
+
+63
+00:01:22,720 --> 00:01:25,190
+And also one more thing is rate limiter
+never talks about concurrency. So just
+
+64
+00:01:25,190 --> 00:01:25,200
+never talks about concurrency. So just
+ 
+
+65
+00:01:25,200 --> 00:01:27,670
+never talks about concurrency. So just
+rate li rate limiter says that hey I can
+
+66
+00:01:27,670 --> 00:01:27,680
+rate li rate limiter says that hey I can
+ 
+
+67
+00:01:27,680 --> 00:01:30,390
+rate li rate limiter says that hey I can
+accept 10 request
+
+68
+00:01:30,390 --> 00:01:30,400
+accept 10 request
+ 
+
+69
+00:01:30,400 --> 00:01:33,670
+accept 10 request
+in 1 minute. Either you can send me 10
+
+70
+00:01:33,670 --> 00:01:33,680
+in 1 minute. Either you can send me 10
+ 
+
+71
+00:01:33,680 --> 00:01:37,590
+in 1 minute. Either you can send me 10
+requests in one shot or one by one. It
+
+72
+00:01:37,590 --> 00:01:37,600
+requests in one shot or one by one. It
+ 
+
+73
+00:01:37,600 --> 00:01:39,510
+requests in one shot or one by one. It
+never talks about concurrency. It just
+
+74
+00:01:39,510 --> 00:01:39,520
+never talks about concurrency. It just
+ 
+
+75
+00:01:39,520 --> 00:01:42,950
+never talks about concurrency. It just
+says that what is the limit. Okay. But
+
+76
+00:01:42,950 --> 00:01:42,960
+says that what is the limit. Okay. But
+ 
+
+77
+00:01:42,960 --> 00:01:46,550
+says that what is the limit. Okay. But
+it protect us from our clients.
+
+78
+00:01:46,550 --> 00:01:46,560
+it protect us from our clients.
+ 
+
+79
+00:01:46,560 --> 00:01:48,950
+it protect us from our clients.
+Now let's go to the bulkhead that it
+
+80
+00:01:48,950 --> 00:01:48,960
+Now let's go to the bulkhead that it
+ 
+
+81
+00:01:48,960 --> 00:01:53,429
+Now let's go to the bulkhead that it
+helps to control how many concurrent
+
+82
+00:01:53,429 --> 00:01:53,439
+helps to control how many concurrent
+ 
+
+83
+00:01:53,439 --> 00:01:57,109
+helps to control how many concurrent
+requests can go to downstream service.
+
+84
+00:01:57,109 --> 00:01:57,119
+requests can go to downstream service.
+ 
+
+85
+00:01:57,119 --> 00:01:59,590
+requests can go to downstream service.
+Now let's say this is our service order.
+
+86
+00:01:59,590 --> 00:01:59,600
+Now let's say this is our service order.
+ 
+
+87
+00:01:59,600 --> 00:02:02,230
+Now let's say this is our service order.
+Now I am more concerned about the
+
+88
+00:02:02,230 --> 00:02:02,240
+Now I am more concerned about the
+ 
+
+89
+00:02:02,240 --> 00:02:05,030
+Now I am more concerned about the
+request which I am sending to my
+
+90
+00:02:05,030 --> 00:02:05,040
+request which I am sending to my
+ 
+
+91
+00:02:05,040 --> 00:02:07,030
+request which I am sending to my
+downstream.
+
+92
+00:02:07,030 --> 00:02:07,040
+downstream.
+ 
+
+93
+00:02:07,040 --> 00:02:10,070
+downstream.
+Now I am not concerning about the
+
+94
+00:02:10,070 --> 00:02:10,080
+Now I am not concerning about the
+ 
+
+95
+00:02:10,080 --> 00:02:11,670
+Now I am not concerning about the
+request which I'm getting from my
+
+96
+00:02:11,670 --> 00:02:11,680
+request which I'm getting from my
+ 
+
+97
+00:02:11,680 --> 00:02:14,949
+request which I'm getting from my
+clients.
+
+98
+00:02:14,949 --> 00:02:14,959
+
+ 
+
+99
+00:02:14,959 --> 00:02:17,030
+
+Okay. So that is one of the major
+
+100
+00:02:17,030 --> 00:02:17,040
+Okay. So that is one of the major
+ 
+
+101
+00:02:17,040 --> 00:02:19,270
+Okay. So that is one of the major
+difference and bulkhead majorly talks
+
+102
+00:02:19,270 --> 00:02:19,280
+difference and bulkhead majorly talks
+ 
+
+103
+00:02:19,280 --> 00:02:20,949
+difference and bulkhead majorly talks
+about the concurrent request. We will
+
+104
+00:02:20,949 --> 00:02:20,959
+about the concurrent request. We will
+ 
+
+105
+00:02:20,959 --> 00:02:23,510
+about the concurrent request. We will
+see that and if we understand this two
+
+106
+00:02:23,510 --> 00:02:23,520
+see that and if we understand this two
+ 
+
+107
+00:02:23,520 --> 00:02:25,670
+see that and if we understand this two
+use cases right. So there are two
+
+108
+00:02:25,670 --> 00:02:25,680
+use cases right. So there are two
+ 
+
+109
+00:02:25,680 --> 00:02:27,830
+use cases right. So there are two
+possible use cases. If you understand
+
+110
+00:02:27,830 --> 00:02:27,840
+possible use cases. If you understand
+ 
+
+111
+00:02:27,840 --> 00:02:30,710
+possible use cases. If you understand
+the two use cases
+
+112
+00:02:30,710 --> 00:02:30,720
+the two use cases
+ 
+
+113
+00:02:30,720 --> 00:02:33,589
+the two use cases
+no matter when a interviewer or in your
+
+114
+00:02:33,589 --> 00:02:33,599
+no matter when a interviewer or in your
+ 
+
+115
+00:02:33,599 --> 00:02:36,710
+no matter when a interviewer or in your
+implementation like a scenario is put
+
+116
+00:02:36,710 --> 00:02:36,720
+implementation like a scenario is put
+ 
+
+117
+00:02:36,720 --> 00:02:38,550
+implementation like a scenario is put
+you would be able to clearly understand
+
+118
+00:02:38,550 --> 00:02:38,560
+you would be able to clearly understand
+ 
+
+119
+00:02:38,560 --> 00:02:40,309
+you would be able to clearly understand
+that whether rate limiter or bulkhead
+
+120
+00:02:40,309 --> 00:02:40,319
+that whether rate limiter or bulkhead
+ 
+
+121
+00:02:40,319 --> 00:02:42,869
+that whether rate limiter or bulkhead
+need to be applied. So understand that
+
+122
+00:02:42,869 --> 00:02:42,879
+need to be applied. So understand that
+ 
+
+123
+00:02:42,879 --> 00:02:45,110
+need to be applied. So understand that
+one is very very simple use case. Let's
+
+124
+00:02:45,110 --> 00:02:45,120
+one is very very simple use case. Let's
+ 
+
+125
+00:02:45,120 --> 00:02:48,309
+one is very very simple use case. Let's
+say you have order. This is your
+
+126
+00:02:48,309 --> 00:02:48,319
+say you have order. This is your
+ 
+
+127
+00:02:48,319 --> 00:02:50,869
+say you have order. This is your
+component and this is your downstream
+
+128
+00:02:50,869 --> 00:02:50,879
+component and this is your downstream
+ 
+
+129
+00:02:50,879 --> 00:02:54,790
+component and this is your downstream
+product. So order invokes product API.
+
+130
+00:02:54,790 --> 00:02:54,800
+product. So order invokes product API.
+ 
+
+131
+00:02:54,800 --> 00:02:56,949
+product. So order invokes product API.
+Let's say product is a small and
+
+132
+00:02:56,949 --> 00:02:56,959
+Let's say product is a small and
+ 
+
+133
+00:02:56,959 --> 00:02:59,270
+Let's say product is a small and
+lightweight service and can only handle
+
+134
+00:02:59,270 --> 00:02:59,280
+lightweight service and can only handle
+ 
+
+135
+00:02:59,280 --> 00:03:02,869
+lightweight service and can only handle
+three concurrent requests. Okay. And
+
+136
+00:03:02,869 --> 00:03:02,879
+three concurrent requests. Okay. And
+ 
+
+137
+00:03:02,879 --> 00:03:05,110
+three concurrent requests. Okay. And
+product itself is like very lightweight.
+
+138
+00:03:05,110 --> 00:03:05,120
+product itself is like very lightweight.
+ 
+
+139
+00:03:05,120 --> 00:03:07,350
+product itself is like very lightweight.
+It doesn't have put rate limiter on
+
+140
+00:03:07,350 --> 00:03:07,360
+It doesn't have put rate limiter on
+ 
+
+141
+00:03:07,360 --> 00:03:09,430
+It doesn't have put rate limiter on
+itself. Okay.
+
+142
+00:03:09,430 --> 00:03:09,440
+itself. Okay.
+ 
+
+143
+00:03:09,440 --> 00:03:11,430
+itself. Okay.
+But
+
+144
+00:03:11,430 --> 00:03:11,440
+But
+ 
+
+145
+00:03:11,440 --> 00:03:13,430
+But
+with the bulk ahead you can control
+
+146
+00:03:13,430 --> 00:03:13,440
+with the bulk ahead you can control
+ 
+
+147
+00:03:13,440 --> 00:03:16,710
+with the bulk ahead you can control
+that. Okay. So you know that product can
+
+148
+00:03:16,710 --> 00:03:16,720
+that. Okay. So you know that product can
+ 
+
+149
+00:03:16,720 --> 00:03:19,750
+that. Okay. So you know that product can
+handle only three concurrent request at
+
+150
+00:03:19,750 --> 00:03:19,760
+handle only three concurrent request at
+ 
+
+151
+00:03:19,760 --> 00:03:22,470
+handle only three concurrent request at
+a time. Okay. So it accept three
+
+152
+00:03:22,470 --> 00:03:22,480
+a time. Okay. So it accept three
+ 
+
+153
+00:03:22,480 --> 00:03:24,790
+a time. Okay. So it accept three
+requests all at the same time. But when
+
+154
+00:03:24,790 --> 00:03:24,800
+requests all at the same time. But when
+ 
+
+155
+00:03:24,800 --> 00:03:27,830
+requests all at the same time. But when
+the fourth comes no there is no thread
+
+156
+00:03:27,830 --> 00:03:27,840
+the fourth comes no there is no thread
+ 
+
+157
+00:03:27,840 --> 00:03:32,070
+the fourth comes no there is no thread
+left. So when any one of them get free
+
+158
+00:03:32,070 --> 00:03:32,080
+left. So when any one of them get free
+ 
+
+159
+00:03:32,080 --> 00:03:36,229
+left. So when any one of them get free
+then the another request would get
+
+160
+00:03:36,229 --> 00:03:36,239
+then the another request would get
+ 
+
+161
+00:03:36,239 --> 00:03:37,910
+then the another request would get
+fulfilled.
+
+162
+00:03:37,910 --> 00:03:37,920
+fulfilled.
+ 
+
+163
+00:03:37,920 --> 00:03:40,149
+fulfilled.
+Okay. So this is very very simple use
+
+164
+00:03:40,149 --> 00:03:40,159
+Okay. So this is very very simple use
+ 
+
+165
+00:03:40,159 --> 00:03:43,509
+Okay. So this is very very simple use
+case very simple use case and this use
+
+166
+00:03:43,509 --> 00:03:43,519
+case very simple use case and this use
+ 
+
+167
+00:03:43,519 --> 00:03:45,350
+case very simple use case and this use
+case is resolved through simma 4
+
+168
+00:03:45,350 --> 00:03:45,360
+case is resolved through simma 4
+ 
+
+169
+00:03:45,360 --> 00:03:48,149
+case is resolved through simma 4
+bulkhead. So there are two types of
+
+170
+00:03:48,149 --> 00:03:48,159
+bulkhead. So there are two types of
+ 
+
+171
+00:03:48,159 --> 00:03:49,910
+bulkhead. So there are two types of
+bulkhead.
+
+172
+00:03:49,910 --> 00:03:49,920
+bulkhead.
+ 
+
+173
+00:03:49,920 --> 00:03:51,750
+bulkhead.
+One is simma 4 bulkhead we have seen
+
+174
+00:03:51,750 --> 00:03:51,760
+One is simma 4 bulkhead we have seen
+ 
+
+175
+00:03:51,760 --> 00:03:54,149
+One is simma 4 bulkhead we have seen
+another one I'm going to tell but for
+
+176
+00:03:54,149 --> 00:03:54,159
+another one I'm going to tell but for
+ 
+
+177
+00:03:54,159 --> 00:03:56,550
+another one I'm going to tell but for
+this use case whenever interviewer put
+
+178
+00:03:56,550 --> 00:03:56,560
+this use case whenever interviewer put
+ 
+
+179
+00:03:56,560 --> 00:03:59,750
+this use case whenever interviewer put
+this use case simma for bulkhead is the
+
+180
+00:03:59,750 --> 00:03:59,760
+this use case simma for bulkhead is the
+ 
+
+181
+00:03:59,760 --> 00:04:02,949
+this use case simma for bulkhead is the
+answer. Okay we will see it how it
+
+182
+00:04:02,949 --> 00:04:02,959
+answer. Okay we will see it how it
+ 
+
+183
+00:04:02,959 --> 00:04:04,550
+answer. Okay we will see it how it
+functionality
+
+184
+00:04:04,550 --> 00:04:04,560
+functionality
+ 
+
+185
+00:04:04,560 --> 00:04:06,070
+functionality
+but I think this is clear right?
+
+186
+00:04:06,070 --> 00:04:06,080
+but I think this is clear right?
+ 
+
+187
+00:04:06,080 --> 00:04:09,429
+but I think this is clear right?
+Whenever there is a condition that
+
+188
+00:04:09,429 --> 00:04:09,439
+Whenever there is a condition that
+ 
+
+189
+00:04:09,439 --> 00:04:11,830
+Whenever there is a condition that
+uh you have a downstream which can only
+
+190
+00:04:11,830 --> 00:04:11,840
+uh you have a downstream which can only
+ 
+
+191
+00:04:11,840 --> 00:04:14,149
+uh you have a downstream which can only
+accept this many concurrent requests how
+
+192
+00:04:14,149 --> 00:04:14,159
+accept this many concurrent requests how
+ 
+
+193
+00:04:14,159 --> 00:04:15,910
+accept this many concurrent requests how
+you can handle it through simma for
+
+194
+00:04:15,910 --> 00:04:15,920
+you can handle it through simma for
+ 
+
+195
+00:04:15,920 --> 00:04:18,949
+you can handle it through simma for
+bulkhead.
+
+196
+00:04:18,949 --> 00:04:18,959
+
+ 
+
+197
+00:04:18,959 --> 00:04:21,909
+
+Okay. Another use case, very very
+
+198
+00:04:21,909 --> 00:04:21,919
+Okay. Another use case, very very
+ 
+
+199
+00:04:21,919 --> 00:04:24,390
+Okay. Another use case, very very
+important use case. And also remember
+
+200
+00:04:24,390 --> 00:04:24,400
+important use case. And also remember
+ 
+
+201
+00:04:24,400 --> 00:04:27,590
+important use case. And also remember
+that before I go to this use case,
+
+202
+00:04:27,590 --> 00:04:27,600
+that before I go to this use case,
+ 
+
+203
+00:04:27,600 --> 00:04:32,070
+that before I go to this use case,
+remember one very very important
+
+204
+00:04:32,070 --> 00:04:32,080
+remember one very very important
+ 
+
+205
+00:04:32,080 --> 00:04:34,390
+remember one very very important
+system design problem which is like a
+
+206
+00:04:34,390 --> 00:04:34,400
+system design problem which is like a
+ 
+
+207
+00:04:34,400 --> 00:04:38,230
+system design problem which is like a
+noisy neighbor
+
+208
+00:04:38,230 --> 00:04:38,240
+noisy neighbor
+ 
+
+209
+00:04:38,240 --> 00:04:40,710
+noisy neighbor
+problem.
+
+210
+00:04:40,710 --> 00:04:40,720
+problem.
+ 
+
+211
+00:04:40,720 --> 00:04:43,510
+problem.
+If you can recall this problem what it
+
+212
+00:04:43,510 --> 00:04:43,520
+If you can recall this problem what it
+ 
+
+213
+00:04:43,520 --> 00:04:44,950
+If you can recall this problem what it
+says that let's say this is your
+
+214
+00:04:44,950 --> 00:04:44,960
+says that let's say this is your
+ 
+
+215
+00:04:44,960 --> 00:04:48,469
+says that let's say this is your
+application
+
+216
+00:04:48,469 --> 00:04:48,479
+
+ 
+
+217
+00:04:48,479 --> 00:04:50,310
+
+and you have application have multiple
+
+218
+00:04:50,310 --> 00:04:50,320
+and you have application have multiple
+ 
+
+219
+00:04:50,320 --> 00:04:51,830
+and you have application have multiple
+tenants
+
+220
+00:04:51,830 --> 00:04:51,840
+tenants
+ 
+
+221
+00:04:51,840 --> 00:04:53,430
+tenants
+tenant
+
+222
+00:04:53,430 --> 00:04:53,440
+tenant
+ 
+
+223
+00:04:53,440 --> 00:04:57,030
+tenant
+one tenant two tenant three.
+
+224
+00:04:57,030 --> 00:04:57,040
+one tenant two tenant three.
+ 
+
+225
+00:04:57,040 --> 00:04:58,950
+one tenant two tenant three.
+So let's say that you have one of the
+
+226
+00:04:58,950 --> 00:04:58,960
+So let's say that you have one of the
+ 
+
+227
+00:04:58,960 --> 00:05:01,430
+So let's say that you have one of the
+tenant which is very very noisy like the
+
+228
+00:05:01,430 --> 00:05:01,440
+tenant which is very very noisy like the
+ 
+
+229
+00:05:01,440 --> 00:05:05,350
+tenant which is very very noisy like the
+traffic from this tenant is so
+
+230
+00:05:05,350 --> 00:05:05,360
+traffic from this tenant is so
+ 
+
+231
+00:05:05,360 --> 00:05:10,230
+traffic from this tenant is so
+high that it consume all resources
+
+232
+00:05:10,230 --> 00:05:10,240
+high that it consume all resources
+ 
+
+233
+00:05:10,240 --> 00:05:13,350
+high that it consume all resources
+all resources and even the tenants which
+
+234
+00:05:13,350 --> 00:05:13,360
+all resources and even the tenants which
+ 
+
+235
+00:05:13,360 --> 00:05:16,870
+all resources and even the tenants which
+are not like
+
+236
+00:05:16,870 --> 00:05:16,880
+are not like
+ 
+
+237
+00:05:16,880 --> 00:05:19,430
+are not like
+uh sending that much traffic or let's
+
+238
+00:05:19,430 --> 00:05:19,440
+uh sending that much traffic or let's
+ 
+
+239
+00:05:19,440 --> 00:05:22,230
+uh sending that much traffic or let's
+say they are just hitting one call but
+
+240
+00:05:22,230 --> 00:05:22,240
+say they are just hitting one call but
+ 
+
+241
+00:05:22,240 --> 00:05:25,110
+say they are just hitting one call but
+their request is denied because all of
+
+242
+00:05:25,110 --> 00:05:25,120
+their request is denied because all of
+ 
+
+243
+00:05:25,120 --> 00:05:29,110
+their request is denied because all of
+your resources are used by one tenant.
+
+244
+00:05:29,110 --> 00:05:29,120
+your resources are used by one tenant.
+ 
+
+245
+00:05:29,120 --> 00:05:31,510
+your resources are used by one tenant.
+That is known as noisy neighbor problem.
+
+246
+00:05:31,510 --> 00:05:31,520
+That is known as noisy neighbor problem.
+ 
+
+247
+00:05:31,520 --> 00:05:33,350
+That is known as noisy neighbor problem.
+That you have one neighbor which is very
+
+248
+00:05:33,350 --> 00:05:33,360
+That you have one neighbor which is very
+ 
+
+249
+00:05:33,360 --> 00:05:37,430
+That you have one neighbor which is very
+noisy or very very similar but you can
+
+250
+00:05:37,430 --> 00:05:37,440
+noisy or very very similar but you can
+ 
+
+251
+00:05:37,440 --> 00:05:41,270
+noisy or very very similar but you can
+say that the context is very uh narrow
+
+252
+00:05:41,270 --> 00:05:41,280
+say that the context is very uh narrow
+ 
+
+253
+00:05:41,280 --> 00:05:44,629
+say that the context is very uh narrow
+in this use case. Noisy neighbor context
+
+254
+00:05:44,629 --> 00:05:44,639
+in this use case. Noisy neighbor context
+ 
+
+255
+00:05:44,639 --> 00:05:48,629
+in this use case. Noisy neighbor context
+is big like it includes thread
+
+256
+00:05:48,629 --> 00:05:48,639
+is big like it includes thread
+ 
+
+257
+00:05:48,639 --> 00:05:50,230
+is big like it includes thread
+infrastructure
+
+258
+00:05:50,230 --> 00:05:50,240
+infrastructure
+ 
+
+259
+00:05:50,240 --> 00:05:51,749
+infrastructure
+resources
+
+260
+00:05:51,749 --> 00:05:51,759
+resources
+ 
+
+261
+00:05:51,759 --> 00:05:55,749
+resources
+DB like everything. If your tenant is
+
+262
+00:05:55,749 --> 00:05:55,759
+DB like everything. If your tenant is
+ 
+
+263
+00:05:55,759 --> 00:05:59,110
+DB like everything. If your tenant is
+res using the resources like consider
+
+264
+00:05:59,110 --> 00:05:59,120
+res using the resources like consider
+ 
+
+265
+00:05:59,120 --> 00:06:01,430
+res using the resources like consider
+everything DB resource infrastructures
+
+266
+00:06:01,430 --> 00:06:01,440
+everything DB resource infrastructures
+ 
+
+267
+00:06:01,440 --> 00:06:04,070
+everything DB resource infrastructures
+threads everything but here we are
+
+268
+00:06:04,070 --> 00:06:04,080
+threads everything but here we are
+ 
+
+269
+00:06:04,080 --> 00:06:06,550
+threads everything but here we are
+mostly talking about thread in this use
+
+270
+00:06:06,550 --> 00:06:06,560
+mostly talking about thread in this use
+ 
+
+271
+00:06:06,560 --> 00:06:10,390
+mostly talking about thread in this use
+case now consider this use case you will
+
+272
+00:06:10,390 --> 00:06:10,400
+case now consider this use case you will
+ 
+
+273
+00:06:10,400 --> 00:06:12,469
+case now consider this use case you will
+find very very similarity to noisy
+
+274
+00:06:12,469 --> 00:06:12,479
+find very very similarity to noisy
+ 
+
+275
+00:06:12,479 --> 00:06:15,670
+find very very similarity to noisy
+neighbor but the context is again I'm
+
+276
+00:06:15,670 --> 00:06:15,680
+neighbor but the context is again I'm
+ 
+
+277
+00:06:15,680 --> 00:06:18,150
+neighbor but the context is again I'm
+telling it's very narrow noisy neighbor
+
+278
+00:06:18,150 --> 00:06:18,160
+telling it's very narrow noisy neighbor
+ 
+
+279
+00:06:18,160 --> 00:06:21,990
+telling it's very narrow noisy neighbor
+problem context is very broader
+
+280
+00:06:21,990 --> 00:06:22,000
+problem context is very broader
+ 
+
+281
+00:06:22,000 --> 00:06:26,230
+problem context is very broader
+so let's say that API API 1 makes a
+
+282
+00:06:26,230 --> 00:06:26,240
+so let's say that API API 1 makes a
+ 
+
+283
+00:06:26,240 --> 00:06:28,870
+so let's say that API API 1 makes a
+downstream call to product service. So I
+
+284
+00:06:28,870 --> 00:06:28,880
+downstream call to product service. So I
+ 
+
+285
+00:06:28,880 --> 00:06:31,110
+downstream call to product service. So I
+have so this is our component order is
+
+286
+00:06:31,110 --> 00:06:31,120
+have so this is our component order is
+ 
+
+287
+00:06:31,120 --> 00:06:35,670
+have so this is our component order is
+our component and we have API 1 which
+
+288
+00:06:35,670 --> 00:06:35,680
+our component and we have API 1 which
+ 
+
+289
+00:06:35,680 --> 00:06:38,870
+our component and we have API 1 which
+when it get invoked it make a call to
+
+290
+00:06:38,870 --> 00:06:38,880
+when it get invoked it make a call to
+ 
+
+291
+00:06:38,880 --> 00:06:41,990
+when it get invoked it make a call to
+product service. Product service is very
+
+292
+00:06:41,990 --> 00:06:42,000
+product service. Product service is very
+ 
+
+293
+00:06:42,000 --> 00:06:45,670
+product service. Product service is very
+fast right? Product service returns the
+
+294
+00:06:45,670 --> 00:06:45,680
+fast right? Product service returns the
+ 
+
+295
+00:06:45,680 --> 00:06:47,670
+fast right? Product service returns the
+response in less than 100 millisecond
+
+296
+00:06:47,670 --> 00:06:47,680
+response in less than 100 millisecond
+ 
+
+297
+00:06:47,680 --> 00:06:50,790
+response in less than 100 millisecond
+only. So it's a very fast service. Okay.
+
+298
+00:06:50,790 --> 00:06:50,800
+only. So it's a very fast service. Okay.
+ 
+
+299
+00:06:50,800 --> 00:06:53,510
+only. So it's a very fast service. Okay.
+Now we have API 2
+
+300
+00:06:53,510 --> 00:06:53,520
+Now we have API 2
+ 
+
+301
+00:06:53,520 --> 00:06:56,309
+Now we have API 2
+and when this API got invoked it
+
+302
+00:06:56,309 --> 00:06:56,319
+and when this API got invoked it
+ 
+
+303
+00:06:56,319 --> 00:06:58,550
+and when this API got invoked it
+actually invokes internally payment
+
+304
+00:06:58,550 --> 00:06:58,560
+actually invokes internally payment
+ 
+
+305
+00:06:58,560 --> 00:07:00,870
+actually invokes internally payment
+service. Now this payment service is
+
+306
+00:07:00,870 --> 00:07:00,880
+service. Now this payment service is
+ 
+
+307
+00:07:00,880 --> 00:07:05,270
+service. Now this payment service is
+slow. It might take 5 second to process
+
+308
+00:07:05,270 --> 00:07:05,280
+slow. It might take 5 second to process
+ 
+
+309
+00:07:05,280 --> 00:07:07,270
+slow. It might take 5 second to process
+a request. Let's say it has to further
+
+310
+00:07:07,270 --> 00:07:07,280
+a request. Let's say it has to further
+ 
+
+311
+00:07:07,280 --> 00:07:11,670
+a request. Let's say it has to further
+go to third party uh endpoint but this
+
+312
+00:07:11,670 --> 00:07:11,680
+go to third party uh endpoint but this
+ 
+
+313
+00:07:11,680 --> 00:07:14,710
+go to third party uh endpoint but this
+is slow this is slow service and for API
+
+314
+00:07:14,710 --> 00:07:14,720
+is slow this is slow service and for API
+ 
+
+315
+00:07:14,720 --> 00:07:16,870
+is slow this is slow service and for API
+1 the product is fast service. This is
+
+316
+00:07:16,870 --> 00:07:16,880
+1 the product is fast service. This is
+ 
+
+317
+00:07:16,880 --> 00:07:20,070
+1 the product is fast service. This is
+our setup. Now let's say what if there
+
+318
+00:07:20,070 --> 00:07:20,080
+our setup. Now let's say what if there
+ 
+
+319
+00:07:20,080 --> 00:07:23,589
+our setup. Now let's say what if there
+is a sudden spike in API 2 traffic. What
+
+320
+00:07:23,589 --> 00:07:23,599
+is a sudden spike in API 2 traffic. What
+ 
+
+321
+00:07:23,599 --> 00:07:27,110
+is a sudden spike in API 2 traffic. What
+if there's a sudden spike in API 2
+
+322
+00:07:27,110 --> 00:07:27,120
+if there's a sudden spike in API 2
+ 
+
+323
+00:07:27,120 --> 00:07:30,390
+if there's a sudden spike in API 2
+traffic and it internally invoked the
+
+324
+00:07:30,390 --> 00:07:30,400
+traffic and it internally invoked the
+ 
+
+325
+00:07:30,400 --> 00:07:32,629
+traffic and it internally invoked the
+payment
+
+326
+00:07:32,629 --> 00:07:32,639
+payment
+ 
+
+327
+00:07:32,639 --> 00:07:37,110
+payment
+component which is slow. Now your thread
+
+328
+00:07:37,110 --> 00:07:37,120
+component which is slow. Now your thread
+ 
+
+329
+00:07:37,120 --> 00:07:40,150
+component which is slow. Now your thread
+got blocked for 5 second. Thread one got
+
+330
+00:07:40,150 --> 00:07:40,160
+got blocked for 5 second. Thread one got
+ 
+
+331
+00:07:40,160 --> 00:07:41,670
+got blocked for 5 second. Thread one got
+blocked for 5 second. Thread two got
+
+332
+00:07:41,670 --> 00:07:41,680
+blocked for 5 second. Thread two got
+ 
+
+333
+00:07:41,680 --> 00:07:43,749
+blocked for 5 second. Thread two got
+blocked for 5 seconds. Similarly your
+
+334
+00:07:43,749 --> 00:07:43,759
+blocked for 5 seconds. Similarly your
+ 
+
+335
+00:07:43,759 --> 00:07:47,029
+blocked for 5 seconds. Similarly your
+nth threads got blocked for 5 seconds.
+
+336
+00:07:47,029 --> 00:07:47,039
+nth threads got blocked for 5 seconds.
+ 
+
+337
+00:07:47,039 --> 00:07:50,790
+nth threads got blocked for 5 seconds.
+Okay. So when a sudden spike comes in
+
+338
+00:07:50,790 --> 00:07:50,800
+Okay. So when a sudden spike comes in
+ 
+
+339
+00:07:50,800 --> 00:07:53,589
+Okay. So when a sudden spike comes in
+API 2, more and more calls are made to
+
+340
+00:07:53,589 --> 00:07:53,599
+API 2, more and more calls are made to
+ 
+
+341
+00:07:53,599 --> 00:07:56,070
+API 2, more and more calls are made to
+payment service which is slow and it is
+
+342
+00:07:56,070 --> 00:07:56,080
+payment service which is slow and it is
+ 
+
+343
+00:07:56,080 --> 00:07:57,350
+payment service which is slow and it is
+possible that they might not be a
+
+344
+00:07:57,350 --> 00:07:57,360
+possible that they might not be a
+ 
+
+345
+00:07:57,360 --> 00:07:59,909
+possible that they might not be a
+concurrent but since this is a slow
+
+346
+00:07:59,909 --> 00:07:59,919
+concurrent but since this is a slow
+ 
+
+347
+00:07:59,919 --> 00:08:03,510
+concurrent but since this is a slow
+service it blocks your thread longer for
+
+348
+00:08:03,510 --> 00:08:03,520
+service it blocks your thread longer for
+ 
+
+349
+00:08:03,520 --> 00:08:06,070
+service it blocks your thread longer for
+5 second and more and it possible that
+
+350
+00:08:06,070 --> 00:08:06,080
+5 second and more and it possible that
+ 
+
+351
+00:08:06,080 --> 00:08:08,390
+5 second and more and it possible that
+your all threads of order service are
+
+352
+00:08:08,390 --> 00:08:08,400
+your all threads of order service are
+ 
+
+353
+00:08:08,400 --> 00:08:10,070
+your all threads of order service are
+now blocked. So let's say it has a
+
+354
+00:08:10,070 --> 00:08:10,080
+now blocked. So let's say it has a
+ 
+
+355
+00:08:10,080 --> 00:08:12,629
+now blocked. So let's say it has a
+thread pool of 10 threads and there is a
+
+356
+00:08:12,629 --> 00:08:12,639
+thread pool of 10 threads and there is a
+ 
+
+357
+00:08:12,639 --> 00:08:14,629
+thread pool of 10 threads and there is a
+certain spike comes in API 2. All 10
+
+358
+00:08:14,629 --> 00:08:14,639
+certain spike comes in API 2. All 10
+ 
+
+359
+00:08:14,639 --> 00:08:17,589
+certain spike comes in API 2. All 10
+threads are now blocked here.
+
+360
+00:08:17,589 --> 00:08:17,599
+threads are now blocked here.
+ 
+
+361
+00:08:17,599 --> 00:08:20,150
+threads are now blocked here.
+Okay. So there is no thread here. Just
+
+362
+00:08:20,150 --> 00:08:20,160
+Okay. So there is no thread here. Just
+ 
+
+363
+00:08:20,160 --> 00:08:23,270
+Okay. So there is no thread here. Just
+assume that. Now if any request comes to
+
+364
+00:08:23,270 --> 00:08:23,280
+assume that. Now if any request comes to
+ 
+
+365
+00:08:23,280 --> 00:08:27,589
+assume that. Now if any request comes to
+API 1. Okay. And this API 1 will it be
+
+366
+00:08:27,589 --> 00:08:27,599
+API 1. Okay. And this API 1 will it be
+ 
+
+367
+00:08:27,599 --> 00:08:29,510
+API 1. Okay. And this API 1 will it be
+able to fulfill it? No. There is no
+
+368
+00:08:29,510 --> 00:08:29,520
+able to fulfill it? No. There is no
+ 
+
+369
+00:08:29,520 --> 00:08:31,350
+able to fulfill it? No. There is no
+thread left
+
+370
+00:08:31,350 --> 00:08:31,360
+thread left
+ 
+
+371
+00:08:31,360 --> 00:08:34,149
+thread left
+in the thread pool.
+
+372
+00:08:34,149 --> 00:08:34,159
+in the thread pool.
+ 
+
+373
+00:08:34,159 --> 00:08:36,389
+in the thread pool.
+So either it has to wait or it will get
+
+374
+00:08:36,389 --> 00:08:36,399
+So either it has to wait or it will get
+ 
+
+375
+00:08:36,399 --> 00:08:38,870
+So either it has to wait or it will get
+rejected.
+
+376
+00:08:38,870 --> 00:08:38,880
+rejected.
+ 
+
+377
+00:08:38,880 --> 00:08:42,310
+rejected.
+So even though
+
+378
+00:08:42,310 --> 00:08:42,320
+So even though
+ 
+
+379
+00:08:42,320 --> 00:08:45,190
+So even though
+it invokes a very fast service there is
+
+380
+00:08:45,190 --> 00:08:45,200
+it invokes a very fast service there is
+ 
+
+381
+00:08:45,200 --> 00:08:47,990
+it invokes a very fast service there is
+not much traffic to API 1 but still it
+
+382
+00:08:47,990 --> 00:08:48,000
+not much traffic to API 1 but still it
+ 
+
+383
+00:08:48,000 --> 00:08:52,070
+not much traffic to API 1 but still it
+gets suffer because of API 2.
+
+384
+00:08:52,070 --> 00:08:52,080
+gets suffer because of API 2.
+ 
+
+385
+00:08:52,080 --> 00:08:55,829
+gets suffer because of API 2.
+So you can say that
+
+386
+00:08:55,829 --> 00:08:55,839
+
+ 
+
+387
+00:08:55,839 --> 00:08:59,190
+
+we can so you remember there is a ship
+
+388
+00:08:59,190 --> 00:08:59,200
+we can so you remember there is a ship
+ 
+
+389
+00:08:59,200 --> 00:09:02,550
+we can so you remember there is a ship
+concept so in a ship there are different
+
+390
+00:09:02,550 --> 00:09:02,560
+concept so in a ship there are different
+ 
+
+391
+00:09:02,560 --> 00:09:04,550
+concept so in a ship there are different
+compartments.
+
+392
+00:09:04,550 --> 00:09:04,560
+compartments.
+ 
+
+393
+00:09:04,560 --> 00:09:07,110
+compartments.
+So if water fills up into one of the
+
+394
+00:09:07,110 --> 00:09:07,120
+So if water fills up into one of the
+ 
+
+395
+00:09:07,120 --> 00:09:10,389
+So if water fills up into one of the
+compartment they block it so that water
+
+396
+00:09:10,389 --> 00:09:10,399
+compartment they block it so that water
+ 
+
+397
+00:09:10,399 --> 00:09:13,110
+compartment they block it so that water
+do not spill over into rest of the
+
+398
+00:09:13,110 --> 00:09:13,120
+do not spill over into rest of the
+ 
+
+399
+00:09:13,120 --> 00:09:15,509
+do not spill over into rest of the
+compartment. So very very similar
+
+400
+00:09:15,509 --> 00:09:15,519
+compartment. So very very similar
+ 
+
+401
+00:09:15,519 --> 00:09:18,790
+compartment. So very very similar
+concept is used in the use case two if
+
+402
+00:09:18,790 --> 00:09:18,800
+concept is used in the use case two if
+ 
+
+403
+00:09:18,800 --> 00:09:22,150
+concept is used in the use case two if
+your so they will put a limit they will
+
+404
+00:09:22,150 --> 00:09:22,160
+your so they will put a limit they will
+ 
+
+405
+00:09:22,160 --> 00:09:24,710
+your so they will put a limit they will
+put a limit or you can say that thread
+
+406
+00:09:24,710 --> 00:09:24,720
+put a limit or you can say that thread
+ 
+
+407
+00:09:24,720 --> 00:09:28,870
+put a limit or you can say that thread
+pool so they limit a threads hey API 2
+
+408
+00:09:28,870 --> 00:09:28,880
+pool so they limit a threads hey API 2
+ 
+
+409
+00:09:28,880 --> 00:09:31,509
+pool so they limit a threads hey API 2
+they I know that you are invoking an
+
+410
+00:09:31,509 --> 00:09:31,519
+they I know that you are invoking an
+ 
+
+411
+00:09:31,519 --> 00:09:34,470
+they I know that you are invoking an
+endpoint which is very slow
+
+412
+00:09:34,470 --> 00:09:34,480
+endpoint which is very slow
+ 
+
+413
+00:09:34,480 --> 00:09:37,190
+endpoint which is very slow
+so I give you only max five threads
+
+414
+00:09:37,190 --> 00:09:37,200
+so I give you only max five threads
+ 
+
+415
+00:09:37,200 --> 00:09:39,910
+so I give you only max five threads
+let's say you can't use more threads
+
+416
+00:09:39,910 --> 00:09:39,920
+let's say you can't use more threads
+ 
+
+417
+00:09:39,920 --> 00:09:41,750
+let's say you can't use more threads
+than that
+
+418
+00:09:41,750 --> 00:09:41,760
+than that
+ 
+
+419
+00:09:41,760 --> 00:09:44,070
+than that
+okay so even though I have total 10
+
+420
+00:09:44,070 --> 00:09:44,080
+okay so even though I have total 10
+ 
+
+421
+00:09:44,080 --> 00:09:47,110
+okay so even though I have total 10
+threads in my order thread pool we I
+
+422
+00:09:47,110 --> 00:09:47,120
+threads in my order thread pool we I
+ 
+
+423
+00:09:47,120 --> 00:09:49,110
+threads in my order thread pool we I
+have only allocated five threads to API
+
+424
+00:09:49,110 --> 00:09:49,120
+have only allocated five threads to API
+ 
+
+425
+00:09:49,120 --> 00:09:52,070
+have only allocated five threads to API
+2 not more than that
+
+426
+00:09:52,070 --> 00:09:52,080
+2 not more than that
+ 
+
+427
+00:09:52,080 --> 00:09:55,269
+2 not more than that
+okay so I have and if let's say suddenly
+
+428
+00:09:55,269 --> 00:09:55,279
+okay so I have and if let's say suddenly
+ 
+
+429
+00:09:55,279 --> 00:09:57,910
+okay so I have and if let's say suddenly
+more requests coming in the API to more
+
+430
+00:09:57,910 --> 00:09:57,920
+more requests coming in the API to more
+ 
+
+431
+00:09:57,920 --> 00:10:00,790
+more requests coming in the API to more
+than five either they have to waited or
+
+432
+00:10:00,790 --> 00:10:00,800
+than five either they have to waited or
+ 
+
+433
+00:10:00,800 --> 00:10:03,430
+than five either they have to waited or
+get rejected because the max I can
+
+434
+00:10:03,430 --> 00:10:03,440
+get rejected because the max I can
+ 
+
+435
+00:10:03,440 --> 00:10:06,150
+get rejected because the max I can
+allocate is fifth so you can say that
+
+436
+00:10:06,150 --> 00:10:06,160
+allocate is fifth so you can say that
+ 
+
+437
+00:10:06,160 --> 00:10:08,630
+allocate is fifth so you can say that
+similar to this one I have provided a
+
+438
+00:10:08,630 --> 00:10:08,640
+similar to this one I have provided a
+ 
+
+439
+00:10:08,640 --> 00:10:10,550
+similar to this one I have provided a
+limit
+
+440
+00:10:10,550 --> 00:10:10,560
+limit
+ 
+
+441
+00:10:10,560 --> 00:10:13,829
+limit
+okay so that only resource I can provide
+
+442
+00:10:13,829 --> 00:10:13,839
+okay so that only resource I can provide
+ 
+
+443
+00:10:13,839 --> 00:10:15,670
+okay so that only resource I can provide
+you man.
+
+444
+00:10:15,670 --> 00:10:15,680
+you man.
+ 
+
+445
+00:10:15,680 --> 00:10:17,829
+you man.
+Okay. So that my other endpoint do not
+
+446
+00:10:17,829 --> 00:10:17,839
+Okay. So that my other endpoint do not
+ 
+
+447
+00:10:17,839 --> 00:10:20,069
+Okay. So that my other endpoint do not
+suffer.
+
+448
+00:10:20,069 --> 00:10:20,079
+suffer.
+ 
+
+449
+00:10:20,079 --> 00:10:23,590
+suffer.
+So you understand this use case.
+
+450
+00:10:23,590 --> 00:10:23,600
+So you understand this use case.
+ 
+
+451
+00:10:23,600 --> 00:10:26,069
+So you understand this use case.
+Whenever we have multiple endpoint and
+
+452
+00:10:26,069 --> 00:10:26,079
+Whenever we have multiple endpoint and
+ 
+
+453
+00:10:26,079 --> 00:10:28,550
+Whenever we have multiple endpoint and
+one of the end point we have to make
+
+454
+00:10:28,550 --> 00:10:28,560
+one of the end point we have to make
+ 
+
+455
+00:10:28,560 --> 00:10:31,750
+one of the end point we have to make
+sure that it do not consume all the
+
+456
+00:10:31,750 --> 00:10:31,760
+sure that it do not consume all the
+ 
+
+457
+00:10:31,760 --> 00:10:33,750
+sure that it do not consume all the
+resources
+
+458
+00:10:33,750 --> 00:10:33,760
+resources
+ 
+
+459
+00:10:33,760 --> 00:10:36,550
+resources
+then bulkhead can be used and it has a
+
+460
+00:10:36,550 --> 00:10:36,560
+then bulkhead can be used and it has a
+ 
+
+461
+00:10:36,560 --> 00:10:39,190
+then bulkhead can be used and it has a
+thread pool bulk ahead type. So this is
+
+462
+00:10:39,190 --> 00:10:39,200
+thread pool bulk ahead type. So this is
+ 
+
+463
+00:10:39,200 --> 00:10:40,949
+thread pool bulk ahead type. So this is
+the second type of bulkhead thread pool
+
+464
+00:10:40,949 --> 00:10:40,959
+the second type of bulkhead thread pool
+ 
+
+465
+00:10:40,959 --> 00:10:43,990
+the second type of bulkhead thread pool
+bulkhead through which we can limit the
+
+466
+00:10:43,990 --> 00:10:44,000
+bulkhead through which we can limit the
+ 
+
+467
+00:10:44,000 --> 00:10:48,870
+bulkhead through which we can limit the
+resource to a particular endpoint.
+
+468
+00:10:48,870 --> 00:10:48,880
+
+ 
+
+469
+00:10:48,880 --> 00:10:52,150
+
+Okay. So we'll see that also.
+
+470
+00:10:52,150 --> 00:10:52,160
+Okay. So we'll see that also.
+ 
+
+471
+00:10:52,160 --> 00:10:54,870
+Okay. So we'll see that also.
+So these are the two types. Sema for
+
+472
+00:10:54,870 --> 00:10:54,880
+So these are the two types. Sema for
+ 
+
+473
+00:10:54,880 --> 00:10:57,509
+So these are the two types. Sema for
+bulkhead threadpool bulkhead. Let's go
+
+474
+00:10:57,509 --> 00:10:57,519
+bulkhead threadpool bulkhead. Let's go
+ 
+
+475
+00:10:57,519 --> 00:11:01,829
+bulkhead threadpool bulkhead. Let's go
+one by one. So sema for bulkhead
+
+476
+00:11:01,829 --> 00:11:01,839
+one by one. So sema for bulkhead
+ 
+
+477
+00:11:01,839 --> 00:11:03,910
+one by one. So sema for bulkhead
+limit the number of concurrent calls
+
+478
+00:11:03,910 --> 00:11:03,920
+limit the number of concurrent calls
+ 
+
+479
+00:11:03,920 --> 00:11:05,990
+limit the number of concurrent calls
+using counter.
+
+480
+00:11:05,990 --> 00:11:06,000
+using counter.
+ 
+
+481
+00:11:06,000 --> 00:11:09,670
+using counter.
+Okay. So you have this API,
+
+482
+00:11:09,670 --> 00:11:09,680
+Okay. So you have this API,
+ 
+
+483
+00:11:09,680 --> 00:11:13,509
+Okay. So you have this API,
+you have this product service.
+
+484
+00:11:13,509 --> 00:11:13,519
+you have this product service.
+ 
+
+485
+00:11:13,519 --> 00:11:16,550
+you have this product service.
+So max three concurrent calls, fourth
+
+486
+00:11:16,550 --> 00:11:16,560
+So max three concurrent calls, fourth
+ 
+
+487
+00:11:16,560 --> 00:11:19,829
+So max three concurrent calls, fourth
+one should be rejected. So at a time
+
+488
+00:11:19,829 --> 00:11:19,839
+one should be rejected. So at a time
+ 
+
+489
+00:11:19,839 --> 00:11:23,910
+one should be rejected. So at a time
+three calls can go into your critical
+
+490
+00:11:23,910 --> 00:11:23,920
+three calls can go into your critical
+ 
+
+491
+00:11:23,920 --> 00:11:26,150
+three calls can go into your critical
+section.
+
+492
+00:11:26,150 --> 00:11:26,160
+section.
+ 
+
+493
+00:11:26,160 --> 00:11:28,069
+section.
+You can say that critical section.
+
+494
+00:11:28,069 --> 00:11:28,079
+You can say that critical section.
+ 
+
+495
+00:11:28,079 --> 00:11:30,069
+You can say that critical section.
+Critical section here is the one where
+
+496
+00:11:30,069 --> 00:11:30,079
+Critical section here is the one where
+ 
+
+497
+00:11:30,079 --> 00:11:32,790
+Critical section here is the one where
+we are invoking the API.
+
+498
+00:11:32,790 --> 00:11:32,800
+we are invoking the API.
+ 
+
+499
+00:11:32,800 --> 00:11:34,710
+we are invoking the API.
+The one where we are invoking the API.
+
+500
+00:11:34,710 --> 00:11:34,720
+The one where we are invoking the API.
+ 
+
+501
+00:11:34,720 --> 00:11:35,990
+The one where we are invoking the API.
+Consider that that is our critical
+
+502
+00:11:35,990 --> 00:11:36,000
+Consider that that is our critical
+ 
+
+503
+00:11:36,000 --> 00:11:38,230
+Consider that that is our critical
+section. So three calls are allowed,
+
+504
+00:11:38,230 --> 00:11:38,240
+section. So three calls are allowed,
+ 
+
+505
+00:11:38,240 --> 00:11:40,310
+section. So three calls are allowed,
+three threads are allowed, the fourth
+
+506
+00:11:40,310 --> 00:11:40,320
+three threads are allowed, the fourth
+ 
+
+507
+00:11:40,320 --> 00:11:42,150
+three threads are allowed, the fourth
+thread it has to wait till one of them
+
+508
+00:11:42,150 --> 00:11:42,160
+thread it has to wait till one of them
+ 
+
+509
+00:11:42,160 --> 00:11:45,670
+thread it has to wait till one of them
+get is free. Okay. So if you understand
+
+510
+00:11:45,670 --> 00:11:45,680
+get is free. Okay. So if you understand
+ 
+
+511
+00:11:45,680 --> 00:11:47,190
+get is free. Okay. So if you understand
+the bul if you need to understand the
+
+512
+00:11:47,190 --> 00:11:47,200
+the bul if you need to understand the
+ 
+
+513
+00:11:47,200 --> 00:11:49,430
+the bul if you need to understand the
+bulkhead understand more like a thread
+
+514
+00:11:49,430 --> 00:11:49,440
+bulkhead understand more like a thread
+ 
+
+515
+00:11:49,440 --> 00:11:53,350
+bulkhead understand more like a thread
+pools and all. So in that case
+
+516
+00:11:53,350 --> 00:11:53,360
+pools and all. So in that case
+ 
+
+517
+00:11:53,360 --> 00:11:55,110
+pools and all. So in that case
+it would be easy to understand. So when
+
+518
+00:11:55,110 --> 00:11:55,120
+it would be easy to understand. So when
+ 
+
+519
+00:11:55,120 --> 00:11:57,110
+it would be easy to understand. So when
+I say that three calls so just that only
+
+520
+00:11:57,110 --> 00:11:57,120
+I say that three calls so just that only
+ 
+
+521
+00:11:57,120 --> 00:11:59,829
+I say that three calls so just that only
+we have a three threads. Okay. So only
+
+522
+00:11:59,829 --> 00:11:59,839
+we have a three threads. Okay. So only
+ 
+
+523
+00:11:59,839 --> 00:12:02,470
+we have a three threads. Okay. So only
+three concurrent request max can go to
+
+524
+00:12:02,470 --> 00:12:02,480
+three concurrent request max can go to
+ 
+
+525
+00:12:02,480 --> 00:12:04,630
+three concurrent request max can go to
+this critical section. The fourth one it
+
+526
+00:12:04,630 --> 00:12:04,640
+this critical section. The fourth one it
+ 
+
+527
+00:12:04,640 --> 00:12:06,550
+this critical section. The fourth one it
+will get rejected because there is no
+
+528
+00:12:06,550 --> 00:12:06,560
+will get rejected because there is no
+ 
+
+529
+00:12:06,560 --> 00:12:08,790
+will get rejected because there is no
+thread left.
+
+530
+00:12:08,790 --> 00:12:08,800
+thread left.
+ 
+
+531
+00:12:08,800 --> 00:12:11,990
+thread left.
+Now why the name simma 4? Because the
+
+532
+00:12:11,990 --> 00:12:12,000
+Now why the name simma 4? Because the
+ 
+
+533
+00:12:12,000 --> 00:12:16,949
+Now why the name simma 4? Because the
+counter how it manage that only three
+
+534
+00:12:16,949 --> 00:12:16,959
+counter how it manage that only three
+ 
+
+535
+00:12:16,959 --> 00:12:20,389
+counter how it manage that only three
+requests can go. So it uses a sema 4
+
+536
+00:12:20,389 --> 00:12:20,399
+requests can go. So it uses a sema 4
+ 
+
+537
+00:12:20,399 --> 00:12:22,790
+requests can go. So it uses a sema 4
+locking strategy. So if you following
+
+538
+00:12:22,790 --> 00:12:22,800
+locking strategy. So if you following
+ 
+
+539
+00:12:22,800 --> 00:12:25,430
+locking strategy. So if you following
+the Java playlist also in that
+
+540
+00:12:25,430 --> 00:12:25,440
+the Java playlist also in that
+ 
+
+541
+00:12:25,440 --> 00:12:28,710
+the Java playlist also in that
+multi-threading series I have told about
+
+542
+00:12:28,710 --> 00:12:28,720
+multi-threading series I have told about
+ 
+
+543
+00:12:28,720 --> 00:12:31,670
+multi-threading series I have told about
+the sema 4 locks. In that I have
+
+544
+00:12:31,670 --> 00:12:31,680
+the sema 4 locks. In that I have
+ 
+
+545
+00:12:31,680 --> 00:12:34,949
+the sema 4 locks. In that I have
+explained like how simma 4
+
+546
+00:12:34,949 --> 00:12:34,959
+explained like how simma 4
+ 
+
+547
+00:12:34,959 --> 00:12:37,590
+explained like how simma 4
+manage the counter that allow three
+
+548
+00:12:37,590 --> 00:12:37,600
+manage the counter that allow three
+ 
+
+549
+00:12:37,600 --> 00:12:39,590
+manage the counter that allow three
+calls or four calls or five calls
+
+550
+00:12:39,590 --> 00:12:39,600
+calls or four calls or five calls
+ 
+
+551
+00:12:39,600 --> 00:12:41,670
+calls or four calls or five calls
+whatever the number we will give that
+
+552
+00:12:41,670 --> 00:12:41,680
+whatever the number we will give that
+ 
+
+553
+00:12:41,680 --> 00:12:43,670
+whatever the number we will give that
+many
+
+554
+00:12:43,670 --> 00:12:43,680
+many
+ 
+
+555
+00:12:43,680 --> 00:12:45,269
+many
+request can goes into a critical
+
+556
+00:12:45,269 --> 00:12:45,279
+request can goes into a critical
+ 
+
+557
+00:12:45,279 --> 00:12:46,870
+request can goes into a critical
+section.
+
+558
+00:12:46,870 --> 00:12:46,880
+section.
+ 
+
+559
+00:12:46,880 --> 00:12:52,629
+section.
+So internally it uses a sema 4 lock.
+
+560
+00:12:52,629 --> 00:12:52,639
+So internally it uses a sema 4 lock.
+ 
+
+561
+00:12:52,639 --> 00:12:54,949
+So internally it uses a sema 4 lock.
+Okay. So kindly have a look if you have
+
+562
+00:12:54,949 --> 00:12:54,959
+Okay. So kindly have a look if you have
+ 
+
+563
+00:12:54,959 --> 00:12:57,670
+Okay. So kindly have a look if you have
+any doubt with the simma 4 how a simma 4
+
+564
+00:12:57,670 --> 00:12:57,680
+any doubt with the simma 4 how a simma 4
+ 
+
+565
+00:12:57,680 --> 00:13:00,949
+any doubt with the simma 4 how a simma 4
+locking works how it allow
+
+566
+00:13:00,949 --> 00:13:00,959
+locking works how it allow
+ 
+
+567
+00:13:00,959 --> 00:13:05,910
+locking works how it allow
+n number of concurrent calls. Okay
+
+568
+00:13:05,910 --> 00:13:05,920
+n number of concurrent calls. Okay
+ 
+
+569
+00:13:05,920 --> 00:13:07,829
+n number of concurrent calls. Okay
+so in short limit the number of
+
+570
+00:13:07,829 --> 00:13:07,839
+so in short limit the number of
+ 
+
+571
+00:13:07,839 --> 00:13:10,230
+so in short limit the number of
+concurrent call using counter and here
+
+572
+00:13:10,230 --> 00:13:10,240
+concurrent call using counter and here
+ 
+
+573
+00:13:10,240 --> 00:13:13,350
+concurrent call using counter and here
+internally it uses simma for log if the
+
+574
+00:13:13,350 --> 00:13:13,360
+internally it uses simma for log if the
+ 
+
+575
+00:13:13,360 --> 00:13:14,870
+internally it uses simma for log if the
+limit is reached further calls are
+
+576
+00:13:14,870 --> 00:13:14,880
+limit is reached further calls are
+ 
+
+577
+00:13:14,880 --> 00:13:17,110
+limit is reached further calls are
+rejected immediately or block for a
+
+578
+00:13:17,110 --> 00:13:17,120
+rejected immediately or block for a
+ 
+
+579
+00:13:17,120 --> 00:13:21,430
+rejected immediately or block for a
+specific wait time. Let's see that the
+
+580
+00:13:21,430 --> 00:13:21,440
+specific wait time. Let's see that the
+ 
+
+581
+00:13:21,440 --> 00:13:23,030
+specific wait time. Let's see that the
+first thing first like we did in the
+
+582
+00:13:23,030 --> 00:13:23,040
+first thing first like we did in the
+ 
+
+583
+00:13:23,040 --> 00:13:26,310
+first thing first like we did in the
+rate limiter we have to add a dependency
+
+584
+00:13:26,310 --> 00:13:26,320
+rate limiter we have to add a dependency
+ 
+
+585
+00:13:26,320 --> 00:13:27,750
+rate limiter we have to add a dependency
+only we have to add a dependency of
+
+586
+00:13:27,750 --> 00:13:27,760
+only we have to add a dependency of
+ 
+
+587
+00:13:27,760 --> 00:13:29,509
+only we have to add a dependency of
+resilience 4j that's all because
+
+588
+00:13:29,509 --> 00:13:29,519
+resilience 4j that's all because
+ 
+
+589
+00:13:29,519 --> 00:13:32,310
+resilience 4j that's all because
+resilience 4j provide us multiple fall
+
+590
+00:13:32,310 --> 00:13:32,320
+resilience 4j provide us multiple fall
+ 
+
+591
+00:13:32,320 --> 00:13:35,110
+resilience 4j provide us multiple fall
+tolerance like rate limiter bulk ahead
+
+592
+00:13:35,110 --> 00:13:35,120
+tolerance like rate limiter bulk ahead
+ 
+
+593
+00:13:35,120 --> 00:13:37,350
+tolerance like rate limiter bulk ahead
+retry circuit breaker and all so we
+
+594
+00:13:37,350 --> 00:13:37,360
+retry circuit breaker and all so we
+ 
+
+595
+00:13:37,360 --> 00:13:39,590
+retry circuit breaker and all so we
+don't have to individually download the
+
+596
+00:13:39,590 --> 00:13:39,600
+don't have to individually download the
+ 
+
+597
+00:13:39,600 --> 00:13:41,590
+don't have to individually download the
+dependencies resilience forj dependency
+
+598
+00:13:41,590 --> 00:13:41,600
+dependencies resilience forj dependency
+ 
+
+599
+00:13:41,600 --> 00:13:43,269
+dependencies resilience forj dependency
+is enough
+
+600
+00:13:43,269 --> 00:13:43,279
+is enough
+ 
+
+601
+00:13:43,279 --> 00:13:45,990
+is enough
+this is just a controller like we have
+
+602
+00:13:45,990 --> 00:13:46,000
+this is just a controller like we have
+ 
+
+603
+00:13:46,000 --> 00:13:49,350
+this is just a controller like we have
+normal no change the f client I am using
+
+604
+00:13:49,350 --> 00:13:49,360
+normal no change the f client I am using
+ 
+
+605
+00:13:49,360 --> 00:13:52,069
+normal no change the f client I am using
+yeah so controller is invoking the
+
+606
+00:13:52,069 --> 00:13:52,079
+yeah so controller is invoking the
+ 
+
+607
+00:13:52,079 --> 00:13:55,190
+yeah so controller is invoking the
+product service method invoke product
+
+608
+00:13:55,190 --> 00:13:55,200
+product service method invoke product
+ 
+
+609
+00:13:55,200 --> 00:13:58,230
+product service method invoke product
+API okay so let's say that this is the
+
+610
+00:13:58,230 --> 00:13:58,240
+API okay so let's say that this is the
+ 
+
+611
+00:13:58,240 --> 00:14:00,710
+API okay so let's say that this is the
+place where I'm actually invoking my
+
+612
+00:14:00,710 --> 00:14:00,720
+place where I'm actually invoking my
+ 
+
+613
+00:14:00,720 --> 00:14:04,550
+place where I'm actually invoking my
+other application product
+
+614
+00:14:04,550 --> 00:14:04,560
+other application product
+ 
+
+615
+00:14:04,560 --> 00:14:08,790
+other application product
+here it has one endpoint API okay and
+
+616
+00:14:08,790 --> 00:14:08,800
+here it has one endpoint API okay and
+ 
+
+617
+00:14:08,800 --> 00:14:11,189
+here it has one endpoint API okay and
+this is my order component
+
+618
+00:14:11,189 --> 00:14:11,199
+this is my order component
+ 
+
+619
+00:14:11,199 --> 00:14:12,870
+this is my order component
+and
+
+620
+00:14:12,870 --> 00:14:12,880
+and
+ 
+
+621
+00:14:12,880 --> 00:14:15,590
+and
+I am trying to invoke the product call
+
+622
+00:14:15,590 --> 00:14:15,600
+I am trying to invoke the product call
+ 
+
+623
+00:14:15,600 --> 00:14:18,150
+I am trying to invoke the product call
+that's the this.
+
+624
+00:14:18,150 --> 00:14:18,160
+that's the this.
+ 
+
+625
+00:14:18,160 --> 00:14:20,870
+that's the this.
+So here I'm just invoking it very normal
+
+626
+00:14:20,870 --> 00:14:20,880
+So here I'm just invoking it very normal
+ 
+
+627
+00:14:20,880 --> 00:14:23,590
+So here I'm just invoking it very normal
+using faint line no nothing difference
+
+628
+00:14:23,590 --> 00:14:23,600
+using faint line no nothing difference
+ 
+
+629
+00:14:23,600 --> 00:14:26,069
+using faint line no nothing difference
+but now this annotation I have put on
+
+630
+00:14:26,069 --> 00:14:26,079
+but now this annotation I have put on
+ 
+
+631
+00:14:26,079 --> 00:14:29,910
+but now this annotation I have put on
+top of it at the rate bulk ahead uh
+
+632
+00:14:29,910 --> 00:14:29,920
+top of it at the rate bulk ahead uh
+ 
+
+633
+00:14:29,920 --> 00:14:32,069
+top of it at the rate bulk ahead uh
+bulkhead
+
+634
+00:14:32,069 --> 00:14:32,079
+bulkhead
+ 
+
+635
+00:14:32,079 --> 00:14:36,230
+bulkhead
+give a name to this what is the type of
+
+636
+00:14:36,230 --> 00:14:36,240
+give a name to this what is the type of
+ 
+
+637
+00:14:36,240 --> 00:14:38,470
+give a name to this what is the type of
+bulkhead you want to use so I want to
+
+638
+00:14:38,470 --> 00:14:38,480
+bulkhead you want to use so I want to
+ 
+
+639
+00:14:38,480 --> 00:14:41,829
+bulkhead you want to use so I want to
+use bulkhead type dot sema 4
+
+640
+00:14:41,829 --> 00:14:41,839
+use bulkhead type dot sema 4
+ 
+
+641
+00:14:41,839 --> 00:14:45,990
+use bulkhead type dot sema 4
+okay and what is the fallback method
+
+642
+00:14:45,990 --> 00:14:46,000
+okay and what is the fallback method
+ 
+
+643
+00:14:46,000 --> 00:14:48,389
+okay and what is the fallback method
+if there is any thing happen. Let's say
+
+644
+00:14:48,389 --> 00:14:48,399
+if there is any thing happen. Let's say
+ 
+
+645
+00:14:48,399 --> 00:14:50,790
+if there is any thing happen. Let's say
+that Sema 4 if it reached the limit
+
+646
+00:14:50,790 --> 00:14:50,800
+that Sema 4 if it reached the limit
+ 
+
+647
+00:14:50,800 --> 00:14:52,790
+that Sema 4 if it reached the limit
+three concurrent request fourth comes
+
+648
+00:14:52,790 --> 00:14:52,800
+three concurrent request fourth comes
+ 
+
+649
+00:14:52,800 --> 00:14:56,629
+three concurrent request fourth comes
+which get uh either cued or failed. So
+
+650
+00:14:56,629 --> 00:14:56,639
+which get uh either cued or failed. So
+ 
+
+651
+00:14:56,639 --> 00:14:58,949
+which get uh either cued or failed. So
+once it is failed it move to the fall
+
+652
+00:14:58,949 --> 00:14:58,959
+once it is failed it move to the fall
+ 
+
+653
+00:14:58,959 --> 00:15:03,910
+once it is failed it move to the fall
+back method this one.
+
+654
+00:15:03,910 --> 00:15:03,920
+
+ 
+
+655
+00:15:03,920 --> 00:15:06,310
+
+Now what will happen here is also uh so
+
+656
+00:15:06,310 --> 00:15:06,320
+Now what will happen here is also uh so
+ 
+
+657
+00:15:06,320 --> 00:15:07,829
+Now what will happen here is also uh so
+this one is simple right we have to just
+
+658
+00:15:07,829 --> 00:15:07,839
+this one is simple right we have to just
+ 
+
+659
+00:15:07,839 --> 00:15:09,990
+this one is simple right we have to just
+put annotation we will see how it works.
+
+660
+00:15:09,990 --> 00:15:10,000
+put annotation we will see how it works.
+ 
+
+661
+00:15:10,000 --> 00:15:11,350
+put annotation we will see how it works.
+So now let's see that
+
+662
+00:15:11,350 --> 00:15:11,360
+So now let's see that
+ 
+
+663
+00:15:11,360 --> 00:15:13,030
+So now let's see that
+application.properties
+
+664
+00:15:13,030 --> 00:15:13,040
+application.properties
+ 
+
+665
+00:15:13,040 --> 00:15:15,509
+application.properties
+in application.properties we have to put
+
+666
+00:15:15,509 --> 00:15:15,519
+in application.properties we have to put
+ 
+
+667
+00:15:15,519 --> 00:15:18,790
+in application.properties we have to put
+resilience 4j.bulcad bulk.instance
+
+668
+00:15:18,790 --> 00:15:18,800
+resilience 4j.bulcad bulk.instance
+ 
+
+669
+00:15:18,800 --> 00:15:22,550
+resilience 4j.bulcad bulk.instance
+the name we have given here the bulkhead
+
+670
+00:15:22,550 --> 00:15:22,560
+the name we have given here the bulkhead
+ 
+
+671
+00:15:22,560 --> 00:15:25,670
+the name we have given here the bulkhead
+name what is the maximum concurrent call
+
+672
+00:15:25,670 --> 00:15:25,680
+name what is the maximum concurrent call
+ 
+
+673
+00:15:25,680 --> 00:15:29,110
+name what is the maximum concurrent call
+is two maximum concurrent call means
+
+674
+00:15:29,110 --> 00:15:29,120
+is two maximum concurrent call means
+ 
+
+675
+00:15:29,120 --> 00:15:31,350
+is two maximum concurrent call means
+maximum
+
+676
+00:15:31,350 --> 00:15:31,360
+maximum
+ 
+
+677
+00:15:31,360 --> 00:15:33,509
+maximum
+concurrent threads
+
+678
+00:15:33,509 --> 00:15:33,519
+concurrent threads
+ 
+
+679
+00:15:33,519 --> 00:15:35,509
+concurrent threads
+are allowed into a critical section so
+
+680
+00:15:35,509 --> 00:15:35,519
+are allowed into a critical section so
+ 
+
+681
+00:15:35,519 --> 00:15:40,550
+are allowed into a critical section so
+this is considered my critical section
+
+682
+00:15:40,550 --> 00:15:40,560
+
+ 
+
+683
+00:15:40,560 --> 00:15:43,110
+
+maximum threads can go inside which can
+
+684
+00:15:43,110 --> 00:15:43,120
+maximum threads can go inside which can
+ 
+
+685
+00:15:43,120 --> 00:15:46,389
+maximum threads can go inside which can
+invoke the product API
+
+686
+00:15:46,389 --> 00:15:46,399
+invoke the product API
+ 
+
+687
+00:15:46,399 --> 00:15:49,350
+invoke the product API
+Okay. So maximum I want is two not more
+
+688
+00:15:49,350 --> 00:15:49,360
+Okay. So maximum I want is two not more
+ 
+
+689
+00:15:49,360 --> 00:15:52,310
+Okay. So maximum I want is two not more
+than that. And there is something called
+
+690
+00:15:52,310 --> 00:15:52,320
+than that. And there is something called
+ 
+
+691
+00:15:52,320 --> 00:15:54,310
+than that. And there is something called
+max weight duration. Currently I put it
+
+692
+00:15:54,310 --> 00:15:54,320
+max weight duration. Currently I put it
+ 
+
+693
+00:15:54,320 --> 00:15:56,629
+max weight duration. Currently I put it
+zero means fail it immediately. Don't
+
+694
+00:15:56,629 --> 00:15:56,639
+zero means fail it immediately. Don't
+ 
+
+695
+00:15:56,639 --> 00:15:59,670
+zero means fail it immediately. Don't
+even wait it. If there is no thread left
+
+696
+00:15:59,670 --> 00:15:59,680
+even wait it. If there is no thread left
+ 
+
+697
+00:15:59,680 --> 00:16:02,230
+even wait it. If there is no thread left
+fail it immediately and call the product
+
+698
+00:16:02,230 --> 00:16:02,240
+fail it immediately and call the product
+ 
+
+699
+00:16:02,240 --> 00:16:06,230
+fail it immediately and call the product
+fallback method. But if you want that
+
+700
+00:16:06,230 --> 00:16:06,240
+fallback method. But if you want that
+ 
+
+701
+00:16:06,240 --> 00:16:09,189
+fallback method. But if you want that
+hey it should not fail immediately then
+
+702
+00:16:09,189 --> 00:16:09,199
+hey it should not fail immediately then
+ 
+
+703
+00:16:09,199 --> 00:16:13,189
+hey it should not fail immediately then
+you can provide some values here like
+
+704
+00:16:13,189 --> 00:16:13,199
+you can provide some values here like
+ 
+
+705
+00:16:13,199 --> 00:16:15,749
+you can provide some values here like
+so you can provide like 500 ms
+
+706
+00:16:15,749 --> 00:16:15,759
+so you can provide like 500 ms
+ 
+
+707
+00:16:15,759 --> 00:16:18,470
+so you can provide like 500 ms
+millisecond 1 second like this. So you
+
+708
+00:16:18,470 --> 00:16:18,480
+millisecond 1 second like this. So you
+ 
+
+709
+00:16:18,480 --> 00:16:20,949
+millisecond 1 second like this. So you
+can provide in ms is for millisecond s
+
+710
+00:16:20,949 --> 00:16:20,959
+can provide in ms is for millisecond s
+ 
+
+711
+00:16:20,959 --> 00:16:24,150
+can provide in ms is for millisecond s
+for second m for minute h for hours d
+
+712
+00:16:24,150 --> 00:16:24,160
+for second m for minute h for hours d
+ 
+
+713
+00:16:24,160 --> 00:16:27,030
+for second m for minute h for hours d
+for delay. So here if you see if wait
+
+714
+00:16:27,030 --> 00:16:27,040
+for delay. So here if you see if wait
+ 
+
+715
+00:16:27,040 --> 00:16:29,910
+for delay. So here if you see if wait
+time is zero reject immediately wait
+
+716
+00:16:29,910 --> 00:16:29,920
+time is zero reject immediately wait
+ 
+
+717
+00:16:29,920 --> 00:16:33,030
+time is zero reject immediately wait
+time you can also give 300 millisecond
+
+718
+00:16:33,030 --> 00:16:33,040
+time you can also give 300 millisecond
+ 
+
+719
+00:16:33,040 --> 00:16:35,430
+time you can also give 300 millisecond
+2 second 1 minute like this you can
+
+720
+00:16:35,430 --> 00:16:35,440
+2 second 1 minute like this you can
+ 
+
+721
+00:16:35,440 --> 00:16:38,629
+2 second 1 minute like this you can
+define based on like how much time you
+
+722
+00:16:38,629 --> 00:16:38,639
+define based on like how much time you
+ 
+
+723
+00:16:38,639 --> 00:16:41,350
+define based on like how much time you
+want a particular thread to wait before
+
+724
+00:16:41,350 --> 00:16:41,360
+want a particular thread to wait before
+ 
+
+725
+00:16:41,360 --> 00:16:48,550
+want a particular thread to wait before
+it get rejected immediately
+
+726
+00:16:48,550 --> 00:16:48,560
+
+ 
+
+727
+00:16:48,560 --> 00:16:50,710
+
+make sense
+
+728
+00:16:50,710 --> 00:16:50,720
+make sense
+ 
+
+729
+00:16:50,720 --> 00:16:53,749
+make sense
+so this I told you that this everything
+
+730
+00:16:53,749 --> 00:16:53,759
+so this I told you that this everything
+ 
+
+731
+00:16:53,759 --> 00:16:58,870
+so this I told you that this everything
+is handled by AOP AOP add runtime proxy
+
+732
+00:16:58,870 --> 00:16:58,880
+is handled by AOP AOP add runtime proxy
+ 
+
+733
+00:16:58,880 --> 00:17:05,829
+is handled by AOP AOP add runtime proxy
+code. Okay. So when this annotation is
+
+734
+00:17:05,829 --> 00:17:05,839
+code. Okay. So when this annotation is
+ 
+
+735
+00:17:05,839 --> 00:17:09,750
+code. Okay. So when this annotation is
+seen by AOP, it add a proxy code and it
+
+736
+00:17:09,750 --> 00:17:09,760
+seen by AOP, it add a proxy code and it
+ 
+
+737
+00:17:09,760 --> 00:17:12,470
+seen by AOP, it add a proxy code and it
+knows that it has a SIMA 4 and this is a
+
+738
+00:17:12,470 --> 00:17:12,480
+knows that it has a SIMA 4 and this is a
+ 
+
+739
+00:17:12,480 --> 00:17:16,069
+knows that it has a SIMA 4 and this is a
+code and it will use this SIM 4 locking
+
+740
+00:17:16,069 --> 00:17:16,079
+code and it will use this SIM 4 locking
+ 
+
+741
+00:17:16,079 --> 00:17:17,750
+code and it will use this SIM 4 locking
+strategy. It just add a code for the
+
+742
+00:17:17,750 --> 00:17:17,760
+strategy. It just add a code for the
+ 
+
+743
+00:17:17,760 --> 00:17:20,549
+strategy. It just add a code for the
+SIMA 4 lock. How the Sema 4 lock is
+
+744
+00:17:20,549 --> 00:17:20,559
+SIMA 4 lock. How the Sema 4 lock is
+ 
+
+745
+00:17:20,559 --> 00:17:23,270
+SIMA 4 lock. How the Sema 4 lock is
+implemented. So if you see this simma 4
+
+746
+00:17:23,270 --> 00:17:23,280
+implemented. So if you see this simma 4
+ 
+
+747
+00:17:23,280 --> 00:17:25,189
+implemented. So if you see this simma 4
+functionality right you will easily get
+
+748
+00:17:25,189 --> 00:17:25,199
+functionality right you will easily get
+ 
+
+749
+00:17:25,199 --> 00:17:29,669
+functionality right you will easily get
+to know how this concurrency handled.
+
+750
+00:17:29,669 --> 00:17:29,679
+to know how this concurrency handled.
+ 
+
+751
+00:17:29,679 --> 00:17:31,350
+to know how this concurrency handled.
+Okay,
+
+752
+00:17:31,350 --> 00:17:31,360
+Okay,
+ 
+
+753
+00:17:31,360 --> 00:17:33,190
+Okay,
+I will put into the description section
+
+754
+00:17:33,190 --> 00:17:33,200
+I will put into the description section
+ 
+
+755
+00:17:33,200 --> 00:17:37,110
+I will put into the description section
+also that the link for this uh video. So
+
+756
+00:17:37,110 --> 00:17:37,120
+also that the link for this uh video. So
+ 
+
+757
+00:17:37,120 --> 00:17:38,950
+also that the link for this uh video. So
+you can check the simma 4 part only so
+
+758
+00:17:38,950 --> 00:17:38,960
+you can check the simma 4 part only so
+ 
+
+759
+00:17:38,960 --> 00:17:41,990
+you can check the simma 4 part only so
+that it will get clear to you.
+
+760
+00:17:41,990 --> 00:17:42,000
+that it will get clear to you.
+ 
+
+761
+00:17:42,000 --> 00:17:44,470
+that it will get clear to you.
+But simma 4 bulkhead is clear right? Why
+
+762
+00:17:44,470 --> 00:17:44,480
+But simma 4 bulkhead is clear right? Why
+ 
+
+763
+00:17:44,480 --> 00:17:47,190
+But simma 4 bulkhead is clear right? Why
+exactly it is used for.
+
+764
+00:17:47,190 --> 00:17:47,200
+exactly it is used for.
+ 
+
+765
+00:17:47,200 --> 00:17:49,110
+exactly it is used for.
+Okay.
+
+766
+00:17:49,110 --> 00:17:49,120
+Okay.
+ 
+
+767
+00:17:49,120 --> 00:17:51,990
+Okay.
+Now see the threadpool bulkhead. So
+
+768
+00:17:51,990 --> 00:17:52,000
+Now see the threadpool bulkhead. So
+ 
+
+769
+00:17:52,000 --> 00:17:54,630
+Now see the threadpool bulkhead. So
+again one thing is in thread pool
+
+770
+00:17:54,630 --> 00:17:54,640
+again one thing is in thread pool
+ 
+
+771
+00:17:54,640 --> 00:17:57,110
+again one thing is in thread pool
+bulkhead we are managing what we are
+
+772
+00:17:57,110 --> 00:17:57,120
+bulkhead we are managing what we are
+ 
+
+773
+00:17:57,120 --> 00:17:59,830
+bulkhead we are managing what we are
+limiting one of our
+
+774
+00:17:59,830 --> 00:17:59,840
+limiting one of our
+ 
+
+775
+00:17:59,840 --> 00:18:02,150
+limiting one of our
+API you can say that or a critical
+
+776
+00:18:02,150 --> 00:18:02,160
+API you can say that or a critical
+ 
+
+777
+00:18:02,160 --> 00:18:04,870
+API you can say that or a critical
+section place so that it don't consume
+
+778
+00:18:04,870 --> 00:18:04,880
+section place so that it don't consume
+ 
+
+779
+00:18:04,880 --> 00:18:07,750
+section place so that it don't consume
+all the resource so it is calling this
+
+780
+00:18:07,750 --> 00:18:07,760
+all the resource so it is calling this
+ 
+
+781
+00:18:07,760 --> 00:18:10,070
+all the resource so it is calling this
+it is calling this let's say so I'm
+
+782
+00:18:10,070 --> 00:18:10,080
+it is calling this let's say so I'm
+ 
+
+783
+00:18:10,080 --> 00:18:13,350
+it is calling this let's say so I'm
+limiting this that hey when you are
+
+784
+00:18:13,350 --> 00:18:13,360
+limiting this that hey when you are
+ 
+
+785
+00:18:13,360 --> 00:18:16,150
+limiting this that hey when you are
+invoking this downstream
+
+786
+00:18:16,150 --> 00:18:16,160
+invoking this downstream
+ 
+
+787
+00:18:16,160 --> 00:18:18,789
+invoking this downstream
+use only this much resource you can't
+
+788
+00:18:18,789 --> 00:18:18,799
+use only this much resource you can't
+ 
+
+789
+00:18:18,799 --> 00:18:22,150
+use only this much resource you can't
+use all the resource or all the threats
+
+790
+00:18:22,150 --> 00:18:22,160
+use all the resource or all the threats
+ 
+
+791
+00:18:22,160 --> 00:18:25,270
+use all the resource or all the threats
+Okay. So that my other endpoints or my
+
+792
+00:18:25,270 --> 00:18:25,280
+Okay. So that my other endpoints or my
+ 
+
+793
+00:18:25,280 --> 00:18:27,830
+Okay. So that my other endpoints or my
+other my complete as a whole application
+
+794
+00:18:27,830 --> 00:18:27,840
+other my complete as a whole application
+ 
+
+795
+00:18:27,840 --> 00:18:33,110
+other my complete as a whole application
+should not get affected because of this.
+
+796
+00:18:33,110 --> 00:18:33,120
+should not get affected because of this.
+ 
+
+797
+00:18:33,120 --> 00:18:36,470
+should not get affected because of this.
+So assign a dedicated thread pool for
+
+798
+00:18:36,470 --> 00:18:36,480
+So assign a dedicated thread pool for
+ 
+
+799
+00:18:36,480 --> 00:18:38,310
+So assign a dedicated thread pool for
+each service.
+
+800
+00:18:38,310 --> 00:18:38,320
+each service.
+ 
+
+801
+00:18:38,320 --> 00:18:40,230
+each service.
+E service means let's say you have a
+
+802
+00:18:40,230 --> 00:18:40,240
+E service means let's say you have a
+ 
+
+803
+00:18:40,240 --> 00:18:43,110
+E service means let's say you have a
+payment service like this endpoint is
+
+804
+00:18:43,110 --> 00:18:43,120
+payment service like this endpoint is
+ 
+
+805
+00:18:43,120 --> 00:18:45,110
+payment service like this endpoint is
+invoking a payment service. You can
+
+806
+00:18:45,110 --> 00:18:45,120
+invoking a payment service. You can
+ 
+
+807
+00:18:45,120 --> 00:18:47,990
+invoking a payment service. You can
+provide a dedicated
+
+808
+00:18:47,990 --> 00:18:48,000
+provide a dedicated
+ 
+
+809
+00:18:48,000 --> 00:18:50,870
+provide a dedicated
+thread pool for this. If you have let's
+
+810
+00:18:50,870 --> 00:18:50,880
+thread pool for this. If you have let's
+ 
+
+811
+00:18:50,880 --> 00:18:54,470
+thread pool for this. If you have let's
+say sales order is calling sales service
+
+812
+00:18:54,470 --> 00:18:54,480
+say sales order is calling sales service
+ 
+
+813
+00:18:54,480 --> 00:18:56,789
+say sales order is calling sales service
+you can provide a dedicated thread pool
+
+814
+00:18:56,789 --> 00:18:56,799
+you can provide a dedicated thread pool
+ 
+
+815
+00:18:56,799 --> 00:18:58,789
+you can provide a dedicated thread pool
+like okay okay you can use this much
+
+816
+00:18:58,789 --> 00:18:58,799
+like okay okay you can use this much
+ 
+
+817
+00:18:58,799 --> 00:19:01,350
+like okay okay you can use this much
+resource only if you're invoking this
+
+818
+00:19:01,350 --> 00:19:01,360
+resource only if you're invoking this
+ 
+
+819
+00:19:01,360 --> 00:19:03,750
+resource only if you're invoking this
+downstream service
+
+820
+00:19:03,750 --> 00:19:03,760
+downstream service
+ 
+
+821
+00:19:03,760 --> 00:19:06,390
+downstream service
+okay only that pool is used to call the
+
+822
+00:19:06,390 --> 00:19:06,400
+okay only that pool is used to call the
+ 
+
+823
+00:19:06,400 --> 00:19:08,230
+okay only that pool is used to call the
+downstream
+
+824
+00:19:08,230 --> 00:19:08,240
+downstream
+ 
+
+825
+00:19:08,240 --> 00:19:10,630
+downstream
+very important it is only for the
+
+826
+00:19:10,630 --> 00:19:10,640
+very important it is only for the
+ 
+
+827
+00:19:10,640 --> 00:19:13,190
+very important it is only for the
+downstream
+
+828
+00:19:13,190 --> 00:19:13,200
+downstream
+ 
+
+829
+00:19:13,200 --> 00:19:14,789
+downstream
+okay
+
+830
+00:19:14,789 --> 00:19:14,799
+okay
+ 
+
+831
+00:19:14,799 --> 00:19:17,430
+okay
+but first thing first as the name thread
+
+832
+00:19:17,430 --> 00:19:17,440
+but first thing first as the name thread
+ 
+
+833
+00:19:17,440 --> 00:19:19,590
+but first thing first as the name thread
+pool bulk ahead
+
+834
+00:19:19,590 --> 00:19:19,600
+pool bulk ahead
+ 
+
+835
+00:19:19,600 --> 00:19:22,070
+pool bulk ahead
+what it is using thread pool again in
+
+836
+00:19:22,070 --> 00:19:22,080
+what it is using thread pool again in
+ 
+
+837
+00:19:22,080 --> 00:19:24,870
+what it is using thread pool again in
+the Java the whole dedicated video of
+
+838
+00:19:24,870 --> 00:19:24,880
+the Java the whole dedicated video of
+ 
+
+839
+00:19:24,880 --> 00:19:27,029
+the Java the whole dedicated video of
+thread pool and thread pool executor I
+
+840
+00:19:27,029 --> 00:19:27,039
+thread pool and thread pool executor I
+ 
+
+841
+00:19:27,039 --> 00:19:29,510
+thread pool and thread pool executor I
+have created very in depth I have
+
+842
+00:19:29,510 --> 00:19:29,520
+have created very in depth I have
+ 
+
+843
+00:19:29,520 --> 00:19:32,390
+have created very in depth I have
+explained how exactly thread pools works
+
+844
+00:19:32,390 --> 00:19:32,400
+explained how exactly thread pools works
+ 
+
+845
+00:19:32,400 --> 00:19:35,350
+explained how exactly thread pools works
+so kindly have a look like it will help
+
+846
+00:19:35,350 --> 00:19:35,360
+so kindly have a look like it will help
+ 
+
+847
+00:19:35,360 --> 00:19:39,270
+so kindly have a look like it will help
+you understand like what internally AOP
+
+848
+00:19:39,270 --> 00:19:39,280
+you understand like what internally AOP
+ 
+
+849
+00:19:39,280 --> 00:19:41,350
+you understand like what internally AOP
+might be doing how it is creating a
+
+850
+00:19:41,350 --> 00:19:41,360
+might be doing how it is creating a
+ 
+
+851
+00:19:41,360 --> 00:19:45,350
+might be doing how it is creating a
+thread pool how it is adding a task into
+
+852
+00:19:45,350 --> 00:19:45,360
+thread pool how it is adding a task into
+ 
+
+853
+00:19:45,360 --> 00:19:48,310
+thread pool how it is adding a task into
+a thread pool so thread pool has let's
+
+854
+00:19:48,310 --> 00:19:48,320
+a thread pool so thread pool has let's
+ 
+
+855
+00:19:48,320 --> 00:19:51,990
+a thread pool so thread pool has let's
+say task Initial task uh initial threads
+
+856
+00:19:51,990 --> 00:19:52,000
+say task Initial task uh initial threads
+ 
+
+857
+00:19:52,000 --> 00:19:54,630
+say task Initial task uh initial threads
+let's say four threads also it has a
+
+858
+00:19:54,630 --> 00:19:54,640
+let's say four threads also it has a
+ 
+
+859
+00:19:54,640 --> 00:19:59,350
+let's say four threads also it has a
+queue of size particular size n so task
+
+860
+00:19:59,350 --> 00:19:59,360
+queue of size particular size n so task
+ 
+
+861
+00:19:59,360 --> 00:20:01,590
+queue of size particular size n so task
+has to be submitted and once it is
+
+862
+00:20:01,590 --> 00:20:01,600
+has to be submitted and once it is
+ 
+
+863
+00:20:01,600 --> 00:20:03,990
+has to be submitted and once it is
+submitted if there is no thread will it
+
+864
+00:20:03,990 --> 00:20:04,000
+submitted if there is no thread will it
+ 
+
+865
+00:20:04,000 --> 00:20:06,710
+submitted if there is no thread will it
+put here or it will reject it so we have
+
+866
+00:20:06,710 --> 00:20:06,720
+put here or it will reject it so we have
+ 
+
+867
+00:20:06,720 --> 00:20:09,669
+put here or it will reject it so we have
+all the point discussed here. So kindly
+
+868
+00:20:09,669 --> 00:20:09,679
+all the point discussed here. So kindly
+ 
+
+869
+00:20:09,679 --> 00:20:11,669
+all the point discussed here. So kindly
+have a look of thread pool then it would
+
+870
+00:20:11,669 --> 00:20:11,679
+have a look of thread pool then it would
+ 
+
+871
+00:20:11,679 --> 00:20:13,830
+have a look of thread pool then it would
+be little bit more clear how internally
+
+872
+00:20:13,830 --> 00:20:13,840
+be little bit more clear how internally
+ 
+
+873
+00:20:13,840 --> 00:20:17,430
+be little bit more clear how internally
+AOP might be doing it.
+
+874
+00:20:17,430 --> 00:20:17,440
+AOP might be doing it.
+ 
+
+875
+00:20:17,440 --> 00:20:19,270
+AOP might be doing it.
+So here
+
+876
+00:20:19,270 --> 00:20:19,280
+So here
+ 
+
+877
+00:20:19,280 --> 00:20:21,110
+So here
+if you see its implementation nothing
+
+878
+00:20:21,110 --> 00:20:21,120
+if you see its implementation nothing
+ 
+
+879
+00:20:21,120 --> 00:20:22,870
+if you see its implementation nothing
+much difference.
+
+880
+00:20:22,870 --> 00:20:22,880
+much difference.
+ 
+
+881
+00:20:22,880 --> 00:20:24,870
+much difference.
+So here
+
+882
+00:20:24,870 --> 00:20:24,880
+So here
+ 
+
+883
+00:20:24,880 --> 00:20:27,190
+So here
+the order service where we are invoking
+
+884
+00:20:27,190 --> 00:20:27,200
+the order service where we are invoking
+ 
+
+885
+00:20:27,200 --> 00:20:28,789
+the order service where we are invoking
+the product API. So you can say that
+
+886
+00:20:28,789 --> 00:20:28,799
+the product API. So you can say that
+ 
+
+887
+00:20:28,799 --> 00:20:31,750
+the product API. So you can say that
+this is our critical section.
+
+888
+00:20:31,750 --> 00:20:31,760
+this is our critical section.
+ 
+
+889
+00:20:31,760 --> 00:20:35,110
+this is our critical section.
+Okay. I want to limit that only limited
+
+890
+00:20:35,110 --> 00:20:35,120
+Okay. I want to limit that only limited
+ 
+
+891
+00:20:35,120 --> 00:20:38,549
+Okay. I want to limit that only limited
+number of threads goes inside.
+
+892
+00:20:38,549 --> 00:20:38,559
+number of threads goes inside.
+ 
+
+893
+00:20:38,559 --> 00:20:42,070
+number of threads goes inside.
+Okay. So I have put at the bulkhead.
+
+894
+00:20:42,070 --> 00:20:42,080
+Okay. So I have put at the bulkhead.
+ 
+
+895
+00:20:42,080 --> 00:20:44,630
+Okay. So I have put at the bulkhead.
+Give it a name of this bulkhead.
+
+896
+00:20:44,630 --> 00:20:44,640
+Give it a name of this bulkhead.
+ 
+
+897
+00:20:44,640 --> 00:20:46,630
+Give it a name of this bulkhead.
+bulkhead type which I'm using is thread
+
+898
+00:20:46,630 --> 00:20:46,640
+bulkhead type which I'm using is thread
+ 
+
+899
+00:20:46,640 --> 00:20:51,350
+bulkhead type which I'm using is thread
+pool. The fallback is this method.
+
+900
+00:20:51,350 --> 00:20:51,360
+pool. The fallback is this method.
+ 
+
+901
+00:20:51,360 --> 00:20:55,270
+pool. The fallback is this method.
+Okay. Now I am using a thread pool means
+
+902
+00:20:55,270 --> 00:20:55,280
+Okay. Now I am using a thread pool means
+ 
+
+903
+00:20:55,280 --> 00:20:56,710
+Okay. Now I am using a thread pool means
+you know that thread pool has a
+
+904
+00:20:56,710 --> 00:20:56,720
+you know that thread pool has a
+ 
+
+905
+00:20:56,720 --> 00:20:58,630
+you know that thread pool has a
+configuration. What is the minimum
+
+906
+00:20:58,630 --> 00:20:58,640
+configuration. What is the minimum
+ 
+
+907
+00:20:58,640 --> 00:21:00,870
+configuration. What is the minimum
+number of threads? What is the maximum
+
+908
+00:21:00,870 --> 00:21:00,880
+number of threads? What is the maximum
+ 
+
+909
+00:21:00,880 --> 00:21:02,870
+number of threads? What is the maximum
+number of threads?
+
+910
+00:21:02,870 --> 00:21:02,880
+number of threads?
+ 
+
+911
+00:21:02,880 --> 00:21:05,909
+number of threads?
+Okay. So that's we have to define what
+
+912
+00:21:05,909 --> 00:21:05,919
+Okay. So that's we have to define what
+ 
+
+913
+00:21:05,919 --> 00:21:07,510
+Okay. So that's we have to define what
+is the Q capacity. So in
+
+914
+00:21:07,510 --> 00:21:07,520
+is the Q capacity. So in
+ 
+
+915
+00:21:07,520 --> 00:21:09,190
+is the Q capacity. So in
+application.properties properties like
+
+916
+00:21:09,190 --> 00:21:09,200
+application.properties properties like
+ 
+
+917
+00:21:09,200 --> 00:21:12,310
+application.properties properties like
+this we can define those thread pool
+
+918
+00:21:12,310 --> 00:21:12,320
+this we can define those thread pool
+ 
+
+919
+00:21:12,320 --> 00:21:15,590
+this we can define those thread pool
+properties resilience 4j thread pool
+
+920
+00:21:15,590 --> 00:21:15,600
+properties resilience 4j thread pool
+ 
+
+921
+00:21:15,600 --> 00:21:20,149
+properties resilience 4j thread pool
+bulk ahead instances the name this is
+
+922
+00:21:20,149 --> 00:21:20,159
+bulk ahead instances the name this is
+ 
+
+923
+00:21:20,159 --> 00:21:22,470
+bulk ahead instances the name this is
+the name right
+
+924
+00:21:22,470 --> 00:21:22,480
+the name right
+ 
+
+925
+00:21:22,480 --> 00:21:25,510
+the name right
+so core thread pool size is the threads
+
+926
+00:21:25,510 --> 00:21:25,520
+so core thread pool size is the threads
+ 
+
+927
+00:21:25,520 --> 00:21:28,070
+so core thread pool size is the threads
+which will always be present into a
+
+928
+00:21:28,070 --> 00:21:28,080
+which will always be present into a
+ 
+
+929
+00:21:28,080 --> 00:21:31,669
+which will always be present into a
+thread pool three maximum thread pool is
+
+930
+00:21:31,669 --> 00:21:31,679
+thread pool three maximum thread pool is
+ 
+
+931
+00:21:31,679 --> 00:21:34,870
+thread pool three maximum thread pool is
+three also okay so generally what happen
+
+932
+00:21:34,870 --> 00:21:34,880
+three also okay so generally what happen
+ 
+
+933
+00:21:34,880 --> 00:21:37,270
+three also okay so generally what happen
+is let's say if the you can say that
+
+934
+00:21:37,270 --> 00:21:37,280
+is let's say if the you can say that
+ 
+
+935
+00:21:37,280 --> 00:21:41,750
+is let's say if the you can say that
+minimum like core is two and maximum is
+
+936
+00:21:41,750 --> 00:21:41,760
+minimum like core is two and maximum is
+ 
+
+937
+00:21:41,760 --> 00:21:46,710
+minimum like core is two and maximum is
+three. Let's say the Q size is your two
+
+938
+00:21:46,710 --> 00:21:46,720
+three. Let's say the Q size is your two
+ 
+
+939
+00:21:46,720 --> 00:21:50,149
+three. Let's say the Q size is your two
+or let's say Q size is four.
+
+940
+00:21:50,149 --> 00:21:50,159
+or let's say Q size is four.
+ 
+
+941
+00:21:50,159 --> 00:21:54,390
+or let's say Q size is four.
+So 1 2 3 4 four spaces. So let's say
+
+942
+00:21:54,390 --> 00:21:54,400
+So 1 2 3 4 four spaces. So let's say
+ 
+
+943
+00:21:54,400 --> 00:21:57,029
+So 1 2 3 4 four spaces. So let's say
+this thread is busy. This thread is
+
+944
+00:21:57,029 --> 00:21:57,039
+this thread is busy. This thread is
+ 
+
+945
+00:21:57,039 --> 00:21:59,110
+this thread is busy. This thread is
+busy. This thread is busy. So both the
+
+946
+00:21:59,110 --> 00:21:59,120
+busy. This thread is busy. So both the
+ 
+
+947
+00:21:59,120 --> 00:22:01,270
+busy. This thread is busy. So both the
+threads are busy. Request one it is
+
+948
+00:22:01,270 --> 00:22:01,280
+threads are busy. Request one it is
+ 
+
+949
+00:22:01,280 --> 00:22:02,950
+threads are busy. Request one it is
+fulfilling. It is request two it is
+
+950
+00:22:02,950 --> 00:22:02,960
+fulfilling. It is request two it is
+ 
+
+951
+00:22:02,960 --> 00:22:06,070
+fulfilling. It is request two it is
+fulfilling. If any further requests come
+
+952
+00:22:06,070 --> 00:22:06,080
+fulfilling. If any further requests come
+ 
+
+953
+00:22:06,080 --> 00:22:09,350
+fulfilling. If any further requests come
+then Q would be used. Then request three
+
+954
+00:22:09,350 --> 00:22:09,360
+then Q would be used. Then request three
+ 
+
+955
+00:22:09,360 --> 00:22:12,149
+then Q would be used. Then request three
+would be put here. Request four, request
+
+956
+00:22:12,149 --> 00:22:12,159
+would be put here. Request four, request
+ 
+
+957
+00:22:12,159 --> 00:22:16,470
+would be put here. Request four, request
+five, request six. Okay. So total six
+
+958
+00:22:16,470 --> 00:22:16,480
+five, request six. Okay. So total six
+ 
+
+959
+00:22:16,480 --> 00:22:19,350
+five, request six. Okay. So total six
+requests here. Now request seven comes.
+
+960
+00:22:19,350 --> 00:22:19,360
+requests here. Now request seven comes.
+ 
+
+961
+00:22:19,360 --> 00:22:21,750
+requests here. Now request seven comes.
+Now there is no thread currently pending
+
+962
+00:22:21,750 --> 00:22:21,760
+Now there is no thread currently pending
+ 
+
+963
+00:22:21,760 --> 00:22:24,149
+Now there is no thread currently pending
+because the minimum thread pool or core
+
+964
+00:22:24,149 --> 00:22:24,159
+because the minimum thread pool or core
+ 
+
+965
+00:22:24,159 --> 00:22:27,669
+because the minimum thread pool or core
+thread pool is two and both are
+
+966
+00:22:27,669 --> 00:22:27,679
+thread pool is two and both are
+ 
+
+967
+00:22:27,679 --> 00:22:30,710
+thread pool is two and both are
+working. Q is full. Will it reject the
+
+968
+00:22:30,710 --> 00:22:30,720
+working. Q is full. Will it reject the
+ 
+
+969
+00:22:30,720 --> 00:22:33,350
+working. Q is full. Will it reject the
+request? No. Because max thread pool
+
+970
+00:22:33,350 --> 00:22:33,360
+request? No. Because max thread pool
+ 
+
+971
+00:22:33,360 --> 00:22:37,350
+request? No. Because max thread pool
+size let's say is three. So means it
+
+972
+00:22:37,350 --> 00:22:37,360
+size let's say is three. So means it
+ 
+
+973
+00:22:37,360 --> 00:22:40,789
+size let's say is three. So means it
+will create new thread and request 7
+
+974
+00:22:40,789 --> 00:22:40,799
+will create new thread and request 7
+ 
+
+975
+00:22:40,799 --> 00:22:45,270
+will create new thread and request 7
+work on that. Now if eight comes
+
+976
+00:22:45,270 --> 00:22:45,280
+work on that. Now if eight comes
+ 
+
+977
+00:22:45,280 --> 00:22:46,789
+work on that. Now if eight comes
+does any thread there in the thread
+
+978
+00:22:46,789 --> 00:22:46,799
+does any thread there in the thread
+ 
+
+979
+00:22:46,799 --> 00:22:50,630
+does any thread there in the thread
+pool? No. Is any Q has a space? No. Does
+
+980
+00:22:50,630 --> 00:22:50,640
+pool? No. Is any Q has a space? No. Does
+ 
+
+981
+00:22:50,640 --> 00:22:53,750
+pool? No. Is any Q has a space? No. Does
+the max limit reach? Yes. Maximum is
+
+982
+00:22:53,750 --> 00:22:53,760
+the max limit reach? Yes. Maximum is
+ 
+
+983
+00:22:53,760 --> 00:22:56,390
+the max limit reach? Yes. Maximum is
+three. Three threads are already
+
+984
+00:22:56,390 --> 00:22:56,400
+three. Three threads are already
+ 
+
+985
+00:22:56,400 --> 00:22:58,789
+three. Three threads are already
+working. So now this will be rejected.
+
+986
+00:22:58,789 --> 00:22:58,799
+working. So now this will be rejected.
+ 
+
+987
+00:22:58,799 --> 00:23:00,789
+working. So now this will be rejected.
+So I have already explained everything
+
+988
+00:23:00,789 --> 00:23:00,799
+So I have already explained everything
+ 
+
+989
+00:23:00,799 --> 00:23:02,950
+So I have already explained everything
+into this one. So this is just a very
+
+990
+00:23:02,950 --> 00:23:02,960
+into this one. So this is just a very
+ 
+
+991
+00:23:02,960 --> 00:23:05,830
+into this one. So this is just a very
+quick brief so that you can recall what
+
+992
+00:23:05,830 --> 00:23:05,840
+quick brief so that you can recall what
+ 
+
+993
+00:23:05,840 --> 00:23:07,990
+quick brief so that you can recall what
+is minimum thread pool, max thread pool,
+
+994
+00:23:07,990 --> 00:23:08,000
+is minimum thread pool, max thread pool,
+ 
+
+995
+00:23:08,000 --> 00:23:10,630
+is minimum thread pool, max thread pool,
+Q capacity. So based on this
+
+996
+00:23:10,630 --> 00:23:10,640
+Q capacity. So based on this
+ 
+
+997
+00:23:10,640 --> 00:23:13,270
+Q capacity. So based on this
+configuration it actually creates a
+
+998
+00:23:13,270 --> 00:23:13,280
+configuration it actually creates a
+ 
+
+999
+00:23:13,280 --> 00:23:15,350
+configuration it actually creates a
+thread pool. How to create a thread
+
+1000
+00:23:15,350 --> 00:23:15,360
+thread pool. How to create a thread
+ 
+
+1001
+00:23:15,360 --> 00:23:16,870
+thread pool. How to create a thread
+pool? You will get understand when you
+
+1002
+00:23:16,870 --> 00:23:16,880
+pool? You will get understand when you
+ 
+
+1003
+00:23:16,880 --> 00:23:18,710
+pool? You will get understand when you
+see this.
+
+1004
+00:23:18,710 --> 00:23:18,720
+see this.
+ 
+
+1005
+00:23:18,720 --> 00:23:22,710
+see this.
+Now here if you see AOP proxy intercept
+
+1006
+00:23:22,710 --> 00:23:22,720
+Now here if you see AOP proxy intercept
+ 
+
+1007
+00:23:22,720 --> 00:23:26,230
+Now here if you see AOP proxy intercept
+your method call. Okay. So with the
+
+1008
+00:23:26,230 --> 00:23:26,240
+your method call. Okay. So with the
+ 
+
+1009
+00:23:26,240 --> 00:23:28,470
+your method call. Okay. So with the
+bulkhead it know it intercept your
+
+1010
+00:23:28,470 --> 00:23:28,480
+bulkhead it know it intercept your
+ 
+
+1011
+00:23:28,480 --> 00:23:32,870
+bulkhead it know it intercept your
+method call. So it submits your method
+
+1012
+00:23:32,870 --> 00:23:32,880
+method call. So it submits your method
+ 
+
+1013
+00:23:32,880 --> 00:23:35,909
+method call. So it submits your method
+to bulkhead thread pool configured via
+
+1014
+00:23:35,909 --> 00:23:35,919
+to bulkhead thread pool configured via
+ 
+
+1015
+00:23:35,919 --> 00:23:38,230
+to bulkhead thread pool configured via
+application.properties.
+
+1016
+00:23:38,230 --> 00:23:38,240
+application.properties.
+ 
+
+1017
+00:23:38,240 --> 00:23:41,590
+application.properties.
+So consider this internally AOP might be
+
+1018
+00:23:41,590 --> 00:23:41,600
+So consider this internally AOP might be
+ 
+
+1019
+00:23:41,600 --> 00:23:45,590
+So consider this internally AOP might be
+doing like this completable future. A
+
+1020
+00:23:45,590 --> 00:23:45,600
+doing like this completable future. A
+ 
+
+1021
+00:23:45,600 --> 00:23:49,510
+doing like this completable future. A
+sync. So this supply a sync actually
+
+1022
+00:23:49,510 --> 00:23:49,520
+sync. So this supply a sync actually
+ 
+
+1023
+00:23:49,520 --> 00:23:52,789
+sync. So this supply a sync actually
+submit your request to a thread pool.
+
+1024
+00:23:52,789 --> 00:23:52,799
+submit your request to a thread pool.
+ 
+
+1025
+00:23:52,799 --> 00:23:56,070
+submit your request to a thread pool.
+Submit your request to thread pool.
+
+1026
+00:23:56,070 --> 00:23:56,080
+Submit your request to thread pool.
+ 
+
+1027
+00:23:56,080 --> 00:23:59,350
+Submit your request to thread pool.
+Okay. and the whole method
+
+1028
+00:23:59,350 --> 00:23:59,360
+Okay. and the whole method
+ 
+
+1029
+00:23:59,360 --> 00:24:02,149
+Okay. and the whole method
+body uh is submitted as a task. So this
+
+1030
+00:24:02,149 --> 00:24:02,159
+body uh is submitted as a task. So this
+ 
+
+1031
+00:24:02,159 --> 00:24:04,710
+body uh is submitted as a task. So this
+whole method
+
+1032
+00:24:04,710 --> 00:24:04,720
+whole method
+ 
+
+1033
+00:24:04,720 --> 00:24:06,630
+whole method
+right whatever so currently here I am
+
+1034
+00:24:06,630 --> 00:24:06,640
+right whatever so currently here I am
+ 
+
+1035
+00:24:06,640 --> 00:24:08,630
+right whatever so currently here I am
+only my critical section is the place
+
+1036
+00:24:08,630 --> 00:24:08,640
+only my critical section is the place
+ 
+
+1037
+00:24:08,640 --> 00:24:11,750
+only my critical section is the place
+downstream API which I am calling. So
+
+1038
+00:24:11,750 --> 00:24:11,760
+downstream API which I am calling. So
+ 
+
+1039
+00:24:11,760 --> 00:24:13,750
+downstream API which I am calling. So
+you need to make sure very very specific
+
+1040
+00:24:13,750 --> 00:24:13,760
+you need to make sure very very specific
+ 
+
+1041
+00:24:13,760 --> 00:24:15,830
+you need to make sure very very specific
+that where you are putting this
+
+1042
+00:24:15,830 --> 00:24:15,840
+that where you are putting this
+ 
+
+1043
+00:24:15,840 --> 00:24:19,590
+that where you are putting this
+annotation. So whatever the u business
+
+1044
+00:24:19,590 --> 00:24:19,600
+annotation. So whatever the u business
+ 
+
+1045
+00:24:19,600 --> 00:24:22,870
+annotation. So whatever the u business
+logic validation you have within this
+
+1046
+00:24:22,870 --> 00:24:22,880
+logic validation you have within this
+ 
+
+1047
+00:24:22,880 --> 00:24:26,310
+logic validation you have within this
+method right that would be submitted.
+
+1048
+00:24:26,310 --> 00:24:26,320
+method right that would be submitted.
+ 
+
+1049
+00:24:26,320 --> 00:24:29,909
+method right that would be submitted.
+Okay. So use it very carefully that only
+
+1050
+00:24:29,909 --> 00:24:29,919
+Okay. So use it very carefully that only
+ 
+
+1051
+00:24:29,919 --> 00:24:33,909
+Okay. So use it very carefully that only
+downstream call should be present into
+
+1052
+00:24:33,909 --> 00:24:33,919
+downstream call should be present into
+ 
+
+1053
+00:24:33,919 --> 00:24:36,870
+downstream call should be present into
+this because bulkhead is mostly
+
+1054
+00:24:36,870 --> 00:24:36,880
+this because bulkhead is mostly
+ 
+
+1055
+00:24:36,880 --> 00:24:39,350
+this because bulkhead is mostly
+applicable for the downstream only
+
+1056
+00:24:39,350 --> 00:24:39,360
+applicable for the downstream only
+ 
+
+1057
+00:24:39,360 --> 00:24:42,149
+applicable for the downstream only
+controlling the downstream
+
+1058
+00:24:42,149 --> 00:24:42,159
+controlling the downstream
+ 
+
+1059
+00:24:42,159 --> 00:24:44,870
+controlling the downstream
+right how much resource I can use while
+
+1060
+00:24:44,870 --> 00:24:44,880
+right how much resource I can use while
+ 
+
+1061
+00:24:44,880 --> 00:24:48,149
+right how much resource I can use while
+calling the downstream.
+
+1062
+00:24:48,149 --> 00:24:48,159
+calling the downstream.
+ 
+
+1063
+00:24:48,159 --> 00:24:50,630
+calling the downstream.
+Okay. So you know that here in the
+
+1064
+00:24:50,630 --> 00:24:50,640
+Okay. So you know that here in the
+ 
+
+1065
+00:24:50,640 --> 00:24:53,430
+Okay. So you know that here in the
+thread pool this is how this is the way
+
+1066
+00:24:53,430 --> 00:24:53,440
+thread pool this is how this is the way
+ 
+
+1067
+00:24:53,440 --> 00:24:56,870
+thread pool this is how this is the way
+of submitting the request to a thread uh
+
+1068
+00:24:56,870 --> 00:24:56,880
+of submitting the request to a thread uh
+ 
+
+1069
+00:24:56,880 --> 00:25:01,269
+of submitting the request to a thread uh
+thread pool. So supply a sync and then
+
+1070
+00:25:01,269 --> 00:25:01,279
+thread pool. So supply a sync and then
+ 
+
+1071
+00:25:01,279 --> 00:25:03,350
+thread pool. So supply a sync and then
+you put
+
+1072
+00:25:03,350 --> 00:25:03,360
+you put
+ 
+
+1073
+00:25:03,360 --> 00:25:06,310
+you put
+the your method logic the whole method
+
+1074
+00:25:06,310 --> 00:25:06,320
+the your method logic the whole method
+ 
+
+1075
+00:25:06,320 --> 00:25:08,789
+the your method logic the whole method
+body runs here right and which thread
+
+1076
+00:25:08,789 --> 00:25:08,799
+body runs here right and which thread
+ 
+
+1077
+00:25:08,799 --> 00:25:11,750
+body runs here right and which thread
+pool executor it will has to use. So it
+
+1078
+00:25:11,750 --> 00:25:11,760
+pool executor it will has to use. So it
+ 
+
+1079
+00:25:11,760 --> 00:25:13,909
+pool executor it will has to use. So it
+will use bulkhead thread pool exeutor
+
+1080
+00:25:13,909 --> 00:25:13,919
+will use bulkhead thread pool exeutor
+ 
+
+1081
+00:25:13,919 --> 00:25:15,750
+will use bulkhead thread pool exeutor
+which it will create using this
+
+1082
+00:25:15,750 --> 00:25:15,760
+which it will create using this
+ 
+
+1083
+00:25:15,760 --> 00:25:19,029
+which it will create using this
+configuration.
+
+1084
+00:25:19,029 --> 00:25:19,039
+
+ 
+
+1085
+00:25:19,039 --> 00:25:21,190
+
+So one thing important is that it
+
+1086
+00:25:21,190 --> 00:25:21,200
+So one thing important is that it
+ 
+
+1087
+00:25:21,200 --> 00:25:23,510
+So one thing important is that it
+returns completable future object. It
+
+1088
+00:25:23,510 --> 00:25:23,520
+returns completable future object. It
+ 
+
+1089
+00:25:23,520 --> 00:25:26,070
+returns completable future object. It
+returns completable future object. Why?
+
+1090
+00:25:26,070 --> 00:25:26,080
+returns completable future object. Why?
+ 
+
+1091
+00:25:26,080 --> 00:25:28,710
+returns completable future object. Why?
+Because internally AOP intercepting it
+
+1092
+00:25:28,710 --> 00:25:28,720
+Because internally AOP intercepting it
+ 
+
+1093
+00:25:28,720 --> 00:25:31,430
+Because internally AOP intercepting it
+and AOP going to submit the request to a
+
+1094
+00:25:31,430 --> 00:25:31,440
+and AOP going to submit the request to a
+ 
+
+1095
+00:25:31,440 --> 00:25:33,669
+and AOP going to submit the request to a
+thread pool and the way to submit a
+
+1096
+00:25:33,669 --> 00:25:33,679
+thread pool and the way to submit a
+ 
+
+1097
+00:25:33,679 --> 00:25:36,149
+thread pool and the way to submit a
+request is this completable future. try
+
+1098
+00:25:36,149 --> 00:25:36,159
+request is this completable future. try
+ 
+
+1099
+00:25:36,159 --> 00:25:38,630
+request is this completable future. try
+a sync because the request might has to
+
+1100
+00:25:38,630 --> 00:25:38,640
+a sync because the request might has to
+ 
+
+1101
+00:25:38,640 --> 00:25:42,789
+a sync because the request might has to
+wait either in Q or it will get accepted
+
+1102
+00:25:42,789 --> 00:25:42,799
+wait either in Q or it will get accepted
+ 
+
+1103
+00:25:42,799 --> 00:25:44,390
+wait either in Q or it will get accepted
+one thread would be allocated to it
+
+1104
+00:25:44,390 --> 00:25:44,400
+one thread would be allocated to it
+ 
+
+1105
+00:25:44,400 --> 00:25:47,350
+one thread would be allocated to it
+which will start work and it will return
+
+1106
+00:25:47,350 --> 00:25:47,360
+which will start work and it will return
+ 
+
+1107
+00:25:47,360 --> 00:25:50,310
+which will start work and it will return
+the completable future object okay and
+
+1108
+00:25:50,310 --> 00:25:50,320
+the completable future object okay and
+ 
+
+1109
+00:25:50,320 --> 00:25:53,029
+the completable future object okay and
+that thread will continue working it. So
+
+1110
+00:25:53,029 --> 00:25:53,039
+that thread will continue working it. So
+ 
+
+1111
+00:25:53,039 --> 00:25:56,230
+that thread will continue working it. So
+the same thing is since uh
+
+1112
+00:25:56,230 --> 00:25:56,240
+the same thing is since uh
+ 
+
+1113
+00:25:56,240 --> 00:25:57,909
+the same thing is since uh
+we are not writing the code AOP is
+
+1114
+00:25:57,909 --> 00:25:57,919
+we are not writing the code AOP is
+ 
+
+1115
+00:25:57,919 --> 00:25:59,909
+we are not writing the code AOP is
+writing it but the concept in behind the
+
+1116
+00:25:59,909 --> 00:25:59,919
+writing it but the concept in behind the
+ 
+
+1117
+00:25:59,919 --> 00:26:01,909
+writing it but the concept in behind the
+same it is doing the same we get a
+
+1118
+00:26:01,909 --> 00:26:01,919
+same it is doing the same we get a
+ 
+
+1119
+00:26:01,919 --> 00:26:03,990
+same it is doing the same we get a
+completable future object and the AOP
+
+1120
+00:26:03,990 --> 00:26:04,000
+completable future object and the AOP
+ 
+
+1121
+00:26:04,000 --> 00:26:05,909
+completable future object and the AOP
+also returns a completable future only
+
+1122
+00:26:05,909 --> 00:26:05,919
+also returns a completable future only
+ 
+
+1123
+00:26:05,919 --> 00:26:07,750
+also returns a completable future only
+so that's why it want a return type
+
+1124
+00:26:07,750 --> 00:26:07,760
+so that's why it want a return type
+ 
+
+1125
+00:26:07,760 --> 00:26:10,630
+so that's why it want a return type
+computable future
+
+1126
+00:26:10,630 --> 00:26:10,640
+computable future
+ 
+
+1127
+00:26:10,640 --> 00:26:13,350
+computable future
+okay and whatever the fallback method we
+
+1128
+00:26:13,350 --> 00:26:13,360
+okay and whatever the fallback method we
+ 
+
+1129
+00:26:13,360 --> 00:26:15,350
+okay and whatever the fallback method we
+will write also it should match we have
+
+1130
+00:26:15,350 --> 00:26:15,360
+will write also it should match we have
+ 
+
+1131
+00:26:15,360 --> 00:26:17,190
+will write also it should match we have
+already discussed in the rate limiter so
+
+1132
+00:26:17,190 --> 00:26:17,200
+already discussed in the rate limiter so
+ 
+
+1133
+00:26:17,200 --> 00:26:18,870
+already discussed in the rate limiter so
+that's why I have a return type
+
+1134
+00:26:18,870 --> 00:26:18,880
+that's why I have a return type
+ 
+
+1135
+00:26:18,880 --> 00:26:21,990
+that's why I have a return type
+similarly here only here it is also
+
+1136
+00:26:21,990 --> 00:26:22,000
+similarly here only here it is also
+ 
+
+1137
+00:26:22,000 --> 00:26:24,310
+similarly here only here it is also
+string string only thing is it has
+
+1138
+00:26:24,310 --> 00:26:24,320
+string string only thing is it has
+ 
+
+1139
+00:26:24,320 --> 00:26:28,470
+string string only thing is it has
+throwable extra
+
+1140
+00:26:28,470 --> 00:26:28,480
+
+ 
+
+1141
+00:26:28,480 --> 00:26:31,510
+
+okay so you can test it like uh I have
+
+1142
+00:26:31,510 --> 00:26:31,520
+okay so you can test it like uh I have
+ 
+
+1143
+00:26:31,520 --> 00:26:35,190
+okay so you can test it like uh I have
+just added system outprint ln here just
+
+1144
+00:26:35,190 --> 00:26:35,200
+just added system outprint ln here just
+ 
+
+1145
+00:26:35,200 --> 00:26:37,830
+just added system outprint ln here just
+for the testing of this one like u so I
+
+1146
+00:26:37,830 --> 00:26:37,840
+for the testing of this one like u so I
+ 
+
+1147
+00:26:37,840 --> 00:26:41,430
+for the testing of this one like u so I
+have just put it like which thread name
+
+1148
+00:26:41,430 --> 00:26:41,440
+have just put it like which thread name
+ 
+
+1149
+00:26:41,440 --> 00:26:43,750
+have just put it like which thread name
+which thread is currently fulfilling
+
+1150
+00:26:43,750 --> 00:26:43,760
+which thread is currently fulfilling
+ 
+
+1151
+00:26:43,760 --> 00:26:46,230
+which thread is currently fulfilling
+this
+
+1152
+00:26:46,230 --> 00:26:46,240
+this
+ 
+
+1153
+00:26:46,240 --> 00:26:50,230
+this
+method call right so currently we have a
+
+1154
+00:26:50,230 --> 00:26:50,240
+method call right so currently we have a
+ 
+
+1155
+00:26:50,240 --> 00:26:52,789
+method call right so currently we have a
+thread pool size is three and Q is two.
+
+1156
+00:26:52,789 --> 00:26:52,799
+thread pool size is three and Q is two.
+ 
+
+1157
+00:26:52,799 --> 00:26:54,470
+thread pool size is three and Q is two.
+This is what we have defined right
+
+1158
+00:26:54,470 --> 00:26:54,480
+This is what we have defined right
+ 
+
+1159
+00:26:54,480 --> 00:26:57,269
+This is what we have defined right
+initially. So here if you see let me
+
+1160
+00:26:57,269 --> 00:26:57,279
+initially. So here if you see let me
+ 
+
+1161
+00:26:57,279 --> 00:27:00,950
+initially. So here if you see let me
+clarify a bit. So here if you see
+
+1162
+00:27:00,950 --> 00:27:00,960
+clarify a bit. So here if you see
+ 
+
+1163
+00:27:00,960 --> 00:27:03,750
+clarify a bit. So here if you see
+what is the thread pool size three and
+
+1164
+00:27:03,750 --> 00:27:03,760
+what is the thread pool size three and
+ 
+
+1165
+00:27:03,760 --> 00:27:05,510
+what is the thread pool size three and
+max is also three. So maximum we have
+
+1166
+00:27:05,510 --> 00:27:05,520
+max is also three. So maximum we have
+ 
+
+1167
+00:27:05,520 --> 00:27:07,990
+max is also three. So maximum we have
+three threads only and the Q is only
+
+1168
+00:27:07,990 --> 00:27:08,000
+three threads only and the Q is only
+ 
+
+1169
+00:27:08,000 --> 00:27:13,269
+three threads only and the Q is only
+two. So here if you see
+
+1170
+00:27:13,269 --> 00:27:13,279
+
+ 
+
+1171
+00:27:13,279 --> 00:27:17,190
+
+I invoke the API six times. So six time
+
+1172
+00:27:17,190 --> 00:27:17,200
+I invoke the API six times. So six time
+ 
+
+1173
+00:27:17,200 --> 00:27:19,669
+I invoke the API six times. So six time
+I invoke my endpoint.
+
+1174
+00:27:19,669 --> 00:27:19,679
+I invoke my endpoint.
+ 
+
+1175
+00:27:19,679 --> 00:27:22,390
+I invoke my endpoint.
+So order controller I have invoked order
+
+1176
+00:27:22,390 --> 00:27:22,400
+So order controller I have invoked order
+ 
+
+1177
+00:27:22,400 --> 00:27:25,269
+So order controller I have invoked order
+controller is invoking the invoke
+
+1178
+00:27:25,269 --> 00:27:25,279
+controller is invoking the invoke
+ 
+
+1179
+00:27:25,279 --> 00:27:27,669
+controller is invoking the invoke
+product API.
+
+1180
+00:27:27,669 --> 00:27:27,679
+product API.
+ 
+
+1181
+00:27:27,679 --> 00:27:31,269
+product API.
+So six times I have invoked the API. So
+
+1182
+00:27:31,269 --> 00:27:31,279
+So six times I have invoked the API. So
+ 
+
+1183
+00:27:31,279 --> 00:27:33,430
+So six times I have invoked the API. So
+it means internally
+
+1184
+00:27:33,430 --> 00:27:33,440
+it means internally
+ 
+
+1185
+00:27:33,440 --> 00:27:37,750
+it means internally
+so my controller
+
+1186
+00:27:37,750 --> 00:27:37,760
+
+ 
+
+1187
+00:27:37,760 --> 00:27:39,750
+
+my service
+
+1188
+00:27:39,750 --> 00:27:39,760
+my service
+ 
+
+1189
+00:27:39,760 --> 00:27:44,149
+my service
+and this is the product API.
+
+1190
+00:27:44,149 --> 00:27:44,159
+and this is the product API.
+ 
+
+1191
+00:27:44,159 --> 00:27:49,430
+and this is the product API.
+Okay. 1 2 3 4 5 six time I invoke. So
+
+1192
+00:27:49,430 --> 00:27:49,440
+Okay. 1 2 3 4 5 six time I invoke. So
+ 
+
+1193
+00:27:49,440 --> 00:27:51,990
+Okay. 1 2 3 4 5 six time I invoke. So
+sixth time they call service method you
+
+1194
+00:27:51,990 --> 00:27:52,000
+sixth time they call service method you
+ 
+
+1195
+00:27:52,000 --> 00:27:54,389
+sixth time they call service method you
+can say that my critical section where
+
+1196
+00:27:54,389 --> 00:27:54,399
+can say that my critical section where
+ 
+
+1197
+00:27:54,399 --> 00:27:57,909
+can say that my critical section where
+my logic is there to invoke the product
+
+1198
+00:27:57,909 --> 00:27:57,919
+my logic is there to invoke the product
+ 
+
+1199
+00:27:57,919 --> 00:27:59,830
+my logic is there to invoke the product
+API.
+
+1200
+00:27:59,830 --> 00:27:59,840
+API.
+ 
+
+1201
+00:27:59,840 --> 00:28:03,269
+API.
+So sixth time it might have tried to
+
+1202
+00:28:03,269 --> 00:28:03,279
+So sixth time it might have tried to
+ 
+
+1203
+00:28:03,279 --> 00:28:05,190
+So sixth time it might have tried to
+tried to invoke product API but let's
+
+1204
+00:28:05,190 --> 00:28:05,200
+tried to invoke product API but let's
+ 
+
+1205
+00:28:05,200 --> 00:28:10,710
+tried to invoke product API but let's
+see the behavior.
+
+1206
+00:28:10,710 --> 00:28:10,720
+
+ 
+
+1207
+00:28:10,720 --> 00:28:15,269
+
+So first time I have three threads and
+
+1208
+00:28:15,269 --> 00:28:15,279
+So first time I have three threads and
+ 
+
+1209
+00:28:15,279 --> 00:28:21,669
+So first time I have three threads and
+two Q. So first time request comes so
+
+1210
+00:28:21,669 --> 00:28:21,679
+two Q. So first time request comes so
+ 
+
+1211
+00:28:21,679 --> 00:28:24,230
+two Q. So first time request comes so
+six calls right.
+
+1212
+00:28:24,230 --> 00:28:24,240
+six calls right.
+ 
+
+1213
+00:28:24,240 --> 00:28:27,110
+six calls right.
+So first one is given to thread one. So
+
+1214
+00:28:27,110 --> 00:28:27,120
+So first one is given to thread one. So
+ 
+
+1215
+00:28:27,120 --> 00:28:29,190
+So first one is given to thread one. So
+this one is getting fulfilled by thread
+
+1216
+00:28:29,190 --> 00:28:29,200
+this one is getting fulfilled by thread
+ 
+
+1217
+00:28:29,200 --> 00:28:31,990
+this one is getting fulfilled by thread
+one. Second request is fulfilled by
+
+1218
+00:28:31,990 --> 00:28:32,000
+one. Second request is fulfilled by
+ 
+
+1219
+00:28:32,000 --> 00:28:34,070
+one. Second request is fulfilled by
+thread two.
+
+1220
+00:28:34,070 --> 00:28:34,080
+thread two.
+ 
+
+1221
+00:28:34,080 --> 00:28:35,990
+thread two.
+Second request is fulfilled by thread
+
+1222
+00:28:35,990 --> 00:28:36,000
+Second request is fulfilled by thread
+ 
+
+1223
+00:28:36,000 --> 00:28:38,070
+Second request is fulfilled by thread
+two. So there are three threads right?
+
+1224
+00:28:38,070 --> 00:28:38,080
+two. So there are three threads right?
+ 
+
+1225
+00:28:38,080 --> 00:28:40,230
+two. So there are three threads right?
+So thread three fulfilled the request
+
+1226
+00:28:40,230 --> 00:28:40,240
+So thread three fulfilled the request
+ 
+
+1227
+00:28:40,240 --> 00:28:42,870
+So thread three fulfilled the request
+three. So see the name bulk ahead
+
+1228
+00:28:42,870 --> 00:28:42,880
+three. So see the name bulk ahead
+ 
+
+1229
+00:28:42,880 --> 00:28:47,990
+three. So see the name bulk ahead
+product service three. So it is using my
+
+1230
+00:28:47,990 --> 00:28:48,000
+product service three. So it is using my
+ 
+
+1231
+00:28:48,000 --> 00:28:50,310
+product service three. So it is using my
+product instance right. So it using my
+
+1232
+00:28:50,310 --> 00:28:50,320
+product instance right. So it using my
+ 
+
+1233
+00:28:50,320 --> 00:28:51,990
+product instance right. So it using my
+thread pool whatever we have created
+
+1234
+00:28:51,990 --> 00:28:52,000
+thread pool whatever we have created
+ 
+
+1235
+00:28:52,000 --> 00:28:54,149
+thread pool whatever we have created
+thread pool for product service it is
+
+1236
+00:28:54,149 --> 00:28:54,159
+thread pool for product service it is
+ 
+
+1237
+00:28:54,159 --> 00:28:57,510
+thread pool for product service it is
+not using the common one
+
+1238
+00:28:57,510 --> 00:28:57,520
+not using the common one
+ 
+
+1239
+00:28:57,520 --> 00:28:59,590
+not using the common one
+which is for the my order application.
+
+1240
+00:28:59,590 --> 00:28:59,600
+which is for the my order application.
+ 
+
+1241
+00:28:59,600 --> 00:29:02,389
+which is for the my order application.
+No whatever I have created specifically
+
+1242
+00:29:02,389 --> 00:29:02,399
+No whatever I have created specifically
+ 
+
+1243
+00:29:02,399 --> 00:29:04,149
+No whatever I have created specifically
+for my downstream it is using that
+
+1244
+00:29:04,149 --> 00:29:04,159
+for my downstream it is using that
+ 
+
+1245
+00:29:04,159 --> 00:29:07,190
+for my downstream it is using that
+thread pool this one. So this is also a
+
+1246
+00:29:07,190 --> 00:29:07,200
+thread pool this one. So this is also a
+ 
+
+1247
+00:29:07,200 --> 00:29:08,870
+thread pool this one. So this is also a
+you can validate that's why I'm printing
+
+1248
+00:29:08,870 --> 00:29:08,880
+you can validate that's why I'm printing
+ 
+
+1249
+00:29:08,880 --> 00:29:13,110
+you can validate that's why I'm printing
+the thread name right.
+
+1250
+00:29:13,110 --> 00:29:13,120
+the thread name right.
+ 
+
+1251
+00:29:13,120 --> 00:29:15,110
+the thread name right.
+So thread one, thread two, thread three
+
+1252
+00:29:15,110 --> 00:29:15,120
+So thread one, thread two, thread three
+ 
+
+1253
+00:29:15,120 --> 00:29:17,029
+So thread one, thread two, thread three
+is also fulfilling. So now all three
+
+1254
+00:29:17,029 --> 00:29:17,039
+is also fulfilling. So now all three
+ 
+
+1255
+00:29:17,039 --> 00:29:19,029
+is also fulfilling. So now all three
+threads are busy. They are fulfilling
+
+1256
+00:29:19,029 --> 00:29:19,039
+threads are busy. They are fulfilling
+ 
+
+1257
+00:29:19,039 --> 00:29:21,750
+threads are busy. They are fulfilling
+three requests. Now request four and
+
+1258
+00:29:21,750 --> 00:29:21,760
+three requests. Now request four and
+ 
+
+1259
+00:29:21,760 --> 00:29:25,269
+three requests. Now request four and
+request five. This four and five there
+
+1260
+00:29:25,269 --> 00:29:25,279
+request five. This four and five there
+ 
+
+1261
+00:29:25,279 --> 00:29:26,870
+request five. This four and five there
+is no thread left. So it would be
+
+1262
+00:29:26,870 --> 00:29:26,880
+is no thread left. So it would be
+ 
+
+1263
+00:29:26,880 --> 00:29:29,590
+is no thread left. So it would be
+inserted into Q.
+
+1264
+00:29:29,590 --> 00:29:29,600
+inserted into Q.
+ 
+
+1265
+00:29:29,600 --> 00:29:32,710
+inserted into Q.
+Okay. And the sixth one the my all three
+
+1266
+00:29:32,710 --> 00:29:32,720
+Okay. And the sixth one the my all three
+ 
+
+1267
+00:29:32,720 --> 00:29:36,710
+Okay. And the sixth one the my all three
+threads are busy. Q is full with request
+
+1268
+00:29:36,710 --> 00:29:36,720
+threads are busy. Q is full with request
+ 
+
+1269
+00:29:36,720 --> 00:29:39,909
+threads are busy. Q is full with request
+four and five and the request six will
+
+1270
+00:29:39,909 --> 00:29:39,919
+four and five and the request six will
+ 
+
+1271
+00:29:39,919 --> 00:29:42,389
+four and five and the request six will
+get rejected. So request six got
+
+1272
+00:29:42,389 --> 00:29:42,399
+get rejected. So request six got
+ 
+
+1273
+00:29:42,399 --> 00:29:46,389
+get rejected. So request six got
+rejected. Product service is busy. Okay.
+
+1274
+00:29:46,389 --> 00:29:46,399
+rejected. Product service is busy. Okay.
+ 
+
+1275
+00:29:46,399 --> 00:29:48,789
+rejected. Product service is busy. Okay.
+So it got rejected.
+
+1276
+00:29:48,789 --> 00:29:48,799
+So it got rejected.
+ 
+
+1277
+00:29:48,799 --> 00:29:51,990
+So it got rejected.
+Now once two thread got free, it will
+
+1278
+00:29:51,990 --> 00:29:52,000
+Now once two thread got free, it will
+ 
+
+1279
+00:29:52,000 --> 00:29:54,549
+Now once two thread got free, it will
+pick from my queue. Request four and
+
+1280
+00:29:54,549 --> 00:29:54,559
+pick from my queue. Request four and
+ 
+
+1281
+00:29:54,559 --> 00:29:56,070
+pick from my queue. Request four and
+request five will get fulfilled either
+
+1282
+00:29:56,070 --> 00:29:56,080
+request five will get fulfilled either
+ 
+
+1283
+00:29:56,080 --> 00:29:58,149
+request five will get fulfilled either
+by thread one or thread two. So thread
+
+1284
+00:29:58,149 --> 00:29:58,159
+by thread one or thread two. So thread
+ 
+
+1285
+00:29:58,159 --> 00:30:01,029
+by thread one or thread two. So thread
+one become free. It pick request four.
+
+1286
+00:30:01,029 --> 00:30:01,039
+one become free. It pick request four.
+ 
+
+1287
+00:30:01,039 --> 00:30:03,990
+one become free. It pick request four.
+Thread two become free it become request
+
+1288
+00:30:03,990 --> 00:30:04,000
+Thread two become free it become request
+ 
+
+1289
+00:30:04,000 --> 00:30:06,070
+Thread two become free it become request
+five.
+
+1290
+00:30:06,070 --> 00:30:06,080
+five.
+ 
+
+1291
+00:30:06,080 --> 00:30:08,789
+five.
+So exact thread pool functionality no
+
+1292
+00:30:08,789 --> 00:30:08,799
+So exact thread pool functionality no
+ 
+
+1293
+00:30:08,799 --> 00:30:11,029
+So exact thread pool functionality no
+difference. whatever we have implemented
+
+1294
+00:30:11,029 --> 00:30:11,039
+difference. whatever we have implemented
+ 
+
+1295
+00:30:11,039 --> 00:30:14,230
+difference. whatever we have implemented
+thread pool right into plain Java
+
+1296
+00:30:14,230 --> 00:30:14,240
+thread pool right into plain Java
+ 
+
+1297
+00:30:14,240 --> 00:30:16,710
+thread pool right into plain Java
+internally spring AOP just doing that
+
+1298
+00:30:16,710 --> 00:30:16,720
+internally spring AOP just doing that
+ 
+
+1299
+00:30:16,720 --> 00:30:19,590
+internally spring AOP just doing that
+only it is writing that code for us just
+
+1300
+00:30:19,590 --> 00:30:19,600
+only it is writing that code for us just
+ 
+
+1301
+00:30:19,600 --> 00:30:21,669
+only it is writing that code for us just
+this is the configuration
+
+1302
+00:30:21,669 --> 00:30:21,679
+this is the configuration
+ 
+
+1303
+00:30:21,679 --> 00:30:24,549
+this is the configuration
+and only thing is like uh this is our
+
+1304
+00:30:24,549 --> 00:30:24,559
+and only thing is like uh this is our
+ 
+
+1305
+00:30:24,559 --> 00:30:27,669
+and only thing is like uh this is our
+task like this is the task it's submit
+
+1306
+00:30:27,669 --> 00:30:27,679
+task like this is the task it's submit
+ 
+
+1307
+00:30:27,679 --> 00:30:37,350
+task like this is the task it's submit
+to a thread for processing that's all
+
+1308
+00:30:37,350 --> 00:30:37,360
+
+ 
+
+1309
+00:30:37,360 --> 00:30:42,710
+
+okay Yeah. So this is uh
+
+1310
+00:30:42,710 --> 00:30:42,720
+okay Yeah. So this is uh
+ 
+
+1311
+00:30:42,720 --> 00:30:47,510
+okay Yeah. So this is uh
+very important part. Um so here yeah one
+
+1312
+00:30:47,510 --> 00:30:47,520
+very important part. Um so here yeah one
+ 
+
+1313
+00:30:47,520 --> 00:30:49,909
+very important part. Um so here yeah one
+very important thing. Yeah I wanted to I
+
+1314
+00:30:49,909 --> 00:30:49,919
+very important thing. Yeah I wanted to I
+ 
+
+1315
+00:30:49,919 --> 00:30:53,350
+very important thing. Yeah I wanted to I
+was looking for that one. So here
+
+1316
+00:30:53,350 --> 00:30:53,360
+was looking for that one. So here
+ 
+
+1317
+00:30:53,360 --> 00:30:56,310
+was looking for that one. So here
+let me clarify a bit uh a little bit let
+
+1318
+00:30:56,310 --> 00:30:56,320
+let me clarify a bit uh a little bit let
+ 
+
+1319
+00:30:56,320 --> 00:30:58,310
+let me clarify a bit uh a little bit let
+me delete the writing so that it is
+
+1320
+00:30:58,310 --> 00:30:58,320
+me delete the writing so that it is
+ 
+
+1321
+00:30:58,320 --> 00:31:01,029
+me delete the writing so that it is
+clearly visible. Yeah focus on this
+
+1322
+00:31:01,029 --> 00:31:01,039
+clearly visible. Yeah focus on this
+ 
+
+1323
+00:31:01,039 --> 00:31:04,310
+clearly visible. Yeah focus on this
+part. when I am submitting a task here
+
+1324
+00:31:04,310 --> 00:31:04,320
+part. when I am submitting a task here
+ 
+
+1325
+00:31:04,320 --> 00:31:06,950
+part. when I am submitting a task here
+right I am putting completable future
+
+1326
+00:31:06,950 --> 00:31:06,960
+right I am putting completable future
+ 
+
+1327
+00:31:06,960 --> 00:31:09,830
+right I am putting completable future
+dot completed future
+
+1328
+00:31:09,830 --> 00:31:09,840
+dot completed future
+ 
+
+1329
+00:31:09,840 --> 00:31:11,669
+dot completed future
+and this
+
+1330
+00:31:11,669 --> 00:31:11,679
+and this
+ 
+
+1331
+00:31:11,679 --> 00:31:16,630
+and this
+here never do supply a sync so we if you
+
+1332
+00:31:16,630 --> 00:31:16,640
+here never do supply a sync so we if you
+ 
+
+1333
+00:31:16,640 --> 00:31:19,190
+here never do supply a sync so we if you
+know thread pool you know that in plain
+
+1334
+00:31:19,190 --> 00:31:19,200
+know thread pool you know that in plain
+ 
+
+1335
+00:31:19,200 --> 00:31:21,750
+know thread pool you know that in plain
+java we are doing this completable
+
+1336
+00:31:21,750 --> 00:31:21,760
+java we are doing this completable
+ 
+
+1337
+00:31:21,760 --> 00:31:25,190
+java we are doing this completable
+future dotsupply a sync and internally
+
+1338
+00:31:25,190 --> 00:31:25,200
+future dotsupply a sync and internally
+ 
+
+1339
+00:31:25,200 --> 00:31:28,470
+future dotsupply a sync and internally
+it will submit a task to a thread pool
+
+1340
+00:31:28,470 --> 00:31:28,480
+it will submit a task to a thread pool
+ 
+
+1341
+00:31:28,480 --> 00:31:32,870
+it will submit a task to a thread pool
+this will submit the task to thread
+
+1342
+00:31:32,870 --> 00:31:32,880
+this will submit the task to thread
+ 
+
+1343
+00:31:32,880 --> 00:31:35,510
+this will submit the task to thread
+And who should do it? AOP should do it.
+
+1344
+00:31:35,510 --> 00:31:35,520
+And who should do it? AOP should do it.
+ 
+
+1345
+00:31:35,520 --> 00:31:38,070
+And who should do it? AOP should do it.
+And AOP is doing that. AOP internally
+
+1346
+00:31:38,070 --> 00:31:38,080
+And AOP is doing that. AOP internally
+ 
+
+1347
+00:31:38,080 --> 00:31:41,430
+And AOP is doing that. AOP internally
+submit this. So we should not do supply
+
+1348
+00:31:41,430 --> 00:31:41,440
+submit this. So we should not do supply
+ 
+
+1349
+00:31:41,440 --> 00:31:43,509
+submit this. So we should not do supply
+or sync here. We can we have to use
+
+1350
+00:31:43,509 --> 00:31:43,519
+or sync here. We can we have to use
+ 
+
+1351
+00:31:43,519 --> 00:31:45,590
+or sync here. We can we have to use
+completed future here. So completed
+
+1352
+00:31:45,590 --> 00:31:45,600
+completed future here. So completed
+ 
+
+1353
+00:31:45,600 --> 00:31:49,350
+completed future here. So completed
+future is doing nothing. It is a wrapper
+
+1354
+00:31:49,350 --> 00:31:49,360
+future is doing nothing. It is a wrapper
+ 
+
+1355
+00:31:49,360 --> 00:31:51,830
+future is doing nothing. It is a wrapper
+like whatever your task. So this is my
+
+1356
+00:31:51,830 --> 00:31:51,840
+like whatever your task. So this is my
+ 
+
+1357
+00:31:51,840 --> 00:31:55,190
+like whatever your task. So this is my
+actually a task which I want
+
+1358
+00:31:55,190 --> 00:31:55,200
+actually a task which I want
+ 
+
+1359
+00:31:55,200 --> 00:31:57,590
+actually a task which I want
+uh to be submitted to a thread pool
+
+1360
+00:31:57,590 --> 00:31:57,600
+uh to be submitted to a thread pool
+ 
+
+1361
+00:31:57,600 --> 00:32:00,230
+uh to be submitted to a thread pool
+actually. Okay.
+
+1362
+00:32:00,230 --> 00:32:00,240
+actually. Okay.
+ 
+
+1363
+00:32:00,240 --> 00:32:01,750
+actually. Okay.
+But
+
+1364
+00:32:01,750 --> 00:32:01,760
+But
+ 
+
+1365
+00:32:01,760 --> 00:32:03,590
+But
+I can't do because return type is
+
+1366
+00:32:03,590 --> 00:32:03,600
+I can't do because return type is
+ 
+
+1367
+00:32:03,600 --> 00:32:05,909
+I can't do because return type is
+completable future. I just can't have
+
+1368
+00:32:05,909 --> 00:32:05,919
+completable future. I just can't have
+ 
+
+1369
+00:32:05,919 --> 00:32:09,110
+completable future. I just can't have
+this. I have I can't just uh return a
+
+1370
+00:32:09,110 --> 00:32:09,120
+this. I have I can't just uh return a
+ 
+
+1371
+00:32:09,120 --> 00:32:11,350
+this. I have I can't just uh return a
+string. I can't just return a string
+
+1372
+00:32:11,350 --> 00:32:11,360
+string. I can't just return a string
+ 
+
+1373
+00:32:11,360 --> 00:32:12,870
+string. I can't just return a string
+because return type is completable
+
+1374
+00:32:12,870 --> 00:32:12,880
+because return type is completable
+ 
+
+1375
+00:32:12,880 --> 00:32:15,509
+because return type is completable
+future. So I have to wrap it up. So I
+
+1376
+00:32:15,509 --> 00:32:15,519
+future. So I have to wrap it up. So I
+ 
+
+1377
+00:32:15,519 --> 00:32:17,750
+future. So I have to wrap it up. So I
+have to wrap it up inside a completable
+
+1378
+00:32:17,750 --> 00:32:17,760
+have to wrap it up inside a completable
+ 
+
+1379
+00:32:17,760 --> 00:32:20,630
+have to wrap it up inside a completable
+future object. That's all. So completed
+
+1380
+00:32:20,630 --> 00:32:20,640
+future object. That's all. So completed
+ 
+
+1381
+00:32:20,640 --> 00:32:22,549
+future object. That's all. So completed
+future
+
+1382
+00:32:22,549 --> 00:32:22,559
+future
+ 
+
+1383
+00:32:22,559 --> 00:32:24,870
+future
+do not submit the task to thread pool.
+
+1384
+00:32:24,870 --> 00:32:24,880
+do not submit the task to thread pool.
+ 
+
+1385
+00:32:24,880 --> 00:32:28,389
+do not submit the task to thread pool.
+It only wrap the output. That's all. So
+
+1386
+00:32:28,389 --> 00:32:28,399
+It only wrap the output. That's all. So
+ 
+
+1387
+00:32:28,399 --> 00:32:30,630
+It only wrap the output. That's all. So
+never use supply async here. So if you
+
+1388
+00:32:30,630 --> 00:32:30,640
+never use supply async here. So if you
+ 
+
+1389
+00:32:30,640 --> 00:32:32,710
+never use supply async here. So if you
+just if you want to do testing right
+
+1390
+00:32:32,710 --> 00:32:32,720
+just if you want to do testing right
+ 
+
+1391
+00:32:32,720 --> 00:32:35,350
+just if you want to do testing right
+just do completable future dossupply as
+
+1392
+00:32:35,350 --> 00:32:35,360
+just do completable future dossupply as
+ 
+
+1393
+00:32:35,360 --> 00:32:38,789
+just do completable future dossupply as
+sync and just submit this. Okay. And
+
+1394
+00:32:38,789 --> 00:32:38,799
+sync and just submit this. Okay. And
+ 
+
+1395
+00:32:38,799 --> 00:32:42,230
+sync and just submit this. Okay. And
+also uh just print the thread pool name
+
+1396
+00:32:42,230 --> 00:32:42,240
+also uh just print the thread pool name
+ 
+
+1397
+00:32:42,240 --> 00:32:44,230
+also uh just print the thread pool name
+just what is the thread name right
+
+1398
+00:32:44,230 --> 00:32:44,240
+just what is the thread name right
+ 
+
+1399
+00:32:44,240 --> 00:32:46,230
+just what is the thread name right
+before submitting just put a thread
+
+1400
+00:32:46,230 --> 00:32:46,240
+before submitting just put a thread
+ 
+
+1401
+00:32:46,240 --> 00:32:47,750
+before submitting just put a thread
+name. So like here let's say you are
+
+1402
+00:32:47,750 --> 00:32:47,760
+name. So like here let's say you are
+ 
+
+1403
+00:32:47,760 --> 00:32:53,430
+name. So like here let's say you are
+doing dot supply async and this product
+
+1404
+00:32:53,430 --> 00:32:53,440
+doing dot supply async and this product
+ 
+
+1405
+00:32:53,440 --> 00:32:56,549
+doing dot supply async and this product
+by id product client by product by id
+
+1406
+00:32:56,549 --> 00:32:56,559
+by id product client by product by id
+ 
+
+1407
+00:32:56,559 --> 00:32:58,389
+by id product client by product by id
+something something and you have a
+
+1408
+00:32:58,389 --> 00:32:58,399
+something something and you have a
+ 
+
+1409
+00:32:58,399 --> 00:33:02,230
+something something and you have a
+thread name and just see that does your
+
+1410
+00:33:02,230 --> 00:33:02,240
+thread name and just see that does your
+ 
+
+1411
+00:33:02,240 --> 00:33:04,870
+thread name and just see that does your
+bulcat thread pool used or not it will
+
+1412
+00:33:04,870 --> 00:33:04,880
+bulcat thread pool used or not it will
+ 
+
+1413
+00:33:04,880 --> 00:33:06,389
+bulcat thread pool used or not it will
+not
+
+1414
+00:33:06,389 --> 00:33:06,399
+not
+ 
+
+1415
+00:33:06,399 --> 00:33:08,470
+not
+because now you are submitting the
+
+1416
+00:33:08,470 --> 00:33:08,480
+because now you are submitting the
+ 
+
+1417
+00:33:08,480 --> 00:33:10,710
+because now you are submitting the
+request when you are submitting the
+
+1418
+00:33:10,710 --> 00:33:10,720
+request when you are submitting the
+ 
+
+1419
+00:33:10,720 --> 00:33:13,509
+request when you are submitting the
+request to a thread pool you are using a
+
+1420
+00:33:13,509 --> 00:33:13,519
+request to a thread pool you are using a
+ 
+
+1421
+00:33:13,519 --> 00:33:19,110
+request to a thread pool you are using a
+thread from your order application
+
+1422
+00:33:19,110 --> 00:33:19,120
+thread from your order application
+ 
+
+1423
+00:33:19,120 --> 00:33:21,590
+thread from your order application
+right your order application you are
+
+1424
+00:33:21,590 --> 00:33:21,600
+right your order application you are
+ 
+
+1425
+00:33:21,600 --> 00:33:23,990
+right your order application you are
+using it.
+
+1426
+00:33:23,990 --> 00:33:24,000
+using it.
+ 
+
+1427
+00:33:24,000 --> 00:33:27,830
+using it.
+So you need to use AOP because AOP will
+
+1428
+00:33:27,830 --> 00:33:27,840
+So you need to use AOP because AOP will
+ 
+
+1429
+00:33:27,840 --> 00:33:30,230
+So you need to use AOP because AOP will
+now have the proper understanding that
+
+1430
+00:33:30,230 --> 00:33:30,240
+now have the proper understanding that
+ 
+
+1431
+00:33:30,240 --> 00:33:31,990
+now have the proper understanding that
+okay when the bulkhead annotation is
+
+1432
+00:33:31,990 --> 00:33:32,000
+okay when the bulkhead annotation is
+ 
+
+1433
+00:33:32,000 --> 00:33:35,190
+okay when the bulkhead annotation is
+used this is the name this is the
+
+1434
+00:33:35,190 --> 00:33:35,200
+used this is the name this is the
+ 
+
+1435
+00:33:35,200 --> 00:33:36,950
+used this is the name this is the
+service then I have to look for
+
+1436
+00:33:36,950 --> 00:33:36,960
+service then I have to look for
+ 
+
+1437
+00:33:36,960 --> 00:33:39,110
+service then I have to look for
+application.properties properties
+
+1438
+00:33:39,110 --> 00:33:39,120
+application.properties properties
+ 
+
+1439
+00:33:39,120 --> 00:33:41,029
+application.properties properties
+and whatever the name you have provided
+
+1440
+00:33:41,029 --> 00:33:41,039
+and whatever the name you have provided
+ 
+
+1441
+00:33:41,039 --> 00:33:43,830
+and whatever the name you have provided
+for the bulkhead that bulcad
+
+1442
+00:33:43,830 --> 00:33:43,840
+for the bulkhead that bulcad
+ 
+
+1443
+00:33:43,840 --> 00:33:46,070
+for the bulkhead that bulcad
+particular name in configuration I have
+
+1444
+00:33:46,070 --> 00:33:46,080
+particular name in configuration I have
+ 
+
+1445
+00:33:46,080 --> 00:33:48,389
+particular name in configuration I have
+to root read I have to create a thread
+
+1446
+00:33:48,389 --> 00:33:48,399
+to root read I have to create a thread
+ 
+
+1447
+00:33:48,399 --> 00:33:52,389
+to root read I have to create a thread
+pool and use that. So AOP does that for
+
+1448
+00:33:52,389 --> 00:33:52,399
+pool and use that. So AOP does that for
+ 
+
+1449
+00:33:52,399 --> 00:33:56,789
+pool and use that. So AOP does that for
+us and do supply async method and pass
+
+1450
+00:33:56,789 --> 00:33:56,799
+us and do supply async method and pass
+ 
+
+1451
+00:33:56,799 --> 00:33:59,029
+us and do supply async method and pass
+the thread pool executor
+
+1452
+00:33:59,029 --> 00:33:59,039
+the thread pool executor
+ 
+
+1453
+00:33:59,039 --> 00:34:01,590
+the thread pool executor
+along with it.
+
+1454
+00:34:01,590 --> 00:34:01,600
+along with it.
+ 
+
+1455
+00:34:01,600 --> 00:34:05,190
+along with it.
+Okay. So if you just create supply a
+
+1456
+00:34:05,190 --> 00:34:05,200
+Okay. So if you just create supply a
+ 
+
+1457
+00:34:05,200 --> 00:34:07,669
+Okay. So if you just create supply a
+sync and provide the method it will use
+
+1458
+00:34:07,669 --> 00:34:07,679
+sync and provide the method it will use
+ 
+
+1459
+00:34:07,679 --> 00:34:10,629
+sync and provide the method it will use
+default one default one for your order
+
+1460
+00:34:10,629 --> 00:34:10,639
+default one default one for your order
+ 
+
+1461
+00:34:10,639 --> 00:34:12,950
+default one default one for your order
+application or either you have to
+
+1462
+00:34:12,950 --> 00:34:12,960
+application or either you have to
+ 
+
+1463
+00:34:12,960 --> 00:34:14,710
+application or either you have to
+manually handle that you have to
+
+1464
+00:34:14,710 --> 00:34:14,720
+manually handle that you have to
+ 
+
+1465
+00:34:14,720 --> 00:34:16,950
+manually handle that you have to
+manually create a thread pool and pass
+
+1466
+00:34:16,950 --> 00:34:16,960
+manually create a thread pool and pass
+ 
+
+1467
+00:34:16,960 --> 00:34:19,829
+manually create a thread pool and pass
+your bulkhead
+
+1468
+00:34:19,829 --> 00:34:19,839
+your bulkhead
+ 
+
+1469
+00:34:19,839 --> 00:34:22,950
+your bulkhead
+bulkhead thread pool executor
+
+1470
+00:34:22,950 --> 00:34:22,960
+bulkhead thread pool executor
+ 
+
+1471
+00:34:22,960 --> 00:34:25,109
+bulkhead thread pool executor
+then it will use this pool. But you have
+
+1472
+00:34:25,109 --> 00:34:25,119
+then it will use this pool. But you have
+ 
+
+1473
+00:34:25,119 --> 00:34:29,430
+then it will use this pool. But you have
+to create now first executor
+
+1474
+00:34:29,430 --> 00:34:29,440
+to create now first executor
+ 
+
+1475
+00:34:29,440 --> 00:34:31,669
+to create now first executor
+bulkhead exeutor you have to create
+
+1476
+00:34:31,669 --> 00:34:31,679
+bulkhead exeutor you have to create
+ 
+
+1477
+00:34:31,679 --> 00:34:34,470
+bulkhead exeutor you have to create
+first for this all configuration you
+
+1478
+00:34:34,470 --> 00:34:34,480
+first for this all configuration you
+ 
+
+1479
+00:34:34,480 --> 00:34:37,430
+first for this all configuration you
+have to create that this is the max this
+
+1480
+00:34:37,430 --> 00:34:37,440
+have to create that this is the max this
+ 
+
+1481
+00:34:37,440 --> 00:34:39,430
+have to create that this is the max this
+is the min this is the Q once the
+
+1482
+00:34:39,430 --> 00:34:39,440
+is the min this is the Q once the
+ 
+
+1483
+00:34:39,440 --> 00:34:41,750
+is the min this is the Q once the
+executor is created now if you are
+
+1484
+00:34:41,750 --> 00:34:41,760
+executor is created now if you are
+ 
+
+1485
+00:34:41,760 --> 00:34:45,430
+executor is created now if you are
+calling the supply a sync supply a sync
+
+1486
+00:34:45,430 --> 00:34:45,440
+calling the supply a sync supply a sync
+ 
+
+1487
+00:34:45,440 --> 00:34:47,589
+calling the supply a sync supply a sync
+then provide the task which you want to
+
+1488
+00:34:47,589 --> 00:34:47,599
+then provide the task which you want to
+ 
+
+1489
+00:34:47,599 --> 00:34:49,109
+then provide the task which you want to
+submit let's say this is the task of
+
+1490
+00:34:49,109 --> 00:34:49,119
+submit let's say this is the task of
+ 
+
+1491
+00:34:49,119 --> 00:34:51,349
+submit let's say this is the task of
+calling the downstream and then in the
+
+1492
+00:34:51,349 --> 00:34:51,359
+calling the downstream and then in the
+ 
+
+1493
+00:34:51,359 --> 00:34:54,389
+calling the downstream and then in the
+comma the executor you have to pass this
+
+1494
+00:34:54,389 --> 00:34:54,399
+comma the executor you have to pass this
+ 
+
+1495
+00:34:54,399 --> 00:34:56,790
+comma the executor you have to pass this
+executor you have to pass
+
+1496
+00:34:56,790 --> 00:34:56,800
+executor you have to pass
+ 
+
+1497
+00:34:56,800 --> 00:34:59,190
+executor you have to pass
+then it will work fine because now you
+
+1498
+00:34:59,190 --> 00:34:59,200
+then it will work fine because now you
+ 
+
+1499
+00:34:59,200 --> 00:35:01,589
+then it will work fine because now you
+are creating a executor you are passing
+
+1500
+00:35:01,589 --> 00:35:01,599
+are creating a executor you are passing
+ 
+
+1501
+00:35:01,599 --> 00:35:03,270
+are creating a executor you are passing
+you are submitting supplier a sync you
+
+1502
+00:35:03,270 --> 00:35:03,280
+you are submitting supplier a sync you
+ 
+
+1503
+00:35:03,280 --> 00:35:05,670
+you are submitting supplier a sync you
+are submitting to a thread pool and you
+
+1504
+00:35:05,670 --> 00:35:05,680
+are submitting to a thread pool and you
+ 
+
+1505
+00:35:05,680 --> 00:35:08,150
+are submitting to a thread pool and you
+are also tell which executor to use now
+
+1506
+00:35:08,150 --> 00:35:08,160
+are also tell which executor to use now
+ 
+
+1507
+00:35:08,160 --> 00:35:10,390
+are also tell which executor to use now
+it will not use the common one but if
+
+1508
+00:35:10,390 --> 00:35:10,400
+it will not use the common one but if
+ 
+
+1509
+00:35:10,400 --> 00:35:13,510
+it will not use the common one but if
+you just simply do supply a sync and the
+
+1510
+00:35:13,510 --> 00:35:13,520
+you just simply do supply a sync and the
+ 
+
+1511
+00:35:13,520 --> 00:35:15,750
+you just simply do supply a sync and the
+task calling the downstream let's say
+
+1512
+00:35:15,750 --> 00:35:15,760
+task calling the downstream let's say
+ 
+
+1513
+00:35:15,760 --> 00:35:20,069
+task calling the downstream let's say
+this one it will use common thread pool
+
+1514
+00:35:20,069 --> 00:35:20,079
+this one it will use common thread pool
+ 
+
+1515
+00:35:20,079 --> 00:35:22,870
+this one it will use common thread pool
+and you don't have to manually create a
+
+1516
+00:35:22,870 --> 00:35:22,880
+and you don't have to manually create a
+ 
+
+1517
+00:35:22,880 --> 00:35:26,150
+and you don't have to manually create a
+executor Because this add the rate bulk
+
+1518
+00:35:26,150 --> 00:35:26,160
+executor Because this add the rate bulk
+ 
+
+1519
+00:35:26,160 --> 00:35:29,750
+executor Because this add the rate bulk
+ahead ultimately internally going to do
+
+1520
+00:35:29,750 --> 00:35:29,760
+ahead ultimately internally going to do
+ 
+
+1521
+00:35:29,760 --> 00:35:31,910
+ahead ultimately internally going to do
+the same thing. It will first create
+
+1522
+00:35:31,910 --> 00:35:31,920
+the same thing. It will first create
+ 
+
+1523
+00:35:31,920 --> 00:35:35,109
+the same thing. It will first create
+threadpool executor and then call supply
+
+1524
+00:35:35,109 --> 00:35:35,119
+threadpool executor and then call supply
+ 
+
+1525
+00:35:35,119 --> 00:35:40,550
+threadpool executor and then call supply
+async and pass your this task
+
+1526
+00:35:40,550 --> 00:35:40,560
+async and pass your this task
+ 
+
+1527
+00:35:40,560 --> 00:35:42,710
+async and pass your this task
+and how it threadpool exeutor is created
+
+1528
+00:35:42,710 --> 00:35:42,720
+and how it threadpool exeutor is created
+ 
+
+1529
+00:35:42,720 --> 00:35:45,589
+and how it threadpool exeutor is created
+and all it's all discussed here in dep
+
+1530
+00:35:45,589 --> 00:35:45,599
+and all it's all discussed here in dep
+ 
+
+1531
+00:35:45,599 --> 00:35:47,750
+and all it's all discussed here in dep
+in description section I will put this
+
+1532
+00:35:47,750 --> 00:35:47,760
+in description section I will put this
+ 
+
+1533
+00:35:47,760 --> 00:35:51,670
+in description section I will put this
+thing
+
+1534
+00:35:51,670 --> 00:35:51,680
+
+ 
+
+1535
+00:35:51,680 --> 00:35:53,430
+
+got it
+
+1536
+00:35:53,430 --> 00:35:53,440
+got it
+ 
+
+1537
+00:35:53,440 --> 00:35:56,630
+got it
+so last 1 minute let's see uh time
+
+1538
+00:35:56,630 --> 00:35:56,640
+so last 1 minute let's see uh time
+ 
+
+1539
+00:35:56,640 --> 00:35:58,550
+so last 1 minute let's see uh time
+limiter because I am not going to cover
+
+1540
+00:35:58,550 --> 00:35:58,560
+limiter because I am not going to cover
+ 
+
+1541
+00:35:58,560 --> 00:36:01,990
+limiter because I am not going to cover
+the time limiter reason being is that
+
+1542
+00:36:01,990 --> 00:36:02,000
+the time limiter reason being is that
+ 
+
+1543
+00:36:02,000 --> 00:36:04,390
+the time limiter reason being is that
+time limiter is used to prevent a sync
+
+1544
+00:36:04,390 --> 00:36:04,400
+time limiter is used to prevent a sync
+ 
+
+1545
+00:36:04,400 --> 00:36:07,750
+time limiter is used to prevent a sync
+call from hanging indefinitely.
+
+1546
+00:36:07,750 --> 00:36:07,760
+call from hanging indefinitely.
+ 
+
+1547
+00:36:07,760 --> 00:36:10,550
+call from hanging indefinitely.
+Okay, time limiter is nonblocking in
+
+1548
+00:36:10,550 --> 00:36:10,560
+Okay, time limiter is nonblocking in
+ 
+
+1549
+00:36:10,560 --> 00:36:13,589
+Okay, time limiter is nonblocking in
+resilience 4j means it is designed for a
+
+1550
+00:36:13,589 --> 00:36:13,599
+resilience 4j means it is designed for a
+ 
+
+1551
+00:36:13,599 --> 00:36:16,390
+resilience 4j means it is designed for a
+synchronous operation
+
+1552
+00:36:16,390 --> 00:36:16,400
+synchronous operation
+ 
+
+1553
+00:36:16,400 --> 00:36:18,230
+synchronous operation
+that returns a reactive type like
+
+1554
+00:36:18,230 --> 00:36:18,240
+that returns a reactive type like
+ 
+
+1555
+00:36:18,240 --> 00:36:21,109
+that returns a reactive type like
+monoflux. So you remember that in a
+
+1556
+00:36:21,109 --> 00:36:21,119
+monoflux. So you remember that in a
+ 
+
+1557
+00:36:21,119 --> 00:36:23,430
+monoflux. So you remember that in a
+blocking. So here if you remember in the
+
+1558
+00:36:23,430 --> 00:36:23,440
+blocking. So here if you remember in the
+ 
+
+1559
+00:36:23,440 --> 00:36:25,270
+blocking. So here if you remember in the
+faint client
+
+1560
+00:36:25,270 --> 00:36:25,280
+faint client
+ 
+
+1561
+00:36:25,280 --> 00:36:27,349
+faint client
+so faint client rest template rest
+
+1562
+00:36:27,349 --> 00:36:27,359
+so faint client rest template rest
+ 
+
+1563
+00:36:27,359 --> 00:36:29,349
+so faint client rest template rest
+client these are all blocking calls
+
+1564
+00:36:29,349 --> 00:36:29,359
+client these are all blocking calls
+ 
+
+1565
+00:36:29,359 --> 00:36:33,109
+client these are all blocking calls
+means threads are waiting and the thread
+
+1566
+00:36:33,109 --> 00:36:33,119
+means threads are waiting and the thread
+ 
+
+1567
+00:36:33,119 --> 00:36:35,270
+means threads are waiting and the thread
+should not wait indefinitely. They
+
+1568
+00:36:35,270 --> 00:36:35,280
+should not wait indefinitely. They
+ 
+
+1569
+00:36:35,280 --> 00:36:37,750
+should not wait indefinitely. They
+should not hang indefinitely. So we have
+
+1570
+00:36:37,750 --> 00:36:37,760
+should not hang indefinitely. So we have
+ 
+
+1571
+00:36:37,760 --> 00:36:39,589
+should not hang indefinitely. So we have
+provided that connection timeout and ret
+
+1572
+00:36:39,589 --> 00:36:39,599
+provided that connection timeout and ret
+ 
+
+1573
+00:36:39,599 --> 00:36:41,190
+provided that connection timeout and ret
+time out. We have already seen that in
+
+1574
+00:36:41,190 --> 00:36:41,200
+time out. We have already seen that in
+ 
+
+1575
+00:36:41,200 --> 00:36:45,670
+time out. We have already seen that in
+the flland example. So we provided right
+
+1576
+00:36:45,670 --> 00:36:45,680
+the flland example. So we provided right
+ 
+
+1577
+00:36:45,680 --> 00:36:47,510
+the flland example. So we provided right
+connection timeout how much time it take
+
+1578
+00:36:47,510 --> 00:36:47,520
+connection timeout how much time it take
+ 
+
+1579
+00:36:47,520 --> 00:36:49,430
+connection timeout how much time it take
+to make a HTTP
+
+1580
+00:36:49,430 --> 00:36:49,440
+to make a HTTP
+ 
+
+1581
+00:36:49,440 --> 00:36:52,069
+to make a HTTP
+uh TCP connection
+
+1582
+00:36:52,069 --> 00:36:52,079
+uh TCP connection
+ 
+
+1583
+00:36:52,079 --> 00:36:55,109
+uh TCP connection
+read timeout how much time I should wait
+
+1584
+00:36:55,109 --> 00:36:55,119
+read timeout how much time I should wait
+ 
+
+1585
+00:36:55,119 --> 00:36:57,270
+read timeout how much time I should wait
+before I get a response from the
+
+1586
+00:36:57,270 --> 00:36:57,280
+before I get a response from the
+ 
+
+1587
+00:36:57,280 --> 00:36:59,829
+before I get a response from the
+downstream. So only this much time it
+
+1588
+00:36:59,829 --> 00:36:59,839
+downstream. So only this much time it
+ 
+
+1589
+00:36:59,839 --> 00:37:02,630
+downstream. So only this much time it
+will wait it will not wait indefinitely.
+
+1590
+00:37:02,630 --> 00:37:02,640
+will wait it will not wait indefinitely.
+ 
+
+1591
+00:37:02,640 --> 00:37:05,910
+will wait it will not wait indefinitely.
+So for blocking calls we can handle it
+
+1592
+00:37:05,910 --> 00:37:05,920
+So for blocking calls we can handle it
+ 
+
+1593
+00:37:05,920 --> 00:37:10,069
+So for blocking calls we can handle it
+through this. But what about using calls
+
+1594
+00:37:10,069 --> 00:37:10,079
+through this. But what about using calls
+ 
+
+1595
+00:37:10,079 --> 00:37:13,510
+through this. But what about using calls
+right? Let's say you fire and forget.
+
+1596
+00:37:13,510 --> 00:37:13,520
+right? Let's say you fire and forget.
+ 
+
+1597
+00:37:13,520 --> 00:37:17,109
+right? Let's say you fire and forget.
+This is you fire and forget. Now assing
+
+1598
+00:37:17,109 --> 00:37:17,119
+This is you fire and forget. Now assing
+ 
+
+1599
+00:37:17,119 --> 00:37:20,550
+This is you fire and forget. Now assing
+there is a thread in it is working. How
+
+1600
+00:37:20,550 --> 00:37:20,560
+there is a thread in it is working. How
+ 
+
+1601
+00:37:20,560 --> 00:37:23,829
+there is a thread in it is working. How
+you make sure that it don't hang or
+
+1602
+00:37:23,829 --> 00:37:23,839
+you make sure that it don't hang or
+ 
+
+1603
+00:37:23,839 --> 00:37:26,550
+you make sure that it don't hang or
+continuously work indefinitely.
+
+1604
+00:37:26,550 --> 00:37:26,560
+continuously work indefinitely.
+ 
+
+1605
+00:37:26,560 --> 00:37:31,030
+continuously work indefinitely.
+So that thread should get also freed up.
+
+1606
+00:37:31,030 --> 00:37:31,040
+So that thread should get also freed up.
+ 
+
+1607
+00:37:31,040 --> 00:37:33,109
+So that thread should get also freed up.
+Okay. So that's where time limiter is
+
+1608
+00:37:33,109 --> 00:37:33,119
+Okay. So that's where time limiter is
+ 
+
+1609
+00:37:33,119 --> 00:37:36,950
+Okay. So that's where time limiter is
+used. So I will cover it when we will
+
+1610
+00:37:36,950 --> 00:37:36,960
+used. So I will cover it when we will
+ 
+
+1611
+00:37:36,960 --> 00:37:40,069
+used. So I will cover it when we will
+cover the web flux reactive programming
+
+1612
+00:37:40,069 --> 00:37:40,079
+cover the web flux reactive programming
+ 
+
+1613
+00:37:40,079 --> 00:37:42,150
+cover the web flux reactive programming
+in that it will make more sense because
+
+1614
+00:37:42,150 --> 00:37:42,160
+in that it will make more sense because
+ 
+
+1615
+00:37:42,160 --> 00:37:45,190
+in that it will make more sense because
+in the blocking rest template rest
+
+1616
+00:37:45,190 --> 00:37:45,200
+in the blocking rest template rest
+ 
+
+1617
+00:37:45,200 --> 00:37:47,670
+in the blocking rest template rest
+client it does not make sense because it
+
+1618
+00:37:47,670 --> 00:37:47,680
+client it does not make sense because it
+ 
+
+1619
+00:37:47,680 --> 00:37:50,950
+client it does not make sense because it
+is non-blocking in resilience 4j
+
+1620
+00:37:50,950 --> 00:37:50,960
+is non-blocking in resilience 4j
+ 
+
+1621
+00:37:50,960 --> 00:37:53,589
+is non-blocking in resilience 4j
+okay even if you put into non-blocking
+
+1622
+00:37:53,589 --> 00:37:53,599
+okay even if you put into non-blocking
+ 
+
+1623
+00:37:53,599 --> 00:37:57,270
+okay even if you put into non-blocking
+let's say at the rate time limiter okay
+
+1624
+00:37:57,270 --> 00:37:57,280
+let's say at the rate time limiter okay
+ 
+
+1625
+00:37:57,280 --> 00:38:00,150
+let's say at the rate time limiter okay
+so what it will happen is you call you
+
+1626
+00:38:00,150 --> 00:38:00,160
+so what it will happen is you call you
+ 
+
+1627
+00:38:00,160 --> 00:38:02,870
+so what it will happen is you call you
+submit a request you submit a task to a
+
+1628
+00:38:02,870 --> 00:38:02,880
+submit a request you submit a task to a
+ 
+
+1629
+00:38:02,880 --> 00:38:05,510
+submit a request you submit a task to a
+thread pool Okay. And your thread got
+
+1630
+00:38:05,510 --> 00:38:05,520
+thread pool Okay. And your thread got
+ 
+
+1631
+00:38:05,520 --> 00:38:08,069
+thread pool Okay. And your thread got
+freed and now async thread is working.
+
+1632
+00:38:08,069 --> 00:38:08,079
+freed and now async thread is working.
+ 
+
+1633
+00:38:08,079 --> 00:38:10,470
+freed and now async thread is working.
+So it will not ultimately free this up.
+
+1634
+00:38:10,470 --> 00:38:10,480
+So it will not ultimately free this up.
+ 
+
+1635
+00:38:10,480 --> 00:38:12,550
+So it will not ultimately free this up.
+It will just try to free your this thing
+
+1636
+00:38:12,550 --> 00:38:12,560
+It will just try to free your this thing
+ 
+
+1637
+00:38:12,560 --> 00:38:15,270
+It will just try to free your this thing
+which is automatically get freed. It
+
+1638
+00:38:15,270 --> 00:38:15,280
+which is automatically get freed. It
+ 
+
+1639
+00:38:15,280 --> 00:38:17,670
+which is automatically get freed. It
+just submit a task to a thread pool and
+
+1640
+00:38:17,670 --> 00:38:17,680
+just submit a task to a thread pool and
+ 
+
+1641
+00:38:17,680 --> 00:38:20,310
+just submit a task to a thread pool and
+just finish move ahead. Now thising
+
+1642
+00:38:20,310 --> 00:38:20,320
+just finish move ahead. Now thising
+ 
+
+1643
+00:38:20,320 --> 00:38:22,630
+just finish move ahead. Now thising
+thread is working.
+
+1644
+00:38:22,630 --> 00:38:22,640
+thread is working.
+ 
+
+1645
+00:38:22,640 --> 00:38:25,030
+thread is working.
+So here in the
+
+1646
+00:38:25,030 --> 00:38:25,040
+So here in the
+ 
+
+1647
+00:38:25,040 --> 00:38:27,670
+So here in the
+blocking mechanism
+
+1648
+00:38:27,670 --> 00:38:27,680
+blocking mechanism
+ 
+
+1649
+00:38:27,680 --> 00:38:31,030
+blocking mechanism
+it will not be able to free this async
+
+1650
+00:38:31,030 --> 00:38:31,040
+it will not be able to free this async
+ 
+
+1651
+00:38:31,040 --> 00:38:32,950
+it will not be able to free this async
+call.
+
+1652
+00:38:32,950 --> 00:38:32,960
+call.
+ 
+
+1653
+00:38:32,960 --> 00:38:36,069
+call.
+So we will ultimately see when we will
+
+1654
+00:38:36,069 --> 00:38:36,079
+So we will ultimately see when we will
+ 
+
+1655
+00:38:36,079 --> 00:38:38,950
+So we will ultimately see when we will
+start the web flux.
+
+1656
+00:38:38,950 --> 00:38:38,960
+start the web flux.
+ 
+
+1657
+00:38:38,960 --> 00:38:40,630
+start the web flux.
+Okay.
+
+1658
+00:38:40,630 --> 00:38:40,640
+Okay.
+ 
+
+1659
+00:38:40,640 --> 00:38:42,710
+Okay.
+So if there is any doubt let me know in
+
+1660
+00:38:42,710 --> 00:38:42,720
+So if there is any doubt let me know in
+ 
+
+1661
+00:38:42,720 --> 00:38:43,910
+So if there is any doubt let me know in
+the comment section. We can discuss
+
+1662
+00:38:43,910 --> 00:38:43,920
+the comment section. We can discuss
+ 
+
+1663
+00:38:43,920 --> 00:38:46,390
+the comment section. We can discuss
+further. But please practice this with
+
+1664
+00:38:46,390 --> 00:38:46,400
+further. But please practice this with
+ 
+
+1665
+00:38:46,400 --> 00:38:49,349
+further. But please practice this with
+hand like play with this configuration
+
+1666
+00:38:49,349 --> 00:38:49,359
+hand like play with this configuration
+ 
+
+1667
+00:38:49,359 --> 00:38:52,310
+hand like play with this configuration
+debug it and you will understand better.
+
+1668
+00:38:52,310 --> 00:38:52,320
+debug it and you will understand better.
+ 
+
+1669
+00:38:52,320 --> 00:38:54,150
+debug it and you will understand better.
+Right? And I would say that if you are
+
+1670
+00:38:54,150 --> 00:38:54,160
+Right? And I would say that if you are
+ 
+
+1671
+00:38:54,160 --> 00:38:57,750
+Right? And I would say that if you are
+not familiar with thread pool and this
+
+1672
+00:38:57,750 --> 00:38:57,760
+not familiar with thread pool and this
+ 
+
+1673
+00:38:57,760 --> 00:39:00,310
+not familiar with thread pool and this
+get it more uh like have a look at once
+
+1674
+00:39:00,310 --> 00:39:00,320
+get it more uh like have a look at once
+ 
+
+1675
+00:39:00,320 --> 00:39:02,710
+get it more uh like have a look at once
+please because then you will get clearly
+
+1676
+00:39:02,710 --> 00:39:02,720
+please because then you will get clearly
+ 
+
+1677
+00:39:02,720 --> 00:39:04,790
+please because then you will get clearly
+understand that what AOP might be doing
+
+1678
+00:39:04,790 --> 00:39:04,800
+understand that what AOP might be doing
+ 
+
+1679
+00:39:04,800 --> 00:39:07,030
+understand that what AOP might be doing
+inside how it is creating a thread pool
+
+1680
+00:39:07,030 --> 00:39:07,040
+inside how it is creating a thread pool
+ 
+
+1681
+00:39:07,040 --> 00:39:09,030
+inside how it is creating a thread pool
+executor and how it is submitting a
+
+1682
+00:39:09,030 --> 00:39:09,040
+executor and how it is submitting a
+ 
+
+1683
+00:39:09,040 --> 00:39:12,630
+executor and how it is submitting a
+request to a thread pool.
+
+1684
+00:39:12,630 --> 00:39:12,640
+request to a thread pool.
+ 
+
+1685
+00:39:12,640 --> 00:39:15,510
+request to a thread pool.
+Okay. Okay guys thank you. Have a good
+
+1686
+00:39:15,510 --> 00:39:15,520
+Okay. Okay guys thank you. Have a good
+ 
+
+1687
+00:39:15,520 --> 00:39:18,640
+Okay. Okay guys thank you. Have a good
+day. Bye.
+

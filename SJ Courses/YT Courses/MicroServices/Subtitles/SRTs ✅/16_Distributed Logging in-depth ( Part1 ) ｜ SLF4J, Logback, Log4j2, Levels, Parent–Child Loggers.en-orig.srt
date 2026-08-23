@@ -1,0 +1,10315 @@
+1
+00:00:00,000 --> 00:00:01,910
+
+Hey guys, Shandid welcome back and today
+
+2
+00:00:01,910 --> 00:00:01,920
+Hey guys, Shandid welcome back and today
+ 
+
+3
+00:00:01,920 --> 00:00:04,070
+Hey guys, Shandid welcome back and today
+in distributed microservices we are
+
+4
+00:00:04,070 --> 00:00:04,080
+in distributed microservices we are
+ 
+
+5
+00:00:04,080 --> 00:00:08,070
+in distributed microservices we are
+going to cover logging. Okay, so it's a
+
+6
+00:00:08,070 --> 00:00:08,080
+going to cover logging. Okay, so it's a
+ 
+
+7
+00:00:08,080 --> 00:00:11,030
+going to cover logging. Okay, so it's a
+very underrated topic but lot of good
+
+8
+00:00:11,030 --> 00:00:11,040
+very underrated topic but lot of good
+ 
+
+9
+00:00:11,040 --> 00:00:13,990
+very underrated topic but lot of good
+questions can be asked in an interview.
+
+10
+00:00:13,990 --> 00:00:14,000
+questions can be asked in an interview.
+ 
+
+11
+00:00:14,000 --> 00:00:16,550
+questions can be asked in an interview.
+So let's start without wasting any time.
+
+12
+00:00:16,550 --> 00:00:16,560
+So let's start without wasting any time.
+ 
+
+13
+00:00:16,560 --> 00:00:18,630
+So let's start without wasting any time.
+What is logging?
+
+14
+00:00:18,630 --> 00:00:18,640
+What is logging?
+ 
+
+15
+00:00:18,640 --> 00:00:22,390
+What is logging?
+It means recording important application
+
+16
+00:00:22,390 --> 00:00:22,400
+It means recording important application
+ 
+
+17
+00:00:22,400 --> 00:00:26,710
+It means recording important application
+events like request, response, error,
+
+18
+00:00:26,710 --> 00:00:26,720
+events like request, response, error,
+ 
+
+19
+00:00:26,720 --> 00:00:30,790
+events like request, response, error,
+warning or any information. Okay. So
+
+20
+00:00:30,790 --> 00:00:30,800
+warning or any information. Okay. So
+ 
+
+21
+00:00:30,800 --> 00:00:34,310
+warning or any information. Okay. So
+that we developers can monitor and debug
+
+22
+00:00:34,310 --> 00:00:34,320
+that we developers can monitor and debug
+ 
+
+23
+00:00:34,320 --> 00:00:36,549
+that we developers can monitor and debug
+what the application is actually doing
+
+24
+00:00:36,549 --> 00:00:36,559
+what the application is actually doing
+ 
+
+25
+00:00:36,559 --> 00:00:38,389
+what the application is actually doing
+at runtime.
+
+26
+00:00:38,389 --> 00:00:38,399
+at runtime.
+ 
+
+27
+00:00:38,399 --> 00:00:40,950
+at runtime.
+So for example,
+
+28
+00:00:40,950 --> 00:00:40,960
+So for example,
+ 
+
+29
+00:00:40,960 --> 00:00:44,470
+So for example,
+you own the user component. Okay. And
+
+30
+00:00:44,470 --> 00:00:44,480
+you own the user component. Okay. And
+ 
+
+31
+00:00:44,480 --> 00:00:48,150
+you own the user component. Okay. And
+you have one endpoint / post
+
+32
+00:00:48,150 --> 00:00:48,160
+you have one endpoint / post
+ 
+
+33
+00:00:48,160 --> 00:00:52,630
+you have one endpoint / post
+which task is to create a user. So as
+
+34
+00:00:52,630 --> 00:00:52,640
+which task is to create a user. So as
+ 
+
+35
+00:00:52,640 --> 00:00:55,510
+which task is to create a user. So as
+part of logging you can write any
+
+36
+00:00:55,510 --> 00:00:55,520
+part of logging you can write any
+ 
+
+37
+00:00:55,520 --> 00:00:57,430
+part of logging you can write any
+information into the logs. So let's say
+
+38
+00:00:57,430 --> 00:00:57,440
+information into the logs. So let's say
+ 
+
+39
+00:00:57,440 --> 00:01:02,709
+information into the logs. So let's say
+I am writing one event that user created
+
+40
+00:01:02,709 --> 00:01:02,719
+I am writing one event that user created
+ 
+
+41
+00:01:02,719 --> 00:01:05,670
+I am writing one event that user created
+okay something and some additional
+
+42
+00:01:05,670 --> 00:01:05,680
+okay something and some additional
+ 
+
+43
+00:01:05,680 --> 00:01:09,109
+okay something and some additional
+information. Now let's say in future if
+
+44
+00:01:09,109 --> 00:01:09,119
+information. Now let's say in future if
+ 
+
+45
+00:01:09,119 --> 00:01:12,230
+information. Now let's say in future if
+a user comes that he or she is facing a
+
+46
+00:01:12,230 --> 00:01:12,240
+a user comes that he or she is facing a
+ 
+
+47
+00:01:12,240 --> 00:01:14,789
+a user comes that he or she is facing a
+problem then you can check the
+
+48
+00:01:14,789 --> 00:01:14,799
+problem then you can check the
+ 
+
+49
+00:01:14,799 --> 00:01:20,469
+problem then you can check the
+particular log and see okay I see this
+
+50
+00:01:20,469 --> 00:01:20,479
+particular log and see okay I see this
+ 
+
+51
+00:01:20,479 --> 00:01:23,590
+particular log and see okay I see this
+printed into the logs mean till here my
+
+52
+00:01:23,590 --> 00:01:23,600
+printed into the logs mean till here my
+ 
+
+53
+00:01:23,600 --> 00:01:27,670
+printed into the logs mean till here my
+code is working fine. So you see that a
+
+54
+00:01:27,670 --> 00:01:27,680
+code is working fine. So you see that a
+ 
+
+55
+00:01:27,680 --> 00:01:30,789
+code is working fine. So you see that a
+log can help you in your debugging and
+
+56
+00:01:30,789 --> 00:01:30,799
+log can help you in your debugging and
+ 
+
+57
+00:01:30,799 --> 00:01:33,429
+log can help you in your debugging and
+it is not like you have to only log
+
+58
+00:01:33,429 --> 00:01:33,439
+it is not like you have to only log
+ 
+
+59
+00:01:33,439 --> 00:01:35,830
+it is not like you have to only log
+request or error or something very very
+
+60
+00:01:35,830 --> 00:01:35,840
+request or error or something very very
+ 
+
+61
+00:01:35,840 --> 00:01:38,550
+request or error or something very very
+critical even some information which can
+
+62
+00:01:38,550 --> 00:01:38,560
+critical even some information which can
+ 
+
+63
+00:01:38,560 --> 00:01:40,390
+critical even some information which can
+help you in the debugging that also we
+
+64
+00:01:40,390 --> 00:01:40,400
+help you in the debugging that also we
+ 
+
+65
+00:01:40,400 --> 00:01:43,109
+help you in the debugging that also we
+can log or we can record.
+
+66
+00:01:43,109 --> 00:01:43,119
+can log or we can record.
+ 
+
+67
+00:01:43,119 --> 00:01:46,230
+can log or we can record.
+Okay. So before we go with distributed
+
+68
+00:01:46,230 --> 00:01:46,240
+Okay. So before we go with distributed
+ 
+
+69
+00:01:46,240 --> 00:01:47,910
+Okay. So before we go with distributed
+logging
+
+70
+00:01:47,910 --> 00:01:47,920
+logging
+ 
+
+71
+00:01:47,920 --> 00:01:49,510
+logging
+where we have like multiple
+
+72
+00:01:49,510 --> 00:01:49,520
+where we have like multiple
+ 
+
+73
+00:01:49,520 --> 00:01:52,389
+where we have like multiple
+microservices and all we first need to
+
+74
+00:01:52,389 --> 00:01:52,399
+microservices and all we first need to
+ 
+
+75
+00:01:52,399 --> 00:01:54,550
+microservices and all we first need to
+understand how logging works in a single
+
+76
+00:01:54,550 --> 00:01:54,560
+understand how logging works in a single
+ 
+
+77
+00:01:54,560 --> 00:01:56,069
+understand how logging works in a single
+application
+
+78
+00:01:56,069 --> 00:01:56,079
+application
+ 
+
+79
+00:01:56,079 --> 00:01:58,630
+application
+and once that done
+
+80
+00:01:58,630 --> 00:01:58,640
+and once that done
+ 
+
+81
+00:01:58,640 --> 00:02:00,709
+and once that done
+achieving this in a distributed logging
+
+82
+00:02:00,709 --> 00:02:00,719
+achieving this in a distributed logging
+ 
+
+83
+00:02:00,719 --> 00:02:05,429
+achieving this in a distributed logging
+is very very easy. Okay. So see this
+
+84
+00:02:05,429 --> 00:02:05,439
+is very very easy. Okay. So see this
+ 
+
+85
+00:02:05,439 --> 00:02:09,270
+is very very easy. Okay. So see this
+flow very important flow and here if you
+
+86
+00:02:09,270 --> 00:02:09,280
+flow very important flow and here if you
+ 
+
+87
+00:02:09,280 --> 00:02:11,750
+flow very important flow and here if you
+see that the first is your spring boot
+
+88
+00:02:11,750 --> 00:02:11,760
+see that the first is your spring boot
+ 
+
+89
+00:02:11,760 --> 00:02:14,869
+see that the first is your spring boot
+application. We have an application and
+
+90
+00:02:14,869 --> 00:02:14,879
+application. We have an application and
+ 
+
+91
+00:02:14,879 --> 00:02:17,270
+application. We have an application and
+with this our application
+
+92
+00:02:17,270 --> 00:02:17,280
+with this our application
+ 
+
+93
+00:02:17,280 --> 00:02:19,589
+with this our application
+the first the second thing you can have
+
+94
+00:02:19,589 --> 00:02:19,599
+the first the second thing you can have
+ 
+
+95
+00:02:19,599 --> 00:02:22,309
+the first the second thing you can have
+is like SLF4J
+
+96
+00:02:22,309 --> 00:02:22,319
+is like SLF4J
+ 
+
+97
+00:02:22,319 --> 00:02:24,710
+is like SLF4J
+uh you can say that interface. So this
+
+98
+00:02:24,710 --> 00:02:24,720
+uh you can say that interface. So this
+ 
+
+99
+00:02:24,720 --> 00:02:27,670
+uh you can say that interface. So this
+is an interface which has only provided
+
+100
+00:02:27,670 --> 00:02:27,680
+is an interface which has only provided
+ 
+
+101
+00:02:27,680 --> 00:02:32,229
+is an interface which has only provided
+APIs no implementation at all as SLF 4J
+
+102
+00:02:32,229 --> 00:02:32,239
+APIs no implementation at all as SLF 4J
+ 
+
+103
+00:02:32,239 --> 00:02:34,949
+APIs no implementation at all as SLF 4J
+fullform is simple logging facade for
+
+104
+00:02:34,949 --> 00:02:34,959
+fullform is simple logging facade for
+ 
+
+105
+00:02:34,959 --> 00:02:37,990
+fullform is simple logging facade for
+Java. So see even the full form has the
+
+106
+00:02:37,990 --> 00:02:38,000
+Java. So see even the full form has the
+ 
+
+107
+00:02:38,000 --> 00:02:39,910
+Java. So see even the full form has the
+thing called facade. If you remember
+
+108
+00:02:39,910 --> 00:02:39,920
+thing called facade. If you remember
+ 
+
+109
+00:02:39,920 --> 00:02:41,589
+thing called facade. If you remember
+from the low-level design facade design
+
+110
+00:02:41,589 --> 00:02:41,599
+from the low-level design facade design
+ 
+
+111
+00:02:41,599 --> 00:02:44,790
+from the low-level design facade design
+pattern only expose APIs no
+
+112
+00:02:44,790 --> 00:02:44,800
+pattern only expose APIs no
+ 
+
+113
+00:02:44,800 --> 00:02:46,470
+pattern only expose APIs no
+implementation.
+
+114
+00:02:46,470 --> 00:02:46,480
+implementation.
+ 
+
+115
+00:02:46,480 --> 00:02:50,550
+implementation.
+So it's an interface actually.
+
+116
+00:02:50,550 --> 00:02:50,560
+So it's an interface actually.
+ 
+
+117
+00:02:50,560 --> 00:02:53,030
+So it's an interface actually.
+So this is a logging interface or you
+
+118
+00:02:53,030 --> 00:02:53,040
+So this is a logging interface or you
+ 
+
+119
+00:02:53,040 --> 00:02:55,589
+So this is a logging interface or you
+can say that uh a library which only
+
+120
+00:02:55,589 --> 00:02:55,599
+can say that uh a library which only
+ 
+
+121
+00:02:55,599 --> 00:02:59,190
+can say that uh a library which only
+provide APIs for the logging but its
+
+122
+00:02:59,190 --> 00:02:59,200
+provide APIs for the logging but its
+ 
+
+123
+00:02:59,200 --> 00:03:01,110
+provide APIs for the logging but its
+implementation. So there are different
+
+124
+00:03:01,110 --> 00:03:01,120
+implementation. So there are different
+ 
+
+125
+00:03:01,120 --> 00:03:02,869
+implementation. So there are different
+libraries. So its implementation
+
+126
+00:03:02,869 --> 00:03:02,879
+libraries. So its implementation
+ 
+
+127
+00:03:02,879 --> 00:03:05,509
+libraries. So its implementation
+generally we have log back which is the
+
+128
+00:03:05,509 --> 00:03:05,519
+generally we have log back which is the
+ 
+
+129
+00:03:05,519 --> 00:03:07,190
+generally we have log back which is the
+default which is spring boot provide a
+
+130
+00:03:07,190 --> 00:03:07,200
+default which is spring boot provide a
+ 
+
+131
+00:03:07,200 --> 00:03:11,190
+default which is spring boot provide a
+default. Okay. And we have another uh
+
+132
+00:03:11,190 --> 00:03:11,200
+default. Okay. And we have another uh
+ 
+
+133
+00:03:11,200 --> 00:03:14,470
+default. Okay. And we have another uh
+framework is log 4j2. So this is also an
+
+134
+00:03:14,470 --> 00:03:14,480
+framework is log 4j2. So this is also an
+ 
+
+135
+00:03:14,480 --> 00:03:18,390
+framework is log 4j2. So this is also an
+implementation of slf 4j. Okay. Log 4j2
+
+136
+00:03:18,390 --> 00:03:18,400
+implementation of slf 4j. Okay. Log 4j2
+ 
+
+137
+00:03:18,400 --> 00:03:22,149
+implementation of slf 4j. Okay. Log 4j2
+full form is logging for java version 2
+
+138
+00:03:22,149 --> 00:03:22,159
+full form is logging for java version 2
+ 
+
+139
+00:03:22,159 --> 00:03:26,149
+full form is logging for java version 2
+and the logback is the one uh which
+
+140
+00:03:26,149 --> 00:03:26,159
+and the logback is the one uh which
+ 
+
+141
+00:03:26,159 --> 00:03:29,670
+and the logback is the one uh which
+spring boot provides you. Okay. So its
+
+142
+00:03:29,670 --> 00:03:29,680
+spring boot provides you. Okay. So its
+ 
+
+143
+00:03:29,680 --> 00:03:32,789
+spring boot provides you. Okay. So its
+library automatically comes when you
+
+144
+00:03:32,789 --> 00:03:32,799
+library automatically comes when you
+ 
+
+145
+00:03:32,799 --> 00:03:35,030
+library automatically comes when you
+export a spring boot application from a
+
+146
+00:03:35,030 --> 00:03:35,040
+export a spring boot application from a
+ 
+
+147
+00:03:35,040 --> 00:03:37,350
+export a spring boot application from a
+spring initializer. So this library
+
+148
+00:03:37,350 --> 00:03:37,360
+spring initializer. So this library
+ 
+
+149
+00:03:37,360 --> 00:03:40,470
+spring initializer. So this library
+automatically comes and also this this
+
+150
+00:03:40,470 --> 00:03:40,480
+automatically comes and also this this
+ 
+
+151
+00:03:40,480 --> 00:03:43,110
+automatically comes and also this this
+interface already comes and this
+
+152
+00:03:43,110 --> 00:03:43,120
+interface already comes and this
+ 
+
+153
+00:03:43,120 --> 00:03:44,390
+interface already comes and this
+implementation. So that's why I
+
+154
+00:03:44,390 --> 00:03:44,400
+implementation. So that's why I
+ 
+
+155
+00:03:44,400 --> 00:03:46,470
+implementation. So that's why I
+mentioned default.
+
+156
+00:03:46,470 --> 00:03:46,480
+mentioned default.
+ 
+
+157
+00:03:46,480 --> 00:03:49,110
+mentioned default.
+So now you got the implementation also
+
+158
+00:03:49,110 --> 00:03:49,120
+So now you got the implementation also
+ 
+
+159
+00:03:49,120 --> 00:03:51,430
+So now you got the implementation also
+for the interface.
+
+160
+00:03:51,430 --> 00:03:51,440
+for the interface.
+ 
+
+161
+00:03:51,440 --> 00:03:54,630
+for the interface.
+Now this implementation make use of
+
+162
+00:03:54,630 --> 00:03:54,640
+Now this implementation make use of
+ 
+
+163
+00:03:54,640 --> 00:03:56,550
+Now this implementation make use of
+appender. So there is a concept called
+
+164
+00:03:56,550 --> 00:03:56,560
+appender. So there is a concept called
+ 
+
+165
+00:03:56,560 --> 00:03:58,710
+appender. So there is a concept called
+appender. What does appender do? You can
+
+166
+00:03:58,710 --> 00:03:58,720
+appender. What does appender do? You can
+ 
+
+167
+00:03:58,720 --> 00:04:02,550
+appender. What does appender do? You can
+say that it's a component whose task is
+
+168
+00:04:02,550 --> 00:04:02,560
+say that it's a component whose task is
+ 
+
+169
+00:04:02,560 --> 00:04:05,670
+say that it's a component whose task is
+to decide the destination. Destination
+
+170
+00:04:05,670 --> 00:04:05,680
+to decide the destination. Destination
+ 
+
+171
+00:04:05,680 --> 00:04:09,589
+to decide the destination. Destination
+of what? Destination of log.
+
+172
+00:04:09,589 --> 00:04:09,599
+of what? Destination of log.
+ 
+
+173
+00:04:09,599 --> 00:04:12,309
+of what? Destination of log.
+So whatever I'm trying to log where it
+
+174
+00:04:12,309 --> 00:04:12,319
+So whatever I'm trying to log where it
+ 
+
+175
+00:04:12,319 --> 00:04:15,589
+So whatever I'm trying to log where it
+will go whether it will goes to console,
+
+176
+00:04:15,589 --> 00:04:15,599
+will go whether it will goes to console,
+ 
+
+177
+00:04:15,599 --> 00:04:18,390
+will go whether it will goes to console,
+whether it will goes to some file,
+
+178
+00:04:18,390 --> 00:04:18,400
+whether it will goes to some file,
+ 
+
+179
+00:04:18,400 --> 00:04:21,110
+whether it will goes to some file,
+whether it will goes to DB, whether it
+
+180
+00:04:21,110 --> 00:04:21,120
+whether it will goes to DB, whether it
+ 
+
+181
+00:04:21,120 --> 00:04:25,749
+whether it will goes to DB, whether it
+will goes to cloud or Kafka, whatever.
+
+182
+00:04:25,749 --> 00:04:25,759
+will goes to cloud or Kafka, whatever.
+ 
+
+183
+00:04:25,759 --> 00:04:29,270
+will goes to cloud or Kafka, whatever.
+So where whatever you are trying to log
+
+184
+00:04:29,270 --> 00:04:29,280
+So where whatever you are trying to log
+ 
+
+185
+00:04:29,280 --> 00:04:32,950
+So where whatever you are trying to log
+its destination is decided by appender.
+
+186
+00:04:32,950 --> 00:04:32,960
+its destination is decided by appender.
+ 
+
+187
+00:04:32,960 --> 00:04:36,390
+its destination is decided by appender.
+Okay. So our implementation library make
+
+188
+00:04:36,390 --> 00:04:36,400
+Okay. So our implementation library make
+ 
+
+189
+00:04:36,400 --> 00:04:38,310
+Okay. So our implementation library make
+use of appender
+
+190
+00:04:38,310 --> 00:04:38,320
+use of appender
+ 
+
+191
+00:04:38,320 --> 00:04:41,110
+use of appender
+to generate an output. So output is like
+
+192
+00:04:41,110 --> 00:04:41,120
+to generate an output. So output is like
+ 
+
+193
+00:04:41,120 --> 00:04:43,189
+to generate an output. So output is like
+if your appender is file appender then
+
+194
+00:04:43,189 --> 00:04:43,199
+if your appender is file appender then
+ 
+
+195
+00:04:43,199 --> 00:04:45,510
+if your appender is file appender then
+your output would be some whatever the
+
+196
+00:04:45,510 --> 00:04:45,520
+your output would be some whatever the
+ 
+
+197
+00:04:45,520 --> 00:04:47,830
+your output would be some whatever the
+file name you will give dot log a log
+
+198
+00:04:47,830 --> 00:04:47,840
+file name you will give dot log a log
+ 
+
+199
+00:04:47,840 --> 00:04:50,230
+file name you will give dot log a log
+file will be generated. If you choose
+
+200
+00:04:50,230 --> 00:04:50,240
+file will be generated. If you choose
+ 
+
+201
+00:04:50,240 --> 00:04:52,629
+file will be generated. If you choose
+console then all the logs would get
+
+202
+00:04:52,629 --> 00:04:52,639
+console then all the logs would get
+ 
+
+203
+00:04:52,639 --> 00:04:55,030
+console then all the logs would get
+printed into your console a standard
+
+204
+00:04:55,030 --> 00:04:55,040
+printed into your console a standard
+ 
+
+205
+00:04:55,040 --> 00:04:59,189
+printed into your console a standard
+output. Okay. So once the output is
+
+206
+00:04:59,189 --> 00:04:59,199
+output. Okay. So once the output is
+ 
+
+207
+00:04:59,199 --> 00:05:01,909
+output. Okay. So once the output is
+generated then we have log aggregation
+
+208
+00:05:01,909 --> 00:05:01,919
+generated then we have log aggregation
+ 
+
+209
+00:05:01,919 --> 00:05:04,870
+generated then we have log aggregation
+tools like data dog elastic search and
+
+210
+00:05:04,870 --> 00:05:04,880
+tools like data dog elastic search and
+ 
+
+211
+00:05:04,880 --> 00:05:08,390
+tools like data dog elastic search and
+kibbana the prompt tail. So the these
+
+212
+00:05:08,390 --> 00:05:08,400
+kibbana the prompt tail. So the these
+ 
+
+213
+00:05:08,400 --> 00:05:14,230
+kibbana the prompt tail. So the these
+tools read from the output. Okay. So
+
+214
+00:05:14,230 --> 00:05:14,240
+tools read from the output. Okay. So
+ 
+
+215
+00:05:14,240 --> 00:05:16,550
+tools read from the output. Okay. So
+till our application you can say that
+
+216
+00:05:16,550 --> 00:05:16,560
+till our application you can say that
+ 
+
+217
+00:05:16,560 --> 00:05:19,430
+till our application you can say that
+control is like where the output will go
+
+218
+00:05:19,430 --> 00:05:19,440
+control is like where the output will go
+ 
+
+219
+00:05:19,440 --> 00:05:22,070
+control is like where the output will go
+and after that log aggregation tool task
+
+220
+00:05:22,070 --> 00:05:22,080
+and after that log aggregation tool task
+ 
+
+221
+00:05:22,080 --> 00:05:25,670
+and after that log aggregation tool task
+is to read from that
+
+222
+00:05:25,670 --> 00:05:25,680
+is to read from that
+ 
+
+223
+00:05:25,680 --> 00:05:29,830
+is to read from that
+file or console or place where the
+
+224
+00:05:29,830 --> 00:05:29,840
+file or console or place where the
+ 
+
+225
+00:05:29,840 --> 00:05:33,029
+file or console or place where the
+output is kept.
+
+226
+00:05:33,029 --> 00:05:33,039
+output is kept.
+ 
+
+227
+00:05:33,039 --> 00:05:37,830
+output is kept.
+Okay. So this is the flow.
+
+228
+00:05:37,830 --> 00:05:37,840
+
+ 
+
+229
+00:05:37,840 --> 00:05:40,070
+
+So let's see what it takes to implement
+
+230
+00:05:40,070 --> 00:05:40,080
+So let's see what it takes to implement
+ 
+
+231
+00:05:40,080 --> 00:05:42,870
+So let's see what it takes to implement
+the log functionality.
+
+232
+00:05:42,870 --> 00:05:42,880
+the log functionality.
+ 
+
+233
+00:05:42,880 --> 00:05:45,990
+the log functionality.
+So here very very simple
+
+234
+00:05:45,990 --> 00:05:46,000
+So here very very simple
+ 
+
+235
+00:05:46,000 --> 00:05:49,110
+So here very very simple
+I have one rest controller. So till now
+
+236
+00:05:49,110 --> 00:05:49,120
+I have one rest controller. So till now
+ 
+
+237
+00:05:49,120 --> 00:05:52,230
+I have one rest controller. So till now
+whatever we have done take a very simple
+
+238
+00:05:52,230 --> 00:05:52,240
+whatever we have done take a very simple
+ 
+
+239
+00:05:52,240 --> 00:05:54,870
+whatever we have done take a very simple
+spring boot application. So till all you
+
+240
+00:05:54,870 --> 00:05:54,880
+spring boot application. So till all you
+ 
+
+241
+00:05:54,880 --> 00:05:59,830
+spring boot application. So till all you
+have a uh dependency is your web the
+
+242
+00:05:59,830 --> 00:05:59,840
+have a uh dependency is your web the
+ 
+
+243
+00:05:59,840 --> 00:06:03,430
+have a uh dependency is your web the
+very basic one. Okay. And I have just
+
+244
+00:06:03,430 --> 00:06:03,440
+very basic one. Okay. And I have just
+ 
+
+245
+00:06:03,440 --> 00:06:06,070
+very basic one. Okay. And I have just
+simple written a rest controller. And
+
+246
+00:06:06,070 --> 00:06:06,080
+simple written a rest controller. And
+ 
+
+247
+00:06:06,080 --> 00:06:08,390
+simple written a rest controller. And
+here if you see
+
+248
+00:06:08,390 --> 00:06:08,400
+here if you see
+ 
+
+249
+00:06:08,400 --> 00:06:11,110
+here if you see
+this is the first thing logger factory
+
+250
+00:06:11,110 --> 00:06:11,120
+this is the first thing logger factory
+ 
+
+251
+00:06:11,120 --> 00:06:15,430
+this is the first thing logger factory
+dot get logger and given the class name
+
+252
+00:06:15,430 --> 00:06:15,440
+dot get logger and given the class name
+ 
+
+253
+00:06:15,440 --> 00:06:18,710
+dot get logger and given the class name
+dot class. Okay. So with this I am
+
+254
+00:06:18,710 --> 00:06:18,720
+dot class. Okay. So with this I am
+ 
+
+255
+00:06:18,720 --> 00:06:21,110
+dot class. Okay. So with this I am
+getting a logger object
+
+256
+00:06:21,110 --> 00:06:21,120
+getting a logger object
+ 
+
+257
+00:06:21,120 --> 00:06:24,150
+getting a logger object
+and using this logger object
+
+258
+00:06:24,150 --> 00:06:24,160
+and using this logger object
+ 
+
+259
+00:06:24,160 --> 00:06:27,189
+and using this logger object
+within a particular method I am just
+
+260
+00:06:27,189 --> 00:06:27,199
+within a particular method I am just
+ 
+
+261
+00:06:27,199 --> 00:06:30,870
+within a particular method I am just
+logging a event log.info
+
+262
+00:06:30,870 --> 00:06:30,880
+logging a event log.info
+ 
+
+263
+00:06:30,880 --> 00:06:34,790
+logging a event log.info
+f the payment successfully. Okay so I am
+
+264
+00:06:34,790 --> 00:06:34,800
+f the payment successfully. Okay so I am
+ 
+
+265
+00:06:34,800 --> 00:06:37,110
+f the payment successfully. Okay so I am
+logging something
+
+266
+00:06:37,110 --> 00:06:37,120
+logging something
+ 
+
+267
+00:06:37,120 --> 00:06:41,909
+logging something
+okay now if I run hit this endpoint
+
+268
+00:06:41,909 --> 00:06:41,919
+okay now if I run hit this endpoint
+ 
+
+269
+00:06:41,919 --> 00:06:45,350
+okay now if I run hit this endpoint
+slash payments if I hit this / payments.
+
+270
+00:06:45,350 --> 00:06:45,360
+slash payments if I hit this / payments.
+ 
+
+271
+00:06:45,360 --> 00:06:47,430
+slash payments if I hit this / payments.
+Okay. So it the output you see is that
+
+272
+00:06:47,430 --> 00:06:47,440
+Okay. So it the output you see is that
+ 
+
+273
+00:06:47,440 --> 00:06:49,350
+Okay. So it the output you see is that
+successfully fetch all payments. So this
+
+274
+00:06:49,350 --> 00:06:49,360
+successfully fetch all payments. So this
+ 
+
+275
+00:06:49,360 --> 00:06:51,189
+successfully fetch all payments. So this
+is the return type successfully fetch
+
+276
+00:06:51,189 --> 00:06:51,199
+is the return type successfully fetch
+ 
+
+277
+00:06:51,199 --> 00:06:52,950
+is the return type successfully fetch
+all payments. But I'm also logging
+
+278
+00:06:52,950 --> 00:06:52,960
+all payments. But I'm also logging
+ 
+
+279
+00:06:52,960 --> 00:06:55,909
+all payments. But I'm also logging
+log.info fetch the payment successfully.
+
+280
+00:06:55,909 --> 00:06:55,919
+log.info fetch the payment successfully.
+ 
+
+281
+00:06:55,919 --> 00:06:58,710
+log.info fetch the payment successfully.
+So if you see the console. So this is my
+
+282
+00:06:58,710 --> 00:06:58,720
+So if you see the console. So this is my
+ 
+
+283
+00:06:58,720 --> 00:07:00,790
+So if you see the console. So this is my
+console.
+
+284
+00:07:00,790 --> 00:07:00,800
+console.
+ 
+
+285
+00:07:00,800 --> 00:07:03,270
+console.
+You see this f the payment successfully.
+
+286
+00:07:03,270 --> 00:07:03,280
+You see this f the payment successfully.
+ 
+
+287
+00:07:03,280 --> 00:07:06,309
+You see this f the payment successfully.
+So logging worked.
+
+288
+00:07:06,309 --> 00:07:06,319
+So logging worked.
+ 
+
+289
+00:07:06,319 --> 00:07:09,110
+So logging worked.
+So don't go inside this for now like hey
+
+290
+00:07:09,110 --> 00:07:09,120
+So don't go inside this for now like hey
+ 
+
+291
+00:07:09,120 --> 00:07:12,150
+So don't go inside this for now like hey
+how it worked actually. But all I wanted
+
+292
+00:07:12,150 --> 00:07:12,160
+how it worked actually. But all I wanted
+ 
+
+293
+00:07:12,160 --> 00:07:14,150
+how it worked actually. But all I wanted
+to show you that
+
+294
+00:07:14,150 --> 00:07:14,160
+to show you that
+ 
+
+295
+00:07:14,160 --> 00:07:18,150
+to show you that
+you don't need any additional
+
+296
+00:07:18,150 --> 00:07:18,160
+you don't need any additional
+ 
+
+297
+00:07:18,160 --> 00:07:19,990
+you don't need any additional
+dependency.
+
+298
+00:07:19,990 --> 00:07:20,000
+dependency.
+ 
+
+299
+00:07:20,000 --> 00:07:22,230
+dependency.
+Okay. All you have to just is like
+
+300
+00:07:22,230 --> 00:07:22,240
+Okay. All you have to just is like
+ 
+
+301
+00:07:22,240 --> 00:07:24,070
+Okay. All you have to just is like
+whatever the applications which you have
+
+302
+00:07:24,070 --> 00:07:24,080
+whatever the applications which you have
+ 
+
+303
+00:07:24,080 --> 00:07:26,150
+whatever the applications which you have
+taken out from initializer with the
+
+304
+00:07:26,150 --> 00:07:26,160
+taken out from initializer with the
+ 
+
+305
+00:07:26,160 --> 00:07:29,029
+taken out from initializer with the
+starting this web itself. So here if you
+
+306
+00:07:29,029 --> 00:07:29,039
+starting this web itself. So here if you
+ 
+
+307
+00:07:29,039 --> 00:07:34,469
+starting this web itself. So here if you
+see that this okay this is the initial
+
+308
+00:07:34,469 --> 00:07:34,479
+see that this okay this is the initial
+ 
+
+309
+00:07:34,479 --> 00:07:37,430
+see that this okay this is the initial
+spring boot starter web that's all.
+
+310
+00:07:37,430 --> 00:07:37,440
+spring boot starter web that's all.
+ 
+
+311
+00:07:37,440 --> 00:07:41,189
+spring boot starter web that's all.
+Okay, with that itself you will get the
+
+312
+00:07:41,189 --> 00:07:41,199
+Okay, with that itself you will get the
+ 
+
+313
+00:07:41,199 --> 00:07:44,710
+Okay, with that itself you will get the
+dependency of SLF 4J
+
+314
+00:07:44,710 --> 00:07:44,720
+dependency of SLF 4J
+ 
+
+315
+00:07:44,720 --> 00:07:49,029
+dependency of SLF 4J
+because logger factory is present into
+
+316
+00:07:49,029 --> 00:07:49,039
+because logger factory is present into
+ 
+
+317
+00:07:49,039 --> 00:07:52,550
+because logger factory is present into
+SLF 4j and you are hitting get logger
+
+318
+00:07:52,550 --> 00:07:52,560
+SLF 4j and you are hitting get logger
+ 
+
+319
+00:07:52,560 --> 00:07:55,430
+SLF 4j and you are hitting get logger
+which is also present into SLF 4j and
+
+320
+00:07:55,430 --> 00:07:55,440
+which is also present into SLF 4j and
+ 
+
+321
+00:07:55,440 --> 00:07:58,629
+which is also present into SLF 4j and
+its implementation is within this and
+
+322
+00:07:58,629 --> 00:07:58,639
+its implementation is within this and
+ 
+
+323
+00:07:58,639 --> 00:08:00,469
+its implementation is within this and
+this is the default. This library also
+
+324
+00:08:00,469 --> 00:08:00,479
+this is the default. This library also
+ 
+
+325
+00:08:00,479 --> 00:08:05,350
+this is the default. This library also
+comes by default log log back.
+
+326
+00:08:05,350 --> 00:08:05,360
+comes by default log log back.
+ 
+
+327
+00:08:05,360 --> 00:08:08,150
+comes by default log log back.
+Okay. And also what is the default
+
+328
+00:08:08,150 --> 00:08:08,160
+Okay. And also what is the default
+ 
+
+329
+00:08:08,160 --> 00:08:10,869
+Okay. And also what is the default
+appender? It's console appender is the
+
+330
+00:08:10,869 --> 00:08:10,879
+appender? It's console appender is the
+ 
+
+331
+00:08:10,879 --> 00:08:13,990
+appender? It's console appender is the
+default. So they have one appender also
+
+332
+00:08:13,990 --> 00:08:14,000
+default. So they have one appender also
+ 
+
+333
+00:08:14,000 --> 00:08:16,869
+default. So they have one appender also
+and default is console one itself. So
+
+334
+00:08:16,869 --> 00:08:16,879
+and default is console one itself. So
+ 
+
+335
+00:08:16,879 --> 00:08:20,230
+and default is console one itself. So
+that's why whenever I do log info
+
+336
+00:08:20,230 --> 00:08:20,240
+that's why whenever I do log info
+ 
+
+337
+00:08:20,240 --> 00:08:23,510
+that's why whenever I do log info
+ultimately where it goes to the console.
+
+338
+00:08:23,510 --> 00:08:23,520
+ultimately where it goes to the console.
+ 
+
+339
+00:08:23,520 --> 00:08:25,830
+ultimately where it goes to the console.
+Okay, things will get little clear but
+
+340
+00:08:25,830 --> 00:08:25,840
+Okay, things will get little clear but
+ 
+
+341
+00:08:25,840 --> 00:08:30,550
+Okay, things will get little clear but
+for now moto is that what it takes to
+
+342
+00:08:30,550 --> 00:08:30,560
+for now moto is that what it takes to
+ 
+
+343
+00:08:30,560 --> 00:08:32,709
+for now moto is that what it takes to
+implement the log functionality. So if
+
+344
+00:08:32,709 --> 00:08:32,719
+implement the log functionality. So if
+ 
+
+345
+00:08:32,719 --> 00:08:35,990
+implement the log functionality. So if
+you see that very simple all libraries
+
+346
+00:08:35,990 --> 00:08:36,000
+you see that very simple all libraries
+ 
+
+347
+00:08:36,000 --> 00:08:37,829
+you see that very simple all libraries
+are already present you have to just get
+
+348
+00:08:37,829 --> 00:08:37,839
+are already present you have to just get
+ 
+
+349
+00:08:37,839 --> 00:08:43,110
+are already present you have to just get
+an object and start logging the events.
+
+350
+00:08:43,110 --> 00:08:43,120
+an object and start logging the events.
+ 
+
+351
+00:08:43,120 --> 00:08:47,269
+an object and start logging the events.
+Okay, but how it's working? What exactly
+
+352
+00:08:47,269 --> 00:08:47,279
+Okay, but how it's working? What exactly
+ 
+
+353
+00:08:47,279 --> 00:08:50,070
+Okay, but how it's working? What exactly
+happened behind the scene? That is now
+
+354
+00:08:50,070 --> 00:08:50,080
+happened behind the scene? That is now
+ 
+
+355
+00:08:50,080 --> 00:08:52,710
+happened behind the scene? That is now
+things will become interesting.
+
+356
+00:08:52,710 --> 00:08:52,720
+things will become interesting.
+ 
+
+357
+00:08:52,720 --> 00:08:55,590
+things will become interesting.
+So first thing is dependency.
+
+358
+00:08:55,590 --> 00:08:55,600
+So first thing is dependency.
+ 
+
+359
+00:08:55,600 --> 00:08:58,870
+So first thing is dependency.
+So when we add below dependency. So here
+
+360
+00:08:58,870 --> 00:08:58,880
+So when we add below dependency. So here
+ 
+
+361
+00:08:58,880 --> 00:09:01,910
+So when we add below dependency. So here
+if you see that spring boot starter web
+
+362
+00:09:01,910 --> 00:09:01,920
+if you see that spring boot starter web
+ 
+
+363
+00:09:01,920 --> 00:09:04,230
+if you see that spring boot starter web
+internally also bring spring boot
+
+364
+00:09:04,230 --> 00:09:04,240
+internally also bring spring boot
+ 
+
+365
+00:09:04,240 --> 00:09:09,269
+internally also bring spring boot
+starter. Okay. So internally it further
+
+366
+00:09:09,269 --> 00:09:09,279
+starter. Okay. So internally it further
+ 
+
+367
+00:09:09,279 --> 00:09:13,750
+starter. Okay. So internally it further
+add this dependency also. SLF 4G API jar
+
+368
+00:09:13,750 --> 00:09:13,760
+add this dependency also. SLF 4G API jar
+ 
+
+369
+00:09:13,760 --> 00:09:16,070
+add this dependency also. SLF 4G API jar
+log back classic and logback core jar.
+
+370
+00:09:16,070 --> 00:09:16,080
+log back classic and logback core jar.
+ 
+
+371
+00:09:16,080 --> 00:09:17,750
+log back classic and logback core jar.
+So these two is nothing but you can say
+
+372
+00:09:17,750 --> 00:09:17,760
+So these two is nothing but you can say
+ 
+
+373
+00:09:17,760 --> 00:09:20,230
+So these two is nothing but you can say
+that part of an implementation library
+
+374
+00:09:20,230 --> 00:09:20,240
+that part of an implementation library
+ 
+
+375
+00:09:20,240 --> 00:09:23,350
+that part of an implementation library
+and SLF 4J is the API
+
+376
+00:09:23,350 --> 00:09:23,360
+and SLF 4J is the API
+ 
+
+377
+00:09:23,360 --> 00:09:26,470
+and SLF 4J is the API
+logger API. Okay. So these dependency
+
+378
+00:09:26,470 --> 00:09:26,480
+logger API. Okay. So these dependency
+ 
+
+379
+00:09:26,480 --> 00:09:29,110
+logger API. Okay. So these dependency
+will automatically get added when you
+
+380
+00:09:29,110 --> 00:09:29,120
+will automatically get added when you
+ 
+
+381
+00:09:29,120 --> 00:09:32,070
+will automatically get added when you
+add a spring boot starter dependency in
+
+382
+00:09:32,070 --> 00:09:32,080
+add a spring boot starter dependency in
+ 
+
+383
+00:09:32,080 --> 00:09:35,190
+add a spring boot starter dependency in
+your application.
+
+384
+00:09:35,190 --> 00:09:35,200
+your application.
+ 
+
+385
+00:09:35,200 --> 00:09:37,990
+your application.
+So one question might come to your mind.
+
+386
+00:09:37,990 --> 00:09:38,000
+So one question might come to your mind.
+ 
+
+387
+00:09:38,000 --> 00:09:41,030
+So one question might come to your mind.
+Hey Shri, so by default Spring Boot
+
+388
+00:09:41,030 --> 00:09:41,040
+Hey Shri, so by default Spring Boot
+ 
+
+389
+00:09:41,040 --> 00:09:43,509
+Hey Shri, so by default Spring Boot
+brings the logback library. Okay we got
+
+390
+00:09:43,509 --> 00:09:43,519
+brings the logback library. Okay we got
+ 
+
+391
+00:09:43,519 --> 00:09:46,949
+brings the logback library. Okay we got
+it. Yes, it is bringing logback library.
+
+392
+00:09:46,949 --> 00:09:46,959
+it. Yes, it is bringing logback library.
+ 
+
+393
+00:09:46,959 --> 00:09:50,949
+it. Yes, it is bringing logback library.
+But what if I want to use log 4j2
+
+394
+00:09:50,949 --> 00:09:50,959
+But what if I want to use log 4j2
+ 
+
+395
+00:09:50,959 --> 00:09:53,670
+But what if I want to use log 4j2
+then I have to add dependency of log 4j2
+
+396
+00:09:53,670 --> 00:09:53,680
+then I have to add dependency of log 4j2
+ 
+
+397
+00:09:53,680 --> 00:09:55,910
+then I have to add dependency of log 4j2
+like like so this is the dependency you
+
+398
+00:09:55,910 --> 00:09:55,920
+like like so this is the dependency you
+ 
+
+399
+00:09:55,920 --> 00:09:58,870
+like like so this is the dependency you
+have to add a new dependency that org
+
+400
+00:09:58,870 --> 00:09:58,880
+have to add a new dependency that org
+ 
+
+401
+00:09:58,880 --> 00:10:01,990
+have to add a new dependency that org
+springframework.boot boot spring boot
+
+402
+00:10:01,990 --> 00:10:02,000
+springframework.boot boot spring boot
+ 
+
+403
+00:10:02,000 --> 00:10:04,550
+springframework.boot boot spring boot
+starter log 4j2. So this dependency we
+
+404
+00:10:04,550 --> 00:10:04,560
+starter log 4j2. So this dependency we
+ 
+
+405
+00:10:04,560 --> 00:10:07,190
+starter log 4j2. So this dependency we
+have to add.
+
+406
+00:10:07,190 --> 00:10:07,200
+have to add.
+ 
+
+407
+00:10:07,200 --> 00:10:09,750
+have to add.
+Now in the class path we have two
+
+408
+00:10:09,750 --> 00:10:09,760
+Now in the class path we have two
+ 
+
+409
+00:10:09,760 --> 00:10:13,670
+Now in the class path we have two
+implementation of library of slf 4j. One
+
+410
+00:10:13,670 --> 00:10:13,680
+implementation of library of slf 4j. One
+ 
+
+411
+00:10:13,680 --> 00:10:17,030
+implementation of library of slf 4j. One
+is which we have manually added log 4j2
+
+412
+00:10:17,030 --> 00:10:17,040
+is which we have manually added log 4j2
+ 
+
+413
+00:10:17,040 --> 00:10:20,069
+is which we have manually added log 4j2
+and one which automatically
+
+414
+00:10:20,069 --> 00:10:20,079
+and one which automatically
+ 
+
+415
+00:10:20,079 --> 00:10:22,389
+and one which automatically
+added by the spring framework in the
+
+416
+00:10:22,389 --> 00:10:22,399
+added by the spring framework in the
+ 
+
+417
+00:10:22,399 --> 00:10:23,990
+added by the spring framework in the
+starter when it it comes with the
+
+418
+00:10:23,990 --> 00:10:24,000
+starter when it it comes with the
+ 
+
+419
+00:10:24,000 --> 00:10:26,230
+starter when it it comes with the
+starter itself.
+
+420
+00:10:26,230 --> 00:10:26,240
+starter itself.
+ 
+
+421
+00:10:26,240 --> 00:10:29,670
+starter itself.
+So which implementation library will be
+
+422
+00:10:29,670 --> 00:10:29,680
+So which implementation library will be
+ 
+
+423
+00:10:29,680 --> 00:10:31,829
+So which implementation library will be
+used by the framework?
+
+424
+00:10:31,829 --> 00:10:31,839
+used by the framework?
+ 
+
+425
+00:10:31,839 --> 00:10:33,590
+used by the framework?
+Because we have now two implementation
+
+426
+00:10:33,590 --> 00:10:33,600
+Because we have now two implementation
+ 
+
+427
+00:10:33,600 --> 00:10:36,310
+Because we have now two implementation
+one we have added and one is added by
+
+428
+00:10:36,310 --> 00:10:36,320
+one we have added and one is added by
+ 
+
+429
+00:10:36,320 --> 00:10:38,310
+one we have added and one is added by
+default.
+
+430
+00:10:38,310 --> 00:10:38,320
+default.
+ 
+
+431
+00:10:38,320 --> 00:10:40,389
+default.
+So what this is a framework code. So if
+
+432
+00:10:40,389 --> 00:10:40,399
+So what this is a framework code. So if
+ 
+
+433
+00:10:40,399 --> 00:10:43,590
+So what this is a framework code. So if
+you go inside log logger factory what it
+
+434
+00:10:43,590 --> 00:10:43,600
+you go inside log logger factory what it
+ 
+
+435
+00:10:43,600 --> 00:10:48,150
+you go inside log logger factory what it
+does is internally if you see it will it
+
+436
+00:10:48,150 --> 00:10:48,160
+does is internally if you see it will it
+ 
+
+437
+00:10:48,160 --> 00:10:51,030
+does is internally if you see it will it
+uh so it has a provide a list. So it
+
+438
+00:10:51,030 --> 00:10:51,040
+uh so it has a provide a list. So it
+ 
+
+439
+00:10:51,040 --> 00:10:55,509
+uh so it has a provide a list. So it
+will get two and it simply do get zero.
+
+440
+00:10:55,509 --> 00:10:55,519
+will get two and it simply do get zero.
+ 
+
+441
+00:10:55,519 --> 00:10:57,910
+will get two and it simply do get zero.
+So sometime you might see you get log 4
+
+442
+00:10:57,910 --> 00:10:57,920
+So sometime you might see you get log 4
+ 
+
+443
+00:10:57,920 --> 00:11:00,069
+So sometime you might see you get log 4
+J2 sometime you get log back. So
+
+444
+00:11:00,069 --> 00:11:00,079
+J2 sometime you get log back. So
+ 
+
+445
+00:11:00,079 --> 00:11:03,190
+J2 sometime you get log back. So
+definitely in production this is not a
+
+446
+00:11:03,190 --> 00:11:03,200
+definitely in production this is not a
+ 
+
+447
+00:11:03,200 --> 00:11:06,790
+definitely in production this is not a
+reliable thing to do.
+
+448
+00:11:06,790 --> 00:11:06,800
+reliable thing to do.
+ 
+
+449
+00:11:06,800 --> 00:11:09,829
+reliable thing to do.
+So here I'm just starting an application
+
+450
+00:11:09,829 --> 00:11:09,839
+So here I'm just starting an application
+ 
+
+451
+00:11:09,839 --> 00:11:12,870
+So here I'm just starting an application
+with this. I have manually added it and
+
+452
+00:11:12,870 --> 00:11:12,880
+with this. I have manually added it and
+ 
+
+453
+00:11:12,880 --> 00:11:15,110
+with this. I have manually added it and
+I know that by default spring framework
+
+454
+00:11:15,110 --> 00:11:15,120
+I know that by default spring framework
+ 
+
+455
+00:11:15,120 --> 00:11:18,790
+I know that by default spring framework
+will also bring log back library also.
+
+456
+00:11:18,790 --> 00:11:18,800
+will also bring log back library also.
+ 
+
+457
+00:11:18,800 --> 00:11:20,790
+will also bring log back library also.
+So if I started the application here if
+
+458
+00:11:20,790 --> 00:11:20,800
+So if I started the application here if
+ 
+
+459
+00:11:20,800 --> 00:11:23,509
+So if I started the application here if
+you see it is also showing the warning
+
+460
+00:11:23,509 --> 00:11:23,519
+you see it is also showing the warning
+ 
+
+461
+00:11:23,519 --> 00:11:26,150
+you see it is also showing the warning
+class path contains multiple SLF 4G
+
+462
+00:11:26,150 --> 00:11:26,160
+class path contains multiple SLF 4G
+ 
+
+463
+00:11:26,160 --> 00:11:27,670
+class path contains multiple SLF 4G
+providers
+
+464
+00:11:27,670 --> 00:11:27,680
+providers
+ 
+
+465
+00:11:27,680 --> 00:11:31,670
+providers
+but since it is doing get zero your
+
+466
+00:11:31,670 --> 00:11:31,680
+but since it is doing get zero your
+ 
+
+467
+00:11:31,680 --> 00:11:34,069
+but since it is doing get zero your
+application will start normally but
+
+468
+00:11:34,069 --> 00:11:34,079
+application will start normally but
+ 
+
+469
+00:11:34,079 --> 00:11:38,389
+application will start normally but
+whether it is using log back or log 4j 2
+
+470
+00:11:38,389 --> 00:11:38,399
+whether it is using log back or log 4j 2
+ 
+
+471
+00:11:38,399 --> 00:11:40,710
+whether it is using log back or log 4j 2
+you don't it's doing get zero it can be
+
+472
+00:11:40,710 --> 00:11:40,720
+you don't it's doing get zero it can be
+ 
+
+473
+00:11:40,720 --> 00:11:43,590
+you don't it's doing get zero it can be
+anything
+
+474
+00:11:43,590 --> 00:11:43,600
+anything
+ 
+
+475
+00:11:43,600 --> 00:11:47,190
+anything
+so for production this is not reliable
+
+476
+00:11:47,190 --> 00:11:47,200
+so for production this is not reliable
+ 
+
+477
+00:11:47,200 --> 00:11:49,110
+so for production this is not reliable
+instead we should specy specifically
+
+478
+00:11:49,110 --> 00:11:49,120
+instead we should specy specifically
+ 
+
+479
+00:11:49,120 --> 00:11:51,269
+instead we should specy specifically
+exclude the default library. If you are
+
+480
+00:11:51,269 --> 00:11:51,279
+exclude the default library. If you are
+ 
+
+481
+00:11:51,279 --> 00:11:54,230
+exclude the default library. If you are
+planning to manually adding the library
+
+482
+00:11:54,230 --> 00:11:54,240
+planning to manually adding the library
+ 
+
+483
+00:11:54,240 --> 00:11:59,030
+planning to manually adding the library
+so let's say I wanted to use log 4j2 so
+
+484
+00:11:59,030 --> 00:11:59,040
+so let's say I wanted to use log 4j2 so
+ 
+
+485
+00:11:59,040 --> 00:12:03,509
+so let's say I wanted to use log 4j2 so
+from this starter I have to exclude
+
+486
+00:12:03,509 --> 00:12:03,519
+from this starter I have to exclude
+ 
+
+487
+00:12:03,519 --> 00:12:06,470
+from this starter I have to exclude
+the starter logging so this starter
+
+488
+00:12:06,470 --> 00:12:06,480
+the starter logging so this starter
+ 
+
+489
+00:12:06,480 --> 00:12:08,550
+the starter logging so this starter
+logging actually brings this log back
+
+490
+00:12:08,550 --> 00:12:08,560
+logging actually brings this log back
+ 
+
+491
+00:12:08,560 --> 00:12:10,949
+logging actually brings this log back
+classic log back core that that
+
+492
+00:12:10,949 --> 00:12:10,959
+classic log back core that that
+ 
+
+493
+00:12:10,959 --> 00:12:13,590
+classic log back core that that
+implementation libraries I don't want so
+
+494
+00:12:13,590 --> 00:12:13,600
+implementation libraries I don't want so
+ 
+
+495
+00:12:13,600 --> 00:12:15,350
+implementation libraries I don't want so
+these two implementation library comes
+
+496
+00:12:15,350 --> 00:12:15,360
+these two implementation library comes
+ 
+
+497
+00:12:15,360 --> 00:12:17,750
+these two implementation library comes
+from starter logging okay so that's why
+
+498
+00:12:17,750 --> 00:12:17,760
+from starter logging okay so that's why
+ 
+
+499
+00:12:17,760 --> 00:12:22,870
+from starter logging okay so that's why
+I have ex excluded it Okay. So from this
+
+500
+00:12:22,870 --> 00:12:22,880
+I have ex excluded it Okay. So from this
+ 
+
+501
+00:12:22,880 --> 00:12:27,350
+I have ex excluded it Okay. So from this
+library exclude this logging sub library
+
+502
+00:12:27,350 --> 00:12:27,360
+library exclude this logging sub library
+ 
+
+503
+00:12:27,360 --> 00:12:30,150
+library exclude this logging sub library
+you can say.
+
+504
+00:12:30,150 --> 00:12:30,160
+you can say.
+ 
+
+505
+00:12:30,160 --> 00:12:33,750
+you can say.
+So got it. Uh
+
+506
+00:12:33,750 --> 00:12:33,760
+So got it. Uh
+ 
+
+507
+00:12:33,760 --> 00:12:38,150
+So got it. Uh
+till now it is clear right?
+
+508
+00:12:38,150 --> 00:12:38,160
+
+ 
+
+509
+00:12:38,160 --> 00:12:40,230
+
+Now let's go to the second part. So
+
+510
+00:12:40,230 --> 00:12:40,240
+Now let's go to the second part. So
+ 
+
+511
+00:12:40,240 --> 00:12:42,790
+Now let's go to the second part. So
+dependency part is clear. Now let's
+
+512
+00:12:42,790 --> 00:12:42,800
+dependency part is clear. Now let's
+ 
+
+513
+00:12:42,800 --> 00:12:44,870
+dependency part is clear. Now let's
+focus more on get logger object. So here
+
+514
+00:12:44,870 --> 00:12:44,880
+focus more on get logger object. So here
+ 
+
+515
+00:12:44,880 --> 00:12:46,470
+focus more on get logger object. So here
+we are finding out a logger object.
+
+516
+00:12:46,470 --> 00:12:46,480
+we are finding out a logger object.
+ 
+
+517
+00:12:46,480 --> 00:12:48,550
+we are finding out a logger object.
+Right? So here if you see what we are
+
+518
+00:12:48,550 --> 00:12:48,560
+Right? So here if you see what we are
+ 
+
+519
+00:12:48,560 --> 00:12:53,590
+Right? So here if you see what we are
+doing is logger factory dot get logger
+
+520
+00:12:53,590 --> 00:12:53,600
+doing is logger factory dot get logger
+ 
+
+521
+00:12:53,600 --> 00:12:55,590
+doing is logger factory dot get logger
+payment controller dotclass and it is
+
+522
+00:12:55,590 --> 00:12:55,600
+payment controller dotclass and it is
+ 
+
+523
+00:12:55,600 --> 00:12:58,550
+payment controller dotclass and it is
+giving us a logger object.
+
+524
+00:12:58,550 --> 00:12:58,560
+giving us a logger object.
+ 
+
+525
+00:12:58,560 --> 00:13:01,430
+giving us a logger object.
+So this logger is nothing you can say
+
+526
+00:13:01,430 --> 00:13:01,440
+So this logger is nothing you can say
+ 
+
+527
+00:13:01,440 --> 00:13:04,550
+So this logger is nothing you can say
+that it's an implementation of slf for
+
+528
+00:13:04,550 --> 00:13:04,560
+that it's an implementation of slf for
+ 
+
+529
+00:13:04,560 --> 00:13:08,069
+that it's an implementation of slf for
+4j generally we should be getting it. So
+
+530
+00:13:08,069 --> 00:13:08,079
+4j generally we should be getting it. So
+ 
+
+531
+00:13:08,079 --> 00:13:11,750
+4j generally we should be getting it. So
+how this is working internally. So see
+
+532
+00:13:11,750 --> 00:13:11,760
+how this is working internally. So see
+ 
+
+533
+00:13:11,760 --> 00:13:15,030
+how this is working internally. So see
+this is the you can say that UML diagram
+
+534
+00:13:15,030 --> 00:13:15,040
+this is the you can say that UML diagram
+ 
+
+535
+00:13:15,040 --> 00:13:19,350
+this is the you can say that UML diagram
+internally of the logger framework.
+
+536
+00:13:19,350 --> 00:13:19,360
+internally of the logger framework.
+ 
+
+537
+00:13:19,360 --> 00:13:21,190
+internally of the logger framework.
+So with this everything should be clear
+
+538
+00:13:21,190 --> 00:13:21,200
+So with this everything should be clear
+ 
+
+539
+00:13:21,200 --> 00:13:24,470
+So with this everything should be clear
+like how it is working. So let's say
+
+540
+00:13:24,470 --> 00:13:24,480
+like how it is working. So let's say
+ 
+
+541
+00:13:24,480 --> 00:13:27,590
+like how it is working. So let's say
+that this is first
+
+542
+00:13:27,590 --> 00:13:27,600
+that this is first
+ 
+
+543
+00:13:27,600 --> 00:13:29,750
+that this is first
+logger interface
+
+544
+00:13:29,750 --> 00:13:29,760
+logger interface
+ 
+
+545
+00:13:29,760 --> 00:13:34,790
+logger interface
+or do SLF4J okay this is an API.
+
+546
+00:13:34,790 --> 00:13:34,800
+or do SLF4J okay this is an API.
+ 
+
+547
+00:13:34,800 --> 00:13:36,550
+or do SLF4J okay this is an API.
+Okay so that's why it's an interface. So
+
+548
+00:13:36,550 --> 00:13:36,560
+Okay so that's why it's an interface. So
+ 
+
+549
+00:13:36,560 --> 00:13:39,190
+Okay so that's why it's an interface. So
+this class logger is an interface.
+
+550
+00:13:39,190 --> 00:13:39,200
+this class logger is an interface.
+ 
+
+551
+00:13:39,200 --> 00:13:41,030
+this class logger is an interface.
+Okay. And that's what I am getting here
+
+552
+00:13:41,030 --> 00:13:41,040
+Okay. And that's what I am getting here
+ 
+
+553
+00:13:41,040 --> 00:13:43,910
+Okay. And that's what I am getting here
+interface.
+
+554
+00:13:43,910 --> 00:13:43,920
+interface.
+ 
+
+555
+00:13:43,920 --> 00:13:47,030
+interface.
+Now this interface is implemented by
+
+556
+00:13:47,030 --> 00:13:47,040
+Now this interface is implemented by
+ 
+
+557
+00:13:47,040 --> 00:13:48,629
+Now this interface is implemented by
+multiple
+
+558
+00:13:48,629 --> 00:13:48,639
+multiple
+ 
+
+559
+00:13:48,639 --> 00:13:50,470
+multiple
+libraries which are generally an
+
+560
+00:13:50,470 --> 00:13:50,480
+libraries which are generally an
+ 
+
+561
+00:13:50,480 --> 00:13:53,350
+libraries which are generally an
+implementation of this SLF 4j. So I have
+
+562
+00:13:53,350 --> 00:13:53,360
+implementation of this SLF 4j. So I have
+ 
+
+563
+00:13:53,360 --> 00:13:55,190
+implementation of this SLF 4j. So I have
+one logger class here present into the
+
+564
+00:13:55,190 --> 00:13:55,200
+one logger class here present into the
+ 
+
+565
+00:13:55,200 --> 00:13:57,509
+one logger class here present into the
+logback also. I have the logger class
+
+566
+00:13:57,509 --> 00:13:57,519
+logback also. I have the logger class
+ 
+
+567
+00:13:57,519 --> 00:14:00,949
+logback also. I have the logger class
+which is present into log 4j also.
+
+568
+00:14:00,949 --> 00:14:00,959
+which is present into log 4j also.
+ 
+
+569
+00:14:00,959 --> 00:14:03,670
+which is present into log 4j also.
+Okay. So this logger has like logger
+
+570
+00:14:03,670 --> 00:14:03,680
+Okay. So this logger has like logger
+ 
+
+571
+00:14:03,680 --> 00:14:06,790
+Okay. So this logger has like logger
+name, logger 11, logger level, parent
+
+572
+00:14:06,790 --> 00:14:06,800
+name, logger 11, logger level, parent
+ 
+
+573
+00:14:06,800 --> 00:14:09,350
+name, logger 11, logger level, parent
+child information which we will see.
+
+574
+00:14:09,350 --> 00:14:09,360
+child information which we will see.
+ 
+
+575
+00:14:09,360 --> 00:14:12,230
+child information which we will see.
+Okay. But for now understand that in SLF
+
+576
+00:14:12,230 --> 00:14:12,240
+Okay. But for now understand that in SLF
+ 
+
+577
+00:14:12,240 --> 00:14:15,350
+Okay. But for now understand that in SLF
+4J has one class logger which is you can
+
+578
+00:14:15,350 --> 00:14:15,360
+4J has one class logger which is you can
+ 
+
+579
+00:14:15,360 --> 00:14:18,629
+4J has one class logger which is you can
+say that it's an interface and this has
+
+580
+00:14:18,629 --> 00:14:18,639
+say that it's an interface and this has
+ 
+
+581
+00:14:18,639 --> 00:14:20,949
+say that it's an interface and this has
+multiple implementation.
+
+582
+00:14:20,949 --> 00:14:20,959
+multiple implementation.
+ 
+
+583
+00:14:20,959 --> 00:14:22,550
+multiple implementation.
+One implementation is provided by
+
+584
+00:14:22,550 --> 00:14:22,560
+One implementation is provided by
+ 
+
+585
+00:14:22,560 --> 00:14:24,470
+One implementation is provided by
+logback classic. Another implementation
+
+586
+00:14:24,470 --> 00:14:24,480
+logback classic. Another implementation
+ 
+
+587
+00:14:24,480 --> 00:14:26,710
+logback classic. Another implementation
+is provided by log 4j. So different
+
+588
+00:14:26,710 --> 00:14:26,720
+is provided by log 4j. So different
+ 
+
+589
+00:14:26,720 --> 00:14:28,949
+is provided by log 4j. So different
+libraries different implementation of
+
+590
+00:14:28,949 --> 00:14:28,959
+libraries different implementation of
+ 
+
+591
+00:14:28,959 --> 00:14:32,790
+libraries different implementation of
+this. Okay. So ultimately when we get an
+
+592
+00:14:32,790 --> 00:14:32,800
+this. Okay. So ultimately when we get an
+ 
+
+593
+00:14:32,800 --> 00:14:36,550
+this. Okay. So ultimately when we get an
+object logger factory dot get logger we
+
+594
+00:14:36,550 --> 00:14:36,560
+object logger factory dot get logger we
+ 
+
+595
+00:14:36,560 --> 00:14:39,590
+object logger factory dot get logger we
+get this logger
+
+596
+00:14:39,590 --> 00:14:39,600
+get this logger
+ 
+
+597
+00:14:39,600 --> 00:14:42,389
+get this logger
+interface one. Okay. So ultimately this
+
+598
+00:14:42,389 --> 00:14:42,399
+interface one. Okay. So ultimately this
+ 
+
+599
+00:14:42,399 --> 00:14:46,150
+interface one. Okay. So ultimately this
+interface holds an either
+
+600
+00:14:46,150 --> 00:14:46,160
+interface holds an either
+ 
+
+601
+00:14:46,160 --> 00:14:48,870
+interface holds an either
+reference to either logback classic
+
+602
+00:14:48,870 --> 00:14:48,880
+reference to either logback classic
+ 
+
+603
+00:14:48,880 --> 00:14:52,629
+reference to either logback classic
+logger or log 4j core logger.
+
+604
+00:14:52,629 --> 00:14:52,639
+logger or log 4j core logger.
+ 
+
+605
+00:14:52,639 --> 00:14:55,750
+logger or log 4j core logger.
+Okay. So that is first thing. Now here
+
+606
+00:14:55,750 --> 00:14:55,760
+Okay. So that is first thing. Now here
+ 
+
+607
+00:14:55,760 --> 00:14:57,990
+Okay. So that is first thing. Now here
+if you see when you do logger factory
+
+608
+00:14:57,990 --> 00:14:58,000
+if you see when you do logger factory
+ 
+
+609
+00:14:58,000 --> 00:15:00,470
+if you see when you do logger factory
+dot get logger method when you invoke
+
+610
+00:15:00,470 --> 00:15:00,480
+dot get logger method when you invoke
+ 
+
+611
+00:15:00,480 --> 00:15:03,670
+dot get logger method when you invoke
+this one what is happening? So control
+
+612
+00:15:03,670 --> 00:15:03,680
+this one what is happening? So control
+ 
+
+613
+00:15:03,680 --> 00:15:06,470
+this one what is happening? So control
+is coming here logger factory. So logger
+
+614
+00:15:06,470 --> 00:15:06,480
+is coming here logger factory. So logger
+ 
+
+615
+00:15:06,480 --> 00:15:12,389
+is coming here logger factory. So logger
+factory is part of API SLF 4j library.
+
+616
+00:15:12,389 --> 00:15:12,399
+factory is part of API SLF 4j library.
+ 
+
+617
+00:15:12,399 --> 00:15:17,750
+factory is part of API SLF 4j library.
+So what it do is
+
+618
+00:15:17,750 --> 00:15:17,760
+
+ 
+
+619
+00:15:17,760 --> 00:15:24,550
+
+it does two thing. First it find out
+
+620
+00:15:24,550 --> 00:15:24,560
+it does two thing. First it find out
+ 
+
+621
+00:15:24,560 --> 00:15:27,189
+it does two thing. First it find out
+what's the implementation whether log
+
+622
+00:15:27,189 --> 00:15:27,199
+what's the implementation whether log
+ 
+
+623
+00:15:27,199 --> 00:15:29,829
+what's the implementation whether log
+back is the implementation or log 4j is
+
+624
+00:15:29,829 --> 00:15:29,839
+back is the implementation or log 4j is
+ 
+
+625
+00:15:29,839 --> 00:15:32,389
+back is the implementation or log 4j is
+the implementation which I have to use
+
+626
+00:15:32,389 --> 00:15:32,399
+the implementation which I have to use
+ 
+
+627
+00:15:32,399 --> 00:15:35,430
+the implementation which I have to use
+and how it will determine from the
+
+628
+00:15:35,430 --> 00:15:35,440
+and how it will determine from the
+ 
+
+629
+00:15:35,440 --> 00:15:38,470
+and how it will determine from the
+library in the class path which library
+
+630
+00:15:38,470 --> 00:15:38,480
+library in the class path which library
+ 
+
+631
+00:15:38,480 --> 00:15:41,430
+library in the class path which library
+is present. Okay. So we have already
+
+632
+00:15:41,430 --> 00:15:41,440
+is present. Okay. So we have already
+ 
+
+633
+00:15:41,440 --> 00:15:43,829
+is present. Okay. So we have already
+seen that
+
+634
+00:15:43,829 --> 00:15:43,839
+seen that
+ 
+
+635
+00:15:43,839 --> 00:15:46,389
+seen that
+like whatever in the pom you have added
+
+636
+00:15:46,389 --> 00:15:46,399
+like whatever in the pom you have added
+ 
+
+637
+00:15:46,399 --> 00:15:49,030
+like whatever in the pom you have added
+a dependency. If you have added log 4j
+
+638
+00:15:49,030 --> 00:15:49,040
+a dependency. If you have added log 4j
+ 
+
+639
+00:15:49,040 --> 00:15:51,590
+a dependency. If you have added log 4j
+dependency you have to exclude this one.
+
+640
+00:15:51,590 --> 00:15:51,600
+dependency you have to exclude this one.
+ 
+
+641
+00:15:51,600 --> 00:15:55,990
+dependency you have to exclude this one.
+Okay. Uh if you not then by default log
+
+642
+00:15:55,990 --> 00:15:56,000
+Okay. Uh if you not then by default log
+ 
+
+643
+00:15:56,000 --> 00:15:58,629
+Okay. Uh if you not then by default log
+back will come. Okay. But anyhow only
+
+644
+00:15:58,629 --> 00:15:58,639
+back will come. Okay. But anyhow only
+ 
+
+645
+00:15:58,639 --> 00:16:00,790
+back will come. Okay. But anyhow only
+one should be present. If you have two
+
+646
+00:16:00,790 --> 00:16:00,800
+one should be present. If you have two
+ 
+
+647
+00:16:00,800 --> 00:16:04,389
+one should be present. If you have two
+then also it will do get zero. In the
+
+648
+00:16:04,389 --> 00:16:04,399
+then also it will do get zero. In the
+ 
+
+649
+00:16:04,399 --> 00:16:05,910
+then also it will do get zero. In the
+class path it will have only one
+
+650
+00:16:05,910 --> 00:16:05,920
+class path it will have only one
+ 
+
+651
+00:16:05,920 --> 00:16:10,230
+class path it will have only one
+provider. Okay. So it knows that from
+
+652
+00:16:10,230 --> 00:16:10,240
+provider. Okay. So it knows that from
+ 
+
+653
+00:16:10,240 --> 00:16:12,230
+provider. Okay. So it knows that from
+the class path
+
+654
+00:16:12,230 --> 00:16:12,240
+the class path
+ 
+
+655
+00:16:12,240 --> 00:16:14,310
+the class path
+which one is the implementation I have
+
+656
+00:16:14,310 --> 00:16:14,320
+which one is the implementation I have
+ 
+
+657
+00:16:14,320 --> 00:16:19,189
+which one is the implementation I have
+to use whether log back or log 4j. Okay
+
+658
+00:16:19,189 --> 00:16:19,199
+to use whether log back or log 4j. Okay
+ 
+
+659
+00:16:19,199 --> 00:16:23,110
+to use whether log back or log 4j. Okay
+then it calls I logger factory. So I
+
+660
+00:16:23,110 --> 00:16:23,120
+then it calls I logger factory. So I
+ 
+
+661
+00:16:23,120 --> 00:16:26,310
+then it calls I logger factory. So I
+logger factory is also part of sl 4j. So
+
+662
+00:16:26,310 --> 00:16:26,320
+logger factory is also part of sl 4j. So
+ 
+
+663
+00:16:26,320 --> 00:16:29,430
+logger factory is also part of sl 4j. So
+it has a method let's say get logger and
+
+664
+00:16:29,430 --> 00:16:29,440
+it has a method let's say get logger and
+ 
+
+665
+00:16:29,440 --> 00:16:32,389
+it has a method let's say get logger and
+the name. So this name is nothing but a
+
+666
+00:16:32,389 --> 00:16:32,399
+the name. So this name is nothing but a
+ 
+
+667
+00:16:32,399 --> 00:16:34,629
+the name. So this name is nothing but a
+logger name. So if you see that logger
+
+668
+00:16:34,629 --> 00:16:34,639
+logger name. So if you see that logger
+ 
+
+669
+00:16:34,639 --> 00:16:37,189
+logger name. So if you see that logger
+each logger has a name.
+
+670
+00:16:37,189 --> 00:16:37,199
+each logger has a name.
+ 
+
+671
+00:16:37,199 --> 00:16:40,310
+each logger has a name.
+Okay. So now this I logger factory. So
+
+672
+00:16:40,310 --> 00:16:40,320
+Okay. So now this I logger factory. So
+ 
+
+673
+00:16:40,320 --> 00:16:42,470
+Okay. So now this I logger factory. So
+here if you see that it's an interface.
+
+674
+00:16:42,470 --> 00:16:42,480
+here if you see that it's an interface.
+ 
+
+675
+00:16:42,480 --> 00:16:44,470
+here if you see that it's an interface.
+So see SLForge is nothing but an
+
+676
+00:16:44,470 --> 00:16:44,480
+So see SLForge is nothing but an
+ 
+
+677
+00:16:44,480 --> 00:16:47,350
+So see SLForge is nothing but an
+interface. No implementation. So this is
+
+678
+00:16:47,350 --> 00:16:47,360
+interface. No implementation. So this is
+ 
+
+679
+00:16:47,360 --> 00:16:49,670
+interface. No implementation. So this is
+also an interface. So it is implemented
+
+680
+00:16:49,670 --> 00:16:49,680
+also an interface. So it is implemented
+ 
+
+681
+00:16:49,680 --> 00:16:52,230
+also an interface. So it is implemented
+by
+
+682
+00:16:52,230 --> 00:16:52,240
+by
+ 
+
+683
+00:16:52,240 --> 00:16:55,030
+by
+classes which are present into either
+
+684
+00:16:55,030 --> 00:16:55,040
+classes which are present into either
+ 
+
+685
+00:16:55,040 --> 00:16:58,069
+classes which are present into either
+logback or log 4j. So in logback let's
+
+686
+00:16:58,069 --> 00:16:58,079
+logback or log 4j. So in logback let's
+ 
+
+687
+00:16:58,079 --> 00:17:01,350
+logback or log 4j. So in logback let's
+say one class is logger context which
+
+688
+00:17:01,350 --> 00:17:01,360
+say one class is logger context which
+ 
+
+689
+00:17:01,360 --> 00:17:04,390
+say one class is logger context which
+implement this logger factory. And this
+
+690
+00:17:04,390 --> 00:17:04,400
+implement this logger factory. And this
+ 
+
+691
+00:17:04,400 --> 00:17:06,710
+implement this logger factory. And this
+method get logger method is also provide
+
+692
+00:17:06,710 --> 00:17:06,720
+method get logger method is also provide
+ 
+
+693
+00:17:06,720 --> 00:17:08,549
+method get logger method is also provide
+an implementation.
+
+694
+00:17:08,549 --> 00:17:08,559
+an implementation.
+ 
+
+695
+00:17:08,559 --> 00:17:11,189
+an implementation.
+So here if you notice these classes they
+
+696
+00:17:11,189 --> 00:17:11,199
+So here if you notice these classes they
+ 
+
+697
+00:17:11,199 --> 00:17:15,110
+So here if you notice these classes they
+maintain a cache
+
+698
+00:17:15,110 --> 00:17:15,120
+
+ 
+
+699
+00:17:15,120 --> 00:17:19,990
+
+string, logger. So what it does? So when
+
+700
+00:17:19,990 --> 00:17:20,000
+string, logger. So what it does? So when
+ 
+
+701
+00:17:20,000 --> 00:17:24,309
+string, logger. So what it does? So when
+you do logger factory dot get logger and
+
+702
+00:17:24,309 --> 00:17:24,319
+you do logger factory dot get logger and
+ 
+
+703
+00:17:24,319 --> 00:17:26,069
+you do logger factory dot get logger and
+provide the name. So this is the name of
+
+704
+00:17:26,069 --> 00:17:26,079
+provide the name. So this is the name of
+ 
+
+705
+00:17:26,079 --> 00:17:28,870
+provide the name. So this is the name of
+the logger actually.
+
+706
+00:17:28,870 --> 00:17:28,880
+the logger actually.
+ 
+
+707
+00:17:28,880 --> 00:17:31,990
+the logger actually.
+So it will not create new object every
+
+708
+00:17:31,990 --> 00:17:32,000
+So it will not create new object every
+ 
+
+709
+00:17:32,000 --> 00:17:35,270
+So it will not create new object every
+time. Okay. So what it will do is it
+
+710
+00:17:35,270 --> 00:17:35,280
+time. Okay. So what it will do is it
+ 
+
+711
+00:17:35,280 --> 00:17:37,350
+time. Okay. So what it will do is it
+will first we are calling logger factory
+
+712
+00:17:37,350 --> 00:17:37,360
+will first we are calling logger factory
+ 
+
+713
+00:17:37,360 --> 00:17:40,470
+will first we are calling logger factory
+get logger method. Okay. It will knows
+
+714
+00:17:40,470 --> 00:17:40,480
+get logger method. Okay. It will knows
+ 
+
+715
+00:17:40,480 --> 00:17:43,350
+get logger method. Okay. It will knows
+that which library it has to use whether
+
+716
+00:17:43,350 --> 00:17:43,360
+that which library it has to use whether
+ 
+
+717
+00:17:43,360 --> 00:17:46,870
+that which library it has to use whether
+log back or log 4j. Then it will pass
+
+718
+00:17:46,870 --> 00:17:46,880
+log back or log 4j. Then it will pass
+ 
+
+719
+00:17:46,880 --> 00:17:49,029
+log back or log 4j. Then it will pass
+the request to logger factory. From
+
+720
+00:17:49,029 --> 00:17:49,039
+the request to logger factory. From
+ 
+
+721
+00:17:49,039 --> 00:17:51,270
+the request to logger factory. From
+logger factory ultimately it goes to one
+
+722
+00:17:51,270 --> 00:17:51,280
+logger factory ultimately it goes to one
+ 
+
+723
+00:17:51,280 --> 00:17:52,950
+logger factory ultimately it goes to one
+of the
+
+724
+00:17:52,950 --> 00:17:52,960
+of the
+ 
+
+725
+00:17:52,960 --> 00:17:55,270
+of the
+get logger of either log back or log
+
+726
+00:17:55,270 --> 00:17:55,280
+get logger of either log back or log
+ 
+
+727
+00:17:55,280 --> 00:17:57,190
+get logger of either log back or log
+forj. Now let's say that currently we
+
+728
+00:17:57,190 --> 00:17:57,200
+forj. Now let's say that currently we
+ 
+
+729
+00:17:57,200 --> 00:17:58,630
+forj. Now let's say that currently we
+are using the default one. It will goes
+
+730
+00:17:58,630 --> 00:17:58,640
+are using the default one. It will goes
+ 
+
+731
+00:17:58,640 --> 00:18:01,590
+are using the default one. It will goes
+to the logback one. Okay. Now here if
+
+732
+00:18:01,590 --> 00:18:01,600
+to the logback one. Okay. Now here if
+ 
+
+733
+00:18:01,600 --> 00:18:03,909
+to the logback one. Okay. Now here if
+you see it is maintaining the map in the
+
+734
+00:18:03,909 --> 00:18:03,919
+you see it is maintaining the map in the
+ 
+
+735
+00:18:03,919 --> 00:18:08,070
+you see it is maintaining the map in the
+get logger it first check this cache or
+
+736
+00:18:08,070 --> 00:18:08,080
+get logger it first check this cache or
+ 
+
+737
+00:18:08,080 --> 00:18:10,310
+get logger it first check this cache or
+you can say that this map. So this
+
+738
+00:18:10,310 --> 00:18:10,320
+you can say that this map. So this
+ 
+
+739
+00:18:10,320 --> 00:18:13,270
+you can say that this map. So this
+string is nothing but a name. Okay the
+
+740
+00:18:13,270 --> 00:18:13,280
+string is nothing but a name. Okay the
+ 
+
+741
+00:18:13,280 --> 00:18:15,990
+string is nothing but a name. Okay the
+name which is this coming.
+
+742
+00:18:15,990 --> 00:18:16,000
+name which is this coming.
+ 
+
+743
+00:18:16,000 --> 00:18:20,789
+name which is this coming.
+So if for this name logger is already
+
+744
+00:18:20,789 --> 00:18:20,799
+So if for this name logger is already
+ 
+
+745
+00:18:20,799 --> 00:18:22,950
+So if for this name logger is already
+present so it will just reuse that
+
+746
+00:18:22,950 --> 00:18:22,960
+present so it will just reuse that
+ 
+
+747
+00:18:22,960 --> 00:18:24,789
+present so it will just reuse that
+object.
+
+748
+00:18:24,789 --> 00:18:24,799
+object.
+ 
+
+749
+00:18:24,799 --> 00:18:27,510
+object.
+It will not create new object every
+
+750
+00:18:27,510 --> 00:18:27,520
+It will not create new object every
+ 
+
+751
+00:18:27,520 --> 00:18:32,549
+It will not create new object every
+time. So you can say that so for
+
+752
+00:18:32,549 --> 00:18:32,559
+time. So you can say that so for
+ 
+
+753
+00:18:32,559 --> 00:18:35,990
+time. So you can say that so for
+one name one logger
+
+754
+00:18:35,990 --> 00:18:36,000
+one name one logger
+ 
+
+755
+00:18:36,000 --> 00:18:40,870
+one name one logger
+is one logger object is present.
+
+756
+00:18:40,870 --> 00:18:40,880
+
+ 
+
+757
+00:18:40,880 --> 00:18:43,430
+
+Similarly log 4j has also doing the same
+
+758
+00:18:43,430 --> 00:18:43,440
+Similarly log 4j has also doing the same
+ 
+
+759
+00:18:43,440 --> 00:18:45,029
+Similarly log 4j has also doing the same
+thing but in a different way. So it is
+
+760
+00:18:45,029 --> 00:18:45,039
+thing but in a different way. So it is
+ 
+
+761
+00:18:45,039 --> 00:18:47,830
+thing but in a different way. So it is
+also maintaining a map and it has its
+
+762
+00:18:47,830 --> 00:18:47,840
+also maintaining a map and it has its
+ 
+
+763
+00:18:47,840 --> 00:18:51,590
+also maintaining a map and it has its
+own uh objects logger context and all
+
+764
+00:18:51,590 --> 00:18:51,600
+own uh objects logger context and all
+ 
+
+765
+00:18:51,600 --> 00:18:55,270
+own uh objects logger context and all
+but the concept is same. They both are
+
+766
+00:18:55,270 --> 00:18:55,280
+but the concept is same. They both are
+ 
+
+767
+00:18:55,280 --> 00:19:00,070
+but the concept is same. They both are
+doing caching. Okay. So for one name one
+
+768
+00:19:00,070 --> 00:19:00,080
+doing caching. Okay. So for one name one
+ 
+
+769
+00:19:00,080 --> 00:19:03,590
+doing caching. Okay. So for one name one
+logger object should be present.
+
+770
+00:19:03,590 --> 00:19:03,600
+logger object should be present.
+ 
+
+771
+00:19:03,600 --> 00:19:06,789
+logger object should be present.
+So when you do get logger what it will
+
+772
+00:19:06,789 --> 00:19:06,799
+So when you do get logger what it will
+ 
+
+773
+00:19:06,799 --> 00:19:09,669
+So when you do get logger what it will
+do is it will check this map if the for
+
+774
+00:19:09,669 --> 00:19:09,679
+do is it will check this map if the for
+ 
+
+775
+00:19:09,679 --> 00:19:12,630
+do is it will check this map if the for
+this name for this name if there is no
+
+776
+00:19:12,630 --> 00:19:12,640
+this name for this name if there is no
+ 
+
+777
+00:19:12,640 --> 00:19:14,789
+this name for this name if there is no
+object present it will create one
+
+778
+00:19:14,789 --> 00:19:14,799
+object present it will create one
+ 
+
+779
+00:19:14,799 --> 00:19:16,710
+object present it will create one
+object. So that's why I put a it has a
+
+780
+00:19:16,710 --> 00:19:16,720
+object. So that's why I put a it has a
+ 
+
+781
+00:19:16,720 --> 00:19:19,190
+object. So that's why I put a it has a
+so it will create one object. So if
+
+782
+00:19:19,190 --> 00:19:19,200
+so it will create one object. So if
+ 
+
+783
+00:19:19,200 --> 00:19:20,789
+so it will create one object. So if
+you're using a logback so it will create
+
+784
+00:19:20,789 --> 00:19:20,799
+you're using a logback so it will create
+ 
+
+785
+00:19:20,799 --> 00:19:23,510
+you're using a logback so it will create
+one object of this and put into the map
+
+786
+00:19:23,510 --> 00:19:23,520
+one object of this and put into the map
+ 
+
+787
+00:19:23,520 --> 00:19:28,230
+one object of this and put into the map
+and then ultimately return an object.
+
+788
+00:19:28,230 --> 00:19:28,240
+
+ 
+
+789
+00:19:28,240 --> 00:19:30,549
+
+So this is clear
+
+790
+00:19:30,549 --> 00:19:30,559
+So this is clear
+ 
+
+791
+00:19:30,559 --> 00:19:33,190
+So this is clear
+okay go through it again it will get
+
+792
+00:19:33,190 --> 00:19:33,200
+okay go through it again it will get
+ 
+
+793
+00:19:33,200 --> 00:19:35,510
+okay go through it again it will get
+clear but yes this is the UML diagram
+
+794
+00:19:35,510 --> 00:19:35,520
+clear but yes this is the UML diagram
+ 
+
+795
+00:19:35,520 --> 00:19:39,430
+clear but yes this is the UML diagram
+you can say that of a log framework.
+
+796
+00:19:39,430 --> 00:19:39,440
+you can say that of a log framework.
+ 
+
+797
+00:19:39,440 --> 00:19:42,950
+you can say that of a log framework.
+So what logger factory does?
+
+798
+00:19:42,950 --> 00:19:42,960
+So what logger factory does?
+ 
+
+799
+00:19:42,960 --> 00:19:45,669
+So what logger factory does?
+So this logger factory so logger factory
+
+800
+00:19:45,669 --> 00:19:45,679
+So this logger factory so logger factory
+ 
+
+801
+00:19:45,679 --> 00:19:48,789
+So this logger factory so logger factory
+finds which SLF 4j implementation to
+
+802
+00:19:48,789 --> 00:19:48,799
+finds which SLF 4j implementation to
+ 
+
+803
+00:19:48,799 --> 00:19:51,430
+finds which SLF 4j implementation to
+use. Okay. And it is done based on I've
+
+804
+00:19:51,430 --> 00:19:51,440
+use. Okay. And it is done based on I've
+ 
+
+805
+00:19:51,440 --> 00:19:54,390
+use. Okay. And it is done based on I've
+already told you uh library which is
+
+806
+00:19:54,390 --> 00:19:54,400
+already told you uh library which is
+ 
+
+807
+00:19:54,400 --> 00:19:56,789
+already told you uh library which is
+presented to the class path and invokes
+
+808
+00:19:56,789 --> 00:19:56,799
+presented to the class path and invokes
+ 
+
+809
+00:19:56,799 --> 00:19:58,950
+presented to the class path and invokes
+the logger context of the specific
+
+810
+00:19:58,950 --> 00:19:58,960
+the logger context of the specific
+ 
+
+811
+00:19:58,960 --> 00:20:01,190
+the logger context of the specific
+implementation whether it will call the
+
+812
+00:20:01,190 --> 00:20:01,200
+implementation whether it will call the
+ 
+
+813
+00:20:01,200 --> 00:20:03,110
+implementation whether it will call the
+logger context. You can say that if it
+
+814
+00:20:03,110 --> 00:20:03,120
+logger context. You can say that if it
+ 
+
+815
+00:20:03,120 --> 00:20:05,990
+logger context. You can say that if it
+is using log back if it is using log for
+
+816
+00:20:05,990 --> 00:20:06,000
+is using log back if it is using log for
+ 
+
+817
+00:20:06,000 --> 00:20:07,990
+is using log back if it is using log for
+it will invoke this abstract logger
+
+818
+00:20:07,990 --> 00:20:08,000
+it will invoke this abstract logger
+ 
+
+819
+00:20:08,000 --> 00:20:11,590
+it will invoke this abstract logger
+adapter
+
+820
+00:20:11,590 --> 00:20:11,600
+
+ 
+
+821
+00:20:11,600 --> 00:20:13,909
+
+and this logger context generally here
+
+822
+00:20:13,909 --> 00:20:13,919
+and this logger context generally here
+ 
+
+823
+00:20:13,919 --> 00:20:17,590
+and this logger context generally here
+I'm uh specifically saying from this uh
+
+824
+00:20:17,590 --> 00:20:17,600
+I'm uh specifically saying from this uh
+ 
+
+825
+00:20:17,600 --> 00:20:20,630
+I'm uh specifically saying from this uh
+log back perspective but it's a logic is
+
+826
+00:20:20,630 --> 00:20:20,640
+log back perspective but it's a logic is
+ 
+
+827
+00:20:20,640 --> 00:20:24,150
+log back perspective but it's a logic is
+same mostly for both log 4G also it does
+
+828
+00:20:24,150 --> 00:20:24,160
+same mostly for both log 4G also it does
+ 
+
+829
+00:20:24,160 --> 00:20:26,470
+same mostly for both log 4G also it does
+caching based on the logger name and
+
+830
+00:20:26,470 --> 00:20:26,480
+caching based on the logger name and
+ 
+
+831
+00:20:26,480 --> 00:20:28,870
+caching based on the logger name and
+logger name could be anything it can be
+
+832
+00:20:28,870 --> 00:20:28,880
+logger name could be anything it can be
+ 
+
+833
+00:20:28,880 --> 00:20:31,590
+logger name could be anything it can be
+class name it can be package name or any
+
+834
+00:20:31,590 --> 00:20:31,600
+class name it can be package name or any
+ 
+
+835
+00:20:31,600 --> 00:20:34,310
+class name it can be package name or any
+string. Okay. So if for a particular
+
+836
+00:20:34,310 --> 00:20:34,320
+string. Okay. So if for a particular
+ 
+
+837
+00:20:34,320 --> 00:20:37,830
+string. Okay. So if for a particular
+name logger object is already present,
+
+838
+00:20:37,830 --> 00:20:37,840
+name logger object is already present,
+ 
+
+839
+00:20:37,840 --> 00:20:40,630
+name logger object is already present,
+it reuse it.
+
+840
+00:20:40,630 --> 00:20:40,640
+it reuse it.
+ 
+
+841
+00:20:40,640 --> 00:20:42,549
+it reuse it.
+Else create a new and put it into the
+
+842
+00:20:42,549 --> 00:20:42,559
+Else create a new and put it into the
+ 
+
+843
+00:20:42,559 --> 00:20:47,669
+Else create a new and put it into the
+cache.
+
+844
+00:20:47,669 --> 00:20:47,679
+
+ 
+
+845
+00:20:47,679 --> 00:20:50,710
+
+And then we have logger object. So these
+
+846
+00:20:50,710 --> 00:20:50,720
+And then we have logger object. So these
+ 
+
+847
+00:20:50,720 --> 00:20:53,190
+And then we have logger object. So these
+are the logger objects.
+
+848
+00:20:53,190 --> 00:20:53,200
+are the logger objects.
+ 
+
+849
+00:20:53,200 --> 00:20:55,270
+are the logger objects.
+So logger objects have few important
+
+850
+00:20:55,270 --> 00:20:55,280
+So logger objects have few important
+ 
+
+851
+00:20:55,280 --> 00:20:57,909
+So logger objects have few important
+fields present within logger class. So
+
+852
+00:20:57,909 --> 00:20:57,919
+fields present within logger class. So
+ 
+
+853
+00:20:57,919 --> 00:21:00,950
+fields present within logger class. So
+one is name,
+
+854
+00:21:00,950 --> 00:21:00,960
+one is name,
+ 
+
+855
+00:21:00,960 --> 00:21:02,710
+one is name,
+level,
+
+856
+00:21:02,710 --> 00:21:02,720
+level,
+ 
+
+857
+00:21:02,720 --> 00:21:05,190
+level,
+parent and child.
+
+858
+00:21:05,190 --> 00:21:05,200
+parent and child.
+ 
+
+859
+00:21:05,200 --> 00:21:08,310
+parent and child.
+Okay, one parent, multiple childs. Now
+
+860
+00:21:08,310 --> 00:21:08,320
+Okay, one parent, multiple childs. Now
+ 
+
+861
+00:21:08,320 --> 00:21:09,990
+Okay, one parent, multiple childs. Now
+let's see this because these are the
+
+862
+00:21:09,990 --> 00:21:10,000
+let's see this because these are the
+ 
+
+863
+00:21:10,000 --> 00:21:13,590
+let's see this because these are the
+crux of the logging framework.
+
+864
+00:21:13,590 --> 00:21:13,600
+crux of the logging framework.
+ 
+
+865
+00:21:13,600 --> 00:21:16,710
+crux of the logging framework.
+Name. So this is the name of the logger.
+
+866
+00:21:16,710 --> 00:21:16,720
+Name. So this is the name of the logger.
+ 
+
+867
+00:21:16,720 --> 00:21:18,549
+Name. So this is the name of the logger.
+It can be anything I told you. It can be
+
+868
+00:21:18,549 --> 00:21:18,559
+It can be anything I told you. It can be
+ 
+
+869
+00:21:18,559 --> 00:21:20,870
+It can be anything I told you. It can be
+package name, it can be class name or
+
+870
+00:21:20,870 --> 00:21:20,880
+package name, it can be class name or
+ 
+
+871
+00:21:20,880 --> 00:21:23,909
+package name, it can be class name or
+any string.
+
+872
+00:21:23,909 --> 00:21:23,919
+any string.
+ 
+
+873
+00:21:23,919 --> 00:21:26,230
+any string.
+So for a given logger name only one
+
+874
+00:21:26,230 --> 00:21:26,240
+So for a given logger name only one
+ 
+
+875
+00:21:26,240 --> 00:21:28,390
+So for a given logger name only one
+logger object is created and reused. We
+
+876
+00:21:28,390 --> 00:21:28,400
+logger object is created and reused. We
+ 
+
+877
+00:21:28,400 --> 00:21:30,870
+logger object is created and reused. We
+have already seen that. But in real
+
+878
+00:21:30,870 --> 00:21:30,880
+have already seen that. But in real
+ 
+
+879
+00:21:30,880 --> 00:21:33,430
+have already seen that. But in real
+world application the common practice is
+
+880
+00:21:33,430 --> 00:21:33,440
+world application the common practice is
+ 
+
+881
+00:21:33,440 --> 00:21:36,710
+world application the common practice is
+to create one logger per class. That's
+
+882
+00:21:36,710 --> 00:21:36,720
+to create one logger per class. That's
+ 
+
+883
+00:21:36,720 --> 00:21:40,070
+to create one logger per class. That's
+why in production you always see that we
+
+884
+00:21:40,070 --> 00:21:40,080
+why in production you always see that we
+ 
+
+885
+00:21:40,080 --> 00:21:41,990
+why in production you always see that we
+are doing payment controller dot class
+
+886
+00:21:41,990 --> 00:21:42,000
+are doing payment controller dot class
+ 
+
+887
+00:21:42,000 --> 00:21:45,669
+are doing payment controller dot class
+the class name and then we put dot class
+
+888
+00:21:45,669 --> 00:21:45,679
+the class name and then we put dot class
+ 
+
+889
+00:21:45,679 --> 00:21:48,310
+the class name and then we put dot class
+because it will use the name as a class
+
+890
+00:21:48,310 --> 00:21:48,320
+because it will use the name as a class
+ 
+
+891
+00:21:48,320 --> 00:21:50,470
+because it will use the name as a class
+name. So when you are using like this
+
+892
+00:21:50,470 --> 00:21:50,480
+name. So when you are using like this
+ 
+
+893
+00:21:50,480 --> 00:21:52,230
+name. So when you are using like this
+let's say my payment controller is my
+
+894
+00:21:52,230 --> 00:21:52,240
+let's say my payment controller is my
+ 
+
+895
+00:21:52,240 --> 00:21:54,470
+let's say my payment controller is my
+class name. So when I use like this
+
+896
+00:21:54,470 --> 00:21:54,480
+class name. So when I use like this
+ 
+
+897
+00:21:54,480 --> 00:21:56,710
+class name. So when I use like this
+payment controller dot class so the name
+
+898
+00:21:56,710 --> 00:21:56,720
+payment controller dot class so the name
+ 
+
+899
+00:21:56,720 --> 00:22:00,149
+payment controller dot class so the name
+is that com.concepts dot payment
+
+900
+00:22:00,149 --> 00:22:00,159
+is that com.concepts dot payment
+ 
+
+901
+00:22:00,159 --> 00:22:05,110
+is that com.concepts dot payment
+controller the full class path.
+
+902
+00:22:05,110 --> 00:22:05,120
+controller the full class path.
+ 
+
+903
+00:22:05,120 --> 00:22:09,029
+controller the full class path.
+Okay. So this would be my name
+
+904
+00:22:09,029 --> 00:22:09,039
+Okay. So this would be my name
+ 
+
+905
+00:22:09,039 --> 00:22:11,430
+Okay. So this would be my name
+of the logger and this is generally in
+
+906
+00:22:11,430 --> 00:22:11,440
+of the logger and this is generally in
+ 
+
+907
+00:22:11,440 --> 00:22:14,470
+of the logger and this is generally in
+the production we say that one logger
+
+908
+00:22:14,470 --> 00:22:14,480
+the production we say that one logger
+ 
+
+909
+00:22:14,480 --> 00:22:17,590
+the production we say that one logger
+per class otherwise
+
+910
+00:22:17,590 --> 00:22:17,600
+per class otherwise
+ 
+
+911
+00:22:17,600 --> 00:22:19,830
+per class otherwise
+you can give any name. So it's like one
+
+912
+00:22:19,830 --> 00:22:19,840
+you can give any name. So it's like one
+ 
+
+913
+00:22:19,840 --> 00:22:24,149
+you can give any name. So it's like one
+name one logger object.
+
+914
+00:22:24,149 --> 00:22:24,159
+name one logger object.
+ 
+
+915
+00:22:24,159 --> 00:22:27,350
+name one logger object.
+So name is clear. Then we have level
+
+916
+00:22:27,350 --> 00:22:27,360
+So name is clear. Then we have level
+ 
+
+917
+00:22:27,360 --> 00:22:32,549
+So name is clear. Then we have level
+very important.
+
+918
+00:22:32,549 --> 00:22:32,559
+
+ 
+
+919
+00:22:32,559 --> 00:22:36,390
+
+So for each logger object
+
+920
+00:22:36,390 --> 00:22:36,400
+So for each logger object
+ 
+
+921
+00:22:36,400 --> 00:22:39,750
+So for each logger object
+we configure a log level. So there are
+
+922
+00:22:39,750 --> 00:22:39,760
+we configure a log level. So there are
+ 
+
+923
+00:22:39,760 --> 00:22:43,750
+we configure a log level. So there are
+multiple level. We have error, warning,
+
+924
+00:22:43,750 --> 00:22:43,760
+multiple level. We have error, warning,
+ 
+
+925
+00:22:43,760 --> 00:22:47,430
+multiple level. We have error, warning,
+info which is the default, debug, trace.
+
+926
+00:22:47,430 --> 00:22:47,440
+info which is the default, debug, trace.
+ 
+
+927
+00:22:47,440 --> 00:22:49,590
+info which is the default, debug, trace.
+So error has the highest priority you
+
+928
+00:22:49,590 --> 00:22:49,600
+So error has the highest priority you
+ 
+
+929
+00:22:49,600 --> 00:22:51,430
+So error has the highest priority you
+can say and trace has the lowest
+
+930
+00:22:51,430 --> 00:22:51,440
+can say and trace has the lowest
+ 
+
+931
+00:22:51,440 --> 00:22:54,149
+can say and trace has the lowest
+priority. Okay. So the priority goes
+
+932
+00:22:54,149 --> 00:22:54,159
+priority. Okay. So the priority goes
+ 
+
+933
+00:22:54,159 --> 00:22:57,430
+priority. Okay. So the priority goes
+from top to bottom.
+
+934
+00:22:57,430 --> 00:22:57,440
+from top to bottom.
+ 
+
+935
+00:22:57,440 --> 00:23:01,029
+from top to bottom.
+So for each logger object which we are
+
+936
+00:23:01,029 --> 00:23:01,039
+So for each logger object which we are
+ 
+
+937
+00:23:01,039 --> 00:23:04,070
+So for each logger object which we are
+creating we can assign one log level to
+
+938
+00:23:04,070 --> 00:23:04,080
+creating we can assign one log level to
+ 
+
+939
+00:23:04,080 --> 00:23:05,909
+creating we can assign one log level to
+it or you can say that not log level we
+
+940
+00:23:05,909 --> 00:23:05,919
+it or you can say that not log level we
+ 
+
+941
+00:23:05,919 --> 00:23:08,070
+it or you can say that not log level we
+can assign a level to it. So level could
+
+942
+00:23:08,070 --> 00:23:08,080
+can assign a level to it. So level could
+ 
+
+943
+00:23:08,080 --> 00:23:10,470
+can assign a level to it. So level could
+be one of this five. If you don't
+
+944
+00:23:10,470 --> 00:23:10,480
+be one of this five. If you don't
+ 
+
+945
+00:23:10,480 --> 00:23:13,350
+be one of this five. If you don't
+provide this level by default it would
+
+946
+00:23:13,350 --> 00:23:13,360
+provide this level by default it would
+ 
+
+947
+00:23:13,360 --> 00:23:16,310
+provide this level by default it would
+be info.
+
+948
+00:23:16,310 --> 00:23:16,320
+be info.
+ 
+
+949
+00:23:16,320 --> 00:23:20,070
+be info.
+And now what happened is that each log
+
+950
+00:23:20,070 --> 00:23:20,080
+And now what happened is that each log
+ 
+
+951
+00:23:20,080 --> 00:23:22,549
+And now what happened is that each log
+statement what we are doing is that log
+
+952
+00:23:22,549 --> 00:23:22,559
+statement what we are doing is that log
+ 
+
+953
+00:23:22,559 --> 00:23:24,950
+statement what we are doing is that log
+debug. So this is one statement
+
+954
+00:23:24,950 --> 00:23:24,960
+debug. So this is one statement
+ 
+
+955
+00:23:24,960 --> 00:23:28,149
+debug. So this is one statement
+log.debug log.info log error. So each
+
+956
+00:23:28,149 --> 00:23:28,159
+log.debug log.info log error. So each
+ 
+
+957
+00:23:28,159 --> 00:23:31,190
+log.debug log.info log error. So each
+log statement implicitly also has a
+
+958
+00:23:31,190 --> 00:23:31,200
+log statement implicitly also has a
+ 
+
+959
+00:23:31,200 --> 00:23:35,110
+log statement implicitly also has a
+level. Okay. So for now currently I am
+
+960
+00:23:35,110 --> 00:23:35,120
+level. Okay. So for now currently I am
+ 
+
+961
+00:23:35,120 --> 00:23:37,750
+level. Okay. So for now currently I am
+putting log debug. So this log statement
+
+962
+00:23:37,750 --> 00:23:37,760
+putting log debug. So this log statement
+ 
+
+963
+00:23:37,760 --> 00:23:41,510
+putting log debug. So this log statement
+has a level debug. So there are two part
+
+964
+00:23:41,510 --> 00:23:41,520
+has a level debug. So there are two part
+ 
+
+965
+00:23:41,520 --> 00:23:45,830
+has a level debug. So there are two part
+a logger object. logger object has level
+
+966
+00:23:45,830 --> 00:23:45,840
+a logger object. logger object has level
+ 
+
+967
+00:23:45,840 --> 00:23:48,470
+a logger object. logger object has level
+and the each log statement also has a
+
+968
+00:23:48,470 --> 00:23:48,480
+and the each log statement also has a
+ 
+
+969
+00:23:48,480 --> 00:23:51,270
+and the each log statement also has a
+level. Okay.
+
+970
+00:23:51,270 --> 00:23:51,280
+level. Okay.
+ 
+
+971
+00:23:51,280 --> 00:23:54,230
+level. Okay.
+Now what the purpose of this level? Now
+
+972
+00:23:54,230 --> 00:23:54,240
+Now what the purpose of this level? Now
+ 
+
+973
+00:23:54,240 --> 00:23:56,789
+Now what the purpose of this level? Now
+you can see
+
+974
+00:23:56,789 --> 00:23:56,799
+you can see
+ 
+
+975
+00:23:56,799 --> 00:23:58,789
+you can see
+the logger
+
+976
+00:23:58,789 --> 00:23:58,799
+the logger
+ 
+
+977
+00:23:58,799 --> 00:24:01,909
+the logger
+prints a log statement
+
+978
+00:24:01,909 --> 00:24:01,919
+prints a log statement
+ 
+
+979
+00:24:01,919 --> 00:24:05,190
+prints a log statement
+only if log statement level is same or
+
+980
+00:24:05,190 --> 00:24:05,200
+only if log statement level is same or
+ 
+
+981
+00:24:05,200 --> 00:24:09,510
+only if log statement level is same or
+higher than the logger configured level.
+
+982
+00:24:09,510 --> 00:24:09,520
+higher than the logger configured level.
+ 
+
+983
+00:24:09,520 --> 00:24:12,870
+higher than the logger configured level.
+So here if you see this diagram so this
+
+984
+00:24:12,870 --> 00:24:12,880
+So here if you see this diagram so this
+ 
+
+985
+00:24:12,880 --> 00:24:15,510
+So here if you see this diagram so this
+is my logger object and the level I have
+
+986
+00:24:15,510 --> 00:24:15,520
+is my logger object and the level I have
+ 
+
+987
+00:24:15,520 --> 00:24:18,149
+is my logger object and the level I have
+set is one let's say w a r and one this
+
+988
+00:24:18,149 --> 00:24:18,159
+set is one let's say w a r and one this
+ 
+
+989
+00:24:18,159 --> 00:24:22,230
+set is one let's say w a r and one this
+is my level I have set so
+
+990
+00:24:22,230 --> 00:24:22,240
+is my level I have set so
+ 
+
+991
+00:24:22,240 --> 00:24:25,909
+is my level I have set so
+each logger object we can set a level
+
+992
+00:24:25,909 --> 00:24:25,919
+each logger object we can set a level
+ 
+
+993
+00:24:25,919 --> 00:24:30,149
+each logger object we can set a level
+now using this object I can log multiple
+
+994
+00:24:30,149 --> 00:24:30,159
+now using this object I can log multiple
+ 
+
+995
+00:24:30,159 --> 00:24:32,470
+now using this object I can log multiple
+log statement logger object dot error so
+
+996
+00:24:32,470 --> 00:24:32,480
+log statement logger object dot error so
+ 
+
+997
+00:24:32,480 --> 00:24:35,510
+log statement logger object dot error so
+this is one statement so I am this is
+
+998
+00:24:35,510 --> 00:24:35,520
+this is one statement so I am this is
+ 
+
+999
+00:24:35,520 --> 00:24:37,269
+this is one statement so I am this is
+the error statement this is a warning
+
+1000
+00:24:37,269 --> 00:24:37,279
+the error statement this is a warning
+ 
+
+1001
+00:24:37,279 --> 00:24:39,510
+the error statement this is a warning
+statement this This is a info log
+
+1002
+00:24:39,510 --> 00:24:39,520
+statement this This is a info log
+ 
+
+1003
+00:24:39,520 --> 00:24:41,990
+statement this This is a info log
+statement. This is a debug statement.
+
+1004
+00:24:41,990 --> 00:24:42,000
+statement. This is a debug statement.
+ 
+
+1005
+00:24:42,000 --> 00:24:45,110
+statement. This is a debug statement.
+This is a trace. Okay.
+
+1006
+00:24:45,110 --> 00:24:45,120
+This is a trace. Okay.
+ 
+
+1007
+00:24:45,120 --> 00:24:47,909
+This is a trace. Okay.
+Now here I told you that logger prints
+
+1008
+00:24:47,909 --> 00:24:47,919
+Now here I told you that logger prints
+ 
+
+1009
+00:24:47,919 --> 00:24:50,549
+Now here I told you that logger prints
+only a log statement
+
+1010
+00:24:50,549 --> 00:24:50,559
+only a log statement
+ 
+
+1011
+00:24:50,559 --> 00:24:52,789
+only a log statement
+which has same or higher than the logger
+
+1012
+00:24:52,789 --> 00:24:52,799
+which has same or higher than the logger
+ 
+
+1013
+00:24:52,799 --> 00:24:54,950
+which has same or higher than the logger
+configured level. So what is the level
+
+1014
+00:24:54,950 --> 00:24:54,960
+configured level. So what is the level
+ 
+
+1015
+00:24:54,960 --> 00:24:58,470
+configured level. So what is the level
+one? What is the priority? This one. So
+
+1016
+00:24:58,470 --> 00:24:58,480
+one? What is the priority? This one. So
+ 
+
+1017
+00:24:58,480 --> 00:25:01,110
+one? What is the priority? This one. So
+same or higher. So it will only
+
+1018
+00:25:01,110 --> 00:25:01,120
+same or higher. So it will only
+ 
+
+1019
+00:25:01,120 --> 00:25:04,230
+same or higher. So it will only
+entertain this log statement which are
+
+1020
+00:25:04,230 --> 00:25:04,240
+entertain this log statement which are
+ 
+
+1021
+00:25:04,240 --> 00:25:08,230
+entertain this log statement which are
+either warn or error. So only these two
+
+1022
+00:25:08,230 --> 00:25:08,240
+either warn or error. So only these two
+ 
+
+1023
+00:25:08,240 --> 00:25:11,510
+either warn or error. So only these two
+would be entertained and this info debug
+
+1024
+00:25:11,510 --> 00:25:11,520
+would be entertained and this info debug
+ 
+
+1025
+00:25:11,520 --> 00:25:18,149
+would be entertained and this info debug
+trace would be skipped in this case.
+
+1026
+00:25:18,149 --> 00:25:18,159
+
+ 
+
+1027
+00:25:18,159 --> 00:25:20,870
+
+You got it? So only these two log
+
+1028
+00:25:20,870 --> 00:25:20,880
+You got it? So only these two log
+ 
+
+1029
+00:25:20,880 --> 00:25:22,789
+You got it? So only these two log
+statement will be printed by the logger
+
+1030
+00:25:22,789 --> 00:25:22,799
+statement will be printed by the logger
+ 
+
+1031
+00:25:22,799 --> 00:25:25,590
+statement will be printed by the logger
+as these log statement level is equal or
+
+1032
+00:25:25,590 --> 00:25:25,600
+as these log statement level is equal or
+ 
+
+1033
+00:25:25,600 --> 00:25:27,750
+as these log statement level is equal or
+higher than the logger level. Logger
+
+1034
+00:25:27,750 --> 00:25:27,760
+higher than the logger level. Logger
+ 
+
+1035
+00:25:27,760 --> 00:25:30,789
+higher than the logger level. Logger
+level is one. So equal or higher than so
+
+1036
+00:25:30,789 --> 00:25:30,799
+level is one. So equal or higher than so
+ 
+
+1037
+00:25:30,799 --> 00:25:33,269
+level is one. So equal or higher than so
+error has higher priority than one and
+
+1038
+00:25:33,269 --> 00:25:33,279
+error has higher priority than one and
+ 
+
+1039
+00:25:33,279 --> 00:25:35,750
+error has higher priority than one and
+one is equal. But this since these are
+
+1040
+00:25:35,750 --> 00:25:35,760
+one is equal. But this since these are
+ 
+
+1041
+00:25:35,760 --> 00:25:38,630
+one is equal. But this since these are
+lower priority. So this would be skipped
+
+1042
+00:25:38,630 --> 00:25:38,640
+lower priority. So this would be skipped
+ 
+
+1043
+00:25:38,640 --> 00:25:40,710
+lower priority. So this would be skipped
+because I have set my logger object
+
+1044
+00:25:40,710 --> 00:25:40,720
+because I have set my logger object
+ 
+
+1045
+00:25:40,720 --> 00:25:44,310
+because I have set my logger object
+level. Okay. Enterain either one or
+
+1046
+00:25:44,310 --> 00:25:44,320
+level. Okay. Enterain either one or
+ 
+
+1047
+00:25:44,320 --> 00:25:47,190
+level. Okay. Enterain either one or
+higher priority than this. And whenever
+
+1048
+00:25:47,190 --> 00:25:47,200
+higher priority than this. And whenever
+ 
+
+1049
+00:25:47,200 --> 00:25:51,110
+higher priority than this. And whenever
+any statement comes I can either uh skip
+
+1050
+00:25:51,110 --> 00:25:51,120
+any statement comes I can either uh skip
+ 
+
+1051
+00:25:51,120 --> 00:25:53,909
+any statement comes I can either uh skip
+it if its priority is less than what I
+
+1052
+00:25:53,909 --> 00:25:53,919
+it if its priority is less than what I
+ 
+
+1053
+00:25:53,919 --> 00:25:57,350
+it if its priority is less than what I
+have set for my logger object.
+
+1054
+00:25:57,350 --> 00:25:57,360
+have set for my logger object.
+ 
+
+1055
+00:25:57,360 --> 00:26:01,110
+have set for my logger object.
+So see this example uh simple program
+
+1056
+00:26:01,110 --> 00:26:01,120
+So see this example uh simple program
+ 
+
+1057
+00:26:01,120 --> 00:26:03,269
+So see this example uh simple program
+the same thing. I am getting an object
+
+1058
+00:26:03,269 --> 00:26:03,279
+the same thing. I am getting an object
+ 
+
+1059
+00:26:03,279 --> 00:26:05,590
+the same thing. I am getting an object
+of a logger.
+
+1060
+00:26:05,590 --> 00:26:05,600
+of a logger.
+ 
+
+1061
+00:26:05,600 --> 00:26:09,029
+of a logger.
+Okay. And uh I haven't defined anything.
+
+1062
+00:26:09,029 --> 00:26:09,039
+Okay. And uh I haven't defined anything.
+ 
+
+1063
+00:26:09,039 --> 00:26:12,149
+Okay. And uh I haven't defined anything.
+I haven't defined what's the level. I
+
+1064
+00:26:12,149 --> 00:26:12,159
+I haven't defined what's the level. I
+ 
+
+1065
+00:26:12,159 --> 00:26:13,430
+I haven't defined what's the level. I
+haven't defined what's the level. So
+
+1066
+00:26:13,430 --> 00:26:13,440
+haven't defined what's the level. So
+ 
+
+1067
+00:26:13,440 --> 00:26:15,830
+haven't defined what's the level. So
+what would be the default one? Info.
+
+1068
+00:26:15,830 --> 00:26:15,840
+what would be the default one? Info.
+ 
+
+1069
+00:26:15,840 --> 00:26:18,630
+what would be the default one? Info.
+Okay. And I have log statement. Log
+
+1070
+00:26:18,630 --> 00:26:18,640
+Okay. And I have log statement. Log
+ 
+
+1071
+00:26:18,640 --> 00:26:20,789
+Okay. And I have log statement. Log
+error. So using this object I am
+
+1072
+00:26:20,789 --> 00:26:20,799
+error. So using this object I am
+ 
+
+1073
+00:26:20,799 --> 00:26:23,269
+error. So using this object I am
+creating multiple log statement. One is
+
+1074
+00:26:23,269 --> 00:26:23,279
+creating multiple log statement. One is
+ 
+
+1075
+00:26:23,279 --> 00:26:26,470
+creating multiple log statement. One is
+error warn info debug trace.
+
+1076
+00:26:26,470 --> 00:26:26,480
+error warn info debug trace.
+ 
+
+1077
+00:26:26,480 --> 00:26:29,590
+error warn info debug trace.
+Now when you run it, if you see the
+
+1078
+00:26:29,590 --> 00:26:29,600
+Now when you run it, if you see the
+ 
+
+1079
+00:26:29,600 --> 00:26:32,470
+Now when you run it, if you see the
+default is uh info
+
+1080
+00:26:32,470 --> 00:26:32,480
+default is uh info
+ 
+
+1081
+00:26:32,480 --> 00:26:35,909
+default is uh info
+for this my logger object for my logger
+
+1082
+00:26:35,909 --> 00:26:35,919
+for this my logger object for my logger
+ 
+
+1083
+00:26:35,919 --> 00:26:38,710
+for this my logger object for my logger
+object. So it will only entertain info
+
+1084
+00:26:38,710 --> 00:26:38,720
+object. So it will only entertain info
+ 
+
+1085
+00:26:38,720 --> 00:26:41,510
+object. So it will only entertain info
+and above. Okay. So error would be
+
+1086
+00:26:41,510 --> 00:26:41,520
+and above. Okay. So error would be
+ 
+
+1087
+00:26:41,520 --> 00:26:43,669
+and above. Okay. So error would be
+entertained, warn would be entertained
+
+1088
+00:26:43,669 --> 00:26:43,679
+entertained, warn would be entertained
+ 
+
+1089
+00:26:43,679 --> 00:26:45,750
+entertained, warn would be entertained
+info and but it will skip debug and
+
+1090
+00:26:45,750 --> 00:26:45,760
+info and but it will skip debug and
+ 
+
+1091
+00:26:45,760 --> 00:26:48,950
+info and but it will skip debug and
+trace. So if you see this error, warning
+
+1092
+00:26:48,950 --> 00:26:48,960
+trace. So if you see this error, warning
+ 
+
+1093
+00:26:48,960 --> 00:26:55,190
+trace. So if you see this error, warning
+info but no debug, no trace.
+
+1094
+00:26:55,190 --> 00:26:55,200
+
+ 
+
+1095
+00:26:55,200 --> 00:26:58,390
+
+So we can change if you let's say if you
+
+1096
+00:26:58,390 --> 00:26:58,400
+So we can change if you let's say if you
+ 
+
+1097
+00:26:58,400 --> 00:27:01,830
+So we can change if you let's say if you
+want to change the uh level from info to
+
+1098
+00:27:01,830 --> 00:27:01,840
+want to change the uh level from info to
+ 
+
+1099
+00:27:01,840 --> 00:27:03,909
+want to change the uh level from info to
+let's say something else for this logger
+
+1100
+00:27:03,909 --> 00:27:03,919
+let's say something else for this logger
+ 
+
+1101
+00:27:03,919 --> 00:27:05,269
+let's say something else for this logger
+we can change it through the
+
+1102
+00:27:05,269 --> 00:27:05,279
+we can change it through the
+ 
+
+1103
+00:27:05,279 --> 00:27:06,789
+we can change it through the
+configuration. So in
+
+1104
+00:27:06,789 --> 00:27:06,799
+configuration. So in
+ 
+
+1105
+00:27:06,799 --> 00:27:09,350
+configuration. So in
+application.properties we can change
+
+1106
+00:27:09,350 --> 00:27:09,360
+application.properties we can change
+ 
+
+1107
+00:27:09,360 --> 00:27:11,669
+application.properties we can change
+logging dole
+
+1108
+00:27:11,669 --> 00:27:11,679
+logging dole
+ 
+
+1109
+00:27:11,679 --> 00:27:14,390
+logging dole
+and now the name
+
+1110
+00:27:14,390 --> 00:27:14,400
+and now the name
+ 
+
+1111
+00:27:14,400 --> 00:27:17,110
+and now the name
+name of the logger.
+
+1112
+00:27:17,110 --> 00:27:17,120
+name of the logger.
+ 
+
+1113
+00:27:17,120 --> 00:27:19,669
+name of the logger.
+Okay. Logging dot level and then after
+
+1114
+00:27:19,669 --> 00:27:19,679
+Okay. Logging dot level and then after
+ 
+
+1115
+00:27:19,679 --> 00:27:22,470
+Okay. Logging dot level and then after
+that the name of the logger whatever the
+
+1116
+00:27:22,470 --> 00:27:22,480
+that the name of the logger whatever the
+ 
+
+1117
+00:27:22,480 --> 00:27:25,029
+that the name of the logger whatever the
+level you want
+
+1118
+00:27:25,029 --> 00:27:25,039
+level you want
+ 
+
+1119
+00:27:25,039 --> 00:27:27,750
+level you want
+debug
+
+1120
+00:27:27,750 --> 00:27:27,760
+debug
+ 
+
+1121
+00:27:27,760 --> 00:27:31,029
+debug
+one info capital letter like this you
+
+1122
+00:27:31,029 --> 00:27:31,039
+one info capital letter like this you
+ 
+
+1123
+00:27:31,039 --> 00:27:33,830
+one info capital letter like this you
+can give. Now if I start the application
+
+1124
+00:27:33,830 --> 00:27:33,840
+can give. Now if I start the application
+ 
+
+1125
+00:27:33,840 --> 00:27:36,870
+can give. Now if I start the application
+and hit this endpoint so I have a debug.
+
+1126
+00:27:36,870 --> 00:27:36,880
+and hit this endpoint so I have a debug.
+ 
+
+1127
+00:27:36,880 --> 00:27:39,909
+and hit this endpoint so I have a debug.
+So I will only enterain equal or higher.
+
+1128
+00:27:39,909 --> 00:27:39,919
+So I will only enterain equal or higher.
+ 
+
+1129
+00:27:39,919 --> 00:27:42,390
+So I will only enterain equal or higher.
+So error would be entertained warning
+
+1130
+00:27:42,390 --> 00:27:42,400
+So error would be entertained warning
+ 
+
+1131
+00:27:42,400 --> 00:27:45,110
+So error would be entertained warning
+info debug. But trace is lower priority
+
+1132
+00:27:45,110 --> 00:27:45,120
+info debug. But trace is lower priority
+ 
+
+1133
+00:27:45,120 --> 00:27:48,870
+info debug. But trace is lower priority
+than debug. So that would be skip
+
+1134
+00:27:48,870 --> 00:27:48,880
+than debug. So that would be skip
+ 
+
+1135
+00:27:48,880 --> 00:27:51,350
+than debug. So that would be skip
+error warning info debug but trace is
+
+1136
+00:27:51,350 --> 00:27:51,360
+error warning info debug but trace is
+ 
+
+1137
+00:27:51,360 --> 00:27:56,950
+error warning info debug but trace is
+skipped.
+
+1138
+00:27:56,950 --> 00:27:56,960
+
+ 
+
+1139
+00:27:56,960 --> 00:28:02,070
+
+Okay. So level is clear.
+
+1140
+00:28:02,070 --> 00:28:02,080
+
+ 
+
+1141
+00:28:02,080 --> 00:28:04,389
+
+Then we have if you see that the logger
+
+1142
+00:28:04,389 --> 00:28:04,399
+Then we have if you see that the logger
+ 
+
+1143
+00:28:04,399 --> 00:28:07,269
+Then we have if you see that the logger
+object logger object has one parent and
+
+1144
+00:28:07,269 --> 00:28:07,279
+object logger object has one parent and
+ 
+
+1145
+00:28:07,279 --> 00:28:11,190
+object logger object has one parent and
+the list of logger the child. What does
+
+1146
+00:28:11,190 --> 00:28:11,200
+the list of logger the child. What does
+ 
+
+1147
+00:28:11,200 --> 00:28:14,950
+the list of logger the child. What does
+that mean? Very important topic. So here
+
+1148
+00:28:14,950 --> 00:28:14,960
+that mean? Very important topic. So here
+ 
+
+1149
+00:28:14,960 --> 00:28:21,190
+that mean? Very important topic. So here
+this if you see this UML each logger has
+
+1150
+00:28:21,190 --> 00:28:21,200
+this if you see this UML each logger has
+ 
+
+1151
+00:28:21,200 --> 00:28:27,029
+this if you see this UML each logger has
+parent and the list of child.
+
+1152
+00:28:27,029 --> 00:28:27,039
+
+ 
+
+1153
+00:28:27,039 --> 00:28:29,909
+
+So what does that mean? So logger
+
+1154
+00:28:29,909 --> 00:28:29,919
+So what does that mean? So logger
+ 
+
+1155
+00:28:29,919 --> 00:28:31,590
+So what does that mean? So logger
+framework
+
+1156
+00:28:31,590 --> 00:28:31,600
+framework
+ 
+
+1157
+00:28:31,600 --> 00:28:33,590
+framework
+internally maintain the hierarchy of
+
+1158
+00:28:33,590 --> 00:28:33,600
+internally maintain the hierarchy of
+ 
+
+1159
+00:28:33,600 --> 00:28:35,510
+internally maintain the hierarchy of
+logger objects.
+
+1160
+00:28:35,510 --> 00:28:35,520
+logger objects.
+ 
+
+1161
+00:28:35,520 --> 00:28:38,710
+logger objects.
+So now let's say when you do this logger
+
+1162
+00:28:38,710 --> 00:28:38,720
+So now let's say when you do this logger
+ 
+
+1163
+00:28:38,720 --> 00:28:41,669
+So now let's say when you do this logger
+factory dot get logger payment
+
+1164
+00:28:41,669 --> 00:28:41,679
+factory dot get logger payment
+ 
+
+1165
+00:28:41,679 --> 00:28:43,909
+factory dot get logger payment
+controller.class. So this is nothing but
+
+1166
+00:28:43,909 --> 00:28:43,919
+controller.class. So this is nothing but
+ 
+
+1167
+00:28:43,919 --> 00:28:45,830
+controller.class. So this is nothing but
+your class and its package is
+
+1168
+00:28:45,830 --> 00:28:45,840
+your class and its package is
+ 
+
+1169
+00:28:45,840 --> 00:28:48,149
+your class and its package is
+com.concepts.p paymentcontroller. So
+
+1170
+00:28:48,149 --> 00:28:48,159
+com.concepts.p paymentcontroller. So
+ 
+
+1171
+00:28:48,159 --> 00:28:51,830
+com.concepts.p paymentcontroller. So
+this becomes your name of the logger.
+
+1172
+00:28:51,830 --> 00:28:51,840
+this becomes your name of the logger.
+ 
+
+1173
+00:28:51,840 --> 00:28:53,510
+this becomes your name of the logger.
+So what do you understand with this for
+
+1174
+00:28:53,510 --> 00:28:53,520
+So what do you understand with this for
+ 
+
+1175
+00:28:53,520 --> 00:28:57,669
+So what do you understand with this for
+now till now that okay for this name one
+
+1176
+00:28:57,669 --> 00:28:57,679
+now till now that okay for this name one
+ 
+
+1177
+00:28:57,679 --> 00:28:59,909
+now till now that okay for this name one
+logger object would be created. One
+
+1178
+00:28:59,909 --> 00:28:59,919
+logger object would be created. One
+ 
+
+1179
+00:28:59,919 --> 00:29:01,750
+logger object would be created. One
+logger object would be created and put
+
+1180
+00:29:01,750 --> 00:29:01,760
+logger object would be created and put
+ 
+
+1181
+00:29:01,760 --> 00:29:04,149
+logger object would be created and put
+into the map
+
+1182
+00:29:04,149 --> 00:29:04,159
+into the map
+ 
+
+1183
+00:29:04,159 --> 00:29:07,350
+into the map
+that uh payment controller com
+
+1184
+00:29:07,350 --> 00:29:07,360
+that uh payment controller com
+ 
+
+1185
+00:29:07,360 --> 00:29:10,789
+that uh payment controller com
+do.concept dot payment controller my
+
+1186
+00:29:10,789 --> 00:29:10,799
+do.concept dot payment controller my
+ 
+
+1187
+00:29:10,799 --> 00:29:13,350
+do.concept dot payment controller my
+logger object. This would be created and
+
+1188
+00:29:13,350 --> 00:29:13,360
+logger object. This would be created and
+ 
+
+1189
+00:29:13,360 --> 00:29:15,029
+logger object. This would be created and
+put into the cache. This is till now
+
+1190
+00:29:15,029 --> 00:29:15,039
+put into the cache. This is till now
+ 
+
+1191
+00:29:15,039 --> 00:29:17,909
+put into the cache. This is till now
+what we understood.
+
+1192
+00:29:17,909 --> 00:29:17,919
+what we understood.
+ 
+
+1193
+00:29:17,919 --> 00:29:19,750
+what we understood.
+But what I told you that logger
+
+1194
+00:29:19,750 --> 00:29:19,760
+But what I told you that logger
+ 
+
+1195
+00:29:19,760 --> 00:29:21,669
+But what I told you that logger
+framework internally maintains the
+
+1196
+00:29:21,669 --> 00:29:21,679
+framework internally maintains the
+ 
+
+1197
+00:29:21,679 --> 00:29:26,470
+framework internally maintains the
+hierarchy of logger objects. Okay. So
+
+1198
+00:29:26,470 --> 00:29:26,480
+hierarchy of logger objects. Okay. So
+ 
+
+1199
+00:29:26,480 --> 00:29:29,510
+hierarchy of logger objects. Okay. So
+here if you see it create multiple
+
+1200
+00:29:29,510 --> 00:29:29,520
+here if you see it create multiple
+ 
+
+1201
+00:29:29,520 --> 00:29:33,269
+here if you see it create multiple
+logger objects. This is
+
+1202
+00:29:33,269 --> 00:29:33,279
+logger objects. This is
+ 
+
+1203
+00:29:33,279 --> 00:29:35,909
+logger objects. This is
+first logger object is the which name is
+
+1204
+00:29:35,909 --> 00:29:35,919
+first logger object is the which name is
+ 
+
+1205
+00:29:35,919 --> 00:29:39,830
+first logger object is the which name is
+root. It is always created. You cannot
+
+1206
+00:29:39,830 --> 00:29:39,840
+root. It is always created. You cannot
+ 
+
+1207
+00:29:39,840 --> 00:29:42,470
+root. It is always created. You cannot
+delete it. So it's a parent of all you
+
+1208
+00:29:42,470 --> 00:29:42,480
+delete it. So it's a parent of all you
+ 
+
+1209
+00:29:42,480 --> 00:29:44,710
+delete it. So it's a parent of all you
+can say that always created by framework
+
+1210
+00:29:44,710 --> 00:29:44,720
+can say that always created by framework
+ 
+
+1211
+00:29:44,720 --> 00:29:48,149
+can say that always created by framework
+itself. So this logger object is present
+
+1212
+00:29:48,149 --> 00:29:48,159
+itself. So this logger object is present
+ 
+
+1213
+00:29:48,159 --> 00:29:51,350
+itself. So this logger object is present
+and its name is root.
+
+1214
+00:29:51,350 --> 00:29:51,360
+and its name is root.
+ 
+
+1215
+00:29:51,360 --> 00:29:52,950
+and its name is root.
+Now
+
+1216
+00:29:52,950 --> 00:29:52,960
+Now
+ 
+
+1217
+00:29:52,960 --> 00:29:55,350
+Now
+all the logger which you are going to
+
+1218
+00:29:55,350 --> 00:29:55,360
+all the logger which you are going to
+ 
+
+1219
+00:29:55,360 --> 00:29:57,669
+all the logger which you are going to
+create further it it would be the child
+
+1220
+00:29:57,669 --> 00:29:57,679
+create further it it would be the child
+ 
+
+1221
+00:29:57,679 --> 00:30:00,149
+create further it it would be the child
+of the root only. So now I have created
+
+1222
+00:30:00,149 --> 00:30:00,159
+of the root only. So now I have created
+ 
+
+1223
+00:30:00,159 --> 00:30:02,950
+of the root only. So now I have created
+one object uh logger object for this
+
+1224
+00:30:02,950 --> 00:30:02,960
+one object uh logger object for this
+ 
+
+1225
+00:30:02,960 --> 00:30:06,870
+one object uh logger object for this
+name com.concept.p paymentcontroller. So
+
+1226
+00:30:06,870 --> 00:30:06,880
+name com.concept.p paymentcontroller. So
+ 
+
+1227
+00:30:06,880 --> 00:30:09,350
+name com.concept.p paymentcontroller. So
+first it will create it will create a
+
+1228
+00:30:09,350 --> 00:30:09,360
+first it will create it will create a
+ 
+
+1229
+00:30:09,360 --> 00:30:12,070
+first it will create it will create a
+hierarchy. Okay. So it will create one
+
+1230
+00:30:12,070 --> 00:30:12,080
+hierarchy. Okay. So it will create one
+ 
+
+1231
+00:30:12,080 --> 00:30:14,950
+hierarchy. Okay. So it will create one
+logger with the name com. So it will
+
+1232
+00:30:14,950 --> 00:30:14,960
+logger with the name com. So it will
+ 
+
+1233
+00:30:14,960 --> 00:30:17,590
+logger with the name com. So it will
+create another logger object which is a
+
+1234
+00:30:17,590 --> 00:30:17,600
+create another logger object which is a
+ 
+
+1235
+00:30:17,600 --> 00:30:22,070
+create another logger object which is a
+child of the root and its name is com.
+
+1236
+00:30:22,070 --> 00:30:22,080
+child of the root and its name is com.
+ 
+
+1237
+00:30:22,080 --> 00:30:24,950
+child of the root and its name is com.
+Then it will create another logger
+
+1238
+00:30:24,950 --> 00:30:24,960
+Then it will create another logger
+ 
+
+1239
+00:30:24,960 --> 00:30:27,750
+Then it will create another logger
+object which is a child of the com and
+
+1240
+00:30:27,750 --> 00:30:27,760
+object which is a child of the com and
+ 
+
+1241
+00:30:27,760 --> 00:30:30,950
+object which is a child of the com and
+its name it will give com concepts.
+
+1242
+00:30:30,950 --> 00:30:30,960
+its name it will give com concepts.
+ 
+
+1243
+00:30:30,960 --> 00:30:33,510
+its name it will give com concepts.
+com dot concepts.
+
+1244
+00:30:33,510 --> 00:30:33,520
+com dot concepts.
+ 
+
+1245
+00:30:33,520 --> 00:30:35,350
+com dot concepts.
+Then it will create another logger
+
+1246
+00:30:35,350 --> 00:30:35,360
+Then it will create another logger
+ 
+
+1247
+00:30:35,360 --> 00:30:38,470
+Then it will create another logger
+object which name is com.concept.p
+
+1248
+00:30:38,470 --> 00:30:38,480
+object which name is com.concept.p
+ 
+
+1249
+00:30:38,480 --> 00:30:40,549
+object which name is com.concept.p
+paymentcontroller which is a child of
+
+1250
+00:30:40,549 --> 00:30:40,559
+paymentcontroller which is a child of
+ 
+
+1251
+00:30:40,559 --> 00:30:44,230
+paymentcontroller which is a child of
+this com concept. Okay. So like that it
+
+1252
+00:30:44,230 --> 00:30:44,240
+this com concept. Okay. So like that it
+ 
+
+1253
+00:30:44,240 --> 00:30:46,470
+this com concept. Okay. So like that it
+goes.
+
+1254
+00:30:46,470 --> 00:30:46,480
+goes.
+ 
+
+1255
+00:30:46,480 --> 00:30:48,549
+goes.
+So maybe let's say some there are some
+
+1256
+00:30:48,549 --> 00:30:48,559
+So maybe let's say some there are some
+ 
+
+1257
+00:30:48,559 --> 00:30:51,669
+So maybe let's say some there are some
+other folder. So not let's say org. So
+
+1258
+00:30:51,669 --> 00:30:51,679
+other folder. So not let's say org. So
+ 
+
+1259
+00:30:51,679 --> 00:30:54,789
+other folder. So not let's say org. So
+there can have logger name equals to or
+
+1260
+00:30:54,789 --> 00:30:54,799
+there can have logger name equals to or
+ 
+
+1261
+00:30:54,799 --> 00:30:57,750
+there can have logger name equals to or
+something. Okay. So like a tree it can
+
+1262
+00:30:57,750 --> 00:30:57,760
+something. Okay. So like a tree it can
+ 
+
+1263
+00:30:57,760 --> 00:30:59,510
+something. Okay. So like a tree it can
+happen. So maybe inside this folder
+
+1264
+00:30:59,510 --> 00:30:59,520
+happen. So maybe inside this folder
+ 
+
+1265
+00:30:59,520 --> 00:31:02,310
+happen. So maybe inside this folder
+com.concept concept you can have like
+
+1266
+00:31:02,310 --> 00:31:02,320
+com.concept concept you can have like
+ 
+
+1267
+00:31:02,320 --> 00:31:04,789
+com.concept concept you can have like
+another logger which name equals to
+
+1268
+00:31:04,789 --> 00:31:04,799
+another logger which name equals to
+ 
+
+1269
+00:31:04,799 --> 00:31:06,950
+another logger which name equals to
+let's say com doconcept do user
+
+1270
+00:31:06,950 --> 00:31:06,960
+let's say com doconcept do user
+ 
+
+1271
+00:31:06,960 --> 00:31:09,669
+let's say com doconcept do user
+controller okay so you can have like
+
+1272
+00:31:09,669 --> 00:31:09,679
+controller okay so you can have like
+ 
+
+1273
+00:31:09,679 --> 00:31:13,830
+controller okay so you can have like
+this so it creates a hierarchy so even
+
+1274
+00:31:13,830 --> 00:31:13,840
+this so it creates a hierarchy so even
+ 
+
+1275
+00:31:13,840 --> 00:31:16,789
+this so it creates a hierarchy so even
+though you give let's say no uh name
+
+1276
+00:31:16,789 --> 00:31:16,799
+though you give let's say no uh name
+ 
+
+1277
+00:31:16,799 --> 00:31:20,070
+though you give let's say no uh name
+like comconcept payment controller it
+
+1278
+00:31:20,070 --> 00:31:20,080
+like comconcept payment controller it
+ 
+
+1279
+00:31:20,080 --> 00:31:23,029
+like comconcept payment controller it
+don't just create one object logger
+
+1280
+00:31:23,029 --> 00:31:23,039
+don't just create one object logger
+ 
+
+1281
+00:31:23,039 --> 00:31:26,789
+don't just create one object logger
+object it will create multiple objects
+
+1282
+00:31:26,789 --> 00:31:26,799
+object it will create multiple objects
+ 
+
+1283
+00:31:26,799 --> 00:31:29,510
+object it will create multiple objects
+in a hierarchy form
+
+1284
+00:31:29,510 --> 00:31:29,520
+in a hierarchy form
+ 
+
+1285
+00:31:29,520 --> 00:31:35,190
+in a hierarchy form
+Okay. If you have like this,
+
+1286
+00:31:35,190 --> 00:31:35,200
+Okay. If you have like this,
+ 
+
+1287
+00:31:35,200 --> 00:31:38,549
+Okay. If you have like this,
+if you have only one name, let's say uh
+
+1288
+00:31:38,549 --> 00:31:38,559
+if you have only one name, let's say uh
+ 
+
+1289
+00:31:38,559 --> 00:31:40,710
+if you have only one name, let's say uh
+payment controller, this is the name,
+
+1290
+00:31:40,710 --> 00:31:40,720
+payment controller, this is the name,
+ 
+
+1291
+00:31:40,720 --> 00:31:42,870
+payment controller, this is the name,
+then definitely it's just directly under
+
+1292
+00:31:42,870 --> 00:31:42,880
+then definitely it's just directly under
+ 
+
+1293
+00:31:42,880 --> 00:31:45,269
+then definitely it's just directly under
+the root, let's say. But root is the
+
+1294
+00:31:45,269 --> 00:31:45,279
+the root, let's say. But root is the
+ 
+
+1295
+00:31:45,279 --> 00:31:48,230
+the root, let's say. But root is the
+parent of all for sure.
+
+1296
+00:31:48,230 --> 00:31:48,240
+parent of all for sure.
+ 
+
+1297
+00:31:48,240 --> 00:31:51,029
+parent of all for sure.
+Okay.
+
+1298
+00:31:51,029 --> 00:31:51,039
+Okay.
+ 
+
+1299
+00:31:51,039 --> 00:31:52,950
+Okay.
+Otherwise, whatever the path you will
+
+1300
+00:31:52,950 --> 00:31:52,960
+Otherwise, whatever the path you will
+ 
+
+1301
+00:31:52,960 --> 00:31:54,870
+Otherwise, whatever the path you will
+give, it will follow like this. So, if
+
+1302
+00:31:54,870 --> 00:31:54,880
+give, it will follow like this. So, if
+ 
+
+1303
+00:31:54,880 --> 00:31:56,549
+give, it will follow like this. So, if
+you have given com.concepts.payment
+
+1304
+00:31:56,549 --> 00:31:56,559
+you have given com.concepts.payment
+ 
+
+1305
+00:31:56,559 --> 00:31:57,909
+you have given com.concepts.payment
+payment controller. So it will create
+
+1306
+00:31:57,909 --> 00:31:57,919
+payment controller. So it will create
+ 
+
+1307
+00:31:57,919 --> 00:31:59,669
+payment controller. So it will create
+one com then its child is com.
+
+1308
+00:31:59,669 --> 00:31:59,679
+one com then its child is com.
+ 
+
+1309
+00:31:59,679 --> 00:32:01,830
+one com then its child is com.
+do.concept then it child is com.concept
+
+1310
+00:32:01,830 --> 00:32:01,840
+do.concept then it child is com.concept
+ 
+
+1311
+00:32:01,840 --> 00:32:03,750
+do.concept then it child is com.concept
+dop payment controller. So like this
+
+1312
+00:32:03,750 --> 00:32:03,760
+dop payment controller. So like this
+ 
+
+1313
+00:32:03,760 --> 00:32:06,710
+dop payment controller. So like this
+hierarchy would be made and this is if
+
+1314
+00:32:06,710 --> 00:32:06,720
+hierarchy would be made and this is if
+ 
+
+1315
+00:32:06,720 --> 00:32:09,430
+hierarchy would be made and this is if
+you put a debugger point
+
+1316
+00:32:09,430 --> 00:32:09,440
+you put a debugger point
+ 
+
+1317
+00:32:09,440 --> 00:32:11,750
+you put a debugger point
+okay and where you will put a debugger
+
+1318
+00:32:11,750 --> 00:32:11,760
+okay and where you will put a debugger
+ 
+
+1319
+00:32:11,760 --> 00:32:14,549
+okay and where you will put a debugger
+point if you want to see this. So if you
+
+1320
+00:32:14,549 --> 00:32:14,559
+point if you want to see this. So if you
+ 
+
+1321
+00:32:14,559 --> 00:32:17,269
+point if you want to see this. So if you
+can get to know from this itself
+
+1322
+00:32:17,269 --> 00:32:17,279
+can get to know from this itself
+ 
+
+1323
+00:32:17,279 --> 00:32:21,190
+can get to know from this itself
+this UML.
+
+1324
+00:32:21,190 --> 00:32:21,200
+
+ 
+
+1325
+00:32:21,200 --> 00:32:26,630
+
+Okay. So here if you see this logger
+
+1326
+00:32:26,630 --> 00:32:26,640
+Okay. So here if you see this logger
+ 
+
+1327
+00:32:26,640 --> 00:32:29,110
+Okay. So here if you see this logger
+okay if you're using a log back if you
+
+1328
+00:32:29,110 --> 00:32:29,120
+okay if you're using a log back if you
+ 
+
+1329
+00:32:29,120 --> 00:32:32,630
+okay if you're using a log back if you
+put at this logger class debugger you
+
+1330
+00:32:32,630 --> 00:32:32,640
+put at this logger class debugger you
+ 
+
+1331
+00:32:32,640 --> 00:32:34,230
+put at this logger class debugger you
+will have all this information name
+
+1332
+00:32:34,230 --> 00:32:34,240
+will have all this information name
+ 
+
+1333
+00:32:34,240 --> 00:32:38,230
+will have all this information name
+level parent child so that's what I did
+
+1334
+00:32:38,230 --> 00:32:38,240
+level parent child so that's what I did
+ 
+
+1335
+00:32:38,240 --> 00:32:41,590
+level parent child so that's what I did
+I put a debugger point
+
+1336
+00:32:41,590 --> 00:32:41,600
+I put a debugger point
+ 
+
+1337
+00:32:41,600 --> 00:32:44,630
+I put a debugger point
+and I got all this information so here
+
+1338
+00:32:44,630 --> 00:32:44,640
+and I got all this information so here
+ 
+
+1339
+00:32:44,640 --> 00:32:46,870
+and I got all this information so here
+let's put that
+
+1340
+00:32:46,870 --> 00:32:46,880
+let's put that
+ 
+
+1341
+00:32:46,880 --> 00:32:51,110
+let's put that
+so currently I have not added the lo for
+
+1342
+00:32:51,110 --> 00:32:51,120
+so currently I have not added the lo for
+ 
+
+1343
+00:32:51,120 --> 00:32:54,230
+so currently I have not added the lo for
+Okay. Two. So I am using the default one
+
+1344
+00:32:54,230 --> 00:32:54,240
+Okay. Two. So I am using the default one
+ 
+
+1345
+00:32:54,240 --> 00:32:55,909
+Okay. Two. So I am using the default one
+log back. So let me start an
+
+1346
+00:32:55,909 --> 00:32:55,919
+log back. So let me start an
+ 
+
+1347
+00:32:55,919 --> 00:32:59,269
+log back. So let me start an
+application. Maybe debug point is
+
+1348
+00:32:59,269 --> 00:32:59,279
+application. Maybe debug point is
+ 
+
+1349
+00:32:59,279 --> 00:33:04,389
+application. Maybe debug point is
+already present. Let me hit.
+
+1350
+00:33:04,389 --> 00:33:04,399
+
+ 
+
+1351
+00:33:04,399 --> 00:33:07,110
+
+No debugger point is not there. So let's
+
+1352
+00:33:07,110 --> 00:33:07,120
+No debugger point is not there. So let's
+ 
+
+1353
+00:33:07,120 --> 00:33:09,669
+No debugger point is not there. So let's
+put into logger
+
+1354
+00:33:09,669 --> 00:33:09,679
+put into logger
+ 
+
+1355
+00:33:09,679 --> 00:33:13,750
+put into logger
+inside a log back.
+
+1356
+00:33:13,750 --> 00:33:13,760
+
+ 
+
+1357
+00:33:13,760 --> 00:33:17,029
+
+Okay. So see it has name, it has level,
+
+1358
+00:33:17,029 --> 00:33:17,039
+Okay. So see it has name, it has level,
+ 
+
+1359
+00:33:17,039 --> 00:33:20,950
+Okay. So see it has name, it has level,
+it has parent, child. So it has mostly
+
+1360
+00:33:20,950 --> 00:33:20,960
+it has parent, child. So it has mostly
+ 
+
+1361
+00:33:20,960 --> 00:33:24,470
+it has parent, child. So it has mostly
+all this thing. So
+
+1362
+00:33:24,470 --> 00:33:24,480
+all this thing. So
+ 
+
+1363
+00:33:24,480 --> 00:33:26,549
+all this thing. So
+let me put into log.info and from there
+
+1364
+00:33:26,549 --> 00:33:26,559
+let me put into log.info and from there
+ 
+
+1365
+00:33:26,559 --> 00:33:29,269
+let me put into log.info and from there
+we will go. So let me hit it log.info.
+
+1366
+00:33:29,269 --> 00:33:29,279
+we will go. So let me hit it log.info.
+ 
+
+1367
+00:33:29,279 --> 00:33:32,549
+we will go. So let me hit it log.info.
+Let's go inside this. I got into logger
+
+1368
+00:33:32,549 --> 00:33:32,559
+Let's go inside this. I got into logger
+ 
+
+1369
+00:33:32,559 --> 00:33:35,350
+Let's go inside this. I got into logger
+on java. So logger on java is in which
+
+1370
+00:33:35,350 --> 00:33:35,360
+on java. So logger on java is in which
+ 
+
+1371
+00:33:35,360 --> 00:33:39,590
+on java. So logger on java is in which
+one? Logback classic. So see this.
+
+1372
+00:33:39,590 --> 00:33:39,600
+one? Logback classic. So see this.
+ 
+
+1373
+00:33:39,600 --> 00:33:42,070
+one? Logback classic. So see this.
+So currently com.concepts.p payment
+
+1374
+00:33:42,070 --> 00:33:42,080
+So currently com.concepts.p payment
+ 
+
+1375
+00:33:42,080 --> 00:33:45,029
+So currently com.concepts.p payment
+controller its parent is com concepts.
+
+1376
+00:33:45,029 --> 00:33:45,039
+controller its parent is com concepts.
+ 
+
+1377
+00:33:45,039 --> 00:33:48,070
+controller its parent is com concepts.
+So here let's see that
+
+1378
+00:33:48,070 --> 00:33:48,080
+So here let's see that
+ 
+
+1379
+00:33:48,080 --> 00:33:51,029
+So here let's see that
+the same thing com.p payment.p payment
+
+1380
+00:33:51,029 --> 00:33:51,039
+the same thing com.p payment.p payment
+ 
+
+1381
+00:33:51,039 --> 00:33:54,310
+the same thing com.p payment.p payment
+controller its parent is com concepts.
+
+1382
+00:33:54,310 --> 00:33:54,320
+controller its parent is com concepts.
+ 
+
+1383
+00:33:54,320 --> 00:33:57,190
+controller its parent is com concepts.
+Now go to its parent. So name is com
+
+1384
+00:33:57,190 --> 00:33:57,200
+Now go to its parent. So name is com
+ 
+
+1385
+00:33:57,200 --> 00:34:01,269
+Now go to its parent. So name is com
+concept. Its parent is logger com. So
+
+1386
+00:34:01,269 --> 00:34:01,279
+concept. Its parent is logger com. So
+ 
+
+1387
+00:34:01,279 --> 00:34:04,470
+concept. Its parent is logger com. So
+its parent is this com. Now if you go
+
+1388
+00:34:04,470 --> 00:34:04,480
+its parent is this com. Now if you go
+ 
+
+1389
+00:34:04,480 --> 00:34:09,109
+its parent is this com. Now if you go
+inside this com what its parent root so
+
+1390
+00:34:09,109 --> 00:34:09,119
+inside this com what its parent root so
+ 
+
+1391
+00:34:09,119 --> 00:34:12,710
+inside this com what its parent root so
+hierarchy is maintained like this.
+
+1392
+00:34:12,710 --> 00:34:12,720
+hierarchy is maintained like this.
+ 
+
+1393
+00:34:12,720 --> 00:34:19,349
+hierarchy is maintained like this.
+Okay. then com concept com root.
+
+1394
+00:34:19,349 --> 00:34:19,359
+
+ 
+
+1395
+00:34:19,359 --> 00:34:22,550
+
+So root would always be there.
+
+1396
+00:34:22,550 --> 00:34:22,560
+So root would always be there.
+ 
+
+1397
+00:34:22,560 --> 00:34:24,149
+So root would always be there.
+So you might be thinking what's the
+
+1398
+00:34:24,149 --> 00:34:24,159
+So you might be thinking what's the
+ 
+
+1399
+00:34:24,159 --> 00:34:25,750
+So you might be thinking what's the
+advantage of maintaining the parent
+
+1400
+00:34:25,750 --> 00:34:25,760
+advantage of maintaining the parent
+ 
+
+1401
+00:34:25,760 --> 00:34:28,470
+advantage of maintaining the parent
+child relationship, right? What's the
+
+1402
+00:34:28,470 --> 00:34:28,480
+child relationship, right? What's the
+ 
+
+1403
+00:34:28,480 --> 00:34:32,230
+child relationship, right? What's the
+point that hey I have a parent and uh
+
+1404
+00:34:32,230 --> 00:34:32,240
+point that hey I have a parent and uh
+ 
+
+1405
+00:34:32,240 --> 00:34:34,149
+point that hey I have a parent and uh
+like I also have a child information
+
+1406
+00:34:34,149 --> 00:34:34,159
+like I also have a child information
+ 
+
+1407
+00:34:34,159 --> 00:34:37,589
+like I also have a child information
+that okay com has childcom do.concepts
+
+1408
+00:34:37,589 --> 00:34:37,599
+that okay com has childcom do.concepts
+ 
+
+1409
+00:34:37,599 --> 00:34:40,389
+that okay com has childcom do.concepts
+like all this thing what's the point? So
+
+1410
+00:34:40,389 --> 00:34:40,399
+like all this thing what's the point? So
+ 
+
+1411
+00:34:40,399 --> 00:34:42,230
+like all this thing what's the point? So
+one important point is log level
+
+1412
+00:34:42,230 --> 00:34:42,240
+one important point is log level
+ 
+
+1413
+00:34:42,240 --> 00:34:45,510
+one important point is log level
+inheritance.
+
+1414
+00:34:45,510 --> 00:34:45,520
+
+ 
+
+1415
+00:34:45,520 --> 00:34:47,589
+
+So we don't need to configure each and
+
+1416
+00:34:47,589 --> 00:34:47,599
+So we don't need to configure each and
+ 
+
+1417
+00:34:47,599 --> 00:34:51,750
+So we don't need to configure each and
+every class. For example, I can set
+
+1418
+00:34:51,750 --> 00:34:51,760
+every class. For example, I can set
+ 
+
+1419
+00:34:51,760 --> 00:34:55,270
+every class. For example, I can set
+level on package logger itself. And all
+
+1420
+00:34:55,270 --> 00:34:55,280
+level on package logger itself. And all
+ 
+
+1421
+00:34:55,280 --> 00:34:57,990
+level on package logger itself. And all
+its child automatically inherited. So
+
+1422
+00:34:57,990 --> 00:34:58,000
+its child automatically inherited. So
+ 
+
+1423
+00:34:58,000 --> 00:35:01,190
+its child automatically inherited. So
+here if you see I showed you one example
+
+1424
+00:35:01,190 --> 00:35:01,200
+here if you see I showed you one example
+ 
+
+1425
+00:35:01,200 --> 00:35:05,349
+here if you see I showed you one example
+where we are setting the level for our
+
+1426
+00:35:05,349 --> 00:35:05,359
+where we are setting the level for our
+ 
+
+1427
+00:35:05,359 --> 00:35:10,710
+where we are setting the level for our
+logger. Okay. Now let's say this is one
+
+1428
+00:35:10,710 --> 00:35:10,720
+logger. Okay. Now let's say this is one
+ 
+
+1429
+00:35:10,720 --> 00:35:14,870
+logger. Okay. Now let's say this is one
+logger. It's this is the name.
+
+1430
+00:35:14,870 --> 00:35:14,880
+logger. It's this is the name.
+ 
+
+1431
+00:35:14,880 --> 00:35:17,510
+logger. It's this is the name.
+Okay. Now let's say you have thousands
+
+1432
+00:35:17,510 --> 00:35:17,520
+Okay. Now let's say you have thousands
+ 
+
+1433
+00:35:17,520 --> 00:35:19,670
+Okay. Now let's say you have thousands
+of classes.
+
+1434
+00:35:19,670 --> 00:35:19,680
+of classes.
+ 
+
+1435
+00:35:19,680 --> 00:35:22,790
+of classes.
+Okay. Do you want to change?
+
+1436
+00:35:22,790 --> 00:35:22,800
+Okay. Do you want to change?
+ 
+
+1437
+00:35:22,800 --> 00:35:24,550
+Okay. Do you want to change?
+So by default is info. Let's say you
+
+1438
+00:35:24,550 --> 00:35:24,560
+So by default is info. Let's say you
+ 
+
+1439
+00:35:24,560 --> 00:35:27,829
+So by default is info. Let's say you
+want to change it to debug.
+
+1440
+00:35:27,829 --> 00:35:27,839
+want to change it to debug.
+ 
+
+1441
+00:35:27,839 --> 00:35:30,710
+want to change it to debug.
+You have thousands of classes. Will you
+
+1442
+00:35:30,710 --> 00:35:30,720
+You have thousands of classes. Will you
+ 
+
+1443
+00:35:30,720 --> 00:35:32,710
+You have thousands of classes. Will you
+change
+
+1444
+00:35:32,710 --> 00:35:32,720
+change
+ 
+
+1445
+00:35:32,720 --> 00:35:35,670
+change
+for each class in the configuration that
+
+1446
+00:35:35,670 --> 00:35:35,680
+for each class in the configuration that
+ 
+
+1447
+00:35:35,680 --> 00:35:38,950
+for each class in the configuration that
+logging dolevel.com
+
+1448
+00:35:38,950 --> 00:35:38,960
+logging dolevel.com
+ 
+
+1449
+00:35:38,960 --> 00:35:42,150
+logging dolevel.com
+dotconcepts dot payment controller debug
+
+1450
+00:35:42,150 --> 00:35:42,160
+dotconcepts dot payment controller debug
+ 
+
+1451
+00:35:42,160 --> 00:35:44,550
+dotconcepts dot payment controller debug
+logging.le.comconcept
+
+1452
+00:35:44,550 --> 00:35:44,560
+logging.le.comconcept
+ 
+
+1453
+00:35:44,560 --> 00:35:49,589
+logging.le.comconcept
+do user controller debug like this no so
+
+1454
+00:35:49,589 --> 00:35:49,599
+do user controller debug like this no so
+ 
+
+1455
+00:35:49,599 --> 00:35:51,990
+do user controller debug like this no so
+that's where log level inheritance comes
+
+1456
+00:35:51,990 --> 00:35:52,000
+that's where log level inheritance comes
+ 
+
+1457
+00:35:52,000 --> 00:35:55,990
+that's where log level inheritance comes
+I can just login.le.com level.com. So I
+
+1458
+00:35:55,990 --> 00:35:56,000
+I can just login.le.com level.com. So I
+ 
+
+1459
+00:35:56,000 --> 00:35:59,109
+I can just login.le.com level.com. So I
+can tell uh set the level till parent
+
+1460
+00:35:59,109 --> 00:35:59,119
+can tell uh set the level till parent
+ 
+
+1461
+00:35:59,119 --> 00:36:01,829
+can tell uh set the level till parent
+which parent so let's say till this
+
+1462
+00:36:01,829 --> 00:36:01,839
+which parent so let's say till this
+ 
+
+1463
+00:36:01,839 --> 00:36:05,589
+which parent so let's say till this
+parent I can set a level now all its
+
+1464
+00:36:05,589 --> 00:36:05,599
+parent I can set a level now all its
+ 
+
+1465
+00:36:05,599 --> 00:36:08,230
+parent I can set a level now all its
+child classes will inherit this level
+
+1466
+00:36:08,230 --> 00:36:08,240
+child classes will inherit this level
+ 
+
+1467
+00:36:08,240 --> 00:36:11,270
+child classes will inherit this level
+itself.
+
+1468
+00:36:11,270 --> 00:36:11,280
+
+ 
+
+1469
+00:36:11,280 --> 00:36:14,470
+
+So like here I have done logging.
+
+1470
+00:36:14,470 --> 00:36:14,480
+So like here I have done logging.
+ 
+
+1471
+00:36:14,480 --> 00:36:17,990
+So like here I have done logging.
+So till com I have said the level debug.
+
+1472
+00:36:17,990 --> 00:36:18,000
+So till com I have said the level debug.
+ 
+
+1473
+00:36:18,000 --> 00:36:20,550
+So till com I have said the level debug.
+Now all its child
+
+1474
+00:36:20,550 --> 00:36:20,560
+Now all its child
+ 
+
+1475
+00:36:20,560 --> 00:36:24,470
+Now all its child
+loggers will inherit this level. So now
+
+1476
+00:36:24,470 --> 00:36:24,480
+loggers will inherit this level. So now
+ 
+
+1477
+00:36:24,480 --> 00:36:28,390
+loggers will inherit this level. So now
+I have uh hit this endpoint again. Okay.
+
+1478
+00:36:28,390 --> 00:36:28,400
+I have uh hit this endpoint again. Okay.
+ 
+
+1479
+00:36:28,400 --> 00:36:31,910
+I have uh hit this endpoint again. Okay.
+Now here if you see what is the uh level
+
+1480
+00:36:31,910 --> 00:36:31,920
+Now here if you see what is the uh level
+ 
+
+1481
+00:36:31,920 --> 00:36:36,069
+Now here if you see what is the uh level
+of the com is debug and this is like com
+
+1482
+00:36:36,069 --> 00:36:36,079
+of the com is debug and this is like com
+ 
+
+1483
+00:36:36,079 --> 00:36:39,430
+of the com is debug and this is like com
+dot concepts dot payment controller. So
+
+1484
+00:36:39,430 --> 00:36:39,440
+dot concepts dot payment controller. So
+ 
+
+1485
+00:36:39,440 --> 00:36:41,589
+dot concepts dot payment controller. So
+definitely it's a child of this com only
+
+1486
+00:36:41,589 --> 00:36:41,599
+definitely it's a child of this com only
+ 
+
+1487
+00:36:41,599 --> 00:36:43,990
+definitely it's a child of this com only
+right. So debug is applied to this also
+
+1488
+00:36:43,990 --> 00:36:44,000
+right. So debug is applied to this also
+ 
+
+1489
+00:36:44,000 --> 00:36:46,230
+right. So debug is applied to this also
+this logger also.
+
+1490
+00:36:46,230 --> 00:36:46,240
+this logger also.
+ 
+
+1491
+00:36:46,240 --> 00:36:48,710
+this logger also.
+So debug is applied means this is
+
+1492
+00:36:48,710 --> 00:36:48,720
+So debug is applied means this is
+ 
+
+1493
+00:36:48,720 --> 00:36:50,150
+So debug is applied means this is
+entertained, warning would be
+
+1494
+00:36:50,150 --> 00:36:50,160
+entertained, warning would be
+ 
+
+1495
+00:36:50,160 --> 00:36:51,750
+entertained, warning would be
+entertained, info would be entertained,
+
+1496
+00:36:51,750 --> 00:36:51,760
+entertained, info would be entertained,
+ 
+
+1497
+00:36:51,760 --> 00:36:53,109
+entertained, info would be entertained,
+debug would be entertained but trace
+
+1498
+00:36:53,109 --> 00:36:53,119
+debug would be entertained but trace
+ 
+
+1499
+00:36:53,119 --> 00:36:54,870
+debug would be entertained but trace
+would be rejected because it has less
+
+1500
+00:36:54,870 --> 00:36:54,880
+would be rejected because it has less
+ 
+
+1501
+00:36:54,880 --> 00:36:57,109
+would be rejected because it has less
+priority than debug.
+
+1502
+00:36:57,109 --> 00:36:57,119
+priority than debug.
+ 
+
+1503
+00:36:57,119 --> 00:37:01,270
+priority than debug.
+So here if you see it's work
+
+1504
+00:37:01,270 --> 00:37:01,280
+So here if you see it's work
+ 
+
+1505
+00:37:01,280 --> 00:37:04,069
+So here if you see it's work
+and also another advantage is that we
+
+1506
+00:37:04,069 --> 00:37:04,079
+and also another advantage is that we
+ 
+
+1507
+00:37:04,079 --> 00:37:06,150
+and also another advantage is that we
+can override a specific child behavior.
+
+1508
+00:37:06,150 --> 00:37:06,160
+can override a specific child behavior.
+ 
+
+1509
+00:37:06,160 --> 00:37:08,150
+can override a specific child behavior.
+So let's say that I have thousands of
+
+1510
+00:37:08,150 --> 00:37:08,160
+So let's say that I have thousands of
+ 
+
+1511
+00:37:08,160 --> 00:37:11,030
+So let's say that I have thousands of
+classes. So that's why I have set at uh
+
+1512
+00:37:11,030 --> 00:37:11,040
+classes. So that's why I have set at uh
+ 
+
+1513
+00:37:11,040 --> 00:37:13,750
+classes. So that's why I have set at uh
+my you can say that parent logger itself
+
+1514
+00:37:13,750 --> 00:37:13,760
+my you can say that parent logger itself
+ 
+
+1515
+00:37:13,760 --> 00:37:17,349
+my you can say that parent logger itself
+that any child loggers which are under
+
+1516
+00:37:17,349 --> 00:37:17,359
+that any child loggers which are under
+ 
+
+1517
+00:37:17,359 --> 00:37:20,630
+that any child loggers which are under
+this com use a level debug but for any
+
+1518
+00:37:20,630 --> 00:37:20,640
+this com use a level debug but for any
+ 
+
+1519
+00:37:20,640 --> 00:37:23,109
+this com use a level debug but for any
+specific class or for any specific
+
+1520
+00:37:23,109 --> 00:37:23,119
+specific class or for any specific
+ 
+
+1521
+00:37:23,119 --> 00:37:25,589
+specific class or for any specific
+logger you want to override it you can
+
+1522
+00:37:25,589 --> 00:37:25,599
+logger you want to override it you can
+ 
+
+1523
+00:37:25,599 --> 00:37:27,589
+logger you want to override it you can
+do that
+
+1524
+00:37:27,589 --> 00:37:27,599
+do that
+ 
+
+1525
+00:37:27,599 --> 00:37:29,990
+do that
+so that's why I'm doing
+
+1526
+00:37:29,990 --> 00:37:30,000
+so that's why I'm doing
+ 
+
+1527
+00:37:30,000 --> 00:37:31,750
+so that's why I'm doing
+within this com there could be so many
+
+1528
+00:37:31,750 --> 00:37:31,760
+within this com there could be so many
+ 
+
+1529
+00:37:31,760 --> 00:37:35,510
+within this com there could be so many
+loggers but for comconcepts do this
+
+1530
+00:37:35,510 --> 00:37:35,520
+loggers but for comconcepts do this
+ 
+
+1531
+00:37:35,520 --> 00:37:39,670
+loggers but for comconcepts do this
+specific controller I can override to
+
+1532
+00:37:39,670 --> 00:37:39,680
+specific controller I can override to
+ 
+
+1533
+00:37:39,680 --> 00:37:43,829
+specific controller I can override to
+that is also possible.
+
+1534
+00:37:43,829 --> 00:37:43,839
+
+ 
+
+1535
+00:37:43,839 --> 00:37:46,710
+
+The third is that accepted logs are
+
+1536
+00:37:46,710 --> 00:37:46,720
+The third is that accepted logs are
+ 
+
+1537
+00:37:46,720 --> 00:37:49,349
+The third is that accepted logs are
+propagated upward. This is very very
+
+1538
+00:37:49,349 --> 00:37:49,359
+propagated upward. This is very very
+ 
+
+1539
+00:37:49,359 --> 00:37:52,950
+propagated upward. This is very very
+important.
+
+1540
+00:37:52,950 --> 00:37:52,960
+
+ 
+
+1541
+00:37:52,960 --> 00:37:56,069
+
+Okay. So understand that if log is
+
+1542
+00:37:56,069 --> 00:37:56,079
+Okay. So understand that if log is
+ 
+
+1543
+00:37:56,079 --> 00:37:57,750
+Okay. So understand that if log is
+rejected
+
+1544
+00:37:57,750 --> 00:37:57,760
+rejected
+ 
+
+1545
+00:37:57,760 --> 00:38:00,550
+rejected
+stop do not propagate it. What does log
+
+1546
+00:38:00,550 --> 00:38:00,560
+stop do not propagate it. What does log
+ 
+
+1547
+00:38:00,560 --> 00:38:02,550
+stop do not propagate it. What does log
+is rejected means? So we have already
+
+1548
+00:38:02,550 --> 00:38:02,560
+is rejected means? So we have already
+ 
+
+1549
+00:38:02,560 --> 00:38:06,230
+is rejected means? So we have already
+seen that that u
+
+1550
+00:38:06,230 --> 00:38:06,240
+seen that that u
+ 
+
+1551
+00:38:06,240 --> 00:38:09,430
+seen that that u
+here if you see this is one example of
+
+1552
+00:38:09,430 --> 00:38:09,440
+here if you see this is one example of
+ 
+
+1553
+00:38:09,440 --> 00:38:12,870
+here if you see this is one example of
+log rejected here
+
+1554
+00:38:12,870 --> 00:38:12,880
+log rejected here
+ 
+
+1555
+00:38:12,880 --> 00:38:16,150
+log rejected here
+let's say that what is the level of this
+
+1556
+00:38:16,150 --> 00:38:16,160
+let's say that what is the level of this
+ 
+
+1557
+00:38:16,160 --> 00:38:18,710
+let's say that what is the level of this
+controller so logger logging dot level
+
+1558
+00:38:18,710 --> 00:38:18,720
+controller so logger logging dot level
+ 
+
+1559
+00:38:18,720 --> 00:38:20,470
+controller so logger logging dot level
+and we have given the name of the logger
+
+1560
+00:38:20,470 --> 00:38:20,480
+and we have given the name of the logger
+ 
+
+1561
+00:38:20,480 --> 00:38:22,230
+and we have given the name of the logger
+right com.concepts concepts dop payment
+
+1562
+00:38:22,230 --> 00:38:22,240
+right com.concepts concepts dop payment
+ 
+
+1563
+00:38:22,240 --> 00:38:24,630
+right com.concepts concepts dop payment
+controller which is this logger we have
+
+1564
+00:38:24,630 --> 00:38:24,640
+controller which is this logger we have
+ 
+
+1565
+00:38:24,640 --> 00:38:27,589
+controller which is this logger we have
+given debug this is the level now let's
+
+1566
+00:38:27,589 --> 00:38:27,599
+given debug this is the level now let's
+ 
+
+1567
+00:38:27,599 --> 00:38:29,670
+given debug this is the level now let's
+say you are doing this let's say you
+
+1568
+00:38:29,670 --> 00:38:29,680
+say you are doing this let's say you
+ 
+
+1569
+00:38:29,680 --> 00:38:31,670
+say you are doing this let's say you
+don't have this
+
+1570
+00:38:31,670 --> 00:38:31,680
+don't have this
+ 
+
+1571
+00:38:31,680 --> 00:38:36,550
+don't have this
+you are trying to log trace trace log so
+
+1572
+00:38:36,550 --> 00:38:36,560
+you are trying to log trace trace log so
+ 
+
+1573
+00:38:36,560 --> 00:38:40,870
+you are trying to log trace trace log so
+this trace priority is lesser than debug
+
+1574
+00:38:40,870 --> 00:38:40,880
+this trace priority is lesser than debug
+ 
+
+1575
+00:38:40,880 --> 00:38:43,510
+this trace priority is lesser than debug
+okay the level of this logger so this
+
+1576
+00:38:43,510 --> 00:38:43,520
+okay the level of this logger so this
+ 
+
+1577
+00:38:43,520 --> 00:38:46,069
+okay the level of this logger so this
+statement is rejected so this is known
+
+1578
+00:38:46,069 --> 00:38:46,079
+statement is rejected so this is known
+ 
+
+1579
+00:38:46,079 --> 00:38:50,069
+statement is rejected so this is known
+as statement rejected log rejected
+
+1580
+00:38:50,069 --> 00:38:50,079
+as statement rejected log rejected
+ 
+
+1581
+00:38:50,079 --> 00:38:53,750
+as statement rejected log rejected
+but this Other part if you see this
+
+1582
+00:38:53,750 --> 00:38:53,760
+but this Other part if you see this
+ 
+
+1583
+00:38:53,760 --> 00:38:56,150
+but this Other part if you see this
+other logger logger
+
+1584
+00:38:56,150 --> 00:38:56,160
+other logger logger
+ 
+
+1585
+00:38:56,160 --> 00:39:00,550
+other logger logger
+dot log dot error error log so this log
+
+1586
+00:39:00,550 --> 00:39:00,560
+dot log dot error error log so this log
+ 
+
+1587
+00:39:00,560 --> 00:39:04,390
+dot log dot error error log so this log
+statement priority error is higher than
+
+1588
+00:39:04,390 --> 00:39:04,400
+statement priority error is higher than
+ 
+
+1589
+00:39:04,400 --> 00:39:06,870
+statement priority error is higher than
+the level of this logger. So this is
+
+1590
+00:39:06,870 --> 00:39:06,880
+the level of this logger. So this is
+ 
+
+1591
+00:39:06,880 --> 00:39:08,710
+the level of this logger. So this is
+accepted. So that's why it is known as
+
+1592
+00:39:08,710 --> 00:39:08,720
+accepted. So that's why it is known as
+ 
+
+1593
+00:39:08,720 --> 00:39:11,109
+accepted. So that's why it is known as
+accepted log.
+
+1594
+00:39:11,109 --> 00:39:11,119
+accepted log.
+ 
+
+1595
+00:39:11,119 --> 00:39:15,510
+accepted log.
+Now come back to again to that one.
+
+1596
+00:39:15,510 --> 00:39:15,520
+Now come back to again to that one.
+ 
+
+1597
+00:39:15,520 --> 00:39:18,150
+Now come back to again to that one.
+If log is rejected stop do not propagate
+
+1598
+00:39:18,150 --> 00:39:18,160
+If log is rejected stop do not propagate
+ 
+
+1599
+00:39:18,160 --> 00:39:20,230
+If log is rejected stop do not propagate
+it.
+
+1600
+00:39:20,230 --> 00:39:20,240
+it.
+ 
+
+1601
+00:39:20,240 --> 00:39:22,390
+it.
+And that's what I have just uh told you
+
+1602
+00:39:22,390 --> 00:39:22,400
+And that's what I have just uh told you
+ 
+
+1603
+00:39:22,400 --> 00:39:25,750
+And that's what I have just uh told you
+that what does log rejected means and
+
+1604
+00:39:25,750 --> 00:39:25,760
+that what does log rejected means and
+ 
+
+1605
+00:39:25,760 --> 00:39:28,790
+that what does log rejected means and
+accepted log is propagated upward till
+
+1606
+00:39:28,790 --> 00:39:28,800
+accepted log is propagated upward till
+ 
+
+1607
+00:39:28,800 --> 00:39:32,069
+accepted log is propagated upward till
+root and all appenders are executed very
+
+1608
+00:39:32,069 --> 00:39:32,079
+root and all appenders are executed very
+ 
+
+1609
+00:39:32,079 --> 00:39:34,790
+root and all appenders are executed very
+important by default appenders by
+
+1610
+00:39:34,790 --> 00:39:34,800
+important by default appenders by
+ 
+
+1611
+00:39:34,800 --> 00:39:37,430
+important by default appenders by
+default this propagation is true but we
+
+1612
+00:39:37,430 --> 00:39:37,440
+default this propagation is true but we
+ 
+
+1613
+00:39:37,440 --> 00:39:41,670
+default this propagation is true but we
+can make it false we will see that
+
+1614
+00:39:41,670 --> 00:39:41,680
+
+ 
+
+1615
+00:39:41,680 --> 00:39:43,349
+
+so
+
+1616
+00:39:43,349 --> 00:39:43,359
+so
+ 
+
+1617
+00:39:43,359 --> 00:39:46,390
+so
+let's understand this propagation better
+
+1618
+00:39:46,390 --> 00:39:46,400
+let's understand this propagation better
+ 
+
+1619
+00:39:46,400 --> 00:39:50,230
+let's understand this propagation better
+so I told you that this line Repeat it
+
+1620
+00:39:50,230 --> 00:39:50,240
+so I told you that this line Repeat it
+ 
+
+1621
+00:39:50,240 --> 00:39:54,390
+so I told you that this line Repeat it
+again. Only accepted log is propagated
+
+1622
+00:39:54,390 --> 00:39:54,400
+again. Only accepted log is propagated
+ 
+
+1623
+00:39:54,400 --> 00:39:57,990
+again. Only accepted log is propagated
+upward till root and all appenders are
+
+1624
+00:39:57,990 --> 00:39:58,000
+upward till root and all appenders are
+ 
+
+1625
+00:39:58,000 --> 00:40:01,190
+upward till root and all appenders are
+executed. So appenders just to remind
+
+1626
+00:40:01,190 --> 00:40:01,200
+executed. So appenders just to remind
+ 
+
+1627
+00:40:01,200 --> 00:40:03,270
+executed. So appenders just to remind
+it's a component that decide where the
+
+1628
+00:40:03,270 --> 00:40:03,280
+it's a component that decide where the
+ 
+
+1629
+00:40:03,280 --> 00:40:05,750
+it's a component that decide where the
+log will go. It will go to the console
+
+1630
+00:40:05,750 --> 00:40:05,760
+log will go. It will go to the console
+ 
+
+1631
+00:40:05,760 --> 00:40:09,589
+log will go. It will go to the console
+or file or DB or gafka or some cloud
+
+1632
+00:40:09,589 --> 00:40:09,599
+or file or DB or gafka or some cloud
+ 
+
+1633
+00:40:09,599 --> 00:40:13,190
+or file or DB or gafka or some cloud
+etc. So this is just like decide where
+
+1634
+00:40:13,190 --> 00:40:13,200
+etc. So this is just like decide where
+ 
+
+1635
+00:40:13,200 --> 00:40:16,069
+etc. So this is just like decide where
+the log will go and also we have seen
+
+1636
+00:40:16,069 --> 00:40:16,079
+the log will go and also we have seen
+ 
+
+1637
+00:40:16,079 --> 00:40:19,270
+the log will go and also we have seen
+hierarchy like hierarchy is maintained
+
+1638
+00:40:19,270 --> 00:40:19,280
+hierarchy like hierarchy is maintained
+ 
+
+1639
+00:40:19,280 --> 00:40:21,349
+hierarchy like hierarchy is maintained
+by the logging framework that the the
+
+1640
+00:40:21,349 --> 00:40:21,359
+by the logging framework that the the
+ 
+
+1641
+00:40:21,359 --> 00:40:24,470
+by the logging framework that the the
+higher the parent of all is root and
+
+1642
+00:40:24,470 --> 00:40:24,480
+higher the parent of all is root and
+ 
+
+1643
+00:40:24,480 --> 00:40:26,710
+higher the parent of all is root and
+after that it keep maintaining the
+
+1644
+00:40:26,710 --> 00:40:26,720
+after that it keep maintaining the
+ 
+
+1645
+00:40:26,720 --> 00:40:28,630
+after that it keep maintaining the
+hierarchy.
+
+1646
+00:40:28,630 --> 00:40:28,640
+hierarchy.
+ 
+
+1647
+00:40:28,640 --> 00:40:30,790
+hierarchy.
+Now see that
+
+1648
+00:40:30,790 --> 00:40:30,800
+Now see that
+ 
+
+1649
+00:40:30,800 --> 00:40:32,950
+Now see that
+appender for each logger we can have an
+
+1650
+00:40:32,950 --> 00:40:32,960
+appender for each logger we can have an
+ 
+
+1651
+00:40:32,960 --> 00:40:34,550
+appender for each logger we can have an
+appender.
+
+1652
+00:40:34,550 --> 00:40:34,560
+appender.
+ 
+
+1653
+00:40:34,560 --> 00:40:36,470
+appender.
+Okay. So for some we don't have an
+
+1654
+00:40:36,470 --> 00:40:36,480
+Okay. So for some we don't have an
+ 
+
+1655
+00:40:36,480 --> 00:40:38,870
+Okay. So for some we don't have an
+appender for some we can have an
+
+1656
+00:40:38,870 --> 00:40:38,880
+appender for some we can have an
+ 
+
+1657
+00:40:38,880 --> 00:40:40,550
+appender for some we can have an
+appender.
+
+1658
+00:40:40,550 --> 00:40:40,560
+appender.
+ 
+
+1659
+00:40:40,560 --> 00:40:42,710
+appender.
+Okay.
+
+1660
+00:40:42,710 --> 00:40:42,720
+Okay.
+ 
+
+1661
+00:40:42,720 --> 00:40:45,109
+Okay.
+Now
+
+1662
+00:40:45,109 --> 00:40:45,119
+Now
+ 
+
+1663
+00:40:45,119 --> 00:40:49,349
+Now
+here if you see what is the level of
+
+1664
+00:40:49,349 --> 00:40:49,359
+here if you see what is the level of
+ 
+
+1665
+00:40:49,359 --> 00:40:52,150
+here if you see what is the level of
+this logger com do.concepts.p
+
+1666
+00:40:52,150 --> 00:40:52,160
+this logger com do.concepts.p
+ 
+
+1667
+00:40:52,160 --> 00:40:53,670
+this logger com do.concepts.p
+paymentcontroller. So you understand
+
+1668
+00:40:53,670 --> 00:40:53,680
+paymentcontroller. So you understand
+ 
+
+1669
+00:40:53,680 --> 00:40:57,109
+paymentcontroller. So you understand
+this hierarchy now right? So I have I
+
+1670
+00:40:57,109 --> 00:40:57,119
+this hierarchy now right? So I have I
+ 
+
+1671
+00:40:57,119 --> 00:40:59,349
+this hierarchy now right? So I have I
+have this class I have created only one
+
+1672
+00:40:59,349 --> 00:40:59,359
+have this class I have created only one
+ 
+
+1673
+00:40:59,359 --> 00:41:02,230
+have this class I have created only one
+logger object.
+
+1674
+00:41:02,230 --> 00:41:02,240
+logger object.
+ 
+
+1675
+00:41:02,240 --> 00:41:04,069
+logger object.
+So you know that this payment controller
+
+1676
+00:41:04,069 --> 00:41:04,079
+So you know that this payment controller
+ 
+
+1677
+00:41:04,079 --> 00:41:07,030
+So you know that this payment controller
+is like this package com dot concepts
+
+1678
+00:41:07,030 --> 00:41:07,040
+is like this package com dot concepts
+ 
+
+1679
+00:41:07,040 --> 00:41:09,750
+is like this package com dot concepts
+dot payment controller but it don't only
+
+1680
+00:41:09,750 --> 00:41:09,760
+dot payment controller but it don't only
+ 
+
+1681
+00:41:09,760 --> 00:41:11,990
+dot payment controller but it don't only
+create this object. It create a complete
+
+1682
+00:41:11,990 --> 00:41:12,000
+create this object. It create a complete
+ 
+
+1683
+00:41:12,000 --> 00:41:13,510
+create this object. It create a complete
+hierarchy. It will create an object of
+
+1684
+00:41:13,510 --> 00:41:13,520
+hierarchy. It will create an object of
+ 
+
+1685
+00:41:13,520 --> 00:41:17,270
+hierarchy. It will create an object of
+this com. Its child is then com concept
+
+1686
+00:41:17,270 --> 00:41:17,280
+this com. Its child is then com concept
+ 
+
+1687
+00:41:17,280 --> 00:41:20,069
+this com. Its child is then com concept
+this one and then it will create com
+
+1688
+00:41:20,069 --> 00:41:20,079
+this one and then it will create com
+ 
+
+1689
+00:41:20,079 --> 00:41:22,470
+this one and then it will create com
+concept payment controller which is a
+
+1690
+00:41:22,470 --> 00:41:22,480
+concept payment controller which is a
+ 
+
+1691
+00:41:22,480 --> 00:41:25,190
+concept payment controller which is a
+child of com concept and ultimately
+
+1692
+00:41:25,190 --> 00:41:25,200
+child of com concept and ultimately
+ 
+
+1693
+00:41:25,200 --> 00:41:27,349
+child of com concept and ultimately
+everyone is a child of this root one. So
+
+1694
+00:41:27,349 --> 00:41:27,359
+everyone is a child of this root one. So
+ 
+
+1695
+00:41:27,359 --> 00:41:30,309
+everyone is a child of this root one. So
+root is at top.
+
+1696
+00:41:30,309 --> 00:41:30,319
+root is at top.
+ 
+
+1697
+00:41:30,319 --> 00:41:33,190
+root is at top.
+So each logger we can have an appender.
+
+1698
+00:41:33,190 --> 00:41:33,200
+So each logger we can have an appender.
+ 
+
+1699
+00:41:33,200 --> 00:41:34,870
+So each logger we can have an appender.
+So for now I am saying that maybe some
+
+1700
+00:41:34,870 --> 00:41:34,880
+So for now I am saying that maybe some
+ 
+
+1701
+00:41:34,880 --> 00:41:37,109
+So for now I am saying that maybe some
+logger we cannot uh we don't have any
+
+1702
+00:41:37,109 --> 00:41:37,119
+logger we cannot uh we don't have any
+ 
+
+1703
+00:41:37,119 --> 00:41:38,790
+logger we cannot uh we don't have any
+appender or some we have an appender
+
+1704
+00:41:38,790 --> 00:41:38,800
+appender or some we have an appender
+ 
+
+1705
+00:41:38,800 --> 00:41:42,230
+appender or some we have an appender
+that let's say root is deciding it log
+
+1706
+00:41:42,230 --> 00:41:42,240
+that let's say root is deciding it log
+ 
+
+1707
+00:41:42,240 --> 00:41:45,270
+that let's say root is deciding it log
+need to be printed to console
+
+1708
+00:41:45,270 --> 00:41:45,280
+need to be printed to console
+ 
+
+1709
+00:41:45,280 --> 00:41:47,990
+need to be printed to console
+this uh logger com.concepts concepts
+
+1710
+00:41:47,990 --> 00:41:48,000
+this uh logger com.concepts concepts
+ 
+
+1711
+00:41:48,000 --> 00:41:50,470
+this uh logger com.concepts concepts
+logger decide that log should be printed
+
+1712
+00:41:50,470 --> 00:41:50,480
+logger decide that log should be printed
+ 
+
+1713
+00:41:50,480 --> 00:41:52,790
+logger decide that log should be printed
+to the file and for here I don't have
+
+1714
+00:41:52,790 --> 00:41:52,800
+to the file and for here I don't have
+ 
+
+1715
+00:41:52,800 --> 00:41:56,309
+to the file and for here I don't have
+any appender I don't have any appender
+
+1716
+00:41:56,309 --> 00:41:56,319
+any appender I don't have any appender
+ 
+
+1717
+00:41:56,319 --> 00:41:59,430
+any appender I don't have any appender
+now when you have this code now here if
+
+1718
+00:41:59,430 --> 00:41:59,440
+now when you have this code now here if
+ 
+
+1719
+00:41:59,440 --> 00:42:01,990
+now when you have this code now here if
+you see what is the level of this logger
+
+1720
+00:42:01,990 --> 00:42:02,000
+you see what is the level of this logger
+ 
+
+1721
+00:42:02,000 --> 00:42:05,829
+you see what is the level of this logger
+object payment controller right this one
+
+1722
+00:42:05,829 --> 00:42:05,839
+object payment controller right this one
+ 
+
+1723
+00:42:05,839 --> 00:42:08,870
+object payment controller right this one
+the level is info
+
+1724
+00:42:08,870 --> 00:42:08,880
+the level is info
+ 
+
+1725
+00:42:08,880 --> 00:42:11,829
+the level is info
+okay now you have a log statement log
+
+1726
+00:42:11,829 --> 00:42:11,839
+okay now you have a log statement log
+ 
+
+1727
+00:42:11,839 --> 00:42:13,750
+okay now you have a log statement log
+info so definitely this would be
+
+1728
+00:42:13,750 --> 00:42:13,760
+info so definitely this would be
+ 
+
+1729
+00:42:13,760 --> 00:42:18,069
+info so definitely this would be
+accepted because it has equal level of
+
+1730
+00:42:18,069 --> 00:42:18,079
+accepted because it has equal level of
+ 
+
+1731
+00:42:18,079 --> 00:42:21,030
+accepted because it has equal level of
+the logger. So that would be accepted.
+
+1732
+00:42:21,030 --> 00:42:21,040
+the logger. So that would be accepted.
+ 
+
+1733
+00:42:21,040 --> 00:42:24,790
+the logger. So that would be accepted.
+So what I told you that accepted log is
+
+1734
+00:42:24,790 --> 00:42:24,800
+So what I told you that accepted log is
+ 
+
+1735
+00:42:24,800 --> 00:42:27,270
+So what I told you that accepted log is
+propagated upward till root and all
+
+1736
+00:42:27,270 --> 00:42:27,280
+propagated upward till root and all
+ 
+
+1737
+00:42:27,280 --> 00:42:30,710
+propagated upward till root and all
+appenders are executed. So it once it is
+
+1738
+00:42:30,710 --> 00:42:30,720
+appenders are executed. So it once it is
+ 
+
+1739
+00:42:30,720 --> 00:42:32,630
+appenders are executed. So it once it is
+accepted
+
+1740
+00:42:32,630 --> 00:42:32,640
+accepted
+ 
+
+1741
+00:42:32,640 --> 00:42:34,950
+accepted
+okay it will
+
+1742
+00:42:34,950 --> 00:42:34,960
+okay it will
+ 
+
+1743
+00:42:34,960 --> 00:42:37,589
+okay it will
+move upward. Okay first here it will
+
+1744
+00:42:37,589 --> 00:42:37,599
+move upward. Okay first here it will
+ 
+
+1745
+00:42:37,599 --> 00:42:39,270
+move upward. Okay first here it will
+execute all appender at this level
+
+1746
+00:42:39,270 --> 00:42:39,280
+execute all appender at this level
+ 
+
+1747
+00:42:39,280 --> 00:42:41,270
+execute all appender at this level
+first. So currently I don't have any
+
+1748
+00:42:41,270 --> 00:42:41,280
+first. So currently I don't have any
+ 
+
+1749
+00:42:41,280 --> 00:42:43,829
+first. So currently I don't have any
+appender. So nothing will get printed.
+
+1750
+00:42:43,829 --> 00:42:43,839
+appender. So nothing will get printed.
+ 
+
+1751
+00:42:43,839 --> 00:42:47,910
+appender. So nothing will get printed.
+So this log log.info info.
+
+1752
+00:42:47,910 --> 00:42:47,920
+So this log log.info info.
+ 
+
+1753
+00:42:47,920 --> 00:42:51,510
+So this log log.info info.
+This is the info. Will it get printed
+
+1754
+00:42:51,510 --> 00:42:51,520
+This is the info. Will it get printed
+ 
+
+1755
+00:42:51,520 --> 00:42:54,630
+This is the info. Will it get printed
+here in this logger? No. Because
+
+1756
+00:42:54,630 --> 00:42:54,640
+here in this logger? No. Because
+ 
+
+1757
+00:42:54,640 --> 00:42:56,710
+here in this logger? No. Because
+appender is the one which decide the
+
+1758
+00:42:56,710 --> 00:42:56,720
+appender is the one which decide the
+ 
+
+1759
+00:42:56,720 --> 00:42:58,790
+appender is the one which decide the
+destination of the log. So currently it
+
+1760
+00:42:58,790 --> 00:42:58,800
+destination of the log. So currently it
+ 
+
+1761
+00:42:58,800 --> 00:43:01,030
+destination of the log. So currently it
+doesn't have any appender. So this
+
+1762
+00:43:01,030 --> 00:43:01,040
+doesn't have any appender. So this
+ 
+
+1763
+00:43:01,040 --> 00:43:03,270
+doesn't have any appender. So this
+logging will not not be printed
+
+1764
+00:43:03,270 --> 00:43:03,280
+logging will not not be printed
+ 
+
+1765
+00:43:03,280 --> 00:43:05,750
+logging will not not be printed
+currently anywhere. Then it will go
+
+1766
+00:43:05,750 --> 00:43:05,760
+currently anywhere. Then it will go
+ 
+
+1767
+00:43:05,760 --> 00:43:07,349
+currently anywhere. Then it will go
+upward
+
+1768
+00:43:07,349 --> 00:43:07,359
+upward
+ 
+
+1769
+00:43:07,359 --> 00:43:11,270
+upward
+to this one its parent. So it will check
+
+1770
+00:43:11,270 --> 00:43:11,280
+to this one its parent. So it will check
+ 
+
+1771
+00:43:11,280 --> 00:43:13,270
+to this one its parent. So it will check
+does parent has any appender? It will
+
+1772
+00:43:13,270 --> 00:43:13,280
+does parent has any appender? It will
+ 
+
+1773
+00:43:13,280 --> 00:43:14,870
+does parent has any appender? It will
+execute that. Okay. This parent says
+
+1774
+00:43:14,870 --> 00:43:14,880
+execute that. Okay. This parent says
+ 
+
+1775
+00:43:14,880 --> 00:43:19,990
+execute that. Okay. This parent says
+that any log put it to file. So this
+
+1776
+00:43:19,990 --> 00:43:20,000
+that any log put it to file. So this
+ 
+
+1777
+00:43:20,000 --> 00:43:22,230
+that any log put it to file. So this
+log.info
+
+1778
+00:43:22,230 --> 00:43:22,240
+log.info
+ 
+
+1779
+00:43:22,240 --> 00:43:25,109
+log.info
+this statement goes to the file. This
+
+1780
+00:43:25,109 --> 00:43:25,119
+this statement goes to the file. This
+ 
+
+1781
+00:43:25,119 --> 00:43:27,910
+this statement goes to the file. This
+appender got executed. Then it goes
+
+1782
+00:43:27,910 --> 00:43:27,920
+appender got executed. Then it goes
+ 
+
+1783
+00:43:27,920 --> 00:43:30,550
+appender got executed. Then it goes
+upward. Then it will say is there any
+
+1784
+00:43:30,550 --> 00:43:30,560
+upward. Then it will say is there any
+ 
+
+1785
+00:43:30,560 --> 00:43:33,109
+upward. Then it will say is there any
+execute appender? No. So it won't do
+
+1786
+00:43:33,109 --> 00:43:33,119
+execute appender? No. So it won't do
+ 
+
+1787
+00:43:33,119 --> 00:43:36,230
+execute appender? No. So it won't do
+anything. It goes upward till root. It
+
+1788
+00:43:36,230 --> 00:43:36,240
+anything. It goes upward till root. It
+ 
+
+1789
+00:43:36,240 --> 00:43:38,630
+anything. It goes upward till root. It
+will see any appender. Hey yes. What
+
+1790
+00:43:38,630 --> 00:43:38,640
+will see any appender. Hey yes. What
+ 
+
+1791
+00:43:38,640 --> 00:43:42,069
+will see any appender. Hey yes. What
+this appender says that print this log
+
+1792
+00:43:42,069 --> 00:43:42,079
+this appender says that print this log
+ 
+
+1793
+00:43:42,079 --> 00:43:44,069
+this appender says that print this log
+on the console. So what it will do is it
+
+1794
+00:43:44,069 --> 00:43:44,079
+on the console. So what it will do is it
+ 
+
+1795
+00:43:44,079 --> 00:43:46,390
+on the console. So what it will do is it
+will print the log.info to the console
+
+1796
+00:43:46,390 --> 00:43:46,400
+will print the log.info to the console
+ 
+
+1797
+00:43:46,400 --> 00:43:49,910
+will print the log.info to the console
+also. So here if you see
+
+1798
+00:43:49,910 --> 00:43:49,920
+also. So here if you see
+ 
+
+1799
+00:43:49,920 --> 00:43:52,950
+also. So here if you see
+uh this log statement got added to this
+
+1800
+00:43:52,950 --> 00:43:52,960
+uh this log statement got added to this
+ 
+
+1801
+00:43:52,960 --> 00:43:57,349
+uh this log statement got added to this
+file and also this got added to console
+
+1802
+00:43:57,349 --> 00:43:57,359
+file and also this got added to console
+ 
+
+1803
+00:43:57,359 --> 00:44:01,030
+file and also this got added to console
+also.
+
+1804
+00:44:01,030 --> 00:44:01,040
+
+ 
+
+1805
+00:44:01,040 --> 00:44:03,750
+
+So very important part is this line that
+
+1806
+00:44:03,750 --> 00:44:03,760
+So very important part is this line that
+ 
+
+1807
+00:44:03,760 --> 00:44:07,109
+So very important part is this line that
+once a child logger is accepted
+
+1808
+00:44:07,109 --> 00:44:07,119
+once a child logger is accepted
+ 
+
+1809
+00:44:07,119 --> 00:44:10,230
+once a child logger is accepted
+log event it will always propagate
+
+1810
+00:44:10,230 --> 00:44:10,240
+log event it will always propagate
+ 
+
+1811
+00:44:10,240 --> 00:44:12,470
+log event it will always propagate
+upward and all parent appenders execute
+
+1812
+00:44:12,470 --> 00:44:12,480
+upward and all parent appenders execute
+ 
+
+1813
+00:44:12,480 --> 00:44:14,230
+upward and all parent appenders execute
+regardless of the parent level. So
+
+1814
+00:44:14,230 --> 00:44:14,240
+regardless of the parent level. So
+ 
+
+1815
+00:44:14,240 --> 00:44:16,150
+regardless of the parent level. So
+that's why I specifically mention here
+
+1816
+00:44:16,150 --> 00:44:16,160
+that's why I specifically mention here
+ 
+
+1817
+00:44:16,160 --> 00:44:18,069
+that's why I specifically mention here
+that
+
+1818
+00:44:18,069 --> 00:44:18,079
+that
+ 
+
+1819
+00:44:18,079 --> 00:44:21,190
+that
+payment controller has level info and
+
+1820
+00:44:21,190 --> 00:44:21,200
+payment controller has level info and
+ 
+
+1821
+00:44:21,200 --> 00:44:25,109
+payment controller has level info and
+its parent com has level warning.
+
+1822
+00:44:25,109 --> 00:44:25,119
+its parent com has level warning.
+ 
+
+1823
+00:44:25,119 --> 00:44:28,630
+its parent com has level warning.
+So now when this
+
+1824
+00:44:28,630 --> 00:44:28,640
+So now when this
+ 
+
+1825
+00:44:28,640 --> 00:44:31,670
+So now when this
+log statement log.info info
+
+1826
+00:44:31,670 --> 00:44:31,680
+log statement log.info info
+ 
+
+1827
+00:44:31,680 --> 00:44:33,910
+log statement log.info info
+okay and it is coming from this logger
+
+1828
+00:44:33,910 --> 00:44:33,920
+okay and it is coming from this logger
+ 
+
+1829
+00:44:33,920 --> 00:44:36,390
+okay and it is coming from this logger
+payment controller so this got accepted
+
+1830
+00:44:36,390 --> 00:44:36,400
+payment controller so this got accepted
+ 
+
+1831
+00:44:36,400 --> 00:44:38,790
+payment controller so this got accepted
+right this logger level is also info and
+
+1832
+00:44:38,790 --> 00:44:38,800
+right this logger level is also info and
+ 
+
+1833
+00:44:38,800 --> 00:44:40,470
+right this logger level is also info and
+also I'm trying to log a statement is
+
+1834
+00:44:40,470 --> 00:44:40,480
+also I'm trying to log a statement is
+ 
+
+1835
+00:44:40,480 --> 00:44:43,910
+also I'm trying to log a statement is
+info only so this is accepted so once
+
+1836
+00:44:43,910 --> 00:44:43,920
+info only so this is accepted so once
+ 
+
+1837
+00:44:43,920 --> 00:44:46,309
+info only so this is accepted so once
+the log is accepted
+
+1838
+00:44:46,309 --> 00:44:46,319
+the log is accepted
+ 
+
+1839
+00:44:46,319 --> 00:44:50,150
+the log is accepted
+it will just move upward goes upward and
+
+1840
+00:44:50,150 --> 00:44:50,160
+it will just move upward goes upward and
+ 
+
+1841
+00:44:50,160 --> 00:44:52,790
+it will just move upward goes upward and
+run the appenders
+
+1842
+00:44:52,790 --> 00:44:52,800
+run the appenders
+ 
+
+1843
+00:44:52,800 --> 00:44:55,829
+run the appenders
+now it will not check that okay the
+
+1844
+00:44:55,829 --> 00:44:55,839
+now it will not check that okay the
+ 
+
+1845
+00:44:55,839 --> 00:44:59,750
+now it will not check that okay the
+parent logger what is the level
+
+1846
+00:44:59,750 --> 00:44:59,760
+parent logger what is the level
+ 
+
+1847
+00:44:59,760 --> 00:45:02,069
+parent logger what is the level
+is only checked only at once. Once it is
+
+1848
+00:45:02,069 --> 00:45:02,079
+is only checked only at once. Once it is
+ 
+
+1849
+00:45:02,079 --> 00:45:04,630
+is only checked only at once. Once it is
+approved, now it just goes upward and
+
+1850
+00:45:04,630 --> 00:45:04,640
+approved, now it just goes upward and
+ 
+
+1851
+00:45:04,640 --> 00:45:07,510
+approved, now it just goes upward and
+execute the appender.
+
+1852
+00:45:07,510 --> 00:45:07,520
+execute the appender.
+ 
+
+1853
+00:45:07,520 --> 00:45:10,309
+execute the appender.
+And if you notice one thing in all our
+
+1854
+00:45:10,309 --> 00:45:10,319
+And if you notice one thing in all our
+ 
+
+1855
+00:45:10,319 --> 00:45:12,710
+And if you notice one thing in all our
+previous example, we have not written
+
+1856
+00:45:12,710 --> 00:45:12,720
+previous example, we have not written
+ 
+
+1857
+00:45:12,720 --> 00:45:14,710
+previous example, we have not written
+any appenders
+
+1858
+00:45:14,710 --> 00:45:14,720
+any appenders
+ 
+
+1859
+00:45:14,720 --> 00:45:16,870
+any appenders
+and still be able to see the logs on our
+
+1860
+00:45:16,870 --> 00:45:16,880
+and still be able to see the logs on our
+ 
+
+1861
+00:45:16,880 --> 00:45:19,589
+and still be able to see the logs on our
+console. How? So this is we were doing
+
+1862
+00:45:19,589 --> 00:45:19,599
+console. How? So this is we were doing
+ 
+
+1863
+00:45:19,599 --> 00:45:21,190
+console. How? So this is we were doing
+this, right? We just added rest
+
+1864
+00:45:21,190 --> 00:45:21,200
+this, right? We just added rest
+ 
+
+1865
+00:45:21,200 --> 00:45:23,829
+this, right? We just added rest
+controller. In rest controller, we have
+
+1866
+00:45:23,829 --> 00:45:23,839
+controller. In rest controller, we have
+ 
+
+1867
+00:45:23,839 --> 00:45:26,790
+controller. In rest controller, we have
+this log.
+
+1868
+00:45:26,790 --> 00:45:26,800
+this log.
+ 
+
+1869
+00:45:26,800 --> 00:45:29,349
+this log.
+This will like this would be the name of
+
+1870
+00:45:29,349 --> 00:45:29,359
+This will like this would be the name of
+ 
+
+1871
+00:45:29,359 --> 00:45:32,790
+This will like this would be the name of
+our logger. Okay. And you know that
+
+1872
+00:45:32,790 --> 00:45:32,800
+our logger. Okay. And you know that
+ 
+
+1873
+00:45:32,800 --> 00:45:34,950
+our logger. Okay. And you know that
+object would be created in a hierarchy
+
+1874
+00:45:34,950 --> 00:45:34,960
+object would be created in a hierarchy
+ 
+
+1875
+00:45:34,960 --> 00:45:39,030
+object would be created in a hierarchy
+form. Now when we are doing log.info
+
+1876
+00:45:39,030 --> 00:45:39,040
+form. Now when we are doing log.info
+ 
+
+1877
+00:45:39,040 --> 00:45:41,430
+form. Now when we are doing log.info
+the by default we haven't provided any
+
+1878
+00:45:41,430 --> 00:45:41,440
+the by default we haven't provided any
+ 
+
+1879
+00:45:41,440 --> 00:45:44,390
+the by default we haven't provided any
+level. So it by default
+
+1880
+00:45:44,390 --> 00:45:44,400
+level. So it by default
+ 
+
+1881
+00:45:44,400 --> 00:45:47,990
+level. So it by default
+level of this logger would be info.
+
+1882
+00:45:47,990 --> 00:45:48,000
+level of this logger would be info.
+ 
+
+1883
+00:45:48,000 --> 00:45:50,390
+level of this logger would be info.
+So now you are doing log.info.
+
+1884
+00:45:50,390 --> 00:45:50,400
+So now you are doing log.info.
+ 
+
+1885
+00:45:50,400 --> 00:45:52,630
+So now you are doing log.info.
+So that has the same level. So this
+
+1886
+00:45:52,630 --> 00:45:52,640
+So that has the same level. So this
+ 
+
+1887
+00:45:52,640 --> 00:45:55,109
+So that has the same level. So this
+statement would be approved.
+
+1888
+00:45:55,109 --> 00:45:55,119
+statement would be approved.
+ 
+
+1889
+00:45:55,119 --> 00:45:57,190
+statement would be approved.
+Now this statement would be approved.
+
+1890
+00:45:57,190 --> 00:45:57,200
+Now this statement would be approved.
+ 
+
+1891
+00:45:57,200 --> 00:45:59,829
+Now this statement would be approved.
+Now where it would be shown?
+
+1892
+00:45:59,829 --> 00:45:59,839
+Now where it would be shown?
+ 
+
+1893
+00:45:59,839 --> 00:46:03,109
+Now where it would be shown?
+So this logger payment controller this
+
+1894
+00:46:03,109 --> 00:46:03,119
+So this logger payment controller this
+ 
+
+1895
+00:46:03,119 --> 00:46:06,790
+So this logger payment controller this
+logger okay has any appender. We haven't
+
+1896
+00:46:06,790 --> 00:46:06,800
+logger okay has any appender. We haven't
+ 
+
+1897
+00:46:06,800 --> 00:46:09,109
+logger okay has any appender. We haven't
+written any appender. So what it will
+
+1898
+00:46:09,109 --> 00:46:09,119
+written any appender. So what it will
+ 
+
+1899
+00:46:09,119 --> 00:46:11,589
+written any appender. So what it will
+do? How in the console we are able to
+
+1900
+00:46:11,589 --> 00:46:11,599
+do? How in the console we are able to
+ 
+
+1901
+00:46:11,599 --> 00:46:15,589
+do? How in the console we are able to
+see this how? So it goes upward. We
+
+1902
+00:46:15,589 --> 00:46:15,599
+see this how? So it goes upward. We
+ 
+
+1903
+00:46:15,599 --> 00:46:17,990
+see this how? So it goes upward. We
+don't have any appender. It goes upward.
+
+1904
+00:46:17,990 --> 00:46:18,000
+don't have any appender. It goes upward.
+ 
+
+1905
+00:46:18,000 --> 00:46:20,950
+don't have any appender. It goes upward.
+Com concept. Have we any appender? No.
+
+1906
+00:46:20,950 --> 00:46:20,960
+Com concept. Have we any appender? No.
+ 
+
+1907
+00:46:20,960 --> 00:46:24,309
+Com concept. Have we any appender? No.
+So that will also not do. It will go up.
+
+1908
+00:46:24,309 --> 00:46:24,319
+So that will also not do. It will go up.
+ 
+
+1909
+00:46:24,319 --> 00:46:27,910
+So that will also not do. It will go up.
+com has it created any appender we
+
+1910
+00:46:27,910 --> 00:46:27,920
+com has it created any appender we
+ 
+
+1911
+00:46:27,920 --> 00:46:29,430
+com has it created any appender we
+haven't created right yeah even though
+
+1912
+00:46:29,430 --> 00:46:29,440
+haven't created right yeah even though
+ 
+
+1913
+00:46:29,440 --> 00:46:31,510
+haven't created right yeah even though
+the name is comconcept
+
+1914
+00:46:31,510 --> 00:46:31,520
+the name is comconcept
+ 
+
+1915
+00:46:31,520 --> 00:46:33,109
+the name is comconcept
+paymentscontroller
+
+1916
+00:46:33,109 --> 00:46:33,119
+paymentscontroller
+ 
+
+1917
+00:46:33,119 --> 00:46:35,589
+paymentscontroller
+so internally it's created the object
+
+1918
+00:46:35,589 --> 00:46:35,599
+so internally it's created the object
+ 
+
+1919
+00:46:35,599 --> 00:46:37,829
+so internally it's created the object
+with the name to maintain a hierarchy
+
+1920
+00:46:37,829 --> 00:46:37,839
+with the name to maintain a hierarchy
+ 
+
+1921
+00:46:37,839 --> 00:46:40,150
+with the name to maintain a hierarchy
+but appender we haven't we haven't added
+
+1922
+00:46:40,150 --> 00:46:40,160
+but appender we haven't we haven't added
+ 
+
+1923
+00:46:40,160 --> 00:46:43,670
+but appender we haven't we haven't added
+it so here also it won't do anything but
+
+1924
+00:46:43,670 --> 00:46:43,680
+it so here also it won't do anything but
+ 
+
+1925
+00:46:43,680 --> 00:46:46,069
+it so here also it won't do anything but
+ultimately when it goes to the root root
+
+1926
+00:46:46,069 --> 00:46:46,079
+ultimately when it goes to the root root
+ 
+
+1927
+00:46:46,079 --> 00:46:49,990
+ultimately when it goes to the root root
+has default console appender
+
+1928
+00:46:49,990 --> 00:46:50,000
+has default console appender
+ 
+
+1929
+00:46:50,000 --> 00:46:52,390
+has default console appender
+so I told you that every log accepted
+
+1930
+00:46:52,390 --> 00:46:52,400
+so I told you that every log accepted
+ 
+
+1931
+00:46:52,400 --> 00:46:53,990
+so I told you that every log accepted
+log goes up
+
+1932
+00:46:53,990 --> 00:46:54,000
+log goes up
+ 
+
+1933
+00:46:54,000 --> 00:46:57,750
+log goes up
+and execute the appenders of the parent
+
+1934
+00:46:57,750 --> 00:46:57,760
+and execute the appenders of the parent
+ 
+
+1935
+00:46:57,760 --> 00:46:59,990
+and execute the appenders of the parent
+till root.
+
+1936
+00:46:59,990 --> 00:47:00,000
+till root.
+ 
+
+1937
+00:47:00,000 --> 00:47:02,630
+till root.
+So when it goes upward no appender no
+
+1938
+00:47:02,630 --> 00:47:02,640
+So when it goes upward no appender no
+ 
+
+1939
+00:47:02,640 --> 00:47:04,550
+So when it goes upward no appender no
+appender no appender and ultimately in
+
+1940
+00:47:04,550 --> 00:47:04,560
+appender no appender and ultimately in
+ 
+
+1941
+00:47:04,560 --> 00:47:07,349
+appender no appender and ultimately in
+the root we have one console appender
+
+1942
+00:47:07,349 --> 00:47:07,359
+the root we have one console appender
+ 
+
+1943
+00:47:07,359 --> 00:47:09,270
+the root we have one console appender
+already present we don't have to write
+
+1944
+00:47:09,270 --> 00:47:09,280
+already present we don't have to write
+ 
+
+1945
+00:47:09,280 --> 00:47:12,069
+already present we don't have to write
+it and that's why
+
+1946
+00:47:12,069 --> 00:47:12,079
+it and that's why
+ 
+
+1947
+00:47:12,079 --> 00:47:15,750
+it and that's why
+it print into the console.
+
+1948
+00:47:15,750 --> 00:47:15,760
+it print into the console.
+ 
+
+1949
+00:47:15,760 --> 00:47:17,349
+it print into the console.
+So that's why I told you that when we
+
+1950
+00:47:17,349 --> 00:47:17,359
+So that's why I told you that when we
+ 
+
+1951
+00:47:17,359 --> 00:47:19,829
+So that's why I told you that when we
+don't specify the appender accepted log
+
+1952
+00:47:19,829 --> 00:47:19,839
+don't specify the appender accepted log
+ 
+
+1953
+00:47:19,839 --> 00:47:22,069
+don't specify the appender accepted log
+propagate upward and a root logger which
+
+1954
+00:47:22,069 --> 00:47:22,079
+propagate upward and a root logger which
+ 
+
+1955
+00:47:22,079 --> 00:47:24,550
+propagate upward and a root logger which
+framework provides we don't write it it
+
+1956
+00:47:24,550 --> 00:47:24,560
+framework provides we don't write it it
+ 
+
+1957
+00:47:24,560 --> 00:47:27,030
+framework provides we don't write it it
+has a console appender present and it
+
+1958
+00:47:27,030 --> 00:47:27,040
+has a console appender present and it
+ 
+
+1959
+00:47:27,040 --> 00:47:31,109
+has a console appender present and it
+print on the console.
+
+1960
+00:47:31,109 --> 00:47:31,119
+
+ 
+
+1961
+00:47:31,119 --> 00:47:33,109
+
+Okay.
+
+1962
+00:47:33,109 --> 00:47:33,119
+Okay.
+ 
+
+1963
+00:47:33,119 --> 00:47:37,109
+Okay.
+So in the next part there are so many
+
+1964
+00:47:37,109 --> 00:47:37,119
+So in the next part there are so many
+ 
+
+1965
+00:47:37,119 --> 00:47:39,270
+So in the next part there are so many
+things we have to cover like how to
+
+1966
+00:47:39,270 --> 00:47:39,280
+things we have to cover like how to
+ 
+
+1967
+00:47:39,280 --> 00:47:41,750
+things we have to cover like how to
+write this appender different type of
+
+1968
+00:47:41,750 --> 00:47:41,760
+write this appender different type of
+ 
+
+1969
+00:47:41,760 --> 00:47:44,230
+write this appender different type of
+appenders
+
+1970
+00:47:44,230 --> 00:47:44,240
+appenders
+ 
+
+1971
+00:47:44,240 --> 00:47:48,309
+appenders
+uh file console db so many types of
+
+1972
+00:47:48,309 --> 00:47:48,319
+uh file console db so many types of
+ 
+
+1973
+00:47:48,319 --> 00:47:50,630
+uh file console db so many types of
+appender then we have log format
+
+1974
+00:47:50,630 --> 00:47:50,640
+appender then we have log format
+ 
+
+1975
+00:47:50,640 --> 00:47:52,390
+appender then we have log format
+different format of log. So currently of
+
+1976
+00:47:52,390 --> 00:47:52,400
+different format of log. So currently of
+ 
+
+1977
+00:47:52,400 --> 00:47:55,270
+different format of log. So currently of
+you see that format is this you have a
+
+1978
+00:47:55,270 --> 00:47:55,280
+you see that format is this you have a
+ 
+
+1979
+00:47:55,280 --> 00:47:58,630
+you see that format is this you have a
+date then you have thread info then you
+
+1980
+00:47:58,630 --> 00:47:58,640
+date then you have thread info then you
+ 
+
+1981
+00:47:58,640 --> 00:48:01,670
+date then you have thread info then you
+have uh this logger name and then
+
+1982
+00:48:01,670 --> 00:48:01,680
+have uh this logger name and then
+ 
+
+1983
+00:48:01,680 --> 00:48:03,349
+have uh this logger name and then
+ultimately this. So we can even change
+
+1984
+00:48:03,349 --> 00:48:03,359
+ultimately this. So we can even change
+ 
+
+1985
+00:48:03,359 --> 00:48:07,349
+ultimately this. So we can even change
+this format also. Log rotation, MDC,
+
+1986
+00:48:07,349 --> 00:48:07,359
+this format also. Log rotation, MDC,
+ 
+
+1987
+00:48:07,359 --> 00:48:09,510
+this format also. Log rotation, MDC,
+correlation ID, a sing logging,
+
+1988
+00:48:09,510 --> 00:48:09,520
+correlation ID, a sing logging,
+ 
+
+1989
+00:48:09,520 --> 00:48:13,750
+correlation ID, a sing logging,
+structured logging, PII very important.
+
+1990
+00:48:13,750 --> 00:48:13,760
+structured logging, PII very important.
+ 
+
+1991
+00:48:13,760 --> 00:48:16,069
+structured logging, PII very important.
+We in the logs we never have to log the
+
+1992
+00:48:16,069 --> 00:48:16,079
+We in the logs we never have to log the
+ 
+
+1993
+00:48:16,079 --> 00:48:18,470
+We in the logs we never have to log the
+PII data. We will come to that
+
+1994
+00:48:18,470 --> 00:48:18,480
+PII data. We will come to that
+ 
+
+1995
+00:48:18,480 --> 00:48:21,270
+PII data. We will come to that
+distributed logging ultimately. So here
+
+1996
+00:48:21,270 --> 00:48:21,280
+distributed logging ultimately. So here
+ 
+
+1997
+00:48:21,280 --> 00:48:23,190
+distributed logging ultimately. So here
+if you see there are so many things to
+
+1998
+00:48:23,190 --> 00:48:23,200
+if you see there are so many things to
+ 
+
+1999
+00:48:23,200 --> 00:48:25,589
+if you see there are so many things to
+cover and we'll see you in the next part
+
+2000
+00:48:25,589 --> 00:48:25,599
+cover and we'll see you in the next part
+ 
+
+2001
+00:48:25,599 --> 00:48:27,750
+cover and we'll see you in the next part
+because otherwise the part this part
+
+2002
+00:48:27,750 --> 00:48:27,760
+because otherwise the part this part
+ 
+
+2003
+00:48:27,760 --> 00:48:31,430
+because otherwise the part this part
+will become too too huge and too long.
+
+2004
+00:48:31,430 --> 00:48:31,440
+will become too too huge and too long.
+ 
+
+2005
+00:48:31,440 --> 00:48:34,630
+will become too too huge and too long.
+So my expectation here is
+
+2006
+00:48:34,630 --> 00:48:34,640
+So my expectation here is
+ 
+
+2007
+00:48:34,640 --> 00:48:38,870
+So my expectation here is
+go through this video again okay and try
+
+2008
+00:48:38,870 --> 00:48:38,880
+go through this video again okay and try
+ 
+
+2009
+00:48:38,880 --> 00:48:43,190
+go through this video again okay and try
+to implement it open the code see the
+
+2010
+00:48:43,190 --> 00:48:43,200
+to implement it open the code see the
+ 
+
+2011
+00:48:43,200 --> 00:48:44,870
+to implement it open the code see the
+flow
+
+2012
+00:48:44,870 --> 00:48:44,880
+flow
+ 
+
+2013
+00:48:44,880 --> 00:48:48,950
+flow
+okay and things will get clear but the
+
+2014
+00:48:48,950 --> 00:48:48,960
+okay and things will get clear but the
+ 
+
+2015
+00:48:48,960 --> 00:48:50,950
+okay and things will get clear but the
+thing is like we have covered the flow
+
+2016
+00:48:50,950 --> 00:48:50,960
+thing is like we have covered the flow
+ 
+
+2017
+00:48:50,960 --> 00:48:53,829
+thing is like we have covered the flow
+architecture UML
+
+2018
+00:48:53,829 --> 00:48:53,839
+architecture UML
+ 
+
+2019
+00:48:53,839 --> 00:48:55,750
+architecture UML
+and level
+
+2020
+00:48:55,750 --> 00:48:55,760
+and level
+ 
+
+2021
+00:48:55,760 --> 00:48:58,870
+and level
+and uh child and parent relationship so
+
+2022
+00:48:58,870 --> 00:48:58,880
+and uh child and parent relationship so
+ 
+
+2023
+00:48:58,880 --> 00:49:01,109
+and uh child and parent relationship so
+if those are clear these These are you
+
+2024
+00:49:01,109 --> 00:49:01,119
+if those are clear these These are you
+ 
+
+2025
+00:49:01,119 --> 00:49:03,190
+if those are clear these These are you
+can say that the foundation of the
+
+2026
+00:49:03,190 --> 00:49:03,200
+can say that the foundation of the
+ 
+
+2027
+00:49:03,200 --> 00:49:04,790
+can say that the foundation of the
+logging.
+
+2028
+00:49:04,790 --> 00:49:04,800
+logging.
+ 
+
+2029
+00:49:04,800 --> 00:49:08,309
+logging.
+Now this would become very easy like the
+
+2030
+00:49:08,309 --> 00:49:08,319
+Now this would become very easy like the
+ 
+
+2031
+00:49:08,319 --> 00:49:10,630
+Now this would become very easy like the
+future task right we it might be seems
+
+2032
+00:49:10,630 --> 00:49:10,640
+future task right we it might be seems
+ 
+
+2033
+00:49:10,640 --> 00:49:12,150
+future task right we it might be seems
+like okay we have still have so many
+
+2034
+00:49:12,150 --> 00:49:12,160
+like okay we have still have so many
+ 
+
+2035
+00:49:12,160 --> 00:49:15,270
+like okay we have still have so many
+things to cover but here if you see if
+
+2036
+00:49:15,270 --> 00:49:15,280
+things to cover but here if you see if
+ 
+
+2037
+00:49:15,280 --> 00:49:18,309
+things to cover but here if you see if
+we have clear with the flow okay where
+
+2038
+00:49:18,309 --> 00:49:18,319
+we have clear with the flow okay where
+ 
+
+2039
+00:49:18,319 --> 00:49:21,270
+we have clear with the flow okay where
+is the appender what does appender mean
+
+2040
+00:49:21,270 --> 00:49:21,280
+is the appender what does appender mean
+ 
+
+2041
+00:49:21,280 --> 00:49:23,670
+is the appender what does appender mean
+okay and where is it exactly fit into
+
+2042
+00:49:23,670 --> 00:49:23,680
+okay and where is it exactly fit into
+ 
+
+2043
+00:49:23,680 --> 00:49:27,109
+okay and where is it exactly fit into
+the whole design then it's just like too
+
+2044
+00:49:27,109 --> 00:49:27,119
+the whole design then it's just like too
+ 
+
+2045
+00:49:27,119 --> 00:49:29,349
+the whole design then it's just like too
+quickly we can do log format log
+
+2046
+00:49:29,349 --> 00:49:29,359
+quickly we can do log format log
+ 
+
+2047
+00:49:29,359 --> 00:49:31,589
+quickly we can do log format log
+rotation this is simply just you can say
+
+2048
+00:49:31,589 --> 00:49:31,599
+rotation this is simply just you can say
+ 
+
+2049
+00:49:31,599 --> 00:49:34,710
+rotation this is simply just you can say
+that features which is like now get
+
+2050
+00:49:34,710 --> 00:49:34,720
+that features which is like now get
+ 
+
+2051
+00:49:34,720 --> 00:49:37,030
+that features which is like now get
+added into the existing flow existing
+
+2052
+00:49:37,030 --> 00:49:37,040
+added into the existing flow existing
+ 
+
+2053
+00:49:37,040 --> 00:49:39,030
+added into the existing flow existing
+architecture which we have covered till
+
+2054
+00:49:39,030 --> 00:49:39,040
+architecture which we have covered till
+ 
+
+2055
+00:49:39,040 --> 00:49:40,790
+architecture which we have covered till
+now.
+
+2056
+00:49:40,790 --> 00:49:40,800
+now.
+ 
+
+2057
+00:49:40,800 --> 00:49:44,230
+now.
+Okay. So see you soon and if any doubt
+
+2058
+00:49:44,230 --> 00:49:44,240
+Okay. So see you soon and if any doubt
+ 
+
+2059
+00:49:44,240 --> 00:49:45,589
+Okay. So see you soon and if any doubt
+let me know we can discuss into the
+
+2060
+00:49:45,589 --> 00:49:45,599
+let me know we can discuss into the
+ 
+
+2061
+00:49:45,599 --> 00:49:48,630
+let me know we can discuss into the
+further section comment section. Okay
+
+2062
+00:49:48,630 --> 00:49:48,640
+further section comment section. Okay
+ 
+
+2063
+00:49:48,640 --> 00:49:52,160
+further section comment section. Okay
+guys thank you. Bye.
+

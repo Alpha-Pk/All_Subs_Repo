@@ -1,0 +1,9255 @@
+1
+00:00:00,400 --> 00:00:03,190
+
+Welcome back and today we are going to
+
+2
+00:00:03,190 --> 00:00:03,200
+Welcome back and today we are going to
+ 
+
+3
+00:00:03,200 --> 00:00:05,349
+Welcome back and today we are going to
+cover the part three of distributed
+
+4
+00:00:05,349 --> 00:00:05,359
+cover the part three of distributed
+ 
+
+5
+00:00:05,359 --> 00:00:08,870
+cover the part three of distributed
+logging. So if you have not seen part
+
+6
+00:00:08,870 --> 00:00:08,880
+logging. So if you have not seen part
+ 
+
+7
+00:00:08,880 --> 00:00:11,270
+logging. So if you have not seen part
+one and part two I would highly
+
+8
+00:00:11,270 --> 00:00:11,280
+one and part two I would highly
+ 
+
+9
+00:00:11,280 --> 00:00:13,669
+one and part two I would highly
+recommend kindly go to it because in the
+
+10
+00:00:13,669 --> 00:00:13,679
+recommend kindly go to it because in the
+ 
+
+11
+00:00:13,679 --> 00:00:15,749
+recommend kindly go to it because in the
+part one we have covered like its
+
+12
+00:00:15,749 --> 00:00:15,759
+part one we have covered like its
+ 
+
+13
+00:00:15,759 --> 00:00:17,510
+part one we have covered like its
+low-level design, highle design of the
+
+14
+00:00:17,510 --> 00:00:17,520
+low-level design, highle design of the
+ 
+
+15
+00:00:17,520 --> 00:00:21,269
+low-level design, highle design of the
+logging framework uh level inheritance,
+
+16
+00:00:21,269 --> 00:00:21,279
+logging framework uh level inheritance,
+ 
+
+17
+00:00:21,279 --> 00:00:23,750
+logging framework uh level inheritance,
+parent child hierarchy
+
+18
+00:00:23,750 --> 00:00:23,760
+parent child hierarchy
+ 
+
+19
+00:00:23,760 --> 00:00:26,070
+parent child hierarchy
+and in part two we have discussed about
+
+20
+00:00:26,070 --> 00:00:26,080
+and in part two we have discussed about
+ 
+
+21
+00:00:26,080 --> 00:00:28,950
+and in part two we have discussed about
+appenders in depth like console file
+
+22
+00:00:28,950 --> 00:00:28,960
+appenders in depth like console file
+ 
+
+23
+00:00:28,960 --> 00:00:32,069
+appenders in depth like console file
+rolling and different policies time size
+
+24
+00:00:32,069 --> 00:00:32,079
+rolling and different policies time size
+ 
+
+25
+00:00:32,079 --> 00:00:35,190
+rolling and different policies time size
+plus time everything.
+
+26
+00:00:35,190 --> 00:00:35,200
+plus time everything.
+ 
+
+27
+00:00:35,200 --> 00:00:37,590
+plus time everything.
+Now very important parts we are going to
+
+28
+00:00:37,590 --> 00:00:37,600
+Now very important parts we are going to
+ 
+
+29
+00:00:37,600 --> 00:00:40,389
+Now very important parts we are going to
+cover in this uh part three is like a
+
+30
+00:00:40,389 --> 00:00:40,399
+cover in this uh part three is like a
+ 
+
+31
+00:00:40,399 --> 00:00:42,229
+cover in this uh part three is like a
+sync
+
+32
+00:00:42,229 --> 00:00:42,239
+sync
+ 
+
+33
+00:00:42,239 --> 00:00:45,110
+sync
+async logging and then another important
+
+34
+00:00:45,110 --> 00:00:45,120
+async logging and then another important
+ 
+
+35
+00:00:45,120 --> 00:00:48,950
+async logging and then another important
+is structured logging
+
+36
+00:00:48,950 --> 00:00:48,960
+is structured logging
+ 
+
+37
+00:00:48,960 --> 00:00:51,670
+is structured logging
+okay yes this is a very huge topic and
+
+38
+00:00:51,670 --> 00:00:51,680
+okay yes this is a very huge topic and
+ 
+
+39
+00:00:51,680 --> 00:00:53,830
+okay yes this is a very huge topic and
+very important so we are I'm trying my
+
+40
+00:00:53,830 --> 00:00:53,840
+very important so we are I'm trying my
+ 
+
+41
+00:00:53,840 --> 00:00:57,510
+very important so we are I'm trying my
+best we do not skip any subtopics okay
+
+42
+00:00:57,510 --> 00:00:57,520
+best we do not skip any subtopics okay
+ 
+
+43
+00:00:57,520 --> 00:00:59,990
+best we do not skip any subtopics okay
+so let's start without wasting any time
+
+44
+00:00:59,990 --> 00:01:00,000
+so let's start without wasting any time
+ 
+
+45
+00:01:00,000 --> 00:01:03,670
+so let's start without wasting any time
+the syning part so till now whatever we
+
+46
+00:01:03,670 --> 00:01:03,680
+the syning part so till now whatever we
+ 
+
+47
+00:01:03,680 --> 00:01:06,149
+the syning part so till now whatever we
+have done All everything logging is
+
+48
+00:01:06,149 --> 00:01:06,159
+have done All everything logging is
+ 
+
+49
+00:01:06,159 --> 00:01:11,670
+have done All everything logging is
+doing happens in the sync nature. So
+
+50
+00:01:11,670 --> 00:01:11,680
+doing happens in the sync nature. So
+ 
+
+51
+00:01:11,680 --> 00:01:14,149
+doing happens in the sync nature. So
+whatever the appenders write to the file
+
+52
+00:01:14,149 --> 00:01:14,159
+whatever the appenders write to the file
+ 
+
+53
+00:01:14,159 --> 00:01:17,670
+whatever the appenders write to the file
+whether to DB to Kafka
+
+54
+00:01:17,670 --> 00:01:17,680
+whether to DB to Kafka
+ 
+
+55
+00:01:17,680 --> 00:01:21,830
+whether to DB to Kafka
+to file all the logging happens in the
+
+56
+00:01:21,830 --> 00:01:21,840
+to file all the logging happens in the
+ 
+
+57
+00:01:21,840 --> 00:01:26,070
+to file all the logging happens in the
+sync nature means your request
+
+58
+00:01:26,070 --> 00:01:26,080
+sync nature means your request
+ 
+
+59
+00:01:26,080 --> 00:01:29,990
+sync nature means your request
+thread waits for the logging work to
+
+60
+00:01:29,990 --> 00:01:30,000
+thread waits for the logging work to
+ 
+
+61
+00:01:30,000 --> 00:01:31,510
+thread waits for the logging work to
+finish.
+
+62
+00:01:31,510 --> 00:01:31,520
+finish.
+ 
+
+63
+00:01:31,520 --> 00:01:34,230
+finish.
+And this is very critical because in a
+
+64
+00:01:34,230 --> 00:01:34,240
+And this is very critical because in a
+ 
+
+65
+00:01:34,240 --> 00:01:36,789
+And this is very critical because in a
+heavy traffic when you have so many
+
+66
+00:01:36,789 --> 00:01:36,799
+heavy traffic when you have so many
+ 
+
+67
+00:01:36,799 --> 00:01:40,230
+heavy traffic when you have so many
+traffic so many logs statement to write
+
+68
+00:01:40,230 --> 00:01:40,240
+traffic so many logs statement to write
+ 
+
+69
+00:01:40,240 --> 00:01:41,990
+traffic so many logs statement to write
+means so many log statement means you
+
+70
+00:01:41,990 --> 00:01:42,000
+means so many log statement means you
+ 
+
+71
+00:01:42,000 --> 00:01:44,149
+means so many log statement means you
+might have to do so many uh operations
+
+72
+00:01:44,149 --> 00:01:44,159
+might have to do so many uh operations
+ 
+
+73
+00:01:44,159 --> 00:01:48,710
+might have to do so many uh operations
+on DB or Kafka or file it could impact
+
+74
+00:01:48,710 --> 00:01:48,720
+on DB or Kafka or file it could impact
+ 
+
+75
+00:01:48,720 --> 00:01:51,830
+on DB or Kafka or file it could impact
+your latency and thus overall impact on
+
+76
+00:01:51,830 --> 00:01:51,840
+your latency and thus overall impact on
+ 
+
+77
+00:01:51,840 --> 00:01:54,230
+your latency and thus overall impact on
+the performance of the application
+
+78
+00:01:54,230 --> 00:01:54,240
+the performance of the application
+ 
+
+79
+00:01:54,240 --> 00:01:57,429
+the performance of the application
+that's where the sync logging
+
+80
+00:01:57,429 --> 00:01:57,439
+that's where the sync logging
+ 
+
+81
+00:01:57,439 --> 00:02:00,789
+that's where the sync logging
+feature comes into the picture.
+
+82
+00:02:00,789 --> 00:02:00,799
+feature comes into the picture.
+ 
+
+83
+00:02:00,799 --> 00:02:03,030
+feature comes into the picture.
+So a sync is generally of two type as
+
+84
+00:02:03,030 --> 00:02:03,040
+So a sync is generally of two type as
+ 
+
+85
+00:02:03,040 --> 00:02:05,510
+So a sync is generally of two type as
+sync appender and a sync logger. So
+
+86
+00:02:05,510 --> 00:02:05,520
+sync appender and a sync logger. So
+ 
+
+87
+00:02:05,520 --> 00:02:07,830
+sync appender and a sync logger. So
+let's see appender first. So in this
+
+88
+00:02:07,830 --> 00:02:07,840
+let's see appender first. So in this
+ 
+
+89
+00:02:07,840 --> 00:02:09,910
+let's see appender first. So in this
+async appender which is a log back
+
+90
+00:02:09,910 --> 00:02:09,920
+async appender which is a log back
+ 
+
+91
+00:02:09,920 --> 00:02:13,750
+async appender which is a log back
+feature only appender work is a sync. So
+
+92
+00:02:13,750 --> 00:02:13,760
+feature only appender work is a sync. So
+ 
+
+93
+00:02:13,760 --> 00:02:17,030
+feature only appender work is a sync. So
+now let's say that when our request when
+
+94
+00:02:17,030 --> 00:02:17,040
+now let's say that when our request when
+ 
+
+95
+00:02:17,040 --> 00:02:19,430
+now let's say that when our request when
+our request thread
+
+96
+00:02:19,430 --> 00:02:19,440
+our request thread
+ 
+
+97
+00:02:19,440 --> 00:02:21,670
+our request thread
+does log.info
+
+98
+00:02:21,670 --> 00:02:21,680
+does log.info
+ 
+
+99
+00:02:21,680 --> 00:02:24,390
+does log.info
+after this lot of other small task
+
+100
+00:02:24,390 --> 00:02:24,400
+after this lot of other small task
+ 
+
+101
+00:02:24,400 --> 00:02:27,190
+after this lot of other small task
+happen like this this statement is
+
+102
+00:02:27,190 --> 00:02:27,200
+happen like this this statement is
+ 
+
+103
+00:02:27,200 --> 00:02:30,630
+happen like this this statement is
+converted to let's say log event. After
+
+104
+00:02:30,630 --> 00:02:30,640
+converted to let's say log event. After
+ 
+
+105
+00:02:30,640 --> 00:02:32,710
+converted to let's say log event. After
+that level checking is happen. So there
+
+106
+00:02:32,710 --> 00:02:32,720
+that level checking is happen. So there
+ 
+
+107
+00:02:32,720 --> 00:02:34,710
+that level checking is happen. So there
+are another sub operations which might
+
+108
+00:02:34,710 --> 00:02:34,720
+are another sub operations which might
+ 
+
+109
+00:02:34,720 --> 00:02:36,790
+are another sub operations which might
+be happening. So that again all happen
+
+110
+00:02:36,790 --> 00:02:36,800
+be happening. So that again all happen
+ 
+
+111
+00:02:36,800 --> 00:02:39,589
+be happening. So that again all happen
+in sync.
+
+112
+00:02:39,589 --> 00:02:39,599
+in sync.
+ 
+
+113
+00:02:39,599 --> 00:02:42,790
+in sync.
+But only this part the formatting and
+
+114
+00:02:42,790 --> 00:02:42,800
+But only this part the formatting and
+ 
+
+115
+00:02:42,800 --> 00:02:45,830
+But only this part the formatting and
+writing to appender like writing via
+
+116
+00:02:45,830 --> 00:02:45,840
+writing to appender like writing via
+ 
+
+117
+00:02:45,840 --> 00:02:47,830
+writing to appender like writing via
+appender that only happens through
+
+118
+00:02:47,830 --> 00:02:47,840
+appender that only happens through
+ 
+
+119
+00:02:47,840 --> 00:02:49,589
+appender that only happens through
+async.
+
+120
+00:02:49,589 --> 00:02:49,599
+async.
+ 
+
+121
+00:02:49,599 --> 00:02:52,790
+async.
+So in the async appender only a specific
+
+122
+00:02:52,790 --> 00:02:52,800
+So in the async appender only a specific
+ 
+
+123
+00:02:52,800 --> 00:02:54,390
+So in the async appender only a specific
+task
+
+124
+00:02:54,390 --> 00:02:54,400
+task
+ 
+
+125
+00:02:54,400 --> 00:02:57,750
+task
+and the task is the log formatting and
+
+126
+00:02:57,750 --> 00:02:57,760
+and the task is the log formatting and
+ 
+
+127
+00:02:57,760 --> 00:03:00,229
+and the task is the log formatting and
+the appender like where we write the log
+
+128
+00:03:00,229 --> 00:03:00,239
+the appender like where we write the log
+ 
+
+129
+00:03:00,239 --> 00:03:03,350
+the appender like where we write the log
+statement to an output that is only done
+
+130
+00:03:03,350 --> 00:03:03,360
+statement to an output that is only done
+ 
+
+131
+00:03:03,360 --> 00:03:05,270
+statement to an output that is only done
+through a different thread and in a sync
+
+132
+00:03:05,270 --> 00:03:05,280
+through a different thread and in a sync
+ 
+
+133
+00:03:05,280 --> 00:03:08,309
+through a different thread and in a sync
+nature. Other subtask like level check
+
+134
+00:03:08,309 --> 00:03:08,319
+nature. Other subtask like level check
+ 
+
+135
+00:03:08,319 --> 00:03:11,350
+nature. Other subtask like level check
+or creation of log events from this
+
+136
+00:03:11,350 --> 00:03:11,360
+or creation of log events from this
+ 
+
+137
+00:03:11,360 --> 00:03:14,229
+or creation of log events from this
+log.info info all everything happen in
+
+138
+00:03:14,229 --> 00:03:14,239
+log.info info all everything happen in
+ 
+
+139
+00:03:14,239 --> 00:03:15,750
+log.info info all everything happen in
+sync
+
+140
+00:03:15,750 --> 00:03:15,760
+sync
+ 
+
+141
+00:03:15,760 --> 00:03:18,869
+sync
+but in a sync logger which is log 4j2
+
+142
+00:03:18,869 --> 00:03:18,879
+but in a sync logger which is log 4j2
+ 
+
+143
+00:03:18,879 --> 00:03:21,830
+but in a sync logger which is log 4j2
+feature complete logging pipeline is a
+
+144
+00:03:21,830 --> 00:03:21,840
+feature complete logging pipeline is a
+ 
+
+145
+00:03:21,840 --> 00:03:24,229
+feature complete logging pipeline is a
+sync means once you did this log.info
+
+146
+00:03:24,229 --> 00:03:24,239
+sync means once you did this log.info
+ 
+
+147
+00:03:24,239 --> 00:03:27,670
+sync means once you did this log.info
+info after that everything is happen a
+
+148
+00:03:27,670 --> 00:03:27,680
+info after that everything is happen a
+ 
+
+149
+00:03:27,680 --> 00:03:31,270
+info after that everything is happen a
+sync. Okay. So this is good for highle
+
+150
+00:03:31,270 --> 00:03:31,280
+sync. Okay. So this is good for highle
+ 
+
+151
+00:03:31,280 --> 00:03:34,309
+sync. Okay. So this is good for highle
+traffic where you want very minimal
+
+152
+00:03:34,309 --> 00:03:34,319
+traffic where you want very minimal
+ 
+
+153
+00:03:34,319 --> 00:03:36,869
+traffic where you want very minimal
+latency for the logging. This is good
+
+154
+00:03:36,869 --> 00:03:36,879
+latency for the logging. This is good
+ 
+
+155
+00:03:36,879 --> 00:03:39,670
+latency for the logging. This is good
+for medium level traffic. So here we are
+
+156
+00:03:39,670 --> 00:03:39,680
+for medium level traffic. So here we are
+ 
+
+157
+00:03:39,680 --> 00:03:42,630
+for medium level traffic. So here we are
+good uh but latency might be little bit
+
+158
+00:03:42,630 --> 00:03:42,640
+good uh but latency might be little bit
+ 
+
+159
+00:03:42,640 --> 00:03:46,229
+good uh but latency might be little bit
+higher than this a sync logger
+
+160
+00:03:46,229 --> 00:03:46,239
+higher than this a sync logger
+ 
+
+161
+00:03:46,239 --> 00:03:49,589
+higher than this a sync logger
+also. Logback generally do not support a
+
+162
+00:03:49,589 --> 00:03:49,599
+also. Logback generally do not support a
+ 
+
+163
+00:03:49,599 --> 00:03:52,630
+also. Logback generally do not support a
+sync logger only. Okay. Here we have
+
+164
+00:03:52,630 --> 00:03:52,640
+sync logger only. Okay. Here we have
+ 
+
+165
+00:03:52,640 --> 00:03:54,869
+sync logger only. Okay. Here we have
+only a sing appender. In the logback
+
+166
+00:03:54,869 --> 00:03:54,879
+only a sing appender. In the logback
+ 
+
+167
+00:03:54,879 --> 00:03:57,190
+only a sing appender. In the logback
+framework we have only a sing appender.
+
+168
+00:03:57,190 --> 00:03:57,200
+framework we have only a sing appender.
+ 
+
+169
+00:03:57,200 --> 00:03:59,990
+framework we have only a sing appender.
+We don't have a sing logger. Whereas if
+
+170
+00:03:59,990 --> 00:04:00,000
+We don't have a sing logger. Whereas if
+ 
+
+171
+00:04:00,000 --> 00:04:02,149
+We don't have a sing logger. Whereas if
+you're using log 4j2 you have both. You
+
+172
+00:04:02,149 --> 00:04:02,159
+you're using log 4j2 you have both. You
+ 
+
+173
+00:04:02,159 --> 00:04:04,070
+you're using log 4j2 you have both. You
+have a sing appender and you have a sing
+
+174
+00:04:04,070 --> 00:04:04,080
+have a sing appender and you have a sing
+ 
+
+175
+00:04:04,080 --> 00:04:06,229
+have a sing appender and you have a sing
+logger too. But at least you know the
+
+176
+00:04:06,229 --> 00:04:06,239
+logger too. But at least you know the
+ 
+
+177
+00:04:06,239 --> 00:04:08,390
+logger too. But at least you know the
+difference that in as appender only this
+
+178
+00:04:08,390 --> 00:04:08,400
+difference that in as appender only this
+ 
+
+179
+00:04:08,400 --> 00:04:11,270
+difference that in as appender only this
+formatting and append appender work is a
+
+180
+00:04:11,270 --> 00:04:11,280
+formatting and append appender work is a
+ 
+
+181
+00:04:11,280 --> 00:04:14,149
+formatting and append appender work is a
+async rest other happens in still in
+
+182
+00:04:14,149 --> 00:04:14,159
+async rest other happens in still in
+ 
+
+183
+00:04:14,159 --> 00:04:16,949
+async rest other happens in still in
+sync. In async logger everything after
+
+184
+00:04:16,949 --> 00:04:16,959
+sync. In async logger everything after
+ 
+
+185
+00:04:16,959 --> 00:04:19,110
+sync. In async logger everything after
+you done log.info info or log. error or
+
+186
+00:04:19,110 --> 00:04:19,120
+you done log.info info or log. error or
+ 
+
+187
+00:04:19,120 --> 00:04:22,629
+you done log.info info or log. error or
+log.1 everything happen in async.
+
+188
+00:04:22,629 --> 00:04:22,639
+log.1 everything happen in async.
+ 
+
+189
+00:04:22,639 --> 00:04:25,670
+log.1 everything happen in async.
+So since we are doing log back framework
+
+190
+00:04:25,670 --> 00:04:25,680
+So since we are doing log back framework
+ 
+
+191
+00:04:25,680 --> 00:04:28,230
+So since we are doing log back framework
+so I would be covering a sing appender.
+
+192
+00:04:28,230 --> 00:04:28,240
+so I would be covering a sing appender.
+ 
+
+193
+00:04:28,240 --> 00:04:31,990
+so I would be covering a sing appender.
+Okay. And yes this is a pretty much used
+
+194
+00:04:31,990 --> 00:04:32,000
+Okay. And yes this is a pretty much used
+ 
+
+195
+00:04:32,000 --> 00:04:33,590
+Okay. And yes this is a pretty much used
+because this is for good for medium
+
+196
+00:04:33,590 --> 00:04:33,600
+because this is for good for medium
+ 
+
+197
+00:04:33,600 --> 00:04:36,950
+because this is for good for medium
+level traffic and this works for most of
+
+198
+00:04:36,950 --> 00:04:36,960
+level traffic and this works for most of
+ 
+
+199
+00:04:36,960 --> 00:04:39,909
+level traffic and this works for most of
+the majority of the cases.
+
+200
+00:04:39,909 --> 00:04:39,919
+the majority of the cases.
+ 
+
+201
+00:04:39,919 --> 00:04:42,150
+the majority of the cases.
+So in async appender what happens is
+
+202
+00:04:42,150 --> 00:04:42,160
+So in async appender what happens is
+ 
+
+203
+00:04:42,160 --> 00:04:44,070
+So in async appender what happens is
+that let's say your request comes you
+
+204
+00:04:44,070 --> 00:04:44,080
+that let's say your request comes you
+ 
+
+205
+00:04:44,080 --> 00:04:47,510
+that let's say your request comes you
+did log.info info and after that there's
+
+206
+00:04:47,510 --> 00:04:47,520
+did log.info info and after that there's
+ 
+
+207
+00:04:47,520 --> 00:04:49,749
+did log.info info and after that there's
+something task like level check log
+
+208
+00:04:49,749 --> 00:04:49,759
+something task like level check log
+ 
+
+209
+00:04:49,759 --> 00:04:54,629
+something task like level check log
+events done. As soon as that is done, so
+
+210
+00:04:54,629 --> 00:04:54,639
+events done. As soon as that is done, so
+ 
+
+211
+00:04:54,639 --> 00:04:58,310
+events done. As soon as that is done, so
+we put the event log event to a que and
+
+212
+00:04:58,310 --> 00:04:58,320
+we put the event log event to a que and
+ 
+
+213
+00:04:58,320 --> 00:05:00,629
+we put the event log event to a que and
+as soon as the log event is put to the
+
+214
+00:05:00,629 --> 00:05:00,639
+as soon as the log event is put to the
+ 
+
+215
+00:05:00,639 --> 00:05:03,990
+as soon as the log event is put to the
+queue, your request thread become free.
+
+216
+00:05:03,990 --> 00:05:04,000
+queue, your request thread become free.
+ 
+
+217
+00:05:04,000 --> 00:05:07,350
+queue, your request thread become free.
+And now this Q holds log events and then
+
+218
+00:05:07,350 --> 00:05:07,360
+And now this Q holds log events and then
+ 
+
+219
+00:05:07,360 --> 00:05:09,350
+And now this Q holds log events and then
+we have a worker thread which take out
+
+220
+00:05:09,350 --> 00:05:09,360
+we have a worker thread which take out
+ 
+
+221
+00:05:09,360 --> 00:05:13,189
+we have a worker thread which take out
+this log event from the Q and pass it to
+
+222
+00:05:13,189 --> 00:05:13,199
+this log event from the Q and pass it to
+ 
+
+223
+00:05:13,199 --> 00:05:15,270
+this log event from the Q and pass it to
+the appender and appender write it to
+
+224
+00:05:15,270 --> 00:05:15,280
+the appender and appender write it to
+ 
+
+225
+00:05:15,280 --> 00:05:18,469
+the appender and appender write it to
+the log statement. So from the above
+
+226
+00:05:18,469 --> 00:05:18,479
+the log statement. So from the above
+ 
+
+227
+00:05:18,479 --> 00:05:20,150
+the log statement. So from the above
+diagram couple of things we need to
+
+228
+00:05:20,150 --> 00:05:20,160
+diagram couple of things we need to
+ 
+
+229
+00:05:20,160 --> 00:05:23,029
+diagram couple of things we need to
+notice that a sync appender is just a
+
+230
+00:05:23,029 --> 00:05:23,039
+notice that a sync appender is just a
+ 
+
+231
+00:05:23,039 --> 00:05:25,749
+notice that a sync appender is just a
+wrapper actual work is still done by
+
+232
+00:05:25,749 --> 00:05:25,759
+wrapper actual work is still done by
+ 
+
+233
+00:05:25,759 --> 00:05:27,749
+wrapper actual work is still done by
+appender only. So this is the one which
+
+234
+00:05:27,749 --> 00:05:27,759
+appender only. So this is the one which
+ 
+
+235
+00:05:27,759 --> 00:05:30,469
+appender only. So this is the one which
+actually does all the work of writing.
+
+236
+00:05:30,469 --> 00:05:30,479
+actually does all the work of writing.
+ 
+
+237
+00:05:30,479 --> 00:05:32,790
+actually does all the work of writing.
+Okay only thing is we are just providing
+
+238
+00:05:32,790 --> 00:05:32,800
+Okay only thing is we are just providing
+ 
+
+239
+00:05:32,800 --> 00:05:36,230
+Okay only thing is we are just providing
+a wrapper above it that okay instead of
+
+240
+00:05:36,230 --> 00:05:36,240
+a wrapper above it that okay instead of
+ 
+
+241
+00:05:36,240 --> 00:05:37,990
+a wrapper above it that okay instead of
+directly
+
+242
+00:05:37,990 --> 00:05:38,000
+directly
+ 
+
+243
+00:05:38,000 --> 00:05:39,909
+directly
+sending the request or log event to
+
+244
+00:05:39,909 --> 00:05:39,919
+sending the request or log event to
+ 
+
+245
+00:05:39,919 --> 00:05:42,150
+sending the request or log event to
+appender we are first accepting into the
+
+246
+00:05:42,150 --> 00:05:42,160
+appender we are first accepting into the
+ 
+
+247
+00:05:42,160 --> 00:05:44,230
+appender we are first accepting into the
+queue. From the queue a worker thread
+
+248
+00:05:44,230 --> 00:05:44,240
+queue. From the queue a worker thread
+ 
+
+249
+00:05:44,240 --> 00:05:47,110
+queue. From the queue a worker thread
+pick the task and pass it to appender.
+
+250
+00:05:47,110 --> 00:05:47,120
+pick the task and pass it to appender.
+ 
+
+251
+00:05:47,120 --> 00:05:49,909
+pick the task and pass it to appender.
+Okay. So async appender provide Q
+
+252
+00:05:49,909 --> 00:05:49,919
+Okay. So async appender provide Q
+ 
+
+253
+00:05:49,919 --> 00:05:52,150
+Okay. So async appender provide Q
+facility and also provide worker thread
+
+254
+00:05:52,150 --> 00:05:52,160
+facility and also provide worker thread
+ 
+
+255
+00:05:52,160 --> 00:05:54,469
+facility and also provide worker thread
+facility which pick the event from the
+
+256
+00:05:54,469 --> 00:05:54,479
+facility which pick the event from the
+ 
+
+257
+00:05:54,479 --> 00:05:57,270
+facility which pick the event from the
+queue and pass it to appender. So this
+
+258
+00:05:57,270 --> 00:05:57,280
+queue and pass it to appender. So this
+ 
+
+259
+00:05:57,280 --> 00:05:59,749
+queue and pass it to appender. So this
+is how we write an async appender. So
+
+260
+00:05:59,749 --> 00:05:59,759
+is how we write an async appender. So
+ 
+
+261
+00:05:59,759 --> 00:06:01,590
+is how we write an async appender. So
+this is nothing but a normal file
+
+262
+00:06:01,590 --> 00:06:01,600
+this is nothing but a normal file
+ 
+
+263
+00:06:01,600 --> 00:06:03,189
+this is nothing but a normal file
+appender
+
+264
+00:06:03,189 --> 00:06:03,199
+appender
+ 
+
+265
+00:06:03,199 --> 00:06:05,670
+appender
+which we have already seen in the part
+
+266
+00:06:05,670 --> 00:06:05,680
+which we have already seen in the part
+ 
+
+267
+00:06:05,680 --> 00:06:07,430
+which we have already seen in the part
+two like how to create appender. So this
+
+268
+00:06:07,430 --> 00:06:07,440
+two like how to create appender. So this
+ 
+
+269
+00:06:07,440 --> 00:06:10,070
+two like how to create appender. So this
+is nothing but a file appender. Now I am
+
+270
+00:06:10,070 --> 00:06:10,080
+is nothing but a file appender. Now I am
+ 
+
+271
+00:06:10,080 --> 00:06:12,469
+is nothing but a file appender. Now I am
+creating one appender. Okay. Okay. And I
+
+272
+00:06:12,469 --> 00:06:12,479
+creating one appender. Okay. Okay. And I
+ 
+
+273
+00:06:12,479 --> 00:06:15,270
+creating one appender. Okay. Okay. And I
+have given it a name a sync file. Okay.
+
+274
+00:06:15,270 --> 00:06:15,280
+have given it a name a sync file. Okay.
+ 
+
+275
+00:06:15,280 --> 00:06:17,670
+have given it a name a sync file. Okay.
+You can give any name. And the class
+
+276
+00:06:17,670 --> 00:06:17,680
+You can give any name. And the class
+ 
+
+277
+00:06:17,680 --> 00:06:20,070
+You can give any name. And the class
+which I'm using it a sync appender. So
+
+278
+00:06:20,070 --> 00:06:20,080
+which I'm using it a sync appender. So
+ 
+
+279
+00:06:20,080 --> 00:06:22,550
+which I'm using it a sync appender. So
+here I am creating now a sync appender.
+
+280
+00:06:22,550 --> 00:06:22,560
+here I am creating now a sync appender.
+ 
+
+281
+00:06:22,560 --> 00:06:25,909
+here I am creating now a sync appender.
+I told you it's just a wrapper. Okay. So
+
+282
+00:06:25,909 --> 00:06:25,919
+I told you it's just a wrapper. Okay. So
+ 
+
+283
+00:06:25,919 --> 00:06:28,790
+I told you it's just a wrapper. Okay. So
+this a sync appender which I'm writing
+
+284
+00:06:28,790 --> 00:06:28,800
+this a sync appender which I'm writing
+ 
+
+285
+00:06:28,800 --> 00:06:31,670
+this a sync appender which I'm writing
+it might pass a request to one specific
+
+286
+00:06:31,670 --> 00:06:31,680
+it might pass a request to one specific
+ 
+
+287
+00:06:31,680 --> 00:06:35,110
+it might pass a request to one specific
+appender. Right? So here reference
+
+288
+00:06:35,110 --> 00:06:35,120
+appender. Right? So here reference
+ 
+
+289
+00:06:35,120 --> 00:06:38,150
+appender. Right? So here reference
+appending reference to which appender.
+
+290
+00:06:38,150 --> 00:06:38,160
+appending reference to which appender.
+ 
+
+291
+00:06:38,160 --> 00:06:41,909
+appending reference to which appender.
+So here it is referencing to this file.
+
+292
+00:06:41,909 --> 00:06:41,919
+So here it is referencing to this file.
+ 
+
+293
+00:06:41,919 --> 00:06:45,909
+So here it is referencing to this file.
+Okay. Now it also provide Q and worker
+
+294
+00:06:45,909 --> 00:06:45,919
+Okay. Now it also provide Q and worker
+ 
+
+295
+00:06:45,919 --> 00:06:48,870
+Okay. Now it also provide Q and worker
+thread capacity. So we can decide what
+
+296
+00:06:48,870 --> 00:06:48,880
+thread capacity. So we can decide what
+ 
+
+297
+00:06:48,880 --> 00:06:52,070
+thread capacity. So we can decide what
+is the Q size. Capacity by default is
+
+298
+00:06:52,070 --> 00:06:52,080
+is the Q size. Capacity by default is
+ 
+
+299
+00:06:52,080 --> 00:06:55,430
+is the Q size. Capacity by default is
+256. If you don't write it but if you
+
+300
+00:06:55,430 --> 00:06:55,440
+256. If you don't write it but if you
+ 
+
+301
+00:06:55,440 --> 00:06:57,510
+256. If you don't write it but if you
+want to change it you can like Q size
+
+302
+00:06:57,510 --> 00:06:57,520
+want to change it you can like Q size
+ 
+
+303
+00:06:57,520 --> 00:07:00,950
+want to change it you can like Q size
+1,000 if you want it. Okay. Then we have
+
+304
+00:07:00,950 --> 00:07:00,960
+1,000 if you want it. Okay. Then we have
+ 
+
+305
+00:07:00,960 --> 00:07:02,710
+1,000 if you want it. Okay. Then we have
+something called worker thread. Worker
+
+306
+00:07:02,710 --> 00:07:02,720
+something called worker thread. Worker
+ 
+
+307
+00:07:02,720 --> 00:07:04,550
+something called worker thread. Worker
+thread by default it has only one worker
+
+308
+00:07:04,550 --> 00:07:04,560
+thread by default it has only one worker
+ 
+
+309
+00:07:04,560 --> 00:07:07,510
+thread by default it has only one worker
+thread. Okay. And generally uh there is
+
+310
+00:07:07,510 --> 00:07:07,520
+thread. Okay. And generally uh there is
+ 
+
+311
+00:07:07,520 --> 00:07:09,430
+thread. Okay. And generally uh there is
+no configuration that to increase the
+
+312
+00:07:09,430 --> 00:07:09,440
+no configuration that to increase the
+ 
+
+313
+00:07:09,440 --> 00:07:11,029
+no configuration that to increase the
+worker thread. It only has one worker
+
+314
+00:07:11,029 --> 00:07:11,039
+worker thread. It only has one worker
+ 
+
+315
+00:07:11,039 --> 00:07:14,309
+worker thread. It only has one worker
+thread which works on the queue
+
+316
+00:07:14,309 --> 00:07:14,319
+thread which works on the queue
+ 
+
+317
+00:07:14,319 --> 00:07:15,510
+thread which works on the queue
+and then there is something called
+
+318
+00:07:15,510 --> 00:07:15,520
+and then there is something called
+ 
+
+319
+00:07:15,520 --> 00:07:17,670
+and then there is something called
+discarding threshold. So discarding
+
+320
+00:07:17,670 --> 00:07:17,680
+discarding threshold. So discarding
+ 
+
+321
+00:07:17,680 --> 00:07:19,110
+discarding threshold. So discarding
+threshold like you can give any value
+
+322
+00:07:19,110 --> 00:07:19,120
+threshold like you can give any value
+ 
+
+323
+00:07:19,120 --> 00:07:22,790
+threshold like you can give any value
+like 10 20 50. So what does it mean when
+
+324
+00:07:22,790 --> 00:07:22,800
+like 10 20 50. So what does it mean when
+ 
+
+325
+00:07:22,800 --> 00:07:26,309
+like 10 20 50. So what does it mean when
+you give 10 what does it mean that? So
+
+326
+00:07:26,309 --> 00:07:26,319
+you give 10 what does it mean that? So
+ 
+
+327
+00:07:26,319 --> 00:07:29,830
+you give 10 what does it mean that? So
+till Q whatever the Q we have let's say
+
+328
+00:07:29,830 --> 00:07:29,840
+till Q whatever the Q we have let's say
+ 
+
+329
+00:07:29,840 --> 00:07:33,189
+till Q whatever the Q we have let's say
+that it size is 0 to 99 100.
+
+330
+00:07:33,189 --> 00:07:33,199
+that it size is 0 to 99 100.
+ 
+
+331
+00:07:33,199 --> 00:07:37,990
+that it size is 0 to 99 100.
+So till the Q size doesn't reach 90 it
+
+332
+00:07:37,990 --> 00:07:38,000
+So till the Q size doesn't reach 90 it
+ 
+
+333
+00:07:38,000 --> 00:07:41,990
+So till the Q size doesn't reach 90 it
+will accept all kind of log events debug
+
+334
+00:07:41,990 --> 00:07:42,000
+will accept all kind of log events debug
+ 
+
+335
+00:07:42,000 --> 00:07:46,469
+will accept all kind of log events debug
+trace info error want all are accepted
+
+336
+00:07:46,469 --> 00:07:46,479
+trace info error want all are accepted
+ 
+
+337
+00:07:46,479 --> 00:07:49,909
+trace info error want all are accepted
+but as soon as the size reach till 90
+
+338
+00:07:49,909 --> 00:07:49,919
+but as soon as the size reach till 90
+ 
+
+339
+00:07:49,919 --> 00:07:53,589
+but as soon as the size reach till 90
+and only 10% space is left. So for this
+
+340
+00:07:53,589 --> 00:07:53,599
+and only 10% space is left. So for this
+ 
+
+341
+00:07:53,599 --> 00:07:55,110
+and only 10% space is left. So for this
+10%
+
+342
+00:07:55,110 --> 00:07:55,120
+10%
+ 
+
+343
+00:07:55,120 --> 00:07:58,070
+10%
+only critical events will be accepted.
+
+344
+00:07:58,070 --> 00:07:58,080
+only critical events will be accepted.
+ 
+
+345
+00:07:58,080 --> 00:08:00,710
+only critical events will be accepted.
+Generally error, warn and info these are
+
+346
+00:08:00,710 --> 00:08:00,720
+Generally error, warn and info these are
+ 
+
+347
+00:08:00,720 --> 00:08:02,790
+Generally error, warn and info these are
+generally considered as you can say that
+
+348
+00:08:02,790 --> 00:08:02,800
+generally considered as you can say that
+ 
+
+349
+00:08:02,800 --> 00:08:04,710
+generally considered as you can say that
+critical debug and trace would be
+
+350
+00:08:04,710 --> 00:08:04,720
+critical debug and trace would be
+ 
+
+351
+00:08:04,720 --> 00:08:07,909
+critical debug and trace would be
+rejected. Okay. So last 10% would be
+
+352
+00:08:07,909 --> 00:08:07,919
+rejected. Okay. So last 10% would be
+ 
+
+353
+00:08:07,919 --> 00:08:10,629
+rejected. Okay. So last 10% would be
+kept only for critical uh non-critical
+
+354
+00:08:10,629 --> 00:08:10,639
+kept only for critical uh non-critical
+ 
+
+355
+00:08:10,639 --> 00:08:13,430
+kept only for critical uh non-critical
+would be discarded. Okay. So if you have
+
+356
+00:08:13,430 --> 00:08:13,440
+would be discarded. Okay. So if you have
+ 
+
+357
+00:08:13,440 --> 00:08:17,029
+would be discarded. Okay. So if you have
+like 40 so till 60%
+
+358
+00:08:17,029 --> 00:08:17,039
+like 40 so till 60%
+ 
+
+359
+00:08:17,039 --> 00:08:18,390
+like 40 so till 60%
+everything would be accepted in the
+
+360
+00:08:18,390 --> 00:08:18,400
+everything would be accepted in the
+ 
+
+361
+00:08:18,400 --> 00:08:21,830
+everything would be accepted in the
+queue and for last 40% of the queue only
+
+362
+00:08:21,830 --> 00:08:21,840
+queue and for last 40% of the queue only
+ 
+
+363
+00:08:21,840 --> 00:08:24,390
+queue and for last 40% of the queue only
+critical info error one would be
+
+364
+00:08:24,390 --> 00:08:24,400
+critical info error one would be
+ 
+
+365
+00:08:24,400 --> 00:08:26,469
+critical info error one would be
+accepted by the queue the rest is not
+
+366
+00:08:26,469 --> 00:08:26,479
+accepted by the queue the rest is not
+ 
+
+367
+00:08:26,479 --> 00:08:30,469
+accepted by the queue the rest is not
+accepted this uh like your debug trace
+
+368
+00:08:30,469 --> 00:08:30,479
+accepted this uh like your debug trace
+ 
+
+369
+00:08:30,479 --> 00:08:32,310
+accepted this uh like your debug trace
+okay and there is also one more thing
+
+370
+00:08:32,310 --> 00:08:32,320
+okay and there is also one more thing
+ 
+
+371
+00:08:32,320 --> 00:08:35,029
+okay and there is also one more thing
+like never block true false so we can
+
+372
+00:08:35,029 --> 00:08:35,039
+like never block true false so we can
+ 
+
+373
+00:08:35,039 --> 00:08:38,550
+like never block true false so we can
+write it like here never block true
+
+374
+00:08:38,550 --> 00:08:38,560
+write it like here never block true
+ 
+
+375
+00:08:38,560 --> 00:08:41,750
+write it like here never block true
+false what does it mean now let's say
+
+376
+00:08:41,750 --> 00:08:41,760
+false what does it mean now let's say
+ 
+
+377
+00:08:41,760 --> 00:08:44,550
+false what does it mean now let's say
+when the Q is full.
+
+378
+00:08:44,550 --> 00:08:44,560
+when the Q is full.
+ 
+
+379
+00:08:44,560 --> 00:08:47,590
+when the Q is full.
+When the queue is full and your request
+
+380
+00:08:47,590 --> 00:08:47,600
+When the queue is full and your request
+ 
+
+381
+00:08:47,600 --> 00:08:50,550
+When the queue is full and your request
+is trying to insert an event, does it
+
+382
+00:08:50,550 --> 00:08:50,560
+is trying to insert an event, does it
+ 
+
+383
+00:08:50,560 --> 00:08:53,590
+is trying to insert an event, does it
+has to wait or not? So by default is
+
+384
+00:08:53,590 --> 00:08:53,600
+has to wait or not? So by default is
+ 
+
+385
+00:08:53,600 --> 00:08:57,750
+has to wait or not? So by default is
+false. Okay. So means the request thread
+
+386
+00:08:57,750 --> 00:08:57,760
+false. Okay. So means the request thread
+ 
+
+387
+00:08:57,760 --> 00:09:00,550
+false. Okay. So means the request thread
+blocks if the que is full. If the que is
+
+388
+00:09:00,550 --> 00:09:00,560
+blocks if the que is full. If the que is
+ 
+
+389
+00:09:00,560 --> 00:09:03,910
+blocks if the que is full. If the que is
+full, it wait for the space in the
+
+390
+00:09:03,910 --> 00:09:03,920
+full, it wait for the space in the
+ 
+
+391
+00:09:03,920 --> 00:09:07,590
+full, it wait for the space in the
+queue. But if you make it true,
+
+392
+00:09:07,590 --> 00:09:07,600
+queue. But if you make it true,
+ 
+
+393
+00:09:07,600 --> 00:09:10,470
+queue. But if you make it true,
+it request thread drop the log itself.
+
+394
+00:09:10,470 --> 00:09:10,480
+it request thread drop the log itself.
+ 
+
+395
+00:09:10,480 --> 00:09:12,790
+it request thread drop the log itself.
+But request thread do not wait. If there
+
+396
+00:09:12,790 --> 00:09:12,800
+But request thread do not wait. If there
+ 
+
+397
+00:09:12,800 --> 00:09:15,509
+But request thread do not wait. If there
+is no space, the log would be dropped
+
+398
+00:09:15,509 --> 00:09:15,519
+is no space, the log would be dropped
+ 
+
+399
+00:09:15,519 --> 00:09:17,750
+is no space, the log would be dropped
+and the request thread would get free
+
+400
+00:09:17,750 --> 00:09:17,760
+and the request thread would get free
+ 
+
+401
+00:09:17,760 --> 00:09:19,990
+and the request thread would get free
+immediately. It won't wait for the space
+
+402
+00:09:19,990 --> 00:09:20,000
+immediately. It won't wait for the space
+ 
+
+403
+00:09:20,000 --> 00:09:23,509
+immediately. It won't wait for the space
+to get uh created within a queue.
+
+404
+00:09:23,509 --> 00:09:23,519
+to get uh created within a queue.
+ 
+
+405
+00:09:23,519 --> 00:09:28,470
+to get uh created within a queue.
+Okay. So these are the
+
+406
+00:09:28,470 --> 00:09:28,480
+Okay. So these are the
+ 
+
+407
+00:09:28,480 --> 00:09:30,949
+Okay. So these are the
+configuration you can use in an async
+
+408
+00:09:30,949 --> 00:09:30,959
+configuration you can use in an async
+ 
+
+409
+00:09:30,959 --> 00:09:33,350
+configuration you can use in an async
+appender. So name anything you can give
+
+410
+00:09:33,350 --> 00:09:33,360
+appender. So name anything you can give
+ 
+
+411
+00:09:33,360 --> 00:09:36,790
+appender. So name anything you can give
+the class async appender the actual
+
+412
+00:09:36,790 --> 00:09:36,800
+the class async appender the actual
+ 
+
+413
+00:09:36,800 --> 00:09:40,310
+the class async appender the actual
+appender which this async has to call
+
+414
+00:09:40,310 --> 00:09:40,320
+appender which this async has to call
+ 
+
+415
+00:09:40,320 --> 00:09:43,030
+appender which this async has to call
+the Q size and like discarding threshold
+
+416
+00:09:43,030 --> 00:09:43,040
+the Q size and like discarding threshold
+ 
+
+417
+00:09:43,040 --> 00:09:45,670
+the Q size and like discarding threshold
+and never block. Okay. And here if you
+
+418
+00:09:45,670 --> 00:09:45,680
+and never block. Okay. And here if you
+ 
+
+419
+00:09:45,680 --> 00:09:48,790
+and never block. Okay. And here if you
+see this is our logger. Okay. Level is
+
+420
+00:09:48,790 --> 00:09:48,800
+see this is our logger. Okay. Level is
+ 
+
+421
+00:09:48,800 --> 00:09:50,630
+see this is our logger. Okay. Level is
+info. Additivity is false. We have
+
+422
+00:09:50,630 --> 00:09:50,640
+info. Additivity is false. We have
+ 
+
+423
+00:09:50,640 --> 00:09:53,269
+info. Additivity is false. We have
+already seen the appender which it we
+
+424
+00:09:53,269 --> 00:09:53,279
+already seen the appender which it we
+ 
+
+425
+00:09:53,279 --> 00:09:57,350
+already seen the appender which it we
+are associating it this a sync one.
+
+426
+00:09:57,350 --> 00:09:57,360
+are associating it this a sync one.
+ 
+
+427
+00:09:57,360 --> 00:10:00,630
+are associating it this a sync one.
+Now one important thing to consider is
+
+428
+00:10:00,630 --> 00:10:00,640
+Now one important thing to consider is
+ 
+
+429
+00:10:00,640 --> 00:10:03,430
+Now one important thing to consider is
+that what happen in case of app shutdown
+
+430
+00:10:03,430 --> 00:10:03,440
+that what happen in case of app shutdown
+ 
+
+431
+00:10:03,440 --> 00:10:05,910
+that what happen in case of app shutdown
+because the queue which is created is in
+
+432
+00:10:05,910 --> 00:10:05,920
+because the queue which is created is in
+ 
+
+433
+00:10:05,920 --> 00:10:07,590
+because the queue which is created is in
+memory.
+
+434
+00:10:07,590 --> 00:10:07,600
+memory.
+ 
+
+435
+00:10:07,600 --> 00:10:13,110
+memory.
+So when the JVM stops let's say your JVM
+
+436
+00:10:13,110 --> 00:10:13,120
+So when the JVM stops let's say your JVM
+ 
+
+437
+00:10:13,120 --> 00:10:15,590
+So when the JVM stops let's say your JVM
+you shut down the app. So when you shut
+
+438
+00:10:15,590 --> 00:10:15,600
+you shut down the app. So when you shut
+ 
+
+439
+00:10:15,600 --> 00:10:17,269
+you shut down the app. So when you shut
+down the app JVM does not shut down
+
+440
+00:10:17,269 --> 00:10:17,279
+down the app JVM does not shut down
+ 
+
+441
+00:10:17,279 --> 00:10:20,389
+down the app JVM does not shut down
+instantly. It performs certain cleanups.
+
+442
+00:10:20,389 --> 00:10:20,399
+instantly. It performs certain cleanups.
+ 
+
+443
+00:10:20,399 --> 00:10:23,590
+instantly. It performs certain cleanups.
+So during that time what happens to the
+
+444
+00:10:23,590 --> 00:10:23,600
+So during that time what happens to the
+ 
+
+445
+00:10:23,600 --> 00:10:26,790
+So during that time what happens to the
+async appender is first it will stop
+
+446
+00:10:26,790 --> 00:10:26,800
+async appender is first it will stop
+ 
+
+447
+00:10:26,800 --> 00:10:29,190
+async appender is first it will stop
+accepting any new log event. It will not
+
+448
+00:10:29,190 --> 00:10:29,200
+accepting any new log event. It will not
+ 
+
+449
+00:10:29,200 --> 00:10:31,190
+accepting any new log event. It will not
+accept any new log event even if there
+
+450
+00:10:31,190 --> 00:10:31,200
+accept any new log event even if there
+ 
+
+451
+00:10:31,200 --> 00:10:34,150
+accept any new log event even if there
+is a space and it try to flush the event
+
+452
+00:10:34,150 --> 00:10:34,160
+is a space and it try to flush the event
+ 
+
+453
+00:10:34,160 --> 00:10:37,110
+is a space and it try to flush the event
+as soon as possible but it does not
+
+454
+00:10:37,110 --> 00:10:37,120
+as soon as possible but it does not
+ 
+
+455
+00:10:37,120 --> 00:10:39,030
+as soon as possible but it does not
+guarantee because as soon as JVM
+
+456
+00:10:39,030 --> 00:10:39,040
+guarantee because as soon as JVM
+ 
+
+457
+00:10:39,040 --> 00:10:42,470
+guarantee because as soon as JVM
+shutdown this queue is discarded. So any
+
+458
+00:10:42,470 --> 00:10:42,480
+shutdown this queue is discarded. So any
+ 
+
+459
+00:10:42,480 --> 00:10:44,949
+shutdown this queue is discarded. So any
+event present into the queue will get
+
+460
+00:10:44,949 --> 00:10:44,959
+event present into the queue will get
+ 
+
+461
+00:10:44,959 --> 00:10:47,030
+event present into the queue will get
+discarded.
+
+462
+00:10:47,030 --> 00:10:47,040
+discarded.
+ 
+
+463
+00:10:47,040 --> 00:10:50,230
+discarded.
+So there is always a risk of losing the
+
+464
+00:10:50,230 --> 00:10:50,240
+So there is always a risk of losing the
+ 
+
+465
+00:10:50,240 --> 00:10:55,030
+So there is always a risk of losing the
+events in case of a sync appender or you
+
+466
+00:10:55,030 --> 00:10:55,040
+events in case of a sync appender or you
+ 
+
+467
+00:10:55,040 --> 00:10:56,790
+events in case of a sync appender or you
+can say that in case of a sync logging
+
+468
+00:10:56,790 --> 00:10:56,800
+can say that in case of a sync logging
+ 
+
+469
+00:10:56,800 --> 00:10:58,710
+can say that in case of a sync logging
+itself.
+
+470
+00:10:58,710 --> 00:10:58,720
+itself.
+ 
+
+471
+00:10:58,720 --> 00:11:02,069
+itself.
+So my recommendation is that for warn
+
+472
+00:11:02,069 --> 00:11:02,079
+So my recommendation is that for warn
+ 
+
+473
+00:11:02,079 --> 00:11:05,829
+So my recommendation is that for warn
+info debug trace we can go for a sync
+
+474
+00:11:05,829 --> 00:11:05,839
+info debug trace we can go for a sync
+ 
+
+475
+00:11:05,839 --> 00:11:07,509
+info debug trace we can go for a sync
+but for critical error is something
+
+476
+00:11:07,509 --> 00:11:07,519
+but for critical error is something
+ 
+
+477
+00:11:07,519 --> 00:11:09,350
+but for critical error is something
+which I would say that it is critical
+
+478
+00:11:09,350 --> 00:11:09,360
+which I would say that it is critical
+ 
+
+479
+00:11:09,360 --> 00:11:11,350
+which I would say that it is critical
+because if any customer issue comes say
+
+480
+00:11:11,350 --> 00:11:11,360
+because if any customer issue comes say
+ 
+
+481
+00:11:11,360 --> 00:11:14,310
+because if any customer issue comes say
+this is not working then this error log
+
+482
+00:11:14,310 --> 00:11:14,320
+this is not working then this error log
+ 
+
+483
+00:11:14,320 --> 00:11:15,910
+this is not working then this error log
+is something which can help us. So this
+
+484
+00:11:15,910 --> 00:11:15,920
+is something which can help us. So this
+ 
+
+485
+00:11:15,920 --> 00:11:18,790
+is something which can help us. So this
+I consider is a very critical event. So
+
+486
+00:11:18,790 --> 00:11:18,800
+I consider is a very critical event. So
+ 
+
+487
+00:11:18,800 --> 00:11:21,190
+I consider is a very critical event. So
+for that only we can go for sync but for
+
+488
+00:11:21,190 --> 00:11:21,200
+for that only we can go for sync but for
+ 
+
+489
+00:11:21,200 --> 00:11:23,509
+for that only we can go for sync but for
+all others we can go for a sing. Why?
+
+490
+00:11:23,509 --> 00:11:23,519
+all others we can go for a sing. Why?
+ 
+
+491
+00:11:23,519 --> 00:11:26,230
+all others we can go for a sing. Why?
+Because uh even though we can for error
+
+492
+00:11:26,230 --> 00:11:26,240
+Because uh even though we can for error
+ 
+
+493
+00:11:26,240 --> 00:11:28,310
+Because uh even though we can for error
+also we can go for a singing and we can
+
+494
+00:11:28,310 --> 00:11:28,320
+also we can go for a singing and we can
+ 
+
+495
+00:11:28,320 --> 00:11:31,829
+also we can go for a singing and we can
+make that okay never block true or uh
+
+496
+00:11:31,829 --> 00:11:31,839
+make that okay never block true or uh
+ 
+
+497
+00:11:31,839 --> 00:11:35,110
+make that okay never block true or uh
+never block false means if the Q is full
+
+498
+00:11:35,110 --> 00:11:35,120
+never block false means if the Q is full
+ 
+
+499
+00:11:35,120 --> 00:11:39,030
+never block false means if the Q is full
+wait don't just discard the Q. But we
+
+500
+00:11:39,030 --> 00:11:39,040
+wait don't just discard the Q. But we
+ 
+
+501
+00:11:39,040 --> 00:11:42,949
+wait don't just discard the Q. But we
+can also have like okay only for warning
+
+502
+00:11:42,949 --> 00:11:42,959
+can also have like okay only for warning
+ 
+
+503
+00:11:42,959 --> 00:11:45,350
+can also have like okay only for warning
+info debug trace we can go for a sync
+
+504
+00:11:45,350 --> 00:11:45,360
+info debug trace we can go for a sync
+ 
+
+505
+00:11:45,360 --> 00:11:48,069
+info debug trace we can go for a sync
+for error I will go for sync that also
+
+506
+00:11:48,069 --> 00:11:48,079
+for error I will go for sync that also
+ 
+
+507
+00:11:48,079 --> 00:11:51,030
+for error I will go for sync that also
+we can do just to make sure that Q size
+
+508
+00:11:51,030 --> 00:11:51,040
+we can do just to make sure that Q size
+ 
+
+509
+00:11:51,040 --> 00:11:53,670
+we can do just to make sure that Q size
+full or application restart in scenario
+
+510
+00:11:53,670 --> 00:11:53,680
+full or application restart in scenario
+ 
+
+511
+00:11:53,680 --> 00:11:56,389
+full or application restart in scenario
+in those cases my critical event does
+
+512
+00:11:56,389 --> 00:11:56,399
+in those cases my critical event does
+ 
+
+513
+00:11:56,399 --> 00:11:58,230
+in those cases my critical event does
+not lost.
+
+514
+00:11:58,230 --> 00:11:58,240
+not lost.
+ 
+
+515
+00:11:58,240 --> 00:12:00,230
+not lost.
+So I will just give you an example that
+
+516
+00:12:00,230 --> 00:12:00,240
+So I will just give you an example that
+ 
+
+517
+00:12:00,240 --> 00:12:03,110
+So I will just give you an example that
+how we can do that. Uh we can make use
+
+518
+00:12:03,110 --> 00:12:03,120
+how we can do that. Uh we can make use
+ 
+
+519
+00:12:03,120 --> 00:12:06,069
+how we can do that. Uh we can make use
+of filter. We also have filters in
+
+520
+00:12:06,069 --> 00:12:06,079
+of filter. We also have filters in
+ 
+
+521
+00:12:06,079 --> 00:12:08,790
+of filter. We also have filters in
+appender. we can make use of it. So just
+
+522
+00:12:08,790 --> 00:12:08,800
+appender. we can make use of it. So just
+ 
+
+523
+00:12:08,800 --> 00:12:12,870
+appender. we can make use of it. So just
+see this example. So what I am trying to
+
+524
+00:12:12,870 --> 00:12:12,880
+see this example. So what I am trying to
+ 
+
+525
+00:12:12,880 --> 00:12:17,030
+see this example. So what I am trying to
+here show you that we have a sync
+
+526
+00:12:17,030 --> 00:12:17,040
+here show you that we have a sync
+ 
+
+527
+00:12:17,040 --> 00:12:19,030
+here show you that we have a sync
+appender.
+
+528
+00:12:19,030 --> 00:12:19,040
+appender.
+ 
+
+529
+00:12:19,040 --> 00:12:24,069
+appender.
+A sync appender writes to a file.
+
+530
+00:12:24,069 --> 00:12:24,079
+A sync appender writes to a file.
+ 
+
+531
+00:12:24,079 --> 00:12:28,150
+A sync appender writes to a file.
+Uh this file name is noncritical.
+
+532
+00:12:28,150 --> 00:12:28,160
+Uh this file name is noncritical.
+ 
+
+533
+00:12:28,160 --> 00:12:30,870
+Uh this file name is noncritical.
+So here info
+
+534
+00:12:30,870 --> 00:12:30,880
+So here info
+ 
+
+535
+00:12:30,880 --> 00:12:35,190
+So here info
+warn debug trace
+
+536
+00:12:35,190 --> 00:12:35,200
+warn debug trace
+ 
+
+537
+00:12:35,200 --> 00:12:39,829
+warn debug trace
+will go. Then we have uh one more file
+
+538
+00:12:39,829 --> 00:12:39,839
+will go. Then we have uh one more file
+ 
+
+539
+00:12:39,839 --> 00:12:42,389
+will go. Then we have uh one more file
+critical
+
+540
+00:12:42,389 --> 00:12:42,399
+critical
+ 
+
+541
+00:12:42,399 --> 00:12:45,829
+critical
+here error log will go only error log
+
+542
+00:12:45,829 --> 00:12:45,839
+here error log will go only error log
+ 
+
+543
+00:12:45,839 --> 00:12:49,430
+here error log will go only error log
+only okay and all this info debug on
+
+544
+00:12:49,430 --> 00:12:49,440
+only okay and all this info debug on
+ 
+
+545
+00:12:49,440 --> 00:12:51,269
+only okay and all this info debug on
+this file it will happen in async and
+
+546
+00:12:51,269 --> 00:12:51,279
+this file it will happen in async and
+ 
+
+547
+00:12:51,279 --> 00:12:53,990
+this file it will happen in async and
+this will happen in sync
+
+548
+00:12:53,990 --> 00:12:54,000
+this will happen in sync
+ 
+
+549
+00:12:54,000 --> 00:12:56,550
+this will happen in sync
+so we want this functionality how we can
+
+550
+00:12:56,550 --> 00:12:56,560
+so we want this functionality how we can
+ 
+
+551
+00:12:56,560 --> 00:13:01,110
+so we want this functionality how we can
+do that so here if you see that
+
+552
+00:13:01,110 --> 00:13:01,120
+do that so here if you see that
+ 
+
+553
+00:13:01,120 --> 00:13:03,829
+do that so here if you see that
+I am uh I have created one let's say
+
+554
+00:13:03,829 --> 00:13:03,839
+I am uh I have created one let's say
+ 
+
+555
+00:13:03,839 --> 00:13:06,230
+I am uh I have created one let's say
+first appender is non-critical
+
+556
+00:13:06,230 --> 00:13:06,240
+first appender is non-critical
+ 
+
+557
+00:13:06,240 --> 00:13:08,949
+first appender is non-critical
+Okay. So, appender name is file not
+
+558
+00:13:08,949 --> 00:13:08,959
+Okay. So, appender name is file not
+ 
+
+559
+00:13:08,959 --> 00:13:11,430
+Okay. So, appender name is file not
+critical. I am using a file appender for
+
+560
+00:13:11,430 --> 00:13:11,440
+critical. I am using a file appender for
+ 
+
+561
+00:13:11,440 --> 00:13:13,829
+critical. I am using a file appender for
+example. And the file name which it will
+
+562
+00:13:13,829 --> 00:13:13,839
+example. And the file name which it will
+ 
+
+563
+00:13:13,839 --> 00:13:16,550
+example. And the file name which it will
+create is non-critical app.log. This
+
+564
+00:13:16,550 --> 00:13:16,560
+create is non-critical app.log. This
+ 
+
+565
+00:13:16,560 --> 00:13:19,509
+create is non-critical app.log. This
+file non-critical app.log. This is the
+
+566
+00:13:19,509 --> 00:13:19,519
+file non-critical app.log. This is the
+ 
+
+567
+00:13:19,519 --> 00:13:22,150
+file non-critical app.log. This is the
+file it will create. And I have now
+
+568
+00:13:22,150 --> 00:13:22,160
+file it will create. And I have now
+ 
+
+569
+00:13:22,160 --> 00:13:24,069
+file it will create. And I have now
+created one a sync appender which is a
+
+570
+00:13:24,069 --> 00:13:24,079
+created one a sync appender which is a
+ 
+
+571
+00:13:24,079 --> 00:13:27,269
+created one a sync appender which is a
+wrapper above it. So the name you can
+
+572
+00:13:27,269 --> 00:13:27,279
+wrapper above it. So the name you can
+ 
+
+573
+00:13:27,279 --> 00:13:29,269
+wrapper above it. So the name you can
+give anything. I give a sync. The class
+
+574
+00:13:29,269 --> 00:13:29,279
+give anything. I give a sync. The class
+ 
+
+575
+00:13:29,279 --> 00:13:33,590
+give anything. I give a sync. The class
+is a sync appender. Okay. and uh the
+
+576
+00:13:33,590 --> 00:13:33,600
+is a sync appender. Okay. and uh the
+ 
+
+577
+00:13:33,600 --> 00:13:35,350
+is a sync appender. Okay. and uh the
+appender which is which I'm associating
+
+578
+00:13:35,350 --> 00:13:35,360
+appender which is which I'm associating
+ 
+
+579
+00:13:35,360 --> 00:13:37,829
+appender which is which I'm associating
+it with like file not critical one this
+
+580
+00:13:37,829 --> 00:13:37,839
+it with like file not critical one this
+ 
+
+581
+00:13:37,839 --> 00:13:40,949
+it with like file not critical one this
+append this one so it's just an appender
+
+582
+00:13:40,949 --> 00:13:40,959
+append this one so it's just an appender
+ 
+
+583
+00:13:40,959 --> 00:13:43,590
+append this one so it's just an appender
+above this file appender which will
+
+584
+00:13:43,590 --> 00:13:43,600
+above this file appender which will
+ 
+
+585
+00:13:43,600 --> 00:13:46,470
+above this file appender which will
+create this non-critical file
+
+586
+00:13:46,470 --> 00:13:46,480
+create this non-critical file
+ 
+
+587
+00:13:46,480 --> 00:13:48,710
+create this non-critical file
+now here if you see that I am writing
+
+588
+00:13:48,710 --> 00:13:48,720
+now here if you see that I am writing
+ 
+
+589
+00:13:48,720 --> 00:13:50,710
+now here if you see that I am writing
+one filter
+
+590
+00:13:50,710 --> 00:13:50,720
+one filter
+ 
+
+591
+00:13:50,720 --> 00:13:53,750
+one filter
+okay so we can also have filter within
+
+592
+00:13:53,750 --> 00:13:53,760
+okay so we can also have filter within
+ 
+
+593
+00:13:53,760 --> 00:13:55,269
+okay so we can also have filter within
+appender
+
+594
+00:13:55,269 --> 00:13:55,279
+appender
+ 
+
+595
+00:13:55,279 --> 00:13:56,870
+appender
+so we can have different filter like
+
+596
+00:13:56,870 --> 00:13:56,880
+so we can have different filter like
+ 
+
+597
+00:13:56,880 --> 00:13:59,590
+so we can have different filter like
+level filter okay and we have another
+
+598
+00:13:59,590 --> 00:13:59,600
+level filter okay and we have another
+ 
+
+599
+00:13:59,600 --> 00:14:02,230
+level filter okay and we have another
+like threshold filter So these are all
+
+600
+00:14:02,230 --> 00:14:02,240
+like threshold filter So these are all
+ 
+
+601
+00:14:02,240 --> 00:14:03,910
+like threshold filter So these are all
+present within the logback framework
+
+602
+00:14:03,910 --> 00:14:03,920
+present within the logback framework
+ 
+
+603
+00:14:03,920 --> 00:14:06,389
+present within the logback framework
+itself. There are more but these two are
+
+604
+00:14:06,389 --> 00:14:06,399
+itself. There are more but these two are
+ 
+
+605
+00:14:06,399 --> 00:14:08,949
+itself. There are more but these two are
+popular. You can check out the
+
+606
+00:14:08,949 --> 00:14:08,959
+popular. You can check out the
+ 
+
+607
+00:14:08,959 --> 00:14:11,670
+popular. You can check out the
+documentation. We have more filters but
+
+608
+00:14:11,670 --> 00:14:11,680
+documentation. We have more filters but
+ 
+
+609
+00:14:11,680 --> 00:14:13,509
+documentation. We have more filters but
+these are very frequently used. Level
+
+610
+00:14:13,509 --> 00:14:13,519
+these are very frequently used. Level
+ 
+
+611
+00:14:13,519 --> 00:14:16,629
+these are very frequently used. Level
+filter and threshold filter. So in level
+
+612
+00:14:16,629 --> 00:14:16,639
+filter and threshold filter. So in level
+ 
+
+613
+00:14:16,639 --> 00:14:18,870
+filter and threshold filter. So in level
+filter what generally happen is a
+
+614
+00:14:18,870 --> 00:14:18,880
+filter what generally happen is a
+ 
+
+615
+00:14:18,880 --> 00:14:20,949
+filter what generally happen is a
+particular
+
+616
+00:14:20,949 --> 00:14:20,959
+particular
+ 
+
+617
+00:14:20,959 --> 00:14:23,670
+particular
+level we can decide what to do. For
+
+618
+00:14:23,670 --> 00:14:23,680
+level we can decide what to do. For
+ 
+
+619
+00:14:23,680 --> 00:14:28,069
+level we can decide what to do. For
+example here what is our
+
+620
+00:14:28,069 --> 00:14:28,079
+example here what is our
+ 
+
+621
+00:14:28,079 --> 00:14:30,710
+example here what is our
+expectation here in this one. So when
+
+622
+00:14:30,710 --> 00:14:30,720
+expectation here in this one. So when
+ 
+
+623
+00:14:30,720 --> 00:14:33,030
+expectation here in this one. So when
+any request comes here, so here it will
+
+624
+00:14:33,030 --> 00:14:33,040
+any request comes here, so here it will
+ 
+
+625
+00:14:33,040 --> 00:14:37,509
+any request comes here, so here it will
+come all it will come info it will come
+
+626
+00:14:37,509 --> 00:14:37,519
+come all it will come info it will come
+ 
+
+627
+00:14:37,519 --> 00:14:42,150
+come all it will come info it will come
+want it will come error uh debug trace
+
+628
+00:14:42,150 --> 00:14:42,160
+want it will come error uh debug trace
+ 
+
+629
+00:14:42,160 --> 00:14:44,150
+want it will come error uh debug trace
+everything request will come try to put
+
+630
+00:14:44,150 --> 00:14:44,160
+everything request will come try to put
+ 
+
+631
+00:14:44,160 --> 00:14:46,949
+everything request will come try to put
+into the queue okay but I want to put a
+
+632
+00:14:46,949 --> 00:14:46,959
+into the queue okay but I want to put a
+ 
+
+633
+00:14:46,959 --> 00:14:50,470
+into the queue okay but I want to put a
+filter hey before putting into the Q
+
+634
+00:14:50,470 --> 00:14:50,480
+filter hey before putting into the Q
+ 
+
+635
+00:14:50,480 --> 00:14:53,750
+filter hey before putting into the Q
+only remove error one rest all I can
+
+636
+00:14:53,750 --> 00:14:53,760
+only remove error one rest all I can
+ 
+
+637
+00:14:53,760 --> 00:14:55,430
+only remove error one rest all I can
+take because ultimately I want to put
+
+638
+00:14:55,430 --> 00:14:55,440
+take because ultimately I want to put
+ 
+
+639
+00:14:55,440 --> 00:14:57,590
+take because ultimately I want to put
+into non-critical which accept all
+
+640
+00:14:57,590 --> 00:14:57,600
+into non-critical which accept all
+ 
+
+641
+00:14:57,600 --> 00:15:00,550
+into non-critical which accept all
+except error Okay. So that's what I'm
+
+642
+00:15:00,550 --> 00:15:00,560
+except error Okay. So that's what I'm
+ 
+
+643
+00:15:00,560 --> 00:15:03,110
+except error Okay. So that's what I'm
+doing. Filter level filter I'm using
+
+644
+00:15:03,110 --> 00:15:03,120
+doing. Filter level filter I'm using
+ 
+
+645
+00:15:03,120 --> 00:15:05,030
+doing. Filter level filter I'm using
+because I need to work on one particular
+
+646
+00:15:05,030 --> 00:15:05,040
+because I need to work on one particular
+ 
+
+647
+00:15:05,040 --> 00:15:08,389
+because I need to work on one particular
+level. What is the level error on match?
+
+648
+00:15:08,389 --> 00:15:08,399
+level. What is the level error on match?
+ 
+
+649
+00:15:08,399 --> 00:15:11,750
+level. What is the level error on match?
+What I have to do? Deny. Okay. I don't
+
+650
+00:15:11,750 --> 00:15:11,760
+What I have to do? Deny. Okay. I don't
+ 
+
+651
+00:15:11,760 --> 00:15:13,910
+What I have to do? Deny. Okay. I don't
+don't add it into the queue. You can say
+
+652
+00:15:13,910 --> 00:15:13,920
+don't add it into the queue. You can say
+ 
+
+653
+00:15:13,920 --> 00:15:16,790
+don't add it into the queue. You can say
+that it deny. Don't accept it
+
+654
+00:15:16,790 --> 00:15:16,800
+that it deny. Don't accept it
+ 
+
+655
+00:15:16,800 --> 00:15:19,350
+that it deny. Don't accept it
+on mismatch. What you have to do? I said
+
+656
+00:15:19,350 --> 00:15:19,360
+on mismatch. What you have to do? I said
+ 
+
+657
+00:15:19,360 --> 00:15:22,470
+on mismatch. What you have to do? I said
+neutral. Neutral means let the other
+
+658
+00:15:22,470 --> 00:15:22,480
+neutral. Neutral means let the other
+ 
+
+659
+00:15:22,480 --> 00:15:24,230
+neutral. Neutral means let the other
+filter decide. So you can have multiple
+
+660
+00:15:24,230 --> 00:15:24,240
+filter decide. So you can have multiple
+ 
+
+661
+00:15:24,240 --> 00:15:26,150
+filter decide. So you can have multiple
+filter like this filter. Filter close.
+
+662
+00:15:26,150 --> 00:15:26,160
+filter like this filter. Filter close.
+ 
+
+663
+00:15:26,160 --> 00:15:27,990
+filter like this filter. Filter close.
+This is one filter. you can have another
+
+664
+00:15:27,990 --> 00:15:28,000
+This is one filter. you can have another
+ 
+
+665
+00:15:28,000 --> 00:15:30,629
+This is one filter. you can have another
+filter. Okay. So it's like from top to
+
+666
+00:15:30,629 --> 00:15:30,639
+filter. Okay. So it's like from top to
+ 
+
+667
+00:15:30,639 --> 00:15:33,910
+filter. Okay. So it's like from top to
+bottom it will run. So neutral means I
+
+668
+00:15:33,910 --> 00:15:33,920
+bottom it will run. So neutral means I
+ 
+
+669
+00:15:33,920 --> 00:15:35,670
+bottom it will run. So neutral means I
+don't know let the other filter decide
+
+670
+00:15:35,670 --> 00:15:35,680
+don't know let the other filter decide
+ 
+
+671
+00:15:35,680 --> 00:15:37,990
+don't know let the other filter decide
+if there is otherwise ultimately finally
+
+672
+00:15:37,990 --> 00:15:38,000
+if there is otherwise ultimately finally
+ 
+
+673
+00:15:38,000 --> 00:15:41,189
+if there is otherwise ultimately finally
+it will get discarded itself. So on
+
+674
+00:15:41,189 --> 00:15:41,199
+it will get discarded itself. So on
+ 
+
+675
+00:15:41,199 --> 00:15:42,870
+it will get discarded itself. So on
+match you can say that either accept or
+
+676
+00:15:42,870 --> 00:15:42,880
+match you can say that either accept or
+ 
+
+677
+00:15:42,880 --> 00:15:45,750
+match you can say that either accept or
+deny. So I said that okay error one
+
+678
+00:15:45,750 --> 00:15:45,760
+deny. So I said that okay error one
+ 
+
+679
+00:15:45,760 --> 00:15:49,829
+deny. So I said that okay error one
+denied and on match what we should do is
+
+680
+00:15:49,829 --> 00:15:49,839
+denied and on match what we should do is
+ 
+
+681
+00:15:49,839 --> 00:15:51,910
+denied and on match what we should do is
+neutral let the other filter decide or
+
+682
+00:15:51,910 --> 00:15:51,920
+neutral let the other filter decide or
+ 
+
+683
+00:15:51,920 --> 00:15:54,629
+neutral let the other filter decide or
+you can also do denied. If this is mash
+
+684
+00:15:54,629 --> 00:15:54,639
+you can also do denied. If this is mash
+ 
+
+685
+00:15:54,639 --> 00:15:58,150
+you can also do denied. If this is mash
+deny this uh log statement itself in
+
+686
+00:15:58,150 --> 00:15:58,160
+deny this uh log statement itself in
+ 
+
+687
+00:15:58,160 --> 00:16:00,389
+deny this uh log statement itself in
+that case uh the other filter might not
+
+688
+00:16:00,389 --> 00:16:00,399
+that case uh the other filter might not
+ 
+
+689
+00:16:00,399 --> 00:16:02,310
+that case uh the other filter might not
+run.
+
+690
+00:16:02,310 --> 00:16:02,320
+run.
+ 
+
+691
+00:16:02,320 --> 00:16:05,110
+run.
+Okay. So this is filter I have added. So
+
+692
+00:16:05,110 --> 00:16:05,120
+Okay. So this is filter I have added. So
+ 
+
+693
+00:16:05,120 --> 00:16:08,389
+Okay. So this is filter I have added. So
+all the log statement apart from error
+
+694
+00:16:08,389 --> 00:16:08,399
+all the log statement apart from error
+ 
+
+695
+00:16:08,399 --> 00:16:11,670
+all the log statement apart from error
+now get added to the Q and that those
+
+696
+00:16:11,670 --> 00:16:11,680
+now get added to the Q and that those
+ 
+
+697
+00:16:11,680 --> 00:16:15,509
+now get added to the Q and that those
+will be passed to non-critical one. Okay
+
+698
+00:16:15,509 --> 00:16:15,519
+will be passed to non-critical one. Okay
+ 
+
+699
+00:16:15,519 --> 00:16:19,590
+will be passed to non-critical one. Okay
+this one when this appender will run.
+
+700
+00:16:19,590 --> 00:16:19,600
+this one when this appender will run.
+ 
+
+701
+00:16:19,600 --> 00:16:21,670
+this one when this appender will run.
+Now I have writed one critical file
+
+702
+00:16:21,670 --> 00:16:21,680
+Now I have writed one critical file
+ 
+
+703
+00:16:21,680 --> 00:16:23,990
+Now I have writed one critical file
+critical this one. So I'm writing one
+
+704
+00:16:23,990 --> 00:16:24,000
+critical this one. So I'm writing one
+ 
+
+705
+00:16:24,000 --> 00:16:27,350
+critical this one. So I'm writing one
+appender for the critical one. So I am
+
+706
+00:16:27,350 --> 00:16:27,360
+appender for the critical one. So I am
+ 
+
+707
+00:16:27,360 --> 00:16:28,870
+appender for the critical one. So I am
+using file appender. This is the file
+
+708
+00:16:28,870 --> 00:16:28,880
+using file appender. This is the file
+ 
+
+709
+00:16:28,880 --> 00:16:33,030
+using file appender. This is the file
+name it will create. Now I only want
+
+710
+00:16:33,030 --> 00:16:33,040
+name it will create. Now I only want
+ 
+
+711
+00:16:33,040 --> 00:16:36,550
+name it will create. Now I only want
+error to go inside this. Okay. Because
+
+712
+00:16:36,550 --> 00:16:36,560
+error to go inside this. Okay. Because
+ 
+
+713
+00:16:36,560 --> 00:16:39,269
+error to go inside this. Okay. Because
+here this is an appender also. So info
+
+714
+00:16:39,269 --> 00:16:39,279
+here this is an appender also. So info
+ 
+
+715
+00:16:39,279 --> 00:16:41,910
+here this is an appender also. So info
+will come, debug will come, warn will
+
+716
+00:16:41,910 --> 00:16:41,920
+will come, debug will come, warn will
+ 
+
+717
+00:16:41,920 --> 00:16:43,829
+will come, debug will come, warn will
+come, trace will come, error will come.
+
+718
+00:16:43,829 --> 00:16:43,839
+come, trace will come, error will come.
+ 
+
+719
+00:16:43,839 --> 00:16:45,990
+come, trace will come, error will come.
+So I only want to handle error. I want
+
+720
+00:16:45,990 --> 00:16:46,000
+So I only want to handle error. I want
+ 
+
+721
+00:16:46,000 --> 00:16:49,269
+So I only want to handle error. I want
+to discard all. So I can use threshold
+
+722
+00:16:49,269 --> 00:16:49,279
+to discard all. So I can use threshold
+ 
+
+723
+00:16:49,279 --> 00:16:51,509
+to discard all. So I can use threshold
+filter. So in threshold filter we can
+
+724
+00:16:51,509 --> 00:16:51,519
+filter. So in threshold filter we can
+ 
+
+725
+00:16:51,519 --> 00:16:54,230
+filter. So in threshold filter we can
+just put level. So
+
+726
+00:16:54,230 --> 00:16:54,240
+just put level. So
+ 
+
+727
+00:16:54,240 --> 00:16:57,430
+just put level. So
+this level and above would be accepted
+
+728
+00:16:57,430 --> 00:16:57,440
+this level and above would be accepted
+ 
+
+729
+00:16:57,440 --> 00:17:00,790
+this level and above would be accepted
+and this level below everything would be
+
+730
+00:17:00,790 --> 00:17:00,800
+and this level below everything would be
+ 
+
+731
+00:17:00,800 --> 00:17:04,789
+and this level below everything would be
+rejected. So apart from error warn
+
+732
+00:17:04,789 --> 00:17:04,799
+rejected. So apart from error warn
+ 
+
+733
+00:17:04,799 --> 00:17:08,549
+rejected. So apart from error warn
+info debug trace these all would be
+
+734
+00:17:08,549 --> 00:17:08,559
+info debug trace these all would be
+ 
+
+735
+00:17:08,559 --> 00:17:11,429
+info debug trace these all would be
+rejected. Only error and above would be
+
+736
+00:17:11,429 --> 00:17:11,439
+rejected. Only error and above would be
+ 
+
+737
+00:17:11,439 --> 00:17:13,189
+rejected. Only error and above would be
+accepted. Above error there is nothing.
+
+738
+00:17:13,189 --> 00:17:13,199
+accepted. Above error there is nothing.
+ 
+
+739
+00:17:13,199 --> 00:17:15,590
+accepted. Above error there is nothing.
+So only error would be allowed here in
+
+740
+00:17:15,590 --> 00:17:15,600
+So only error would be allowed here in
+ 
+
+741
+00:17:15,600 --> 00:17:17,350
+So only error would be allowed here in
+this
+
+742
+00:17:17,350 --> 00:17:17,360
+this
+ 
+
+743
+00:17:17,360 --> 00:17:19,110
+this
+appender.
+
+744
+00:17:19,110 --> 00:17:19,120
+appender.
+ 
+
+745
+00:17:19,120 --> 00:17:21,270
+appender.
+Okay. And this is my logger. I have
+
+746
+00:17:21,270 --> 00:17:21,280
+Okay. And this is my logger. I have
+ 
+
+747
+00:17:21,280 --> 00:17:24,470
+Okay. And this is my logger. I have
+associated both a sync and file
+
+748
+00:17:24,470 --> 00:17:24,480
+associated both a sync and file
+ 
+
+749
+00:17:24,480 --> 00:17:28,470
+associated both a sync and file
+critical. So you can with this logger we
+
+750
+00:17:28,470 --> 00:17:28,480
+critical. So you can with this logger we
+ 
+
+751
+00:17:28,480 --> 00:17:32,150
+critical. So you can with this logger we
+can do anything info log dot error. So
+
+752
+00:17:32,150 --> 00:17:32,160
+can do anything info log dot error. So
+ 
+
+753
+00:17:32,160 --> 00:17:34,390
+can do anything info log dot error. So
+what would happen? So when you do log
+
+754
+00:17:34,390 --> 00:17:34,400
+what would happen? So when you do log
+ 
+
+755
+00:17:34,400 --> 00:17:37,750
+what would happen? So when you do log
+info all the appenders will run a sync
+
+756
+00:17:37,750 --> 00:17:37,760
+info all the appenders will run a sync
+ 
+
+757
+00:17:37,760 --> 00:17:39,830
+info all the appenders will run a sync
+also this also. So now let's say first
+
+758
+00:17:39,830 --> 00:17:39,840
+also this also. So now let's say first
+ 
+
+759
+00:17:39,840 --> 00:17:42,789
+also this also. So now let's say first
+async will run. What would happen? Okay.
+
+760
+00:17:42,789 --> 00:17:42,799
+async will run. What would happen? Okay.
+ 
+
+761
+00:17:42,799 --> 00:17:45,510
+async will run. What would happen? Okay.
+Uh level filter is it uh error? No, it's
+
+762
+00:17:45,510 --> 00:17:45,520
+Uh level filter is it uh error? No, it's
+ 
+
+763
+00:17:45,520 --> 00:17:47,590
+Uh level filter is it uh error? No, it's
+an info. So nothing will happen. It will
+
+764
+00:17:47,590 --> 00:17:47,600
+an info. So nothing will happen. It will
+ 
+
+765
+00:17:47,600 --> 00:17:49,430
+an info. So nothing will happen. It will
+append into the Q. So currently I'm not
+
+766
+00:17:49,430 --> 00:17:49,440
+append into the Q. So currently I'm not
+ 
+
+767
+00:17:49,440 --> 00:17:51,029
+append into the Q. So currently I'm not
+writing it. So by default Q size would
+
+768
+00:17:51,029 --> 00:17:51,039
+writing it. So by default Q size would
+ 
+
+769
+00:17:51,039 --> 00:17:53,510
+writing it. So by default Q size would
+be 256. It would be append worker thread
+
+770
+00:17:53,510 --> 00:17:53,520
+be 256. It would be append worker thread
+ 
+
+771
+00:17:53,520 --> 00:17:55,430
+be 256. It would be append worker thread
+pick it up and pass it to non-critical.
+
+772
+00:17:55,430 --> 00:17:55,440
+pick it up and pass it to non-critical.
+ 
+
+773
+00:17:55,440 --> 00:17:57,510
+pick it up and pass it to non-critical.
+Non-critical it will append it to a
+
+774
+00:17:57,510 --> 00:17:57,520
+Non-critical it will append it to a
+ 
+
+775
+00:17:57,520 --> 00:18:00,070
+Non-critical it will append it to a
+file. Then the same info would goes to
+
+776
+00:18:00,070 --> 00:18:00,080
+file. Then the same info would goes to
+ 
+
+777
+00:18:00,080 --> 00:18:02,950
+file. Then the same info would goes to
+the file critical. Here what I am doing
+
+778
+00:18:02,950 --> 00:18:02,960
+the file critical. Here what I am doing
+ 
+
+779
+00:18:02,960 --> 00:18:06,870
+the file critical. Here what I am doing
+is having a filter. I am only accepting
+
+780
+00:18:06,870 --> 00:18:06,880
+is having a filter. I am only accepting
+ 
+
+781
+00:18:06,880 --> 00:18:08,549
+is having a filter. I am only accepting
+error and above. So info would be
+
+782
+00:18:08,549 --> 00:18:08,559
+error and above. So info would be
+ 
+
+783
+00:18:08,559 --> 00:18:10,950
+error and above. So info would be
+rejected here. Okay. So it will goes
+
+784
+00:18:10,950 --> 00:18:10,960
+rejected here. Okay. So it will goes
+ 
+
+785
+00:18:10,960 --> 00:18:13,510
+rejected here. Okay. So it will goes
+into only non-critical. Similarly when
+
+786
+00:18:13,510 --> 00:18:13,520
+into only non-critical. Similarly when
+ 
+
+787
+00:18:13,520 --> 00:18:15,190
+into only non-critical. Similarly when
+error comes it will goes to a sync and
+
+788
+00:18:15,190 --> 00:18:15,200
+error comes it will goes to a sync and
+ 
+
+789
+00:18:15,200 --> 00:18:17,990
+error comes it will goes to a sync and
+file critical both a sync when it goes
+
+790
+00:18:17,990 --> 00:18:18,000
+file critical both a sync when it goes
+ 
+
+791
+00:18:18,000 --> 00:18:20,630
+file critical both a sync when it goes
+it will check okay level is error. Yes
+
+792
+00:18:20,630 --> 00:18:20,640
+it will check okay level is error. Yes
+ 
+
+793
+00:18:20,640 --> 00:18:24,710
+it will check okay level is error. Yes
+it we will deny it. Okay and uh it will
+
+794
+00:18:24,710 --> 00:18:24,720
+it we will deny it. Okay and uh it will
+ 
+
+795
+00:18:24,720 --> 00:18:27,590
+it we will deny it. Okay and uh it will
+deny it then we have file critical file
+
+796
+00:18:27,590 --> 00:18:27,600
+deny it then we have file critical file
+ 
+
+797
+00:18:27,600 --> 00:18:29,990
+deny it then we have file critical file
+critical what would happen threshold is
+
+798
+00:18:29,990 --> 00:18:30,000
+critical what would happen threshold is
+ 
+
+799
+00:18:30,000 --> 00:18:32,310
+critical what would happen threshold is
+error and above. So error yes it is an
+
+800
+00:18:32,310 --> 00:18:32,320
+error and above. So error yes it is an
+ 
+
+801
+00:18:32,320 --> 00:18:33,750
+error and above. So error yes it is an
+error. So it would be accepted and put
+
+802
+00:18:33,750 --> 00:18:33,760
+error. So it would be accepted and put
+ 
+
+803
+00:18:33,760 --> 00:18:36,230
+error. So it would be accepted and put
+into this.
+
+804
+00:18:36,230 --> 00:18:36,240
+into this.
+ 
+
+805
+00:18:36,240 --> 00:18:38,390
+into this.
+So you got it. So we can have a mix
+
+806
+00:18:38,390 --> 00:18:38,400
+So you got it. So we can have a mix
+ 
+
+807
+00:18:38,400 --> 00:18:40,710
+So you got it. So we can have a mix
+match of sync
+
+808
+00:18:40,710 --> 00:18:40,720
+match of sync
+ 
+
+809
+00:18:40,720 --> 00:18:44,070
+match of sync
+and a sync behavior and we can make use
+
+810
+00:18:44,070 --> 00:18:44,080
+and a sync behavior and we can make use
+ 
+
+811
+00:18:44,080 --> 00:18:48,230
+and a sync behavior and we can make use
+of filter just to filter out things.
+
+812
+00:18:48,230 --> 00:18:48,240
+of filter just to filter out things.
+ 
+
+813
+00:18:48,240 --> 00:18:51,029
+of filter just to filter out things.
+Got it? This is very important right
+
+814
+00:18:51,029 --> 00:18:51,039
+Got it? This is very important right
+ 
+
+815
+00:18:51,039 --> 00:18:53,990
+Got it? This is very important right
+because we can't have everything a sync.
+
+816
+00:18:53,990 --> 00:18:54,000
+because we can't have everything a sync.
+ 
+
+817
+00:18:54,000 --> 00:18:56,390
+because we can't have everything a sync.
+We can't have everything sync. So there
+
+818
+00:18:56,390 --> 00:18:56,400
+We can't have everything sync. So there
+ 
+
+819
+00:18:56,400 --> 00:18:59,750
+We can't have everything sync. So there
+is always a mismatch always.
+
+820
+00:18:59,750 --> 00:18:59,760
+is always a mismatch always.
+ 
+
+821
+00:18:59,760 --> 00:19:01,830
+is always a mismatch always.
+Okay.
+
+822
+00:19:01,830 --> 00:19:01,840
+Okay.
+ 
+
+823
+00:19:01,840 --> 00:19:04,470
+Okay.
+So now we have covered major logging
+
+824
+00:19:04,470 --> 00:19:04,480
+So now we have covered major logging
+ 
+
+825
+00:19:04,480 --> 00:19:07,190
+So now we have covered major logging
+part. So some good to know before we
+
+826
+00:19:07,190 --> 00:19:07,200
+part. So some good to know before we
+ 
+
+827
+00:19:07,200 --> 00:19:09,430
+part. So some good to know before we
+jump to distributed logging and
+
+828
+00:19:09,430 --> 00:19:09,440
+jump to distributed logging and
+ 
+
+829
+00:19:09,440 --> 00:19:12,549
+jump to distributed logging and
+structured logging very important part
+
+830
+00:19:12,549 --> 00:19:12,559
+structured logging very important part
+ 
+
+831
+00:19:12,559 --> 00:19:15,190
+structured logging very important part
+one thing is log format log pattern I
+
+832
+00:19:15,190 --> 00:19:15,200
+one thing is log format log pattern I
+ 
+
+833
+00:19:15,200 --> 00:19:16,470
+one thing is log format log pattern I
+told you right we have something called
+
+834
+00:19:16,470 --> 00:19:16,480
+told you right we have something called
+ 
+
+835
+00:19:16,480 --> 00:19:19,830
+told you right we have something called
+encoder okay we have encoder they decide
+
+836
+00:19:19,830 --> 00:19:19,840
+encoder okay we have encoder they decide
+ 
+
+837
+00:19:19,840 --> 00:19:23,510
+encoder okay we have encoder they decide
+the format in what in what format
+
+838
+00:19:23,510 --> 00:19:23,520
+the format in what in what format
+ 
+
+839
+00:19:23,520 --> 00:19:26,230
+the format in what in what format
+ultimately output would be shown it
+
+840
+00:19:26,230 --> 00:19:26,240
+ultimately output would be shown it
+ 
+
+841
+00:19:26,240 --> 00:19:28,230
+ultimately output would be shown it
+would be shown either console or file or
+
+842
+00:19:28,230 --> 00:19:28,240
+would be shown either console or file or
+ 
+
+843
+00:19:28,240 --> 00:19:30,470
+would be shown either console or file or
+what this is just an place where the log
+
+844
+00:19:30,470 --> 00:19:30,480
+what this is just an place where the log
+ 
+
+845
+00:19:30,480 --> 00:19:32,710
+what this is just an place where the log
+will go but in what format it will go
+
+846
+00:19:32,710 --> 00:19:32,720
+will go but in what format it will go
+ 
+
+847
+00:19:32,720 --> 00:19:35,110
+will go but in what format it will go
+that would be decided by our encoder So
+
+848
+00:19:35,110 --> 00:19:35,120
+that would be decided by our encoder So
+ 
+
+849
+00:19:35,120 --> 00:19:37,750
+that would be decided by our encoder So
+like here this it is console. So on
+
+850
+00:19:37,750 --> 00:19:37,760
+like here this it is console. So on
+ 
+
+851
+00:19:37,760 --> 00:19:42,470
+like here this it is console. So on
+console this is the way it will go date
+
+852
+00:19:42,470 --> 00:19:42,480
+console this is the way it will go date
+ 
+
+853
+00:19:42,480 --> 00:19:44,070
+console this is the way it will go date
+level
+
+854
+00:19:44,070 --> 00:19:44,080
+level
+ 
+
+855
+00:19:44,080 --> 00:19:47,350
+level
+then your logger name message.
+
+856
+00:19:47,350 --> 00:19:47,360
+then your logger name message.
+ 
+
+857
+00:19:47,360 --> 00:19:49,669
+then your logger name message.
+Okay. So if you open this pattern layout
+
+858
+00:19:49,669 --> 00:19:49,679
+Okay. So if you open this pattern layout
+ 
+
+859
+00:19:49,679 --> 00:19:52,549
+Okay. So if you open this pattern layout
+on Java. Okay. So we are using pattern
+
+860
+00:19:52,549 --> 00:19:52,559
+on Java. Okay. So we are using pattern
+ 
+
+861
+00:19:52,559 --> 00:19:54,310
+on Java. Okay. So we are using pattern
+right. So if you open pattern layout on
+
+862
+00:19:54,310 --> 00:19:54,320
+right. So if you open pattern layout on
+ 
+
+863
+00:19:54,320 --> 00:19:57,110
+right. So if you open pattern layout on
+Java this is a logback framework class.
+
+864
+00:19:57,110 --> 00:19:57,120
+Java this is a logback framework class.
+ 
+
+865
+00:19:57,120 --> 00:19:59,590
+Java this is a logback framework class.
+You will see so many
+
+866
+00:19:59,590 --> 00:19:59,600
+You will see so many
+ 
+
+867
+00:19:59,600 --> 00:20:01,669
+You will see so many
+default which we can use. So here you
+
+868
+00:20:01,669 --> 00:20:01,679
+default which we can use. So here you
+ 
+
+869
+00:20:01,679 --> 00:20:03,350
+default which we can use. So here you
+might be thinking right how would I know
+
+870
+00:20:03,350 --> 00:20:03,360
+might be thinking right how would I know
+ 
+
+871
+00:20:03,360 --> 00:20:06,150
+might be thinking right how would I know
+what to use what is D means what is
+
+872
+00:20:06,150 --> 00:20:06,160
+what to use what is D means what is
+ 
+
+873
+00:20:06,160 --> 00:20:08,549
+what to use what is D means what is
+level means what is logger means. So
+
+874
+00:20:08,549 --> 00:20:08,559
+level means what is logger means. So
+ 
+
+875
+00:20:08,559 --> 00:20:10,950
+level means what is logger means. So
+here in this class you would see that D
+
+876
+00:20:10,950 --> 00:20:10,960
+here in this class you would see that D
+ 
+
+877
+00:20:10,960 --> 00:20:13,430
+here in this class you would see that D
+it is calling this date converter.
+
+878
+00:20:13,430 --> 00:20:13,440
+it is calling this date converter.
+ 
+
+879
+00:20:13,440 --> 00:20:15,190
+it is calling this date converter.
+Similarly level it is calling level
+
+880
+00:20:15,190 --> 00:20:15,200
+Similarly level it is calling level
+ 
+
+881
+00:20:15,200 --> 00:20:16,630
+Similarly level it is calling level
+converter. So if you open this class
+
+882
+00:20:16,630 --> 00:20:16,640
+converter. So if you open this class
+ 
+
+883
+00:20:16,640 --> 00:20:19,510
+converter. So if you open this class
+level converter you will see what it is
+
+884
+00:20:19,510 --> 00:20:19,520
+level converter you will see what it is
+ 
+
+885
+00:20:19,520 --> 00:20:21,990
+level converter you will see what it is
+doing is from the event log event it is
+
+886
+00:20:21,990 --> 00:20:22,000
+doing is from the event log event it is
+ 
+
+887
+00:20:22,000 --> 00:20:26,310
+doing is from the event log event it is
+take out get level. Okay. So all this
+
+888
+00:20:26,310 --> 00:20:26,320
+take out get level. Okay. So all this
+ 
+
+889
+00:20:26,320 --> 00:20:28,630
+take out get level. Okay. So all this
+thing we can use as a placeholder in our
+
+890
+00:20:28,630 --> 00:20:28,640
+thing we can use as a placeholder in our
+ 
+
+891
+00:20:28,640 --> 00:20:31,830
+thing we can use as a placeholder in our
+pattern. very simple.
+
+892
+00:20:31,830 --> 00:20:31,840
+pattern. very simple.
+ 
+
+893
+00:20:31,840 --> 00:20:35,110
+pattern. very simple.
+Okay. So just open this class. It's
+
+894
+00:20:35,110 --> 00:20:35,120
+Okay. So just open this class. It's
+ 
+
+895
+00:20:35,120 --> 00:20:38,230
+Okay. So just open this class. It's
+there are so many so it's not possible
+
+896
+00:20:38,230 --> 00:20:38,240
+there are so many so it's not possible
+ 
+
+897
+00:20:38,240 --> 00:20:41,909
+there are so many so it's not possible
+to remember it. Whenever you find a use
+
+898
+00:20:41,909 --> 00:20:41,919
+to remember it. Whenever you find a use
+ 
+
+899
+00:20:41,919 --> 00:20:44,470
+to remember it. Whenever you find a use
+case that okay this value I need to use
+
+900
+00:20:44,470 --> 00:20:44,480
+case that okay this value I need to use
+ 
+
+901
+00:20:44,480 --> 00:20:47,510
+case that okay this value I need to use
+open this class see if it is present and
+
+902
+00:20:47,510 --> 00:20:47,520
+open this class see if it is present and
+ 
+
+903
+00:20:47,520 --> 00:20:49,830
+open this class see if it is present and
+that placeholder you can use it here.
+
+904
+00:20:49,830 --> 00:20:49,840
+that placeholder you can use it here.
+ 
+
+905
+00:20:49,840 --> 00:20:51,270
+that placeholder you can use it here.
+And if you want to go into the
+
+906
+00:20:51,270 --> 00:20:51,280
+And if you want to go into the
+ 
+
+907
+00:20:51,280 --> 00:20:53,270
+And if you want to go into the
+implementation part what it will do just
+
+908
+00:20:53,270 --> 00:20:53,280
+implementation part what it will do just
+ 
+
+909
+00:20:53,280 --> 00:20:56,310
+implementation part what it will do just
+go open the class and see what it is
+
+910
+00:20:56,310 --> 00:20:56,320
+go open the class and see what it is
+ 
+
+911
+00:20:56,320 --> 00:20:58,149
+go open the class and see what it is
+doing it.
+
+912
+00:20:58,149 --> 00:20:58,159
+doing it.
+ 
+
+913
+00:20:58,159 --> 00:21:00,470
+doing it.
+Okay. So this is how generally log
+
+914
+00:21:00,470 --> 00:21:00,480
+Okay. So this is how generally log
+ 
+
+915
+00:21:00,480 --> 00:21:03,990
+Okay. So this is how generally log
+format log pattern works.
+
+916
+00:21:03,990 --> 00:21:04,000
+format log pattern works.
+ 
+
+917
+00:21:04,000 --> 00:21:05,029
+format log pattern works.
+Then we have something called
+
+918
+00:21:05,029 --> 00:21:05,039
+Then we have something called
+ 
+
+919
+00:21:05,039 --> 00:21:07,669
+Then we have something called
+placeholder in log statement itself. So
+
+920
+00:21:07,669 --> 00:21:07,679
+placeholder in log statement itself. So
+ 
+
+921
+00:21:07,679 --> 00:21:10,789
+placeholder in log statement itself. So
+till now what we are doing is log.info
+
+922
+00:21:10,789 --> 00:21:10,799
+till now what we are doing is log.info
+ 
+
+923
+00:21:10,799 --> 00:21:13,110
+till now what we are doing is log.info
+and it is printing it. There might be a
+
+924
+00:21:13,110 --> 00:21:13,120
+and it is printing it. There might be a
+ 
+
+925
+00:21:13,120 --> 00:21:15,990
+and it is printing it. There might be a
+many case where we have to append
+
+926
+00:21:15,990 --> 00:21:16,000
+many case where we have to append
+ 
+
+927
+00:21:16,000 --> 00:21:19,350
+many case where we have to append
+something like placeholder
+
+928
+00:21:19,350 --> 00:21:19,360
+something like placeholder
+ 
+
+929
+00:21:19,360 --> 00:21:22,390
+something like placeholder
+like here what I'm doing is like this
+
+930
+00:21:22,390 --> 00:21:22,400
+like here what I'm doing is like this
+ 
+
+931
+00:21:22,400 --> 00:21:23,909
+like here what I'm doing is like this
+log.info
+
+932
+00:21:23,909 --> 00:21:23,919
+log.info
+ 
+
+933
+00:21:23,919 --> 00:21:27,270
+log.info
+user who is the user shange
+
+934
+00:21:27,270 --> 00:21:27,280
+user who is the user shange
+ 
+
+935
+00:21:27,280 --> 00:21:29,270
+user who is the user shange
+created with ID. What is the id this? So
+
+936
+00:21:29,270 --> 00:21:29,280
+created with ID. What is the id this? So
+ 
+
+937
+00:21:29,280 --> 00:21:32,070
+created with ID. What is the id this? So
+I am appending it. So this is not
+
+938
+00:21:32,070 --> 00:21:32,080
+I am appending it. So this is not
+ 
+
+939
+00:21:32,080 --> 00:21:35,669
+I am appending it. So this is not
+recommended in logging framework.
+
+940
+00:21:35,669 --> 00:21:35,679
+recommended in logging framework.
+ 
+
+941
+00:21:35,679 --> 00:21:39,350
+recommended in logging framework.
+Okay. Never do string concatenation.
+
+942
+00:21:39,350 --> 00:21:39,360
+Okay. Never do string concatenation.
+ 
+
+943
+00:21:39,360 --> 00:21:43,750
+Okay. Never do string concatenation.
+Why? See every log statement has level
+
+944
+00:21:43,750 --> 00:21:43,760
+Why? See every log statement has level
+ 
+
+945
+00:21:43,760 --> 00:21:47,270
+Why? See every log statement has level
+info log.info. So you don't know whether
+
+946
+00:21:47,270 --> 00:21:47,280
+info log.info. So you don't know whether
+ 
+
+947
+00:21:47,280 --> 00:21:49,669
+info log.info. So you don't know whether
+your logger will accept this statement
+
+948
+00:21:49,669 --> 00:21:49,679
+your logger will accept this statement
+ 
+
+949
+00:21:49,679 --> 00:21:52,070
+your logger will accept this statement
+or not because see your logger has let's
+
+950
+00:21:52,070 --> 00:21:52,080
+or not because see your logger has let's
+ 
+
+951
+00:21:52,080 --> 00:21:54,549
+or not because see your logger has let's
+say level one. So it definitely it will
+
+952
+00:21:54,549 --> 00:21:54,559
+say level one. So it definitely it will
+ 
+
+953
+00:21:54,559 --> 00:21:56,950
+say level one. So it definitely it will
+not accept it. But since you are doing a
+
+954
+00:21:56,950 --> 00:21:56,960
+not accept it. But since you are doing a
+ 
+
+955
+00:21:56,960 --> 00:22:00,070
+not accept it. But since you are doing a
+screen uh string concatenation
+
+956
+00:22:00,070 --> 00:22:00,080
+screen uh string concatenation
+ 
+
+957
+00:22:00,080 --> 00:22:02,390
+screen uh string concatenation
+no matter whether your log statement get
+
+958
+00:22:02,390 --> 00:22:02,400
+no matter whether your log statement get
+ 
+
+959
+00:22:02,400 --> 00:22:05,669
+no matter whether your log statement get
+accepted or not this will get build up.
+
+960
+00:22:05,669 --> 00:22:05,679
+accepted or not this will get build up.
+ 
+
+961
+00:22:05,679 --> 00:22:08,870
+accepted or not this will get build up.
+Okay. So
+
+962
+00:22:08,870 --> 00:22:08,880
+Okay. So
+ 
+
+963
+00:22:08,880 --> 00:22:11,669
+Okay. So
+it's always better or recommended to use
+
+964
+00:22:11,669 --> 00:22:11,679
+it's always better or recommended to use
+ 
+
+965
+00:22:11,679 --> 00:22:14,870
+it's always better or recommended to use
+like this way log.info user and then
+
+966
+00:22:14,870 --> 00:22:14,880
+like this way log.info user and then
+ 
+
+967
+00:22:14,880 --> 00:22:17,750
+like this way log.info user and then
+give a placeholder created with id
+
+968
+00:22:17,750 --> 00:22:17,760
+give a placeholder created with id
+ 
+
+969
+00:22:17,760 --> 00:22:20,310
+give a placeholder created with id
+placeholder and after that you can give
+
+970
+00:22:20,310 --> 00:22:20,320
+placeholder and after that you can give
+ 
+
+971
+00:22:20,320 --> 00:22:23,350
+placeholder and after that you can give
+like so this will go here this will go
+
+972
+00:22:23,350 --> 00:22:23,360
+like so this will go here this will go
+ 
+
+973
+00:22:23,360 --> 00:22:24,950
+like so this will go here this will go
+here.
+
+974
+00:22:24,950 --> 00:22:24,960
+here.
+ 
+
+975
+00:22:24,960 --> 00:22:27,350
+here.
+Now this placeholder would only be
+
+976
+00:22:27,350 --> 00:22:27,360
+Now this placeholder would only be
+ 
+
+977
+00:22:27,360 --> 00:22:29,669
+Now this placeholder would only be
+filled up when your log statement is
+
+978
+00:22:29,669 --> 00:22:29,679
+filled up when your log statement is
+ 
+
+979
+00:22:29,679 --> 00:22:32,870
+filled up when your log statement is
+accepted. Okay. So you don't unnecessary
+
+980
+00:22:32,870 --> 00:22:32,880
+accepted. Okay. So you don't unnecessary
+ 
+
+981
+00:22:32,880 --> 00:22:35,590
+accepted. Okay. So you don't unnecessary
+has to create the string even though it
+
+982
+00:22:35,590 --> 00:22:35,600
+has to create the string even though it
+ 
+
+983
+00:22:35,600 --> 00:22:38,390
+has to create the string even though it
+is getting rejected. Okay. So you will
+
+984
+00:22:38,390 --> 00:22:38,400
+is getting rejected. Okay. So you will
+ 
+
+985
+00:22:38,400 --> 00:22:41,270
+is getting rejected. Okay. So you will
+save some CPU cycle in a heavy traffic
+
+986
+00:22:41,270 --> 00:22:41,280
+save some CPU cycle in a heavy traffic
+ 
+
+987
+00:22:41,280 --> 00:22:45,830
+save some CPU cycle in a heavy traffic
+taking API each CPU cycle matters.
+
+988
+00:22:45,830 --> 00:22:45,840
+taking API each CPU cycle matters.
+ 
+
+989
+00:22:45,840 --> 00:22:49,990
+taking API each CPU cycle matters.
+Okay. And in case of exception so let's
+
+990
+00:22:49,990 --> 00:22:50,000
+Okay. And in case of exception so let's
+ 
+
+991
+00:22:50,000 --> 00:22:53,110
+Okay. And in case of exception so let's
+say log error payment failed for user
+
+992
+00:22:53,110 --> 00:22:53,120
+say log error payment failed for user
+ 
+
+993
+00:22:53,120 --> 00:22:55,750
+say log error payment failed for user
+one placeholder. So this shriash will go
+
+994
+00:22:55,750 --> 00:22:55,760
+one placeholder. So this shriash will go
+ 
+
+995
+00:22:55,760 --> 00:22:58,630
+one placeholder. So this shriash will go
+over here and then comma exception. So
+
+996
+00:22:58,630 --> 00:22:58,640
+over here and then comma exception. So
+ 
+
+997
+00:22:58,640 --> 00:23:01,110
+over here and then comma exception. So
+exception would always be last. Don't
+
+998
+00:23:01,110 --> 00:23:01,120
+exception would always be last. Don't
+ 
+
+999
+00:23:01,120 --> 00:23:04,230
+exception would always be last. Don't
+put e comma like shriash. No. So
+
+1000
+00:23:04,230 --> 00:23:04,240
+put e comma like shriash. No. So
+ 
+
+1001
+00:23:04,240 --> 00:23:06,149
+put e comma like shriash. No. So
+whenever any exception happens if you
+
+1002
+00:23:06,149 --> 00:23:06,159
+whenever any exception happens if you
+ 
+
+1003
+00:23:06,159 --> 00:23:08,630
+whenever any exception happens if you
+put it at last stack trace would get
+
+1004
+00:23:08,630 --> 00:23:08,640
+put it at last stack trace would get
+ 
+
+1005
+00:23:08,640 --> 00:23:10,549
+put it at last stack trace would get
+also printed.
+
+1006
+00:23:10,549 --> 00:23:10,559
+also printed.
+ 
+
+1007
+00:23:10,559 --> 00:23:13,270
+also printed.
+Okay. So always remember is that if you
+
+1008
+00:23:13,270 --> 00:23:13,280
+Okay. So always remember is that if you
+ 
+
+1009
+00:23:13,280 --> 00:23:16,950
+Okay. So always remember is that if you
+have to add exception into log dot error
+
+1010
+00:23:16,950 --> 00:23:16,960
+have to add exception into log dot error
+ 
+
+1011
+00:23:16,960 --> 00:23:19,270
+have to add exception into log dot error
+it would always be last. After all your
+
+1012
+00:23:19,270 --> 00:23:19,280
+it would always be last. After all your
+ 
+
+1013
+00:23:19,280 --> 00:23:21,750
+it would always be last. After all your
+placeholders got completed, put it at
+
+1014
+00:23:21,750 --> 00:23:21,760
+placeholders got completed, put it at
+ 
+
+1015
+00:23:21,760 --> 00:23:24,710
+placeholders got completed, put it at
+the last.
+
+1016
+00:23:24,710 --> 00:23:24,720
+the last.
+ 
+
+1017
+00:23:24,720 --> 00:23:27,430
+the last.
+So these are small things. Now let's see
+
+1018
+00:23:27,430 --> 00:23:27,440
+So these are small things. Now let's see
+ 
+
+1019
+00:23:27,440 --> 00:23:29,590
+So these are small things. Now let's see
+very critical
+
+1020
+00:23:29,590 --> 00:23:29,600
+very critical
+ 
+
+1021
+00:23:29,600 --> 00:23:32,070
+very critical
+structured logging
+
+1022
+00:23:32,070 --> 00:23:32,080
+structured logging
+ 
+
+1023
+00:23:32,080 --> 00:23:35,909
+structured logging
+and PII safe logging.
+
+1024
+00:23:35,909 --> 00:23:35,919
+and PII safe logging.
+ 
+
+1025
+00:23:35,919 --> 00:23:37,990
+and PII safe logging.
+By this time one thing might have come
+
+1026
+00:23:37,990 --> 00:23:38,000
+By this time one thing might have come
+ 
+
+1027
+00:23:38,000 --> 00:23:39,990
+By this time one thing might have come
+to our mind that formatting using
+
+1028
+00:23:39,990 --> 00:23:40,000
+to our mind that formatting using
+ 
+
+1029
+00:23:40,000 --> 00:23:43,830
+to our mind that formatting using
+pattern is not machine friendly at all.
+
+1030
+00:23:43,830 --> 00:23:43,840
+pattern is not machine friendly at all.
+ 
+
+1031
+00:23:43,840 --> 00:23:48,149
+pattern is not machine friendly at all.
+Why? See now I am doing log.info info
+
+1032
+00:23:48,149 --> 00:23:48,159
+Why? See now I am doing log.info info
+ 
+
+1033
+00:23:48,159 --> 00:23:51,350
+Why? See now I am doing log.info info
+here. Okay. And this is the pattern
+
+1034
+00:23:51,350 --> 00:23:51,360
+here. Okay. And this is the pattern
+ 
+
+1035
+00:23:51,360 --> 00:23:53,190
+here. Okay. And this is the pattern
+which I am using. So how it is showing
+
+1036
+00:23:53,190 --> 00:23:53,200
+which I am using. So how it is showing
+ 
+
+1037
+00:23:53,200 --> 00:23:55,430
+which I am using. So how it is showing
+it in the console. So this is a console
+
+1038
+00:23:55,430 --> 00:23:55,440
+it in the console. So this is a console
+ 
+
+1039
+00:23:55,440 --> 00:23:59,350
+it in the console. So this is a console
+appender. So it would be like date
+
+1040
+00:23:59,350 --> 00:23:59,360
+appender. So it would be like date
+ 
+
+1041
+00:23:59,360 --> 00:24:01,190
+appender. So it would be like date
+then level
+
+1042
+00:24:01,190 --> 00:24:01,200
+then level
+ 
+
+1043
+00:24:01,200 --> 00:24:05,350
+then level
+then logger name then I'm using hyphen
+
+1044
+00:24:05,350 --> 00:24:05,360
+then logger name then I'm using hyphen
+ 
+
+1045
+00:24:05,360 --> 00:24:07,590
+then logger name then I'm using hyphen
+and then the message.
+
+1046
+00:24:07,590 --> 00:24:07,600
+and then the message.
+ 
+
+1047
+00:24:07,600 --> 00:24:11,029
+and then the message.
+So here if you see in future if I want I
+
+1048
+00:24:11,029 --> 00:24:11,039
+So here if you see in future if I want I
+ 
+
+1049
+00:24:11,039 --> 00:24:13,830
+So here if you see in future if I want I
+can change it to like put a pipe here.
+
+1050
+00:24:13,830 --> 00:24:13,840
+can change it to like put a pipe here.
+ 
+
+1051
+00:24:13,840 --> 00:24:18,149
+can change it to like put a pipe here.
+Something I can do. So log aggregation
+
+1052
+00:24:18,149 --> 00:24:18,159
+Something I can do. So log aggregation
+ 
+
+1053
+00:24:18,159 --> 00:24:21,750
+Something I can do. So log aggregation
+tools have to parse this plain text. So
+
+1054
+00:24:21,750 --> 00:24:21,760
+tools have to parse this plain text. So
+ 
+
+1055
+00:24:21,760 --> 00:24:24,149
+tools have to parse this plain text. So
+this plain text they have to parse.
+
+1056
+00:24:24,149 --> 00:24:24,159
+this plain text they have to parse.
+ 
+
+1057
+00:24:24,159 --> 00:24:26,630
+this plain text they have to parse.
+Let's say many time what happen is log
+
+1058
+00:24:26,630 --> 00:24:26,640
+Let's say many time what happen is log
+ 
+
+1059
+00:24:26,640 --> 00:24:29,110
+Let's say many time what happen is log
+aggregation tools. They are listening to
+
+1060
+00:24:29,110 --> 00:24:29,120
+aggregation tools. They are listening to
+ 
+
+1061
+00:24:29,120 --> 00:24:31,029
+aggregation tools. They are listening to
+our logs and you are putting into file
+
+1062
+00:24:31,029 --> 00:24:31,039
+our logs and you are putting into file
+ 
+
+1063
+00:24:31,039 --> 00:24:34,549
+our logs and you are putting into file
+and you told them that hey
+
+1064
+00:24:34,549 --> 00:24:34,559
+and you told them that hey
+ 
+
+1065
+00:24:34,559 --> 00:24:38,950
+and you told them that hey
+listen to this output file to
+
+1066
+00:24:38,950 --> 00:24:38,960
+listen to this output file to
+ 
+
+1067
+00:24:38,960 --> 00:24:41,110
+listen to this output file to
+for the your log aggregation. Now log
+
+1068
+00:24:41,110 --> 00:24:41,120
+for the your log aggregation. Now log
+ 
+
+1069
+00:24:41,120 --> 00:24:43,909
+for the your log aggregation. Now log
+aggregation is what they will do is they
+
+1070
+00:24:43,909 --> 00:24:43,919
+aggregation is what they will do is they
+ 
+
+1071
+00:24:43,919 --> 00:24:46,149
+aggregation is what they will do is they
+will see that okay how many log with
+
+1072
+00:24:46,149 --> 00:24:46,159
+will see that okay how many log with
+ 
+
+1073
+00:24:46,159 --> 00:24:48,950
+will see that okay how many log with
+level info what so they will do some
+
+1074
+00:24:48,950 --> 00:24:48,960
+level info what so they will do some
+ 
+
+1075
+00:24:48,960 --> 00:24:51,750
+level info what so they will do some
+aggregation on top of it right so this
+
+1076
+00:24:51,750 --> 00:24:51,760
+aggregation on top of it right so this
+ 
+
+1077
+00:24:51,760 --> 00:24:55,110
+aggregation on top of it right so this
+is a plain text so definitely they have
+
+1078
+00:24:55,110 --> 00:24:55,120
+is a plain text so definitely they have
+ 
+
+1079
+00:24:55,120 --> 00:24:57,590
+is a plain text so definitely they have
+to do some parsing to find out what is
+
+1080
+00:24:57,590 --> 00:24:57,600
+to do some parsing to find out what is
+ 
+
+1081
+00:24:57,600 --> 00:24:59,269
+to do some parsing to find out what is
+the logger name what is the thread name
+
+1082
+00:24:59,269 --> 00:24:59,279
+the logger name what is the thread name
+ 
+
+1083
+00:24:59,279 --> 00:25:01,110
+the logger name what is the thread name
+what is the date what is the level what
+
+1084
+00:25:01,110 --> 00:25:01,120
+what is the date what is the level what
+ 
+
+1085
+00:25:01,120 --> 00:25:03,750
+what is the date what is the level what
+is the message okay so they have to do
+
+1086
+00:25:03,750 --> 00:25:03,760
+is the message okay so they have to do
+ 
+
+1087
+00:25:03,760 --> 00:25:05,430
+is the message okay so they have to do
+parsing to find out all this thing
+
+1088
+00:25:05,430 --> 00:25:05,440
+parsing to find out all this thing
+ 
+
+1089
+00:25:05,440 --> 00:25:08,149
+parsing to find out all this thing
+before they start doing aggregation
+
+1090
+00:25:08,149 --> 00:25:08,159
+before they start doing aggregation
+ 
+
+1091
+00:25:08,159 --> 00:25:09,750
+before they start doing aggregation
+and this parsing is not a
+
+1092
+00:25:09,750 --> 00:25:09,760
+and this parsing is not a
+ 
+
+1093
+00:25:09,760 --> 00:25:11,750
+and this parsing is not a
+straightforward and not 100% correct.
+
+1094
+00:25:11,750 --> 00:25:11,760
+straightforward and not 100% correct.
+ 
+
+1095
+00:25:11,760 --> 00:25:13,750
+straightforward and not 100% correct.
+Why? Because they have to rely on
+
+1096
+00:25:13,750 --> 00:25:13,760
+Why? Because they have to rely on
+ 
+
+1097
+00:25:13,760 --> 00:25:17,669
+Why? Because they have to rely on
+rejects. Okay, if a space comes that
+
+1098
+00:25:17,669 --> 00:25:17,679
+rejects. Okay, if a space comes that
+ 
+
+1099
+00:25:17,679 --> 00:25:20,870
+rejects. Okay, if a space comes that
+first one is date or this is thing
+
+1100
+00:25:20,870 --> 00:25:20,880
+first one is date or this is thing
+ 
+
+1101
+00:25:20,880 --> 00:25:23,350
+first one is date or this is thing
+because this is free form of we are
+
+1102
+00:25:23,350 --> 00:25:23,360
+because this is free form of we are
+ 
+
+1103
+00:25:23,360 --> 00:25:25,350
+because this is free form of we are
+writing right in the pattern. That's
+
+1104
+00:25:25,350 --> 00:25:25,360
+writing right in the pattern. That's
+ 
+
+1105
+00:25:25,360 --> 00:25:27,029
+writing right in the pattern. That's
+what I told you currently today I'm
+
+1106
+00:25:27,029 --> 00:25:27,039
+what I told you currently today I'm
+ 
+
+1107
+00:25:27,039 --> 00:25:29,190
+what I told you currently today I'm
+using hyphen. What if tomorrow I change
+
+1108
+00:25:29,190 --> 00:25:29,200
+using hyphen. What if tomorrow I change
+ 
+
+1109
+00:25:29,200 --> 00:25:31,110
+using hyphen. What if tomorrow I change
+in some logging or in some logger I am
+
+1110
+00:25:31,110 --> 00:25:31,120
+in some logging or in some logger I am
+ 
+
+1111
+00:25:31,120 --> 00:25:33,669
+in some logging or in some logger I am
+using pipe. We can have multiple logger
+
+1112
+00:25:33,669 --> 00:25:33,679
+using pipe. We can have multiple logger
+ 
+
+1113
+00:25:33,679 --> 00:25:35,909
+using pipe. We can have multiple logger
+right multiple logger multiple appender.
+
+1114
+00:25:35,909 --> 00:25:35,919
+right multiple logger multiple appender.
+ 
+
+1115
+00:25:35,919 --> 00:25:38,470
+right multiple logger multiple appender.
+Each appender can have different encoder
+
+1116
+00:25:38,470 --> 00:25:38,480
+Each appender can have different encoder
+ 
+
+1117
+00:25:38,480 --> 00:25:42,149
+Each appender can have different encoder
+pattern. So for one and appender I am
+
+1118
+00:25:42,149 --> 00:25:42,159
+pattern. So for one and appender I am
+ 
+
+1119
+00:25:42,159 --> 00:25:44,230
+pattern. So for one and appender I am
+using this encoding pattern for another
+
+1120
+00:25:44,230 --> 00:25:44,240
+using this encoding pattern for another
+ 
+
+1121
+00:25:44,240 --> 00:25:46,950
+using this encoding pattern for another
+I am using this. So one rejects will not
+
+1122
+00:25:46,950 --> 00:25:46,960
+I am using this. So one rejects will not
+ 
+
+1123
+00:25:46,960 --> 00:25:49,830
+I am using this. So one rejects will not
+work for sure and because of that
+
+1124
+00:25:49,830 --> 00:25:49,840
+work for sure and because of that
+ 
+
+1125
+00:25:49,840 --> 00:25:52,870
+work for sure and because of that
+aggregation tool find it difficult to
+
+1126
+00:25:52,870 --> 00:25:52,880
+aggregation tool find it difficult to
+ 
+
+1127
+00:25:52,880 --> 00:25:56,390
+aggregation tool find it difficult to
+parse the pattern
+
+1128
+00:25:56,390 --> 00:25:56,400
+parse the pattern
+ 
+
+1129
+00:25:56,400 --> 00:25:59,909
+parse the pattern
+logs which are in plain text.
+
+1130
+00:25:59,909 --> 00:25:59,919
+logs which are in plain text.
+ 
+
+1131
+00:25:59,919 --> 00:26:01,750
+logs which are in plain text.
+Okay. And also you can see that in some
+
+1132
+00:26:01,750 --> 00:26:01,760
+Okay. And also you can see that in some
+ 
+
+1133
+00:26:01,760 --> 00:26:04,950
+Okay. And also you can see that in some
+logs we can see date like this. Some we
+
+1134
+00:26:04,950 --> 00:26:04,960
+logs we can see date like this. Some we
+ 
+
+1135
+00:26:04,960 --> 00:26:07,190
+logs we can see date like this. Some we
+can see that with seconds and also it's
+
+1136
+00:26:07,190 --> 00:26:07,200
+can see that with seconds and also it's
+ 
+
+1137
+00:26:07,200 --> 00:26:09,430
+can see that with seconds and also it's
+become difficult. It's not easy to
+
+1138
+00:26:09,430 --> 00:26:09,440
+become difficult. It's not easy to
+ 
+
+1139
+00:26:09,440 --> 00:26:11,510
+become difficult. It's not easy to
+extract useful information from message
+
+1140
+00:26:11,510 --> 00:26:11,520
+extract useful information from message
+ 
+
+1141
+00:26:11,520 --> 00:26:14,470
+extract useful information from message
+also. So here I have you see that I put
+
+1142
+00:26:14,470 --> 00:26:14,480
+also. So here I have you see that I put
+ 
+
+1143
+00:26:14,480 --> 00:26:16,710
+also. So here I have you see that I put
+very useful information payment ID 1 2
+
+1144
+00:26:16,710 --> 00:26:16,720
+very useful information payment ID 1 2
+ 
+
+1145
+00:26:16,720 --> 00:26:18,310
+very useful information payment ID 1 2
+3.
+
+1146
+00:26:18,310 --> 00:26:18,320
+3.
+ 
+
+1147
+00:26:18,320 --> 00:26:20,470
+3.
+This is critical information which log
+
+1148
+00:26:20,470 --> 00:26:20,480
+This is critical information which log
+ 
+
+1149
+00:26:20,480 --> 00:26:22,390
+This is critical information which log
+aggregation tool might use because in
+
+1150
+00:26:22,390 --> 00:26:22,400
+aggregation tool might use because in
+ 
+
+1151
+00:26:22,400 --> 00:26:26,390
+aggregation tool might use because in
+the log aggregation tool you might have
+
+1152
+00:26:26,390 --> 00:26:26,400
+the log aggregation tool you might have
+ 
+
+1153
+00:26:26,400 --> 00:26:30,149
+the log aggregation tool you might have
+like hey fetch me a payment ID with 1 2
+
+1154
+00:26:30,149 --> 00:26:30,159
+like hey fetch me a payment ID with 1 2
+ 
+
+1155
+00:26:30,159 --> 00:26:32,310
+like hey fetch me a payment ID with 1 2
+3 or something
+
+1156
+00:26:32,310 --> 00:26:32,320
+3 or something
+ 
+
+1157
+00:26:32,320 --> 00:26:34,070
+3 or something
+but with this they won't be able to do
+
+1158
+00:26:34,070 --> 00:26:34,080
+but with this they won't be able to do
+ 
+
+1159
+00:26:34,080 --> 00:26:35,830
+but with this they won't be able to do
+anything
+
+1160
+00:26:35,830 --> 00:26:35,840
+anything
+ 
+
+1161
+00:26:35,840 --> 00:26:38,470
+anything
+because how would they know that in this
+
+1162
+00:26:38,470 --> 00:26:38,480
+because how would they know that in this
+ 
+
+1163
+00:26:38,480 --> 00:26:39,990
+because how would they know that in this
+message you have something important
+
+1164
+00:26:39,990 --> 00:26:40,000
+message you have something important
+ 
+
+1165
+00:26:40,000 --> 00:26:41,750
+message you have something important
+which I need to aggregate they won't be
+
+1166
+00:26:41,750 --> 00:26:41,760
+which I need to aggregate they won't be
+ 
+
+1167
+00:26:41,760 --> 00:26:45,510
+which I need to aggregate they won't be
+able to aggregate it at all
+
+1168
+00:26:45,510 --> 00:26:45,520
+able to aggregate it at all
+ 
+
+1169
+00:26:45,520 --> 00:26:47,990
+able to aggregate it at all
+so it would be better if you can filter
+
+1170
+00:26:47,990 --> 00:26:48,000
+so it would be better if you can filter
+ 
+
+1171
+00:26:48,000 --> 00:26:50,789
+so it would be better if you can filter
+based on payment ID but since it's in
+
+1172
+00:26:50,789 --> 00:26:50,799
+based on payment ID but since it's in
+ 
+
+1173
+00:26:50,799 --> 00:26:53,190
+based on payment ID but since it's in
+plain text aggregation tool might not be
+
+1174
+00:26:53,190 --> 00:26:53,200
+plain text aggregation tool might not be
+ 
+
+1175
+00:26:53,200 --> 00:26:55,830
+plain text aggregation tool might not be
+able to search it and that's where
+
+1176
+00:26:55,830 --> 00:26:55,840
+able to search it and that's where
+ 
+
+1177
+00:26:55,840 --> 00:26:58,070
+able to search it and that's where
+structured logging JSON comes into the
+
+1178
+00:26:58,070 --> 00:26:58,080
+structured logging JSON comes into the
+ 
+
+1179
+00:26:58,080 --> 00:26:59,669
+structured logging JSON comes into the
+picture because JSON is something you
+
+1180
+00:26:59,669 --> 00:26:59,679
+picture because JSON is something you
+ 
+
+1181
+00:26:59,679 --> 00:27:03,269
+picture because JSON is something you
+can say that it's a friendly
+
+1182
+00:27:03,269 --> 00:27:03,279
+can say that it's a friendly
+ 
+
+1183
+00:27:03,279 --> 00:27:06,390
+can say that it's a friendly
+for any machine or generally we are
+
+1184
+00:27:06,390 --> 00:27:06,400
+for any machine or generally we are
+ 
+
+1185
+00:27:06,400 --> 00:27:09,269
+for any machine or generally we are
+saying log aggregation
+
+1186
+00:27:09,269 --> 00:27:09,279
+saying log aggregation
+ 
+
+1187
+00:27:09,279 --> 00:27:11,590
+saying log aggregation
+tool so these are nothing but a machines
+
+1188
+00:27:11,590 --> 00:27:11,600
+tool so these are nothing but a machines
+ 
+
+1189
+00:27:11,600 --> 00:27:13,590
+tool so these are nothing but a machines
+you can say that which looks for your
+
+1190
+00:27:13,590 --> 00:27:13,600
+you can say that which looks for your
+ 
+
+1191
+00:27:13,600 --> 00:27:17,669
+you can say that which looks for your
+output file and if it is in JSON that is
+
+1192
+00:27:17,669 --> 00:27:17,679
+output file and if it is in JSON that is
+ 
+
+1193
+00:27:17,679 --> 00:27:19,830
+output file and if it is in JSON that is
+like that the best thing they can get
+
+1194
+00:27:19,830 --> 00:27:19,840
+like that the best thing they can get
+ 
+
+1195
+00:27:19,840 --> 00:27:24,470
+like that the best thing they can get
+it's very easy for them to aggregate
+
+1196
+00:27:24,470 --> 00:27:24,480
+it's very easy for them to aggregate
+ 
+
+1197
+00:27:24,480 --> 00:27:26,630
+it's very easy for them to aggregate
+but before I proceed further like how
+
+1198
+00:27:26,630 --> 00:27:26,640
+but before I proceed further like how
+ 
+
+1199
+00:27:26,640 --> 00:27:28,630
+but before I proceed further like how
+you can do the structured logging please
+
+1200
+00:27:28,630 --> 00:27:28,640
+you can do the structured logging please
+ 
+
+1201
+00:27:28,640 --> 00:27:30,630
+you can do the structured logging please
+note it does not mean everything we need
+
+1202
+00:27:30,630 --> 00:27:30,640
+note it does not mean everything we need
+ 
+
+1203
+00:27:30,640 --> 00:27:35,750
+note it does not mean everything we need
+to use JSON when to use JSON only for
+
+1204
+00:27:35,750 --> 00:27:35,760
+to use JSON when to use JSON only for
+ 
+
+1205
+00:27:35,760 --> 00:27:40,070
+to use JSON when to use JSON only for
+those data for which we later might have
+
+1206
+00:27:40,070 --> 00:27:40,080
+those data for which we later might have
+ 
+
+1207
+00:27:40,080 --> 00:27:43,110
+those data for which we later might have
+to do query filter or some aggregation
+
+1208
+00:27:43,110 --> 00:27:43,120
+to do query filter or some aggregation
+ 
+
+1209
+00:27:43,120 --> 00:27:45,909
+to do query filter or some aggregation
+that's all for example later you have to
+
+1210
+00:27:45,909 --> 00:27:45,919
+that's all for example later you have to
+ 
+
+1211
+00:27:45,919 --> 00:27:48,870
+that's all for example later you have to
+do a search for payment ID ID then it's
+
+1212
+00:27:48,870 --> 00:27:48,880
+do a search for payment ID ID then it's
+ 
+
+1213
+00:27:48,880 --> 00:27:50,789
+do a search for payment ID ID then it's
+better that in the JSON form we can put
+
+1214
+00:27:50,789 --> 00:27:50,799
+better that in the JSON form we can put
+ 
+
+1215
+00:27:50,799 --> 00:27:53,029
+better that in the JSON form we can put
+it so that on this field it log
+
+1216
+00:27:53,029 --> 00:27:53,039
+it so that on this field it log
+ 
+
+1217
+00:27:53,039 --> 00:27:55,430
+it so that on this field it log
+aggregation tool put a some index let's
+
+1218
+00:27:55,430 --> 00:27:55,440
+aggregation tool put a some index let's
+ 
+
+1219
+00:27:55,440 --> 00:27:58,230
+aggregation tool put a some index let's
+say so they can easily do payment ID
+
+1220
+00:27:58,230 --> 00:27:58,240
+say so they can easily do payment ID
+ 
+
+1221
+00:27:58,240 --> 00:28:01,350
+say so they can easily do payment ID
+okay for 1 2 3 you got this many events
+
+1222
+00:28:01,350 --> 00:28:01,360
+okay for 1 2 3 you got this many events
+ 
+
+1223
+00:28:01,360 --> 00:28:02,950
+okay for 1 2 3 you got this many events
+happened
+
+1224
+00:28:02,950 --> 00:28:02,960
+happened
+ 
+
+1225
+00:28:02,960 --> 00:28:04,710
+happened
+so whenever you have to do query or
+
+1226
+00:28:04,710 --> 00:28:04,720
+so whenever you have to do query or
+ 
+
+1227
+00:28:04,720 --> 00:28:07,430
+so whenever you have to do query or
+filter or something go for JSON
+
+1228
+00:28:07,430 --> 00:28:07,440
+filter or something go for JSON
+ 
+
+1229
+00:28:07,440 --> 00:28:08,950
+filter or something go for JSON
+otherwise
+
+1230
+00:28:08,950 --> 00:28:08,960
+otherwise
+ 
+
+1231
+00:28:08,960 --> 00:28:11,190
+otherwise
+go for plain text so it's always a mix
+
+1232
+00:28:11,190 --> 00:28:11,200
+go for plain text so it's always a mix
+ 
+
+1233
+00:28:11,200 --> 00:28:13,909
+go for plain text so it's always a mix
+match again it's not always JSON not
+
+1234
+00:28:13,909 --> 00:28:13,919
+match again it's not always JSON not
+ 
+
+1235
+00:28:13,919 --> 00:28:16,389
+match again it's not always JSON not
+fully 100 plain text it's always a mix
+
+1236
+00:28:16,389 --> 00:28:16,399
+fully 100 plain text it's always a mix
+ 
+
+1237
+00:28:16,399 --> 00:28:18,070
+fully 100 plain text it's always a mix
+match
+
+1238
+00:28:18,070 --> 00:28:18,080
+match
+ 
+
+1239
+00:28:18,080 --> 00:28:20,310
+match
+Okay,
+
+1240
+00:28:20,310 --> 00:28:20,320
+Okay,
+ 
+
+1241
+00:28:20,320 --> 00:28:22,310
+Okay,
+one thing is incorrect way don't do this
+
+1242
+00:28:22,310 --> 00:28:22,320
+one thing is incorrect way don't do this
+ 
+
+1243
+00:28:22,320 --> 00:28:24,630
+one thing is incorrect way don't do this
+in production that let's say you are
+
+1244
+00:28:24,630 --> 00:28:24,640
+in production that let's say you are
+ 
+
+1245
+00:28:24,640 --> 00:28:26,230
+in production that let's say you are
+trying to make the pattern itself like
+
+1246
+00:28:26,230 --> 00:28:26,240
+trying to make the pattern itself like
+ 
+
+1247
+00:28:26,240 --> 00:28:32,710
+trying to make the pattern itself like
+in a JSON. Hey time D level this message
+
+1248
+00:28:32,710 --> 00:28:32,720
+in a JSON. Hey time D level this message
+ 
+
+1249
+00:28:32,720 --> 00:28:35,110
+in a JSON. Hey time D level this message
+then placeholder
+
+1250
+00:28:35,110 --> 00:28:35,120
+then placeholder
+ 
+
+1251
+00:28:35,120 --> 00:28:37,350
+then placeholder
+this might work but the thing is that
+
+1252
+00:28:37,350 --> 00:28:37,360
+this might work but the thing is that
+ 
+
+1253
+00:28:37,360 --> 00:28:40,470
+this might work but the thing is that
+generally we have so many fields let's
+
+1254
+00:28:40,470 --> 00:28:40,480
+generally we have so many fields let's
+ 
+
+1255
+00:28:40,480 --> 00:28:43,669
+generally we have so many fields let's
+say what about 50 fields you have to do
+
+1256
+00:28:43,669 --> 00:28:43,679
+say what about 50 fields you have to do
+ 
+
+1257
+00:28:43,679 --> 00:28:46,310
+say what about 50 fields you have to do
+you have to put into a JSON for log
+
+1258
+00:28:46,310 --> 00:28:46,320
+you have to put into a JSON for log
+ 
+
+1259
+00:28:46,320 --> 00:28:49,190
+you have to put into a JSON for log
+aggregation okay and it's possible 50 is
+
+1260
+00:28:49,190 --> 00:28:49,200
+aggregation okay and it's possible 50 is
+ 
+
+1261
+00:28:49,200 --> 00:28:51,909
+aggregation okay and it's possible 50 is
+very less there are more so generally
+
+1262
+00:28:51,909 --> 00:28:51,919
+very less there are more so generally
+ 
+
+1263
+00:28:51,919 --> 00:28:54,149
+very less there are more so generally
+it's better not to have it because you
+
+1264
+00:28:54,149 --> 00:28:54,159
+it's better not to have it because you
+ 
+
+1265
+00:28:54,159 --> 00:28:56,310
+it's better not to have it because you
+have to keep on extending it and there
+
+1266
+00:28:56,310 --> 00:28:56,320
+have to keep on extending it and there
+ 
+
+1267
+00:28:56,320 --> 00:29:00,389
+have to keep on extending it and there
+is a chance of error also so high chance
+
+1268
+00:29:00,389 --> 00:29:00,399
+is a chance of error also so high chance
+ 
+
+1269
+00:29:00,399 --> 00:29:03,669
+is a chance of error also so high chance
+of mistake so we have a very best
+
+1270
+00:29:03,669 --> 00:29:03,679
+of mistake so we have a very best
+ 
+
+1271
+00:29:03,679 --> 00:29:07,029
+of mistake so we have a very best
+practice for it yes l use log stash
+
+1272
+00:29:07,029 --> 00:29:07,039
+practice for it yes l use log stash
+ 
+
+1273
+00:29:07,039 --> 00:29:09,830
+practice for it yes l use log stash
+encoder so I'm telling you for log back
+
+1274
+00:29:09,830 --> 00:29:09,840
+encoder so I'm telling you for log back
+ 
+
+1275
+00:29:09,840 --> 00:29:11,830
+encoder so I'm telling you for log back
+framework persceptive
+
+1276
+00:29:11,830 --> 00:29:11,840
+framework persceptive
+ 
+
+1277
+00:29:11,840 --> 00:29:15,750
+framework persceptive
+use log stash encoder so before what
+
+1278
+00:29:15,750 --> 00:29:15,760
+use log stash encoder so before what
+ 
+
+1279
+00:29:15,760 --> 00:29:17,830
+use log stash encoder so before what
+happen is you have a log info we will
+
+1280
+00:29:17,830 --> 00:29:17,840
+happen is you have a log info we will
+ 
+
+1281
+00:29:17,840 --> 00:29:21,029
+happen is you have a log info we will
+convert it to an event then it goes for
+
+1282
+00:29:21,029 --> 00:29:21,039
+convert it to an event then it goes for
+ 
+
+1283
+00:29:21,039 --> 00:29:23,750
+convert it to an event then it goes for
+pattern formatting then it goes to
+
+1284
+00:29:23,750 --> 00:29:23,760
+pattern formatting then it goes to
+ 
+
+1285
+00:29:23,760 --> 00:29:26,310
+pattern formatting then it goes to
+appender and then output now here with
+
+1286
+00:29:26,310 --> 00:29:26,320
+appender and then output now here with
+ 
+
+1287
+00:29:26,320 --> 00:29:28,870
+appender and then output now here with
+the log stash encoder what it will do
+
+1288
+00:29:28,870 --> 00:29:28,880
+the log stash encoder what it will do
+ 
+
+1289
+00:29:28,880 --> 00:29:32,389
+the log stash encoder what it will do
+log info convert it to a log event this
+
+1290
+00:29:32,389 --> 00:29:32,399
+log info convert it to a log event this
+ 
+
+1291
+00:29:32,399 --> 00:29:36,470
+log info convert it to a log event this
+log event is now converted to
+
+1292
+00:29:36,470 --> 00:29:36,480
+log event is now converted to
+ 
+
+1293
+00:29:36,480 --> 00:29:38,470
+log event is now converted to
+your JSON encoder so it will convert it
+
+1294
+00:29:38,470 --> 00:29:38,480
+your JSON encoder so it will convert it
+ 
+
+1295
+00:29:38,480 --> 00:29:40,789
+your JSON encoder so it will convert it
+to a JSON form
+
+1296
+00:29:40,789 --> 00:29:40,799
+to a JSON form
+ 
+
+1297
+00:29:40,799 --> 00:29:43,590
+to a JSON form
+okay now this JSON form goes to a JSON
+
+1298
+00:29:43,590 --> 00:29:43,600
+okay now this JSON form goes to a JSON
+ 
+
+1299
+00:29:43,600 --> 00:29:45,669
+okay now this JSON form goes to a JSON
+decorator this is optional this is you
+
+1300
+00:29:45,669 --> 00:29:45,679
+decorator this is optional this is you
+ 
+
+1301
+00:29:45,679 --> 00:29:48,070
+decorator this is optional this is you
+can say that post-processing so there
+
+1302
+00:29:48,070 --> 00:29:48,080
+can say that post-processing so there
+ 
+
+1303
+00:29:48,080 --> 00:29:50,950
+can say that post-processing so there
+are many post-processing like you can do
+
+1304
+00:29:50,950 --> 00:29:50,960
+are many post-processing like you can do
+ 
+
+1305
+00:29:50,960 --> 00:29:54,310
+are many post-processing like you can do
+uh pretty print you like you can make
+
+1306
+00:29:54,310 --> 00:29:54,320
+uh pretty print you like you can make
+ 
+
+1307
+00:29:54,320 --> 00:29:57,669
+uh pretty print you like you can make
+pretty JSON okay And even like in the
+
+1308
+00:29:57,669 --> 00:29:57,679
+pretty JSON okay And even like in the
+ 
+
+1309
+00:29:57,679 --> 00:30:01,029
+pretty JSON okay And even like in the
+JSON if you have to hide few things.
+
+1310
+00:30:01,029 --> 00:30:01,039
+JSON if you have to hide few things.
+ 
+
+1311
+00:30:01,039 --> 00:30:02,950
+JSON if you have to hide few things.
+Okay, you can do that. So this you can
+
+1312
+00:30:02,950 --> 00:30:02,960
+Okay, you can do that. So this you can
+ 
+
+1313
+00:30:02,960 --> 00:30:04,630
+Okay, you can do that. So this you can
+say that it's kind of post-processing
+
+1314
+00:30:04,630 --> 00:30:04,640
+say that it's kind of post-processing
+ 
+
+1315
+00:30:04,640 --> 00:30:06,470
+say that it's kind of post-processing
+before it pass through to the appender
+
+1316
+00:30:06,470 --> 00:30:06,480
+before it pass through to the appender
+ 
+
+1317
+00:30:06,480 --> 00:30:09,909
+before it pass through to the appender
+to write it. Okay, so log stash encoder
+
+1318
+00:30:09,909 --> 00:30:09,919
+to write it. Okay, so log stash encoder
+ 
+
+1319
+00:30:09,919 --> 00:30:13,190
+to write it. Okay, so log stash encoder
+has this two things. Okay, it convert
+
+1320
+00:30:13,190 --> 00:30:13,200
+has this two things. Okay, it convert
+ 
+
+1321
+00:30:13,200 --> 00:30:15,350
+has this two things. Okay, it convert
+the log event to JSON and then we also
+
+1322
+00:30:15,350 --> 00:30:15,360
+the log event to JSON and then we also
+ 
+
+1323
+00:30:15,360 --> 00:30:17,750
+the log event to JSON and then we also
+have JSON decorator which is optional
+
+1324
+00:30:17,750 --> 00:30:17,760
+have JSON decorator which is optional
+ 
+
+1325
+00:30:17,760 --> 00:30:20,470
+have JSON decorator which is optional
+which can do postprocessing on this JSON
+
+1326
+00:30:20,470 --> 00:30:20,480
+which can do postprocessing on this JSON
+ 
+
+1327
+00:30:20,480 --> 00:30:23,430
+which can do postprocessing on this JSON
+before it passed to appender.
+
+1328
+00:30:23,430 --> 00:30:23,440
+before it passed to appender.
+ 
+
+1329
+00:30:23,440 --> 00:30:25,430
+before it passed to appender.
+So for that we need to add a dependency
+
+1330
+00:30:25,430 --> 00:30:25,440
+So for that we need to add a dependency
+ 
+
+1331
+00:30:25,440 --> 00:30:27,990
+So for that we need to add a dependency
+in pom.xml. So this is the dependency
+
+1332
+00:30:27,990 --> 00:30:28,000
+in pom.xml. So this is the dependency
+ 
+
+1333
+00:30:28,000 --> 00:30:30,389
+in pom.xml. So this is the dependency
+you need to add. Use any stable version.
+
+1334
+00:30:30,389 --> 00:30:30,399
+you need to add. Use any stable version.
+ 
+
+1335
+00:30:30,399 --> 00:30:34,230
+you need to add. Use any stable version.
+Okay. Uh log stash logback encoder is
+
+1336
+00:30:34,230 --> 00:30:34,240
+Okay. Uh log stash logback encoder is
+ 
+
+1337
+00:30:34,240 --> 00:30:36,710
+Okay. Uh log stash logback encoder is
+something which we need to add. And this
+
+1338
+00:30:36,710 --> 00:30:36,720
+something which we need to add. And this
+ 
+
+1339
+00:30:36,720 --> 00:30:38,630
+something which we need to add. And this
+is the appender. Now I'm adding. See
+
+1340
+00:30:38,630 --> 00:30:38,640
+is the appender. Now I'm adding. See
+ 
+
+1341
+00:30:38,640 --> 00:30:41,830
+is the appender. Now I'm adding. See
+this how simple it is. Appender name is
+
+1342
+00:30:41,830 --> 00:30:41,840
+this how simple it is. Appender name is
+ 
+
+1343
+00:30:41,840 --> 00:30:44,149
+this how simple it is. Appender name is
+JSON console. You can give any name. Why
+
+1344
+00:30:44,149 --> 00:30:44,159
+JSON console. You can give any name. Why
+ 
+
+1345
+00:30:44,159 --> 00:30:46,710
+JSON console. You can give any name. Why
+I give JSON console? Because I am using
+
+1346
+00:30:46,710 --> 00:30:46,720
+I give JSON console? Because I am using
+ 
+
+1347
+00:30:46,720 --> 00:30:49,750
+I give JSON console? Because I am using
+a console appender and encoder I am
+
+1348
+00:30:49,750 --> 00:30:49,760
+a console appender and encoder I am
+ 
+
+1349
+00:30:49,760 --> 00:30:51,830
+a console appender and encoder I am
+using JSON one. So that's why JSON. You
+
+1350
+00:30:51,830 --> 00:30:51,840
+using JSON one. So that's why JSON. You
+ 
+
+1351
+00:30:51,840 --> 00:30:53,990
+using JSON one. So that's why JSON. You
+can give any name.
+
+1352
+00:30:53,990 --> 00:30:54,000
+can give any name.
+ 
+
+1353
+00:30:54,000 --> 00:30:55,750
+can give any name.
+So this is my output. Still I am
+
+1354
+00:30:55,750 --> 00:30:55,760
+So this is my output. Still I am
+ 
+
+1355
+00:30:55,760 --> 00:30:58,070
+So this is my output. Still I am
+printing on output. But what format my
+
+1356
+00:30:58,070 --> 00:30:58,080
+printing on output. But what format my
+ 
+
+1357
+00:30:58,080 --> 00:31:01,029
+printing on output. But what format my
+encoder is which I am using is like log/
+
+1358
+00:31:01,029 --> 00:31:01,039
+encoder is which I am using is like log/
+ 
+
+1359
+00:31:01,039 --> 00:31:03,269
+encoder is which I am using is like log/
+encoder. Now
+
+1360
+00:31:03,269 --> 00:31:03,279
+encoder. Now
+ 
+
+1361
+00:31:03,279 --> 00:31:05,510
+encoder. Now
+okay and here if you see I am not using
+
+1362
+00:31:05,510 --> 00:31:05,520
+okay and here if you see I am not using
+ 
+
+1363
+00:31:05,520 --> 00:31:08,630
+okay and here if you see I am not using
+any pattern. Now I am using encoder.
+
+1364
+00:31:08,630 --> 00:31:08,640
+any pattern. Now I am using encoder.
+ 
+
+1365
+00:31:08,640 --> 00:31:10,710
+any pattern. Now I am using encoder.
+This will decide like how to convert it
+
+1366
+00:31:10,710 --> 00:31:10,720
+This will decide like how to convert it
+ 
+
+1367
+00:31:10,720 --> 00:31:13,750
+This will decide like how to convert it
+to a JSON.
+
+1368
+00:31:13,750 --> 00:31:13,760
+to a JSON.
+ 
+
+1369
+00:31:13,760 --> 00:31:16,789
+to a JSON.
+So this class accept log event and fetch
+
+1370
+00:31:16,789 --> 00:31:16,799
+So this class accept log event and fetch
+ 
+
+1371
+00:31:16,799 --> 00:31:18,470
+So this class accept log event and fetch
+the details from the log event like
+
+1372
+00:31:18,470 --> 00:31:18,480
+the details from the log event like
+ 
+
+1373
+00:31:18,480 --> 00:31:21,750
+the details from the log event like
+logger name, thread name etc.
+
+1374
+00:31:21,750 --> 00:31:21,760
+logger name, thread name etc.
+ 
+
+1375
+00:31:21,760 --> 00:31:24,710
+logger name, thread name etc.
+Okay. So now question might have come to
+
+1376
+00:31:24,710 --> 00:31:24,720
+Okay. So now question might have come to
+ 
+
+1377
+00:31:24,720 --> 00:31:27,269
+Okay. So now question might have come to
+you that hey Shange
+
+1378
+00:31:27,269 --> 00:31:27,279
+you that hey Shange
+ 
+
+1379
+00:31:27,279 --> 00:31:29,430
+you that hey Shange
+what all fields
+
+1380
+00:31:29,430 --> 00:31:29,440
+what all fields
+ 
+
+1381
+00:31:29,440 --> 00:31:32,870
+what all fields
+this will fetch log/enccoder will fetch.
+
+1382
+00:31:32,870 --> 00:31:32,880
+this will fetch log/enccoder will fetch.
+ 
+
+1383
+00:31:32,880 --> 00:31:35,990
+this will fetch log/enccoder will fetch.
+So if you open this class log field
+
+1384
+00:31:35,990 --> 00:31:36,000
+So if you open this class log field
+ 
+
+1385
+00:31:36,000 --> 00:31:38,870
+So if you open this class log field
+names do java. So you will see that it
+
+1386
+00:31:38,870 --> 00:31:38,880
+names do java. So you will see that it
+ 
+
+1387
+00:31:38,880 --> 00:31:41,430
+names do java. So you will see that it
+has this many field at the rate time
+
+1388
+00:31:41,430 --> 00:31:41,440
+has this many field at the rate time
+ 
+
+1389
+00:31:41,440 --> 00:31:44,070
+has this many field at the rate time
+stamp at the rate version message thread
+
+1390
+00:31:44,070 --> 00:31:44,080
+stamp at the rate version message thread
+ 
+
+1391
+00:31:44,080 --> 00:31:47,830
+stamp at the rate version message thread
+name logger name level stack trace uh
+
+1392
+00:31:47,830 --> 00:31:47,840
+name logger name level stack trace uh
+ 
+
+1393
+00:31:47,840 --> 00:31:49,669
+name logger name level stack trace uh
+caller class name caller method name
+
+1394
+00:31:49,669 --> 00:31:49,679
+caller class name caller method name
+ 
+
+1395
+00:31:49,679 --> 00:31:51,590
+caller class name caller method name
+caller file name caller line number
+
+1396
+00:31:51,590 --> 00:31:51,600
+caller file name caller line number
+ 
+
+1397
+00:31:51,600 --> 00:31:54,310
+caller file name caller line number
+everything. So these are some of the you
+
+1398
+00:31:54,310 --> 00:31:54,320
+everything. So these are some of the you
+ 
+
+1399
+00:31:54,320 --> 00:31:56,310
+everything. So these are some of the you
+can say that fields which are already
+
+1400
+00:31:56,310 --> 00:31:56,320
+can say that fields which are already
+ 
+
+1401
+00:31:56,320 --> 00:31:59,430
+can say that fields which are already
+present which it tried to fetch from the
+
+1402
+00:31:59,430 --> 00:31:59,440
+present which it tried to fetch from the
+ 
+
+1403
+00:31:59,440 --> 00:32:01,909
+present which it tried to fetch from the
+log event.
+
+1404
+00:32:01,909 --> 00:32:01,919
+log event.
+ 
+
+1405
+00:32:01,919 --> 00:32:03,990
+log event.
+Okay. So this is already present. So
+
+1406
+00:32:03,990 --> 00:32:04,000
+Okay. So this is already present. So
+ 
+
+1407
+00:32:04,000 --> 00:32:05,830
+Okay. So this is already present. So
+open this class and see that what all
+
+1408
+00:32:05,830 --> 00:32:05,840
+open this class and see that what all
+ 
+
+1409
+00:32:05,840 --> 00:32:08,630
+open this class and see that what all
+presents here. Okay. So for thread name
+
+1410
+00:32:08,630 --> 00:32:08,640
+presents here. Okay. So for thread name
+ 
+
+1411
+00:32:08,640 --> 00:32:11,110
+presents here. Okay. So for thread name
+it will do log event dot get thread
+
+1412
+00:32:11,110 --> 00:32:11,120
+it will do log event dot get thread
+ 
+
+1413
+00:32:11,120 --> 00:32:13,750
+it will do log event dot get thread
+name. Okay. Uh log event dot what is the
+
+1414
+00:32:13,750 --> 00:32:13,760
+name. Okay. Uh log event dot what is the
+ 
+
+1415
+00:32:13,760 --> 00:32:15,110
+name. Okay. Uh log event dot what is the
+logger name? What is the level name? So
+
+1416
+00:32:15,110 --> 00:32:15,120
+logger name? What is the level name? So
+ 
+
+1417
+00:32:15,120 --> 00:32:16,710
+logger name? What is the level name? So
+it will try to fetch everything from
+
+1418
+00:32:16,710 --> 00:32:16,720
+it will try to fetch everything from
+ 
+
+1419
+00:32:16,720 --> 00:32:19,830
+it will try to fetch everything from
+this log event itself.
+
+1420
+00:32:19,830 --> 00:32:19,840
+this log event itself.
+ 
+
+1421
+00:32:19,840 --> 00:32:21,750
+this log event itself.
+Okay. And then we can easily configure
+
+1422
+00:32:21,750 --> 00:32:21,760
+Okay. And then we can easily configure
+ 
+
+1423
+00:32:21,760 --> 00:32:23,830
+Okay. And then we can easily configure
+our logger. So this is my logger. My
+
+1424
+00:32:23,830 --> 00:32:23,840
+our logger. So this is my logger. My
+ 
+
+1425
+00:32:23,840 --> 00:32:26,549
+our logger. So this is my logger. My
+logger name level is info. Additivity
+
+1426
+00:32:26,549 --> 00:32:26,559
+logger name level is info. Additivity
+ 
+
+1427
+00:32:26,559 --> 00:32:29,669
+logger name level is info. Additivity
+false. I don't want to propagate upward.
+
+1428
+00:32:29,669 --> 00:32:29,679
+false. I don't want to propagate upward.
+ 
+
+1429
+00:32:29,679 --> 00:32:31,669
+false. I don't want to propagate upward.
+Appender which I am referring is JSON
+
+1430
+00:32:31,669 --> 00:32:31,679
+Appender which I am referring is JSON
+ 
+
+1431
+00:32:31,679 --> 00:32:34,950
+Appender which I am referring is JSON
+console. So this one I am associating my
+
+1432
+00:32:34,950 --> 00:32:34,960
+console. So this one I am associating my
+ 
+
+1433
+00:32:34,960 --> 00:32:36,870
+console. So this one I am associating my
+logger.
+
+1434
+00:32:36,870 --> 00:32:36,880
+logger.
+ 
+
+1435
+00:32:36,880 --> 00:32:38,870
+logger.
+So now if you see the output if you do
+
+1436
+00:32:38,870 --> 00:32:38,880
+So now if you see the output if you do
+ 
+
+1437
+00:32:38,880 --> 00:32:42,230
+So now if you see the output if you do
+log info something I'm just doing the
+
+1438
+00:32:42,230 --> 00:32:42,240
+log info something I'm just doing the
+ 
+
+1439
+00:32:42,240 --> 00:32:44,389
+log info something I'm just doing the
+log.info. So see the output now on the
+
+1440
+00:32:44,389 --> 00:32:44,399
+log.info. So see the output now on the
+ 
+
+1441
+00:32:44,399 --> 00:32:47,509
+log.info. So see the output now on the
+console. So here I am using console
+
+1442
+00:32:47,509 --> 00:32:47,519
+console. So here I am using console
+ 
+
+1443
+00:32:47,519 --> 00:32:49,190
+console. So here I am using console
+appender right. So on console only come
+
+1444
+00:32:49,190 --> 00:32:49,200
+appender right. So on console only come
+ 
+
+1445
+00:32:49,200 --> 00:32:54,789
+appender right. So on console only come
+but now in this form log form JSON form.
+
+1446
+00:32:54,789 --> 00:32:54,799
+but now in this form log form JSON form.
+ 
+
+1447
+00:32:54,799 --> 00:32:57,590
+but now in this form log form JSON form.
+So at the time stem these all fields are
+
+1448
+00:32:57,590 --> 00:32:57,600
+So at the time stem these all fields are
+ 
+
+1449
+00:32:57,600 --> 00:33:02,549
+So at the time stem these all fields are
+present at the time stamp. So this time
+
+1450
+00:33:02,549 --> 00:33:02,559
+present at the time stamp. So this time
+ 
+
+1451
+00:33:02,559 --> 00:33:06,070
+present at the time stamp. So this time
+version message log info and the payment
+
+1452
+00:33:06,070 --> 00:33:06,080
+version message log info and the payment
+ 
+
+1453
+00:33:06,080 --> 00:33:11,269
+version message log info and the payment
+ID 1 2 3 whatever login name thread name
+
+1454
+00:33:11,269 --> 00:33:11,279
+ID 1 2 3 whatever login name thread name
+ 
+
+1455
+00:33:11,279 --> 00:33:15,430
+ID 1 2 3 whatever login name thread name
+level level level value. So
+
+1456
+00:33:15,430 --> 00:33:15,440
+level level level value. So
+ 
+
+1457
+00:33:15,440 --> 00:33:17,669
+level level level value. So
+all these fields are present which it
+
+1458
+00:33:17,669 --> 00:33:17,679
+all these fields are present which it
+ 
+
+1459
+00:33:17,679 --> 00:33:19,990
+all these fields are present which it
+will try to fetch it from your log event
+
+1460
+00:33:19,990 --> 00:33:20,000
+will try to fetch it from your log event
+ 
+
+1461
+00:33:20,000 --> 00:33:23,110
+will try to fetch it from your log event
+and it will show like this.
+
+1462
+00:33:23,110 --> 00:33:23,120
+and it will show like this.
+ 
+
+1463
+00:33:23,120 --> 00:33:24,950
+and it will show like this.
+Now definitely question would come to
+
+1464
+00:33:24,950 --> 00:33:24,960
+Now definitely question would come to
+ 
+
+1465
+00:33:24,960 --> 00:33:26,710
+Now definitely question would come to
+you that hey what about some dynamic
+
+1466
+00:33:26,710 --> 00:33:26,720
+you that hey what about some dynamic
+ 
+
+1467
+00:33:26,720 --> 00:33:29,590
+you that hey what about some dynamic
+fields I want to add like okay these are
+
+1468
+00:33:29,590 --> 00:33:29,600
+fields I want to add like okay these are
+ 
+
+1469
+00:33:29,600 --> 00:33:31,029
+fields I want to add like okay these are
+some of the information which are
+
+1470
+00:33:31,029 --> 00:33:31,039
+some of the information which are
+ 
+
+1471
+00:33:31,039 --> 00:33:33,590
+some of the information which are
+present in my log statement it is able
+
+1472
+00:33:33,590 --> 00:33:33,600
+present in my log statement it is able
+ 
+
+1473
+00:33:33,600 --> 00:33:37,190
+present in my log statement it is able
+to fetch it is able to fetch the message
+
+1474
+00:33:37,190 --> 00:33:37,200
+to fetch it is able to fetch the message
+ 
+
+1475
+00:33:37,200 --> 00:33:40,070
+to fetch it is able to fetch the message
+okay so it able to fetch message logger
+
+1476
+00:33:40,070 --> 00:33:40,080
+okay so it able to fetch message logger
+ 
+
+1477
+00:33:40,080 --> 00:33:43,590
+okay so it able to fetch message logger
+name thread name date everything it's
+
+1478
+00:33:43,590 --> 00:33:43,600
+name thread name date everything it's
+ 
+
+1479
+00:33:43,600 --> 00:33:46,470
+name thread name date everything it's
+okay what is the level it's in the JSON
+
+1480
+00:33:46,470 --> 00:33:46,480
+okay what is the level it's in the JSON
+ 
+
+1481
+00:33:46,480 --> 00:33:49,909
+okay what is the level it's in the JSON
+form but the real power of structured
+
+1482
+00:33:49,909 --> 00:33:49,919
+form but the real power of structured
+ 
+
+1483
+00:33:49,919 --> 00:33:53,909
+form but the real power of structured
+JSON is that dynamic field which I
+
+1484
+00:33:53,909 --> 00:33:53,919
+JSON is that dynamic field which I
+ 
+
+1485
+00:33:53,919 --> 00:33:56,630
+JSON is that dynamic field which I
+should be able to add into the JSON so
+
+1486
+00:33:56,630 --> 00:33:56,640
+should be able to add into the JSON so
+ 
+
+1487
+00:33:56,640 --> 00:34:00,310
+should be able to add into the JSON so
+that my aggregation tool can also use
+
+1488
+00:34:00,310 --> 00:34:00,320
+that my aggregation tool can also use
+ 
+
+1489
+00:34:00,320 --> 00:34:02,630
+that my aggregation tool can also use
+this those new field because these are
+
+1490
+00:34:02,630 --> 00:34:02,640
+this those new field because these are
+ 
+
+1491
+00:34:02,640 --> 00:34:06,070
+this those new field because these are
+very limited okay there might be many
+
+1492
+00:34:06,070 --> 00:34:06,080
+very limited okay there might be many
+ 
+
+1493
+00:34:06,080 --> 00:34:07,909
+very limited okay there might be many
+field let's say here in the message I
+
+1494
+00:34:07,909 --> 00:34:07,919
+field let's say here in the message I
+ 
+
+1495
+00:34:07,919 --> 00:34:10,470
+field let's say here in the message I
+have payment ID payment ID 1 2 3 so
+
+1496
+00:34:10,470 --> 00:34:10,480
+have payment ID payment ID 1 2 3 so
+ 
+
+1497
+00:34:10,480 --> 00:34:12,230
+have payment ID payment ID 1 2 3 so
+let's say what if in JSON it would be
+
+1498
+00:34:12,230 --> 00:34:12,240
+let's say what if in JSON it would be
+ 
+
+1499
+00:34:12,240 --> 00:34:13,669
+let's say what if in JSON it would be
+better if I have let's say something
+
+1500
+00:34:13,669 --> 00:34:13,679
+better if I have let's say something
+ 
+
+1501
+00:34:13,679 --> 00:34:17,109
+better if I have let's say something
+payment ID and 1 2 3 so that log
+
+1502
+00:34:17,109 --> 00:34:17,119
+payment ID and 1 2 3 so that log
+ 
+
+1503
+00:34:17,119 --> 00:34:19,510
+payment ID and 1 2 3 so that log
+aggregation tool might be able to
+
+1504
+00:34:19,510 --> 00:34:19,520
+aggregation tool might be able to
+ 
+
+1505
+00:34:19,520 --> 00:34:21,430
+aggregation tool might be able to
+aggregate based on the payment ID field
+
+1506
+00:34:21,430 --> 00:34:21,440
+aggregate based on the payment ID field
+ 
+
+1507
+00:34:21,440 --> 00:34:23,669
+aggregate based on the payment ID field
+also like how many different unique
+
+1508
+00:34:23,669 --> 00:34:23,679
+also like how many different unique
+ 
+
+1509
+00:34:23,679 --> 00:34:26,389
+also like how many different unique
+payment ID I got in a day something we
+
+1510
+00:34:26,389 --> 00:34:26,399
+payment ID I got in a day something we
+ 
+
+1511
+00:34:26,399 --> 00:34:30,069
+payment ID I got in a day something we
+can do query out of it
+
+1512
+00:34:30,069 --> 00:34:30,079
+can do query out of it
+ 
+
+1513
+00:34:30,079 --> 00:34:32,230
+can do query out of it
+so that's where MDC comes into the
+
+1514
+00:34:32,230 --> 00:34:32,240
+so that's where MDC comes into the
+ 
+
+1515
+00:34:32,240 --> 00:34:35,510
+so that's where MDC comes into the
+picture map diagnostic context please
+
+1516
+00:34:35,510 --> 00:34:35,520
+picture map diagnostic context please
+ 
+
+1517
+00:34:35,520 --> 00:34:38,710
+picture map diagnostic context please
+note I will not go MDC here now I will
+
+1518
+00:34:38,710 --> 00:34:38,720
+note I will not go MDC here now I will
+ 
+
+1519
+00:34:38,720 --> 00:34:41,750
+note I will not go MDC here now I will
+go into the next part last part of
+
+1520
+00:34:41,750 --> 00:34:41,760
+go into the next part last part of
+ 
+
+1521
+00:34:41,760 --> 00:34:45,510
+go into the next part last part of
+distributed logging where I would be
+
+1522
+00:34:45,510 --> 00:34:45,520
+distributed logging where I would be
+ 
+
+1523
+00:34:45,520 --> 00:34:47,270
+distributed logging where I would be
+cover distributed logging part also
+
+1524
+00:34:47,270 --> 00:34:47,280
+cover distributed logging part also
+ 
+
+1525
+00:34:47,280 --> 00:34:50,069
+cover distributed logging part also
+because MDC also plays critical role in
+
+1526
+00:34:50,069 --> 00:34:50,079
+because MDC also plays critical role in
+ 
+
+1527
+00:34:50,079 --> 00:34:51,750
+because MDC also plays critical role in
+the distributed logging
+
+1528
+00:34:51,750 --> 00:34:51,760
+the distributed logging
+ 
+
+1529
+00:34:51,760 --> 00:34:54,950
+the distributed logging
+Okay, but for now I'm just saying just
+
+1530
+00:34:54,950 --> 00:34:54,960
+Okay, but for now I'm just saying just
+ 
+
+1531
+00:34:54,960 --> 00:34:57,750
+Okay, but for now I'm just saying just
+for now how dynamic
+
+1532
+00:34:57,750 --> 00:34:57,760
+for now how dynamic
+ 
+
+1533
+00:34:57,760 --> 00:35:00,550
+for now how dynamic
+value we can append into the JSON. So
+
+1534
+00:35:00,550 --> 00:35:00,560
+value we can append into the JSON. So
+ 
+
+1535
+00:35:00,560 --> 00:35:03,670
+value we can append into the JSON. So
+here we have something like MDC.put. So
+
+1536
+00:35:03,670 --> 00:35:03,680
+here we have something like MDC.put. So
+ 
+
+1537
+00:35:03,680 --> 00:35:06,550
+here we have something like MDC.put. So
+it's a static method MDC.put.
+
+1538
+00:35:06,550 --> 00:35:06,560
+it's a static method MDC.put.
+ 
+
+1539
+00:35:06,560 --> 00:35:08,150
+it's a static method MDC.put.
+Whatever the field you want to add and
+
+1540
+00:35:08,150 --> 00:35:08,160
+Whatever the field you want to add and
+ 
+
+1541
+00:35:08,160 --> 00:35:09,349
+Whatever the field you want to add and
+whatever the value you want to add
+
+1542
+00:35:09,349 --> 00:35:09,359
+whatever the value you want to add
+ 
+
+1543
+00:35:09,359 --> 00:35:11,829
+whatever the value you want to add
+dynamically in your code you can have
+
+1544
+00:35:11,829 --> 00:35:11,839
+dynamically in your code you can have
+ 
+
+1545
+00:35:11,839 --> 00:35:13,589
+dynamically in your code you can have
+make sure that you are doing it before
+
+1546
+00:35:13,589 --> 00:35:13,599
+make sure that you are doing it before
+ 
+
+1547
+00:35:13,599 --> 00:35:15,430
+make sure that you are doing it before
+the log
+
+1548
+00:35:15,430 --> 00:35:15,440
+the log
+ 
+
+1549
+00:35:15,440 --> 00:35:18,069
+the log
+wherever log.info info
+
+1550
+00:35:18,069 --> 00:35:18,079
+wherever log.info info
+ 
+
+1551
+00:35:18,079 --> 00:35:20,230
+wherever log.info info
+before that you have to put it because
+
+1552
+00:35:20,230 --> 00:35:20,240
+before that you have to put it because
+ 
+
+1553
+00:35:20,240 --> 00:35:23,430
+before that you have to put it because
+when you create a log event
+
+1554
+00:35:23,430 --> 00:35:23,440
+when you create a log event
+ 
+
+1555
+00:35:23,440 --> 00:35:25,750
+when you create a log event
+the log event will fetch this value from
+
+1556
+00:35:25,750 --> 00:35:25,760
+the log event will fetch this value from
+ 
+
+1557
+00:35:25,760 --> 00:35:27,750
+the log event will fetch this value from
+this MDC
+
+1558
+00:35:27,750 --> 00:35:27,760
+this MDC
+ 
+
+1559
+00:35:27,760 --> 00:35:30,950
+this MDC
+because if you do after this
+
+1560
+00:35:30,950 --> 00:35:30,960
+because if you do after this
+ 
+
+1561
+00:35:30,960 --> 00:35:33,030
+because if you do after this
+means you you have already done all this
+
+1562
+00:35:33,030 --> 00:35:33,040
+means you you have already done all this
+ 
+
+1563
+00:35:33,040 --> 00:35:34,470
+means you you have already done all this
+thing log.info info means you have
+
+1564
+00:35:34,470 --> 00:35:34,480
+thing log.info info means you have
+ 
+
+1565
+00:35:34,480 --> 00:35:36,470
+thing log.info info means you have
+already done you have already convert to
+
+1566
+00:35:36,470 --> 00:35:36,480
+already done you have already convert to
+ 
+
+1567
+00:35:36,480 --> 00:35:38,310
+already done you have already convert to
+log event from log event you have
+
+1568
+00:35:38,310 --> 00:35:38,320
+log event from log event you have
+ 
+
+1569
+00:35:38,320 --> 00:35:41,270
+log event from log event you have
+already convert to JSON this JSON is
+
+1570
+00:35:41,270 --> 00:35:41,280
+already convert to JSON this JSON is
+ 
+
+1571
+00:35:41,280 --> 00:35:43,829
+already convert to JSON this JSON is
+already passed to the appender appender
+
+1572
+00:35:43,829 --> 00:35:43,839
+already passed to the appender appender
+ 
+
+1573
+00:35:43,839 --> 00:35:46,470
+already passed to the appender appender
+already write it and after that you are
+
+1574
+00:35:46,470 --> 00:35:46,480
+already write it and after that you are
+ 
+
+1575
+00:35:46,480 --> 00:35:48,950
+already write it and after that you are
+doing mdcput
+
+1576
+00:35:48,950 --> 00:35:48,960
+doing mdcput
+ 
+
+1577
+00:35:48,960 --> 00:35:50,630
+doing mdcput
+it will not be used so you have to
+
+1578
+00:35:50,630 --> 00:35:50,640
+it will not be used so you have to
+ 
+
+1579
+00:35:50,640 --> 00:35:53,430
+it will not be used so you have to
+before it so that it will goes to this
+
+1580
+00:35:53,430 --> 00:35:53,440
+before it so that it will goes to this
+ 
+
+1581
+00:35:53,440 --> 00:35:55,349
+before it so that it will goes to this
+event log event and which can pass it to
+
+1582
+00:35:55,349 --> 00:35:55,359
+event log event and which can pass it to
+ 
+
+1583
+00:35:55,359 --> 00:35:57,990
+event log event and which can pass it to
+ultimate to JSON
+
+1584
+00:35:57,990 --> 00:35:58,000
+ultimate to JSON
+ 
+
+1585
+00:35:58,000 --> 00:36:02,150
+ultimate to JSON
+so here by default the our log log stash
+
+1586
+00:36:02,150 --> 00:36:02,160
+so here by default the our log log stash
+ 
+
+1587
+00:36:02,160 --> 00:36:06,150
+so here by default the our log log stash
+encoder has access to MDC.
+
+1588
+00:36:06,150 --> 00:36:06,160
+encoder has access to MDC.
+ 
+
+1589
+00:36:06,160 --> 00:36:08,630
+encoder has access to MDC.
+Okay. So if you don't want you can
+
+1590
+00:36:08,630 --> 00:36:08,640
+Okay. So if you don't want you can
+ 
+
+1591
+00:36:08,640 --> 00:36:10,790
+Okay. So if you don't want you can
+always make it false. Include MDC you
+
+1592
+00:36:10,790 --> 00:36:10,800
+always make it false. Include MDC you
+ 
+
+1593
+00:36:10,800 --> 00:36:12,950
+always make it false. Include MDC you
+can false it. Uh this encoder
+
+1594
+00:36:12,950 --> 00:36:12,960
+can false it. Uh this encoder
+ 
+
+1595
+00:36:12,960 --> 00:36:15,430
+can false it. Uh this encoder
+log/enccoder you can make it false so
+
+1596
+00:36:15,430 --> 00:36:15,440
+log/enccoder you can make it false so
+ 
+
+1597
+00:36:15,440 --> 00:36:18,790
+log/enccoder you can make it false so
+that it will not try to access your MDC.
+
+1598
+00:36:18,790 --> 00:36:18,800
+that it will not try to access your MDC.
+ 
+
+1599
+00:36:18,800 --> 00:36:20,550
+that it will not try to access your MDC.
+Whatever the data is present in your MDC
+
+1600
+00:36:20,550 --> 00:36:20,560
+Whatever the data is present in your MDC
+ 
+
+1601
+00:36:20,560 --> 00:36:23,109
+Whatever the data is present in your MDC
+it will not try to access it. But by
+
+1602
+00:36:23,109 --> 00:36:23,119
+it will not try to access it. But by
+ 
+
+1603
+00:36:23,119 --> 00:36:27,109
+it will not try to access it. But by
+default it is true. And when it is true,
+
+1604
+00:36:27,109 --> 00:36:27,119
+default it is true. And when it is true,
+ 
+
+1605
+00:36:27,119 --> 00:36:31,190
+default it is true. And when it is true,
+when the JSON encoder converts your log
+
+1606
+00:36:31,190 --> 00:36:31,200
+when the JSON encoder converts your log
+ 
+
+1607
+00:36:31,200 --> 00:36:35,109
+when the JSON encoder converts your log
+event to JSON, apart from log event, it
+
+1608
+00:36:35,109 --> 00:36:35,119
+event to JSON, apart from log event, it
+ 
+
+1609
+00:36:35,119 --> 00:36:37,670
+event to JSON, apart from log event, it
+will also read your MDC
+
+1610
+00:36:37,670 --> 00:36:37,680
+will also read your MDC
+ 
+
+1611
+00:36:37,680 --> 00:36:39,670
+will also read your MDC
+and it will take out all the keys value
+
+1612
+00:36:39,670 --> 00:36:39,680
+and it will take out all the keys value
+ 
+
+1613
+00:36:39,680 --> 00:36:42,550
+and it will take out all the keys value
+and put it into the JSON form. And your
+
+1614
+00:36:42,550 --> 00:36:42,560
+and put it into the JSON form. And your
+ 
+
+1615
+00:36:42,560 --> 00:36:45,670
+and put it into the JSON form. And your
+JSON would be like timestamp, version,
+
+1616
+00:36:45,670 --> 00:36:45,680
+JSON would be like timestamp, version,
+ 
+
+1617
+00:36:45,680 --> 00:36:47,910
+JSON would be like timestamp, version,
+payment, your whatever the logger
+
+1618
+00:36:47,910 --> 00:36:47,920
+payment, your whatever the logger
+ 
+
+1619
+00:36:47,920 --> 00:36:50,390
+payment, your whatever the logger
+message like payment is successful,
+
+1620
+00:36:50,390 --> 00:36:50,400
+message like payment is successful,
+ 
+
+1621
+00:36:50,400 --> 00:36:52,710
+message like payment is successful,
+logger name, thread name, whatever the
+
+1622
+00:36:52,710 --> 00:36:52,720
+logger name, thread name, whatever the
+ 
+
+1623
+00:36:52,720 --> 00:36:54,710
+logger name, thread name, whatever the
+previously we have seen. Now all the
+
+1624
+00:36:54,710 --> 00:36:54,720
+previously we have seen. Now all the
+ 
+
+1625
+00:36:54,720 --> 00:36:56,390
+previously we have seen. Now all the
+fields which are present into MDC that
+
+1626
+00:36:56,390 --> 00:36:56,400
+fields which are present into MDC that
+ 
+
+1627
+00:36:56,400 --> 00:36:59,750
+fields which are present into MDC that
+will also come payment ID 1 2 3 that's
+
+1628
+00:36:59,750 --> 00:36:59,760
+will also come payment ID 1 2 3 that's
+ 
+
+1629
+00:36:59,760 --> 00:37:03,190
+will also come payment ID 1 2 3 that's
+the power of structured logging.
+
+1630
+00:37:03,190 --> 00:37:03,200
+the power of structured logging.
+ 
+
+1631
+00:37:03,200 --> 00:37:07,349
+the power of structured logging.
+Okay.
+
+1632
+00:37:07,349 --> 00:37:07,359
+
+ 
+
+1633
+00:37:07,359 --> 00:37:10,390
+
+So MDC is very important topic and can
+
+1634
+00:37:10,390 --> 00:37:10,400
+So MDC is very important topic and can
+ 
+
+1635
+00:37:10,400 --> 00:37:12,230
+So MDC is very important topic and can
+be used with distributed logging. So we
+
+1636
+00:37:12,230 --> 00:37:12,240
+be used with distributed logging. So we
+ 
+
+1637
+00:37:12,240 --> 00:37:13,750
+be used with distributed logging. So we
+will cover in depth in the next part
+
+1638
+00:37:13,750 --> 00:37:13,760
+will cover in depth in the next part
+ 
+
+1639
+00:37:13,760 --> 00:37:15,670
+will cover in depth in the next part
+most probably the last part of the
+
+1640
+00:37:15,670 --> 00:37:15,680
+most probably the last part of the
+ 
+
+1641
+00:37:15,680 --> 00:37:18,069
+most probably the last part of the
+distributed logging.
+
+1642
+00:37:18,069 --> 00:37:18,079
+distributed logging.
+ 
+
+1643
+00:37:18,079 --> 00:37:19,910
+distributed logging.
+So now we know how to generate a
+
+1644
+00:37:19,910 --> 00:37:19,920
+So now we know how to generate a
+ 
+
+1645
+00:37:19,920 --> 00:37:22,550
+So now we know how to generate a
+structured logging. Now very important
+
+1646
+00:37:22,550 --> 00:37:22,560
+structured logging. Now very important
+ 
+
+1647
+00:37:22,560 --> 00:37:26,470
+structured logging. Now very important
+is we should never log P III data
+
+1648
+00:37:26,470 --> 00:37:26,480
+is we should never log P III data
+ 
+
+1649
+00:37:26,480 --> 00:37:28,950
+is we should never log P III data
+personally identifiable information.
+
+1650
+00:37:28,950 --> 00:37:28,960
+personally identifiable information.
+ 
+
+1651
+00:37:28,960 --> 00:37:31,510
+personally identifiable information.
+Very important.
+
+1652
+00:37:31,510 --> 00:37:31,520
+Very important.
+ 
+
+1653
+00:37:31,520 --> 00:37:34,630
+Very important.
+Okay. So one golden rule is if you don't
+
+1654
+00:37:34,630 --> 00:37:34,640
+Okay. So one golden rule is if you don't
+ 
+
+1655
+00:37:34,640 --> 00:37:37,510
+Okay. So one golden rule is if you don't
+know if particular data is PII or not
+
+1656
+00:37:37,510 --> 00:37:37,520
+know if particular data is PII or not
+ 
+
+1657
+00:37:37,520 --> 00:37:40,230
+know if particular data is PII or not
+never log it because if you log it and
+
+1658
+00:37:40,230 --> 00:37:40,240
+never log it because if you log it and
+ 
+
+1659
+00:37:40,240 --> 00:37:41,990
+never log it because if you log it and
+it turned out to be a PI data it's a
+
+1660
+00:37:41,990 --> 00:37:42,000
+it turned out to be a PI data it's a
+ 
+
+1661
+00:37:42,000 --> 00:37:44,630
+it turned out to be a PI data it's a
+compliance issue. Okay. So generally
+
+1662
+00:37:44,630 --> 00:37:44,640
+compliance issue. Okay. So generally
+ 
+
+1663
+00:37:44,640 --> 00:37:48,790
+compliance issue. Okay. So generally
+government bodies then charge fine.
+
+1664
+00:37:48,790 --> 00:37:48,800
+government bodies then charge fine.
+ 
+
+1665
+00:37:48,800 --> 00:37:51,670
+government bodies then charge fine.
+So what is considered as PI data? So any
+
+1666
+00:37:51,670 --> 00:37:51,680
+So what is considered as PI data? So any
+ 
+
+1667
+00:37:51,680 --> 00:37:53,430
+So what is considered as PI data? So any
+information through which we can
+
+1668
+00:37:53,430 --> 00:37:53,440
+information through which we can
+ 
+
+1669
+00:37:53,440 --> 00:37:55,589
+information through which we can
+identify a specific person directly or
+
+1670
+00:37:55,589 --> 00:37:55,599
+identify a specific person directly or
+ 
+
+1671
+00:37:55,599 --> 00:37:57,670
+identify a specific person directly or
+indirectly like phone number, address,
+
+1672
+00:37:57,670 --> 00:37:57,680
+indirectly like phone number, address,
+ 
+
+1673
+00:37:57,680 --> 00:37:59,829
+indirectly like phone number, address,
+Aadhaar card, pen card, email, OTP,
+
+1674
+00:37:59,829 --> 00:37:59,839
+Aadhaar card, pen card, email, OTP,
+ 
+
+1675
+00:37:59,839 --> 00:38:02,710
+Aadhaar card, pen card, email, OTP,
+password these are all covered uh as PII
+
+1676
+00:38:02,710 --> 00:38:02,720
+password these are all covered uh as PII
+ 
+
+1677
+00:38:02,720 --> 00:38:05,510
+password these are all covered uh as PII
+data because we they can be used to
+
+1678
+00:38:05,510 --> 00:38:05,520
+data because we they can be used to
+ 
+
+1679
+00:38:05,520 --> 00:38:08,550
+data because we they can be used to
+identify one specific person directly or
+
+1680
+00:38:08,550 --> 00:38:08,560
+identify one specific person directly or
+ 
+
+1681
+00:38:08,560 --> 00:38:11,589
+identify one specific person directly or
+indirectly and there are so many things.
+
+1682
+00:38:11,589 --> 00:38:11,599
+indirectly and there are so many things.
+ 
+
+1683
+00:38:11,599 --> 00:38:14,150
+indirectly and there are so many things.
+So whatever information you are trying
+
+1684
+00:38:14,150 --> 00:38:14,160
+So whatever information you are trying
+ 
+
+1685
+00:38:14,160 --> 00:38:16,390
+So whatever information you are trying
+to log if you're not sure whether this
+
+1686
+00:38:16,390 --> 00:38:16,400
+to log if you're not sure whether this
+ 
+
+1687
+00:38:16,400 --> 00:38:18,950
+to log if you're not sure whether this
+could be a PI data or not check it
+
+1688
+00:38:18,950 --> 00:38:18,960
+could be a PI data or not check it
+ 
+
+1689
+00:38:18,960 --> 00:38:20,630
+could be a PI data or not check it
+search online there I think there is a
+
+1690
+00:38:20,630 --> 00:38:20,640
+search online there I think there is a
+ 
+
+1691
+00:38:20,640 --> 00:38:22,870
+search online there I think there is a
+list in the PII there is some
+
+1692
+00:38:22,870 --> 00:38:22,880
+list in the PII there is some
+ 
+
+1693
+00:38:22,880 --> 00:38:24,870
+list in the PII there is some
+documentation which has all the
+
+1694
+00:38:24,870 --> 00:38:24,880
+documentation which has all the
+ 
+
+1695
+00:38:24,880 --> 00:38:26,390
+documentation which has all the
+information which can be considered as
+
+1696
+00:38:26,390 --> 00:38:26,400
+information which can be considered as
+ 
+
+1697
+00:38:26,400 --> 00:38:29,109
+information which can be considered as
+PII. So see whatever you are trying to
+
+1698
+00:38:29,109 --> 00:38:29,119
+PII. So see whatever you are trying to
+ 
+
+1699
+00:38:29,119 --> 00:38:33,510
+PII. So see whatever you are trying to
+log consider as PI or not.
+
+1700
+00:38:33,510 --> 00:38:33,520
+log consider as PI or not.
+ 
+
+1701
+00:38:33,520 --> 00:38:36,710
+log consider as PI or not.
+But with the structured logging we have
+
+1702
+00:38:36,710 --> 00:38:36,720
+But with the structured logging we have
+ 
+
+1703
+00:38:36,720 --> 00:38:40,150
+But with the structured logging we have
+a way to save it. So that by mistake if
+
+1704
+00:38:40,150 --> 00:38:40,160
+a way to save it. So that by mistake if
+ 
+
+1705
+00:38:40,160 --> 00:38:43,829
+a way to save it. So that by mistake if
+it we are putting it we can save it and
+
+1706
+00:38:43,829 --> 00:38:43,839
+it we are putting it we can save it and
+ 
+
+1707
+00:38:43,839 --> 00:38:46,870
+it we are putting it we can save it and
+like how we do is so we know that we
+
+1708
+00:38:46,870 --> 00:38:46,880
+like how we do is so we know that we
+ 
+
+1709
+00:38:46,880 --> 00:38:49,430
+like how we do is so we know that we
+have a log info log convert to log event
+
+1710
+00:38:49,430 --> 00:38:49,440
+have a log info log convert to log event
+ 
+
+1711
+00:38:49,440 --> 00:38:51,589
+have a log info log convert to log event
+it goes to JSON encoder convert it to a
+
+1712
+00:38:51,589 --> 00:38:51,599
+it goes to JSON encoder convert it to a
+ 
+
+1713
+00:38:51,599 --> 00:38:54,870
+it goes to JSON encoder convert it to a
+JSON. I told you about JSON decorator
+
+1714
+00:38:54,870 --> 00:38:54,880
+JSON. I told you about JSON decorator
+ 
+
+1715
+00:38:54,880 --> 00:38:57,190
+JSON. I told you about JSON decorator
+which is like a postprocessing
+
+1716
+00:38:57,190 --> 00:38:57,200
+which is like a postprocessing
+ 
+
+1717
+00:38:57,200 --> 00:39:01,030
+which is like a postprocessing
+here we can make use of it.
+
+1718
+00:39:01,030 --> 00:39:01,040
+here we can make use of it.
+ 
+
+1719
+00:39:01,040 --> 00:39:03,990
+here we can make use of it.
+So we can make use of JSON decorator.
+
+1720
+00:39:03,990 --> 00:39:04,000
+So we can make use of JSON decorator.
+ 
+
+1721
+00:39:04,000 --> 00:39:06,310
+So we can make use of JSON decorator.
+Okay. And it's like a postprocessing
+
+1722
+00:39:06,310 --> 00:39:06,320
+Okay. And it's like a postprocessing
+ 
+
+1723
+00:39:06,320 --> 00:39:09,349
+Okay. And it's like a postprocessing
+which we can use for just JSON pretty.
+
+1724
+00:39:09,349 --> 00:39:09,359
+which we can use for just JSON pretty.
+ 
+
+1725
+00:39:09,359 --> 00:39:11,510
+which we can use for just JSON pretty.
+Currently JSON is like in very form of
+
+1726
+00:39:11,510 --> 00:39:11,520
+Currently JSON is like in very form of
+ 
+
+1727
+00:39:11,520 --> 00:39:14,870
+Currently JSON is like in very form of
+like plain text right like this. So if
+
+1728
+00:39:14,870 --> 00:39:14,880
+like plain text right like this. So if
+ 
+
+1729
+00:39:14,880 --> 00:39:17,030
+like plain text right like this. So if
+have like a proper JSON nested and all
+
+1730
+00:39:17,030 --> 00:39:17,040
+have like a proper JSON nested and all
+ 
+
+1731
+00:39:17,040 --> 00:39:19,109
+have like a proper JSON nested and all
+it's like a pretty form you can do that
+
+1732
+00:39:19,109 --> 00:39:19,119
+it's like a pretty form you can do that
+ 
+
+1733
+00:39:19,119 --> 00:39:22,550
+it's like a pretty form you can do that
+also or you can also use it to mask
+
+1734
+00:39:22,550 --> 00:39:22,560
+also or you can also use it to mask
+ 
+
+1735
+00:39:22,560 --> 00:39:26,470
+also or you can also use it to mask
+sensitive fields how so here if you see
+
+1736
+00:39:26,470 --> 00:39:26,480
+sensitive fields how so here if you see
+ 
+
+1737
+00:39:26,480 --> 00:39:28,470
+sensitive fields how so here if you see
+I am creating an appender JSON console
+
+1738
+00:39:28,470 --> 00:39:28,480
+I am creating an appender JSON console
+ 
+
+1739
+00:39:28,480 --> 00:39:31,430
+I am creating an appender JSON console
+so my appender is
+
+1740
+00:39:31,430 --> 00:39:31,440
+so my appender is
+ 
+
+1741
+00:39:31,440 --> 00:39:34,950
+so my appender is
+write the log statement to console but
+
+1742
+00:39:34,950 --> 00:39:34,960
+write the log statement to console but
+ 
+
+1743
+00:39:34,960 --> 00:39:37,829
+write the log statement to console but
+what encoder I am using to format my is
+
+1744
+00:39:37,829 --> 00:39:37,839
+what encoder I am using to format my is
+ 
+
+1745
+00:39:37,839 --> 00:39:41,109
+what encoder I am using to format my is
+like log/ encoder so ultimately I would
+
+1746
+00:39:41,109 --> 00:39:41,119
+like log/ encoder so ultimately I would
+ 
+
+1747
+00:39:41,119 --> 00:39:43,829
+like log/ encoder so ultimately I would
+be putting into the JSON form
+
+1748
+00:39:43,829 --> 00:39:43,839
+be putting into the JSON form
+ 
+
+1749
+00:39:43,839 --> 00:39:47,510
+be putting into the JSON form
+Now I am using a decorator JSON
+
+1750
+00:39:47,510 --> 00:39:47,520
+Now I am using a decorator JSON
+ 
+
+1751
+00:39:47,520 --> 00:39:50,550
+Now I am using a decorator JSON
+generator decorator. Okay. And the class
+
+1752
+00:39:50,550 --> 00:39:50,560
+generator decorator. Okay. And the class
+ 
+
+1753
+00:39:50,560 --> 00:39:52,630
+generator decorator. Okay. And the class
+which I'm using is masking JSON
+
+1754
+00:39:52,630 --> 00:39:52,640
+which I'm using is masking JSON
+ 
+
+1755
+00:39:52,640 --> 00:39:54,230
+which I'm using is masking JSON
+generator decorator. So there are
+
+1756
+00:39:54,230 --> 00:39:54,240
+generator decorator. So there are
+ 
+
+1757
+00:39:54,240 --> 00:39:57,109
+generator decorator. So there are
+multiple classes which we can use for
+
+1758
+00:39:57,109 --> 00:39:57,119
+multiple classes which we can use for
+ 
+
+1759
+00:39:57,119 --> 00:39:59,750
+multiple classes which we can use for
+pretty. For pretty JSON pretty there
+
+1760
+00:39:59,750 --> 00:39:59,760
+pretty. For pretty JSON pretty there
+ 
+
+1761
+00:39:59,760 --> 00:40:01,589
+pretty. For pretty JSON pretty there
+could be different class which we can
+
+1762
+00:40:01,589 --> 00:40:01,599
+could be different class which we can
+ 
+
+1763
+00:40:01,599 --> 00:40:04,150
+could be different class which we can
+use within this decorator.
+
+1764
+00:40:04,150 --> 00:40:04,160
+use within this decorator.
+ 
+
+1765
+00:40:04,160 --> 00:40:06,390
+use within this decorator.
+But for masking we have this masking
+
+1766
+00:40:06,390 --> 00:40:06,400
+But for masking we have this masking
+ 
+
+1767
+00:40:06,400 --> 00:40:09,589
+But for masking we have this masking
+JSON generator decorator. Here we can
+
+1768
+00:40:09,589 --> 00:40:09,599
+JSON generator decorator. Here we can
+ 
+
+1769
+00:40:09,599 --> 00:40:11,510
+JSON generator decorator. Here we can
+tell the default mask. So you can say
+
+1770
+00:40:11,510 --> 00:40:11,520
+tell the default mask. So you can say
+ 
+
+1771
+00:40:11,520 --> 00:40:13,670
+tell the default mask. So you can say
+it's like a placeholder which will which
+
+1772
+00:40:13,670 --> 00:40:13,680
+it's like a placeholder which will which
+ 
+
+1773
+00:40:13,680 --> 00:40:15,910
+it's like a placeholder which will which
+fe will be used for masking. So default
+
+1774
+00:40:15,910 --> 00:40:15,920
+fe will be used for masking. So default
+ 
+
+1775
+00:40:15,920 --> 00:40:18,630
+fe will be used for masking. So default
+mask I want like a star star star like
+
+1776
+00:40:18,630 --> 00:40:18,640
+mask I want like a star star star like
+ 
+
+1777
+00:40:18,640 --> 00:40:22,630
+mask I want like a star star star like
+this. What are the field to mask? So
+
+1778
+00:40:22,630 --> 00:40:22,640
+this. What are the field to mask? So
+ 
+
+1779
+00:40:22,640 --> 00:40:24,710
+this. What are the field to mask? So
+password token credit card. So I have
+
+1780
+00:40:24,710 --> 00:40:24,720
+password token credit card. So I have
+ 
+
+1781
+00:40:24,720 --> 00:40:27,030
+password token credit card. So I have
+just put this path. So these are path is
+
+1782
+00:40:27,030 --> 00:40:27,040
+just put this path. So these are path is
+ 
+
+1783
+00:40:27,040 --> 00:40:29,109
+just put this path. So these are path is
+nothing but a field. So whatever the
+
+1784
+00:40:29,109 --> 00:40:29,119
+nothing but a field. So whatever the
+ 
+
+1785
+00:40:29,119 --> 00:40:32,069
+nothing but a field. So whatever the
+JSON file which you have or you can say
+
+1786
+00:40:32,069 --> 00:40:32,079
+JSON file which you have or you can say
+ 
+
+1787
+00:40:32,079 --> 00:40:36,950
+JSON file which you have or you can say
+that the JSON log log in the JSON form
+
+1788
+00:40:36,950 --> 00:40:36,960
+that the JSON log log in the JSON form
+ 
+
+1789
+00:40:36,960 --> 00:40:42,790
+that the JSON log log in the JSON form
+if in that log any fields are this those
+
+1790
+00:40:42,790 --> 00:40:42,800
+if in that log any fields are this those
+ 
+
+1791
+00:40:42,800 --> 00:40:45,190
+if in that log any fields are this those
+would be changed to star star star like
+
+1792
+00:40:45,190 --> 00:40:45,200
+would be changed to star star star like
+ 
+
+1793
+00:40:45,200 --> 00:40:47,829
+would be changed to star star star like
+this no matter if they are within a
+
+1794
+00:40:47,829 --> 00:40:47,839
+this no matter if they are within a
+ 
+
+1795
+00:40:47,839 --> 00:40:51,750
+this no matter if they are within a
+nested object or not okay if across this
+
+1796
+00:40:51,750 --> 00:40:51,760
+nested object or not okay if across this
+ 
+
+1797
+00:40:51,760 --> 00:40:55,030
+nested object or not okay if across this
+JSON if any of this field is present
+
+1798
+00:40:55,030 --> 00:40:55,040
+JSON if any of this field is present
+ 
+
+1799
+00:40:55,040 --> 00:40:57,670
+JSON if any of this field is present
+they will get masked with this
+
+1800
+00:40:57,670 --> 00:40:57,680
+they will get masked with this
+ 
+
+1801
+00:40:57,680 --> 00:41:00,470
+they will get masked with this
+placeholder.
+
+1802
+00:41:00,470 --> 00:41:00,480
+placeholder.
+ 
+
+1803
+00:41:00,480 --> 00:41:02,790
+placeholder.
+Okay. So, decorator close and this one.
+
+1804
+00:41:02,790 --> 00:41:02,800
+Okay. So, decorator close and this one.
+ 
+
+1805
+00:41:02,800 --> 00:41:06,870
+Okay. So, decorator close and this one.
+So, now here if you see
+
+1806
+00:41:06,870 --> 00:41:06,880
+
+ 
+
+1807
+00:41:06,880 --> 00:41:10,710
+
+in / payments I have MDC. So,
+
+1808
+00:41:10,710 --> 00:41:10,720
+in / payments I have MDC. So,
+ 
+
+1809
+00:41:10,720 --> 00:41:13,109
+in / payments I have MDC. So,
+dynamically I'm just so payment ID and
+
+1810
+00:41:13,109 --> 00:41:13,119
+dynamically I'm just so payment ID and
+ 
+
+1811
+00:41:13,119 --> 00:41:14,630
+dynamically I'm just so payment ID and
+for testing purpose I'm putting hey
+
+1812
+00:41:14,630 --> 00:41:14,640
+for testing purpose I'm putting hey
+ 
+
+1813
+00:41:14,640 --> 00:41:17,270
+for testing purpose I'm putting hey
+password is this is my password. So you
+
+1814
+00:41:17,270 --> 00:41:17,280
+password is this is my password. So you
+ 
+
+1815
+00:41:17,280 --> 00:41:20,309
+password is this is my password. So you
+we know that from MDC it will read it
+
+1816
+00:41:20,309 --> 00:41:20,319
+we know that from MDC it will read it
+ 
+
+1817
+00:41:20,319 --> 00:41:23,589
+we know that from MDC it will read it
+and convert add it to JSON and this is
+
+1818
+00:41:23,589 --> 00:41:23,599
+and convert add it to JSON and this is
+ 
+
+1819
+00:41:23,599 --> 00:41:26,150
+and convert add it to JSON and this is
+my decorator error I'm looking for
+
+1820
+00:41:26,150 --> 00:41:26,160
+my decorator error I'm looking for
+ 
+
+1821
+00:41:26,160 --> 00:41:28,150
+my decorator error I'm looking for
+password also that it should mask it. So
+
+1822
+00:41:28,150 --> 00:41:28,160
+password also that it should mask it. So
+ 
+
+1823
+00:41:28,160 --> 00:41:30,710
+password also that it should mask it. So
+here if you see
+
+1824
+00:41:30,710 --> 00:41:30,720
+here if you see
+ 
+
+1825
+00:41:30,720 --> 00:41:32,710
+here if you see
+payment ID added properly but password
+
+1826
+00:41:32,710 --> 00:41:32,720
+payment ID added properly but password
+ 
+
+1827
+00:41:32,720 --> 00:41:35,430
+payment ID added properly but password
+is changed to star star star instead of
+
+1828
+00:41:35,430 --> 00:41:35,440
+is changed to star star star instead of
+ 
+
+1829
+00:41:35,440 --> 00:41:38,230
+is changed to star star star instead of
+my password.
+
+1830
+00:41:38,230 --> 00:41:38,240
+my password.
+ 
+
+1831
+00:41:38,240 --> 00:41:40,230
+my password.
+Okay.
+
+1832
+00:41:40,230 --> 00:41:40,240
+Okay.
+ 
+
+1833
+00:41:40,240 --> 00:41:43,829
+Okay.
+So in the next part we will see MDC very
+
+1834
+00:41:43,829 --> 00:41:43,839
+So in the next part we will see MDC very
+ 
+
+1835
+00:41:43,839 --> 00:41:47,510
+So in the next part we will see MDC very
+important and finally the distributed
+
+1836
+00:41:47,510 --> 00:41:47,520
+important and finally the distributed
+ 
+
+1837
+00:41:47,520 --> 00:41:49,510
+important and finally the distributed
+logging because till now whatever we are
+
+1838
+00:41:49,510 --> 00:41:49,520
+logging because till now whatever we are
+ 
+
+1839
+00:41:49,520 --> 00:41:51,670
+logging because till now whatever we are
+doing it is applicable like we can do in
+
+1840
+00:41:51,670 --> 00:41:51,680
+doing it is applicable like we can do in
+ 
+
+1841
+00:41:51,680 --> 00:41:54,630
+doing it is applicable like we can do in
+a single application too. Now what
+
+1842
+00:41:54,630 --> 00:41:54,640
+a single application too. Now what
+ 
+
+1843
+00:41:54,640 --> 00:41:56,390
+a single application too. Now what
+happen when we have more than one
+
+1844
+00:41:56,390 --> 00:41:56,400
+happen when we have more than one
+ 
+
+1845
+00:41:56,400 --> 00:41:59,349
+happen when we have more than one
+service more than one application and
+
+1846
+00:41:59,349 --> 00:41:59,359
+service more than one application and
+ 
+
+1847
+00:41:59,359 --> 00:42:02,630
+service more than one application and
+how MDC helps there also so we'll say
+
+1848
+00:42:02,630 --> 00:42:02,640
+how MDC helps there also so we'll say
+ 
+
+1849
+00:42:02,640 --> 00:42:04,710
+how MDC helps there also so we'll say
+that. So any doubt let me know we can
+
+1850
+00:42:04,710 --> 00:42:04,720
+that. So any doubt let me know we can
+ 
+
+1851
+00:42:04,720 --> 00:42:08,240
+that. So any doubt let me know we can
+discuss further. Bye.
+

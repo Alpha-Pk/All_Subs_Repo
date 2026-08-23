@@ -1,0 +1,9185 @@
+1
+00:00:00,719 --> 00:00:02,389
+
+Hey guys, Shandra said welcome back to
+
+2
+00:00:02,389 --> 00:00:02,399
+Hey guys, Shandra said welcome back to
+ 
+
+3
+00:00:02,399 --> 00:00:04,390
+Hey guys, Shandra said welcome back to
+the channel. So today we will start with
+
+4
+00:00:04,390 --> 00:00:04,400
+the channel. So today we will start with
+ 
+
+5
+00:00:04,400 --> 00:00:06,950
+the channel. So today we will start with
+retry and we have already covered rate
+
+6
+00:00:06,950 --> 00:00:06,960
+retry and we have already covered rate
+ 
+
+7
+00:00:06,960 --> 00:00:09,270
+retry and we have already covered rate
+limiter in part one, bulkhead in part
+
+8
+00:00:09,270 --> 00:00:09,280
+limiter in part one, bulkhead in part
+ 
+
+9
+00:00:09,280 --> 00:00:11,030
+limiter in part one, bulkhead in part
+two, time limiter we are not going to
+
+10
+00:00:11,030 --> 00:00:11,040
+two, time limiter we are not going to
+ 
+
+11
+00:00:11,040 --> 00:00:12,629
+two, time limiter we are not going to
+cover we will cover it when we will do
+
+12
+00:00:12,629 --> 00:00:12,639
+cover we will cover it when we will do
+ 
+
+13
+00:00:12,639 --> 00:00:14,950
+cover we will cover it when we will do
+reactive programming. So let's start
+
+14
+00:00:14,950 --> 00:00:14,960
+reactive programming. So let's start
+ 
+
+15
+00:00:14,960 --> 00:00:18,630
+reactive programming. So let's start
+without wasting any time and uh before I
+
+16
+00:00:18,630 --> 00:00:18,640
+without wasting any time and uh before I
+ 
+
+17
+00:00:18,640 --> 00:00:21,590
+without wasting any time and uh before I
+start I just want to say that that retry
+
+18
+00:00:21,590 --> 00:00:21,600
+start I just want to say that that retry
+ 
+
+19
+00:00:21,600 --> 00:00:23,910
+start I just want to say that that retry
+if we not properly implemented it has
+
+20
+00:00:23,910 --> 00:00:23,920
+if we not properly implemented it has
+ 
+
+21
+00:00:23,920 --> 00:00:26,070
+if we not properly implemented it has
+more disadvantage than advantage. We
+
+22
+00:00:26,070 --> 00:00:26,080
+more disadvantage than advantage. We
+ 
+
+23
+00:00:26,080 --> 00:00:29,109
+more disadvantage than advantage. We
+will get to know why. So in distributed
+
+24
+00:00:29,109 --> 00:00:29,119
+will get to know why. So in distributed
+ 
+
+25
+00:00:29,119 --> 00:00:31,990
+will get to know why. So in distributed
+system call to downstream service might
+
+26
+00:00:31,990 --> 00:00:32,000
+system call to downstream service might
+ 
+
+27
+00:00:32,000 --> 00:00:34,950
+system call to downstream service might
+fail because of transient issues.
+
+28
+00:00:34,950 --> 00:00:34,960
+fail because of transient issues.
+ 
+
+29
+00:00:34,960 --> 00:00:37,110
+fail because of transient issues.
+Transient issues means that short
+
+30
+00:00:37,110 --> 00:00:37,120
+Transient issues means that short
+ 
+
+31
+00:00:37,120 --> 00:00:39,110
+Transient issues means that short
+temporary issue like network issue,
+
+32
+00:00:39,110 --> 00:00:39,120
+temporary issue like network issue,
+ 
+
+33
+00:00:39,120 --> 00:00:42,630
+temporary issue like network issue,
+timeout etc. and retry of same request
+
+34
+00:00:42,630 --> 00:00:42,640
+timeout etc. and retry of same request
+ 
+
+35
+00:00:42,640 --> 00:00:45,750
+timeout etc. and retry of same request
+after a short delay can get succeed.
+
+36
+00:00:45,750 --> 00:00:45,760
+after a short delay can get succeed.
+ 
+
+37
+00:00:45,760 --> 00:00:48,790
+after a short delay can get succeed.
+Okay. So one question might comes to you
+
+38
+00:00:48,790 --> 00:00:48,800
+Okay. So one question might comes to you
+ 
+
+39
+00:00:48,800 --> 00:00:50,950
+Okay. So one question might comes to you
+that hey
+
+40
+00:00:50,950 --> 00:00:50,960
+that hey
+ 
+
+41
+00:00:50,960 --> 00:00:54,229
+that hey
+still why we should do retry?
+
+42
+00:00:54,229 --> 00:00:54,239
+still why we should do retry?
+ 
+
+43
+00:00:54,239 --> 00:00:56,950
+still why we should do retry?
+Why can't user or client can invoke our
+
+44
+00:00:56,950 --> 00:00:56,960
+Why can't user or client can invoke our
+ 
+
+45
+00:00:56,960 --> 00:00:59,430
+Why can't user or client can invoke our
+API again? So let's say that this is our
+
+46
+00:00:59,430 --> 00:00:59,440
+API again? So let's say that this is our
+ 
+
+47
+00:00:59,440 --> 00:01:01,430
+API again? So let's say that this is our
+client.
+
+48
+00:01:01,430 --> 00:01:01,440
+client.
+ 
+
+49
+00:01:01,440 --> 00:01:05,350
+client.
+This is our component order and we have
+
+50
+00:01:05,350 --> 00:01:05,360
+This is our component order and we have
+ 
+
+51
+00:01:05,360 --> 00:01:07,270
+This is our component order and we have
+an API
+
+52
+00:01:07,270 --> 00:01:07,280
+an API
+ 
+
+53
+00:01:07,280 --> 00:01:12,630
+an API
+and we are invoking another API of let's
+
+54
+00:01:12,630 --> 00:01:12,640
+and we are invoking another API of let's
+ 
+
+55
+00:01:12,640 --> 00:01:15,350
+and we are invoking another API of let's
+say product component
+
+56
+00:01:15,350 --> 00:01:15,360
+say product component
+ 
+
+57
+00:01:15,360 --> 00:01:17,109
+say product component
+and
+
+58
+00:01:17,109 --> 00:01:17,119
+and
+ 
+
+59
+00:01:17,119 --> 00:01:19,510
+and
+there is some transient issue while
+
+60
+00:01:19,510 --> 00:01:19,520
+there is some transient issue while
+ 
+
+61
+00:01:19,520 --> 00:01:22,310
+there is some transient issue while
+invoking it. So what we are saying is so
+
+62
+00:01:22,310 --> 00:01:22,320
+invoking it. So what we are saying is so
+ 
+
+63
+00:01:22,320 --> 00:01:25,030
+invoking it. So what we are saying is so
+transient issues if we retry it it can
+
+64
+00:01:25,030 --> 00:01:25,040
+transient issues if we retry it it can
+ 
+
+65
+00:01:25,040 --> 00:01:28,390
+transient issues if we retry it it can
+get succeed. So we can do a retry for
+
+66
+00:01:28,390 --> 00:01:28,400
+get succeed. So we can do a retry for
+ 
+
+67
+00:01:28,400 --> 00:01:31,350
+get succeed. So we can do a retry for
+this invocation. So the question is that
+
+68
+00:01:31,350 --> 00:01:31,360
+this invocation. So the question is that
+ 
+
+69
+00:01:31,360 --> 00:01:35,030
+this invocation. So the question is that
+hey shange why we need to retry why
+
+70
+00:01:35,030 --> 00:01:35,040
+hey shange why we need to retry why
+ 
+
+71
+00:01:35,040 --> 00:01:38,310
+hey shange why we need to retry why
+can't client again invoke the API so
+
+72
+00:01:38,310 --> 00:01:38,320
+can't client again invoke the API so
+ 
+
+73
+00:01:38,320 --> 00:01:40,789
+can't client again invoke the API so
+that automatically it will invoke the
+
+74
+00:01:40,789 --> 00:01:40,799
+that automatically it will invoke the
+ 
+
+75
+00:01:40,799 --> 00:01:44,630
+that automatically it will invoke the
+product API again why we have to retry
+
+76
+00:01:44,630 --> 00:01:44,640
+product API again why we have to retry
+ 
+
+77
+00:01:44,640 --> 00:01:48,950
+product API again why we have to retry
+ourself. So see the answer is for each
+
+78
+00:01:48,950 --> 00:01:48,960
+ourself. So see the answer is for each
+ 
+
+79
+00:01:48,960 --> 00:01:52,550
+ourself. So see the answer is for each
+call lot of heavy processing is done and
+
+80
+00:01:52,550 --> 00:01:52,560
+call lot of heavy processing is done and
+ 
+
+81
+00:01:52,560 --> 00:01:55,109
+call lot of heavy processing is done and
+it's not free of cost
+
+82
+00:01:55,109 --> 00:01:55,119
+it's not free of cost
+ 
+
+83
+00:01:55,119 --> 00:01:58,310
+it's not free of cost
+memory time resources etc. So everything
+
+84
+00:01:58,310 --> 00:01:58,320
+memory time resources etc. So everything
+ 
+
+85
+00:01:58,320 --> 00:02:01,990
+memory time resources etc. So everything
+like it's there is some cost incurred.
+
+86
+00:02:01,990 --> 00:02:02,000
+like it's there is some cost incurred.
+ 
+
+87
+00:02:02,000 --> 00:02:05,910
+like it's there is some cost incurred.
+So say you have invoke client at first
+
+88
+00:02:05,910 --> 00:02:05,920
+So say you have invoke client at first
+ 
+
+89
+00:02:05,920 --> 00:02:09,910
+So say you have invoke client at first
+invoke an API 90% of the API
+
+90
+00:02:09,910 --> 00:02:09,920
+invoke an API 90% of the API
+ 
+
+91
+00:02:09,920 --> 00:02:11,910
+invoke an API 90% of the API
+implementation is completed task is
+
+92
+00:02:11,910 --> 00:02:11,920
+implementation is completed task is
+ 
+
+93
+00:02:11,920 --> 00:02:15,030
+implementation is completed task is
+completed only 10% is left and then it
+
+94
+00:02:15,030 --> 00:02:15,040
+completed only 10% is left and then it
+ 
+
+95
+00:02:15,040 --> 00:02:17,430
+completed only 10% is left and then it
+invoke this product API and the
+
+96
+00:02:17,430 --> 00:02:17,440
+invoke this product API and the
+ 
+
+97
+00:02:17,440 --> 00:02:19,830
+invoke this product API and the
+transient issue happen let's say uh
+
+98
+00:02:19,830 --> 00:02:19,840
+transient issue happen let's say uh
+ 
+
+99
+00:02:19,840 --> 00:02:23,030
+transient issue happen let's say uh
+network timeout happen so is it a good
+
+100
+00:02:23,030 --> 00:02:23,040
+network timeout happen so is it a good
+ 
+
+101
+00:02:23,040 --> 00:02:26,150
+network timeout happen so is it a good
+idea to dispose of this 90% of the task
+
+102
+00:02:26,150 --> 00:02:26,160
+idea to dispose of this 90% of the task
+ 
+
+103
+00:02:26,160 --> 00:02:30,070
+idea to dispose of this 90% of the task
+which is done no right we if we can just
+
+104
+00:02:30,070 --> 00:02:30,080
+which is done no right we if we can just
+ 
+
+105
+00:02:30,080 --> 00:02:32,869
+which is done no right we if we can just
+simply retry this and if it gets
+
+106
+00:02:32,869 --> 00:02:32,879
+simply retry this and if it gets
+ 
+
+107
+00:02:32,879 --> 00:02:35,830
+simply retry this and if it gets
+succeeded then only 10% task have to be
+
+108
+00:02:35,830 --> 00:02:35,840
+succeeded then only 10% task have to be
+ 
+
+109
+00:02:35,840 --> 00:02:39,350
+succeeded then only 10% task have to be
+done otherwise if we ask client to retry
+
+110
+00:02:39,350 --> 00:02:39,360
+done otherwise if we ask client to retry
+ 
+
+111
+00:02:39,360 --> 00:02:42,710
+done otherwise if we ask client to retry
+again our API hit again our API again we
+
+112
+00:02:42,710 --> 00:02:42,720
+again our API hit again our API again we
+ 
+
+113
+00:02:42,720 --> 00:02:46,390
+again our API hit again our API again we
+will do the same 90% task again so
+
+114
+00:02:46,390 --> 00:02:46,400
+will do the same 90% task again so
+ 
+
+115
+00:02:46,400 --> 00:02:48,470
+will do the same 90% task again so
+redundant of the work is there duplicacy
+
+116
+00:02:48,470 --> 00:02:48,480
+redundant of the work is there duplicacy
+ 
+
+117
+00:02:48,480 --> 00:02:51,990
+redundant of the work is there duplicacy
+of the work is there and it will
+
+118
+00:02:51,990 --> 00:02:52,000
+of the work is there and it will
+ 
+
+119
+00:02:52,000 --> 00:02:54,070
+of the work is there and it will
+increase our cost and it's not free of
+
+120
+00:02:54,070 --> 00:02:54,080
+increase our cost and it's not free of
+ 
+
+121
+00:02:54,080 --> 00:02:58,229
+increase our cost and it's not free of
+cost to be honest right
+
+122
+00:02:58,229 --> 00:02:58,239
+
+ 
+
+123
+00:02:58,239 --> 00:03:00,790
+
+so with above understanding we know know
+
+124
+00:03:00,790 --> 00:03:00,800
+so with above understanding we know know
+ 
+
+125
+00:03:00,800 --> 00:03:04,229
+so with above understanding we know know
+that retry is important right I think I
+
+126
+00:03:04,229 --> 00:03:04,239
+that retry is important right I think I
+ 
+
+127
+00:03:04,239 --> 00:03:06,869
+that retry is important right I think I
+hope this point will tell you that why
+
+128
+00:03:06,869 --> 00:03:06,879
+hope this point will tell you that why
+ 
+
+129
+00:03:06,879 --> 00:03:09,190
+hope this point will tell you that why
+retry is important because we don't want
+
+130
+00:03:09,190 --> 00:03:09,200
+retry is important because we don't want
+ 
+
+131
+00:03:09,200 --> 00:03:13,990
+retry is important because we don't want
+to do the same 90% task again okay and
+
+132
+00:03:13,990 --> 00:03:14,000
+to do the same 90% task again okay and
+ 
+
+133
+00:03:14,000 --> 00:03:15,750
+to do the same 90% task again okay and
+I'm just saying this is just one client
+
+134
+00:03:15,750 --> 00:03:15,760
+I'm just saying this is just one client
+ 
+
+135
+00:03:15,760 --> 00:03:19,190
+I'm just saying this is just one client
+if there are 100 clients for this API
+
+136
+00:03:19,190 --> 00:03:19,200
+if there are 100 clients for this API
+ 
+
+137
+00:03:19,200 --> 00:03:21,509
+if there are 100 clients for this API
+and they are all invoking and there are
+
+138
+00:03:21,509 --> 00:03:21,519
+and they are all invoking and there are
+ 
+
+139
+00:03:21,519 --> 00:03:23,430
+and they are all invoking and there are
+thousands of calls so you are saying
+
+140
+00:03:23,430 --> 00:03:23,440
+thousands of calls so you are saying
+ 
+
+141
+00:03:23,440 --> 00:03:26,630
+thousands of calls so you are saying
+that you are doing lot of wasting your
+
+142
+00:03:26,630 --> 00:03:26,640
+that you are doing lot of wasting your
+ 
+
+143
+00:03:26,640 --> 00:03:29,750
+that you are doing lot of wasting your
+uh capacity on just duplicate task which
+
+144
+00:03:29,750 --> 00:03:29,760
+uh capacity on just duplicate task which
+ 
+
+145
+00:03:29,760 --> 00:03:33,509
+uh capacity on just duplicate task which
+you have already completed.
+
+146
+00:03:33,509 --> 00:03:33,519
+
+ 
+
+147
+00:03:33,519 --> 00:03:35,830
+
+So we know that retry is important but
+
+148
+00:03:35,830 --> 00:03:35,840
+So we know that retry is important but
+ 
+
+149
+00:03:35,840 --> 00:03:38,710
+So we know that retry is important but
+the now question is when to retry, how
+
+150
+00:03:38,710 --> 00:03:38,720
+the now question is when to retry, how
+ 
+
+151
+00:03:38,720 --> 00:03:41,990
+the now question is when to retry, how
+to retry. Very very important question.
+
+152
+00:03:41,990 --> 00:03:42,000
+to retry. Very very important question.
+ 
+
+153
+00:03:42,000 --> 00:03:45,350
+to retry. Very very important question.
+When to retry? First of all is do not
+
+154
+00:03:45,350 --> 00:03:45,360
+When to retry? First of all is do not
+ 
+
+155
+00:03:45,360 --> 00:03:47,670
+When to retry? First of all is do not
+retry on permanent failures. Permanent
+
+156
+00:03:47,670 --> 00:03:47,680
+retry on permanent failures. Permanent
+ 
+
+157
+00:03:47,680 --> 00:03:49,750
+retry on permanent failures. Permanent
+failures is like no matter how many
+
+158
+00:03:49,750 --> 00:03:49,760
+failures is like no matter how many
+ 
+
+159
+00:03:49,760 --> 00:03:51,910
+failures is like no matter how many
+times you will retry, it will always
+
+160
+00:03:51,910 --> 00:03:51,920
+times you will retry, it will always
+ 
+
+161
+00:03:51,920 --> 00:03:56,550
+times you will retry, it will always
+fail like 4xx errors. So 4xx errors
+
+162
+00:03:56,550 --> 00:03:56,560
+fail like 4xx errors. So 4xx errors
+ 
+
+163
+00:03:56,560 --> 00:03:58,390
+fail like 4xx errors. So 4xx errors
+generally are in the category of
+
+164
+00:03:58,390 --> 00:03:58,400
+generally are in the category of
+ 
+
+165
+00:03:58,400 --> 00:04:00,949
+generally are in the category of
+validation error.
+
+166
+00:04:00,949 --> 00:04:00,959
+validation error.
+ 
+
+167
+00:04:00,959 --> 00:04:04,149
+validation error.
+Validation error. Validation error means
+
+168
+00:04:04,149 --> 00:04:04,159
+Validation error. Validation error means
+ 
+
+169
+00:04:04,159 --> 00:04:07,350
+Validation error. Validation error means
+the input request input request which
+
+170
+00:04:07,350 --> 00:04:07,360
+the input request input request which
+ 
+
+171
+00:04:07,360 --> 00:04:10,869
+the input request input request which
+client has passed has is not correct
+
+172
+00:04:10,869 --> 00:04:10,879
+client has passed has is not correct
+ 
+
+173
+00:04:10,879 --> 00:04:13,190
+client has passed has is not correct
+until unless client will not change the
+
+174
+00:04:13,190 --> 00:04:13,200
+until unless client will not change the
+ 
+
+175
+00:04:13,200 --> 00:04:15,110
+until unless client will not change the
+input
+
+176
+00:04:15,110 --> 00:04:15,120
+input
+ 
+
+177
+00:04:15,120 --> 00:04:18,229
+input
+validation error will not remove. So if
+
+178
+00:04:18,229 --> 00:04:18,239
+validation error will not remove. So if
+ 
+
+179
+00:04:18,239 --> 00:04:20,870
+validation error will not remove. So if
+you retry with the same request
+
+180
+00:04:20,870 --> 00:04:20,880
+you retry with the same request
+ 
+
+181
+00:04:20,880 --> 00:04:22,310
+you retry with the same request
+previously again you will see a
+
+182
+00:04:22,310 --> 00:04:22,320
+previously again you will see a
+ 
+
+183
+00:04:22,320 --> 00:04:23,990
+previously again you will see a
+validation error. So generally these are
+
+184
+00:04:23,990 --> 00:04:24,000
+validation error. So generally these are
+ 
+
+185
+00:04:24,000 --> 00:04:26,870
+validation error. So generally these are
+known as permanent failure. 4xx
+
+186
+00:04:26,870 --> 00:04:26,880
+known as permanent failure. 4xx
+ 
+
+187
+00:04:26,880 --> 00:04:28,790
+known as permanent failure. 4xx
+do not retry if operation is
+
+188
+00:04:28,790 --> 00:04:28,800
+do not retry if operation is
+ 
+
+189
+00:04:28,800 --> 00:04:30,710
+do not retry if operation is
+nonidopatent.
+
+190
+00:04:30,710 --> 00:04:30,720
+nonidopatent.
+ 
+
+191
+00:04:30,720 --> 00:04:33,110
+nonidopatent.
+What doesopetent means? So idopotent see
+
+192
+00:04:33,110 --> 00:04:33,120
+What doesopetent means? So idopotent see
+ 
+
+193
+00:04:33,120 --> 00:04:35,909
+What doesopetent means? So idopotent see
+make sure that if request is retried
+
+194
+00:04:35,909 --> 00:04:35,919
+make sure that if request is retried
+ 
+
+195
+00:04:35,919 --> 00:04:39,110
+make sure that if request is retried
+multiple times duplicate processing will
+
+196
+00:04:39,110 --> 00:04:39,120
+multiple times duplicate processing will
+ 
+
+197
+00:04:39,120 --> 00:04:43,270
+multiple times duplicate processing will
+not happen. So say you have a service A
+
+198
+00:04:43,270 --> 00:04:43,280
+not happen. So say you have a service A
+ 
+
+199
+00:04:43,280 --> 00:04:45,830
+not happen. So say you have a service A
+which invokes the create API of service
+
+200
+00:04:45,830 --> 00:04:45,840
+which invokes the create API of service
+ 
+
+201
+00:04:45,840 --> 00:04:50,790
+which invokes the create API of service
+B. Okay. So it has invoked it and while
+
+202
+00:04:50,790 --> 00:04:50,800
+B. Okay. So it has invoked it and while
+ 
+
+203
+00:04:50,800 --> 00:04:53,749
+B. Okay. So it has invoked it and while
+service B write it into its DB but it
+
+204
+00:04:53,749 --> 00:04:53,759
+service B write it into its DB but it
+ 
+
+205
+00:04:53,759 --> 00:04:56,469
+service B write it into its DB but it
+takes certain time okay and here it say
+
+206
+00:04:56,469 --> 00:04:56,479
+takes certain time okay and here it say
+ 
+
+207
+00:04:56,479 --> 00:05:00,629
+takes certain time okay and here it say
+that timeout happen and timeout happens.
+
+208
+00:05:00,629 --> 00:05:00,639
+that timeout happen and timeout happens.
+ 
+
+209
+00:05:00,639 --> 00:05:03,270
+that timeout happen and timeout happens.
+So for service A the request has been
+
+210
+00:05:03,270 --> 00:05:03,280
+So for service A the request has been
+ 
+
+211
+00:05:03,280 --> 00:05:06,469
+So for service A the request has been
+timeout but service B internally
+
+212
+00:05:06,469 --> 00:05:06,479
+timeout but service B internally
+ 
+
+213
+00:05:06,479 --> 00:05:09,430
+timeout but service B internally
+inserted the row into the DB.
+
+214
+00:05:09,430 --> 00:05:09,440
+inserted the row into the DB.
+ 
+
+215
+00:05:09,440 --> 00:05:12,629
+inserted the row into the DB.
+Now since this is a timeout and user has
+
+216
+00:05:12,629 --> 00:05:12,639
+Now since this is a timeout and user has
+ 
+
+217
+00:05:12,639 --> 00:05:15,510
+Now since this is a timeout and user has
+retried so this is a retrieded again.
+
+218
+00:05:15,510 --> 00:05:15,520
+retried so this is a retrieded again.
+ 
+
+219
+00:05:15,520 --> 00:05:19,749
+retried so this is a retrieded again.
+Now here service B insert the row again
+
+220
+00:05:19,749 --> 00:05:19,759
+Now here service B insert the row again
+ 
+
+221
+00:05:19,759 --> 00:05:22,070
+Now here service B insert the row again
+ID2 earlier it was already inserted ID 1
+
+222
+00:05:22,070 --> 00:05:22,080
+ID2 earlier it was already inserted ID 1
+ 
+
+223
+00:05:22,080 --> 00:05:24,950
+ID2 earlier it was already inserted ID 1
+now it is ID2 so here this is not my
+
+224
+00:05:24,950 --> 00:05:24,960
+now it is ID2 so here this is not my
+ 
+
+225
+00:05:24,960 --> 00:05:27,350
+now it is ID2 so here this is not my
+intention my intention was not to create
+
+226
+00:05:27,350 --> 00:05:27,360
+intention my intention was not to create
+ 
+
+227
+00:05:27,360 --> 00:05:30,550
+intention my intention was not to create
+a duplicate row for the same request
+
+228
+00:05:30,550 --> 00:05:30,560
+a duplicate row for the same request
+ 
+
+229
+00:05:30,560 --> 00:05:33,350
+a duplicate row for the same request
+okay so we can say that this this API
+
+230
+00:05:33,350 --> 00:05:33,360
+okay so we can say that this this API
+ 
+
+231
+00:05:33,360 --> 00:05:36,629
+okay so we can say that this this API
+the API of the service B this create API
+
+232
+00:05:36,629 --> 00:05:36,639
+the API of the service B this create API
+ 
+
+233
+00:05:36,639 --> 00:05:39,110
+the API of the service B this create API
+is not idopent
+
+234
+00:05:39,110 --> 00:05:39,120
+is not idopent
+ 
+
+235
+00:05:39,120 --> 00:05:41,909
+is not idopent
+okay so that's why we say that do not
+
+236
+00:05:41,909 --> 00:05:41,919
+okay so that's why we say that do not
+ 
+
+237
+00:05:41,919 --> 00:05:45,670
+okay so that's why we say that do not
+retry if operation is nonidopent
+
+238
+00:05:45,670 --> 00:05:45,680
+retry if operation is nonidopent
+ 
+
+239
+00:05:45,680 --> 00:05:47,590
+retry if operation is nonidopent
+Otherwise you will end up in creating
+
+240
+00:05:47,590 --> 00:05:47,600
+Otherwise you will end up in creating
+ 
+
+241
+00:05:47,600 --> 00:05:50,390
+Otherwise you will end up in creating
+duplicate resources.
+
+242
+00:05:50,390 --> 00:05:50,400
+duplicate resources.
+ 
+
+243
+00:05:50,400 --> 00:05:52,310
+duplicate resources.
+So if you don't know how to design
+
+244
+00:05:52,310 --> 00:05:52,320
+So if you don't know how to design
+ 
+
+245
+00:05:52,320 --> 00:05:54,870
+So if you don't know how to design
+idotent APIs I have already covered it
+
+246
+00:05:54,870 --> 00:05:54,880
+idotent APIs I have already covered it
+ 
+
+247
+00:05:54,880 --> 00:05:57,909
+idotent APIs I have already covered it
+into the highle design playlist uh in
+
+248
+00:05:57,909 --> 00:05:57,919
+into the highle design playlist uh in
+ 
+
+249
+00:05:57,919 --> 00:05:59,749
+into the highle design playlist uh in
+depth like what are the challenges how
+
+250
+00:05:59,749 --> 00:05:59,759
+depth like what are the challenges how
+ 
+
+251
+00:05:59,759 --> 00:06:01,909
+depth like what are the challenges how
+we can come up with the adoptent API
+
+252
+00:06:01,909 --> 00:06:01,919
+we can come up with the adoptent API
+ 
+
+253
+00:06:01,919 --> 00:06:04,790
+we can come up with the adoptent API
+design. So have a look uh in case you
+
+254
+00:06:04,790 --> 00:06:04,800
+design. So have a look uh in case you
+ 
+
+255
+00:06:04,800 --> 00:06:09,510
+design. So have a look uh in case you
+have a doubt. Okay. So but here
+
+256
+00:06:09,510 --> 00:06:09,520
+have a doubt. Okay. So but here
+ 
+
+257
+00:06:09,520 --> 00:06:11,749
+have a doubt. Okay. So but here
+one thing is we don't have to retry if
+
+258
+00:06:11,749 --> 00:06:11,759
+one thing is we don't have to retry if
+ 
+
+259
+00:06:11,759 --> 00:06:14,870
+one thing is we don't have to retry if
+operation is nonopertent.
+
+260
+00:06:14,870 --> 00:06:14,880
+operation is nonopertent.
+ 
+
+261
+00:06:14,880 --> 00:06:17,830
+operation is nonopertent.
+The third is that rule of thumb says
+
+262
+00:06:17,830 --> 00:06:17,840
+The third is that rule of thumb says
+ 
+
+263
+00:06:17,840 --> 00:06:22,309
+The third is that rule of thumb says
+that retry only on 5xx error. What 5xx
+
+264
+00:06:22,309 --> 00:06:22,319
+that retry only on 5xx error. What 5xx
+ 
+
+265
+00:06:22,319 --> 00:06:26,309
+that retry only on 5xx error. What 5xx
+error says that it is system error. Your
+
+266
+00:06:26,309 --> 00:06:26,319
+error says that it is system error. Your
+ 
+
+267
+00:06:26,319 --> 00:06:29,990
+error says that it is system error. Your
+input request input request is good.
+
+268
+00:06:29,990 --> 00:06:30,000
+input request input request is good.
+ 
+
+269
+00:06:30,000 --> 00:06:32,710
+input request input request is good.
+Okay. All validation passed but there is
+
+270
+00:06:32,710 --> 00:06:32,720
+Okay. All validation passed but there is
+ 
+
+271
+00:06:32,720 --> 00:06:34,710
+Okay. All validation passed but there is
+some limitation in system or some issue
+
+272
+00:06:34,710 --> 00:06:34,720
+some limitation in system or some issue
+ 
+
+273
+00:06:34,720 --> 00:06:36,790
+some limitation in system or some issue
+happen in the system because of that
+
+274
+00:06:36,790 --> 00:06:36,800
+happen in the system because of that
+ 
+
+275
+00:06:36,800 --> 00:06:38,790
+happen in the system because of that
+error has happened. So generally these
+
+276
+00:06:38,790 --> 00:06:38,800
+error has happened. So generally these
+ 
+
+277
+00:06:38,800 --> 00:06:41,909
+error has happened. So generally these
+are considered as retriable error. Okay.
+
+278
+00:06:41,909 --> 00:06:41,919
+are considered as retriable error. Okay.
+ 
+
+279
+00:06:41,919 --> 00:06:47,189
+are considered as retriable error. Okay.
+So it is safe to retry on this because
+
+280
+00:06:47,189 --> 00:06:47,199
+So it is safe to retry on this because
+ 
+
+281
+00:06:47,199 --> 00:06:50,550
+So it is safe to retry on this because
+this is first of all system error and
+
+282
+00:06:50,550 --> 00:06:50,560
+this is first of all system error and
+ 
+
+283
+00:06:50,560 --> 00:06:54,230
+this is first of all system error and
+also it says that it request is not
+
+284
+00:06:54,230 --> 00:06:54,240
+also it says that it request is not
+ 
+
+285
+00:06:54,240 --> 00:06:57,350
+also it says that it request is not
+successful means the previous request 5s
+
+286
+00:06:57,350 --> 00:06:57,360
+successful means the previous request 5s
+ 
+
+287
+00:06:57,360 --> 00:07:00,150
+successful means the previous request 5s
+means request is not successful.
+
+288
+00:07:00,150 --> 00:07:00,160
+means request is not successful.
+ 
+
+289
+00:07:00,160 --> 00:07:02,550
+means request is not successful.
+Okay. So that is also one give us a you
+
+290
+00:07:02,550 --> 00:07:02,560
+Okay. So that is also one give us a you
+ 
+
+291
+00:07:02,560 --> 00:07:06,070
+Okay. So that is also one give us a you
+can say that u relief that yeah previous
+
+292
+00:07:06,070 --> 00:07:06,080
+can say that u relief that yeah previous
+ 
+
+293
+00:07:06,080 --> 00:07:09,909
+can say that u relief that yeah previous
+request is not successful and we can
+
+294
+00:07:09,909 --> 00:07:09,919
+request is not successful and we can
+ 
+
+295
+00:07:09,919 --> 00:07:12,710
+request is not successful and we can
+retry as many times. So there is no
+
+296
+00:07:12,710 --> 00:07:12,720
+retry as many times. So there is no
+ 
+
+297
+00:07:12,720 --> 00:07:15,830
+retry as many times. So there is no
+harm. Okay.
+
+298
+00:07:15,830 --> 00:07:15,840
+harm. Okay.
+ 
+
+299
+00:07:15,840 --> 00:07:18,070
+harm. Okay.
+And 5xs already know that input request
+
+300
+00:07:18,070 --> 00:07:18,080
+And 5xs already know that input request
+ 
+
+301
+00:07:18,080 --> 00:07:19,749
+And 5xs already know that input request
+is correct. No validation errors but
+
+302
+00:07:19,749 --> 00:07:19,759
+is correct. No validation errors but
+ 
+
+303
+00:07:19,759 --> 00:07:22,469
+is correct. No validation errors but
+there is some issue with the system. So
+
+304
+00:07:22,469 --> 00:07:22,479
+there is some issue with the system. So
+ 
+
+305
+00:07:22,479 --> 00:07:24,950
+there is some issue with the system. So
+with retry it is possible that it might
+
+306
+00:07:24,950 --> 00:07:24,960
+with retry it is possible that it might
+ 
+
+307
+00:07:24,960 --> 00:07:27,110
+with retry it is possible that it might
+get resolved.
+
+308
+00:07:27,110 --> 00:07:27,120
+get resolved.
+ 
+
+309
+00:07:27,120 --> 00:07:29,189
+get resolved.
+So that is one and another thing is
+
+310
+00:07:29,189 --> 00:07:29,199
+So that is one and another thing is
+ 
+
+311
+00:07:29,199 --> 00:07:31,670
+So that is one and another thing is
+retry network uh network error and
+
+312
+00:07:31,670 --> 00:07:31,680
+retry network uh network error and
+ 
+
+313
+00:07:31,680 --> 00:07:35,029
+retry network uh network error and
+timeout error we have to retry but only
+
+314
+00:07:35,029 --> 00:07:35,039
+timeout error we have to retry but only
+ 
+
+315
+00:07:35,039 --> 00:07:37,589
+timeout error we have to retry but only
+make sure that whatever the API it
+
+316
+00:07:37,589 --> 00:07:37,599
+make sure that whatever the API it
+ 
+
+317
+00:07:37,599 --> 00:07:40,629
+make sure that whatever the API it
+should support adoptency.
+
+318
+00:07:40,629 --> 00:07:40,639
+should support adoptency.
+ 
+
+319
+00:07:40,639 --> 00:07:43,430
+should support adoptency.
+So this is a retry decision table like
+
+320
+00:07:43,430 --> 00:07:43,440
+So this is a retry decision table like
+ 
+
+321
+00:07:43,440 --> 00:07:46,390
+So this is a retry decision table like
+based on HTTP code you can decide
+
+322
+00:07:46,390 --> 00:07:46,400
+based on HTTP code you can decide
+ 
+
+323
+00:07:46,400 --> 00:07:47,909
+based on HTTP code you can decide
+whether you have to retry or not. So
+
+324
+00:07:47,909 --> 00:07:47,919
+whether you have to retry or not. So
+ 
+
+325
+00:07:47,919 --> 00:07:50,390
+whether you have to retry or not. So
+these are not complete list just an idea
+
+326
+00:07:50,390 --> 00:07:50,400
+these are not complete list just an idea
+ 
+
+327
+00:07:50,400 --> 00:07:52,390
+these are not complete list just an idea
+let's say 200
+
+328
+00:07:52,390 --> 00:07:52,400
+let's say 200
+ 
+
+329
+00:07:52,400 --> 00:07:53,990
+let's say 200
+request is already success you don't
+
+330
+00:07:53,990 --> 00:07:54,000
+request is already success you don't
+ 
+
+331
+00:07:54,000 --> 00:07:57,350
+request is already success you don't
+have to retry like 400 bad request
+
+332
+00:07:57,350 --> 00:07:57,360
+have to retry like 400 bad request
+ 
+
+333
+00:07:57,360 --> 00:08:01,670
+have to retry like 400 bad request
+unauthorized forbidden 404 not found so
+
+334
+00:08:01,670 --> 00:08:01,680
+unauthorized forbidden 404 not found so
+ 
+
+335
+00:08:01,680 --> 00:08:03,830
+unauthorized forbidden 404 not found so
+these are you can say that validation
+
+336
+00:08:03,830 --> 00:08:03,840
+these are you can say that validation
+ 
+
+337
+00:08:03,840 --> 00:08:05,350
+these are you can say that validation
+error no matter how many times you will
+
+338
+00:08:05,350 --> 00:08:05,360
+error no matter how many times you will
+ 
+
+339
+00:08:05,360 --> 00:08:08,390
+error no matter how many times you will
+retry you will always get retribal
+
+340
+00:08:08,390 --> 00:08:08,400
+retry you will always get retribal
+ 
+
+341
+00:08:08,400 --> 00:08:11,670
+retry you will always get retribal
+failure uh failure itself right so you
+
+342
+00:08:11,670 --> 00:08:11,680
+failure uh failure itself right so you
+ 
+
+343
+00:08:11,680 --> 00:08:15,430
+failure uh failure itself right so you
+don't have to retry on this so 4 to9 you
+
+344
+00:08:15,430 --> 00:08:15,440
+don't have to retry on this so 4 to9 you
+ 
+
+345
+00:08:15,440 --> 00:08:17,189
+don't have to retry on this so 4 to9 you
+can say that one of the exception like 4
+
+346
+00:08:17,189 --> 00:08:17,199
+can say that one of the exception like 4
+ 
+
+347
+00:08:17,199 --> 00:08:20,070
+can say that one of the exception like 4
+to9 9 means too many requests. So it
+
+348
+00:08:20,070 --> 00:08:20,080
+to9 9 means too many requests. So it
+ 
+
+349
+00:08:20,080 --> 00:08:21,990
+to9 9 means too many requests. So it
+generally happen when the rate limiting.
+
+350
+00:08:21,990 --> 00:08:22,000
+generally happen when the rate limiting.
+ 
+
+351
+00:08:22,000 --> 00:08:24,469
+generally happen when the rate limiting.
+So for that we can do retry with some
+
+352
+00:08:24,469 --> 00:08:24,479
+So for that we can do retry with some
+ 
+
+353
+00:08:24,479 --> 00:08:29,189
+So for that we can do retry with some
+delay. Then we have 500 internal server
+
+354
+00:08:29,189 --> 00:08:29,199
+delay. Then we have 500 internal server
+ 
+
+355
+00:08:29,199 --> 00:08:31,990
+delay. Then we have 500 internal server
+error. 502 bad gateway 503 service
+
+356
+00:08:31,990 --> 00:08:32,000
+error. 502 bad gateway 503 service
+ 
+
+357
+00:08:32,000 --> 00:08:35,110
+error. 502 bad gateway 503 service
+unavailable. These are like uh you can
+
+358
+00:08:35,110 --> 00:08:35,120
+unavailable. These are like uh you can
+ 
+
+359
+00:08:35,120 --> 00:08:38,469
+unavailable. These are like uh you can
+say that retryable issue like service
+
+360
+00:08:38,469 --> 00:08:38,479
+say that retryable issue like service
+ 
+
+361
+00:08:38,479 --> 00:08:41,750
+say that retryable issue like service
+unavailable. Maybe it was down and if
+
+362
+00:08:41,750 --> 00:08:41,760
+unavailable. Maybe it was down and if
+ 
+
+363
+00:08:41,760 --> 00:08:44,870
+unavailable. Maybe it was down and if
+you retry it might be up and it request
+
+364
+00:08:44,870 --> 00:08:44,880
+you retry it might be up and it request
+ 
+
+365
+00:08:44,880 --> 00:08:46,949
+you retry it might be up and it request
+can get succeeded. So for all this we
+
+366
+00:08:46,949 --> 00:08:46,959
+can get succeeded. So for all this we
+ 
+
+367
+00:08:46,959 --> 00:08:50,630
+can get succeeded. So for all this we
+can do retry and if there is a network
+
+368
+00:08:50,630 --> 00:08:50,640
+can do retry and if there is a network
+ 
+
+369
+00:08:50,640 --> 00:08:54,949
+can do retry and if there is a network
+error timeouts you can always retry yes
+
+370
+00:08:54,949 --> 00:08:54,959
+error timeouts you can always retry yes
+ 
+
+371
+00:08:54,959 --> 00:08:59,030
+error timeouts you can always retry yes
+but make sure that it should be idopent.
+
+372
+00:08:59,030 --> 00:08:59,040
+but make sure that it should be idopent.
+ 
+
+373
+00:08:59,040 --> 00:09:02,389
+but make sure that it should be idopent.
+Okay so this is just a quick glance that
+
+374
+00:09:02,389 --> 00:09:02,399
+Okay so this is just a quick glance that
+ 
+
+375
+00:09:02,399 --> 00:09:05,829
+Okay so this is just a quick glance that
+based on http status code you decide
+
+376
+00:09:05,829 --> 00:09:05,839
+based on http status code you decide
+ 
+
+377
+00:09:05,839 --> 00:09:10,389
+based on http status code you decide
+whether the retry can be done or not.
+
+378
+00:09:10,389 --> 00:09:10,399
+whether the retry can be done or not.
+ 
+
+379
+00:09:10,399 --> 00:09:14,310
+whether the retry can be done or not.
+Now how to retry? So see this is very
+
+380
+00:09:14,310 --> 00:09:14,320
+Now how to retry? So see this is very
+ 
+
+381
+00:09:14,320 --> 00:09:17,269
+Now how to retry? So see this is very
+important part. So let's see first types
+
+382
+00:09:17,269 --> 00:09:17,279
+important part. So let's see first types
+ 
+
+383
+00:09:17,279 --> 00:09:19,509
+important part. So let's see first types
+of retry and when and then we will see
+
+384
+00:09:19,509 --> 00:09:19,519
+of retry and when and then we will see
+ 
+
+385
+00:09:19,519 --> 00:09:22,790
+of retry and when and then we will see
+how to implement it also. So first is
+
+386
+00:09:22,790 --> 00:09:22,800
+how to implement it also. So first is
+ 
+
+387
+00:09:22,800 --> 00:09:25,990
+how to implement it also. So first is
+fixed interval retry.
+
+388
+00:09:25,990 --> 00:09:26,000
+fixed interval retry.
+ 
+
+389
+00:09:26,000 --> 00:09:27,990
+fixed interval retry.
+So what does fixed interval retry says
+
+390
+00:09:27,990 --> 00:09:28,000
+So what does fixed interval retry says
+ 
+
+391
+00:09:28,000 --> 00:09:31,829
+So what does fixed interval retry says
+that retry after a constant delay. So
+
+392
+00:09:31,829 --> 00:09:31,839
+that retry after a constant delay. So
+ 
+
+393
+00:09:31,839 --> 00:09:35,430
+that retry after a constant delay. So
+within each retry the delay is constant.
+
+394
+00:09:35,430 --> 00:09:35,440
+within each retry the delay is constant.
+ 
+
+395
+00:09:35,440 --> 00:09:38,470
+within each retry the delay is constant.
+So say that the attempt total attempt is
+
+396
+00:09:38,470 --> 00:09:38,480
+So say that the attempt total attempt is
+ 
+
+397
+00:09:38,480 --> 00:09:39,990
+So say that the attempt total attempt is
+four.
+
+398
+00:09:39,990 --> 00:09:40,000
+four.
+ 
+
+399
+00:09:40,000 --> 00:09:41,990
+four.
+So when we say total attempt means
+
+400
+00:09:41,990 --> 00:09:42,000
+So when we say total attempt means
+ 
+
+401
+00:09:42,000 --> 00:09:45,509
+So when we say total attempt means
+original one call plus three retries. So
+
+402
+00:09:45,509 --> 00:09:45,519
+original one call plus three retries. So
+ 
+
+403
+00:09:45,519 --> 00:09:50,790
+original one call plus three retries. So
+total four. Okay. So after original call
+
+404
+00:09:50,790 --> 00:09:50,800
+total four. Okay. So after original call
+ 
+
+405
+00:09:50,800 --> 00:09:54,790
+total four. Okay. So after original call
+there has to be a fixed delay like let's
+
+406
+00:09:54,790 --> 00:09:54,800
+there has to be a fixed delay like let's
+ 
+
+407
+00:09:54,800 --> 00:09:57,750
+there has to be a fixed delay like let's
+say my fixed delay is 2 second. So it
+
+408
+00:09:57,750 --> 00:09:57,760
+say my fixed delay is 2 second. So it
+ 
+
+409
+00:09:57,760 --> 00:09:59,269
+say my fixed delay is 2 second. So it
+would be like after 2 seconds first
+
+410
+00:09:59,269 --> 00:09:59,279
+would be like after 2 seconds first
+ 
+
+411
+00:09:59,279 --> 00:10:01,590
+would be like after 2 seconds first
+retry will happen. Then it will wait for
+
+412
+00:10:01,590 --> 00:10:01,600
+retry will happen. Then it will wait for
+ 
+
+413
+00:10:01,600 --> 00:10:03,990
+retry will happen. Then it will wait for
+2 second then second retry will happen.
+
+414
+00:10:03,990 --> 00:10:04,000
+2 second then second retry will happen.
+ 
+
+415
+00:10:04,000 --> 00:10:05,590
+2 second then second retry will happen.
+Then it will wait for 2 seconds then
+
+416
+00:10:05,590 --> 00:10:05,600
+Then it will wait for 2 seconds then
+ 
+
+417
+00:10:05,600 --> 00:10:07,670
+Then it will wait for 2 seconds then
+third retry will happen. So there is a
+
+418
+00:10:07,670 --> 00:10:07,680
+third retry will happen. So there is a
+ 
+
+419
+00:10:07,680 --> 00:10:11,350
+third retry will happen. So there is a
+fixed interval of delay within the
+
+420
+00:10:11,350 --> 00:10:11,360
+fixed interval of delay within the
+ 
+
+421
+00:10:11,360 --> 00:10:13,670
+fixed interval of delay within the
+retries. So let's say this is the
+
+422
+00:10:13,670 --> 00:10:13,680
+retries. So let's say this is the
+ 
+
+423
+00:10:13,680 --> 00:10:16,550
+retries. So let's say this is the
+original call which happened at two. So
+
+424
+00:10:16,550 --> 00:10:16,560
+original call which happened at two. So
+ 
+
+425
+00:10:16,560 --> 00:10:19,030
+original call which happened at two. So
+first uh retry happen at four. Then
+
+426
+00:10:19,030 --> 00:10:19,040
+first uh retry happen at four. Then
+ 
+
+427
+00:10:19,040 --> 00:10:21,030
+first uh retry happen at four. Then
+second retrive will six. Third retrive
+
+428
+00:10:21,030 --> 00:10:21,040
+second retrive will six. Third retrive
+ 
+
+429
+00:10:21,040 --> 00:10:24,310
+second retrive will six. Third retrive
+at eight. So each one has two two
+
+430
+00:10:24,310 --> 00:10:24,320
+at eight. So each one has two two
+ 
+
+431
+00:10:24,320 --> 00:10:27,030
+at eight. So each one has two two
+seconds gap say.
+
+432
+00:10:27,030 --> 00:10:27,040
+seconds gap say.
+ 
+
+433
+00:10:27,040 --> 00:10:29,350
+seconds gap say.
+So advantage of this is it is very very
+
+434
+00:10:29,350 --> 00:10:29,360
+So advantage of this is it is very very
+ 
+
+435
+00:10:29,360 --> 00:10:33,910
+So advantage of this is it is very very
+simple easy to configure and debug also.
+
+436
+00:10:33,910 --> 00:10:33,920
+simple easy to configure and debug also.
+ 
+
+437
+00:10:33,920 --> 00:10:37,590
+simple easy to configure and debug also.
+But this is main this disadvantage is
+
+438
+00:10:37,590 --> 00:10:37,600
+But this is main this disadvantage is
+ 
+
+439
+00:10:37,600 --> 00:10:41,350
+But this is main this disadvantage is
+that higher chance of retry storm
+
+440
+00:10:41,350 --> 00:10:41,360
+that higher chance of retry storm
+ 
+
+441
+00:10:41,360 --> 00:10:43,350
+that higher chance of retry storm
+which is also known as thundering her
+
+442
+00:10:43,350 --> 00:10:43,360
+which is also known as thundering her
+ 
+
+443
+00:10:43,360 --> 00:10:46,310
+which is also known as thundering her
+problem. Thundering her problem mean
+
+444
+00:10:46,310 --> 00:10:46,320
+problem. Thundering her problem mean
+ 
+
+445
+00:10:46,320 --> 00:10:49,030
+problem. Thundering her problem mean
+many clients retry at the same time
+
+446
+00:10:49,030 --> 00:10:49,040
+many clients retry at the same time
+ 
+
+447
+00:10:49,040 --> 00:10:52,230
+many clients retry at the same time
+causing a surge of retry traffic and
+
+448
+00:10:52,230 --> 00:10:52,240
+causing a surge of retry traffic and
+ 
+
+449
+00:10:52,240 --> 00:10:54,310
+causing a surge of retry traffic and
+system spend resources on retries
+
+450
+00:10:54,310 --> 00:10:54,320
+system spend resources on retries
+ 
+
+451
+00:10:54,320 --> 00:10:56,470
+system spend resources on retries
+instead of handling new request. So
+
+452
+00:10:56,470 --> 00:10:56,480
+instead of handling new request. So
+ 
+
+453
+00:10:56,480 --> 00:10:59,430
+instead of handling new request. So
+understand with this is that say that
+
+454
+00:10:59,430 --> 00:10:59,440
+understand with this is that say that
+ 
+
+455
+00:10:59,440 --> 00:11:02,310
+understand with this is that say that
+you have a load balancer
+
+456
+00:11:02,310 --> 00:11:02,320
+you have a load balancer
+ 
+
+457
+00:11:02,320 --> 00:11:05,269
+you have a load balancer
+and you have let's say component service
+
+458
+00:11:05,269 --> 00:11:05,279
+and you have let's say component service
+ 
+
+459
+00:11:05,279 --> 00:11:07,190
+and you have let's say component service
+A
+
+460
+00:11:07,190 --> 00:11:07,200
+A
+ 
+
+461
+00:11:07,200 --> 00:11:10,870
+A
+service A multiple instances
+
+462
+00:11:10,870 --> 00:11:10,880
+service A multiple instances
+ 
+
+463
+00:11:10,880 --> 00:11:13,829
+service A multiple instances
+instance one instance two instance three
+
+464
+00:11:13,829 --> 00:11:13,839
+instance one instance two instance three
+ 
+
+465
+00:11:13,839 --> 00:11:16,630
+instance one instance two instance three
+and load balancer distribute the traffic
+
+466
+00:11:16,630 --> 00:11:16,640
+and load balancer distribute the traffic
+ 
+
+467
+00:11:16,640 --> 00:11:19,910
+and load balancer distribute the traffic
+between the instances of service A there
+
+468
+00:11:19,910 --> 00:11:19,920
+between the instances of service A there
+ 
+
+469
+00:11:19,920 --> 00:11:22,230
+between the instances of service A there
+are so many clients client one client N
+
+470
+00:11:22,230 --> 00:11:22,240
+are so many clients client one client N
+ 
+
+471
+00:11:22,240 --> 00:11:25,590
+are so many clients client one client N
+and the traffic is also huge now let's
+
+472
+00:11:25,590 --> 00:11:25,600
+and the traffic is also huge now let's
+ 
+
+473
+00:11:25,600 --> 00:11:27,670
+and the traffic is also huge now let's
+say that a buggy code has been
+
+474
+00:11:27,670 --> 00:11:27,680
+say that a buggy code has been
+ 
+
+475
+00:11:27,680 --> 00:11:30,470
+say that a buggy code has been
+introduced into the service A and it
+
+476
+00:11:30,470 --> 00:11:30,480
+introduced into the service A and it
+ 
+
+477
+00:11:30,480 --> 00:11:33,430
+introduced into the service A and it
+start throwing some exception and if
+
+478
+00:11:33,430 --> 00:11:33,440
+start throwing some exception and if
+ 
+
+479
+00:11:33,440 --> 00:11:36,790
+start throwing some exception and if
+client start doing retry also is already
+
+480
+00:11:36,790 --> 00:11:36,800
+client start doing retry also is already
+ 
+
+481
+00:11:36,800 --> 00:11:40,310
+client start doing retry also is already
+it's a heavy traffic and for that they
+
+482
+00:11:40,310 --> 00:11:40,320
+it's a heavy traffic and for that they
+ 
+
+483
+00:11:40,320 --> 00:11:44,150
+it's a heavy traffic and for that they
+are all started doing retry at a fixed
+
+484
+00:11:44,150 --> 00:11:44,160
+are all started doing retry at a fixed
+ 
+
+485
+00:11:44,160 --> 00:11:47,269
+are all started doing retry at a fixed
+delay so all are retrying so original
+
+486
+00:11:47,269 --> 00:11:47,279
+delay so all are retrying so original
+ 
+
+487
+00:11:47,279 --> 00:11:50,150
+delay so all are retrying so original
+request let's say there are thousand
+
+488
+00:11:50,150 --> 00:11:50,160
+request let's say there are thousand
+ 
+
+489
+00:11:50,160 --> 00:11:55,030
+request let's say there are thousand
+request original now after 2C delay
+
+490
+00:11:55,030 --> 00:11:55,040
+request original now after 2C delay
+ 
+
+491
+00:11:55,040 --> 00:11:57,750
+request original now after 2C delay
+Okay,
+
+492
+00:11:57,750 --> 00:11:57,760
+Okay,
+ 
+
+493
+00:11:57,760 --> 00:12:01,750
+Okay,
+retry one will happen. Okay. So everyone
+
+494
+00:12:01,750 --> 00:12:01,760
+retry one will happen. Okay. So everyone
+ 
+
+495
+00:12:01,760 --> 00:12:05,190
+retry one will happen. Okay. So everyone
+will do retry 1 th00and requests again
+
+496
+00:12:05,190 --> 00:12:05,200
+will do retry 1 th00and requests again
+ 
+
+497
+00:12:05,200 --> 00:12:08,949
+will do retry 1 th00and requests again
+after 2 second delay retry two they
+
+498
+00:12:08,949 --> 00:12:08,959
+after 2 second delay retry two they
+ 
+
+499
+00:12:08,959 --> 00:12:11,509
+after 2 second delay retry two they
+again do a retry.
+
+500
+00:12:11,509 --> 00:12:11,519
+again do a retry.
+ 
+
+501
+00:12:11,519 --> 00:12:14,389
+again do a retry.
+Okay. So these are just retry traffic.
+
+502
+00:12:14,389 --> 00:12:14,399
+Okay. So these are just retry traffic.
+ 
+
+503
+00:12:14,399 --> 00:12:16,470
+Okay. So these are just retry traffic.
+Whatever the normal traffic new request
+
+504
+00:12:16,470 --> 00:12:16,480
+Whatever the normal traffic new request
+ 
+
+505
+00:12:16,480 --> 00:12:19,750
+Whatever the normal traffic new request
+is coming that is different. So means
+
+506
+00:12:19,750 --> 00:12:19,760
+is coming that is different. So means
+ 
+
+507
+00:12:19,760 --> 00:12:23,430
+is coming that is different. So means
+your system is now get bombarded with
+
+508
+00:12:23,430 --> 00:12:23,440
+your system is now get bombarded with
+ 
+
+509
+00:12:23,440 --> 00:12:25,829
+your system is now get bombarded with
+the retry traffic. And it is possible
+
+510
+00:12:25,829 --> 00:12:25,839
+the retry traffic. And it is possible
+ 
+
+511
+00:12:25,839 --> 00:12:28,389
+the retry traffic. And it is possible
+that while you are only servicing retry
+
+512
+00:12:28,389 --> 00:12:28,399
+that while you are only servicing retry
+ 
+
+513
+00:12:28,399 --> 00:12:31,430
+that while you are only servicing retry
+traffic, you somehow declined the new
+
+514
+00:12:31,430 --> 00:12:31,440
+traffic, you somehow declined the new
+ 
+
+515
+00:12:31,440 --> 00:12:33,509
+traffic, you somehow declined the new
+request which is coming. That is also
+
+516
+00:12:33,509 --> 00:12:33,519
+request which is coming. That is also
+ 
+
+517
+00:12:33,519 --> 00:12:36,069
+request which is coming. That is also
+possible.
+
+518
+00:12:36,069 --> 00:12:36,079
+possible.
+ 
+
+519
+00:12:36,079 --> 00:12:38,710
+possible.
+Okay. So I if you remember like in the
+
+520
+00:12:38,710 --> 00:12:38,720
+Okay. So I if you remember like in the
+ 
+
+521
+00:12:38,720 --> 00:12:40,550
+Okay. So I if you remember like in the
+HLD playlist I have already covered
+
+522
+00:12:40,550 --> 00:12:40,560
+HLD playlist I have already covered
+ 
+
+523
+00:12:40,560 --> 00:12:43,030
+HLD playlist I have already covered
+thundering her problem like it is one of
+
+524
+00:12:43,030 --> 00:12:43,040
+thundering her problem like it is one of
+ 
+
+525
+00:12:43,040 --> 00:12:44,870
+thundering her problem like it is one of
+the frequently asked interview question.
+
+526
+00:12:44,870 --> 00:12:44,880
+the frequently asked interview question.
+ 
+
+527
+00:12:44,880 --> 00:12:46,710
+the frequently asked interview question.
+So if you want to know more about
+
+528
+00:12:46,710 --> 00:12:46,720
+So if you want to know more about
+ 
+
+529
+00:12:46,720 --> 00:12:48,069
+So if you want to know more about
+thundering earth problem you can check
+
+530
+00:12:48,069 --> 00:12:48,079
+thundering earth problem you can check
+ 
+
+531
+00:12:48,079 --> 00:12:50,949
+thundering earth problem you can check
+it out. But yeah this is one of the
+
+532
+00:12:50,949 --> 00:12:50,959
+it out. But yeah this is one of the
+ 
+
+533
+00:12:50,959 --> 00:12:54,310
+it out. But yeah this is one of the
+disadvantage is that if all the clients
+
+534
+00:12:54,310 --> 00:12:54,320
+disadvantage is that if all the clients
+ 
+
+535
+00:12:54,320 --> 00:12:56,790
+disadvantage is that if all the clients
+retry at the same interval it is
+
+536
+00:12:56,790 --> 00:12:56,800
+retry at the same interval it is
+ 
+
+537
+00:12:56,800 --> 00:12:59,509
+retry at the same interval it is
+possible that the retry traffic become
+
+538
+00:12:59,509 --> 00:12:59,519
+possible that the retry traffic become
+ 
+
+539
+00:12:59,519 --> 00:13:02,150
+possible that the retry traffic become
+huge and it can cause thundering her
+
+540
+00:13:02,150 --> 00:13:02,160
+huge and it can cause thundering her
+ 
+
+541
+00:13:02,160 --> 00:13:06,069
+huge and it can cause thundering her
+problem.
+
+542
+00:13:06,069 --> 00:13:06,079
+
+ 
+
+543
+00:13:06,079 --> 00:13:08,949
+
+So fixed interval is clear then we have
+
+544
+00:13:08,949 --> 00:13:08,959
+So fixed interval is clear then we have
+ 
+
+545
+00:13:08,959 --> 00:13:11,430
+So fixed interval is clear then we have
+exponential back off. So what does
+
+546
+00:13:11,430 --> 00:13:11,440
+exponential back off. So what does
+ 
+
+547
+00:13:11,440 --> 00:13:14,310
+exponential back off. So what does
+exponential back off says that delay
+
+548
+00:13:14,310 --> 00:13:14,320
+exponential back off says that delay
+ 
+
+549
+00:13:14,320 --> 00:13:16,949
+exponential back off says that delay
+increases exponentially.
+
+550
+00:13:16,949 --> 00:13:16,959
+increases exponentially.
+ 
+
+551
+00:13:16,959 --> 00:13:19,030
+increases exponentially.
+So currently earlier you are delaying at
+
+552
+00:13:19,030 --> 00:13:19,040
+So currently earlier you are delaying at
+ 
+
+553
+00:13:19,040 --> 00:13:21,509
+So currently earlier you are delaying at
+this time then this time then this time
+
+554
+00:13:21,509 --> 00:13:21,519
+this time then this time then this time
+ 
+
+555
+00:13:21,519 --> 00:13:24,150
+this time then this time then this time
+not at fixed rate not after 2 seconds
+
+556
+00:13:24,150 --> 00:13:24,160
+not at fixed rate not after 2 seconds
+ 
+
+557
+00:13:24,160 --> 00:13:26,710
+not at fixed rate not after 2 seconds
+this is 2 second not at fixed so it
+
+558
+00:13:26,710 --> 00:13:26,720
+this is 2 second not at fixed so it
+ 
+
+559
+00:13:26,720 --> 00:13:29,670
+this is 2 second not at fixed so it
+increase with the time and this is the
+
+560
+00:13:29,670 --> 00:13:29,680
+increase with the time and this is the
+ 
+
+561
+00:13:29,680 --> 00:13:33,269
+increase with the time and this is the
+formula for it. So the formula says that
+
+562
+00:13:33,269 --> 00:13:33,279
+formula for it. So the formula says that
+ 
+
+563
+00:13:33,279 --> 00:13:37,030
+formula for it. So the formula says that
+you pick some base delay that yeah
+
+564
+00:13:37,030 --> 00:13:37,040
+you pick some base delay that yeah
+ 
+
+565
+00:13:37,040 --> 00:13:40,949
+you pick some base delay that yeah
+minimum base delay is my 100 millisecond
+
+566
+00:13:40,949 --> 00:13:40,959
+minimum base delay is my 100 millisecond
+ 
+
+567
+00:13:40,959 --> 00:13:43,590
+minimum base delay is my 100 millisecond
+into two raised to power this is a
+
+568
+00:13:43,590 --> 00:13:43,600
+into two raised to power this is a
+ 
+
+569
+00:13:43,600 --> 00:13:45,190
+into two raised to power this is a
+factor you can say that this is also
+
+570
+00:13:45,190 --> 00:13:45,200
+factor you can say that this is also
+ 
+
+571
+00:13:45,200 --> 00:13:49,190
+factor you can say that this is also
+configurable factor raised to power
+
+572
+00:13:49,190 --> 00:13:49,200
+configurable factor raised to power
+ 
+
+573
+00:13:49,200 --> 00:13:52,550
+configurable factor raised to power
+number of failed retry attempt. Okay so
+
+574
+00:13:52,550 --> 00:13:52,560
+number of failed retry attempt. Okay so
+ 
+
+575
+00:13:52,560 --> 00:13:54,389
+number of failed retry attempt. Okay so
+consider that total attempt is four
+
+576
+00:13:54,389 --> 00:13:54,399
+consider that total attempt is four
+ 
+
+577
+00:13:54,399 --> 00:13:56,150
+consider that total attempt is four
+means one original call and three
+
+578
+00:13:56,150 --> 00:13:56,160
+means one original call and three
+ 
+
+579
+00:13:56,160 --> 00:13:59,590
+means one original call and three
+retries and my base is 100. So the
+
+580
+00:13:59,590 --> 00:13:59,600
+retries and my base is 100. So the
+ 
+
+581
+00:13:59,600 --> 00:14:01,509
+retries and my base is 100. So the
+formula says that the first retry will
+
+582
+00:14:01,509 --> 00:14:01,519
+formula says that the first retry will
+ 
+
+583
+00:14:01,519 --> 00:14:05,189
+formula says that the first retry will
+so let's say original call happen at uh
+
+584
+00:14:05,189 --> 00:14:05,199
+so let's say original call happen at uh
+ 
+
+585
+00:14:05,199 --> 00:14:09,110
+so let's say original call happen at uh
+0 0 millcond say so first retry will
+
+586
+00:14:09,110 --> 00:14:09,120
+0 0 millcond say so first retry will
+ 
+
+587
+00:14:09,120 --> 00:14:13,670
+0 0 millcond say so first retry will
+happen at 100 which is our base delay
+
+588
+00:14:13,670 --> 00:14:13,680
+happen at 100 which is our base delay
+ 
+
+589
+00:14:13,680 --> 00:14:16,550
+happen at 100 which is our base delay
+into and the factor which I have given
+
+590
+00:14:16,550 --> 00:14:16,560
+into and the factor which I have given
+ 
+
+591
+00:14:16,560 --> 00:14:18,310
+into and the factor which I have given
+is let's say this factor I have given is
+
+592
+00:14:18,310 --> 00:14:18,320
+is let's say this factor I have given is
+ 
+
+593
+00:14:18,320 --> 00:14:22,550
+is let's say this factor I have given is
+two for now 2 raised to power previous
+
+594
+00:14:22,550 --> 00:14:22,560
+two for now 2 raised to power previous
+ 
+
+595
+00:14:22,560 --> 00:14:25,269
+two for now 2 raised to power previous
+number of failed retry attempt currently
+
+596
+00:14:25,269 --> 00:14:25,279
+number of failed retry attempt currently
+ 
+
+597
+00:14:25,279 --> 00:14:27,670
+number of failed retry attempt currently
+this is the first retry itself so zero
+
+598
+00:14:27,670 --> 00:14:27,680
+this is the first retry itself so zero
+ 
+
+599
+00:14:27,680 --> 00:14:29,750
+this is the first retry itself so zero
+no retry attempt has failed. So
+
+600
+00:14:29,750 --> 00:14:29,760
+no retry attempt has failed. So
+ 
+
+601
+00:14:29,760 --> 00:14:32,870
+no retry attempt has failed. So
+currently it is zero. So this is first
+
+602
+00:14:32,870 --> 00:14:32,880
+currently it is zero. So this is first
+ 
+
+603
+00:14:32,880 --> 00:14:35,189
+currently it is zero. So this is first
+retry happen at so original call happen
+
+604
+00:14:35,189 --> 00:14:35,199
+retry happen at so original call happen
+ 
+
+605
+00:14:35,199 --> 00:14:37,590
+retry happen at so original call happen
+at 0 millisecond. First retry will
+
+606
+00:14:37,590 --> 00:14:37,600
+at 0 millisecond. First retry will
+ 
+
+607
+00:14:37,600 --> 00:14:40,470
+at 0 millisecond. First retry will
+happen at 100 millisecond. Second retry
+
+608
+00:14:40,470 --> 00:14:40,480
+happen at 100 millisecond. Second retry
+ 
+
+609
+00:14:40,480 --> 00:14:43,030
+happen at 100 millisecond. Second retry
+will happen at 100 base into whatever
+
+610
+00:14:43,030 --> 00:14:43,040
+will happen at 100 base into whatever
+ 
+
+611
+00:14:43,040 --> 00:14:44,389
+will happen at 100 base into whatever
+the factor you have told. Let's say I
+
+612
+00:14:44,389 --> 00:14:44,399
+the factor you have told. Let's say I
+ 
+
+613
+00:14:44,399 --> 00:14:46,629
+the factor you have told. Let's say I
+have told two raised to power number of
+
+614
+00:14:46,629 --> 00:14:46,639
+have told two raised to power number of
+ 
+
+615
+00:14:46,639 --> 00:14:48,470
+have told two raised to power number of
+failed retry attempt. So till now only
+
+616
+00:14:48,470 --> 00:14:48,480
+failed retry attempt. So till now only
+ 
+
+617
+00:14:48,480 --> 00:14:52,230
+failed retry attempt. So till now only
+one retry attemp failed. So it's one. So
+
+618
+00:14:52,230 --> 00:14:52,240
+one retry attemp failed. So it's one. So
+ 
+
+619
+00:14:52,240 --> 00:14:55,030
+one retry attemp failed. So it's one. So
+retry will happen at 200 millisecond.
+
+620
+00:14:55,030 --> 00:14:55,040
+retry will happen at 200 millisecond.
+ 
+
+621
+00:14:55,040 --> 00:14:57,750
+retry will happen at 200 millisecond.
+Third retry will happen at 100 into 2 to
+
+622
+00:14:57,750 --> 00:14:57,760
+Third retry will happen at 100 into 2 to
+ 
+
+623
+00:14:57,760 --> 00:15:00,069
+Third retry will happen at 100 into 2 to
+power number of failed retry time two
+
+624
+00:15:00,069 --> 00:15:00,079
+power number of failed retry time two
+ 
+
+625
+00:15:00,079 --> 00:15:03,990
+power number of failed retry time two
+till now two retry has been done. So 2^
+
+626
+00:15:03,990 --> 00:15:04,000
+till now two retry has been done. So 2^
+ 
+
+627
+00:15:04,000 --> 00:15:06,389
+till now two retry has been done. So 2^
+400 millisecond. So now here is if you
+
+628
+00:15:06,389 --> 00:15:06,399
+400 millisecond. So now here is if you
+ 
+
+629
+00:15:06,399 --> 00:15:09,269
+400 millisecond. So now here is if you
+see the delay time is exponentially
+
+630
+00:15:09,269 --> 00:15:09,279
+see the delay time is exponentially
+ 
+
+631
+00:15:09,279 --> 00:15:12,949
+see the delay time is exponentially
+increases 100 200 400 next you will see
+
+632
+00:15:12,949 --> 00:15:12,959
+increases 100 200 400 next you will see
+ 
+
+633
+00:15:12,959 --> 00:15:15,670
+increases 100 200 400 next you will see
+800 like this.
+
+634
+00:15:15,670 --> 00:15:15,680
+800 like this.
+ 
+
+635
+00:15:15,680 --> 00:15:18,069
+800 like this.
+So advantage is that it reduce the load
+
+636
+00:15:18,069 --> 00:15:18,079
+So advantage is that it reduce the load
+ 
+
+637
+00:15:18,079 --> 00:15:20,629
+So advantage is that it reduce the load
+on downstream service during outage.
+
+638
+00:15:20,629 --> 00:15:20,639
+on downstream service during outage.
+ 
+
+639
+00:15:20,639 --> 00:15:25,829
+on downstream service during outage.
+Let's say that this service become
+
+640
+00:15:25,829 --> 00:15:25,839
+
+ 
+
+641
+00:15:25,839 --> 00:15:29,030
+
+this service become down.
+
+642
+00:15:29,030 --> 00:15:29,040
+this service become down.
+ 
+
+643
+00:15:29,040 --> 00:15:32,230
+this service become down.
+If we increase the delay, they also get
+
+644
+00:15:32,230 --> 00:15:32,240
+If we increase the delay, they also get
+ 
+
+645
+00:15:32,240 --> 00:15:34,230
+If we increase the delay, they also get
+some breathing time to recover it.
+
+646
+00:15:34,230 --> 00:15:34,240
+some breathing time to recover it.
+ 
+
+647
+00:15:34,240 --> 00:15:37,350
+some breathing time to recover it.
+Unnecessary. If you put the load of the
+
+648
+00:15:37,350 --> 00:15:37,360
+Unnecessary. If you put the load of the
+ 
+
+649
+00:15:37,360 --> 00:15:39,269
+Unnecessary. If you put the load of the
+retry also plus the original request
+
+650
+00:15:39,269 --> 00:15:39,279
+retry also plus the original request
+ 
+
+651
+00:15:39,279 --> 00:15:43,670
+retry also plus the original request
+also the it might take some more time to
+
+652
+00:15:43,670 --> 00:15:43,680
+also the it might take some more time to
+ 
+
+653
+00:15:43,680 --> 00:15:46,230
+also the it might take some more time to
+recover for the component
+
+654
+00:15:46,230 --> 00:15:46,240
+recover for the component
+ 
+
+655
+00:15:46,240 --> 00:15:48,069
+recover for the component
+and it also helps to avoid thundering
+
+656
+00:15:48,069 --> 00:15:48,079
+and it also helps to avoid thundering
+ 
+
+657
+00:15:48,079 --> 00:15:52,629
+and it also helps to avoid thundering
+her problem to some extent. Right? Since
+
+658
+00:15:52,629 --> 00:15:52,639
+her problem to some extent. Right? Since
+ 
+
+659
+00:15:52,639 --> 00:15:54,550
+her problem to some extent. Right? Since
+they are not returning at a constant
+
+660
+00:15:54,550 --> 00:15:54,560
+they are not returning at a constant
+ 
+
+661
+00:15:54,560 --> 00:15:57,749
+they are not returning at a constant
+time it delays. So thundering her heart
+
+662
+00:15:57,749 --> 00:15:57,759
+time it delays. So thundering her heart
+ 
+
+663
+00:15:57,759 --> 00:16:00,389
+time it delays. So thundering her heart
+problem you can say that uh to some
+
+664
+00:16:00,389 --> 00:16:00,399
+problem you can say that uh to some
+ 
+
+665
+00:16:00,399 --> 00:16:04,069
+problem you can say that uh to some
+extent it reduces.
+
+666
+00:16:04,069 --> 00:16:04,079
+extent it reduces.
+ 
+
+667
+00:16:04,079 --> 00:16:07,030
+extent it reduces.
+But does it reduce fully? No. There is
+
+668
+00:16:07,030 --> 00:16:07,040
+But does it reduce fully? No. There is
+ 
+
+669
+00:16:07,040 --> 00:16:08,870
+But does it reduce fully? No. There is
+still risk of thundering her because see
+
+670
+00:16:08,870 --> 00:16:08,880
+still risk of thundering her because see
+ 
+
+671
+00:16:08,880 --> 00:16:12,069
+still risk of thundering her because see
+this is the formula. What if your base
+
+672
+00:16:12,069 --> 00:16:12,079
+this is the formula. What if your base
+ 
+
+673
+00:16:12,079 --> 00:16:14,069
+this is the formula. What if your base
+is my base all the client select the
+
+674
+00:16:14,069 --> 00:16:14,079
+is my base all the client select the
+ 
+
+675
+00:16:14,079 --> 00:16:16,790
+is my base all the client select the
+same base and same factor then they will
+
+676
+00:16:16,790 --> 00:16:16,800
+same base and same factor then they will
+ 
+
+677
+00:16:16,800 --> 00:16:19,829
+same base and same factor then they will
+retry at the same time itself. So there
+
+678
+00:16:19,829 --> 00:16:19,839
+retry at the same time itself. So there
+ 
+
+679
+00:16:19,839 --> 00:16:22,790
+retry at the same time itself. So there
+is because there is no randomness right.
+
+680
+00:16:22,790 --> 00:16:22,800
+is because there is no randomness right.
+ 
+
+681
+00:16:22,800 --> 00:16:25,829
+is because there is no randomness right.
+So there is a still a chance of
+
+682
+00:16:25,829 --> 00:16:25,839
+So there is a still a chance of
+ 
+
+683
+00:16:25,839 --> 00:16:28,629
+So there is a still a chance of
+thundering her problem
+
+684
+00:16:28,629 --> 00:16:28,639
+thundering her problem
+ 
+
+685
+00:16:28,639 --> 00:16:31,749
+thundering her problem
+and also if outage period is short user
+
+686
+00:16:31,749 --> 00:16:31,759
+and also if outage period is short user
+ 
+
+687
+00:16:31,759 --> 00:16:34,949
+and also if outage period is short user
+might wait some longer time. So let's
+
+688
+00:16:34,949 --> 00:16:34,959
+might wait some longer time. So let's
+ 
+
+689
+00:16:34,959 --> 00:16:36,790
+might wait some longer time. So let's
+say that
+
+690
+00:16:36,790 --> 00:16:36,800
+say that
+ 
+
+691
+00:16:36,800 --> 00:16:40,150
+say that
+this shortage is resolved at 500
+
+692
+00:16:40,150 --> 00:16:40,160
+this shortage is resolved at 500
+ 
+
+693
+00:16:40,160 --> 00:16:43,430
+this shortage is resolved at 500
+millisecond. After 500 millcond this
+
+694
+00:16:43,430 --> 00:16:43,440
+millisecond. After 500 millcond this
+ 
+
+695
+00:16:43,440 --> 00:16:46,790
+millisecond. After 500 millcond this
+outage was resolved but after 400
+
+696
+00:16:46,790 --> 00:16:46,800
+outage was resolved but after 400
+ 
+
+697
+00:16:46,800 --> 00:16:49,749
+outage was resolved but after 400
+millisecond the delay was 800 only after
+
+698
+00:16:49,749 --> 00:16:49,759
+millisecond the delay was 800 only after
+ 
+
+699
+00:16:49,759 --> 00:16:52,949
+millisecond the delay was 800 only after
+that it will retry. So there is even
+
+700
+00:16:52,949 --> 00:16:52,959
+that it will retry. So there is even
+ 
+
+701
+00:16:52,959 --> 00:16:56,310
+that it will retry. So there is even
+though the issue was resolved it still
+
+702
+00:16:56,310 --> 00:16:56,320
+though the issue was resolved it still
+ 
+
+703
+00:16:56,320 --> 00:16:59,030
+though the issue was resolved it still
+added some latency right the outage
+
+704
+00:16:59,030 --> 00:16:59,040
+added some latency right the outage
+ 
+
+705
+00:16:59,040 --> 00:17:01,189
+added some latency right the outage
+period is short user might wait longer
+
+706
+00:17:01,189 --> 00:17:01,199
+period is short user might wait longer
+ 
+
+707
+00:17:01,199 --> 00:17:02,710
+period is short user might wait longer
+than needed. So this is one of the
+
+708
+00:17:02,710 --> 00:17:02,720
+than needed. So this is one of the
+ 
+
+709
+00:17:02,720 --> 00:17:06,390
+than needed. So this is one of the
+disadvantage.
+
+710
+00:17:06,390 --> 00:17:06,400
+
+ 
+
+711
+00:17:06,400 --> 00:17:08,470
+
+So there is one another version of it is
+
+712
+00:17:08,470 --> 00:17:08,480
+So there is one another version of it is
+ 
+
+713
+00:17:08,480 --> 00:17:11,270
+So there is one another version of it is
+like exponential back off plus jitter.
+
+714
+00:17:11,270 --> 00:17:11,280
+like exponential back off plus jitter.
+ 
+
+715
+00:17:11,280 --> 00:17:13,990
+like exponential back off plus jitter.
+Jitter means some randomness
+
+716
+00:17:13,990 --> 00:17:14,000
+Jitter means some randomness
+ 
+
+717
+00:17:14,000 --> 00:17:17,590
+Jitter means some randomness
+similar to exponential backoff but add
+
+718
+00:17:17,590 --> 00:17:17,600
+similar to exponential backoff but add
+ 
+
+719
+00:17:17,600 --> 00:17:20,309
+similar to exponential backoff but add
+jitterness or randomness
+
+720
+00:17:20,309 --> 00:17:20,319
+jitterness or randomness
+ 
+
+721
+00:17:20,319 --> 00:17:22,309
+jitterness or randomness
+to delay
+
+722
+00:17:22,309 --> 00:17:22,319
+to delay
+ 
+
+723
+00:17:22,319 --> 00:17:24,710
+to delay
+or to you can say that to avoid retry
+
+724
+00:17:24,710 --> 00:17:24,720
+or to you can say that to avoid retry
+ 
+
+725
+00:17:24,720 --> 00:17:27,829
+or to you can say that to avoid retry
+storms. Now see exponential backoff
+
+726
+00:17:27,829 --> 00:17:27,839
+storms. Now see exponential backoff
+ 
+
+727
+00:17:27,839 --> 00:17:29,430
+storms. Now see exponential backoff
+already
+
+728
+00:17:29,430 --> 00:17:29,440
+already
+ 
+
+729
+00:17:29,440 --> 00:17:31,270
+already
+uh increases the delay time
+
+730
+00:17:31,270 --> 00:17:31,280
+uh increases the delay time
+ 
+
+731
+00:17:31,280 --> 00:17:34,150
+uh increases the delay time
+exponentially right but only thing which
+
+732
+00:17:34,150 --> 00:17:34,160
+exponentially right but only thing which
+ 
+
+733
+00:17:34,160 --> 00:17:36,070
+exponentially right but only thing which
+missing is randomness. So this
+
+734
+00:17:36,070 --> 00:17:36,080
+missing is randomness. So this
+ 
+
+735
+00:17:36,080 --> 00:17:37,669
+missing is randomness. So this
+jitterness
+
+736
+00:17:37,669 --> 00:17:37,679
+jitterness
+ 
+
+737
+00:17:37,679 --> 00:17:41,190
+jitterness
+helps to retry uh reduce the retry
+
+738
+00:17:41,190 --> 00:17:41,200
+helps to retry uh reduce the retry
+ 
+
+739
+00:17:41,200 --> 00:17:45,750
+helps to retry uh reduce the retry
+storms. So this is its formula.
+
+740
+00:17:45,750 --> 00:17:45,760
+storms. So this is its formula.
+ 
+
+741
+00:17:45,760 --> 00:17:48,710
+storms. So this is its formula.
+We have to choose a random number
+
+742
+00:17:48,710 --> 00:17:48,720
+We have to choose a random number
+ 
+
+743
+00:17:48,720 --> 00:17:52,870
+We have to choose a random number
+between random between
+
+744
+00:17:52,870 --> 00:17:52,880
+between random between
+ 
+
+745
+00:17:52,880 --> 00:17:56,870
+between random between
+0 comma minimum of maximum delay. What
+
+746
+00:17:56,870 --> 00:17:56,880
+0 comma minimum of maximum delay. What
+ 
+
+747
+00:17:56,880 --> 00:17:59,510
+0 comma minimum of maximum delay. What
+what is the maximum delay
+
+748
+00:17:59,510 --> 00:17:59,520
+what is the maximum delay
+ 
+
+749
+00:17:59,520 --> 00:18:02,310
+what is the maximum delay
+we can have? Let's say no exponential
+
+750
+00:18:02,310 --> 00:18:02,320
+we can have? Let's say no exponential
+ 
+
+751
+00:18:02,320 --> 00:18:04,230
+we can have? Let's say no exponential
+back off. So it's not like let's say you
+
+752
+00:18:04,230 --> 00:18:04,240
+back off. So it's not like let's say you
+ 
+
+753
+00:18:04,240 --> 00:18:05,750
+back off. So it's not like let's say you
+have for example I'm just saying you
+
+754
+00:18:05,750 --> 00:18:05,760
+have for example I'm just saying you
+ 
+
+755
+00:18:05,760 --> 00:18:08,390
+have for example I'm just saying you
+have 100 retry so it's not like it
+
+756
+00:18:08,390 --> 00:18:08,400
+have 100 retry so it's not like it
+ 
+
+757
+00:18:08,400 --> 00:18:10,789
+have 100 retry so it's not like it
+continuously increases the time and all
+
+758
+00:18:10,789 --> 00:18:10,799
+continuously increases the time and all
+ 
+
+759
+00:18:10,799 --> 00:18:13,110
+continuously increases the time and all
+no there should always be limit right
+
+760
+00:18:13,110 --> 00:18:13,120
+no there should always be limit right
+ 
+
+761
+00:18:13,120 --> 00:18:15,590
+no there should always be limit right
+after a limit this is the maximum wait
+
+762
+00:18:15,590 --> 00:18:15,600
+after a limit this is the maximum wait
+ 
+
+763
+00:18:15,600 --> 00:18:19,190
+after a limit this is the maximum wait
+time let's say uh 5 second this is the
+
+764
+00:18:19,190 --> 00:18:19,200
+time let's say uh 5 second this is the
+ 
+
+765
+00:18:19,200 --> 00:18:22,950
+time let's say uh 5 second this is the
+maximum delay time more than that you
+
+766
+00:18:22,950 --> 00:18:22,960
+maximum delay time more than that you
+ 
+
+767
+00:18:22,960 --> 00:18:24,710
+maximum delay time more than that you
+can't go increase if you more than
+
+768
+00:18:24,710 --> 00:18:24,720
+can't go increase if you more than
+ 
+
+769
+00:18:24,720 --> 00:18:28,310
+can't go increase if you more than
+increase if your for with the formula if
+
+770
+00:18:28,310 --> 00:18:28,320
+increase if your for with the formula if
+ 
+
+771
+00:18:28,320 --> 00:18:30,470
+increase if your for with the formula if
+it gives you the value of more than 5
+
+772
+00:18:30,470 --> 00:18:30,480
+it gives you the value of more than 5
+ 
+
+773
+00:18:30,480 --> 00:18:32,230
+it gives you the value of more than 5
+second always use 5 seconds so this is
+
+774
+00:18:32,230 --> 00:18:32,240
+second always use 5 seconds so this is
+ 
+
+775
+00:18:32,240 --> 00:18:34,310
+second always use 5 seconds so this is
+the maximum limit.
+
+776
+00:18:34,310 --> 00:18:34,320
+the maximum limit.
+ 
+
+777
+00:18:34,320 --> 00:18:37,029
+the maximum limit.
+So here is the same random you have to
+
+778
+00:18:37,029 --> 00:18:37,039
+So here is the same random you have to
+ 
+
+779
+00:18:37,039 --> 00:18:39,510
+So here is the same random you have to
+choose a random between 0 comma minimum
+
+780
+00:18:39,510 --> 00:18:39,520
+choose a random between 0 comma minimum
+ 
+
+781
+00:18:39,520 --> 00:18:43,830
+choose a random between 0 comma minimum
+of the maximum delay or this is our
+
+782
+00:18:43,830 --> 00:18:43,840
+of the maximum delay or this is our
+ 
+
+783
+00:18:43,840 --> 00:18:47,270
+of the maximum delay or this is our
+exponential backoff formula.
+
+784
+00:18:47,270 --> 00:18:47,280
+exponential backoff formula.
+ 
+
+785
+00:18:47,280 --> 00:18:49,350
+exponential backoff formula.
+Okay. So now we have bring some
+
+786
+00:18:49,350 --> 00:18:49,360
+Okay. So now we have bring some
+ 
+
+787
+00:18:49,360 --> 00:18:51,830
+Okay. So now we have bring some
+randomness.
+
+788
+00:18:51,830 --> 00:18:51,840
+randomness.
+ 
+
+789
+00:18:51,840 --> 00:18:55,110
+randomness.
+So again random between
+
+790
+00:18:55,110 --> 00:18:55,120
+So again random between
+ 
+
+791
+00:18:55,120 --> 00:18:59,590
+So again random between
+0 comma minimum of maximum delay which
+
+792
+00:18:59,590 --> 00:18:59,600
+0 comma minimum of maximum delay which
+ 
+
+793
+00:18:59,600 --> 00:19:02,630
+0 comma minimum of maximum delay which
+we can wait comma your exponential
+
+794
+00:19:02,630 --> 00:19:02,640
+we can wait comma your exponential
+ 
+
+795
+00:19:02,640 --> 00:19:04,549
+we can wait comma your exponential
+backoff
+
+796
+00:19:04,549 --> 00:19:04,559
+backoff
+ 
+
+797
+00:19:04,559 --> 00:19:06,630
+backoff
+formula one.
+
+798
+00:19:06,630 --> 00:19:06,640
+formula one.
+ 
+
+799
+00:19:06,640 --> 00:19:09,510
+formula one.
+So between these it now pick some delay
+
+800
+00:19:09,510 --> 00:19:09,520
+So between these it now pick some delay
+ 
+
+801
+00:19:09,520 --> 00:19:13,190
+So between these it now pick some delay
+value and now since this is random you
+
+802
+00:19:13,190 --> 00:19:13,200
+value and now since this is random you
+ 
+
+803
+00:19:13,200 --> 00:19:16,310
+value and now since this is random you
+can say that uh it spread the retries
+
+804
+00:19:16,310 --> 00:19:16,320
+can say that uh it spread the retries
+ 
+
+805
+00:19:16,320 --> 00:19:18,549
+can say that uh it spread the retries
+over time reduce peak load and
+
+806
+00:19:18,549 --> 00:19:18,559
+over time reduce peak load and
+ 
+
+807
+00:19:18,559 --> 00:19:21,909
+over time reduce peak load and
+thundering her issue is pro happening of
+
+808
+00:19:21,909 --> 00:19:21,919
+thundering her issue is pro happening of
+ 
+
+809
+00:19:21,919 --> 00:19:23,669
+thundering her issue is pro happening of
+this issue become very less because of
+
+810
+00:19:23,669 --> 00:19:23,679
+this issue become very less because of
+ 
+
+811
+00:19:23,679 --> 00:19:25,909
+this issue become very less because of
+this randomness.
+
+812
+00:19:25,909 --> 00:19:25,919
+this randomness.
+ 
+
+813
+00:19:25,919 --> 00:19:27,909
+this randomness.
+The disadvantage is it's not easy to
+
+814
+00:19:27,909 --> 00:19:27,919
+The disadvantage is it's not easy to
+ 
+
+815
+00:19:27,919 --> 00:19:33,510
+The disadvantage is it's not easy to
+debug and it's little complex.
+
+816
+00:19:33,510 --> 00:19:33,520
+
+ 
+
+817
+00:19:33,520 --> 00:19:35,830
+
+And the last type of retry is custom
+
+818
+00:19:35,830 --> 00:19:35,840
+And the last type of retry is custom
+ 
+
+819
+00:19:35,840 --> 00:19:38,470
+And the last type of retry is custom
+interval like you define your own retry
+
+820
+00:19:38,470 --> 00:19:38,480
+interval like you define your own retry
+ 
+
+821
+00:19:38,480 --> 00:19:42,549
+interval like you define your own retry
+logic. Hey, I want retry to be like 1 1
+
+822
+00:19:42,549 --> 00:19:42,559
+logic. Hey, I want retry to be like 1 1
+ 
+
+823
+00:19:42,559 --> 00:19:47,270
+logic. Hey, I want retry to be like 1 1
+2 3 5 like this. Okay. So first retry
+
+824
+00:19:47,270 --> 00:19:47,280
+2 3 5 like this. Okay. So first retry
+ 
+
+825
+00:19:47,280 --> 00:19:49,669
+2 3 5 like this. Okay. So first retry
+should wait for 1 sec 1 millisecond then
+
+826
+00:19:49,669 --> 00:19:49,679
+should wait for 1 sec 1 millisecond then
+ 
+
+827
+00:19:49,679 --> 00:19:52,070
+should wait for 1 sec 1 millisecond then
+another 1 millisecond then 2 millcond
+
+828
+00:19:52,070 --> 00:19:52,080
+another 1 millisecond then 2 millcond
+ 
+
+829
+00:19:52,080 --> 00:19:54,549
+another 1 millisecond then 2 millcond
+then 3 millcond then five then 8 like
+
+830
+00:19:54,549 --> 00:19:54,559
+then 3 millcond then five then 8 like
+ 
+
+831
+00:19:54,559 --> 00:19:58,070
+then 3 millcond then five then 8 like
+this. So you can define your own custom
+
+832
+00:19:58,070 --> 00:19:58,080
+this. So you can define your own custom
+ 
+
+833
+00:19:58,080 --> 00:20:00,310
+this. So you can define your own custom
+logic how you want to do a retry that is
+
+834
+00:20:00,310 --> 00:20:00,320
+logic how you want to do a retry that is
+ 
+
+835
+00:20:00,320 --> 00:20:02,390
+logic how you want to do a retry that is
+also possible. So we have full control
+
+836
+00:20:02,390 --> 00:20:02,400
+also possible. So we have full control
+ 
+
+837
+00:20:02,400 --> 00:20:05,029
+also possible. So we have full control
+and flexibility but disadvantage is you
+
+838
+00:20:05,029 --> 00:20:05,039
+and flexibility but disadvantage is you
+ 
+
+839
+00:20:05,039 --> 00:20:07,669
+and flexibility but disadvantage is you
+have to maintain you have to maintain
+
+840
+00:20:07,669 --> 00:20:07,679
+have to maintain you have to maintain
+ 
+
+841
+00:20:07,679 --> 00:20:10,070
+have to maintain you have to maintain
+it. So you have to write the logic you
+
+842
+00:20:10,070 --> 00:20:10,080
+it. So you have to write the logic you
+ 
+
+843
+00:20:10,080 --> 00:20:12,230
+it. So you have to write the logic you
+have to maintain it. The framework will
+
+844
+00:20:12,230 --> 00:20:12,240
+have to maintain it. The framework will
+ 
+
+845
+00:20:12,240 --> 00:20:16,710
+have to maintain it. The framework will
+not help you in this. We will see that.
+
+846
+00:20:16,710 --> 00:20:16,720
+not help you in this. We will see that.
+ 
+
+847
+00:20:16,720 --> 00:20:18,870
+not help you in this. We will see that.
+So first let's see the implementation of
+
+848
+00:20:18,870 --> 00:20:18,880
+So first let's see the implementation of
+ 
+
+849
+00:20:18,880 --> 00:20:23,669
+So first let's see the implementation of
+fixed interval. How you can do that?
+
+850
+00:20:23,669 --> 00:20:23,679
+
+ 
+
+851
+00:20:23,679 --> 00:20:26,710
+
+This is same controller. This is faint
+
+852
+00:20:26,710 --> 00:20:26,720
+This is same controller. This is faint
+ 
+
+853
+00:20:26,720 --> 00:20:29,430
+This is same controller. This is faint
+client interface. controller is invoking
+
+854
+00:20:29,430 --> 00:20:29,440
+client interface. controller is invoking
+ 
+
+855
+00:20:29,440 --> 00:20:32,230
+client interface. controller is invoking
+the order service invoke product API.
+
+856
+00:20:32,230 --> 00:20:32,240
+the order service invoke product API.
+ 
+
+857
+00:20:32,240 --> 00:20:34,950
+the order service invoke product API.
+This service it is invoking.
+
+858
+00:20:34,950 --> 00:20:34,960
+This service it is invoking.
+ 
+
+859
+00:20:34,960 --> 00:20:38,310
+This service it is invoking.
+Now here if you see I have put at the
+
+860
+00:20:38,310 --> 00:20:38,320
+Now here if you see I have put at the
+ 
+
+861
+00:20:38,320 --> 00:20:41,270
+Now here if you see I have put at the
+rate retry com uh annotation on top of
+
+862
+00:20:41,270 --> 00:20:41,280
+rate retry com uh annotation on top of
+ 
+
+863
+00:20:41,280 --> 00:20:44,470
+rate retry com uh annotation on top of
+this method. One thing remember is
+
+864
+00:20:44,470 --> 00:20:44,480
+this method. One thing remember is
+ 
+
+865
+00:20:44,480 --> 00:20:48,070
+this method. One thing remember is
+always use retry on a top of method the
+
+866
+00:20:48,070 --> 00:20:48,080
+always use retry on a top of method the
+ 
+
+867
+00:20:48,080 --> 00:20:50,710
+always use retry on a top of method the
+logic which you want to retry. So I only
+
+868
+00:20:50,710 --> 00:20:50,720
+logic which you want to retry. So I only
+ 
+
+869
+00:20:50,720 --> 00:20:54,230
+logic which you want to retry. So I only
+want to retry this my downstream call.
+
+870
+00:20:54,230 --> 00:20:54,240
+want to retry this my downstream call.
+ 
+
+871
+00:20:54,240 --> 00:20:56,070
+want to retry this my downstream call.
+Let's say if you have some lot of
+
+872
+00:20:56,070 --> 00:20:56,080
+Let's say if you have some lot of
+ 
+
+873
+00:20:56,080 --> 00:20:57,830
+Let's say if you have some lot of
+business logic here everything will get
+
+874
+00:20:57,830 --> 00:20:57,840
+business logic here everything will get
+ 
+
+875
+00:20:57,840 --> 00:21:00,230
+business logic here everything will get
+retry. If you have a DB call that will
+
+876
+00:21:00,230 --> 00:21:00,240
+retry. If you have a DB call that will
+ 
+
+877
+00:21:00,240 --> 00:21:03,590
+retry. If you have a DB call that will
+also get retry. So please double check
+
+878
+00:21:03,590 --> 00:21:03,600
+also get retry. So please double check
+ 
+
+879
+00:21:03,600 --> 00:21:05,510
+also get retry. So please double check
+double verify where you are putting this
+
+880
+00:21:05,510 --> 00:21:05,520
+double verify where you are putting this
+ 
+
+881
+00:21:05,520 --> 00:21:07,830
+double verify where you are putting this
+retry. What all logic are there inside
+
+882
+00:21:07,830 --> 00:21:07,840
+retry. What all logic are there inside
+ 
+
+883
+00:21:07,840 --> 00:21:10,630
+retry. What all logic are there inside
+that method because that will get
+
+884
+00:21:10,630 --> 00:21:10,640
+that method because that will get
+ 
+
+885
+00:21:10,640 --> 00:21:12,950
+that method because that will get
+executed.
+
+886
+00:21:12,950 --> 00:21:12,960
+executed.
+ 
+
+887
+00:21:12,960 --> 00:21:16,070
+executed.
+Okay. So I have used at the rate retry
+
+888
+00:21:16,070 --> 00:21:16,080
+Okay. So I have used at the rate retry
+ 
+
+889
+00:21:16,080 --> 00:21:17,990
+Okay. So I have used at the rate retry
+annotation. Give it a name fallback
+
+890
+00:21:17,990 --> 00:21:18,000
+annotation. Give it a name fallback
+ 
+
+891
+00:21:18,000 --> 00:21:20,149
+annotation. Give it a name fallback
+method. like after all the retry got
+
+892
+00:21:20,149 --> 00:21:20,159
+method. like after all the retry got
+ 
+
+893
+00:21:20,159 --> 00:21:23,430
+method. like after all the retry got
+failed ultimately this fallback method
+
+894
+00:21:23,430 --> 00:21:23,440
+failed ultimately this fallback method
+ 
+
+895
+00:21:23,440 --> 00:21:25,510
+failed ultimately this fallback method
+will get invoked.
+
+896
+00:21:25,510 --> 00:21:25,520
+will get invoked.
+ 
+
+897
+00:21:25,520 --> 00:21:27,270
+will get invoked.
+Okay.
+
+898
+00:21:27,270 --> 00:21:27,280
+Okay.
+ 
+
+899
+00:21:27,280 --> 00:21:29,990
+Okay.
+Now in the application.properties
+
+900
+00:21:29,990 --> 00:21:30,000
+Now in the application.properties
+ 
+
+901
+00:21:30,000 --> 00:21:31,669
+Now in the application.properties
+here if you see I have defined the
+
+902
+00:21:31,669 --> 00:21:31,679
+here if you see I have defined the
+ 
+
+903
+00:21:31,679 --> 00:21:35,190
+here if you see I have defined the
+configuration resilience 4j retry
+
+904
+00:21:35,190 --> 00:21:35,200
+configuration resilience 4j retry
+ 
+
+905
+00:21:35,200 --> 00:21:37,590
+configuration resilience 4j retry
+instances product service. This is the
+
+906
+00:21:37,590 --> 00:21:37,600
+instances product service. This is the
+ 
+
+907
+00:21:37,600 --> 00:21:40,390
+instances product service. This is the
+name I have given.
+
+908
+00:21:40,390 --> 00:21:40,400
+name I have given.
+ 
+
+909
+00:21:40,400 --> 00:21:43,029
+name I have given.
+Maximum attempt is three
+
+910
+00:21:43,029 --> 00:21:43,039
+Maximum attempt is three
+ 
+
+911
+00:21:43,039 --> 00:21:45,029
+Maximum attempt is three
+and resilience 4j retry instances
+
+912
+00:21:45,029 --> 00:21:45,039
+and resilience 4j retry instances
+ 
+
+913
+00:21:45,039 --> 00:21:47,510
+and resilience 4j retry instances
+product service wait duration is 2
+
+914
+00:21:47,510 --> 00:21:47,520
+product service wait duration is 2
+ 
+
+915
+00:21:47,520 --> 00:21:48,789
+product service wait duration is 2
+seconds.
+
+916
+00:21:48,789 --> 00:21:48,799
+seconds.
+ 
+
+917
+00:21:48,799 --> 00:21:50,870
+seconds.
+So now here if you see that I haven't
+
+918
+00:21:50,870 --> 00:21:50,880
+So now here if you see that I haven't
+ 
+
+919
+00:21:50,880 --> 00:21:55,110
+So now here if you see that I haven't
+told which type to use whether it has to
+
+920
+00:21:55,110 --> 00:21:55,120
+told which type to use whether it has to
+ 
+
+921
+00:21:55,120 --> 00:21:58,789
+told which type to use whether it has to
+use fixed delay exponential back off or
+
+922
+00:21:58,789 --> 00:21:58,799
+use fixed delay exponential back off or
+ 
+
+923
+00:21:58,799 --> 00:22:01,750
+use fixed delay exponential back off or
+with jitterness because by default it is
+
+924
+00:22:01,750 --> 00:22:01,760
+with jitterness because by default it is
+ 
+
+925
+00:22:01,760 --> 00:22:03,990
+with jitterness because by default it is
+fixed interval by default which
+
+926
+00:22:03,990 --> 00:22:04,000
+fixed interval by default which
+ 
+
+927
+00:22:04,000 --> 00:22:08,710
+fixed interval by default which
+resilience 4j uses retries
+
+928
+00:22:08,710 --> 00:22:08,720
+resilience 4j uses retries
+ 
+
+929
+00:22:08,720 --> 00:22:12,149
+resilience 4j uses retries
+fixed interval. Okay and maximum at time
+
+930
+00:22:12,149 --> 00:22:12,159
+fixed interval. Okay and maximum at time
+ 
+
+931
+00:22:12,159 --> 00:22:14,789
+fixed interval. Okay and maximum at time
+we have defined is three and weight
+
+932
+00:22:14,789 --> 00:22:14,799
+we have defined is three and weight
+ 
+
+933
+00:22:14,799 --> 00:22:17,430
+we have defined is three and weight
+duration is 2 seconds. So it will wait
+
+934
+00:22:17,430 --> 00:22:17,440
+duration is 2 seconds. So it will wait
+ 
+
+935
+00:22:17,440 --> 00:22:22,149
+duration is 2 seconds. So it will wait
+2222 seconds.
+
+936
+00:22:22,149 --> 00:22:22,159
+
+ 
+
+937
+00:22:22,159 --> 00:22:24,549
+
+Now you can you can easily test it. If
+
+938
+00:22:24,549 --> 00:22:24,559
+Now you can you can easily test it. If
+ 
+
+939
+00:22:24,559 --> 00:22:25,909
+Now you can you can easily test it. If
+you want to test it, you can easily test
+
+940
+00:22:25,909 --> 00:22:25,919
+you want to test it, you can easily test
+ 
+
+941
+00:22:25,919 --> 00:22:29,110
+you want to test it, you can easily test
+it that uh so here in this one I have
+
+942
+00:22:29,110 --> 00:22:29,120
+it that uh so here in this one I have
+ 
+
+943
+00:22:29,120 --> 00:22:31,830
+it that uh so here in this one I have
+just put uh try catch block and in the
+
+944
+00:22:31,830 --> 00:22:31,840
+just put uh try catch block and in the
+ 
+
+945
+00:22:31,840 --> 00:22:34,230
+just put uh try catch block and in the
+catch I have put not able to invoke
+
+946
+00:22:34,230 --> 00:22:34,240
+catch I have put not able to invoke
+ 
+
+947
+00:22:34,240 --> 00:22:35,990
+catch I have put not able to invoke
+product API. So I'm invoking the product
+
+948
+00:22:35,990 --> 00:22:36,000
+product API. So I'm invoking the product
+ 
+
+949
+00:22:36,000 --> 00:22:37,750
+product API. So I'm invoking the product
+API right? I haven't started it server
+
+950
+00:22:37,750 --> 00:22:37,760
+API right? I haven't started it server
+ 
+
+951
+00:22:37,760 --> 00:22:40,149
+API right? I haven't started it server
+itself. I haven't started server. So
+
+952
+00:22:40,149 --> 00:22:40,159
+itself. I haven't started server. So
+ 
+
+953
+00:22:40,159 --> 00:22:42,470
+itself. I haven't started server. So
+definitely it will fail. Not able to
+
+954
+00:22:42,470 --> 00:22:42,480
+definitely it will fail. Not able to
+ 
+
+955
+00:22:42,480 --> 00:22:45,110
+definitely it will fail. Not able to
+invoke product. So I have just put this
+
+956
+00:22:45,110 --> 00:22:45,120
+invoke product. So I have just put this
+ 
+
+957
+00:22:45,120 --> 00:22:46,789
+invoke product. So I have just put this
+not able to invoke product and let's see
+
+958
+00:22:46,789 --> 00:22:46,799
+not able to invoke product and let's see
+ 
+
+959
+00:22:46,799 --> 00:22:50,950
+not able to invoke product and let's see
+that how many times it will retry it. So
+
+960
+00:22:50,950 --> 00:22:50,960
+that how many times it will retry it. So
+ 
+
+961
+00:22:50,960 --> 00:22:52,710
+that how many times it will retry it. So
+if you see this what is the
+
+962
+00:22:52,710 --> 00:22:52,720
+if you see this what is the
+ 
+
+963
+00:22:52,720 --> 00:22:55,190
+if you see this what is the
+configuration we have put three mean one
+
+964
+00:22:55,190 --> 00:22:55,200
+configuration we have put three mean one
+ 
+
+965
+00:22:55,200 --> 00:22:58,149
+configuration we have put three mean one
+original call and two retry. So if you
+
+966
+00:22:58,149 --> 00:22:58,159
+original call and two retry. So if you
+ 
+
+967
+00:22:58,159 --> 00:23:00,149
+original call and two retry. So if you
+see this first time this is the original
+
+968
+00:23:00,149 --> 00:23:00,159
+see this first time this is the original
+ 
+
+969
+00:23:00,159 --> 00:23:02,630
+see this first time this is the original
+call which happened at 2056
+
+970
+00:23:02,630 --> 00:23:02,640
+call which happened at 2056
+ 
+
+971
+00:23:02,640 --> 00:23:04,710
+call which happened at 2056
+not able to invoke
+
+972
+00:23:04,710 --> 00:23:04,720
+not able to invoke
+ 
+
+973
+00:23:04,720 --> 00:23:07,669
+not able to invoke
+then it wait for 2 seconds because this
+
+974
+00:23:07,669 --> 00:23:07,679
+then it wait for 2 seconds because this
+ 
+
+975
+00:23:07,679 --> 00:23:09,990
+then it wait for 2 seconds because this
+is the delay period we have defined into
+
+976
+00:23:09,990 --> 00:23:10,000
+is the delay period we have defined into
+ 
+
+977
+00:23:10,000 --> 00:23:13,590
+is the delay period we have defined into
+this wait duration 2 seconds.
+
+978
+00:23:13,590 --> 00:23:13,600
+this wait duration 2 seconds.
+ 
+
+979
+00:23:13,600 --> 00:23:16,870
+this wait duration 2 seconds.
+So it happened at 20 5612. So 2 second
+
+980
+00:23:16,870 --> 00:23:16,880
+So it happened at 20 5612. So 2 second
+ 
+
+981
+00:23:16,880 --> 00:23:19,430
+So it happened at 20 5612. So 2 second
+delay first retry happened again failed.
+
+982
+00:23:19,430 --> 00:23:19,440
+delay first retry happened again failed.
+ 
+
+983
+00:23:19,440 --> 00:23:21,029
+delay first retry happened again failed.
+After that second retry happened at
+
+984
+00:23:21,029 --> 00:23:21,039
+After that second retry happened at
+ 
+
+985
+00:23:21,039 --> 00:23:23,190
+After that second retry happened at
+25614 again 2C second delay fixed
+
+986
+00:23:23,190 --> 00:23:23,200
+25614 again 2C second delay fixed
+ 
+
+987
+00:23:23,200 --> 00:23:26,950
+25614 again 2C second delay fixed
+interval delay not able to invoke and
+
+988
+00:23:26,950 --> 00:23:26,960
+interval delay not able to invoke and
+ 
+
+989
+00:23:26,960 --> 00:23:29,190
+interval delay not able to invoke and
+all the retries finished and then it
+
+990
+00:23:29,190 --> 00:23:29,200
+all the retries finished and then it
+ 
+
+991
+00:23:29,200 --> 00:23:32,630
+all the retries finished and then it
+says that product service is busy
+
+992
+00:23:32,630 --> 00:23:32,640
+says that product service is busy
+ 
+
+993
+00:23:32,640 --> 00:23:37,350
+says that product service is busy
+this is our fallback method
+
+994
+00:23:37,350 --> 00:23:37,360
+
+ 
+
+995
+00:23:37,360 --> 00:23:40,549
+
+make sense and uh this thing I already
+
+996
+00:23:40,549 --> 00:23:40,559
+make sense and uh this thing I already
+ 
+
+997
+00:23:40,559 --> 00:23:43,110
+make sense and uh this thing I already
+told you that this thing you can have
+
+998
+00:23:43,110 --> 00:23:43,120
+told you that this thing you can have
+ 
+
+999
+00:23:43,120 --> 00:23:46,470
+told you that this thing you can have
+multiple milliseconds seconds minute you
+
+1000
+00:23:46,470 --> 00:23:46,480
+multiple milliseconds seconds minute you
+ 
+
+1001
+00:23:46,480 --> 00:23:49,669
+multiple milliseconds seconds minute you
+can even go 500 ms milliseconds
+
+1002
+00:23:49,669 --> 00:23:49,679
+can even go 500 ms milliseconds
+ 
+
+1003
+00:23:49,679 --> 00:23:53,029
+can even go 500 ms milliseconds
+So in that also millisecond also you can
+
+1004
+00:23:53,029 --> 00:23:53,039
+So in that also millisecond also you can
+ 
+
+1005
+00:23:53,039 --> 00:23:56,470
+So in that also millisecond also you can
+set the values.
+
+1006
+00:23:56,470 --> 00:23:56,480
+set the values.
+ 
+
+1007
+00:23:56,480 --> 00:23:58,630
+set the values.
+Now how internally this might be
+
+1008
+00:23:58,630 --> 00:23:58,640
+Now how internally this might be
+ 
+
+1009
+00:23:58,640 --> 00:24:02,789
+Now how internally this might be
+working. So see here as we already know
+
+1010
+00:24:02,789 --> 00:24:02,799
+working. So see here as we already know
+ 
+
+1011
+00:24:02,799 --> 00:24:05,510
+working. So see here as we already know
+resilience 4j totally relies on AOP and
+
+1012
+00:24:05,510 --> 00:24:05,520
+resilience 4j totally relies on AOP and
+ 
+
+1013
+00:24:05,520 --> 00:24:08,470
+resilience 4j totally relies on AOP and
+AOP generates the proxy code right it
+
+1014
+00:24:08,470 --> 00:24:08,480
+AOP generates the proxy code right it
+ 
+
+1015
+00:24:08,480 --> 00:24:11,510
+AOP generates the proxy code right it
+generates write the code. So for this
+
+1016
+00:24:11,510 --> 00:24:11,520
+generates write the code. So for this
+ 
+
+1017
+00:24:11,520 --> 00:24:14,310
+generates write the code. So for this
+retry what code it might have written.
+
+1018
+00:24:14,310 --> 00:24:14,320
+retry what code it might have written.
+ 
+
+1019
+00:24:14,320 --> 00:24:17,269
+retry what code it might have written.
+So see this is the code it EOP might
+
+1020
+00:24:17,269 --> 00:24:17,279
+So see this is the code it EOP might
+ 
+
+1021
+00:24:17,279 --> 00:24:20,230
+So see this is the code it EOP might
+have written. I am not sure but AOP
+
+1022
+00:24:20,230 --> 00:24:20,240
+have written. I am not sure but AOP
+ 
+
+1023
+00:24:20,240 --> 00:24:22,310
+have written. I am not sure but AOP
+because generate the code during runtime
+
+1024
+00:24:22,310 --> 00:24:22,320
+because generate the code during runtime
+ 
+
+1025
+00:24:22,320 --> 00:24:25,029
+because generate the code during runtime
+you can't uh debugging is difficult on
+
+1026
+00:24:25,029 --> 00:24:25,039
+you can't uh debugging is difficult on
+ 
+
+1027
+00:24:25,039 --> 00:24:27,990
+you can't uh debugging is difficult on
+that runtime code generation part but
+
+1028
+00:24:27,990 --> 00:24:28,000
+that runtime code generation part but
+ 
+
+1029
+00:24:28,000 --> 00:24:30,789
+that runtime code generation part but
+this is the uh framework which retry
+
+1030
+00:24:30,789 --> 00:24:30,799
+this is the uh framework which retry
+ 
+
+1031
+00:24:30,799 --> 00:24:33,430
+this is the uh framework which retry
+uses it so it has multiple parts so
+
+1032
+00:24:33,430 --> 00:24:33,440
+uses it so it has multiple parts so
+ 
+
+1033
+00:24:33,440 --> 00:24:38,149
+uses it so it has multiple parts so
+consider as three part first part is
+
+1034
+00:24:38,149 --> 00:24:38,159
+consider as three part first part is
+ 
+
+1035
+00:24:38,159 --> 00:24:42,070
+consider as three part first part is
+interval function
+
+1036
+00:24:42,070 --> 00:24:42,080
+
+ 
+
+1037
+00:24:42,080 --> 00:24:43,909
+
+second is
+
+1038
+00:24:43,909 --> 00:24:43,919
+second is
+ 
+
+1039
+00:24:43,919 --> 00:24:46,549
+second is
+retry config
+
+1040
+00:24:46,549 --> 00:24:46,559
+retry config
+ 
+
+1041
+00:24:46,559 --> 00:24:50,470
+retry config
+third is retry object.
+
+1042
+00:24:50,470 --> 00:24:50,480
+third is retry object.
+ 
+
+1043
+00:24:50,480 --> 00:24:52,630
+third is retry object.
+So retry function is the function where
+
+1044
+00:24:52,630 --> 00:24:52,640
+So retry function is the function where
+ 
+
+1045
+00:24:52,640 --> 00:24:57,990
+So retry function is the function where
+your delay logic resides.
+
+1046
+00:24:57,990 --> 00:24:58,000
+your delay logic resides.
+ 
+
+1047
+00:24:58,000 --> 00:25:00,390
+your delay logic resides.
+If you open this class ret interval
+
+1048
+00:25:00,390 --> 00:25:00,400
+If you open this class ret interval
+ 
+
+1049
+00:25:00,400 --> 00:25:02,390
+If you open this class ret interval
+function, you will see so many
+
+1050
+00:25:02,390 --> 00:25:02,400
+function, you will see so many
+ 
+
+1051
+00:25:02,400 --> 00:25:03,909
+function, you will see so many
+functions. Uh you will see so many
+
+1052
+00:25:03,909 --> 00:25:03,919
+functions. Uh you will see so many
+ 
+
+1053
+00:25:03,919 --> 00:25:07,350
+functions. Uh you will see so many
+methods. One is off and you have just
+
+1054
+00:25:07,350 --> 00:25:07,360
+methods. One is off and you have just
+ 
+
+1055
+00:25:07,360 --> 00:25:12,789
+methods. One is off and you have just
+wait time. So that is for fixed delay.
+
+1056
+00:25:12,789 --> 00:25:12,799
+wait time. So that is for fixed delay.
+ 
+
+1057
+00:25:12,799 --> 00:25:14,230
+wait time. So that is for fixed delay.
+Then there is something called
+
+1058
+00:25:14,230 --> 00:25:14,240
+Then there is something called
+ 
+
+1059
+00:25:14,240 --> 00:25:17,269
+Then there is something called
+exponential back off.
+
+1060
+00:25:17,269 --> 00:25:17,279
+exponential back off.
+ 
+
+1061
+00:25:17,279 --> 00:25:20,789
+exponential back off.
+So that is for exponential backoff uh
+
+1062
+00:25:20,789 --> 00:25:20,799
+So that is for exponential backoff uh
+ 
+
+1063
+00:25:20,799 --> 00:25:25,110
+So that is for exponential backoff uh
+retry. So for certain it's already
+
+1064
+00:25:25,110 --> 00:25:25,120
+retry. So for certain it's already
+ 
+
+1065
+00:25:25,120 --> 00:25:27,750
+retry. So for certain it's already
+written. We don't have to have written
+
+1066
+00:25:27,750 --> 00:25:27,760
+written. We don't have to have written
+ 
+
+1067
+00:25:27,760 --> 00:25:30,390
+written. We don't have to have written
+this formula by ourself. So inside
+
+1068
+00:25:30,390 --> 00:25:30,400
+this formula by ourself. So inside
+ 
+
+1069
+00:25:30,400 --> 00:25:32,549
+this formula by ourself. So inside
+interval function class if you go you
+
+1070
+00:25:32,549 --> 00:25:32,559
+interval function class if you go you
+ 
+
+1071
+00:25:32,559 --> 00:25:34,950
+interval function class if you go you
+will find different methods.
+
+1072
+00:25:34,950 --> 00:25:34,960
+will find different methods.
+ 
+
+1073
+00:25:34,960 --> 00:25:36,789
+will find different methods.
+uh one method for exponential back off,
+
+1074
+00:25:36,789 --> 00:25:36,799
+uh one method for exponential back off,
+ 
+
+1075
+00:25:36,799 --> 00:25:39,350
+uh one method for exponential back off,
+one method for uh fixed delay, one
+
+1076
+00:25:39,350 --> 00:25:39,360
+one method for uh fixed delay, one
+ 
+
+1077
+00:25:39,360 --> 00:25:41,510
+one method for uh fixed delay, one
+method for jitterness and they have
+
+1078
+00:25:41,510 --> 00:25:41,520
+method for jitterness and they have
+ 
+
+1079
+00:25:41,520 --> 00:25:43,830
+method for jitterness and they have
+their logic how to compute the delay
+
+1080
+00:25:43,830 --> 00:25:43,840
+their logic how to compute the delay
+ 
+
+1081
+00:25:43,840 --> 00:25:45,669
+their logic how to compute the delay
+next delay.
+
+1082
+00:25:45,669 --> 00:25:45,679
+next delay.
+ 
+
+1083
+00:25:45,679 --> 00:25:49,590
+next delay.
+So that is first thing. So we have to
+
+1084
+00:25:49,590 --> 00:25:49,600
+So that is first thing. So we have to
+ 
+
+1085
+00:25:49,600 --> 00:25:52,710
+So that is first thing. So we have to
+have one interval function method where
+
+1086
+00:25:52,710 --> 00:25:52,720
+have one interval function method where
+ 
+
+1087
+00:25:52,720 --> 00:25:55,510
+have one interval function method where
+we write our delay logic.
+
+1088
+00:25:55,510 --> 00:25:55,520
+we write our delay logic.
+ 
+
+1089
+00:25:55,520 --> 00:25:57,269
+we write our delay logic.
+Generally this would be we have to
+
+1090
+00:25:57,269 --> 00:25:57,279
+Generally this would be we have to
+ 
+
+1091
+00:25:57,279 --> 00:25:59,350
+Generally this would be we have to
+implement it only in case we have to
+
+1092
+00:25:59,350 --> 00:25:59,360
+implement it only in case we have to
+ 
+
+1093
+00:25:59,360 --> 00:26:01,590
+implement it only in case we have to
+write for custom logic. But in case if
+
+1094
+00:26:01,590 --> 00:26:01,600
+write for custom logic. But in case if
+ 
+
+1095
+00:26:01,600 --> 00:26:04,470
+write for custom logic. But in case if
+you are using already present one then
+
+1096
+00:26:04,470 --> 00:26:04,480
+you are using already present one then
+ 
+
+1097
+00:26:04,480 --> 00:26:06,630
+you are using already present one then
+we just need to call that which method
+
+1098
+00:26:06,630 --> 00:26:06,640
+we just need to call that which method
+ 
+
+1099
+00:26:06,640 --> 00:26:08,789
+we just need to call that which method
+internally.
+
+1100
+00:26:08,789 --> 00:26:08,799
+internally.
+ 
+
+1101
+00:26:08,799 --> 00:26:11,590
+internally.
+Then second is retry config like here we
+
+1102
+00:26:11,590 --> 00:26:11,600
+Then second is retry config like here we
+ 
+
+1103
+00:26:11,600 --> 00:26:14,870
+Then second is retry config like here we
+set the configurations like uh attempt
+
+1104
+00:26:14,870 --> 00:26:14,880
+set the configurations like uh attempt
+ 
+
+1105
+00:26:14,880 --> 00:26:18,310
+set the configurations like uh attempt
+attempt number equals to four. Then wait
+
+1106
+00:26:18,310 --> 00:26:18,320
+attempt number equals to four. Then wait
+ 
+
+1107
+00:26:18,320 --> 00:26:20,390
+attempt number equals to four. Then wait
+time something something. So all the
+
+1108
+00:26:20,390 --> 00:26:20,400
+time something something. So all the
+ 
+
+1109
+00:26:20,400 --> 00:26:21,990
+time something something. So all the
+configuration generally we will put it
+
+1110
+00:26:21,990 --> 00:26:22,000
+configuration generally we will put it
+ 
+
+1111
+00:26:22,000 --> 00:26:24,710
+configuration generally we will put it
+here. And then is retry object. From
+
+1112
+00:26:24,710 --> 00:26:24,720
+here. And then is retry object. From
+ 
+
+1113
+00:26:24,720 --> 00:26:27,269
+here. And then is retry object. From
+this config a retry object is created
+
+1114
+00:26:27,269 --> 00:26:27,279
+this config a retry object is created
+ 
+
+1115
+00:26:27,279 --> 00:26:31,750
+this config a retry object is created
+which will be used to do the retry.
+
+1116
+00:26:31,750 --> 00:26:31,760
+which will be used to do the retry.
+ 
+
+1117
+00:26:31,760 --> 00:26:34,470
+which will be used to do the retry.
+we so if you see that we don't have to
+
+1118
+00:26:34,470 --> 00:26:34,480
+we so if you see that we don't have to
+ 
+
+1119
+00:26:34,480 --> 00:26:37,190
+we so if you see that we don't have to
+do anything we just do this AOP writes
+
+1120
+00:26:37,190 --> 00:26:37,200
+do anything we just do this AOP writes
+ 
+
+1121
+00:26:37,200 --> 00:26:40,070
+do anything we just do this AOP writes
+the code what I am saying is what AOP
+
+1122
+00:26:40,070 --> 00:26:40,080
+the code what I am saying is what AOP
+ 
+
+1123
+00:26:40,080 --> 00:26:43,510
+the code what I am saying is what AOP
+how AOP might be doing this or computing
+
+1124
+00:26:43,510 --> 00:26:43,520
+how AOP might be doing this or computing
+ 
+
+1125
+00:26:43,520 --> 00:26:46,549
+how AOP might be doing this or computing
+this code so now this is the part so
+
+1126
+00:26:46,549 --> 00:26:46,559
+this code so now this is the part so
+ 
+
+1127
+00:26:46,559 --> 00:26:48,549
+this code so now this is the part so
+first it is getting retry config dot
+
+1128
+00:26:48,549 --> 00:26:48,559
+first it is getting retry config dot
+ 
+
+1129
+00:26:48,559 --> 00:26:50,630
+first it is getting retry config dot
+custom
+
+1130
+00:26:50,630 --> 00:26:50,640
+custom
+ 
+
+1131
+00:26:50,640 --> 00:26:52,149
+custom
+it is setting the configuration let's
+
+1132
+00:26:52,149 --> 00:26:52,159
+it is setting the configuration let's
+ 
+
+1133
+00:26:52,159 --> 00:26:54,149
+it is setting the configuration let's
+say max attemp was four that's what we
+
+1134
+00:26:54,149 --> 00:26:54,159
+say max attemp was four that's what we
+ 
+
+1135
+00:26:54,159 --> 00:26:56,070
+say max attemp was four that's what we
+have defined here right in the
+
+1136
+00:26:56,070 --> 00:26:56,080
+have defined here right in the
+ 
+
+1137
+00:26:56,080 --> 00:26:58,149
+have defined here right in the
+configuration
+
+1138
+00:26:58,149 --> 00:26:58,159
+configuration
+ 
+
+1139
+00:26:58,159 --> 00:27:00,149
+configuration
+max attempt 3 4
+
+1140
+00:27:00,149 --> 00:27:00,159
+max attempt 3 4
+ 
+
+1141
+00:27:00,159 --> 00:27:02,149
+max attempt 3 4
+like these are the configuration I mean
+
+1142
+00:27:02,149 --> 00:27:02,159
+like these are the configuration I mean
+ 
+
+1143
+00:27:02,159 --> 00:27:05,909
+like these are the configuration I mean
+right so you can say max attemp four
+
+1144
+00:27:05,909 --> 00:27:05,919
+right so you can say max attemp four
+ 
+
+1145
+00:27:05,919 --> 00:27:07,430
+right so you can say max attemp four
+interval function which interval
+
+1146
+00:27:07,430 --> 00:27:07,440
+interval function which interval
+ 
+
+1147
+00:27:07,440 --> 00:27:09,110
+interval function which interval
+function you have to call so let's say I
+
+1148
+00:27:09,110 --> 00:27:09,120
+function you have to call so let's say I
+ 
+
+1149
+00:27:09,120 --> 00:27:12,789
+function you have to call so let's say I
+am using fixed interval okay so it will
+
+1150
+00:27:12,789 --> 00:27:12,799
+am using fixed interval okay so it will
+ 
+
+1151
+00:27:12,799 --> 00:27:15,190
+am using fixed interval okay so it will
+call this method interval function dot
+
+1152
+00:27:15,190 --> 00:27:15,200
+call this method interval function dot
+ 
+
+1153
+00:27:15,200 --> 00:27:19,909
+call this method interval function dot
+off so I have defined delay is 2 seconds
+
+1154
+00:27:19,909 --> 00:27:19,919
+off so I have defined delay is 2 seconds
+ 
+
+1155
+00:27:19,919 --> 00:27:22,950
+off so I have defined delay is 2 seconds
+so this method takes
+
+1156
+00:27:22,950 --> 00:27:22,960
+so this method takes
+ 
+
+1157
+00:27:22,960 --> 00:27:25,669
+so this method takes
+interval function dot of
+
+1158
+00:27:25,669 --> 00:27:25,679
+interval function dot of
+ 
+
+1159
+00:27:25,679 --> 00:27:27,750
+interval function dot of
+2 seconds it is in millisecond generally
+
+1160
+00:27:27,750 --> 00:27:27,760
+2 seconds it is in millisecond generally
+ 
+
+1161
+00:27:27,760 --> 00:27:31,110
+2 seconds it is in millisecond generally
+it takes Okay. Then on what all
+
+1162
+00:27:31,110 --> 00:27:31,120
+it takes Okay. Then on what all
+ 
+
+1163
+00:27:31,120 --> 00:27:33,590
+it takes Okay. Then on what all
+exceptions you have to retry on what all
+
+1164
+00:27:33,590 --> 00:27:33,600
+exceptions you have to retry on what all
+ 
+
+1165
+00:27:33,600 --> 00:27:35,350
+exceptions you have to retry on what all
+exceptions you have to retry you can add
+
+1166
+00:27:35,350 --> 00:27:35,360
+exceptions you have to retry you can add
+ 
+
+1167
+00:27:35,360 --> 00:27:38,549
+exceptions you have to retry you can add
+it here also.
+
+1168
+00:27:38,549 --> 00:27:38,559
+it here also.
+ 
+
+1169
+00:27:38,559 --> 00:27:40,630
+it here also.
+Okay.
+
+1170
+00:27:40,630 --> 00:27:40,640
+Okay.
+ 
+
+1171
+00:27:40,640 --> 00:27:43,510
+Okay.
+And uh finally you do build. So you got
+
+1172
+00:27:43,510 --> 00:27:43,520
+And uh finally you do build. So you got
+ 
+
+1173
+00:27:43,520 --> 00:27:46,070
+And uh finally you do build. So you got
+the retry config and from that retry
+
+1174
+00:27:46,070 --> 00:27:46,080
+the retry config and from that retry
+ 
+
+1175
+00:27:46,080 --> 00:27:49,909
+the retry config and from that retry
+config retry do. You can create an
+
+1176
+00:27:49,909 --> 00:27:49,919
+config retry do. You can create an
+ 
+
+1177
+00:27:49,919 --> 00:27:51,510
+config retry do. You can create an
+object of the retry. Just give whatever
+
+1178
+00:27:51,510 --> 00:27:51,520
+object of the retry. Just give whatever
+ 
+
+1179
+00:27:51,520 --> 00:27:54,310
+object of the retry. Just give whatever
+the name you wanted to give your retry
+
+1180
+00:27:54,310 --> 00:27:54,320
+the name you wanted to give your retry
+ 
+
+1181
+00:27:54,320 --> 00:27:56,630
+the name you wanted to give your retry
+and this config. So it will create an
+
+1182
+00:27:56,630 --> 00:27:56,640
+and this config. So it will create an
+ 
+
+1183
+00:27:56,640 --> 00:28:01,669
+and this config. So it will create an
+object from this config retry config.
+
+1184
+00:28:01,669 --> 00:28:01,679
+object from this config retry config.
+ 
+
+1185
+00:28:01,679 --> 00:28:05,430
+object from this config retry config.
+Okay. So first thing is the interval
+
+1186
+00:28:05,430 --> 00:28:05,440
+Okay. So first thing is the interval
+ 
+
+1187
+00:28:05,440 --> 00:28:07,669
+Okay. So first thing is the interval
+function method which has to be invoked.
+
+1188
+00:28:07,669 --> 00:28:07,679
+function method which has to be invoked.
+ 
+
+1189
+00:28:07,679 --> 00:28:10,070
+function method which has to be invoked.
+So how AOP knows that which one by
+
+1190
+00:28:10,070 --> 00:28:10,080
+So how AOP knows that which one by
+ 
+
+1191
+00:28:10,080 --> 00:28:12,070
+So how AOP knows that which one by
+default is
+
+1192
+00:28:12,070 --> 00:28:12,080
+default is
+ 
+
+1193
+00:28:12,080 --> 00:28:14,230
+default is
+in the configuration by default is fixed
+
+1194
+00:28:14,230 --> 00:28:14,240
+in the configuration by default is fixed
+ 
+
+1195
+00:28:14,240 --> 00:28:16,630
+in the configuration by default is fixed
+interval and we haven't tell anything
+
+1196
+00:28:16,630 --> 00:28:16,640
+interval and we haven't tell anything
+ 
+
+1197
+00:28:16,640 --> 00:28:18,470
+interval and we haven't tell anything
+explicitly that we want that. So by
+
+1198
+00:28:18,470 --> 00:28:18,480
+explicitly that we want that. So by
+ 
+
+1199
+00:28:18,480 --> 00:28:21,750
+explicitly that we want that. So by
+default it take fixed interval one
+
+1200
+00:28:21,750 --> 00:28:21,760
+default it take fixed interval one
+ 
+
+1201
+00:28:21,760 --> 00:28:23,269
+default it take fixed interval one
+configuration we have already provided
+
+1202
+00:28:23,269 --> 00:28:23,279
+configuration we have already provided
+ 
+
+1203
+00:28:23,279 --> 00:28:25,110
+configuration we have already provided
+what is the max time and what is the
+
+1204
+00:28:25,110 --> 00:28:25,120
+what is the max time and what is the
+ 
+
+1205
+00:28:25,120 --> 00:28:28,789
+what is the max time and what is the
+wait time. Okay and even the retry what
+
+1206
+00:28:28,789 --> 00:28:28,799
+wait time. Okay and even the retry what
+ 
+
+1207
+00:28:28,799 --> 00:28:31,590
+wait time. Okay and even the retry what
+on on what on exceptions you want to
+
+1208
+00:28:31,590 --> 00:28:31,600
+on on what on exceptions you want to
+ 
+
+1209
+00:28:31,600 --> 00:28:33,110
+on on what on exceptions you want to
+retry
+
+1210
+00:28:33,110 --> 00:28:33,120
+retry
+ 
+
+1211
+00:28:33,120 --> 00:28:34,630
+retry
+right that also we can define in the
+
+1212
+00:28:34,630 --> 00:28:34,640
+right that also we can define in the
+ 
+
+1213
+00:28:34,640 --> 00:28:37,269
+right that also we can define in the
+config.
+
+1214
+00:28:37,269 --> 00:28:37,279
+config.
+ 
+
+1215
+00:28:37,279 --> 00:28:40,070
+config.
+So this is how internally it might be
+
+1216
+00:28:40,070 --> 00:28:40,080
+So this is how internally it might be
+ 
+
+1217
+00:28:40,080 --> 00:28:42,389
+So this is how internally it might be
+doing it.
+
+1218
+00:28:42,389 --> 00:28:42,399
+doing it.
+ 
+
+1219
+00:28:42,399 --> 00:28:46,630
+doing it.
+So let's see exponential back off. So
+
+1220
+00:28:46,630 --> 00:28:46,640
+So let's see exponential back off. So
+ 
+
+1221
+00:28:46,640 --> 00:28:49,350
+So let's see exponential back off. So
+all same only configuration changes. See
+
+1222
+00:28:49,350 --> 00:28:49,360
+all same only configuration changes. See
+ 
+
+1223
+00:28:49,360 --> 00:28:50,870
+all same only configuration changes. See
+this code we don't have to write this
+
+1224
+00:28:50,870 --> 00:28:50,880
+this code we don't have to write this
+ 
+
+1225
+00:28:50,880 --> 00:28:52,789
+this code we don't have to write this
+will return by AOP. So this is just for
+
+1226
+00:28:52,789 --> 00:28:52,799
+will return by AOP. So this is just for
+ 
+
+1227
+00:28:52,799 --> 00:28:54,630
+will return by AOP. So this is just for
+understanding purpose what AOP might be
+
+1228
+00:28:54,630 --> 00:28:54,640
+understanding purpose what AOP might be
+ 
+
+1229
+00:28:54,640 --> 00:28:58,070
+understanding purpose what AOP might be
+doing it inside. So this retry thing
+
+1230
+00:28:58,070 --> 00:28:58,080
+doing it inside. So this retry thing
+ 
+
+1231
+00:28:58,080 --> 00:29:00,389
+doing it inside. So this retry thing
+nothing changed. So we still on whatever
+
+1232
+00:29:00,389 --> 00:29:00,399
+nothing changed. So we still on whatever
+ 
+
+1233
+00:29:00,399 --> 00:29:02,950
+nothing changed. So we still on whatever
+method you have to do a retry please
+
+1234
+00:29:02,950 --> 00:29:02,960
+method you have to do a retry please
+ 
+
+1235
+00:29:02,960 --> 00:29:04,630
+method you have to do a retry please
+double check on that you have to write
+
+1236
+00:29:04,630 --> 00:29:04,640
+double check on that you have to write
+ 
+
+1237
+00:29:04,640 --> 00:29:07,190
+double check on that you have to write
+this annotation. The only thing change
+
+1238
+00:29:07,190 --> 00:29:07,200
+this annotation. The only thing change
+ 
+
+1239
+00:29:07,200 --> 00:29:09,990
+this annotation. The only thing change
+is that our
+
+1240
+00:29:09,990 --> 00:29:10,000
+is that our
+ 
+
+1241
+00:29:10,000 --> 00:29:13,190
+is that our
+configuration. So here if you see for
+
+1242
+00:29:13,190 --> 00:29:13,200
+configuration. So here if you see for
+ 
+
+1243
+00:29:13,200 --> 00:29:14,789
+configuration. So here if you see for
+exponential backoff these are the
+
+1244
+00:29:14,789 --> 00:29:14,799
+exponential backoff these are the
+ 
+
+1245
+00:29:14,799 --> 00:29:17,350
+exponential backoff these are the
+configuration we have to give. So see if
+
+1246
+00:29:17,350 --> 00:29:17,360
+configuration we have to give. So see if
+ 
+
+1247
+00:29:17,360 --> 00:29:20,470
+configuration we have to give. So see if
+you go into the back of Java class this
+
+1248
+00:29:20,470 --> 00:29:20,480
+you go into the back of Java class this
+ 
+
+1249
+00:29:20,480 --> 00:29:21,909
+you go into the back of Java class this
+is the formula they have written the
+
+1250
+00:29:21,909 --> 00:29:21,919
+is the formula they have written the
+ 
+
+1251
+00:29:21,919 --> 00:29:23,669
+is the formula they have written the
+same thing what we have written right
+
+1252
+00:29:23,669 --> 00:29:23,679
+same thing what we have written right
+ 
+
+1253
+00:29:23,679 --> 00:29:26,149
+same thing what we have written right
+initial weight time into whatever the
+
+1254
+00:29:26,149 --> 00:29:26,159
+initial weight time into whatever the
+ 
+
+1255
+00:29:26,159 --> 00:29:28,870
+initial weight time into whatever the
+factor 2 3 raised to power number of
+
+1256
+00:29:28,870 --> 00:29:28,880
+factor 2 3 raised to power number of
+ 
+
+1257
+00:29:28,880 --> 00:29:31,669
+factor 2 3 raised to power number of
+failed retry attempt. So this is the
+
+1258
+00:29:31,669 --> 00:29:31,679
+failed retry attempt. So this is the
+ 
+
+1259
+00:29:31,679 --> 00:29:33,269
+failed retry attempt. So this is the
+formula they have written in their back
+
+1260
+00:29:33,269 --> 00:29:33,279
+formula they have written in their back
+ 
+
+1261
+00:29:33,279 --> 00:29:35,190
+formula they have written in their back
+of Java class also. This is a framework
+
+1262
+00:29:35,190 --> 00:29:35,200
+of Java class also. This is a framework
+ 
+
+1263
+00:29:35,200 --> 00:29:37,750
+of Java class also. This is a framework
+class you can check it.
+
+1264
+00:29:37,750 --> 00:29:37,760
+class you can check it.
+ 
+
+1265
+00:29:37,760 --> 00:29:42,870
+class you can check it.
+So maximum attempt is four original plus
+
+1266
+00:29:42,870 --> 00:29:42,880
+So maximum attempt is four original plus
+ 
+
+1267
+00:29:42,880 --> 00:29:45,190
+So maximum attempt is four original plus
+three retry.
+
+1268
+00:29:45,190 --> 00:29:45,200
+three retry.
+ 
+
+1269
+00:29:45,200 --> 00:29:47,909
+three retry.
+Okay. Wait duration is first second. So
+
+1270
+00:29:47,909 --> 00:29:47,919
+Okay. Wait duration is first second. So
+ 
+
+1271
+00:29:47,919 --> 00:29:49,669
+Okay. Wait duration is first second. So
+weight duration this is the initial
+
+1272
+00:29:49,669 --> 00:29:49,679
+weight duration this is the initial
+ 
+
+1273
+00:29:49,679 --> 00:29:53,190
+weight duration this is the initial
+weight time. So 1 second is my initial
+
+1274
+00:29:53,190 --> 00:29:53,200
+weight time. So 1 second is my initial
+ 
+
+1275
+00:29:53,200 --> 00:29:56,630
+weight time. So 1 second is my initial
+weight time.
+
+1276
+00:29:56,630 --> 00:29:56,640
+
+ 
+
+1277
+00:29:56,640 --> 00:29:59,350
+
+Enable exponential backoff true because
+
+1278
+00:29:59,350 --> 00:29:59,360
+Enable exponential backoff true because
+ 
+
+1279
+00:29:59,360 --> 00:30:02,789
+Enable exponential backoff true because
+this is not the default uh strategy for
+
+1280
+00:30:02,789 --> 00:30:02,799
+this is not the default uh strategy for
+ 
+
+1281
+00:30:02,799 --> 00:30:04,470
+this is not the default uh strategy for
+retry. Right? So that's why I'm
+
+1282
+00:30:04,470 --> 00:30:04,480
+retry. Right? So that's why I'm
+ 
+
+1283
+00:30:04,480 --> 00:30:06,070
+retry. Right? So that's why I'm
+explicitly saying hey enable the
+
+1284
+00:30:06,070 --> 00:30:06,080
+explicitly saying hey enable the
+ 
+
+1285
+00:30:06,080 --> 00:30:08,710
+explicitly saying hey enable the
+exponential backoff. True.
+
+1286
+00:30:08,710 --> 00:30:08,720
+exponential backoff. True.
+ 
+
+1287
+00:30:08,720 --> 00:30:10,389
+exponential backoff. True.
+What is the factor you want to use?
+
+1288
+00:30:10,389 --> 00:30:10,399
+What is the factor you want to use?
+ 
+
+1289
+00:30:10,399 --> 00:30:12,630
+What is the factor you want to use?
+Exponential back off multiplier is two.
+
+1290
+00:30:12,630 --> 00:30:12,640
+Exponential back off multiplier is two.
+ 
+
+1291
+00:30:12,640 --> 00:30:14,549
+Exponential back off multiplier is two.
+I want 2 raised to power. If you make it
+
+1292
+00:30:14,549 --> 00:30:14,559
+I want 2 raised to power. If you make it
+ 
+
+1293
+00:30:14,559 --> 00:30:17,510
+I want 2 raised to power. If you make it
+three it would be like 3 to power. Okay.
+
+1294
+00:30:17,510 --> 00:30:17,520
+three it would be like 3 to power. Okay.
+ 
+
+1295
+00:30:17,520 --> 00:30:20,470
+three it would be like 3 to power. Okay.
+So this is this factor part.
+
+1296
+00:30:20,470 --> 00:30:20,480
+So this is this factor part.
+ 
+
+1297
+00:30:20,480 --> 00:30:22,789
+So this is this factor part.
+So this is your formula going to be so
+
+1298
+00:30:22,789 --> 00:30:22,799
+So this is your formula going to be so
+ 
+
+1299
+00:30:22,799 --> 00:30:25,269
+So this is your formula going to be so
+first retry after let's say original
+
+1300
+00:30:25,269 --> 00:30:25,279
+first retry after let's say original
+ 
+
+1301
+00:30:25,279 --> 00:30:28,950
+first retry after let's say original
+happen at 0 second. The first retry will
+
+1302
+00:30:28,950 --> 00:30:28,960
+happen at 0 second. The first retry will
+ 
+
+1303
+00:30:28,960 --> 00:30:31,110
+happen at 0 second. The first retry will
+happen at initial is 1 second. So let's
+
+1304
+00:30:31,110 --> 00:30:31,120
+happen at initial is 1 second. So let's
+ 
+
+1305
+00:30:31,120 --> 00:30:33,990
+happen at initial is 1 second. So let's
+say 1,000 millisecond into what is the
+
+1306
+00:30:33,990 --> 00:30:34,000
+say 1,000 millisecond into what is the
+ 
+
+1307
+00:30:34,000 --> 00:30:35,909
+say 1,000 millisecond into what is the
+factor we told 2 raised to power number
+
+1308
+00:30:35,909 --> 00:30:35,919
+factor we told 2 raised to power number
+ 
+
+1309
+00:30:35,919 --> 00:30:37,510
+factor we told 2 raised to power number
+of failed retry at time currently is
+
+1310
+00:30:37,510 --> 00:30:37,520
+of failed retry at time currently is
+ 
+
+1311
+00:30:37,520 --> 00:30:41,110
+of failed retry at time currently is
+zero. So after first second the first
+
+1312
+00:30:41,110 --> 00:30:41,120
+zero. So after first second the first
+ 
+
+1313
+00:30:41,120 --> 00:30:43,750
+zero. So after first second the first
+retry will happen second will happen and
+
+1314
+00:30:43,750 --> 00:30:43,760
+retry will happen second will happen and
+ 
+
+1315
+00:30:43,760 --> 00:30:46,070
+retry will happen second will happen and
+after 2 second third will happen at 4
+
+1316
+00:30:46,070 --> 00:30:46,080
+after 2 second third will happen at 4
+ 
+
+1317
+00:30:46,080 --> 00:30:48,870
+after 2 second third will happen at 4
+second like this.
+
+1318
+00:30:48,870 --> 00:30:48,880
+second like this.
+ 
+
+1319
+00:30:48,880 --> 00:30:50,710
+second like this.
+So actually we are going with zero in
+
+1320
+00:30:50,710 --> 00:30:50,720
+So actually we are going with zero in
+ 
+
+1321
+00:30:50,720 --> 00:30:52,389
+So actually we are going with zero in
+the formula they have just says that
+
+1322
+00:30:52,389 --> 00:30:52,399
+the formula they have just says that
+ 
+
+1323
+00:30:52,399 --> 00:30:54,710
+the formula they have just says that
+iteration minus one. So retry iteration
+
+1324
+00:30:54,710 --> 00:30:54,720
+iteration minus one. So retry iteration
+ 
+
+1325
+00:30:54,720 --> 00:30:56,630
+iteration minus one. So retry iteration
+generally. So currently it is the first
+
+1326
+00:30:56,630 --> 00:30:56,640
+generally. So currently it is the first
+ 
+
+1327
+00:30:56,640 --> 00:30:57,990
+generally. So currently it is the first
+retry. So that's why it started with
+
+1328
+00:30:57,990 --> 00:30:58,000
+retry. So that's why it started with
+ 
+
+1329
+00:30:58,000 --> 00:31:01,590
+retry. So that's why it started with
+zero. No retry has failed failure till
+
+1330
+00:31:01,590 --> 00:31:01,600
+zero. No retry has failed failure till
+ 
+
+1331
+00:31:01,600 --> 00:31:03,590
+zero. No retry has failed failure till
+now. The same thing different way to
+
+1332
+00:31:03,590 --> 00:31:03,600
+now. The same thing different way to
+ 
+
+1333
+00:31:03,600 --> 00:31:07,590
+now. The same thing different way to
+understand like how you can remember it.
+
+1334
+00:31:07,590 --> 00:31:07,600
+understand like how you can remember it.
+ 
+
+1335
+00:31:07,600 --> 00:31:10,549
+understand like how you can remember it.
+So let's analyze the output here. If you
+
+1336
+00:31:10,549 --> 00:31:10,559
+So let's analyze the output here. If you
+ 
+
+1337
+00:31:10,559 --> 00:31:12,950
+So let's analyze the output here. If you
+see that what is the maximum attempt we
+
+1338
+00:31:12,950 --> 00:31:12,960
+see that what is the maximum attempt we
+ 
+
+1339
+00:31:12,960 --> 00:31:15,110
+see that what is the maximum attempt we
+have told four means one original and
+
+1340
+00:31:15,110 --> 00:31:15,120
+have told four means one original and
+ 
+
+1341
+00:31:15,120 --> 00:31:17,110
+have told four means one original and
+three retry.
+
+1342
+00:31:17,110 --> 00:31:17,120
+three retry.
+ 
+
+1343
+00:31:17,120 --> 00:31:20,789
+three retry.
+So if you see that original call happen
+
+1344
+00:31:20,789 --> 00:31:20,799
+So if you see that original call happen
+ 
+
+1345
+00:31:20,799 --> 00:31:23,669
+So if you see that original call happen
+at 212240
+
+1346
+00:31:23,669 --> 00:31:23,679
+at 212240
+ 
+
+1347
+00:31:23,679 --> 00:31:27,750
+at 212240
+then it does the first retry at 212241
+
+1348
+00:31:27,750 --> 00:31:27,760
+then it does the first retry at 212241
+ 
+
+1349
+00:31:27,760 --> 00:31:29,430
+then it does the first retry at 212241
+second delay.
+
+1350
+00:31:29,430 --> 00:31:29,440
+second delay.
+ 
+
+1351
+00:31:29,440 --> 00:31:32,149
+second delay.
+After that it do a second retry at 43
+
+1352
+00:31:32,149 --> 00:31:32,159
+After that it do a second retry at 43
+ 
+
+1353
+00:31:32,159 --> 00:31:35,909
+After that it do a second retry at 43
+2cond delay. Then the third retry 47 4
+
+1354
+00:31:35,909 --> 00:31:35,919
+2cond delay. Then the third retry 47 4
+ 
+
+1355
+00:31:35,919 --> 00:31:38,389
+2cond delay. Then the third retry 47 4
+secondond delay and since all the ret
+
+1356
+00:31:38,389 --> 00:31:38,399
+secondond delay and since all the ret
+ 
+
+1357
+00:31:38,399 --> 00:31:41,750
+secondond delay and since all the ret
+attempts finished four attemp finish our
+
+1358
+00:31:41,750 --> 00:31:41,760
+attempts finished four attemp finish our
+ 
+
+1359
+00:31:41,760 --> 00:31:44,549
+attempts finished four attemp finish our
+fallback method executed.
+
+1360
+00:31:44,549 --> 00:31:44,559
+fallback method executed.
+ 
+
+1361
+00:31:44,559 --> 00:31:46,950
+fallback method executed.
+Okay. So this is how exponential backup
+
+1362
+00:31:46,950 --> 00:31:46,960
+Okay. So this is how exponential backup
+ 
+
+1363
+00:31:46,960 --> 00:31:49,990
+Okay. So this is how exponential backup
+works and if you see the AOP generated
+
+1364
+00:31:49,990 --> 00:31:50,000
+works and if you see the AOP generated
+ 
+
+1365
+00:31:50,000 --> 00:31:51,990
+works and if you see the AOP generated
+code you actually you can't see if you
+
+1366
+00:31:51,990 --> 00:31:52,000
+code you actually you can't see if you
+ 
+
+1367
+00:31:52,000 --> 00:31:54,149
+code you actually you can't see if you
+just try to analyze it again the three
+
+1368
+00:31:54,149 --> 00:31:54,159
+just try to analyze it again the three
+ 
+
+1369
+00:31:54,159 --> 00:31:56,149
+just try to analyze it again the three
+part first is interval function we have
+
+1370
+00:31:56,149 --> 00:31:56,159
+part first is interval function we have
+ 
+
+1371
+00:31:56,159 --> 00:32:00,230
+part first is interval function we have
+to tell so internally since we have make
+
+1372
+00:32:00,230 --> 00:32:00,240
+to tell so internally since we have make
+ 
+
+1373
+00:32:00,240 --> 00:32:03,590
+to tell so internally since we have make
+this true
+
+1374
+00:32:03,590 --> 00:32:03,600
+
+ 
+
+1375
+00:32:03,600 --> 00:32:06,710
+
+enable exponential backup. Now AOP might
+
+1376
+00:32:06,710 --> 00:32:06,720
+enable exponential backup. Now AOP might
+ 
+
+1377
+00:32:06,720 --> 00:32:08,310
+enable exponential backup. Now AOP might
+be adding this method of interval
+
+1378
+00:32:08,310 --> 00:32:08,320
+be adding this method of interval
+ 
+
+1379
+00:32:08,320 --> 00:32:10,389
+be adding this method of interval
+function exponential
+
+1380
+00:32:10,389 --> 00:32:10,399
+function exponential
+ 
+
+1381
+00:32:10,399 --> 00:32:12,630
+function exponential
+not random there is another method. So
+
+1382
+00:32:12,630 --> 00:32:12,640
+not random there is another method. So
+ 
+
+1383
+00:32:12,640 --> 00:32:14,950
+not random there is another method. So
+this is we are not using jitter one
+
+1384
+00:32:14,950 --> 00:32:14,960
+this is we are not using jitter one
+ 
+
+1385
+00:32:14,960 --> 00:32:17,669
+this is we are not using jitter one
+right. So this would be like off
+
+1386
+00:32:17,669 --> 00:32:17,679
+right. So this would be like off
+ 
+
+1387
+00:32:17,679 --> 00:32:20,470
+right. So this would be like off
+exponential back off. There is one more
+
+1388
+00:32:20,470 --> 00:32:20,480
+exponential back off. There is one more
+ 
+
+1389
+00:32:20,480 --> 00:32:22,549
+exponential back off. There is one more
+flavor of exponential random back off
+
+1390
+00:32:22,549 --> 00:32:22,559
+flavor of exponential random back off
+ 
+
+1391
+00:32:22,559 --> 00:32:25,909
+flavor of exponential random back off
+which is for the third jitterness one.
+
+1392
+00:32:25,909 --> 00:32:25,919
+which is for the third jitterness one.
+ 
+
+1393
+00:32:25,919 --> 00:32:27,990
+which is for the third jitterness one.
+Okay. But but I think you got it like
+
+1394
+00:32:27,990 --> 00:32:28,000
+Okay. But but I think you got it like
+ 
+
+1395
+00:32:28,000 --> 00:32:30,710
+Okay. But but I think you got it like
+based on the what we tell in the
+
+1396
+00:32:30,710 --> 00:32:30,720
+based on the what we tell in the
+ 
+
+1397
+00:32:30,720 --> 00:32:32,789
+based on the what we tell in the
+configuration explicitly
+
+1398
+00:32:32,789 --> 00:32:32,799
+configuration explicitly
+ 
+
+1399
+00:32:32,799 --> 00:32:35,110
+configuration explicitly
+that method would be invoked. So this is
+
+1400
+00:32:35,110 --> 00:32:35,120
+that method would be invoked. So this is
+ 
+
+1401
+00:32:35,120 --> 00:32:37,669
+that method would be invoked. So this is
+the place where the actual delay logic
+
+1402
+00:32:37,669 --> 00:32:37,679
+the place where the actual delay logic
+ 
+
+1403
+00:32:37,679 --> 00:32:41,750
+the place where the actual delay logic
+is computed. Then retry config
+
+1404
+00:32:41,750 --> 00:32:41,760
+is computed. Then retry config
+ 
+
+1405
+00:32:41,760 --> 00:32:43,669
+is computed. Then retry config
+where we have like what is the maximum
+
+1406
+00:32:43,669 --> 00:32:43,679
+where we have like what is the maximum
+ 
+
+1407
+00:32:43,679 --> 00:32:46,310
+where we have like what is the maximum
+attempt what is the retry on the
+
+1408
+00:32:46,310 --> 00:32:46,320
+attempt what is the retry on the
+ 
+
+1409
+00:32:46,320 --> 00:32:49,110
+attempt what is the retry on the
+exception you have to do retry
+
+1410
+00:32:49,110 --> 00:32:49,120
+exception you have to do retry
+ 
+
+1411
+00:32:49,120 --> 00:32:51,990
+exception you have to do retry
+and from this config you have to create
+
+1412
+00:32:51,990 --> 00:32:52,000
+and from this config you have to create
+ 
+
+1413
+00:32:52,000 --> 00:32:55,029
+and from this config you have to create
+create and retry object
+
+1414
+00:32:55,029 --> 00:32:55,039
+create and retry object
+ 
+
+1415
+00:32:55,039 --> 00:32:57,509
+create and retry object
+this is again just for our understanding
+
+1416
+00:32:57,509 --> 00:32:57,519
+this is again just for our understanding
+ 
+
+1417
+00:32:57,519 --> 00:32:59,990
+this is again just for our understanding
+you can't debug that code it it is
+
+1418
+00:32:59,990 --> 00:33:00,000
+you can't debug that code it it is
+ 
+
+1419
+00:33:00,000 --> 00:33:06,310
+you can't debug that code it it is
+generated by AOP dynamically at runtime
+
+1420
+00:33:06,310 --> 00:33:06,320
+
+ 
+
+1421
+00:33:06,320 --> 00:33:08,149
+
+similarly for exponential backoff plus
+
+1422
+00:33:08,149 --> 00:33:08,159
+similarly for exponential backoff plus
+ 
+
+1423
+00:33:08,159 --> 00:33:11,590
+similarly for exponential backoff plus
+jitter No change you have to use the
+
+1424
+00:33:11,590 --> 00:33:11,600
+jitter No change you have to use the
+ 
+
+1425
+00:33:11,600 --> 00:33:15,190
+jitter No change you have to use the
+same annotation add the rate retry no
+
+1426
+00:33:15,190 --> 00:33:15,200
+same annotation add the rate retry no
+ 
+
+1427
+00:33:15,200 --> 00:33:16,549
+same annotation add the rate retry no
+difference in that only difference in
+
+1428
+00:33:16,549 --> 00:33:16,559
+difference in that only difference in
+ 
+
+1429
+00:33:16,559 --> 00:33:18,789
+difference in that only difference in
+the configuration and you know that
+
+1430
+00:33:18,789 --> 00:33:18,799
+the configuration and you know that
+ 
+
+1431
+00:33:18,799 --> 00:33:21,029
+the configuration and you know that
+everything journals is exactly same as
+
+1432
+00:33:21,029 --> 00:33:21,039
+everything journals is exactly same as
+ 
+
+1433
+00:33:21,039 --> 00:33:23,350
+everything journals is exactly same as
+exponential backoff but only thing is
+
+1434
+00:33:23,350 --> 00:33:23,360
+exponential backoff but only thing is
+ 
+
+1435
+00:33:23,360 --> 00:33:27,110
+exponential backoff but only thing is
+enable randomized weight that's all
+
+1436
+00:33:27,110 --> 00:33:27,120
+enable randomized weight that's all
+ 
+
+1437
+00:33:27,120 --> 00:33:30,630
+enable randomized weight that's all
+some random thing has been added we just
+
+1438
+00:33:30,630 --> 00:33:30,640
+some random thing has been added we just
+ 
+
+1439
+00:33:30,640 --> 00:33:33,590
+some random thing has been added we just
+have to enable that hey use random so
+
+1440
+00:33:33,590 --> 00:33:33,600
+have to enable that hey use random so
+ 
+
+1441
+00:33:33,600 --> 00:33:36,310
+have to enable that hey use random so
+now here it will use this random back
+
+1442
+00:33:36,310 --> 00:33:36,320
+now here it will use this random back
+ 
+
+1443
+00:33:36,320 --> 00:33:41,430
+now here it will use this random back
+off method for computation
+
+1444
+00:33:41,430 --> 00:33:41,440
+
+ 
+
+1445
+00:33:41,440 --> 00:33:43,509
+
+Okay,
+
+1446
+00:33:43,509 --> 00:33:43,519
+Okay,
+ 
+
+1447
+00:33:43,519 --> 00:33:45,830
+Okay,
+then we have custom retry. Now this is
+
+1448
+00:33:45,830 --> 00:33:45,840
+then we have custom retry. Now this is
+ 
+
+1449
+00:33:45,840 --> 00:33:48,389
+then we have custom retry. Now this is
+interesting part. Now we have to retry,
+
+1450
+00:33:48,389 --> 00:33:48,399
+interesting part. Now we have to retry,
+ 
+
+1451
+00:33:48,399 --> 00:33:51,750
+interesting part. Now we have to retry,
+right? So first thing first, we can't
+
+1452
+00:33:51,750 --> 00:33:51,760
+right? So first thing first, we can't
+ 
+
+1453
+00:33:51,760 --> 00:33:54,389
+right? So first thing first, we can't
+use at the rate retry annotation now
+
+1454
+00:33:54,389 --> 00:33:54,399
+use at the rate retry annotation now
+ 
+
+1455
+00:33:54,399 --> 00:33:57,590
+use at the rate retry annotation now
+because when we use at the rate retry
+
+1456
+00:33:57,590 --> 00:33:57,600
+because when we use at the rate retry
+ 
+
+1457
+00:33:57,600 --> 00:34:00,870
+because when we use at the rate retry
+what generally happen is our AOP depends
+
+1458
+00:34:00,870 --> 00:34:00,880
+what generally happen is our AOP depends
+ 
+
+1459
+00:34:00,880 --> 00:34:04,389
+what generally happen is our AOP depends
+upon configuration to construct the to
+
+1460
+00:34:04,389 --> 00:34:04,399
+upon configuration to construct the to
+ 
+
+1461
+00:34:04,399 --> 00:34:07,430
+upon configuration to construct the to
+create a retry object. But now since
+
+1462
+00:34:07,430 --> 00:34:07,440
+create a retry object. But now since
+ 
+
+1463
+00:34:07,440 --> 00:34:09,829
+create a retry object. But now since
+there is no configuration
+
+1464
+00:34:09,829 --> 00:34:09,839
+there is no configuration
+ 
+
+1465
+00:34:09,839 --> 00:34:11,669
+there is no configuration
+right we can't use this annotation that
+
+1466
+00:34:11,669 --> 00:34:11,679
+right we can't use this annotation that
+ 
+
+1467
+00:34:11,679 --> 00:34:14,629
+right we can't use this annotation that
+will not work. So one thing is we have
+
+1468
+00:34:14,629 --> 00:34:14,639
+will not work. So one thing is we have
+ 
+
+1469
+00:34:14,639 --> 00:34:17,270
+will not work. So one thing is we have
+to manually create a retry object. Now
+
+1470
+00:34:17,270 --> 00:34:17,280
+to manually create a retry object. Now
+ 
+
+1471
+00:34:17,280 --> 00:34:19,750
+to manually create a retry object. Now
+our understanding of that will come into
+
+1472
+00:34:19,750 --> 00:34:19,760
+our understanding of that will come into
+ 
+
+1473
+00:34:19,760 --> 00:34:21,909
+our understanding of that will come into
+this picture. So here what I am doing
+
+1474
+00:34:21,909 --> 00:34:21,919
+this picture. So here what I am doing
+ 
+
+1475
+00:34:21,919 --> 00:34:26,230
+this picture. So here what I am doing
+now. So here if you see that
+
+1476
+00:34:26,230 --> 00:34:26,240
+now. So here if you see that
+ 
+
+1477
+00:34:26,240 --> 00:34:28,629
+now. So here if you see that
+in the add the rate configuration I have
+
+1478
+00:34:28,629 --> 00:34:28,639
+in the add the rate configuration I have
+ 
+
+1479
+00:34:28,639 --> 00:34:31,270
+in the add the rate configuration I have
+written a method custom retry. I am
+
+1480
+00:34:31,270 --> 00:34:31,280
+written a method custom retry. I am
+ 
+
+1481
+00:34:31,280 --> 00:34:32,869
+written a method custom retry. I am
+creating a bean. I'm creating an object
+
+1482
+00:34:32,869 --> 00:34:32,879
+creating a bean. I'm creating an object
+ 
+
+1483
+00:34:32,879 --> 00:34:34,950
+creating a bean. I'm creating an object
+of retry.
+
+1484
+00:34:34,950 --> 00:34:34,960
+of retry.
+ 
+
+1485
+00:34:34,960 --> 00:34:38,149
+of retry.
+So this is we know that AOP might be
+
+1486
+00:34:38,149 --> 00:34:38,159
+So this is we know that AOP might be
+ 
+
+1487
+00:34:38,159 --> 00:34:39,990
+So this is we know that AOP might be
+doing it and the same thing I am doing
+
+1488
+00:34:39,990 --> 00:34:40,000
+doing it and the same thing I am doing
+ 
+
+1489
+00:34:40,000 --> 00:34:41,990
+doing it and the same thing I am doing
+the first thing is interval function. So
+
+1490
+00:34:41,990 --> 00:34:42,000
+the first thing is interval function. So
+ 
+
+1491
+00:34:42,000 --> 00:34:44,869
+the first thing is interval function. So
+we have to provide a function method
+
+1492
+00:34:44,869 --> 00:34:44,879
+we have to provide a function method
+ 
+
+1493
+00:34:44,879 --> 00:34:46,550
+we have to provide a function method
+which
+
+1494
+00:34:46,550 --> 00:34:46,560
+which
+ 
+
+1495
+00:34:46,560 --> 00:34:48,710
+which
+where the delay computation would be
+
+1496
+00:34:48,710 --> 00:34:48,720
+where the delay computation would be
+ 
+
+1497
+00:34:48,720 --> 00:34:51,349
+where the delay computation would be
+calculated. So here is Fibonacci
+
+1498
+00:34:51,349 --> 00:34:51,359
+calculated. So here is Fibonacci
+ 
+
+1499
+00:34:51,359 --> 00:34:53,430
+calculated. So here is Fibonacci
+interval. So here earlier I what I did
+
+1500
+00:34:53,430 --> 00:34:53,440
+interval. So here earlier I what I did
+ 
+
+1501
+00:34:53,440 --> 00:34:55,909
+interval. So here earlier I what I did
+is like I have like I want to run it
+
+1502
+00:34:55,909 --> 00:34:55,919
+is like I have like I want to run it
+ 
+
+1503
+00:34:55,919 --> 00:34:59,990
+is like I have like I want to run it
+like one one then two then three then
+
+1504
+00:34:59,990 --> 00:35:00,000
+like one one then two then three then
+ 
+
+1505
+00:35:00,000 --> 00:35:02,950
+like one one then two then three then
+five like this. So first retry happen at
+
+1506
+00:35:02,950 --> 00:35:02,960
+five like this. So first retry happen at
+ 
+
+1507
+00:35:02,960 --> 00:35:06,310
+five like this. So first retry happen at
+one. Another retry happen at one. Uh the
+
+1508
+00:35:06,310 --> 00:35:06,320
+one. Another retry happen at one. Uh the
+ 
+
+1509
+00:35:06,320 --> 00:35:10,310
+one. Another retry happen at one. Uh the
+third retry happen after 2 seconds. U
+
+1510
+00:35:10,310 --> 00:35:10,320
+third retry happen after 2 seconds. U
+ 
+
+1511
+00:35:10,320 --> 00:35:13,910
+third retry happen after 2 seconds. U
+then three. Then like this in Fibonacci
+
+1512
+00:35:13,910 --> 00:35:13,920
+then three. Then like this in Fibonacci
+ 
+
+1513
+00:35:13,920 --> 00:35:16,630
+then three. Then like this in Fibonacci
+way the delay increases. But for
+
+1514
+00:35:16,630 --> 00:35:16,640
+way the delay increases. But for
+ 
+
+1515
+00:35:16,640 --> 00:35:18,790
+way the delay increases. But for
+simplification purpose you can have all
+
+1516
+00:35:18,790 --> 00:35:18,800
+simplification purpose you can have all
+ 
+
+1517
+00:35:18,800 --> 00:35:20,390
+simplification purpose you can have all
+this logic here. This is just for demo
+
+1518
+00:35:20,390 --> 00:35:20,400
+this logic here. This is just for demo
+ 
+
+1519
+00:35:20,400 --> 00:35:22,310
+this logic here. This is just for demo
+purpose that
+
+1520
+00:35:22,310 --> 00:35:22,320
+purpose that
+ 
+
+1521
+00:35:22,320 --> 00:35:24,790
+purpose that
+different logic you can build. But here
+
+1522
+00:35:24,790 --> 00:35:24,800
+different logic you can build. But here
+ 
+
+1523
+00:35:24,800 --> 00:35:26,550
+different logic you can build. But here
+I am just for simplification purpose.
+
+1524
+00:35:26,550 --> 00:35:26,560
+I am just for simplification purpose.
+ 
+
+1525
+00:35:26,560 --> 00:35:28,870
+I am just for simplification purpose.
+I'm just returning what is the delay
+
+1526
+00:35:28,870 --> 00:35:28,880
+I'm just returning what is the delay
+ 
+
+1527
+00:35:28,880 --> 00:35:31,829
+I'm just returning what is the delay
+time it return.
+
+1528
+00:35:31,829 --> 00:35:31,839
+time it return.
+ 
+
+1529
+00:35:31,839 --> 00:35:34,630
+time it return.
+Right? For each
+
+1530
+00:35:34,630 --> 00:35:34,640
+Right? For each
+ 
+
+1531
+00:35:34,640 --> 00:35:37,829
+Right? For each
+run, for each retry, we have to compute
+
+1532
+00:35:37,829 --> 00:35:37,839
+run, for each retry, we have to compute
+ 
+
+1533
+00:35:37,839 --> 00:35:39,349
+run, for each retry, we have to compute
+the delay time. Right? What is the next
+
+1534
+00:35:39,349 --> 00:35:39,359
+the delay time. Right? What is the next
+ 
+
+1535
+00:35:39,359 --> 00:35:42,150
+the delay time. Right? What is the next
+delay time? What is the next delay time?
+
+1536
+00:35:42,150 --> 00:35:42,160
+delay time? What is the next delay time?
+ 
+
+1537
+00:35:42,160 --> 00:35:47,190
+delay time? What is the next delay time?
+So, this method returns the duration
+
+1538
+00:35:47,190 --> 00:35:47,200
+So, this method returns the duration
+ 
+
+1539
+00:35:47,200 --> 00:35:48,790
+So, this method returns the duration
+like
+
+1540
+00:35:48,790 --> 00:35:48,800
+like
+ 
+
+1541
+00:35:48,800 --> 00:35:52,150
+like
+wait for this much sec milliseconds.
+
+1542
+00:35:52,150 --> 00:35:52,160
+wait for this much sec milliseconds.
+ 
+
+1543
+00:35:52,160 --> 00:35:55,030
+wait for this much sec milliseconds.
+Wait for this much duration. Okay. So
+
+1544
+00:35:55,030 --> 00:35:55,040
+Wait for this much duration. Okay. So
+ 
+
+1545
+00:35:55,040 --> 00:35:56,790
+Wait for this much duration. Okay. So
+let's say that Fibonacci interval you
+
+1546
+00:35:56,790 --> 00:35:56,800
+let's say that Fibonacci interval you
+ 
+
+1547
+00:35:56,800 --> 00:35:59,510
+let's say that Fibonacci interval you
+have the logic all here and it return
+
+1548
+00:35:59,510 --> 00:35:59,520
+have the logic all here and it return
+ 
+
+1549
+00:35:59,520 --> 00:36:01,670
+have the logic all here and it return
+milliseconds later. Let's say it return
+
+1550
+00:36:01,670 --> 00:36:01,680
+milliseconds later. Let's say it return
+ 
+
+1551
+00:36:01,680 --> 00:36:04,950
+milliseconds later. Let's say it return
+this one
+
+1552
+00:36:04,950 --> 00:36:04,960
+
+ 
+
+1553
+00:36:04,960 --> 00:36:08,470
+
+2 millisecond it has to wait. Okay. So
+
+1554
+00:36:08,470 --> 00:36:08,480
+2 millisecond it has to wait. Okay. So
+ 
+
+1555
+00:36:08,480 --> 00:36:10,950
+2 millisecond it has to wait. Okay. So
+this generally method do the computation
+
+1556
+00:36:10,950 --> 00:36:10,960
+this generally method do the computation
+ 
+
+1557
+00:36:10,960 --> 00:36:14,870
+this generally method do the computation
+again and return what time
+
+1558
+00:36:14,870 --> 00:36:14,880
+again and return what time
+ 
+
+1559
+00:36:14,880 --> 00:36:17,349
+again and return what time
+retry what has to let's say if it is
+
+1560
+00:36:17,349 --> 00:36:17,359
+retry what has to let's say if it is
+ 
+
+1561
+00:36:17,359 --> 00:36:20,790
+retry what has to let's say if it is
+third retry. If it is third retry, so
+
+1562
+00:36:20,790 --> 00:36:20,800
+third retry. If it is third retry, so
+ 
+
+1563
+00:36:20,800 --> 00:36:22,710
+third retry. If it is third retry, so
+retry one, retry two, retry three, then
+
+1564
+00:36:22,710 --> 00:36:22,720
+retry one, retry two, retry three, then
+ 
+
+1565
+00:36:22,720 --> 00:36:26,390
+retry one, retry two, retry three, then
+it will return 2 seconds, 2,000
+
+1566
+00:36:26,390 --> 00:36:26,400
+it will return 2 seconds, 2,000
+ 
+
+1567
+00:36:26,400 --> 00:36:28,230
+it will return 2 seconds, 2,000
+millisecond.
+
+1568
+00:36:28,230 --> 00:36:28,240
+millisecond.
+ 
+
+1569
+00:36:28,240 --> 00:36:30,870
+millisecond.
+Got it? So we have to write this method
+
+1570
+00:36:30,870 --> 00:36:30,880
+Got it? So we have to write this method
+ 
+
+1571
+00:36:30,880 --> 00:36:33,190
+Got it? So we have to write this method
+now. And this is what first thing I have
+
+1572
+00:36:33,190 --> 00:36:33,200
+now. And this is what first thing I have
+ 
+
+1573
+00:36:33,200 --> 00:36:34,790
+now. And this is what first thing I have
+done.
+
+1574
+00:36:34,790 --> 00:36:34,800
+done.
+ 
+
+1575
+00:36:34,800 --> 00:36:37,270
+done.
+So attempt
+
+1576
+00:36:37,270 --> 00:36:37,280
+So attempt
+ 
+
+1577
+00:36:37,280 --> 00:36:38,870
+So attempt
+for each attempt. So let's say if you
+
+1578
+00:36:38,870 --> 00:36:38,880
+for each attempt. So let's say if you
+ 
+
+1579
+00:36:38,880 --> 00:36:41,349
+for each attempt. So let's say if you
+are four attempt for each attempt it
+
+1580
+00:36:41,349 --> 00:36:41,359
+are four attempt for each attempt it
+ 
+
+1581
+00:36:41,359 --> 00:36:45,829
+are four attempt for each attempt it
+compute the duration delay time.
+
+1582
+00:36:45,829 --> 00:36:45,839
+compute the duration delay time.
+ 
+
+1583
+00:36:45,839 --> 00:36:48,310
+compute the duration delay time.
+The second thing is same retry config
+
+1584
+00:36:48,310 --> 00:36:48,320
+The second thing is same retry config
+ 
+
+1585
+00:36:48,320 --> 00:36:50,230
+The second thing is same retry config
+max attempt you have to now tell it here
+
+1586
+00:36:50,230 --> 00:36:50,240
+max attempt you have to now tell it here
+ 
+
+1587
+00:36:50,240 --> 00:36:51,270
+max attempt you have to now tell it here
+there is no configuration
+
+1588
+00:36:51,270 --> 00:36:51,280
+there is no configuration
+ 
+
+1589
+00:36:51,280 --> 00:36:52,870
+there is no configuration
+application.properties you have to tell
+
+1590
+00:36:52,870 --> 00:36:52,880
+application.properties you have to tell
+ 
+
+1591
+00:36:52,880 --> 00:36:56,470
+application.properties you have to tell
+it here retry exception what what all
+
+1592
+00:36:56,470 --> 00:36:56,480
+it here retry exception what what all
+ 
+
+1593
+00:36:56,480 --> 00:36:59,829
+it here retry exception what what all
+exception you have to do retry you you
+
+1594
+00:36:59,829 --> 00:36:59,839
+exception you have to do retry you you
+ 
+
+1595
+00:36:59,839 --> 00:37:00,630
+exception you have to do retry you you
+don't have to define it
+
+1596
+00:37:00,630 --> 00:37:00,640
+don't have to define it
+ 
+
+1597
+00:37:00,640 --> 00:37:01,750
+don't have to define it
+application.properties properties you
+
+1598
+00:37:01,750 --> 00:37:01,760
+application.properties properties you
+ 
+
+1599
+00:37:01,760 --> 00:37:03,910
+application.properties properties you
+have to define it here dot build your
+
+1600
+00:37:03,910 --> 00:37:03,920
+have to define it here dot build your
+ 
+
+1601
+00:37:03,920 --> 00:37:06,150
+have to define it here dot build your
+config object is created and from that
+
+1602
+00:37:06,150 --> 00:37:06,160
+config object is created and from that
+ 
+
+1603
+00:37:06,160 --> 00:37:09,829
+config object is created and from that
+you create a retry object so now we have
+
+1604
+00:37:09,829 --> 00:37:09,839
+you create a retry object so now we have
+ 
+
+1605
+00:37:09,839 --> 00:37:12,950
+you create a retry object so now we have
+created the retry object now we have to
+
+1606
+00:37:12,950 --> 00:37:12,960
+created the retry object now we have to
+ 
+
+1607
+00:37:12,960 --> 00:37:15,349
+created the retry object now we have to
+use it how to use it now now in the
+
+1608
+00:37:15,349 --> 00:37:15,359
+use it how to use it now now in the
+ 
+
+1609
+00:37:15,359 --> 00:37:19,589
+use it how to use it now now in the
+order service on this product API
+
+1610
+00:37:19,589 --> 00:37:19,599
+order service on this product API
+ 
+
+1611
+00:37:19,599 --> 00:37:22,150
+order service on this product API
+we can't uh do annotation right at the
+
+1612
+00:37:22,150 --> 00:37:22,160
+we can't uh do annotation right at the
+ 
+
+1613
+00:37:22,160 --> 00:37:26,150
+we can't uh do annotation right at the
+rate retry we can't do that so we have
+
+1614
+00:37:26,150 --> 00:37:26,160
+rate retry we can't do that so we have
+ 
+
+1615
+00:37:26,160 --> 00:37:28,710
+rate retry we can't do that so we have
+to do this way and that's what
+
+1616
+00:37:28,710 --> 00:37:28,720
+to do this way and that's what
+ 
+
+1617
+00:37:28,720 --> 00:37:31,829
+to do this way and that's what
+internally AOP might be doing that also.
+
+1618
+00:37:31,829 --> 00:37:31,839
+internally AOP might be doing that also.
+ 
+
+1619
+00:37:31,839 --> 00:37:34,230
+internally AOP might be doing that also.
+So first it has created a retry object
+
+1620
+00:37:34,230 --> 00:37:34,240
+So first it has created a retry object
+ 
+
+1621
+00:37:34,240 --> 00:37:36,630
+So first it has created a retry object
+like this what we have done and then it
+
+1622
+00:37:36,630 --> 00:37:36,640
+like this what we have done and then it
+ 
+
+1623
+00:37:36,640 --> 00:37:39,430
+like this what we have done and then it
+would have in the similar way it might
+
+1624
+00:37:39,430 --> 00:37:39,440
+would have in the similar way it might
+ 
+
+1625
+00:37:39,440 --> 00:37:42,870
+would have in the similar way it might
+have done the same way. So
+
+1626
+00:37:42,870 --> 00:37:42,880
+have done the same way. So
+ 
+
+1627
+00:37:42,880 --> 00:37:45,750
+have done the same way. So
+it autowired the custom retry object the
+
+1628
+00:37:45,750 --> 00:37:45,760
+it autowired the custom retry object the
+ 
+
+1629
+00:37:45,760 --> 00:37:49,750
+it autowired the custom retry object the
+retry object which we have created the
+
+1630
+00:37:49,750 --> 00:37:49,760
+retry object which we have created the
+ 
+
+1631
+00:37:49,760 --> 00:37:52,069
+retry object which we have created the
+bean which we have created. So here
+
+1632
+00:37:52,069 --> 00:37:52,079
+bean which we have created. So here
+ 
+
+1633
+00:37:52,079 --> 00:37:54,870
+bean which we have created. So here
+dependency injection will happen.
+
+1634
+00:37:54,870 --> 00:37:54,880
+dependency injection will happen.
+ 
+
+1635
+00:37:54,880 --> 00:37:58,710
+dependency injection will happen.
+Then it has execute supplier. Okay. So
+
+1636
+00:37:58,710 --> 00:37:58,720
+Then it has execute supplier. Okay. So
+ 
+
+1637
+00:37:58,720 --> 00:38:01,430
+Then it has execute supplier. Okay. So
+we are wrapping what we are doing is we
+
+1638
+00:38:01,430 --> 00:38:01,440
+we are wrapping what we are doing is we
+ 
+
+1639
+00:38:01,440 --> 00:38:03,750
+we are wrapping what we are doing is we
+are wrapping an object. So this is I
+
+1640
+00:38:03,750 --> 00:38:03,760
+are wrapping an object. So this is I
+ 
+
+1641
+00:38:03,760 --> 00:38:07,990
+are wrapping an object. So this is I
+want to retry this is my retriable
+
+1642
+00:38:07,990 --> 00:38:08,000
+want to retry this is my retriable
+ 
+
+1643
+00:38:08,000 --> 00:38:12,470
+want to retry this is my retriable
+code. I am wrapping it inside this retry
+
+1644
+00:38:12,470 --> 00:38:12,480
+code. I am wrapping it inside this retry
+ 
+
+1645
+00:38:12,480 --> 00:38:13,990
+code. I am wrapping it inside this retry
+dot
+
+1646
+00:38:13,990 --> 00:38:14,000
+dot
+ 
+
+1647
+00:38:14,000 --> 00:38:16,550
+dot
+retry. I'm wrapping wrapping it up
+
+1648
+00:38:16,550 --> 00:38:16,560
+retry. I'm wrapping wrapping it up
+ 
+
+1649
+00:38:16,560 --> 00:38:18,790
+retry. I'm wrapping wrapping it up
+within this retry
+
+1650
+00:38:18,790 --> 00:38:18,800
+within this retry
+ 
+
+1651
+00:38:18,800 --> 00:38:20,870
+within this retry
+because annotation will not work. I have
+
+1652
+00:38:20,870 --> 00:38:20,880
+because annotation will not work. I have
+ 
+
+1653
+00:38:20,880 --> 00:38:23,109
+because annotation will not work. I have
+to do it manually. So this is my piece
+
+1654
+00:38:23,109 --> 00:38:23,119
+to do it manually. So this is my piece
+ 
+
+1655
+00:38:23,119 --> 00:38:26,550
+to do it manually. So this is my piece
+of code which I want to do retry in case
+
+1656
+00:38:26,550 --> 00:38:26,560
+of code which I want to do retry in case
+ 
+
+1657
+00:38:26,560 --> 00:38:28,230
+of code which I want to do retry in case
+of failure.
+
+1658
+00:38:28,230 --> 00:38:28,240
+of failure.
+ 
+
+1659
+00:38:28,240 --> 00:38:30,550
+of failure.
+Now I have to manually wrap it inside
+
+1660
+00:38:30,550 --> 00:38:30,560
+Now I have to manually wrap it inside
+ 
+
+1661
+00:38:30,560 --> 00:38:35,990
+Now I have to manually wrap it inside
+the custom retry dot execute supplier.
+
+1662
+00:38:35,990 --> 00:38:36,000
+
+ 
+
+1663
+00:38:36,000 --> 00:38:39,349
+
+Okay. Now let's say that you have you
+
+1664
+00:38:39,349 --> 00:38:39,359
+Okay. Now let's say that you have you
+ 
+
+1665
+00:38:39,359 --> 00:38:41,270
+Okay. Now let's say that you have you
+have invoked it. There is a failure. So
+
+1666
+00:38:41,270 --> 00:38:41,280
+have invoked it. There is a failure. So
+ 
+
+1667
+00:38:41,280 --> 00:38:44,069
+have invoked it. There is a failure. So
+it will automatically retry it. Okay.
+
+1668
+00:38:44,069 --> 00:38:44,079
+it will automatically retry it. Okay.
+ 
+
+1669
+00:38:44,079 --> 00:38:46,150
+it will automatically retry it. Okay.
+Because it is inside the retry object,
+
+1670
+00:38:46,150 --> 00:38:46,160
+Because it is inside the retry object,
+ 
+
+1671
+00:38:46,160 --> 00:38:48,470
+Because it is inside the retry object,
+right? For each retry we have done
+
+1672
+00:38:48,470 --> 00:38:48,480
+right? For each retry we have done
+ 
+
+1673
+00:38:48,480 --> 00:38:51,109
+right? For each retry we have done
+attempt, right? For each retry it find
+
+1674
+00:38:51,109 --> 00:38:51,119
+attempt, right? For each retry it find
+ 
+
+1675
+00:38:51,119 --> 00:38:53,430
+attempt, right? For each retry it find
+out the delay it has to wait based on
+
+1676
+00:38:53,430 --> 00:38:53,440
+out the delay it has to wait based on
+ 
+
+1677
+00:38:53,440 --> 00:38:56,310
+out the delay it has to wait based on
+the logic you have written. It will find
+
+1678
+00:38:56,310 --> 00:38:56,320
+the logic you have written. It will find
+ 
+
+1679
+00:38:56,320 --> 00:38:58,230
+the logic you have written. It will find
+out what is the delay time it has to
+
+1680
+00:38:58,230 --> 00:38:58,240
+out what is the delay time it has to
+ 
+
+1681
+00:38:58,240 --> 00:39:00,470
+out what is the delay time it has to
+wait and after waiting for that much
+
+1682
+00:39:00,470 --> 00:39:00,480
+wait and after waiting for that much
+ 
+
+1683
+00:39:00,480 --> 00:39:01,990
+wait and after waiting for that much
+time
+
+1684
+00:39:01,990 --> 00:39:02,000
+time
+ 
+
+1685
+00:39:02,000 --> 00:39:05,670
+time
+right it will execute again based on
+
+1686
+00:39:05,670 --> 00:39:05,680
+right it will execute again based on
+ 
+
+1687
+00:39:05,680 --> 00:39:07,910
+right it will execute again based on
+this configuration if that exception is
+
+1688
+00:39:07,910 --> 00:39:07,920
+this configuration if that exception is
+ 
+
+1689
+00:39:07,920 --> 00:39:12,230
+this configuration if that exception is
+retrivable and if attempt is still left
+
+1690
+00:39:12,230 --> 00:39:12,240
+retrivable and if attempt is still left
+ 
+
+1691
+00:39:12,240 --> 00:39:14,470
+retrivable and if attempt is still left
+if all the attempt is finished then
+
+1692
+00:39:14,470 --> 00:39:14,480
+if all the attempt is finished then
+ 
+
+1693
+00:39:14,480 --> 00:39:16,950
+if all the attempt is finished then
+ultimately this catch block will get
+
+1694
+00:39:16,950 --> 00:39:16,960
+ultimately this catch block will get
+ 
+
+1695
+00:39:16,960 --> 00:39:18,790
+ultimately this catch block will get
+invoked all retries failed this is the
+
+1696
+00:39:18,790 --> 00:39:18,800
+invoked all retries failed this is the
+ 
+
+1697
+00:39:18,800 --> 00:39:22,870
+invoked all retries failed this is the
+fallback. So by writing this custom
+
+1698
+00:39:22,870 --> 00:39:22,880
+fallback. So by writing this custom
+ 
+
+1699
+00:39:22,880 --> 00:39:25,750
+fallback. So by writing this custom
+retry by ourself we get to know that
+
+1700
+00:39:25,750 --> 00:39:25,760
+retry by ourself we get to know that
+ 
+
+1701
+00:39:25,760 --> 00:39:29,030
+retry by ourself we get to know that
+what AOP might be doing inside. So you
+
+1702
+00:39:29,030 --> 00:39:29,040
+what AOP might be doing inside. So you
+ 
+
+1703
+00:39:29,040 --> 00:39:31,670
+what AOP might be doing inside. So you
+can say that this is the exact AOP code
+
+1704
+00:39:31,670 --> 00:39:31,680
+can say that this is the exact AOP code
+ 
+
+1705
+00:39:31,680 --> 00:39:33,670
+can say that this is the exact AOP code
+which might they have done during
+
+1706
+00:39:33,670 --> 00:39:33,680
+which might they have done during
+ 
+
+1707
+00:39:33,680 --> 00:39:37,589
+which might they have done during
+runtime. First they have created a retry
+
+1708
+00:39:37,589 --> 00:39:37,599
+runtime. First they have created a retry
+ 
+
+1709
+00:39:37,599 --> 00:39:41,510
+runtime. First they have created a retry
+object and then for that retry object
+
+1710
+00:39:41,510 --> 00:39:41,520
+object and then for that retry object
+ 
+
+1711
+00:39:41,520 --> 00:39:43,750
+object and then for that retry object
+they have wrapped it the method which we
+
+1712
+00:39:43,750 --> 00:39:43,760
+they have wrapped it the method which we
+ 
+
+1713
+00:39:43,760 --> 00:39:46,150
+they have wrapped it the method which we
+have written right at the rate retry
+
+1714
+00:39:46,150 --> 00:39:46,160
+have written right at the rate retry
+ 
+
+1715
+00:39:46,160 --> 00:39:49,190
+have written right at the rate retry
+before they wrap those method
+
+1716
+00:39:49,190 --> 00:39:49,200
+before they wrap those method
+ 
+
+1717
+00:39:49,200 --> 00:39:51,990
+before they wrap those method
+inside this custom retry dot execute
+
+1718
+00:39:51,990 --> 00:39:52,000
+inside this custom retry dot execute
+ 
+
+1719
+00:39:52,000 --> 00:39:54,310
+inside this custom retry dot execute
+supplier.
+
+1720
+00:39:54,310 --> 00:39:54,320
+supplier.
+ 
+
+1721
+00:39:54,320 --> 00:39:58,230
+supplier.
+Okay. And after all retry finish
+
+1722
+00:39:58,230 --> 00:39:58,240
+Okay. And after all retry finish
+ 
+
+1723
+00:39:58,240 --> 00:40:00,950
+Okay. And after all retry finish
+in the catch part it might have run our
+
+1724
+00:40:00,950 --> 00:40:00,960
+in the catch part it might have run our
+ 
+
+1725
+00:40:00,960 --> 00:40:03,990
+in the catch part it might have run our
+fallback method
+
+1726
+00:40:03,990 --> 00:40:04,000
+fallback method
+ 
+
+1727
+00:40:04,000 --> 00:40:07,349
+fallback method
+and we can check our output also. So we
+
+1728
+00:40:07,349 --> 00:40:07,359
+and we can check our output also. So we
+ 
+
+1729
+00:40:07,359 --> 00:40:09,270
+and we can check our output also. So we
+have done
+
+1730
+00:40:09,270 --> 00:40:09,280
+have done
+ 
+
+1731
+00:40:09,280 --> 00:40:11,829
+have done
+six attempts right
+
+1732
+00:40:11,829 --> 00:40:11,839
+six attempts right
+ 
+
+1733
+00:40:11,839 --> 00:40:14,870
+six attempts right
+one original five retry. So we can say
+
+1734
+00:40:14,870 --> 00:40:14,880
+one original five retry. So we can say
+ 
+
+1735
+00:40:14,880 --> 00:40:17,270
+one original five retry. So we can say
+so what is our uh code which have to be
+
+1736
+00:40:17,270 --> 00:40:17,280
+so what is our uh code which have to be
+ 
+
+1737
+00:40:17,280 --> 00:40:20,069
+so what is our uh code which have to be
+retried one is system.out.print
+
+1738
+00:40:20,069 --> 00:40:20,079
+retried one is system.out.print
+ 
+
+1739
+00:40:20,079 --> 00:40:23,190
+retried one is system.out.print
+calling product service and the time and
+
+1740
+00:40:23,190 --> 00:40:23,200
+calling product service and the time and
+ 
+
+1741
+00:40:23,200 --> 00:40:25,190
+calling product service and the time and
+then actually it's called it. So these
+
+1742
+00:40:25,190 --> 00:40:25,200
+then actually it's called it. So these
+ 
+
+1743
+00:40:25,200 --> 00:40:28,550
+then actually it's called it. So these
+two things will get think. So original
+
+1744
+00:40:28,550 --> 00:40:28,560
+two things will get think. So original
+ 
+
+1745
+00:40:28,560 --> 00:40:31,190
+two things will get think. So original
+happen at this calling product service
+
+1746
+00:40:31,190 --> 00:40:31,200
+happen at this calling product service
+ 
+
+1747
+00:40:31,200 --> 00:40:33,349
+happen at this calling product service
+and then it will try to call it. So it
+
+1748
+00:40:33,349 --> 00:40:33,359
+and then it will try to call it. So it
+ 
+
+1749
+00:40:33,359 --> 00:40:37,510
+and then it will try to call it. So it
+happened at 22 35 45. Then here if you
+
+1750
+00:40:37,510 --> 00:40:37,520
+happened at 22 35 45. Then here if you
+ 
+
+1751
+00:40:37,520 --> 00:40:41,750
+happened at 22 35 45. Then here if you
+see 47 49 51 22 second delay. Why 22cond
+
+1752
+00:40:41,750 --> 00:40:41,760
+see 47 49 51 22 second delay. Why 22cond
+ 
+
+1753
+00:40:41,760 --> 00:40:43,510
+see 47 49 51 22 second delay. Why 22cond
+delay? Because currently I have
+
+1754
+00:40:43,510 --> 00:40:43,520
+delay? Because currently I have
+ 
+
+1755
+00:40:43,520 --> 00:40:47,190
+delay? Because currently I have
+hardcoded it to 2,00 millisecond. Here
+
+1756
+00:40:47,190 --> 00:40:47,200
+hardcoded it to 2,00 millisecond. Here
+ 
+
+1757
+00:40:47,200 --> 00:40:49,910
+hardcoded it to 2,00 millisecond. Here
+if you can see I have hardcoded it to
+
+1758
+00:40:49,910 --> 00:40:49,920
+if you can see I have hardcoded it to
+ 
+
+1759
+00:40:49,920 --> 00:40:52,870
+if you can see I have hardcoded it to
+2,000 millisecond. That's why. But if
+
+1760
+00:40:52,870 --> 00:40:52,880
+2,000 millisecond. That's why. But if
+ 
+
+1761
+00:40:52,880 --> 00:40:55,190
+2,000 millisecond. That's why. But if
+you have returned your own interval that
+
+1762
+00:40:55,190 --> 00:40:55,200
+you have returned your own interval that
+ 
+
+1763
+00:40:55,200 --> 00:40:58,710
+you have returned your own interval that
+if it is a retry one one retry two again
+
+1764
+00:40:58,710 --> 00:40:58,720
+if it is a retry one one retry two again
+ 
+
+1765
+00:40:58,720 --> 00:41:01,349
+if it is a retry one one retry two again
+one if it is a retry three 2 seconds if
+
+1766
+00:41:01,349 --> 00:41:01,359
+one if it is a retry three 2 seconds if
+ 
+
+1767
+00:41:01,359 --> 00:41:05,430
+one if it is a retry three 2 seconds if
+it is a retry fourth three retry fifth
+
+1768
+00:41:05,430 --> 00:41:05,440
+it is a retry fourth three retry fifth
+ 
+
+1769
+00:41:05,440 --> 00:41:09,270
+it is a retry fourth three retry fifth
+like this then eight like this it it
+
+1770
+00:41:09,270 --> 00:41:09,280
+like this then eight like this it it
+ 
+
+1771
+00:41:09,280 --> 00:41:12,150
+like this then eight like this it it
+should go then 13
+
+1772
+00:41:12,150 --> 00:41:12,160
+should go then 13
+ 
+
+1773
+00:41:12,160 --> 00:41:14,309
+should go then 13
+so then it will change it but for now
+
+1774
+00:41:14,309 --> 00:41:14,319
+so then it will change it but for now
+ 
+
+1775
+00:41:14,319 --> 00:41:17,190
+so then it will change it but for now
+since I have hardcoded it so for each
+
+1776
+00:41:17,190 --> 00:41:17,200
+since I have hardcoded it so for each
+ 
+
+1777
+00:41:17,200 --> 00:41:19,829
+since I have hardcoded it so for each
+retry attempt when it tried to compute
+
+1778
+00:41:19,829 --> 00:41:19,839
+retry attempt when it tried to compute
+ 
+
+1779
+00:41:19,839 --> 00:41:22,069
+retry attempt when it tried to compute
+what is the duration I have to wait it
+
+1780
+00:41:22,069 --> 00:41:22,079
+what is the duration I have to wait it
+ 
+
+1781
+00:41:22,079 --> 00:41:24,150
+what is the duration I have to wait it
+will always return two 2 seconds itself.
+
+1782
+00:41:24,150 --> 00:41:24,160
+will always return two 2 seconds itself.
+ 
+
+1783
+00:41:24,160 --> 00:41:26,550
+will always return two 2 seconds itself.
+So that's why it is waited 2 seconds. So
+
+1784
+00:41:26,550 --> 00:41:26,560
+So that's why it is waited 2 seconds. So
+ 
+
+1785
+00:41:26,560 --> 00:41:30,150
+So that's why it is waited 2 seconds. So
+1 2 3 4 5 6 attempt finished. Then it
+
+1786
+00:41:30,150 --> 00:41:30,160
+1 2 3 4 5 6 attempt finished. Then it
+ 
+
+1787
+00:41:30,160 --> 00:41:32,390
+1 2 3 4 5 6 attempt finished. Then it
+reached to the else part. Fall back
+
+1788
+00:41:32,390 --> 00:41:32,400
+reached to the else part. Fall back
+ 
+
+1789
+00:41:32,400 --> 00:41:35,030
+reached to the else part. Fall back
+here. All retries failed. This is fall
+
+1790
+00:41:35,030 --> 00:41:35,040
+here. All retries failed. This is fall
+ 
+
+1791
+00:41:35,040 --> 00:41:37,430
+here. All retries failed. This is fall
+back. All retries failed. This is fall
+
+1792
+00:41:37,430 --> 00:41:37,440
+back. All retries failed. This is fall
+ 
+
+1793
+00:41:37,440 --> 00:41:40,470
+back. All retries failed. This is fall
+back.
+
+1794
+00:41:40,470 --> 00:41:40,480
+
+ 
+
+1795
+00:41:40,480 --> 00:41:44,470
+
+I hope got it right because to be honest
+
+1796
+00:41:44,470 --> 00:41:44,480
+I hope got it right because to be honest
+ 
+
+1797
+00:41:44,480 --> 00:41:48,470
+I hope got it right because to be honest
+at least in this 10 years I haven't
+
+1798
+00:41:48,470 --> 00:41:48,480
+at least in this 10 years I haven't
+ 
+
+1799
+00:41:48,480 --> 00:41:51,109
+at least in this 10 years I haven't
+written custom retry
+
+1800
+00:41:51,109 --> 00:41:51,119
+written custom retry
+ 
+
+1801
+00:41:51,119 --> 00:41:53,270
+written custom retry
+generally exponential backup with jitter
+
+1802
+00:41:53,270 --> 00:41:53,280
+generally exponential backup with jitter
+ 
+
+1803
+00:41:53,280 --> 00:41:57,670
+generally exponential backup with jitter
+is sufficient right with little work on
+
+1804
+00:41:57,670 --> 00:41:57,680
+is sufficient right with little work on
+ 
+
+1805
+00:41:57,680 --> 00:42:01,430
+is sufficient right with little work on
+this values but if you have to write it
+
+1806
+00:42:01,430 --> 00:42:01,440
+this values but if you have to write it
+ 
+
+1807
+00:42:01,440 --> 00:42:04,069
+this values but if you have to write it
+this way you can write it or if you have
+
+1808
+00:42:04,069 --> 00:42:04,079
+this way you can write it or if you have
+ 
+
+1809
+00:42:04,079 --> 00:42:07,510
+this way you can write it or if you have
+to understand like how this
+
+1810
+00:42:07,510 --> 00:42:07,520
+to understand like how this
+ 
+
+1811
+00:42:07,520 --> 00:42:10,550
+to understand like how this
+with just putting annot annotation
+
+1812
+00:42:10,550 --> 00:42:10,560
+with just putting annot annotation
+ 
+
+1813
+00:42:10,560 --> 00:42:12,950
+with just putting annot annotation
+with just putting this annotation this
+
+1814
+00:42:12,950 --> 00:42:12,960
+with just putting this annotation this
+ 
+
+1815
+00:42:12,960 --> 00:42:15,190
+with just putting this annotation this
+one.
+
+1816
+00:42:15,190 --> 00:42:15,200
+one.
+ 
+
+1817
+00:42:15,200 --> 00:42:17,910
+one.
+How internally everything work by AOP
+
+1818
+00:42:17,910 --> 00:42:17,920
+How internally everything work by AOP
+ 
+
+1819
+00:42:17,920 --> 00:42:21,030
+How internally everything work by AOP
+then it is exactly same as what custom
+
+1820
+00:42:21,030 --> 00:42:21,040
+then it is exactly same as what custom
+ 
+
+1821
+00:42:21,040 --> 00:42:23,750
+then it is exactly same as what custom
+we have written. Create an object of
+
+1822
+00:42:23,750 --> 00:42:23,760
+we have written. Create an object of
+ 
+
+1823
+00:42:23,760 --> 00:42:25,990
+we have written. Create an object of
+retry
+
+1824
+00:42:25,990 --> 00:42:26,000
+retry
+ 
+
+1825
+00:42:26,000 --> 00:42:27,990
+retry
+define what is the method you have to
+
+1826
+00:42:27,990 --> 00:42:28,000
+define what is the method you have to
+ 
+
+1827
+00:42:28,000 --> 00:42:31,430
+define what is the method you have to
+use interval function for computation
+
+1828
+00:42:31,430 --> 00:42:31,440
+use interval function for computation
+ 
+
+1829
+00:42:31,440 --> 00:42:34,309
+use interval function for computation
+and then ultimately wrap your method
+
+1830
+00:42:34,309 --> 00:42:34,319
+and then ultimately wrap your method
+ 
+
+1831
+00:42:34,319 --> 00:42:39,270
+and then ultimately wrap your method
+inside this retry object.
+
+1832
+00:42:39,270 --> 00:42:39,280
+
+ 
+
+1833
+00:42:39,280 --> 00:42:42,630
+
+Okay. So let me know if there is any
+
+1834
+00:42:42,630 --> 00:42:42,640
+Okay. So let me know if there is any
+ 
+
+1835
+00:42:42,640 --> 00:42:44,309
+Okay. So let me know if there is any
+doubt we can discuss further into the
+
+1836
+00:42:44,309 --> 00:42:44,319
+doubt we can discuss further into the
+ 
+
+1837
+00:42:44,319 --> 00:42:49,160
+doubt we can discuss further into the
+comment section. But till then bye.
+

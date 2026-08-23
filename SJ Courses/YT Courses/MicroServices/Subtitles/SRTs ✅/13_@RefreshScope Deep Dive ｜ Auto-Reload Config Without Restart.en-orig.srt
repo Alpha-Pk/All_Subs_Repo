@@ -1,0 +1,5915 @@
+1
+00:00:00,080 --> 00:00:01,670
+
+Hey guys, Shandi said welcome back to
+
+2
+00:00:01,670 --> 00:00:01,680
+Hey guys, Shandi said welcome back to
+ 
+
+3
+00:00:01,680 --> 00:00:03,990
+Hey guys, Shandi said welcome back to
+the channel and today we are going to
+
+4
+00:00:03,990 --> 00:00:04,000
+the channel and today we are going to
+ 
+
+5
+00:00:04,000 --> 00:00:07,670
+the channel and today we are going to
+cover refresh scope and we have already
+
+6
+00:00:07,670 --> 00:00:07,680
+cover refresh scope and we have already
+ 
+
+7
+00:00:07,680 --> 00:00:09,830
+cover refresh scope and we have already
+seen centralized configuration. So you
+
+8
+00:00:09,830 --> 00:00:09,840
+seen centralized configuration. So you
+ 
+
+9
+00:00:09,840 --> 00:00:11,589
+seen centralized configuration. So you
+can say that this is the prerequisite.
+
+10
+00:00:11,589 --> 00:00:11,599
+can say that this is the prerequisite.
+ 
+
+11
+00:00:11,599 --> 00:00:13,110
+can say that this is the prerequisite.
+Okay. So kindly check it out if you
+
+12
+00:00:13,110 --> 00:00:13,120
+Okay. So kindly check it out if you
+ 
+
+13
+00:00:13,120 --> 00:00:15,190
+Okay. So kindly check it out if you
+haven't seen that. We have already done
+
+14
+00:00:15,190 --> 00:00:15,200
+haven't seen that. We have already done
+ 
+
+15
+00:00:15,200 --> 00:00:20,070
+haven't seen that. We have already done
+setup of this central config files
+
+16
+00:00:20,070 --> 00:00:20,080
+setup of this central config files
+ 
+
+17
+00:00:20,080 --> 00:00:21,910
+setup of this central config files
+config server and order service. We have
+
+18
+00:00:21,910 --> 00:00:21,920
+config server and order service. We have
+ 
+
+19
+00:00:21,920 --> 00:00:24,070
+config server and order service. We have
+already done the setup of it and we
+
+20
+00:00:24,070 --> 00:00:24,080
+already done the setup of it and we
+ 
+
+21
+00:00:24,080 --> 00:00:26,790
+already done the setup of it and we
+finished with asking one question that
+
+22
+00:00:26,790 --> 00:00:26,800
+finished with asking one question that
+ 
+
+23
+00:00:26,800 --> 00:00:30,310
+finished with asking one question that
+hey let's say our order application is
+
+24
+00:00:30,310 --> 00:00:30,320
+hey let's say our order application is
+ 
+
+25
+00:00:30,320 --> 00:00:32,310
+hey let's say our order application is
+running and someone has updated the
+
+26
+00:00:32,310 --> 00:00:32,320
+running and someone has updated the
+ 
+
+27
+00:00:32,320 --> 00:00:35,270
+running and someone has updated the
+central config for order service. Do I
+
+28
+00:00:35,270 --> 00:00:35,280
+central config for order service. Do I
+ 
+
+29
+00:00:35,280 --> 00:00:37,830
+central config for order service. Do I
+need to restart the app every time? What
+
+30
+00:00:37,830 --> 00:00:37,840
+need to restart the app every time? What
+ 
+
+31
+00:00:37,840 --> 00:00:40,150
+need to restart the app every time? What
+I mean is that
+
+32
+00:00:40,150 --> 00:00:40,160
+I mean is that
+ 
+
+33
+00:00:40,160 --> 00:00:42,470
+I mean is that
+during the application startup this
+
+34
+00:00:42,470 --> 00:00:42,480
+during the application startup this
+ 
+
+35
+00:00:42,480 --> 00:00:44,630
+during the application startup this
+config server fetches the details from
+
+36
+00:00:44,630 --> 00:00:44,640
+config server fetches the details from
+ 
+
+37
+00:00:44,640 --> 00:00:48,229
+config server fetches the details from
+the config file and save it. Similarly,
+
+38
+00:00:48,229 --> 00:00:48,239
+the config file and save it. Similarly,
+ 
+
+39
+00:00:48,239 --> 00:00:51,670
+the config file and save it. Similarly,
+order service at the application startup
+
+40
+00:00:51,670 --> 00:00:51,680
+order service at the application startup
+ 
+
+41
+00:00:51,680 --> 00:00:55,110
+order service at the application startup
+time fetch the property and save it.
+
+42
+00:00:55,110 --> 00:00:55,120
+time fetch the property and save it.
+ 
+
+43
+00:00:55,120 --> 00:00:57,910
+time fetch the property and save it.
+Okay. But now when the application is
+
+44
+00:00:57,910 --> 00:00:57,920
+Okay. But now when the application is
+ 
+
+45
+00:00:57,920 --> 00:01:00,150
+Okay. But now when the application is
+already in the running mode and somebody
+
+46
+00:01:00,150 --> 00:01:00,160
+already in the running mode and somebody
+ 
+
+47
+00:01:00,160 --> 00:01:02,790
+already in the running mode and somebody
+changed this file, how it will get to
+
+48
+00:01:02,790 --> 00:01:02,800
+changed this file, how it will get to
+ 
+
+49
+00:01:02,800 --> 00:01:05,509
+changed this file, how it will get to
+know that something has been changed.
+
+50
+00:01:05,509 --> 00:01:05,519
+know that something has been changed.
+ 
+
+51
+00:01:05,519 --> 00:01:07,590
+know that something has been changed.
+Okay. So do we need to restart every
+
+52
+00:01:07,590 --> 00:01:07,600
+Okay. So do we need to restart every
+ 
+
+53
+00:01:07,600 --> 00:01:10,789
+Okay. So do we need to restart every
+time? For now answer you I can say that
+
+54
+00:01:10,789 --> 00:01:10,799
+time? For now answer you I can say that
+ 
+
+55
+00:01:10,799 --> 00:01:13,830
+time? For now answer you I can say that
+no. And it solution is at the rate
+
+56
+00:01:13,830 --> 00:01:13,840
+no. And it solution is at the rate
+ 
+
+57
+00:01:13,840 --> 00:01:17,510
+no. And it solution is at the rate
+refresh scope. But let's try to
+
+58
+00:01:17,510 --> 00:01:17,520
+refresh scope. But let's try to
+ 
+
+59
+00:01:17,520 --> 00:01:19,429
+refresh scope. But let's try to
+reproduce this scenario what we are
+
+60
+00:01:19,429 --> 00:01:19,439
+reproduce this scenario what we are
+ 
+
+61
+00:01:19,439 --> 00:01:23,030
+reproduce this scenario what we are
+talking here. So say everything is same
+
+62
+00:01:23,030 --> 00:01:23,040
+talking here. So say everything is same
+ 
+
+63
+00:01:23,040 --> 00:01:24,710
+talking here. So say everything is same
+what we have seen in the previous video.
+
+64
+00:01:24,710 --> 00:01:24,720
+what we have seen in the previous video.
+ 
+
+65
+00:01:24,720 --> 00:01:27,429
+what we have seen in the previous video.
+I have a central config in the central
+
+66
+00:01:27,429 --> 00:01:27,439
+I have a central config in the central
+ 
+
+67
+00:01:27,439 --> 00:01:30,230
+I have a central config in the central
+config order service D properties
+
+68
+00:01:30,230 --> 00:01:30,240
+config order service D properties
+ 
+
+69
+00:01:30,240 --> 00:01:33,109
+config order service D properties
+currently it is this hello from order
+
+70
+00:01:33,109 --> 00:01:33,119
+currently it is this hello from order
+ 
+
+71
+00:01:33,119 --> 00:01:36,789
+currently it is this hello from order
+div similar config server I have set up
+
+72
+00:01:36,789 --> 00:01:36,799
+div similar config server I have set up
+ 
+
+73
+00:01:36,799 --> 00:01:38,630
+div similar config server I have set up
+this the same thing which we have set up
+
+74
+00:01:38,630 --> 00:01:38,640
+this the same thing which we have set up
+ 
+
+75
+00:01:38,640 --> 00:01:41,429
+this the same thing which we have set up
+before you have dependency. You have
+
+76
+00:01:41,429 --> 00:01:41,439
+before you have dependency. You have
+ 
+
+77
+00:01:41,439 --> 00:01:43,749
+before you have dependency. You have
+added this annotation you have added
+
+78
+00:01:43,749 --> 00:01:43,759
+added this annotation you have added
+ 
+
+79
+00:01:43,759 --> 00:01:45,350
+added this annotation you have added
+application.properties properties file
+
+80
+00:01:45,350 --> 00:01:45,360
+application.properties properties file
+ 
+
+81
+00:01:45,360 --> 00:01:48,469
+application.properties properties file
+properly. Okay. So this is also same no
+
+82
+00:01:48,469 --> 00:01:48,479
+properly. Okay. So this is also same no
+ 
+
+83
+00:01:48,479 --> 00:01:52,069
+properly. Okay. So this is also same no
+change and then order service also
+
+84
+00:01:52,069 --> 00:01:52,079
+change and then order service also
+ 
+
+85
+00:01:52,079 --> 00:01:56,310
+change and then order service also
+mostly same. You have the client config
+
+86
+00:01:56,310 --> 00:01:56,320
+mostly same. You have the client config
+ 
+
+87
+00:01:56,320 --> 00:01:57,830
+mostly same. You have the client config
+dependency
+
+88
+00:01:57,830 --> 00:01:57,840
+dependency
+ 
+
+89
+00:01:57,840 --> 00:02:01,109
+dependency
+application.properties also same. Okay.
+
+90
+00:02:01,109 --> 00:02:01,119
+application.properties also same. Okay.
+ 
+
+91
+00:02:01,119 --> 00:02:03,830
+application.properties also same. Okay.
+The only difference I do here is that I
+
+92
+00:02:03,830 --> 00:02:03,840
+The only difference I do here is that I
+ 
+
+93
+00:02:03,840 --> 00:02:05,910
+The only difference I do here is that I
+am using at the rate configuration
+
+94
+00:02:05,910 --> 00:02:05,920
+am using at the rate configuration
+ 
+
+95
+00:02:05,920 --> 00:02:08,469
+am using at the rate configuration
+properties. If you remember from the
+
+96
+00:02:08,469 --> 00:02:08,479
+properties. If you remember from the
+ 
+
+97
+00:02:08,479 --> 00:02:11,750
+properties. If you remember from the
+previous video we were having this.
+
+98
+00:02:11,750 --> 00:02:11,760
+previous video we were having this.
+ 
+
+99
+00:02:11,760 --> 00:02:14,390
+previous video we were having this.
+Okay. We were having this uh so in the
+
+100
+00:02:14,390 --> 00:02:14,400
+Okay. We were having this uh so in the
+ 
+
+101
+00:02:14,400 --> 00:02:17,030
+Okay. We were having this uh so in the
+controller order controller we were
+
+102
+00:02:17,030 --> 00:02:17,040
+controller order controller we were
+ 
+
+103
+00:02:17,040 --> 00:02:19,430
+controller order controller we were
+reading the property like this from add
+
+104
+00:02:19,430 --> 00:02:19,440
+reading the property like this from add
+ 
+
+105
+00:02:19,440 --> 00:02:22,390
+reading the property like this from add
+the rate value and the property name
+
+106
+00:02:22,390 --> 00:02:22,400
+the rate value and the property name
+ 
+
+107
+00:02:22,400 --> 00:02:25,110
+the rate value and the property name
+which comes into this message and we are
+
+108
+00:02:25,110 --> 00:02:25,120
+which comes into this message and we are
+ 
+
+109
+00:02:25,120 --> 00:02:26,949
+which comes into this message and we are
+using this we are printing it here.
+
+110
+00:02:26,949 --> 00:02:26,959
+using this we are printing it here.
+ 
+
+111
+00:02:26,959 --> 00:02:30,710
+using this we are printing it here.
+Okay. But for this refresh scope instead
+
+112
+00:02:30,710 --> 00:02:30,720
+Okay. But for this refresh scope instead
+ 
+
+113
+00:02:30,720 --> 00:02:33,589
+Okay. But for this refresh scope instead
+of using add the rate value I am using
+
+114
+00:02:33,589 --> 00:02:33,599
+of using add the rate value I am using
+ 
+
+115
+00:02:33,599 --> 00:02:35,830
+of using add the rate value I am using
+add the rate configuration properties.
+
+116
+00:02:35,830 --> 00:02:35,840
+add the rate configuration properties.
+ 
+
+117
+00:02:35,840 --> 00:02:37,990
+add the rate configuration properties.
+So we have also seen at the rate
+
+118
+00:02:37,990 --> 00:02:38,000
+So we have also seen at the rate
+ 
+
+119
+00:02:38,000 --> 00:02:39,910
+So we have also seen at the rate
+configuration properties in dev. So
+
+120
+00:02:39,910 --> 00:02:39,920
+configuration properties in dev. So
+ 
+
+121
+00:02:39,920 --> 00:02:43,589
+configuration properties in dev. So
+kindly check it out like how to use it.
+
+122
+00:02:43,589 --> 00:02:43,599
+kindly check it out like how to use it.
+ 
+
+123
+00:02:43,599 --> 00:02:46,790
+kindly check it out like how to use it.
+Okay. But it's similar like it just take
+
+124
+00:02:46,790 --> 00:02:46,800
+Okay. But it's similar like it just take
+ 
+
+125
+00:02:46,800 --> 00:02:49,509
+Okay. But it's similar like it just take
+out the property read the properties and
+
+126
+00:02:49,509 --> 00:02:49,519
+out the property read the properties and
+ 
+
+127
+00:02:49,519 --> 00:02:52,710
+out the property read the properties and
+just convert it to POJO. Okay. So check
+
+128
+00:02:52,710 --> 00:02:52,720
+just convert it to POJO. Okay. So check
+ 
+
+129
+00:02:52,720 --> 00:02:54,390
+just convert it to POJO. Okay. So check
+it out if you have any doubt with the
+
+130
+00:02:54,390 --> 00:02:54,400
+it out if you have any doubt with the
+ 
+
+131
+00:02:54,400 --> 00:02:57,190
+it out if you have any doubt with the
+configuration properties topic. So the
+
+132
+00:02:57,190 --> 00:02:57,200
+configuration properties topic. So the
+ 
+
+133
+00:02:57,200 --> 00:02:59,270
+configuration properties topic. So the
+same thing here if you see that I have
+
+134
+00:02:59,270 --> 00:02:59,280
+same thing here if you see that I have
+ 
+
+135
+00:02:59,280 --> 00:03:02,070
+same thing here if you see that I have
+created one class order properties
+
+136
+00:03:02,070 --> 00:03:02,080
+created one class order properties
+ 
+
+137
+00:03:02,080 --> 00:03:05,030
+created one class order properties
+and uh custom dossage is our property
+
+138
+00:03:05,030 --> 00:03:05,040
+and uh custom dossage is our property
+ 
+
+139
+00:03:05,040 --> 00:03:07,190
+and uh custom dossage is our property
+name right? So there we have custom dot
+
+140
+00:03:07,190 --> 00:03:07,200
+name right? So there we have custom dot
+ 
+
+141
+00:03:07,200 --> 00:03:08,869
+name right? So there we have custom dot
+message. Custom dot message is our
+
+142
+00:03:08,869 --> 00:03:08,879
+message. Custom dot message is our
+ 
+
+143
+00:03:08,879 --> 00:03:12,070
+message. Custom dot message is our
+property name. So prefix is custom and
+
+144
+00:03:12,070 --> 00:03:12,080
+property name. So prefix is custom and
+ 
+
+145
+00:03:12,080 --> 00:03:14,869
+property name. So prefix is custom and
+this field message. So custom dot
+
+146
+00:03:14,869 --> 00:03:14,879
+this field message. So custom dot
+ 
+
+147
+00:03:14,879 --> 00:03:18,229
+this field message. So custom dot
+message. So that property will convert
+
+148
+00:03:18,229 --> 00:03:18,239
+message. So that property will convert
+ 
+
+149
+00:03:18,239 --> 00:03:21,509
+message. So that property will convert
+it to this pojo. So it value is stored
+
+150
+00:03:21,509 --> 00:03:21,519
+it to this pojo. So it value is stored
+ 
+
+151
+00:03:21,519 --> 00:03:24,470
+it to this pojo. So it value is stored
+into this field. Okay. The one question
+
+152
+00:03:24,470 --> 00:03:24,480
+into this field. Okay. The one question
+ 
+
+153
+00:03:24,480 --> 00:03:26,390
+into this field. Okay. The one question
+might be coming at this place at your
+
+154
+00:03:26,390 --> 00:03:26,400
+might be coming at this place at your
+ 
+
+155
+00:03:26,400 --> 00:03:29,830
+might be coming at this place at your
+time uh at your mind would be like why
+
+156
+00:03:29,830 --> 00:03:29,840
+time uh at your mind would be like why
+ 
+
+157
+00:03:29,840 --> 00:03:31,430
+time uh at your mind would be like why
+why we are using at the rate
+
+158
+00:03:31,430 --> 00:03:31,440
+why we are using at the rate
+ 
+
+159
+00:03:31,440 --> 00:03:33,270
+why we are using at the rate
+configuration properties for refresh
+
+160
+00:03:33,270 --> 00:03:33,280
+configuration properties for refresh
+ 
+
+161
+00:03:33,280 --> 00:03:37,830
+configuration properties for refresh
+scope that I will tell you at end. Okay,
+
+162
+00:03:37,830 --> 00:03:37,840
+scope that I will tell you at end. Okay,
+ 
+
+163
+00:03:37,840 --> 00:03:39,589
+scope that I will tell you at end. Okay,
+we when we will discuss the disadvantage
+
+164
+00:03:39,589 --> 00:03:39,599
+we when we will discuss the disadvantage
+ 
+
+165
+00:03:39,599 --> 00:03:43,990
+we when we will discuss the disadvantage
+of refreshoscope there I will clear you
+
+166
+00:03:43,990 --> 00:03:44,000
+of refreshoscope there I will clear you
+ 
+
+167
+00:03:44,000 --> 00:03:46,070
+of refreshoscope there I will clear you
+why I specifically use at the rate
+
+168
+00:03:46,070 --> 00:03:46,080
+why I specifically use at the rate
+ 
+
+169
+00:03:46,080 --> 00:03:48,710
+why I specifically use at the rate
+configuration properties. Okay, but for
+
+170
+00:03:48,710 --> 00:03:48,720
+configuration properties. Okay, but for
+ 
+
+171
+00:03:48,720 --> 00:03:50,710
+configuration properties. Okay, but for
+now there is no difference in the
+
+172
+00:03:50,710 --> 00:03:50,720
+now there is no difference in the
+ 
+
+173
+00:03:50,720 --> 00:03:53,430
+now there is no difference in the
+behavior. If you want to use at the rate
+
+174
+00:03:53,430 --> 00:03:53,440
+behavior. If you want to use at the rate
+ 
+
+175
+00:03:53,440 --> 00:03:55,030
+behavior. If you want to use at the rate
+value, you can use it. You will also get
+
+176
+00:03:55,030 --> 00:03:55,040
+value, you can use it. You will also get
+ 
+
+177
+00:03:55,040 --> 00:03:57,670
+value, you can use it. You will also get
+the same output. If you want you can use
+
+178
+00:03:57,670 --> 00:03:57,680
+the same output. If you want you can use
+ 
+
+179
+00:03:57,680 --> 00:03:58,869
+the same output. If you want you can use
+this at the rate configuration
+
+180
+00:03:58,869 --> 00:03:58,879
+this at the rate configuration
+ 
+
+181
+00:03:58,879 --> 00:04:02,470
+this at the rate configuration
+properties also same output. Okay, the
+
+182
+00:04:02,470 --> 00:04:02,480
+properties also same output. Okay, the
+ 
+
+183
+00:04:02,480 --> 00:04:04,630
+properties also same output. Okay, the
+only thing is that inside this message
+
+184
+00:04:04,630 --> 00:04:04,640
+only thing is that inside this message
+ 
+
+185
+00:04:04,640 --> 00:04:08,949
+only thing is that inside this message
+field this property get mapped custom
+
+186
+00:04:08,949 --> 00:04:08,959
+field this property get mapped custom
+ 
+
+187
+00:04:08,959 --> 00:04:10,550
+field this property get mapped custom
+dot message within
+
+188
+00:04:10,550 --> 00:04:10,560
+dot message within
+ 
+
+189
+00:04:10,560 --> 00:04:11,990
+dot message within
+application.properties properties mapped
+
+190
+00:04:11,990 --> 00:04:12,000
+application.properties properties mapped
+ 
+
+191
+00:04:12,000 --> 00:04:13,990
+application.properties properties mapped
+to this field. Okay. And this is just
+
+192
+00:04:13,990 --> 00:04:14,000
+to this field. Okay. And this is just
+ 
+
+193
+00:04:14,000 --> 00:04:16,390
+to this field. Okay. And this is just
+nothing but a getter setter. And I'm
+
+194
+00:04:16,390 --> 00:04:16,400
+nothing but a getter setter. And I'm
+ 
+
+195
+00:04:16,400 --> 00:04:19,189
+nothing but a getter setter. And I'm
+using this order properties here. Auto
+
+196
+00:04:19,189 --> 00:04:19,199
+using this order properties here. Auto
+ 
+
+197
+00:04:19,199 --> 00:04:20,949
+using this order properties here. Auto
+add this.
+
+198
+00:04:20,949 --> 00:04:20,959
+add this.
+ 
+
+199
+00:04:20,959 --> 00:04:23,749
+add this.
+And now I am using this order property
+
+200
+00:04:23,749 --> 00:04:23,759
+And now I am using this order property
+ 
+
+201
+00:04:23,759 --> 00:04:26,150
+And now I am using this order property
+get message. Similarly earlier in the
+
+202
+00:04:26,150 --> 00:04:26,160
+get message. Similarly earlier in the
+ 
+
+203
+00:04:26,160 --> 00:04:27,909
+get message. Similarly earlier in the
+controller itself I have this add the
+
+204
+00:04:27,909 --> 00:04:27,919
+controller itself I have this add the
+ 
+
+205
+00:04:27,919 --> 00:04:30,790
+controller itself I have this add the
+rate value and using this. Now I since I
+
+206
+00:04:30,790 --> 00:04:30,800
+rate value and using this. Now I since I
+ 
+
+207
+00:04:30,800 --> 00:04:33,990
+rate value and using this. Now I since I
+have this separate class okay which is a
+
+208
+00:04:33,990 --> 00:04:34,000
+have this separate class okay which is a
+ 
+
+209
+00:04:34,000 --> 00:04:36,790
+have this separate class okay which is a
+pojo of the property. Now I have auto
+
+210
+00:04:36,790 --> 00:04:36,800
+pojo of the property. Now I have auto
+ 
+
+211
+00:04:36,800 --> 00:04:39,270
+pojo of the property. Now I have auto
+added and it uses this
+
+212
+00:04:39,270 --> 00:04:39,280
+added and it uses this
+ 
+
+213
+00:04:39,280 --> 00:04:42,390
+added and it uses this
+fetching the property like this right so
+
+214
+00:04:42,390 --> 00:04:42,400
+fetching the property like this right so
+ 
+
+215
+00:04:42,400 --> 00:04:44,870
+fetching the property like this right so
+everything mostly same like what we have
+
+216
+00:04:44,870 --> 00:04:44,880
+everything mostly same like what we have
+ 
+
+217
+00:04:44,880 --> 00:04:48,230
+everything mostly same like what we have
+done in previously now let's see now
+
+218
+00:04:48,230 --> 00:04:48,240
+done in previously now let's see now
+ 
+
+219
+00:04:48,240 --> 00:04:50,950
+done in previously now let's see now
+let's start all the server I started the
+
+220
+00:04:50,950 --> 00:04:50,960
+let's start all the server I started the
+ 
+
+221
+00:04:50,960 --> 00:04:52,950
+let's start all the server I started the
+config server and order server so my
+
+222
+00:04:52,950 --> 00:04:52,960
+config server and order server so my
+ 
+
+223
+00:04:52,960 --> 00:04:56,150
+config server and order server so my
+config server started at 8888 my order
+
+224
+00:04:56,150 --> 00:04:56,160
+config server started at 8888 my order
+ 
+
+225
+00:04:56,160 --> 00:04:58,870
+config server started at 8888 my order
+server is started at 80080
+
+226
+00:04:58,870 --> 00:04:58,880
+server is started at 80080
+ 
+
+227
+00:04:58,880 --> 00:05:03,270
+server is started at 80080
+so first thing I invoke is /order/fetch
+
+228
+00:05:03,270 --> 00:05:03,280
+so first thing I invoke is /order/fetch
+ 
+
+229
+00:05:03,280 --> 00:05:06,150
+so first thing I invoke is /order/fetch
+this controller /order
+
+230
+00:05:06,150 --> 00:05:06,160
+this controller /order
+ 
+
+231
+00:05:06,160 --> 00:05:09,590
+this controller /order
+/f fetch. So it will print fetch order
+
+232
+00:05:09,590 --> 00:05:09,600
+/f fetch. So it will print fetch order
+ 
+
+233
+00:05:09,600 --> 00:05:12,310
+/f fetch. So it will print fetch order
+and it will print the message of this
+
+234
+00:05:12,310 --> 00:05:12,320
+and it will print the message of this
+ 
+
+235
+00:05:12,320 --> 00:05:15,350
+and it will print the message of this
+property. So currently our environment
+
+236
+00:05:15,350 --> 00:05:15,360
+property. So currently our environment
+ 
+
+237
+00:05:15,360 --> 00:05:19,430
+property. So currently our environment
+is dev right. So it will fetch this
+
+238
+00:05:19,430 --> 00:05:19,440
+is dev right. So it will fetch this
+ 
+
+239
+00:05:19,440 --> 00:05:24,550
+is dev right. So it will fetch this
+property hello from order dev.
+
+240
+00:05:24,550 --> 00:05:24,560
+property hello from order dev.
+ 
+
+241
+00:05:24,560 --> 00:05:27,110
+property hello from order dev.
+So it will print
+
+242
+00:05:27,110 --> 00:05:27,120
+So it will print
+ 
+
+243
+00:05:27,120 --> 00:05:29,029
+So it will print
+hello from order dev and currently
+
+244
+00:05:29,029 --> 00:05:29,039
+hello from order dev and currently
+ 
+
+245
+00:05:29,039 --> 00:05:30,950
+hello from order dev and currently
+counter is one. We will also show you.
+
+246
+00:05:30,950 --> 00:05:30,960
+counter is one. We will also show you.
+ 
+
+247
+00:05:30,960 --> 00:05:33,590
+counter is one. We will also show you.
+So currently this counter value is of no
+
+248
+00:05:33,590 --> 00:05:33,600
+So currently this counter value is of no
+ 
+
+249
+00:05:33,600 --> 00:05:36,550
+So currently this counter value is of no
+use. I will show you like why I have
+
+250
+00:05:36,550 --> 00:05:36,560
+use. I will show you like why I have
+ 
+
+251
+00:05:36,560 --> 00:05:39,270
+use. I will show you like why I have
+added it. Okay. Again in the end when we
+
+252
+00:05:39,270 --> 00:05:39,280
+added it. Okay. Again in the end when we
+ 
+
+253
+00:05:39,280 --> 00:05:41,430
+added it. Okay. Again in the end when we
+will see the disadvantage. Okay. So
+
+254
+00:05:41,430 --> 00:05:41,440
+will see the disadvantage. Okay. So
+ 
+
+255
+00:05:41,440 --> 00:05:43,110
+will see the disadvantage. Okay. So
+currently this is just for you can say
+
+256
+00:05:43,110 --> 00:05:43,120
+currently this is just for you can say
+ 
+
+257
+00:05:43,120 --> 00:05:45,909
+currently this is just for you can say
+that uh no additional benefit here of
+
+258
+00:05:45,909 --> 00:05:45,919
+that uh no additional benefit here of
+ 
+
+259
+00:05:45,919 --> 00:05:48,070
+that uh no additional benefit here of
+adding the counter for now at this point
+
+260
+00:05:48,070 --> 00:05:48,080
+adding the counter for now at this point
+ 
+
+261
+00:05:48,080 --> 00:05:52,469
+adding the counter for now at this point
+of time. Okay. So
+
+262
+00:05:52,469 --> 00:05:52,479
+of time. Okay. So
+ 
+
+263
+00:05:52,479 --> 00:05:54,230
+of time. Okay. So
+first thing first here is that when we
+
+264
+00:05:54,230 --> 00:05:54,240
+first thing first here is that when we
+ 
+
+265
+00:05:54,240 --> 00:05:56,550
+first thing first here is that when we
+invoke the fetch endpoint we are able to
+
+266
+00:05:56,550 --> 00:05:56,560
+invoke the fetch endpoint we are able to
+ 
+
+267
+00:05:56,560 --> 00:05:59,110
+invoke the fetch endpoint we are able to
+see that it is properly fetching the pro
+
+268
+00:05:59,110 --> 00:05:59,120
+see that it is properly fetching the pro
+ 
+
+269
+00:05:59,120 --> 00:06:02,710
+see that it is properly fetching the pro
+uh properties from the central config.
+
+270
+00:06:02,710 --> 00:06:02,720
+uh properties from the central config.
+ 
+
+271
+00:06:02,720 --> 00:06:04,790
+uh properties from the central config.
+Okay. Now let's update the central
+
+272
+00:06:04,790 --> 00:06:04,800
+Okay. Now let's update the central
+ 
+
+273
+00:06:04,800 --> 00:06:07,749
+Okay. Now let's update the central
+config. Now I update this hello from
+
+274
+00:06:07,749 --> 00:06:07,759
+config. Now I update this hello from
+ 
+
+275
+00:06:07,759 --> 00:06:10,230
+config. Now I update this hello from
+order dev to hello from order. This is
+
+276
+00:06:10,230 --> 00:06:10,240
+order dev to hello from order. This is
+ 
+
+277
+00:06:10,240 --> 00:06:11,749
+order dev to hello from order. This is
+updated.
+
+278
+00:06:11,749 --> 00:06:11,759
+updated.
+ 
+
+279
+00:06:11,759 --> 00:06:15,270
+updated.
+So I change this message value.
+
+280
+00:06:15,270 --> 00:06:15,280
+So I change this message value.
+ 
+
+281
+00:06:15,280 --> 00:06:18,390
+So I change this message value.
+Now let's hit the order API again. I
+
+282
+00:06:18,390 --> 00:06:18,400
+Now let's hit the order API again. I
+ 
+
+283
+00:06:18,400 --> 00:06:20,790
+Now let's hit the order API again. I
+called /order/fetch.
+
+284
+00:06:20,790 --> 00:06:20,800
+called /order/fetch.
+ 
+
+285
+00:06:20,800 --> 00:06:23,029
+called /order/fetch.
+What you see
+
+286
+00:06:23,029 --> 00:06:23,039
+What you see
+ 
+
+287
+00:06:23,039 --> 00:06:25,189
+What you see
+fetch order and message hello from order
+
+288
+00:06:25,189 --> 00:06:25,199
+fetch order and message hello from order
+ 
+
+289
+00:06:25,199 --> 00:06:27,510
+fetch order and message hello from order
+tab old only. It's reading the old
+
+290
+00:06:27,510 --> 00:06:27,520
+tab old only. It's reading the old
+ 
+
+291
+00:06:27,520 --> 00:06:30,070
+tab old only. It's reading the old
+property value only. even though the
+
+292
+00:06:30,070 --> 00:06:30,080
+property value only. even though the
+ 
+
+293
+00:06:30,080 --> 00:06:33,590
+property value only. even though the
+property value is changed in the central
+
+294
+00:06:33,590 --> 00:06:33,600
+property value is changed in the central
+ 
+
+295
+00:06:33,600 --> 00:06:36,150
+property value is changed in the central
+config repo.
+
+296
+00:06:36,150 --> 00:06:36,160
+config repo.
+ 
+
+297
+00:06:36,160 --> 00:06:37,670
+config repo.
+Okay.
+
+298
+00:06:37,670 --> 00:06:37,680
+Okay.
+ 
+
+299
+00:06:37,680 --> 00:06:39,590
+Okay.
+So this is the problem we are talking
+
+300
+00:06:39,590 --> 00:06:39,600
+So this is the problem we are talking
+ 
+
+301
+00:06:39,600 --> 00:06:42,469
+So this is the problem we are talking
+about until and unless you won't restart
+
+302
+00:06:42,469 --> 00:06:42,479
+about until and unless you won't restart
+ 
+
+303
+00:06:42,479 --> 00:06:45,590
+about until and unless you won't restart
+the order service again you will see
+
+304
+00:06:45,590 --> 00:06:45,600
+the order service again you will see
+ 
+
+305
+00:06:45,600 --> 00:06:48,950
+the order service again you will see
+only the old value only. So how we can
+
+306
+00:06:48,950 --> 00:06:48,960
+only the old value only. So how we can
+ 
+
+307
+00:06:48,960 --> 00:06:52,870
+only the old value only. So how we can
+resolve it? Refresh scope can help to
+
+308
+00:06:52,870 --> 00:06:52,880
+resolve it? Refresh scope can help to
+ 
+
+309
+00:06:52,880 --> 00:06:57,110
+resolve it? Refresh scope can help to
+solve this. So what refresh scope does?
+
+310
+00:06:57,110 --> 00:06:57,120
+solve this. So what refresh scope does?
+ 
+
+311
+00:06:57,120 --> 00:06:59,270
+solve this. So what refresh scope does?
+So this annotation
+
+312
+00:06:59,270 --> 00:06:59,280
+So this annotation
+ 
+
+313
+00:06:59,280 --> 00:07:03,189
+So this annotation
+help to mark the bean which need to be
+
+314
+00:07:03,189 --> 00:07:03,199
+help to mark the bean which need to be
+ 
+
+315
+00:07:03,199 --> 00:07:06,230
+help to mark the bean which need to be
+destroyed and recreated or you can say
+
+316
+00:07:06,230 --> 00:07:06,240
+destroyed and recreated or you can say
+ 
+
+317
+00:07:06,240 --> 00:07:10,070
+destroyed and recreated or you can say
+that which need to be
+
+318
+00:07:10,070 --> 00:07:10,080
+that which need to be
+ 
+
+319
+00:07:10,080 --> 00:07:12,230
+that which need to be
+dynamically
+
+320
+00:07:12,230 --> 00:07:12,240
+dynamically
+ 
+
+321
+00:07:12,240 --> 00:07:14,309
+dynamically
+refreshed. So when we are saying that
+
+322
+00:07:14,309 --> 00:07:14,319
+refreshed. So when we are saying that
+ 
+
+323
+00:07:14,319 --> 00:07:19,270
+refreshed. So when we are saying that
+hey it's refreshed actually it is doing
+
+324
+00:07:19,270 --> 00:07:19,280
+hey it's refreshed actually it is doing
+ 
+
+325
+00:07:19,280 --> 00:07:22,390
+hey it's refreshed actually it is doing
+two things. it is first destroy the bean
+
+326
+00:07:22,390 --> 00:07:22,400
+two things. it is first destroy the bean
+ 
+
+327
+00:07:22,400 --> 00:07:25,990
+two things. it is first destroy the bean
+and it create a new bean okay with the
+
+328
+00:07:25,990 --> 00:07:26,000
+and it create a new bean okay with the
+ 
+
+329
+00:07:26,000 --> 00:07:28,230
+and it create a new bean okay with the
+latest value.
+
+330
+00:07:28,230 --> 00:07:28,240
+latest value.
+ 
+
+331
+00:07:28,240 --> 00:07:31,350
+latest value.
+So now see this example
+
+332
+00:07:31,350 --> 00:07:31,360
+So now see this example
+ 
+
+333
+00:07:31,360 --> 00:07:33,670
+So now see this example
+in the order properties right where I
+
+334
+00:07:33,670 --> 00:07:33,680
+in the order properties right where I
+ 
+
+335
+00:07:33,680 --> 00:07:35,830
+in the order properties right where I
+have the configuration. So this is my
+
+336
+00:07:35,830 --> 00:07:35,840
+have the configuration. So this is my
+ 
+
+337
+00:07:35,840 --> 00:07:39,510
+have the configuration. So this is my
+actually the property custom
+
+338
+00:07:39,510 --> 00:07:39,520
+actually the property custom
+ 
+
+339
+00:07:39,520 --> 00:07:41,270
+actually the property custom
+dot
+
+340
+00:07:41,270 --> 00:07:41,280
+dot
+ 
+
+341
+00:07:41,280 --> 00:07:43,670
+dot
+message. This is the property right
+
+342
+00:07:43,670 --> 00:07:43,680
+message. This is the property right
+ 
+
+343
+00:07:43,680 --> 00:07:45,510
+message. This is the property right
+custom dot message. So custom dot
+
+344
+00:07:45,510 --> 00:07:45,520
+custom dot message. So custom dot
+ 
+
+345
+00:07:45,520 --> 00:07:47,350
+custom dot message. So custom dot
+message will get ultimately mapped to
+
+346
+00:07:47,350 --> 00:07:47,360
+message will get ultimately mapped to
+ 
+
+347
+00:07:47,360 --> 00:07:50,469
+message will get ultimately mapped to
+this field. Okay. So now and this is a
+
+348
+00:07:50,469 --> 00:07:50,479
+this field. Okay. So now and this is a
+ 
+
+349
+00:07:50,479 --> 00:07:53,270
+this field. Okay. So now and this is a
+bean at the rate component. So now I
+
+350
+00:07:53,270 --> 00:07:53,280
+bean at the rate component. So now I
+ 
+
+351
+00:07:53,280 --> 00:07:55,749
+bean at the rate component. So now I
+have marked at the rate refresh scope
+
+352
+00:07:55,749 --> 00:07:55,759
+have marked at the rate refresh scope
+ 
+
+353
+00:07:55,759 --> 00:07:58,550
+have marked at the rate refresh scope
+here. So when I use add the rate refresh
+
+354
+00:07:58,550 --> 00:07:58,560
+here. So when I use add the rate refresh
+ 
+
+355
+00:07:58,560 --> 00:08:02,070
+here. So when I use add the rate refresh
+scope over this bean I am telling a
+
+356
+00:08:02,070 --> 00:08:02,080
+scope over this bean I am telling a
+ 
+
+357
+00:08:02,080 --> 00:08:04,309
+scope over this bean I am telling a
+spring boot that
+
+358
+00:08:04,309 --> 00:08:04,319
+spring boot that
+ 
+
+359
+00:08:04,319 --> 00:08:06,550
+spring boot that
+this bean
+
+360
+00:08:06,550 --> 00:08:06,560
+this bean
+ 
+
+361
+00:08:06,560 --> 00:08:08,790
+this bean
+add uh order properties say in this
+
+362
+00:08:08,790 --> 00:08:08,800
+add uh order properties say in this
+ 
+
+363
+00:08:08,800 --> 00:08:12,869
+add uh order properties say in this
+scenario I am allowing it to dynamically
+
+364
+00:08:12,869 --> 00:08:12,879
+scenario I am allowing it to dynamically
+ 
+
+365
+00:08:12,879 --> 00:08:14,790
+scenario I am allowing it to dynamically
+refresh.
+
+366
+00:08:14,790 --> 00:08:14,800
+refresh.
+ 
+
+367
+00:08:14,800 --> 00:08:18,150
+refresh.
+Okay. And dynamically refresh means
+
+368
+00:08:18,150 --> 00:08:18,160
+Okay. And dynamically refresh means
+ 
+
+369
+00:08:18,160 --> 00:08:21,270
+Okay. And dynamically refresh means
+whenever the refresh happens, it will
+
+370
+00:08:21,270 --> 00:08:21,280
+whenever the refresh happens, it will
+ 
+
+371
+00:08:21,280 --> 00:08:23,990
+whenever the refresh happens, it will
+destroy the bean first, old bean first
+
+372
+00:08:23,990 --> 00:08:24,000
+destroy the bean first, old bean first
+ 
+
+373
+00:08:24,000 --> 00:08:27,110
+destroy the bean first, old bean first
+and it will recreate a new one with the
+
+374
+00:08:27,110 --> 00:08:27,120
+and it will recreate a new one with the
+ 
+
+375
+00:08:27,120 --> 00:08:29,589
+and it will recreate a new one with the
+latest value.
+
+376
+00:08:29,589 --> 00:08:29,599
+latest value.
+ 
+
+377
+00:08:29,599 --> 00:08:33,269
+latest value.
+Okay, and how that refresh will happen.
+
+378
+00:08:33,269 --> 00:08:33,279
+Okay, and how that refresh will happen.
+ 
+
+379
+00:08:33,279 --> 00:08:36,949
+Okay, and how that refresh will happen.
+Okay, it will happen
+
+380
+00:08:36,949 --> 00:08:36,959
+Okay, it will happen
+ 
+
+381
+00:08:36,959 --> 00:08:42,149
+Okay, it will happen
+one way is through actuator.
+
+382
+00:08:42,149 --> 00:08:42,159
+
+ 
+
+383
+00:08:42,159 --> 00:08:44,630
+
+Okay. So if you have not seen the
+
+384
+00:08:44,630 --> 00:08:44,640
+Okay. So if you have not seen the
+ 
+
+385
+00:08:44,640 --> 00:08:47,670
+Okay. So if you have not seen the
+actuator video before, kindly check it
+
+386
+00:08:47,670 --> 00:08:47,680
+actuator video before, kindly check it
+ 
+
+387
+00:08:47,680 --> 00:08:50,550
+actuator video before, kindly check it
+out because
+
+388
+00:08:50,550 --> 00:08:50,560
+out because
+ 
+
+389
+00:08:50,560 --> 00:08:52,870
+out because
+this approach which I'm going to tell
+
+390
+00:08:52,870 --> 00:08:52,880
+this approach which I'm going to tell
+ 
+
+391
+00:08:52,880 --> 00:08:57,030
+this approach which I'm going to tell
+you is use this actuator functionality.
+
+392
+00:08:57,030 --> 00:08:57,040
+you is use this actuator functionality.
+ 
+
+393
+00:08:57,040 --> 00:08:59,590
+you is use this actuator functionality.
+So here if you remember if you recall
+
+394
+00:08:59,590 --> 00:08:59,600
+So here if you remember if you recall
+ 
+
+395
+00:08:59,600 --> 00:09:01,750
+So here if you remember if you recall
+from the actuator video there is
+
+396
+00:09:01,750 --> 00:09:01,760
+from the actuator video there is
+ 
+
+397
+00:09:01,760 --> 00:09:03,350
+from the actuator video there is
+something called custom actuator
+
+398
+00:09:03,350 --> 00:09:03,360
+something called custom actuator
+ 
+
+399
+00:09:03,360 --> 00:09:06,070
+something called custom actuator
+endpoint like we can create our custom
+
+400
+00:09:06,070 --> 00:09:06,080
+endpoint like we can create our custom
+ 
+
+401
+00:09:06,080 --> 00:09:08,070
+endpoint like we can create our custom
+endpoint through at the rate endpoint
+
+402
+00:09:08,070 --> 00:09:08,080
+endpoint through at the rate endpoint
+ 
+
+403
+00:09:08,080 --> 00:09:11,590
+endpoint through at the rate endpoint
+annotation. Okay. So the same thing
+
+404
+00:09:11,590 --> 00:09:11,600
+annotation. Okay. So the same thing
+ 
+
+405
+00:09:11,600 --> 00:09:13,829
+annotation. Okay. So the same thing
+spring cloud config has been used. So
+
+406
+00:09:13,829 --> 00:09:13,839
+spring cloud config has been used. So
+ 
+
+407
+00:09:13,839 --> 00:09:16,150
+spring cloud config has been used. So
+spring cloud config has used this
+
+408
+00:09:16,150 --> 00:09:16,160
+spring cloud config has used this
+ 
+
+409
+00:09:16,160 --> 00:09:18,790
+spring cloud config has used this
+property uh at the rate endpoint. So
+
+410
+00:09:18,790 --> 00:09:18,800
+property uh at the rate endpoint. So
+ 
+
+411
+00:09:18,800 --> 00:09:20,310
+property uh at the rate endpoint. So
+here if you see this is the framework
+
+412
+00:09:20,310 --> 00:09:20,320
+here if you see this is the framework
+ 
+
+413
+00:09:20,320 --> 00:09:23,350
+here if you see this is the framework
+code of the spring cloud config. So they
+
+414
+00:09:23,350 --> 00:09:23,360
+code of the spring cloud config. So they
+ 
+
+415
+00:09:23,360 --> 00:09:26,070
+code of the spring cloud config. So they
+have a class refresh endpoint and they
+
+416
+00:09:26,070 --> 00:09:26,080
+have a class refresh endpoint and they
+ 
+
+417
+00:09:26,080 --> 00:09:28,790
+have a class refresh endpoint and they
+have used this at the rate endpoint
+
+418
+00:09:28,790 --> 00:09:28,800
+have used this at the rate endpoint
+ 
+
+419
+00:09:28,800 --> 00:09:31,269
+have used this at the rate endpoint
+refresh. So means they have exposed one
+
+420
+00:09:31,269 --> 00:09:31,279
+refresh. So means they have exposed one
+ 
+
+421
+00:09:31,279 --> 00:09:34,389
+refresh. So means they have exposed one
+endpoint slash activuator
+
+422
+00:09:34,389 --> 00:09:34,399
+endpoint slash activuator
+ 
+
+423
+00:09:34,399 --> 00:09:36,470
+endpoint slash activuator
+/ refresh
+
+424
+00:09:36,470 --> 00:09:36,480
+/ refresh
+ 
+
+425
+00:09:36,480 --> 00:09:39,110
+/ refresh
+and internally here if you see they have
+
+426
+00:09:39,110 --> 00:09:39,120
+and internally here if you see they have
+ 
+
+427
+00:09:39,120 --> 00:09:41,030
+and internally here if you see they have
+one write operation. So I told you right
+
+428
+00:09:41,030 --> 00:09:41,040
+one write operation. So I told you right
+ 
+
+429
+00:09:41,040 --> 00:09:42,389
+one write operation. So I told you right
+we have already seen that in the
+
+430
+00:09:42,389 --> 00:09:42,399
+we have already seen that in the
+ 
+
+431
+00:09:42,399 --> 00:09:44,310
+we have already seen that in the
+actuator what's right operation? So it's
+
+432
+00:09:44,310 --> 00:09:44,320
+actuator what's right operation? So it's
+ 
+
+433
+00:09:44,320 --> 00:09:48,630
+actuator what's right operation? So it's
+a post kind of an endpoint. Okay. So
+
+434
+00:09:48,630 --> 00:09:48,640
+a post kind of an endpoint. Okay. So
+ 
+
+435
+00:09:48,640 --> 00:09:51,269
+a post kind of an endpoint. Okay. So
+when with it is called with the post
+
+436
+00:09:51,269 --> 00:09:51,279
+when with it is called with the post
+ 
+
+437
+00:09:51,279 --> 00:09:53,509
+when with it is called with the post
+this method will get invoked and what it
+
+438
+00:09:53,509 --> 00:09:53,519
+this method will get invoked and what it
+ 
+
+439
+00:09:53,519 --> 00:09:57,430
+this method will get invoked and what it
+does it try to refresh. So it has logic
+
+440
+00:09:57,430 --> 00:09:57,440
+does it try to refresh. So it has logic
+ 
+
+441
+00:09:57,440 --> 00:10:01,030
+does it try to refresh. So it has logic
+that if it is running
+
+442
+00:10:01,030 --> 00:10:01,040
+that if it is running
+ 
+
+443
+00:10:01,040 --> 00:10:03,590
+that if it is running
+within a config server
+
+444
+00:10:03,590 --> 00:10:03,600
+within a config server
+ 
+
+445
+00:10:03,600 --> 00:10:05,430
+within a config server
+then it fetch the property from the
+
+446
+00:10:05,430 --> 00:10:05,440
+then it fetch the property from the
+ 
+
+447
+00:10:05,440 --> 00:10:09,750
+then it fetch the property from the
+central config. If this refresh endpoint
+
+448
+00:10:09,750 --> 00:10:09,760
+central config. If this refresh endpoint
+ 
+
+449
+00:10:09,760 --> 00:10:12,150
+central config. If this refresh endpoint
+which has been invoked if this is
+
+450
+00:10:12,150 --> 00:10:12,160
+which has been invoked if this is
+ 
+
+451
+00:10:12,160 --> 00:10:13,750
+which has been invoked if this is
+running inside a config client like
+
+452
+00:10:13,750 --> 00:10:13,760
+running inside a config client like
+ 
+
+453
+00:10:13,760 --> 00:10:16,150
+running inside a config client like
+order service it will do two thing. It
+
+454
+00:10:16,150 --> 00:10:16,160
+order service it will do two thing. It
+ 
+
+455
+00:10:16,160 --> 00:10:19,110
+order service it will do two thing. It
+will first invoke the config server,
+
+456
+00:10:19,110 --> 00:10:19,120
+will first invoke the config server,
+ 
+
+457
+00:10:19,120 --> 00:10:22,150
+will first invoke the config server,
+fetch the property and then look for at
+
+458
+00:10:22,150 --> 00:10:22,160
+fetch the property and then look for at
+ 
+
+459
+00:10:22,160 --> 00:10:24,870
+fetch the property and then look for at
+the rate refresh scope
+
+460
+00:10:24,870 --> 00:10:24,880
+the rate refresh scope
+ 
+
+461
+00:10:24,880 --> 00:10:28,150
+the rate refresh scope
+beans. Okay. And then recreate them with
+
+462
+00:10:28,150 --> 00:10:28,160
+beans. Okay. And then recreate them with
+ 
+
+463
+00:10:28,160 --> 00:10:30,630
+beans. Okay. And then recreate them with
+the fresh property value.
+
+464
+00:10:30,630 --> 00:10:30,640
+the fresh property value.
+ 
+
+465
+00:10:30,640 --> 00:10:32,710
+the fresh property value.
+Okay. So you can say that the it depend
+
+466
+00:10:32,710 --> 00:10:32,720
+Okay. So you can say that the it depend
+ 
+
+467
+00:10:32,720 --> 00:10:35,430
+Okay. So you can say that the it depend
+on the context where we are invoking
+
+468
+00:10:35,430 --> 00:10:35,440
+on the context where we are invoking
+ 
+
+469
+00:10:35,440 --> 00:10:37,910
+on the context where we are invoking
+this endpoint. If you are invoking this
+
+470
+00:10:37,910 --> 00:10:37,920
+this endpoint. If you are invoking this
+ 
+
+471
+00:10:37,920 --> 00:10:41,269
+this endpoint. If you are invoking this
+endpoint at config server then config
+
+472
+00:10:41,269 --> 00:10:41,279
+endpoint at config server then config
+ 
+
+473
+00:10:41,279 --> 00:10:43,910
+endpoint at config server then config
+server task is to fetch the it will do
+
+474
+00:10:43,910 --> 00:10:43,920
+server task is to fetch the it will do
+ 
+
+475
+00:10:43,920 --> 00:10:45,990
+server task is to fetch the it will do
+refresh is like fetch it from the
+
+476
+00:10:45,990 --> 00:10:46,000
+refresh is like fetch it from the
+ 
+
+477
+00:10:46,000 --> 00:10:48,630
+refresh is like fetch it from the
+central config and if you are invoking
+
+478
+00:10:48,630 --> 00:10:48,640
+central config and if you are invoking
+ 
+
+479
+00:10:48,640 --> 00:10:53,509
+central config and if you are invoking
+this endpoint in the client like order
+
+480
+00:10:53,509 --> 00:10:53,519
+this endpoint in the client like order
+ 
+
+481
+00:10:53,519 --> 00:10:56,790
+this endpoint in the client like order
+it will call server config server first
+
+482
+00:10:56,790 --> 00:10:56,800
+it will call server config server first
+ 
+
+483
+00:10:56,800 --> 00:11:00,710
+it will call server config server first
+f the endpoint and then all the beans
+
+484
+00:11:00,710 --> 00:11:00,720
+f the endpoint and then all the beans
+ 
+
+485
+00:11:00,720 --> 00:11:03,509
+f the endpoint and then all the beans
+which are marked with refresh scope it
+
+486
+00:11:03,509 --> 00:11:03,519
+which are marked with refresh scope it
+ 
+
+487
+00:11:03,519 --> 00:11:07,509
+which are marked with refresh scope it
+will recreate them that it will
+
+488
+00:11:07,509 --> 00:11:07,519
+will recreate them that it will
+ 
+
+489
+00:11:07,519 --> 00:11:11,110
+will recreate them that it will
+Okay. So quickly
+
+490
+00:11:11,110 --> 00:11:11,120
+Okay. So quickly
+ 
+
+491
+00:11:11,120 --> 00:11:13,990
+Okay. So quickly
+again is that at the red refresh scope
+
+492
+00:11:13,990 --> 00:11:14,000
+again is that at the red refresh scope
+ 
+
+493
+00:11:14,000 --> 00:11:16,710
+again is that at the red refresh scope
+only task is to mark the bean which need
+
+494
+00:11:16,710 --> 00:11:16,720
+only task is to mark the bean which need
+ 
+
+495
+00:11:16,720 --> 00:11:18,710
+only task is to mark the bean which need
+to be dynamically refreshed or
+
+496
+00:11:18,710 --> 00:11:18,720
+to be dynamically refreshed or
+ 
+
+497
+00:11:18,720 --> 00:11:20,710
+to be dynamically refreshed or
+dynamically refreshed means the old bean
+
+498
+00:11:20,710 --> 00:11:20,720
+dynamically refreshed means the old bean
+ 
+
+499
+00:11:20,720 --> 00:11:23,350
+dynamically refreshed means the old bean
+will get destroyed and new bean will get
+
+500
+00:11:23,350 --> 00:11:23,360
+will get destroyed and new bean will get
+ 
+
+501
+00:11:23,360 --> 00:11:28,550
+will get destroyed and new bean will get
+created with the latest value. Okay. And
+
+502
+00:11:28,550 --> 00:11:28,560
+created with the latest value. Okay. And
+ 
+
+503
+00:11:28,560 --> 00:11:31,190
+created with the latest value. Okay. And
+when when it when the dynamic refresh
+
+504
+00:11:31,190 --> 00:11:31,200
+when when it when the dynamic refresh
+ 
+
+505
+00:11:31,200 --> 00:11:34,470
+when when it when the dynamic refresh
+will happen. Okay.
+
+506
+00:11:34,470 --> 00:11:34,480
+will happen. Okay.
+ 
+
+507
+00:11:34,480 --> 00:11:36,790
+will happen. Okay.
+some refresh event has to be happen and
+
+508
+00:11:36,790 --> 00:11:36,800
+some refresh event has to be happen and
+ 
+
+509
+00:11:36,800 --> 00:11:39,269
+some refresh event has to be happen and
+when that refresh event will happen we
+
+510
+00:11:39,269 --> 00:11:39,279
+when that refresh event will happen we
+ 
+
+511
+00:11:39,279 --> 00:11:41,829
+when that refresh event will happen we
+have to invoke an endpoint in case we
+
+512
+00:11:41,829 --> 00:11:41,839
+have to invoke an endpoint in case we
+ 
+
+513
+00:11:41,839 --> 00:11:45,269
+have to invoke an endpoint in case we
+are using the actuator approach.
+
+514
+00:11:45,269 --> 00:11:45,279
+are using the actuator approach.
+ 
+
+515
+00:11:45,279 --> 00:11:49,269
+are using the actuator approach.
+Okay. And which endpoint actuator
+
+516
+00:11:49,269 --> 00:11:49,279
+Okay. And which endpoint actuator
+ 
+
+517
+00:11:49,279 --> 00:11:51,670
+Okay. And which endpoint actuator
+exposes? So spring cloud config has
+
+518
+00:11:51,670 --> 00:11:51,680
+exposes? So spring cloud config has
+ 
+
+519
+00:11:51,680 --> 00:11:54,790
+exposes? So spring cloud config has
+exposed this /actuator/refresh
+
+520
+00:11:54,790 --> 00:11:54,800
+exposed this /actuator/refresh
+ 
+
+521
+00:11:54,800 --> 00:11:57,590
+exposed this /actuator/refresh
+and it does the
+
+522
+00:11:57,590 --> 00:11:57,600
+and it does the
+ 
+
+523
+00:11:57,600 --> 00:11:59,590
+and it does the
+refresh or you can say that it creates a
+
+524
+00:11:59,590 --> 00:11:59,600
+refresh or you can say that it creates a
+ 
+
+525
+00:11:59,600 --> 00:12:01,829
+refresh or you can say that it creates a
+refresh event. If the refresh event
+
+526
+00:12:01,829 --> 00:12:01,839
+refresh event. If the refresh event
+ 
+
+527
+00:12:01,839 --> 00:12:04,870
+refresh event. If the refresh event
+happens within a config server,
+
+528
+00:12:04,870 --> 00:12:04,880
+happens within a config server,
+ 
+
+529
+00:12:04,880 --> 00:12:06,790
+happens within a config server,
+you know that config server task is to
+
+530
+00:12:06,790 --> 00:12:06,800
+you know that config server task is to
+ 
+
+531
+00:12:06,800 --> 00:12:10,310
+you know that config server task is to
+fetch from the
+
+532
+00:12:10,310 --> 00:12:10,320
+fetch from the
+ 
+
+533
+00:12:10,320 --> 00:12:12,949
+fetch from the
+here we can see that config server task
+
+534
+00:12:12,949 --> 00:12:12,959
+here we can see that config server task
+ 
+
+535
+00:12:12,959 --> 00:12:15,430
+here we can see that config server task
+is to fetch from the central config. So
+
+536
+00:12:15,430 --> 00:12:15,440
+is to fetch from the central config. So
+ 
+
+537
+00:12:15,440 --> 00:12:17,509
+is to fetch from the central config. So
+that refresh will do. If you are
+
+538
+00:12:17,509 --> 00:12:17,519
+that refresh will do. If you are
+ 
+
+539
+00:12:17,519 --> 00:12:19,509
+that refresh will do. If you are
+invoking the refresh at order service it
+
+540
+00:12:19,509 --> 00:12:19,519
+invoking the refresh at order service it
+ 
+
+541
+00:12:19,519 --> 00:12:22,150
+invoking the refresh at order service it
+task is to call the config server fetch
+
+542
+00:12:22,150 --> 00:12:22,160
+task is to call the config server fetch
+ 
+
+543
+00:12:22,160 --> 00:12:24,069
+task is to call the config server fetch
+it and all the beans which are marked
+
+544
+00:12:24,069 --> 00:12:24,079
+it and all the beans which are marked
+ 
+
+545
+00:12:24,079 --> 00:12:26,710
+it and all the beans which are marked
+with at the rate refresh scope delete it
+
+546
+00:12:26,710 --> 00:12:26,720
+with at the rate refresh scope delete it
+ 
+
+547
+00:12:26,720 --> 00:12:29,269
+with at the rate refresh scope delete it
+and create a new one.
+
+548
+00:12:29,269 --> 00:12:29,279
+and create a new one.
+ 
+
+549
+00:12:29,279 --> 00:12:35,590
+and create a new one.
+Let's see that here now with an example.
+
+550
+00:12:35,590 --> 00:12:35,600
+
+ 
+
+551
+00:12:35,600 --> 00:12:38,150
+
+Okay.
+
+552
+00:12:38,150 --> 00:12:38,160
+Okay.
+ 
+
+553
+00:12:38,160 --> 00:12:40,629
+Okay.
+Now what to do that? All we need to do
+
+554
+00:12:40,629 --> 00:12:40,639
+Now what to do that? All we need to do
+ 
+
+555
+00:12:40,639 --> 00:12:44,069
+Now what to do that? All we need to do
+is add the actuator dependency.
+
+556
+00:12:44,069 --> 00:12:44,079
+is add the actuator dependency.
+ 
+
+557
+00:12:44,079 --> 00:12:46,550
+is add the actuator dependency.
+So in config server we have to add an
+
+558
+00:12:46,550 --> 00:12:46,560
+So in config server we have to add an
+ 
+
+559
+00:12:46,560 --> 00:12:48,790
+So in config server we have to add an
+actuator dependency. So in the C we have
+
+560
+00:12:48,790 --> 00:12:48,800
+actuator dependency. So in the C we have
+ 
+
+561
+00:12:48,800 --> 00:12:50,550
+actuator dependency. So in the C we have
+already seen that pom we have already
+
+562
+00:12:50,550 --> 00:12:50,560
+already seen that pom we have already
+ 
+
+563
+00:12:50,560 --> 00:12:53,110
+already seen that pom we have already
+have the config server dependency. All
+
+564
+00:12:53,110 --> 00:12:53,120
+have the config server dependency. All
+ 
+
+565
+00:12:53,120 --> 00:12:56,069
+have the config server dependency. All
+we are adding is actuator dependency.
+
+566
+00:12:56,069 --> 00:12:56,079
+we are adding is actuator dependency.
+ 
+
+567
+00:12:56,079 --> 00:12:58,710
+we are adding is actuator dependency.
+Okay. And uh you know that from the
+
+568
+00:12:58,710 --> 00:12:58,720
+Okay. And uh you know that from the
+ 
+
+569
+00:12:58,720 --> 00:13:00,870
+Okay. And uh you know that from the
+actuator video whenever there is an
+
+570
+00:13:00,870 --> 00:13:00,880
+actuator video whenever there is an
+ 
+
+571
+00:13:00,880 --> 00:13:03,750
+actuator video whenever there is an
+endpoint we have to expose it. If you
+
+572
+00:13:03,750 --> 00:13:03,760
+endpoint we have to expose it. If you
+ 
+
+573
+00:13:03,760 --> 00:13:05,750
+endpoint we have to expose it. If you
+are trying if you are planning to use
+
+574
+00:13:05,750 --> 00:13:05,760
+are trying if you are planning to use
+ 
+
+575
+00:13:05,760 --> 00:13:07,670
+are trying if you are planning to use
+any actuator endpoint we have to expose
+
+576
+00:13:07,670 --> 00:13:07,680
+any actuator endpoint we have to expose
+ 
+
+577
+00:13:07,680 --> 00:13:09,670
+any actuator endpoint we have to expose
+it. So I'm just exposing it.
+
+578
+00:13:09,670 --> 00:13:09,680
+it. So I'm just exposing it.
+ 
+
+579
+00:13:09,680 --> 00:13:11,990
+it. So I'm just exposing it.
+Management.end endpoint. web this
+
+580
+00:13:11,990 --> 00:13:12,000
+Management.end endpoint. web this
+ 
+
+581
+00:13:12,000 --> 00:13:15,110
+Management.end endpoint. web this
+endpoint I have to expose. Refresh.
+
+582
+00:13:15,110 --> 00:13:15,120
+endpoint I have to expose. Refresh.
+ 
+
+583
+00:13:15,120 --> 00:13:18,470
+endpoint I have to expose. Refresh.
+Okay. You might be thinking what I'm
+
+584
+00:13:18,470 --> 00:13:18,480
+Okay. You might be thinking what I'm
+ 
+
+585
+00:13:18,480 --> 00:13:21,030
+Okay. You might be thinking what I'm
+doing here why I'm going fast because we
+
+586
+00:13:21,030 --> 00:13:21,040
+doing here why I'm going fast because we
+ 
+
+587
+00:13:21,040 --> 00:13:23,269
+doing here why I'm going fast because we
+have already seen this in the actuator
+
+588
+00:13:23,269 --> 00:13:23,279
+have already seen this in the actuator
+ 
+
+589
+00:13:23,279 --> 00:13:27,590
+have already seen this in the actuator
+video. Everything is same. Okay. So we
+
+590
+00:13:27,590 --> 00:13:27,600
+video. Everything is same. Okay. So we
+ 
+
+591
+00:13:27,600 --> 00:13:32,310
+video. Everything is same. Okay. So we
+are just exposing the refresh endpoint.
+
+592
+00:13:32,310 --> 00:13:32,320
+are just exposing the refresh endpoint.
+ 
+
+593
+00:13:32,320 --> 00:13:34,389
+are just exposing the refresh endpoint.
+Okay. That's all we have to do in the
+
+594
+00:13:34,389 --> 00:13:34,399
+Okay. That's all we have to do in the
+ 
+
+595
+00:13:34,399 --> 00:13:36,710
+Okay. That's all we have to do in the
+config server. Similarly in the order
+
+596
+00:13:36,710 --> 00:13:36,720
+config server. Similarly in the order
+ 
+
+597
+00:13:36,720 --> 00:13:40,710
+config server. Similarly in the order
+micros service we already have the
+
+598
+00:13:40,710 --> 00:13:40,720
+micros service we already have the
+ 
+
+599
+00:13:40,720 --> 00:13:43,350
+micros service we already have the
+dependency for the config client. All we
+
+600
+00:13:43,350 --> 00:13:43,360
+dependency for the config client. All we
+ 
+
+601
+00:13:43,360 --> 00:13:44,790
+dependency for the config client. All we
+have to add is dependency for the
+
+602
+00:13:44,790 --> 00:13:44,800
+have to add is dependency for the
+ 
+
+603
+00:13:44,800 --> 00:13:48,470
+have to add is dependency for the
+actuator and also we have to expose the
+
+604
+00:13:48,470 --> 00:13:48,480
+actuator and also we have to expose the
+ 
+
+605
+00:13:48,480 --> 00:13:50,310
+actuator and also we have to expose the
+refresh endpoint because we are going to
+
+606
+00:13:50,310 --> 00:13:50,320
+refresh endpoint because we are going to
+ 
+
+607
+00:13:50,320 --> 00:13:54,629
+refresh endpoint because we are going to
+invoke /actuator/ refresh here also.
+
+608
+00:13:54,629 --> 00:13:54,639
+invoke /actuator/ refresh here also.
+ 
+
+609
+00:13:54,639 --> 00:13:58,389
+invoke /actuator/ refresh here also.
+Okay. And here
+
+610
+00:13:58,389 --> 00:13:58,399
+Okay. And here
+ 
+
+611
+00:13:58,399 --> 00:14:01,509
+Okay. And here
+I mark the bean which I need to
+
+612
+00:14:01,509 --> 00:14:01,519
+I mark the bean which I need to
+ 
+
+613
+00:14:01,519 --> 00:14:04,389
+I mark the bean which I need to
+dynamically refresh. So here this order
+
+614
+00:14:04,389 --> 00:14:04,399
+dynamically refresh. So here this order
+ 
+
+615
+00:14:04,399 --> 00:14:06,710
+dynamically refresh. So here this order
+property bean
+
+616
+00:14:06,710 --> 00:14:06,720
+property bean
+ 
+
+617
+00:14:06,720 --> 00:14:09,110
+property bean
+I want to dynamically refresh. So that's
+
+618
+00:14:09,110 --> 00:14:09,120
+I want to dynamically refresh. So that's
+ 
+
+619
+00:14:09,120 --> 00:14:11,350
+I want to dynamically refresh. So that's
+why I marked it with at the rate refresh
+
+620
+00:14:11,350 --> 00:14:11,360
+why I marked it with at the rate refresh
+ 
+
+621
+00:14:11,360 --> 00:14:13,990
+why I marked it with at the rate refresh
+scope. Okay. And no change in the
+
+622
+00:14:13,990 --> 00:14:14,000
+scope. Okay. And no change in the
+ 
+
+623
+00:14:14,000 --> 00:14:16,069
+scope. Okay. And no change in the
+controller. So controller exposes /
+
+624
+00:14:16,069 --> 00:14:16,079
+controller. So controller exposes /
+ 
+
+625
+00:14:16,079 --> 00:14:17,590
+controller. So controller exposes /
+order/fetch
+
+626
+00:14:17,590 --> 00:14:17,600
+order/fetch
+ 
+
+627
+00:14:17,600 --> 00:14:19,110
+order/fetch
+endpoint.
+
+628
+00:14:19,110 --> 00:14:19,120
+endpoint.
+ 
+
+629
+00:14:19,120 --> 00:14:22,310
+endpoint.
+Now let's see that I started the server
+
+630
+00:14:22,310 --> 00:14:22,320
+Now let's see that I started the server
+ 
+
+631
+00:14:22,320 --> 00:14:25,350
+Now let's see that I started the server
+again. Okay. So first central config has
+
+632
+00:14:25,350 --> 00:14:25,360
+again. Okay. So first central config has
+ 
+
+633
+00:14:25,360 --> 00:14:29,590
+again. Okay. So first central config has
+this uh changes order - service -.propy
+
+634
+00:14:29,590 --> 00:14:29,600
+this uh changes order - service -.propy
+ 
+
+635
+00:14:29,600 --> 00:14:33,350
+this uh changes order - service -.propy
+current value is hello from order dev.
+
+636
+00:14:33,350 --> 00:14:33,360
+current value is hello from order dev.
+ 
+
+637
+00:14:33,360 --> 00:14:36,389
+current value is hello from order dev.
+Okay. So this is the value currently
+
+638
+00:14:36,389 --> 00:14:36,399
+Okay. So this is the value currently
+ 
+
+639
+00:14:36,399 --> 00:14:39,350
+Okay. So this is the value currently
+present. Okay. Now I started the config
+
+640
+00:14:39,350 --> 00:14:39,360
+present. Okay. Now I started the config
+ 
+
+641
+00:14:39,360 --> 00:14:43,910
+present. Okay. Now I started the config
+server 8888. I started the order server
+
+642
+00:14:43,910 --> 00:14:43,920
+server 8888. I started the order server
+ 
+
+643
+00:14:43,920 --> 00:14:46,069
+server 8888. I started the order server
+at 80080.
+
+644
+00:14:46,069 --> 00:14:46,079
+at 80080.
+ 
+
+645
+00:14:46,079 --> 00:14:49,910
+at 80080.
+Now first I invoke /order/fetch.
+
+646
+00:14:49,910 --> 00:14:49,920
+Now first I invoke /order/fetch.
+ 
+
+647
+00:14:49,920 --> 00:14:53,750
+Now first I invoke /order/fetch.
+Okay. It fetched the property properly
+
+648
+00:14:53,750 --> 00:14:53,760
+Okay. It fetched the property properly
+ 
+
+649
+00:14:53,760 --> 00:14:56,310
+Okay. It fetched the property properly
+from the central config.
+
+650
+00:14:56,310 --> 00:14:56,320
+from the central config.
+ 
+
+651
+00:14:56,320 --> 00:14:59,910
+from the central config.
+Hello from order defaf counter is one.
+
+652
+00:14:59,910 --> 00:14:59,920
+Hello from order defaf counter is one.
+ 
+
+653
+00:14:59,920 --> 00:15:04,069
+Hello from order defaf counter is one.
+So you know that every time you hit by
+
+654
+00:15:04,069 --> 00:15:04,079
+So you know that every time you hit by
+ 
+
+655
+00:15:04,079 --> 00:15:05,829
+So you know that every time you hit by
+default every class is single. Every
+
+656
+00:15:05,829 --> 00:15:05,839
+default every class is single. Every
+ 
+
+657
+00:15:05,839 --> 00:15:08,949
+default every class is single. Every
+bean is single singleton. So whenever
+
+658
+00:15:08,949 --> 00:15:08,959
+bean is single singleton. So whenever
+ 
+
+659
+00:15:08,959 --> 00:15:10,949
+bean is single singleton. So whenever
+you hit multiple time this counter I'm
+
+660
+00:15:10,949 --> 00:15:10,959
+you hit multiple time this counter I'm
+ 
+
+661
+00:15:10,959 --> 00:15:13,350
+you hit multiple time this counter I'm
+just incrementing it just for proper
+
+662
+00:15:13,350 --> 00:15:13,360
+just incrementing it just for proper
+ 
+
+663
+00:15:13,360 --> 00:15:15,269
+just incrementing it just for proper
+visualization.
+
+664
+00:15:15,269 --> 00:15:15,279
+visualization.
+ 
+
+665
+00:15:15,279 --> 00:15:19,189
+visualization.
+So when you hit /order /f fetch it
+
+666
+00:15:19,189 --> 00:15:19,199
+So when you hit /order /f fetch it
+ 
+
+667
+00:15:19,199 --> 00:15:23,829
+So when you hit /order /f fetch it
+properly fetch the property from the
+
+668
+00:15:23,829 --> 00:15:23,839
+properly fetch the property from the
+ 
+
+669
+00:15:23,839 --> 00:15:25,750
+properly fetch the property from the
+central config.
+
+670
+00:15:25,750 --> 00:15:25,760
+central config.
+ 
+
+671
+00:15:25,760 --> 00:15:28,150
+central config.
+Okay. So here our currently central
+
+672
+00:15:28,150 --> 00:15:28,160
+Okay. So here our currently central
+ 
+
+673
+00:15:28,160 --> 00:15:31,030
+Okay. So here our currently central
+config has this hello from order dev. So
+
+674
+00:15:31,030 --> 00:15:31,040
+config has this hello from order dev. So
+ 
+
+675
+00:15:31,040 --> 00:15:34,949
+config has this hello from order dev. So
+it properly fetch it. Now I am updating
+
+676
+00:15:34,949 --> 00:15:34,959
+it properly fetch it. Now I am updating
+ 
+
+677
+00:15:34,959 --> 00:15:37,189
+it properly fetch it. Now I am updating
+the property in the central config. So I
+
+678
+00:15:37,189 --> 00:15:37,199
+the property in the central config. So I
+ 
+
+679
+00:15:37,199 --> 00:15:39,509
+the property in the central config. So I
+change it from hello from order dev to
+
+680
+00:15:39,509 --> 00:15:39,519
+change it from hello from order dev to
+ 
+
+681
+00:15:39,519 --> 00:15:41,590
+change it from hello from order dev to
+hello from order dev. This is updated to
+
+682
+00:15:41,590 --> 00:15:41,600
+hello from order dev. This is updated to
+ 
+
+683
+00:15:41,600 --> 00:15:43,670
+hello from order dev. This is updated to
+test reference scope. So I just change
+
+684
+00:15:43,670 --> 00:15:43,680
+test reference scope. So I just change
+ 
+
+685
+00:15:43,680 --> 00:15:45,430
+test reference scope. So I just change
+it.
+
+686
+00:15:45,430 --> 00:15:45,440
+it.
+ 
+
+687
+00:15:45,440 --> 00:15:48,150
+it.
+Now I am hitting the order API again
+
+688
+00:15:48,150 --> 00:15:48,160
+Now I am hitting the order API again
+ 
+
+689
+00:15:48,160 --> 00:15:49,829
+Now I am hitting the order API again
+/fetch.
+
+690
+00:15:49,829 --> 00:15:49,839
+/fetch.
+ 
+
+691
+00:15:49,839 --> 00:15:52,069
+/fetch.
+So here if you see again the old value
+
+692
+00:15:52,069 --> 00:15:52,079
+So here if you see again the old value
+ 
+
+693
+00:15:52,079 --> 00:15:54,790
+So here if you see again the old value
+hello from order dev. So you might be
+
+694
+00:15:54,790 --> 00:15:54,800
+hello from order dev. So you might be
+ 
+
+695
+00:15:54,800 --> 00:15:58,230
+hello from order dev. So you might be
+saying hey sh now we have implemented uh
+
+696
+00:15:58,230 --> 00:15:58,240
+saying hey sh now we have implemented uh
+ 
+
+697
+00:15:58,240 --> 00:16:00,790
+saying hey sh now we have implemented uh
+now we have annotated our bean with
+
+698
+00:16:00,790 --> 00:16:00,800
+now we have annotated our bean with
+ 
+
+699
+00:16:00,800 --> 00:16:03,189
+now we have annotated our bean with
+refresh scope. We have added the
+
+700
+00:16:03,189 --> 00:16:03,199
+refresh scope. We have added the
+ 
+
+701
+00:16:03,199 --> 00:16:06,710
+refresh scope. We have added the
+actuator dependency.
+
+702
+00:16:06,710 --> 00:16:06,720
+actuator dependency.
+ 
+
+703
+00:16:06,720 --> 00:16:11,030
+actuator dependency.
+Why now it is coming as old? See
+
+704
+00:16:11,030 --> 00:16:11,040
+Why now it is coming as old? See
+ 
+
+705
+00:16:11,040 --> 00:16:13,749
+Why now it is coming as old? See
+till now we have not invoked the refresh
+
+706
+00:16:13,749 --> 00:16:13,759
+till now we have not invoked the refresh
+ 
+
+707
+00:16:13,759 --> 00:16:16,230
+till now we have not invoked the refresh
+event and refresh event will get occur
+
+708
+00:16:16,230 --> 00:16:16,240
+event and refresh event will get occur
+ 
+
+709
+00:16:16,240 --> 00:16:19,590
+event and refresh event will get occur
+when we invoke this endpoint. Okay. So
+
+710
+00:16:19,590 --> 00:16:19,600
+when we invoke this endpoint. Okay. So
+ 
+
+711
+00:16:19,600 --> 00:16:23,990
+when we invoke this endpoint. Okay. So
+now I am first invoking the endpoint
+
+712
+00:16:23,990 --> 00:16:24,000
+now I am first invoking the endpoint
+ 
+
+713
+00:16:24,000 --> 00:16:26,870
+now I am first invoking the endpoint
+on config server and this is the
+
+714
+00:16:26,870 --> 00:16:26,880
+on config server and this is the
+ 
+
+715
+00:16:26,880 --> 00:16:28,550
+on config server and this is the
+actuator endpoint right which is spring
+
+716
+00:16:28,550 --> 00:16:28,560
+actuator endpoint right which is spring
+ 
+
+717
+00:16:28,560 --> 00:16:32,710
+actuator endpoint right which is spring
+cloud config exposed /actuator/refresh.
+
+718
+00:16:32,710 --> 00:16:32,720
+cloud config exposed /actuator/refresh.
+ 
+
+719
+00:16:32,720 --> 00:16:35,590
+cloud config exposed /actuator/refresh.
+So I'm first invoking it on cloud config
+
+720
+00:16:35,590 --> 00:16:35,600
+So I'm first invoking it on cloud config
+ 
+
+721
+00:16:35,600 --> 00:16:37,110
+So I'm first invoking it on cloud config
+server.
+
+722
+00:16:37,110 --> 00:16:37,120
+server.
+ 
+
+723
+00:16:37,120 --> 00:16:39,509
+server.
+So when I did this it got success. What
+
+724
+00:16:39,509 --> 00:16:39,519
+So when I did this it got success. What
+ 
+
+725
+00:16:39,519 --> 00:16:43,829
+So when I did this it got success. What
+it does? It calls the central config and
+
+726
+00:16:43,829 --> 00:16:43,839
+it does? It calls the central config and
+ 
+
+727
+00:16:43,839 --> 00:16:46,870
+it does? It calls the central config and
+fetch the latest value. Now it fetch
+
+728
+00:16:46,870 --> 00:16:46,880
+fetch the latest value. Now it fetch
+ 
+
+729
+00:16:46,880 --> 00:16:49,829
+fetch the latest value. Now it fetch
+this latest value.
+
+730
+00:16:49,829 --> 00:16:49,839
+this latest value.
+ 
+
+731
+00:16:49,839 --> 00:16:52,470
+this latest value.
+Our config server goes to the central
+
+732
+00:16:52,470 --> 00:16:52,480
+Our config server goes to the central
+ 
+
+733
+00:16:52,480 --> 00:16:54,629
+Our config server goes to the central
+config. Now fetch the latest server
+
+734
+00:16:54,629 --> 00:16:54,639
+config. Now fetch the latest server
+ 
+
+735
+00:16:54,639 --> 00:16:57,749
+config. Now fetch the latest server
+latest property values.
+
+736
+00:16:57,749 --> 00:16:57,759
+latest property values.
+ 
+
+737
+00:16:57,759 --> 00:17:00,550
+latest property values.
+Okay. So now my config server is
+
+738
+00:17:00,550 --> 00:17:00,560
+Okay. So now my config server is
+ 
+
+739
+00:17:00,560 --> 00:17:03,910
+Okay. So now my config server is
+refreshed. Now the same API I'm invoking
+
+740
+00:17:03,910 --> 00:17:03,920
+refreshed. Now the same API I'm invoking
+ 
+
+741
+00:17:03,920 --> 00:17:06,470
+refreshed. Now the same API I'm invoking
+on the order service. So now this is
+
+742
+00:17:06,470 --> 00:17:06,480
+on the order service. So now this is
+ 
+
+743
+00:17:06,480 --> 00:17:08,949
+on the order service. So now this is
+8080 is my for order service I am
+
+744
+00:17:08,949 --> 00:17:08,959
+8080 is my for order service I am
+ 
+
+745
+00:17:08,959 --> 00:17:12,390
+8080 is my for order service I am
+invoking /actuator / refresh. Now here
+
+746
+00:17:12,390 --> 00:17:12,400
+invoking /actuator / refresh. Now here
+ 
+
+747
+00:17:12,400 --> 00:17:16,949
+invoking /actuator / refresh. Now here
+if you see that it shows the list of
+
+748
+00:17:16,949 --> 00:17:16,959
+if you see that it shows the list of
+ 
+
+749
+00:17:16,959 --> 00:17:18,870
+if you see that it shows the list of
+you can say that the messages which are
+
+750
+00:17:18,870 --> 00:17:18,880
+you can say that the messages which are
+ 
+
+751
+00:17:18,880 --> 00:17:22,069
+you can say that the messages which are
+refreshed which has it has fetched.
+
+752
+00:17:22,069 --> 00:17:22,079
+refreshed which has it has fetched.
+ 
+
+753
+00:17:22,079 --> 00:17:25,590
+refreshed which has it has fetched.
+Okay. So custom dot message is the
+
+754
+00:17:25,590 --> 00:17:25,600
+Okay. So custom dot message is the
+ 
+
+755
+00:17:25,600 --> 00:17:29,350
+Okay. So custom dot message is the
+endpoint right this custom dossage
+
+756
+00:17:29,350 --> 00:17:29,360
+endpoint right this custom dossage
+ 
+
+757
+00:17:29,360 --> 00:17:31,750
+endpoint right this custom dossage
+because it has been changed. So it shows
+
+758
+00:17:31,750 --> 00:17:31,760
+because it has been changed. So it shows
+ 
+
+759
+00:17:31,760 --> 00:17:35,830
+because it has been changed. So it shows
+that 200 it properly refresh this
+
+760
+00:17:35,830 --> 00:17:35,840
+that 200 it properly refresh this
+ 
+
+761
+00:17:35,840 --> 00:17:38,710
+that 200 it properly refresh this
+property value.
+
+762
+00:17:38,710 --> 00:17:38,720
+property value.
+ 
+
+763
+00:17:38,720 --> 00:17:40,390
+property value.
+Okay.
+
+764
+00:17:40,390 --> 00:17:40,400
+Okay.
+ 
+
+765
+00:17:40,400 --> 00:17:42,150
+Okay.
+And notice that this is the post
+
+766
+00:17:42,150 --> 00:17:42,160
+And notice that this is the post
+ 
+
+767
+00:17:42,160 --> 00:17:44,630
+And notice that this is the post
+operation. Why post operation? Because
+
+768
+00:17:44,630 --> 00:17:44,640
+operation. Why post operation? Because
+ 
+
+769
+00:17:44,640 --> 00:17:49,350
+operation. Why post operation? Because
+in the framework if you see
+
+770
+00:17:49,350 --> 00:17:49,360
+
+ 
+
+771
+00:17:49,360 --> 00:17:51,750
+
+there it uses the write operation.
+
+772
+00:17:51,750 --> 00:17:51,760
+there it uses the write operation.
+ 
+
+773
+00:17:51,760 --> 00:17:54,710
+there it uses the write operation.
+That's why it is post. Okay. And this
+
+774
+00:17:54,710 --> 00:17:54,720
+That's why it is post. Okay. And this
+ 
+
+775
+00:17:54,720 --> 00:17:58,150
+That's why it is post. Okay. And this
+endpoint / refresh we don't have to
+
+776
+00:17:58,150 --> 00:17:58,160
+endpoint / refresh we don't have to
+ 
+
+777
+00:17:58,160 --> 00:18:00,789
+endpoint / refresh we don't have to
+create it already. Spring Cloud Config
+
+778
+00:18:00,789 --> 00:18:00,799
+create it already. Spring Cloud Config
+ 
+
+779
+00:18:00,799 --> 00:18:03,510
+create it already. Spring Cloud Config
+does that for us. All we have to does is
+
+780
+00:18:03,510 --> 00:18:03,520
+does that for us. All we have to does is
+ 
+
+781
+00:18:03,520 --> 00:18:06,789
+does that for us. All we have to does is
+that add the actuator dependency and
+
+782
+00:18:06,789 --> 00:18:06,799
+that add the actuator dependency and
+ 
+
+783
+00:18:06,799 --> 00:18:10,630
+that add the actuator dependency and
+expose this refresh endpoint and just
+
+784
+00:18:10,630 --> 00:18:10,640
+expose this refresh endpoint and just
+ 
+
+785
+00:18:10,640 --> 00:18:13,750
+expose this refresh endpoint and just
+invoke it to refresh it.
+
+786
+00:18:13,750 --> 00:18:13,760
+invoke it to refresh it.
+ 
+
+787
+00:18:13,760 --> 00:18:15,270
+invoke it to refresh it.
+Okay.
+
+788
+00:18:15,270 --> 00:18:15,280
+Okay.
+ 
+
+789
+00:18:15,280 --> 00:18:18,150
+Okay.
+So now my order service is also
+
+790
+00:18:18,150 --> 00:18:18,160
+So now my order service is also
+ 
+
+791
+00:18:18,160 --> 00:18:21,270
+So now my order service is also
+refreshed. Now at after this now you
+
+792
+00:18:21,270 --> 00:18:21,280
+refreshed. Now at after this now you
+ 
+
+793
+00:18:21,280 --> 00:18:23,909
+refreshed. Now at after this now you
+call /order/fetch.
+
+794
+00:18:23,909 --> 00:18:23,919
+call /order/fetch.
+ 
+
+795
+00:18:23,919 --> 00:18:25,750
+call /order/fetch.
+Now you will see that you will get a
+
+796
+00:18:25,750 --> 00:18:25,760
+Now you will see that you will get a
+ 
+
+797
+00:18:25,760 --> 00:18:28,390
+Now you will see that you will get a
+updated value. Hello from order dev.
+
+798
+00:18:28,390 --> 00:18:28,400
+updated value. Hello from order dev.
+ 
+
+799
+00:18:28,400 --> 00:18:31,750
+updated value. Hello from order dev.
+This is updated to test refresh score.
+
+800
+00:18:31,750 --> 00:18:31,760
+This is updated to test refresh score.
+ 
+
+801
+00:18:31,760 --> 00:18:34,630
+This is updated to test refresh score.
+Okay. So now it dynamically updated
+
+802
+00:18:34,630 --> 00:18:34,640
+Okay. So now it dynamically updated
+ 
+
+803
+00:18:34,640 --> 00:18:37,190
+Okay. So now it dynamically updated
+without even restarting the application.
+
+804
+00:18:37,190 --> 00:18:37,200
+without even restarting the application.
+ 
+
+805
+00:18:37,200 --> 00:18:40,070
+without even restarting the application.
+So counter value is three. Okay. So I
+
+806
+00:18:40,070 --> 00:18:40,080
+So counter value is three. Okay. So I
+ 
+
+807
+00:18:40,080 --> 00:18:43,110
+So counter value is three. Okay. So I
+have not restarted it. Okay. So I just
+
+808
+00:18:43,110 --> 00:18:43,120
+have not restarted it. Okay. So I just
+ 
+
+809
+00:18:43,120 --> 00:18:46,070
+have not restarted it. Okay. So I just
+hit it again. And if you see that it's
+
+810
+00:18:46,070 --> 00:18:46,080
+hit it again. And if you see that it's
+ 
+
+811
+00:18:46,080 --> 00:18:50,390
+hit it again. And if you see that it's
+dynamically updated.
+
+812
+00:18:50,390 --> 00:18:50,400
+
+ 
+
+813
+00:18:50,400 --> 00:18:52,789
+
+So it's clear.
+
+814
+00:18:52,789 --> 00:18:52,799
+So it's clear.
+ 
+
+815
+00:18:52,799 --> 00:18:55,029
+So it's clear.
+So how we are dynamically updating
+
+816
+00:18:55,029 --> 00:18:55,039
+So how we are dynamically updating
+ 
+
+817
+00:18:55,039 --> 00:18:56,710
+So how we are dynamically updating
+through with the help of actuator
+
+818
+00:18:56,710 --> 00:18:56,720
+through with the help of actuator
+ 
+
+819
+00:18:56,720 --> 00:18:59,750
+through with the help of actuator
+endpoint.
+
+820
+00:18:59,750 --> 00:18:59,760
+
+ 
+
+821
+00:18:59,760 --> 00:19:02,630
+
+Now let's come back to the point where
+
+822
+00:19:02,630 --> 00:19:02,640
+Now let's come back to the point where
+ 
+
+823
+00:19:02,640 --> 00:19:04,390
+Now let's come back to the point where
+like we told that I am using
+
+824
+00:19:04,390 --> 00:19:04,400
+like we told that I am using
+ 
+
+825
+00:19:04,400 --> 00:19:06,630
+like we told that I am using
+configuration properties.
+
+826
+00:19:06,630 --> 00:19:06,640
+configuration properties.
+ 
+
+827
+00:19:06,640 --> 00:19:10,630
+configuration properties.
+Why I told you that when I'm saying that
+
+828
+00:19:10,630 --> 00:19:10,640
+Why I told you that when I'm saying that
+ 
+
+829
+00:19:10,640 --> 00:19:13,110
+Why I told you that when I'm saying that
+dynamically refresh it does two thing it
+
+830
+00:19:13,110 --> 00:19:13,120
+dynamically refresh it does two thing it
+ 
+
+831
+00:19:13,120 --> 00:19:16,390
+dynamically refresh it does two thing it
+destroy the bean and recreate it. So
+
+832
+00:19:16,390 --> 00:19:16,400
+destroy the bean and recreate it. So
+ 
+
+833
+00:19:16,400 --> 00:19:19,350
+destroy the bean and recreate it. So
+when it when the old bean is destroyed
+
+834
+00:19:19,350 --> 00:19:19,360
+when it when the old bean is destroyed
+ 
+
+835
+00:19:19,360 --> 00:19:23,190
+when it when the old bean is destroyed
+you will lose all the object state all
+
+836
+00:19:23,190 --> 00:19:23,200
+you will lose all the object state all
+ 
+
+837
+00:19:23,200 --> 00:19:24,950
+you will lose all the object state all
+the work you have done on that object
+
+838
+00:19:24,950 --> 00:19:24,960
+the work you have done on that object
+ 
+
+839
+00:19:24,960 --> 00:19:26,950
+the work you have done on that object
+that gone.
+
+840
+00:19:26,950 --> 00:19:26,960
+that gone.
+ 
+
+841
+00:19:26,960 --> 00:19:30,310
+that gone.
+So that's why it's never recommended to
+
+842
+00:19:30,310 --> 00:19:30,320
+So that's why it's never recommended to
+ 
+
+843
+00:19:30,320 --> 00:19:33,029
+So that's why it's never recommended to
+use refresh scope over controller
+
+844
+00:19:33,029 --> 00:19:33,039
+use refresh scope over controller
+ 
+
+845
+00:19:33,039 --> 00:19:37,830
+use refresh scope over controller
+service. It's not safe. Okay. So you
+
+846
+00:19:37,830 --> 00:19:37,840
+service. It's not safe. Okay. So you
+ 
+
+847
+00:19:37,840 --> 00:19:40,630
+service. It's not safe. Okay. So you
+know that from the over I like I've
+
+848
+00:19:40,630 --> 00:19:40,640
+know that from the over I like I've
+ 
+
+849
+00:19:40,640 --> 00:19:41,830
+know that from the over I like I've
+already covered this at the red
+
+850
+00:19:41,830 --> 00:19:41,840
+already covered this at the red
+ 
+
+851
+00:19:41,840 --> 00:19:44,310
+already covered this at the red
+configuration properties topic. So you
+
+852
+00:19:44,310 --> 00:19:44,320
+configuration properties topic. So you
+ 
+
+853
+00:19:44,320 --> 00:19:48,470
+configuration properties topic. So you
+know that this on whichever the pojo
+
+854
+00:19:48,470 --> 00:19:48,480
+know that this on whichever the pojo
+ 
+
+855
+00:19:48,480 --> 00:19:50,150
+know that this on whichever the pojo
+class we have write this at the rate
+
+856
+00:19:50,150 --> 00:19:50,160
+class we have write this at the rate
+ 
+
+857
+00:19:50,160 --> 00:19:52,070
+class we have write this at the rate
+configuration properties or you can say
+
+858
+00:19:52,070 --> 00:19:52,080
+configuration properties or you can say
+ 
+
+859
+00:19:52,080 --> 00:19:53,430
+configuration properties or you can say
+that in another term at the rate
+
+860
+00:19:53,430 --> 00:19:53,440
+that in another term at the rate
+ 
+
+861
+00:19:53,440 --> 00:19:55,669
+that in another term at the rate
+configuration properties is a pojo which
+
+862
+00:19:55,669 --> 00:19:55,679
+configuration properties is a pojo which
+ 
+
+863
+00:19:55,679 --> 00:19:57,590
+configuration properties is a pojo which
+only contains configuration. So it's
+
+864
+00:19:57,590 --> 00:19:57,600
+only contains configuration. So it's
+ 
+
+865
+00:19:57,600 --> 00:20:00,470
+only contains configuration. So it's
+stateless only properties are there.
+
+866
+00:20:00,470 --> 00:20:00,480
+stateless only properties are there.
+ 
+
+867
+00:20:00,480 --> 00:20:03,669
+stateless only properties are there.
+Okay. So this is safe
+
+868
+00:20:03,669 --> 00:20:03,679
+Okay. So this is safe
+ 
+
+869
+00:20:03,679 --> 00:20:06,710
+Okay. So this is safe
+even it is dynamically refreshed means
+
+870
+00:20:06,710 --> 00:20:06,720
+even it is dynamically refreshed means
+ 
+
+871
+00:20:06,720 --> 00:20:09,190
+even it is dynamically refreshed means
+it is destroyed old object old bean is
+
+872
+00:20:09,190 --> 00:20:09,200
+it is destroyed old object old bean is
+ 
+
+873
+00:20:09,200 --> 00:20:13,350
+it is destroyed old object old bean is
+destroyed and new bean is created.
+
+874
+00:20:13,350 --> 00:20:13,360
+destroyed and new bean is created.
+ 
+
+875
+00:20:13,360 --> 00:20:18,310
+destroyed and new bean is created.
+It's stateless. Okay. So that is okay.
+
+876
+00:20:18,310 --> 00:20:18,320
+It's stateless. Okay. So that is okay.
+ 
+
+877
+00:20:18,320 --> 00:20:20,950
+It's stateless. Okay. So that is okay.
+That is safe. And you can understand
+
+878
+00:20:20,950 --> 00:20:20,960
+That is safe. And you can understand
+ 
+
+879
+00:20:20,960 --> 00:20:23,909
+That is safe. And you can understand
+this with example. Let's say now if I
+
+880
+00:20:23,909 --> 00:20:23,919
+this with example. Let's say now if I
+ 
+
+881
+00:20:23,919 --> 00:20:26,470
+this with example. Let's say now if I
+use refresh scope over a controller
+
+882
+00:20:26,470 --> 00:20:26,480
+use refresh scope over a controller
+ 
+
+883
+00:20:26,480 --> 00:20:30,470
+use refresh scope over a controller
+class. Now see what happens. Why I use
+
+884
+00:20:30,470 --> 00:20:30,480
+class. Now see what happens. Why I use
+ 
+
+885
+00:20:30,480 --> 00:20:33,430
+class. Now see what happens. Why I use
+configuring properties right? Why I use
+
+886
+00:20:33,430 --> 00:20:33,440
+configuring properties right? Why I use
+ 
+
+887
+00:20:33,440 --> 00:20:35,510
+configuring properties right? Why I use
+configuration properties? Now let's say
+
+888
+00:20:35,510 --> 00:20:35,520
+configuration properties? Now let's say
+ 
+
+889
+00:20:35,520 --> 00:20:38,230
+configuration properties? Now let's say
+the old way in the order controller
+
+890
+00:20:38,230 --> 00:20:38,240
+the old way in the order controller
+ 
+
+891
+00:20:38,240 --> 00:20:41,270
+the old way in the order controller
+itself I have put refresh scope. And you
+
+892
+00:20:41,270 --> 00:20:41,280
+itself I have put refresh scope. And you
+ 
+
+893
+00:20:41,280 --> 00:20:43,430
+itself I have put refresh scope. And you
+know that earlier in the central uh
+
+894
+00:20:43,430 --> 00:20:43,440
+know that earlier in the central uh
+ 
+
+895
+00:20:43,440 --> 00:20:45,669
+know that earlier in the central uh
+configuration video we were using this
+
+896
+00:20:45,669 --> 00:20:45,679
+configuration video we were using this
+ 
+
+897
+00:20:45,679 --> 00:20:47,270
+configuration video we were using this
+reading the property file like add the
+
+898
+00:20:47,270 --> 00:20:47,280
+reading the property file like add the
+ 
+
+899
+00:20:47,280 --> 00:20:50,310
+reading the property file like add the
+rate value and using this message here
+
+900
+00:20:50,310 --> 00:20:50,320
+rate value and using this message here
+ 
+
+901
+00:20:50,320 --> 00:20:52,230
+rate value and using this message here
+and I have a counter here just for the
+
+902
+00:20:52,230 --> 00:20:52,240
+and I have a counter here just for the
+ 
+
+903
+00:20:52,240 --> 00:20:54,630
+and I have a counter here just for the
+better visualization.
+
+904
+00:20:54,630 --> 00:20:54,640
+better visualization.
+ 
+
+905
+00:20:54,640 --> 00:20:56,630
+better visualization.
+Now I am using notice that I'm using
+
+906
+00:20:56,630 --> 00:20:56,640
+Now I am using notice that I'm using
+ 
+
+907
+00:20:56,640 --> 00:20:59,669
+Now I am using notice that I'm using
+refresh scope over this controller.
+
+908
+00:20:59,669 --> 00:20:59,679
+refresh scope over this controller.
+ 
+
+909
+00:20:59,679 --> 00:21:01,990
+refresh scope over this controller.
+Okay. Now first time you call at the
+
+910
+00:21:01,990 --> 00:21:02,000
+Okay. Now first time you call at the
+ 
+
+911
+00:21:02,000 --> 00:21:05,350
+Okay. Now first time you call at the
+rate fetch uh /fetch.
+
+912
+00:21:05,350 --> 00:21:05,360
+rate fetch uh /fetch.
+ 
+
+913
+00:21:05,360 --> 00:21:07,669
+rate fetch uh /fetch.
+So it will properly fetch the endpoint.
+
+914
+00:21:07,669 --> 00:21:07,679
+So it will properly fetch the endpoint.
+ 
+
+915
+00:21:07,679 --> 00:21:10,950
+So it will properly fetch the endpoint.
+Hello from order dev properly. Okay.
+
+916
+00:21:10,950 --> 00:21:10,960
+Hello from order dev properly. Okay.
+ 
+
+917
+00:21:10,960 --> 00:21:13,190
+Hello from order dev properly. Okay.
+Counter is one.
+
+918
+00:21:13,190 --> 00:21:13,200
+Counter is one.
+ 
+
+919
+00:21:13,200 --> 00:21:16,549
+Counter is one.
+Now second time I am calling
+
+920
+00:21:16,549 --> 00:21:16,559
+Now second time I am calling
+ 
+
+921
+00:21:16,559 --> 00:21:19,430
+Now second time I am calling
+counter is notice that counter is two
+
+922
+00:21:19,430 --> 00:21:19,440
+counter is notice that counter is two
+ 
+
+923
+00:21:19,440 --> 00:21:24,630
+counter is notice that counter is two
+and same hello from order dev. Okay.
+
+924
+00:21:24,630 --> 00:21:24,640
+and same hello from order dev. Okay.
+ 
+
+925
+00:21:24,640 --> 00:21:26,789
+and same hello from order dev. Okay.
+Currently I am not changing anything
+
+926
+00:21:26,789 --> 00:21:26,799
+Currently I am not changing anything
+ 
+
+927
+00:21:26,799 --> 00:21:29,830
+Currently I am not changing anything
+into the central config but I invoke the
+
+928
+00:21:29,830 --> 00:21:29,840
+into the central config but I invoke the
+ 
+
+929
+00:21:29,840 --> 00:21:32,549
+into the central config but I invoke the
+refresh endpoint at the order service.
+
+930
+00:21:32,549 --> 00:21:32,559
+refresh endpoint at the order service.
+ 
+
+931
+00:21:32,559 --> 00:21:36,149
+refresh endpoint at the order service.
+Now what the refresh endpoint do
+
+932
+00:21:36,149 --> 00:21:36,159
+Now what the refresh endpoint do
+ 
+
+933
+00:21:36,159 --> 00:21:40,070
+Now what the refresh endpoint do
+/actuator/ refresh now I'm calling it at
+
+934
+00:21:40,070 --> 00:21:40,080
+/actuator/ refresh now I'm calling it at
+ 
+
+935
+00:21:40,080 --> 00:21:43,350
+/actuator/ refresh now I'm calling it at
+the client the uh configuration client
+
+936
+00:21:43,350 --> 00:21:43,360
+the client the uh configuration client
+ 
+
+937
+00:21:43,360 --> 00:21:46,070
+the client the uh configuration client
+so it does two things first
+
+938
+00:21:46,070 --> 00:21:46,080
+so it does two things first
+ 
+
+939
+00:21:46,080 --> 00:21:48,310
+so it does two things first
+fetch from
+
+940
+00:21:48,310 --> 00:21:48,320
+fetch from
+ 
+
+941
+00:21:48,320 --> 00:21:51,750
+fetch from
+config server second
+
+942
+00:21:51,750 --> 00:21:51,760
+config server second
+ 
+
+943
+00:21:51,760 --> 00:21:54,230
+config server second
+refresh
+
+944
+00:21:54,230 --> 00:21:54,240
+refresh
+ 
+
+945
+00:21:54,240 --> 00:21:55,990
+refresh
+bean
+
+946
+00:21:55,990 --> 00:21:56,000
+bean
+ 
+
+947
+00:21:56,000 --> 00:21:59,750
+bean
+with at the rate refresh scope. Okay. So
+
+948
+00:21:59,750 --> 00:21:59,760
+with at the rate refresh scope. Okay. So
+ 
+
+949
+00:21:59,760 --> 00:22:01,590
+with at the rate refresh scope. Okay. So
+first it will try to fetch from the
+
+950
+00:22:01,590 --> 00:22:01,600
+first it will try to fetch from the
+ 
+
+951
+00:22:01,600 --> 00:22:06,230
+first it will try to fetch from the
+config server like all the new value. So
+
+952
+00:22:06,230 --> 00:22:06,240
+config server like all the new value. So
+ 
+
+953
+00:22:06,240 --> 00:22:09,990
+config server like all the new value. So
+it fetch it and second thing is like it
+
+954
+00:22:09,990 --> 00:22:10,000
+it fetch it and second thing is like it
+ 
+
+955
+00:22:10,000 --> 00:22:12,549
+it fetch it and second thing is like it
+will try to update
+
+956
+00:22:12,549 --> 00:22:12,559
+will try to update
+ 
+
+957
+00:22:12,559 --> 00:22:14,710
+will try to update
+all the beans which are marked with at
+
+958
+00:22:14,710 --> 00:22:14,720
+all the beans which are marked with at
+ 
+
+959
+00:22:14,720 --> 00:22:17,590
+all the beans which are marked with at
+the rate refresh scope. Okay. So now
+
+960
+00:22:17,590 --> 00:22:17,600
+the rate refresh scope. Okay. So now
+ 
+
+961
+00:22:17,600 --> 00:22:19,750
+the rate refresh scope. Okay. So now
+when I have done this so currently you
+
+962
+00:22:19,750 --> 00:22:19,760
+when I have done this so currently you
+ 
+
+963
+00:22:19,760 --> 00:22:23,110
+when I have done this so currently you
+see empty here because uh here the old
+
+964
+00:22:23,110 --> 00:22:23,120
+see empty here because uh here the old
+ 
+
+965
+00:22:23,120 --> 00:22:25,510
+see empty here because uh here the old
+value and the new value is same. So no
+
+966
+00:22:25,510 --> 00:22:25,520
+value and the new value is same. So no
+ 
+
+967
+00:22:25,520 --> 00:22:27,510
+value and the new value is same. So no
+updation happened.
+
+968
+00:22:27,510 --> 00:22:27,520
+updation happened.
+ 
+
+969
+00:22:27,520 --> 00:22:30,310
+updation happened.
+But again internally it has destroyed
+
+970
+00:22:30,310 --> 00:22:30,320
+But again internally it has destroyed
+ 
+
+971
+00:22:30,320 --> 00:22:33,190
+But again internally it has destroyed
+the old bean created the new one but the
+
+972
+00:22:33,190 --> 00:22:33,200
+the old bean created the new one but the
+ 
+
+973
+00:22:33,200 --> 00:22:35,990
+the old bean created the new one but the
+value is same it is not updated right so
+
+974
+00:22:35,990 --> 00:22:36,000
+value is same it is not updated right so
+ 
+
+975
+00:22:36,000 --> 00:22:38,549
+value is same it is not updated right so
+that's why you see empty I haven't
+
+976
+00:22:38,549 --> 00:22:38,559
+that's why you see empty I haven't
+ 
+
+977
+00:22:38,559 --> 00:22:40,390
+that's why you see empty I haven't
+changed the centralized uh central
+
+978
+00:22:40,390 --> 00:22:40,400
+changed the centralized uh central
+ 
+
+979
+00:22:40,400 --> 00:22:44,710
+changed the centralized uh central
+config uh this property value
+
+980
+00:22:44,710 --> 00:22:44,720
+config uh this property value
+ 
+
+981
+00:22:44,720 --> 00:22:47,909
+config uh this property value
+but it follow the proper sequence first
+
+982
+00:22:47,909 --> 00:22:47,919
+but it follow the proper sequence first
+ 
+
+983
+00:22:47,919 --> 00:22:50,070
+but it follow the proper sequence first
+it might have called config server fetch
+
+984
+00:22:50,070 --> 00:22:50,080
+it might have called config server fetch
+ 
+
+985
+00:22:50,080 --> 00:22:52,950
+it might have called config server fetch
+it and then it will dynamically refresh
+
+986
+00:22:52,950 --> 00:22:52,960
+it and then it will dynamically refresh
+ 
+
+987
+00:22:52,960 --> 00:22:58,070
+it and then it will dynamically refresh
+means it deleted the old bean of which
+
+988
+00:22:58,070 --> 00:22:58,080
+means it deleted the old bean of which
+ 
+
+989
+00:22:58,080 --> 00:23:01,430
+means it deleted the old bean of which
+one now the old bean of order controller
+
+990
+00:23:01,430 --> 00:23:01,440
+one now the old bean of order controller
+ 
+
+991
+00:23:01,440 --> 00:23:03,830
+one now the old bean of order controller
+because refresh scope is used on top of
+
+992
+00:23:03,830 --> 00:23:03,840
+because refresh scope is used on top of
+ 
+
+993
+00:23:03,840 --> 00:23:05,669
+because refresh scope is used on top of
+this bean.
+
+994
+00:23:05,669 --> 00:23:05,679
+this bean.
+ 
+
+995
+00:23:05,679 --> 00:23:09,110
+this bean.
+So its object is old object old bean is
+
+996
+00:23:09,110 --> 00:23:09,120
+So its object is old object old bean is
+ 
+
+997
+00:23:09,120 --> 00:23:12,230
+So its object is old object old bean is
+destroyed. It will create a new bean
+
+998
+00:23:12,230 --> 00:23:12,240
+destroyed. It will create a new bean
+ 
+
+999
+00:23:12,240 --> 00:23:14,950
+destroyed. It will create a new bean
+with the new values.
+
+1000
+00:23:14,950 --> 00:23:14,960
+with the new values.
+ 
+
+1001
+00:23:14,960 --> 00:23:17,430
+with the new values.
+Okay. So now when you try to invoke at
+
+1002
+00:23:17,430 --> 00:23:17,440
+Okay. So now when you try to invoke at
+ 
+
+1003
+00:23:17,440 --> 00:23:20,630
+Okay. So now when you try to invoke at
+the rate fetch endpoint again.
+
+1004
+00:23:20,630 --> 00:23:20,640
+the rate fetch endpoint again.
+ 
+
+1005
+00:23:20,640 --> 00:23:22,470
+the rate fetch endpoint again.
+Okay. So currently you will see the same
+
+1006
+00:23:22,470 --> 00:23:22,480
+Okay. So currently you will see the same
+ 
+
+1007
+00:23:22,480 --> 00:23:24,630
+Okay. So currently you will see the same
+value because I haven't updated it. But
+
+1008
+00:23:24,630 --> 00:23:24,640
+value because I haven't updated it. But
+ 
+
+1009
+00:23:24,640 --> 00:23:26,310
+value because I haven't updated it. But
+all I wanted to show is that see the
+
+1010
+00:23:26,310 --> 00:23:26,320
+all I wanted to show is that see the
+ 
+
+1011
+00:23:26,320 --> 00:23:30,070
+all I wanted to show is that see the
+counter value. So counter value was two.
+
+1012
+00:23:30,070 --> 00:23:30,080
+counter value. So counter value was two.
+ 
+
+1013
+00:23:30,080 --> 00:23:31,909
+counter value. So counter value was two.
+Now if you're invoking it again it
+
+1014
+00:23:31,909 --> 00:23:31,919
+Now if you're invoking it again it
+ 
+
+1015
+00:23:31,919 --> 00:23:34,870
+Now if you're invoking it again it
+changed to one. Why?
+
+1016
+00:23:34,870 --> 00:23:34,880
+changed to one. Why?
+ 
+
+1017
+00:23:34,880 --> 00:23:37,430
+changed to one. Why?
+Because when you have done refresh, it
+
+1018
+00:23:37,430 --> 00:23:37,440
+Because when you have done refresh, it
+ 
+
+1019
+00:23:37,440 --> 00:23:40,230
+Because when you have done refresh, it
+deleted the old object old bean and
+
+1020
+00:23:40,230 --> 00:23:40,240
+deleted the old object old bean and
+ 
+
+1021
+00:23:40,240 --> 00:23:43,510
+deleted the old object old bean and
+created a new fresh.
+
+1022
+00:23:43,510 --> 00:23:43,520
+created a new fresh.
+ 
+
+1023
+00:23:43,520 --> 00:23:46,390
+created a new fresh.
+Okay. And you know that by default beans
+
+1024
+00:23:46,390 --> 00:23:46,400
+Okay. And you know that by default beans
+ 
+
+1025
+00:23:46,400 --> 00:23:49,190
+Okay. And you know that by default beans
+are singleton. So it should goes to
+
+1026
+00:23:49,190 --> 00:23:49,200
+are singleton. So it should goes to
+ 
+
+1027
+00:23:49,200 --> 00:23:53,029
+are singleton. So it should goes to
+three from two. Okay. But it creates a
+
+1028
+00:23:53,029 --> 00:23:53,039
+three from two. Okay. But it creates a
+ 
+
+1029
+00:23:53,039 --> 00:23:55,110
+three from two. Okay. But it creates a
+new object that's why it is starting
+
+1030
+00:23:55,110 --> 00:23:55,120
+new object that's why it is starting
+ 
+
+1031
+00:23:55,120 --> 00:23:58,710
+new object that's why it is starting
+with one. And that's why I that's the
+
+1032
+00:23:58,710 --> 00:23:58,720
+with one. And that's why I that's the
+ 
+
+1033
+00:23:58,720 --> 00:24:01,590
+with one. And that's why I that's the
+reason I used add the rate configuration
+
+1034
+00:24:01,590 --> 00:24:01,600
+reason I used add the rate configuration
+ 
+
+1035
+00:24:01,600 --> 00:24:03,350
+reason I used add the rate configuration
+properties
+
+1036
+00:24:03,350 --> 00:24:03,360
+properties
+ 
+
+1037
+00:24:03,360 --> 00:24:07,430
+properties
+for the refresher scope. I don't want to
+
+1038
+00:24:07,430 --> 00:24:07,440
+for the refresher scope. I don't want to
+ 
+
+1039
+00:24:07,440 --> 00:24:09,430
+for the refresher scope. I don't want to
+have a
+
+1040
+00:24:09,430 --> 00:24:09,440
+have a
+ 
+
+1041
+00:24:09,440 --> 00:24:12,310
+have a
+recommend even this that use refresh
+
+1042
+00:24:12,310 --> 00:24:12,320
+recommend even this that use refresh
+ 
+
+1043
+00:24:12,320 --> 00:24:14,549
+recommend even this that use refresh
+scope over the controller or service
+
+1044
+00:24:14,549 --> 00:24:14,559
+scope over the controller or service
+ 
+
+1045
+00:24:14,559 --> 00:24:19,430
+scope over the controller or service
+layer never right because let's say your
+
+1046
+00:24:19,430 --> 00:24:19,440
+layer never right because let's say your
+ 
+
+1047
+00:24:19,440 --> 00:24:21,430
+layer never right because let's say your
+controller class is taking a request and
+
+1048
+00:24:21,430 --> 00:24:21,440
+controller class is taking a request and
+ 
+
+1049
+00:24:21,440 --> 00:24:24,390
+controller class is taking a request and
+suddenly somebody calls this
+
+1050
+00:24:24,390 --> 00:24:24,400
+suddenly somebody calls this
+ 
+
+1051
+00:24:24,400 --> 00:24:26,789
+suddenly somebody calls this
+/actuator/refresh
+
+1052
+00:24:26,789 --> 00:24:26,799
+/actuator/refresh
+ 
+
+1053
+00:24:26,799 --> 00:24:29,029
+/actuator/refresh
+that bean is destroyed your request will
+
+1054
+00:24:29,029 --> 00:24:29,039
+that bean is destroyed your request will
+ 
+
+1055
+00:24:29,039 --> 00:24:30,710
+that bean is destroyed your request will
+be dropped
+
+1056
+00:24:30,710 --> 00:24:30,720
+be dropped
+ 
+
+1057
+00:24:30,720 --> 00:24:34,230
+be dropped
+okay so again again very important in
+
+1058
+00:24:34,230 --> 00:24:34,240
+okay so again again very important in
+ 
+
+1059
+00:24:34,240 --> 00:24:36,710
+okay so again again very important in
+interview als Also
+
+1060
+00:24:36,710 --> 00:24:36,720
+interview als Also
+ 
+
+1061
+00:24:36,720 --> 00:24:39,590
+interview als Also
+never use at the refresh scope over a
+
+1062
+00:24:39,590 --> 00:24:39,600
+never use at the refresh scope over a
+ 
+
+1063
+00:24:39,600 --> 00:24:43,110
+never use at the refresh scope over a
+controller or service. Always used over
+
+1064
+00:24:43,110 --> 00:24:43,120
+controller or service. Always used over
+ 
+
+1065
+00:24:43,120 --> 00:24:46,870
+controller or service. Always used over
+a stateless object or stateless bean
+
+1066
+00:24:46,870 --> 00:24:46,880
+a stateless object or stateless bean
+ 
+
+1067
+00:24:46,880 --> 00:24:49,909
+a stateless object or stateless bean
+like a POJO which is like for
+
+1068
+00:24:49,909 --> 00:24:49,919
+like a POJO which is like for
+ 
+
+1069
+00:24:49,919 --> 00:24:52,390
+like a POJO which is like for
+configuration
+
+1070
+00:24:52,390 --> 00:24:52,400
+configuration
+ 
+
+1071
+00:24:52,400 --> 00:24:55,510
+configuration
+right and one such is like add the rate
+
+1072
+00:24:55,510 --> 00:24:55,520
+right and one such is like add the rate
+ 
+
+1073
+00:24:55,520 --> 00:24:56,870
+right and one such is like add the rate
+configuration properties. This is
+
+1074
+00:24:56,870 --> 00:24:56,880
+configuration properties. This is
+ 
+
+1075
+00:24:56,880 --> 00:24:59,190
+configuration properties. This is
+nothing but a POJO for configuration
+
+1076
+00:24:59,190 --> 00:24:59,200
+nothing but a POJO for configuration
+ 
+
+1077
+00:24:59,200 --> 00:25:01,669
+nothing but a POJO for configuration
+only. It's a stateless. It just have
+
+1078
+00:25:01,669 --> 00:25:01,679
+only. It's a stateless. It just have
+ 
+
+1079
+00:25:01,679 --> 00:25:03,909
+only. It's a stateless. It just have
+property, configuration properties,
+
+1080
+00:25:03,909 --> 00:25:03,919
+property, configuration properties,
+ 
+
+1081
+00:25:03,919 --> 00:25:07,510
+property, configuration properties,
+fields and values.
+
+1082
+00:25:07,510 --> 00:25:07,520
+
+ 
+
+1083
+00:25:07,520 --> 00:25:10,149
+
+Okay.
+
+1084
+00:25:10,149 --> 00:25:10,159
+Okay.
+ 
+
+1085
+00:25:10,159 --> 00:25:12,310
+Okay.
+Now one last question might have comes
+
+1086
+00:25:12,310 --> 00:25:12,320
+Now one last question might have comes
+ 
+
+1087
+00:25:12,320 --> 00:25:15,909
+Now one last question might have comes
+to your mind. If you can think of it,
+
+1088
+00:25:15,909 --> 00:25:15,919
+to your mind. If you can think of it,
+ 
+
+1089
+00:25:15,919 --> 00:25:17,590
+to your mind. If you can think of it,
+pause it and think it. What could be
+
+1090
+00:25:17,590 --> 00:25:17,600
+pause it and think it. What could be
+ 
+
+1091
+00:25:17,600 --> 00:25:21,110
+pause it and think it. What could be
+that question? I'll tell you. Now till
+
+1092
+00:25:21,110 --> 00:25:21,120
+that question? I'll tell you. Now till
+ 
+
+1093
+00:25:21,120 --> 00:25:22,870
+that question? I'll tell you. Now till
+now what we have seen that okay Shash
+
+1094
+00:25:22,870 --> 00:25:22,880
+now what we have seen that okay Shash
+ 
+
+1095
+00:25:22,880 --> 00:25:24,630
+now what we have seen that okay Shash
+what we understood is that we have a
+
+1096
+00:25:24,630 --> 00:25:24,640
+what we understood is that we have a
+ 
+
+1097
+00:25:24,640 --> 00:25:28,070
+what we understood is that we have a
+central config file. We have a config
+
+1098
+00:25:28,070 --> 00:25:28,080
+central config file. We have a config
+ 
+
+1099
+00:25:28,080 --> 00:25:31,190
+central config file. We have a config
+server and we have different client like
+
+1100
+00:25:31,190 --> 00:25:31,200
+server and we have different client like
+ 
+
+1101
+00:25:31,200 --> 00:25:32,470
+server and we have different client like
+order service. Let's say there are
+
+1102
+00:25:32,470 --> 00:25:32,480
+order service. Let's say there are
+ 
+
+1103
+00:25:32,480 --> 00:25:35,190
+order service. Let's say there are
+hundreds of microservices.
+
+1104
+00:25:35,190 --> 00:25:35,200
+hundreds of microservices.
+ 
+
+1105
+00:25:35,200 --> 00:25:37,830
+hundreds of microservices.
+Now if I have to dynamic refresh config
+
+1106
+00:25:37,830 --> 00:25:37,840
+Now if I have to dynamic refresh config
+ 
+
+1107
+00:25:37,840 --> 00:25:40,710
+Now if I have to dynamic refresh config
+server without restarting this I invoke
+
+1108
+00:25:40,710 --> 00:25:40,720
+server without restarting this I invoke
+ 
+
+1109
+00:25:40,720 --> 00:25:43,669
+server without restarting this I invoke
+actuator/refresh. Okay.
+
+1110
+00:25:43,669 --> 00:25:43,679
+actuator/refresh. Okay.
+ 
+
+1111
+00:25:43,679 --> 00:25:45,909
+actuator/refresh. Okay.
+Now once this is refresh all these
+
+1112
+00:25:45,909 --> 00:25:45,919
+Now once this is refresh all these
+ 
+
+1113
+00:25:45,919 --> 00:25:48,549
+Now once this is refresh all these
+clients need to be refreshed too. So I
+
+1114
+00:25:48,549 --> 00:25:48,559
+clients need to be refreshed too. So I
+ 
+
+1115
+00:25:48,559 --> 00:25:51,750
+clients need to be refreshed too. So I
+need to invoke /actuator/refresh
+
+1116
+00:25:51,750 --> 00:25:51,760
+need to invoke /actuator/refresh
+ 
+
+1117
+00:25:51,760 --> 00:25:56,549
+need to invoke /actuator/refresh
+on all these hundreds of microservices.
+
+1118
+00:25:56,549 --> 00:25:56,559
+
+ 
+
+1119
+00:25:56,559 --> 00:25:59,029
+
+If we are using this approach/actuator
+
+1120
+00:25:59,029 --> 00:25:59,039
+If we are using this approach/actuator
+ 
+
+1121
+00:25:59,039 --> 00:26:01,830
+If we are using this approach/actuator
+approach, yes, we have to call on all
+
+1122
+00:26:01,830 --> 00:26:01,840
+approach, yes, we have to call on all
+ 
+
+1123
+00:26:01,840 --> 00:26:03,590
+approach, yes, we have to call on all
+this 100.
+
+1124
+00:26:03,590 --> 00:26:03,600
+this 100.
+ 
+
+1125
+00:26:03,600 --> 00:26:05,590
+this 100.
+But yes, there is a different approach
+
+1126
+00:26:05,590 --> 00:26:05,600
+But yes, there is a different approach
+ 
+
+1127
+00:26:05,600 --> 00:26:09,990
+But yes, there is a different approach
+too. In that approach, we only need to
+
+1128
+00:26:09,990 --> 00:26:10,000
+too. In that approach, we only need to
+ 
+
+1129
+00:26:10,000 --> 00:26:13,590
+too. In that approach, we only need to
+refresh the config here.
+
+1130
+00:26:13,590 --> 00:26:13,600
+refresh the config here.
+ 
+
+1131
+00:26:13,600 --> 00:26:17,750
+refresh the config here.
+And once the refresh happen here it will
+
+1132
+00:26:17,750 --> 00:26:17,760
+And once the refresh happen here it will
+ 
+
+1133
+00:26:17,760 --> 00:26:21,430
+And once the refresh happen here it will
+publish you can say that a event or
+
+1134
+00:26:21,430 --> 00:26:21,440
+publish you can say that a event or
+ 
+
+1135
+00:26:21,440 --> 00:26:24,870
+publish you can say that a event or
+message to all the clients that hey the
+
+1136
+00:26:24,870 --> 00:26:24,880
+message to all the clients that hey the
+ 
+
+1137
+00:26:24,880 --> 00:26:27,990
+message to all the clients that hey the
+configuration is updated you guys also
+
+1138
+00:26:27,990 --> 00:26:28,000
+configuration is updated you guys also
+ 
+
+1139
+00:26:28,000 --> 00:26:30,149
+configuration is updated you guys also
+update yourself
+
+1140
+00:26:30,149 --> 00:26:30,159
+update yourself
+ 
+
+1141
+00:26:30,159 --> 00:26:32,630
+update yourself
+that can be happen through spring cloud
+
+1142
+00:26:32,630 --> 00:26:32,640
+that can be happen through spring cloud
+ 
+
+1143
+00:26:32,640 --> 00:26:34,230
+that can be happen through spring cloud
+boss.
+
+1144
+00:26:34,230 --> 00:26:34,240
+boss.
+ 
+
+1145
+00:26:34,240 --> 00:26:37,990
+boss.
+Okay that we will see next. So if so you
+
+1146
+00:26:37,990 --> 00:26:38,000
+Okay that we will see next. So if so you
+ 
+
+1147
+00:26:38,000 --> 00:26:42,789
+Okay that we will see next. So if so you
+can say that that is another way of uh
+
+1148
+00:26:42,789 --> 00:26:42,799
+can say that that is another way of uh
+ 
+
+1149
+00:26:42,799 --> 00:26:45,190
+can say that that is another way of uh
+making a refresh
+
+1150
+00:26:45,190 --> 00:26:45,200
+making a refresh
+ 
+
+1151
+00:26:45,200 --> 00:26:48,549
+making a refresh
+event occur.
+
+1152
+00:26:48,549 --> 00:26:48,559
+event occur.
+ 
+
+1153
+00:26:48,559 --> 00:26:51,110
+event occur.
+Okay. So you know that it's a two-step.
+
+1154
+00:26:51,110 --> 00:26:51,120
+Okay. So you know that it's a two-step.
+ 
+
+1155
+00:26:51,120 --> 00:26:54,470
+Okay. So you know that it's a two-step.
+We have to mark the bean
+
+1156
+00:26:54,470 --> 00:26:54,480
+We have to mark the bean
+ 
+
+1157
+00:26:54,480 --> 00:26:56,310
+We have to mark the bean
+and we have to mark the bean which need
+
+1158
+00:26:56,310 --> 00:26:56,320
+and we have to mark the bean which need
+ 
+
+1159
+00:26:56,320 --> 00:26:57,990
+and we have to mark the bean which need
+to be dynamically refreshed and we the
+
+1160
+00:26:57,990 --> 00:26:58,000
+to be dynamically refreshed and we the
+ 
+
+1161
+00:26:58,000 --> 00:26:59,750
+to be dynamically refreshed and we the
+marking of the bean happen to refresh
+
+1162
+00:26:59,750 --> 00:26:59,760
+marking of the bean happen to refresh
+ 
+
+1163
+00:26:59,760 --> 00:27:01,269
+marking of the bean happen to refresh
+scope.
+
+1164
+00:27:01,269 --> 00:27:01,279
+scope.
+ 
+
+1165
+00:27:01,279 --> 00:27:06,310
+scope.
+Now whenever the refresh event happens
+
+1166
+00:27:06,310 --> 00:27:06,320
+Now whenever the refresh event happens
+ 
+
+1167
+00:27:06,320 --> 00:27:09,669
+Now whenever the refresh event happens
+all the beans which are marked as at the
+
+1168
+00:27:09,669 --> 00:27:09,679
+all the beans which are marked as at the
+ 
+
+1169
+00:27:09,679 --> 00:27:12,710
+all the beans which are marked as at the
+refresh scope that will get refreshed.
+
+1170
+00:27:12,710 --> 00:27:12,720
+refresh scope that will get refreshed.
+ 
+
+1171
+00:27:12,720 --> 00:27:15,190
+refresh scope that will get refreshed.
+Okay. So now this refresh event can
+
+1172
+00:27:15,190 --> 00:27:15,200
+Okay. So now this refresh event can
+ 
+
+1173
+00:27:15,200 --> 00:27:19,590
+Okay. So now this refresh event can
+happen through actuator/refresh
+
+1174
+00:27:19,590 --> 00:27:19,600
+
+ 
+
+1175
+00:27:19,600 --> 00:27:21,990
+
+endpoint which we have seen already and
+
+1176
+00:27:21,990 --> 00:27:22,000
+endpoint which we have seen already and
+ 
+
+1177
+00:27:22,000 --> 00:27:25,909
+endpoint which we have seen already and
+another is through spring cloud boss. Uh
+
+1178
+00:27:25,909 --> 00:27:25,919
+another is through spring cloud boss. Uh
+ 
+
+1179
+00:27:25,919 --> 00:27:27,669
+another is through spring cloud boss. Uh
+that's it for today. If you have any
+
+1180
+00:27:27,669 --> 00:27:27,679
+that's it for today. If you have any
+ 
+
+1181
+00:27:27,679 --> 00:27:29,029
+that's it for today. If you have any
+doubt let me know. We can discuss
+
+1182
+00:27:29,029 --> 00:27:29,039
+doubt let me know. We can discuss
+ 
+
+1183
+00:27:29,039 --> 00:27:33,120
+doubt let me know. We can discuss
+further. Bye.
+

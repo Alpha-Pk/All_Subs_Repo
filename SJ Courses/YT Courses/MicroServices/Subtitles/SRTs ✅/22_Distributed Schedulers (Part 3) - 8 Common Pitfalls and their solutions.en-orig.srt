@@ -1,0 +1,9295 @@
+1
+00:00:00,000 --> 00:00:01,910
+
+Hey guys, Shandide welcome back. And
+
+2
+00:00:01,910 --> 00:00:01,920
+Hey guys, Shandide welcome back. And
+ 
+
+3
+00:00:01,920 --> 00:00:03,270
+Hey guys, Shandide welcome back. And
+till now we have seen how schedule
+
+4
+00:00:03,270 --> 00:00:03,280
+till now we have seen how schedule
+ 
+
+5
+00:00:03,280 --> 00:00:05,510
+till now we have seen how schedule
+should scheduleuler works internally,
+
+6
+00:00:05,510 --> 00:00:05,520
+should scheduleuler works internally,
+ 
+
+7
+00:00:05,520 --> 00:00:09,030
+should scheduleuler works internally,
+how in a single application how to
+
+8
+00:00:09,030 --> 00:00:09,040
+how in a single application how to
+ 
+
+9
+00:00:09,040 --> 00:00:11,110
+how in a single application how to
+implement scheduleuler like fixed rate,
+
+10
+00:00:11,110 --> 00:00:11,120
+implement scheduleuler like fixed rate,
+ 
+
+11
+00:00:11,120 --> 00:00:13,509
+implement scheduleuler like fixed rate,
+fixed delay. We have already seen that.
+
+12
+00:00:13,509 --> 00:00:13,519
+fixed delay. We have already seen that.
+ 
+
+13
+00:00:13,519 --> 00:00:17,510
+fixed delay. We have already seen that.
+Now before we move to distributeduling
+
+14
+00:00:17,510 --> 00:00:17,520
+Now before we move to distributeduling
+ 
+
+15
+00:00:17,520 --> 00:00:20,710
+Now before we move to distributeduling
+part, I will also cover like how
+
+16
+00:00:20,710 --> 00:00:20,720
+part, I will also cover like how
+ 
+
+17
+00:00:20,720 --> 00:00:22,310
+part, I will also cover like how
+interviewer
+
+18
+00:00:22,310 --> 00:00:22,320
+interviewer
+ 
+
+19
+00:00:22,320 --> 00:00:25,509
+interviewer
+reach till that point. So interview
+
+20
+00:00:25,509 --> 00:00:25,519
+reach till that point. So interview
+ 
+
+21
+00:00:25,519 --> 00:00:28,390
+reach till that point. So interview
+start from common pitfalls which happens
+
+22
+00:00:28,390 --> 00:00:28,400
+start from common pitfalls which happens
+ 
+
+23
+00:00:28,400 --> 00:00:30,870
+start from common pitfalls which happens
+in you can say that day-to-day
+
+24
+00:00:30,870 --> 00:00:30,880
+in you can say that day-to-day
+ 
+
+25
+00:00:30,880 --> 00:00:32,310
+in you can say that day-to-day
+shoulduling which we are doing in an
+
+26
+00:00:32,310 --> 00:00:32,320
+shoulduling which we are doing in an
+ 
+
+27
+00:00:32,320 --> 00:00:33,830
+shoulduling which we are doing in an
+application which while we are
+
+28
+00:00:33,830 --> 00:00:33,840
+application which while we are
+ 
+
+29
+00:00:33,840 --> 00:00:37,270
+application which while we are
+implementing. So it starts from there
+
+30
+00:00:37,270 --> 00:00:37,280
+implementing. So it starts from there
+ 
+
+31
+00:00:37,280 --> 00:00:39,670
+implementing. So it starts from there
+ultimately it end up till the
+
+32
+00:00:39,670 --> 00:00:39,680
+ultimately it end up till the
+ 
+
+33
+00:00:39,680 --> 00:00:42,069
+ultimately it end up till the
+distributed shoulduling part. Okay. So
+
+34
+00:00:42,069 --> 00:00:42,079
+distributed shoulduling part. Okay. So
+ 
+
+35
+00:00:42,079 --> 00:00:43,590
+distributed shoulduling part. Okay. So
+let's start without wasting any time
+
+36
+00:00:43,590 --> 00:00:43,600
+let's start without wasting any time
+ 
+
+37
+00:00:43,600 --> 00:00:45,510
+let's start without wasting any time
+because this is very important topic and
+
+38
+00:00:45,510 --> 00:00:45,520
+because this is very important topic and
+ 
+
+39
+00:00:45,520 --> 00:00:48,150
+because this is very important topic and
+I'll try to cover as many pitfalls as
+
+40
+00:00:48,150 --> 00:00:48,160
+I'll try to cover as many pitfalls as
+ 
+
+41
+00:00:48,160 --> 00:00:49,910
+I'll try to cover as many pitfalls as
+possible.
+
+42
+00:00:49,910 --> 00:00:49,920
+possible.
+ 
+
+43
+00:00:49,920 --> 00:00:52,389
+possible.
+So the first pitfall is we have already
+
+44
+00:00:52,389 --> 00:00:52,399
+So the first pitfall is we have already
+ 
+
+45
+00:00:52,399 --> 00:00:56,069
+So the first pitfall is we have already
+seen the chron job. So chron job and
+
+46
+00:00:56,069 --> 00:00:56,079
+seen the chron job. So chron job and
+ 
+
+47
+00:00:56,079 --> 00:00:59,110
+seen the chron job. So chron job and
+time zone issue pitfall. So the problem
+
+48
+00:00:59,110 --> 00:00:59,120
+time zone issue pitfall. So the problem
+ 
+
+49
+00:00:59,120 --> 00:01:01,750
+time zone issue pitfall. So the problem
+is that when we are using this chron job
+
+50
+00:01:01,750 --> 00:01:01,760
+is that when we are using this chron job
+ 
+
+51
+00:01:01,760 --> 00:01:04,789
+is that when we are using this chron job
+let's say at the rate scheduled chron is
+
+52
+00:01:04,789 --> 00:01:04,799
+let's say at the rate scheduled chron is
+ 
+
+53
+00:01:04,799 --> 00:01:07,429
+let's say at the rate scheduled chron is
+this what is this one this is second
+
+54
+00:01:07,429 --> 00:01:07,439
+this what is this one this is second
+ 
+
+55
+00:01:07,439 --> 00:01:10,630
+this what is this one this is second
+minute r and it's like any value. So it
+
+56
+00:01:10,630 --> 00:01:10,640
+minute r and it's like any value. So it
+ 
+
+57
+00:01:10,640 --> 00:01:13,670
+minute r and it's like any value. So it
+means like every day 9:00 a.m. we want
+
+58
+00:01:13,670 --> 00:01:13,680
+means like every day 9:00 a.m. we want
+ 
+
+59
+00:01:13,680 --> 00:01:15,990
+means like every day 9:00 a.m. we want
+to run this scheduleuler job. That's
+
+60
+00:01:15,990 --> 00:01:16,000
+to run this scheduleuler job. That's
+ 
+
+61
+00:01:16,000 --> 00:01:19,830
+to run this scheduleuler job. That's
+what it means every day at 9:00 a.m. But
+
+62
+00:01:19,830 --> 00:01:19,840
+what it means every day at 9:00 a.m. But
+ 
+
+63
+00:01:19,840 --> 00:01:22,390
+what it means every day at 9:00 a.m. But
+the question is which time zone? because
+
+64
+00:01:22,390 --> 00:01:22,400
+the question is which time zone? because
+ 
+
+65
+00:01:22,400 --> 00:01:25,429
+the question is which time zone? because
+we haven't defined what if your server
+
+66
+00:01:25,429 --> 00:01:25,439
+we haven't defined what if your server
+ 
+
+67
+00:01:25,439 --> 00:01:28,070
+we haven't defined what if your server
+is running in UTC and your user is
+
+68
+00:01:28,070 --> 00:01:28,080
+is running in UTC and your user is
+ 
+
+69
+00:01:28,080 --> 00:01:31,590
+is running in UTC and your user is
+present into IST. Okay, so this chronops
+
+70
+00:01:31,590 --> 00:01:31,600
+present into IST. Okay, so this chronops
+ 
+
+71
+00:01:31,600 --> 00:01:34,710
+present into IST. Okay, so this chronops
+runs at 9:00 a.m. UTC.
+
+72
+00:01:34,710 --> 00:01:34,720
+runs at 9:00 a.m. UTC.
+ 
+
+73
+00:01:34,720 --> 00:01:37,830
+runs at 9:00 a.m. UTC.
+So it's always by default runs picks the
+
+74
+00:01:37,830 --> 00:01:37,840
+So it's always by default runs picks the
+ 
+
+75
+00:01:37,840 --> 00:01:40,390
+So it's always by default runs picks the
+server time zone.
+
+76
+00:01:40,390 --> 00:01:40,400
+server time zone.
+ 
+
+77
+00:01:40,400 --> 00:01:44,230
+server time zone.
+So like uh if your user is in
+
+78
+00:01:44,230 --> 00:01:44,240
+So like uh if your user is in
+ 
+
+79
+00:01:44,240 --> 00:01:47,350
+So like uh if your user is in
+IST time zone then 9:00 a.m. UTC is your
+
+80
+00:01:47,350 --> 00:01:47,360
+IST time zone then 9:00 a.m. UTC is your
+ 
+
+81
+00:01:47,360 --> 00:01:51,270
+IST time zone then 9:00 a.m. UTC is your
+2:30 p.m. IST. Okay. So if you have
+
+82
+00:01:51,270 --> 00:01:51,280
+2:30 p.m. IST. Okay. So if you have
+ 
+
+83
+00:01:51,280 --> 00:01:53,670
+2:30 p.m. IST. Okay. So if you have
+certain uh job to send morning
+
+84
+00:01:53,670 --> 00:01:53,680
+certain uh job to send morning
+ 
+
+85
+00:01:53,680 --> 00:01:55,510
+certain uh job to send morning
+notification that morning morning
+
+86
+00:01:55,510 --> 00:01:55,520
+notification that morning morning
+ 
+
+87
+00:01:55,520 --> 00:01:57,429
+notification that morning morning
+notification user received in afternoon
+
+88
+00:01:57,429 --> 00:01:57,439
+notification user received in afternoon
+ 
+
+89
+00:01:57,439 --> 00:02:01,109
+notification user received in afternoon
+2:30 p.m. Indian standard time. Okay.
+
+90
+00:02:01,109 --> 00:02:01,119
+2:30 p.m. Indian standard time. Okay.
+ 
+
+91
+00:02:01,119 --> 00:02:02,630
+2:30 p.m. Indian standard time. Okay.
+Why? Because your server is running in
+
+92
+00:02:02,630 --> 00:02:02,640
+Why? Because your server is running in
+ 
+
+93
+00:02:02,640 --> 00:02:04,950
+Why? Because your server is running in
+UTC and you haven't defined anything. So
+
+94
+00:02:04,950 --> 00:02:04,960
+UTC and you haven't defined anything. So
+ 
+
+95
+00:02:04,960 --> 00:02:08,869
+UTC and you haven't defined anything. So
+it solution is with chron's job always
+
+96
+00:02:08,869 --> 00:02:08,879
+it solution is with chron's job always
+ 
+
+97
+00:02:08,879 --> 00:02:11,510
+it solution is with chron's job always
+specifically use the zone.
+
+98
+00:02:11,510 --> 00:02:11,520
+specifically use the zone.
+ 
+
+99
+00:02:11,520 --> 00:02:14,229
+specifically use the zone.
+Okay. So that's very important and the
+
+100
+00:02:14,229 --> 00:02:14,239
+Okay. So that's very important and the
+ 
+
+101
+00:02:14,239 --> 00:02:17,110
+Okay. So that's very important and the
+first pitfall solution.
+
+102
+00:02:17,110 --> 00:02:17,120
+first pitfall solution.
+ 
+
+103
+00:02:17,120 --> 00:02:19,430
+first pitfall solution.
+Second is missing at the rate
+
+104
+00:02:19,430 --> 00:02:19,440
+Second is missing at the rate
+ 
+
+105
+00:02:19,440 --> 00:02:20,949
+Second is missing at the rate
+transactional.
+
+106
+00:02:20,949 --> 00:02:20,959
+transactional.
+ 
+
+107
+00:02:20,959 --> 00:02:23,190
+transactional.
+Uh I would say that many engineers
+
+108
+00:02:23,190 --> 00:02:23,200
+Uh I would say that many engineers
+ 
+
+109
+00:02:23,200 --> 00:02:25,670
+Uh I would say that many engineers
+already know this one but it's good to
+
+110
+00:02:25,670 --> 00:02:25,680
+already know this one but it's good to
+ 
+
+111
+00:02:25,680 --> 00:02:28,309
+already know this one but it's good to
+cover this. So now let's say uh this is
+
+112
+00:02:28,309 --> 00:02:28,319
+cover this. So now let's say uh this is
+ 
+
+113
+00:02:28,319 --> 00:02:32,790
+cover this. So now let's say uh this is
+our scheduleuler job and which is first
+
+114
+00:02:32,790 --> 00:02:32,800
+our scheduleuler job and which is first
+ 
+
+115
+00:02:32,800 --> 00:02:34,550
+our scheduleuler job and which is first
+fetch
+
+116
+00:02:34,550 --> 00:02:34,560
+fetch
+ 
+
+117
+00:02:34,560 --> 00:02:37,270
+fetch
+fetch all the record. Now for each
+
+118
+00:02:37,270 --> 00:02:37,280
+fetch all the record. Now for each
+ 
+
+119
+00:02:37,280 --> 00:02:40,070
+fetch all the record. Now for each
+record it is updating something
+
+120
+00:02:40,070 --> 00:02:40,080
+record it is updating something
+ 
+
+121
+00:02:40,080 --> 00:02:43,110
+record it is updating something
+updating let's say table one and a table
+
+122
+00:02:43,110 --> 00:02:43,120
+updating let's say table one and a table
+ 
+
+123
+00:02:43,120 --> 00:02:45,270
+updating let's say table one and a table
+two.
+
+124
+00:02:45,270 --> 00:02:45,280
+two.
+ 
+
+125
+00:02:45,280 --> 00:02:49,430
+two.
+And what if while updating the table two
+
+126
+00:02:49,430 --> 00:02:49,440
+And what if while updating the table two
+ 
+
+127
+00:02:49,440 --> 00:02:52,630
+And what if while updating the table two
+certain exception comes but in the table
+
+128
+00:02:52,630 --> 00:02:52,640
+certain exception comes but in the table
+ 
+
+129
+00:02:52,640 --> 00:02:56,150
+certain exception comes but in the table
+one the value is updated properly.
+
+130
+00:02:56,150 --> 00:02:56,160
+one the value is updated properly.
+ 
+
+131
+00:02:56,160 --> 00:02:59,110
+one the value is updated properly.
+Okay. So the same thing let's say you
+
+132
+00:02:59,110 --> 00:02:59,120
+Okay. So the same thing let's say you
+ 
+
+133
+00:02:59,120 --> 00:03:01,509
+Okay. So the same thing let's say you
+are working on subscription 101 there
+
+134
+00:03:01,509 --> 00:03:01,519
+are working on subscription 101 there
+ 
+
+135
+00:03:01,519 --> 00:03:02,949
+are working on subscription 101 there
+are so many subscription you are working
+
+136
+00:03:02,949 --> 00:03:02,959
+are so many subscription you are working
+ 
+
+137
+00:03:02,959 --> 00:03:05,990
+are so many subscription you are working
+on 101 status is updated properly
+
+138
+00:03:05,990 --> 00:03:06,000
+on 101 status is updated properly
+ 
+
+139
+00:03:06,000 --> 00:03:08,790
+on 101 status is updated properly
+expired but enrollment deletion got
+
+140
+00:03:08,790 --> 00:03:08,800
+expired but enrollment deletion got
+ 
+
+141
+00:03:08,800 --> 00:03:11,430
+expired but enrollment deletion got
+failed. So roll back is not happen for
+
+142
+00:03:11,430 --> 00:03:11,440
+failed. So roll back is not happen for
+ 
+
+143
+00:03:11,440 --> 00:03:14,710
+failed. So roll back is not happen for
+subscription table status column. Hence
+
+144
+00:03:14,710 --> 00:03:14,720
+subscription table status column. Hence
+ 
+
+145
+00:03:14,720 --> 00:03:18,149
+subscription table status column. Hence
+data is now in inconsistent state and we
+
+146
+00:03:18,149 --> 00:03:18,159
+data is now in inconsistent state and we
+ 
+
+147
+00:03:18,159 --> 00:03:20,869
+data is now in inconsistent state and we
+know the solution that we need to put at
+
+148
+00:03:20,869 --> 00:03:20,879
+know the solution that we need to put at
+ 
+
+149
+00:03:20,879 --> 00:03:23,430
+know the solution that we need to put at
+the rate transactional here. So you can
+
+150
+00:03:23,430 --> 00:03:23,440
+the rate transactional here. So you can
+ 
+
+151
+00:03:23,440 --> 00:03:26,309
+the rate transactional here. So you can
+give transaction at class level. Okay.
+
+152
+00:03:26,309 --> 00:03:26,319
+give transaction at class level. Okay.
+ 
+
+153
+00:03:26,319 --> 00:03:28,470
+give transaction at class level. Okay.
+So that by default it would be applied
+
+154
+00:03:28,470 --> 00:03:28,480
+So that by default it would be applied
+ 
+
+155
+00:03:28,480 --> 00:03:30,710
+So that by default it would be applied
+to all public methods or if you want on
+
+156
+00:03:30,710 --> 00:03:30,720
+to all public methods or if you want on
+ 
+
+157
+00:03:30,720 --> 00:03:33,270
+to all public methods or if you want on
+any specific method you can also write
+
+158
+00:03:33,270 --> 00:03:33,280
+any specific method you can also write
+ 
+
+159
+00:03:33,280 --> 00:03:36,070
+any specific method you can also write
+it on a specific method. So we have
+
+160
+00:03:36,070 --> 00:03:36,080
+it on a specific method. So we have
+ 
+
+161
+00:03:36,080 --> 00:03:39,110
+it on a specific method. So we have
+already covered those part. So right the
+
+162
+00:03:39,110 --> 00:03:39,120
+already covered those part. So right the
+ 
+
+163
+00:03:39,120 --> 00:03:40,949
+already covered those part. So right the
+third pitfall
+
+164
+00:03:40,949 --> 00:03:40,959
+third pitfall
+ 
+
+165
+00:03:40,959 --> 00:03:45,350
+third pitfall
+is fetching huge data. the memory issue.
+
+166
+00:03:45,350 --> 00:03:45,360
+is fetching huge data. the memory issue.
+ 
+
+167
+00:03:45,360 --> 00:03:47,030
+is fetching huge data. the memory issue.
+What is this problem? [clears throat] So
+
+168
+00:03:47,030 --> 00:03:47,040
+What is this problem? [clears throat] So
+ 
+
+169
+00:03:47,040 --> 00:03:49,270
+What is this problem? [clears throat] So
+now we have a transactional. Okay, well
+
+170
+00:03:49,270 --> 00:03:49,280
+now we have a transactional. Okay, well
+ 
+
+171
+00:03:49,280 --> 00:03:52,470
+now we have a transactional. Okay, well
+and good. This query
+
+172
+00:03:52,470 --> 00:03:52,480
+and good. This query
+ 
+
+173
+00:03:52,480 --> 00:03:55,110
+and good. This query
+in schedule shoulder could be an issue.
+
+174
+00:03:55,110 --> 00:03:55,120
+in schedule shoulder could be an issue.
+ 
+
+175
+00:03:55,120 --> 00:03:56,470
+in schedule shoulder could be an issue.
+Why? Because schedule should
+
+176
+00:03:56,470 --> 00:03:56,480
+Why? Because schedule should
+ 
+
+177
+00:03:56,480 --> 00:03:59,830
+Why? Because schedule should
+scheduleuler is like hey find by expiry
+
+178
+00:03:59,830 --> 00:03:59,840
+scheduleuler is like hey find by expiry
+ 
+
+179
+00:03:59,840 --> 00:04:02,550
+scheduleuler is like hey find by expiry
+date before this time.
+
+180
+00:04:02,550 --> 00:04:02,560
+date before this time.
+ 
+
+181
+00:04:02,560 --> 00:04:05,429
+date before this time.
+So it's possible that you are fetching
+
+182
+00:04:05,429 --> 00:04:05,439
+So it's possible that you are fetching
+ 
+
+183
+00:04:05,439 --> 00:04:08,229
+So it's possible that you are fetching
+so many records. It's possible in
+
+184
+00:04:08,229 --> 00:04:08,239
+so many records. It's possible in
+ 
+
+185
+00:04:08,239 --> 00:04:10,070
+so many records. It's possible in
+scheduulers when you are dealing with a
+
+186
+00:04:10,070 --> 00:04:10,080
+scheduulers when you are dealing with a
+ 
+
+187
+00:04:10,080 --> 00:04:13,270
+scheduulers when you are dealing with a
+scheduulers and you do a get call to
+
+188
+00:04:13,270 --> 00:04:13,280
+scheduulers and you do a get call to
+ 
+
+189
+00:04:13,280 --> 00:04:16,150
+scheduulers and you do a get call to
+work on certain data it's possible that
+
+190
+00:04:16,150 --> 00:04:16,160
+work on certain data it's possible that
+ 
+
+191
+00:04:16,160 --> 00:04:19,909
+work on certain data it's possible that
+your query is fetching so many records
+
+192
+00:04:19,909 --> 00:04:19,919
+your query is fetching so many records
+ 
+
+193
+00:04:19,919 --> 00:04:22,790
+your query is fetching so many records
+and let's say in the example which I'm
+
+194
+00:04:22,790 --> 00:04:22,800
+and let's say in the example which I'm
+ 
+
+195
+00:04:22,800 --> 00:04:25,909
+and let's say in the example which I'm
+taking if 85,000 records this query is
+
+196
+00:04:25,909 --> 00:04:25,919
+taking if 85,000 records this query is
+ 
+
+197
+00:04:25,919 --> 00:04:29,749
+taking if 85,000 records this query is
+fetching and each record is 10 KB then
+
+198
+00:04:29,749 --> 00:04:29,759
+fetching and each record is 10 KB then
+ 
+
+199
+00:04:29,759 --> 00:04:33,270
+fetching and each record is 10 KB then
+it's around 850 MB of data just from
+
+200
+00:04:33,270 --> 00:04:33,280
+it's around 850 MB of data just from
+ 
+
+201
+00:04:33,280 --> 00:04:35,990
+it's around 850 MB of data just from
+this query alone and let's say it's all
+
+202
+00:04:35,990 --> 00:04:36,000
+this query alone and let's say it's all
+ 
+
+203
+00:04:36,000 --> 00:04:39,670
+this query alone and let's say it's all
+hypothetical If JVM heap is 512 MB the
+
+204
+00:04:39,670 --> 00:04:39,680
+hypothetical If JVM heap is 512 MB the
+ 
+
+205
+00:04:39,680 --> 00:04:41,590
+hypothetical If JVM heap is 512 MB the
+result you will get is out of memory
+
+206
+00:04:41,590 --> 00:04:41,600
+result you will get is out of memory
+ 
+
+207
+00:04:41,600 --> 00:04:44,870
+result you will get is out of memory
+Java heap space and what will happen is
+
+208
+00:04:44,870 --> 00:04:44,880
+Java heap space and what will happen is
+ 
+
+209
+00:04:44,880 --> 00:04:47,270
+Java heap space and what will happen is
+the next time scheduleuler run the same
+
+210
+00:04:47,270 --> 00:04:47,280
+the next time scheduleuler run the same
+ 
+
+211
+00:04:47,280 --> 00:04:52,469
+the next time scheduleuler run the same
+issue. So it will always fail always.
+
+212
+00:04:52,469 --> 00:04:52,479
+issue. So it will always fail always.
+ 
+
+213
+00:04:52,479 --> 00:04:56,870
+issue. So it will always fail always.
+Okay. So
+
+214
+00:04:56,870 --> 00:04:56,880
+
+ 
+
+215
+00:04:56,880 --> 00:05:00,790
+
+fetching huge data is a very big pitfall
+
+216
+00:05:00,790 --> 00:05:00,800
+fetching huge data is a very big pitfall
+ 
+
+217
+00:05:00,800 --> 00:05:02,230
+fetching huge data is a very big pitfall
+you can say that when you're dealing
+
+218
+00:05:02,230 --> 00:05:02,240
+you can say that when you're dealing
+ 
+
+219
+00:05:02,240 --> 00:05:04,950
+you can say that when you're dealing
+with scheduulers and its solution is
+
+220
+00:05:04,950 --> 00:05:04,960
+with scheduulers and its solution is
+ 
+
+221
+00:05:04,960 --> 00:05:07,909
+with scheduulers and its solution is
+batch processing. So here how I
+
+222
+00:05:07,909 --> 00:05:07,919
+batch processing. So here how I
+ 
+
+223
+00:05:07,919 --> 00:05:11,510
+batch processing. So here how I
+converted this uh code change is like
+
+224
+00:05:11,510 --> 00:05:11,520
+converted this uh code change is like
+ 
+
+225
+00:05:11,520 --> 00:05:15,909
+converted this uh code change is like
+while true. Okay so continue and here
+
+226
+00:05:15,909 --> 00:05:15,919
+while true. Okay so continue and here
+ 
+
+227
+00:05:15,919 --> 00:05:18,390
+while true. Okay so continue and here
+now in each query I am fetching top
+
+228
+00:05:18,390 --> 00:05:18,400
+now in each query I am fetching top
+ 
+
+229
+00:05:18,400 --> 00:05:22,390
+now in each query I am fetching top
+1,000 records itself. Okay. So the query
+
+230
+00:05:22,390 --> 00:05:22,400
+1,000 records itself. Okay. So the query
+ 
+
+231
+00:05:22,400 --> 00:05:24,870
+1,000 records itself. Okay. So the query
+I have modified with limit thousand. So
+
+232
+00:05:24,870 --> 00:05:24,880
+I have modified with limit thousand. So
+ 
+
+233
+00:05:24,880 --> 00:05:27,189
+I have modified with limit thousand. So
+what it will do is it will fetch the top
+
+234
+00:05:27,189 --> 00:05:27,199
+what it will do is it will fetch the top
+ 
+
+235
+00:05:27,199 --> 00:05:32,150
+what it will do is it will fetch the top
+1,000 records only. Okay. And here if
+
+236
+00:05:32,150 --> 00:05:32,160
+1,000 records only. Okay. And here if
+ 
+
+237
+00:05:32,160 --> 00:05:37,350
+1,000 records only. Okay. And here if
+you see also I have added a status that
+
+238
+00:05:37,350 --> 00:05:37,360
+you see also I have added a status that
+ 
+
+239
+00:05:37,360 --> 00:05:41,270
+you see also I have added a status that
+not in expired because see earlier you
+
+240
+00:05:41,270 --> 00:05:41,280
+not in expired because see earlier you
+ 
+
+241
+00:05:41,280 --> 00:05:44,870
+not in expired because see earlier you
+were running the query only one time. So
+
+242
+00:05:44,870 --> 00:05:44,880
+were running the query only one time. So
+ 
+
+243
+00:05:44,880 --> 00:05:47,430
+were running the query only one time. So
+there is no point of like let's say that
+
+244
+00:05:47,430 --> 00:05:47,440
+there is no point of like let's say that
+ 
+
+245
+00:05:47,440 --> 00:05:51,830
+there is no point of like let's say that
+give me the all the data
+
+246
+00:05:51,830 --> 00:05:51,840
+give me the all the data
+ 
+
+247
+00:05:51,840 --> 00:05:55,670
+give me the all the data
+expired which are not in expired.
+
+248
+00:05:55,670 --> 00:05:55,680
+expired which are not in expired.
+ 
+
+249
+00:05:55,680 --> 00:05:59,430
+expired which are not in expired.
+Okay but date has passed through.
+
+250
+00:05:59,430 --> 00:05:59,440
+Okay but date has passed through.
+ 
+
+251
+00:05:59,440 --> 00:06:01,350
+Okay but date has passed through.
+So fetch me all the data. So you are
+
+252
+00:06:01,350 --> 00:06:01,360
+So fetch me all the data. So you are
+ 
+
+253
+00:06:01,360 --> 00:06:04,469
+So fetch me all the data. So you are
+running it only one time. Now
+
+254
+00:06:04,469 --> 00:06:04,479
+running it only one time. Now
+ 
+
+255
+00:06:04,479 --> 00:06:07,350
+running it only one time. Now
+in the batch processing the major thing
+
+256
+00:06:07,350 --> 00:06:07,360
+in the batch processing the major thing
+ 
+
+257
+00:06:07,360 --> 00:06:10,790
+in the batch processing the major thing
+we have to uh take note of it is that
+
+258
+00:06:10,790 --> 00:06:10,800
+we have to uh take note of it is that
+ 
+
+259
+00:06:10,800 --> 00:06:12,710
+we have to uh take note of it is that
+you are running in a while loop
+
+260
+00:06:12,710 --> 00:06:12,720
+you are running in a while loop
+ 
+
+261
+00:06:12,720 --> 00:06:15,029
+you are running in a while loop
+continuously because you have to fetch
+
+262
+00:06:15,029 --> 00:06:15,039
+continuously because you have to fetch
+ 
+
+263
+00:06:15,039 --> 00:06:17,270
+continuously because you have to fetch
+all the records. You are keep on
+
+264
+00:06:17,270 --> 00:06:17,280
+all the records. You are keep on
+ 
+
+265
+00:06:17,280 --> 00:06:19,350
+all the records. You are keep on
+fetching thousand thousand records.
+
+266
+00:06:19,350 --> 00:06:19,360
+fetching thousand thousand records.
+ 
+
+267
+00:06:19,360 --> 00:06:21,830
+fetching thousand thousand records.
+Okay. So you have to make sure that you
+
+268
+00:06:21,830 --> 00:06:21,840
+Okay. So you have to make sure that you
+ 
+
+269
+00:06:21,840 --> 00:06:24,070
+Okay. So you have to make sure that you
+don't end up in infinite loop because
+
+270
+00:06:24,070 --> 00:06:24,080
+don't end up in infinite loop because
+ 
+
+271
+00:06:24,080 --> 00:06:26,390
+don't end up in infinite loop because
+see this is very critical. You are
+
+272
+00:06:26,390 --> 00:06:26,400
+see this is very critical. You are
+ 
+
+273
+00:06:26,400 --> 00:06:29,510
+see this is very critical. You are
+within a while true loop. Okay. So you
+
+274
+00:06:29,510 --> 00:06:29,520
+within a while true loop. Okay. So you
+ 
+
+275
+00:06:29,520 --> 00:06:31,510
+within a while true loop. Okay. So you
+should not end up in infinite looping.
+
+276
+00:06:31,510 --> 00:06:31,520
+should not end up in infinite looping.
+ 
+
+277
+00:06:31,520 --> 00:06:33,350
+should not end up in infinite looping.
+So that's where I am focusing more here
+
+278
+00:06:33,350 --> 00:06:33,360
+So that's where I am focusing more here
+ 
+
+279
+00:06:33,360 --> 00:06:37,749
+So that's where I am focusing more here
+is that have a proper query
+
+280
+00:06:37,749 --> 00:06:37,759
+is that have a proper query
+ 
+
+281
+00:06:37,759 --> 00:06:41,590
+is that have a proper query
+double check your query that it do not
+
+282
+00:06:41,590 --> 00:06:41,600
+double check your query that it do not
+ 
+
+283
+00:06:41,600 --> 00:06:44,309
+double check your query that it do not
+end up in infinite loop. Okay. So here
+
+284
+00:06:44,309 --> 00:06:44,319
+end up in infinite loop. Okay. So here
+ 
+
+285
+00:06:44,319 --> 00:06:47,029
+end up in infinite loop. Okay. So here
+when I f the top thousand records what I
+
+286
+00:06:47,029 --> 00:06:47,039
+when I f the top thousand records what I
+ 
+
+287
+00:06:47,039 --> 00:06:48,870
+when I f the top thousand records what I
+am doing is I change their status to
+
+288
+00:06:48,870 --> 00:06:48,880
+am doing is I change their status to
+ 
+
+289
+00:06:48,880 --> 00:06:50,950
+am doing is I change their status to
+expired. So that's where I'm just
+
+290
+00:06:50,950 --> 00:06:50,960
+expired. So that's where I'm just
+ 
+
+291
+00:06:50,960 --> 00:06:53,029
+expired. So that's where I'm just
+checking and status is not in expired so
+
+292
+00:06:53,029 --> 00:06:53,039
+checking and status is not in expired so
+ 
+
+293
+00:06:53,039 --> 00:06:55,350
+checking and status is not in expired so
+that I always get new records which I
+
+294
+00:06:55,350 --> 00:06:55,360
+that I always get new records which I
+ 
+
+295
+00:06:55,360 --> 00:06:58,950
+that I always get new records which I
+have to work on and only 1,000.
+
+296
+00:06:58,950 --> 00:06:58,960
+have to work on and only 1,000.
+ 
+
+297
+00:06:58,960 --> 00:07:00,870
+have to work on and only 1,000.
+Okay.
+
+298
+00:07:00,870 --> 00:07:00,880
+Okay.
+ 
+
+299
+00:07:00,880 --> 00:07:03,430
+Okay.
+So this is another solution for the
+
+300
+00:07:03,430 --> 00:07:03,440
+So this is another solution for the
+ 
+
+301
+00:07:03,440 --> 00:07:07,830
+So this is another solution for the
+pitfall is that uh when you have
+
+302
+00:07:07,830 --> 00:07:07,840
+pitfall is that uh when you have
+ 
+
+303
+00:07:07,840 --> 00:07:11,270
+pitfall is that uh when you have
+working with huge data don't just hit
+
+304
+00:07:11,270 --> 00:07:11,280
+working with huge data don't just hit
+ 
+
+305
+00:07:11,280 --> 00:07:13,670
+working with huge data don't just hit
+one query follow the batch processing
+
+306
+00:07:13,670 --> 00:07:13,680
+one query follow the batch processing
+ 
+
+307
+00:07:13,680 --> 00:07:16,150
+one query follow the batch processing
+and while following the batch processing
+
+308
+00:07:16,150 --> 00:07:16,160
+and while following the batch processing
+ 
+
+309
+00:07:16,160 --> 00:07:18,070
+and while following the batch processing
+make sure
+
+310
+00:07:18,070 --> 00:07:18,080
+make sure
+ 
+
+311
+00:07:18,080 --> 00:07:19,990
+make sure
+you have you don't end up in infinite
+
+312
+00:07:19,990 --> 00:07:20,000
+you have you don't end up in infinite
+ 
+
+313
+00:07:20,000 --> 00:07:22,150
+you have you don't end up in infinite
+loop and I told you that here whatever
+
+314
+00:07:22,150 --> 00:07:22,160
+loop and I told you that here whatever
+ 
+
+315
+00:07:22,160 --> 00:07:23,670
+loop and I told you that here whatever
+the status you are updating depending
+
+316
+00:07:23,670 --> 00:07:23,680
+the status you are updating depending
+ 
+
+317
+00:07:23,680 --> 00:07:26,150
+the status you are updating depending
+upon your business logic your query
+
+318
+00:07:26,150 --> 00:07:26,160
+upon your business logic your query
+ 
+
+319
+00:07:26,160 --> 00:07:28,390
+upon your business logic your query
+should be such that
+
+320
+00:07:28,390 --> 00:07:28,400
+should be such that
+ 
+
+321
+00:07:28,400 --> 00:07:32,790
+should be such that
+it excludes those are already executed.
+
+322
+00:07:32,790 --> 00:07:32,800
+it excludes those are already executed.
+ 
+
+323
+00:07:32,800 --> 00:07:35,270
+it excludes those are already executed.
+Okay.
+
+324
+00:07:35,270 --> 00:07:35,280
+Okay.
+ 
+
+325
+00:07:35,280 --> 00:07:37,510
+Okay.
+So now what would happen? Now I am
+
+326
+00:07:37,510 --> 00:07:37,520
+So now what would happen? Now I am
+ 
+
+327
+00:07:37,520 --> 00:07:39,830
+So now what would happen? Now I am
+fetching thousand record at a time. So
+
+328
+00:07:39,830 --> 00:07:39,840
+fetching thousand record at a time. So
+ 
+
+329
+00:07:39,840 --> 00:07:41,350
+fetching thousand record at a time. So
+how many times it will run? Batch
+
+330
+00:07:41,350 --> 00:07:41,360
+how many times it will run? Batch
+ 
+
+331
+00:07:41,360 --> 00:07:44,070
+how many times it will run? Batch
+one,000 records. Batch two,000 records.
+
+332
+00:07:44,070 --> 00:07:44,080
+one,000 records. Batch two,000 records.
+ 
+
+333
+00:07:44,080 --> 00:07:46,390
+one,000 records. Batch two,000 records.
+Similarly batch 85,000
+
+334
+00:07:46,390 --> 00:07:46,400
+Similarly batch 85,000
+ 
+
+335
+00:07:46,400 --> 00:07:49,350
+Similarly batch 85,000
+records. So all 85,000
+
+336
+00:07:49,350 --> 00:07:49,360
+records. So all 85,000
+ 
+
+337
+00:07:49,360 --> 00:07:51,670
+records. So all 85,000
+records will get processed into 85 batch
+
+338
+00:07:51,670 --> 00:07:51,680
+records will get processed into 85 batch
+ 
+
+339
+00:07:51,680 --> 00:07:55,270
+records will get processed into 85 batch
+small chunks. Now each 1,000 record is
+
+340
+00:07:55,270 --> 00:07:55,280
+small chunks. Now each 1,000 record is
+ 
+
+341
+00:07:55,280 --> 00:07:59,589
+small chunks. Now each 1,000 record is
+of now 10 MB. Okay. So earlier we have
+
+342
+00:07:59,589 --> 00:07:59,599
+of now 10 MB. Okay. So earlier we have
+ 
+
+343
+00:07:59,599 --> 00:08:03,110
+of now 10 MB. Okay. So earlier we have
+1850 MB in one shot. Now each batch is
+
+344
+00:08:03,110 --> 00:08:03,120
+1850 MB in one shot. Now each batch is
+ 
+
+345
+00:08:03,120 --> 00:08:05,670
+1850 MB in one shot. Now each batch is
+of only 10 MB and once the work is
+
+346
+00:08:05,670 --> 00:08:05,680
+of only 10 MB and once the work is
+ 
+
+347
+00:08:05,680 --> 00:08:09,589
+of only 10 MB and once the work is
+completed GC can reclaim this memory.
+
+348
+00:08:09,589 --> 00:08:09,599
+completed GC can reclaim this memory.
+ 
+
+349
+00:08:09,599 --> 00:08:12,710
+completed GC can reclaim this memory.
+Okay. So once the work is completed it
+
+350
+00:08:12,710 --> 00:08:12,720
+Okay. So once the work is completed it
+ 
+
+351
+00:08:12,720 --> 00:08:14,629
+Okay. So once the work is completed it
+they are free to go. They are free uh
+
+352
+00:08:14,629 --> 00:08:14,639
+they are free to go. They are free uh
+ 
+
+353
+00:08:14,639 --> 00:08:16,309
+they are free to go. They are free uh
+garbage collector is free to remove them
+
+354
+00:08:16,309 --> 00:08:16,319
+garbage collector is free to remove them
+ 
+
+355
+00:08:16,319 --> 00:08:18,469
+garbage collector is free to remove them
+from the heap. Similarly now for bash
+
+356
+00:08:18,469 --> 00:08:18,479
+from the heap. Similarly now for bash
+ 
+
+357
+00:08:18,479 --> 00:08:20,950
+from the heap. Similarly now for bash
+two we are working in small small
+
+358
+00:08:20,950 --> 00:08:20,960
+two we are working in small small
+ 
+
+359
+00:08:20,960 --> 00:08:25,990
+two we are working in small small
+chunks. Okay. So this is batch
+
+360
+00:08:25,990 --> 00:08:26,000
+chunks. Okay. So this is batch
+ 
+
+361
+00:08:26,000 --> 00:08:27,830
+chunks. Okay. So this is batch
+processing.
+
+362
+00:08:27,830 --> 00:08:27,840
+processing.
+ 
+
+363
+00:08:27,840 --> 00:08:33,589
+processing.
+Clear but there is a problem with
+
+364
+00:08:33,589 --> 00:08:33,599
+Clear but there is a problem with
+ 
+
+365
+00:08:33,599 --> 00:08:35,670
+Clear but there is a problem with
+memory leak here itself in the batch
+
+366
+00:08:35,670 --> 00:08:35,680
+memory leak here itself in the batch
+ 
+
+367
+00:08:35,680 --> 00:08:39,269
+memory leak here itself in the batch
+processing. So interer will say you that
+
+368
+00:08:39,269 --> 00:08:39,279
+processing. So interer will say you that
+ 
+
+369
+00:08:39,279 --> 00:08:41,670
+processing. So interer will say you that
+hey even after batch processing your
+
+370
+00:08:41,670 --> 00:08:41,680
+hey even after batch processing your
+ 
+
+371
+00:08:41,680 --> 00:08:45,990
+hey even after batch processing your
+memory issue will not fix. Why?
+
+372
+00:08:45,990 --> 00:08:46,000
+memory issue will not fix. Why?
+ 
+
+373
+00:08:46,000 --> 00:08:48,230
+memory issue will not fix. Why?
+It's because
+
+374
+00:08:48,230 --> 00:08:48,240
+It's because
+ 
+
+375
+00:08:48,240 --> 00:08:52,550
+It's because
+the problem is
+
+376
+00:08:52,550 --> 00:08:52,560
+
+ 
+
+377
+00:08:52,560 --> 00:08:56,230
+
+we have put at the rate transactional at
+
+378
+00:08:56,230 --> 00:08:56,240
+we have put at the rate transactional at
+ 
+
+379
+00:08:56,240 --> 00:08:58,389
+we have put at the rate transactional at
+top of this or you can say that even if
+
+380
+00:08:58,389 --> 00:08:58,399
+top of this or you can say that even if
+ 
+
+381
+00:08:58,399 --> 00:09:02,949
+top of this or you can say that even if
+not here if you have add the rate
+
+382
+00:09:02,949 --> 00:09:02,959
+not here if you have add the rate
+ 
+
+383
+00:09:02,959 --> 00:09:05,750
+not here if you have add the rate
+transactional
+
+384
+00:09:05,750 --> 00:09:05,760
+transactional
+ 
+
+385
+00:09:05,760 --> 00:09:08,870
+transactional
+at very very top level. So what would
+
+386
+00:09:08,870 --> 00:09:08,880
+at very very top level. So what would
+ 
+
+387
+00:09:08,880 --> 00:09:12,630
+at very very top level. So what would
+happen? So even though you are running
+
+388
+00:09:12,630 --> 00:09:12,640
+happen? So even though you are running
+ 
+
+389
+00:09:12,640 --> 00:09:17,350
+happen? So even though you are running
+multiple batch batch one batch two batch
+
+390
+00:09:17,350 --> 00:09:17,360
+multiple batch batch one batch two batch
+ 
+
+391
+00:09:17,360 --> 00:09:21,590
+multiple batch batch one batch two batch
+85 but all of these batches are part of
+
+392
+00:09:21,590 --> 00:09:21,600
+85 but all of these batches are part of
+ 
+
+393
+00:09:21,600 --> 00:09:25,110
+85 but all of these batches are part of
+only one transactional
+
+394
+00:09:25,110 --> 00:09:25,120
+only one transactional
+ 
+
+395
+00:09:25,120 --> 00:09:27,990
+only one transactional
+one transaction and because of this if
+
+396
+00:09:27,990 --> 00:09:28,000
+one transaction and because of this if
+ 
+
+397
+00:09:28,000 --> 00:09:32,630
+one transaction and because of this if
+you can recall in a spring boot I have
+
+398
+00:09:32,630 --> 00:09:32,640
+you can recall in a spring boot I have
+ 
+
+399
+00:09:32,640 --> 00:09:35,829
+you can recall in a spring boot I have
+told you about the first level caching
+
+400
+00:09:35,829 --> 00:09:35,839
+told you about the first level caching
+ 
+
+401
+00:09:35,839 --> 00:09:39,750
+told you about the first level caching
+okay so that's where the problem is
+
+402
+00:09:39,750 --> 00:09:39,760
+okay so that's where the problem is
+ 
+
+403
+00:09:39,760 --> 00:09:42,550
+okay so that's where the problem is
+So everything is running under one big
+
+404
+00:09:42,550 --> 00:09:42,560
+So everything is running under one big
+ 
+
+405
+00:09:42,560 --> 00:09:46,230
+So everything is running under one big
+add the rate transactional. All 85 batch
+
+406
+00:09:46,230 --> 00:09:46,240
+add the rate transactional. All 85 batch
+ 
+
+407
+00:09:46,240 --> 00:09:48,790
+add the rate transactional. All 85 batch
+the small small batch are part of one
+
+408
+00:09:48,790 --> 00:09:48,800
+the small small batch are part of one
+ 
+
+409
+00:09:48,800 --> 00:09:52,949
+the small small batch are part of one
+transaction only. And in JPA we have
+
+410
+00:09:52,949 --> 00:09:52,959
+transaction only. And in JPA we have
+ 
+
+411
+00:09:52,959 --> 00:09:54,710
+transaction only. And in JPA we have
+something called persistence context
+
+412
+00:09:54,710 --> 00:09:54,720
+something called persistence context
+ 
+
+413
+00:09:54,720 --> 00:09:56,550
+something called persistence context
+which maintains or you can say that
+
+414
+00:09:56,550 --> 00:09:56,560
+which maintains or you can say that
+ 
+
+415
+00:09:56,560 --> 00:09:58,150
+which maintains or you can say that
+which is helpful in maintaining the
+
+416
+00:09:58,150 --> 00:09:58,160
+which is helpful in maintaining the
+ 
+
+417
+00:09:58,160 --> 00:10:00,550
+which is helpful in maintaining the
+first level cache.
+
+418
+00:10:00,550 --> 00:10:00,560
+first level cache.
+ 
+
+419
+00:10:00,560 --> 00:10:03,430
+first level cache.
+And this persistence context maintains
+
+420
+00:10:03,430 --> 00:10:03,440
+And this persistence context maintains
+ 
+
+421
+00:10:03,440 --> 00:10:06,630
+And this persistence context maintains
+the reference of all entities loaded
+
+422
+00:10:06,630 --> 00:10:06,640
+the reference of all entities loaded
+ 
+
+423
+00:10:06,640 --> 00:10:09,590
+the reference of all entities loaded
+during the transaction. And since this
+
+424
+00:10:09,590 --> 00:10:09,600
+during the transaction. And since this
+ 
+
+425
+00:10:09,600 --> 00:10:11,829
+during the transaction. And since this
+is maintaining the reference when you
+
+426
+00:10:11,829 --> 00:10:11,839
+is maintaining the reference when you
+ 
+
+427
+00:10:11,839 --> 00:10:13,750
+is maintaining the reference when you
+are saying that garbage collector can
+
+428
+00:10:13,750 --> 00:10:13,760
+are saying that garbage collector can
+ 
+
+429
+00:10:13,760 --> 00:10:16,389
+are saying that garbage collector can
+reclaim memory will it? No. Because
+
+430
+00:10:16,389 --> 00:10:16,399
+reclaim memory will it? No. Because
+ 
+
+431
+00:10:16,399 --> 00:10:18,470
+reclaim memory will it? No. Because
+persistence context is maintaining the
+
+432
+00:10:18,470 --> 00:10:18,480
+persistence context is maintaining the
+ 
+
+433
+00:10:18,480 --> 00:10:21,990
+persistence context is maintaining the
+reference. So with batch one 10 MB batch
+
+434
+00:10:21,990 --> 00:10:22,000
+reference. So with batch one 10 MB batch
+ 
+
+435
+00:10:22,000 --> 00:10:24,949
+reference. So with batch one 10 MB batch
+2 so it's become keep on growing 10 MB
+
+436
+00:10:24,949 --> 00:10:24,959
+2 so it's become keep on growing 10 MB
+ 
+
+437
+00:10:24,959 --> 00:10:27,670
+2 so it's become keep on growing 10 MB
+plus 10 MB. So this memory will keep on
+
+438
+00:10:27,670 --> 00:10:27,680
+plus 10 MB. So this memory will keep on
+ 
+
+439
+00:10:27,680 --> 00:10:30,310
+plus 10 MB. So this memory will keep on
+growing as you run the batch.
+
+440
+00:10:30,310 --> 00:10:30,320
+growing as you run the batch.
+ 
+
+441
+00:10:30,320 --> 00:10:33,750
+growing as you run the batch.
+Okay. So memory issue ultimately you can
+
+442
+00:10:33,750 --> 00:10:33,760
+Okay. So memory issue ultimately you can
+ 
+
+443
+00:10:33,760 --> 00:10:35,990
+Okay. So memory issue ultimately you can
+say that uh delayed but it will
+
+444
+00:10:35,990 --> 00:10:36,000
+say that uh delayed but it will
+ 
+
+445
+00:10:36,000 --> 00:10:38,470
+say that uh delayed but it will
+eventually come because of first level
+
+446
+00:10:38,470 --> 00:10:38,480
+eventually come because of first level
+ 
+
+447
+00:10:38,480 --> 00:10:40,389
+eventually come because of first level
+cache.
+
+448
+00:10:40,389 --> 00:10:40,399
+cache.
+ 
+
+449
+00:10:40,399 --> 00:10:43,509
+cache.
+So also I want to uh just take couple of
+
+450
+00:10:43,509 --> 00:10:43,519
+So also I want to uh just take couple of
+ 
+
+451
+00:10:43,519 --> 00:10:47,269
+So also I want to uh just take couple of
+minutes more that when you are dealing
+
+452
+00:10:47,269 --> 00:10:47,279
+minutes more that when you are dealing
+ 
+
+453
+00:10:47,279 --> 00:10:49,190
+minutes more that when you are dealing
+with normal spring boot application rest
+
+454
+00:10:49,190 --> 00:10:49,200
+with normal spring boot application rest
+ 
+
+455
+00:10:49,200 --> 00:10:54,310
+with normal spring boot application rest
+API HTTP request. Okay then by default
+
+456
+00:10:54,310 --> 00:10:54,320
+API HTTP request. Okay then by default
+ 
+
+457
+00:10:54,320 --> 00:10:57,750
+API HTTP request. Okay then by default
+open session in view is enabled.
+
+458
+00:10:57,750 --> 00:10:57,760
+open session in view is enabled.
+ 
+
+459
+00:10:57,760 --> 00:10:59,910
+open session in view is enabled.
+In that way what happen is when the
+
+460
+00:10:59,910 --> 00:10:59,920
+In that way what happen is when the
+ 
+
+461
+00:10:59,920 --> 00:11:02,470
+In that way what happen is when the
+request comes
+
+462
+00:11:02,470 --> 00:11:02,480
+request comes
+ 
+
+463
+00:11:02,480 --> 00:11:04,230
+request comes
+okay
+
+464
+00:11:04,230 --> 00:11:04,240
+okay
+ 
+
+465
+00:11:04,240 --> 00:11:06,790
+okay
+at that time itself for each request
+
+466
+00:11:06,790 --> 00:11:06,800
+at that time itself for each request
+ 
+
+467
+00:11:06,800 --> 00:11:10,069
+at that time itself for each request
+persistence context is created okay so
+
+468
+00:11:10,069 --> 00:11:10,079
+persistence context is created okay so
+ 
+
+469
+00:11:10,079 --> 00:11:12,150
+persistence context is created okay so
+no matter if you have one transaction
+
+470
+00:11:12,150 --> 00:11:12,160
+no matter if you have one transaction
+ 
+
+471
+00:11:12,160 --> 00:11:15,110
+no matter if you have one transaction
+two transaction three transaction
+
+472
+00:11:15,110 --> 00:11:15,120
+two transaction three transaction
+ 
+
+473
+00:11:15,120 --> 00:11:17,750
+two transaction three transaction
+for each request one persistence context
+
+474
+00:11:17,750 --> 00:11:17,760
+for each request one persistence context
+ 
+
+475
+00:11:17,760 --> 00:11:21,030
+for each request one persistence context
+is created. So when the filter comes it
+
+476
+00:11:21,030 --> 00:11:21,040
+is created. So when the filter comes it
+ 
+
+477
+00:11:21,040 --> 00:11:23,829
+is created. So when the filter comes it
+create a new persistence context object
+
+478
+00:11:23,829 --> 00:11:23,839
+create a new persistence context object
+ 
+
+479
+00:11:23,839 --> 00:11:25,990
+create a new persistence context object
+then it goes to a controller service
+
+480
+00:11:25,990 --> 00:11:26,000
+then it goes to a controller service
+ 
+
+481
+00:11:26,000 --> 00:11:28,310
+then it goes to a controller service
+repository and no matter how many
+
+482
+00:11:28,310 --> 00:11:28,320
+repository and no matter how many
+ 
+
+483
+00:11:28,320 --> 00:11:30,790
+repository and no matter how many
+transactions you create okay within this
+
+484
+00:11:30,790 --> 00:11:30,800
+transactions you create okay within this
+ 
+
+485
+00:11:30,800 --> 00:11:33,670
+transactions you create okay within this
+request itself all will share the one
+
+486
+00:11:33,670 --> 00:11:33,680
+request itself all will share the one
+ 
+
+487
+00:11:33,680 --> 00:11:37,269
+request itself all will share the one
+persistence context okay
+
+488
+00:11:37,269 --> 00:11:37,279
+persistence context okay
+ 
+
+489
+00:11:37,279 --> 00:11:40,230
+persistence context okay
+you can anyway disable it so in
+
+490
+00:11:40,230 --> 00:11:40,240
+you can anyway disable it so in
+ 
+
+491
+00:11:40,240 --> 00:11:41,829
+you can anyway disable it so in
+application.properties properties you
+
+492
+00:11:41,829 --> 00:11:41,839
+application.properties properties you
+ 
+
+493
+00:11:41,839 --> 00:11:45,750
+application.properties properties you
+can do JPA spring.jpa.open-
+
+494
+00:11:45,750 --> 00:11:45,760
+can do JPA spring.jpa.open-
+ 
+
+495
+00:11:45,760 --> 00:11:48,870
+can do JPA spring.jpa.open-
+iny- view equals to false and when you
+
+496
+00:11:48,870 --> 00:11:48,880
+iny- view equals to false and when you
+ 
+
+497
+00:11:48,880 --> 00:11:52,150
+iny- view equals to false and when you
+make it false what happen is the
+
+498
+00:11:52,150 --> 00:11:52,160
+make it false what happen is the
+ 
+
+499
+00:11:52,160 --> 00:11:55,269
+make it false what happen is the
+persistence context
+
+500
+00:11:55,269 --> 00:11:55,279
+persistence context
+ 
+
+501
+00:11:55,279 --> 00:11:57,190
+persistence context
+life is only restricted to your
+
+502
+00:11:57,190 --> 00:11:57,200
+life is only restricted to your
+ 
+
+503
+00:11:57,200 --> 00:12:00,630
+life is only restricted to your
+transaction scope by default it's for
+
+504
+00:12:00,630 --> 00:12:00,640
+transaction scope by default it's for
+ 
+
+505
+00:12:00,640 --> 00:12:03,430
+transaction scope by default it's for
+each request when request enters and the
+
+506
+00:12:03,430 --> 00:12:03,440
+each request when request enters and the
+ 
+
+507
+00:12:03,440 --> 00:12:05,990
+each request when request enters and the
+when before the request goes. So it have
+
+508
+00:12:05,990 --> 00:12:06,000
+when before the request goes. So it have
+ 
+
+509
+00:12:06,000 --> 00:12:09,670
+when before the request goes. So it have
+persistence context life cycle is this.
+
+510
+00:12:09,670 --> 00:12:09,680
+persistence context life cycle is this.
+ 
+
+511
+00:12:09,680 --> 00:12:11,670
+persistence context life cycle is this.
+But if you don't want you want for each
+
+512
+00:12:11,670 --> 00:12:11,680
+But if you don't want you want for each
+ 
+
+513
+00:12:11,680 --> 00:12:16,550
+But if you don't want you want for each
+transaction you can make open - in- view
+
+514
+00:12:16,550 --> 00:12:16,560
+transaction you can make open - in- view
+ 
+
+515
+00:12:16,560 --> 00:12:18,710
+transaction you can make open - in- view
+equals to false. Now your persistence
+
+516
+00:12:18,710 --> 00:12:18,720
+equals to false. Now your persistence
+ 
+
+517
+00:12:18,720 --> 00:12:20,389
+equals to false. Now your persistence
+context will be created only when
+
+518
+00:12:20,389 --> 00:12:20,399
+context will be created only when
+ 
+
+519
+00:12:20,399 --> 00:12:23,190
+context will be created only when
+transaction is created.
+
+520
+00:12:23,190 --> 00:12:23,200
+transaction is created.
+ 
+
+521
+00:12:23,200 --> 00:12:25,509
+transaction is created.
+Okay. So if you create let's say this is
+
+522
+00:12:25,509 --> 00:12:25,519
+Okay. So if you create let's say this is
+ 
+
+523
+00:12:25,519 --> 00:12:26,629
+Okay. So if you create let's say this is
+transaction one. If you create
+
+524
+00:12:26,629 --> 00:12:26,639
+transaction one. If you create
+ 
+
+525
+00:12:26,639 --> 00:12:28,710
+transaction one. If you create
+transaction two for that also new
+
+526
+00:12:28,710 --> 00:12:28,720
+transaction two for that also new
+ 
+
+527
+00:12:28,720 --> 00:12:32,629
+transaction two for that also new
+persistence context will be created.
+
+528
+00:12:32,629 --> 00:12:32,639
+persistence context will be created.
+ 
+
+529
+00:12:32,639 --> 00:12:35,430
+persistence context will be created.
+Okay. And now in scheduleuler there is
+
+530
+00:12:35,430 --> 00:12:35,440
+Okay. And now in scheduleuler there is
+ 
+
+531
+00:12:35,440 --> 00:12:38,790
+Okay. And now in scheduleuler there is
+no HTTP request. Okay. So there is no
+
+532
+00:12:38,790 --> 00:12:38,800
+no HTTP request. Okay. So there is no
+ 
+
+533
+00:12:38,800 --> 00:12:41,509
+no HTTP request. Okay. So there is no
+concept of you can say that open session
+
+534
+00:12:41,509 --> 00:12:41,519
+concept of you can say that open session
+ 
+
+535
+00:12:41,519 --> 00:12:43,829
+concept of you can say that open session
+in view enabled. You can't enable it. So
+
+536
+00:12:43,829 --> 00:12:43,839
+in view enabled. You can't enable it. So
+ 
+
+537
+00:12:43,839 --> 00:12:45,269
+in view enabled. You can't enable it. So
+by default for scheduleulers you can say
+
+538
+00:12:45,269 --> 00:12:45,279
+by default for scheduleulers you can say
+ 
+
+539
+00:12:45,279 --> 00:12:47,750
+by default for scheduleulers you can say
+that it's always
+
+540
+00:12:47,750 --> 00:12:47,760
+that it's always
+ 
+
+541
+00:12:47,760 --> 00:12:51,509
+that it's always
+false. So for each transaction
+
+542
+00:12:51,509 --> 00:12:51,519
+false. So for each transaction
+ 
+
+543
+00:12:51,519 --> 00:12:54,629
+false. So for each transaction
+a new persistence context is created.
+
+544
+00:12:54,629 --> 00:12:54,639
+a new persistence context is created.
+ 
+
+545
+00:12:54,639 --> 00:12:57,910
+a new persistence context is created.
+Okay. So this is uh just a heads up on
+
+546
+00:12:57,910 --> 00:12:57,920
+Okay. So this is uh just a heads up on
+ 
+
+547
+00:12:57,920 --> 00:13:01,829
+Okay. So this is uh just a heads up on
+the first level caching part.
+
+548
+00:13:01,829 --> 00:13:01,839
+the first level caching part.
+ 
+
+549
+00:13:01,839 --> 00:13:05,509
+the first level caching part.
+Now we know the solution. What to do?
+
+550
+00:13:05,509 --> 00:13:05,519
+Now we know the solution. What to do?
+ 
+
+551
+00:13:05,519 --> 00:13:09,190
+Now we know the solution. What to do?
+The solution here is that
+
+552
+00:13:09,190 --> 00:13:09,200
+The solution here is that
+ 
+
+553
+00:13:09,200 --> 00:13:12,710
+The solution here is that
+for each batch we have batch one, batch
+
+554
+00:13:12,710 --> 00:13:12,720
+for each batch we have batch one, batch
+ 
+
+555
+00:13:12,720 --> 00:13:16,230
+for each batch we have batch one, batch
+two, batch 85. Here I am fetching 1,000
+
+556
+00:13:16,230 --> 00:13:16,240
+two, batch 85. Here I am fetching 1,000
+ 
+
+557
+00:13:16,240 --> 00:13:17,829
+two, batch 85. Here I am fetching 1,000
+records. Here I am fetching 1,000
+
+558
+00:13:17,829 --> 00:13:17,839
+records. Here I am fetching 1,000
+ 
+
+559
+00:13:17,839 --> 00:13:19,670
+records. Here I am fetching 1,000
+records. Here I am fetching 1,000
+
+560
+00:13:19,670 --> 00:13:19,680
+records. Here I am fetching 1,000
+ 
+
+561
+00:13:19,680 --> 00:13:21,269
+records. Here I am fetching 1,000
+records.
+
+562
+00:13:21,269 --> 00:13:21,279
+records.
+ 
+
+563
+00:13:21,279 --> 00:13:25,110
+records.
+For each batch we can have a transaction
+
+564
+00:13:25,110 --> 00:13:25,120
+For each batch we can have a transaction
+ 
+
+565
+00:13:25,120 --> 00:13:27,430
+For each batch we can have a transaction
+new transaction
+
+566
+00:13:27,430 --> 00:13:27,440
+new transaction
+ 
+
+567
+00:13:27,440 --> 00:13:30,550
+new transaction
+because
+
+568
+00:13:30,550 --> 00:13:30,560
+
+ 
+
+569
+00:13:30,560 --> 00:13:32,470
+
+when
+
+570
+00:13:32,470 --> 00:13:32,480
+when
+ 
+
+571
+00:13:32,480 --> 00:13:34,710
+when
+for each batch we have a transaction and
+
+572
+00:13:34,710 --> 00:13:34,720
+for each batch we have a transaction and
+ 
+
+573
+00:13:34,720 --> 00:13:38,389
+for each batch we have a transaction and
+this will finish its job. Ultimately the
+
+574
+00:13:38,389 --> 00:13:38,399
+this will finish its job. Ultimately the
+ 
+
+575
+00:13:38,399 --> 00:13:41,509
+this will finish its job. Ultimately the
+first level catch you can say that its
+
+576
+00:13:41,509 --> 00:13:41,519
+first level catch you can say that its
+ 
+
+577
+00:13:41,519 --> 00:13:43,910
+first level catch you can say that its
+uh life is scope its scope of life is
+
+578
+00:13:43,910 --> 00:13:43,920
+uh life is scope its scope of life is
+ 
+
+579
+00:13:43,920 --> 00:13:46,310
+uh life is scope its scope of life is
+just for this transaction only for this
+
+580
+00:13:46,310 --> 00:13:46,320
+just for this transaction only for this
+ 
+
+581
+00:13:46,320 --> 00:13:49,030
+just for this transaction only for this
+batch. Once this is completed the
+
+582
+00:13:49,030 --> 00:13:49,040
+batch. Once this is completed the
+ 
+
+583
+00:13:49,040 --> 00:13:51,269
+batch. Once this is completed the
+persistence context will destroy it and
+
+584
+00:13:51,269 --> 00:13:51,279
+persistence context will destroy it and
+ 
+
+585
+00:13:51,279 --> 00:13:53,030
+persistence context will destroy it and
+the reference is also destroyed in the
+
+586
+00:13:53,030 --> 00:13:53,040
+the reference is also destroyed in the
+ 
+
+587
+00:13:53,040 --> 00:13:55,430
+the reference is also destroyed in the
+first level cache persistence context
+
+588
+00:13:55,430 --> 00:13:55,440
+first level cache persistence context
+ 
+
+589
+00:13:55,440 --> 00:13:57,990
+first level cache persistence context
+then it is eligible for GC GC will
+
+590
+00:13:57,990 --> 00:13:58,000
+then it is eligible for GC GC will
+ 
+
+591
+00:13:58,000 --> 00:14:01,110
+then it is eligible for GC GC will
+remove it. Okay. So that's what I have
+
+592
+00:14:01,110 --> 00:14:01,120
+remove it. Okay. So that's what I have
+ 
+
+593
+00:14:01,120 --> 00:14:03,189
+remove it. Okay. So that's what I have
+done here. So I have if you see I have
+
+594
+00:14:03,189 --> 00:14:03,199
+done here. So I have if you see I have
+ 
+
+595
+00:14:03,199 --> 00:14:04,949
+done here. So I have if you see I have
+removed the add the transaction from
+
+596
+00:14:04,949 --> 00:14:04,959
+removed the add the transaction from
+ 
+
+597
+00:14:04,959 --> 00:14:08,230
+removed the add the transaction from
+here. Okay. And all the logic I have
+
+598
+00:14:08,230 --> 00:14:08,240
+here. Okay. And all the logic I have
+ 
+
+599
+00:14:08,240 --> 00:14:11,110
+here. Okay. And all the logic I have
+just created another class at the rate
+
+600
+00:14:11,110 --> 00:14:11,120
+just created another class at the rate
+ 
+
+601
+00:14:11,120 --> 00:14:14,069
+just created another class at the rate
+service annotated with and all the logic
+
+602
+00:14:14,069 --> 00:14:14,079
+service annotated with and all the logic
+ 
+
+603
+00:14:14,079 --> 00:14:17,670
+service annotated with and all the logic
+for the batch. Okay, fetch 1 th00and
+
+604
+00:14:17,670 --> 00:14:17,680
+for the batch. Okay, fetch 1 th00and
+ 
+
+605
+00:14:17,680 --> 00:14:20,550
+for the batch. Okay, fetch 1 th00and
+records and then for each record change
+
+606
+00:14:20,550 --> 00:14:20,560
+records and then for each record change
+ 
+
+607
+00:14:20,560 --> 00:14:23,670
+records and then for each record change
+it to expired and delete the enrollment
+
+608
+00:14:23,670 --> 00:14:23,680
+it to expired and delete the enrollment
+ 
+
+609
+00:14:23,680 --> 00:14:27,030
+it to expired and delete the enrollment
+and keep on running. Okay, all for
+
+610
+00:14:27,030 --> 00:14:27,040
+and keep on running. Okay, all for
+ 
+
+611
+00:14:27,040 --> 00:14:28,629
+and keep on running. Okay, all for
+thousand records here I'm keep on
+
+612
+00:14:28,629 --> 00:14:28,639
+thousand records here I'm keep on
+ 
+
+613
+00:14:28,639 --> 00:14:30,550
+thousand records here I'm keep on
+running. So this is one batch
+
+614
+00:14:30,550 --> 00:14:30,560
+running. So this is one batch
+ 
+
+615
+00:14:30,560 --> 00:14:32,710
+running. So this is one batch
+processing. So I have annotated with at
+
+616
+00:14:32,710 --> 00:14:32,720
+processing. So I have annotated with at
+ 
+
+617
+00:14:32,720 --> 00:14:34,870
+processing. So I have annotated with at
+the rate transitional.
+
+618
+00:14:34,870 --> 00:14:34,880
+the rate transitional.
+ 
+
+619
+00:14:34,880 --> 00:14:36,550
+the rate transitional.
+Okay. And from the parent I am just
+
+620
+00:14:36,550 --> 00:14:36,560
+Okay. And from the parent I am just
+ 
+
+621
+00:14:36,560 --> 00:14:38,550
+Okay. And from the parent I am just
+iterating the while loop. So for batch
+
+622
+00:14:38,550 --> 00:14:38,560
+iterating the while loop. So for batch
+ 
+
+623
+00:14:38,560 --> 00:14:41,430
+iterating the while loop. So for batch
+one it will run then batch two then
+
+624
+00:14:41,430 --> 00:14:41,440
+one it will run then batch two then
+ 
+
+625
+00:14:41,440 --> 00:14:43,670
+one it will run then batch two then
+batch three then batch four and for each
+
+626
+00:14:43,670 --> 00:14:43,680
+batch three then batch four and for each
+ 
+
+627
+00:14:43,680 --> 00:14:44,949
+batch three then batch four and for each
+batch I am having at the rate
+
+628
+00:14:44,949 --> 00:14:44,959
+batch I am having at the rate
+ 
+
+629
+00:14:44,959 --> 00:14:48,389
+batch I am having at the rate
+transaction
+
+630
+00:14:48,389 --> 00:14:48,399
+
+ 
+
+631
+00:14:48,399 --> 00:14:50,870
+
+make sense
+
+632
+00:14:50,870 --> 00:14:50,880
+make sense
+ 
+
+633
+00:14:50,880 --> 00:14:55,030
+make sense
+so that also problem is resolved.
+
+634
+00:14:55,030 --> 00:14:55,040
+so that also problem is resolved.
+ 
+
+635
+00:14:55,040 --> 00:14:56,710
+so that also problem is resolved.
+Now we have something called another
+
+636
+00:14:56,710 --> 00:14:56,720
+Now we have something called another
+ 
+
+637
+00:14:56,720 --> 00:14:59,030
+Now we have something called another
+pitfall is exception handling. So this
+
+638
+00:14:59,030 --> 00:14:59,040
+pitfall is exception handling. So this
+ 
+
+639
+00:14:59,040 --> 00:15:02,629
+pitfall is exception handling. So this
+is you can say that u
+
+640
+00:15:02,629 --> 00:15:02,639
+is you can say that u
+ 
+
+641
+00:15:02,639 --> 00:15:06,870
+is you can say that u
+very not tricky but like different
+
+642
+00:15:06,870 --> 00:15:06,880
+very not tricky but like different
+ 
+
+643
+00:15:06,880 --> 00:15:08,949
+very not tricky but like different
+solution with by different engineers you
+
+644
+00:15:08,949 --> 00:15:08,959
+solution with by different engineers you
+ 
+
+645
+00:15:08,959 --> 00:15:11,189
+solution with by different engineers you
+can say that or like different person
+
+646
+00:15:11,189 --> 00:15:11,199
+can say that or like different person
+ 
+
+647
+00:15:11,199 --> 00:15:13,030
+can say that or like different person
+different way of handling the exception
+
+648
+00:15:13,030 --> 00:15:13,040
+different way of handling the exception
+ 
+
+649
+00:15:13,040 --> 00:15:16,629
+different way of handling the exception
+in case of scheduleuler. Okay. But I
+
+650
+00:15:16,629 --> 00:15:16,639
+in case of scheduleuler. Okay. But I
+ 
+
+651
+00:15:16,639 --> 00:15:19,030
+in case of scheduleuler. Okay. But I
+would tell you that what exception
+
+652
+00:15:19,030 --> 00:15:19,040
+would tell you that what exception
+ 
+
+653
+00:15:19,040 --> 00:15:21,670
+would tell you that what exception
+handling should have
+
+654
+00:15:21,670 --> 00:15:21,680
+handling should have
+ 
+
+655
+00:15:21,680 --> 00:15:23,670
+handling should have
+in case of scheduleuler the best
+
+656
+00:15:23,670 --> 00:15:23,680
+in case of scheduleuler the best
+ 
+
+657
+00:15:23,680 --> 00:15:27,110
+in case of scheduleuler the best
+exception handling the thing is that see
+
+658
+00:15:27,110 --> 00:15:27,120
+exception handling the thing is that see
+ 
+
+659
+00:15:27,120 --> 00:15:28,810
+exception handling the thing is that see
+till now what we have done is batch
+
+660
+00:15:28,810 --> 00:15:28,820
+till now what we have done is batch
+ 
+
+661
+00:15:28,820 --> 00:15:32,389
+till now what we have done is batch
+[snorts] one batch 2 batch 85. Okay
+
+662
+00:15:32,389 --> 00:15:32,399
+[snorts] one batch 2 batch 85. Okay
+ 
+
+663
+00:15:32,399 --> 00:15:34,550
+[snorts] one batch 2 batch 85. Okay
+multiple because all 85,000 records we
+
+664
+00:15:34,550 --> 00:15:34,560
+multiple because all 85,000 records we
+ 
+
+665
+00:15:34,560 --> 00:15:36,470
+multiple because all 85,000 records we
+are not processing in a single time. We
+
+666
+00:15:36,470 --> 00:15:36,480
+are not processing in a single time. We
+ 
+
+667
+00:15:36,480 --> 00:15:39,590
+are not processing in a single time. We
+are running in batches of,000,000
+
+668
+00:15:39,590 --> 00:15:39,600
+are running in batches of,000,000
+ 
+
+669
+00:15:39,600 --> 00:15:41,670
+are running in batches of,000,000
+records
+
+670
+00:15:41,670 --> 00:15:41,680
+records
+ 
+
+671
+00:15:41,680 --> 00:15:44,790
+records
+and this is all one scheduleuler job.
+
+672
+00:15:44,790 --> 00:15:44,800
+and this is all one scheduleuler job.
+ 
+
+673
+00:15:44,800 --> 00:15:47,110
+and this is all one scheduleuler job.
+So what is the best exception handling
+
+674
+00:15:47,110 --> 00:15:47,120
+So what is the best exception handling
+ 
+
+675
+00:15:47,120 --> 00:15:49,110
+So what is the best exception handling
+could be? The best exception handling
+
+676
+00:15:49,110 --> 00:15:49,120
+could be? The best exception handling
+ 
+
+677
+00:15:49,120 --> 00:15:53,670
+could be? The best exception handling
+could be that hey if one job failed here
+
+678
+00:15:53,670 --> 00:15:53,680
+could be that hey if one job failed here
+ 
+
+679
+00:15:53,680 --> 00:15:55,910
+could be that hey if one job failed here
+if one job failed here it should not
+
+680
+00:15:55,910 --> 00:15:55,920
+if one job failed here it should not
+ 
+
+681
+00:15:55,920 --> 00:15:58,230
+if one job failed here it should not
+fail all thousand.
+
+682
+00:15:58,230 --> 00:15:58,240
+fail all thousand.
+ 
+
+683
+00:15:58,240 --> 00:15:59,829
+fail all thousand.
+Okay
+
+684
+00:15:59,829 --> 00:15:59,839
+Okay
+ 
+
+685
+00:15:59,839 --> 00:16:03,509
+Okay
+and if one batch failed it should not
+
+686
+00:16:03,509 --> 00:16:03,519
+and if one batch failed it should not
+ 
+
+687
+00:16:03,519 --> 00:16:08,710
+and if one batch failed it should not
+fail all the other batches.
+
+688
+00:16:08,710 --> 00:16:08,720
+
+ 
+
+689
+00:16:08,720 --> 00:16:10,790
+
+Okay. So that's what you can say that
+
+690
+00:16:10,790 --> 00:16:10,800
+Okay. So that's what you can say that
+ 
+
+691
+00:16:10,800 --> 00:16:13,269
+Okay. So that's what you can say that
+one bad subscription because here in
+
+692
+00:16:13,269 --> 00:16:13,279
+one bad subscription because here in
+ 
+
+693
+00:16:13,279 --> 00:16:14,870
+one bad subscription because here in
+this example I am just giving you a
+
+694
+00:16:14,870 --> 00:16:14,880
+this example I am just giving you a
+ 
+
+695
+00:16:14,880 --> 00:16:16,470
+this example I am just giving you a
+subscription example. So we have let's
+
+696
+00:16:16,470 --> 00:16:16,480
+subscription example. So we have let's
+ 
+
+697
+00:16:16,480 --> 00:16:18,629
+subscription example. So we have let's
+say working on thousand subscription. So
+
+698
+00:16:18,629 --> 00:16:18,639
+say working on thousand subscription. So
+ 
+
+699
+00:16:18,639 --> 00:16:21,189
+say working on thousand subscription. So
+one bad subscription
+
+700
+00:16:21,189 --> 00:16:21,199
+one bad subscription
+ 
+
+701
+00:16:21,199 --> 00:16:23,269
+one bad subscription
+the entire batch fails. If the problem
+
+702
+00:16:23,269 --> 00:16:23,279
+the entire batch fails. If the problem
+ 
+
+703
+00:16:23,279 --> 00:16:25,430
+the entire batch fails. If the problem
+is generally whatever the design we have
+
+704
+00:16:25,430 --> 00:16:25,440
+is generally whatever the design we have
+ 
+
+705
+00:16:25,440 --> 00:16:27,509
+is generally whatever the design we have
+currently. So in this design consider
+
+706
+00:16:27,509 --> 00:16:27,519
+currently. So in this design consider
+ 
+
+707
+00:16:27,519 --> 00:16:31,269
+currently. So in this design consider
+that if any problem comes here so
+
+708
+00:16:31,269 --> 00:16:31,279
+that if any problem comes here so
+ 
+
+709
+00:16:31,279 --> 00:16:33,509
+that if any problem comes here so
+currently UF has thousand record this
+
+710
+00:16:33,509 --> 00:16:33,519
+currently UF has thousand record this
+ 
+
+711
+00:16:33,519 --> 00:16:35,910
+currently UF has thousand record this
+list has thousand records. Okay. You are
+
+712
+00:16:35,910 --> 00:16:35,920
+list has thousand records. Okay. You are
+ 
+
+713
+00:16:35,920 --> 00:16:38,949
+list has thousand records. Okay. You are
+iterating over thousand. Okay, if any
+
+714
+00:16:38,949 --> 00:16:38,959
+iterating over thousand. Okay, if any
+ 
+
+715
+00:16:38,959 --> 00:16:41,670
+iterating over thousand. Okay, if any
+issue comes, you will come out of this
+
+716
+00:16:41,670 --> 00:16:41,680
+issue comes, you will come out of this
+ 
+
+717
+00:16:41,680 --> 00:16:45,910
+issue comes, you will come out of this
+for loop. Okay, so one bad subscription,
+
+718
+00:16:45,910 --> 00:16:45,920
+for loop. Okay, so one bad subscription,
+ 
+
+719
+00:16:45,920 --> 00:16:50,069
+for loop. Okay, so one bad subscription,
+entire batch fails. And similarly
+
+720
+00:16:50,069 --> 00:16:50,079
+entire batch fails. And similarly
+ 
+
+721
+00:16:50,079 --> 00:16:52,949
+entire batch fails. And similarly
+here if one batch got failed, if one
+
+722
+00:16:52,949 --> 00:16:52,959
+here if one batch got failed, if one
+ 
+
+723
+00:16:52,959 --> 00:16:55,430
+here if one batch got failed, if one
+batch got failed, somehow you will come
+
+724
+00:16:55,430 --> 00:16:55,440
+batch got failed, somehow you will come
+ 
+
+725
+00:16:55,440 --> 00:16:58,310
+batch got failed, somehow you will come
+out of this while loop. So entire whole
+
+726
+00:16:58,310 --> 00:16:58,320
+out of this while loop. So entire whole
+ 
+
+727
+00:16:58,320 --> 00:17:00,310
+out of this while loop. So entire whole
+scheduleuler failed. No other batch will
+
+728
+00:17:00,310 --> 00:17:00,320
+scheduleuler failed. No other batch will
+ 
+
+729
+00:17:00,320 --> 00:17:02,870
+scheduleuler failed. No other batch will
+run. And also we haven't put any logging
+
+730
+00:17:02,870 --> 00:17:02,880
+run. And also we haven't put any logging
+ 
+
+731
+00:17:02,880 --> 00:17:05,350
+run. And also we haven't put any logging
+itself. If anything fails in
+
+732
+00:17:05,350 --> 00:17:05,360
+itself. If anything fails in
+ 
+
+733
+00:17:05,360 --> 00:17:07,350
+itself. If anything fails in
+scheduleuler how you will find out
+
+734
+00:17:07,350 --> 00:17:07,360
+scheduleuler how you will find out
+ 
+
+735
+00:17:07,360 --> 00:17:08,870
+scheduleuler how you will find out
+ultimately.
+
+736
+00:17:08,870 --> 00:17:08,880
+ultimately.
+ 
+
+737
+00:17:08,880 --> 00:17:11,029
+ultimately.
+So now let's handle all these three
+
+738
+00:17:11,029 --> 00:17:11,039
+So now let's handle all these three
+ 
+
+739
+00:17:11,039 --> 00:17:14,309
+So now let's handle all these three
+scenario. First one bad subscription
+
+740
+00:17:14,309 --> 00:17:14,319
+scenario. First one bad subscription
+ 
+
+741
+00:17:14,319 --> 00:17:17,189
+scenario. First one bad subscription
+entire batch fail scenario.
+
+742
+00:17:17,189 --> 00:17:17,199
+entire batch fail scenario.
+ 
+
+743
+00:17:17,199 --> 00:17:19,990
+entire batch fail scenario.
+So this is our batch for which we have
+
+744
+00:17:19,990 --> 00:17:20,000
+So this is our batch for which we have
+ 
+
+745
+00:17:20,000 --> 00:17:22,150
+So this is our batch for which we have
+written right process batch fetching the
+
+746
+00:17:22,150 --> 00:17:22,160
+written right process batch fetching the
+ 
+
+747
+00:17:22,160 --> 00:17:25,590
+written right process batch fetching the
+thousand records and process it. So this
+
+748
+00:17:25,590 --> 00:17:25,600
+thousand records and process it. So this
+ 
+
+749
+00:17:25,600 --> 00:17:27,510
+thousand records and process it. So this
+is the failure scenario. Let's say the
+
+750
+00:17:27,510 --> 00:17:27,520
+is the failure scenario. Let's say the
+ 
+
+751
+00:17:27,520 --> 00:17:29,830
+is the failure scenario. Let's say the
+subscription 900 is in processing. So we
+
+752
+00:17:29,830 --> 00:17:29,840
+subscription 900 is in processing. So we
+ 
+
+753
+00:17:29,840 --> 00:17:32,630
+subscription 900 is in processing. So we
+are in loop for loop uh to out of 1,000
+
+754
+00:17:32,630 --> 00:17:32,640
+are in loop for loop uh to out of 1,000
+ 
+
+755
+00:17:32,640 --> 00:17:35,430
+are in loop for loop uh to out of 1,000
+let's say 900 is in processing and while
+
+756
+00:17:35,430 --> 00:17:35,440
+let's say 900 is in processing and while
+ 
+
+757
+00:17:35,440 --> 00:17:37,750
+let's say 900 is in processing and while
+deleting the enrollment
+
+758
+00:17:37,750 --> 00:17:37,760
+deleting the enrollment
+ 
+
+759
+00:17:37,760 --> 00:17:39,669
+deleting the enrollment
+it throws some DB constraint error let's
+
+760
+00:17:39,669 --> 00:17:39,679
+it throws some DB constraint error let's
+ 
+
+761
+00:17:39,679 --> 00:17:43,110
+it throws some DB constraint error let's
+say the whole transactions got roll back
+
+762
+00:17:43,110 --> 00:17:43,120
+say the whole transactions got roll back
+ 
+
+763
+00:17:43,120 --> 00:17:44,710
+say the whole transactions got roll back
+in this one so because it is under the
+
+764
+00:17:44,710 --> 00:17:44,720
+in this one so because it is under the
+ 
+
+765
+00:17:44,720 --> 00:17:47,669
+in this one so because it is under the
+transactional and issue comes here the
+
+766
+00:17:47,669 --> 00:17:47,679
+transactional and issue comes here the
+ 
+
+767
+00:17:47,679 --> 00:17:49,590
+transactional and issue comes here the
+whole transaction
+
+768
+00:17:49,590 --> 00:17:49,600
+whole transaction
+ 
+
+769
+00:17:49,600 --> 00:17:51,510
+whole transaction
+rolled back because see even though you
+
+770
+00:17:51,510 --> 00:17:51,520
+rolled back because see even though you
+ 
+
+771
+00:17:51,520 --> 00:17:53,669
+rolled back because see even though you
+have for 900
+
+772
+00:17:53,669 --> 00:17:53,679
+have for 900
+ 
+
+773
+00:17:53,679 --> 00:17:55,270
+have for 900
+subscriptions you have already
+
+774
+00:17:55,270 --> 00:17:55,280
+subscriptions you have already
+ 
+
+775
+00:17:55,280 --> 00:17:57,430
+subscriptions you have already
+successfully updated the status
+
+776
+00:17:57,430 --> 00:17:57,440
+successfully updated the status
+ 
+
+777
+00:17:57,440 --> 00:18:02,230
+successfully updated the status
+enrollment but Because of one issue,
+
+778
+00:18:02,230 --> 00:18:02,240
+enrollment but Because of one issue,
+ 
+
+779
+00:18:02,240 --> 00:18:07,510
+enrollment but Because of one issue,
+the whole 899 already processed is lost.
+
+780
+00:18:07,510 --> 00:18:07,520
+the whole 899 already processed is lost.
+ 
+
+781
+00:18:07,520 --> 00:18:10,150
+the whole 899 already processed is lost.
+For 899, you have already successfully
+
+782
+00:18:10,150 --> 00:18:10,160
+For 899, you have already successfully
+ 
+
+783
+00:18:10,160 --> 00:18:12,470
+For 899, you have already successfully
+updated the status uh subscription
+
+784
+00:18:12,470 --> 00:18:12,480
+updated the status uh subscription
+ 
+
+785
+00:18:12,480 --> 00:18:15,430
+updated the status uh subscription
+status and enrollment repo.
+
+786
+00:18:15,430 --> 00:18:15,440
+status and enrollment repo.
+ 
+
+787
+00:18:15,440 --> 00:18:17,350
+status and enrollment repo.
+Those will be lost to because it is
+
+788
+00:18:17,350 --> 00:18:17,360
+Those will be lost to because it is
+ 
+
+789
+00:18:17,360 --> 00:18:18,870
+Those will be lost to because it is
+under at the rate transactional. Even
+
+790
+00:18:18,870 --> 00:18:18,880
+under at the rate transactional. Even
+ 
+
+791
+00:18:18,880 --> 00:18:21,029
+under at the rate transactional. Even
+one failure will come everything will be
+
+792
+00:18:21,029 --> 00:18:21,039
+one failure will come everything will be
+ 
+
+793
+00:18:21,039 --> 00:18:25,430
+one failure will come everything will be
+rolled back and also out of,000 at 900
+
+794
+00:18:25,430 --> 00:18:25,440
+rolled back and also out of,000 at 900
+ 
+
+795
+00:18:25,440 --> 00:18:29,190
+rolled back and also out of,000 at 900
+you got the error. So the remaining 9001
+
+796
+00:18:29,190 --> 00:18:29,200
+you got the error. So the remaining 9001
+ 
+
+797
+00:18:29,200 --> 00:18:32,230
+you got the error. So the remaining 9001
+to,000 that will also never be touched.
+
+798
+00:18:32,230 --> 00:18:32,240
+to,000 that will also never be touched.
+ 
+
+799
+00:18:32,240 --> 00:18:36,150
+to,000 that will also never be touched.
+You are out of this batch itself.
+
+800
+00:18:36,150 --> 00:18:36,160
+You are out of this batch itself.
+ 
+
+801
+00:18:36,160 --> 00:18:39,830
+You are out of this batch itself.
+So how we can improve it is that for
+
+802
+00:18:39,830 --> 00:18:39,840
+So how we can improve it is that for
+ 
+
+803
+00:18:39,840 --> 00:18:42,390
+So how we can improve it is that for
+each subscription at record level. So
+
+804
+00:18:42,390 --> 00:18:42,400
+each subscription at record level. So
+ 
+
+805
+00:18:42,400 --> 00:18:46,150
+each subscription at record level. So
+you can say that this is record handling
+
+806
+00:18:46,150 --> 00:18:46,160
+you can say that this is record handling
+ 
+
+807
+00:18:46,160 --> 00:18:49,190
+you can say that this is record handling
+for each record I am handling. So for
+
+808
+00:18:49,190 --> 00:18:49,200
+for each record I am handling. So for
+ 
+
+809
+00:18:49,200 --> 00:18:51,190
+for each record I am handling. So for
+each out of thousand you got thousand
+
+810
+00:18:51,190 --> 00:18:51,200
+each out of thousand you got thousand
+ 
+
+811
+00:18:51,200 --> 00:18:53,590
+each out of thousand you got thousand
+records here. Now you are iterating over
+
+812
+00:18:53,590 --> 00:18:53,600
+records here. Now you are iterating over
+ 
+
+813
+00:18:53,600 --> 00:18:55,990
+records here. Now you are iterating over
+all the thousands. Now for each one I am
+
+814
+00:18:55,990 --> 00:18:56,000
+all the thousands. Now for each one I am
+ 
+
+815
+00:18:56,000 --> 00:19:00,070
+all the thousands. Now for each one I am
+under try catch block. Okay. So I tried
+
+816
+00:19:00,070 --> 00:19:00,080
+under try catch block. Okay. So I tried
+ 
+
+817
+00:19:00,080 --> 00:19:03,190
+under try catch block. Okay. So I tried
+to update it properly but if any
+
+818
+00:19:03,190 --> 00:19:03,200
+to update it properly but if any
+ 
+
+819
+00:19:03,200 --> 00:19:05,270
+to update it properly but if any
+exception comes while processing this
+
+820
+00:19:05,270 --> 00:19:05,280
+exception comes while processing this
+ 
+
+821
+00:19:05,280 --> 00:19:07,510
+exception comes while processing this
+subscription I am having a proper
+
+822
+00:19:07,510 --> 00:19:07,520
+subscription I am having a proper
+ 
+
+823
+00:19:07,520 --> 00:19:10,070
+subscription I am having a proper
+logging also and proper update of the
+
+824
+00:19:10,070 --> 00:19:10,080
+logging also and proper update of the
+ 
+
+825
+00:19:10,080 --> 00:19:13,750
+logging also and proper update of the
+status. Why this is important? Okay,
+
+826
+00:19:13,750 --> 00:19:13,760
+status. Why this is important? Okay,
+ 
+
+827
+00:19:13,760 --> 00:19:17,590
+status. Why this is important? Okay,
+because when the next time you fetch it,
+
+828
+00:19:17,590 --> 00:19:17,600
+because when the next time you fetch it,
+ 
+
+829
+00:19:17,600 --> 00:19:20,310
+because when the next time you fetch it,
+this record should not come because uh
+
+830
+00:19:20,310 --> 00:19:20,320
+this record should not come because uh
+ 
+
+831
+00:19:20,320 --> 00:19:23,830
+this record should not come because uh
+let's say you are not able to uh make
+
+832
+00:19:23,830 --> 00:19:23,840
+let's say you are not able to uh make
+ 
+
+833
+00:19:23,840 --> 00:19:26,390
+let's say you are not able to uh make
+this status expired or you are not able
+
+834
+00:19:26,390 --> 00:19:26,400
+this status expired or you are not able
+ 
+
+835
+00:19:26,400 --> 00:19:30,549
+this status expired or you are not able
+to delete this enrollment. Okay. So I
+
+836
+00:19:30,549 --> 00:19:30,559
+to delete this enrollment. Okay. So I
+ 
+
+837
+00:19:30,559 --> 00:19:34,150
+to delete this enrollment. Okay. So I
+have marked the status failed.
+
+838
+00:19:34,150 --> 00:19:34,160
+have marked the status failed.
+ 
+
+839
+00:19:34,160 --> 00:19:37,110
+have marked the status failed.
+Okay. And here in this
+
+840
+00:19:37,110 --> 00:19:37,120
+Okay. And here in this
+ 
+
+841
+00:19:37,120 --> 00:19:40,870
+Okay. And here in this
+I updated that in the query status not
+
+842
+00:19:40,870 --> 00:19:40,880
+I updated that in the query status not
+ 
+
+843
+00:19:40,880 --> 00:19:43,590
+I updated that in the query status not
+in expired and failed. You know why?
+
+844
+00:19:43,590 --> 00:19:43,600
+in expired and failed. You know why?
+ 
+
+845
+00:19:43,600 --> 00:19:46,710
+in expired and failed. You know why?
+Because see every time in the batch one
+
+846
+00:19:46,710 --> 00:19:46,720
+Because see every time in the batch one
+ 
+
+847
+00:19:46,720 --> 00:19:49,750
+Because see every time in the batch one
+till batch 85 I am fetching
+
+848
+00:19:49,750 --> 00:19:49,760
+till batch 85 I am fetching
+ 
+
+849
+00:19:49,760 --> 00:19:51,669
+till batch 85 I am fetching
+top 1,000
+
+850
+00:19:51,669 --> 00:19:51,679
+top 1,000
+ 
+
+851
+00:19:51,679 --> 00:19:54,310
+top 1,000
+okay which status is expired which
+
+852
+00:19:54,310 --> 00:19:54,320
+okay which status is expired which
+ 
+
+853
+00:19:54,320 --> 00:19:57,190
+okay which status is expired which
+status is not in expired this is our
+
+854
+00:19:57,190 --> 00:19:57,200
+status is not in expired this is our
+ 
+
+855
+00:19:57,200 --> 00:20:00,070
+status is not in expired this is our
+query right not in expired till here
+
+856
+00:20:00,070 --> 00:20:00,080
+query right not in expired till here
+ 
+
+857
+00:20:00,080 --> 00:20:02,470
+query right not in expired till here
+okay but now let's say if on any
+
+858
+00:20:02,470 --> 00:20:02,480
+okay but now let's say if on any
+ 
+
+859
+00:20:02,480 --> 00:20:05,590
+okay but now let's say if on any
+particular record you are not able to
+
+860
+00:20:05,590 --> 00:20:05,600
+particular record you are not able to
+ 
+
+861
+00:20:05,600 --> 00:20:09,830
+particular record you are not able to
+change its status okay any issue comes
+
+862
+00:20:09,830 --> 00:20:09,840
+change its status okay any issue comes
+ 
+
+863
+00:20:09,840 --> 00:20:12,630
+change its status okay any issue comes
+then next time if you don't if you don't
+
+864
+00:20:12,630 --> 00:20:12,640
+then next time if you don't if you don't
+ 
+
+865
+00:20:12,640 --> 00:20:15,669
+then next time if you don't if you don't
+do this you just log it. Okay. So what
+
+866
+00:20:15,669 --> 00:20:15,679
+do this you just log it. Okay. So what
+ 
+
+867
+00:20:15,679 --> 00:20:17,750
+do this you just log it. Okay. So what
+would happen is in the next batch also
+
+868
+00:20:17,750 --> 00:20:17,760
+would happen is in the next batch also
+ 
+
+869
+00:20:17,760 --> 00:20:20,630
+would happen is in the next batch also
+this record will come and that record is
+
+870
+00:20:20,630 --> 00:20:20,640
+this record will come and that record is
+ 
+
+871
+00:20:20,640 --> 00:20:22,230
+this record will come and that record is
+you can say that will come with every
+
+872
+00:20:22,230 --> 00:20:22,240
+you can say that will come with every
+ 
+
+873
+00:20:22,240 --> 00:20:24,310
+you can say that will come with every
+batch and it will fail with every batch
+
+874
+00:20:24,310 --> 00:20:24,320
+batch and it will fail with every batch
+ 
+
+875
+00:20:24,320 --> 00:20:26,470
+batch and it will fail with every batch
+itself and it will just keep on logging
+
+876
+00:20:26,470 --> 00:20:26,480
+itself and it will just keep on logging
+ 
+
+877
+00:20:26,480 --> 00:20:28,230
+itself and it will just keep on logging
+itself.
+
+878
+00:20:28,230 --> 00:20:28,240
+itself.
+ 
+
+879
+00:20:28,240 --> 00:20:30,470
+itself.
+So the best way to handle this scenario
+
+880
+00:20:30,470 --> 00:20:30,480
+So the best way to handle this scenario
+ 
+
+881
+00:20:30,480 --> 00:20:32,870
+So the best way to handle this scenario
+is that for each record-wise if there is
+
+882
+00:20:32,870 --> 00:20:32,880
+is that for each record-wise if there is
+ 
+
+883
+00:20:32,880 --> 00:20:35,990
+is that for each record-wise if there is
+any issue with the record have a proper
+
+884
+00:20:35,990 --> 00:20:36,000
+any issue with the record have a proper
+ 
+
+885
+00:20:36,000 --> 00:20:38,390
+any issue with the record have a proper
+status update somewhere either you have
+
+886
+00:20:38,390 --> 00:20:38,400
+status update somewhere either you have
+ 
+
+887
+00:20:38,400 --> 00:20:40,070
+status update somewhere either you have
+a different table where you are
+
+888
+00:20:40,070 --> 00:20:40,080
+a different table where you are
+ 
+
+889
+00:20:40,080 --> 00:20:42,789
+a different table where you are
+maintaining the record failure status or
+
+890
+00:20:42,789 --> 00:20:42,799
+maintaining the record failure status or
+ 
+
+891
+00:20:42,799 --> 00:20:44,710
+maintaining the record failure status or
+in the same table if you have some
+
+892
+00:20:44,710 --> 00:20:44,720
+in the same table if you have some
+ 
+
+893
+00:20:44,720 --> 00:20:46,310
+in the same table if you have some
+status which is if it is not able to
+
+894
+00:20:46,310 --> 00:20:46,320
+status which is if it is not able to
+ 
+
+895
+00:20:46,320 --> 00:20:49,909
+status which is if it is not able to
+update properly. So have a proper status
+
+896
+00:20:49,909 --> 00:20:49,919
+update properly. So have a proper status
+ 
+
+897
+00:20:49,919 --> 00:20:53,190
+update properly. So have a proper status
+that failed so that at later time you
+
+898
+00:20:53,190 --> 00:20:53,200
+that failed so that at later time you
+ 
+
+899
+00:20:53,200 --> 00:20:55,830
+that failed so that at later time you
+able to fetch the failure records and
+
+900
+00:20:55,830 --> 00:20:55,840
+able to fetch the failure records and
+ 
+
+901
+00:20:55,840 --> 00:20:57,590
+able to fetch the failure records and
+work on it.
+
+902
+00:20:57,590 --> 00:20:57,600
+work on it.
+ 
+
+903
+00:20:57,600 --> 00:21:00,549
+work on it.
+So this is one best way to handle record
+
+904
+00:21:00,549 --> 00:21:00,559
+So this is one best way to handle record
+ 
+
+905
+00:21:00,559 --> 00:21:03,750
+So this is one best way to handle record
+level failure and also it automatically
+
+906
+00:21:03,750 --> 00:21:03,760
+level failure and also it automatically
+ 
+
+907
+00:21:03,760 --> 00:21:07,750
+level failure and also it automatically
+handles that if one out of thousand if
+
+908
+00:21:07,750 --> 00:21:07,760
+handles that if one out of thousand if
+ 
+
+909
+00:21:07,760 --> 00:21:10,070
+handles that if one out of thousand if
+one record fails.
+
+910
+00:21:10,070 --> 00:21:10,080
+one record fails.
+ 
+
+911
+00:21:10,080 --> 00:21:14,149
+one record fails.
+Okay, the one thing is you have a proper
+
+912
+00:21:14,149 --> 00:21:14,159
+Okay, the one thing is you have a proper
+ 
+
+913
+00:21:14,159 --> 00:21:15,990
+Okay, the one thing is you have a proper
+information in the DB now that this
+
+914
+00:21:15,990 --> 00:21:16,000
+information in the DB now that this
+ 
+
+915
+00:21:16,000 --> 00:21:18,310
+information in the DB now that this
+record failed. It's not able to process
+
+916
+00:21:18,310 --> 00:21:18,320
+record failed. It's not able to process
+ 
+
+917
+00:21:18,320 --> 00:21:21,510
+record failed. It's not able to process
+properly in DB also you have a proper
+
+918
+00:21:21,510 --> 00:21:21,520
+properly in DB also you have a proper
+ 
+
+919
+00:21:21,520 --> 00:21:25,270
+properly in DB also you have a proper
+logger also. Okay. And in the next run
+
+920
+00:21:25,270 --> 00:21:25,280
+logger also. Okay. And in the next run
+ 
+
+921
+00:21:25,280 --> 00:21:27,590
+logger also. Okay. And in the next run
+also since you have updated the status
+
+922
+00:21:27,590 --> 00:21:27,600
+also since you have updated the status
+ 
+
+923
+00:21:27,600 --> 00:21:29,669
+also since you have updated the status
+in the next run it will not come and
+
+924
+00:21:29,669 --> 00:21:29,679
+in the next run it will not come and
+ 
+
+925
+00:21:29,679 --> 00:21:31,669
+in the next run it will not come and
+your remaining
+
+926
+00:21:31,669 --> 00:21:31,679
+your remaining
+ 
+
+927
+00:21:31,679 --> 00:21:34,630
+your remaining
+899 job which you have already covered
+
+928
+00:21:34,630 --> 00:21:34,640
+899 job which you have already covered
+ 
+
+929
+00:21:34,640 --> 00:21:37,750
+899 job which you have already covered
+let's say that will not get rolled back
+
+930
+00:21:37,750 --> 00:21:37,760
+let's say that will not get rolled back
+ 
+
+931
+00:21:37,760 --> 00:21:40,470
+let's say that will not get rolled back
+plus you will be able to complete rest
+
+932
+00:21:40,470 --> 00:21:40,480
+plus you will be able to complete rest
+ 
+
+933
+00:21:40,480 --> 00:21:43,029
+plus you will be able to complete rest
+of the remaining 100 trans subscription
+
+934
+00:21:43,029 --> 00:21:43,039
+of the remaining 100 trans subscription
+ 
+
+935
+00:21:43,039 --> 00:21:45,590
+of the remaining 100 trans subscription
+also. So what I mean to say that one bad
+
+936
+00:21:45,590 --> 00:21:45,600
+also. So what I mean to say that one bad
+ 
+
+937
+00:21:45,600 --> 00:21:47,510
+also. So what I mean to say that one bad
+subscription will not block your
+
+938
+00:21:47,510 --> 00:21:47,520
+subscription will not block your
+ 
+
+939
+00:21:47,520 --> 00:21:50,950
+subscription will not block your
+complete batch processing.
+
+940
+00:21:50,950 --> 00:21:50,960
+complete batch processing.
+ 
+
+941
+00:21:50,960 --> 00:21:54,149
+complete batch processing.
+Okay. Now another is one batch failure
+
+942
+00:21:54,149 --> 00:21:54,159
+Okay. Now another is one batch failure
+ 
+
+943
+00:21:54,159 --> 00:21:56,549
+Okay. Now another is one batch failure
+whole scheduleuler fails. So till now we
+
+944
+00:21:56,549 --> 00:21:56,559
+whole scheduleuler fails. So till now we
+ 
+
+945
+00:21:56,559 --> 00:21:59,190
+whole scheduleuler fails. So till now we
+have handled the record level. Now we
+
+946
+00:21:59,190 --> 00:21:59,200
+have handled the record level. Now we
+ 
+
+947
+00:21:59,200 --> 00:22:01,909
+have handled the record level. Now we
+can also handle the batch level. So at
+
+948
+00:22:01,909 --> 00:22:01,919
+can also handle the batch level. So at
+ 
+
+949
+00:22:01,919 --> 00:22:04,149
+can also handle the batch level. So at
+this batch
+
+950
+00:22:04,149 --> 00:22:04,159
+this batch
+ 
+
+951
+00:22:04,159 --> 00:22:07,029
+this batch
+if any issue comes so you are running
+
+952
+00:22:07,029 --> 00:22:07,039
+if any issue comes so you are running
+ 
+
+953
+00:22:07,039 --> 00:22:08,789
+if any issue comes so you are running
+multiple batch right here. Batch one
+
+954
+00:22:08,789 --> 00:22:08,799
+multiple batch right here. Batch one
+ 
+
+955
+00:22:08,799 --> 00:22:11,190
+multiple batch right here. Batch one
+then batch two then batch three. If any
+
+956
+00:22:11,190 --> 00:22:11,200
+then batch two then batch three. If any
+ 
+
+957
+00:22:11,200 --> 00:22:13,990
+then batch two then batch three. If any
+issue comes
+
+958
+00:22:13,990 --> 00:22:14,000
+issue comes
+ 
+
+959
+00:22:14,000 --> 00:22:17,510
+issue comes
+then again let's say bash three
+
+960
+00:22:17,510 --> 00:22:17,520
+then again let's say bash three
+ 
+
+961
+00:22:17,520 --> 00:22:19,750
+then again let's say bash three
+while processing throws exception and
+
+962
+00:22:19,750 --> 00:22:19,760
+while processing throws exception and
+ 
+
+963
+00:22:19,760 --> 00:22:21,430
+while processing throws exception and
+while f while while fetching from the DB
+
+964
+00:22:21,430 --> 00:22:21,440
+while f while while fetching from the DB
+ 
+
+965
+00:22:21,440 --> 00:22:22,950
+while f while while fetching from the DB
+let's say here at this point of time
+
+966
+00:22:22,950 --> 00:22:22,960
+let's say here at this point of time
+ 
+
+967
+00:22:22,960 --> 00:22:25,909
+let's say here at this point of time
+some exception comes what would happen
+
+968
+00:22:25,909 --> 00:22:25,919
+some exception comes what would happen
+ 
+
+969
+00:22:25,919 --> 00:22:28,870
+some exception comes what would happen
+scheduleuler stops entirely batch one
+
+970
+00:22:28,870 --> 00:22:28,880
+scheduleuler stops entirely batch one
+ 
+
+971
+00:22:28,880 --> 00:22:31,750
+scheduleuler stops entirely batch one
+and batch two are committed so they are
+
+972
+00:22:31,750 --> 00:22:31,760
+and batch two are committed so they are
+ 
+
+973
+00:22:31,760 --> 00:22:35,029
+and batch two are committed so they are
+saved so now let's say batch one runs
+
+974
+00:22:35,029 --> 00:22:35,039
+saved so now let's say batch one runs
+ 
+
+975
+00:22:35,039 --> 00:22:38,070
+saved so now let's say batch one runs
+okay successfully processed now batch
+
+976
+00:22:38,070 --> 00:22:38,080
+okay successfully processed now batch
+ 
+
+977
+00:22:38,080 --> 00:22:40,549
+okay successfully processed now batch
+two comes successfully processed
+
+978
+00:22:40,549 --> 00:22:40,559
+two comes successfully processed
+ 
+
+979
+00:22:40,559 --> 00:22:43,510
+two comes successfully processed
+Batch three comes, exception comes here.
+
+980
+00:22:43,510 --> 00:22:43,520
+Batch three comes, exception comes here.
+ 
+
+981
+00:22:43,520 --> 00:22:46,470
+Batch three comes, exception comes here.
+Now exception comes here. But your batch
+
+982
+00:22:46,470 --> 00:22:46,480
+Now exception comes here. But your batch
+ 
+
+983
+00:22:46,480 --> 00:22:48,149
+Now exception comes here. But your batch
+one and batch two in their transaction.
+
+984
+00:22:48,149 --> 00:22:48,159
+one and batch two in their transaction.
+ 
+
+985
+00:22:48,159 --> 00:22:51,510
+one and batch two in their transaction.
+So those are committed properly. Okay.
+
+986
+00:22:51,510 --> 00:22:51,520
+So those are committed properly. Okay.
+ 
+
+987
+00:22:51,520 --> 00:22:53,430
+So those are committed properly. Okay.
+But no continuation for the remaining
+
+988
+00:22:53,430 --> 00:22:53,440
+But no continuation for the remaining
+ 
+
+989
+00:22:53,440 --> 00:22:55,270
+But no continuation for the remaining
+batches. So it will come out of this
+
+990
+00:22:55,270 --> 00:22:55,280
+batches. So it will come out of this
+ 
+
+991
+00:22:55,280 --> 00:22:57,350
+batches. So it will come out of this
+exception while loop because some
+
+992
+00:22:57,350 --> 00:22:57,360
+exception while loop because some
+ 
+
+993
+00:22:57,360 --> 00:23:00,310
+exception while loop because some
+exception come. So batch three because
+
+994
+00:23:00,310 --> 00:23:00,320
+exception come. So batch three because
+ 
+
+995
+00:23:00,320 --> 00:23:03,669
+exception come. So batch three because
+of batch three till batch 85 it won't be
+
+996
+00:23:03,669 --> 00:23:03,679
+of batch three till batch 85 it won't be
+ 
+
+997
+00:23:03,679 --> 00:23:05,830
+of batch three till batch 85 it won't be
+able to execute.
+
+998
+00:23:05,830 --> 00:23:05,840
+able to execute.
+ 
+
+999
+00:23:05,840 --> 00:23:08,149
+able to execute.
+So we can handle that. So another way is
+
+1000
+00:23:08,149 --> 00:23:08,159
+So we can handle that. So another way is
+ 
+
+1001
+00:23:08,159 --> 00:23:11,110
+So we can handle that. So another way is
+that either you can have try catch block
+
+1002
+00:23:11,110 --> 00:23:11,120
+that either you can have try catch block
+ 
+
+1003
+00:23:11,120 --> 00:23:15,029
+that either you can have try catch block
+here. Okay. Or
+
+1004
+00:23:15,029 --> 00:23:15,039
+here. Okay. Or
+ 
+
+1005
+00:23:15,039 --> 00:23:16,549
+here. Okay. Or
+see this is the place where we are
+
+1006
+00:23:16,549 --> 00:23:16,559
+see this is the place where we are
+ 
+
+1007
+00:23:16,559 --> 00:23:18,549
+see this is the place where we are
+starting the batch work right. So have
+
+1008
+00:23:18,549 --> 00:23:18,559
+starting the batch work right. So have
+ 
+
+1009
+00:23:18,559 --> 00:23:20,630
+starting the batch work right. So have
+this everything into the try cage block
+
+1010
+00:23:20,630 --> 00:23:20,640
+this everything into the try cage block
+ 
+
+1011
+00:23:20,640 --> 00:23:23,190
+this everything into the try cage block
+also. And how your business logic say
+
+1012
+00:23:23,190 --> 00:23:23,200
+also. And how your business logic say
+ 
+
+1013
+00:23:23,200 --> 00:23:24,950
+also. And how your business logic say
+that how to handle the batch failure you
+
+1014
+00:23:24,950 --> 00:23:24,960
+that how to handle the batch failure you
+ 
+
+1015
+00:23:24,960 --> 00:23:26,710
+that how to handle the batch failure you
+can handle it. Currently I'm doing a
+
+1016
+00:23:26,710 --> 00:23:26,720
+can handle it. Currently I'm doing a
+ 
+
+1017
+00:23:26,720 --> 00:23:29,270
+can handle it. Currently I'm doing a
+proper logging that batch DB failure.
+
+1018
+00:23:29,270 --> 00:23:29,280
+proper logging that batch DB failure.
+ 
+
+1019
+00:23:29,280 --> 00:23:31,750
+proper logging that batch DB failure.
+That's all. Let's say if best three
+
+1020
+00:23:31,750 --> 00:23:31,760
+That's all. Let's say if best three
+ 
+
+1021
+00:23:31,760 --> 00:23:35,590
+That's all. Let's say if best three
+fails okay if something got failed up
+
+1022
+00:23:35,590 --> 00:23:35,600
+fails okay if something got failed up
+ 
+
+1023
+00:23:35,600 --> 00:23:38,470
+fails okay if something got failed up
+its cache block will come it will just
+
+1024
+00:23:38,470 --> 00:23:38,480
+its cache block will come it will just
+ 
+
+1025
+00:23:38,480 --> 00:23:41,510
+its cache block will come it will just
+do if you have to put it into some DB or
+
+1026
+00:23:41,510 --> 00:23:41,520
+do if you have to put it into some DB or
+ 
+
+1027
+00:23:41,520 --> 00:23:44,070
+do if you have to put it into some DB or
+do a proper logging or alerting you can
+
+1028
+00:23:44,070 --> 00:23:44,080
+do a proper logging or alerting you can
+ 
+
+1029
+00:23:44,080 --> 00:23:46,710
+do a proper logging or alerting you can
+do that here okay but ultimately I'm
+
+1030
+00:23:46,710 --> 00:23:46,720
+do that here okay but ultimately I'm
+ 
+
+1031
+00:23:46,720 --> 00:23:49,110
+do that here okay but ultimately I'm
+returning true here okay and it will
+
+1032
+00:23:49,110 --> 00:23:49,120
+returning true here okay and it will
+ 
+
+1033
+00:23:49,120 --> 00:23:53,430
+returning true here okay and it will
+proceed the next batch itself
+
+1034
+00:23:53,430 --> 00:23:53,440
+proceed the next batch itself
+ 
+
+1035
+00:23:53,440 --> 00:23:55,110
+proceed the next batch itself
+okay so batch level handling is also
+
+1036
+00:23:55,110 --> 00:23:55,120
+okay so batch level handling is also
+ 
+
+1037
+00:23:55,120 --> 00:23:58,630
+okay so batch level handling is also
+proper and also the entire you can have
+
+1038
+00:23:58,630 --> 00:23:58,640
+proper and also the entire you can have
+ 
+
+1039
+00:23:58,640 --> 00:24:01,669
+proper and also the entire you can have
+it like overall scheduleular job. Now
+
+1040
+00:24:01,669 --> 00:24:01,679
+it like overall scheduleular job. Now
+ 
+
+1041
+00:24:01,679 --> 00:24:03,190
+it like overall scheduleular job. Now
+whenever the scheduleuler is starting
+
+1042
+00:24:03,190 --> 00:24:03,200
+whenever the scheduleuler is starting
+ 
+
+1043
+00:24:03,200 --> 00:24:06,070
+whenever the scheduleuler is starting
+have it in a try catch block even though
+
+1044
+00:24:06,070 --> 00:24:06,080
+have it in a try catch block even though
+ 
+
+1045
+00:24:06,080 --> 00:24:09,750
+have it in a try catch block even though
+we have divided into different batches.
+
+1046
+00:24:09,750 --> 00:24:09,760
+we have divided into different batches.
+ 
+
+1047
+00:24:09,760 --> 00:24:13,830
+we have divided into different batches.
+Okay, each ba batch we have handled it
+
+1048
+00:24:13,830 --> 00:24:13,840
+Okay, each ba batch we have handled it
+ 
+
+1049
+00:24:13,840 --> 00:24:16,710
+Okay, each ba batch we have handled it
+but it's always better that
+
+1050
+00:24:16,710 --> 00:24:16,720
+but it's always better that
+ 
+
+1051
+00:24:16,720 --> 00:24:19,029
+but it's always better that
+everything should be under try catch but
+
+1052
+00:24:19,029 --> 00:24:19,039
+everything should be under try catch but
+ 
+
+1053
+00:24:19,039 --> 00:24:22,549
+everything should be under try catch but
+if anything any issue any exceptions
+
+1054
+00:24:22,549 --> 00:24:22,559
+if anything any issue any exceptions
+ 
+
+1055
+00:24:22,559 --> 00:24:25,990
+if anything any issue any exceptions
+let's say comes here in the parent it
+
+1056
+00:24:25,990 --> 00:24:26,000
+let's say comes here in the parent it
+ 
+
+1057
+00:24:26,000 --> 00:24:29,190
+let's say comes here in the parent it
+also should not
+
+1058
+00:24:29,190 --> 00:24:29,200
+also should not
+ 
+
+1059
+00:24:29,200 --> 00:24:31,190
+also should not
+like silent silent you can say the
+
+1060
+00:24:31,190 --> 00:24:31,200
+like silent silent you can say the
+ 
+
+1061
+00:24:31,200 --> 00:24:32,710
+like silent silent you can say the
+silent failure it should not be silent
+
+1062
+00:24:32,710 --> 00:24:32,720
+silent failure it should not be silent
+ 
+
+1063
+00:24:32,720 --> 00:24:35,830
+silent failure it should not be silent
+failure because if any issue comes and
+
+1064
+00:24:35,830 --> 00:24:35,840
+failure because if any issue comes and
+ 
+
+1065
+00:24:35,840 --> 00:24:38,710
+failure because if any issue comes and
+if you don't alert it properly or don't
+
+1066
+00:24:38,710 --> 00:24:38,720
+if you don't alert it properly or don't
+ 
+
+1067
+00:24:38,720 --> 00:24:41,909
+if you don't alert it properly or don't
+log it properly ly it would be missed.
+
+1068
+00:24:41,909 --> 00:24:41,919
+log it properly ly it would be missed.
+ 
+
+1069
+00:24:41,919 --> 00:24:44,710
+log it properly ly it would be missed.
+Okay. So this is you can say it's a uh
+
+1070
+00:24:44,710 --> 00:24:44,720
+Okay. So this is you can say it's a uh
+ 
+
+1071
+00:24:44,720 --> 00:24:48,630
+Okay. So this is you can say it's a uh
+safety net the parent one. So these are
+
+1072
+00:24:48,630 --> 00:24:48,640
+safety net the parent one. So these are
+ 
+
+1073
+00:24:48,640 --> 00:24:51,350
+safety net the parent one. So these are
+the three level you can say that record
+
+1074
+00:24:51,350 --> 00:24:51,360
+the three level you can say that record
+ 
+
+1075
+00:24:51,360 --> 00:24:54,310
+the three level you can say that record
+level safety
+
+1076
+00:24:54,310 --> 00:24:54,320
+level safety
+ 
+
+1077
+00:24:54,320 --> 00:24:58,070
+level safety
+batch level safety and overall
+
+1078
+00:24:58,070 --> 00:24:58,080
+batch level safety and overall
+ 
+
+1079
+00:24:58,080 --> 00:25:00,310
+batch level safety and overall
+scheduleuler level safety. So generally
+
+1080
+00:25:00,310 --> 00:25:00,320
+scheduleuler level safety. So generally
+ 
+
+1081
+00:25:00,320 --> 00:25:03,669
+scheduleuler level safety. So generally
+exception handling in scheduleuler in my
+
+1082
+00:25:03,669 --> 00:25:03,679
+exception handling in scheduleuler in my
+ 
+
+1083
+00:25:03,679 --> 00:25:06,230
+exception handling in scheduleuler in my
+opinion should be handled at this three
+
+1084
+00:25:06,230 --> 00:25:06,240
+opinion should be handled at this three
+ 
+
+1085
+00:25:06,240 --> 00:25:09,110
+opinion should be handled at this three
+layer itself.
+
+1086
+00:25:09,110 --> 00:25:09,120
+layer itself.
+ 
+
+1087
+00:25:09,120 --> 00:25:10,789
+layer itself.
+Okay.
+
+1088
+00:25:10,789 --> 00:25:10,799
+Okay.
+ 
+
+1089
+00:25:10,799 --> 00:25:12,789
+Okay.
+Now another let's move to the another
+
+1090
+00:25:12,789 --> 00:25:12,799
+Now another let's move to the another
+ 
+
+1091
+00:25:12,799 --> 00:25:15,110
+Now another let's move to the another
+pitfall. So let's understand this use
+
+1092
+00:25:15,110 --> 00:25:15,120
+pitfall. So let's understand this use
+ 
+
+1093
+00:25:15,120 --> 00:25:16,710
+pitfall. So let's understand this use
+case.
+
+1094
+00:25:16,710 --> 00:25:16,720
+case.
+ 
+
+1095
+00:25:16,720 --> 00:25:20,549
+case.
+So total expired uh data which we are
+
+1096
+00:25:20,549 --> 00:25:20,559
+So total expired uh data which we are
+ 
+
+1097
+00:25:20,559 --> 00:25:23,110
+So total expired uh data which we are
+processing is 85,000. The same example
+
+1098
+00:25:23,110 --> 00:25:23,120
+processing is 85,000. The same example
+ 
+
+1099
+00:25:23,120 --> 00:25:24,789
+processing is 85,000. The same example
+we are doing we are making a get call
+
+1100
+00:25:24,789 --> 00:25:24,799
+we are doing we are making a get call
+ 
+
+1101
+00:25:24,799 --> 00:25:28,310
+we are doing we are making a get call
+right to process to fetch the data from
+
+1102
+00:25:28,310 --> 00:25:28,320
+right to process to fetch the data from
+ 
+
+1103
+00:25:28,320 --> 00:25:31,750
+right to process to fetch the data from
+DB. Let's say 85,000 and the batch size
+
+1104
+00:25:31,750 --> 00:25:31,760
+DB. Let's say 85,000 and the batch size
+ 
+
+1105
+00:25:31,760 --> 00:25:33,990
+DB. Let's say 85,000 and the batch size
+is of a,000 and total number of batches
+
+1106
+00:25:33,990 --> 00:25:34,000
+is of a,000 and total number of batches
+ 
+
+1107
+00:25:34,000 --> 00:25:37,510
+is of a,000 and total number of batches
+is 85. This is what we have uh done till
+
+1108
+00:25:37,510 --> 00:25:37,520
+is 85. This is what we have uh done till
+ 
+
+1109
+00:25:37,520 --> 00:25:38,870
+is 85. This is what we have uh done till
+now.
+
+1110
+00:25:38,870 --> 00:25:38,880
+now.
+ 
+
+1111
+00:25:38,880 --> 00:25:41,430
+now.
+Now every per record what we are doing
+
+1112
+00:25:41,430 --> 00:25:41,440
+Now every per record what we are doing
+ 
+
+1113
+00:25:41,440 --> 00:25:44,310
+Now every per record what we are doing
+is we are making one update subscription
+
+1114
+00:25:44,310 --> 00:25:44,320
+is we are making one update subscription
+ 
+
+1115
+00:25:44,320 --> 00:25:46,310
+is we are making one update subscription
+like we are making the status change to
+
+1116
+00:25:46,310 --> 00:25:46,320
+like we are making the status change to
+ 
+
+1117
+00:25:46,320 --> 00:25:47,909
+like we are making the status change to
+expired and we are deleting the
+
+1118
+00:25:47,909 --> 00:25:47,919
+expired and we are deleting the
+ 
+
+1119
+00:25:47,919 --> 00:25:50,950
+expired and we are deleting the
+enrollment one delete enrollment
+
+1120
+00:25:50,950 --> 00:25:50,960
+enrollment one delete enrollment
+ 
+
+1121
+00:25:50,960 --> 00:25:53,110
+enrollment one delete enrollment
+delete operation and one update
+
+1122
+00:25:53,110 --> 00:25:53,120
+delete operation and one update
+ 
+
+1123
+00:25:53,120 --> 00:25:54,789
+delete operation and one update
+operation.
+
+1124
+00:25:54,789 --> 00:25:54,799
+operation.
+ 
+
+1125
+00:25:54,799 --> 00:25:57,110
+operation.
+So with every record we are doing two
+
+1126
+00:25:57,110 --> 00:25:57,120
+So with every record we are doing two
+ 
+
+1127
+00:25:57,120 --> 00:26:00,789
+So with every record we are doing two
+operation. So 1,000 records each batch
+
+1128
+00:26:00,789 --> 00:26:00,799
+operation. So 1,000 records each batch
+ 
+
+1129
+00:26:00,799 --> 00:26:05,110
+operation. So 1,000 records each batch
+1,000 record two SQL operation. So 2,000
+
+1130
+00:26:05,110 --> 00:26:05,120
+1,000 record two SQL operation. So 2,000
+ 
+
+1131
+00:26:05,120 --> 00:26:07,990
+1,000 record two SQL operation. So 2,000
+SQL operation per batch like this we
+
+1132
+00:26:07,990 --> 00:26:08,000
+SQL operation per batch like this we
+ 
+
+1133
+00:26:08,000 --> 00:26:12,710
+SQL operation per batch like this we
+have 85 batches. So appro 1 lakh 70,000
+
+1134
+00:26:12,710 --> 00:26:12,720
+have 85 batches. So appro 1 lakh 70,000
+ 
+
+1135
+00:26:12,720 --> 00:26:15,510
+have 85 batches. So appro 1 lakh 70,000
+SQL statement you are doing. So up and
+
+1136
+00:26:15,510 --> 00:26:15,520
+SQL statement you are doing. So up and
+ 
+
+1137
+00:26:15,520 --> 00:26:18,230
+SQL statement you are doing. So up and
+down one SQL statement you can say that
+
+1138
+00:26:18,230 --> 00:26:18,240
+down one SQL statement you can say that
+ 
+
+1139
+00:26:18,240 --> 00:26:21,830
+down one SQL statement you can say that
+a round trip. So 1 lak 70,000 round
+
+1140
+00:26:21,830 --> 00:26:21,840
+a round trip. So 1 lak 70,000 round
+ 
+
+1141
+00:26:21,840 --> 00:26:23,750
+a round trip. So 1 lak 70,000 round
+trips you are doing it's like a network
+
+1142
+00:26:23,750 --> 00:26:23,760
+trips you are doing it's like a network
+ 
+
+1143
+00:26:23,760 --> 00:26:25,990
+trips you are doing it's like a network
+call.
+
+1144
+00:26:25,990 --> 00:26:26,000
+call.
+ 
+
+1145
+00:26:26,000 --> 00:26:28,470
+call.
+Okay. So consider this as an add-up
+
+1146
+00:26:28,470 --> 00:26:28,480
+Okay. So consider this as an add-up
+ 
+
+1147
+00:26:28,480 --> 00:26:33,029
+Okay. So consider this as an add-up
+latency. So you have to be very very uh
+
+1148
+00:26:33,029 --> 00:26:33,039
+latency. So you have to be very very uh
+ 
+
+1149
+00:26:33,039 --> 00:26:35,750
+latency. So you have to be very very uh
+like do a proper analysis of your
+
+1150
+00:26:35,750 --> 00:26:35,760
+like do a proper analysis of your
+ 
+
+1151
+00:26:35,760 --> 00:26:37,350
+like do a proper analysis of your
+latency when you are working with
+
+1152
+00:26:37,350 --> 00:26:37,360
+latency when you are working with
+ 
+
+1153
+00:26:37,360 --> 00:26:39,669
+latency when you are working with
+scheduleuler like how many SQL
+
+1154
+00:26:39,669 --> 00:26:39,679
+scheduleuler like how many SQL
+ 
+
+1155
+00:26:39,679 --> 00:26:44,549
+scheduleuler like how many SQL
+operations maximum your batch can do.
+
+1156
+00:26:44,549 --> 00:26:44,559
+operations maximum your batch can do.
+ 
+
+1157
+00:26:44,559 --> 00:26:47,029
+operations maximum your batch can do.
+Okay. So currently at this example which
+
+1158
+00:26:47,029 --> 00:26:47,039
+Okay. So currently at this example which
+ 
+
+1159
+00:26:47,039 --> 00:26:48,789
+Okay. So currently at this example which
+we are dealing with and the example
+
+1160
+00:26:48,789 --> 00:26:48,799
+we are dealing with and the example
+ 
+
+1161
+00:26:48,799 --> 00:26:51,909
+we are dealing with and the example
+which we have taken around 1 lak 70,000
+
+1162
+00:26:51,909 --> 00:26:51,919
+which we have taken around 1 lak 70,000
+ 
+
+1163
+00:26:51,919 --> 00:26:56,070
+which we have taken around 1 lak 70,000
+SQL round trips will happen. Okay. Can
+
+1164
+00:26:56,070 --> 00:26:56,080
+SQL round trips will happen. Okay. Can
+ 
+
+1165
+00:26:56,080 --> 00:26:58,789
+SQL round trips will happen. Okay. Can
+we save it? Yes, we can follow hibernate
+
+1166
+00:26:58,789 --> 00:26:58,799
+we save it? Yes, we can follow hibernate
+ 
+
+1167
+00:26:58,799 --> 00:27:03,909
+we save it? Yes, we can follow hibernate
+batching. Okay. So, internally still
+
+1168
+00:27:03,909 --> 00:27:03,919
+batching. Okay. So, internally still
+ 
+
+1169
+00:27:03,919 --> 00:27:07,350
+batching. Okay. So, internally still
+there would be like one lakh 70,000 SQL
+
+1170
+00:27:07,350 --> 00:27:07,360
+there would be like one lakh 70,000 SQL
+ 
+
+1171
+00:27:07,360 --> 00:27:10,630
+there would be like one lakh 70,000 SQL
+execution itself. Okay. So even though
+
+1172
+00:27:10,630 --> 00:27:10,640
+execution itself. Okay. So even though
+ 
+
+1173
+00:27:10,640 --> 00:27:13,990
+execution itself. Okay. So even though
+no matter how you have to do still the
+
+1174
+00:27:13,990 --> 00:27:14,000
+no matter how you have to do still the
+ 
+
+1175
+00:27:14,000 --> 00:27:16,630
+no matter how you have to do still the
+number of SQL operation is same for each
+
+1176
+00:27:16,630 --> 00:27:16,640
+number of SQL operation is same for each
+ 
+
+1177
+00:27:16,640 --> 00:27:19,669
+number of SQL operation is same for each
+record one you have to do update you
+
+1178
+00:27:19,669 --> 00:27:19,679
+record one you have to do update you
+ 
+
+1179
+00:27:19,679 --> 00:27:22,549
+record one you have to do update you
+have to do delete for record two update
+
+1180
+00:27:22,549 --> 00:27:22,559
+have to do delete for record two update
+ 
+
+1181
+00:27:22,559 --> 00:27:27,029
+have to do delete for record two update
+delete like this 85,000
+
+1182
+00:27:27,029 --> 00:27:27,039
+delete like this 85,000
+ 
+
+1183
+00:27:27,039 --> 00:27:29,990
+delete like this 85,000
+record you have to do update and delete
+
+1184
+00:27:29,990 --> 00:27:30,000
+record you have to do update and delete
+ 
+
+1185
+00:27:30,000 --> 00:27:33,590
+record you have to do update and delete
+so we are not reducing the number of
+
+1186
+00:27:33,590 --> 00:27:33,600
+so we are not reducing the number of
+ 
+
+1187
+00:27:33,600 --> 00:27:35,990
+so we are not reducing the number of
+operation what we are reducing is the
+
+1188
+00:27:35,990 --> 00:27:36,000
+operation what we are reducing is the
+ 
+
+1189
+00:27:36,000 --> 00:27:39,669
+operation what we are reducing is the
+number of calls like first Round trip
+
+1190
+00:27:39,669 --> 00:27:39,679
+number of calls like first Round trip
+ 
+
+1191
+00:27:39,679 --> 00:27:42,390
+number of calls like first Round trip
+for update you are making let's say one
+
+1192
+00:27:42,390 --> 00:27:42,400
+for update you are making let's say one
+ 
+
+1193
+00:27:42,400 --> 00:27:45,590
+for update you are making let's say one
+round trip for record two you are making
+
+1194
+00:27:45,590 --> 00:27:45,600
+round trip for record two you are making
+ 
+
+1195
+00:27:45,600 --> 00:27:47,269
+round trip for record two you are making
+one route trip like this making you are
+
+1196
+00:27:47,269 --> 00:27:47,279
+one route trip like this making you are
+ 
+
+1197
+00:27:47,279 --> 00:27:49,029
+one route trip like this making you are
+making one route trip for each and every
+
+1198
+00:27:49,029 --> 00:27:49,039
+making one route trip for each and every
+ 
+
+1199
+00:27:49,039 --> 00:27:53,029
+making one route trip for each and every
+operation can we reduce it yes
+
+1200
+00:27:53,029 --> 00:27:53,039
+operation can we reduce it yes
+ 
+
+1201
+00:27:53,039 --> 00:27:55,190
+operation can we reduce it yes
+like batch so in hibernate we have
+
+1202
+00:27:55,190 --> 00:27:55,200
+like batch so in hibernate we have
+ 
+
+1203
+00:27:55,200 --> 00:27:58,389
+like batch so in hibernate we have
+something called springjpa
+
+1204
+00:27:58,389 --> 00:27:58,399
+something called springjpa
+ 
+
+1205
+00:27:58,399 --> 00:28:03,430
+something called springjpa
+hibernate dot jdbc dotbatch size 50 so
+
+1206
+00:28:03,430 --> 00:28:03,440
+hibernate dot jdbc dotbatch size 50 so
+ 
+
+1207
+00:28:03,440 --> 00:28:06,389
+hibernate dot jdbc dotbatch size 50 so
+what we are saying is that
+
+1208
+00:28:06,389 --> 00:28:06,399
+what we are saying is that
+ 
+
+1209
+00:28:06,399 --> 00:28:10,549
+what we are saying is that
+club 50 operation once and send it in a
+
+1210
+00:28:10,549 --> 00:28:10,559
+club 50 operation once and send it in a
+ 
+
+1211
+00:28:10,559 --> 00:28:13,029
+club 50 operation once and send it in a
+single shot.
+
+1212
+00:28:13,029 --> 00:28:13,039
+single shot.
+ 
+
+1213
+00:28:13,039 --> 00:28:15,430
+single shot.
+Okay. And also one more thing is this is
+
+1214
+00:28:15,430 --> 00:28:15,440
+Okay. And also one more thing is this is
+ 
+
+1215
+00:28:15,440 --> 00:28:18,070
+Okay. And also one more thing is this is
+very important order update equals to
+
+1216
+00:28:18,070 --> 00:28:18,080
+very important order update equals to
+ 
+
+1217
+00:28:18,080 --> 00:28:19,909
+very important order update equals to
+true. So why it is important is let's
+
+1218
+00:28:19,909 --> 00:28:19,919
+true. So why it is important is let's
+ 
+
+1219
+00:28:19,919 --> 00:28:22,710
+true. So why it is important is let's
+say without order update what would
+
+1220
+00:28:22,710 --> 00:28:22,720
+say without order update what would
+ 
+
+1221
+00:28:22,720 --> 00:28:24,789
+say without order update what would
+happen is let's say currently I'm doing
+
+1222
+00:28:24,789 --> 00:28:24,799
+happen is let's say currently I'm doing
+ 
+
+1223
+00:28:24,799 --> 00:28:26,710
+happen is let's say currently I'm doing
+update subscription then update
+
+1224
+00:28:26,710 --> 00:28:26,720
+update subscription then update
+ 
+
+1225
+00:28:26,720 --> 00:28:28,389
+update subscription then update
+enrollment update subscription then
+
+1226
+00:28:28,389 --> 00:28:28,399
+enrollment update subscription then
+ 
+
+1227
+00:28:28,399 --> 00:28:31,029
+enrollment update subscription then
+update enrollment. If you are not
+
+1228
+00:28:31,029 --> 00:28:31,039
+update enrollment. If you are not
+ 
+
+1229
+00:28:31,039 --> 00:28:34,389
+update enrollment. If you are not
+allowing hibernate to do reordering, so
+
+1230
+00:28:34,389 --> 00:28:34,399
+allowing hibernate to do reordering, so
+ 
+
+1231
+00:28:34,399 --> 00:28:36,230
+allowing hibernate to do reordering, so
+it's like
+
+1232
+00:28:36,230 --> 00:28:36,240
+it's like
+ 
+
+1233
+00:28:36,240 --> 00:28:37,830
+it's like
+subscription table, enrollment table,
+
+1234
+00:28:37,830 --> 00:28:37,840
+subscription table, enrollment table,
+ 
+
+1235
+00:28:37,840 --> 00:28:39,190
+subscription table, enrollment table,
+subscription table, enrollment table. So
+
+1236
+00:28:39,190 --> 00:28:39,200
+subscription table, enrollment table. So
+ 
+
+1237
+00:28:39,200 --> 00:28:40,630
+subscription table, enrollment table. So
+it will not be able to do proper
+
+1238
+00:28:40,630 --> 00:28:40,640
+it will not be able to do proper
+ 
+
+1239
+00:28:40,640 --> 00:28:43,190
+it will not be able to do proper
+grouping. So your batch will not might
+
+1240
+00:28:43,190 --> 00:28:43,200
+grouping. So your batch will not might
+ 
+
+1241
+00:28:43,200 --> 00:28:47,110
+grouping. So your batch will not might
+not work properly. Okay. So if you need
+
+1242
+00:28:47,110 --> 00:28:47,120
+not work properly. Okay. So if you need
+ 
+
+1243
+00:28:47,120 --> 00:28:50,230
+not work properly. Okay. So if you need
+a proper batching, you need to allow
+
+1244
+00:28:50,230 --> 00:28:50,240
+a proper batching, you need to allow
+ 
+
+1245
+00:28:50,240 --> 00:28:52,230
+a proper batching, you need to allow
+hibernate that hey you are allowed to do
+
+1246
+00:28:52,230 --> 00:28:52,240
+hibernate that hey you are allowed to do
+ 
+
+1247
+00:28:52,240 --> 00:28:55,909
+hibernate that hey you are allowed to do
+reordering. So now with this one, it can
+
+1248
+00:28:55,909 --> 00:28:55,919
+reordering. So now with this one, it can
+ 
+
+1249
+00:28:55,919 --> 00:28:58,149
+reordering. So now with this one, it can
+reorder. All subscriptions can be
+
+1250
+00:28:58,149 --> 00:28:58,159
+reorder. All subscriptions can be
+ 
+
+1251
+00:28:58,159 --> 00:28:59,990
+reorder. All subscriptions can be
+grouped together. All enrollment update
+
+1252
+00:28:59,990 --> 00:29:00,000
+grouped together. All enrollment update
+ 
+
+1253
+00:29:00,000 --> 00:29:02,310
+grouped together. All enrollment update
+should be grouped together and and as
+
+1254
+00:29:02,310 --> 00:29:02,320
+should be grouped together and and as
+ 
+
+1255
+00:29:02,320 --> 00:29:05,510
+should be grouped together and and as
+soon as the batch size become 50. Okay,
+
+1256
+00:29:05,510 --> 00:29:05,520
+soon as the batch size become 50. Okay,
+ 
+
+1257
+00:29:05,520 --> 00:29:08,789
+soon as the batch size become 50. Okay,
+it send them together using one JDBC
+
+1258
+00:29:08,789 --> 00:29:08,799
+it send them together using one JDBC
+ 
+
+1259
+00:29:08,799 --> 00:29:10,950
+it send them together using one JDBC
+batch call
+
+1260
+00:29:10,950 --> 00:29:10,960
+batch call
+ 
+
+1261
+00:29:10,960 --> 00:29:13,190
+batch call
+and because of this we have a lower CPU
+
+1262
+00:29:13,190 --> 00:29:13,200
+and because of this we have a lower CPU
+ 
+
+1263
+00:29:13,200 --> 00:29:15,590
+and because of this we have a lower CPU
+usage and shorter job duration which
+
+1264
+00:29:15,590 --> 00:29:15,600
+usage and shorter job duration which
+ 
+
+1265
+00:29:15,600 --> 00:29:17,750
+usage and shorter job duration which
+ultimately impact our you can say the
+
+1266
+00:29:17,750 --> 00:29:17,760
+ultimately impact our you can say the
+ 
+
+1267
+00:29:17,760 --> 00:29:20,870
+ultimately impact our you can say the
+latency. We have a job duration very
+
+1268
+00:29:20,870 --> 00:29:20,880
+latency. We have a job duration very
+ 
+
+1269
+00:29:20,880 --> 00:29:22,549
+latency. We have a job duration very
+less
+
+1270
+00:29:22,549 --> 00:29:22,559
+less
+ 
+
+1271
+00:29:22,559 --> 00:29:24,389
+less
+all the network calls we are reducing
+
+1272
+00:29:24,389 --> 00:29:24,399
+all the network calls we are reducing
+ 
+
+1273
+00:29:24,399 --> 00:29:27,110
+all the network calls we are reducing
+actually.
+
+1274
+00:29:27,110 --> 00:29:27,120
+actually.
+ 
+
+1275
+00:29:27,120 --> 00:29:29,590
+actually.
+Okay. So hibernate batching can be an
+
+1276
+00:29:29,590 --> 00:29:29,600
+Okay. So hibernate batching can be an
+ 
+
+1277
+00:29:29,600 --> 00:29:31,830
+Okay. So hibernate batching can be an
+answer if interviewer say that hey can
+
+1278
+00:29:31,830 --> 00:29:31,840
+answer if interviewer say that hey can
+ 
+
+1279
+00:29:31,840 --> 00:29:34,389
+answer if interviewer say that hey can
+we improve more.
+
+1280
+00:29:34,389 --> 00:29:34,399
+we improve more.
+ 
+
+1281
+00:29:34,399 --> 00:29:36,950
+we improve more.
+Okay we have already done improvement
+
+1282
+00:29:36,950 --> 00:29:36,960
+Okay we have already done improvement
+ 
+
+1283
+00:29:36,960 --> 00:29:40,310
+Okay we have already done improvement
+through batch then batch plus
+
+1284
+00:29:40,310 --> 00:29:40,320
+through batch then batch plus
+ 
+
+1285
+00:29:40,320 --> 00:29:42,070
+through batch then batch plus
+transaction for each batch we are having
+
+1286
+00:29:42,070 --> 00:29:42,080
+transaction for each batch we are having
+ 
+
+1287
+00:29:42,080 --> 00:29:44,870
+transaction for each batch we are having
+a transaction so we improve the memory.
+
+1288
+00:29:44,870 --> 00:29:44,880
+a transaction so we improve the memory.
+ 
+
+1289
+00:29:44,880 --> 00:29:47,510
+a transaction so we improve the memory.
+Okay and then further we can improve
+
+1290
+00:29:47,510 --> 00:29:47,520
+Okay and then further we can improve
+ 
+
+1291
+00:29:47,520 --> 00:29:52,389
+Okay and then further we can improve
+through hibernate batching.
+
+1292
+00:29:52,389 --> 00:29:52,399
+
+ 
+
+1293
+00:29:52,399 --> 00:29:57,269
+
+Now here if you see that till this point
+
+1294
+00:29:57,269 --> 00:29:57,279
+Now here if you see that till this point
+ 
+
+1295
+00:29:57,279 --> 00:30:00,710
+Now here if you see that till this point
+at all the six points we have done with
+
+1296
+00:30:00,710 --> 00:30:00,720
+at all the six points we have done with
+ 
+
+1297
+00:30:00,720 --> 00:30:04,070
+at all the six points we have done with
+the uh like pitfalls which are related
+
+1298
+00:30:04,070 --> 00:30:04,080
+the uh like pitfalls which are related
+ 
+
+1299
+00:30:04,080 --> 00:30:08,230
+the uh like pitfalls which are related
+to single instance. Okayuler in a
+
+1300
+00:30:08,230 --> 00:30:08,240
+to single instance. Okayuler in a
+ 
+
+1301
+00:30:08,240 --> 00:30:11,590
+to single instance. Okayuler in a
+running in a single instance. So here
+
+1302
+00:30:11,590 --> 00:30:11,600
+running in a single instance. So here
+ 
+
+1303
+00:30:11,600 --> 00:30:13,029
+running in a single instance. So here
+till this point everything is clear
+
+1304
+00:30:13,029 --> 00:30:13,039
+till this point everything is clear
+ 
+
+1305
+00:30:13,039 --> 00:30:15,830
+till this point everything is clear
+because now we are moving it to multiple
+
+1306
+00:30:15,830 --> 00:30:15,840
+because now we are moving it to multiple
+ 
+
+1307
+00:30:15,840 --> 00:30:18,230
+because now we are moving it to multiple
+instances.
+
+1308
+00:30:18,230 --> 00:30:18,240
+instances.
+ 
+
+1309
+00:30:18,240 --> 00:30:20,789
+instances.
+Any doubt in this one? Six pitfalls
+
+1310
+00:30:20,789 --> 00:30:20,799
+Any doubt in this one? Six pitfalls
+ 
+
+1311
+00:30:20,799 --> 00:30:22,789
+Any doubt in this one? Six pitfalls
+please go through again. Batch execution
+
+1312
+00:30:22,789 --> 00:30:22,799
+please go through again. Batch execution
+ 
+
+1313
+00:30:22,799 --> 00:30:26,149
+please go through again. Batch execution
+simple right. Exception handling very
+
+1314
+00:30:26,149 --> 00:30:26,159
+simple right. Exception handling very
+ 
+
+1315
+00:30:26,159 --> 00:30:28,950
+simple right. Exception handling very
+simple three layer we need to uh keep
+
+1316
+00:30:28,950 --> 00:30:28,960
+simple three layer we need to uh keep
+ 
+
+1317
+00:30:28,960 --> 00:30:33,350
+simple three layer we need to uh keep
+track of. Uh and uh transaction per
+
+1318
+00:30:33,350 --> 00:30:33,360
+track of. Uh and uh transaction per
+ 
+
+1319
+00:30:33,360 --> 00:30:37,590
+track of. Uh and uh transaction per
+batch uh I think it should be clear.
+
+1320
+00:30:37,590 --> 00:30:37,600
+batch uh I think it should be clear.
+ 
+
+1321
+00:30:37,600 --> 00:30:39,029
+batch uh I think it should be clear.
+First level catch I have already told
+
+1322
+00:30:39,029 --> 00:30:39,039
+First level catch I have already told
+ 
+
+1323
+00:30:39,039 --> 00:30:41,669
+First level catch I have already told
+you that how memory leak happen that why
+
+1324
+00:30:41,669 --> 00:30:41,679
+you that how memory leak happen that why
+ 
+
+1325
+00:30:41,679 --> 00:30:43,750
+you that how memory leak happen that why
+need transaction per batch persistence.
+
+1326
+00:30:43,750 --> 00:30:43,760
+need transaction per batch persistence.
+ 
+
+1327
+00:30:43,760 --> 00:30:47,110
+need transaction per batch persistence.
+This is important right? So if you are
+
+1328
+00:30:47,110 --> 00:30:47,120
+This is important right? So if you are
+ 
+
+1329
+00:30:47,120 --> 00:30:49,110
+This is important right? So if you are
+dealing with the spring boot APIs right
+
+1330
+00:30:49,110 --> 00:30:49,120
+dealing with the spring boot APIs right
+ 
+
+1331
+00:30:49,120 --> 00:30:50,950
+dealing with the spring boot APIs right
+you will see that even though you have
+
+1332
+00:30:50,950 --> 00:30:50,960
+you will see that even though you have
+ 
+
+1333
+00:30:50,960 --> 00:30:53,269
+you will see that even though you have
+multiple transaction they are sharing a
+
+1334
+00:30:53,269 --> 00:30:53,279
+multiple transaction they are sharing a
+ 
+
+1335
+00:30:53,279 --> 00:30:54,870
+multiple transaction they are sharing a
+persistence context sharing the first
+
+1336
+00:30:54,870 --> 00:30:54,880
+persistence context sharing the first
+ 
+
+1337
+00:30:54,880 --> 00:30:57,909
+persistence context sharing the first
+level cache because for each request it
+
+1338
+00:30:57,909 --> 00:30:57,919
+level cache because for each request it
+ 
+
+1339
+00:30:57,919 --> 00:31:00,310
+level cache because for each request it
+create a persistence context
+
+1340
+00:31:00,310 --> 00:31:00,320
+create a persistence context
+ 
+
+1341
+00:31:00,320 --> 00:31:01,990
+create a persistence context
+we can turn it off this is the default
+
+1342
+00:31:01,990 --> 00:31:02,000
+we can turn it off this is the default
+ 
+
+1343
+00:31:02,000 --> 00:31:04,789
+we can turn it off this is the default
+we can turn it off through this
+
+1344
+00:31:04,789 --> 00:31:04,799
+we can turn it off through this
+ 
+
+1345
+00:31:04,799 --> 00:31:06,789
+we can turn it off through this
+okay so that it will have for each
+
+1346
+00:31:06,789 --> 00:31:06,799
+okay so that it will have for each
+ 
+
+1347
+00:31:06,799 --> 00:31:08,230
+okay so that it will have for each
+transaction it will create a first level
+
+1348
+00:31:08,230 --> 00:31:08,240
+transaction it will create a first level
+ 
+
+1349
+00:31:08,240 --> 00:31:10,149
+transaction it will create a first level
+cache only but in scheduleuler this is
+
+1350
+00:31:10,149 --> 00:31:10,159
+cache only but in scheduleuler this is
+ 
+
+1351
+00:31:10,159 --> 00:31:11,990
+cache only but in scheduleuler this is
+the default transaction itself because
+
+1352
+00:31:11,990 --> 00:31:12,000
+the default transaction itself because
+ 
+
+1353
+00:31:12,000 --> 00:31:13,669
+the default transaction itself because
+we don't have any HTTP request itself
+
+1354
+00:31:13,669 --> 00:31:13,679
+we don't have any HTTP request itself
+ 
+
+1355
+00:31:13,679 --> 00:31:16,630
+we don't have any HTTP request itself
+Awesome.
+
+1356
+00:31:16,630 --> 00:31:16,640
+Awesome.
+ 
+
+1357
+00:31:16,640 --> 00:31:19,269
+Awesome.
+So now we have a basic understanding of
+
+1358
+00:31:19,269 --> 00:31:19,279
+So now we have a basic understanding of
+ 
+
+1359
+00:31:19,279 --> 00:31:21,190
+So now we have a basic understanding of
+all the pitfalls.
+
+1360
+00:31:21,190 --> 00:31:21,200
+all the pitfalls.
+ 
+
+1361
+00:31:21,200 --> 00:31:25,430
+all the pitfalls.
+Now inter ultimately have taken us to
+
+1362
+00:31:25,430 --> 00:31:25,440
+Now inter ultimately have taken us to
+ 
+
+1363
+00:31:25,440 --> 00:31:27,750
+Now inter ultimately have taken us to
+okay what happen
+
+1364
+00:31:27,750 --> 00:31:27,760
+okay what happen
+ 
+
+1365
+00:31:27,760 --> 00:31:31,830
+okay what happen
+when we have multiple instances.
+
+1366
+00:31:31,830 --> 00:31:31,840
+when we have multiple instances.
+ 
+
+1367
+00:31:31,840 --> 00:31:33,909
+when we have multiple instances.
+Then the problem first he want to listen
+
+1368
+00:31:33,909 --> 00:31:33,919
+Then the problem first he want to listen
+ 
+
+1369
+00:31:33,919 --> 00:31:37,509
+Then the problem first he want to listen
+is that duplicate execution will happen.
+
+1370
+00:31:37,509 --> 00:31:37,519
+is that duplicate execution will happen.
+ 
+
+1371
+00:31:37,519 --> 00:31:40,070
+is that duplicate execution will happen.
+So see you have this scheduleuler job. I
+
+1372
+00:31:40,070 --> 00:31:40,080
+So see you have this scheduleuler job. I
+ 
+
+1373
+00:31:40,080 --> 00:31:42,070
+So see you have this scheduleuler job. I
+have written this scheduleuler job.
+
+1374
+00:31:42,070 --> 00:31:42,080
+have written this scheduleuler job.
+ 
+
+1375
+00:31:42,080 --> 00:31:45,029
+have written this scheduleuler job.
+Okay. Whatever we have done now we have
+
+1376
+00:31:45,029 --> 00:31:45,039
+Okay. Whatever we have done now we have
+ 
+
+1377
+00:31:45,039 --> 00:31:48,870
+Okay. Whatever we have done now we have
+two instances of our job or let's say
+
+1378
+00:31:48,870 --> 00:31:48,880
+two instances of our job or let's say
+ 
+
+1379
+00:31:48,880 --> 00:31:50,789
+two instances of our job or let's say
+our scheduleuler is running two pods pod
+
+1380
+00:31:50,789 --> 00:31:50,799
+our scheduleuler is running two pods pod
+ 
+
+1381
+00:31:50,799 --> 00:31:53,190
+our scheduleuler is running two pods pod
+one pod two
+
+1382
+00:31:53,190 --> 00:31:53,200
+one pod two
+ 
+
+1383
+00:31:53,200 --> 00:31:56,950
+one pod two
+now at 1:00 a.m. So this is second
+
+1384
+00:31:56,950 --> 00:31:56,960
+now at 1:00 a.m. So this is second
+ 
+
+1385
+00:31:56,960 --> 00:32:01,590
+now at 1:00 a.m. So this is second
+minute R at 100 a.m. both
+
+1386
+00:32:01,590 --> 00:32:01,600
+minute R at 100 a.m. both
+ 
+
+1387
+00:32:01,600 --> 00:32:05,350
+minute R at 100 a.m. both
+pods will try to execute this job see
+
+1388
+00:32:05,350 --> 00:32:05,360
+pods will try to execute this job see
+ 
+
+1389
+00:32:05,360 --> 00:32:07,430
+pods will try to execute this job see
+both are independent the same code is
+
+1390
+00:32:07,430 --> 00:32:07,440
+both are independent the same code is
+ 
+
+1391
+00:32:07,440 --> 00:32:09,190
+both are independent the same code is
+deployed here the same code is deployed
+
+1392
+00:32:09,190 --> 00:32:09,200
+deployed here the same code is deployed
+ 
+
+1393
+00:32:09,200 --> 00:32:12,470
+deployed here the same code is deployed
+here okay so at 1:00 a.m. both will
+
+1394
+00:32:12,470 --> 00:32:12,480
+here okay so at 1:00 a.m. both will
+ 
+
+1395
+00:32:12,480 --> 00:32:16,070
+here okay so at 1:00 a.m. both will
+start executing the code. What would
+
+1396
+00:32:16,070 --> 00:32:16,080
+start executing the code. What would
+ 
+
+1397
+00:32:16,080 --> 00:32:19,909
+start executing the code. What would
+happen? Both is doing the operation in a
+
+1398
+00:32:19,909 --> 00:32:19,919
+happen? Both is doing the operation in a
+ 
+
+1399
+00:32:19,919 --> 00:32:22,389
+happen? Both is doing the operation in a
+duplicate manner. They both will select
+
+1400
+00:32:22,389 --> 00:32:22,399
+duplicate manner. They both will select
+ 
+
+1401
+00:32:22,399 --> 00:32:26,070
+duplicate manner. They both will select
+the top thousand like process batch. Now
+
+1402
+00:32:26,070 --> 00:32:26,080
+the top thousand like process batch. Now
+ 
+
+1403
+00:32:26,080 --> 00:32:27,990
+the top thousand like process batch. Now
+in the process each for each batch what
+
+1404
+00:32:27,990 --> 00:32:28,000
+in the process each for each batch what
+ 
+
+1405
+00:32:28,000 --> 00:32:29,430
+in the process each for each batch what
+they are doing is they select the top
+
+1406
+00:32:29,430 --> 00:32:29,440
+they are doing is they select the top
+ 
+
+1407
+00:32:29,440 --> 00:32:31,669
+they are doing is they select the top
+thousand part two will also select the
+
+1408
+00:32:31,669 --> 00:32:31,679
+thousand part two will also select the
+ 
+
+1409
+00:32:31,679 --> 00:32:34,549
+thousand part two will also select the
+same thousand. Okay. It will update the
+
+1410
+00:32:34,549 --> 00:32:34,559
+same thousand. Okay. It will update the
+ 
+
+1411
+00:32:34,559 --> 00:32:36,230
+same thousand. Okay. It will update the
+status. It will also update the status
+
+1412
+00:32:36,230 --> 00:32:36,240
+status. It will also update the status
+ 
+
+1413
+00:32:36,240 --> 00:32:38,549
+status. It will also update the status
+again. While updating the status maybe
+
+1414
+00:32:38,549 --> 00:32:38,559
+again. While updating the status maybe
+ 
+
+1415
+00:32:38,559 --> 00:32:41,830
+again. While updating the status maybe
+putting internally lock but it will
+
+1416
+00:32:41,830 --> 00:32:41,840
+putting internally lock but it will
+ 
+
+1417
+00:32:41,840 --> 00:32:43,669
+putting internally lock but it will
+ultimately be released and then it will
+
+1418
+00:32:43,669 --> 00:32:43,679
+ultimately be released and then it will
+ 
+
+1419
+00:32:43,679 --> 00:32:45,990
+ultimately be released and then it will
+also update. It will delete all
+
+1420
+00:32:45,990 --> 00:32:46,000
+also update. It will delete all
+ 
+
+1421
+00:32:46,000 --> 00:32:47,750
+also update. It will delete all
+enrollment. It will also try to delete
+
+1422
+00:32:47,750 --> 00:32:47,760
+enrollment. It will also try to delete
+ 
+
+1423
+00:32:47,760 --> 00:32:49,750
+enrollment. It will also try to delete
+may get exception also because there is
+
+1424
+00:32:49,750 --> 00:32:49,760
+may get exception also because there is
+ 
+
+1425
+00:32:49,760 --> 00:32:52,149
+may get exception also because there is
+no data to delete. But what I'm trying
+
+1426
+00:32:52,149 --> 00:32:52,159
+no data to delete. But what I'm trying
+ 
+
+1427
+00:32:52,159 --> 00:32:54,789
+no data to delete. But what I'm trying
+to say that we are doing duplicate
+
+1428
+00:32:54,789 --> 00:32:54,799
+to say that we are doing duplicate
+ 
+
+1429
+00:32:54,799 --> 00:32:57,590
+to say that we are doing duplicate
+execution and consider this is very a
+
+1430
+00:32:57,590 --> 00:32:57,600
+execution and consider this is very a
+ 
+
+1431
+00:32:57,600 --> 00:32:59,190
+execution and consider this is very a
+serious problem when you are dealing
+
+1432
+00:32:59,190 --> 00:32:59,200
+serious problem when you are dealing
+ 
+
+1433
+00:32:59,200 --> 00:33:02,630
+serious problem when you are dealing
+with financial data. What if you are job
+
+1434
+00:33:02,630 --> 00:33:02,640
+with financial data. What if you are job
+ 
+
+1435
+00:33:02,640 --> 00:33:05,430
+with financial data. What if you are job
+is to transfer the money or refund and
+
+1436
+00:33:05,430 --> 00:33:05,440
+is to transfer the money or refund and
+ 
+
+1437
+00:33:05,440 --> 00:33:08,630
+is to transfer the money or refund and
+because of this duplication you end up
+
+1438
+00:33:08,630 --> 00:33:08,640
+because of this duplication you end up
+ 
+
+1439
+00:33:08,640 --> 00:33:11,750
+because of this duplication you end up
+refund two times or if it is a debit
+
+1440
+00:33:11,750 --> 00:33:11,760
+refund two times or if it is a debit
+ 
+
+1441
+00:33:11,760 --> 00:33:13,430
+refund two times or if it is a debit
+operation you end up performing debit
+
+1442
+00:33:13,430 --> 00:33:13,440
+operation you end up performing debit
+ 
+
+1443
+00:33:13,440 --> 00:33:15,269
+operation you end up performing debit
+two times. then you have a compliance
+
+1444
+00:33:15,269 --> 00:33:15,279
+two times. then you have a compliance
+ 
+
+1445
+00:33:15,279 --> 00:33:16,870
+two times. then you have a compliance
+issue.
+
+1446
+00:33:16,870 --> 00:33:16,880
+issue.
+ 
+
+1447
+00:33:16,880 --> 00:33:18,950
+issue.
+So this duplication issue is very
+
+1448
+00:33:18,950 --> 00:33:18,960
+So this duplication issue is very
+ 
+
+1449
+00:33:18,960 --> 00:33:21,590
+So this duplication issue is very
+important and that's where interviewer
+
+1450
+00:33:21,590 --> 00:33:21,600
+important and that's where interviewer
+ 
+
+1451
+00:33:21,600 --> 00:33:23,590
+important and that's where interviewer
+is more interested in and more of the
+
+1452
+00:33:23,590 --> 00:33:23,600
+is more interested in and more of the
+ 
+
+1453
+00:33:23,600 --> 00:33:25,669
+is more interested in and more of the
+pitfalls is just like 5 10 minute
+
+1454
+00:33:25,669 --> 00:33:25,679
+pitfalls is just like 5 10 minute
+ 
+
+1455
+00:33:25,679 --> 00:33:29,190
+pitfalls is just like 5 10 minute
+discussion ultimately this is the major
+
+1456
+00:33:29,190 --> 00:33:29,200
+discussion ultimately this is the major
+ 
+
+1457
+00:33:29,200 --> 00:33:31,509
+discussion ultimately this is the major
+discussion point when you have a
+
+1458
+00:33:31,509 --> 00:33:31,519
+discussion point when you have a
+ 
+
+1459
+00:33:31,519 --> 00:33:33,750
+discussion point when you have a
+scheduleuler running in multiple parts
+
+1460
+00:33:33,750 --> 00:33:33,760
+scheduleuler running in multiple parts
+ 
+
+1461
+00:33:33,760 --> 00:33:35,509
+scheduleuler running in multiple parts
+when your application in multiple parts
+
+1462
+00:33:35,509 --> 00:33:35,519
+when your application in multiple parts
+ 
+
+1463
+00:33:35,519 --> 00:33:38,630
+when your application in multiple parts
+how you will handle the duplication
+
+1464
+00:33:38,630 --> 00:33:38,640
+how you will handle the duplication
+ 
+
+1465
+00:33:38,640 --> 00:33:40,870
+how you will handle the duplication
+the first solution is the pessimistic
+
+1466
+00:33:40,870 --> 00:33:40,880
+the first solution is the pessimistic
+ 
+
+1467
+00:33:40,880 --> 00:33:42,630
+the first solution is the pessimistic
+lock.
+
+1468
+00:33:42,630 --> 00:33:42,640
+lock.
+ 
+
+1469
+00:33:42,640 --> 00:33:44,549
+lock.
+So now here if you see how I am handling
+
+1470
+00:33:44,549 --> 00:33:44,559
+So now here if you see how I am handling
+ 
+
+1471
+00:33:44,559 --> 00:33:47,190
+So now here if you see how I am handling
+is the same thing. This is my parent
+
+1472
+00:33:47,190 --> 00:33:47,200
+is the same thing. This is my parent
+ 
+
+1473
+00:33:47,200 --> 00:33:49,669
+is the same thing. This is my parent
+job. This is till now here we have
+
+1474
+00:33:49,669 --> 00:33:49,679
+job. This is till now here we have
+ 
+
+1475
+00:33:49,679 --> 00:33:51,909
+job. This is till now here we have
+achieved it like this is for exception
+
+1476
+00:33:51,909 --> 00:33:51,919
+achieved it like this is for exception
+ 
+
+1477
+00:33:51,919 --> 00:33:53,909
+achieved it like this is for exception
+handling I have overall scheduleuler
+
+1478
+00:33:53,909 --> 00:33:53,919
+handling I have overall scheduleuler
+ 
+
+1479
+00:33:53,919 --> 00:33:57,110
+handling I have overall scheduleuler
+into track catch block in the while true
+
+1480
+00:33:57,110 --> 00:33:57,120
+into track catch block in the while true
+ 
+
+1481
+00:33:57,120 --> 00:34:01,350
+into track catch block in the while true
+I am uh keep on running for each batch.
+
+1482
+00:34:01,350 --> 00:34:01,360
+I am uh keep on running for each batch.
+ 
+
+1483
+00:34:01,360 --> 00:34:03,430
+I am uh keep on running for each batch.
+Okay so you can say that for each batch
+
+1484
+00:34:03,430 --> 00:34:03,440
+Okay so you can say that for each batch
+ 
+
+1485
+00:34:03,440 --> 00:34:05,430
+Okay so you can say that for each batch
+I have a transactional
+
+1486
+00:34:05,430 --> 00:34:05,440
+I have a transactional
+ 
+
+1487
+00:34:05,440 --> 00:34:08,869
+I have a transactional
+and I have a batch level try catch block
+
+1488
+00:34:08,869 --> 00:34:08,879
+and I have a batch level try catch block
+ 
+
+1489
+00:34:08,879 --> 00:34:10,550
+and I have a batch level try catch block
+for each batch is fetching the thousand
+
+1490
+00:34:10,550 --> 00:34:10,560
+for each batch is fetching the thousand
+ 
+
+1491
+00:34:10,560 --> 00:34:12,470
+for each batch is fetching the thousand
+record. Same thing no change at all till
+
+1492
+00:34:12,470 --> 00:34:12,480
+record. Same thing no change at all till
+ 
+
+1493
+00:34:12,480 --> 00:34:15,030
+record. Same thing no change at all till
+now and for each thousand record for
+
+1494
+00:34:15,030 --> 00:34:15,040
+now and for each thousand record for
+ 
+
+1495
+00:34:15,040 --> 00:34:17,909
+now and for each thousand record for
+each record now I have a safety net okay
+
+1496
+00:34:17,909 --> 00:34:17,919
+each record now I have a safety net okay
+ 
+
+1497
+00:34:17,919 --> 00:34:20,389
+each record now I have a safety net okay
+and I am handling it
+
+1498
+00:34:20,389 --> 00:34:20,399
+and I am handling it
+ 
+
+1499
+00:34:20,399 --> 00:34:23,589
+and I am handling it
+now where we are doing the pessimistic
+
+1500
+00:34:23,589 --> 00:34:23,599
+now where we are doing the pessimistic
+ 
+
+1501
+00:34:23,599 --> 00:34:26,389
+now where we are doing the pessimistic
+lock so now this is the place where we
+
+1502
+00:34:26,389 --> 00:34:26,399
+lock so now this is the place where we
+ 
+
+1503
+00:34:26,399 --> 00:34:29,669
+lock so now this is the place where we
+are fetching the thousand records okay I
+
+1504
+00:34:29,669 --> 00:34:29,679
+are fetching the thousand records okay I
+ 
+
+1505
+00:34:29,679 --> 00:34:33,430
+are fetching the thousand records okay I
+have changed the query to earlier we
+
+1506
+00:34:33,430 --> 00:34:33,440
+have changed the query to earlier we
+ 
+
+1507
+00:34:33,440 --> 00:34:35,750
+have changed the query to earlier we
+have only limit 100 right I have also
+
+1508
+00:34:35,750 --> 00:34:35,760
+have only limit 100 right I have also
+ 
+
+1509
+00:34:35,760 --> 00:34:38,230
+have only limit 100 right I have also
+added four update
+
+1510
+00:34:38,230 --> 00:34:38,240
+added four update
+ 
+
+1511
+00:34:38,240 --> 00:34:40,790
+added four update
+now what would happen with this that
+
+1512
+00:34:40,790 --> 00:34:40,800
+now what would happen with this that
+ 
+
+1513
+00:34:40,800 --> 00:34:43,829
+now what would happen with this that
+lock would be acquired on thousand rows
+
+1514
+00:34:43,829 --> 00:34:43,839
+lock would be acquired on thousand rows
+ 
+
+1515
+00:34:43,839 --> 00:34:46,310
+lock would be acquired on thousand rows
+by only one transaction other
+
+1516
+00:34:46,310 --> 00:34:46,320
+by only one transaction other
+ 
+
+1517
+00:34:46,320 --> 00:34:48,310
+by only one transaction other
+transaction will wait for the lock to
+
+1518
+00:34:48,310 --> 00:34:48,320
+transaction will wait for the lock to
+ 
+
+1519
+00:34:48,320 --> 00:34:51,430
+transaction will wait for the lock to
+release. So even though you have two pod
+
+1520
+00:34:51,430 --> 00:34:51,440
+release. So even though you have two pod
+ 
+
+1521
+00:34:51,440 --> 00:34:54,710
+release. So even though you have two pod
+pod one and pod two both runs at the
+
+1522
+00:34:54,710 --> 00:34:54,720
+pod one and pod two both runs at the
+ 
+
+1523
+00:34:54,720 --> 00:34:56,790
+pod one and pod two both runs at the
+same time
+
+1524
+00:34:56,790 --> 00:34:56,800
+same time
+ 
+
+1525
+00:34:56,800 --> 00:34:59,750
+same time
+now it will acquire like 1,000
+
+1526
+00:34:59,750 --> 00:34:59,760
+now it will acquire like 1,000
+ 
+
+1527
+00:34:59,760 --> 00:35:02,950
+now it will acquire like 1,000
+transactions top 1,000 transaction it
+
+1528
+00:35:02,950 --> 00:35:02,960
+transactions top 1,000 transaction it
+ 
+
+1529
+00:35:02,960 --> 00:35:06,550
+transactions top 1,000 transaction it
+will acquire the log this will now wait.
+
+1530
+00:35:06,550 --> 00:35:06,560
+will acquire the log this will now wait.
+ 
+
+1531
+00:35:06,560 --> 00:35:08,150
+will acquire the log this will now wait.
+Okay. So this would be the runtime
+
+1532
+00:35:08,150 --> 00:35:08,160
+Okay. So this would be the runtime
+ 
+
+1533
+00:35:08,160 --> 00:35:10,630
+Okay. So this would be the runtime
+behavior. Begin the transactions.
+
+1534
+00:35:10,630 --> 00:35:10,640
+behavior. Begin the transactions.
+ 
+
+1535
+00:35:10,640 --> 00:35:12,230
+behavior. Begin the transactions.
+This is part one. Pod two. Begin the
+
+1536
+00:35:12,230 --> 00:35:12,240
+This is part one. Pod two. Begin the
+ 
+
+1537
+00:35:12,240 --> 00:35:14,950
+This is part one. Pod two. Begin the
+transaction. Select for update. It will
+
+1538
+00:35:14,950 --> 00:35:14,960
+transaction. Select for update. It will
+ 
+
+1539
+00:35:14,960 --> 00:35:17,030
+transaction. Select for update. It will
+also run select for update. But only one
+
+1540
+00:35:17,030 --> 00:35:17,040
+also run select for update. But only one
+ 
+
+1541
+00:35:17,040 --> 00:35:18,710
+also run select for update. But only one
+would be able to log the thousand rows.
+
+1542
+00:35:18,710 --> 00:35:18,720
+would be able to log the thousand rows.
+ 
+
+1543
+00:35:18,720 --> 00:35:21,109
+would be able to log the thousand rows.
+Another will get blocked here. Waiting
+
+1544
+00:35:21,109 --> 00:35:21,119
+Another will get blocked here. Waiting
+ 
+
+1545
+00:35:21,119 --> 00:35:23,829
+Another will get blocked here. Waiting
+for instance once commit. So now the
+
+1546
+00:35:23,829 --> 00:35:23,839
+for instance once commit. So now the
+ 
+
+1547
+00:35:23,839 --> 00:35:25,829
+for instance once commit. So now the
+instance one will process it, commit it,
+
+1548
+00:35:25,829 --> 00:35:25,839
+instance one will process it, commit it,
+ 
+
+1549
+00:35:25,839 --> 00:35:28,630
+instance one will process it, commit it,
+then it will get unblocked.
+
+1550
+00:35:28,630 --> 00:35:28,640
+then it will get unblocked.
+ 
+
+1551
+00:35:28,640 --> 00:35:31,510
+then it will get unblocked.
+So this is the timeline way. Okay. So
+
+1552
+00:35:31,510 --> 00:35:31,520
+So this is the timeline way. Okay. So
+ 
+
+1553
+00:35:31,520 --> 00:35:34,710
+So this is the timeline way. Okay. So
+log cross it is waiting. It will process
+
+1554
+00:35:34,710 --> 00:35:34,720
+log cross it is waiting. It will process
+ 
+
+1555
+00:35:34,720 --> 00:35:37,190
+log cross it is waiting. It will process
+it is waiting. When it do ultimately
+
+1556
+00:35:37,190 --> 00:35:37,200
+it is waiting. When it do ultimately
+ 
+
+1557
+00:35:37,200 --> 00:35:40,069
+it is waiting. When it do ultimately
+comment then it will get the log and
+
+1558
+00:35:40,069 --> 00:35:40,079
+comment then it will get the log and
+ 
+
+1559
+00:35:40,079 --> 00:35:43,109
+comment then it will get the log and
+then it will start the process. Okay.
+
+1560
+00:35:43,109 --> 00:35:43,119
+then it will start the process. Okay.
+ 
+
+1561
+00:35:43,119 --> 00:35:45,910
+then it will start the process. Okay.
+But what would happen it's select for
+
+1562
+00:35:45,910 --> 00:35:45,920
+But what would happen it's select for
+ 
+
+1563
+00:35:45,920 --> 00:35:47,829
+But what would happen it's select for
+update
+
+1564
+00:35:47,829 --> 00:35:47,839
+update
+ 
+
+1565
+00:35:47,839 --> 00:35:51,034
+update
+you can say that whatever the logs
+
+1566
+00:35:51,034 --> 00:35:51,044
+you can say that whatever the logs
+ 
+
+1567
+00:35:51,044 --> 00:35:53,190
+you can say that whatever the logs
+[snorts] or whatever the rows it has
+
+1568
+00:35:53,190 --> 00:35:53,200
+[snorts] or whatever the rows it has
+ 
+
+1569
+00:35:53,200 --> 00:35:55,910
+[snorts] or whatever the rows it has
+updated those rows will not come to this
+
+1570
+00:35:55,910 --> 00:35:55,920
+updated those rows will not come to this
+ 
+
+1571
+00:35:55,920 --> 00:35:57,510
+updated those rows will not come to this
+one because those are already updated.
+
+1572
+00:35:57,510 --> 00:35:57,520
+one because those are already updated.
+ 
+
+1573
+00:35:57,520 --> 00:36:00,390
+one because those are already updated.
+So you should have a proper query they
+
+1574
+00:36:00,390 --> 00:36:00,400
+So you should have a proper query they
+ 
+
+1575
+00:36:00,400 --> 00:36:03,910
+So you should have a proper query they
+not in expired or not in failed so that
+
+1576
+00:36:03,910 --> 00:36:03,920
+not in expired or not in failed so that
+ 
+
+1577
+00:36:03,920 --> 00:36:07,109
+not in expired or not in failed so that
+when instance 2 is try to fetch
+
+1578
+00:36:07,109 --> 00:36:07,119
+when instance 2 is try to fetch
+ 
+
+1579
+00:36:07,119 --> 00:36:10,390
+when instance 2 is try to fetch
+this one all thousand first top thousand
+
+1580
+00:36:10,390 --> 00:36:10,400
+this one all thousand first top thousand
+ 
+
+1581
+00:36:10,400 --> 00:36:12,790
+this one all thousand first top thousand
+records it already change it to expired
+
+1582
+00:36:12,790 --> 00:36:12,800
+records it already change it to expired
+ 
+
+1583
+00:36:12,800 --> 00:36:14,390
+records it already change it to expired
+properly.
+
+1584
+00:36:14,390 --> 00:36:14,400
+properly.
+ 
+
+1585
+00:36:14,400 --> 00:36:16,150
+properly.
+So when you are running this query not
+
+1586
+00:36:16,150 --> 00:36:16,160
+So when you are running this query not
+ 
+
+1587
+00:36:16,160 --> 00:36:18,150
+So when you are running this query not
+in expired not in fil those thousand
+
+1588
+00:36:18,150 --> 00:36:18,160
+in expired not in fil those thousand
+ 
+
+1589
+00:36:18,160 --> 00:36:20,790
+in expired not in fil those thousand
+will not come now. Okay. So it will pick
+
+1590
+00:36:20,790 --> 00:36:20,800
+will not come now. Okay. So it will pick
+ 
+
+1591
+00:36:20,800 --> 00:36:24,630
+will not come now. Okay. So it will pick
+maybe next 1,000
+
+1592
+00:36:24,630 --> 00:36:24,640
+maybe next 1,000
+ 
+
+1593
+00:36:24,640 --> 00:36:27,109
+maybe next 1,000
+and when it pick next thousand instance
+
+1594
+00:36:27,109 --> 00:36:27,119
+and when it pick next thousand instance
+ 
+
+1595
+00:36:27,119 --> 00:36:30,870
+and when it pick next thousand instance
+will might wait.
+
+1596
+00:36:30,870 --> 00:36:30,880
+will might wait.
+ 
+
+1597
+00:36:30,880 --> 00:36:34,790
+will might wait.
+But this has a very uh important con and
+
+1598
+00:36:34,790 --> 00:36:34,800
+But this has a very uh important con and
+ 
+
+1599
+00:36:34,800 --> 00:36:37,270
+But this has a very uh important con and
+this is where interior says that hey is
+
+1600
+00:36:37,270 --> 00:36:37,280
+this is where interior says that hey is
+ 
+
+1601
+00:36:37,280 --> 00:36:40,630
+this is where interior says that hey is
+this the best we can do. The major
+
+1602
+00:36:40,630 --> 00:36:40,640
+this the best we can do. The major
+ 
+
+1603
+00:36:40,640 --> 00:36:43,270
+this the best we can do. The major
+problem is this blocking nature.
+
+1604
+00:36:43,270 --> 00:36:43,280
+problem is this blocking nature.
+ 
+
+1605
+00:36:43,280 --> 00:36:45,670
+problem is this blocking nature.
+It's never recommended that your
+
+1606
+00:36:45,670 --> 00:36:45,680
+It's never recommended that your
+ 
+
+1607
+00:36:45,680 --> 00:36:48,470
+It's never recommended that your
+scheduleuler job is waiting. It's never
+
+1608
+00:36:48,470 --> 00:36:48,480
+scheduleuler job is waiting. It's never
+ 
+
+1609
+00:36:48,480 --> 00:36:51,109
+scheduleuler job is waiting. It's never
+recommended. It's not scalable as other
+
+1610
+00:36:51,109 --> 00:36:51,119
+recommended. It's not scalable as other
+ 
+
+1611
+00:36:51,119 --> 00:36:52,950
+recommended. It's not scalable as other
+instances are just blocked by one
+
+1612
+00:36:52,950 --> 00:36:52,960
+instances are just blocked by one
+ 
+
+1613
+00:36:52,960 --> 00:36:54,630
+instances are just blocked by one
+instance. So generally there are not two
+
+1614
+00:36:54,630 --> 00:36:54,640
+instance. So generally there are not two
+ 
+
+1615
+00:36:54,640 --> 00:36:57,349
+instance. So generally there are not two
+instances. Uh if you are working in a
+
+1616
+00:36:57,349 --> 00:36:57,359
+instances. Uh if you are working in a
+ 
+
+1617
+00:36:57,359 --> 00:36:59,910
+instances. Uh if you are working in a
+big organization you know that there are
+
+1618
+00:36:59,910 --> 00:36:59,920
+big organization you know that there are
+ 
+
+1619
+00:36:59,920 --> 00:37:02,230
+big organization you know that there are
+hundreds of pots. If your one instance
+
+1620
+00:37:02,230 --> 00:37:02,240
+hundreds of pots. If your one instance
+ 
+
+1621
+00:37:02,240 --> 00:37:05,829
+hundreds of pots. If your one instance
+is working like and like maybe you are
+
+1622
+00:37:05,829 --> 00:37:05,839
+is working like and like maybe you are
+ 
+
+1623
+00:37:05,839 --> 00:37:07,349
+is working like and like maybe you are
+all 100 instances and different
+
+1624
+00:37:07,349 --> 00:37:07,359
+all 100 instances and different
+ 
+
+1625
+00:37:07,359 --> 00:37:09,589
+all 100 instances and different
+different parts are just waiting. So
+
+1626
+00:37:09,589 --> 00:37:09,599
+different parts are just waiting. So
+ 
+
+1627
+00:37:09,599 --> 00:37:13,270
+different parts are just waiting. So
+it's a wastage of resource happening
+
+1628
+00:37:13,270 --> 00:37:13,280
+it's a wastage of resource happening
+ 
+
+1629
+00:37:13,280 --> 00:37:14,790
+it's a wastage of resource happening
+and if the instance one won't get
+
+1630
+00:37:14,790 --> 00:37:14,800
+and if the instance one won't get
+ 
+
+1631
+00:37:14,800 --> 00:37:16,550
+and if the instance one won't get
+blocked for 1 hour because of some long
+
+1632
+00:37:16,550 --> 00:37:16,560
+blocked for 1 hour because of some long
+ 
+
+1633
+00:37:16,560 --> 00:37:18,550
+blocked for 1 hour because of some long
+running task all other instances also
+
+1634
+00:37:18,550 --> 00:37:18,560
+running task all other instances also
+ 
+
+1635
+00:37:18,560 --> 00:37:21,910
+running task all other instances also
+get blocked for 1 hour.
+
+1636
+00:37:21,910 --> 00:37:21,920
+get blocked for 1 hour.
+ 
+
+1637
+00:37:21,920 --> 00:37:23,910
+get blocked for 1 hour.
+So go for it only when you have one or
+
+1638
+00:37:23,910 --> 00:37:23,920
+So go for it only when you have one or
+ 
+
+1639
+00:37:23,920 --> 00:37:26,150
+So go for it only when you have one or
+two instance and a small batch or you
+
+1640
+00:37:26,150 --> 00:37:26,160
+two instance and a small batch or you
+ 
+
+1641
+00:37:26,160 --> 00:37:29,430
+two instance and a small batch or you
+want a strict order whenever you have a
+
+1642
+00:37:29,430 --> 00:37:29,440
+want a strict order whenever you have a
+ 
+
+1643
+00:37:29,440 --> 00:37:31,910
+want a strict order whenever you have a
+strict order that then first this
+
+1644
+00:37:31,910 --> 00:37:31,920
+strict order that then first this
+ 
+
+1645
+00:37:31,920 --> 00:37:34,230
+strict order that then first this
+thousand after that this thousand then
+
+1646
+00:37:34,230 --> 00:37:34,240
+thousand after that this thousand then
+ 
+
+1647
+00:37:34,240 --> 00:37:36,310
+thousand after that this thousand then
+this,000. So here if you see that our
+
+1648
+00:37:36,310 --> 00:37:36,320
+this,000. So here if you see that our
+ 
+
+1649
+00:37:36,320 --> 00:37:39,109
+this,000. So here if you see that our
+query ordered by
+
+1650
+00:37:39,109 --> 00:37:39,119
+query ordered by
+ 
+
+1651
+00:37:39,119 --> 00:37:43,510
+query ordered by
+okay so we are following certain order
+
+1652
+00:37:43,510 --> 00:37:43,520
+okay so we are following certain order
+ 
+
+1653
+00:37:43,520 --> 00:37:47,030
+okay so we are following certain order
+and always it f top thousand so now we
+
+1654
+00:37:47,030 --> 00:37:47,040
+and always it f top thousand so now we
+ 
+
+1655
+00:37:47,040 --> 00:37:49,270
+and always it f top thousand so now we
+are following some ordering but if you
+
+1656
+00:37:49,270 --> 00:37:49,280
+are following some ordering but if you
+ 
+
+1657
+00:37:49,280 --> 00:37:52,390
+are following some ordering but if you
+have a requirement that you don't
+
+1658
+00:37:52,390 --> 00:37:52,400
+have a requirement that you don't
+ 
+
+1659
+00:37:52,400 --> 00:37:55,349
+have a requirement that you don't
+need to process them in order then we
+
+1660
+00:37:55,349 --> 00:37:55,359
+need to process them in order then we
+ 
+
+1661
+00:37:55,359 --> 00:37:56,870
+need to process them in order then we
+have a better solution which we will
+
+1662
+00:37:56,870 --> 00:37:56,880
+have a better solution which we will
+ 
+
+1663
+00:37:56,880 --> 00:37:59,030
+have a better solution which we will
+see.
+
+1664
+00:37:59,030 --> 00:37:59,040
+see.
+ 
+
+1665
+00:37:59,040 --> 00:38:00,950
+see.
+So interview said can we resolve this or
+
+1666
+00:38:00,950 --> 00:38:00,960
+So interview said can we resolve this or
+ 
+
+1667
+00:38:00,960 --> 00:38:02,710
+So interview said can we resolve this or
+we can can we make it more little bit
+
+1668
+00:38:02,710 --> 00:38:02,720
+we can can we make it more little bit
+ 
+
+1669
+00:38:02,720 --> 00:38:05,910
+we can can we make it more little bit
+efficient? Yes, we can do that. If
+
+1670
+00:38:05,910 --> 00:38:05,920
+efficient? Yes, we can do that. If
+ 
+
+1671
+00:38:05,920 --> 00:38:08,390
+efficient? Yes, we can do that. If
+strict ordering is not required, then we
+
+1672
+00:38:08,390 --> 00:38:08,400
+strict ordering is not required, then we
+ 
+
+1673
+00:38:08,400 --> 00:38:10,470
+strict ordering is not required, then we
+can do parallel processing. How we can
+
+1674
+00:38:10,470 --> 00:38:10,480
+can do parallel processing. How we can
+ 
+
+1675
+00:38:10,480 --> 00:38:13,270
+can do parallel processing. How we can
+do parallel processing? Pessimistic lock
+
+1676
+00:38:13,270 --> 00:38:13,280
+do parallel processing? Pessimistic lock
+ 
+
+1677
+00:38:13,280 --> 00:38:17,430
+do parallel processing? Pessimistic lock
+but with skip log feature. But please
+
+1678
+00:38:17,430 --> 00:38:17,440
+but with skip log feature. But please
+ 
+
+1679
+00:38:17,440 --> 00:38:19,910
+but with skip log feature. But please
+note that skip log feature is depend
+
+1680
+00:38:19,910 --> 00:38:19,920
+note that skip log feature is depend
+ 
+
+1681
+00:38:19,920 --> 00:38:22,310
+note that skip log feature is depend
+upon which DB you are using. So all
+
+1682
+00:38:22,310 --> 00:38:22,320
+upon which DB you are using. So all
+ 
+
+1683
+00:38:22,320 --> 00:38:26,230
+upon which DB you are using. So all
+major DB like MySQL, Postgress, uh they
+
+1684
+00:38:26,230 --> 00:38:26,240
+major DB like MySQL, Postgress, uh they
+ 
+
+1685
+00:38:26,240 --> 00:38:28,550
+major DB like MySQL, Postgress, uh they
+have they support Oracle they support
+
+1686
+00:38:28,550 --> 00:38:28,560
+have they support Oracle they support
+ 
+
+1687
+00:38:28,560 --> 00:38:31,349
+have they support Oracle they support
+this skip block feature. So what this
+
+1688
+00:38:31,349 --> 00:38:31,359
+this skip block feature. So what this
+ 
+
+1689
+00:38:31,359 --> 00:38:33,910
+this skip block feature. So what this
+skip block feature is let's say uh you
+
+1690
+00:38:33,910 --> 00:38:33,920
+skip block feature is let's say uh you
+ 
+
+1691
+00:38:33,920 --> 00:38:37,510
+skip block feature is let's say uh you
+have thousand records 1 2 3
+
+1692
+00:38:37,510 --> 00:38:37,520
+have thousand records 1 2 3
+ 
+
+1693
+00:38:37,520 --> 00:38:39,270
+have thousand records 1 2 3
+1 th00and
+
+1694
+00:38:39,270 --> 00:38:39,280
+1 th00and
+ 
+
+1695
+00:38:39,280 --> 00:38:43,270
+1 th00and
+now let's say u instance one instance
+
+1696
+00:38:43,270 --> 00:38:43,280
+now let's say u instance one instance
+ 
+
+1697
+00:38:43,280 --> 00:38:45,510
+now let's say u instance one instance
+two instance one has put a lock on this
+
+1698
+00:38:45,510 --> 00:38:45,520
+two instance one has put a lock on this
+ 
+
+1699
+00:38:45,520 --> 00:38:50,230
+two instance one has put a lock on this
+three and first now instance two when it
+
+1700
+00:38:50,230 --> 00:38:50,240
+three and first now instance two when it
+ 
+
+1701
+00:38:50,240 --> 00:38:52,630
+three and first now instance two when it
+tried to take a lock on this three let's
+
+1702
+00:38:52,630 --> 00:38:52,640
+tried to take a lock on this three let's
+ 
+
+1703
+00:38:52,640 --> 00:38:55,829
+tried to take a lock on this three let's
+say I have having like top limit three
+
+1704
+00:38:55,829 --> 00:38:55,839
+say I have having like top limit three
+ 
+
+1705
+00:38:55,839 --> 00:38:58,790
+say I have having like top limit three
+limit three so three rows top three rows
+
+1706
+00:38:58,790 --> 00:38:58,800
+limit three so three rows top three rows
+ 
+
+1707
+00:38:58,800 --> 00:39:01,589
+limit three so three rows top three rows
+it need to log. Now let's say instance
+
+1708
+00:39:01,589 --> 00:39:01,599
+it need to log. Now let's say instance
+ 
+
+1709
+00:39:01,599 --> 00:39:05,750
+it need to log. Now let's say instance
+one has taken a log. Now instance two
+
+1710
+00:39:05,750 --> 00:39:05,760
+one has taken a log. Now instance two
+ 
+
+1711
+00:39:05,760 --> 00:39:09,109
+one has taken a log. Now instance two
+will not wait skip log. So these three
+
+1712
+00:39:09,109 --> 00:39:09,119
+will not wait skip log. So these three
+ 
+
+1713
+00:39:09,119 --> 00:39:11,349
+will not wait skip log. So these three
+are locked. So it will skip it and move
+
+1714
+00:39:11,349 --> 00:39:11,359
+are locked. So it will skip it and move
+ 
+
+1715
+00:39:11,359 --> 00:39:14,870
+are locked. So it will skip it and move
+it to the next three. It will take next
+
+1716
+00:39:14,870 --> 00:39:14,880
+it to the next three. It will take next
+ 
+
+1717
+00:39:14,880 --> 00:39:17,430
+it to the next three. It will take next
+three. So that's what the skip log
+
+1718
+00:39:17,430 --> 00:39:17,440
+three. So that's what the skip log
+ 
+
+1719
+00:39:17,440 --> 00:39:20,710
+three. So that's what the skip log
+feature allow a query to bypass rows
+
+1720
+00:39:20,710 --> 00:39:20,720
+feature allow a query to bypass rows
+ 
+
+1721
+00:39:20,720 --> 00:39:25,430
+feature allow a query to bypass rows
+already logged by other transaction.
+
+1722
+00:39:25,430 --> 00:39:25,440
+already logged by other transaction.
+ 
+
+1723
+00:39:25,440 --> 00:39:27,430
+already logged by other transaction.
+So instance one take first thousand
+
+1724
+00:39:27,430 --> 00:39:27,440
+So instance one take first thousand
+ 
+
+1725
+00:39:27,440 --> 00:39:29,430
+So instance one take first thousand
+instance two take next thousand and it
+
+1726
+00:39:29,430 --> 00:39:29,440
+instance two take next thousand and it
+ 
+
+1727
+00:39:29,440 --> 00:39:31,510
+instance two take next thousand and it
+will go on. So now we are doing parallel
+
+1728
+00:39:31,510 --> 00:39:31,520
+will go on. So now we are doing parallel
+ 
+
+1729
+00:39:31,520 --> 00:39:33,510
+will go on. So now we are doing parallel
+processing. Now instance two is not
+
+1730
+00:39:33,510 --> 00:39:33,520
+processing. Now instance two is not
+ 
+
+1731
+00:39:33,520 --> 00:39:36,310
+processing. Now instance two is not
+waiting for instance one to release it
+
+1732
+00:39:36,310 --> 00:39:36,320
+waiting for instance one to release it
+ 
+
+1733
+00:39:36,320 --> 00:39:39,349
+waiting for instance one to release it
+the first thousand. Okay. Again it's
+
+1734
+00:39:39,349 --> 00:39:39,359
+the first thousand. Okay. Again it's
+ 
+
+1735
+00:39:39,359 --> 00:39:42,790
+the first thousand. Okay. Again it's
+always like top thousand only. Okay. Our
+
+1736
+00:39:42,790 --> 00:39:42,800
+always like top thousand only. Okay. Our
+ 
+
+1737
+00:39:42,800 --> 00:39:46,470
+always like top thousand only. Okay. Our
+query is always top thousand.
+
+1738
+00:39:46,470 --> 00:39:46,480
+query is always top thousand.
+ 
+
+1739
+00:39:46,480 --> 00:39:48,470
+query is always top thousand.
+But if top thousand is logged by
+
+1740
+00:39:48,470 --> 00:39:48,480
+But if top thousand is logged by
+ 
+
+1741
+00:39:48,480 --> 00:39:50,710
+But if top thousand is logged by
+somebody else the second instance will
+
+1742
+00:39:50,710 --> 00:39:50,720
+somebody else the second instance will
+ 
+
+1743
+00:39:50,720 --> 00:39:52,790
+somebody else the second instance will
+not wait. it will pick whatever the next
+
+1744
+00:39:52,790 --> 00:39:52,800
+not wait. it will pick whatever the next
+ 
+
+1745
+00:39:52,800 --> 00:39:57,430
+not wait. it will pick whatever the next
+top thousand uh rows it can get. Okay.
+
+1746
+00:39:57,430 --> 00:39:57,440
+top thousand uh rows it can get. Okay.
+ 
+
+1747
+00:39:57,440 --> 00:39:59,829
+top thousand uh rows it can get. Okay.
+So no duplicate, no waiting, parallel
+
+1748
+00:39:59,829 --> 00:39:59,839
+So no duplicate, no waiting, parallel
+ 
+
+1749
+00:39:59,839 --> 00:40:01,190
+So no duplicate, no waiting, parallel
+processing which is good for
+
+1750
+00:40:01,190 --> 00:40:01,200
+processing which is good for
+ 
+
+1751
+00:40:01,200 --> 00:40:04,069
+processing which is good for
+scalability.
+
+1752
+00:40:04,069 --> 00:40:04,079
+scalability.
+ 
+
+1753
+00:40:04,079 --> 00:40:07,270
+scalability.
+So this is how we do that. The query
+
+1754
+00:40:07,270 --> 00:40:07,280
+So this is how we do that. The query
+ 
+
+1755
+00:40:07,280 --> 00:40:10,230
+So this is how we do that. The query
+earlier we have put for update. Now we
+
+1756
+00:40:10,230 --> 00:40:10,240
+earlier we have put for update. Now we
+ 
+
+1757
+00:40:10,240 --> 00:40:12,710
+earlier we have put for update. Now we
+just have like skip log for update skip
+
+1758
+00:40:12,710 --> 00:40:12,720
+just have like skip log for update skip
+ 
+
+1759
+00:40:12,720 --> 00:40:16,069
+just have like skip log for update skip
+log you can add it. The syntax might be
+
+1760
+00:40:16,069 --> 00:40:16,079
+log you can add it. The syntax might be
+ 
+
+1761
+00:40:16,079 --> 00:40:18,310
+log you can add it. The syntax might be
+different. Check like whichever DB you
+
+1762
+00:40:18,310 --> 00:40:18,320
+different. Check like whichever DB you
+ 
+
+1763
+00:40:18,320 --> 00:40:20,470
+different. Check like whichever DB you
+are using. see what is the syntax it
+
+1764
+00:40:20,470 --> 00:40:20,480
+are using. see what is the syntax it
+ 
+
+1765
+00:40:20,480 --> 00:40:24,150
+are using. see what is the syntax it
+support. Okay. And also the DB does
+
+1766
+00:40:24,150 --> 00:40:24,160
+support. Okay. And also the DB does
+ 
+
+1767
+00:40:24,160 --> 00:40:26,710
+support. Okay. And also the DB does
+support a skip log or not. But in my
+
+1768
+00:40:26,710 --> 00:40:26,720
+support a skip log or not. But in my
+ 
+
+1769
+00:40:26,720 --> 00:40:29,349
+support a skip log or not. But in my
+view all major DBs are supporting a skip
+
+1770
+00:40:29,349 --> 00:40:29,359
+view all major DBs are supporting a skip
+ 
+
+1771
+00:40:29,359 --> 00:40:32,790
+view all major DBs are supporting a skip
+log.
+
+1772
+00:40:32,790 --> 00:40:32,800
+
+ 
+
+1773
+00:40:32,800 --> 00:40:34,870
+
+So till now what we have achieved is
+
+1774
+00:40:34,870 --> 00:40:34,880
+So till now what we have achieved is
+ 
+
+1775
+00:40:34,880 --> 00:40:38,069
+So till now what we have achieved is
+even if we have multiple instances
+
+1776
+00:40:38,069 --> 00:40:38,079
+even if we have multiple instances
+ 
+
+1777
+00:40:38,079 --> 00:40:42,390
+even if we have multiple instances
+they can process the task in parallel
+
+1778
+00:40:42,390 --> 00:40:42,400
+they can process the task in parallel
+ 
+
+1779
+00:40:42,400 --> 00:40:46,069
+they can process the task in parallel
+and in a much efficient manner. But
+
+1780
+00:40:46,069 --> 00:40:46,079
+and in a much efficient manner. But
+ 
+
+1781
+00:40:46,079 --> 00:40:48,710
+and in a much efficient manner. But
+again one interviewer can ask you that
+
+1782
+00:40:48,710 --> 00:40:48,720
+again one interviewer can ask you that
+ 
+
+1783
+00:40:48,720 --> 00:40:51,750
+again one interviewer can ask you that
+hey what if
+
+1784
+00:40:51,750 --> 00:40:51,760
+hey what if
+ 
+
+1785
+00:40:51,760 --> 00:40:55,190
+hey what if
+I want so this is my scheduleuler I want
+
+1786
+00:40:55,190 --> 00:40:55,200
+I want so this is my scheduleuler I want
+ 
+
+1787
+00:40:55,200 --> 00:40:58,150
+I want so this is my scheduleuler I want
+only one instance instance one instance
+
+1788
+00:40:58,150 --> 00:40:58,160
+only one instance instance one instance
+ 
+
+1789
+00:40:58,160 --> 00:41:00,630
+only one instance instance one instance
+two instance three I only want one
+
+1790
+00:41:00,630 --> 00:41:00,640
+two instance three I only want one
+ 
+
+1791
+00:41:00,640 --> 00:41:03,109
+two instance three I only want one
+instance to work on this scheduleuler I
+
+1792
+00:41:03,109 --> 00:41:03,119
+instance to work on this scheduleuler I
+ 
+
+1793
+00:41:03,119 --> 00:41:04,710
+instance to work on this scheduleuler I
+don't even want instance two instance
+
+1794
+00:41:04,710 --> 00:41:04,720
+don't even want instance two instance
+ 
+
+1795
+00:41:04,720 --> 00:41:08,390
+don't even want instance two instance
+three and multiple instances to work
+
+1796
+00:41:08,390 --> 00:41:08,400
+three and multiple instances to work
+ 
+
+1797
+00:41:08,400 --> 00:41:11,109
+three and multiple instances to work
+even if I have 100 instances out of this
+
+1798
+00:41:11,109 --> 00:41:11,119
+even if I have 100 instances out of this
+ 
+
+1799
+00:41:11,119 --> 00:41:14,470
+even if I have 100 instances out of this
+100 only one should work on the
+
+1800
+00:41:14,470 --> 00:41:14,480
+100 only one should work on the
+ 
+
+1801
+00:41:14,480 --> 00:41:15,750
+100 only one should work on the
+scheduleuler
+
+1802
+00:41:15,750 --> 00:41:15,760
+scheduleuler
+ 
+
+1803
+00:41:15,760 --> 00:41:18,950
+scheduleuler
+Rest 99 should do some other work. Okay,
+
+1804
+00:41:18,950 --> 00:41:18,960
+Rest 99 should do some other work. Okay,
+ 
+
+1805
+00:41:18,960 --> 00:41:21,190
+Rest 99 should do some other work. Okay,
+this could be a requirement also company
+
+1806
+00:41:21,190 --> 00:41:21,200
+this could be a requirement also company
+ 
+
+1807
+00:41:21,200 --> 00:41:23,829
+this could be a requirement also company
+to company and this is also a very good
+
+1808
+00:41:23,829 --> 00:41:23,839
+to company and this is also a very good
+ 
+
+1809
+00:41:23,839 --> 00:41:27,510
+to company and this is also a very good
+you can say that uh distributed
+
+1810
+00:41:27,510 --> 00:41:27,520
+you can say that uh distributed
+ 
+
+1811
+00:41:27,520 --> 00:41:29,030
+you can say that uh distributed
+scheduleuler use case when you have 100
+
+1812
+00:41:29,030 --> 00:41:29,040
+scheduleuler use case when you have 100
+ 
+
+1813
+00:41:29,040 --> 00:41:31,270
+scheduleuler use case when you have 100
+instances
+
+1814
+00:41:31,270 --> 00:41:31,280
+instances
+ 
+
+1815
+00:41:31,280 --> 00:41:33,030
+instances
+and you want only one scheduleuler to
+
+1816
+00:41:33,030 --> 00:41:33,040
+and you want only one scheduleuler to
+ 
+
+1817
+00:41:33,040 --> 00:41:35,589
+and you want only one scheduleuler to
+work on it.
+
+1818
+00:41:35,589 --> 00:41:35,599
+work on it.
+ 
+
+1819
+00:41:35,599 --> 00:41:38,710
+work on it.
+How you can do that?
+
+1820
+00:41:38,710 --> 00:41:38,720
+How you can do that?
+ 
+
+1821
+00:41:38,720 --> 00:41:41,589
+How you can do that?
+That's where the shedlock comes into the
+
+1822
+00:41:41,589 --> 00:41:41,599
+That's where the shedlock comes into the
+ 
+
+1823
+00:41:41,599 --> 00:41:44,230
+That's where the shedlock comes into the
+picture where requirement is only one
+
+1824
+00:41:44,230 --> 00:41:44,240
+picture where requirement is only one
+ 
+
+1825
+00:41:44,240 --> 00:41:47,750
+picture where requirement is only one
+instance should run the job. Okay. And
+
+1826
+00:41:47,750 --> 00:41:47,760
+instance should run the job. Okay. And
+ 
+
+1827
+00:41:47,760 --> 00:41:49,589
+instance should run the job. Okay. And
+this is very important like you can say
+
+1828
+00:41:49,589 --> 00:41:49,599
+this is very important like you can say
+ 
+
+1829
+00:41:49,599 --> 00:41:52,550
+this is very important like you can say
+that many companies follow this also
+
+1830
+00:41:52,550 --> 00:41:52,560
+that many companies follow this also
+ 
+
+1831
+00:41:52,560 --> 00:41:54,790
+that many companies follow this also
+like they want only one scheduleuler or
+
+1832
+00:41:54,790 --> 00:41:54,800
+like they want only one scheduleuler or
+ 
+
+1833
+00:41:54,800 --> 00:41:56,550
+like they want only one scheduleuler or
+one instance to focus on the
+
+1834
+00:41:56,550 --> 00:41:56,560
+one instance to focus on the
+ 
+
+1835
+00:41:56,560 --> 00:41:59,270
+one instance to focus on the
+scheduleuler part. Rest 99 instances if
+
+1836
+00:41:59,270 --> 00:41:59,280
+scheduleuler part. Rest 99 instances if
+ 
+
+1837
+00:41:59,280 --> 00:42:01,510
+scheduleuler part. Rest 99 instances if
+you have multiple pods focus on some
+
+1838
+00:42:01,510 --> 00:42:01,520
+you have multiple pods focus on some
+ 
+
+1839
+00:42:01,520 --> 00:42:03,589
+you have multiple pods focus on some
+other task.
+
+1840
+00:42:03,589 --> 00:42:03,599
+other task.
+ 
+
+1841
+00:42:03,599 --> 00:42:05,109
+other task.
+Okay.
+
+1842
+00:42:05,109 --> 00:42:05,119
+Okay.
+ 
+
+1843
+00:42:05,119 --> 00:42:08,150
+Okay.
+So the shedlock part is again a big
+
+1844
+00:42:08,150 --> 00:42:08,160
+So the shedlock part is again a big
+ 
+
+1845
+00:42:08,160 --> 00:42:11,589
+So the shedlock part is again a big
+topic. I'll with diagrams I will try to
+
+1846
+00:42:11,589 --> 00:42:11,599
+topic. I'll with diagrams I will try to
+ 
+
+1847
+00:42:11,599 --> 00:42:14,230
+topic. I'll with diagrams I will try to
+go slow and cover everything because
+
+1848
+00:42:14,230 --> 00:42:14,240
+go slow and cover everything because
+ 
+
+1849
+00:42:14,240 --> 00:42:15,829
+go slow and cover everything because
+this is very important part of
+
+1850
+00:42:15,829 --> 00:42:15,839
+this is very important part of
+ 
+
+1851
+00:42:15,839 --> 00:42:18,550
+this is very important part of
+distributed scheduleuler. So see you in
+
+1852
+00:42:18,550 --> 00:42:18,560
+distributed scheduleuler. So see you in
+ 
+
+1853
+00:42:18,560 --> 00:42:21,670
+distributed scheduleuler. So see you in
+the next video and please go through all
+
+1854
+00:42:21,670 --> 00:42:21,680
+the next video and please go through all
+ 
+
+1855
+00:42:21,680 --> 00:42:24,470
+the next video and please go through all
+the pitfalls till now we have covered.
+
+1856
+00:42:24,470 --> 00:42:24,480
+the pitfalls till now we have covered.
+ 
+
+1857
+00:42:24,480 --> 00:42:27,190
+the pitfalls till now we have covered.
+Okay, very important part. Okay guys,
+
+1858
+00:42:27,190 --> 00:42:27,200
+Okay, very important part. Okay guys,
+ 
+
+1859
+00:42:27,200 --> 00:42:30,160
+Okay, very important part. Okay guys,
+bye.
+
