@@ -1,0 +1,3160 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.120 --> 00:00:02.070 align:start position:0%
+ 
+hey<00:00:00.320><c> guys</c><00:00:00.440><c> sh</c><00:00:01.040><c> side</c><00:00:01.160><c> welcome</c><00:00:01.400><c> to</c><00:00:01.560><c> concept</c><00:00:01.880><c> and</c>
+
+00:00:02.070 --> 00:00:02.080 align:start position:0%
+hey guys sh side welcome to concept and
+ 
+
+00:00:02.080 --> 00:00:04.110 align:start position:0%
+hey guys sh side welcome to concept and
+coding<00:00:02.440><c> and</c><00:00:02.639><c> today</c><00:00:03.000><c> in</c><00:00:03.120><c> the</c><00:00:03.320><c> first</c><00:00:03.679><c> part</c><00:00:03.919><c> of</c>
+
+00:00:04.110 --> 00:00:04.120 align:start position:0%
+coding and today in the first part of
+ 
+
+00:00:04.120 --> 00:00:06.869 align:start position:0%
+coding and today in the first part of
+spring<00:00:04.440><c> boot</c><00:00:04.799><c> security</c><00:00:05.799><c> we</c><00:00:05.920><c> will</c><00:00:06.279><c> be</c>
+
+00:00:06.869 --> 00:00:06.879 align:start position:0%
+spring boot security we will be
+ 
+
+00:00:06.879 --> 00:00:08.150 align:start position:0%
+spring boot security we will be
+understanding<00:00:07.240><c> its</c>
+
+00:00:08.150 --> 00:00:08.160 align:start position:0%
+understanding its
+ 
+
+00:00:08.160 --> 00:00:11.789 align:start position:0%
+understanding its
+architecture<00:00:09.160><c> right</c><00:00:09.599><c> but</c><00:00:09.880><c> before</c><00:00:10.440><c> we</c>
+
+00:00:11.789 --> 00:00:11.799 align:start position:0%
+architecture right but before we
+ 
+
+00:00:11.799 --> 00:00:13.870 align:start position:0%
+architecture right but before we
+start<00:00:12.799><c> if</c><00:00:12.920><c> you</c><00:00:13.040><c> haven't</c><00:00:13.320><c> gone</c><00:00:13.519><c> through</c><00:00:13.759><c> this</c>
+
+00:00:13.870 --> 00:00:13.880 align:start position:0%
+start if you haven't gone through this
+ 
+
+00:00:13.880 --> 00:00:15.749 align:start position:0%
+start if you haven't gone through this
+video<00:00:14.160><c> kindly</c><00:00:14.480><c> have</c><00:00:14.559><c> a</c><00:00:14.719><c> look</c><00:00:15.040><c> because</c><00:00:15.360><c> in</c><00:00:15.599><c> this</c>
+
+00:00:15.749 --> 00:00:15.759 align:start position:0%
+video kindly have a look because in this
+ 
+
+00:00:15.759 --> 00:00:17.830 align:start position:0%
+video kindly have a look because in this
+one<00:00:16.160><c> I</c><00:00:16.279><c> have</c><00:00:16.520><c> explained</c><00:00:17.000><c> about</c><00:00:17.439><c> different</c>
+
+00:00:17.830 --> 00:00:17.840 align:start position:0%
+one I have explained about different
+ 
+
+00:00:17.840 --> 00:00:21.509 align:start position:0%
+one I have explained about different
+type<00:00:18.080><c> of</c><00:00:18.240><c> attacks</c><00:00:19.199><c> right</c><00:00:19.560><c> csrf</c><00:00:20.400><c> aises</c><00:00:21.080><c> SQL</c>
+
+00:00:21.509 --> 00:00:21.519 align:start position:0%
+type of attacks right csrf aises SQL
+ 
+
+00:00:21.519 --> 00:00:24.550 align:start position:0%
+type of attacks right csrf aises SQL
+injection<00:00:22.080><c> I</c><00:00:22.160><c> have</c><00:00:22.320><c> also</c><00:00:22.560><c> explained</c><00:00:23.000><c> about</c><00:00:23.640><c> CS</c>
+
+00:00:24.550 --> 00:00:24.560 align:start position:0%
+injection I have also explained about CS
+ 
+
+00:00:24.560 --> 00:00:26.870 align:start position:0%
+injection I have also explained about CS
+so<00:00:24.800><c> this</c><00:00:24.920><c> will</c><00:00:25.160><c> give</c><00:00:25.279><c> you</c><00:00:25.439><c> a</c><00:00:25.880><c> better</c>
+
+00:00:26.870 --> 00:00:26.880 align:start position:0%
+so this will give you a better
+ 
+
+00:00:26.880 --> 00:00:28.950 align:start position:0%
+so this will give you a better
+understanding<00:00:27.320><c> like</c><00:00:27.720><c> why</c><00:00:28.160><c> exactly</c><00:00:28.560><c> we</c><00:00:28.720><c> want</c>
+
+00:00:28.950 --> 00:00:28.960 align:start position:0%
+understanding like why exactly we want
+ 
+
+00:00:28.960 --> 00:00:33.590 align:start position:0%
+understanding like why exactly we want
+security<00:00:30.199><c> okay</c><00:00:31.080><c> so</c><00:00:31.359><c> now</c><00:00:32.279><c> I'm</c><00:00:32.360><c> am</c><00:00:33.120><c> assuming</c>
+
+00:00:33.590 --> 00:00:33.600 align:start position:0%
+security okay so now I'm am assuming
+ 
+
+00:00:33.600 --> 00:00:36.389 align:start position:0%
+security okay so now I'm am assuming
+that<00:00:33.719><c> you</c><00:00:33.920><c> already</c><00:00:34.280><c> know</c><00:00:34.559><c> about</c><00:00:34.879><c> this</c><00:00:35.399><c> attacks</c>
+
+00:00:36.389 --> 00:00:36.399 align:start position:0%
+that you already know about this attacks
+ 
+
+00:00:36.399 --> 00:00:39.150 align:start position:0%
+that you already know about this attacks
+now<00:00:36.640><c> we</c><00:00:36.800><c> need</c><00:00:37.000><c> to</c><00:00:37.360><c> protect</c><00:00:38.320><c> our</c><00:00:38.640><c> resources</c>
+
+00:00:39.150 --> 00:00:39.160 align:start position:0%
+now we need to protect our resources
+ 
+
+00:00:39.160 --> 00:00:41.430 align:start position:0%
+now we need to protect our resources
+from<00:00:39.399><c> these</c><00:00:39.640><c> attacks</c><00:00:40.200><c> how</c><00:00:40.399><c> we</c><00:00:40.520><c> can</c><00:00:40.680><c> do</c>
+
+00:00:41.430 --> 00:00:41.440 align:start position:0%
+from these attacks how we can do
+ 
+
+00:00:41.440 --> 00:00:43.630 align:start position:0%
+from these attacks how we can do
+that<00:00:42.440><c> definitely</c><00:00:42.920><c> we</c><00:00:43.079><c> have</c><00:00:43.200><c> to</c><00:00:43.360><c> do</c>
+
+00:00:43.630 --> 00:00:43.640 align:start position:0%
+that definitely we have to do
+ 
+
+00:00:43.640 --> 00:00:46.430 align:start position:0%
+that definitely we have to do
+authentication<00:00:44.640><c> and</c><00:00:45.440><c> authorization</c>
+
+00:00:46.430 --> 00:00:46.440 align:start position:0%
+authentication and authorization
+ 
+
+00:00:46.440 --> 00:00:49.310 align:start position:0%
+authentication and authorization
+authentication<00:00:47.120><c> means</c><00:00:47.520><c> verify</c><00:00:48.239><c> who</c><00:00:48.480><c> you</c>
+
+00:00:49.310 --> 00:00:49.320 align:start position:0%
+authentication means verify who you
+ 
+
+00:00:49.320 --> 00:00:52.790 align:start position:0%
+authentication means verify who you
+are<00:00:50.320><c> or</c><00:00:50.640><c> in</c><00:00:50.879><c> simple</c><00:00:51.320><c> terms</c><00:00:51.760><c> we</c><00:00:51.879><c> can</c><00:00:52.039><c> say</c><00:00:52.280><c> that</c>
+
+00:00:52.790 --> 00:00:52.800 align:start position:0%
+are or in simple terms we can say that
+ 
+
+00:00:52.800 --> 00:00:55.549 align:start position:0%
+are or in simple terms we can say that
+how<00:00:53.079><c> I</c><00:00:53.160><c> would</c><00:00:53.399><c> say</c><00:00:53.600><c> that</c><00:00:53.800><c> yes</c><00:00:54.160><c> hey</c><00:00:54.440><c> I</c><00:00:54.520><c> am</c>
+
+00:00:55.549 --> 00:00:55.559 align:start position:0%
+how I would say that yes hey I am
+ 
+
+00:00:55.559 --> 00:00:58.430 align:start position:0%
+how I would say that yes hey I am
+shanen<00:00:56.559><c> how</c><00:00:56.920><c> I</c><00:00:57.039><c> can</c><00:00:57.239><c> tell</c><00:00:57.559><c> I</c><00:00:57.640><c> will</c><00:00:57.879><c> provide</c><00:00:58.239><c> my</c>
+
+00:00:58.430 --> 00:00:58.440 align:start position:0%
+shanen how I can tell I will provide my
+ 
+
+00:00:58.440 --> 00:01:00.990 align:start position:0%
+shanen how I can tell I will provide my
+username<00:00:59.079><c> and</c><00:00:59.359><c> password</c><00:01:00.000><c> something</c><00:01:00.680><c> and</c><00:01:00.879><c> I</c>
+
+00:01:00.990 --> 00:01:01.000 align:start position:0%
+username and password something and I
+ 
+
+00:01:01.000 --> 00:01:03.590 align:start position:0%
+username and password something and I
+will<00:01:01.199><c> tell</c><00:01:01.519><c> somebody</c><00:01:01.920><c> that</c><00:01:02.120><c> yes</c><00:01:02.399><c> this</c><00:01:02.519><c> is</c><00:01:02.760><c> me</c>
+
+00:01:03.590 --> 00:01:03.600 align:start position:0%
+will tell somebody that yes this is me
+ 
+
+00:01:03.600 --> 00:01:07.030 align:start position:0%
+will tell somebody that yes this is me
+so<00:01:03.960><c> verify</c><00:01:04.479><c> who</c><00:01:04.680><c> you</c><00:01:05.159><c> are</c><00:01:06.159><c> authorization</c><00:01:06.799><c> is</c>
+
+00:01:07.030 --> 00:01:07.040 align:start position:0%
+so verify who you are authorization is
+ 
+
+00:01:07.040 --> 00:01:09.510 align:start position:0%
+so verify who you are authorization is
+check<00:01:07.479><c> what</c><00:01:07.640><c> you</c><00:01:07.759><c> are</c><00:01:08.000><c> allowed</c><00:01:08.280><c> to</c><00:01:08.400><c> do</c><00:01:09.320><c> so</c>
+
+00:01:09.510 --> 00:01:09.520 align:start position:0%
+check what you are allowed to do so
+ 
+
+00:01:09.520 --> 00:01:11.910 align:start position:0%
+check what you are allowed to do so
+maybe<00:01:09.840><c> I</c><00:01:09.920><c> am</c><00:01:10.080><c> authenticated</c><00:01:10.880><c> but</c><00:01:11.119><c> I</c><00:01:11.200><c> am</c><00:01:11.439><c> only</c>
+
+00:01:11.910 --> 00:01:11.920 align:start position:0%
+maybe I am authenticated but I am only
+ 
+
+00:01:11.920 --> 00:01:13.749 align:start position:0%
+maybe I am authenticated but I am only
+allowed<00:01:12.680><c> to</c>
+
+00:01:13.749 --> 00:01:13.759 align:start position:0%
+allowed to
+ 
+
+00:01:13.759 --> 00:01:17.390 align:start position:0%
+allowed to
+view<00:01:14.759><c> but</c><00:01:15.000><c> not</c><00:01:15.200><c> allowed</c><00:01:15.520><c> to</c><00:01:15.720><c> update</c><00:01:16.680><c> so</c><00:01:17.000><c> that</c>
+
+00:01:17.390 --> 00:01:17.400 align:start position:0%
+view but not allowed to update so that
+ 
+
+00:01:17.400 --> 00:01:19.030 align:start position:0%
+view but not allowed to update so that
+is
+
+00:01:19.030 --> 00:01:19.040 align:start position:0%
+is
+ 
+
+00:01:19.040 --> 00:01:21.310 align:start position:0%
+is
+the<00:01:20.040><c> uh</c><00:01:20.159><c> you</c><00:01:20.280><c> can</c><00:01:20.439><c> say</c><00:01:20.600><c> that</c><00:01:20.759><c> it's</c><00:01:20.920><c> come</c><00:01:21.119><c> under</c>
+
+00:01:21.310 --> 00:01:21.320 align:start position:0%
+the uh you can say that it's come under
+ 
+
+00:01:21.320 --> 00:01:23.350 align:start position:0%
+the uh you can say that it's come under
+the<00:01:21.439><c> scope</c><00:01:21.720><c> of</c><00:01:21.840><c> authorization</c><00:01:22.759><c> check</c><00:01:23.119><c> what</c>
+
+00:01:23.350 --> 00:01:23.360 align:start position:0%
+the scope of authorization check what
+ 
+
+00:01:23.360 --> 00:01:24.710 align:start position:0%
+the scope of authorization check what
+only<00:01:23.600><c> you</c><00:01:23.720><c> are</c><00:01:23.960><c> allowed</c><00:01:24.200><c> to</c><00:01:24.280><c> do</c><00:01:24.439><c> even</c><00:01:24.600><c> though</c>
+
+00:01:24.710 --> 00:01:24.720 align:start position:0%
+only you are allowed to do even though
+ 
+
+00:01:24.720 --> 00:01:25.870 align:start position:0%
+only you are allowed to do even though
+you<00:01:24.799><c> are</c><00:01:24.920><c> authenticated</c><00:01:25.479><c> you</c><00:01:25.560><c> are</c><00:01:25.680><c> only</c>
+
+00:01:25.870 --> 00:01:25.880 align:start position:0%
+you are authenticated you are only
+ 
+
+00:01:25.880 --> 00:01:27.510 align:start position:0%
+you are authenticated you are only
+allowed<00:01:26.119><c> to</c><00:01:26.240><c> view</c><00:01:26.520><c> the</c><00:01:26.680><c> page</c><00:01:27.079><c> you</c><00:01:27.280><c> don't</c>
+
+00:01:27.510 --> 00:01:27.520 align:start position:0%
+allowed to view the page you don't
+ 
+
+00:01:27.520 --> 00:01:30.109 align:start position:0%
+allowed to view the page you don't
+allowed<00:01:27.799><c> to</c><00:01:27.960><c> update</c><00:01:28.280><c> it</c><00:01:28.400><c> or</c><00:01:28.560><c> make</c><00:01:28.720><c> any</c><00:01:28.920><c> changes</c>
+
+00:01:30.109 --> 00:01:30.119 align:start position:0%
+allowed to update it or make any changes
+ 
+
+00:01:30.119 --> 00:01:32.270 align:start position:0%
+allowed to update it or make any changes
+okay<00:01:30.400><c> so</c><00:01:30.680><c> these</c><00:01:30.920><c> two</c><00:01:31.200><c> things</c><00:01:31.680><c> has</c><00:01:31.880><c> to</c><00:01:32.040><c> be</c>
+
+00:01:32.270 --> 00:01:32.280 align:start position:0%
+okay so these two things has to be
+ 
+
+00:01:32.280 --> 00:01:34.950 align:start position:0%
+okay so these two things has to be
+properly<00:01:32.840><c> handled</c><00:01:33.320><c> in</c><00:01:33.479><c> our</c><00:01:33.759><c> application</c><00:01:34.720><c> so</c>
+
+00:01:34.950 --> 00:01:34.960 align:start position:0%
+properly handled in our application so
+ 
+
+00:01:34.960 --> 00:01:38.510 align:start position:0%
+properly handled in our application so
+that<00:01:35.280><c> we</c><00:01:35.479><c> can</c><00:01:36.479><c> protect</c><00:01:37.079><c> our</c><00:01:37.399><c> customers</c><00:01:38.200><c> from</c>
+
+00:01:38.510 --> 00:01:38.520 align:start position:0%
+that we can protect our customers from
+ 
+
+00:01:38.520 --> 00:01:42.149 align:start position:0%
+that we can protect our customers from
+these
+
+00:01:42.149 --> 00:01:42.159 align:start position:0%
+ 
+ 
+
+00:01:42.159 --> 00:01:44.870 align:start position:0%
+ 
+attempts<00:01:43.159><c> and</c><00:01:43.680><c> yeah</c><00:01:43.960><c> that's</c><00:01:44.200><c> where</c><00:01:44.439><c> spring</c>
+
+00:01:44.870 --> 00:01:44.880 align:start position:0%
+attempts and yeah that's where spring
+ 
+
+00:01:44.880 --> 00:01:47.069 align:start position:0%
+attempts and yeah that's where spring
+boot<00:01:45.200><c> security</c><00:01:45.680><c> comes</c><00:01:45.960><c> into</c><00:01:46.200><c> the</c><00:01:46.360><c> picture</c>
+
+00:01:47.069 --> 00:01:47.079 align:start position:0%
+boot security comes into the picture
+ 
+
+00:01:47.079 --> 00:01:48.149 align:start position:0%
+boot security comes into the picture
+very<00:01:47.320><c> very</c>
+
+00:01:48.149 --> 00:01:48.159 align:start position:0%
+very very
+ 
+
+00:01:48.159 --> 00:01:50.550 align:start position:0%
+very very
+important<00:01:49.159><c> and</c><00:01:49.479><c> that's</c><00:01:49.719><c> where</c><00:01:49.920><c> we</c><00:01:50.119><c> have</c><00:01:50.280><c> to</c>
+
+00:01:50.550 --> 00:01:50.560 align:start position:0%
+important and that's where we have to
+ 
+
+00:01:50.560 --> 00:01:52.789 align:start position:0%
+important and that's where we have to
+first<00:01:51.240><c> understand</c><00:01:51.439><c> its</c><00:01:51.719><c> architecture</c><00:01:52.479><c> before</c>
+
+00:01:52.789 --> 00:01:52.799 align:start position:0%
+first understand its architecture before
+ 
+
+00:01:52.799 --> 00:01:56.149 align:start position:0%
+first understand its architecture before
+even<00:01:53.040><c> we</c><00:01:53.240><c> jump</c><00:01:53.560><c> into</c><00:01:54.240><c> different</c><00:01:54.600><c> type</c><00:01:54.799><c> of</c>
+
+00:01:56.149 --> 00:01:56.159 align:start position:0%
+even we jump into different type of
+ 
+
+00:01:56.159 --> 00:01:58.469 align:start position:0%
+even we jump into different type of
+authentication
+
+00:01:58.469 --> 00:01:58.479 align:start position:0%
+authentication
+ 
+
+00:01:58.479 --> 00:02:01.749 align:start position:0%
+authentication
+also<00:01:59.479><c> this</c><00:01:59.600><c> is</c><00:02:00.159><c> its</c><00:02:00.439><c> architecture</c><00:02:01.320><c> but</c><00:02:01.560><c> here</c>
+
+00:02:01.749 --> 00:02:01.759 align:start position:0%
+also this is its architecture but here
+ 
+
+00:02:01.759 --> 00:02:03.190 align:start position:0%
+also this is its architecture but here
+if<00:02:01.880><c> you</c>
+
+00:02:03.190 --> 00:02:03.200 align:start position:0%
+if you
+ 
+
+00:02:03.200 --> 00:02:06.230 align:start position:0%
+if you
+see<00:02:04.200><c> it's</c><00:02:04.479><c> just</c><00:02:04.680><c> an</c><00:02:05.000><c> extension</c><00:02:05.560><c> of</c><00:02:05.840><c> this</c><00:02:05.960><c> one</c>
+
+00:02:06.230 --> 00:02:06.240 align:start position:0%
+see it's just an extension of this one
+ 
+
+00:02:06.240 --> 00:02:09.430 align:start position:0%
+see it's just an extension of this one
+filters<00:02:07.240><c> so</c><00:02:07.439><c> in</c><00:02:07.600><c> video</c><00:02:08.000><c> number</c><00:02:08.200><c> 18</c><00:02:08.879><c> we</c><00:02:09.080><c> have</c>
+
+00:02:09.430 --> 00:02:09.440 align:start position:0%
+filters so in video number 18 we have
+ 
+
+00:02:09.440 --> 00:02:12.790 align:start position:0%
+filters so in video number 18 we have
+already<00:02:09.800><c> seen</c><00:02:10.679><c> what</c><00:02:10.920><c> are</c><00:02:11.239><c> filters</c><00:02:12.239><c> right</c><00:02:12.480><c> and</c>
+
+00:02:12.790 --> 00:02:12.800 align:start position:0%
+already seen what are filters right and
+ 
+
+00:02:12.800 --> 00:02:15.070 align:start position:0%
+already seen what are filters right and
+where<00:02:13.200><c> exactly</c><00:02:13.760><c> they</c>
+
+00:02:15.070 --> 00:02:15.080 align:start position:0%
+where exactly they
+ 
+
+00:02:15.080 --> 00:02:18.949 align:start position:0%
+where exactly they
+fit<00:02:16.080><c> so</c><00:02:16.280><c> when</c><00:02:16.560><c> the</c><00:02:16.879><c> first</c><00:02:17.239><c> request</c><00:02:17.680><c> comes</c><00:02:17.959><c> in</c>
+
+00:02:18.949 --> 00:02:18.959 align:start position:0%
+fit so when the first request comes in
+ 
+
+00:02:18.959 --> 00:02:20.830 align:start position:0%
+fit so when the first request comes in
+it<00:02:19.120><c> goes</c><00:02:19.360><c> to</c><00:02:19.519><c> the</c><00:02:19.640><c> subet</c><00:02:20.080><c> container</c><00:02:20.640><c> from</c>
+
+00:02:20.830 --> 00:02:20.840 align:start position:0%
+it goes to the subet container from
+ 
+
+00:02:20.840 --> 00:02:23.390 align:start position:0%
+it goes to the subet container from
+subet<00:02:21.239><c> container</c><00:02:21.640><c> to</c><00:02:21.800><c> filter</c><00:02:22.280><c> chain</c><00:02:23.200><c> there</c>
+
+00:02:23.390 --> 00:02:23.400 align:start position:0%
+subet container to filter chain there
+ 
+
+00:02:23.400 --> 00:02:26.470 align:start position:0%
+subet container to filter chain there
+are<00:02:23.879><c> multiple</c><00:02:24.640><c> layers</c><00:02:25.000><c> of</c><00:02:25.200><c> filters</c><00:02:25.959><c> filter</c><00:02:26.280><c> 1</c>
+
+00:02:26.470 --> 00:02:26.480 align:start position:0%
+are multiple layers of filters filter 1
+ 
+
+00:02:26.480 --> 00:02:30.150 align:start position:0%
+are multiple layers of filters filter 1
+Filter<00:02:26.760><c> 2</c><00:02:26.959><c> filter</c><00:02:27.800><c> n</c><00:02:28.800><c> okay</c><00:02:29.440><c> and</c><00:02:29.599><c> from</c><00:02:30.040><c> this</c>
+
+00:02:30.150 --> 00:02:30.160 align:start position:0%
+Filter 2 filter n okay and from this
+ 
+
+00:02:30.160 --> 00:02:32.470 align:start position:0%
+Filter 2 filter n okay and from this
+filter<00:02:30.840><c> it</c><00:02:31.080><c> goes</c><00:02:31.400><c> to</c><00:02:31.680><c> a</c><00:02:31.959><c> particular</c>
+
+00:02:32.470 --> 00:02:32.480 align:start position:0%
+filter it goes to a particular
+ 
+
+00:02:32.480 --> 00:02:35.030 align:start position:0%
+filter it goes to a particular
+dispatcher<00:02:33.080><c> sulet</c><00:02:34.080><c> and</c><00:02:34.280><c> from</c><00:02:34.560><c> dispatcher</c>
+
+00:02:35.030 --> 00:02:35.040 align:start position:0%
+dispatcher sulet and from dispatcher
+ 
+
+00:02:35.040 --> 00:02:37.470 align:start position:0%
+dispatcher sulet and from dispatcher
+sulet<00:02:35.680><c> then</c><00:02:36.120><c> Interceptor</c><00:02:37.120><c> and</c><00:02:37.319><c> then</c>
+
+00:02:37.470 --> 00:02:37.480 align:start position:0%
+sulet then Interceptor and then
+ 
+
+00:02:37.480 --> 00:02:39.509 align:start position:0%
+sulet then Interceptor and then
+Interceptor<00:02:38.080><c> to</c><00:02:38.480><c> actual</c><00:02:38.840><c> the</c><00:02:39.000><c> controller</c>
+
+00:02:39.509 --> 00:02:39.519 align:start position:0%
+Interceptor to actual the controller
+ 
+
+00:02:39.519 --> 00:02:40.910 align:start position:0%
+Interceptor to actual the controller
+where<00:02:39.680><c> our</c>
+
+00:02:40.910 --> 00:02:40.920 align:start position:0%
+where our
+ 
+
+00:02:40.920 --> 00:02:44.790 align:start position:0%
+where our
+business<00:02:41.920><c> logic</c><00:02:42.920><c> lies</c><00:02:43.560><c> or</c><00:02:43.800><c> where</c><00:02:44.040><c> our</c><00:02:44.319><c> apis</c>
+
+00:02:44.790 --> 00:02:44.800 align:start position:0%
+business logic lies or where our apis
+ 
+
+00:02:44.800 --> 00:02:49.869 align:start position:0%
+business logic lies or where our apis
+are<00:02:45.680><c> present</c><00:02:46.680><c> so</c><00:02:46.959><c> now</c><00:02:47.519><c> Spring</c><00:02:48.120><c> Security</c><00:02:49.120><c> where</c>
+
+00:02:49.869 --> 00:02:49.879 align:start position:0%
+are present so now Spring Security where
+ 
+
+00:02:49.879 --> 00:02:53.229 align:start position:0%
+are present so now Spring Security where
+does<00:02:50.080><c> it</c><00:02:50.280><c> fit</c><00:02:50.560><c> into</c><00:02:50.959><c> this</c><00:02:51.959><c> now</c><00:02:52.239><c> if</c><00:02:52.360><c> you</c><00:02:52.680><c> are</c>
+
+00:02:53.229 --> 00:02:53.239 align:start position:0%
+does it fit into this now if you are
+ 
+
+00:02:53.239 --> 00:02:56.309 align:start position:0%
+does it fit into this now if you are
+already<00:02:54.120><c> covered</c><00:02:54.560><c> filters</c><00:02:55.519><c> and</c><00:02:55.680><c> you</c><00:02:55.800><c> are</c>
+
+00:02:56.309 --> 00:02:56.319 align:start position:0%
+already covered filters and you are
+ 
+
+00:02:56.319 --> 00:02:59.309 align:start position:0%
+already covered filters and you are
+clear<00:02:56.680><c> with</c><00:02:56.800><c> the</c><00:02:56.920><c> filter</c><00:02:57.440><c> chain</c><00:02:58.440><c> now</c><00:02:58.800><c> whenever</c>
+
+00:02:59.309 --> 00:02:59.319 align:start position:0%
+clear with the filter chain now whenever
+ 
+
+00:02:59.319 --> 00:03:04.110 align:start position:0%
+clear with the filter chain now whenever
+you<00:03:00.040><c> enable</c><00:03:00.599><c> the</c><00:03:00.800><c> Spring</c><00:03:01.480><c> Security</c><00:03:02.480><c> in</c><00:03:02.720><c> your</c>
+
+00:03:04.110 --> 00:03:04.120 align:start position:0%
+you enable the Spring Security in your
+ 
+
+00:03:04.120 --> 00:03:06.390 align:start position:0%
+you enable the Spring Security in your
+application<00:03:05.120><c> now</c><00:03:05.400><c> here</c><00:03:05.560><c> if</c><00:03:05.680><c> you</c><00:03:05.799><c> see</c><00:03:06.080><c> there</c><00:03:06.200><c> is</c>
+
+00:03:06.390 --> 00:03:06.400 align:start position:0%
+application now here if you see there is
+ 
+
+00:03:06.400 --> 00:03:09.149 align:start position:0%
+application now here if you see there is
+something<00:03:06.760><c> called</c><00:03:07.120><c> security</c><00:03:07.920><c> filter</c><00:03:08.280><c> chain</c>
+
+00:03:09.149 --> 00:03:09.159 align:start position:0%
+something called security filter chain
+ 
+
+00:03:09.159 --> 00:03:12.149 align:start position:0%
+something called security filter chain
+get<00:03:09.480><c> added</c><00:03:10.000><c> into</c><00:03:10.440><c> your</c><00:03:10.879><c> one</c><00:03:11.080><c> of</c><00:03:11.239><c> the</c><00:03:11.360><c> filter</c>
+
+00:03:12.149 --> 00:03:12.159 align:start position:0%
+get added into your one of the filter
+ 
+
+00:03:12.159 --> 00:03:16.070 align:start position:0%
+get added into your one of the filter
+chain<00:03:13.159><c> so</c><00:03:13.440><c> you</c><00:03:13.680><c> still</c><00:03:14.040><c> have</c><00:03:14.319><c> multiple</c><00:03:15.080><c> filters</c>
+
+00:03:16.070 --> 00:03:16.080 align:start position:0%
+chain so you still have multiple filters
+ 
+
+00:03:16.080 --> 00:03:17.910 align:start position:0%
+chain so you still have multiple filters
+in<00:03:16.239><c> your</c><00:03:16.480><c> application</c><00:03:16.920><c> filter</c><00:03:17.239><c> 1</c><00:03:17.440><c> Filter</c><00:03:17.720><c> 2</c>
+
+00:03:17.910 --> 00:03:17.920 align:start position:0%
+in your application filter 1 Filter 2
+ 
+
+00:03:17.920 --> 00:03:20.509 align:start position:0%
+in your application filter 1 Filter 2
+filter<00:03:18.200><c> n</c><00:03:19.040><c> but</c><00:03:19.239><c> one</c><00:03:19.400><c> of</c><00:03:19.519><c> the</c><00:03:19.640><c> filter</c><00:03:20.040><c> get</c><00:03:20.280><c> also</c>
+
+00:03:20.509 --> 00:03:20.519 align:start position:0%
+filter n but one of the filter get also
+ 
+
+00:03:20.519 --> 00:03:23.149 align:start position:0%
+filter n but one of the filter get also
+added<00:03:20.959><c> which</c><00:03:21.120><c> is</c><00:03:21.319><c> security</c><00:03:21.959><c> filter</c><00:03:22.959><c> so</c>
+
+00:03:23.149 --> 00:03:23.159 align:start position:0%
+added which is security filter so
+ 
+
+00:03:23.159 --> 00:03:25.270 align:start position:0%
+added which is security filter so
+security<00:03:23.599><c> filter</c><00:03:24.319><c> is</c><00:03:24.480><c> generally</c><00:03:24.840><c> we</c><00:03:24.959><c> can</c><00:03:25.080><c> say</c>
+
+00:03:25.270 --> 00:03:25.280 align:start position:0%
+security filter is generally we can say
+ 
+
+00:03:25.280 --> 00:03:27.030 align:start position:0%
+security filter is generally we can say
+that<00:03:25.519><c> security</c><00:03:25.920><c> filter</c><00:03:26.239><c> chain</c><00:03:26.599><c> because</c><00:03:26.920><c> there</c>
+
+00:03:27.030 --> 00:03:27.040 align:start position:0%
+that security filter chain because there
+ 
+
+00:03:27.040 --> 00:03:30.309 align:start position:0%
+that security filter chain because there
+are<00:03:27.519><c> multiple</c><00:03:28.519><c> security</c><00:03:29.000><c> filters</c><00:03:29.439><c> get</c>
+
+00:03:30.309 --> 00:03:30.319 align:start position:0%
+are multiple security filters get
+ 
+
+00:03:30.319 --> 00:03:34.910 align:start position:0%
+are multiple security filters get
+it<00:03:31.319><c> okay</c><00:03:32.120><c> consider</c><00:03:32.560><c> it</c><00:03:32.720><c> is</c><00:03:33.120><c> like</c><00:03:34.000><c> here</c>
+
+00:03:34.910 --> 00:03:34.920 align:start position:0%
+it okay consider it is like here
+ 
+
+00:03:34.920 --> 00:03:38.030 align:start position:0%
+it okay consider it is like here
+consider<00:03:35.319><c> it</c><00:03:35.560><c> like</c><00:03:35.760><c> this</c><00:03:36.560><c> filter</c><00:03:36.959><c> chain</c><00:03:37.879><c> here</c>
+
+00:03:38.030 --> 00:03:38.040 align:start position:0%
+consider it like this filter chain here
+ 
+
+00:03:38.040 --> 00:03:41.270 align:start position:0%
+consider it like this filter chain here
+you<00:03:38.200><c> have</c><00:03:38.319><c> filter</c><00:03:38.680><c> 1</c><00:03:38.959><c> Filter</c><00:03:39.319><c> 2</c><00:03:39.799><c> filter</c><00:03:40.200><c> 3</c><00:03:41.000><c> like</c>
+
+00:03:41.270 --> 00:03:41.280 align:start position:0%
+you have filter 1 Filter 2 filter 3 like
+ 
+
+00:03:41.280 --> 00:03:44.070 align:start position:0%
+you have filter 1 Filter 2 filter 3 like
+this<00:03:41.519><c> filter</c><00:03:42.000><c> n</c><00:03:43.000><c> consider</c><00:03:43.480><c> this</c><00:03:43.680><c> out</c><00:03:43.879><c> of</c>
+
+00:03:44.070 --> 00:03:44.080 align:start position:0%
+this filter n consider this out of
+ 
+
+00:03:44.080 --> 00:03:46.509 align:start position:0%
+this filter n consider this out of
+filter<00:03:44.400><c> three</c><00:03:44.680><c> to</c><00:03:44.920><c> this</c><00:03:45.080><c> one</c><00:03:45.360><c> this</c><00:03:45.519><c> is</c><00:03:45.840><c> your</c>
+
+00:03:46.509 --> 00:03:46.519 align:start position:0%
+filter three to this one this is your
+ 
+
+00:03:46.519 --> 00:03:50.030 align:start position:0%
+filter three to this one this is your
+security<00:03:47.200><c> filter</c><00:03:47.599><c> CH</c><00:03:48.200><c> like</c><00:03:48.519><c> these</c><00:03:49.040><c> filters</c>
+
+00:03:50.030 --> 00:03:50.040 align:start position:0%
+security filter CH like these filters
+ 
+
+00:03:50.040 --> 00:03:52.470 align:start position:0%
+security filter CH like these filters
+are<00:03:50.360><c> added</c><00:03:50.840><c> because</c><00:03:51.120><c> of</c><00:03:51.480><c> security</c><00:03:52.200><c> because</c>
+
+00:03:52.470 --> 00:03:52.480 align:start position:0%
+are added because of security because
+ 
+
+00:03:52.480 --> 00:03:55.229 align:start position:0%
+are added because of security because
+you<00:03:52.720><c> opted</c><00:03:53.120><c> for</c><00:03:53.760><c> security</c><00:03:54.760><c> and</c><00:03:54.920><c> since</c><00:03:55.079><c> you</c>
+
+00:03:55.229 --> 00:03:55.239 align:start position:0%
+you opted for security and since you
+ 
+
+00:03:55.239 --> 00:03:57.190 align:start position:0%
+you opted for security and since you
+opted<00:03:55.519><c> for</c><00:03:55.680><c> security</c><00:03:56.200><c> these</c><00:03:56.360><c> filters</c><00:03:56.840><c> Will</c>
+
+00:03:57.190 --> 00:03:57.200 align:start position:0%
+opted for security these filters Will
+ 
+
+00:03:57.200 --> 00:03:59.990 align:start position:0%
+opted for security these filters Will
+Spring<00:03:57.480><c> boot</c><00:03:57.720><c> will</c><00:03:57.920><c> add</c><00:03:58.159><c> it</c><00:03:59.159><c> okay</c><00:03:59.439><c> in</c><00:03:59.599><c> the</c>
+
+00:03:59.990 --> 00:04:00.000 align:start position:0%
+Spring boot will add it okay in the
+ 
+
+00:04:00.000 --> 00:04:02.470 align:start position:0%
+Spring boot will add it okay in the
+existing<00:04:00.959><c> list</c><00:04:01.360><c> of</c>
+
+00:04:02.470 --> 00:04:02.480 align:start position:0%
+existing list of
+ 
+
+00:04:02.480 --> 00:04:05.030 align:start position:0%
+existing list of
+filters<00:04:03.480><c> okay</c><00:04:03.959><c> so</c><00:04:04.200><c> first</c><00:04:04.400><c> thing</c><00:04:04.560><c> is</c><00:04:04.680><c> clear</c>
+
+00:04:05.030 --> 00:04:05.040 align:start position:0%
+filters okay so first thing is clear
+ 
+
+00:04:05.040 --> 00:04:07.069 align:start position:0%
+filters okay so first thing is clear
+right<00:04:05.239><c> where</c><00:04:05.519><c> exactly</c><00:04:05.920><c> the</c><00:04:06.120><c> security</c><00:04:06.640><c> filter</c>
+
+00:04:07.069 --> 00:04:07.079 align:start position:0%
+right where exactly the security filter
+ 
+
+00:04:07.079 --> 00:04:09.630 align:start position:0%
+right where exactly the security filter
+chain<00:04:07.400><c> fits</c><00:04:08.239><c> it's</c><00:04:08.519><c> just</c><00:04:08.720><c> nothing</c><00:04:09.000><c> but</c><00:04:09.239><c> inside</c>
+
+00:04:09.630 --> 00:04:09.640 align:start position:0%
+chain fits it's just nothing but inside
+ 
+
+00:04:09.640 --> 00:04:11.869 align:start position:0%
+chain fits it's just nothing but inside
+whatever<00:04:10.079><c> the</c><00:04:10.200><c> filter</c><00:04:10.519><c> chain</c><00:04:10.799><c> you</c><00:04:10.920><c> have</c><00:04:11.640><c> it</c>
+
+00:04:11.869 --> 00:04:11.879 align:start position:0%
+whatever the filter chain you have it
+ 
+
+00:04:11.879 --> 00:04:14.190 align:start position:0%
+whatever the filter chain you have it
+just<00:04:12.120><c> get</c><00:04:12.319><c> fitted</c><00:04:12.720><c> into</c><00:04:13.400><c> that</c>
+
+00:04:14.190 --> 00:04:14.200 align:start position:0%
+just get fitted into that
+ 
+
+00:04:14.200 --> 00:04:18.030 align:start position:0%
+just get fitted into that
+only<00:04:15.200><c> so</c><00:04:15.480><c> there</c><00:04:15.599><c> are</c><00:04:15.840><c> are</c><00:04:16.440><c> multiple</c><00:04:17.440><c> filters</c>
+
+00:04:18.030 --> 00:04:18.040 align:start position:0%
+only so there are are multiple filters
+ 
+
+00:04:18.040 --> 00:04:23.469 align:start position:0%
+only so there are are multiple filters
+security<00:04:18.799><c> filters</c><00:04:19.959><c> okay</c><00:04:21.360><c> now</c><00:04:22.360><c> before</c><00:04:22.680><c> I</c><00:04:22.919><c> go</c>
+
+00:04:23.469 --> 00:04:23.479 align:start position:0%
+security filters okay now before I go
+ 
+
+00:04:23.479 --> 00:04:25.670 align:start position:0%
+security filters okay now before I go
+further<00:04:24.080><c> like</c><00:04:24.280><c> what</c><00:04:24.440><c> are</c><00:04:24.680><c> each</c><00:04:24.840><c> of</c><00:04:25.040><c> this</c>
+
+00:04:25.670 --> 00:04:25.680 align:start position:0%
+further like what are each of this
+ 
+
+00:04:25.680 --> 00:04:27.670 align:start position:0%
+further like what are each of this
+filter<00:04:26.680><c> there</c><00:04:26.840><c> are</c><00:04:27.240><c> different</c>
+
+00:04:27.670 --> 00:04:27.680 align:start position:0%
+filter there are different
+ 
+
+00:04:27.680 --> 00:04:30.790 align:start position:0%
+filter there are different
+authentication<00:04:28.400><c> method</c><00:04:29.120><c> like</c><00:04:29.320><c> form</c>
+
+00:04:30.790 --> 00:04:30.800 align:start position:0%
+authentication method like form
+ 
+
+00:04:30.800 --> 00:04:34.029 align:start position:0%
+authentication method like form
+based<00:04:31.800><c> where</c><00:04:32.080><c> you</c><00:04:32.320><c> provide</c><00:04:32.880><c> username</c>
+
+00:04:34.029 --> 00:04:34.039 align:start position:0%
+based where you provide username
+ 
+
+00:04:34.039 --> 00:04:38.629 align:start position:0%
+based where you provide username
+password<00:04:35.039><c> you</c><00:04:35.320><c> have</c><00:04:35.800><c> like</c><00:04:36.800><c> stateless</c><00:04:37.639><c> one</c>
+
+00:04:38.629 --> 00:04:38.639 align:start position:0%
+password you have like stateless one
+ 
+
+00:04:38.639 --> 00:04:41.189 align:start position:0%
+password you have like stateless one
+like<00:04:38.919><c> basic</c><00:04:39.520><c> authentication</c>
+
+00:04:41.189 --> 00:04:41.199 align:start position:0%
+like basic authentication
+ 
+
+00:04:41.199 --> 00:04:42.990 align:start position:0%
+like basic authentication
+JWT
+
+00:04:42.990 --> 00:04:43.000 align:start position:0%
+JWT
+ 
+
+00:04:43.000 --> 00:04:45.950 align:start position:0%
+JWT
+oo<00:04:44.000><c> okay</c><00:04:44.400><c> and</c><00:04:44.680><c> there</c><00:04:44.840><c> could</c><00:04:44.960><c> be</c><00:04:45.120><c> many</c>
+
+00:04:45.950 --> 00:04:45.960 align:start position:0%
+oo okay and there could be many
+ 
+
+00:04:45.960 --> 00:04:50.950 align:start position:0%
+oo okay and there could be many
+also<00:04:46.960><c> so</c><00:04:47.960><c> for</c><00:04:48.560><c> each</c><00:04:49.080><c> authentication</c><00:04:50.080><c> method</c>
+
+00:04:50.950 --> 00:04:50.960 align:start position:0%
+also so for each authentication method
+ 
+
+00:04:50.960 --> 00:04:53.950 align:start position:0%
+also so for each authentication method
+for<00:04:51.240><c> each</c><00:04:51.560><c> authentication</c><00:04:52.479><c> method</c><00:04:53.479><c> there</c><00:04:53.880><c> is</c>
+
+00:04:53.950 --> 00:04:53.960 align:start position:0%
+for each authentication method there is
+ 
+
+00:04:53.960 --> 00:04:56.029 align:start position:0%
+for each authentication method there is
+a<00:04:54.280><c> different</c><00:04:54.759><c> filter</c>
+
+00:04:56.029 --> 00:04:56.039 align:start position:0%
+a different filter
+ 
+
+00:04:56.039 --> 00:05:00.230 align:start position:0%
+a different filter
+involved<00:04:57.039><c> okay</c><00:04:57.720><c> so</c><00:04:58.720><c> it's</c><00:04:59.000><c> not</c><00:04:59.320><c> so</c><00:04:59.880><c> let's</c><00:05:00.039><c> say</c>
+
+00:05:00.230 --> 00:05:00.240 align:start position:0%
+involved okay so it's not so let's say
+ 
+
+00:05:00.240 --> 00:05:02.150 align:start position:0%
+involved okay so it's not so let's say
+what<00:05:00.360><c> I'm</c><00:05:00.520><c> trying</c><00:05:00.720><c> to</c><00:05:00.840><c> say</c><00:05:01.120><c> that</c><00:05:01.639><c> maybe</c><00:05:01.919><c> if</c><00:05:02.039><c> you</c>
+
+00:05:02.150 --> 00:05:02.160 align:start position:0%
+what I'm trying to say that maybe if you
+ 
+
+00:05:02.160 --> 00:05:03.950 align:start position:0%
+what I'm trying to say that maybe if you
+are<00:05:02.320><c> opting</c><00:05:02.800><c> this</c><00:05:02.960><c> authentication</c><00:05:03.639><c> method</c>
+
+00:05:03.950 --> 00:05:03.960 align:start position:0%
+are opting this authentication method
+ 
+
+00:05:03.960 --> 00:05:04.790 align:start position:0%
+are opting this authentication method
+form
+
+00:05:04.790 --> 00:05:04.800 align:start position:0%
+form
+ 
+
+00:05:04.800 --> 00:05:08.350 align:start position:0%
+form
+based<00:05:05.800><c> then</c><00:05:06.120><c> only</c><00:05:06.639><c> these</c><00:05:06.919><c> two</c><00:05:07.320><c> are</c>
+
+00:05:08.350 --> 00:05:08.360 align:start position:0%
+based then only these two are
+ 
+
+00:05:08.360 --> 00:05:10.790 align:start position:0%
+based then only these two are
+eligible<00:05:09.360><c> all</c><00:05:09.600><c> are</c><00:05:10.000><c> not</c>
+
+00:05:10.790 --> 00:05:10.800 align:start position:0%
+eligible all are not
+ 
+
+00:05:10.800 --> 00:05:13.790 align:start position:0%
+eligible all are not
+eligible<00:05:11.800><c> okay</c><00:05:12.440><c> let's</c><00:05:12.680><c> say</c><00:05:12.919><c> you</c><00:05:13.080><c> wanted</c><00:05:13.440><c> to</c><00:05:13.600><c> go</c>
+
+00:05:13.790 --> 00:05:13.800 align:start position:0%
+eligible okay let's say you wanted to go
+ 
+
+00:05:13.800 --> 00:05:14.870 align:start position:0%
+eligible okay let's say you wanted to go
+with
+
+00:05:14.870 --> 00:05:14.880 align:start position:0%
+with
+ 
+
+00:05:14.880 --> 00:05:18.550 align:start position:0%
+with
+JWT<00:05:15.880><c> then</c><00:05:16.360><c> it's</c><00:05:16.639><c> may</c><00:05:16.840><c> be</c><00:05:17.360><c> these</c><00:05:17.560><c> two</c><00:05:17.880><c> let's</c><00:05:18.080><c> say</c>
+
+00:05:18.550 --> 00:05:18.560 align:start position:0%
+JWT then it's may be these two let's say
+ 
+
+00:05:18.560 --> 00:05:20.790 align:start position:0%
+JWT then it's may be these two let's say
+there<00:05:18.759><c> would</c><00:05:18.919><c> be</c><00:05:19.080><c> some</c><00:05:19.319><c> another</c><00:05:19.800><c> JWT</c><00:05:20.440><c> filter</c>
+
+00:05:20.790 --> 00:05:20.800 align:start position:0%
+there would be some another JWT filter
+ 
+
+00:05:20.800 --> 00:05:23.230 align:start position:0%
+there would be some another JWT filter
+let's<00:05:21.000><c> say</c><00:05:21.680><c> these</c><00:05:21.880><c> two</c><00:05:22.400><c> username</c><00:05:22.919><c> password</c>
+
+00:05:23.230 --> 00:05:23.240 align:start position:0%
+let's say these two username password
+ 
+
+00:05:23.240 --> 00:05:25.510 align:start position:0%
+let's say these two username password
+and<00:05:23.400><c> these</c><00:05:23.560><c> two</c><00:05:23.759><c> only</c><00:05:24.039><c> would</c><00:05:24.240><c> be</c><00:05:24.560><c> applicable</c>
+
+00:05:25.510 --> 00:05:25.520 align:start position:0%
+and these two only would be applicable
+ 
+
+00:05:25.520 --> 00:05:27.309 align:start position:0%
+and these two only would be applicable
+then<00:05:25.800><c> this</c><00:05:26.160><c> and</c><00:05:26.400><c> this</c><00:05:26.560><c> would</c><00:05:26.800><c> not</c><00:05:27.039><c> be</c>
+
+00:05:27.309 --> 00:05:27.319 align:start position:0%
+then this and this would not be
+ 
+
+00:05:27.319 --> 00:05:29.430 align:start position:0%
+then this and this would not be
+applicable<00:05:28.319><c> similarly</c><00:05:28.800><c> if</c><00:05:28.880><c> you</c><00:05:29.039><c> go</c><00:05:29.199><c> with</c><00:05:29.319><c> the</c>
+
+00:05:29.430 --> 00:05:29.440 align:start position:0%
+applicable similarly if you go with the
+ 
+
+00:05:29.440 --> 00:05:32.430 align:start position:0%
+applicable similarly if you go with the
+B<00:05:29.680><c> basic</c><00:05:30.319><c> authentication</c><00:05:31.319><c> then</c><00:05:31.919><c> this</c><00:05:32.080><c> is</c><00:05:32.240><c> not</c>
+
+00:05:32.430 --> 00:05:32.440 align:start position:0%
+B basic authentication then this is not
+ 
+
+00:05:32.440 --> 00:05:34.070 align:start position:0%
+B basic authentication then this is not
+applicable<00:05:32.919><c> this</c><00:05:33.039><c> is</c><00:05:33.160><c> not</c><00:05:33.360><c> applicable</c><00:05:33.800><c> only</c>
+
+00:05:34.070 --> 00:05:34.080 align:start position:0%
+applicable this is not applicable only
+ 
+
+00:05:34.080 --> 00:05:37.710 align:start position:0%
+applicable this is not applicable only
+this<00:05:34.199><c> is</c><00:05:34.560><c> applicable</c><00:05:35.560><c> so</c><00:05:35.960><c> my</c><00:05:36.199><c> point</c><00:05:36.600><c> here</c><00:05:37.479><c> to</c>
+
+00:05:37.710 --> 00:05:37.720 align:start position:0%
+this is applicable so my point here to
+ 
+
+00:05:37.720 --> 00:05:40.070 align:start position:0%
+this is applicable so my point here to
+tell<00:05:37.919><c> you</c><00:05:38.160><c> that</c><00:05:38.639><c> depending</c><00:05:39.240><c> upon</c><00:05:39.720><c> which</c>
+
+00:05:40.070 --> 00:05:40.080 align:start position:0%
+tell you that depending upon which
+ 
+
+00:05:40.080 --> 00:05:42.870 align:start position:0%
+tell you that depending upon which
+authentication<00:05:41.080><c> method</c><00:05:41.479><c> you</c><00:05:41.639><c> are</c><00:05:41.880><c> choosing</c>
+
+00:05:42.870 --> 00:05:42.880 align:start position:0%
+authentication method you are choosing
+ 
+
+00:05:42.880 --> 00:05:46.430 align:start position:0%
+authentication method you are choosing
+which<00:05:43.039><c> we</c><00:05:43.160><c> will</c><00:05:43.360><c> see</c><00:05:44.080><c> later</c><00:05:45.080><c> based</c><00:05:45.400><c> on</c><00:05:45.840><c> that</c>
+
+00:05:46.430 --> 00:05:46.440 align:start position:0%
+which we will see later based on that
+ 
+
+00:05:46.440 --> 00:05:50.150 align:start position:0%
+which we will see later based on that
+that<00:05:46.680><c> particular</c><00:05:47.120><c> filter</c><00:05:47.680><c> is</c><00:05:48.199><c> get</c><00:05:49.199><c> processed</c>
+
+00:05:50.150 --> 00:05:50.160 align:start position:0%
+that particular filter is get processed
+ 
+
+00:05:50.160 --> 00:05:53.029 align:start position:0%
+that particular filter is get processed
+it's<00:05:50.360><c> not</c><00:05:51.000><c> like</c><00:05:52.000><c> each</c><00:05:52.280><c> request</c><00:05:52.639><c> will</c><00:05:52.840><c> go</c>
+
+00:05:53.029 --> 00:05:53.039 align:start position:0%
+it's not like each request will go
+ 
+
+00:05:53.039 --> 00:05:55.309 align:start position:0%
+it's not like each request will go
+through<00:05:53.360><c> this</c><00:05:53.800><c> then</c><00:05:54.080><c> this</c><00:05:54.440><c> then</c><00:05:54.759><c> this</c><00:05:55.080><c> then</c>
+
+00:05:55.309 --> 00:05:55.319 align:start position:0%
+through this then this then this then
+ 
+
+00:05:55.319 --> 00:05:59.629 align:start position:0%
+through this then this then this then
+this<00:05:55.520><c> till</c><00:05:55.800><c> end</c><00:05:56.880><c> no</c><00:05:57.880><c> okay</c><00:05:58.400><c> so</c><00:05:58.680><c> in</c><00:05:59.000><c> if</c><00:05:59.360><c> uh</c><00:05:59.479><c> you</c>
+
+00:05:59.629 --> 00:05:59.639 align:start position:0%
+this till end no okay so in if uh you
+ 
+
+00:05:59.639 --> 00:06:01.510 align:start position:0%
+this till end no okay so in if uh you
+you<00:05:59.720><c> are</c><00:05:59.840><c> choosing</c><00:06:00.400><c> basic</c><00:06:00.759><c> authentication</c>
+
+00:06:01.510 --> 00:06:01.520 align:start position:0%
+you are choosing basic authentication
+ 
+
+00:06:01.520 --> 00:06:03.070 align:start position:0%
+you are choosing basic authentication
+then<00:06:01.720><c> this</c><00:06:01.840><c> will</c><00:06:02.000><c> be</c><00:06:02.199><c> skipped</c><00:06:02.680><c> this</c><00:06:02.840><c> will</c><00:06:02.960><c> be</c>
+
+00:06:03.070 --> 00:06:03.080 align:start position:0%
+then this will be skipped this will be
+ 
+
+00:06:03.080 --> 00:06:05.309 align:start position:0%
+then this will be skipped this will be
+skipped<00:06:03.440><c> only</c><00:06:03.680><c> this</c><00:06:03.800><c> will</c><00:06:04.000><c> get</c>
+
+00:06:05.309 --> 00:06:05.319 align:start position:0%
+skipped only this will get
+ 
+
+00:06:05.319 --> 00:06:08.430 align:start position:0%
+skipped only this will get
+executed<00:06:06.319><c> okay</c><00:06:06.919><c> don't</c><00:06:07.160><c> worry</c><00:06:07.440><c> about</c><00:06:08.000><c> each</c><00:06:08.240><c> of</c>
+
+00:06:08.430 --> 00:06:08.440 align:start position:0%
+executed okay don't worry about each of
+ 
+
+00:06:08.440 --> 00:06:11.189 align:start position:0%
+executed okay don't worry about each of
+this<00:06:08.639><c> filter</c><00:06:09.599><c> as</c><00:06:09.800><c> when</c><00:06:10.039><c> we</c><00:06:10.160><c> will</c><00:06:10.400><c> do</c><00:06:10.759><c> each</c><00:06:11.000><c> and</c>
+
+00:06:11.189 --> 00:06:11.199 align:start position:0%
+this filter as when we will do each and
+ 
+
+00:06:11.199 --> 00:06:13.390 align:start position:0%
+this filter as when we will do each and
+every<00:06:11.479><c> authentication</c><00:06:12.199><c> method</c><00:06:12.720><c> we</c><00:06:12.840><c> will</c>
+
+00:06:13.390 --> 00:06:13.400 align:start position:0%
+every authentication method we will
+ 
+
+00:06:13.400 --> 00:06:17.070 align:start position:0%
+every authentication method we will
+understand<00:06:13.759><c> its</c><00:06:14.360><c> uh</c><00:06:14.880><c> filter</c><00:06:15.479><c> also</c><00:06:16.479><c> okay</c><00:06:16.880><c> but</c>
+
+00:06:17.070 --> 00:06:17.080 align:start position:0%
+understand its uh filter also okay but
+ 
+
+00:06:17.080 --> 00:06:20.189 align:start position:0%
+understand its uh filter also okay but
+for<00:06:17.360><c> now</c><00:06:17.680><c> try</c><00:06:17.919><c> to</c><00:06:18.440><c> understand</c><00:06:18.680><c> the</c><00:06:19.000><c> flow</c><00:06:20.000><c> what</c>
+
+00:06:20.189 --> 00:06:20.199 align:start position:0%
+for now try to understand the flow what
+ 
+
+00:06:20.199 --> 00:06:22.270 align:start position:0%
+for now try to understand the flow what
+happens<00:06:20.560><c> when</c><00:06:20.840><c> the</c><00:06:21.039><c> flow</c><00:06:21.400><c> comes</c><00:06:21.599><c> in</c><00:06:21.880><c> now</c><00:06:22.080><c> let's</c>
+
+00:06:22.270 --> 00:06:22.280 align:start position:0%
+happens when the flow comes in now let's
+ 
+
+00:06:22.280 --> 00:06:24.589 align:start position:0%
+happens when the flow comes in now let's
+say<00:06:22.840><c> a</c><00:06:23.080><c> request</c><00:06:23.599><c> comes</c>
+
+00:06:24.589 --> 00:06:24.599 align:start position:0%
+say a request comes
+ 
+
+00:06:24.599 --> 00:06:27.790 align:start position:0%
+say a request comes
+in<00:06:25.599><c> it</c><00:06:25.800><c> goes</c><00:06:26.120><c> to</c><00:06:26.400><c> the</c><00:06:26.599><c> filter</c><00:06:27.319><c> and</c><00:06:27.479><c> since</c><00:06:27.680><c> you</c>
+
+00:06:27.790 --> 00:06:27.800 align:start position:0%
+in it goes to the filter and since you
+ 
+
+00:06:27.800 --> 00:06:30.350 align:start position:0%
+in it goes to the filter and since you
+are<00:06:28.000><c> opted</c><00:06:28.319><c> for</c><00:06:28.560><c> security</c><00:06:29.080><c> so</c><00:06:29.319><c> will</c><00:06:29.680><c> it</c><00:06:29.919><c> goes</c>
+
+00:06:30.350 --> 00:06:30.360 align:start position:0%
+are opted for security so will it goes
+ 
+
+00:06:30.360 --> 00:06:33.670 align:start position:0%
+are opted for security so will it goes
+to<00:06:30.720><c> one</c><00:06:30.919><c> of</c><00:06:31.120><c> the</c><00:06:31.400><c> security</c><00:06:31.919><c> filter</c><00:06:32.479><c> also</c><00:06:33.479><c> now</c>
+
+00:06:33.670 --> 00:06:33.680 align:start position:0%
+to one of the security filter also now
+ 
+
+00:06:33.680 --> 00:06:35.390 align:start position:0%
+to one of the security filter also now
+let's<00:06:33.880><c> say</c><00:06:34.039><c> it</c><00:06:34.199><c> goes</c><00:06:34.400><c> to</c><00:06:34.520><c> one</c><00:06:34.680><c> of</c><00:06:34.800><c> the</c><00:06:34.960><c> security</c>
+
+00:06:35.390 --> 00:06:35.400 align:start position:0%
+let's say it goes to one of the security
+ 
+
+00:06:35.400 --> 00:06:39.110 align:start position:0%
+let's say it goes to one of the security
+filter<00:06:36.400><c> then</c><00:06:36.560><c> what's</c><00:06:36.759><c> the</c><00:06:36.919><c> next</c><00:06:37.599><c> step</c><00:06:38.599><c> it</c><00:06:38.720><c> will</c>
+
+00:06:39.110 --> 00:06:39.120 align:start position:0%
+filter then what's the next step it will
+ 
+
+00:06:39.120 --> 00:06:40.830 align:start position:0%
+filter then what's the next step it will
+pass
+
+00:06:40.830 --> 00:06:40.840 align:start position:0%
+pass
+ 
+
+00:06:40.840 --> 00:06:44.230 align:start position:0%
+pass
+the<00:06:41.840><c> request</c><00:06:42.280><c> to</c><00:06:42.560><c> authentication</c><00:06:43.280><c> manager</c>
+
+00:06:44.230 --> 00:06:44.240 align:start position:0%
+the request to authentication manager
+ 
+
+00:06:44.240 --> 00:06:46.909 align:start position:0%
+the request to authentication manager
+now<00:06:44.520><c> here</c><00:06:44.680><c> if</c><00:06:44.800><c> you</c><00:06:44.919><c> see</c><00:06:45.599><c> that</c><00:06:46.599><c> in</c><00:06:46.759><c> the</c>
+
+00:06:46.909 --> 00:06:46.919 align:start position:0%
+now here if you see that in the
+ 
+
+00:06:46.919 --> 00:06:50.070 align:start position:0%
+now here if you see that in the
+authentication<00:06:47.919><c> manager</c><00:06:48.599><c> except</c><00:06:49.080><c> one</c>
+
+00:06:50.070 --> 00:06:50.080 align:start position:0%
+authentication manager except one
+ 
+
+00:06:50.080 --> 00:06:52.029 align:start position:0%
+authentication manager except one
+parameter<00:06:50.639><c> which</c><00:06:50.759><c> is</c><00:06:51.000><c> of</c><00:06:51.240><c> authenticate</c>
+
+00:06:52.029 --> 00:06:52.039 align:start position:0%
+parameter which is of authenticate
+ 
+
+00:06:52.039 --> 00:06:53.550 align:start position:0%
+parameter which is of authenticate
+object
+
+00:06:53.550 --> 00:06:53.560 align:start position:0%
+object
+ 
+
+00:06:53.560 --> 00:06:55.869 align:start position:0%
+object
+authenticate<00:06:54.560><c> so</c><00:06:54.800><c> this</c><00:06:54.960><c> authenticate</c><00:06:55.560><c> object</c>
+
+00:06:55.869 --> 00:06:55.879 align:start position:0%
+authenticate so this authenticate object
+ 
+
+00:06:55.879 --> 00:06:59.710 align:start position:0%
+authenticate so this authenticate object
+is<00:06:56.120><c> like</c><00:06:56.440><c> contains</c><00:06:57.039><c> multiple</c><00:06:57.560><c> Fields</c><00:06:58.560><c> again</c>
+
+00:06:59.710 --> 00:06:59.720 align:start position:0%
+is like contains multiple Fields again
+ 
+
+00:06:59.720 --> 00:07:02.350 align:start position:0%
+is like contains multiple Fields again
+this<00:06:59.840><c> is</c><00:07:00.360><c> not</c><00:07:00.639><c> the</c><00:07:00.879><c> right</c><00:07:01.160><c> time</c><00:07:01.400><c> to</c><00:07:01.639><c> dig</c><00:07:01.960><c> deeper</c>
+
+00:07:02.350 --> 00:07:02.360 align:start position:0%
+this is not the right time to dig deeper
+ 
+
+00:07:02.360 --> 00:07:05.309 align:start position:0%
+this is not the right time to dig deeper
+into<00:07:02.759><c> each</c><00:07:03.039><c> and</c><00:07:03.440><c> every</c><00:07:03.960><c> object</c><00:07:04.680><c> we</c><00:07:04.800><c> will</c><00:07:05.000><c> see</c>
+
+00:07:05.309 --> 00:07:05.319 align:start position:0%
+into each and every object we will see
+ 
+
+00:07:05.319 --> 00:07:08.309 align:start position:0%
+into each and every object we will see
+when<00:07:05.520><c> we</c><00:07:05.639><c> will</c><00:07:06.000><c> do</c><00:07:06.759><c> each</c><00:07:06.960><c> and</c><00:07:07.199><c> every</c>
+
+00:07:08.309 --> 00:07:08.319 align:start position:0%
+when we will do each and every
+ 
+
+00:07:08.319 --> 00:07:11.270 align:start position:0%
+when we will do each and every
+authentication<00:07:09.319><c> uh</c><00:07:09.560><c> methods</c><00:07:10.440><c> but</c><00:07:10.599><c> for</c><00:07:10.800><c> now</c>
+
+00:07:11.270 --> 00:07:11.280 align:start position:0%
+authentication uh methods but for now
+ 
+
+00:07:11.280 --> 00:07:13.029 align:start position:0%
+authentication uh methods but for now
+understand<00:07:11.639><c> like</c><00:07:11.879><c> very</c><00:07:12.160><c> high</c><00:07:12.400><c> level</c><00:07:12.720><c> what</c><00:07:12.879><c> is</c>
+
+00:07:13.029 --> 00:07:13.039 align:start position:0%
+understand like very high level what is
+ 
+
+00:07:13.039 --> 00:07:14.189 align:start position:0%
+understand like very high level what is
+the<00:07:13.199><c> flow</c>
+
+00:07:14.189 --> 00:07:14.199 align:start position:0%
+the flow
+ 
+
+00:07:14.199 --> 00:07:17.309 align:start position:0%
+the flow
+architecture<00:07:15.199><c> each</c><00:07:16.080><c> authentication</c><00:07:17.080><c> each</c>
+
+00:07:17.309 --> 00:07:17.319 align:start position:0%
+architecture each authentication each
+ 
+
+00:07:17.319 --> 00:07:22.189 align:start position:0%
+architecture each authentication each
+authenticate<00:07:18.199><c> object</c><00:07:19.199><c> contains</c><00:07:20.120><c> like</c><00:07:21.120><c> is</c>
+
+00:07:22.189 --> 00:07:22.199 align:start position:0%
+authenticate object contains like is
+ 
+
+00:07:22.199 --> 00:07:24.670 align:start position:0%
+authenticate object contains like is
+authenticated<00:07:23.199><c> is</c>
+
+00:07:24.670 --> 00:07:24.680 align:start position:0%
+authenticated is
+ 
+
+00:07:24.680 --> 00:07:26.909 align:start position:0%
+authenticated is
+authenticated<00:07:25.680><c> true</c>
+
+00:07:26.909 --> 00:07:26.919 align:start position:0%
+authenticated true
+ 
+
+00:07:26.919 --> 00:07:30.110 align:start position:0%
+authenticated true
+false<00:07:27.919><c> okay</c><00:07:28.440><c> so</c><00:07:28.639><c> currently</c><00:07:29.120><c> it's</c><00:07:29.720><c> at</c><00:07:29.919><c> this</c>
+
+00:07:30.110 --> 00:07:30.120 align:start position:0%
+false okay so currently it's at this
+ 
+
+00:07:30.120 --> 00:07:32.270 align:start position:0%
+false okay so currently it's at this
+point<00:07:30.280><c> of</c><00:07:30.479><c> time</c><00:07:30.680><c> it</c><00:07:30.800><c> is</c>
+
+00:07:32.270 --> 00:07:32.280 align:start position:0%
+point of time it is
+ 
+
+00:07:32.280 --> 00:07:35.270 align:start position:0%
+point of time it is
+false<00:07:33.280><c> it's</c><00:07:33.479><c> not</c><00:07:34.000><c> authenticated</c><00:07:35.000><c> what</c><00:07:35.120><c> are</c>
+
+00:07:35.270 --> 00:07:35.280 align:start position:0%
+false it's not authenticated what are
+ 
+
+00:07:35.280 --> 00:07:36.070 align:start position:0%
+false it's not authenticated what are
+the
+
+00:07:36.070 --> 00:07:36.080 align:start position:0%
+the
+ 
+
+00:07:36.080 --> 00:07:38.390 align:start position:0%
+the
+roles<00:07:37.080><c> okay</c><00:07:37.280><c> currently</c><00:07:37.680><c> it</c><00:07:37.800><c> would</c><00:07:37.960><c> be</c><00:07:38.199><c> let's</c>
+
+00:07:38.390 --> 00:07:38.400 align:start position:0%
+roles okay currently it would be let's
+ 
+
+00:07:38.400 --> 00:07:41.670 align:start position:0%
+roles okay currently it would be let's
+say<00:07:39.080><c> empty</c><00:07:39.919><c> I'm</c><00:07:40.120><c> just</c><00:07:40.280><c> saying</c><00:07:40.800><c> so</c><00:07:41.120><c> it</c><00:07:41.240><c> is</c><00:07:41.560><c> you</c>
+
+00:07:41.670 --> 00:07:41.680 align:start position:0%
+say empty I'm just saying so it is you
+ 
+
+00:07:41.680 --> 00:07:44.029 align:start position:0%
+say empty I'm just saying so it is you
+can<00:07:41.840><c> say</c><00:07:42.120><c> that</c><00:07:42.720><c> this</c><00:07:42.960><c> authenticate</c><00:07:43.720><c> object</c>
+
+00:07:44.029 --> 00:07:44.039 align:start position:0%
+can say that this authenticate object
+ 
+
+00:07:44.039 --> 00:07:46.830 align:start position:0%
+can say that this authenticate object
+could<00:07:44.159><c> be</c><00:07:44.639><c> partial</c><00:07:45.639><c> or</c><00:07:45.840><c> incomplete</c><00:07:46.479><c> at</c><00:07:46.680><c> this</c>
+
+00:07:46.830 --> 00:07:46.840 align:start position:0%
+could be partial or incomplete at this
+ 
+
+00:07:46.840 --> 00:07:49.629 align:start position:0%
+could be partial or incomplete at this
+point<00:07:47.039><c> of</c><00:07:47.240><c> time</c><00:07:47.479><c> and</c><00:07:47.599><c> it</c><00:07:47.720><c> is</c><00:07:47.879><c> not</c><00:07:48.120><c> user</c><00:07:48.440><c> is</c><00:07:48.599><c> not</c>
+
+00:07:49.629 --> 00:07:49.639 align:start position:0%
+point of time and it is not user is not
+ 
+
+00:07:49.639 --> 00:07:51.830 align:start position:0%
+point of time and it is not user is not
+authenticated<00:07:50.639><c> so</c><00:07:50.919><c> whenever</c><00:07:51.280><c> the</c><00:07:51.440><c> request</c>
+
+00:07:51.830 --> 00:07:51.840 align:start position:0%
+authenticated so whenever the request
+ 
+
+00:07:51.840 --> 00:07:54.430 align:start position:0%
+authenticated so whenever the request
+comes<00:07:52.120><c> in</c><00:07:52.680><c> yeah</c><00:07:52.960><c> it</c><00:07:53.080><c> will</c><00:07:53.319><c> pass</c><00:07:53.680><c> to</c><00:07:54.319><c> the</c>
+
+00:07:54.430 --> 00:07:54.440 align:start position:0%
+comes in yeah it will pass to the
+ 
+
+00:07:54.440 --> 00:07:56.869 align:start position:0%
+comes in yeah it will pass to the
+filters<00:07:55.080><c> and</c><00:07:55.319><c> then</c><00:07:55.479><c> it</c><00:07:55.599><c> will</c><00:07:55.840><c> pass</c><00:07:56.159><c> through</c>
+
+00:07:56.869 --> 00:07:56.879 align:start position:0%
+filters and then it will pass through
+ 
+
+00:07:56.879 --> 00:07:59.149 align:start position:0%
+filters and then it will pass through
+the<00:07:57.080><c> security</c><00:07:57.520><c> filter</c><00:07:57.840><c> chain</c><00:07:58.520><c> and</c><00:07:58.720><c> depending</c>
+
+00:07:59.149 --> 00:07:59.159 align:start position:0%
+the security filter chain and depending
+ 
+
+00:07:59.159 --> 00:08:01.510 align:start position:0%
+the security filter chain and depending
+upon<00:07:59.720><c> the</c><00:07:59.919><c> authentication</c><00:08:00.680><c> method</c><00:08:01.120><c> We</c><00:08:01.240><c> are</c>
+
+00:08:01.510 --> 00:08:01.520 align:start position:0%
+upon the authentication method We are
+ 
+
+00:08:01.520 --> 00:08:03.710 align:start position:0%
+upon the authentication method We are
+following<00:08:02.520><c> it</c><00:08:02.639><c> will</c><00:08:02.840><c> goes</c><00:08:03.120><c> to</c><00:08:03.319><c> one</c><00:08:03.440><c> of</c><00:08:03.599><c> the</c>
+
+00:08:03.710 --> 00:08:03.720 align:start position:0%
+following it will goes to one of the
+ 
+
+00:08:03.720 --> 00:08:07.270 align:start position:0%
+following it will goes to one of the
+filter<00:08:04.639><c> and</c><00:08:04.879><c> the</c><00:08:05.039><c> filter</c><00:08:05.680><c> will</c><00:08:06.680><c> create</c><00:08:07.120><c> this</c>
+
+00:08:07.270 --> 00:08:07.280 align:start position:0%
+filter and the filter will create this
+ 
+
+00:08:07.280 --> 00:08:09.110 align:start position:0%
+filter and the filter will create this
+authenticate<00:08:07.919><c> object</c><00:08:08.360><c> currently</c><00:08:08.759><c> it</c><00:08:08.919><c> would</c>
+
+00:08:09.110 --> 00:08:09.120 align:start position:0%
+authenticate object currently it would
+ 
+
+00:08:09.120 --> 00:08:10.950 align:start position:0%
+authenticate object currently it would
+be<00:08:09.360><c> false</c><00:08:10.000><c> it's</c><00:08:10.199><c> not</c>
+
+00:08:10.950 --> 00:08:10.960 align:start position:0%
+be false it's not
+ 
+
+00:08:10.960 --> 00:08:13.589 align:start position:0%
+be false it's not
+authenticated<00:08:11.960><c> it</c><00:08:12.080><c> will</c><00:08:12.400><c> pass</c><00:08:12.919><c> that</c><00:08:13.159><c> request</c>
+
+00:08:13.589 --> 00:08:13.599 align:start position:0%
+authenticated it will pass that request
+ 
+
+00:08:13.599 --> 00:08:16.230 align:start position:0%
+authenticated it will pass that request
+to<00:08:13.960><c> authenticate</c><00:08:14.680><c> manager</c><00:08:15.639><c> authenticate</c>
+
+00:08:16.230 --> 00:08:16.240 align:start position:0%
+to authenticate manager authenticate
+ 
+
+00:08:16.240 --> 00:08:18.029 align:start position:0%
+to authenticate manager authenticate
+manager<00:08:16.800><c> is</c><00:08:16.960><c> an</c>
+
+00:08:18.029 --> 00:08:18.039 align:start position:0%
+manager is an
+ 
+
+00:08:18.039 --> 00:08:21.189 align:start position:0%
+manager is an
+interface<00:08:19.039><c> and</c><00:08:19.360><c> provider</c><00:08:19.800><c> manager</c><00:08:20.280><c> is</c><00:08:20.440><c> the</c>
+
+00:08:21.189 --> 00:08:21.199 align:start position:0%
+interface and provider manager is the
+ 
+
+00:08:21.199 --> 00:08:23.189 align:start position:0%
+interface and provider manager is the
+implementation<00:08:22.199><c> it's</c><00:08:22.360><c> a</c><00:08:22.520><c> default</c>
+
+00:08:23.189 --> 00:08:23.199 align:start position:0%
+implementation it's a default
+ 
+
+00:08:23.199 --> 00:08:25.830 align:start position:0%
+implementation it's a default
+implementation<00:08:24.199><c> okay</c><00:08:24.720><c> so</c><00:08:25.039><c> what</c><00:08:25.479><c> this</c>
+
+00:08:25.830 --> 00:08:25.840 align:start position:0%
+implementation okay so what this
+ 
+
+00:08:25.840 --> 00:08:27.510 align:start position:0%
+implementation okay so what this
+provider<00:08:26.240><c> manager</c><00:08:26.720><c> or</c><00:08:26.879><c> you</c><00:08:27.000><c> can</c><00:08:27.120><c> say</c><00:08:27.319><c> that</c>
+
+00:08:27.510 --> 00:08:27.520 align:start position:0%
+provider manager or you can say that
+ 
+
+00:08:27.520 --> 00:08:30.309 align:start position:0%
+provider manager or you can say that
+authentication<00:08:28.159><c> manager</c><00:08:28.599><c> does</c>
+
+00:08:30.309 --> 00:08:30.319 align:start position:0%
+authentication manager does
+ 
+
+00:08:30.319 --> 00:08:32.870 align:start position:0%
+authentication manager does
+this<00:08:30.960><c> has</c><00:08:31.159><c> the</c><00:08:31.360><c> knowledge</c><00:08:31.840><c> that</c><00:08:32.200><c> my</c><00:08:32.440><c> request</c>
+
+00:08:32.870 --> 00:08:32.880 align:start position:0%
+this has the knowledge that my request
+ 
+
+00:08:32.880 --> 00:08:34.909 align:start position:0%
+this has the knowledge that my request
+is<00:08:33.080><c> coming</c><00:08:33.440><c> from</c><00:08:33.800><c> this</c>
+
+00:08:34.909 --> 00:08:34.919 align:start position:0%
+is coming from this
+ 
+
+00:08:34.919 --> 00:08:39.709 align:start position:0%
+is coming from this
+filter<00:08:35.919><c> I</c><00:08:36.080><c> have</c><00:08:36.240><c> to</c><00:08:36.479><c> pass</c><00:08:36.760><c> it</c><00:08:36.919><c> to</c><00:08:37.800><c> which</c>
+
+00:08:39.709 --> 00:08:39.719 align:start position:0%
+filter I have to pass it to which
+ 
+
+00:08:39.719 --> 00:08:42.230 align:start position:0%
+filter I have to pass it to which
+provider<00:08:40.719><c> which</c>
+
+00:08:42.230 --> 00:08:42.240 align:start position:0%
+provider which
+ 
+
+00:08:42.240 --> 00:08:44.750 align:start position:0%
+provider which
+provider<00:08:43.240><c> okay</c><00:08:43.560><c> so</c><00:08:43.839><c> you</c><00:08:43.959><c> can</c><00:08:44.080><c> say</c><00:08:44.279><c> that</c><00:08:44.440><c> it's</c><00:08:44.600><c> a</c>
+
+00:08:44.750 --> 00:08:44.760 align:start position:0%
+provider okay so you can say that it's a
+ 
+
+00:08:44.760 --> 00:08:47.030 align:start position:0%
+provider okay so you can say that it's a
+bridge<00:08:45.279><c> between</c><00:08:45.680><c> the</c><00:08:45.800><c> filter</c><00:08:46.440><c> and</c><00:08:46.640><c> the</c>
+
+00:08:47.030 --> 00:08:47.040 align:start position:0%
+bridge between the filter and the
+ 
+
+00:08:47.040 --> 00:08:50.790 align:start position:0%
+bridge between the filter and the
+provider<00:08:48.040><c> so</c><00:08:49.040><c> this</c><00:08:49.279><c> provider</c><00:08:49.720><c> manager</c><00:08:50.320><c> get</c><00:08:50.519><c> a</c>
+
+00:08:50.790 --> 00:08:50.800 align:start position:0%
+provider so this provider manager get a
+ 
+
+00:08:50.800 --> 00:08:52.949 align:start position:0%
+provider so this provider manager get a
+request<00:08:51.680><c> authenticate</c><00:08:52.680><c> with</c><00:08:52.839><c> the</c>
+
+00:08:52.949 --> 00:08:52.959 align:start position:0%
+request authenticate with the
+ 
+
+00:08:52.959 --> 00:08:54.670 align:start position:0%
+request authenticate with the
+authenticate<00:08:53.560><c> object</c><00:08:53.880><c> which</c><00:08:53.959><c> is</c><00:08:54.080><c> currently</c>
+
+00:08:54.670 --> 00:08:54.680 align:start position:0%
+authenticate object which is currently
+ 
+
+00:08:54.680 --> 00:08:57.310 align:start position:0%
+authenticate object which is currently
+partial<00:08:55.680><c> it</c><00:08:55.839><c> has</c><00:08:56.040><c> the</c><00:08:56.200><c> business</c><00:08:56.600><c> logic</c><00:08:57.120><c> which</c>
+
+00:08:57.310 --> 00:08:57.320 align:start position:0%
+partial it has the business logic which
+ 
+
+00:08:57.320 --> 00:09:00.069 align:start position:0%
+partial it has the business logic which
+knows<00:08:57.760><c> that</c><00:08:58.079><c> okay</c><00:08:58.399><c> this</c><00:08:58.519><c> is</c><00:08:58.640><c> the</c><00:08:58.800><c> filter</c>
+
+00:09:00.069 --> 00:09:00.079 align:start position:0%
+knows that okay this is the filter
+ 
+
+00:09:00.079 --> 00:09:02.590 align:start position:0%
+knows that okay this is the filter
+and<00:09:00.480><c> this</c><00:09:00.600><c> is</c><00:09:00.760><c> the</c><00:09:00.880><c> authentication</c><00:09:01.560><c> method</c><00:09:02.480><c> I</c>
+
+00:09:02.590 --> 00:09:02.600 align:start position:0%
+and this is the authentication method I
+ 
+
+00:09:02.600 --> 00:09:04.670 align:start position:0%
+and this is the authentication method I
+need<00:09:02.800><c> to</c><00:09:03.000><c> pass</c><00:09:03.200><c> it</c><00:09:03.320><c> to</c><00:09:03.560><c> this</c><00:09:03.760><c> provider</c><00:09:04.440><c> and</c><00:09:04.560><c> it</c>
+
+00:09:04.670 --> 00:09:04.680 align:start position:0%
+need to pass it to this provider and it
+ 
+
+00:09:04.680 --> 00:09:06.750 align:start position:0%
+need to pass it to this provider and it
+will<00:09:04.959><c> delegate</c><00:09:05.519><c> the</c><00:09:05.680><c> authentication</c><00:09:06.360><c> to</c><00:09:06.600><c> one</c>
+
+00:09:06.750 --> 00:09:06.760 align:start position:0%
+will delegate the authentication to one
+ 
+
+00:09:06.760 --> 00:09:08.630 align:start position:0%
+will delegate the authentication to one
+of<00:09:06.920><c> the</c><00:09:07.040><c> provider</c><00:09:07.839><c> there</c><00:09:08.000><c> are</c><00:09:08.200><c> multiple</c>
+
+00:09:08.630 --> 00:09:08.640 align:start position:0%
+of the provider there are multiple
+ 
+
+00:09:08.640 --> 00:09:11.389 align:start position:0%
+of the provider there are multiple
+providers<00:09:09.560><c> it</c><00:09:09.680><c> will</c><00:09:09.959><c> delegate</c><00:09:10.519><c> one</c><00:09:10.680><c> of</c><00:09:11.079><c> to</c><00:09:11.279><c> the</c>
+
+00:09:11.389 --> 00:09:11.399 align:start position:0%
+providers it will delegate one of to the
+ 
+
+00:09:11.399 --> 00:09:14.110 align:start position:0%
+providers it will delegate one of to the
+one<00:09:11.560><c> of</c><00:09:11.680><c> the</c><00:09:12.000><c> provider</c><00:09:13.000><c> for</c><00:09:13.279><c> example</c><00:09:13.880><c> if</c><00:09:14.000><c> you</c>
+
+00:09:14.110 --> 00:09:14.120 align:start position:0%
+one of the provider for example if you
+ 
+
+00:09:14.120 --> 00:09:17.470 align:start position:0%
+one of the provider for example if you
+are<00:09:14.720><c> using</c><00:09:15.720><c> username</c><00:09:16.440><c> password</c><00:09:17.079><c> or</c><00:09:17.240><c> you</c><00:09:17.360><c> can</c>
+
+00:09:17.470 --> 00:09:17.480 align:start position:0%
+are using username password or you can
+ 
+
+00:09:17.480 --> 00:09:18.910 align:start position:0%
+are using username password or you can
+say<00:09:17.720><c> that</c><00:09:17.959><c> session</c>
+
+00:09:18.910 --> 00:09:18.920 align:start position:0%
+say that session
+ 
+
+00:09:18.920 --> 00:09:20.670 align:start position:0%
+say that session
+based
+
+00:09:20.670 --> 00:09:20.680 align:start position:0%
+based
+ 
+
+00:09:20.680 --> 00:09:23.110 align:start position:0%
+based
+session<00:09:21.680><c> or</c><00:09:21.839><c> session</c><00:09:22.200><c> or</c><00:09:22.399><c> you</c><00:09:22.480><c> can</c><00:09:22.640><c> say</c><00:09:22.800><c> that</c>
+
+00:09:23.110 --> 00:09:23.120 align:start position:0%
+session or session or you can say that
+ 
+
+00:09:23.120 --> 00:09:26.069 align:start position:0%
+session or session or you can say that
+stateful<00:09:24.120><c> authentication</c><00:09:24.880><c> method</c><00:09:25.800><c> then</c><00:09:25.959><c> it</c>
+
+00:09:26.069 --> 00:09:26.079 align:start position:0%
+stateful authentication method then it
+ 
+
+00:09:26.079 --> 00:09:28.710 align:start position:0%
+stateful authentication method then it
+will<00:09:26.320><c> pass</c><00:09:26.600><c> the</c><00:09:26.800><c> request</c><00:09:27.320><c> to</c><00:09:28.320><c> Dow</c>
+
+00:09:28.710 --> 00:09:28.720 align:start position:0%
+will pass the request to Dow
+ 
+
+00:09:28.720 --> 00:09:30.870 align:start position:0%
+will pass the request to Dow
+Authentication<00:09:29.440><c> provider</c><00:09:30.200><c> which</c><00:09:30.399><c> takes</c><00:09:30.680><c> care</c>
+
+00:09:30.870 --> 00:09:30.880 align:start position:0%
+Authentication provider which takes care
+ 
+
+00:09:30.880 --> 00:09:33.590 align:start position:0%
+Authentication provider which takes care
+of<00:09:31.040><c> username</c><00:09:31.680><c> password</c><00:09:32.440><c> and</c><00:09:32.680><c> also</c><00:09:33.000><c> manage</c><00:09:33.440><c> the</c>
+
+00:09:33.590 --> 00:09:33.600 align:start position:0%
+of username password and also manage the
+ 
+
+00:09:33.600 --> 00:09:35.110 align:start position:0%
+of username password and also manage the
+user
+
+00:09:35.110 --> 00:09:35.120 align:start position:0%
+user
+ 
+
+00:09:35.120 --> 00:09:37.790 align:start position:0%
+user
+session<00:09:36.120><c> similarly</c><00:09:36.640><c> let's</c><00:09:36.839><c> say</c><00:09:37.000><c> if</c><00:09:37.079><c> you</c><00:09:37.200><c> are</c>
+
+00:09:37.790 --> 00:09:37.800 align:start position:0%
+session similarly let's say if you are
+ 
+
+00:09:37.800 --> 00:09:40.030 align:start position:0%
+session similarly let's say if you are
+uh<00:09:38.000><c> following</c><00:09:38.399><c> stateless</c><00:09:38.959><c> and</c><00:09:39.160><c> processing</c>
+
+00:09:40.030 --> 00:09:40.040 align:start position:0%
+uh following stateless and processing
+ 
+
+00:09:40.040 --> 00:09:42.509 align:start position:0%
+uh following stateless and processing
+JWT<00:09:41.040><c> then</c><00:09:41.399><c> this</c><00:09:41.600><c> provider</c><00:09:41.959><c> manager</c><00:09:42.360><c> will</c>
+
+00:09:42.509 --> 00:09:42.519 align:start position:0%
+JWT then this provider manager will
+ 
+
+00:09:42.519 --> 00:09:45.829 align:start position:0%
+JWT then this provider manager will
+delegate<00:09:43.000><c> the</c><00:09:43.160><c> request</c><00:09:43.560><c> to</c><00:09:44.560><c> which</c><00:09:45.160><c> JWT</c>
+
+00:09:45.829 --> 00:09:45.839 align:start position:0%
+delegate the request to which JWT
+ 
+
+00:09:45.839 --> 00:09:48.069 align:start position:0%
+delegate the request to which JWT
+authentication<00:09:46.560><c> provider</c><00:09:47.560><c> similarly</c><00:09:48.000><c> if</c>
+
+00:09:48.069 --> 00:09:48.079 align:start position:0%
+authentication provider similarly if
+ 
+
+00:09:48.079 --> 00:09:50.670 align:start position:0%
+authentication provider similarly if
+you're<00:09:48.240><c> following</c><00:09:48.560><c> o</c><00:09:48.959><c> it</c><00:09:49.079><c> will</c><00:09:49.240><c> pass</c><00:09:49.440><c> to</c><00:09:49.640><c> O</c><00:09:50.560><c> we</c>
+
+00:09:50.670 --> 00:09:50.680 align:start position:0%
+you're following o it will pass to O we
+ 
+
+00:09:50.680 --> 00:09:52.509 align:start position:0%
+you're following o it will pass to O we
+will<00:09:50.839><c> see</c><00:09:51.040><c> that</c><00:09:51.240><c> later</c><00:09:51.720><c> when</c><00:09:51.880><c> we</c><00:09:52.000><c> will</c><00:09:52.200><c> cover</c>
+
+00:09:52.509 --> 00:09:52.519 align:start position:0%
+will see that later when we will cover
+ 
+
+00:09:52.519 --> 00:09:55.150 align:start position:0%
+will see that later when we will cover
+each<00:09:52.680><c> and</c><00:09:52.880><c> every</c><00:09:53.160><c> authentication</c><00:09:53.839><c> method</c><00:09:54.519><c> but</c>
+
+00:09:55.150 --> 00:09:55.160 align:start position:0%
+each and every authentication method but
+ 
+
+00:09:55.160 --> 00:09:56.910 align:start position:0%
+each and every authentication method but
+at<00:09:55.320><c> least</c><00:09:55.519><c> at</c><00:09:55.720><c> this</c><00:09:55.880><c> point</c><00:09:56.079><c> of</c><00:09:56.240><c> time</c><00:09:56.480><c> we</c><00:09:56.640><c> know</c>
+
+00:09:56.910 --> 00:09:56.920 align:start position:0%
+at least at this point of time we know
+ 
+
+00:09:56.920 --> 00:10:00.470 align:start position:0%
+at least at this point of time we know
+that<00:09:57.279><c> okay</c><00:09:58.240><c> if</c><00:09:58.399><c> the</c><00:09:58.600><c> request</c><00:09:59.040><c> comes</c>
+
+00:10:00.470 --> 00:10:00.480 align:start position:0%
+that okay if the request comes
+ 
+
+00:10:00.480 --> 00:10:02.269 align:start position:0%
+that okay if the request comes
+filter<00:10:00.880><c> chain</c><00:10:01.320><c> one</c><00:10:01.440><c> of</c><00:10:01.560><c> the</c><00:10:01.680><c> filter</c><00:10:02.000><c> chain</c>
+
+00:10:02.269 --> 00:10:02.279 align:start position:0%
+filter chain one of the filter chain
+ 
+
+00:10:02.279 --> 00:10:04.550 align:start position:0%
+filter chain one of the filter chain
+will<00:10:02.440><c> get</c><00:10:02.600><c> invoked</c><00:10:03.440><c> this</c><00:10:03.600><c> will</c><00:10:04.000><c> pass</c><00:10:04.360><c> the</c>
+
+00:10:04.550 --> 00:10:04.560 align:start position:0%
+will get invoked this will pass the
+ 
+
+00:10:04.560 --> 00:10:06.870 align:start position:0%
+will get invoked this will pass the
+request<00:10:04.920><c> to</c><00:10:05.120><c> authentication</c><00:10:05.880><c> manager</c>
+
+00:10:06.870 --> 00:10:06.880 align:start position:0%
+request to authentication manager
+ 
+
+00:10:06.880 --> 00:10:08.829 align:start position:0%
+request to authentication manager
+authentication<00:10:07.560><c> manager</c><00:10:08.040><c> implementation</c><00:10:08.680><c> is</c>
+
+00:10:08.829 --> 00:10:08.839 align:start position:0%
+authentication manager implementation is
+ 
+
+00:10:08.839 --> 00:10:10.630 align:start position:0%
+authentication manager implementation is
+provider<00:10:09.200><c> manager</c><00:10:09.720><c> it's</c><00:10:10.040><c> nothing</c><00:10:10.279><c> but</c><00:10:10.480><c> a</c>
+
+00:10:10.630 --> 00:10:10.640 align:start position:0%
+provider manager it's nothing but a
+ 
+
+00:10:10.640 --> 00:10:12.630 align:start position:0%
+provider manager it's nothing but a
+bridge<00:10:10.959><c> between</c><00:10:11.240><c> filter</c><00:10:12.040><c> and</c><00:10:12.200><c> one</c><00:10:12.360><c> of</c><00:10:12.519><c> the</c>
+
+00:10:12.630 --> 00:10:12.640 align:start position:0%
+bridge between filter and one of the
+ 
+
+00:10:12.640 --> 00:10:15.110 align:start position:0%
+bridge between filter and one of the
+provider<00:10:13.160><c> which</c><00:10:13.600><c> actual</c><00:10:14.079><c> does</c><00:10:14.399><c> the</c><00:10:14.640><c> work</c><00:10:14.959><c> or</c>
+
+00:10:15.110 --> 00:10:15.120 align:start position:0%
+provider which actual does the work or
+ 
+
+00:10:15.120 --> 00:10:17.310 align:start position:0%
+provider which actual does the work or
+actual<00:10:15.480><c> does</c><00:10:15.680><c> the</c>
+
+00:10:17.310 --> 00:10:17.320 align:start position:0%
+actual does the
+ 
+
+00:10:17.320 --> 00:10:20.710 align:start position:0%
+actual does the
+authentication<00:10:18.320><c> okay</c><00:10:19.160><c> for</c><00:10:19.440><c> example</c><00:10:20.000><c> this</c><00:10:20.320><c> Dow</c>
+
+00:10:20.710 --> 00:10:20.720 align:start position:0%
+authentication okay for example this Dow
+ 
+
+00:10:20.720 --> 00:10:22.949 align:start position:0%
+authentication okay for example this Dow
+authentication<00:10:21.399><c> provider</c><00:10:22.399><c> like</c><00:10:22.600><c> let's</c><00:10:22.760><c> say</c>
+
+00:10:22.949 --> 00:10:22.959 align:start position:0%
+authentication provider like let's say
+ 
+
+00:10:22.959 --> 00:10:26.870 align:start position:0%
+authentication provider like let's say
+username<00:10:24.120><c> password</c><00:10:25.120><c> okay</c><00:10:26.079><c> user</c><00:10:26.440><c> provide</c><00:10:26.760><c> the</c>
+
+00:10:26.870 --> 00:10:26.880 align:start position:0%
+username password okay user provide the
+ 
+
+00:10:26.880 --> 00:10:29.550 align:start position:0%
+username password okay user provide the
+username<00:10:27.320><c> password</c><00:10:27.760><c> so</c><00:10:28.120><c> it</c><00:10:28.399><c> actually</c><00:10:28.920><c> does</c>
+
+00:10:29.550 --> 00:10:29.560 align:start position:0%
+username password so it actually does
+ 
+
+00:10:29.560 --> 00:10:32.230 align:start position:0%
+username password so it actually does
+the<00:10:29.760><c> work</c><00:10:30.440><c> so</c><00:10:30.680><c> this</c><00:10:30.959><c> password</c><00:10:31.360><c> is</c><00:10:31.880><c> you</c><00:10:32.000><c> know</c>
+
+00:10:32.230 --> 00:10:32.240 align:start position:0%
+the work so this password is you know
+ 
+
+00:10:32.240 --> 00:10:33.910 align:start position:0%
+the work so this password is you know
+that<00:10:32.440><c> the</c><00:10:32.560><c> spring</c><00:10:33.000><c> always</c><00:10:33.440><c> store</c><00:10:33.760><c> the</c>
+
+00:10:33.910 --> 00:10:33.920 align:start position:0%
+that the spring always store the
+ 
+
+00:10:33.920 --> 00:10:35.870 align:start position:0%
+that the spring always store the
+password<00:10:34.440><c> in</c><00:10:34.839><c> hash</c>
+
+00:10:35.870 --> 00:10:35.880 align:start position:0%
+password in hash
+ 
+
+00:10:35.880 --> 00:10:38.870 align:start position:0%
+password in hash
+form<00:10:36.880><c> okay</c><00:10:37.440><c> so</c><00:10:37.680><c> now</c><00:10:38.160><c> if</c><00:10:38.360><c> whatever</c><00:10:38.720><c> the</c>
+
+00:10:38.870 --> 00:10:38.880 align:start position:0%
+form okay so now if whatever the
+ 
+
+00:10:38.880 --> 00:10:42.230 align:start position:0%
+form okay so now if whatever the
+password<00:10:39.240><c> is</c><00:10:39.399><c> coming</c><00:10:39.880><c> from</c><00:10:40.839><c> user</c><00:10:41.680><c> it</c><00:10:41.880><c> has</c><00:10:42.079><c> to</c>
+
+00:10:42.230 --> 00:10:42.240 align:start position:0%
+password is coming from user it has to
+ 
+
+00:10:42.240 --> 00:10:44.670 align:start position:0%
+password is coming from user it has to
+be<00:10:42.399><c> encoded</c><00:10:43.000><c> so</c><00:10:43.240><c> it</c><00:10:43.480><c> has</c><00:10:43.839><c> proper</c><00:10:44.160><c> integration</c>
+
+00:10:44.670 --> 00:10:44.680 align:start position:0%
+be encoded so it has proper integration
+ 
+
+00:10:44.680 --> 00:10:45.990 align:start position:0%
+be encoded so it has proper integration
+with<00:10:44.880><c> password</c>
+
+00:10:45.990 --> 00:10:46.000 align:start position:0%
+with password
+ 
+
+00:10:46.000 --> 00:10:50.470 align:start position:0%
+with password
+encoder<00:10:47.000><c> so</c><00:10:47.720><c> raw</c><00:10:48.120><c> password</c><00:10:48.560><c> is</c><00:10:49.160><c> Hash</c><00:10:49.959><c> during</c>
+
+00:10:50.470 --> 00:10:50.480 align:start position:0%
+encoder so raw password is Hash during
+ 
+
+00:10:50.480 --> 00:10:52.990 align:start position:0%
+encoder so raw password is Hash during
+registration<00:10:51.480><c> and</c><00:10:51.639><c> during</c><00:10:51.959><c> validation</c><00:10:52.680><c> raw</c>
+
+00:10:52.990 --> 00:10:53.000 align:start position:0%
+registration and during validation raw
+ 
+
+00:10:53.000 --> 00:10:56.150 align:start position:0%
+registration and during validation raw
+password<00:10:53.440><c> is</c><00:10:53.720><c> hash</c><00:10:54.000><c> and</c><00:10:54.200><c> then</c><00:10:54.360><c> only</c><00:10:55.160><c> compared</c>
+
+00:10:56.150 --> 00:10:56.160 align:start position:0%
+password is hash and then only compared
+ 
+
+00:10:56.160 --> 00:10:58.590 align:start position:0%
+password is hash and then only compared
+so<00:10:56.600><c> this</c><00:10:56.760><c> only</c><00:10:57.040><c> takes</c><00:10:57.320><c> care</c><00:10:57.519><c> of</c><00:10:57.760><c> all</c><00:10:57.959><c> the</c><00:10:58.160><c> logic</c>
+
+00:10:58.590 --> 00:10:58.600 align:start position:0%
+so this only takes care of all the logic
+ 
+
+00:10:58.600 --> 00:11:01.710 align:start position:0%
+so this only takes care of all the logic
+now<00:10:59.320><c> so</c><00:10:59.560><c> it</c><00:10:59.760><c> first</c><00:11:00.120><c> do</c><00:11:00.480><c> the</c><00:11:00.800><c> hashing</c><00:11:01.240><c> of</c><00:11:01.440><c> the</c>
+
+00:11:01.710 --> 00:11:01.720 align:start position:0%
+now so it first do the hashing of the
+ 
+
+00:11:01.720 --> 00:11:05.829 align:start position:0%
+now so it first do the hashing of the
+password<00:11:02.720><c> then</c><00:11:02.920><c> it</c><00:11:03.079><c> will</c><00:11:04.000><c> fetch</c><00:11:04.639><c> existing</c><00:11:05.639><c> so</c>
+
+00:11:05.829 --> 00:11:05.839 align:start position:0%
+password then it will fetch existing so
+ 
+
+00:11:05.839 --> 00:11:08.269 align:start position:0%
+password then it will fetch existing so
+you<00:11:06.000><c> are</c><00:11:06.240><c> passing</c><00:11:06.560><c> currently</c><00:11:07.000><c> now</c><00:11:07.320><c> a</c><00:11:08.040><c> my</c>
+
+00:11:08.269 --> 00:11:08.279 align:start position:0%
+you are passing currently now a my
+ 
+
+00:11:08.279 --> 00:11:09.629 align:start position:0%
+you are passing currently now a my
+password<00:11:08.639><c> is</c>
+
+00:11:09.629 --> 00:11:09.639 align:start position:0%
+password is
+ 
+
+00:11:09.639 --> 00:11:12.310 align:start position:0%
+password is
+XYZ<00:11:10.639><c> but</c><00:11:10.880><c> previously</c><00:11:11.399><c> when</c><00:11:11.560><c> you</c><00:11:11.760><c> created</c><00:11:12.120><c> it</c>
+
+00:11:12.310 --> 00:11:12.320 align:start position:0%
+XYZ but previously when you created it
+ 
+
+00:11:12.320 --> 00:11:16.470 align:start position:0%
+XYZ but previously when you created it
+you<00:11:12.480><c> created</c><00:11:12.959><c> XY</c><00:11:13.760><c> let's</c><00:11:13.920><c> say</c><00:11:14.240><c> capital</c><00:11:14.959><c> G</c><00:11:15.959><c> so</c><00:11:16.279><c> it</c>
+
+00:11:16.470 --> 00:11:16.480 align:start position:0%
+you created XY let's say capital G so it
+ 
+
+00:11:16.480 --> 00:11:18.750 align:start position:0%
+you created XY let's say capital G so it
+has<00:11:16.600><c> to</c><00:11:16.800><c> fed</c><00:11:17.240><c> the</c><00:11:17.480><c> existing</c><00:11:17.880><c> details</c><00:11:18.360><c> also</c>
+
+00:11:18.750 --> 00:11:18.760 align:start position:0%
+has to fed the existing details also
+ 
+
+00:11:18.760 --> 00:11:20.670 align:start position:0%
+has to fed the existing details also
+right<00:11:19.160><c> so</c><00:11:19.399><c> that</c><00:11:19.560><c> will</c><00:11:19.760><c> take</c><00:11:19.959><c> care</c><00:11:20.120><c> of</c><00:11:20.240><c> it</c><00:11:20.399><c> so</c><00:11:20.519><c> it</c>
+
+00:11:20.670 --> 00:11:20.680 align:start position:0%
+right so that will take care of it so it
+ 
+
+00:11:20.680 --> 00:11:23.030 align:start position:0%
+right so that will take care of it so it
+also<00:11:20.959><c> has</c><00:11:21.200><c> integration</c><00:11:21.760><c> with</c><00:11:22.000><c> user</c><00:11:22.360><c> details</c>
+
+00:11:23.030 --> 00:11:23.040 align:start position:0%
+also has integration with user details
+ 
+
+00:11:23.040 --> 00:11:25.670 align:start position:0%
+also has integration with user details
+service<00:11:24.040><c> again</c><00:11:24.279><c> it's</c><00:11:24.480><c> an</c>
+
+00:11:25.670 --> 00:11:25.680 align:start position:0%
+service again it's an
+ 
+
+00:11:25.680 --> 00:11:28.389 align:start position:0%
+service again it's an
+interface<00:11:26.680><c> user</c><00:11:27.000><c> Detail</c><00:11:27.399><c> Service</c><00:11:27.920><c> has</c><00:11:28.160><c> two</c>
+
+00:11:28.389 --> 00:11:28.399 align:start position:0%
+interface user Detail Service has two
+ 
+
+00:11:28.399 --> 00:11:31.550 align:start position:0%
+interface user Detail Service has two
+flavor<00:11:28.839><c> in</c><00:11:29.320><c> memory</c><00:11:29.720><c> and</c><00:11:29.959><c> jdbc</c><00:11:30.600><c> user</c><00:11:30.880><c> detail</c>
+
+00:11:31.550 --> 00:11:31.560 align:start position:0%
+flavor in memory and jdbc user detail
+ 
+
+00:11:31.560 --> 00:11:35.190 align:start position:0%
+flavor in memory and jdbc user detail
+manager<00:11:32.560><c> in</c><00:11:32.800><c> memory</c><00:11:33.680><c> means</c><00:11:34.680><c> all</c><00:11:35.000><c> this</c>
+
+00:11:35.190 --> 00:11:35.200 align:start position:0%
+manager in memory means all this
+ 
+
+00:11:35.200 --> 00:11:38.990 align:start position:0%
+manager in memory means all this
+username<00:11:35.839><c> password</c><00:11:36.760><c> is</c><00:11:37.279><c> stored</c><00:11:37.680><c> in</c>
+
+00:11:38.990 --> 00:11:39.000 align:start position:0%
+username password is stored in
+ 
+
+00:11:39.000 --> 00:11:41.110 align:start position:0%
+username password is stored in
+memory<00:11:40.000><c> okay</c><00:11:40.279><c> so</c><00:11:40.480><c> it's</c><00:11:40.639><c> you</c><00:11:40.720><c> can</c><00:11:40.839><c> say</c><00:11:41.000><c> that</c>
+
+00:11:41.110 --> 00:11:41.120 align:start position:0%
+memory okay so it's you can say that
+ 
+
+00:11:41.120 --> 00:11:42.949 align:start position:0%
+memory okay so it's you can say that
+it's<00:11:41.200><c> a</c>
+
+00:11:42.949 --> 00:11:42.959 align:start position:0%
+it's a
+ 
+
+00:11:42.959 --> 00:11:46.990 align:start position:0%
+it's a
+temporary<00:11:43.959><c> but</c><00:11:44.279><c> if</c><00:11:44.399><c> you</c><00:11:44.720><c> want</c><00:11:44.920><c> to</c><00:11:45.880><c> store</c><00:11:46.279><c> it</c><00:11:46.839><c> in</c>
+
+00:11:46.990 --> 00:11:47.000 align:start position:0%
+temporary but if you want to store it in
+ 
+
+00:11:47.000 --> 00:11:50.269 align:start position:0%
+temporary but if you want to store it in
+the<00:11:47.160><c> DB</c><00:11:48.040><c> you</c><00:11:48.240><c> can</c><00:11:48.519><c> use</c><00:11:48.959><c> jdbc</c><00:11:49.680><c> user</c><00:11:49.959><c> detail</c>
+
+00:11:50.269 --> 00:11:50.279 align:start position:0%
+the DB you can use jdbc user detail
+ 
+
+00:11:50.279 --> 00:11:52.030 align:start position:0%
+the DB you can use jdbc user detail
+manager<00:11:50.680><c> where</c><00:11:50.920><c> the</c><00:11:51.079><c> username</c><00:11:51.560><c> password</c><00:11:51.880><c> is</c>
+
+00:11:52.030 --> 00:11:52.040 align:start position:0%
+manager where the username password is
+ 
+
+00:11:52.040 --> 00:11:56.310 align:start position:0%
+manager where the username password is
+stored<00:11:52.320><c> in</c><00:11:52.399><c> the</c><00:11:52.920><c> DB</c><00:11:53.920><c> so</c><00:11:54.399><c> it</c><00:11:54.519><c> will</c><00:11:55.519><c> load</c><00:11:55.880><c> it</c><00:11:56.160><c> and</c>
+
+00:11:56.310 --> 00:11:56.320 align:start position:0%
+stored in the DB so it will load it and
+ 
+
+00:11:56.320 --> 00:11:58.389 align:start position:0%
+stored in the DB so it will load it and
+it<00:11:56.440><c> will</c><00:11:56.600><c> do</c><00:11:56.800><c> comparison</c><00:11:57.480><c> whatever</c><00:11:57.880><c> user</c><00:11:58.200><c> is</c>
+
+00:11:58.389 --> 00:11:58.399 align:start position:0%
+it will do comparison whatever user is
+ 
+
+00:11:58.399 --> 00:12:01.230 align:start position:0%
+it will do comparison whatever user is
+now<00:11:58.720><c> sending</c><00:11:59.399><c> us</c><00:12:00.000><c> and</c><00:12:00.240><c> whatever</c><00:12:00.639><c> we</c><00:12:00.800><c> have</c>
+
+00:12:01.230 --> 00:12:01.240 align:start position:0%
+now sending us and whatever we have
+ 
+
+00:12:01.240 --> 00:12:03.870 align:start position:0%
+now sending us and whatever we have
+received<00:12:01.639><c> earlier</c><00:12:02.560><c> are</c><00:12:02.760><c> they</c><00:12:02.920><c> matching</c><00:12:03.279><c> or</c>
+
+00:12:03.870 --> 00:12:03.880 align:start position:0%
+received earlier are they matching or
+ 
+
+00:12:03.880 --> 00:12:08.710 align:start position:0%
+received earlier are they matching or
+not<00:12:04.880><c> based</c><00:12:05.200><c> on</c><00:12:05.560><c> that</c><00:12:06.360><c> it</c><00:12:06.480><c> will</c><00:12:06.800><c> again</c><00:12:07.320><c> return</c>
+
+00:12:08.710 --> 00:12:08.720 align:start position:0%
+not based on that it will again return
+ 
+
+00:12:08.720 --> 00:12:11.910 align:start position:0%
+not based on that it will again return
+back<00:12:09.720><c> with</c><00:12:09.920><c> the</c><00:12:10.160><c> authenticate</c><00:12:10.959><c> object</c><00:12:11.320><c> only</c>
+
+00:12:11.910 --> 00:12:11.920 align:start position:0%
+back with the authenticate object only
+ 
+
+00:12:11.920 --> 00:12:13.949 align:start position:0%
+back with the authenticate object only
+but<00:12:12.160><c> now</c><00:12:12.399><c> it</c><00:12:12.519><c> will</c><00:12:12.680><c> be</c><00:12:12.880><c> complete</c>
+
+00:12:13.949 --> 00:12:13.959 align:start position:0%
+but now it will be complete
+ 
+
+00:12:13.959 --> 00:12:16.150 align:start position:0%
+but now it will be complete
+authenticate<00:12:14.959><c> true</c>
+
+00:12:16.150 --> 00:12:16.160 align:start position:0%
+authenticate true
+ 
+
+00:12:16.160 --> 00:12:19.990 align:start position:0%
+authenticate true
+false<00:12:17.160><c> okay</c><00:12:18.160><c> and</c><00:12:18.360><c> ultimately</c><00:12:19.000><c> authentication</c>
+
+00:12:19.990 --> 00:12:20.000 align:start position:0%
+false okay and ultimately authentication
+ 
+
+00:12:20.000 --> 00:12:23.389 align:start position:0%
+false okay and ultimately authentication
+manager<00:12:21.000><c> return</c><00:12:21.360><c> back</c><00:12:21.560><c> to</c><00:12:21.760><c> the</c><00:12:22.279><c> filter</c><00:12:23.279><c> with</c>
+
+00:12:23.389 --> 00:12:23.399 align:start position:0%
+manager return back to the filter with
+ 
+
+00:12:23.399 --> 00:12:25.189 align:start position:0%
+manager return back to the filter with
+the<00:12:23.519><c> fully</c><00:12:23.839><c> authenticated</c><00:12:24.440><c> response</c><00:12:24.959><c> whether</c>
+
+00:12:25.189 --> 00:12:25.199 align:start position:0%
+the fully authenticated response whether
+ 
+
+00:12:25.199 --> 00:12:28.629 align:start position:0%
+the fully authenticated response whether
+it<00:12:25.320><c> is</c><00:12:25.560><c> authenticated</c><00:12:26.360><c> yes</c><00:12:26.519><c> or</c><00:12:27.199><c> no</c><00:12:28.199><c> and</c><00:12:28.440><c> this</c>
+
+00:12:28.629 --> 00:12:28.639 align:start position:0%
+it is authenticated yes or no and this
+ 
+
+00:12:28.639 --> 00:12:29.870 align:start position:0%
+it is authenticated yes or no and this
+filter
+
+00:12:29.870 --> 00:12:29.880 align:start position:0%
+filter
+ 
+
+00:12:29.880 --> 00:12:33.550 align:start position:0%
+filter
+if<00:12:30.079><c> it</c><00:12:30.600><c> authenticated</c><00:12:31.600><c> it</c><00:12:31.720><c> will</c><00:12:32.120><c> store</c><00:12:32.760><c> the</c>
+
+00:12:33.550 --> 00:12:33.560 align:start position:0%
+if it authenticated it will store the
+ 
+
+00:12:33.560 --> 00:12:36.350 align:start position:0%
+if it authenticated it will store the
+object<00:12:34.000><c> into</c><00:12:34.440><c> security</c>
+
+00:12:36.350 --> 00:12:36.360 align:start position:0%
+object into security
+ 
+
+00:12:36.360 --> 00:12:39.550 align:start position:0%
+object into security
+context<00:12:37.360><c> if</c><00:12:37.959><c> authentication</c><00:12:38.680><c> is</c><00:12:38.880><c> false</c><00:12:39.399><c> it</c>
+
+00:12:39.550 --> 00:12:39.560 align:start position:0%
+context if authentication is false it
+ 
+
+00:12:39.560 --> 00:12:45.150 align:start position:0%
+context if authentication is false it
+will<00:12:39.839><c> throw</c><00:12:40.399><c> bad</c>
+
+00:12:45.150 --> 00:12:45.160 align:start position:0%
+ 
+ 
+
+00:12:45.160 --> 00:12:47.670 align:start position:0%
+ 
+credentials<00:12:46.160><c> but</c><00:12:46.760><c> if</c><00:12:46.959><c> it</c><00:12:47.120><c> is</c><00:12:47.320><c> fully</c>
+
+00:12:47.670 --> 00:12:47.680 align:start position:0%
+credentials but if it is fully
+ 
+
+00:12:47.680 --> 00:12:50.629 align:start position:0%
+credentials but if it is fully
+authenticated<00:12:48.680><c> like</c><00:12:49.120><c> yes</c><00:12:49.760><c> it</c><00:12:50.000><c> this</c><00:12:50.199><c> user</c><00:12:50.480><c> is</c>
+
+00:12:50.629 --> 00:12:50.639 align:start position:0%
+authenticated like yes it this user is
+ 
+
+00:12:50.639 --> 00:12:53.389 align:start position:0%
+authenticated like yes it this user is
+authenticated<00:12:51.720><c> true</c><00:12:52.720><c> this</c><00:12:52.880><c> one</c><00:12:53.160><c> of</c><00:12:53.279><c> the</c>
+
+00:12:53.389 --> 00:12:53.399 align:start position:0%
+authenticated true this one of the
+ 
+
+00:12:53.399 --> 00:12:56.550 align:start position:0%
+authenticated true this one of the
+filter<00:12:53.920><c> which</c><00:12:54.399><c> uh</c><00:12:55.079><c> which</c><00:12:55.240><c> was</c><00:12:55.440><c> invoked</c><00:12:56.160><c> it</c>
+
+00:12:56.550 --> 00:12:56.560 align:start position:0%
+filter which uh which was invoked it
+ 
+
+00:12:56.560 --> 00:12:59.550 align:start position:0%
+filter which uh which was invoked it
+stores<00:12:57.279><c> that</c><00:12:57.480><c> authenticate</c><00:12:58.160><c> object</c><00:12:58.519><c> into</c>
+
+00:12:59.550 --> 00:12:59.560 align:start position:0%
+stores that authenticate object into
+ 
+
+00:12:59.560 --> 00:13:01.590 align:start position:0%
+stores that authenticate object into
+security
+
+00:13:01.590 --> 00:13:01.600 align:start position:0%
+security
+ 
+
+00:13:01.600 --> 00:13:03.389 align:start position:0%
+security
+context
+
+00:13:03.389 --> 00:13:03.399 align:start position:0%
+context
+ 
+
+00:13:03.399 --> 00:13:07.670 align:start position:0%
+context
+now<00:13:04.399><c> this</c><00:13:04.639><c> security</c><00:13:05.560><c> context</c><00:13:06.560><c> will</c><00:13:06.880><c> get</c><00:13:07.320><c> added</c>
+
+00:13:07.670 --> 00:13:07.680 align:start position:0%
+now this security context will get added
+ 
+
+00:13:07.680 --> 00:13:10.269 align:start position:0%
+now this security context will get added
+into<00:13:07.959><c> your</c><00:13:08.519><c> request</c><00:13:09.519><c> goes</c><00:13:09.800><c> into</c><00:13:10.079><c> the</c>
+
+00:13:10.269 --> 00:13:10.279 align:start position:0%
+into your request goes into the
+ 
+
+00:13:10.279 --> 00:13:11.949 align:start position:0%
+into your request goes into the
+dispatcher
+
+00:13:11.949 --> 00:13:11.959 align:start position:0%
+dispatcher
+ 
+
+00:13:11.959 --> 00:13:14.189 align:start position:0%
+dispatcher
+subet<00:13:12.959><c> if</c><00:13:13.079><c> you</c><00:13:13.199><c> have</c><00:13:13.360><c> the</c><00:13:13.480><c> Interceptor</c><00:13:14.120><c> it</c>
+
+00:13:14.189 --> 00:13:14.199 align:start position:0%
+subet if you have the Interceptor it
+ 
+
+00:13:14.199 --> 00:13:16.350 align:start position:0%
+subet if you have the Interceptor it
+will<00:13:14.360><c> go</c><00:13:14.560><c> through</c><00:13:14.760><c> the</c><00:13:15.120><c> Interceptor</c><00:13:16.120><c> and</c>
+
+00:13:16.350 --> 00:13:16.360 align:start position:0%
+will go through the Interceptor and
+ 
+
+00:13:16.360 --> 00:13:17.870 align:start position:0%
+will go through the Interceptor and
+ultimately<00:13:16.959><c> it</c><00:13:17.040><c> will</c><00:13:17.240><c> reach</c><00:13:17.560><c> to</c><00:13:17.720><c> the</c>
+
+00:13:17.870 --> 00:13:17.880 align:start position:0%
+ultimately it will reach to the
+ 
+
+00:13:17.880 --> 00:13:21.870 align:start position:0%
+ultimately it will reach to the
+controller<00:13:18.360><c> your</c><00:13:18.959><c> API</c><00:13:20.079><c> so</c><00:13:21.079><c> at</c><00:13:21.279><c> this</c><00:13:21.480><c> point</c><00:13:21.680><c> of</c>
+
+00:13:21.870 --> 00:13:21.880 align:start position:0%
+controller your API so at this point of
+ 
+
+00:13:21.880 --> 00:13:25.590 align:start position:0%
+controller your API so at this point of
+time<00:13:22.079><c> your</c><00:13:22.360><c> API</c><00:13:22.880><c> also</c><00:13:23.320><c> has</c><00:13:23.600><c> this</c>
+
+00:13:25.590 --> 00:13:25.600 align:start position:0%
+time your API also has this
+ 
+
+00:13:25.600 --> 00:13:29.870 align:start position:0%
+time your API also has this
+security<00:13:26.600><c> context</c>
+
+00:13:29.870 --> 00:13:29.880 align:start position:0%
+ 
+ 
+
+00:13:29.880 --> 00:13:32.590 align:start position:0%
+ 
+one<00:13:30.079><c> more</c><00:13:30.320><c> thing</c><00:13:30.680><c> I</c><00:13:30.800><c> just</c><00:13:31.000><c> want</c><00:13:31.240><c> to</c><00:13:31.639><c> highlight</c>
+
+00:13:32.590 --> 00:13:32.600 align:start position:0%
+one more thing I just want to highlight
+ 
+
+00:13:32.600 --> 00:13:35.230 align:start position:0%
+one more thing I just want to highlight
+again<00:13:33.600><c> since</c><00:13:33.920><c> we</c><00:13:34.120><c> have</c><00:13:34.480><c> multiple</c>
+
+00:13:35.230 --> 00:13:35.240 align:start position:0%
+again since we have multiple
+ 
+
+00:13:35.240 --> 00:13:38.670 align:start position:0%
+again since we have multiple
+authentication<00:13:35.959><c> method</c><00:13:36.560><c> like</c><00:13:36.839><c> form</c><00:13:37.680><c> based</c>
+
+00:13:38.670 --> 00:13:38.680 align:start position:0%
+authentication method like form based
+ 
+
+00:13:38.680 --> 00:13:40.310 align:start position:0%
+authentication method like form based
+like<00:13:39.160><c> basic</c>
+
+00:13:40.310 --> 00:13:40.320 align:start position:0%
+like basic
+ 
+
+00:13:40.320 --> 00:13:42.310 align:start position:0%
+like basic
+authentication
+
+00:13:42.310 --> 00:13:42.320 align:start position:0%
+authentication
+ 
+
+00:13:42.320 --> 00:13:44.310 align:start position:0%
+authentication
+JWT
+
+00:13:44.310 --> 00:13:44.320 align:start position:0%
+JWT
+ 
+
+00:13:44.320 --> 00:13:47.430 align:start position:0%
+JWT
+oo<00:13:45.320><c> considered</c><00:13:46.000><c> this</c><00:13:46.320><c> architecture</c><00:13:47.079><c> as</c><00:13:47.199><c> a</c>
+
+00:13:47.430 --> 00:13:47.440 align:start position:0%
+oo considered this architecture as a
+ 
+
+00:13:47.440 --> 00:13:48.670 align:start position:0%
+oo considered this architecture as a
+template
+
+00:13:48.670 --> 00:13:48.680 align:start position:0%
+template
+ 
+
+00:13:48.680 --> 00:13:51.710 align:start position:0%
+template
+today<00:13:49.680><c> okay</c><00:13:49.959><c> because</c><00:13:50.279><c> for</c><00:13:50.839><c> each</c>
+
+00:13:51.710 --> 00:13:51.720 align:start position:0%
+today okay because for each
+ 
+
+00:13:51.720 --> 00:13:54.629 align:start position:0%
+today okay because for each
+authentication<00:13:52.519><c> method</c><00:13:53.399><c> we</c><00:13:53.519><c> will</c>
+
+00:13:54.629 --> 00:13:54.639 align:start position:0%
+authentication method we will
+ 
+
+00:13:54.639 --> 00:13:57.749 align:start position:0%
+authentication method we will
+again<00:13:55.639><c> draw</c><00:13:56.120><c> this</c><00:13:56.399><c> architecture</c><00:13:57.199><c> but</c><00:13:57.440><c> for</c>
+
+00:13:57.749 --> 00:13:57.759 align:start position:0%
+again draw this architecture but for
+ 
+
+00:13:57.759 --> 00:14:00.230 align:start position:0%
+again draw this architecture but for
+each<00:13:58.000><c> flow</c><00:13:58.399><c> there</c><00:13:58.560><c> would</c><00:13:58.759><c> be</c><00:13:59.240><c> some</c><00:13:59.600><c> minor</c>
+
+00:14:00.230 --> 00:14:00.240 align:start position:0%
+each flow there would be some minor
+ 
+
+00:14:00.240 --> 00:14:04.350 align:start position:0%
+each flow there would be some minor
+changes<00:14:01.240><c> okay</c><00:14:02.120><c> just</c><00:14:02.399><c> for</c><00:14:02.759><c> example</c><00:14:03.759><c> for</c><00:14:04.040><c> form</c>
+
+00:14:04.350 --> 00:14:04.360 align:start position:0%
+changes okay just for example for form
+ 
+
+00:14:04.360 --> 00:14:05.470 align:start position:0%
+changes okay just for example for form
+based
+
+00:14:05.470 --> 00:14:05.480 align:start position:0%
+based
+ 
+
+00:14:05.480 --> 00:14:07.189 align:start position:0%
+based
+login
+
+00:14:07.189 --> 00:14:07.199 align:start position:0%
+login
+ 
+
+00:14:07.199 --> 00:14:12.670 align:start position:0%
+login
+okay<00:14:08.199><c> you</c><00:14:08.480><c> are</c><00:14:08.959><c> doing</c><00:14:09.480><c> certain</c><00:14:10.000><c> extra</c><00:14:10.519><c> steps</c>
+
+00:14:12.670 --> 00:14:12.680 align:start position:0%
+okay you are doing certain extra steps
+ 
+
+00:14:12.680 --> 00:14:14.670 align:start position:0%
+okay you are doing certain extra steps
+here<00:14:13.680><c> but</c><00:14:13.880><c> let's</c><00:14:14.040><c> say</c><00:14:14.199><c> for</c><00:14:14.399><c> basic</c>
+
+00:14:14.670 --> 00:14:14.680 align:start position:0%
+here but let's say for basic
+ 
+
+00:14:14.680 --> 00:14:16.629 align:start position:0%
+here but let's say for basic
+authentication<00:14:15.480><c> you</c><00:14:15.639><c> are</c><00:14:15.880><c> totally</c><00:14:16.240><c> missing</c>
+
+00:14:16.629 --> 00:14:16.639 align:start position:0%
+authentication you are totally missing
+ 
+
+00:14:16.639 --> 00:14:18.590 align:start position:0%
+authentication you are totally missing
+this<00:14:16.920><c> step</c><00:14:17.199><c> you</c><00:14:17.320><c> don't</c><00:14:17.519><c> need</c><00:14:17.800><c> this</c><00:14:18.079><c> step</c><00:14:18.440><c> you</c>
+
+00:14:18.590 --> 00:14:18.600 align:start position:0%
+this step you don't need this step you
+ 
+
+00:14:18.600 --> 00:14:21.150 align:start position:0%
+this step you don't need this step you
+don't<00:14:18.800><c> need</c><00:14:19.000><c> to</c><00:14:19.160><c> put</c><00:14:19.360><c> it</c><00:14:20.120><c> so</c><00:14:20.360><c> I'm</c><00:14:20.639><c> just</c><00:14:20.880><c> giving</c>
+
+00:14:21.150 --> 00:14:21.160 align:start position:0%
+don't need to put it so I'm just giving
+ 
+
+00:14:21.160 --> 00:14:24.470 align:start position:0%
+don't need to put it so I'm just giving
+you<00:14:21.560><c> one</c><00:14:22.320><c> example</c><00:14:23.199><c> okay</c><00:14:23.440><c> we</c><00:14:23.560><c> will</c><00:14:24.199><c> I</c><00:14:24.279><c> don't</c>
+
+00:14:24.470 --> 00:14:24.480 align:start position:0%
+you one example okay we will I don't
+ 
+
+00:14:24.480 --> 00:14:26.269 align:start position:0%
+you one example okay we will I don't
+want<00:14:24.639><c> to</c><00:14:24.839><c> jump</c><00:14:25.079><c> into</c><00:14:25.440><c> each</c><00:14:25.680><c> authentication</c>
+
+00:14:26.269 --> 00:14:26.279 align:start position:0%
+want to jump into each authentication
+ 
+
+00:14:26.279 --> 00:14:27.790 align:start position:0%
+want to jump into each authentication
+method<00:14:26.600><c> what</c><00:14:26.759><c> we</c><00:14:26.839><c> are</c><00:14:26.959><c> doing</c><00:14:27.240><c> what</c><00:14:27.360><c> we</c><00:14:27.440><c> are</c><00:14:27.600><c> not</c>
+
+00:14:27.790 --> 00:14:27.800 align:start position:0%
+method what we are doing what we are not
+ 
+
+00:14:27.800 --> 00:14:29.949 align:start position:0%
+method what we are doing what we are not
+doing<00:14:28.800><c> but</c><00:14:29.120><c> I'm</c><00:14:29.279><c> just</c><00:14:29.399><c> giving</c><00:14:29.600><c> you</c><00:14:29.759><c> one</c>
+
+00:14:29.949 --> 00:14:29.959 align:start position:0%
+doing but I'm just giving you one
+ 
+
+00:14:29.959 --> 00:14:32.110 align:start position:0%
+doing but I'm just giving you one
+example<00:14:30.360><c> that</c><00:14:30.519><c> maybe</c><00:14:30.920><c> depending</c><00:14:31.399><c> upon</c><00:14:31.800><c> each</c>
+
+00:14:32.110 --> 00:14:32.120 align:start position:0%
+example that maybe depending upon each
+ 
+
+00:14:32.120 --> 00:14:34.990 align:start position:0%
+example that maybe depending upon each
+authentication<00:14:32.920><c> method</c><00:14:33.839><c> we</c><00:14:34.079><c> might</c><00:14:34.360><c> be</c><00:14:34.600><c> doing</c>
+
+00:14:34.990 --> 00:14:35.000 align:start position:0%
+authentication method we might be doing
+ 
+
+00:14:35.000 --> 00:14:37.990 align:start position:0%
+authentication method we might be doing
+one<00:14:35.199><c> of</c><00:14:35.360><c> the</c><00:14:35.560><c> step</c><00:14:35.959><c> or</c><00:14:36.120><c> we</c><00:14:36.279><c> might</c><00:14:36.560><c> be</c><00:14:37.120><c> skipping</c>
+
+00:14:37.990 --> 00:14:38.000 align:start position:0%
+one of the step or we might be skipping
+ 
+
+00:14:38.000 --> 00:14:41.470 align:start position:0%
+one of the step or we might be skipping
+or<00:14:38.240><c> doing</c><00:14:39.120><c> extra</c><00:14:40.120><c> in</c><00:14:40.480><c> this</c><00:14:40.880><c> architecture</c>
+
+00:14:41.470 --> 00:14:41.480 align:start position:0%
+or doing extra in this architecture
+ 
+
+00:14:41.480 --> 00:14:44.269 align:start position:0%
+or doing extra in this architecture
+itself<00:14:42.440><c> so</c><00:14:42.720><c> consider</c><00:14:43.320><c> this</c><00:14:43.560><c> architecture</c><00:14:44.160><c> as</c>
+
+00:14:44.269 --> 00:14:44.279 align:start position:0%
+itself so consider this architecture as
+ 
+
+00:14:44.279 --> 00:14:47.150 align:start position:0%
+itself so consider this architecture as
+a<00:14:44.639><c> base</c><00:14:45.639><c> and</c><00:14:45.880><c> for</c><00:14:46.199><c> each</c><00:14:46.440><c> authentication</c>
+
+00:14:47.150 --> 00:14:47.160 align:start position:0%
+a base and for each authentication
+ 
+
+00:14:47.160 --> 00:14:50.269 align:start position:0%
+a base and for each authentication
+method<00:14:47.680><c> we</c><00:14:47.800><c> will</c><00:14:48.079><c> run</c><00:14:48.880><c> through</c><00:14:49.279><c> this</c><00:14:49.680><c> base</c>
+
+00:14:50.269 --> 00:14:50.279 align:start position:0%
+method we will run through this base
+ 
+
+00:14:50.279 --> 00:14:52.550 align:start position:0%
+method we will run through this base
+template<00:14:50.720><c> or</c><00:14:50.920><c> architecture</c><00:14:51.519><c> itself</c><00:14:52.240><c> okay</c>
+
+00:14:52.550 --> 00:14:52.560 align:start position:0%
+template or architecture itself okay
+ 
+
+00:14:52.560 --> 00:14:55.110 align:start position:0%
+template or architecture itself okay
+which<00:14:52.759><c> filter</c><00:14:53.279><c> get</c><00:14:53.560><c> invoked</c><00:14:54.519><c> which</c><00:14:54.720><c> filter</c>
+
+00:14:55.110 --> 00:14:55.120 align:start position:0%
+which filter get invoked which filter
+ 
+
+00:14:55.120 --> 00:14:58.230 align:start position:0%
+which filter get invoked which filter
+get<00:14:55.399><c> es</c><00:14:55.560><c> skipped</c><00:14:56.320><c> why</c><00:14:57.320><c> and</c><00:14:57.519><c> which</c><00:14:57.680><c> filter</c><00:14:58.000><c> got</c>
+
+00:14:58.230 --> 00:14:58.240 align:start position:0%
+get es skipped why and which filter got
+ 
+
+00:14:58.240 --> 00:15:01.509 align:start position:0%
+get es skipped why and which filter got
+invoked<00:14:59.160><c> from</c><00:14:59.440><c> this</c><00:14:59.600><c> filter</c><00:15:00.160><c> what</c><00:15:00.639><c> exactly</c>
+
+00:15:01.509 --> 00:15:01.519 align:start position:0%
+invoked from this filter what exactly
+ 
+
+00:15:01.519 --> 00:15:04.069 align:start position:0%
+invoked from this filter what exactly
+happened<00:15:01.880><c> in</c><00:15:02.040><c> the</c><00:15:02.199><c> authenticate</c><00:15:03.079><c> object</c>
+
+00:15:04.069 --> 00:15:04.079 align:start position:0%
+happened in the authenticate object
+ 
+
+00:15:04.079 --> 00:15:06.230 align:start position:0%
+happened in the authenticate object
+which<00:15:04.360><c> provider</c><00:15:04.759><c> got</c><00:15:04.959><c> invoked</c><00:15:05.519><c> what</c><00:15:05.759><c> that</c>
+
+00:15:06.230 --> 00:15:06.240 align:start position:0%
+which provider got invoked what that
+ 
+
+00:15:06.240 --> 00:15:11.509 align:start position:0%
+which provider got invoked what that
+provider<00:15:07.240><c> du</c><00:15:08.120><c> does</c><00:15:08.639><c> actually</c><00:15:09.560><c> inside</c><00:15:10.560><c> okay</c>
+
+00:15:11.509 --> 00:15:11.519 align:start position:0%
+provider du does actually inside okay
+ 
+
+00:15:11.519 --> 00:15:13.269 align:start position:0%
+provider du does actually inside okay
+what's<00:15:11.800><c> the</c><00:15:12.199><c> response</c><00:15:12.720><c> or</c><00:15:12.920><c> fully</c>
+
+00:15:13.269 --> 00:15:13.279 align:start position:0%
+what's the response or fully
+ 
+
+00:15:13.279 --> 00:15:16.949 align:start position:0%
+what's the response or fully
+authenticate<00:15:14.000><c> object</c><00:15:14.320><c> looks</c><00:15:14.600><c> like</c><00:15:15.560><c> okay</c><00:15:16.480><c> and</c>
+
+00:15:16.949 --> 00:15:16.959 align:start position:0%
+authenticate object looks like okay and
+ 
+
+00:15:16.959 --> 00:15:19.829 align:start position:0%
+authenticate object looks like okay and
+what<00:15:17.440><c> else</c><00:15:17.839><c> data</c><00:15:18.160><c> we</c><00:15:18.320><c> put</c><00:15:18.519><c> into</c><00:15:18.800><c> security</c>
+
+00:15:19.829 --> 00:15:19.839 align:start position:0%
+what else data we put into security
+ 
+
+00:15:19.839 --> 00:15:22.110 align:start position:0%
+what else data we put into security
+context<00:15:20.839><c> and</c><00:15:21.240><c> what</c>
+
+00:15:22.110 --> 00:15:22.120 align:start position:0%
+context and what
+ 
+
+00:15:22.120 --> 00:15:25.030 align:start position:0%
+context and what
+exactly<00:15:23.120><c> the</c><00:15:23.279><c> controller</c><00:15:23.800><c> uses</c><00:15:24.120><c> it</c>
+
+00:15:25.030 --> 00:15:25.040 align:start position:0%
+exactly the controller uses it
+ 
+
+00:15:25.040 --> 00:15:29.990 align:start position:0%
+exactly the controller uses it
+like<00:15:26.040><c> okay</c><00:15:26.880><c> so</c><00:15:27.880><c> we</c><00:15:28.000><c> will</c><00:15:28.399><c> connect</c><00:15:28.720><c> the</c><00:15:29.079><c> dots</c>
+
+00:15:29.990 --> 00:15:30.000 align:start position:0%
+like okay so we will connect the dots
+ 
+
+00:15:30.000 --> 00:15:33.629 align:start position:0%
+like okay so we will connect the dots
+for<00:15:30.560><c> each</c><00:15:30.920><c> authenticated</c><00:15:31.600><c> method</c><00:15:32.440><c> later</c><00:15:33.440><c> but</c>
+
+00:15:33.629 --> 00:15:33.639 align:start position:0%
+for each authenticated method later but
+ 
+
+00:15:33.639 --> 00:15:37.870 align:start position:0%
+for each authenticated method later but
+for<00:15:33.880><c> now</c><00:15:34.920><c> just</c><00:15:35.920><c> understand</c><00:15:36.199><c> this</c><00:15:36.360><c> is</c><00:15:36.480><c> a</c><00:15:37.319><c> flow</c>
+
+00:15:37.870 --> 00:15:37.880 align:start position:0%
+for now just understand this is a flow
+ 
+
+00:15:37.880 --> 00:15:40.030 align:start position:0%
+for now just understand this is a flow
+when<00:15:38.079><c> any</c><00:15:38.319><c> request</c><00:15:38.720><c> comes</c><00:15:38.959><c> in</c><00:15:39.399><c> and</c><00:15:39.680><c> have</c><00:15:39.880><c> you</c>
+
+00:15:40.030 --> 00:15:40.040 align:start position:0%
+when any request comes in and have you
+ 
+
+00:15:40.040 --> 00:15:42.069 align:start position:0%
+when any request comes in and have you
+have<00:15:40.240><c> integrated</c><00:15:40.800><c> the</c><00:15:40.959><c> spring</c><00:15:41.519><c> spring</c><00:15:41.800><c> boot</c>
+
+00:15:42.069 --> 00:15:42.079 align:start position:0%
+have integrated the spring spring boot
+ 
+
+00:15:42.079 --> 00:15:46.509 align:start position:0%
+have integrated the spring spring boot
+security<00:15:42.959><c> in</c><00:15:43.120><c> your</c><00:15:43.800><c> application</c><00:15:45.279><c> okay</c><00:15:46.279><c> so</c><00:15:46.440><c> in</c>
+
+00:15:46.509 --> 00:15:46.519 align:start position:0%
+security in your application okay so in
+ 
+
+00:15:46.519 --> 00:15:49.309 align:start position:0%
+security in your application okay so in
+a<00:15:46.639><c> spring</c><00:15:46.920><c> boot</c><00:15:47.759><c> in</c><00:15:47.920><c> your</c><00:15:48.079><c> spring</c><00:15:48.360><c> boot</c>
+
+00:15:49.309 --> 00:15:49.319 align:start position:0%
+a spring boot in your spring boot
+ 
+
+00:15:49.319 --> 00:15:51.990 align:start position:0%
+a spring boot in your spring boot
+project<00:15:50.319><c> if</c><00:15:50.480><c> your</c><00:15:51.000><c> project</c><00:15:51.319><c> is</c><00:15:51.519><c> already</c>
+
+00:15:51.990 --> 00:15:52.000 align:start position:0%
+project if your project is already
+ 
+
+00:15:52.000 --> 00:15:53.790 align:start position:0%
+project if your project is already
+present<00:15:52.680><c> which</c><00:15:52.880><c> we</c><00:15:53.000><c> are</c><00:15:53.199><c> already</c><00:15:53.600><c> this</c>
+
+00:15:53.790 --> 00:15:53.800 align:start position:0%
+present which we are already this
+ 
+
+00:15:53.800 --> 00:15:56.470 align:start position:0%
+present which we are already this
+playlist<00:15:54.279><c> is</c><00:15:54.399><c> all</c><00:15:54.639><c> going</c><00:15:55.079><c> so</c><00:15:55.399><c> I</c><00:15:55.519><c> think</c><00:15:56.120><c> by</c><00:15:56.319><c> this</c>
+
+00:15:56.470 --> 00:15:56.480 align:start position:0%
+playlist is all going so I think by this
+ 
+
+00:15:56.480 --> 00:15:57.949 align:start position:0%
+playlist is all going so I think by this
+time<00:15:56.639><c> you</c><00:15:56.800><c> already</c><00:15:57.079><c> have</c><00:15:57.240><c> set</c><00:15:57.440><c> up</c><00:15:57.600><c> the</c><00:15:57.720><c> spring</c>
+
+00:15:57.949 --> 00:15:57.959 align:start position:0%
+time you already have set up the spring
+ 
+
+00:15:57.959 --> 00:16:00.189 align:start position:0%
+time you already have set up the spring
+boot<00:15:58.240><c> project</c><00:15:59.000><c> so</c><00:15:59.160><c> you</c><00:15:59.319><c> need</c><00:15:59.519><c> to</c><00:15:59.800><c> add</c><00:16:00.000><c> the</c>
+
+00:16:00.189 --> 00:16:00.199 align:start position:0%
+boot project so you need to add the
+ 
+
+00:16:00.199 --> 00:16:01.430 align:start position:0%
+boot project so you need to add the
+below
+
+00:16:01.430 --> 00:16:01.440 align:start position:0%
+below
+ 
+
+00:16:01.440 --> 00:16:03.230 align:start position:0%
+below
+dependencies<00:16:02.440><c> okay</c><00:16:02.639><c> so</c><00:16:02.839><c> these</c><00:16:03.040><c> two</c>
+
+00:16:03.230 --> 00:16:03.240 align:start position:0%
+dependencies okay so these two
+ 
+
+00:16:03.240 --> 00:16:05.949 align:start position:0%
+dependencies okay so these two
+dependency<00:16:03.800><c> you</c><00:16:03.920><c> can</c><00:16:04.120><c> add</c><00:16:05.120><c> one</c><00:16:05.360><c> is</c><00:16:05.680><c> spring</c>
+
+00:16:05.949 --> 00:16:05.959 align:start position:0%
+dependency you can add one is spring
+ 
+
+00:16:05.959 --> 00:16:08.509 align:start position:0%
+dependency you can add one is spring
+boot<00:16:06.279><c> starter</c><00:16:06.759><c> security</c><00:16:07.759><c> so</c><00:16:08.000><c> this</c><00:16:08.240><c> spring</c>
+
+00:16:08.509 --> 00:16:08.519 align:start position:0%
+boot starter security so this spring
+ 
+
+00:16:08.519 --> 00:16:12.509 align:start position:0%
+boot starter security so this spring
+boot<00:16:08.839><c> security</c><00:16:09.720><c> uh</c><00:16:09.880><c> dependency</c><00:16:10.600><c> is</c><00:16:11.240><c> like</c><00:16:12.240><c> add</c>
+
+00:16:12.509 --> 00:16:12.519 align:start position:0%
+boot security uh dependency is like add
+ 
+
+00:16:12.519 --> 00:16:13.910 align:start position:0%
+boot security uh dependency is like add
+feature<00:16:12.920><c> like</c><00:16:13.079><c> authentication</c>
+
+00:16:13.910 --> 00:16:13.920 align:start position:0%
+feature like authentication
+ 
+
+00:16:13.920 --> 00:16:16.189 align:start position:0%
+feature like authentication
+authorization<00:16:14.560><c> and</c><00:16:14.720><c> the</c><00:16:14.839><c> filter</c><00:16:15.800><c> so</c><00:16:16.040><c> this</c>
+
+00:16:16.189 --> 00:16:16.199 align:start position:0%
+authorization and the filter so this
+ 
+
+00:16:16.199 --> 00:16:20.189 align:start position:0%
+authorization and the filter so this
+filter<00:16:16.920><c> chain</c><00:16:17.920><c> will</c><00:16:18.160><c> get</c><00:16:18.519><c> included</c><00:16:19.519><c> this</c><00:16:19.880><c> all</c>
+
+00:16:20.189 --> 00:16:20.199 align:start position:0%
+filter chain will get included this all
+ 
+
+00:16:20.199 --> 00:16:22.389 align:start position:0%
+filter chain will get included this all
+filter<00:16:20.600><c> chain</c><00:16:21.040><c> this</c><00:16:21.240><c> authentication</c><00:16:21.880><c> manager</c>
+
+00:16:22.389 --> 00:16:22.399 align:start position:0%
+filter chain this authentication manager
+ 
+
+00:16:22.399 --> 00:16:24.550 align:start position:0%
+filter chain this authentication manager
+provider<00:16:22.959><c> everything</c><00:16:23.319><c> get</c>
+
+00:16:24.550 --> 00:16:24.560 align:start position:0%
+provider everything get
+ 
+
+00:16:24.560 --> 00:16:26.629 align:start position:0%
+provider everything get
+included<00:16:25.560><c> and</c><00:16:25.759><c> there</c><00:16:25.880><c> is</c><00:16:26.000><c> something</c><00:16:26.319><c> called</c>
+
+00:16:26.629 --> 00:16:26.639 align:start position:0%
+included and there is something called
+ 
+
+00:16:26.639 --> 00:16:29.430 align:start position:0%
+included and there is something called
+Spring<00:16:27.199><c> session</c><00:16:27.680><c> jdbc</c><00:16:28.680><c> this</c><00:16:28.920><c> this</c><00:16:29.000><c> is</c><00:16:29.120><c> only</c>
+
+00:16:29.430 --> 00:16:29.440 align:start position:0%
+Spring session jdbc this this is only
+ 
+
+00:16:29.440 --> 00:16:31.710 align:start position:0%
+Spring session jdbc this this is only
+required<00:16:30.160><c> this</c><00:16:30.240><c> is</c><00:16:30.560><c> optional</c><00:16:31.120><c> it's</c><00:16:31.279><c> not</c>
+
+00:16:31.710 --> 00:16:31.720 align:start position:0%
+required this is optional it's not
+ 
+
+00:16:31.720 --> 00:16:34.910 align:start position:0%
+required this is optional it's not
+mandatory<00:16:32.720><c> this</c><00:16:32.839><c> is</c><00:16:33.040><c> only</c><00:16:33.360><c> required</c><00:16:34.040><c> if</c><00:16:34.199><c> you</c>
+
+00:16:34.910 --> 00:16:34.920 align:start position:0%
+mandatory this is only required if you
+ 
+
+00:16:34.920 --> 00:16:38.710 align:start position:0%
+mandatory this is only required if you
+want<00:16:35.920><c> to</c><00:16:36.639><c> maintain</c><00:16:37.639><c> session</c><00:16:38.079><c> based</c>
+
+00:16:38.710 --> 00:16:38.720 align:start position:0%
+want to maintain session based
+ 
+
+00:16:38.720 --> 00:16:41.309 align:start position:0%
+want to maintain session based
+authentication<00:16:39.720><c> and</c><00:16:39.959><c> you</c><00:16:40.120><c> want</c><00:16:40.360><c> to</c><00:16:40.639><c> store</c>
+
+00:16:41.309 --> 00:16:41.319 align:start position:0%
+authentication and you want to store
+ 
+
+00:16:41.319 --> 00:16:44.790 align:start position:0%
+authentication and you want to store
+into<00:16:41.759><c> the</c><00:16:42.560><c> DB</c><00:16:43.560><c> if</c><00:16:43.680><c> you</c><00:16:43.839><c> want</c><00:16:44.040><c> to</c><00:16:44.199><c> store</c><00:16:44.519><c> into</c>
+
+00:16:44.790 --> 00:16:44.800 align:start position:0%
+into the DB if you want to store into
+ 
+
+00:16:44.800 --> 00:16:46.949 align:start position:0%
+into the DB if you want to store into
+the<00:16:45.040><c> ultimately</c>
+
+00:16:46.949 --> 00:16:46.959 align:start position:0%
+the ultimately
+ 
+
+00:16:46.959 --> 00:16:50.269 align:start position:0%
+the ultimately
+DB<00:16:47.959><c> then</c><00:16:48.120><c> you</c><00:16:48.279><c> need</c><00:16:48.519><c> it</c><00:16:49.319><c> but</c><00:16:49.480><c> we</c><00:16:49.600><c> will</c><00:16:49.759><c> see</c><00:16:50.040><c> that</c>
+
+00:16:50.269 --> 00:16:50.279 align:start position:0%
+DB then you need it but we will see that
+ 
+
+00:16:50.279 --> 00:16:52.949 align:start position:0%
+DB then you need it but we will see that
+when<00:16:50.480><c> we</c><00:16:50.639><c> will</c><00:16:51.000><c> actually</c><00:16:51.440><c> do</c><00:16:52.160><c> uh</c>
+
+00:16:52.949 --> 00:16:52.959 align:start position:0%
+when we will actually do uh
+ 
+
+00:16:52.959 --> 00:16:56.350 align:start position:0%
+when we will actually do uh
+stateful<00:16:53.959><c> stateful</c><00:16:54.519><c> authentication</c><00:16:55.519><c> so</c><00:16:56.120><c> for</c>
+
+00:16:56.350 --> 00:16:56.360 align:start position:0%
+stateful stateful authentication so for
+ 
+
+00:16:56.360 --> 00:16:57.949 align:start position:0%
+stateful stateful authentication so for
+now<00:16:56.600><c> you</c><00:16:56.800><c> can</c><00:16:57.079><c> you</c><00:16:57.199><c> can</c><00:16:57.319><c> say</c><00:16:57.519><c> that</c><00:16:57.639><c> you</c><00:16:57.759><c> don't</c>
+
+00:16:57.949 --> 00:16:57.959 align:start position:0%
+now you can you can say that you don't
+ 
+
+00:16:57.959 --> 00:17:00.189 align:start position:0%
+now you can you can say that you don't
+need<00:16:58.120><c> it</c><00:16:58.399><c> you</c><00:16:58.560><c> only</c><00:16:58.959><c> need</c><00:16:59.240><c> this</c>
+
+00:17:00.189 --> 00:17:00.199 align:start position:0%
+need it you only need this
+ 
+
+00:17:00.199 --> 00:17:02.470 align:start position:0%
+need it you only need this
+one<00:17:01.199><c> but</c><00:17:01.360><c> if</c><00:17:01.440><c> you're</c><00:17:01.639><c> setting</c><00:17:01.920><c> up</c><00:17:02.040><c> a</c><00:17:02.199><c> new</c>
+
+00:17:02.470 --> 00:17:02.480 align:start position:0%
+one but if you're setting up a new
+ 
+
+00:17:02.480 --> 00:17:05.549 align:start position:0%
+one but if you're setting up a new
+project<00:17:03.240><c> in</c><00:17:03.600><c> the</c><00:17:04.240><c> spring</c><00:17:04.600><c> initializer</c><00:17:05.199><c> itself</c>
+
+00:17:05.549 --> 00:17:05.559 align:start position:0%
+project in the spring initializer itself
+ 
+
+00:17:05.559 --> 00:17:07.429 align:start position:0%
+project in the spring initializer itself
+you<00:17:05.679><c> can</c><00:17:05.880><c> set</c><00:17:06.120><c> up</c><00:17:06.360><c> Spring</c><00:17:06.679><c> web</c><00:17:07.079><c> and</c><00:17:07.199><c> you</c><00:17:07.280><c> can</c>
+
+00:17:07.429 --> 00:17:07.439 align:start position:0%
+you can set up Spring web and you can
+ 
+
+00:17:07.439 --> 00:17:09.630 align:start position:0%
+you can set up Spring web and you can
+take<00:17:07.720><c> Spring</c><00:17:08.039><c> Security</c><00:17:08.880><c> so</c><00:17:09.079><c> with</c><00:17:09.199><c> the</c><00:17:09.319><c> Spring</c>
+
+00:17:09.630 --> 00:17:09.640 align:start position:0%
+take Spring Security so with the Spring
+ 
+
+00:17:09.640 --> 00:17:11.630 align:start position:0%
+take Spring Security so with the Spring
+Security<00:17:10.079><c> you</c><00:17:10.160><c> will</c><00:17:10.400><c> get</c>
+
+00:17:11.630 --> 00:17:11.640 align:start position:0%
+Security you will get
+ 
+
+00:17:11.640 --> 00:17:13.230 align:start position:0%
+Security you will get
+this
+
+00:17:13.230 --> 00:17:13.240 align:start position:0%
+this
+ 
+
+00:17:13.240 --> 00:17:16.909 align:start position:0%
+this
+okay<00:17:14.240><c> and</c><00:17:14.640><c> only</c><00:17:15.000><c> if</c><00:17:15.079><c> you</c><00:17:15.199><c> want</c><00:17:15.439><c> DB</c><00:17:15.919><c> support</c><00:17:16.679><c> uh</c>
+
+00:17:16.909 --> 00:17:16.919 align:start position:0%
+okay and only if you want DB support uh
+ 
+
+00:17:16.919 --> 00:17:18.870 align:start position:0%
+okay and only if you want DB support uh
+for<00:17:17.120><c> the</c><00:17:17.240><c> session</c><00:17:17.679><c> B</c><00:17:18.039><c> you</c><00:17:18.160><c> can</c><00:17:18.319><c> take</c><00:17:18.480><c> it</c><00:17:18.679><c> but</c>
+
+00:17:18.870 --> 00:17:18.880 align:start position:0%
+for the session B you can take it but
+ 
+
+00:17:18.880 --> 00:17:21.750 align:start position:0%
+for the session B you can take it but
+again<00:17:19.280><c> this</c><00:17:19.400><c> is</c><00:17:19.839><c> for</c><00:17:20.120><c> now</c><00:17:20.360><c> not</c><00:17:20.640><c> required</c><00:17:21.640><c> we</c>
+
+00:17:21.750 --> 00:17:21.760 align:start position:0%
+again this is for now not required we
+ 
+
+00:17:21.760 --> 00:17:24.590 align:start position:0%
+again this is for now not required we
+will<00:17:21.919><c> see</c><00:17:22.199><c> when</c><00:17:22.360><c> we</c><00:17:22.439><c> will</c><00:17:22.600><c> do</c><00:17:23.280><c> state</c><00:17:24.280><c> state</c>
+
+00:17:24.590 --> 00:17:24.600 align:start position:0%
+will see when we will do state state
+ 
+
+00:17:24.600 --> 00:17:26.350 align:start position:0%
+will see when we will do state state
+full
+
+00:17:26.350 --> 00:17:26.360 align:start position:0%
+full
+ 
+
+00:17:26.360 --> 00:17:30.549 align:start position:0%
+full
+authentication<00:17:27.600><c> okay</c><00:17:28.600><c> now</c><00:17:28.960><c> now</c><00:17:29.480><c> we</c><00:17:29.640><c> will</c><00:17:30.000><c> go</c>
+
+00:17:30.549 --> 00:17:30.559 align:start position:0%
+authentication okay now now we will go
+ 
+
+00:17:30.559 --> 00:17:34.669 align:start position:0%
+authentication okay now now we will go
+ahead<00:17:31.039><c> with</c><00:17:31.440><c> each</c><00:17:31.799><c> and</c><00:17:32.280><c> every</c><00:17:33.679><c> authentication</c>
+
+00:17:34.669 --> 00:17:34.679 align:start position:0%
+ahead with each and every authentication
+ 
+
+00:17:34.679 --> 00:17:38.390 align:start position:0%
+ahead with each and every authentication
+method<00:17:35.440><c> in</c><00:17:36.039><c> depth</c><00:17:37.039><c> considering</c><00:17:37.840><c> this</c><00:17:38.080><c> as</c><00:17:38.160><c> a</c>
+
+00:17:38.390 --> 00:17:38.400 align:start position:0%
+method in depth considering this as a
+ 
+
+00:17:38.400 --> 00:17:44.320 align:start position:0%
+method in depth considering this as a
+base<00:17:39.280><c> architecture</c><00:17:40.280><c> guys</c><00:17:40.559><c> thank</c><00:17:40.760><c> you</c><00:17:41.320><c> bye</c>
+
