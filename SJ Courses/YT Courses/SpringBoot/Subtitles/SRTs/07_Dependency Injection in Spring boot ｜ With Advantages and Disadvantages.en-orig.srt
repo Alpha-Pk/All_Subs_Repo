@@ -1,0 +1,8825 @@
+1
+00:00:00,320 --> 00:00:01,870
+
+hey guys welcome to concept and coding
+
+2
+00:00:01,870 --> 00:00:01,880
+hey guys welcome to concept and coding
+ 
+
+3
+00:00:01,880 --> 00:00:03,790
+hey guys welcome to concept and coding
+this is Shan today in the springboard
+
+4
+00:00:03,790 --> 00:00:03,800
+this is Shan today in the springboard
+ 
+
+5
+00:00:03,800 --> 00:00:05,789
+this is Shan today in the springboard
+series we are going to do dependency
+
+6
+00:00:05,789 --> 00:00:05,799
+series we are going to do dependency
+ 
+
+7
+00:00:05,799 --> 00:00:09,350
+series we are going to do dependency
+injection and before we start dependency
+
+8
+00:00:09,350 --> 00:00:09,360
+injection and before we start dependency
+ 
+
+9
+00:00:09,360 --> 00:00:11,150
+injection and before we start dependency
+injection I want to tell that what is a
+
+10
+00:00:11,150 --> 00:00:11,160
+injection I want to tell that what is a
+ 
+
+11
+00:00:11,160 --> 00:00:13,709
+injection I want to tell that what is a
+prerequisite for us the prerequisite is
+
+12
+00:00:13,709 --> 00:00:13,719
+prerequisite for us the prerequisite is
+ 
+
+13
+00:00:13,719 --> 00:00:15,829
+prerequisite for us the prerequisite is
+that you need to understand the bean and
+
+14
+00:00:15,829 --> 00:00:15,839
+that you need to understand the bean and
+ 
+
+15
+00:00:15,839 --> 00:00:17,790
+that you need to understand the bean and
+the life cycle right which I have
+
+16
+00:00:17,790 --> 00:00:17,800
+the life cycle right which I have
+ 
+
+17
+00:00:17,800 --> 00:00:20,230
+the life cycle right which I have
+covered in the previous video of this
+
+18
+00:00:20,230 --> 00:00:20,240
+covered in the previous video of this
+ 
+
+19
+00:00:20,240 --> 00:00:22,550
+covered in the previous video of this
+right there I explained you the life
+
+20
+00:00:22,550 --> 00:00:22,560
+right there I explained you the life
+ 
+
+21
+00:00:22,560 --> 00:00:25,429
+right there I explained you the life
+cycle of a bean so that you would be
+
+22
+00:00:25,429 --> 00:00:25,439
+cycle of a bean so that you would be
+ 
+
+23
+00:00:25,439 --> 00:00:27,669
+cycle of a bean so that you would be
+able to understand where this dependency
+
+24
+00:00:27,669 --> 00:00:27,679
+able to understand where this dependency
+ 
+
+25
+00:00:27,679 --> 00:00:30,310
+able to understand where this dependency
+injection actually comes in into the
+
+26
+00:00:30,310 --> 00:00:30,320
+injection actually comes in into the
+ 
+
+27
+00:00:30,320 --> 00:00:32,590
+injection actually comes in into the
+picture of a complete life cycle of a
+
+28
+00:00:32,590 --> 00:00:32,600
+picture of a complete life cycle of a
+ 
+
+29
+00:00:32,600 --> 00:00:36,069
+picture of a complete life cycle of a
+being right so if that is clear to you
+
+30
+00:00:36,069 --> 00:00:36,079
+being right so if that is clear to you
+ 
+
+31
+00:00:36,079 --> 00:00:37,630
+being right so if that is clear to you
+you would be able to coate so many
+
+32
+00:00:37,630 --> 00:00:37,640
+you would be able to coate so many
+ 
+
+33
+00:00:37,640 --> 00:00:39,830
+you would be able to coate so many
+things but if you have not seen this
+
+34
+00:00:39,830 --> 00:00:39,840
+things but if you have not seen this
+ 
+
+35
+00:00:39,840 --> 00:00:42,430
+things but if you have not seen this
+video be and life cycle like I I'm
+
+36
+00:00:42,430 --> 00:00:42,440
+video be and life cycle like I I'm
+ 
+
+37
+00:00:42,440 --> 00:00:43,950
+video be and life cycle like I I'm
+pretty much sure there are like lot of
+
+38
+00:00:43,950 --> 00:00:43,960
+pretty much sure there are like lot of
+ 
+
+39
+00:00:43,960 --> 00:00:47,069
+pretty much sure there are like lot of
+doubts going to come okay so with this
+
+40
+00:00:47,069 --> 00:00:47,079
+doubts going to come okay so with this
+ 
+
+41
+00:00:47,079 --> 00:00:48,910
+doubts going to come okay so with this
+base understanding that you already know
+
+42
+00:00:48,910 --> 00:00:48,920
+base understanding that you already know
+ 
+
+43
+00:00:48,920 --> 00:00:52,430
+base understanding that you already know
+the life cycle of a bean I am proceeding
+
+44
+00:00:52,430 --> 00:00:52,440
+the life cycle of a bean I am proceeding
+ 
+
+45
+00:00:52,440 --> 00:00:55,349
+the life cycle of a bean I am proceeding
+further okay so before we understand
+
+46
+00:00:55,349 --> 00:00:55,359
+further okay so before we understand
+ 
+
+47
+00:00:55,359 --> 00:00:58,310
+further okay so before we understand
+what is dependency injection let me tell
+
+48
+00:00:58,310 --> 00:00:58,320
+what is dependency injection let me tell
+ 
+
+49
+00:00:58,320 --> 00:01:00,270
+what is dependency injection let me tell
+you one problem like let's see the
+
+50
+00:01:00,270 --> 00:01:00,280
+you one problem like let's see the
+ 
+
+51
+00:01:00,280 --> 00:01:03,270
+you one problem like let's see the
+problem which it tried to solve so there
+
+52
+00:01:03,270 --> 00:01:03,280
+problem which it tried to solve so there
+ 
+
+53
+00:01:03,280 --> 00:01:05,750
+problem which it tried to solve so there
+I created a two very basic class one is
+
+54
+00:01:05,750 --> 00:01:05,760
+I created a two very basic class one is
+ 
+
+55
+00:01:05,760 --> 00:01:09,710
+I created a two very basic class one is
+user one is order right user is
+
+56
+00:01:09,710 --> 00:01:09,720
+user one is order right user is
+ 
+
+57
+00:01:09,720 --> 00:01:11,710
+user one is order right user is
+dependent on order so that's why it is
+
+58
+00:01:11,710 --> 00:01:11,720
+dependent on order so that's why it is
+ 
+
+59
+00:01:11,720 --> 00:01:15,789
+dependent on order so that's why it is
+creating a new order instance and it's a
+
+60
+00:01:15,789 --> 00:01:15,799
+creating a new order instance and it's a
+ 
+
+61
+00:01:15,799 --> 00:01:18,190
+creating a new order instance and it's a
+Constructor in both very simple class so
+
+62
+00:01:18,190 --> 00:01:18,200
+Constructor in both very simple class so
+ 
+
+63
+00:01:18,200 --> 00:01:21,590
+Constructor in both very simple class so
+user is creating an instance of an order
+
+64
+00:01:21,590 --> 00:01:21,600
+user is creating an instance of an order
+ 
+
+65
+00:01:21,600 --> 00:01:23,630
+user is creating an instance of an order
+so do you see any problem with these two
+
+66
+00:01:23,630 --> 00:01:23,640
+so do you see any problem with these two
+ 
+
+67
+00:01:23,640 --> 00:01:26,270
+so do you see any problem with these two
+classes the one problem which I see is
+
+68
+00:01:26,270 --> 00:01:26,280
+classes the one problem which I see is
+ 
+
+69
+00:01:26,280 --> 00:01:29,190
+classes the one problem which I see is
+that they are highly coupled very
+
+70
+00:01:29,190 --> 00:01:29,200
+that they are highly coupled very
+ 
+
+71
+00:01:29,200 --> 00:01:31,069
+that they are highly coupled very
+tightly coupled
+
+72
+00:01:31,069 --> 00:01:31,079
+tightly coupled
+ 
+
+73
+00:01:31,079 --> 00:01:34,030
+tightly coupled
+and because of this tightly coupled two
+
+74
+00:01:34,030 --> 00:01:34,040
+and because of this tightly coupled two
+ 
+
+75
+00:01:34,040 --> 00:01:36,590
+and because of this tightly coupled two
+issue will come the first issue is that
+
+76
+00:01:36,590 --> 00:01:36,600
+issue will come the first issue is that
+ 
+
+77
+00:01:36,600 --> 00:01:40,109
+issue will come the first issue is that
+in future any change in the order
+
+78
+00:01:40,109 --> 00:01:40,119
+in future any change in the order
+ 
+
+79
+00:01:40,119 --> 00:01:42,310
+in future any change in the order
+structure will bring the change in the
+
+80
+00:01:42,310 --> 00:01:42,320
+structure will bring the change in the
+ 
+
+81
+00:01:42,320 --> 00:01:46,109
+structure will bring the change in the
+user to for example in the order class
+
+82
+00:01:46,109 --> 00:01:46,119
+user to for example in the order class
+ 
+
+83
+00:01:46,119 --> 00:01:49,429
+user to for example in the order class
+if I'm changing it to this I convert
+
+84
+00:01:49,429 --> 00:01:49,439
+if I'm changing it to this I convert
+ 
+
+85
+00:01:49,439 --> 00:01:52,510
+if I'm changing it to this I convert
+this order class to an order interface
+
+86
+00:01:52,510 --> 00:01:52,520
+this order class to an order interface
+ 
+
+87
+00:01:52,520 --> 00:01:55,350
+this order class to an order interface
+and I created so many child classes like
+
+88
+00:01:55,350 --> 00:01:55,360
+and I created so many child classes like
+ 
+
+89
+00:01:55,360 --> 00:01:58,590
+and I created so many child classes like
+online order offline order likewise
+
+90
+00:01:58,590 --> 00:01:58,600
+online order offline order likewise
+ 
+
+91
+00:01:58,600 --> 00:02:00,510
+online order offline order likewise
+because of the future requirement of the
+
+92
+00:02:00,510 --> 00:02:00,520
+because of the future requirement of the
+ 
+
+93
+00:02:00,520 --> 00:02:03,310
+because of the future requirement of the
+business I have to uh expand this I have
+
+94
+00:02:03,310 --> 00:02:03,320
+business I have to uh expand this I have
+ 
+
+95
+00:02:03,320 --> 00:02:06,310
+business I have to uh expand this I have
+to restructure this order class now
+
+96
+00:02:06,310 --> 00:02:06,320
+to restructure this order class now
+ 
+
+97
+00:02:06,320 --> 00:02:09,109
+to restructure this order class now
+because user class is directly creating
+
+98
+00:02:09,109 --> 00:02:09,119
+because user class is directly creating
+ 
+
+99
+00:02:09,119 --> 00:02:12,910
+because user class is directly creating
+an instance of the order it will get
+
+100
+00:02:12,910 --> 00:02:12,920
+an instance of the order it will get
+ 
+
+101
+00:02:12,920 --> 00:02:16,509
+an instance of the order it will get
+impact two now this code will not work
+
+102
+00:02:16,509 --> 00:02:16,519
+impact two now this code will not work
+ 
+
+103
+00:02:16,519 --> 00:02:19,070
+impact two now this code will not work
+because you can't create an object of an
+
+104
+00:02:19,070 --> 00:02:19,080
+because you can't create an object of an
+ 
+
+105
+00:02:19,080 --> 00:02:21,509
+because you can't create an object of an
+interface so this will break so what you
+
+106
+00:02:21,509 --> 00:02:21,519
+interface so this will break so what you
+ 
+
+107
+00:02:21,519 --> 00:02:22,949
+interface so this will break so what you
+have to do is you have to change the
+
+108
+00:02:22,949 --> 00:02:22,959
+have to do is you have to change the
+ 
+
+109
+00:02:22,959 --> 00:02:24,990
+have to do is you have to change the
+code and create an object of a its
+
+110
+00:02:24,990 --> 00:02:25,000
+code and create an object of a its
+ 
+
+111
+00:02:25,000 --> 00:02:27,430
+code and create an object of a its
+concrete implementation so for example
+
+112
+00:02:27,430 --> 00:02:27,440
+concrete implementation so for example
+ 
+
+113
+00:02:27,440 --> 00:02:29,430
+concrete implementation so for example
+here online order offline order so you
+
+114
+00:02:29,430 --> 00:02:29,440
+here online order offline order so you
+ 
+
+115
+00:02:29,440 --> 00:02:31,910
+here online order offline order so you
+have to create create an object of that
+
+116
+00:02:31,910 --> 00:02:31,920
+have to create create an object of that
+ 
+
+117
+00:02:31,920 --> 00:02:34,110
+have to create create an object of that
+but yeah so this code will work now so
+
+118
+00:02:34,110 --> 00:02:34,120
+but yeah so this code will work now so
+ 
+
+119
+00:02:34,120 --> 00:02:36,309
+but yeah so this code will work now so
+now you are creating an order but now
+
+120
+00:02:36,309 --> 00:02:36,319
+now you are creating an order but now
+ 
+
+121
+00:02:36,319 --> 00:02:38,070
+now you are creating an order but now
+you are creating its concrete
+
+122
+00:02:38,070 --> 00:02:38,080
+you are creating its concrete
+ 
+
+123
+00:02:38,080 --> 00:02:41,790
+you are creating its concrete
+implementation okay so this is the first
+
+124
+00:02:41,790 --> 00:02:41,800
+implementation okay so this is the first
+ 
+
+125
+00:02:41,800 --> 00:02:44,509
+implementation okay so this is the first
+issue that any change in the structure
+
+126
+00:02:44,509 --> 00:02:44,519
+issue that any change in the structure
+ 
+
+127
+00:02:44,519 --> 00:02:47,229
+issue that any change in the structure
+of order your user class will also get
+
+128
+00:02:47,229 --> 00:02:47,239
+of order your user class will also get
+ 
+
+129
+00:02:47,239 --> 00:02:49,990
+of order your user class will also get
+impact like you see now let's say you
+
+130
+00:02:49,990 --> 00:02:50,000
+impact like you see now let's say you
+ 
+
+131
+00:02:50,000 --> 00:02:53,070
+impact like you see now let's say you
+have done this this will create another
+
+132
+00:02:53,070 --> 00:02:53,080
+have done this this will create another
+ 
+
+133
+00:02:53,080 --> 00:02:56,229
+have done this this will create another
+issue right it will break the dependency
+
+134
+00:02:56,229 --> 00:02:56,239
+issue right it will break the dependency
+ 
+
+135
+00:02:56,239 --> 00:02:59,270
+issue right it will break the dependency
+inversion rule of the solid principle so
+
+136
+00:02:59,270 --> 00:02:59,280
+inversion rule of the solid principle so
+ 
+
+137
+00:02:59,280 --> 00:03:02,270
+inversion rule of the solid principle so
+what d says in the solid principle the D
+
+138
+00:03:02,270 --> 00:03:02,280
+what d says in the solid principle the D
+ 
+
+139
+00:03:02,280 --> 00:03:04,589
+what d says in the solid principle the D
+says in the solid principle that do not
+
+140
+00:03:04,589 --> 00:03:04,599
+says in the solid principle that do not
+ 
+
+141
+00:03:04,599 --> 00:03:06,830
+says in the solid principle that do not
+depend on concrete
+
+142
+00:03:06,830 --> 00:03:06,840
+depend on concrete
+ 
+
+143
+00:03:06,840 --> 00:03:09,589
+depend on concrete
+implementation rather depend on
+
+144
+00:03:09,589 --> 00:03:09,599
+implementation rather depend on
+ 
+
+145
+00:03:09,599 --> 00:03:11,910
+implementation rather depend on
+abstraction so when you are doing this
+
+146
+00:03:11,910 --> 00:03:11,920
+abstraction so when you are doing this
+ 
+
+147
+00:03:11,920 --> 00:03:14,550
+abstraction so when you are doing this
+new online order you are creating an
+
+148
+00:03:14,550 --> 00:03:14,560
+new online order you are creating an
+ 
+
+149
+00:03:14,560 --> 00:03:17,550
+new online order you are creating an
+object of an concrete implementation you
+
+150
+00:03:17,550 --> 00:03:17,560
+object of an concrete implementation you
+ 
+
+151
+00:03:17,560 --> 00:03:19,229
+object of an concrete implementation you
+are actually breaking the dependency
+
+152
+00:03:19,229 --> 00:03:19,239
+are actually breaking the dependency
+ 
+
+153
+00:03:19,239 --> 00:03:20,910
+are actually breaking the dependency
+inversion rule of solid
+
+154
+00:03:20,910 --> 00:03:20,920
+inversion rule of solid
+ 
+
+155
+00:03:20,920 --> 00:03:23,430
+inversion rule of solid
+principle so to fix it what you have to
+
+156
+00:03:23,430 --> 00:03:23,440
+principle so to fix it what you have to
+ 
+
+157
+00:03:23,440 --> 00:03:27,190
+principle so to fix it what you have to
+generally do is you have to uh depend on
+
+158
+00:03:27,190 --> 00:03:27,200
+generally do is you have to uh depend on
+ 
+
+159
+00:03:27,200 --> 00:03:30,149
+generally do is you have to uh depend on
+its abstraction uh interface class in
+
+160
+00:03:30,149 --> 00:03:30,159
+its abstraction uh interface class in
+ 
+
+161
+00:03:30,159 --> 00:03:33,869
+its abstraction uh interface class in
+this case right and its dependency
+
+162
+00:03:33,869 --> 00:03:33,879
+this case right and its dependency
+ 
+
+163
+00:03:33,879 --> 00:03:36,470
+this case right and its dependency
+should come from the external so let's
+
+164
+00:03:36,470 --> 00:03:36,480
+should come from the external so let's
+ 
+
+165
+00:03:36,480 --> 00:03:38,949
+should come from the external so let's
+say that whoever is going to create an
+
+166
+00:03:38,949 --> 00:03:38,959
+say that whoever is going to create an
+ 
+
+167
+00:03:38,959 --> 00:03:40,670
+say that whoever is going to create an
+object of user they will pass whether
+
+168
+00:03:40,670 --> 00:03:40,680
+object of user they will pass whether
+ 
+
+169
+00:03:40,680 --> 00:03:42,949
+object of user they will pass whether
+online order or offline order that will
+
+170
+00:03:42,949 --> 00:03:42,959
+online order or offline order that will
+ 
+
+171
+00:03:42,959 --> 00:03:45,789
+online order or offline order that will
+ultimately get set to here so this is
+
+172
+00:03:45,789 --> 00:03:45,799
+ultimately get set to here so this is
+ 
+
+173
+00:03:45,799 --> 00:03:48,030
+ultimately get set to here so this is
+what dependency inversion principle
+
+174
+00:03:48,030 --> 00:03:48,040
+what dependency inversion principle
+ 
+
+175
+00:03:48,040 --> 00:03:50,509
+what dependency inversion principle
+says so in Spring
+
+176
+00:03:50,509 --> 00:03:50,519
+says so in Spring
+ 
+
+177
+00:03:50,519 --> 00:03:53,429
+says so in Spring
+boot this dependency
+
+178
+00:03:53,429 --> 00:03:53,439
+boot this dependency
+ 
+
+179
+00:03:53,439 --> 00:03:55,750
+boot this dependency
+inversion can be achieved through
+
+180
+00:03:55,750 --> 00:03:55,760
+inversion can be achieved through
+ 
+
+181
+00:03:55,760 --> 00:04:00,069
+inversion can be achieved through
+dependency injection
+
+182
+00:04:00,069 --> 00:04:00,079
+
+ 
+
+183
+00:04:00,079 --> 00:04:03,550
+
+okay so dependency injection solves the
+
+184
+00:04:03,550 --> 00:04:03,560
+okay so dependency injection solves the
+ 
+
+185
+00:04:03,560 --> 00:04:05,990
+okay so dependency injection solves the
+above
+
+186
+00:04:05,990 --> 00:04:06,000
+
+ 
+
+187
+00:04:06,000 --> 00:04:08,589
+
+program so what dependency injection
+
+188
+00:04:08,589 --> 00:04:08,599
+program so what dependency injection
+ 
+
+189
+00:04:08,599 --> 00:04:12,750
+program so what dependency injection
+says that we can make our class
+
+190
+00:04:12,750 --> 00:04:12,760
+says that we can make our class
+ 
+
+191
+00:04:12,760 --> 00:04:14,910
+says that we can make our class
+independent of it
+
+192
+00:04:14,910 --> 00:04:14,920
+independent of it
+ 
+
+193
+00:04:14,920 --> 00:04:17,349
+independent of it
+dependencies so here in this case user
+
+194
+00:04:17,349 --> 00:04:17,359
+dependencies so here in this case user
+ 
+
+195
+00:04:17,359 --> 00:04:20,629
+dependencies so here in this case user
+was uh dependent on order right so we
+
+196
+00:04:20,629 --> 00:04:20,639
+was uh dependent on order right so we
+ 
+
+197
+00:04:20,639 --> 00:04:22,909
+was uh dependent on order right so we
+can make independent of dependencies so
+
+198
+00:04:22,909 --> 00:04:22,919
+can make independent of dependencies so
+ 
+
+199
+00:04:22,919 --> 00:04:24,830
+can make independent of dependencies so
+now here if you see that I am not
+
+200
+00:04:24,830 --> 00:04:24,840
+now here if you see that I am not
+ 
+
+201
+00:04:24,840 --> 00:04:28,110
+now here if you see that I am not
+creating any new order or if even in
+
+202
+00:04:28,110 --> 00:04:28,120
+creating any new order or if even in
+ 
+
+203
+00:04:28,120 --> 00:04:30,990
+creating any new order or if even in
+interface I not creating new online
+
+204
+00:04:30,990 --> 00:04:31,000
+interface I not creating new online
+ 
+
+205
+00:04:31,000 --> 00:04:32,950
+interface I not creating new online
+order concrete class
+
+206
+00:04:32,950 --> 00:04:32,960
+order concrete class
+ 
+
+207
+00:04:32,960 --> 00:04:35,150
+order concrete class
+nothing right
+
+208
+00:04:35,150 --> 00:04:35,160
+nothing right
+ 
+
+209
+00:04:35,160 --> 00:04:38,629
+nothing right
+so there is no tight coupling between
+
+210
+00:04:38,629 --> 00:04:38,639
+so there is no tight coupling between
+ 
+
+211
+00:04:38,639 --> 00:04:41,350
+so there is no tight coupling between
+user and order now so this order will
+
+212
+00:04:41,350 --> 00:04:41,360
+user and order now so this order will
+ 
+
+213
+00:04:41,360 --> 00:04:43,390
+user and order now so this order will
+contain let's say in future you have
+
+214
+00:04:43,390 --> 00:04:43,400
+contain let's say in future you have
+ 
+
+215
+00:04:43,400 --> 00:04:45,310
+contain let's say in future you have
+online order offline order so many
+
+216
+00:04:45,310 --> 00:04:45,320
+online order offline order so many
+ 
+
+217
+00:04:45,320 --> 00:04:48,749
+online order offline order so many
+things what actually it will contain
+
+218
+00:04:48,749 --> 00:04:48,759
+things what actually it will contain
+ 
+
+219
+00:04:48,759 --> 00:04:50,710
+things what actually it will contain
+that dependency we haven't put into the
+
+220
+00:04:50,710 --> 00:04:50,720
+that dependency we haven't put into the
+ 
+
+221
+00:04:50,720 --> 00:04:51,710
+that dependency we haven't put into the
+user
+
+222
+00:04:51,710 --> 00:04:51,720
+user
+ 
+
+223
+00:04:51,720 --> 00:04:54,469
+user
+class and that responsibility we have
+
+224
+00:04:54,469 --> 00:04:54,479
+class and that responsibility we have
+ 
+
+225
+00:04:54,479 --> 00:04:56,749
+class and that responsibility we have
+given to the external Source like to
+
+226
+00:04:56,749 --> 00:04:56,759
+given to the external Source like to
+ 
+
+227
+00:04:56,759 --> 00:05:00,510
+given to the external Source like to
+whom like spring so spring will resolve
+
+228
+00:05:00,510 --> 00:05:00,520
+whom like spring so spring will resolve
+ 
+
+229
+00:05:00,520 --> 00:05:04,350
+whom like spring so spring will resolve
+this dependency but you have make your
+
+230
+00:05:04,350 --> 00:05:04,360
+this dependency but you have make your
+ 
+
+231
+00:05:04,360 --> 00:05:08,150
+this dependency but you have make your
+classes like very loose
+
+232
+00:05:08,150 --> 00:05:08,160
+classes like very loose
+ 
+
+233
+00:05:08,160 --> 00:05:10,790
+classes like very loose
+couple okay so how is spring boot
+
+234
+00:05:10,790 --> 00:05:10,800
+couple okay so how is spring boot
+ 
+
+235
+00:05:10,800 --> 00:05:13,430
+couple okay so how is spring boot
+generally uh do uh dependency injection
+
+236
+00:05:13,430 --> 00:05:13,440
+generally uh do uh dependency injection
+ 
+
+237
+00:05:13,440 --> 00:05:15,189
+generally uh do uh dependency injection
+so you got what dependency injection is
+
+238
+00:05:15,189 --> 00:05:15,199
+so you got what dependency injection is
+ 
+
+239
+00:05:15,199 --> 00:05:17,469
+so you got what dependency injection is
+dependency injection is to bring the
+
+240
+00:05:17,469 --> 00:05:17,479
+dependency injection is to bring the
+ 
+
+241
+00:05:17,479 --> 00:05:19,430
+dependency injection is to bring the
+loose coupling between two classes or
+
+242
+00:05:19,430 --> 00:05:19,440
+loose coupling between two classes or
+ 
+
+243
+00:05:19,440 --> 00:05:22,029
+loose coupling between two classes or
+you can say that of we can make our
+
+244
+00:05:22,029 --> 00:05:22,039
+you can say that of we can make our
+ 
+
+245
+00:05:22,039 --> 00:05:24,909
+you can say that of we can make our
+class independent of it
+
+246
+00:05:24,909 --> 00:05:24,919
+class independent of it
+ 
+
+247
+00:05:24,919 --> 00:05:28,270
+class independent of it
+dependencies okay and what uh you can
+
+248
+00:05:28,270 --> 00:05:28,280
+dependencies okay and what uh you can
+ 
+
+249
+00:05:28,280 --> 00:05:30,309
+dependencies okay and what uh you can
+always explain with this example that
+
+250
+00:05:30,309 --> 00:05:30,319
+always explain with this example that
+ 
+
+251
+00:05:30,319 --> 00:05:32,629
+always explain with this example that
+these are the problems so dependency
+
+252
+00:05:32,629 --> 00:05:32,639
+these are the problems so dependency
+ 
+
+253
+00:05:32,639 --> 00:05:34,830
+these are the problems so dependency
+injections helps to achieve this
+
+254
+00:05:34,830 --> 00:05:34,840
+injections helps to achieve this
+ 
+
+255
+00:05:34,840 --> 00:05:38,510
+injections helps to achieve this
+dependency inversion rule of the solid
+
+256
+00:05:38,510 --> 00:05:38,520
+dependency inversion rule of the solid
+ 
+
+257
+00:05:38,520 --> 00:05:41,110
+dependency inversion rule of the solid
+principle so now in the same class if we
+
+258
+00:05:41,110 --> 00:05:41,120
+principle so now in the same class if we
+ 
+
+259
+00:05:41,120 --> 00:05:43,270
+principle so now in the same class if we
+rewrite through in Spring boot what we
+
+260
+00:05:43,270 --> 00:05:43,280
+rewrite through in Spring boot what we
+ 
+
+261
+00:05:43,280 --> 00:05:46,070
+rewrite through in Spring boot what we
+can do is we can create a user class and
+
+262
+00:05:46,070 --> 00:05:46,080
+can do is we can create a user class and
+ 
+
+263
+00:05:46,080 --> 00:05:47,590
+can do is we can create a user class and
+create at the rate component means we
+
+264
+00:05:47,590 --> 00:05:47,600
+create at the rate component means we
+ 
+
+265
+00:05:47,600 --> 00:05:48,830
+create at the rate component means we
+are telling to the spring that you
+
+266
+00:05:48,830 --> 00:05:48,840
+are telling to the spring that you
+ 
+
+267
+00:05:48,840 --> 00:05:51,749
+are telling to the spring that you
+manage the bean of this class we are
+
+268
+00:05:51,749 --> 00:05:51,759
+manage the bean of this class we are
+ 
+
+269
+00:05:51,759 --> 00:05:53,550
+manage the bean of this class we are
+creating an order class also put at
+
+270
+00:05:53,550 --> 00:05:53,560
+creating an order class also put at
+ 
+
+271
+00:05:53,560 --> 00:05:55,189
+creating an order class also put at
+theate component means telling a spring
+
+272
+00:05:55,189 --> 00:05:55,199
+theate component means telling a spring
+ 
+
+273
+00:05:55,199 --> 00:05:58,070
+theate component means telling a spring
+to manage the be of this class now this
+
+274
+00:05:58,070 --> 00:05:58,080
+to manage the be of this class now this
+ 
+
+275
+00:05:58,080 --> 00:06:00,870
+to manage the be of this class now this
+user class is dependent on order now
+
+276
+00:06:00,870 --> 00:06:00,880
+user class is dependent on order now
+ 
+
+277
+00:06:00,880 --> 00:06:02,430
+user class is dependent on order now
+here I'm not creating any object but I
+
+278
+00:06:02,430 --> 00:06:02,440
+here I'm not creating any object but I
+ 
+
+279
+00:06:02,440 --> 00:06:04,029
+here I'm not creating any object but I
+have written an
+
+280
+00:06:04,029 --> 00:06:04,039
+have written an
+ 
+
+281
+00:06:04,039 --> 00:06:06,830
+have written an
+autowired so what this autowired says
+
+282
+00:06:06,830 --> 00:06:06,840
+autowired so what this autowired says
+ 
+
+283
+00:06:06,840 --> 00:06:09,469
+autowired so what this autowired says
+that autowire tells to the spring that
+
+284
+00:06:09,469 --> 00:06:09,479
+that autowire tells to the spring that
+ 
+
+285
+00:06:09,479 --> 00:06:12,469
+that autowire tells to the spring that
+hey first look for a bean of the
+
+286
+00:06:12,469 --> 00:06:12,479
+hey first look for a bean of the
+ 
+
+287
+00:06:12,479 --> 00:06:16,350
+hey first look for a bean of the
+required type if order Bean is already
+
+288
+00:06:16,350 --> 00:06:16,360
+required type if order Bean is already
+ 
+
+289
+00:06:16,360 --> 00:06:20,350
+required type if order Bean is already
+present use that and inject into it
+
+290
+00:06:20,350 --> 00:06:20,360
+present use that and inject into it
+ 
+
+291
+00:06:20,360 --> 00:06:21,830
+present use that and inject into it
+resolve the
+
+292
+00:06:21,830 --> 00:06:21,840
+resolve the
+ 
+
+293
+00:06:21,840 --> 00:06:26,029
+resolve the
+dependency if not you will create it and
+
+294
+00:06:26,029 --> 00:06:26,039
+dependency if not you will create it and
+ 
+
+295
+00:06:26,039 --> 00:06:28,469
+dependency if not you will create it and
+then inject it first create the bean of
+
+296
+00:06:28,469 --> 00:06:28,479
+then inject it first create the bean of
+ 
+
+297
+00:06:28,479 --> 00:06:30,990
+then inject it first create the bean of
+the order and then inject Ed so now what
+
+298
+00:06:30,990 --> 00:06:31,000
+the order and then inject Ed so now what
+ 
+
+299
+00:06:31,000 --> 00:06:33,909
+the order and then inject Ed so now what
+you're doing is you giving
+
+300
+00:06:33,909 --> 00:06:33,919
+you're doing is you giving
+ 
+
+301
+00:06:33,919 --> 00:06:37,469
+you're doing is you giving
+the responsibility to external Source
+
+302
+00:06:37,469 --> 00:06:37,479
+the responsibility to external Source
+ 
+
+303
+00:06:37,479 --> 00:06:39,390
+the responsibility to external Source
+what is the external Source a spring so
+
+304
+00:06:39,390 --> 00:06:39,400
+what is the external Source a spring so
+ 
+
+305
+00:06:39,400 --> 00:06:43,070
+what is the external Source a spring so
+spring is now using its logic to how to
+
+306
+00:06:43,070 --> 00:06:43,080
+spring is now using its logic to how to
+ 
+
+307
+00:06:43,080 --> 00:06:44,990
+spring is now using its logic to how to
+create an instance of
+
+308
+00:06:44,990 --> 00:06:45,000
+create an instance of
+ 
+
+309
+00:06:45,000 --> 00:06:49,629
+create an instance of
+this through
+
+310
+00:06:49,629 --> 00:06:49,639
+
+ 
+
+311
+00:06:49,639 --> 00:06:53,550
+
+autowire okay so this I put it just to
+
+312
+00:06:53,550 --> 00:06:53,560
+autowire okay so this I put it just to
+ 
+
+313
+00:06:53,560 --> 00:06:55,790
+autowire okay so this I put it just to
+so that you can recall that where the
+
+314
+00:06:55,790 --> 00:06:55,800
+so that you can recall that where the
+ 
+
+315
+00:06:55,800 --> 00:06:57,430
+so that you can recall that where the
+dependency injections comes into the
+
+316
+00:06:57,430 --> 00:06:57,440
+dependency injections comes into the
+ 
+
+317
+00:06:57,440 --> 00:07:01,309
+dependency injections comes into the
+picture
+
+318
+00:07:01,309 --> 00:07:01,319
+
+ 
+
+319
+00:07:01,319 --> 00:07:05,110
+
+so this
+
+320
+00:07:05,110 --> 00:07:05,120
+
+ 
+
+321
+00:07:05,120 --> 00:07:07,390
+
+injection at the rate autowire through
+
+322
+00:07:07,390 --> 00:07:07,400
+injection at the rate autowire through
+ 
+
+323
+00:07:07,400 --> 00:07:08,510
+injection at the rate autowire through
+at theate
+
+324
+00:07:08,510 --> 00:07:08,520
+at theate
+ 
+
+325
+00:07:08,520 --> 00:07:11,510
+at theate
+autowire depend uh
+
+326
+00:07:11,510 --> 00:07:11,520
+autowire depend uh
+ 
+
+327
+00:07:11,520 --> 00:07:14,230
+autowire depend uh
+spring inject the dependency into this
+
+328
+00:07:14,230 --> 00:07:14,240
+spring inject the dependency into this
+ 
+
+329
+00:07:14,240 --> 00:07:16,950
+spring inject the dependency into this
+field right so there are three ways to
+
+330
+00:07:16,950 --> 00:07:16,960
+field right so there are three ways to
+ 
+
+331
+00:07:16,960 --> 00:07:20,029
+field right so there are three ways to
+do that one is field injection another
+
+332
+00:07:20,029 --> 00:07:20,039
+do that one is field injection another
+ 
+
+333
+00:07:20,039 --> 00:07:22,150
+do that one is field injection another
+is Setter injection and third one is
+
+334
+00:07:22,150 --> 00:07:22,160
+is Setter injection and third one is
+ 
+
+335
+00:07:22,160 --> 00:07:24,390
+is Setter injection and third one is
+Constructor injection very very
+
+336
+00:07:24,390 --> 00:07:24,400
+Constructor injection very very
+ 
+
+337
+00:07:24,400 --> 00:07:26,629
+Constructor injection very very
+important in Industry you will mostly
+
+338
+00:07:26,629 --> 00:07:26,639
+important in Industry you will mostly
+ 
+
+339
+00:07:26,639 --> 00:07:29,150
+important in Industry you will mostly
+see that we are using construction
+
+340
+00:07:29,150 --> 00:07:29,160
+see that we are using construction
+ 
+
+341
+00:07:29,160 --> 00:07:30,629
+see that we are using construction
+injection
+
+342
+00:07:30,629 --> 00:07:30,639
+injection
+ 
+
+343
+00:07:30,639 --> 00:07:34,790
+injection
+but many of them doesn't know why but we
+
+344
+00:07:34,790 --> 00:07:34,800
+but many of them doesn't know why but we
+ 
+
+345
+00:07:34,800 --> 00:07:36,469
+but many of them doesn't know why but we
+know that we have to use construction
+
+346
+00:07:36,469 --> 00:07:36,479
+know that we have to use construction
+ 
+
+347
+00:07:36,479 --> 00:07:39,110
+know that we have to use construction
+injection we are don't have to use this
+
+348
+00:07:39,110 --> 00:07:39,120
+injection we are don't have to use this
+ 
+
+349
+00:07:39,120 --> 00:07:40,950
+injection we are don't have to use this
+but why so I will explain you the
+
+350
+00:07:40,950 --> 00:07:40,960
+but why so I will explain you the
+ 
+
+351
+00:07:40,960 --> 00:07:43,070
+but why so I will explain you the
+advantage and disadvantage of
+
+352
+00:07:43,070 --> 00:07:43,080
+advantage and disadvantage of
+ 
+
+353
+00:07:43,080 --> 00:07:46,430
+advantage and disadvantage of
+each so first is field injection so
+
+354
+00:07:46,430 --> 00:07:46,440
+each so first is field injection so
+ 
+
+355
+00:07:46,440 --> 00:07:48,589
+each so first is field injection so
+dependency is set into the fields of the
+
+356
+00:07:48,589 --> 00:07:48,599
+dependency is set into the fields of the
+ 
+
+357
+00:07:48,599 --> 00:07:50,749
+dependency is set into the fields of the
+class directly what does it mean so here
+
+358
+00:07:50,749 --> 00:07:50,759
+class directly what does it mean so here
+ 
+
+359
+00:07:50,759 --> 00:07:53,469
+class directly what does it mean so here
+if you see this is the class I have
+
+360
+00:07:53,469 --> 00:07:53,479
+if you see this is the class I have
+ 
+
+361
+00:07:53,479 --> 00:07:55,309
+if you see this is the class I have
+created a user class put at theate
+
+362
+00:07:55,309 --> 00:07:55,319
+created a user class put at theate
+ 
+
+363
+00:07:55,319 --> 00:07:57,189
+created a user class put at theate
+component means now spring has to create
+
+364
+00:07:57,189 --> 00:07:57,199
+component means now spring has to create
+ 
+
+365
+00:07:57,199 --> 00:08:00,749
+component means now spring has to create
+its Bean this is the just a simple
+
+366
+00:08:00,749 --> 00:08:00,759
+its Bean this is the just a simple
+ 
+
+367
+00:08:00,759 --> 00:08:03,710
+its Bean this is the just a simple
+Constructor and I have so this user
+
+368
+00:08:03,710 --> 00:08:03,720
+Constructor and I have so this user
+ 
+
+369
+00:08:03,720 --> 00:08:06,189
+Constructor and I have so this user
+class is dependent on this order class
+
+370
+00:08:06,189 --> 00:08:06,199
+class is dependent on this order class
+ 
+
+371
+00:08:06,199 --> 00:08:08,790
+class is dependent on this order class
+so this order object I needed but I have
+
+372
+00:08:08,790 --> 00:08:08,800
+so this order object I needed but I have
+ 
+
+373
+00:08:08,800 --> 00:08:11,550
+so this order object I needed but I have
+tell now spring you create an instance
+
+374
+00:08:11,550 --> 00:08:11,560
+tell now spring you create an instance
+ 
+
+375
+00:08:11,560 --> 00:08:12,710
+tell now spring you create an instance
+of this
+
+376
+00:08:12,710 --> 00:08:12,720
+of this
+ 
+
+377
+00:08:12,720 --> 00:08:16,309
+of this
+order so this is an order class I have a
+
+378
+00:08:16,309 --> 00:08:16,319
+order so this is an order class I have a
+ 
+
+379
+00:08:16,319 --> 00:08:18,550
+order so this is an order class I have a
+simple Constructor component means
+
+380
+00:08:18,550 --> 00:08:18,560
+simple Constructor component means
+ 
+
+381
+00:08:18,560 --> 00:08:21,189
+simple Constructor component means
+spring has to create its bean I have
+
+382
+00:08:21,189 --> 00:08:21,199
+spring has to create its bean I have
+ 
+
+383
+00:08:21,199 --> 00:08:23,110
+spring has to create its bean I have
+just put lazy from the previous video
+
+384
+00:08:23,110 --> 00:08:23,120
+just put lazy from the previous video
+ 
+
+385
+00:08:23,120 --> 00:08:25,110
+just put lazy from the previous video
+you might already understand that if we
+
+386
+00:08:25,110 --> 00:08:25,120
+you might already understand that if we
+ 
+
+387
+00:08:25,120 --> 00:08:28,629
+you might already understand that if we
+put lazy means during application
+
+388
+00:08:28,629 --> 00:08:28,639
+put lazy means during application
+ 
+
+389
+00:08:28,639 --> 00:08:31,430
+put lazy means during application
+startup this object will not get created
+
+390
+00:08:31,430 --> 00:08:31,440
+startup this object will not get created
+ 
+
+391
+00:08:31,440 --> 00:08:34,190
+startup this object will not get created
+only when it first used then only it
+
+392
+00:08:34,190 --> 00:08:34,200
+only when it first used then only it
+ 
+
+393
+00:08:34,200 --> 00:08:36,949
+only when it first used then only it
+would be created
+
+394
+00:08:36,949 --> 00:08:36,959
+would be created
+ 
+
+395
+00:08:36,959 --> 00:08:39,790
+would be created
+okay so I I have written it here just
+
+396
+00:08:39,790 --> 00:08:39,800
+okay so I I have written it here just
+ 
+
+397
+00:08:39,800 --> 00:08:42,230
+okay so I I have written it here just
+for the sake that this locks would like
+
+398
+00:08:42,230 --> 00:08:42,240
+for the sake that this locks would like
+ 
+
+399
+00:08:42,240 --> 00:08:44,269
+for the sake that this locks would like
+totally get sequence like exactly where
+
+400
+00:08:44,269 --> 00:08:44,279
+totally get sequence like exactly where
+ 
+
+401
+00:08:44,279 --> 00:08:47,470
+totally get sequence like exactly where
+it used so I'll tell you now what would
+
+402
+00:08:47,470 --> 00:08:47,480
+it used so I'll tell you now what would
+ 
+
+403
+00:08:47,480 --> 00:08:49,190
+it used so I'll tell you now what would
+happen field injection so now here if
+
+404
+00:08:49,190 --> 00:08:49,200
+happen field injection so now here if
+ 
+
+405
+00:08:49,200 --> 00:08:50,990
+happen field injection so now here if
+you see that on this
+
+406
+00:08:50,990 --> 00:08:51,000
+you see that on this
+ 
+
+407
+00:08:51,000 --> 00:08:54,630
+you see that on this
+field I have put this autowire so this
+
+408
+00:08:54,630 --> 00:08:54,640
+field I have put this autowire so this
+ 
+
+409
+00:08:54,640 --> 00:08:55,990
+field I have put this autowire so this
+is known as field
+
+410
+00:08:55,990 --> 00:08:56,000
+is known as field
+ 
+
+411
+00:08:56,000 --> 00:08:58,509
+is known as field
+injection so what now spring will do so
+
+412
+00:08:58,509 --> 00:08:58,519
+injection so what now spring will do so
+ 
+
+413
+00:08:58,519 --> 00:09:00,350
+injection so what now spring will do so
+you know the sequence right when when
+
+414
+00:09:00,350 --> 00:09:00,360
+you know the sequence right when when
+ 
+
+415
+00:09:00,360 --> 00:09:04,069
+you know the sequence right when when
+you started the application so ioc will
+
+416
+00:09:04,069 --> 00:09:04,079
+you started the application so ioc will
+ 
+
+417
+00:09:04,079 --> 00:09:06,870
+you started the application so ioc will
+get started so ioc will get started
+
+418
+00:09:06,870 --> 00:09:06,880
+get started so ioc will get started
+ 
+
+419
+00:09:06,880 --> 00:09:09,069
+get started so ioc will get started
+right so what ioc will see it will look
+
+420
+00:09:09,069 --> 00:09:09,079
+right so what ioc will see it will look
+ 
+
+421
+00:09:09,079 --> 00:09:11,069
+right so what ioc will see it will look
+for all the beans which it has to
+
+422
+00:09:11,069 --> 00:09:11,079
+for all the beans which it has to
+ 
+
+423
+00:09:11,079 --> 00:09:12,910
+for all the beans which it has to
+initiate so it will look for at theate
+
+424
+00:09:12,910 --> 00:09:12,920
+initiate so it will look for at theate
+ 
+
+425
+00:09:12,920 --> 00:09:16,509
+initiate so it will look for at theate
+component uh classes so it found this
+
+426
+00:09:16,509 --> 00:09:16,519
+component uh classes so it found this
+ 
+
+427
+00:09:16,519 --> 00:09:20,550
+component uh classes so it found this
+user and order so it will first create a
+
+428
+00:09:20,550 --> 00:09:20,560
+user and order so it will first create a
+ 
+
+429
+00:09:20,560 --> 00:09:21,990
+user and order so it will first create a
+user user
+
+430
+00:09:21,990 --> 00:09:22,000
+user user
+ 
+
+431
+00:09:22,000 --> 00:09:24,710
+user user
+initiated then it found an order so it
+
+432
+00:09:24,710 --> 00:09:24,720
+initiated then it found an order so it
+ 
+
+433
+00:09:24,720 --> 00:09:26,790
+initiated then it found an order so it
+will has to invoke it but it say that
+
+434
+00:09:26,790 --> 00:09:26,800
+will has to invoke it but it say that
+ 
+
+435
+00:09:26,800 --> 00:09:28,870
+will has to invoke it but it say that
+okay it says that lazy I don't have to
+
+436
+00:09:28,870 --> 00:09:28,880
+okay it says that lazy I don't have to
+ 
+
+437
+00:09:28,880 --> 00:09:31,710
+okay it says that lazy I don't have to
+invoke it now when it would use I will
+
+438
+00:09:31,710 --> 00:09:31,720
+invoke it now when it would use I will
+ 
+
+439
+00:09:31,720 --> 00:09:36,190
+invoke it now when it would use I will
+use it so user is created now it will
+
+440
+00:09:36,190 --> 00:09:36,200
+use it so user is created now it will
+ 
+
+441
+00:09:36,200 --> 00:09:38,870
+use it so user is created now it will
+see that okay is there any dependency
+
+442
+00:09:38,870 --> 00:09:38,880
+see that okay is there any dependency
+ 
+
+443
+00:09:38,880 --> 00:09:40,630
+see that okay is there any dependency
+which I have to resolve so it will look
+
+444
+00:09:40,630 --> 00:09:40,640
+which I have to resolve so it will look
+ 
+
+445
+00:09:40,640 --> 00:09:43,990
+which I have to resolve so it will look
+for it will use reflection spring uses
+
+446
+00:09:43,990 --> 00:09:44,000
+for it will use reflection spring uses
+ 
+
+447
+00:09:44,000 --> 00:09:46,670
+for it will use reflection spring uses
+reflection to iterate over the fields
+
+448
+00:09:46,670 --> 00:09:46,680
+reflection to iterate over the fields
+ 
+
+449
+00:09:46,680 --> 00:09:49,750
+reflection to iterate over the fields
+and resolve the dependency so internally
+
+450
+00:09:49,750 --> 00:09:49,760
+and resolve the dependency so internally
+ 
+
+451
+00:09:49,760 --> 00:09:51,870
+and resolve the dependency so internally
+spring it uses the reflection and
+
+452
+00:09:51,870 --> 00:09:51,880
+spring it uses the reflection and
+ 
+
+453
+00:09:51,880 --> 00:09:54,150
+spring it uses the reflection and
+iterate over all the fields and see that
+
+454
+00:09:54,150 --> 00:09:54,160
+iterate over all the fields and see that
+ 
+
+455
+00:09:54,160 --> 00:09:58,069
+iterate over all the fields and see that
+hey any field has autowired on it if yes
+
+456
+00:09:58,069 --> 00:09:58,079
+hey any field has autowired on it if yes
+ 
+
+457
+00:09:58,079 --> 00:10:00,829
+hey any field has autowired on it if yes
+then spring has to resolve its
+
+458
+00:10:00,829 --> 00:10:00,839
+then spring has to resolve its
+ 
+
+459
+00:10:00,839 --> 00:10:04,269
+then spring has to resolve its
+dependency so now spring find that okay
+
+460
+00:10:04,269 --> 00:10:04,279
+dependency so now spring find that okay
+ 
+
+461
+00:10:04,279 --> 00:10:07,069
+dependency so now spring find that okay
+order is the field which I have to
+
+462
+00:10:07,069 --> 00:10:07,079
+order is the field which I have to
+ 
+
+463
+00:10:07,079 --> 00:10:11,670
+order is the field which I have to
+resolve for this user Bean so now
+
+464
+00:10:11,670 --> 00:10:11,680
+resolve for this user Bean so now
+ 
+
+465
+00:10:11,680 --> 00:10:13,829
+resolve for this user Bean so now
+because of autowire it first check hey
+
+466
+00:10:13,829 --> 00:10:13,839
+because of autowire it first check hey
+ 
+
+467
+00:10:13,839 --> 00:10:16,389
+because of autowire it first check hey
+order Bean is already there no we
+
+468
+00:10:16,389 --> 00:10:16,399
+order Bean is already there no we
+ 
+
+469
+00:10:16,399 --> 00:10:17,910
+order Bean is already there no we
+haven't because we have marked lazy that
+
+470
+00:10:17,910 --> 00:10:17,920
+haven't because we have marked lazy that
+ 
+
+471
+00:10:17,920 --> 00:10:20,430
+haven't because we have marked lazy that
+order be was not initiated so now at
+
+472
+00:10:20,430 --> 00:10:20,440
+order be was not initiated so now at
+ 
+
+473
+00:10:20,440 --> 00:10:24,750
+order be was not initiated so now at
+this time spring will initiate the order
+
+474
+00:10:24,750 --> 00:10:24,760
+this time spring will initiate the order
+ 
+
+475
+00:10:24,760 --> 00:10:28,269
+this time spring will initiate the order
+so its order object is created and after
+
+476
+00:10:28,269 --> 00:10:28,279
+so its order object is created and after
+ 
+
+477
+00:10:28,279 --> 00:10:30,750
+so its order object is created and after
+that once the order object is created
+
+478
+00:10:30,750 --> 00:10:30,760
+that once the order object is created
+ 
+
+479
+00:10:30,760 --> 00:10:34,350
+that once the order object is created
+that get injected here so now here we
+
+480
+00:10:34,350 --> 00:10:34,360
+that get injected here so now here we
+ 
+
+481
+00:10:34,360 --> 00:10:36,670
+that get injected here so now here we
+haven't provided at theate configuration
+
+482
+00:10:36,670 --> 00:10:36,680
+haven't provided at theate configuration
+ 
+
+483
+00:10:36,680 --> 00:10:40,430
+haven't provided at theate configuration
+file right so spring will might call its
+
+484
+00:10:40,430 --> 00:10:40,440
+file right so spring will might call its
+ 
+
+485
+00:10:40,440 --> 00:10:41,990
+file right so spring will might call its
+default
+
+486
+00:10:41,990 --> 00:10:42,000
+default
+ 
+
+487
+00:10:42,000 --> 00:10:44,030
+default
+Constructor at theate configuration I
+
+488
+00:10:44,030 --> 00:10:44,040
+Constructor at theate configuration I
+ 
+
+489
+00:10:44,040 --> 00:10:45,150
+Constructor at theate configuration I
+have already explained you in the
+
+490
+00:10:45,150 --> 00:10:45,160
+have already explained you in the
+ 
+
+491
+00:10:45,160 --> 00:10:49,190
+have already explained you in the
+previous video so what its Advantage one
+
+492
+00:10:49,190 --> 00:10:49,200
+previous video so what its Advantage one
+ 
+
+493
+00:10:49,200 --> 00:10:51,750
+previous video so what its Advantage one
+advantage is it is very simple and easy
+
+494
+00:10:51,750 --> 00:10:51,760
+advantage is it is very simple and easy
+ 
+
+495
+00:10:51,760 --> 00:10:55,629
+advantage is it is very simple and easy
+to use so if you just see there you are
+
+496
+00:10:55,629 --> 00:10:55,639
+to use so if you just see there you are
+ 
+
+497
+00:10:55,639 --> 00:10:58,949
+to use so if you just see there you are
+just looking at a code you already get
+
+498
+00:10:58,949 --> 00:10:58,959
+just looking at a code you already get
+ 
+
+499
+00:10:58,959 --> 00:11:01,269
+just looking at a code you already get
+to know know that okay this is the class
+
+500
+00:11:01,269 --> 00:11:01,279
+to know know that okay this is the class
+ 
+
+501
+00:11:01,279 --> 00:11:05,030
+to know know that okay this is the class
+this is the field and okay these are the
+
+502
+00:11:05,030 --> 00:11:05,040
+this is the field and okay these are the
+ 
+
+503
+00:11:05,040 --> 00:11:08,230
+this is the field and okay these are the
+dependencies I have so it's very very
+
+504
+00:11:08,230 --> 00:11:08,240
+dependencies I have so it's very very
+ 
+
+505
+00:11:08,240 --> 00:11:11,269
+dependencies I have so it's very very
+easy to uh read and understand and it's
+
+506
+00:11:11,269 --> 00:11:11,279
+easy to uh read and understand and it's
+ 
+
+507
+00:11:11,279 --> 00:11:12,190
+easy to uh read and understand and it's
+very
+
+508
+00:11:12,190 --> 00:11:12,200
+very
+ 
+
+509
+00:11:12,200 --> 00:11:15,389
+very
+simple so what is the first disadvantage
+
+510
+00:11:15,389 --> 00:11:15,399
+simple so what is the first disadvantage
+ 
+
+511
+00:11:15,399 --> 00:11:17,590
+simple so what is the first disadvantage
+of this field
+
+512
+00:11:17,590 --> 00:11:17,600
+of this field
+ 
+
+513
+00:11:17,600 --> 00:11:20,430
+of this field
+injection one thing is you cannot Mark
+
+514
+00:11:20,430 --> 00:11:20,440
+injection one thing is you cannot Mark
+ 
+
+515
+00:11:20,440 --> 00:11:21,509
+injection one thing is you cannot Mark
+as
+
+516
+00:11:21,509 --> 00:11:21,519
+as
+ 
+
+517
+00:11:21,519 --> 00:11:25,430
+as
+immutable so what immutable means you
+
+518
+00:11:25,430 --> 00:11:25,440
+immutable so what immutable means you
+ 
+
+519
+00:11:25,440 --> 00:11:28,190
+immutable so what immutable means you
+can initialize it once so let's say that
+
+520
+00:11:28,190 --> 00:11:28,200
+can initialize it once so let's say that
+ 
+
+521
+00:11:28,200 --> 00:11:30,910
+can initialize it once so let's say that
+uh a equals to 10 and you marked it as
+
+522
+00:11:30,910 --> 00:11:30,920
+uh a equals to 10 and you marked it as
+ 
+
+523
+00:11:30,920 --> 00:11:32,949
+uh a equals to 10 and you marked it as
+immutable
+
+524
+00:11:32,949 --> 00:11:32,959
+immutable
+ 
+
+525
+00:11:32,959 --> 00:11:36,509
+immutable
+final now once it is initialized if you
+
+526
+00:11:36,509 --> 00:11:36,519
+final now once it is initialized if you
+ 
+
+527
+00:11:36,519 --> 00:11:38,990
+final now once it is initialized if you
+try to change it value let's say 30 it
+
+528
+00:11:38,990 --> 00:11:39,000
+try to change it value let's say 30 it
+ 
+
+529
+00:11:39,000 --> 00:11:40,990
+try to change it value let's say 30 it
+say that no you can't change it this is
+
+530
+00:11:40,990 --> 00:11:41,000
+say that no you can't change it this is
+ 
+
+531
+00:11:41,000 --> 00:11:43,110
+say that no you can't change it this is
+just an example I'm telling you that
+
+532
+00:11:43,110 --> 00:11:43,120
+just an example I'm telling you that
+ 
+
+533
+00:11:43,120 --> 00:11:45,750
+just an example I'm telling you that
+what immutable is means you can
+
+534
+00:11:45,750 --> 00:11:45,760
+what immutable is means you can
+ 
+
+535
+00:11:45,760 --> 00:11:48,310
+what immutable is means you can
+initialize it only once and after that
+
+536
+00:11:48,310 --> 00:11:48,320
+initialize it only once and after that
+ 
+
+537
+00:11:48,320 --> 00:11:51,430
+initialize it only once and after that
+you cannot change its value so the
+
+538
+00:11:51,430 --> 00:11:51,440
+you cannot change its value so the
+ 
+
+539
+00:11:51,440 --> 00:11:55,030
+you cannot change its value so the
+disadvantage of uh field injection is
+
+540
+00:11:55,030 --> 00:11:55,040
+disadvantage of uh field injection is
+ 
+
+541
+00:11:55,040 --> 00:11:57,269
+disadvantage of uh field injection is
+you can't make Fields
+
+542
+00:11:57,269 --> 00:11:57,279
+you can't make Fields
+ 
+
+543
+00:11:57,279 --> 00:12:00,990
+you can't make Fields
+immutable you can't do this
+
+544
+00:12:00,990 --> 00:12:01,000
+immutable you can't do this
+ 
+
+545
+00:12:01,000 --> 00:12:03,190
+immutable you can't do this
+you can't put final let's say that your
+
+546
+00:12:03,190 --> 00:12:03,200
+you can't put final let's say that your
+ 
+
+547
+00:12:03,200 --> 00:12:04,870
+you can't put final let's say that your
+application has a requirement to make
+
+548
+00:12:04,870 --> 00:12:04,880
+application has a requirement to make
+ 
+
+549
+00:12:04,880 --> 00:12:08,790
+application has a requirement to make
+this order immutable can you do that no
+
+550
+00:12:08,790 --> 00:12:08,800
+this order immutable can you do that no
+ 
+
+551
+00:12:08,800 --> 00:12:10,269
+this order immutable can you do that no
+you will put
+
+552
+00:12:10,269 --> 00:12:10,279
+you will put
+ 
+
+553
+00:12:10,279 --> 00:12:13,350
+you will put
+null so this this issue will
+
+554
+00:12:13,350 --> 00:12:13,360
+null so this this issue will
+ 
+
+555
+00:12:13,360 --> 00:12:16,710
+null so this this issue will
+go now what would happen is uh I told
+
+556
+00:12:16,710 --> 00:12:16,720
+go now what would happen is uh I told
+ 
+
+557
+00:12:16,720 --> 00:12:19,150
+go now what would happen is uh I told
+you that spring uses reflection and
+
+558
+00:12:19,150 --> 00:12:19,160
+you that spring uses reflection and
+ 
+
+559
+00:12:19,160 --> 00:12:22,430
+you that spring uses reflection and
+during reflection it ignores it whether
+
+560
+00:12:22,430 --> 00:12:22,440
+during reflection it ignores it whether
+ 
+
+561
+00:12:22,440 --> 00:12:25,069
+during reflection it ignores it whether
+it's a final or not and ultimately it
+
+562
+00:12:25,069 --> 00:12:25,079
+it's a final or not and ultimately it
+ 
+
+563
+00:12:25,079 --> 00:12:26,670
+it's a final or not and ultimately it
+will inject the
+
+564
+00:12:26,670 --> 00:12:26,680
+will inject the
+ 
+
+565
+00:12:26,680 --> 00:12:29,430
+will inject the
+dependency so you when you are Ely
+
+566
+00:12:29,430 --> 00:12:29,440
+dependency so you when you are Ely
+ 
+
+567
+00:12:29,440 --> 00:12:32,189
+dependency so you when you are Ely
+trying to use it you won't see null you
+
+568
+00:12:32,189 --> 00:12:32,199
+trying to use it you won't see null you
+ 
+
+569
+00:12:32,199 --> 00:12:36,069
+trying to use it you won't see null you
+ultimately see that the object instance
+
+570
+00:12:36,069 --> 00:12:36,079
+ultimately see that the object instance
+ 
+
+571
+00:12:36,079 --> 00:12:39,069
+ultimately see that the object instance
+is injected into it so that breaks
+
+572
+00:12:39,069 --> 00:12:39,079
+is injected into it so that breaks
+ 
+
+573
+00:12:39,079 --> 00:12:41,350
+is injected into it so that breaks
+immutability because initially you have
+
+574
+00:12:41,350 --> 00:12:41,360
+immutability because initially you have
+ 
+
+575
+00:12:41,360 --> 00:12:44,790
+immutability because initially you have
+first initialized it with null now as
+
+576
+00:12:44,790 --> 00:12:44,800
+first initialized it with null now as
+ 
+
+577
+00:12:44,800 --> 00:12:46,949
+first initialized it with null now as
+per the immutability you should not be
+
+578
+00:12:46,949 --> 00:12:46,959
+per the immutability you should not be
+ 
+
+579
+00:12:46,959 --> 00:12:49,350
+per the immutability you should not be
+able to change its value but since we
+
+580
+00:12:49,350 --> 00:12:49,360
+able to change its value but since we
+ 
+
+581
+00:12:49,360 --> 00:12:51,030
+able to change its value but since we
+are using reflection and you know that
+
+582
+00:12:51,030 --> 00:12:51,040
+are using reflection and you know that
+ 
+
+583
+00:12:51,040 --> 00:12:54,790
+are using reflection and you know that
+in Java Reflection do not honor anything
+
+584
+00:12:54,790 --> 00:12:54,800
+in Java Reflection do not honor anything
+ 
+
+585
+00:12:54,800 --> 00:12:56,790
+in Java Reflection do not honor anything
+it breaks many principles it do not
+
+586
+00:12:56,790 --> 00:12:56,800
+it breaks many principles it do not
+ 
+
+587
+00:12:56,800 --> 00:12:59,350
+it breaks many principles it do not
+honor anything so during reflection it
+
+588
+00:12:59,350 --> 00:12:59,360
+honor anything so during reflection it
+ 
+
+589
+00:12:59,360 --> 00:13:02,310
+honor anything so during reflection it
+doesn't bother final or not it just take
+
+590
+00:13:02,310 --> 00:13:02,320
+doesn't bother final or not it just take
+ 
+
+591
+00:13:02,320 --> 00:13:06,310
+doesn't bother final or not it just take
+read this field and inject the
+
+592
+00:13:06,310 --> 00:13:06,320
+read this field and inject the
+ 
+
+593
+00:13:06,320 --> 00:13:10,350
+read this field and inject the
+dependency so immutability doesn't
+
+594
+00:13:10,350 --> 00:13:10,360
+dependency so immutability doesn't
+ 
+
+595
+00:13:10,360 --> 00:13:15,150
+dependency so immutability doesn't
+work in the case of field injection
+
+596
+00:13:15,150 --> 00:13:15,160
+work in the case of field injection
+ 
+
+597
+00:13:15,160 --> 00:13:16,629
+work in the case of field injection
+second is chances of null pointer
+
+598
+00:13:16,629 --> 00:13:16,639
+second is chances of null pointer
+ 
+
+599
+00:13:16,639 --> 00:13:18,310
+second is chances of null pointer
+exception now let's say that you are
+
+600
+00:13:18,310 --> 00:13:18,320
+exception now let's say that you are
+ 
+
+601
+00:13:18,320 --> 00:13:21,829
+exception now let's say that you are
+creating a user class and you are
+
+602
+00:13:21,829 --> 00:13:21,839
+creating a user class and you are
+ 
+
+603
+00:13:21,839 --> 00:13:23,710
+creating a user class and you are
+creating this object everything is
+
+604
+00:13:23,710 --> 00:13:23,720
+creating this object everything is
+ 
+
+605
+00:13:23,720 --> 00:13:26,470
+creating this object everything is
+proper right right you are putting an
+
+606
+00:13:26,470 --> 00:13:26,480
+proper right right you are putting an
+ 
+
+607
+00:13:26,480 --> 00:13:31,509
+proper right right you are putting an
+auto on this now let's say
+
+608
+00:13:31,509 --> 00:13:31,519
+
+ 
+
+609
+00:13:31,519 --> 00:13:34,389
+
+some piece of the code creating an
+
+610
+00:13:34,389 --> 00:13:34,399
+some piece of the code creating an
+ 
+
+611
+00:13:34,399 --> 00:13:38,430
+some piece of the code creating an
+object like new user this is also valid
+
+612
+00:13:38,430 --> 00:13:38,440
+object like new user this is also valid
+ 
+
+613
+00:13:38,440 --> 00:13:39,910
+object like new user this is also valid
+right nothing wrong in that you can
+
+614
+00:13:39,910 --> 00:13:39,920
+right nothing wrong in that you can
+ 
+
+615
+00:13:39,920 --> 00:13:42,990
+right nothing wrong in that you can
+always create a new object right spring
+
+616
+00:13:42,990 --> 00:13:43,000
+always create a new object right spring
+ 
+
+617
+00:13:43,000 --> 00:13:44,829
+always create a new object right spring
+will not force you that you can't use it
+
+618
+00:13:44,829 --> 00:13:44,839
+will not force you that you can't use it
+ 
+
+619
+00:13:44,839 --> 00:13:46,750
+will not force you that you can't use it
+so let's say that some piece of the code
+
+620
+00:13:46,750 --> 00:13:46,760
+so let's say that some piece of the code
+ 
+
+621
+00:13:46,760 --> 00:13:50,430
+so let's say that some piece of the code
+create user create by itself new
+
+622
+00:13:50,430 --> 00:13:50,440
+create user create by itself new
+ 
+
+623
+00:13:50,440 --> 00:13:53,110
+create user create by itself new
+user right it will create a new object
+
+624
+00:13:53,110 --> 00:13:53,120
+user right it will create a new object
+ 
+
+625
+00:13:53,120 --> 00:13:54,710
+user right it will create a new object
+so when it create a new object default
+
+626
+00:13:54,710 --> 00:13:54,720
+so when it create a new object default
+ 
+
+627
+00:13:54,720 --> 00:13:57,110
+so when it create a new object default
+Constructor is used so in the default
+
+628
+00:13:57,110 --> 00:13:57,120
+Constructor is used so in the default
+ 
+
+629
+00:13:57,120 --> 00:13:58,470
+Constructor is used so in the default
+Constructor what would be the value of
+
+630
+00:13:58,470 --> 00:13:58,480
+Constructor what would be the value of
+ 
+
+631
+00:13:58,480 --> 00:14:00,790
+Constructor what would be the value of
+order now
+
+632
+00:14:00,790 --> 00:14:00,800
+order now
+ 
+
+633
+00:14:00,800 --> 00:14:02,710
+order now
+null right because we haven't
+
+634
+00:14:02,710 --> 00:14:02,720
+null right because we haven't
+ 
+
+635
+00:14:02,720 --> 00:14:05,749
+null right because we haven't
+initialized it anything now if you try
+
+636
+00:14:05,749 --> 00:14:05,759
+initialized it anything now if you try
+ 
+
+637
+00:14:05,759 --> 00:14:08,710
+initialized it anything now if you try
+to call this method user process uh user
+
+638
+00:14:08,710 --> 00:14:08,720
+to call this method user process uh user
+ 
+
+639
+00:14:08,720 --> 00:14:11,150
+to call this method user process uh user
+object. process so this process will get
+
+640
+00:14:11,150 --> 00:14:11,160
+object. process so this process will get
+ 
+
+641
+00:14:11,160 --> 00:14:13,949
+object. process so this process will get
+invol now it is trying to use the order
+
+642
+00:14:13,949 --> 00:14:13,959
+invol now it is trying to use the order
+ 
+
+643
+00:14:13,959 --> 00:14:17,189
+invol now it is trying to use the order
+order do process order do process and it
+
+644
+00:14:17,189 --> 00:14:17,199
+order do process order do process and it
+ 
+
+645
+00:14:17,199 --> 00:14:20,470
+order do process order do process and it
+will throw null pointer
+
+646
+00:14:20,470 --> 00:14:20,480
+
+ 
+
+647
+00:14:20,480 --> 00:14:22,430
+
+exception another issue with the field
+
+648
+00:14:22,430 --> 00:14:22,440
+exception another issue with the field
+ 
+
+649
+00:14:22,440 --> 00:14:26,430
+exception another issue with the field
+injection is that during unit testing so
+
+650
+00:14:26,430 --> 00:14:26,440
+injection is that during unit testing so
+ 
+
+651
+00:14:26,440 --> 00:14:29,910
+injection is that during unit testing so
+you have this class now you have to mock
+
+652
+00:14:29,910 --> 00:14:29,920
+you have this class now you have to mock
+ 
+
+653
+00:14:29,920 --> 00:14:31,910
+you have this class now you have to mock
+this
+
+654
+00:14:31,910 --> 00:14:31,920
+this
+ 
+
+655
+00:14:31,920 --> 00:14:34,430
+this
+order right
+
+656
+00:14:34,430 --> 00:14:34,440
+order right
+ 
+
+657
+00:14:34,440 --> 00:14:37,269
+order right
+so now you let's say that what you have
+
+658
+00:14:37,269 --> 00:14:37,279
+so now you let's say that what you have
+ 
+
+659
+00:14:37,279 --> 00:14:39,509
+so now you let's say that what you have
+to do is you have to mock this user
+
+660
+00:14:39,509 --> 00:14:39,519
+to do is you have to mock this user
+ 
+
+661
+00:14:39,519 --> 00:14:41,629
+to do is you have to mock this user
+object uh order
+
+662
+00:14:41,629 --> 00:14:41,639
+object uh order
+ 
+
+663
+00:14:41,639 --> 00:14:44,710
+object uh order
+object so you have created a mock object
+
+664
+00:14:44,710 --> 00:14:44,720
+object so you have created a mock object
+ 
+
+665
+00:14:44,720 --> 00:14:47,670
+object so you have created a mock object
+of this order now how you will mock it
+
+666
+00:14:47,670 --> 00:14:47,680
+of this order now how you will mock it
+ 
+
+667
+00:14:47,680 --> 00:14:50,150
+of this order now how you will mock it
+there is no Constructor here or no
+
+668
+00:14:50,150 --> 00:14:50,160
+there is no Constructor here or no
+ 
+
+669
+00:14:50,160 --> 00:14:53,350
+there is no Constructor here or no
+Setter method where you can put this
+
+670
+00:14:53,350 --> 00:14:53,360
+Setter method where you can put this
+ 
+
+671
+00:14:53,360 --> 00:14:55,710
+Setter method where you can put this
+mock object which you have created into
+
+672
+00:14:55,710 --> 00:14:55,720
+mock object which you have created into
+ 
+
+673
+00:14:55,720 --> 00:14:58,030
+mock object which you have created into
+this because now spring is initially
+
+674
+00:14:58,030 --> 00:14:58,040
+this because now spring is initially
+ 
+
+675
+00:14:58,040 --> 00:14:59,990
+this because now spring is initially
+creating it right you don't have control
+
+676
+00:14:59,990 --> 00:15:00,000
+creating it right you don't have control
+ 
+
+677
+00:15:00,000 --> 00:15:04,189
+creating it right you don't have control
+over it so how you will set this order
+
+678
+00:15:04,189 --> 00:15:04,199
+over it so how you will set this order
+ 
+
+679
+00:15:04,199 --> 00:15:06,550
+over it so how you will set this order
+mock into this
+
+680
+00:15:06,550 --> 00:15:06,560
+mock into this
+ 
+
+681
+00:15:06,560 --> 00:15:09,430
+mock into this
+class so generally currently today what
+
+682
+00:15:09,430 --> 00:15:09,440
+class so generally currently today what
+ 
+
+683
+00:15:09,440 --> 00:15:12,949
+class so generally currently today what
+we are using is uh mockito and J unit
+
+684
+00:15:12,949 --> 00:15:12,959
+we are using is uh mockito and J unit
+ 
+
+685
+00:15:12,959 --> 00:15:15,990
+we are using is uh mockito and J unit
+which we might be using right so there
+
+686
+00:15:15,990 --> 00:15:16,000
+which we might be using right so there
+ 
+
+687
+00:15:16,000 --> 00:15:18,710
+which we might be using right so there
+we put at theate Mock atate inject mock
+
+688
+00:15:18,710 --> 00:15:18,720
+we put at theate Mock atate inject mock
+ 
+
+689
+00:15:18,720 --> 00:15:20,910
+we put at theate Mock atate inject mock
+so what internally it does it it uses
+
+690
+00:15:20,910 --> 00:15:20,920
+so what internally it does it it uses
+ 
+
+691
+00:15:20,920 --> 00:15:22,509
+so what internally it does it it uses
+also uses
+
+692
+00:15:22,509 --> 00:15:22,519
+also uses
+ 
+
+693
+00:15:22,519 --> 00:15:25,269
+also uses
+reflection so it will iterate over it
+
+694
+00:15:25,269 --> 00:15:25,279
+reflection so it will iterate over it
+ 
+
+695
+00:15:25,279 --> 00:15:26,670
+reflection so it will iterate over it
+and it will see that okay if there is
+
+696
+00:15:26,670 --> 00:15:26,680
+and it will see that okay if there is
+ 
+
+697
+00:15:26,680 --> 00:15:29,749
+and it will see that okay if there is
+any field order
+
+698
+00:15:29,749 --> 00:15:29,759
+any field order
+ 
+
+699
+00:15:29,759 --> 00:15:31,710
+any field order
+right so what it will do is it will put
+
+700
+00:15:31,710 --> 00:15:31,720
+right so what it will do is it will put
+ 
+
+701
+00:15:31,720 --> 00:15:34,470
+right so what it will do is it will put
+this order mock into that so this at
+
+702
+00:15:34,470 --> 00:15:34,480
+this order mock into that so this at
+ 
+
+703
+00:15:34,480 --> 00:15:36,590
+this order mock into that so this at
+theate Mock atate inject mock notation
+
+704
+00:15:36,590 --> 00:15:36,600
+theate Mock atate inject mock notation
+ 
+
+705
+00:15:36,600 --> 00:15:38,069
+theate Mock atate inject mock notation
+does
+
+706
+00:15:38,069 --> 00:15:38,079
+does
+ 
+
+707
+00:15:38,079 --> 00:15:40,110
+does
+that then we have called Setter
+
+708
+00:15:40,110 --> 00:15:40,120
+that then we have called Setter
+ 
+
+709
+00:15:40,120 --> 00:15:42,430
+that then we have called Setter
+injection so Setter injection is that
+
+710
+00:15:42,430 --> 00:15:42,440
+injection so Setter injection is that
+ 
+
+711
+00:15:42,440 --> 00:15:44,470
+injection so Setter injection is that
+dependency is set into the field using
+
+712
+00:15:44,470 --> 00:15:44,480
+dependency is set into the field using
+ 
+
+713
+00:15:44,480 --> 00:15:47,949
+dependency is set into the field using
+Setter method so it means in the setter
+
+714
+00:15:47,949 --> 00:15:47,959
+Setter method so it means in the setter
+ 
+
+715
+00:15:47,959 --> 00:15:51,030
+Setter method so it means in the setter
+method we are putting an auto wire not
+
+716
+00:15:51,030 --> 00:15:51,040
+method we are putting an auto wire not
+ 
+
+717
+00:15:51,040 --> 00:15:52,269
+method we are putting an auto wire not
+on
+
+718
+00:15:52,269 --> 00:15:52,279
+on
+ 
+
+719
+00:15:52,279 --> 00:15:56,949
+on
+the member variable field so here I am
+
+720
+00:15:56,949 --> 00:15:56,959
+the member variable field so here I am
+ 
+
+721
+00:15:56,959 --> 00:15:59,030
+the member variable field so here I am
+not putting autowire
+
+722
+00:15:59,030 --> 00:15:59,040
+not putting autowire
+ 
+
+723
+00:15:59,040 --> 00:16:02,069
+not putting autowire
+I have just created the field and during
+
+724
+00:16:02,069 --> 00:16:02,079
+I have just created the field and during
+ 
+
+725
+00:16:02,079 --> 00:16:04,910
+I have just created the field and during
+this I have created one set method set
+
+726
+00:16:04,910 --> 00:16:04,920
+this I have created one set method set
+ 
+
+727
+00:16:04,920 --> 00:16:07,509
+this I have created one set method set
+order
+
+728
+00:16:07,509 --> 00:16:07,519
+
+ 
+
+729
+00:16:07,519 --> 00:16:10,069
+
+dependency like it accept the parameter
+
+730
+00:16:10,069 --> 00:16:10,079
+dependency like it accept the parameter
+ 
+
+731
+00:16:10,079 --> 00:16:12,829
+dependency like it accept the parameter
+order that this dependency it has to now
+
+732
+00:16:12,829 --> 00:16:12,839
+order that this dependency it has to now
+ 
+
+733
+00:16:12,839 --> 00:16:15,550
+order that this dependency it has to now
+initialize and put autowire mean that
+
+734
+00:16:15,550 --> 00:16:15,560
+initialize and put autowire mean that
+ 
+
+735
+00:16:15,560 --> 00:16:19,590
+initialize and put autowire mean that
+this method should be used by Spring to
+
+736
+00:16:19,590 --> 00:16:19,600
+this method should be used by Spring to
+ 
+
+737
+00:16:19,600 --> 00:16:22,150
+this method should be used by Spring to
+create the dependency inject the
+
+738
+00:16:22,150 --> 00:16:22,160
+create the dependency inject the
+ 
+
+739
+00:16:22,160 --> 00:16:24,870
+create the dependency inject the
+dependency into the
+
+740
+00:16:24,870 --> 00:16:24,880
+dependency into the
+ 
+
+741
+00:16:24,880 --> 00:16:28,069
+dependency into the
+order right so what is the advantage
+
+742
+00:16:28,069 --> 00:16:28,079
+order right so what is the advantage
+ 
+
+743
+00:16:28,079 --> 00:16:31,110
+order right so what is the advantage
+very simple simple simple as uh field
+
+744
+00:16:31,110 --> 00:16:31,120
+very simple simple simple as uh field
+ 
+
+745
+00:16:31,120 --> 00:16:32,990
+very simple simple simple as uh field
+right uh the same but only instead of
+
+746
+00:16:32,990 --> 00:16:33,000
+right uh the same but only instead of
+ 
+
+747
+00:16:33,000 --> 00:16:36,110
+right uh the same but only instead of
+Auto here we are putting an auto
+
+748
+00:16:36,110 --> 00:16:36,120
+Auto here we are putting an auto
+ 
+
+749
+00:16:36,120 --> 00:16:39,550
+Auto here we are putting an auto
+here so what's the advantage Advantage
+
+750
+00:16:39,550 --> 00:16:39,560
+here so what's the advantage Advantage
+ 
+
+751
+00:16:39,560 --> 00:16:42,389
+here so what's the advantage Advantage
+is that dependency can be changed any
+
+752
+00:16:42,389 --> 00:16:42,399
+is that dependency can be changed any
+ 
+
+753
+00:16:42,399 --> 00:16:45,509
+is that dependency can be changed any
+time after the object creation it means
+
+754
+00:16:45,509 --> 00:16:45,519
+time after the object creation it means
+ 
+
+755
+00:16:45,519 --> 00:16:48,470
+time after the object creation it means
+that for now you have dependency let's
+
+756
+00:16:48,470 --> 00:16:48,480
+that for now you have dependency let's
+ 
+
+757
+00:16:48,480 --> 00:16:50,430
+that for now you have dependency let's
+say you have put anything since it's a
+
+758
+00:16:50,430 --> 00:16:50,440
+say you have put anything since it's a
+ 
+
+759
+00:16:50,440 --> 00:16:52,990
+say you have put anything since it's a
+Setter method right you can always call
+
+760
+00:16:52,990 --> 00:16:53,000
+Setter method right you can always call
+ 
+
+761
+00:16:53,000 --> 00:16:53,790
+Setter method right you can always call
+this
+
+762
+00:16:53,790 --> 00:16:53,800
+this
+ 
+
+763
+00:16:53,800 --> 00:16:57,670
+this
+method pass different dependencies here
+
+764
+00:16:57,670 --> 00:16:57,680
+method pass different dependencies here
+ 
+
+765
+00:16:57,680 --> 00:16:59,430
+method pass different dependencies here
+and it can be changed let let say you
+
+766
+00:16:59,430 --> 00:16:59,440
+and it can be changed let let say you
+ 
+
+767
+00:16:59,440 --> 00:17:02,749
+and it can be changed let let say you
+have order online order offline order
+
+768
+00:17:02,749 --> 00:17:02,759
+have order online order offline order
+ 
+
+769
+00:17:02,759 --> 00:17:05,390
+have order online order offline order
+let's say that some other type of order
+
+770
+00:17:05,390 --> 00:17:05,400
+let's say that some other type of order
+ 
+
+771
+00:17:05,400 --> 00:17:07,949
+let's say that some other type of order
+so let's say you have the privilege now
+
+772
+00:17:07,949 --> 00:17:07,959
+so let's say you have the privilege now
+ 
+
+773
+00:17:07,959 --> 00:17:09,669
+so let's say you have the privilege now
+to first set it through online then
+
+774
+00:17:09,669 --> 00:17:09,679
+to first set it through online then
+ 
+
+775
+00:17:09,679 --> 00:17:13,069
+to first set it through online then
+first set it through order offline so it
+
+776
+00:17:13,069 --> 00:17:13,079
+first set it through order offline so it
+ 
+
+777
+00:17:13,079 --> 00:17:15,909
+first set it through order offline so it
+says that dependency can be changed any
+
+778
+00:17:15,909 --> 00:17:15,919
+says that dependency can be changed any
+ 
+
+779
+00:17:15,919 --> 00:17:17,630
+says that dependency can be changed any
+time after the object creation once the
+
+780
+00:17:17,630 --> 00:17:17,640
+time after the object creation once the
+ 
+
+781
+00:17:17,640 --> 00:17:20,870
+time after the object creation once the
+object is fully created spring might
+
+782
+00:17:20,870 --> 00:17:20,880
+object is fully created spring might
+ 
+
+783
+00:17:20,880 --> 00:17:23,110
+object is fully created spring might
+fill the
+
+784
+00:17:23,110 --> 00:17:23,120
+fill the
+ 
+
+785
+00:17:23,120 --> 00:17:25,470
+fill the
+instance but you also have now leverage
+
+786
+00:17:25,470 --> 00:17:25,480
+instance but you also have now leverage
+ 
+
+787
+00:17:25,480 --> 00:17:27,710
+instance but you also have now leverage
+that you can again call this method and
+
+788
+00:17:27,710 --> 00:17:27,720
+that you can again call this method and
+ 
+
+789
+00:17:27,720 --> 00:17:29,710
+that you can again call this method and
+pass whatever you want
+
+790
+00:17:29,710 --> 00:17:29,720
+pass whatever you want
+ 
+
+791
+00:17:29,720 --> 00:17:33,230
+pass whatever you want
+maybe if you want to change it okay
+
+792
+00:17:33,230 --> 00:17:33,240
+maybe if you want to change it okay
+ 
+
+793
+00:17:33,240 --> 00:17:35,310
+maybe if you want to change it okay
+second thing is easy of testing so now
+
+794
+00:17:35,310 --> 00:17:35,320
+second thing is easy of testing so now
+ 
+
+795
+00:17:35,320 --> 00:17:38,110
+second thing is easy of testing so now
+in this Setter method in this parameter
+
+796
+00:17:38,110 --> 00:17:38,120
+in this Setter method in this parameter
+ 
+
+797
+00:17:38,120 --> 00:17:41,950
+in this Setter method in this parameter
+you can pass your mock object mock order
+
+798
+00:17:41,950 --> 00:17:41,960
+you can pass your mock object mock order
+ 
+
+799
+00:17:41,960 --> 00:17:44,430
+you can pass your mock object mock order
+object which get set here now you don't
+
+800
+00:17:44,430 --> 00:17:44,440
+object which get set here now you don't
+ 
+
+801
+00:17:44,440 --> 00:17:48,070
+object which get set here now you don't
+need at theate inject MOX atate Mo which
+
+802
+00:17:48,070 --> 00:17:48,080
+need at theate inject MOX atate Mo which
+ 
+
+803
+00:17:48,080 --> 00:17:50,909
+need at theate inject MOX atate Mo which
+uses internally reflection you can pass
+
+804
+00:17:50,909 --> 00:17:50,919
+uses internally reflection you can pass
+ 
+
+805
+00:17:50,919 --> 00:17:53,950
+uses internally reflection you can pass
+it and ultimately it would get
+
+806
+00:17:53,950 --> 00:17:53,960
+it and ultimately it would get
+ 
+
+807
+00:17:53,960 --> 00:17:56,870
+it and ultimately it would get
+set okay but there again it has some
+
+808
+00:17:56,870 --> 00:17:56,880
+set okay but there again it has some
+ 
+
+809
+00:17:56,880 --> 00:17:59,430
+set okay but there again it has some
+disadvantage one thing is
+
+810
+00:17:59,430 --> 00:17:59,440
+disadvantage one thing is
+ 
+
+811
+00:17:59,440 --> 00:18:02,830
+disadvantage one thing is
+you cannot make field
+
+812
+00:18:02,830 --> 00:18:02,840
+you cannot make field
+ 
+
+813
+00:18:02,840 --> 00:18:05,789
+you cannot make field
+immutable like you can't put final over
+
+814
+00:18:05,789 --> 00:18:05,799
+immutable like you can't put final over
+ 
+
+815
+00:18:05,799 --> 00:18:08,630
+immutable like you can't put final over
+this why because in the setter method
+
+816
+00:18:08,630 --> 00:18:08,640
+this why because in the setter method
+ 
+
+817
+00:18:08,640 --> 00:18:10,990
+this why because in the setter method
+you are setting it you cannot field
+
+818
+00:18:10,990 --> 00:18:11,000
+you are setting it you cannot field
+ 
+
+819
+00:18:11,000 --> 00:18:13,470
+you are setting it you cannot field
+cannot be marked as final because once
+
+820
+00:18:13,470 --> 00:18:13,480
+cannot be marked as final because once
+ 
+
+821
+00:18:13,480 --> 00:18:16,909
+cannot be marked as final because once
+user object is created spring will use
+
+822
+00:18:16,909 --> 00:18:16,919
+user object is created spring will use
+ 
+
+823
+00:18:16,919 --> 00:18:19,590
+user object is created spring will use
+the reflection to find out hey is there
+
+824
+00:18:19,590 --> 00:18:19,600
+the reflection to find out hey is there
+ 
+
+825
+00:18:19,600 --> 00:18:22,029
+the reflection to find out hey is there
+any methods which is marked with
+
+826
+00:18:22,029 --> 00:18:22,039
+any methods which is marked with
+ 
+
+827
+00:18:22,039 --> 00:18:25,029
+any methods which is marked with
+autowired it will find it and now spring
+
+828
+00:18:25,029 --> 00:18:25,039
+autowired it will find it and now spring
+ 
+
+829
+00:18:25,039 --> 00:18:29,710
+autowired it will find it and now spring
+would be able to initialize it
+
+830
+00:18:29,710 --> 00:18:29,720
+would be able to initialize it
+ 
+
+831
+00:18:29,720 --> 00:18:32,230
+would be able to initialize it
+right so field cannot be marked as final
+
+832
+00:18:32,230 --> 00:18:32,240
+right so field cannot be marked as final
+ 
+
+833
+00:18:32,240 --> 00:18:34,270
+right so field cannot be marked as final
+here so you will see that here you will
+
+834
+00:18:34,270 --> 00:18:34,280
+here so you will see that here you will
+ 
+
+835
+00:18:34,280 --> 00:18:36,870
+here so you will see that here you will
+see red line like
+
+836
+00:18:36,870 --> 00:18:36,880
+see red line like
+ 
+
+837
+00:18:36,880 --> 00:18:40,190
+see red line like
+this difficulty to read and M so it's
+
+838
+00:18:40,190 --> 00:18:40,200
+this difficulty to read and M so it's
+ 
+
+839
+00:18:40,200 --> 00:18:42,029
+this difficulty to read and M so it's
+very difficult to read and maintain that
+
+840
+00:18:42,029 --> 00:18:42,039
+very difficult to read and maintain that
+ 
+
+841
+00:18:42,039 --> 00:18:45,190
+very difficult to read and maintain that
+okay hey this somebody created this
+
+842
+00:18:45,190 --> 00:18:45,200
+okay hey this somebody created this
+ 
+
+843
+00:18:45,200 --> 00:18:47,950
+okay hey this somebody created this
+field is it managed by a spring or not
+
+844
+00:18:47,950 --> 00:18:47,960
+field is it managed by a spring or not
+ 
+
+845
+00:18:47,960 --> 00:18:50,669
+field is it managed by a spring or not
+so it has to look for any method that
+
+846
+00:18:50,669 --> 00:18:50,679
+so it has to look for any method that
+ 
+
+847
+00:18:50,679 --> 00:18:53,110
+so it has to look for any method that
+which has Auto on top of it so this is
+
+848
+00:18:53,110 --> 00:18:53,120
+which has Auto on top of it so this is
+ 
+
+849
+00:18:53,120 --> 00:18:55,750
+which has Auto on top of it so this is
+not readable actually right and it is
+
+850
+00:18:55,750 --> 00:18:55,760
+not readable actually right and it is
+ 
+
+851
+00:18:55,760 --> 00:18:57,510
+not readable actually right and it is
+very difficult to maintain like okay if
+
+852
+00:18:57,510 --> 00:18:57,520
+very difficult to maintain like okay if
+ 
+
+853
+00:18:57,520 --> 00:19:00,029
+very difficult to maintain like okay if
+somebody has missed this meth itself or
+
+854
+00:19:00,029 --> 00:19:00,039
+somebody has missed this meth itself or
+ 
+
+855
+00:19:00,039 --> 00:19:03,029
+somebody has missed this meth itself or
+not so these are the you can say that
+
+856
+00:19:03,029 --> 00:19:03,039
+not so these are the you can say that
+ 
+
+857
+00:19:03,039 --> 00:19:05,750
+not so these are the you can say that
+the disadvantage of the setter
+
+858
+00:19:05,750 --> 00:19:05,760
+the disadvantage of the setter
+ 
+
+859
+00:19:05,760 --> 00:19:07,510
+the disadvantage of the setter
+injection then here comes the
+
+860
+00:19:07,510 --> 00:19:07,520
+injection then here comes the
+ 
+
+861
+00:19:07,520 --> 00:19:09,950
+injection then here comes the
+construction injection which is heavily
+
+862
+00:19:09,950 --> 00:19:09,960
+construction injection which is heavily
+ 
+
+863
+00:19:09,960 --> 00:19:13,470
+construction injection which is heavily
+used or you can say that it's the most
+
+864
+00:19:13,470 --> 00:19:13,480
+used or you can say that it's the most
+ 
+
+865
+00:19:13,480 --> 00:19:16,470
+used or you can say that it's the most
+recommended so dependency get resolved
+
+866
+00:19:16,470 --> 00:19:16,480
+recommended so dependency get resolved
+ 
+
+867
+00:19:16,480 --> 00:19:19,470
+recommended so dependency get resolved
+at the time of initiation of the object
+
+868
+00:19:19,470 --> 00:19:19,480
+at the time of initiation of the object
+ 
+
+869
+00:19:19,480 --> 00:19:22,590
+at the time of initiation of the object
+itself this is the best part it's not
+
+870
+00:19:22,590 --> 00:19:22,600
+itself this is the best part it's not
+ 
+
+871
+00:19:22,600 --> 00:19:25,990
+itself this is the best part it's not
+like after user object is created then
+
+872
+00:19:25,990 --> 00:19:26,000
+like after user object is created then
+ 
+
+873
+00:19:26,000 --> 00:19:29,149
+like after user object is created then
+spring uses reflection and then fill up
+
+874
+00:19:29,149 --> 00:19:29,159
+spring uses reflection and then fill up
+ 
+
+875
+00:19:29,159 --> 00:19:31,830
+spring uses reflection and then fill up
+this in uh dependencies inject the
+
+876
+00:19:31,830 --> 00:19:31,840
+this in uh dependencies inject the
+ 
+
+877
+00:19:31,840 --> 00:19:34,630
+this in uh dependencies inject the
+dependencies no at the time you are
+
+878
+00:19:34,630 --> 00:19:34,640
+dependencies no at the time you are
+ 
+
+879
+00:19:34,640 --> 00:19:37,510
+dependencies no at the time you are
+creating a user object itself this
+
+880
+00:19:37,510 --> 00:19:37,520
+creating a user object itself this
+ 
+
+881
+00:19:37,520 --> 00:19:41,590
+creating a user object itself this
+dependencies are also resolved how so
+
+882
+00:19:41,590 --> 00:19:41,600
+dependencies are also resolved how so
+ 
+
+883
+00:19:41,600 --> 00:19:43,149
+dependencies are also resolved how so
+let's say that this is the user class
+
+884
+00:19:43,149 --> 00:19:43,159
+let's say that this is the user class
+ 
+
+885
+00:19:43,159 --> 00:19:45,870
+let's say that this is the user class
+marked as atate component this is my
+
+886
+00:19:45,870 --> 00:19:45,880
+marked as atate component this is my
+ 
+
+887
+00:19:45,880 --> 00:19:49,549
+marked as atate component this is my
+order I haven't put at theate Auto here
+
+888
+00:19:49,549 --> 00:19:49,559
+order I haven't put at theate Auto here
+ 
+
+889
+00:19:49,559 --> 00:19:51,750
+order I haven't put at theate Auto here
+just a normal order now this is the
+
+890
+00:19:51,750 --> 00:19:51,760
+just a normal order now this is the
+ 
+
+891
+00:19:51,760 --> 00:19:53,230
+just a normal order now this is the
+Constructor now you know that
+
+892
+00:19:53,230 --> 00:19:53,240
+Constructor now you know that
+ 
+
+893
+00:19:53,240 --> 00:19:55,310
+Constructor now you know that
+Constructor is used
+
+894
+00:19:55,310 --> 00:19:55,320
+Constructor is used
+ 
+
+895
+00:19:55,320 --> 00:20:00,310
+Constructor is used
+to creating an instance of an object so
+
+896
+00:20:00,310 --> 00:20:00,320
+to creating an instance of an object so
+ 
+
+897
+00:20:00,320 --> 00:20:02,430
+to creating an instance of an object so
+in this Constructor you will pass the
+
+898
+00:20:02,430 --> 00:20:02,440
+in this Constructor you will pass the
+ 
+
+899
+00:20:02,440 --> 00:20:05,430
+in this Constructor you will pass the
+order for which dependencies has to be
+
+900
+00:20:05,430 --> 00:20:05,440
+order for which dependencies has to be
+ 
+
+901
+00:20:05,440 --> 00:20:08,510
+order for which dependencies has to be
+resolved and here I am setting the
+
+902
+00:20:08,510 --> 00:20:08,520
+resolved and here I am setting the
+ 
+
+903
+00:20:08,520 --> 00:20:10,710
+resolved and here I am setting the
+dependency this do order equals to order
+
+904
+00:20:10,710 --> 00:20:10,720
+dependency this do order equals to order
+ 
+
+905
+00:20:10,720 --> 00:20:13,549
+dependency this do order equals to order
+and I put Auto wired here so this Auto
+
+906
+00:20:13,549 --> 00:20:13,559
+and I put Auto wired here so this Auto
+ 
+
+907
+00:20:13,559 --> 00:20:16,270
+and I put Auto wired here so this Auto
+wired ultimately get applied to all the
+
+908
+00:20:16,270 --> 00:20:16,280
+wired ultimately get applied to all the
+ 
+
+909
+00:20:16,280 --> 00:20:17,990
+wired ultimately get applied to all the
+parameters if you have more parameters
+
+910
+00:20:17,990 --> 00:20:18,000
+parameters if you have more parameters
+ 
+
+911
+00:20:18,000 --> 00:20:21,070
+parameters if you have more parameters
+like this this Auto get applied to
+
+912
+00:20:21,070 --> 00:20:21,080
+like this this Auto get applied to
+ 
+
+913
+00:20:21,080 --> 00:20:23,909
+like this this Auto get applied to
+all so now is spring would resolve the
+
+914
+00:20:23,909 --> 00:20:23,919
+all so now is spring would resolve the
+ 
+
+915
+00:20:23,919 --> 00:20:27,630
+all so now is spring would resolve the
+dependency of all and then initialize it
+
+916
+00:20:27,630 --> 00:20:27,640
+dependency of all and then initialize it
+ 
+
+917
+00:20:27,640 --> 00:20:31,430
+dependency of all and then initialize it
+at the time of user object creation
+
+918
+00:20:31,430 --> 00:20:31,440
+at the time of user object creation
+ 
+
+919
+00:20:31,440 --> 00:20:33,669
+at the time of user object creation
+itself and also one more interesting
+
+920
+00:20:33,669 --> 00:20:33,679
+itself and also one more interesting
+ 
+
+921
+00:20:33,679 --> 00:20:34,990
+itself and also one more interesting
+will tell you that from the spring
+
+922
+00:20:34,990 --> 00:20:35,000
+will tell you that from the spring
+ 
+
+923
+00:20:35,000 --> 00:20:36,830
+will tell you that from the spring
+version 4.3
+
+924
+00:20:36,830 --> 00:20:36,840
+version 4.3
+ 
+
+925
+00:20:36,840 --> 00:20:39,830
+version 4.3
+right when only one Constructor is
+
+926
+00:20:39,830 --> 00:20:39,840
+right when only one Constructor is
+ 
+
+927
+00:20:39,840 --> 00:20:42,830
+right when only one Constructor is
+present then you don't even use autowire
+
+928
+00:20:42,830 --> 00:20:42,840
+present then you don't even use autowire
+ 
+
+929
+00:20:42,840 --> 00:20:44,909
+present then you don't even use autowire
+right that is also works fine it is not
+
+930
+00:20:44,909 --> 00:20:44,919
+right that is also works fine it is not
+ 
+
+931
+00:20:44,919 --> 00:20:47,390
+right that is also works fine it is not
+mandatory when you have one Constructor
+
+932
+00:20:47,390 --> 00:20:47,400
+mandatory when you have one Constructor
+ 
+
+933
+00:20:47,400 --> 00:20:49,310
+mandatory when you have one Constructor
+so here if you see that in this user
+
+934
+00:20:49,310 --> 00:20:49,320
+so here if you see that in this user
+ 
+
+935
+00:20:49,320 --> 00:20:53,950
+so here if you see that in this user
+class I have only one Constructor right
+
+936
+00:20:53,950 --> 00:20:53,960
+class I have only one Constructor right
+ 
+
+937
+00:20:53,960 --> 00:20:56,630
+class I have only one Constructor right
+so now when the spring initiated it I
+
+938
+00:20:56,630 --> 00:20:56,640
+so now when the spring initiated it I
+ 
+
+939
+00:20:56,640 --> 00:20:59,990
+so now when the spring initiated it I
+haven't put autowire also so even though
+
+940
+00:20:59,990 --> 00:21:00,000
+haven't put autowire also so even though
+ 
+
+941
+00:21:00,000 --> 00:21:02,990
+haven't put autowire also so even though
+it will work fine and if you have more
+
+942
+00:21:02,990 --> 00:21:03,000
+it will work fine and if you have more
+ 
+
+943
+00:21:03,000 --> 00:21:04,190
+it will work fine and if you have more
+than one
+
+944
+00:21:04,190 --> 00:21:04,200
+than one
+ 
+
+945
+00:21:04,200 --> 00:21:06,149
+than one
+Constructor if you have more than one
+
+946
+00:21:06,149 --> 00:21:06,159
+Constructor if you have more than one
+ 
+
+947
+00:21:06,159 --> 00:21:09,430
+Constructor if you have more than one
+Constructor then Auto add usage is
+
+948
+00:21:09,430 --> 00:21:09,440
+Constructor then Auto add usage is
+ 
+
+949
+00:21:09,440 --> 00:21:12,350
+Constructor then Auto add usage is
+mandatory you so now let's say
+
+950
+00:21:12,350 --> 00:21:12,360
+mandatory you so now let's say
+ 
+
+951
+00:21:12,360 --> 00:21:15,470
+mandatory you so now let's say
+that I have two dependency on order and
+
+952
+00:21:15,470 --> 00:21:15,480
+that I have two dependency on order and
+ 
+
+953
+00:21:15,480 --> 00:21:17,710
+that I have two dependency on order and
+invoice so I've created two classes one
+
+954
+00:21:17,710 --> 00:21:17,720
+invoice so I've created two classes one
+ 
+
+955
+00:21:17,720 --> 00:21:21,190
+invoice so I've created two classes one
+is invoice one is order very
+
+956
+00:21:21,190 --> 00:21:21,200
+is invoice one is order very
+ 
+
+957
+00:21:21,200 --> 00:21:23,750
+is invoice one is order very
+basic right uh at theate component at
+
+958
+00:21:23,750 --> 00:21:23,760
+basic right uh at theate component at
+ 
+
+959
+00:21:23,760 --> 00:21:25,750
+basic right uh at theate component at
+the lazy I have just to make sure that
+
+960
+00:21:25,750 --> 00:21:25,760
+the lazy I have just to make sure that
+ 
+
+961
+00:21:25,760 --> 00:21:28,590
+the lazy I have just to make sure that
+when they should get invoked when
+
+962
+00:21:28,590 --> 00:21:28,600
+when they should get invoked when
+ 
+
+963
+00:21:28,600 --> 00:21:31,710
+when they should get invoked when
+actually they are used so user has this
+
+964
+00:21:31,710 --> 00:21:31,720
+actually they are used so user has this
+ 
+
+965
+00:21:31,720 --> 00:21:32,870
+actually they are used so user has this
+two
+
+966
+00:21:32,870 --> 00:21:32,880
+two
+ 
+
+967
+00:21:32,880 --> 00:21:35,350
+two
+dependency so this is my first
+
+968
+00:21:35,350 --> 00:21:35,360
+dependency so this is my first
+ 
+
+969
+00:21:35,360 --> 00:21:38,310
+dependency so this is my first
+Constructor which resolve this order
+
+970
+00:21:38,310 --> 00:21:38,320
+Constructor which resolve this order
+ 
+
+971
+00:21:38,320 --> 00:21:40,710
+Constructor which resolve this order
+this is my second Constructor which
+
+972
+00:21:40,710 --> 00:21:40,720
+this is my second Constructor which
+ 
+
+973
+00:21:40,720 --> 00:21:42,710
+this is my second Constructor which
+accept the invoice and putting the
+
+974
+00:21:42,710 --> 00:21:42,720
+accept the invoice and putting the
+ 
+
+975
+00:21:42,720 --> 00:21:44,950
+accept the invoice and putting the
+invoice now there are two Constructor
+
+976
+00:21:44,950 --> 00:21:44,960
+invoice now there are two Constructor
+ 
+
+977
+00:21:44,960 --> 00:21:46,950
+invoice now there are two Constructor
+and I haven't put an autowire now this
+
+978
+00:21:46,950 --> 00:21:46,960
+and I haven't put an autowire now this
+ 
+
+979
+00:21:46,960 --> 00:21:49,390
+and I haven't put an autowire now this
+will fail if you start the application
+
+980
+00:21:49,390 --> 00:21:49,400
+will fail if you start the application
+ 
+
+981
+00:21:49,400 --> 00:21:52,630
+will fail if you start the application
+Bean in initiation exception will come
+
+982
+00:21:52,630 --> 00:21:52,640
+Bean in initiation exception will come
+ 
+
+983
+00:21:52,640 --> 00:21:55,029
+Bean in initiation exception will come
+because there is no default
+
+984
+00:21:55,029 --> 00:21:55,039
+because there is no default
+ 
+
+985
+00:21:55,039 --> 00:21:58,830
+because there is no default
+Constructor and after that it has to use
+
+986
+00:21:58,830 --> 00:21:58,840
+Constructor and after that it has to use
+ 
+
+987
+00:21:58,840 --> 00:22:00,510
+Constructor and after that it has to use
+one Constructor but there are more than
+
+988
+00:22:00,510 --> 00:22:00,520
+one Constructor but there are more than
+ 
+
+989
+00:22:00,520 --> 00:22:03,750
+one Constructor but there are more than
+one Constructor so spring doesn't know
+
+990
+00:22:03,750 --> 00:22:03,760
+one Constructor so spring doesn't know
+ 
+
+991
+00:22:03,760 --> 00:22:05,669
+one Constructor so spring doesn't know
+which Constructor I should use so it
+
+992
+00:22:05,669 --> 00:22:05,679
+which Constructor I should use so it
+ 
+
+993
+00:22:05,679 --> 00:22:08,710
+which Constructor I should use so it
+will throw exception that you tell me
+
+994
+00:22:08,710 --> 00:22:08,720
+will throw exception that you tell me
+ 
+
+995
+00:22:08,720 --> 00:22:11,269
+will throw exception that you tell me
+like which Bean to use which Constructor
+
+996
+00:22:11,269 --> 00:22:11,279
+like which Bean to use which Constructor
+ 
+
+997
+00:22:11,279 --> 00:22:14,549
+like which Bean to use which Constructor
+use so you have to tell one autowire on
+
+998
+00:22:14,549 --> 00:22:14,559
+use so you have to tell one autowire on
+ 
+
+999
+00:22:14,559 --> 00:22:15,950
+use so you have to tell one autowire on
+one of the
+
+1000
+00:22:15,950 --> 00:22:15,960
+one of the
+ 
+
+1001
+00:22:15,960 --> 00:22:17,909
+one of the
+Constructor so now let's say I have put
+
+1002
+00:22:17,909 --> 00:22:17,919
+Constructor so now let's say I have put
+ 
+
+1003
+00:22:17,919 --> 00:22:20,110
+Constructor so now let's say I have put
+on invoice so what would happen first
+
+1004
+00:22:20,110 --> 00:22:20,120
+on invoice so what would happen first
+ 
+
+1005
+00:22:20,120 --> 00:22:22,070
+on invoice so what would happen first
+user object will get
+
+1006
+00:22:22,070 --> 00:22:22,080
+user object will get
+ 
+
+1007
+00:22:22,080 --> 00:22:25,190
+user object will get
+created so invoice let's say during ioc
+
+1008
+00:22:25,190 --> 00:22:25,200
+created so invoice let's say during ioc
+ 
+
+1009
+00:22:25,200 --> 00:22:28,630
+created so invoice let's say during ioc
+started they will find Bean of order uh
+
+1010
+00:22:28,630 --> 00:22:28,640
+started they will find Bean of order uh
+ 
+
+1011
+00:22:28,640 --> 00:22:32,470
+started they will find Bean of order uh
+class for this but since it's Mar lazy
+
+1012
+00:22:32,470 --> 00:22:32,480
+class for this but since it's Mar lazy
+ 
+
+1013
+00:22:32,480 --> 00:22:34,390
+class for this but since it's Mar lazy
+it will not get invoked till it's not
+
+1014
+00:22:34,390 --> 00:22:34,400
+it will not get invoked till it's not
+ 
+
+1015
+00:22:34,400 --> 00:22:38,630
+it will not get invoked till it's not
+used so it found user it will now sees
+
+1016
+00:22:38,630 --> 00:22:38,640
+used so it found user it will now sees
+ 
+
+1017
+00:22:38,640 --> 00:22:40,549
+used so it found user it will now sees
+that okay this is the Constructor which
+
+1018
+00:22:40,549 --> 00:22:40,559
+that okay this is the Constructor which
+ 
+
+1019
+00:22:40,559 --> 00:22:43,390
+that okay this is the Constructor which
+I have to use so now here if you see
+
+1020
+00:22:43,390 --> 00:22:43,400
+I have to use so now here if you see
+ 
+
+1021
+00:22:43,400 --> 00:22:45,430
+I have to use so now here if you see
+that I am trying to use the invoice so
+
+1022
+00:22:45,430 --> 00:22:45,440
+that I am trying to use the invoice so
+ 
+
+1023
+00:22:45,440 --> 00:22:49,630
+that I am trying to use the invoice so
+first invoice will get invoke invoice
+
+1024
+00:22:49,630 --> 00:22:49,640
+first invoice will get invoke invoice
+ 
+
+1025
+00:22:49,640 --> 00:22:52,789
+first invoice will get invoke invoice
+initialized after that it will put here
+
+1026
+00:22:52,789 --> 00:22:52,799
+initialized after that it will put here
+ 
+
+1027
+00:22:52,799 --> 00:22:55,630
+initialized after that it will put here
+invoice injection is set after it says
+
+1028
+00:22:55,630 --> 00:22:55,640
+invoice injection is set after it says
+ 
+
+1029
+00:22:55,640 --> 00:22:57,470
+invoice injection is set after it says
+that user initialization with only
+
+1030
+00:22:57,470 --> 00:22:57,480
+that user initialization with only
+ 
+
+1031
+00:22:57,480 --> 00:23:01,750
+that user initialization with only
+invoice and finish so order is not
+
+1032
+00:23:01,750 --> 00:23:01,760
+invoice and finish so order is not
+ 
+
+1033
+00:23:01,760 --> 00:23:06,310
+invoice and finish so order is not
+even
+
+1034
+00:23:06,310 --> 00:23:06,320
+
+ 
+
+1035
+00:23:06,320 --> 00:23:09,909
+
+touched okay so you got the Constructor
+
+1036
+00:23:09,909 --> 00:23:09,919
+touched okay so you got the Constructor
+ 
+
+1037
+00:23:09,919 --> 00:23:12,110
+touched okay so you got the Constructor
+injection but now you should ask me that
+
+1038
+00:23:12,110 --> 00:23:12,120
+injection but now you should ask me that
+ 
+
+1039
+00:23:12,120 --> 00:23:14,110
+injection but now you should ask me that
+hey sh why it is recommended what are
+
+1040
+00:23:14,110 --> 00:23:14,120
+hey sh why it is recommended what are
+ 
+
+1041
+00:23:14,120 --> 00:23:18,029
+hey sh why it is recommended what are
+the advantages of it so first thing is
+
+1042
+00:23:18,029 --> 00:23:18,039
+the advantages of it so first thing is
+ 
+
+1043
+00:23:18,039 --> 00:23:20,710
+the advantages of it so first thing is
+all mandatory dependencies are created
+
+1044
+00:23:20,710 --> 00:23:20,720
+all mandatory dependencies are created
+ 
+
+1045
+00:23:20,720 --> 00:23:23,310
+all mandatory dependencies are created
+at the time of initialization itself so
+
+1046
+00:23:23,310 --> 00:23:23,320
+at the time of initialization itself so
+ 
+
+1047
+00:23:23,320 --> 00:23:26,350
+at the time of initialization itself so
+it makes 100% sure that our object is
+
+1048
+00:23:26,350 --> 00:23:26,360
+it makes 100% sure that our object is
+ 
+
+1049
+00:23:26,360 --> 00:23:28,830
+it makes 100% sure that our object is
+fully initialized with mandate
+
+1050
+00:23:28,830 --> 00:23:28,840
+fully initialized with mandate
+ 
+
+1051
+00:23:28,840 --> 00:23:31,590
+fully initialized with mandate
+dependency second part is you can make
+
+1052
+00:23:31,590 --> 00:23:31,600
+dependency second part is you can make
+ 
+
+1053
+00:23:31,600 --> 00:23:33,549
+dependency second part is you can make
+your field
+
+1054
+00:23:33,549 --> 00:23:33,559
+your field
+ 
+
+1055
+00:23:33,559 --> 00:23:35,950
+your field
+immutable so now here if you see that I
+
+1056
+00:23:35,950 --> 00:23:35,960
+immutable so now here if you see that I
+ 
+
+1057
+00:23:35,960 --> 00:23:39,230
+immutable so now here if you see that I
+can use final and in the Constructor you
+
+1058
+00:23:39,230 --> 00:23:39,240
+can use final and in the Constructor you
+ 
+
+1059
+00:23:39,240 --> 00:23:41,590
+can use final and in the Constructor you
+can initialize it because at the time of
+
+1060
+00:23:41,590 --> 00:23:41,600
+can initialize it because at the time of
+ 
+
+1061
+00:23:41,600 --> 00:23:44,110
+can initialize it because at the time of
+initialization creation of this user
+
+1062
+00:23:44,110 --> 00:23:44,120
+initialization creation of this user
+ 
+
+1063
+00:23:44,120 --> 00:23:47,310
+initialization creation of this user
+itself I am initializing it only for the
+
+1064
+00:23:47,310 --> 00:23:47,320
+itself I am initializing it only for the
+ 
+
+1065
+00:23:47,320 --> 00:23:49,549
+itself I am initializing it only for the
+first time after that you won't be able
+
+1066
+00:23:49,549 --> 00:23:49,559
+first time after that you won't be able
+ 
+
+1067
+00:23:49,559 --> 00:23:51,510
+first time after that you won't be able
+to change it so this is another big
+
+1068
+00:23:51,510 --> 00:23:51,520
+to change it so this is another big
+ 
+
+1069
+00:23:51,520 --> 00:23:54,669
+to change it so this is another big
+advantage of it and with Auto on the
+
+1070
+00:23:54,669 --> 00:23:54,679
+advantage of it and with Auto on the
+ 
+
+1071
+00:23:54,679 --> 00:23:56,269
+advantage of it and with Auto on the
+field injection I already told you you
+
+1072
+00:23:56,269 --> 00:23:56,279
+field injection I already told you you
+ 
+
+1073
+00:23:56,279 --> 00:23:58,669
+field injection I already told you you
+can't use final
+
+1074
+00:23:58,669 --> 00:23:58,679
+can't use final
+ 
+
+1075
+00:23:58,679 --> 00:24:00,350
+can't use final
+but with construction injection you can
+
+1076
+00:24:00,350 --> 00:24:00,360
+but with construction injection you can
+ 
+
+1077
+00:24:00,360 --> 00:24:02,830
+but with construction injection you can
+make your Fields immutable you can put
+
+1078
+00:24:02,830 --> 00:24:02,840
+make your Fields immutable you can put
+ 
+
+1079
+00:24:02,840 --> 00:24:05,510
+make your Fields immutable you can put
+final and during object creation itself
+
+1080
+00:24:05,510 --> 00:24:05,520
+final and during object creation itself
+ 
+
+1081
+00:24:05,520 --> 00:24:07,870
+final and during object creation itself
+you can initialize it for the first time
+
+1082
+00:24:07,870 --> 00:24:07,880
+you can initialize it for the first time
+ 
+
+1083
+00:24:07,880 --> 00:24:09,110
+you can initialize it for the first time
+and after that you won't be able to
+
+1084
+00:24:09,110 --> 00:24:09,120
+and after that you won't be able to
+ 
+
+1085
+00:24:09,120 --> 00:24:10,510
+and after that you won't be able to
+change
+
+1086
+00:24:10,510 --> 00:24:10,520
+change
+ 
+
+1087
+00:24:10,520 --> 00:24:14,269
+change
+it third Advantage is fail fast means
+
+1088
+00:24:14,269 --> 00:24:14,279
+it third Advantage is fail fast means
+ 
+
+1089
+00:24:14,279 --> 00:24:18,149
+it third Advantage is fail fast means
+that if there is any missing
+
+1090
+00:24:18,149 --> 00:24:18,159
+that if there is any missing
+ 
+
+1091
+00:24:18,159 --> 00:24:21,310
+that if there is any missing
+dependency it will fail early so here if
+
+1092
+00:24:21,310 --> 00:24:21,320
+dependency it will fail early so here if
+ 
+
+1093
+00:24:21,320 --> 00:24:24,950
+dependency it will fail early so here if
+you see that at this point of the time
+
+1094
+00:24:24,950 --> 00:24:24,960
+you see that at this point of the time
+ 
+
+1095
+00:24:24,960 --> 00:24:28,789
+you see that at this point of the time
+let's say that I am creating this user
+
+1096
+00:24:28,789 --> 00:24:28,799
+let's say that I am creating this user
+ 
+
+1097
+00:24:28,799 --> 00:24:32,630
+let's say that I am creating this user
+class and I bu mistake missed
+
+1098
+00:24:32,630 --> 00:24:32,640
+class and I bu mistake missed
+ 
+
+1099
+00:24:32,640 --> 00:24:34,909
+class and I bu mistake missed
+autowired when you bu mistake missed
+
+1100
+00:24:34,909 --> 00:24:34,919
+autowired when you bu mistake missed
+ 
+
+1101
+00:24:34,919 --> 00:24:37,190
+autowired when you bu mistake missed
+autowired what would happen is a spring
+
+1102
+00:24:37,190 --> 00:24:37,200
+autowired what would happen is a spring
+ 
+
+1103
+00:24:37,200 --> 00:24:39,669
+autowired what would happen is a spring
+will create an object of this user it
+
+1104
+00:24:39,669 --> 00:24:39,679
+will create an object of this user it
+ 
+
+1105
+00:24:39,679 --> 00:24:42,590
+will create an object of this user it
+will call the by default Constructor
+
+1106
+00:24:42,590 --> 00:24:42,600
+will call the by default Constructor
+ 
+
+1107
+00:24:42,600 --> 00:24:44,590
+will call the by default Constructor
+this order object would be
+
+1108
+00:24:44,590 --> 00:24:44,600
+this order object would be
+ 
+
+1109
+00:24:44,600 --> 00:24:49,190
+this order object would be
+null and if somebody's trying to access
+
+1110
+00:24:49,190 --> 00:24:49,200
+null and if somebody's trying to access
+ 
+
+1111
+00:24:49,200 --> 00:24:51,789
+null and if somebody's trying to access
+it like let's say order do something it
+
+1112
+00:24:51,789 --> 00:24:51,799
+it like let's say order do something it
+ 
+
+1113
+00:24:51,799 --> 00:24:54,430
+it like let's say order do something it
+will call null pointer exception so you
+
+1114
+00:24:54,430 --> 00:24:54,440
+will call null pointer exception so you
+ 
+
+1115
+00:24:54,440 --> 00:24:57,110
+will call null pointer exception so you
+are getting to know about this at run
+
+1116
+00:24:57,110 --> 00:24:57,120
+are getting to know about this at run
+ 
+
+1117
+00:24:57,120 --> 00:25:00,510
+are getting to know about this at run
+time not at compile time but with
+
+1118
+00:25:00,510 --> 00:25:00,520
+time not at compile time but with
+ 
+
+1119
+00:25:00,520 --> 00:25:03,070
+time not at compile time but with
+Constructor injection like let's say
+
+1120
+00:25:03,070 --> 00:25:03,080
+Constructor injection like let's say
+ 
+
+1121
+00:25:03,080 --> 00:25:05,590
+Constructor injection like let's say
+that even if you missed Auto wire here
+
+1122
+00:25:05,590 --> 00:25:05,600
+that even if you missed Auto wire here
+ 
+
+1123
+00:25:05,600 --> 00:25:08,789
+that even if you missed Auto wire here
+like even if you missed autowired on the
+
+1124
+00:25:08,789 --> 00:25:08,799
+like even if you missed autowired on the
+ 
+
+1125
+00:25:08,799 --> 00:25:12,269
+like even if you missed autowired on the
+Constructor you know that if for one
+
+1126
+00:25:12,269 --> 00:25:12,279
+Constructor you know that if for one
+ 
+
+1127
+00:25:12,279 --> 00:25:14,470
+Constructor you know that if for one
+Constructor spring will automatically
+
+1128
+00:25:14,470 --> 00:25:14,480
+Constructor spring will automatically
+ 
+
+1129
+00:25:14,480 --> 00:25:16,870
+Constructor spring will automatically
+resolve it and fill it if you have more
+
+1130
+00:25:16,870 --> 00:25:16,880
+resolve it and fill it if you have more
+ 
+
+1131
+00:25:16,880 --> 00:25:17,950
+resolve it and fill it if you have more
+than one
+
+1132
+00:25:17,950 --> 00:25:17,960
+than one
+ 
+
+1133
+00:25:17,960 --> 00:25:20,789
+than one
+Constructor let's say then spring will
+
+1134
+00:25:20,789 --> 00:25:20,799
+Constructor let's say then spring will
+ 
+
+1135
+00:25:20,799 --> 00:25:23,430
+Constructor let's say then spring will
+fail it I told you that it will fail be
+
+1136
+00:25:23,430 --> 00:25:23,440
+fail it I told you that it will fail be
+ 
+
+1137
+00:25:23,440 --> 00:25:24,950
+fail it I told you that it will fail be
+initiation exception that which
+
+1138
+00:25:24,950 --> 00:25:24,960
+initiation exception that which
+ 
+
+1139
+00:25:24,960 --> 00:25:26,669
+initiation exception that which
+Constructor to
+
+1140
+00:25:26,669 --> 00:25:26,679
+Constructor to
+ 
+
+1141
+00:25:26,679 --> 00:25:29,909
+Constructor to
+use right so you have have to first put
+
+1142
+00:25:29,909 --> 00:25:29,919
+use right so you have have to first put
+ 
+
+1143
+00:25:29,919 --> 00:25:31,190
+use right so you have have to first put
+Auto wire
+
+1144
+00:25:31,190 --> 00:25:31,200
+Auto wire
+ 
+
+1145
+00:25:31,200 --> 00:25:33,389
+Auto wire
+somewhere right so it will force you it
+
+1146
+00:25:33,389 --> 00:25:33,399
+somewhere right so it will force you it
+ 
+
+1147
+00:25:33,399 --> 00:25:39,470
+somewhere right so it will force you it
+will fail fast during compile time
+
+1148
+00:25:39,470 --> 00:25:39,480
+
+ 
+
+1149
+00:25:39,480 --> 00:25:42,710
+
+itself unit testing become easy that the
+
+1150
+00:25:42,710 --> 00:25:42,720
+itself unit testing become easy that the
+ 
+
+1151
+00:25:42,720 --> 00:25:44,830
+itself unit testing become easy that the
+same as the seter injection right like
+
+1152
+00:25:44,830 --> 00:25:44,840
+same as the seter injection right like
+ 
+
+1153
+00:25:44,840 --> 00:25:47,430
+same as the seter injection right like
+you have an order object you can inject
+
+1154
+00:25:47,430 --> 00:25:47,440
+you have an order object you can inject
+ 
+
+1155
+00:25:47,440 --> 00:25:49,389
+you have an order object you can inject
+it here in the Constructor so I'm
+
+1156
+00:25:49,389 --> 00:25:49,399
+it here in the Constructor so I'm
+ 
+
+1157
+00:25:49,399 --> 00:25:51,750
+it here in the Constructor so I'm
+creating new user you can pass the mock
+
+1158
+00:25:51,750 --> 00:25:51,760
+creating new user you can pass the mock
+ 
+
+1159
+00:25:51,760 --> 00:25:53,950
+creating new user you can pass the mock
+object here you don't need at theate
+
+1160
+00:25:53,950 --> 00:25:53,960
+object here you don't need at theate
+ 
+
+1161
+00:25:53,960 --> 00:25:56,870
+object here you don't need at theate
+inject marks at theate Mock reflection
+
+1162
+00:25:56,870 --> 00:25:56,880
+inject marks at theate Mock reflection
+ 
+
+1163
+00:25:56,880 --> 00:26:00,430
+inject marks at theate Mock reflection
+to set the this mock object here in this
+
+1164
+00:26:00,430 --> 00:26:00,440
+to set the this mock object here in this
+ 
+
+1165
+00:26:00,440 --> 00:26:01,830
+to set the this mock object here in this
+you can pass it here it will get
+
+1166
+00:26:01,830 --> 00:26:01,840
+you can pass it here it will get
+ 
+
+1167
+00:26:01,840 --> 00:26:05,470
+you can pass it here it will get
+realized so unit testing become little
+
+1168
+00:26:05,470 --> 00:26:05,480
+realized so unit testing become little
+ 
+
+1169
+00:26:05,480 --> 00:26:10,990
+realized so unit testing become little
+easy so these are all the advantages of
+
+1170
+00:26:10,990 --> 00:26:11,000
+easy so these are all the advantages of
+ 
+
+1171
+00:26:11,000 --> 00:26:13,350
+easy so these are all the advantages of
+Constructor injection now you can ask me
+
+1172
+00:26:13,350 --> 00:26:13,360
+Constructor injection now you can ask me
+ 
+
+1173
+00:26:13,360 --> 00:26:16,110
+Constructor injection now you can ask me
+that hey sh why you haven't tell me that
+
+1174
+00:26:16,110 --> 00:26:16,120
+that hey sh why you haven't tell me that
+ 
+
+1175
+00:26:16,120 --> 00:26:18,750
+that hey sh why you haven't tell me that
+what is the disadvantage of Constructor
+
+1176
+00:26:18,750 --> 00:26:18,760
+what is the disadvantage of Constructor
+ 
+
+1177
+00:26:18,760 --> 00:26:21,029
+what is the disadvantage of Constructor
+injection because I will tell you that
+
+1178
+00:26:21,029 --> 00:26:21,039
+injection because I will tell you that
+ 
+
+1179
+00:26:21,039 --> 00:26:22,549
+injection because I will tell you that
+the disadvantage of Constructor
+
+1180
+00:26:22,549 --> 00:26:22,559
+the disadvantage of Constructor
+ 
+
+1181
+00:26:22,559 --> 00:26:24,789
+the disadvantage of Constructor
+injection is also I will consider mostly
+
+1182
+00:26:24,789 --> 00:26:24,799
+injection is also I will consider mostly
+ 
+
+1183
+00:26:24,799 --> 00:26:27,789
+injection is also I will consider mostly
+as an advantage so one uh generally one
+
+1184
+00:26:27,789 --> 00:26:27,799
+as an advantage so one uh generally one
+ 
+
+1185
+00:26:27,799 --> 00:26:29,909
+as an advantage so one uh generally one
+disadv Vantage of Constructor injection
+
+1186
+00:26:29,909 --> 00:26:29,919
+disadv Vantage of Constructor injection
+ 
+
+1187
+00:26:29,919 --> 00:26:34,990
+disadv Vantage of Constructor injection
+is hey if you have let's say that 20
+
+1188
+00:26:34,990 --> 00:26:35,000
+is hey if you have let's say that 20
+ 
+
+1189
+00:26:35,000 --> 00:26:38,110
+is hey if you have let's say that 20
+dependencies your Constructor will
+
+1190
+00:26:38,110 --> 00:26:38,120
+dependencies your Constructor will
+ 
+
+1191
+00:26:38,120 --> 00:26:42,029
+dependencies your Constructor will
+become huge let's say object one object
+
+1192
+00:26:42,029 --> 00:26:42,039
+become huge let's say object one object
+ 
+
+1193
+00:26:42,039 --> 00:26:45,149
+become huge let's say object one object
+two object 3 object four like this and
+
+1194
+00:26:45,149 --> 00:26:45,159
+two object 3 object four like this and
+ 
+
+1195
+00:26:45,159 --> 00:26:47,870
+two object 3 object four like this and
+you have put Auto here your Constructor
+
+1196
+00:26:47,870 --> 00:26:47,880
+you have put Auto here your Constructor
+ 
+
+1197
+00:26:47,880 --> 00:26:50,830
+you have put Auto here your Constructor
+parameters will keep on increasing so
+
+1198
+00:26:50,830 --> 00:26:50,840
+parameters will keep on increasing so
+ 
+
+1199
+00:26:50,840 --> 00:26:52,950
+parameters will keep on increasing so
+this is the one of the disadvantage but
+
+1200
+00:26:52,950 --> 00:26:52,960
+this is the one of the disadvantage but
+ 
+
+1201
+00:26:52,960 --> 00:26:54,590
+this is the one of the disadvantage but
+here if you see that I considered as an
+
+1202
+00:26:54,590 --> 00:26:54,600
+here if you see that I considered as an
+ 
+
+1203
+00:26:54,600 --> 00:26:57,630
+here if you see that I considered as an
+advantage because this will keep you a
+
+1204
+00:26:57,630 --> 00:26:57,640
+advantage because this will keep you a
+ 
+
+1205
+00:26:57,640 --> 00:26:58,789
+advantage because this will keep you a
+check that
+
+1206
+00:26:58,789 --> 00:26:58,799
+check that
+ 
+
+1207
+00:26:58,799 --> 00:27:01,789
+check that
+hey is your code design is good that
+
+1208
+00:27:01,789 --> 00:27:01,799
+hey is your code design is good that
+ 
+
+1209
+00:27:01,799 --> 00:27:03,990
+hey is your code design is good that
+your parameter you your class has so
+
+1210
+00:27:03,990 --> 00:27:04,000
+your parameter you your class has so
+ 
+
+1211
+00:27:04,000 --> 00:27:04,909
+your parameter you your class has so
+many
+
+1212
+00:27:04,909 --> 00:27:04,919
+many
+ 
+
+1213
+00:27:04,919 --> 00:27:07,230
+many
+dependencies I think it's a good time
+
+1214
+00:27:07,230 --> 00:27:07,240
+dependencies I think it's a good time
+ 
+
+1215
+00:27:07,240 --> 00:27:10,389
+dependencies I think it's a good time
+you should refactor
+
+1216
+00:27:10,389 --> 00:27:10,399
+you should refactor
+ 
+
+1217
+00:27:10,399 --> 00:27:13,350
+you should refactor
+it so what are the some of the common
+
+1218
+00:27:13,350 --> 00:27:13,360
+it so what are the some of the common
+ 
+
+1219
+00:27:13,360 --> 00:27:15,549
+it so what are the some of the common
+issues when dealing with dependency
+
+1220
+00:27:15,549 --> 00:27:15,559
+issues when dealing with dependency
+ 
+
+1221
+00:27:15,559 --> 00:27:20,430
+issues when dealing with dependency
+injection so two major issue is one is
+
+1222
+00:27:20,430 --> 00:27:20,440
+injection so two major issue is one is
+ 
+
+1223
+00:27:20,440 --> 00:27:25,630
+injection so two major issue is one is
+circular and another is your unsatisfied
+
+1224
+00:27:25,630 --> 00:27:25,640
+circular and another is your unsatisfied
+ 
+
+1225
+00:27:25,640 --> 00:27:28,190
+circular and another is your unsatisfied
+dependency so let's first see the
+
+1226
+00:27:28,190 --> 00:27:28,200
+dependency so let's first see the
+ 
+
+1227
+00:27:28,200 --> 00:27:29,269
+dependency so let's first see the
+circular
+
+1228
+00:27:29,269 --> 00:27:29,279
+circular
+ 
+
+1229
+00:27:29,279 --> 00:27:31,630
+circular
+dependency so in the circular dependency
+
+1230
+00:27:31,630 --> 00:27:31,640
+dependency so in the circular dependency
+ 
+
+1231
+00:27:31,640 --> 00:27:33,149
+dependency so in the circular dependency
+what happen is let's say you have a
+
+1232
+00:27:33,149 --> 00:27:33,159
+what happen is let's say you have a
+ 
+
+1233
+00:27:33,159 --> 00:27:35,669
+what happen is let's say you have a
+class order you have a class invoice
+
+1234
+00:27:35,669 --> 00:27:35,679
+class order you have a class invoice
+ 
+
+1235
+00:27:35,679 --> 00:27:38,470
+class order you have a class invoice
+order is dependent on
+
+1236
+00:27:38,470 --> 00:27:38,480
+order is dependent on
+ 
+
+1237
+00:27:38,480 --> 00:27:41,549
+order is dependent on
+invoice invoice is dependent on order so
+
+1238
+00:27:41,549 --> 00:27:41,559
+invoice invoice is dependent on order so
+ 
+
+1239
+00:27:41,559 --> 00:27:43,269
+invoice invoice is dependent on order so
+now here if you see that this is a
+
+1240
+00:27:43,269 --> 00:27:43,279
+now here if you see that this is a
+ 
+
+1241
+00:27:43,279 --> 00:27:45,870
+now here if you see that this is a
+circle circular dependency order is
+
+1242
+00:27:45,870 --> 00:27:45,880
+circle circular dependency order is
+ 
+
+1243
+00:27:45,880 --> 00:27:47,750
+circle circular dependency order is
+dependent on invoice invoice is
+
+1244
+00:27:47,750 --> 00:27:47,760
+dependent on invoice invoice is
+ 
+
+1245
+00:27:47,760 --> 00:27:49,470
+dependent on invoice invoice is
+dependent on order now they are both
+
+1246
+00:27:49,470 --> 00:27:49,480
+dependent on order now they are both
+ 
+
+1247
+00:27:49,480 --> 00:27:50,990
+dependent on order now they are both
+using Auto
+
+1248
+00:27:50,990 --> 00:27:51,000
+using Auto
+ 
+
+1249
+00:27:51,000 --> 00:27:53,870
+using Auto
+here so when you start an application
+
+1250
+00:27:53,870 --> 00:27:53,880
+here so when you start an application
+ 
+
+1251
+00:27:53,880 --> 00:27:56,549
+here so when you start an application
+application will fail to start says that
+
+1252
+00:27:56,549 --> 00:27:56,559
+application will fail to start says that
+ 
+
+1253
+00:27:56,559 --> 00:27:59,269
+application will fail to start says that
+it form a cycle
+
+1254
+00:27:59,269 --> 00:27:59,279
+it form a cycle
+ 
+
+1255
+00:27:59,279 --> 00:28:00,870
+it form a cycle
+so this is a circular
+
+1256
+00:28:00,870 --> 00:28:00,880
+so this is a circular
+ 
+
+1257
+00:28:00,880 --> 00:28:04,750
+so this is a circular
+dependency so how do you resolve it the
+
+1258
+00:28:04,750 --> 00:28:04,760
+dependency so how do you resolve it the
+ 
+
+1259
+00:28:04,760 --> 00:28:08,430
+dependency so how do you resolve it the
+first and the foremost is that we should
+
+1260
+00:28:08,430 --> 00:28:08,440
+first and the foremost is that we should
+ 
+
+1261
+00:28:08,440 --> 00:28:11,350
+first and the foremost is that we should
+refactor the code and remove the
+
+1262
+00:28:11,350 --> 00:28:11,360
+refactor the code and remove the
+ 
+
+1263
+00:28:11,360 --> 00:28:13,430
+refactor the code and remove the
+cycle
+
+1264
+00:28:13,430 --> 00:28:13,440
+cycle
+ 
+
+1265
+00:28:13,440 --> 00:28:17,269
+cycle
+dependency how there might be some code
+
+1266
+00:28:17,269 --> 00:28:17,279
+dependency how there might be some code
+ 
+
+1267
+00:28:17,279 --> 00:28:21,549
+dependency how there might be some code
+here common code which both needed it
+
+1268
+00:28:21,549 --> 00:28:21,559
+here common code which both needed it
+ 
+
+1269
+00:28:21,559 --> 00:28:23,549
+here common code which both needed it
+take out the common
+
+1270
+00:28:23,549 --> 00:28:23,559
+take out the common
+ 
+
+1271
+00:28:23,559 --> 00:28:27,710
+take out the common
+code to a separate class right and let
+
+1272
+00:28:27,710 --> 00:28:27,720
+code to a separate class right and let
+ 
+
+1273
+00:28:27,720 --> 00:28:28,630
+code to a separate class right and let
+those class
+
+1274
+00:28:28,630 --> 00:28:28,640
+those class
+ 
+
+1275
+00:28:28,640 --> 00:28:31,830
+those class
+classes call those utility class and
+
+1276
+00:28:31,830 --> 00:28:31,840
+classes call those utility class and
+ 
+
+1277
+00:28:31,840 --> 00:28:34,230
+classes call those utility class and
+that will break your circular dependency
+
+1278
+00:28:34,230 --> 00:28:34,240
+that will break your circular dependency
+ 
+
+1279
+00:28:34,240 --> 00:28:37,909
+that will break your circular dependency
+this is your first priority to do that
+
+1280
+00:28:37,909 --> 00:28:37,919
+this is your first priority to do that
+ 
+
+1281
+00:28:37,919 --> 00:28:40,630
+this is your first priority to do that
+let's say that if you are not able to do
+
+1282
+00:28:40,630 --> 00:28:40,640
+let's say that if you are not able to do
+ 
+
+1283
+00:28:40,640 --> 00:28:43,389
+let's say that if you are not able to do
+then the second thing is using at theate
+
+1284
+00:28:43,389 --> 00:28:43,399
+then the second thing is using at theate
+ 
+
+1285
+00:28:43,399 --> 00:28:46,029
+then the second thing is using at theate
+Lazy on autoed an
+
+1286
+00:28:46,029 --> 00:28:46,039
+Lazy on autoed an
+ 
+
+1287
+00:28:46,039 --> 00:28:48,669
+Lazy on autoed an
+annotation I have already told you that
+
+1288
+00:28:48,669 --> 00:28:48,679
+annotation I have already told you that
+ 
+
+1289
+00:28:48,679 --> 00:28:50,350
+annotation I have already told you that
+if you are
+
+1290
+00:28:50,350 --> 00:28:50,360
+if you are
+ 
+
+1291
+00:28:50,360 --> 00:28:53,830
+if you are
+using at theate component if you are
+
+1292
+00:28:53,830 --> 00:28:53,840
+using at theate component if you are
+ 
+
+1293
+00:28:53,840 --> 00:28:56,870
+using at theate component if you are
+using at theate Lazy over here over the
+
+1294
+00:28:56,870 --> 00:28:56,880
+using at theate Lazy over here over the
+ 
+
+1295
+00:28:56,880 --> 00:28:58,870
+using at theate Lazy over here over the
+top of a class
+
+1296
+00:28:58,870 --> 00:28:58,880
+top of a class
+ 
+
+1297
+00:28:58,880 --> 00:29:00,909
+top of a class
+right at the top of the component you
+
+1298
+00:29:00,909 --> 00:29:00,919
+right at the top of the component you
+ 
+
+1299
+00:29:00,919 --> 00:29:03,389
+right at the top of the component you
+are telling to the spring that during my
+
+1300
+00:29:03,389 --> 00:29:03,399
+are telling to the spring that during my
+ 
+
+1301
+00:29:03,399 --> 00:29:04,750
+are telling to the spring that during my
+application
+
+1302
+00:29:04,750 --> 00:29:04,760
+application
+ 
+
+1303
+00:29:04,760 --> 00:29:08,950
+application
+startup don't create its object eagerly
+
+1304
+00:29:08,950 --> 00:29:08,960
+startup don't create its object eagerly
+ 
+
+1305
+00:29:08,960 --> 00:29:11,950
+startup don't create its object eagerly
+only when it is required then only
+
+1306
+00:29:11,950 --> 00:29:11,960
+only when it is required then only
+ 
+
+1307
+00:29:11,960 --> 00:29:15,430
+only when it is required then only
+create but now let's say that if you
+
+1308
+00:29:15,430 --> 00:29:15,440
+create but now let's say that if you
+ 
+
+1309
+00:29:15,440 --> 00:29:19,789
+create but now let's say that if you
+are putting an auto lazy on top of
+
+1310
+00:29:19,789 --> 00:29:19,799
+are putting an auto lazy on top of
+ 
+
+1311
+00:29:19,799 --> 00:29:22,950
+are putting an auto lazy on top of
+autowire not at the top of here what you
+
+1312
+00:29:22,950 --> 00:29:22,960
+autowire not at the top of here what you
+ 
+
+1313
+00:29:22,960 --> 00:29:24,990
+autowire not at the top of here what you
+are telling to spring so what first is
+
+1314
+00:29:24,990 --> 00:29:25,000
+are telling to spring so what first is
+ 
+
+1315
+00:29:25,000 --> 00:29:27,350
+are telling to spring so what first is
+spring during application stter it would
+
+1316
+00:29:27,350 --> 00:29:27,360
+spring during application stter it would
+ 
+
+1317
+00:29:27,360 --> 00:29:31,149
+spring during application stter it would
+be able to find at the component
+
+1318
+00:29:31,149 --> 00:29:31,159
+be able to find at the component
+ 
+
+1319
+00:29:31,159 --> 00:29:34,430
+be able to find at the component
+invoice object is initialized so invoice
+
+1320
+00:29:34,430 --> 00:29:34,440
+invoice object is initialized so invoice
+ 
+
+1321
+00:29:34,440 --> 00:29:35,710
+invoice object is initialized so invoice
+object is
+
+1322
+00:29:35,710 --> 00:29:35,720
+object is
+ 
+
+1323
+00:29:35,720 --> 00:29:38,430
+object is
+created and this order object is not yet
+
+1324
+00:29:38,430 --> 00:29:38,440
+created and this order object is not yet
+ 
+
+1325
+00:29:38,440 --> 00:29:40,630
+created and this order object is not yet
+initialized so dependency has to be
+
+1326
+00:29:40,630 --> 00:29:40,640
+initialized so dependency has to be
+ 
+
+1327
+00:29:40,640 --> 00:29:42,990
+initialized so dependency has to be
+injected now it will use reflection it
+
+1328
+00:29:42,990 --> 00:29:43,000
+injected now it will use reflection it
+ 
+
+1329
+00:29:43,000 --> 00:29:45,750
+injected now it will use reflection it
+will find okay this field autoi is there
+
+1330
+00:29:45,750 --> 00:29:45,760
+will find okay this field autoi is there
+ 
+
+1331
+00:29:45,760 --> 00:29:47,990
+will find okay this field autoi is there
+but now it will see that it is marked as
+
+1332
+00:29:47,990 --> 00:29:48,000
+but now it will see that it is marked as
+ 
+
+1333
+00:29:48,000 --> 00:29:50,990
+but now it will see that it is marked as
+lazy means I don't have to resolve it
+
+1334
+00:29:50,990 --> 00:29:51,000
+lazy means I don't have to resolve it
+ 
+
+1335
+00:29:51,000 --> 00:29:56,549
+lazy means I don't have to resolve it
+now I can put some proxy here right that
+
+1336
+00:29:56,549 --> 00:29:56,559
+now I can put some proxy here right that
+ 
+
+1337
+00:29:56,559 --> 00:29:58,549
+now I can put some proxy here right that
+after means when the first time it is
+
+1338
+00:29:58,549 --> 00:29:58,559
+after means when the first time it is
+ 
+
+1339
+00:29:58,559 --> 00:30:01,549
+after means when the first time it is
+used this object then only I will create
+
+1340
+00:30:01,549 --> 00:30:01,559
+used this object then only I will create
+ 
+
+1341
+00:30:01,559 --> 00:30:04,350
+used this object then only I will create
+the actual object and put it here but
+
+1342
+00:30:04,350 --> 00:30:04,360
+the actual object and put it here but
+ 
+
+1343
+00:30:04,360 --> 00:30:06,190
+the actual object and put it here but
+for this at the this time it will just
+
+1344
+00:30:06,190 --> 00:30:06,200
+for this at the this time it will just
+ 
+
+1345
+00:30:06,200 --> 00:30:07,750
+for this at the this time it will just
+create some
+
+1346
+00:30:07,750 --> 00:30:07,760
+create some
+ 
+
+1347
+00:30:07,760 --> 00:30:11,789
+create some
+proxy uh and just add it here right it
+
+1348
+00:30:11,789 --> 00:30:11,799
+proxy uh and just add it here right it
+ 
+
+1349
+00:30:11,799 --> 00:30:13,990
+proxy uh and just add it here right it
+won't do a proper
+
+1350
+00:30:13,990 --> 00:30:14,000
+won't do a proper
+ 
+
+1351
+00:30:14,000 --> 00:30:16,870
+won't do a proper
+initiation so with the help of this
+
+1352
+00:30:16,870 --> 00:30:16,880
+initiation so with the help of this
+ 
+
+1353
+00:30:16,880 --> 00:30:19,990
+initiation so with the help of this
+atate lazy parameter lazy annotation on
+
+1354
+00:30:19,990 --> 00:30:20,000
+atate lazy parameter lazy annotation on
+ 
+
+1355
+00:30:20,000 --> 00:30:22,230
+atate lazy parameter lazy annotation on
+top of autowire we can break the
+
+1356
+00:30:22,230 --> 00:30:22,240
+top of autowire we can break the
+ 
+
+1357
+00:30:22,240 --> 00:30:23,190
+top of autowire we can break the
+circular
+
+1358
+00:30:23,190 --> 00:30:23,200
+circular
+ 
+
+1359
+00:30:23,200 --> 00:30:25,549
+circular
+dependency so now first consider this
+
+1360
+00:30:25,549 --> 00:30:25,559
+dependency so now first consider this
+ 
+
+1361
+00:30:25,559 --> 00:30:28,509
+dependency so now first consider this
+you will get lazy annotation better
+
+1362
+00:30:28,509 --> 00:30:28,519
+you will get lazy annotation better
+ 
+
+1363
+00:30:28,519 --> 00:30:31,470
+you will get lazy annotation better
+so now here if you see that order I have
+
+1364
+00:30:31,470 --> 00:30:31,480
+so now here if you see that order I have
+ 
+
+1365
+00:30:31,480 --> 00:30:35,149
+so now here if you see that order I have
+marked as lazy right it's a component
+
+1366
+00:30:35,149 --> 00:30:35,159
+marked as lazy right it's a component
+ 
+
+1367
+00:30:35,159 --> 00:30:37,430
+marked as lazy right it's a component
+invoice has atate component and very
+
+1368
+00:30:37,430 --> 00:30:37,440
+invoice has atate component and very
+ 
+
+1369
+00:30:37,440 --> 00:30:39,909
+invoice has atate component and very
+basic so when you start an application
+
+1370
+00:30:39,909 --> 00:30:39,919
+basic so when you start an application
+ 
+
+1371
+00:30:39,919 --> 00:30:42,789
+basic so when you start an application
+what will start ioc started it will look
+
+1372
+00:30:42,789 --> 00:30:42,799
+what will start ioc started it will look
+ 
+
+1373
+00:30:42,799 --> 00:30:45,029
+what will start ioc started it will look
+for the atate component annotation it
+
+1374
+00:30:45,029 --> 00:30:45,039
+for the atate component annotation it
+ 
+
+1375
+00:30:45,039 --> 00:30:47,789
+for the atate component annotation it
+will find both it will say that order it
+
+1376
+00:30:47,789 --> 00:30:47,799
+will find both it will say that order it
+ 
+
+1377
+00:30:47,799 --> 00:30:49,870
+will find both it will say that order it
+is marked as lazy so it will not create
+
+1378
+00:30:49,870 --> 00:30:49,880
+is marked as lazy so it will not create
+ 
+
+1379
+00:30:49,880 --> 00:30:50,789
+is marked as lazy so it will not create
+its
+
+1380
+00:30:50,789 --> 00:30:50,799
+its
+ 
+
+1381
+00:30:50,799 --> 00:30:53,750
+its
+object now it find an invoice it will
+
+1382
+00:30:53,750 --> 00:30:53,760
+object now it find an invoice it will
+ 
+
+1383
+00:30:53,760 --> 00:30:56,190
+object now it find an invoice it will
+say that okay uh it has to create its
+
+1384
+00:30:56,190 --> 00:30:56,200
+say that okay uh it has to create its
+ 
+
+1385
+00:30:56,200 --> 00:30:58,629
+say that okay uh it has to create its
+object so invoice initiated so here I
+
+1386
+00:30:58,629 --> 00:30:58,639
+object so invoice initiated so here I
+ 
+
+1387
+00:30:58,639 --> 00:31:00,830
+object so invoice initiated so here I
+told you that invoice object
+
+1388
+00:31:00,830 --> 00:31:00,840
+told you that invoice object
+ 
+
+1389
+00:31:00,840 --> 00:31:02,909
+told you that invoice object
+initiated now here if you see that it
+
+1390
+00:31:02,909 --> 00:31:02,919
+initiated now here if you see that it
+ 
+
+1391
+00:31:02,919 --> 00:31:05,389
+initiated now here if you see that it
+uses a reflection now it uses a
+
+1392
+00:31:05,389 --> 00:31:05,399
+uses a reflection now it uses a
+ 
+
+1393
+00:31:05,399 --> 00:31:07,350
+uses a reflection now it uses a
+reflection it will see Auto wir on top
+
+1394
+00:31:07,350 --> 00:31:07,360
+reflection it will see Auto wir on top
+ 
+
+1395
+00:31:07,360 --> 00:31:10,070
+reflection it will see Auto wir on top
+of it and it will try to resolve it so
+
+1396
+00:31:10,070 --> 00:31:10,080
+of it and it will try to resolve it so
+ 
+
+1397
+00:31:10,080 --> 00:31:12,149
+of it and it will try to resolve it so
+means now it will create an object of it
+
+1398
+00:31:12,149 --> 00:31:12,159
+means now it will create an object of it
+ 
+
+1399
+00:31:12,159 --> 00:31:13,750
+means now it will create an object of it
+one order
+
+1400
+00:31:13,750 --> 00:31:13,760
+one order
+ 
+
+1401
+00:31:13,760 --> 00:31:16,269
+one order
+initiated so this is how you know that
+
+1402
+00:31:16,269 --> 00:31:16,279
+initiated so this is how you know that
+ 
+
+1403
+00:31:16,279 --> 00:31:17,950
+initiated so this is how you know that
+it works
+
+1404
+00:31:17,950 --> 00:31:17,960
+it works
+ 
+
+1405
+00:31:17,960 --> 00:31:22,430
+it works
+generally now if I put at theate Lazy
+
+1406
+00:31:22,430 --> 00:31:22,440
+generally now if I put at theate Lazy
+ 
+
+1407
+00:31:22,440 --> 00:31:25,190
+generally now if I put at theate Lazy
+here now what would happen the same
+
+1408
+00:31:25,190 --> 00:31:25,200
+here now what would happen the same
+ 
+
+1409
+00:31:25,200 --> 00:31:27,350
+here now what would happen the same
+thing first time when you started an
+
+1410
+00:31:27,350 --> 00:31:27,360
+thing first time when you started an
+ 
+
+1411
+00:31:27,360 --> 00:31:29,669
+thing first time when you started an
+application
+
+1412
+00:31:29,669 --> 00:31:29,679
+application
+ 
+
+1413
+00:31:29,679 --> 00:31:31,430
+application
+like this is lazy so object will not be
+
+1414
+00:31:31,430 --> 00:31:31,440
+like this is lazy so object will not be
+ 
+
+1415
+00:31:31,440 --> 00:31:34,310
+like this is lazy so object will not be
+created for it first so invoice object
+
+1416
+00:31:34,310 --> 00:31:34,320
+created for it first so invoice object
+ 
+
+1417
+00:31:34,320 --> 00:31:35,750
+created for it first so invoice object
+will create
+
+1418
+00:31:35,750 --> 00:31:35,760
+will create
+ 
+
+1419
+00:31:35,760 --> 00:31:39,830
+will create
+it now this order is not yet initialized
+
+1420
+00:31:39,830 --> 00:31:39,840
+it now this order is not yet initialized
+ 
+
+1421
+00:31:39,840 --> 00:31:42,430
+it now this order is not yet initialized
+so now it uses reflection it find out
+
+1422
+00:31:42,430 --> 00:31:42,440
+so now it uses reflection it find out
+ 
+
+1423
+00:31:42,440 --> 00:31:44,310
+so now it uses reflection it find out
+okay this is the auto I have to resolve
+
+1424
+00:31:44,310 --> 00:31:44,320
+okay this is the auto I have to resolve
+ 
+
+1425
+00:31:44,320 --> 00:31:46,629
+okay this is the auto I have to resolve
+it now it also find that at theate Lazy
+
+1426
+00:31:46,629 --> 00:31:46,639
+it now it also find that at theate Lazy
+ 
+
+1427
+00:31:46,639 --> 00:31:49,389
+it now it also find that at theate Lazy
+is there means I don't have to create an
+
+1428
+00:31:49,389 --> 00:31:49,399
+is there means I don't have to create an
+ 
+
+1429
+00:31:49,399 --> 00:31:51,990
+is there means I don't have to create an
+object of it now so it will put it some
+
+1430
+00:31:51,990 --> 00:31:52,000
+object of it now so it will put it some
+ 
+
+1431
+00:31:52,000 --> 00:31:54,190
+object of it now so it will put it some
+proxy but this order object is not
+
+1432
+00:31:54,190 --> 00:31:54,200
+proxy but this order object is not
+ 
+
+1433
+00:31:54,200 --> 00:31:55,750
+proxy but this order object is not
+initiated so here if you see that there
+
+1434
+00:31:55,750 --> 00:31:55,760
+initiated so here if you see that there
+ 
+
+1435
+00:31:55,760 --> 00:31:59,070
+initiated so here if you see that there
+is no order initialized
+
+1436
+00:31:59,070 --> 00:31:59,080
+is no order initialized
+ 
+
+1437
+00:31:59,080 --> 00:32:01,269
+is no order initialized
+so you got it right whatever uh like how
+
+1438
+00:32:01,269 --> 00:32:01,279
+so you got it right whatever uh like how
+ 
+
+1439
+00:32:01,279 --> 00:32:02,669
+so you got it right whatever uh like how
+it breaks the
+
+1440
+00:32:02,669 --> 00:32:02,679
+it breaks the
+ 
+
+1441
+00:32:02,679 --> 00:32:05,990
+it breaks the
+dependency so that's why we are using
+
+1442
+00:32:05,990 --> 00:32:06,000
+dependency so that's why we are using
+ 
+
+1443
+00:32:06,000 --> 00:32:08,789
+dependency so that's why we are using
+lazy to resolve the dependency so order
+
+1444
+00:32:08,789 --> 00:32:08,799
+lazy to resolve the dependency so order
+ 
+
+1445
+00:32:08,799 --> 00:32:11,029
+lazy to resolve the dependency so order
+is now dependent on
+
+1446
+00:32:11,029 --> 00:32:11,039
+is now dependent on
+ 
+
+1447
+00:32:11,039 --> 00:32:14,549
+is now dependent on
+invoice invoice is dependent on
+
+1448
+00:32:14,549 --> 00:32:14,559
+invoice invoice is dependent on
+ 
+
+1449
+00:32:14,559 --> 00:32:18,870
+invoice invoice is dependent on
+order now at any one of them we put a
+
+1450
+00:32:18,870 --> 00:32:18,880
+order now at any one of them we put a
+ 
+
+1451
+00:32:18,880 --> 00:32:21,629
+order now at any one of them we put a
+lazy right so when you put any one of
+
+1452
+00:32:21,629 --> 00:32:21,639
+lazy right so when you put any one of
+ 
+
+1453
+00:32:21,639 --> 00:32:23,710
+lazy right so when you put any one of
+them you put lazy you are ultimately
+
+1454
+00:32:23,710 --> 00:32:23,720
+them you put lazy you are ultimately
+ 
+
+1455
+00:32:23,720 --> 00:32:25,509
+them you put lazy you are ultimately
+breaking the dep dependency means
+
+1456
+00:32:25,509 --> 00:32:25,519
+breaking the dep dependency means
+ 
+
+1457
+00:32:25,519 --> 00:32:26,830
+breaking the dep dependency means
+because here now it will not create
+
+1458
+00:32:26,830 --> 00:32:26,840
+because here now it will not create
+ 
+
+1459
+00:32:26,840 --> 00:32:29,310
+because here now it will not create
+order object it will just put some proxy
+
+1460
+00:32:29,310 --> 00:32:29,320
+order object it will just put some proxy
+ 
+
+1461
+00:32:29,320 --> 00:32:31,549
+order object it will just put some proxy
+it will not creting order
+
+1462
+00:32:31,549 --> 00:32:31,559
+it will not creting order
+ 
+
+1463
+00:32:31,559 --> 00:32:34,230
+it will not creting order
+object similarly in the kind of a field
+
+1464
+00:32:34,230 --> 00:32:34,240
+object similarly in the kind of a field
+ 
+
+1465
+00:32:34,240 --> 00:32:35,909
+object similarly in the kind of a field
+injection you can use on the seter
+
+1466
+00:32:35,909 --> 00:32:35,919
+injection you can use on the seter
+ 
+
+1467
+00:32:35,919 --> 00:32:37,669
+injection you can use on the seter
+injection so like this is the setter at
+
+1468
+00:32:37,669 --> 00:32:37,679
+injection so like this is the setter at
+ 
+
+1469
+00:32:37,679 --> 00:32:39,669
+injection so like this is the setter at
+the rate wired right similarly you can
+
+1470
+00:32:39,669 --> 00:32:39,679
+the rate wired right similarly you can
+ 
+
+1471
+00:32:39,679 --> 00:32:42,149
+the rate wired right similarly you can
+put it at the setter
+
+1472
+00:32:42,149 --> 00:32:42,159
+put it at the setter
+ 
+
+1473
+00:32:42,159 --> 00:32:44,789
+put it at the setter
+also so you can try over the Constructor
+
+1474
+00:32:44,789 --> 00:32:44,799
+also so you can try over the Constructor
+ 
+
+1475
+00:32:44,799 --> 00:32:48,190
+also so you can try over the Constructor
+injection also so the first is
+
+1476
+00:32:48,190 --> 00:32:48,200
+injection also so the first is
+ 
+
+1477
+00:32:48,200 --> 00:32:50,430
+injection also so the first is
+refactoring second is at theate lazier
+
+1478
+00:32:50,430 --> 00:32:50,440
+refactoring second is at theate lazier
+ 
+
+1479
+00:32:50,440 --> 00:32:53,990
+refactoring second is at theate lazier
+anotation on the autowire third is using
+
+1480
+00:32:53,990 --> 00:32:54,000
+anotation on the autowire third is using
+ 
+
+1481
+00:32:54,000 --> 00:32:55,029
+anotation on the autowire third is using
+post
+
+1482
+00:32:55,029 --> 00:32:55,039
+post
+ 
+
+1483
+00:32:55,039 --> 00:32:58,269
+post
+construct so now what you can do is here
+
+1484
+00:32:58,269 --> 00:32:58,279
+construct so now what you can do is here
+ 
+
+1485
+00:32:58,279 --> 00:33:00,629
+construct so now what you can do is here
+here this is the order
+
+1486
+00:33:00,629 --> 00:33:00,639
+here this is the order
+ 
+
+1487
+00:33:00,639 --> 00:33:04,750
+here this is the order
+class I have put an invoice this order
+
+1488
+00:33:04,750 --> 00:33:04,760
+class I have put an invoice this order
+ 
+
+1489
+00:33:04,760 --> 00:33:06,350
+class I have put an invoice this order
+is dependent on
+
+1490
+00:33:06,350 --> 00:33:06,360
+is dependent on
+ 
+
+1491
+00:33:06,360 --> 00:33:09,669
+is dependent on
+invoice so this is an invoice class
+
+1492
+00:33:09,669 --> 00:33:09,679
+invoice so this is an invoice class
+ 
+
+1493
+00:33:09,679 --> 00:33:12,470
+invoice so this is an invoice class
+right and this is dependent on order now
+
+1494
+00:33:12,470 --> 00:33:12,480
+right and this is dependent on order now
+ 
+
+1495
+00:33:12,480 --> 00:33:14,549
+right and this is dependent on order now
+here if you have seen this I haven't put
+
+1496
+00:33:14,549 --> 00:33:14,559
+here if you have seen this I haven't put
+ 
+
+1497
+00:33:14,559 --> 00:33:15,830
+here if you have seen this I haven't put
+autowired
+
+1498
+00:33:15,830 --> 00:33:15,840
+autowired
+ 
+
+1499
+00:33:15,840 --> 00:33:18,389
+autowired
+here I haven't put any Constructor
+
+1500
+00:33:18,389 --> 00:33:18,399
+here I haven't put any Constructor
+ 
+
+1501
+00:33:18,399 --> 00:33:20,110
+here I haven't put any Constructor
+injection or Setter injection I haven't
+
+1502
+00:33:20,110 --> 00:33:20,120
+injection or Setter injection I haven't
+ 
+
+1503
+00:33:20,120 --> 00:33:23,230
+injection or Setter injection I haven't
+put anything so I have removed it right
+
+1504
+00:33:23,230 --> 00:33:23,240
+put anything so I have removed it right
+ 
+
+1505
+00:33:23,240 --> 00:33:25,029
+put anything so I have removed it right
+now what you know the sequence being
+
+1506
+00:33:25,029 --> 00:33:25,039
+now what you know the sequence being
+ 
+
+1507
+00:33:25,039 --> 00:33:27,789
+now what you know the sequence being
+life cycle right what would happen let
+
+1508
+00:33:27,789 --> 00:33:27,799
+life cycle right what would happen let
+ 
+
+1509
+00:33:27,799 --> 00:33:31,110
+life cycle right what would happen let
+let's say that it first able to uh first
+
+1510
+00:33:31,110 --> 00:33:31,120
+let's say that it first able to uh first
+ 
+
+1511
+00:33:31,120 --> 00:33:34,470
+let's say that it first able to uh first
+able to find an order right or let's say
+
+1512
+00:33:34,470 --> 00:33:34,480
+able to find an order right or let's say
+ 
+
+1513
+00:33:34,480 --> 00:33:35,789
+able to find an order right or let's say
+it first able to find an invoice
+
+1514
+00:33:35,789 --> 00:33:35,799
+it first able to find an invoice
+ 
+
+1515
+00:33:35,799 --> 00:33:38,430
+it first able to find an invoice
+whichever because it can find anything
+
+1516
+00:33:38,430 --> 00:33:38,440
+whichever because it can find anything
+ 
+
+1517
+00:33:38,440 --> 00:33:42,950
+whichever because it can find anything
+right so what would happen is let's say
+
+1518
+00:33:42,950 --> 00:33:42,960
+right so what would happen is let's say
+ 
+
+1519
+00:33:42,960 --> 00:33:45,470
+right so what would happen is let's say
+order object would be created let's say
+
+1520
+00:33:45,470 --> 00:33:45,480
+order object would be created let's say
+ 
+
+1521
+00:33:45,480 --> 00:33:46,430
+order object would be created let's say
+order
+
+1522
+00:33:46,430 --> 00:33:46,440
+order
+ 
+
+1523
+00:33:46,440 --> 00:33:48,710
+order
+initialized so order is initialized So
+
+1524
+00:33:48,710 --> 00:33:48,720
+initialized so order is initialized So
+ 
+
+1525
+00:33:48,720 --> 00:33:52,830
+initialized so order is initialized So
+currently it know that it has to put an
+
+1526
+00:33:52,830 --> 00:33:52,840
+currently it know that it has to put an
+ 
+
+1527
+00:33:52,840 --> 00:33:55,789
+currently it know that it has to put an
+invoice so it will use a
+
+1528
+00:33:55,789 --> 00:33:55,799
+invoice so it will use a
+ 
+
+1529
+00:33:55,799 --> 00:33:58,470
+invoice so it will use a
+reflection because it has to
+
+1530
+00:33:58,470 --> 00:33:58,480
+reflection because it has to
+ 
+
+1531
+00:33:58,480 --> 00:34:00,909
+reflection because it has to
+to inject the dependency so it has
+
+1532
+00:34:00,909 --> 00:34:00,919
+to inject the dependency so it has
+ 
+
+1533
+00:34:00,919 --> 00:34:03,909
+to inject the dependency so it has
+autowired invoice so now it will say
+
+1534
+00:34:03,909 --> 00:34:03,919
+autowired invoice so now it will say
+ 
+
+1535
+00:34:03,919 --> 00:34:06,430
+autowired invoice so now it will say
+that hey does invoice B is already
+
+1536
+00:34:06,430 --> 00:34:06,440
+that hey does invoice B is already
+ 
+
+1537
+00:34:06,440 --> 00:34:09,270
+that hey does invoice B is already
+created not yet so it will invoke
+
+1538
+00:34:09,270 --> 00:34:09,280
+created not yet so it will invoke
+ 
+
+1539
+00:34:09,280 --> 00:34:13,629
+created not yet so it will invoke
+it so it will create an invoice
+
+1540
+00:34:13,629 --> 00:34:13,639
+it so it will create an invoice
+ 
+
+1541
+00:34:13,639 --> 00:34:16,389
+it so it will create an invoice
+component so now here in the invoice
+
+1542
+00:34:16,389 --> 00:34:16,399
+component so now here in the invoice
+ 
+
+1543
+00:34:16,399 --> 00:34:18,550
+component so now here in the invoice
+invoice initialize will come right
+
+1544
+00:34:18,550 --> 00:34:18,560
+invoice initialize will come right
+ 
+
+1545
+00:34:18,560 --> 00:34:21,470
+invoice initialize will come right
+invoice initialized will come now here
+
+1546
+00:34:21,470 --> 00:34:21,480
+invoice initialized will come now here
+ 
+
+1547
+00:34:21,480 --> 00:34:23,190
+invoice initialized will come now here
+if you see that I haven't put autowire
+
+1548
+00:34:23,190 --> 00:34:23,200
+if you see that I haven't put autowire
+ 
+
+1549
+00:34:23,200 --> 00:34:25,750
+if you see that I haven't put autowire
+here so means order would by default
+
+1550
+00:34:25,750 --> 00:34:25,760
+here so means order would by default
+ 
+
+1551
+00:34:25,760 --> 00:34:27,270
+here so means order would by default
+would be set object would by default
+
+1552
+00:34:27,270 --> 00:34:27,280
+would be set object would by default
+ 
+
+1553
+00:34:27,280 --> 00:34:32,270
+would be set object would by default
+value is null so here order is null but
+
+1554
+00:34:32,270 --> 00:34:32,280
+value is null so here order is null but
+ 
+
+1555
+00:34:32,280 --> 00:34:34,510
+value is null so here order is null but
+object creation is successful
+
+1556
+00:34:34,510 --> 00:34:34,520
+object creation is successful
+ 
+
+1557
+00:34:34,520 --> 00:34:37,950
+object creation is successful
+now now this object get initialized over
+
+1558
+00:34:37,950 --> 00:34:37,960
+now now this object get initialized over
+ 
+
+1559
+00:34:37,960 --> 00:34:39,510
+now now this object get initialized over
+here in
+
+1560
+00:34:39,510 --> 00:34:39,520
+here in
+ 
+
+1561
+00:34:39,520 --> 00:34:43,149
+here in
+this right and with this one it's being
+
+1562
+00:34:43,149 --> 00:34:43,159
+this right and with this one it's being
+ 
+
+1563
+00:34:43,159 --> 00:34:46,230
+this right and with this one it's being
+constructed also completed now in the
+
+1564
+00:34:46,230 --> 00:34:46,240
+constructed also completed now in the
+ 
+
+1565
+00:34:46,240 --> 00:34:48,869
+constructed also completed now in the
+post construct you know that post
+
+1566
+00:34:48,869 --> 00:34:48,879
+post construct you know that post
+ 
+
+1567
+00:34:48,879 --> 00:34:51,829
+post construct you know that post
+Constructor comes into the picture after
+
+1568
+00:34:51,829 --> 00:34:51,839
+Constructor comes into the picture after
+ 
+
+1569
+00:34:51,839 --> 00:34:54,510
+Constructor comes into the picture after
+the dependency injected properly so
+
+1570
+00:34:54,510 --> 00:34:54,520
+the dependency injected properly so
+ 
+
+1571
+00:34:54,520 --> 00:34:56,190
+the dependency injected properly so
+dependency injection happened of this
+
+1572
+00:34:56,190 --> 00:34:56,200
+dependency injection happened of this
+ 
+
+1573
+00:34:56,200 --> 00:34:59,069
+dependency injection happened of this
+right now post structor will come now
+
+1574
+00:34:59,069 --> 00:34:59,079
+right now post structor will come now
+ 
+
+1575
+00:34:59,079 --> 00:35:01,190
+right now post structor will come now
+here what I'm doing is hey whatever the
+
+1576
+00:35:01,190 --> 00:35:01,200
+here what I'm doing is hey whatever the
+ 
+
+1577
+00:35:01,200 --> 00:35:03,710
+here what I'm doing is hey whatever the
+invoice instance you
+
+1578
+00:35:03,710 --> 00:35:03,720
+invoice instance you
+ 
+
+1579
+00:35:03,720 --> 00:35:06,470
+invoice instance you
+have I have exposed one Setter method
+
+1580
+00:35:06,470 --> 00:35:06,480
+have I have exposed one Setter method
+ 
+
+1581
+00:35:06,480 --> 00:35:09,310
+have I have exposed one Setter method
+here whatever the order will come I will
+
+1582
+00:35:09,310 --> 00:35:09,320
+here whatever the order will come I will
+ 
+
+1583
+00:35:09,320 --> 00:35:11,230
+here whatever the order will come I will
+put it here but here if you see I
+
+1584
+00:35:11,230 --> 00:35:11,240
+put it here but here if you see I
+ 
+
+1585
+00:35:11,240 --> 00:35:13,430
+put it here but here if you see I
+haven't put Auto wi means I am not
+
+1586
+00:35:13,430 --> 00:35:13,440
+haven't put Auto wi means I am not
+ 
+
+1587
+00:35:13,440 --> 00:35:17,150
+haven't put Auto wi means I am not
+letting a spring do it I am doing it the
+
+1588
+00:35:17,150 --> 00:35:17,160
+letting a spring do it I am doing it the
+ 
+
+1589
+00:35:17,160 --> 00:35:19,230
+letting a spring do it I am doing it the
+the we developer taking the
+
+1590
+00:35:19,230 --> 00:35:19,240
+the we developer taking the
+ 
+
+1591
+00:35:19,240 --> 00:35:21,390
+the we developer taking the
+responsibility application is taking the
+
+1592
+00:35:21,390 --> 00:35:21,400
+responsibility application is taking the
+ 
+
+1593
+00:35:21,400 --> 00:35:23,829
+responsibility application is taking the
+responsibility to put the dependency so
+
+1594
+00:35:23,829 --> 00:35:23,839
+responsibility to put the dependency so
+ 
+
+1595
+00:35:23,839 --> 00:35:25,670
+responsibility to put the dependency so
+I am creating this invoice
+
+1596
+00:35:25,670 --> 00:35:25,680
+I am creating this invoice
+ 
+
+1597
+00:35:25,680 --> 00:35:28,750
+I am creating this invoice
+object do set order I'm here setting the
+
+1598
+00:35:28,750 --> 00:35:28,760
+object do set order I'm here setting the
+ 
+
+1599
+00:35:28,760 --> 00:35:32,670
+object do set order I'm here setting the
+order which one this object so this will
+
+1600
+00:35:32,670 --> 00:35:32,680
+order which one this object so this will
+ 
+
+1601
+00:35:32,680 --> 00:35:35,310
+order which one this object so this will
+also get initialized so this is one
+
+1602
+00:35:35,310 --> 00:35:35,320
+also get initialized so this is one
+ 
+
+1603
+00:35:35,320 --> 00:35:37,750
+also get initialized so this is one
+another hacky way of doing it so why I
+
+1604
+00:35:37,750 --> 00:35:37,760
+another hacky way of doing it so why I
+ 
+
+1605
+00:35:37,760 --> 00:35:39,510
+another hacky way of doing it so why I
+say hacky because this is generally not
+
+1606
+00:35:39,510 --> 00:35:39,520
+say hacky because this is generally not
+ 
+
+1607
+00:35:39,520 --> 00:35:40,910
+say hacky because this is generally not
+recommended at
+
+1608
+00:35:40,910 --> 00:35:40,920
+recommended at
+ 
+
+1609
+00:35:40,920 --> 00:35:43,950
+recommended at
+all right the first and foremost is
+
+1610
+00:35:43,950 --> 00:35:43,960
+all right the first and foremost is
+ 
+
+1611
+00:35:43,960 --> 00:35:46,190
+all right the first and foremost is
+using Code
+
+1612
+00:35:46,190 --> 00:35:46,200
+using Code
+ 
+
+1613
+00:35:46,200 --> 00:35:49,030
+using Code
+refactoring all other I consider as as a
+
+1614
+00:35:49,030 --> 00:35:49,040
+refactoring all other I consider as as a
+ 
+
+1615
+00:35:49,040 --> 00:35:51,790
+refactoring all other I consider as as a
+hack to make your code works because
+
+1616
+00:35:51,790 --> 00:35:51,800
+hack to make your code works because
+ 
+
+1617
+00:35:51,800 --> 00:35:54,950
+hack to make your code works because
+something you cannot
+
+1618
+00:35:54,950 --> 00:35:54,960
+
+ 
+
+1619
+00:35:54,960 --> 00:35:59,109
+
+change another issue is unsatis
+
+1620
+00:35:59,109 --> 00:35:59,119
+change another issue is unsatis
+ 
+
+1621
+00:35:59,119 --> 00:36:02,030
+change another issue is unsatis
+dependency so consider the problem first
+
+1622
+00:36:02,030 --> 00:36:02,040
+dependency so consider the problem first
+ 
+
+1623
+00:36:02,040 --> 00:36:05,390
+dependency so consider the problem first
+so here if you see that this is my user
+
+1624
+00:36:05,390 --> 00:36:05,400
+so here if you see that this is my user
+ 
+
+1625
+00:36:05,400 --> 00:36:08,870
+so here if you see that this is my user
+class user class is dependent on
+
+1626
+00:36:08,870 --> 00:36:08,880
+class user class is dependent on
+ 
+
+1627
+00:36:08,880 --> 00:36:11,870
+class user class is dependent on
+order order is an interface which has
+
+1628
+00:36:11,870 --> 00:36:11,880
+order order is an interface which has
+ 
+
+1629
+00:36:11,880 --> 00:36:17,349
+order order is an interface which has
+two child classes online order offline
+
+1630
+00:36:17,349 --> 00:36:17,359
+two child classes online order offline
+ 
+
+1631
+00:36:17,359 --> 00:36:20,670
+two child classes online order offline
+order now if you have put autowired now
+
+1632
+00:36:20,670 --> 00:36:20,680
+order now if you have put autowired now
+ 
+
+1633
+00:36:20,680 --> 00:36:23,069
+order now if you have put autowired now
+you are telling is spring that hey fill
+
+1634
+00:36:23,069 --> 00:36:23,079
+you are telling is spring that hey fill
+ 
+
+1635
+00:36:23,079 --> 00:36:24,550
+you are telling is spring that hey fill
+the dependency
+
+1636
+00:36:24,550 --> 00:36:24,560
+the dependency
+ 
+
+1637
+00:36:24,560 --> 00:36:27,150
+the dependency
+here now how would the spring know that
+
+1638
+00:36:27,150 --> 00:36:27,160
+here now how would the spring know that
+ 
+
+1639
+00:36:27,160 --> 00:36:29,309
+here now how would the spring know that
+whether I have to fill the dependency
+
+1640
+00:36:29,309 --> 00:36:29,319
+whether I have to fill the dependency
+ 
+
+1641
+00:36:29,319 --> 00:36:31,510
+whether I have to fill the dependency
+with online order object or offline
+
+1642
+00:36:31,510 --> 00:36:31,520
+with online order object or offline
+ 
+
+1643
+00:36:31,520 --> 00:36:34,109
+with online order object or offline
+order object which one so when you start
+
+1644
+00:36:34,109 --> 00:36:34,119
+order object which one so when you start
+ 
+
+1645
+00:36:34,119 --> 00:36:37,230
+order object which one so when you start
+an application it will fail unsatisfied
+
+1646
+00:36:37,230 --> 00:36:37,240
+an application it will fail unsatisfied
+ 
+
+1647
+00:36:37,240 --> 00:36:39,630
+an application it will fail unsatisfied
+dependency injection error creating Bean
+
+1648
+00:36:39,630 --> 00:36:39,640
+dependency injection error creating Bean
+ 
+
+1649
+00:36:39,640 --> 00:36:42,309
+dependency injection error creating Bean
+with the name user it not able to
+
+1650
+00:36:42,309 --> 00:36:42,319
+with the name user it not able to
+ 
+
+1651
+00:36:42,319 --> 00:36:44,150
+with the name user it not able to
+construct the Bean of a user because it
+
+1652
+00:36:44,150 --> 00:36:44,160
+construct the Bean of a user because it
+ 
+
+1653
+00:36:44,160 --> 00:36:45,870
+construct the Bean of a user because it
+don't know whether to put online or
+
+1654
+00:36:45,870 --> 00:36:45,880
+don't know whether to put online or
+ 
+
+1655
+00:36:45,880 --> 00:36:48,030
+don't know whether to put online or
+offline uh order
+
+1656
+00:36:48,030 --> 00:36:48,040
+offline uh order
+ 
+
+1657
+00:36:48,040 --> 00:36:50,430
+offline uh order
+object so it has two Solution One is
+
+1658
+00:36:50,430 --> 00:36:50,440
+object so it has two Solution One is
+ 
+
+1659
+00:36:50,440 --> 00:36:52,230
+object so it has two Solution One is
+using at the rate primary
+
+1660
+00:36:52,230 --> 00:36:52,240
+using at the rate primary
+ 
+
+1661
+00:36:52,240 --> 00:36:54,990
+using at the rate primary
+annotation so in one of the online order
+
+1662
+00:36:54,990 --> 00:36:55,000
+annotation so in one of the online order
+ 
+
+1663
+00:36:55,000 --> 00:36:58,069
+annotation so in one of the online order
+and offline order in one of the uh
+
+1664
+00:36:58,069 --> 00:36:58,079
+and offline order in one of the uh
+ 
+
+1665
+00:36:58,079 --> 00:37:00,030
+and offline order in one of the uh
+you can put at marked as one of the
+
+1666
+00:37:00,030 --> 00:37:00,040
+you can put at marked as one of the
+ 
+
+1667
+00:37:00,040 --> 00:37:02,510
+you can put at marked as one of the
+primary you can put a primary
+
+1668
+00:37:02,510 --> 00:37:02,520
+primary you can put a primary
+ 
+
+1669
+00:37:02,520 --> 00:37:04,870
+primary you can put a primary
+annotation primary annotation tells a
+
+1670
+00:37:04,870 --> 00:37:04,880
+annotation primary annotation tells a
+ 
+
+1671
+00:37:04,880 --> 00:37:08,270
+annotation primary annotation tells a
+spring that give it a first priority use
+
+1672
+00:37:08,270 --> 00:37:08,280
+spring that give it a first priority use
+ 
+
+1673
+00:37:08,280 --> 00:37:11,069
+spring that give it a first priority use
+it right so we are providing a like say
+
+1674
+00:37:11,069 --> 00:37:11,079
+it right so we are providing a like say
+ 
+
+1675
+00:37:11,079 --> 00:37:12,990
+it right so we are providing a like say
+said some input to the spring that
+
+1676
+00:37:12,990 --> 00:37:13,000
+said some input to the spring that
+ 
+
+1677
+00:37:13,000 --> 00:37:15,430
+said some input to the spring that
+whenever you find a multiple like what
+
+1678
+00:37:15,430 --> 00:37:15,440
+whenever you find a multiple like what
+ 
+
+1679
+00:37:15,440 --> 00:37:18,069
+whenever you find a multiple like what
+to use because this is also an order
+
+1680
+00:37:18,069 --> 00:37:18,079
+to use because this is also an order
+ 
+
+1681
+00:37:18,079 --> 00:37:20,670
+to use because this is also an order
+this is also an order now what to inject
+
+1682
+00:37:20,670 --> 00:37:20,680
+this is also an order now what to inject
+ 
+
+1683
+00:37:20,680 --> 00:37:23,430
+this is also an order now what to inject
+into here use the primary one so it will
+
+1684
+00:37:23,430 --> 00:37:23,440
+into here use the primary one so it will
+ 
+
+1685
+00:37:23,440 --> 00:37:25,630
+into here use the primary one so it will
+use the primary one equals to internally
+
+1686
+00:37:25,630 --> 00:37:25,640
+use the primary one equals to internally
+ 
+
+1687
+00:37:25,640 --> 00:37:28,030
+use the primary one equals to internally
+spring will do new online order it will
+
+1688
+00:37:28,030 --> 00:37:28,040
+spring will do new online order it will
+ 
+
+1689
+00:37:28,040 --> 00:37:30,589
+spring will do new online order it will
+call this one online order
+
+1690
+00:37:30,589 --> 00:37:30,599
+call this one online order
+ 
+
+1691
+00:37:30,599 --> 00:37:33,950
+call this one online order
+initialized right it will say that if
+
+1692
+00:37:33,950 --> 00:37:33,960
+initialized right it will say that if
+ 
+
+1693
+00:37:33,960 --> 00:37:35,550
+initialized right it will say that if
+you check its object ultimately it will
+
+1694
+00:37:35,550 --> 00:37:35,560
+you check its object ultimately it will
+ 
+
+1695
+00:37:35,560 --> 00:37:37,190
+you check its object ultimately it will
+get online object
+
+1696
+00:37:37,190 --> 00:37:37,200
+get online object
+ 
+
+1697
+00:37:37,200 --> 00:37:39,430
+get online object
+initialized see I haven't put at theate
+
+1698
+00:37:39,430 --> 00:37:39,440
+initialized see I haven't put at theate
+ 
+
+1699
+00:37:39,440 --> 00:37:41,430
+initialized see I haven't put at theate
+Lazy here I haven't put at theate Lazy
+
+1700
+00:37:41,430 --> 00:37:41,440
+Lazy here I haven't put at theate Lazy
+ 
+
+1701
+00:37:41,440 --> 00:37:42,950
+Lazy here I haven't put at theate Lazy
+here that's why at the time of
+
+1702
+00:37:42,950 --> 00:37:42,960
+here that's why at the time of
+ 
+
+1703
+00:37:42,960 --> 00:37:44,230
+here that's why at the time of
+application
+
+1704
+00:37:44,230 --> 00:37:44,240
+application
+ 
+
+1705
+00:37:44,240 --> 00:37:46,470
+application
+startup this will also get initialized
+
+1706
+00:37:46,470 --> 00:37:46,480
+startup this will also get initialized
+ 
+
+1707
+00:37:46,480 --> 00:37:47,910
+startup this will also get initialized
+this will also get initialized this will
+
+1708
+00:37:47,910 --> 00:37:47,920
+this will also get initialized this will
+ 
+
+1709
+00:37:47,920 --> 00:37:50,710
+this will also get initialized this will
+also get initialized all three get
+
+1710
+00:37:50,710 --> 00:37:50,720
+also get initialized all three get
+ 
+
+1711
+00:37:50,720 --> 00:37:53,309
+also get initialized all three get
+initialized but when this dependency is
+
+1712
+00:37:53,309 --> 00:37:53,319
+initialized but when this dependency is
+ 
+
+1713
+00:37:53,319 --> 00:37:55,390
+initialized but when this dependency is
+injected which one it will get injected
+
+1714
+00:37:55,390 --> 00:37:55,400
+injected which one it will get injected
+ 
+
+1715
+00:37:55,400 --> 00:37:57,670
+injected which one it will get injected
+this one online order
+
+1716
+00:37:57,670 --> 00:37:57,680
+this one online order
+ 
+
+1717
+00:37:57,680 --> 00:37:59,430
+this one online order
+this because this is Mark as
+
+1718
+00:37:59,430 --> 00:37:59,440
+this because this is Mark as
+ 
+
+1719
+00:37:59,440 --> 00:38:01,710
+this because this is Mark as
+primary another is using at theate
+
+1720
+00:38:01,710 --> 00:38:01,720
+primary another is using at theate
+ 
+
+1721
+00:38:01,720 --> 00:38:04,309
+primary another is using at theate
+qualifier annotation so qualifier
+
+1722
+00:38:04,309 --> 00:38:04,319
+qualifier annotation so qualifier
+ 
+
+1723
+00:38:04,319 --> 00:38:07,589
+qualifier annotation so qualifier
+annotation means that provide a name so
+
+1724
+00:38:07,589 --> 00:38:07,599
+annotation means that provide a name so
+ 
+
+1725
+00:38:07,599 --> 00:38:09,950
+annotation means that provide a name so
+application will provide a name so on
+
+1726
+00:38:09,950 --> 00:38:09,960
+application will provide a name so on
+ 
+
+1727
+00:38:09,960 --> 00:38:12,910
+application will provide a name so on
+this online order I have put adorate
+
+1728
+00:38:12,910 --> 00:38:12,920
+this online order I have put adorate
+ 
+
+1729
+00:38:12,920 --> 00:38:14,630
+this online order I have put adorate
+qualifier and give some name online
+
+1730
+00:38:14,630 --> 00:38:14,640
+qualifier and give some name online
+ 
+
+1731
+00:38:14,640 --> 00:38:16,589
+qualifier and give some name online
+order name something I have
+
+1732
+00:38:16,589 --> 00:38:16,599
+order name something I have
+ 
+
+1733
+00:38:16,599 --> 00:38:20,589
+order name something I have
+given offline order I have given one
+
+1734
+00:38:20,589 --> 00:38:20,599
+given offline order I have given one
+ 
+
+1735
+00:38:20,599 --> 00:38:23,829
+given offline order I have given one
+name offline order name so I've given
+
+1736
+00:38:23,829 --> 00:38:23,839
+name offline order name so I've given
+ 
+
+1737
+00:38:23,839 --> 00:38:28,150
+name offline order name so I've given
+one qualifier to it now here in the user
+
+1738
+00:38:28,150 --> 00:38:28,160
+one qualifier to it now here in the user
+ 
+
+1739
+00:38:28,160 --> 00:38:31,790
+one qualifier to it now here in the user
+class during the order Auto now I have
+
+1740
+00:38:31,790 --> 00:38:31,800
+class during the order Auto now I have
+ 
+
+1741
+00:38:31,800 --> 00:38:32,790
+class during the order Auto now I have
+used
+
+1742
+00:38:32,790 --> 00:38:32,800
+used
+ 
+
+1743
+00:38:32,800 --> 00:38:35,390
+used
+qualifiers okay here qualifiers I have
+
+1744
+00:38:35,390 --> 00:38:35,400
+qualifiers okay here qualifiers I have
+ 
+
+1745
+00:38:35,400 --> 00:38:39,109
+qualifiers okay here qualifiers I have
+give offline order use offline
+
+1746
+00:38:39,109 --> 00:38:39,119
+give offline order use offline
+ 
+
+1747
+00:38:39,119 --> 00:38:41,550
+give offline order use offline
+order if you want to change it put
+
+1748
+00:38:41,550 --> 00:38:41,560
+order if you want to change it put
+ 
+
+1749
+00:38:41,560 --> 00:38:44,950
+order if you want to change it put
+online order so that object will get
+
+1750
+00:38:44,950 --> 00:38:44,960
+online order so that object will get
+ 
+
+1751
+00:38:44,960 --> 00:38:49,109
+online order so that object will get
+created so that also you can use it
+
+1752
+00:38:49,109 --> 00:38:49,119
+created so that also you can use it
+ 
+
+1753
+00:38:49,119 --> 00:38:53,910
+created so that also you can use it
+using the qualifiers
+
+1754
+00:38:53,910 --> 00:38:53,920
+
+ 
+
+1755
+00:38:53,920 --> 00:38:58,430
+
+annotation right
+
+1756
+00:38:58,430 --> 00:38:58,440
+
+ 
+
+1757
+00:38:58,440 --> 00:39:00,910
+
+and uh application will start properly
+
+1758
+00:39:00,910 --> 00:39:00,920
+and uh application will start properly
+ 
+
+1759
+00:39:00,920 --> 00:39:04,510
+and uh application will start properly
+with this so this is everything about
+
+1760
+00:39:04,510 --> 00:39:04,520
+with this so this is everything about
+ 
+
+1761
+00:39:04,520 --> 00:39:06,349
+with this so this is everything about
+dependency injection at all if you have
+
+1762
+00:39:06,349 --> 00:39:06,359
+dependency injection at all if you have
+ 
+
+1763
+00:39:06,359 --> 00:39:07,910
+dependency injection at all if you have
+any doubt ping me in the comment section
+
+1764
+00:39:07,910 --> 00:39:07,920
+any doubt ping me in the comment section
+ 
+
+1765
+00:39:07,920 --> 00:39:12,920
+any doubt ping me in the comment section
+we can discuss more thank you bye
+

@@ -1,0 +1,9785 @@
+1
+00:00:00,080 --> 00:00:01,709
+
+hey guys Shan side welcome to concept
+
+2
+00:00:01,709 --> 00:00:01,719
+hey guys Shan side welcome to concept
+ 
+
+3
+00:00:01,719 --> 00:00:04,309
+hey guys Shan side welcome to concept
+and coding and today we are going to see
+
+4
+00:00:04,309 --> 00:00:04,319
+and coding and today we are going to see
+ 
+
+5
+00:00:04,319 --> 00:00:07,909
+and coding and today we are going to see
+the spring boot jpa part one and let's
+
+6
+00:00:07,909 --> 00:00:07,919
+the spring boot jpa part one and let's
+ 
+
+7
+00:00:07,919 --> 00:00:10,709
+the spring boot jpa part one and let's
+start without wasting any time so here
+
+8
+00:00:10,709 --> 00:00:10,719
+start without wasting any time so here
+ 
+
+9
+00:00:10,719 --> 00:00:13,669
+start without wasting any time so here
+if you see that till now whatever we
+
+10
+00:00:13,669 --> 00:00:13,679
+if you see that till now whatever we
+ 
+
+11
+00:00:13,679 --> 00:00:15,709
+if you see that till now whatever we
+have done it's mostly a part of
+
+12
+00:00:15,709 --> 00:00:15,719
+have done it's mostly a part of
+ 
+
+13
+00:00:15,719 --> 00:00:18,470
+have done it's mostly a part of
+application logic now we have reached to
+
+14
+00:00:18,470 --> 00:00:18,480
+application logic now we have reached to
+ 
+
+15
+00:00:18,480 --> 00:00:21,230
+application logic now we have reached to
+a stage where we have to insert data
+
+16
+00:00:21,230 --> 00:00:21,240
+a stage where we have to insert data
+ 
+
+17
+00:00:21,240 --> 00:00:24,710
+a stage where we have to insert data
+into the database how we can do that so
+
+18
+00:00:24,710 --> 00:00:24,720
+into the database how we can do that so
+ 
+
+19
+00:00:24,720 --> 00:00:27,550
+into the database how we can do that so
+that's where the jpa jdbc comes into the
+
+20
+00:00:27,550 --> 00:00:27,560
+that's where the jpa jdbc comes into the
+ 
+
+21
+00:00:27,560 --> 00:00:31,749
+that's where the jpa jdbc comes into the
+picture Okay so before even jumping into
+
+22
+00:00:31,749 --> 00:00:31,759
+picture Okay so before even jumping into
+ 
+
+23
+00:00:31,759 --> 00:00:35,470
+picture Okay so before even jumping into
+the jpa we have to first understand the
+
+24
+00:00:35,470 --> 00:00:35,480
+the jpa we have to first understand the
+ 
+
+25
+00:00:35,480 --> 00:00:39,030
+the jpa we have to first understand the
+complete sequence right who who what all
+
+26
+00:00:39,030 --> 00:00:39,040
+complete sequence right who who what all
+ 
+
+27
+00:00:39,040 --> 00:00:41,029
+complete sequence right who who what all
+components actually get involved into
+
+28
+00:00:41,029 --> 00:00:41,039
+components actually get involved into
+ 
+
+29
+00:00:41,039 --> 00:00:43,790
+components actually get involved into
+this so here if you see that let's say
+
+30
+00:00:43,790 --> 00:00:43,800
+this so here if you see that let's say
+ 
+
+31
+00:00:43,800 --> 00:00:45,470
+this so here if you see that let's say
+that you are writing a spring boot
+
+32
+00:00:45,470 --> 00:00:45,480
+that you are writing a spring boot
+ 
+
+33
+00:00:45,480 --> 00:00:46,990
+that you are writing a spring boot
+application you have an application
+
+34
+00:00:46,990 --> 00:00:47,000
+application you have an application
+ 
+
+35
+00:00:47,000 --> 00:00:49,470
+application you have an application
+logic or you have written so many beans
+
+36
+00:00:49,470 --> 00:00:49,480
+logic or you have written so many beans
+ 
+
+37
+00:00:49,480 --> 00:00:52,270
+logic or you have written so many beans
+okay now what you do is if you have to
+
+38
+00:00:52,270 --> 00:00:52,280
+okay now what you do is if you have to
+ 
+
+39
+00:00:52,280 --> 00:00:54,590
+okay now what you do is if you have to
+use jpa what's the sequence what happen
+
+40
+00:00:54,590 --> 00:00:54,600
+use jpa what's the sequence what happen
+ 
+
+41
+00:00:54,600 --> 00:00:56,910
+use jpa what's the sequence what happen
+is you interact with an
+
+42
+00:00:56,910 --> 00:00:56,920
+is you interact with an
+ 
+
+43
+00:00:56,920 --> 00:01:00,549
+is you interact with an
+apis which is provided by jpa so always
+
+44
+00:01:00,549 --> 00:01:00,559
+apis which is provided by jpa so always
+ 
+
+45
+00:01:00,559 --> 00:01:04,310
+apis which is provided by jpa so always
+remember that jpa is mostly an interface
+
+46
+00:01:04,310 --> 00:01:04,320
+remember that jpa is mostly an interface
+ 
+
+47
+00:01:04,320 --> 00:01:07,590
+remember that jpa is mostly an interface
+right it provided a apis which you can
+
+48
+00:01:07,590 --> 00:01:07,600
+right it provided a apis which you can
+ 
+
+49
+00:01:07,600 --> 00:01:10,510
+right it provided a apis which you can
+interact with but it do not provide you
+
+50
+00:01:10,510 --> 00:01:10,520
+interact with but it do not provide you
+ 
+
+51
+00:01:10,520 --> 00:01:13,149
+interact with but it do not provide you
+the implementation implementation is
+
+52
+00:01:13,149 --> 00:01:13,159
+the implementation implementation is
+ 
+
+53
+00:01:13,159 --> 00:01:15,149
+the implementation implementation is
+provided by another component let's say
+
+54
+00:01:15,149 --> 00:01:15,159
+provided by another component let's say
+ 
+
+55
+00:01:15,159 --> 00:01:17,230
+provided by another component let's say
+in this case hibernate or if you don't
+
+56
+00:01:17,230 --> 00:01:17,240
+in this case hibernate or if you don't
+ 
+
+57
+00:01:17,240 --> 00:01:18,789
+in this case hibernate or if you don't
+want to use hibernate there is something
+
+58
+00:01:18,789 --> 00:01:18,799
+want to use hibernate there is something
+ 
+
+59
+00:01:18,799 --> 00:01:20,390
+want to use hibernate there is something
+like open
+
+60
+00:01:20,390 --> 00:01:20,400
+like open
+ 
+
+61
+00:01:20,400 --> 00:01:26,190
+like open
+jpa right or there I think Eclipse link
+
+62
+00:01:26,190 --> 00:01:26,200
+jpa right or there I think Eclipse link
+ 
+
+63
+00:01:26,200 --> 00:01:27,990
+jpa right or there I think Eclipse link
+and uh so these are different
+
+64
+00:01:27,990 --> 00:01:28,000
+and uh so these are different
+ 
+
+65
+00:01:28,000 --> 00:01:31,749
+and uh so these are different
+implementation of jpa okay so your
+
+66
+00:01:31,749 --> 00:01:31,759
+implementation of jpa okay so your
+ 
+
+67
+00:01:31,759 --> 00:01:35,590
+implementation of jpa okay so your
+application talks to jpa jpa internally
+
+68
+00:01:35,590 --> 00:01:35,600
+application talks to jpa jpa internally
+ 
+
+69
+00:01:35,600 --> 00:01:38,310
+application talks to jpa jpa internally
+has to be implemented by some other uh
+
+70
+00:01:38,310 --> 00:01:38,320
+has to be implemented by some other uh
+ 
+
+71
+00:01:38,320 --> 00:01:40,510
+has to be implemented by some other uh
+component which you decide which you
+
+72
+00:01:40,510 --> 00:01:40,520
+component which you decide which you
+ 
+
+73
+00:01:40,520 --> 00:01:42,230
+component which you decide which you
+want to use so generally hibernate is
+
+74
+00:01:42,230 --> 00:01:42,240
+want to use so generally hibernate is
+ 
+
+75
+00:01:42,240 --> 00:01:46,030
+want to use so generally hibernate is
+the most popular one so hibernate
+
+76
+00:01:46,030 --> 00:01:46,040
+the most popular one so hibernate
+ 
+
+77
+00:01:46,040 --> 00:01:49,749
+the most popular one so hibernate
+internally talks to or utilize
+
+78
+00:01:49,749 --> 00:01:49,759
+internally talks to or utilize
+ 
+
+79
+00:01:49,759 --> 00:01:54,230
+internally talks to or utilize
+jdbc API so again jdbc is again and
+
+80
+00:01:54,230 --> 00:01:54,240
+jdbc API so again jdbc is again and
+ 
+
+81
+00:01:54,240 --> 00:01:57,029
+jdbc API so again jdbc is again and
+interface so hiet uses
+
+82
+00:01:57,029 --> 00:01:57,039
+interface so hiet uses
+ 
+
+83
+00:01:57,039 --> 00:02:01,230
+interface so hiet uses
+its API it's
+
+84
+00:02:01,230 --> 00:02:01,240
+its API it's
+ 
+
+85
+00:02:01,240 --> 00:02:04,789
+its API it's
+interfaces and then there are specific
+
+86
+00:02:04,789 --> 00:02:04,799
+interfaces and then there are specific
+ 
+
+87
+00:02:04,799 --> 00:02:08,190
+interfaces and then there are specific
+DB drivers so this DB drivers is nothing
+
+88
+00:02:08,190 --> 00:02:08,200
+DB drivers so this DB drivers is nothing
+ 
+
+89
+00:02:08,200 --> 00:02:12,589
+DB drivers so this DB drivers is nothing
+but an implementation of this jdbc apis
+
+90
+00:02:12,589 --> 00:02:12,599
+but an implementation of this jdbc apis
+ 
+
+91
+00:02:12,599 --> 00:02:17,030
+but an implementation of this jdbc apis
+okay so for example you are using
+
+92
+00:02:17,030 --> 00:02:17,040
+okay so for example you are using
+ 
+
+93
+00:02:17,040 --> 00:02:22,830
+okay so for example you are using
+a MySQL DB okay you are using a MySQL DB
+
+94
+00:02:22,830 --> 00:02:22,840
+a MySQL DB okay you are using a MySQL DB
+ 
+
+95
+00:02:22,840 --> 00:02:25,070
+a MySQL DB okay you are using a MySQL DB
+then there would be a specific DB driver
+
+96
+00:02:25,070 --> 00:02:25,080
+then there would be a specific DB driver
+ 
+
+97
+00:02:25,080 --> 00:02:28,190
+then there would be a specific DB driver
+for it okay let's say it
+
+98
+00:02:28,190 --> 00:02:28,200
+for it okay let's say it
+ 
+
+99
+00:02:28,200 --> 00:02:32,670
+for it okay let's say it
+is connector J DB driver which is very
+
+100
+00:02:32,670 --> 00:02:32,680
+is connector J DB driver which is very
+ 
+
+101
+00:02:32,680 --> 00:02:34,990
+is connector J DB driver which is very
+very specific for MySQL which knows how
+
+102
+00:02:34,990 --> 00:02:35,000
+very specific for MySQL which knows how
+ 
+
+103
+00:02:35,000 --> 00:02:38,270
+very specific for MySQL which knows how
+to connect to mySQL and it provided the
+
+104
+00:02:38,270 --> 00:02:38,280
+to connect to mySQL and it provided the
+ 
+
+105
+00:02:38,280 --> 00:02:41,470
+to connect to mySQL and it provided the
+implementation of jdbc API similarly if
+
+106
+00:02:41,470 --> 00:02:41,480
+implementation of jdbc API similarly if
+ 
+
+107
+00:02:41,480 --> 00:02:46,149
+implementation of jdbc API similarly if
+you have something called uh
+
+108
+00:02:46,149 --> 00:02:46,159
+you have something called uh
+ 
+
+109
+00:02:46,159 --> 00:02:49,990
+you have something called uh
+postgress postgress SQL okay then it has
+
+110
+00:02:49,990 --> 00:02:50,000
+postgress postgress SQL okay then it has
+ 
+
+111
+00:02:50,000 --> 00:02:51,509
+postgress postgress SQL okay then it has
+its own DB
+
+112
+00:02:51,509 --> 00:02:51,519
+its own DB
+ 
+
+113
+00:02:51,519 --> 00:02:54,630
+its own DB
+driver it has its own DB
+
+114
+00:02:54,630 --> 00:02:54,640
+driver it has its own DB
+ 
+
+115
+00:02:54,640 --> 00:02:59,270
+driver it has its own DB
+driver okay so depending upon which DB
+
+116
+00:02:59,270 --> 00:02:59,280
+driver okay so depending upon which DB
+ 
+
+117
+00:02:59,280 --> 00:03:02,509
+driver okay so depending upon which DB
+you are using a specific that's why I
+
+118
+00:03:02,509 --> 00:03:02,519
+you are using a specific that's why I
+ 
+
+119
+00:03:02,519 --> 00:03:05,910
+you are using a specific that's why I
+written a specific DB driver is required
+
+120
+00:03:05,910 --> 00:03:05,920
+written a specific DB driver is required
+ 
+
+121
+00:03:05,920 --> 00:03:08,270
+written a specific DB driver is required
+okay this DB drivers is nothing but an
+
+122
+00:03:08,270 --> 00:03:08,280
+okay this DB drivers is nothing but an
+ 
+
+123
+00:03:08,280 --> 00:03:12,990
+okay this DB drivers is nothing but an
+implementation of jdbc apis this jdbc
+
+124
+00:03:12,990 --> 00:03:13,000
+implementation of jdbc apis this jdbc
+ 
+
+125
+00:03:13,000 --> 00:03:15,589
+implementation of jdbc apis this jdbc
+right uh Java database conect uh
+
+126
+00:03:15,589 --> 00:03:15,599
+right uh Java database conect uh
+ 
+
+127
+00:03:15,599 --> 00:03:19,070
+right uh Java database conect uh
+connectivity helps you to connect to a
+
+128
+00:03:19,070 --> 00:03:19,080
+connectivity helps you to connect to a
+ 
+
+129
+00:03:19,080 --> 00:03:22,110
+connectivity helps you to connect to a
+database okay through this API you can
+
+130
+00:03:22,110 --> 00:03:22,120
+database okay through this API you can
+ 
+
+131
+00:03:22,120 --> 00:03:24,910
+database okay through this API you can
+connect you can query you can fetch the
+
+132
+00:03:24,910 --> 00:03:24,920
+connect you can query you can fetch the
+ 
+
+133
+00:03:24,920 --> 00:03:28,990
+connect you can query you can fetch the
+data okay but remember jdb jdbc is
+
+134
+00:03:28,990 --> 00:03:29,000
+data okay but remember jdb jdbc is
+ 
+
+135
+00:03:29,000 --> 00:03:30,470
+data okay but remember jdb jdbc is
+nothing but an
+
+136
+00:03:30,470 --> 00:03:30,480
+nothing but an
+ 
+
+137
+00:03:30,480 --> 00:03:32,990
+nothing but an
+API interface actual work is done by
+
+138
+00:03:32,990 --> 00:03:33,000
+API interface actual work is done by
+ 
+
+139
+00:03:33,000 --> 00:03:34,990
+API interface actual work is done by
+drivers itself if you using MySQL then
+
+140
+00:03:34,990 --> 00:03:35,000
+drivers itself if you using MySQL then
+ 
+
+141
+00:03:35,000 --> 00:03:37,910
+drivers itself if you using MySQL then
+MySQL drivers know how to F the data
+
+142
+00:03:37,910 --> 00:03:37,920
+MySQL drivers know how to F the data
+ 
+
+143
+00:03:37,920 --> 00:03:40,750
+MySQL drivers know how to F the data
+okay then this jdbc now there is
+
+144
+00:03:40,750 --> 00:03:40,760
+okay then this jdbc now there is
+ 
+
+145
+00:03:40,760 --> 00:03:43,390
+okay then this jdbc now there is
+something called or framework is buildup
+
+146
+00:03:43,390 --> 00:03:43,400
+something called or framework is buildup
+ 
+
+147
+00:03:43,400 --> 00:03:46,470
+something called or framework is buildup
+object relational mapping framework so
+
+148
+00:03:46,470 --> 00:03:46,480
+object relational mapping framework so
+ 
+
+149
+00:03:46,480 --> 00:03:48,550
+object relational mapping framework so
+this is nothing but a
+
+150
+00:03:48,550 --> 00:03:48,560
+this is nothing but a
+ 
+
+151
+00:03:48,560 --> 00:03:51,350
+this is nothing but a
+bridge
+
+152
+00:03:51,350 --> 00:03:51,360
+bridge
+ 
+
+153
+00:03:51,360 --> 00:03:53,670
+bridge
+between Java
+
+154
+00:03:53,670 --> 00:03:53,680
+between Java
+ 
+
+155
+00:03:53,680 --> 00:03:57,550
+between Java
+object and your
+
+156
+00:03:57,550 --> 00:03:57,560
+object and your
+ 
+
+157
+00:03:57,560 --> 00:04:00,229
+object and your
+relational databases
+
+158
+00:04:00,229 --> 00:04:00,239
+relational databases
+ 
+
+159
+00:04:00,239 --> 00:04:02,630
+relational databases
+okay so here if you see that in the jdbc
+
+160
+00:04:02,630 --> 00:04:02,640
+okay so here if you see that in the jdbc
+ 
+
+161
+00:04:02,640 --> 00:04:06,030
+okay so here if you see that in the jdbc
+and specific DB driver everything we are
+
+162
+00:04:06,030 --> 00:04:06,040
+and specific DB driver everything we are
+ 
+
+163
+00:04:06,040 --> 00:04:09,470
+and specific DB driver everything we are
+in the form of SQL right we write
+
+164
+00:04:09,470 --> 00:04:09,480
+in the form of SQL right we write
+ 
+
+165
+00:04:09,480 --> 00:04:12,990
+in the form of SQL right we write
+queries and we try to connect uh through
+
+166
+00:04:12,990 --> 00:04:13,000
+queries and we try to connect uh through
+ 
+
+167
+00:04:13,000 --> 00:04:16,870
+queries and we try to connect uh through
+DB create DB or F the data insert
+
+168
+00:04:16,870 --> 00:04:16,880
+DB create DB or F the data insert
+ 
+
+169
+00:04:16,880 --> 00:04:18,909
+DB create DB or F the data insert
+everything is in SQL
+
+170
+00:04:18,909 --> 00:04:18,919
+everything is in SQL
+ 
+
+171
+00:04:18,919 --> 00:04:21,990
+everything is in SQL
+form but here with the OM framework
+
+172
+00:04:21,990 --> 00:04:22,000
+form but here with the OM framework
+ 
+
+173
+00:04:22,000 --> 00:04:24,550
+form but here with the OM framework
+where this jpa and let's say its
+
+174
+00:04:24,550 --> 00:04:24,560
+where this jpa and let's say its
+ 
+
+175
+00:04:24,560 --> 00:04:27,150
+where this jpa and let's say its
+implementation hiate we are using if
+
+176
+00:04:27,150 --> 00:04:27,160
+implementation hiate we are using if
+ 
+
+177
+00:04:27,160 --> 00:04:29,270
+implementation hiate we are using if
+this comes into the picture we don't
+
+178
+00:04:29,270 --> 00:04:29,280
+this comes into the picture we don't
+ 
+
+179
+00:04:29,280 --> 00:04:31,310
+this comes into the picture we don't
+have to your application don't have to
+
+180
+00:04:31,310 --> 00:04:31,320
+have to your application don't have to
+ 
+
+181
+00:04:31,320 --> 00:04:34,469
+have to your application don't have to
+directly work with the jdbc apis you
+
+182
+00:04:34,469 --> 00:04:34,479
+directly work with the jdbc apis you
+ 
+
+183
+00:04:34,479 --> 00:04:36,350
+directly work with the jdbc apis you
+don't have to write SQL queries to
+
+184
+00:04:36,350 --> 00:04:36,360
+don't have to write SQL queries to
+ 
+
+185
+00:04:36,360 --> 00:04:40,310
+don't have to write SQL queries to
+insert you can directly work with Java
+
+186
+00:04:40,310 --> 00:04:40,320
+insert you can directly work with Java
+ 
+
+187
+00:04:40,320 --> 00:04:42,070
+insert you can directly work with Java
+objects
+
+188
+00:04:42,070 --> 00:04:42,080
+objects
+ 
+
+189
+00:04:42,080 --> 00:04:45,070
+objects
+itself okay through Java objects itself
+
+190
+00:04:45,070 --> 00:04:45,080
+itself okay through Java objects itself
+ 
+
+191
+00:04:45,080 --> 00:04:46,830
+itself okay through Java objects itself
+you can maintain your relational
+
+192
+00:04:46,830 --> 00:04:46,840
+you can maintain your relational
+ 
+
+193
+00:04:46,840 --> 00:04:50,950
+you can maintain your relational
+databases so remember jpa jdbc is just
+
+194
+00:04:50,950 --> 00:04:50,960
+databases so remember jpa jdbc is just
+ 
+
+195
+00:04:50,960 --> 00:04:53,870
+databases so remember jpa jdbc is just
+for maintaining relational databases so
+
+196
+00:04:53,870 --> 00:04:53,880
+for maintaining relational databases so
+ 
+
+197
+00:04:53,880 --> 00:04:57,270
+for maintaining relational databases so
+before going to jpa Let's recall
+
+198
+00:04:57,270 --> 00:04:57,280
+before going to jpa Let's recall
+ 
+
+199
+00:04:57,280 --> 00:05:01,710
+before going to jpa Let's recall
+jdbc Java database connectivity
+
+200
+00:05:01,710 --> 00:05:01,720
+
+ 
+
+201
+00:05:01,720 --> 00:05:04,909
+
+okay so here if you see that it provide
+
+202
+00:05:04,909 --> 00:05:04,919
+okay so here if you see that it provide
+ 
+
+203
+00:05:04,919 --> 00:05:08,790
+okay so here if you see that it provide
+an interface to make connection with DB
+
+204
+00:05:08,790 --> 00:05:08,800
+an interface to make connection with DB
+ 
+
+205
+00:05:08,800 --> 00:05:11,830
+an interface to make connection with DB
+query DB and process the result whatever
+
+206
+00:05:11,830 --> 00:05:11,840
+query DB and process the result whatever
+ 
+
+207
+00:05:11,840 --> 00:05:14,390
+query DB and process the result whatever
+the data we get out of DB we also have
+
+208
+00:05:14,390 --> 00:05:14,400
+the data we get out of DB we also have
+ 
+
+209
+00:05:14,400 --> 00:05:16,629
+the data we get out of DB we also have
+to process it so it provide an API
+
+210
+00:05:16,629 --> 00:05:16,639
+to process it so it provide an API
+ 
+
+211
+00:05:16,639 --> 00:05:19,230
+to process it so it provide an API
+through which we can process it and
+
+212
+00:05:19,230 --> 00:05:19,240
+through which we can process it and
+ 
+
+213
+00:05:19,240 --> 00:05:21,710
+through which we can process it and
+implementation is provided by specific
+
+214
+00:05:21,710 --> 00:05:21,720
+implementation is provided by specific
+ 
+
+215
+00:05:21,720 --> 00:05:24,189
+implementation is provided by specific
+DB drivers if you're using my SQL DB
+
+216
+00:05:24,189 --> 00:05:24,199
+DB drivers if you're using my SQL DB
+ 
+
+217
+00:05:24,199 --> 00:05:27,189
+DB drivers if you're using my SQL DB
+then it has its specific drivers right
+
+218
+00:05:27,189 --> 00:05:27,199
+then it has its specific drivers right
+ 
+
+219
+00:05:27,199 --> 00:05:30,710
+then it has its specific drivers right
+so likewise so here if you see my SQL
+
+220
+00:05:30,710 --> 00:05:30,720
+so likewise so here if you see my SQL
+ 
+
+221
+00:05:30,720 --> 00:05:32,710
+so likewise so here if you see my SQL
+if you're using this DB what is the
+
+222
+00:05:32,710 --> 00:05:32,720
+if you're using this DB what is the
+ 
+
+223
+00:05:32,720 --> 00:05:36,150
+if you're using this DB what is the
+driver connector J and this is the class
+
+224
+00:05:36,150 --> 00:05:36,160
+driver connector J and this is the class
+ 
+
+225
+00:05:36,160 --> 00:05:39,550
+driver connector J and this is the class
+we have to load for it if you are using
+
+226
+00:05:39,550 --> 00:05:39,560
+we have to load for it if you are using
+ 
+
+227
+00:05:39,560 --> 00:05:43,550
+we have to load for it if you are using
+postgress SQL this is the driver and
+
+228
+00:05:43,550 --> 00:05:43,560
+postgress SQL this is the driver and
+ 
+
+229
+00:05:43,560 --> 00:05:44,830
+postgress SQL this is the driver and
+this is the class through which we can
+
+230
+00:05:44,830 --> 00:05:44,840
+this is the class through which we can
+ 
+
+231
+00:05:44,840 --> 00:05:48,350
+this is the class through which we can
+load this driver similarly S2 which is
+
+232
+00:05:48,350 --> 00:05:48,360
+load this driver similarly S2 which is
+ 
+
+233
+00:05:48,360 --> 00:05:52,189
+load this driver similarly S2 which is
+in memory relational database and its
+
+234
+00:05:52,189 --> 00:05:52,199
+in memory relational database and its
+ 
+
+235
+00:05:52,199 --> 00:05:55,230
+in memory relational database and its
+driver is this one S2 database engine
+
+236
+00:05:55,230 --> 00:05:55,240
+driver is this one S2 database engine
+ 
+
+237
+00:05:55,240 --> 00:05:57,390
+driver is this one S2 database engine
+and this is the class to load this
+
+238
+00:05:57,390 --> 00:05:57,400
+and this is the class to load this
+ 
+
+239
+00:05:57,400 --> 00:06:00,189
+and this is the class to load this
+driver so this driver now anybody say
+
+240
+00:06:00,189 --> 00:06:00,199
+driver so this driver now anybody say
+ 
+
+241
+00:06:00,199 --> 00:06:01,629
+driver so this driver now anybody say
+that what is the driver you know that
+
+242
+00:06:01,629 --> 00:06:01,639
+that what is the driver you know that
+ 
+
+243
+00:06:01,639 --> 00:06:04,110
+that what is the driver you know that
+driver is nothing but an implementation
+
+244
+00:06:04,110 --> 00:06:04,120
+driver is nothing but an implementation
+ 
+
+245
+00:06:04,120 --> 00:06:07,710
+driver is nothing but an implementation
+of jdbc apis so this expose jdbc API
+
+246
+00:06:07,710 --> 00:06:07,720
+of jdbc apis so this expose jdbc API
+ 
+
+247
+00:06:07,720 --> 00:06:10,670
+of jdbc apis so this expose jdbc API
+expose like okay get me
+
+248
+00:06:10,670 --> 00:06:10,680
+expose like okay get me
+ 
+
+249
+00:06:10,680 --> 00:06:13,950
+expose like okay get me
+connection uh insert let's say update
+
+250
+00:06:13,950 --> 00:06:13,960
+connection uh insert let's say update
+ 
+
+251
+00:06:13,960 --> 00:06:16,469
+connection uh insert let's say update
+delete but is it actually doing it no
+
+252
+00:06:16,469 --> 00:06:16,479
+delete but is it actually doing it no
+ 
+
+253
+00:06:16,479 --> 00:06:19,230
+delete but is it actually doing it no
+it's just an interface this drivers is
+
+254
+00:06:19,230 --> 00:06:19,240
+it's just an interface this drivers is
+ 
+
+255
+00:06:19,240 --> 00:06:21,350
+it's just an interface this drivers is
+actually has all the implementation how
+
+256
+00:06:21,350 --> 00:06:21,360
+actually has all the implementation how
+ 
+
+257
+00:06:21,360 --> 00:06:24,230
+actually has all the implementation how
+to get a connection how to insert it how
+
+258
+00:06:24,230 --> 00:06:24,240
+to get a connection how to insert it how
+ 
+
+259
+00:06:24,240 --> 00:06:26,390
+to get a connection how to insert it how
+to update it that from your application
+
+260
+00:06:26,390 --> 00:06:26,400
+to update it that from your application
+ 
+
+261
+00:06:26,400 --> 00:06:29,230
+to update it that from your application
+wise you don't have to worry about the
+
+262
+00:06:29,230 --> 00:06:29,240
+wise you don't have to worry about the
+ 
+
+263
+00:06:29,240 --> 00:06:31,270
+wise you don't have to worry about the
+spe specific driver code because you are
+
+264
+00:06:31,270 --> 00:06:31,280
+spe specific driver code because you are
+ 
+
+265
+00:06:31,280 --> 00:06:34,270
+spe specific driver code because you are
+dealing with the jdbc apis you do just
+
+266
+00:06:34,270 --> 00:06:34,280
+dealing with the jdbc apis you do just
+ 
+
+267
+00:06:34,280 --> 00:06:36,390
+dealing with the jdbc apis you do just
+get connection your application would do
+
+268
+00:06:36,390 --> 00:06:36,400
+get connection your application would do
+ 
+
+269
+00:06:36,400 --> 00:06:39,830
+get connection your application would do
+get connection okay you do update let's
+
+270
+00:06:39,830 --> 00:06:39,840
+get connection okay you do update let's
+ 
+
+271
+00:06:39,840 --> 00:06:42,950
+get connection okay you do update let's
+say an update and you provide it it's
+
+272
+00:06:42,950 --> 00:06:42,960
+say an update and you provide it it's
+ 
+
+273
+00:06:42,960 --> 00:06:45,029
+say an update and you provide it it's
+it's provided as the interface right now
+
+274
+00:06:45,029 --> 00:06:45,039
+it's provided as the interface right now
+ 
+
+275
+00:06:45,039 --> 00:06:48,909
+it's provided as the interface right now
+it's driver which is abstracted to us
+
+276
+00:06:48,909 --> 00:06:48,919
+it's driver which is abstracted to us
+ 
+
+277
+00:06:48,919 --> 00:06:51,830
+it's driver which is abstracted to us
+how it actually converted to something
+
+278
+00:06:51,830 --> 00:06:51,840
+how it actually converted to something
+ 
+
+279
+00:06:51,840 --> 00:06:53,189
+how it actually converted to something
+which is understand by relational
+
+280
+00:06:53,189 --> 00:06:53,199
+which is understand by relational
+ 
+
+281
+00:06:53,199 --> 00:06:56,110
+which is understand by relational
+database we don't have to worry about it
+
+282
+00:06:56,110 --> 00:06:56,120
+database we don't have to worry about it
+ 
+
+283
+00:06:56,120 --> 00:06:59,629
+database we don't have to worry about it
+so you don't worry like okay if I'm
+
+284
+00:06:59,629 --> 00:06:59,639
+so you don't worry like okay if I'm
+ 
+
+285
+00:06:59,639 --> 00:07:01,550
+so you don't worry like okay if I'm
+using my SQL driver my code will get
+
+286
+00:07:01,550 --> 00:07:01,560
+using my SQL driver my code will get
+ 
+
+287
+00:07:01,560 --> 00:07:04,469
+using my SQL driver my code will get
+changed if I'm using postgress SQL lot
+
+288
+00:07:04,469 --> 00:07:04,479
+changed if I'm using postgress SQL lot
+ 
+
+289
+00:07:04,479 --> 00:07:06,869
+changed if I'm using postgress SQL lot
+of code changes would be done no nothing
+
+290
+00:07:06,869 --> 00:07:06,879
+of code changes would be done no nothing
+ 
+
+291
+00:07:06,879 --> 00:07:09,150
+of code changes would be done no nothing
+like this you you already got it right
+
+292
+00:07:09,150 --> 00:07:09,160
+like this you you already got it right
+ 
+
+293
+00:07:09,160 --> 00:07:11,430
+like this you you already got it right
+why because we are dealing we are just
+
+294
+00:07:11,430 --> 00:07:11,440
+why because we are dealing we are just
+ 
+
+295
+00:07:11,440 --> 00:07:14,309
+why because we are dealing we are just
+invoking that get connection now this
+
+296
+00:07:14,309 --> 00:07:14,319
+invoking that get connection now this
+ 
+
+297
+00:07:14,319 --> 00:07:16,430
+invoking that get connection now this
+specific driver will take care of
+
+298
+00:07:16,430 --> 00:07:16,440
+specific driver will take care of
+ 
+
+299
+00:07:16,440 --> 00:07:19,150
+specific driver will take care of
+getting the connection so if you change
+
+300
+00:07:19,150 --> 00:07:19,160
+getting the connection so if you change
+ 
+
+301
+00:07:19,160 --> 00:07:21,629
+getting the connection so if you change
+from my SQL to posts your code will not
+
+302
+00:07:21,629 --> 00:07:21,639
+from my SQL to posts your code will not
+ 
+
+303
+00:07:21,639 --> 00:07:22,869
+from my SQL to posts your code will not
+change you are still calling get
+
+304
+00:07:22,869 --> 00:07:22,879
+change you are still calling get
+ 
+
+305
+00:07:22,879 --> 00:07:24,990
+change you are still calling get
+connection only internal implementation
+
+306
+00:07:24,990 --> 00:07:25,000
+connection only internal implementation
+ 
+
+307
+00:07:25,000 --> 00:07:27,950
+connection only internal implementation
+will change and that's okay so you can
+
+308
+00:07:27,950 --> 00:07:27,960
+will change and that's okay so you can
+ 
+
+309
+00:07:27,960 --> 00:07:31,629
+will change and that's okay so you can
+use anything
+
+310
+00:07:31,629 --> 00:07:31,639
+
+ 
+
+311
+00:07:31,639 --> 00:07:36,350
+
+okay so let's start very basic using JD
+
+312
+00:07:36,350 --> 00:07:36,360
+okay so let's start very basic using JD
+ 
+
+313
+00:07:36,360 --> 00:07:38,869
+okay so let's start very basic using JD
+jdbc without a spring boot let's say
+
+314
+00:07:38,869 --> 00:07:38,879
+jdbc without a spring boot let's say
+ 
+
+315
+00:07:38,879 --> 00:07:41,309
+jdbc without a spring boot let's say
+that if you are not using a spring boot
+
+316
+00:07:41,309 --> 00:07:41,319
+that if you are not using a spring boot
+ 
+
+317
+00:07:41,319 --> 00:07:43,790
+that if you are not using a spring boot
+what how you would make a connection
+
+318
+00:07:43,790 --> 00:07:43,800
+what how you would make a connection
+ 
+
+319
+00:07:43,800 --> 00:07:46,430
+what how you would make a connection
+what are the challenges what that spring
+
+320
+00:07:46,430 --> 00:07:46,440
+what are the challenges what that spring
+ 
+
+321
+00:07:46,440 --> 00:07:49,670
+what are the challenges what that spring
+boot resolves actually and once we knows
+
+322
+00:07:49,670 --> 00:07:49,680
+boot resolves actually and once we knows
+ 
+
+323
+00:07:49,680 --> 00:07:52,469
+boot resolves actually and once we knows
+that then ultimately we move to
+
+324
+00:07:52,469 --> 00:07:52,479
+that then ultimately we move to
+ 
+
+325
+00:07:52,479 --> 00:07:55,990
+that then ultimately we move to
+jpa so see this class first so very
+
+326
+00:07:55,990 --> 00:07:56,000
+jpa so see this class first so very
+ 
+
+327
+00:07:56,000 --> 00:07:58,950
+jpa so see this class first so very
+basic example I have created one public
+
+328
+00:07:58,950 --> 00:07:58,960
+basic example I have created one public
+ 
+
+329
+00:07:58,960 --> 00:08:01,869
+basic example I have created one public
+class database
+
+330
+00:08:01,869 --> 00:08:01,879
+class database
+ 
+
+331
+00:08:01,879 --> 00:08:05,909
+class database
+connection as the class name this is
+
+332
+00:08:05,909 --> 00:08:05,919
+connection as the class name this is
+ 
+
+333
+00:08:05,919 --> 00:08:07,909
+connection as the class name this is
+used to create a connection database
+
+334
+00:08:07,909 --> 00:08:07,919
+used to create a connection database
+ 
+
+335
+00:08:07,919 --> 00:08:10,270
+used to create a connection database
+connection so I have created one method
+
+336
+00:08:10,270 --> 00:08:10,280
+connection so I have created one method
+ 
+
+337
+00:08:10,280 --> 00:08:11,629
+connection so I have created one method
+called get
+
+338
+00:08:11,629 --> 00:08:11,639
+called get
+ 
+
+339
+00:08:11,639 --> 00:08:13,869
+called get
+connection okay and it's returning me
+
+340
+00:08:13,869 --> 00:08:13,879
+connection okay and it's returning me
+ 
+
+341
+00:08:13,879 --> 00:08:16,230
+connection okay and it's returning me
+the connection
+
+342
+00:08:16,230 --> 00:08:16,240
+the connection
+ 
+
+343
+00:08:16,240 --> 00:08:19,189
+the connection
+object so now here if you see that the
+
+344
+00:08:19,189 --> 00:08:19,199
+object so now here if you see that the
+ 
+
+345
+00:08:19,199 --> 00:08:21,909
+object so now here if you see that the
+first step in getting a connection is to
+
+346
+00:08:21,909 --> 00:08:21,919
+first step in getting a connection is to
+ 
+
+347
+00:08:21,919 --> 00:08:24,670
+first step in getting a connection is to
+load the driver is to load the driver
+
+348
+00:08:24,670 --> 00:08:24,680
+load the driver is to load the driver
+ 
+
+349
+00:08:24,680 --> 00:08:27,909
+load the driver is to load the driver
+into the jvm so when you do class. for
+
+350
+00:08:27,909 --> 00:08:27,919
+into the jvm so when you do class. for
+ 
+
+351
+00:08:27,919 --> 00:08:31,390
+into the jvm so when you do class. for
+for name and you provide the driver uh
+
+352
+00:08:31,390 --> 00:08:31,400
+for name and you provide the driver uh
+ 
+
+353
+00:08:31,400 --> 00:08:34,589
+for name and you provide the driver uh
+this is the class okay so I am using S2
+
+354
+00:08:34,589 --> 00:08:34,599
+this is the class okay so I am using S2
+ 
+
+355
+00:08:34,599 --> 00:08:37,630
+this is the class okay so I am using S2
+this one in memory I don't want to
+
+356
+00:08:37,630 --> 00:08:37,640
+this one in memory I don't want to
+ 
+
+357
+00:08:37,640 --> 00:08:41,430
+this one in memory I don't want to
+install my SQL and start it server for
+
+358
+00:08:41,430 --> 00:08:41,440
+install my SQL and start it server for
+ 
+
+359
+00:08:41,440 --> 00:08:44,310
+install my SQL and start it server for
+testing we can always use S2 and I told
+
+360
+00:08:44,310 --> 00:08:44,320
+testing we can always use S2 and I told
+ 
+
+361
+00:08:44,320 --> 00:08:46,190
+testing we can always use S2 and I told
+you right doesn't matter like your code
+
+362
+00:08:46,190 --> 00:08:46,200
+you right doesn't matter like your code
+ 
+
+363
+00:08:46,200 --> 00:08:48,630
+you right doesn't matter like your code
+will not change at all either you use my
+
+364
+00:08:48,630 --> 00:08:48,640
+will not change at all either you use my
+ 
+
+365
+00:08:48,640 --> 00:08:51,870
+will not change at all either you use my
+SQL post or S2 right you are just
+
+366
+00:08:51,870 --> 00:08:51,880
+SQL post or S2 right you are just
+ 
+
+367
+00:08:51,880 --> 00:08:55,790
+SQL post or S2 right you are just
+calling API jdbc API so the no matter
+
+368
+00:08:55,790 --> 00:08:55,800
+calling API jdbc API so the no matter
+ 
+
+369
+00:08:55,800 --> 00:08:58,069
+calling API jdbc API so the no matter
+what first step is you have to load the
+
+370
+00:08:58,069 --> 00:08:58,079
+what first step is you have to load the
+ 
+
+371
+00:08:58,079 --> 00:09:00,870
+what first step is you have to load the
+driver so I'm using S2 so S2 driver if
+
+372
+00:09:00,870 --> 00:09:00,880
+driver so I'm using S2 so S2 driver if
+ 
+
+373
+00:09:00,880 --> 00:09:03,389
+driver so I'm using S2 so S2 driver if
+you're using MySQL you have to uh load
+
+374
+00:09:03,389 --> 00:09:03,399
+you're using MySQL you have to uh load
+ 
+
+375
+00:09:03,399 --> 00:09:06,430
+you're using MySQL you have to uh load
+the MySQL driver so this is the first
+
+376
+00:09:06,430 --> 00:09:06,440
+the MySQL driver so this is the first
+ 
+
+377
+00:09:06,440 --> 00:09:08,949
+the MySQL driver so this is the first
+step now once the driver is loaded into
+
+378
+00:09:08,949 --> 00:09:08,959
+step now once the driver is loaded into
+ 
+
+379
+00:09:08,959 --> 00:09:12,230
+step now once the driver is loaded into
+the jvm the second step is to establish
+
+380
+00:09:12,230 --> 00:09:12,240
+the jvm the second step is to establish
+ 
+
+381
+00:09:12,240 --> 00:09:15,269
+the jvm the second step is to establish
+a connection with DB okay so here if I
+
+382
+00:09:15,269 --> 00:09:15,279
+a connection with DB okay so here if I
+ 
+
+383
+00:09:15,279 --> 00:09:17,949
+a connection with DB okay so here if I
+am using there is a class called driver
+
+384
+00:09:17,949 --> 00:09:17,959
+am using there is a class called driver
+ 
+
+385
+00:09:17,959 --> 00:09:21,949
+am using there is a class called driver
+manager and you do do get connection so
+
+386
+00:09:21,949 --> 00:09:21,959
+manager and you do do get connection so
+ 
+
+387
+00:09:21,959 --> 00:09:25,269
+manager and you do do get connection so
+you pass the URL so now here if you see
+
+388
+00:09:25,269 --> 00:09:25,279
+you pass the URL so now here if you see
+ 
+
+389
+00:09:25,279 --> 00:09:29,829
+you pass the URL so now here if you see
+this URL we are using jdbc yes what is
+
+390
+00:09:29,829 --> 00:09:29,839
+this URL we are using jdbc yes what is
+ 
+
+391
+00:09:29,839 --> 00:09:33,030
+this URL we are using jdbc yes what is
+the uh DB type you're using S2 not my
+
+392
+00:09:33,030 --> 00:09:33,040
+the uh DB type you're using S2 not my
+ 
+
+393
+00:09:33,040 --> 00:09:35,030
+the uh DB type you're using S2 not my
+SQL not post I'm using
+
+394
+00:09:35,030 --> 00:09:35,040
+SQL not post I'm using
+ 
+
+395
+00:09:35,040 --> 00:09:38,350
+SQL not post I'm using
+S2 even the S2 has two variant like in
+
+396
+00:09:38,350 --> 00:09:38,360
+S2 even the S2 has two variant like in
+ 
+
+397
+00:09:38,360 --> 00:09:41,069
+S2 even the S2 has two variant like in
+memory in memory is like once till your
+
+398
+00:09:41,069 --> 00:09:41,079
+memory in memory is like once till your
+ 
+
+399
+00:09:41,079 --> 00:09:42,790
+memory in memory is like once till your
+application is running data is there in
+
+400
+00:09:42,790 --> 00:09:42,800
+application is running data is there in
+ 
+
+401
+00:09:42,800 --> 00:09:45,949
+application is running data is there in
+the DB as as soon as your application
+
+402
+00:09:45,949 --> 00:09:45,959
+the DB as as soon as your application
+ 
+
+403
+00:09:45,959 --> 00:09:48,630
+the DB as as soon as your application
+shut down data is also gone so it's a
+
+404
+00:09:48,630 --> 00:09:48,640
+shut down data is also gone so it's a
+ 
+
+405
+00:09:48,640 --> 00:09:51,430
+shut down data is also gone so it's a
+transient data so I'm using memory in
+
+406
+00:09:51,430 --> 00:09:51,440
+transient data so I'm using memory in
+ 
+
+407
+00:09:51,440 --> 00:09:53,350
+transient data so I'm using memory in
+memory like till my application is up
+
+408
+00:09:53,350 --> 00:09:53,360
+memory like till my application is up
+ 
+
+409
+00:09:53,360 --> 00:09:55,269
+memory like till my application is up
+data is there as soon as my application
+
+410
+00:09:55,269 --> 00:09:55,279
+data is there as soon as my application
+ 
+
+411
+00:09:55,279 --> 00:09:58,190
+data is there as soon as my application
+is shut down uh the data will be lost
+
+412
+00:09:58,190 --> 00:09:58,200
+is shut down uh the data will be lost
+ 
+
+413
+00:09:58,200 --> 00:09:59,910
+is shut down uh the data will be lost
+there is another variant that you can
+
+414
+00:09:59,910 --> 00:09:59,920
+there is another variant that you can
+ 
+
+415
+00:09:59,920 --> 00:10:02,350
+there is another variant that you can
+even change it to that to process the
+
+416
+00:10:02,350 --> 00:10:02,360
+even change it to that to process the
+ 
+
+417
+00:10:02,360 --> 00:10:05,069
+even change it to that to process the
+data even your application uh shutdown
+
+418
+00:10:05,069 --> 00:10:05,079
+data even your application uh shutdown
+ 
+
+419
+00:10:05,079 --> 00:10:07,829
+data even your application uh shutdown
+also so but I am using the transient
+
+420
+00:10:07,829 --> 00:10:07,839
+also so but I am using the transient
+ 
+
+421
+00:10:07,839 --> 00:10:11,030
+also so but I am using the transient
+flavor of it and this is the DB name
+
+422
+00:10:11,030 --> 00:10:11,040
+flavor of it and this is the DB name
+ 
+
+423
+00:10:11,040 --> 00:10:12,829
+flavor of it and this is the DB name
+which I want to create so I'm creating a
+
+424
+00:10:12,829 --> 00:10:12,839
+which I want to create so I'm creating a
+ 
+
+425
+00:10:12,839 --> 00:10:16,030
+which I want to create so I'm creating a
+user DB so when I do get connection and
+
+426
+00:10:16,030 --> 00:10:16,040
+user DB so when I do get connection and
+ 
+
+427
+00:10:16,040 --> 00:10:18,750
+user DB so when I do get connection and
+give the URL if this DB is not there it
+
+428
+00:10:18,750 --> 00:10:18,760
+give the URL if this DB is not there it
+ 
+
+429
+00:10:18,760 --> 00:10:21,069
+give the URL if this DB is not there it
+will create if it is already there it
+
+430
+00:10:21,069 --> 00:10:21,079
+will create if it is already there it
+ 
+
+431
+00:10:21,079 --> 00:10:23,230
+will create if it is already there it
+will do a connection for that
+
+432
+00:10:23,230 --> 00:10:23,240
+will do a connection for that
+ 
+
+433
+00:10:23,240 --> 00:10:26,710
+will do a connection for that
+one okay and username and password so
+
+434
+00:10:26,710 --> 00:10:26,720
+one okay and username and password so
+ 
+
+435
+00:10:26,720 --> 00:10:29,949
+one okay and username and password so
+default username for S2 is essay which
+
+436
+00:10:29,949 --> 00:10:29,959
+default username for S2 is essay which
+ 
+
+437
+00:10:29,959 --> 00:10:32,710
+default username for S2 is essay which
+is I think system administrator and mord
+
+438
+00:10:32,710 --> 00:10:32,720
+is I think system administrator and mord
+ 
+
+439
+00:10:32,720 --> 00:10:36,350
+is I think system administrator and mord
+is nothing so you need this to get a
+
+440
+00:10:36,350 --> 00:10:36,360
+is nothing so you need this to get a
+ 
+
+441
+00:10:36,360 --> 00:10:38,710
+is nothing so you need this to get a
+connection of your
+
+442
+00:10:38,710 --> 00:10:38,720
+connection of your
+ 
+
+443
+00:10:38,720 --> 00:10:42,750
+connection of your
+database okay so first is load a driver
+
+444
+00:10:42,750 --> 00:10:42,760
+database okay so first is load a driver
+ 
+
+445
+00:10:42,760 --> 00:10:45,629
+database okay so first is load a driver
+second is establish a connection so this
+
+446
+00:10:45,629 --> 00:10:45,639
+second is establish a connection so this
+ 
+
+447
+00:10:45,639 --> 00:10:48,389
+second is establish a connection so this
+is two things are present into my
+
+448
+00:10:48,389 --> 00:10:48,399
+is two things are present into my
+ 
+
+449
+00:10:48,399 --> 00:10:50,269
+is two things are present into my
+database connection
+
+450
+00:10:50,269 --> 00:10:50,279
+database connection
+ 
+
+451
+00:10:50,279 --> 00:10:54,069
+database connection
+class now here if you see another class
+
+452
+00:10:54,069 --> 00:10:54,079
+class now here if you see another class
+ 
+
+453
+00:10:54,079 --> 00:10:57,670
+class now here if you see another class
+which I have written user Dow class okay
+
+454
+00:10:57,670 --> 00:10:57,680
+which I have written user Dow class okay
+ 
+
+455
+00:10:57,680 --> 00:11:01,629
+which I have written user Dow class okay
+in this Dow the first method I have like
+
+456
+00:11:01,629 --> 00:11:01,639
+in this Dow the first method I have like
+ 
+
+457
+00:11:01,639 --> 00:11:03,590
+in this Dow the first method I have like
+creating a table
+
+458
+00:11:03,590 --> 00:11:03,600
+creating a table
+ 
+
+459
+00:11:03,600 --> 00:11:05,870
+creating a table
+generally understanding is whenever you
+
+460
+00:11:05,870 --> 00:11:05,880
+generally understanding is whenever you
+ 
+
+461
+00:11:05,880 --> 00:11:08,670
+generally understanding is whenever you
+are running your application database is
+
+462
+00:11:08,670 --> 00:11:08,680
+are running your application database is
+ 
+
+463
+00:11:08,680 --> 00:11:11,790
+are running your application database is
+table is already present but since we
+
+464
+00:11:11,790 --> 00:11:11,800
+table is already present but since we
+ 
+
+465
+00:11:11,800 --> 00:11:14,790
+table is already present but since we
+are just starting I have also created
+
+466
+00:11:14,790 --> 00:11:14,800
+are just starting I have also created
+ 
+
+467
+00:11:14,800 --> 00:11:17,069
+are just starting I have also created
+one method where I am creating a table
+
+468
+00:11:17,069 --> 00:11:17,079
+one method where I am creating a table
+ 
+
+469
+00:11:17,079 --> 00:11:19,910
+one method where I am creating a table
+also okay DB is already created here if
+
+470
+00:11:19,910 --> 00:11:19,920
+also okay DB is already created here if
+ 
+
+471
+00:11:19,920 --> 00:11:22,590
+also okay DB is already created here if
+not present it will create a DB user DB
+
+472
+00:11:22,590 --> 00:11:22,600
+not present it will create a DB user DB
+ 
+
+473
+00:11:22,600 --> 00:11:24,949
+not present it will create a DB user DB
+so inside this DB it will create a table
+
+474
+00:11:24,949 --> 00:11:24,959
+so inside this DB it will create a table
+ 
+
+475
+00:11:24,959 --> 00:11:27,629
+so inside this DB it will create a table
+one method second method I have written
+
+476
+00:11:27,629 --> 00:11:27,639
+one method second method I have written
+ 
+
+477
+00:11:27,639 --> 00:11:29,829
+one method second method I have written
+create user
+
+478
+00:11:29,829 --> 00:11:29,839
+create user
+ 
+
+479
+00:11:29,839 --> 00:11:33,509
+create user
+okay third is uh I have written to read
+
+480
+00:11:33,509 --> 00:11:33,519
+okay third is uh I have written to read
+ 
+
+481
+00:11:33,519 --> 00:11:36,590
+okay third is uh I have written to read
+a user so three methods I have written
+
+482
+00:11:36,590 --> 00:11:36,600
+a user so three methods I have written
+ 
+
+483
+00:11:36,600 --> 00:11:38,949
+a user so three methods I have written
+so see what happening is like how you
+
+484
+00:11:38,949 --> 00:11:38,959
+so see what happening is like how you
+ 
+
+485
+00:11:38,959 --> 00:11:42,470
+so see what happening is like how you
+can do that so in this one first thing
+
+486
+00:11:42,470 --> 00:11:42,480
+can do that so in this one first thing
+ 
+
+487
+00:11:42,480 --> 00:11:46,069
+can do that so in this one first thing
+whenever you have to query insert update
+
+488
+00:11:46,069 --> 00:11:46,079
+whenever you have to query insert update
+ 
+
+489
+00:11:46,079 --> 00:11:48,910
+whenever you have to query insert update
+delete create anything first thing you
+
+490
+00:11:48,910 --> 00:11:48,920
+delete create anything first thing you
+ 
+
+491
+00:11:48,920 --> 00:11:51,790
+delete create anything first thing you
+need is get a connection of a database
+
+492
+00:11:51,790 --> 00:11:51,800
+need is get a connection of a database
+ 
+
+493
+00:11:51,800 --> 00:11:54,509
+need is get a connection of a database
+so it creating a new database connection
+
+494
+00:11:54,509 --> 00:11:54,519
+so it creating a new database connection
+ 
+
+495
+00:11:54,519 --> 00:11:57,710
+so it creating a new database connection
+object so it getting an instance of this
+
+496
+00:11:57,710 --> 00:11:57,720
+object so it getting an instance of this
+ 
+
+497
+00:11:57,720 --> 00:12:00,350
+object so it getting an instance of this
+class and then calling the get
+
+498
+00:12:00,350 --> 00:12:00,360
+class and then calling the get
+ 
+
+499
+00:12:00,360 --> 00:12:03,509
+class and then calling the get
+connection method it calling this method
+
+500
+00:12:03,509 --> 00:12:03,519
+connection method it calling this method
+ 
+
+501
+00:12:03,519 --> 00:12:05,310
+connection method it calling this method
+what this method does is it will load
+
+502
+00:12:05,310 --> 00:12:05,320
+what this method does is it will load
+ 
+
+503
+00:12:05,320 --> 00:12:07,829
+what this method does is it will load
+the driver it will get one fresh
+
+504
+00:12:07,829 --> 00:12:07,839
+the driver it will get one fresh
+ 
+
+505
+00:12:07,839 --> 00:12:11,030
+the driver it will get one fresh
+connection of this
+
+506
+00:12:11,030 --> 00:12:11,040
+connection of this
+ 
+
+507
+00:12:11,040 --> 00:12:14,509
+connection of this
+database and provide this connection
+
+508
+00:12:14,509 --> 00:12:14,519
+database and provide this connection
+ 
+
+509
+00:12:14,519 --> 00:12:16,430
+database and provide this connection
+once you got the connection then you can
+
+510
+00:12:16,430 --> 00:12:16,440
+once you got the connection then you can
+ 
+
+511
+00:12:16,440 --> 00:12:19,430
+once you got the connection then you can
+run the query so I have written one
+
+512
+00:12:19,430 --> 00:12:19,440
+run the query so I have written one
+ 
+
+513
+00:12:19,440 --> 00:12:22,670
+run the query so I have written one
+query create table users so I am
+
+514
+00:12:22,670 --> 00:12:22,680
+query create table users so I am
+ 
+
+515
+00:12:22,680 --> 00:12:27,710
+query create table users so I am
+creating a users table only with two
+
+516
+00:12:27,710 --> 00:12:27,720
+creating a users table only with two
+ 
+
+517
+00:12:27,720 --> 00:12:31,910
+creating a users table only with two
+column uh three column one is user
+
+518
+00:12:31,910 --> 00:12:31,920
+column uh three column one is user
+ 
+
+519
+00:12:31,920 --> 00:12:34,110
+column uh three column one is user
+ID which is auto
+
+520
+00:12:34,110 --> 00:12:34,120
+ID which is auto
+ 
+
+521
+00:12:34,120 --> 00:12:37,389
+ID which is auto
+incremented another is usern name and
+
+522
+00:12:37,389 --> 00:12:37,399
+incremented another is usern name and
+ 
+
+523
+00:12:37,399 --> 00:12:39,949
+incremented another is usern name and
+the third one is
+
+524
+00:12:39,949 --> 00:12:39,959
+the third one is
+ 
+
+525
+00:12:39,959 --> 00:12:43,590
+the third one is
+age okay so this is the uh table I am
+
+526
+00:12:43,590 --> 00:12:43,600
+age okay so this is the uh table I am
+ 
+
+527
+00:12:43,600 --> 00:12:46,910
+age okay so this is the uh table I am
+creating so here whatever the SQL query
+
+528
+00:12:46,910 --> 00:12:46,920
+creating so here whatever the SQL query
+ 
+
+529
+00:12:46,920 --> 00:12:50,150
+creating so here whatever the SQL query
+string you have created now you just uh
+
+530
+00:12:50,150 --> 00:12:50,160
+string you have created now you just uh
+ 
+
+531
+00:12:50,160 --> 00:12:52,910
+string you have created now you just uh
+with this statement you just execute
+
+532
+00:12:52,910 --> 00:12:52,920
+with this statement you just execute
+ 
+
+533
+00:12:52,920 --> 00:12:59,230
+with this statement you just execute
+update okay so it will create your table
+
+534
+00:12:59,230 --> 00:12:59,240
+update okay so it will create your table
+ 
+
+535
+00:12:59,240 --> 00:13:01,110
+update okay so it will create your table
+also notice that there is if any
+
+536
+00:13:01,110 --> 00:13:01,120
+also notice that there is if any
+ 
+
+537
+00:13:01,120 --> 00:13:02,790
+also notice that there is if any
+exception comes you have to handle the
+
+538
+00:13:02,790 --> 00:13:02,800
+exception comes you have to handle the
+ 
+
+539
+00:13:02,800 --> 00:13:05,710
+exception comes you have to handle the
+SQL exception and in the final blog you
+
+540
+00:13:05,710 --> 00:13:05,720
+SQL exception and in the final blog you
+ 
+
+541
+00:13:05,720 --> 00:13:08,069
+SQL exception and in the final blog you
+have to close the resources you have to
+
+542
+00:13:08,069 --> 00:13:08,079
+have to close the resources you have to
+ 
+
+543
+00:13:08,079 --> 00:13:09,750
+have to close the resources you have to
+close the statement you have to close
+
+544
+00:13:09,750 --> 00:13:09,760
+close the statement you have to close
+ 
+
+545
+00:13:09,760 --> 00:13:11,430
+close the statement you have to close
+the
+
+546
+00:13:11,430 --> 00:13:11,440
+the
+ 
+
+547
+00:13:11,440 --> 00:13:13,710
+the
+connection similarly create user
+
+548
+00:13:13,710 --> 00:13:13,720
+connection similarly create user
+ 
+
+549
+00:13:13,720 --> 00:13:17,150
+connection similarly create user
+whenever you have to create one user
+
+550
+00:13:17,150 --> 00:13:17,160
+whenever you have to create one user
+ 
+
+551
+00:13:17,160 --> 00:13:18,790
+whenever you have to create one user
+okay the first step is get the
+
+552
+00:13:18,790 --> 00:13:18,800
+okay the first step is get the
+ 
+
+553
+00:13:18,800 --> 00:13:21,189
+okay the first step is get the
+connection create a new database
+
+554
+00:13:21,189 --> 00:13:21,199
+connection create a new database
+ 
+
+555
+00:13:21,199 --> 00:13:23,269
+connection create a new database
+connection instance and then call this
+
+556
+00:13:23,269 --> 00:13:23,279
+connection instance and then call this
+ 
+
+557
+00:13:23,279 --> 00:13:25,870
+connection instance and then call this
+method it will give you one connection
+
+558
+00:13:25,870 --> 00:13:25,880
+method it will give you one connection
+ 
+
+559
+00:13:25,880 --> 00:13:28,590
+method it will give you one connection
+database connection then you write your
+
+560
+00:13:28,590 --> 00:13:28,600
+database connection then you write your
+ 
+
+561
+00:13:28,600 --> 00:13:31,350
+database connection then you write your
+SQL query which you want to insert into
+
+562
+00:13:31,350 --> 00:13:31,360
+SQL query which you want to insert into
+ 
+
+563
+00:13:31,360 --> 00:13:35,230
+SQL query which you want to insert into
+users username age and user ID is auto
+
+564
+00:13:35,230 --> 00:13:35,240
+users username age and user ID is auto
+ 
+
+565
+00:13:35,240 --> 00:13:37,189
+users username age and user ID is auto
+incremented already so no problem in
+
+566
+00:13:37,189 --> 00:13:37,199
+incremented already so no problem in
+ 
+
+567
+00:13:37,199 --> 00:13:39,750
+incremented already so no problem in
+that so these two values I want to
+
+568
+00:13:39,750 --> 00:13:39,760
+that so these two values I want to
+ 
+
+569
+00:13:39,760 --> 00:13:43,590
+that so these two values I want to
+dynamically insert so I can use prepared
+
+570
+00:13:43,590 --> 00:13:43,600
+dynamically insert so I can use prepared
+ 
+
+571
+00:13:43,600 --> 00:13:47,670
+dynamically insert so I can use prepared
+statement okay so connection. prepared
+
+572
+00:13:47,670 --> 00:13:47,680
+statement okay so connection. prepared
+ 
+
+573
+00:13:47,680 --> 00:13:51,430
+statement okay so connection. prepared
+statement you provide this SQL query and
+
+574
+00:13:51,430 --> 00:13:51,440
+statement you provide this SQL query and
+ 
+
+575
+00:13:51,440 --> 00:13:55,269
+statement you provide this SQL query and
+here these two Dynamic values would
+
+576
+00:13:55,269 --> 00:13:55,279
+here these two Dynamic values would
+ 
+
+577
+00:13:55,279 --> 00:13:57,990
+here these two Dynamic values would
+be set the values like set a string
+
+578
+00:13:57,990 --> 00:13:58,000
+be set the values like set a string
+ 
+
+579
+00:13:58,000 --> 00:14:02,230
+be set the values like set a string
+first one is a string user name so index
+
+580
+00:14:02,230 --> 00:14:02,240
+first one is a string user name so index
+ 
+
+581
+00:14:02,240 --> 00:14:04,470
+first one is a string user name so index
+one provide the usern name whatever it
+
+582
+00:14:04,470 --> 00:14:04,480
+one provide the usern name whatever it
+ 
+
+583
+00:14:04,480 --> 00:14:05,509
+one provide the usern name whatever it
+is
+
+584
+00:14:05,509 --> 00:14:05,519
+is
+ 
+
+585
+00:14:05,519 --> 00:14:09,230
+is
+coming the second uh the second question
+
+586
+00:14:09,230 --> 00:14:09,240
+coming the second uh the second question
+ 
+
+587
+00:14:09,240 --> 00:14:12,710
+coming the second uh the second question
+mark is that integer which is age so I'm
+
+588
+00:14:12,710 --> 00:14:12,720
+mark is that integer which is age so I'm
+ 
+
+589
+00:14:12,720 --> 00:14:16,150
+mark is that integer which is age so I'm
+doing set in index is two and the age
+
+590
+00:14:16,150 --> 00:14:16,160
+doing set in index is two and the age
+ 
+
+591
+00:14:16,160 --> 00:14:18,509
+doing set in index is two and the age
+whatever it is coming and then simply
+
+592
+00:14:18,509 --> 00:14:18,519
+whatever it is coming and then simply
+ 
+
+593
+00:14:18,519 --> 00:14:21,069
+whatever it is coming and then simply
+prepared query execute update so this
+
+594
+00:14:21,069 --> 00:14:21,079
+prepared query execute update so this
+ 
+
+595
+00:14:21,079 --> 00:14:23,550
+prepared query execute update so this
+will insert one
+
+596
+00:14:23,550 --> 00:14:23,560
+will insert one
+ 
+
+597
+00:14:23,560 --> 00:14:26,509
+will insert one
+row okay and similarly you have to catch
+
+598
+00:14:26,509 --> 00:14:26,519
+row okay and similarly you have to catch
+ 
+
+599
+00:14:26,519 --> 00:14:28,629
+row okay and similarly you have to catch
+the SQL exception and in the finally
+
+600
+00:14:28,629 --> 00:14:28,639
+the SQL exception and in the finally
+ 
+
+601
+00:14:28,639 --> 00:14:30,310
+the SQL exception and in the finally
+block you you have to close the prepared
+
+602
+00:14:30,310 --> 00:14:30,320
+block you you have to close the prepared
+ 
+
+603
+00:14:30,320 --> 00:14:32,749
+block you you have to close the prepared
+query and the DB
+
+604
+00:14:32,749 --> 00:14:32,759
+query and the DB
+ 
+
+605
+00:14:32,759 --> 00:14:35,110
+query and the DB
+connection if you see the third method
+
+606
+00:14:35,110 --> 00:14:35,120
+connection if you see the third method
+ 
+
+607
+00:14:35,120 --> 00:14:37,670
+connection if you see the third method
+read query the read users it is also
+
+608
+00:14:37,670 --> 00:14:37,680
+read query the read users it is also
+ 
+
+609
+00:14:37,680 --> 00:14:40,150
+read query the read users it is also
+exactly same so I think now you are
+
+610
+00:14:40,150 --> 00:14:40,160
+exactly same so I think now you are
+ 
+
+611
+00:14:40,160 --> 00:14:41,749
+exactly same so I think now you are
+understanding the crust you have to get
+
+612
+00:14:41,749 --> 00:14:41,759
+understanding the crust you have to get
+ 
+
+613
+00:14:41,759 --> 00:14:45,069
+understanding the crust you have to get
+the connection then you can use prepared
+
+614
+00:14:45,069 --> 00:14:45,079
+the connection then you can use prepared
+ 
+
+615
+00:14:45,079 --> 00:14:48,110
+the connection then you can use prepared
+statement and you can use this prepared
+
+616
+00:14:48,110 --> 00:14:48,120
+statement and you can use this prepared
+ 
+
+617
+00:14:48,120 --> 00:14:53,110
+statement and you can use this prepared
+statement uh to run the SQL query so I
+
+618
+00:14:53,110 --> 00:14:53,120
+statement uh to run the SQL query so I
+ 
+
+619
+00:14:53,120 --> 00:14:55,110
+statement uh to run the SQL query so I
+run the SQL query select testest from
+
+620
+00:14:55,110 --> 00:14:55,120
+run the SQL query select testest from
+ 
+
+621
+00:14:55,120 --> 00:14:57,870
+run the SQL query select testest from
+user so this is the SQL query string so
+
+622
+00:14:57,870 --> 00:14:57,880
+user so this is the SQL query string so
+ 
+
+623
+00:14:57,880 --> 00:14:59,670
+user so this is the SQL query string so
+connection. prepared statement I
+
+624
+00:14:59,670 --> 00:14:59,680
+connection. prepared statement I
+ 
+
+625
+00:14:59,680 --> 00:15:03,069
+connection. prepared statement I
+provided this SQL query so there is no
+
+626
+00:15:03,069 --> 00:15:03,079
+provided this SQL query so there is no
+ 
+
+627
+00:15:03,079 --> 00:15:05,430
+provided this SQL query so there is no
+Dynamic value so I don't need to set
+
+628
+00:15:05,430 --> 00:15:05,440
+Dynamic value so I don't need to set
+ 
+
+629
+00:15:05,440 --> 00:15:07,790
+Dynamic value so I don't need to set
+anything I just run prepared query
+
+630
+00:15:07,790 --> 00:15:07,800
+anything I just run prepared query
+ 
+
+631
+00:15:07,800 --> 00:15:08,910
+anything I just run prepared query
+execute
+
+632
+00:15:08,910 --> 00:15:08,920
+execute
+ 
+
+633
+00:15:08,920 --> 00:15:11,590
+execute
+query when I run this execute query it
+
+634
+00:15:11,590 --> 00:15:11,600
+query when I run this execute query it
+ 
+
+635
+00:15:11,600 --> 00:15:14,990
+query when I run this execute query it
+will give me a result set result set is
+
+636
+00:15:14,990 --> 00:15:15,000
+will give me a result set result set is
+ 
+
+637
+00:15:15,000 --> 00:15:18,629
+will give me a result set result set is
+nothing but a list of rows so I am
+
+638
+00:15:18,629 --> 00:15:18,639
+nothing but a list of rows so I am
+ 
+
+639
+00:15:18,639 --> 00:15:22,030
+nothing but a list of rows so I am
+iterating and just concatenating just
+
+640
+00:15:22,030 --> 00:15:22,040
+iterating and just concatenating just
+ 
+
+641
+00:15:22,040 --> 00:15:23,389
+iterating and just concatenating just
+and printing
+
+642
+00:15:23,389 --> 00:15:23,399
+and printing
+ 
+
+643
+00:15:23,399 --> 00:15:26,749
+and printing
+it okay so you have to handle the SQL
+
+644
+00:15:26,749 --> 00:15:26,759
+it okay so you have to handle the SQL
+ 
+
+645
+00:15:26,759 --> 00:15:28,590
+it okay so you have to handle the SQL
+exception and finally you have to close
+
+646
+00:15:28,590 --> 00:15:28,600
+exception and finally you have to close
+ 
+
+647
+00:15:28,600 --> 00:15:30,269
+exception and finally you have to close
+it
+
+648
+00:15:30,269 --> 00:15:30,279
+it
+ 
+
+649
+00:15:30,279 --> 00:15:34,550
+it
+resources so this is very very basic uh
+
+650
+00:15:34,550 --> 00:15:34,560
+resources so this is very very basic uh
+ 
+
+651
+00:15:34,560 --> 00:15:38,430
+resources so this is very very basic uh
+plain jdbc we are using no spring boot
+
+652
+00:15:38,430 --> 00:15:38,440
+plain jdbc we are using no spring boot
+ 
+
+653
+00:15:38,440 --> 00:15:42,309
+plain jdbc we are using no spring boot
+is used here okay I will show you
+
+654
+00:15:42,309 --> 00:15:42,319
+is used here okay I will show you
+ 
+
+655
+00:15:42,319 --> 00:15:45,470
+is used here okay I will show you
+running it but what is the problem you
+
+656
+00:15:45,470 --> 00:15:45,480
+running it but what is the problem you
+ 
+
+657
+00:15:45,480 --> 00:15:48,389
+running it but what is the problem you
+are seeing with this so there are so
+
+658
+00:15:48,389 --> 00:15:48,399
+are seeing with this so there are so
+ 
+
+659
+00:15:48,399 --> 00:15:51,710
+are seeing with this so there are so
+many Boiler code we are writing first is
+
+660
+00:15:51,710 --> 00:15:51,720
+many Boiler code we are writing first is
+ 
+
+661
+00:15:51,720 --> 00:15:54,470
+many Boiler code we are writing first is
+driver class loading you have to load
+
+662
+00:15:54,470 --> 00:15:54,480
+driver class loading you have to load
+ 
+
+663
+00:15:54,480 --> 00:15:57,710
+driver class loading you have to load
+the driver right class.
+
+664
+00:15:57,710 --> 00:15:57,720
+the driver right class.
+ 
+
+665
+00:15:57,720 --> 00:16:01,990
+the driver right class.
+forame then you have to make a DB
+
+666
+00:16:01,990 --> 00:16:02,000
+forame then you have to make a DB
+ 
+
+667
+00:16:02,000 --> 00:16:04,309
+forame then you have to make a DB
+connection now here if you see you are
+
+668
+00:16:04,309 --> 00:16:04,319
+connection now here if you see you are
+ 
+
+669
+00:16:04,319 --> 00:16:07,189
+connection now here if you see you are
+doing a data driver manager do get
+
+670
+00:16:07,189 --> 00:16:07,199
+doing a data driver manager do get
+ 
+
+671
+00:16:07,199 --> 00:16:09,790
+doing a data driver manager do get
+connection hey give me one connection of
+
+672
+00:16:09,790 --> 00:16:09,800
+connection hey give me one connection of
+ 
+
+673
+00:16:09,800 --> 00:16:11,990
+connection hey give me one connection of
+the database and you are providing the
+
+674
+00:16:11,990 --> 00:16:12,000
+the database and you are providing the
+ 
+
+675
+00:16:12,000 --> 00:16:14,590
+the database and you are providing the
+URL username password and this will get
+
+676
+00:16:14,590 --> 00:16:14,600
+URL username password and this will get
+ 
+
+677
+00:16:14,600 --> 00:16:17,949
+URL username password and this will get
+you one connection so you have to
+
+678
+00:16:17,949 --> 00:16:17,959
+you one connection so you have to
+ 
+
+679
+00:16:17,959 --> 00:16:20,670
+you one connection so you have to
+manually get the database connection
+
+680
+00:16:20,670 --> 00:16:20,680
+manually get the database connection
+ 
+
+681
+00:16:20,680 --> 00:16:23,230
+manually get the database connection
+third is exception handling so here if
+
+682
+00:16:23,230 --> 00:16:23,240
+third is exception handling so here if
+ 
+
+683
+00:16:23,240 --> 00:16:26,470
+third is exception handling so here if
+you see what exception you are getting
+
+684
+00:16:26,470 --> 00:16:26,480
+you see what exception you are getting
+ 
+
+685
+00:16:26,480 --> 00:16:29,430
+you see what exception you are getting
+SQL exception this is very
+
+686
+00:16:29,430 --> 00:16:29,440
+SQL exception this is very
+ 
+
+687
+00:16:29,440 --> 00:16:31,990
+SQL exception this is very
+high level or abstracted exception I
+
+688
+00:16:31,990 --> 00:16:32,000
+high level or abstracted exception I
+ 
+
+689
+00:16:32,000 --> 00:16:34,550
+high level or abstracted exception I
+would say so SQL exception can be of
+
+690
+00:16:34,550 --> 00:16:34,560
+would say so SQL exception can be of
+ 
+
+691
+00:16:34,560 --> 00:16:37,870
+would say so SQL exception can be of
+anything uh maybe primary key violation
+
+692
+00:16:37,870 --> 00:16:37,880
+anything uh maybe primary key violation
+ 
+
+693
+00:16:37,880 --> 00:16:40,550
+anything uh maybe primary key violation
+duplicate key found you are not able to
+
+694
+00:16:40,550 --> 00:16:40,560
+duplicate key found you are not able to
+ 
+
+695
+00:16:40,560 --> 00:16:44,790
+duplicate key found you are not able to
+insert like there are so many different
+
+696
+00:16:44,790 --> 00:16:44,800
+insert like there are so many different
+ 
+
+697
+00:16:44,800 --> 00:16:47,949
+insert like there are so many different
+ways through which your query fails but
+
+698
+00:16:47,949 --> 00:16:47,959
+ways through which your query fails but
+ 
+
+699
+00:16:47,959 --> 00:16:50,230
+ways through which your query fails but
+it gives a very high level abstracted
+
+700
+00:16:50,230 --> 00:16:50,240
+it gives a very high level abstracted
+ 
+
+701
+00:16:50,240 --> 00:16:53,710
+it gives a very high level abstracted
+error SQL exception so you have to do a
+
+702
+00:16:53,710 --> 00:16:53,720
+error SQL exception so you have to do a
+ 
+
+703
+00:16:53,720 --> 00:16:57,030
+error SQL exception so you have to do a
+lot of uh kind of if else check okay if
+
+704
+00:16:57,030 --> 00:16:57,040
+lot of uh kind of if else check okay if
+ 
+
+705
+00:16:57,040 --> 00:17:00,710
+lot of uh kind of if else check okay if
+this is the issue then okay do this so
+
+706
+00:17:00,710 --> 00:17:00,720
+this is the issue then okay do this so
+ 
+
+707
+00:17:00,720 --> 00:17:03,870
+this is the issue then okay do this so
+here SQL exception I would say that it's
+
+708
+00:17:03,870 --> 00:17:03,880
+here SQL exception I would say that it's
+ 
+
+709
+00:17:03,880 --> 00:17:08,309
+here SQL exception I would say that it's
+not very clear okay closing of the DB
+
+710
+00:17:08,309 --> 00:17:08,319
+not very clear okay closing of the DB
+ 
+
+711
+00:17:08,319 --> 00:17:10,069
+not very clear okay closing of the DB
+connection and other objects like
+
+712
+00:17:10,069 --> 00:17:10,079
+connection and other objects like
+ 
+
+713
+00:17:10,079 --> 00:17:12,510
+connection and other objects like
+statement so here if you see that every
+
+714
+00:17:12,510 --> 00:17:12,520
+statement so here if you see that every
+ 
+
+715
+00:17:12,520 --> 00:17:14,870
+statement so here if you see that every
+time you take out a connection or use a
+
+716
+00:17:14,870 --> 00:17:14,880
+time you take out a connection or use a
+ 
+
+717
+00:17:14,880 --> 00:17:16,909
+time you take out a connection or use a
+resource now here you are creating a
+
+718
+00:17:16,909 --> 00:17:16,919
+resource now here you are creating a
+ 
+
+719
+00:17:16,919 --> 00:17:19,990
+resource now here you are creating a
+prepared statement executing the query
+
+720
+00:17:19,990 --> 00:17:20,000
+prepared statement executing the query
+ 
+
+721
+00:17:20,000 --> 00:17:21,949
+prepared statement executing the query
+in the finally block you ultimately have
+
+722
+00:17:21,949 --> 00:17:21,959
+in the finally block you ultimately have
+ 
+
+723
+00:17:21,959 --> 00:17:23,949
+in the finally block you ultimately have
+to close the DB connection and close the
+
+724
+00:17:23,949 --> 00:17:23,959
+to close the DB connection and close the
+ 
+
+725
+00:17:23,959 --> 00:17:27,029
+to close the DB connection and close the
+prepared query also because if you don't
+
+726
+00:17:27,029 --> 00:17:27,039
+prepared query also because if you don't
+ 
+
+727
+00:17:27,039 --> 00:17:29,909
+prepared query also because if you don't
+do that there is a possibility of memory
+
+728
+00:17:29,909 --> 00:17:29,919
+do that there is a possibility of memory
+ 
+
+729
+00:17:29,919 --> 00:17:34,549
+do that there is a possibility of memory
+leak also so as normal jdbc you have to
+
+730
+00:17:34,549 --> 00:17:34,559
+leak also so as normal jdbc you have to
+ 
+
+731
+00:17:34,559 --> 00:17:37,230
+leak also so as normal jdbc you have to
+handle the closing of the DB connection
+
+732
+00:17:37,230 --> 00:17:37,240
+handle the closing of the DB connection
+ 
+
+733
+00:17:37,240 --> 00:17:40,110
+handle the closing of the DB connection
+also and the last one is manual handling
+
+734
+00:17:40,110 --> 00:17:40,120
+also and the last one is manual handling
+ 
+
+735
+00:17:40,120 --> 00:17:42,310
+also and the last one is manual handling
+of DB connection pool so here if you see
+
+736
+00:17:42,310 --> 00:17:42,320
+of DB connection pool so here if you see
+ 
+
+737
+00:17:42,320 --> 00:17:45,750
+of DB connection pool so here if you see
+that currently every time somebody's
+
+738
+00:17:45,750 --> 00:17:45,760
+that currently every time somebody's
+ 
+
+739
+00:17:45,760 --> 00:17:48,630
+that currently every time somebody's
+calling new instance. get connection I
+
+740
+00:17:48,630 --> 00:17:48,640
+calling new instance. get connection I
+ 
+
+741
+00:17:48,640 --> 00:17:50,909
+calling new instance. get connection I
+am creating blindly creating one
+
+742
+00:17:50,909 --> 00:17:50,919
+am creating blindly creating one
+ 
+
+743
+00:17:50,919 --> 00:17:53,909
+am creating blindly creating one
+connection but it is not an ideal way
+
+744
+00:17:53,909 --> 00:17:53,919
+connection but it is not an ideal way
+ 
+
+745
+00:17:53,919 --> 00:17:55,590
+connection but it is not an ideal way
+generally ideal way would be like okay
+
+746
+00:17:55,590 --> 00:17:55,600
+generally ideal way would be like okay
+ 
+
+747
+00:17:55,600 --> 00:18:00,950
+generally ideal way would be like okay
+there should be one pool of jdbc
+
+748
+00:18:00,950 --> 00:18:00,960
+
+ 
+
+749
+00:18:00,960 --> 00:18:03,950
+
+connection pool in which already I have
+
+750
+00:18:03,950 --> 00:18:03,960
+connection pool in which already I have
+ 
+
+751
+00:18:03,960 --> 00:18:07,430
+connection pool in which already I have
+pre-created few connections use it once
+
+752
+00:18:07,430 --> 00:18:07,440
+pre-created few connections use it once
+ 
+
+753
+00:18:07,440 --> 00:18:10,390
+pre-created few connections use it once
+use it return it back to the pool so you
+
+754
+00:18:10,390 --> 00:18:10,400
+use it return it back to the pool so you
+ 
+
+755
+00:18:10,400 --> 00:18:12,909
+use it return it back to the pool so you
+have to manually add it or handle it DB
+
+756
+00:18:12,909 --> 00:18:12,919
+have to manually add it or handle it DB
+ 
+
+757
+00:18:12,919 --> 00:18:15,870
+have to manually add it or handle it DB
+connections pool okay with the
+
+758
+00:18:15,870 --> 00:18:15,880
+connections pool okay with the
+ 
+
+759
+00:18:15,880 --> 00:18:19,630
+connections pool okay with the
+jdbc so these are uh the few issues with
+
+760
+00:18:19,630 --> 00:18:19,640
+jdbc so these are uh the few issues with
+ 
+
+761
+00:18:19,640 --> 00:18:23,390
+jdbc so these are uh the few issues with
+the plain jdbc but before I uh jump to
+
+762
+00:18:23,390 --> 00:18:23,400
+the plain jdbc but before I uh jump to
+ 
+
+763
+00:18:23,400 --> 00:18:26,950
+the plain jdbc but before I uh jump to
+Spring boot uh jdbc how it handles it
+
+764
+00:18:26,950 --> 00:18:26,960
+Spring boot uh jdbc how it handles it
+ 
+
+765
+00:18:26,960 --> 00:18:30,789
+Spring boot uh jdbc how it handles it
+let's see that so the plane jdbc the
+
+766
+00:18:30,789 --> 00:18:30,799
+let's see that so the plane jdbc the
+ 
+
+767
+00:18:30,799 --> 00:18:34,029
+let's see that so the plane jdbc the
+same thing I have database connection
+
+768
+00:18:34,029 --> 00:18:34,039
+same thing I have database connection
+ 
+
+769
+00:18:34,039 --> 00:18:38,590
+same thing I have database connection
+class first class uh loader we are
+
+770
+00:18:38,590 --> 00:18:38,600
+class first class uh loader we are
+ 
+
+771
+00:18:38,600 --> 00:18:40,789
+class first class uh loader we are
+loading it and then we are establishing
+
+772
+00:18:40,789 --> 00:18:40,799
+loading it and then we are establishing
+ 
+
+773
+00:18:40,799 --> 00:18:41,950
+loading it and then we are establishing
+a DB
+
+774
+00:18:41,950 --> 00:18:41,960
+a DB
+ 
+
+775
+00:18:41,960 --> 00:18:44,710
+a DB
+connection and in the user
+
+776
+00:18:44,710 --> 00:18:44,720
+connection and in the user
+ 
+
+777
+00:18:44,720 --> 00:18:48,950
+connection and in the user
+Dow we are creating a user table
+
+778
+00:18:48,950 --> 00:18:48,960
+Dow we are creating a user table
+ 
+
+779
+00:18:48,960 --> 00:18:51,909
+Dow we are creating a user table
+first and then I have also have a create
+
+780
+00:18:51,909 --> 00:18:51,919
+first and then I have also have a create
+ 
+
+781
+00:18:51,919 --> 00:18:55,710
+first and then I have also have a create
+user method and read user method okay so
+
+782
+00:18:55,710 --> 00:18:55,720
+user method and read user method okay so
+ 
+
+783
+00:18:55,720 --> 00:18:58,789
+user method and read user method okay so
+every time I use it I uh handle the
+
+784
+00:18:58,789 --> 00:18:58,799
+every time I use it I uh handle the
+ 
+
+785
+00:18:58,799 --> 00:19:01,470
+every time I use it I uh handle the
+exception and also in the finally block
+
+786
+00:19:01,470 --> 00:19:01,480
+exception and also in the finally block
+ 
+
+787
+00:19:01,480 --> 00:19:04,310
+exception and also in the finally block
+I closed it properly so I have just
+
+788
+00:19:04,310 --> 00:19:04,320
+I closed it properly so I have just
+ 
+
+789
+00:19:04,320 --> 00:19:06,750
+I closed it properly so I have just
+written the comment here so just to that
+
+790
+00:19:06,750 --> 00:19:06,760
+written the comment here so just to that
+ 
+
+791
+00:19:06,760 --> 00:19:09,909
+written the comment here so just to that
+we have to close it here so let's start
+
+792
+00:19:09,909 --> 00:19:09,919
+we have to close it here so let's start
+ 
+
+793
+00:19:09,919 --> 00:19:11,549
+we have to close it here so let's start
+the
+
+794
+00:19:11,549 --> 00:19:11,559
+the
+ 
+
+795
+00:19:11,559 --> 00:19:14,350
+the
+server okay and here I have a user
+
+796
+00:19:14,350 --> 00:19:14,360
+server okay and here I have a user
+ 
+
+797
+00:19:14,360 --> 00:19:17,230
+server okay and here I have a user
+controller which is like plain jdbc is
+
+798
+00:19:17,230 --> 00:19:17,240
+controller which is like plain jdbc is
+ 
+
+799
+00:19:17,240 --> 00:19:19,390
+controller which is like plain jdbc is
+like get user call plain
+
+800
+00:19:19,390 --> 00:19:19,400
+like get user call plain
+ 
+
+801
+00:19:19,400 --> 00:19:22,789
+like get user call plain
+jdbc so here I am using get user this
+
+802
+00:19:22,789 --> 00:19:22,799
+jdbc so here I am using get user this
+ 
+
+803
+00:19:22,799 --> 00:19:26,310
+jdbc so here I am using get user this
+I'm hitting this get API okay uh so this
+
+804
+00:19:26,310 --> 00:19:26,320
+I'm hitting this get API okay uh so this
+ 
+
+805
+00:19:26,320 --> 00:19:28,750
+I'm hitting this get API okay uh so this
+get API just for testing purpose you can
+
+806
+00:19:28,750 --> 00:19:28,760
+get API just for testing purpose you can
+ 
+
+807
+00:19:28,760 --> 00:19:31,070
+get API just for testing purpose you can
+say that don't go with like why in the
+
+808
+00:19:31,070 --> 00:19:31,080
+say that don't go with like why in the
+ 
+
+809
+00:19:31,080 --> 00:19:34,270
+say that don't go with like why in the
+get why we are doing a create and this
+
+810
+00:19:34,270 --> 00:19:34,280
+get why we are doing a create and this
+ 
+
+811
+00:19:34,280 --> 00:19:36,190
+get why we are doing a create and this
+one so this is just for testing purpose
+
+812
+00:19:36,190 --> 00:19:36,200
+one so this is just for testing purpose
+ 
+
+813
+00:19:36,200 --> 00:19:39,470
+one so this is just for testing purpose
+that my control comes here so once the
+
+814
+00:19:39,470 --> 00:19:39,480
+that my control comes here so once the
+ 
+
+815
+00:19:39,480 --> 00:19:41,470
+that my control comes here so once the
+controls will come here so let me put a
+
+816
+00:19:41,470 --> 00:19:41,480
+controls will come here so let me put a
+ 
+
+817
+00:19:41,480 --> 00:19:42,830
+controls will come here so let me put a
+debugger
+
+818
+00:19:42,830 --> 00:19:42,840
+debugger
+ 
+
+819
+00:19:42,840 --> 00:19:46,350
+debugger
+Point let me start in a debug
+
+820
+00:19:46,350 --> 00:19:46,360
+Point let me start in a debug
+ 
+
+821
+00:19:46,360 --> 00:19:50,029
+Point let me start in a debug
+mode so here once the control comes here
+
+822
+00:19:50,029 --> 00:19:50,039
+mode so here once the control comes here
+ 
+
+823
+00:19:50,039 --> 00:19:52,669
+mode so here once the control comes here
+so what happen is I am creating a user
+
+824
+00:19:52,669 --> 00:19:52,679
+so what happen is I am creating a user
+ 
+
+825
+00:19:52,679 --> 00:19:56,310
+so what happen is I am creating a user
+do object now I am creating two users X
+
+826
+00:19:56,310 --> 00:19:56,320
+do object now I am creating two users X
+ 
+
+827
+00:19:56,320 --> 00:20:00,230
+do object now I am creating two users X
+and Y so I am creating X and Y and then
+
+828
+00:20:00,230 --> 00:20:00,240
+and Y so I am creating X and Y and then
+ 
+
+829
+00:20:00,240 --> 00:20:02,990
+and Y so I am creating X and Y and then
+ultimately I'm doing read user so in the
+
+830
+00:20:02,990 --> 00:20:03,000
+ultimately I'm doing read user so in the
+ 
+
+831
+00:20:03,000 --> 00:20:04,950
+ultimately I'm doing read user so in the
+read user the same thing I told you
+
+832
+00:20:04,950 --> 00:20:04,960
+read user the same thing I told you
+ 
+
+833
+00:20:04,960 --> 00:20:07,750
+read user the same thing I told you
+right first get an object of the
+
+834
+00:20:07,750 --> 00:20:07,760
+right first get an object of the
+ 
+
+835
+00:20:07,760 --> 00:20:10,909
+right first get an object of the
+connection and your query and you can
+
+836
+00:20:10,909 --> 00:20:10,919
+connection and your query and you can
+ 
+
+837
+00:20:10,919 --> 00:20:14,350
+connection and your query and you can
+use prepared query to run this execute
+
+838
+00:20:14,350 --> 00:20:14,360
+use prepared query to run this execute
+ 
+
+839
+00:20:14,360 --> 00:20:17,149
+use prepared query to run this execute
+query and you can iterate it to print it
+
+840
+00:20:17,149 --> 00:20:17,159
+query and you can iterate it to print it
+ 
+
+841
+00:20:17,159 --> 00:20:22,430
+query and you can iterate it to print it
+here so I am iterated it and
+
+842
+00:20:22,430 --> 00:20:22,440
+here so I am iterated it and
+ 
+
+843
+00:20:22,440 --> 00:20:25,029
+here so I am iterated it and
+return so success is printed and if you
+
+844
+00:20:25,029 --> 00:20:25,039
+return so success is printed and if you
+ 
+
+845
+00:20:25,039 --> 00:20:27,630
+return so success is printed and if you
+see the console
+
+846
+00:20:27,630 --> 00:20:27,640
+see the console
+ 
+
+847
+00:20:27,640 --> 00:20:30,710
+see the console
+log the two rows got printed this is the
+
+848
+00:20:30,710 --> 00:20:30,720
+log the two rows got printed this is the
+ 
+
+849
+00:20:30,720 --> 00:20:32,950
+log the two rows got printed this is the
+user ID which is Auto incremented 1 and
+
+850
+00:20:32,950 --> 00:20:32,960
+user ID which is Auto incremented 1 and
+ 
+
+851
+00:20:32,960 --> 00:20:35,350
+user ID which is Auto incremented 1 and
+two this is the usern name and this is
+
+852
+00:20:35,350 --> 00:20:35,360
+two this is the usern name and this is
+ 
+
+853
+00:20:35,360 --> 00:20:38,789
+two this is the usern name and this is
+the age okay so this is currently in
+
+854
+00:20:38,789 --> 00:20:38,799
+the age okay so this is currently in
+ 
+
+855
+00:20:38,799 --> 00:20:42,549
+the age okay so this is currently in
+memory now spring boot helps to remove
+
+856
+00:20:42,549 --> 00:20:42,559
+memory now spring boot helps to remove
+ 
+
+857
+00:20:42,559 --> 00:20:45,590
+memory now spring boot helps to remove
+all this Boiler code for
+
+858
+00:20:45,590 --> 00:20:45,600
+all this Boiler code for
+ 
+
+859
+00:20:45,600 --> 00:20:49,149
+all this Boiler code for
+us so now let's see using jdbc with the
+
+860
+00:20:49,149 --> 00:20:49,159
+us so now let's see using jdbc with the
+ 
+
+861
+00:20:49,159 --> 00:20:51,830
+us so now let's see using jdbc with the
+spring boot so the first thing you have
+
+862
+00:20:51,830 --> 00:20:51,840
+spring boot so the first thing you have
+ 
+
+863
+00:20:51,840 --> 00:20:53,710
+spring boot so the first thing you have
+to do is include the dependency in
+
+864
+00:20:53,710 --> 00:20:53,720
+to do is include the dependency in
+ 
+
+865
+00:20:53,720 --> 00:20:55,630
+to do is include the dependency in
+pom.xml
+
+866
+00:20:55,630 --> 00:20:55,640
+pom.xml
+ 
+
+867
+00:20:55,640 --> 00:21:00,310
+pom.xml
+so this is spring boot stter
+
+868
+00:21:00,310 --> 00:21:00,320
+so this is spring boot stter
+ 
+
+869
+00:21:00,320 --> 00:21:04,190
+so this is spring boot stter
+jdbc okay so this is for uh jdbc
+
+870
+00:21:04,190 --> 00:21:04,200
+jdbc okay so this is for uh jdbc
+ 
+
+871
+00:21:04,200 --> 00:21:06,630
+jdbc okay so this is for uh jdbc
+interfaces and all it will bring and the
+
+872
+00:21:06,630 --> 00:21:06,640
+interfaces and all it will bring and the
+ 
+
+873
+00:21:06,640 --> 00:21:10,269
+interfaces and all it will bring and the
+second dependency you need for this S2
+
+874
+00:21:10,269 --> 00:21:10,279
+second dependency you need for this S2
+ 
+
+875
+00:21:10,279 --> 00:21:12,909
+second dependency you need for this S2
+S2 database we are using right in memory
+
+876
+00:21:12,909 --> 00:21:12,919
+S2 database we are using right in memory
+ 
+
+877
+00:21:12,919 --> 00:21:15,510
+S2 database we are using right in memory
+one so this is for the database you can
+
+878
+00:21:15,510 --> 00:21:15,520
+one so this is for the database you can
+ 
+
+879
+00:21:15,520 --> 00:21:19,310
+one so this is for the database you can
+replace it with u uh MySQL or post
+
+880
+00:21:19,310 --> 00:21:19,320
+replace it with u uh MySQL or post
+ 
+
+881
+00:21:19,320 --> 00:21:21,230
+replace it with u uh MySQL or post
+address whichever you like So currently
+
+882
+00:21:21,230 --> 00:21:21,240
+address whichever you like So currently
+ 
+
+883
+00:21:21,240 --> 00:21:24,190
+address whichever you like So currently
+I'm using inmemory S2 so I'm uh added
+
+884
+00:21:24,190 --> 00:21:24,200
+I'm using inmemory S2 so I'm uh added
+ 
+
+885
+00:21:24,200 --> 00:21:26,230
+I'm using inmemory S2 so I'm uh added
+its
+
+886
+00:21:26,230 --> 00:21:26,240
+its
+ 
+
+887
+00:21:26,240 --> 00:21:29,470
+its
+dependency okay so spring boot provide
+
+888
+00:21:29,470 --> 00:21:29,480
+dependency okay so spring boot provide
+ 
+
+889
+00:21:29,480 --> 00:21:31,470
+dependency okay so spring boot provide
+jdbc
+
+890
+00:21:31,470 --> 00:21:31,480
+jdbc
+ 
+
+891
+00:21:31,480 --> 00:21:34,870
+jdbc
+template class which helps to remove all
+
+892
+00:21:34,870 --> 00:21:34,880
+template class which helps to remove all
+ 
+
+893
+00:21:34,880 --> 00:21:39,669
+template class which helps to remove all
+the Boiler code which we see at top how
+
+894
+00:21:39,669 --> 00:21:39,679
+the Boiler code which we see at top how
+ 
+
+895
+00:21:39,679 --> 00:21:41,269
+the Boiler code which we see at top how
+now let's see that once you have added
+
+896
+00:21:41,269 --> 00:21:41,279
+now let's see that once you have added
+ 
+
+897
+00:21:41,279 --> 00:21:43,950
+now let's see that once you have added
+the dependency now let's see this
+
+898
+00:21:43,950 --> 00:21:43,960
+the dependency now let's see this
+ 
+
+899
+00:21:43,960 --> 00:21:47,029
+the dependency now let's see this
+example so now here if you see first I
+
+900
+00:21:47,029 --> 00:21:47,039
+example so now here if you see first I
+ 
+
+901
+00:21:47,039 --> 00:21:51,149
+example so now here if you see first I
+have created one basic pojo of
+
+902
+00:21:51,149 --> 00:21:51,159
+have created one basic pojo of
+ 
+
+903
+00:21:51,159 --> 00:21:55,870
+have created one basic pojo of
+user user ID username age and it's
+
+904
+00:21:55,870 --> 00:21:55,880
+user user ID username age and it's
+ 
+
+905
+00:21:55,880 --> 00:22:00,510
+user user ID username age and it's
+getter and Setter very Basics user class
+
+906
+00:22:00,510 --> 00:22:00,520
+getter and Setter very Basics user class
+ 
+
+907
+00:22:00,520 --> 00:22:03,549
+getter and Setter very Basics user class
+now the second I have created user
+
+908
+00:22:03,549 --> 00:22:03,559
+now the second I have created user
+ 
+
+909
+00:22:03,559 --> 00:22:06,669
+now the second I have created user
+repository class I have given a name
+
+910
+00:22:06,669 --> 00:22:06,679
+repository class I have given a name
+ 
+
+911
+00:22:06,679 --> 00:22:09,470
+repository class I have given a name
+user repository class and annotate with
+
+912
+00:22:09,470 --> 00:22:09,480
+user repository class and annotate with
+ 
+
+913
+00:22:09,480 --> 00:22:11,510
+user repository class and annotate with
+at theate
+
+914
+00:22:11,510 --> 00:22:11,520
+at theate
+ 
+
+915
+00:22:11,520 --> 00:22:15,430
+at theate
+repository it work as at theate
+
+916
+00:22:15,430 --> 00:22:15,440
+repository it work as at theate
+ 
+
+917
+00:22:15,440 --> 00:22:17,029
+repository it work as at theate
+component
+
+918
+00:22:17,029 --> 00:22:17,039
+component
+ 
+
+919
+00:22:17,039 --> 00:22:20,669
+component
+so it will help us to create a bean of
+
+920
+00:22:20,669 --> 00:22:20,679
+so it will help us to create a bean of
+ 
+
+921
+00:22:20,679 --> 00:22:23,190
+so it will help us to create a bean of
+user repository and also help us in the
+
+922
+00:22:23,190 --> 00:22:23,200
+user repository and also help us in the
+ 
+
+923
+00:22:23,200 --> 00:22:25,789
+user repository and also help us in the
+scanning of those Bean like what adorate
+
+924
+00:22:25,789 --> 00:22:25,799
+scanning of those Bean like what adorate
+ 
+
+925
+00:22:25,799 --> 00:22:26,750
+scanning of those Bean like what adorate
+component
+
+926
+00:22:26,750 --> 00:22:26,760
+component
+ 
+
+927
+00:22:26,760 --> 00:22:30,669
+component
+does the second is is that at the top in
+
+928
+00:22:30,669 --> 00:22:30,679
+does the second is is that at the top in
+ 
+
+929
+00:22:30,679 --> 00:22:34,310
+does the second is is that at the top in
+the plain jdbc you see SQL exception
+
+930
+00:22:34,310 --> 00:22:34,320
+the plain jdbc you see SQL exception
+ 
+
+931
+00:22:34,320 --> 00:22:38,029
+the plain jdbc you see SQL exception
+comes right but here this repository
+
+932
+00:22:38,029 --> 00:22:38,039
+comes right but here this repository
+ 
+
+933
+00:22:38,039 --> 00:22:40,110
+comes right but here this repository
+whenever spring boot see that okay it is
+
+934
+00:22:40,110 --> 00:22:40,120
+whenever spring boot see that okay it is
+ 
+
+935
+00:22:40,120 --> 00:22:42,950
+whenever spring boot see that okay it is
+annotated with at theate repository any
+
+936
+00:22:42,950 --> 00:22:42,960
+annotated with at theate repository any
+ 
+
+937
+00:22:42,960 --> 00:22:47,789
+annotated with at theate repository any
+SQL exception comes it gives a granual
+
+938
+00:22:47,789 --> 00:22:47,799
+SQL exception comes it gives a granual
+ 
+
+939
+00:22:47,799 --> 00:22:49,710
+SQL exception comes it gives a granual
+level of
+
+940
+00:22:49,710 --> 00:22:49,720
+level of
+ 
+
+941
+00:22:49,720 --> 00:22:52,149
+level of
+exception okay we'll see
+
+942
+00:22:52,149 --> 00:22:52,159
+exception okay we'll see
+ 
+
+943
+00:22:52,159 --> 00:22:54,110
+exception okay we'll see
+how
+
+944
+00:22:54,110 --> 00:22:54,120
+how
+ 
+
+945
+00:22:54,120 --> 00:22:57,110
+how
+so after creating this user class pojo
+
+946
+00:22:57,110 --> 00:22:57,120
+so after creating this user class pojo
+ 
+
+947
+00:22:57,120 --> 00:22:59,029
+so after creating this user class pojo
+class I am creating a user repository
+
+948
+00:22:59,029 --> 00:22:59,039
+class I am creating a user repository
+ 
+
+949
+00:22:59,039 --> 00:23:01,950
+class I am creating a user repository
+annotated with atate repository and here
+
+950
+00:23:01,950 --> 00:23:01,960
+annotated with atate repository and here
+ 
+
+951
+00:23:01,960 --> 00:23:04,669
+annotated with atate repository and here
+if you see that I have added a
+
+952
+00:23:04,669 --> 00:23:04,679
+if you see that I have added a
+ 
+
+953
+00:23:04,679 --> 00:23:07,549
+if you see that I have added a
+dependency in this one of jdbc template
+
+954
+00:23:07,549 --> 00:23:07,559
+dependency in this one of jdbc template
+ 
+
+955
+00:23:07,559 --> 00:23:08,909
+dependency in this one of jdbc template
+this is the class which I'm talking
+
+956
+00:23:08,909 --> 00:23:08,919
+this is the class which I'm talking
+ 
+
+957
+00:23:08,919 --> 00:23:10,350
+this is the class which I'm talking
+about which help us to remove all the
+
+958
+00:23:10,350 --> 00:23:10,360
+about which help us to remove all the
+ 
+
+959
+00:23:10,360 --> 00:23:13,549
+about which help us to remove all the
+Boiler code so jdbc template I have Auto
+
+960
+00:23:13,549 --> 00:23:13,559
+Boiler code so jdbc template I have Auto
+ 
+
+961
+00:23:13,559 --> 00:23:16,830
+Boiler code so jdbc template I have Auto
+wired it okay so Bean will get inserted
+
+962
+00:23:16,830 --> 00:23:16,840
+wired it okay so Bean will get inserted
+ 
+
+963
+00:23:16,840 --> 00:23:17,710
+wired it okay so Bean will get inserted
+into
+
+964
+00:23:17,710 --> 00:23:17,720
+into
+ 
+
+965
+00:23:17,720 --> 00:23:20,710
+into
+it so here I have also have the same
+
+966
+00:23:20,710 --> 00:23:20,720
+it so here I have also have the same
+ 
+
+967
+00:23:20,720 --> 00:23:23,070
+it so here I have also have the same
+methods I written one is create one is
+
+968
+00:23:23,070 --> 00:23:23,080
+methods I written one is create one is
+ 
+
+969
+00:23:23,080 --> 00:23:25,750
+methods I written one is create one is
+insert and another is read three method
+
+970
+00:23:25,750 --> 00:23:25,760
+insert and another is read three method
+ 
+
+971
+00:23:25,760 --> 00:23:29,950
+insert and another is read three method
+same like above so create table now here
+
+972
+00:23:29,950 --> 00:23:29,960
+same like above so create table now here
+ 
+
+973
+00:23:29,960 --> 00:23:33,789
+same like above so create table now here
+if you see jdbc template execute okay
+
+974
+00:23:33,789 --> 00:23:33,799
+if you see jdbc template execute okay
+ 
+
+975
+00:23:33,799 --> 00:23:37,029
+if you see jdbc template execute okay
+and you can directly write your query in
+
+976
+00:23:37,029 --> 00:23:37,039
+and you can directly write your query in
+ 
+
+977
+00:23:37,039 --> 00:23:38,950
+and you can directly write your query in
+the execute you can directly write your
+
+978
+00:23:38,950 --> 00:23:38,960
+the execute you can directly write your
+ 
+
+979
+00:23:38,960 --> 00:23:40,950
+the execute you can directly write your
+plain SQL query
+
+980
+00:23:40,950 --> 00:23:40,960
+plain SQL query
+ 
+
+981
+00:23:40,960 --> 00:23:45,070
+plain SQL query
+itself in the insert jdbc template do
+
+982
+00:23:45,070 --> 00:23:45,080
+itself in the insert jdbc template do
+ 
+
+983
+00:23:45,080 --> 00:23:48,710
+itself in the insert jdbc template do
+update you provide your insert query now
+
+984
+00:23:48,710 --> 00:23:48,720
+update you provide your insert query now
+ 
+
+985
+00:23:48,720 --> 00:23:52,070
+update you provide your insert query now
+if your insert query is need to be like
+
+986
+00:23:52,070 --> 00:23:52,080
+if your insert query is need to be like
+ 
+
+987
+00:23:52,080 --> 00:23:53,430
+if your insert query is need to be like
+certain values which need to be
+
+988
+00:23:53,430 --> 00:23:53,440
+certain values which need to be
+ 
+
+989
+00:23:53,440 --> 00:23:55,669
+certain values which need to be
+dynamically feed it can be added like
+
+990
+00:23:55,669 --> 00:23:55,679
+dynamically feed it can be added like
+ 
+
+991
+00:23:55,679 --> 00:23:57,590
+dynamically feed it can be added like
+this there are different methods I will
+
+992
+00:23:57,590 --> 00:23:57,600
+this there are different methods I will
+ 
+
+993
+00:23:57,600 --> 00:24:00,230
+this there are different methods I will
+tell you don't go inside like how this
+
+994
+00:24:00,230 --> 00:24:00,240
+tell you don't go inside like how this
+ 
+
+995
+00:24:00,240 --> 00:24:02,549
+tell you don't go inside like how this
+update is used I will tell you what are
+
+996
+00:24:02,549 --> 00:24:02,559
+update is used I will tell you what are
+ 
+
+997
+00:24:02,559 --> 00:24:04,990
+update is used I will tell you what are
+the different ways but currently
+
+998
+00:24:04,990 --> 00:24:05,000
+the different ways but currently
+ 
+
+999
+00:24:05,000 --> 00:24:07,470
+the different ways but currently
+understand this like you are just
+
+1000
+00:24:07,470 --> 00:24:07,480
+understand this like you are just
+ 
+
+1001
+00:24:07,480 --> 00:24:10,149
+understand this like you are just
+calling the method jdbc template. update
+
+1002
+00:24:10,149 --> 00:24:10,159
+calling the method jdbc template. update
+ 
+
+1003
+00:24:10,159 --> 00:24:12,310
+calling the method jdbc template. update
+put the query and all the values which
+
+1004
+00:24:12,310 --> 00:24:12,320
+put the query and all the values which
+ 
+
+1005
+00:24:12,320 --> 00:24:14,870
+put the query and all the values which
+has to be goes into this
+
+1006
+00:24:14,870 --> 00:24:14,880
+has to be goes into this
+ 
+
+1007
+00:24:14,880 --> 00:24:17,710
+has to be goes into this
+field and similarly get users what I
+
+1008
+00:24:17,710 --> 00:24:17,720
+field and similarly get users what I
+ 
+
+1009
+00:24:17,720 --> 00:24:20,710
+field and similarly get users what I
+doing is I have returned the query I am
+
+1010
+00:24:20,710 --> 00:24:20,720
+doing is I have returned the query I am
+ 
+
+1011
+00:24:20,720 --> 00:24:23,870
+doing is I have returned the query I am
+doing just jdbc template. query and
+
+1012
+00:24:23,870 --> 00:24:23,880
+doing just jdbc template. query and
+ 
+
+1013
+00:24:23,880 --> 00:24:26,710
+doing just jdbc template. query and
+given the query now here I'm just uh
+
+1014
+00:24:26,710 --> 00:24:26,720
+given the query now here I'm just uh
+ 
+
+1015
+00:24:26,720 --> 00:24:28,870
+given the query now here I'm just uh
+iterating over the result set I
+
+1016
+00:24:28,870 --> 00:24:28,880
+iterating over the result set I
+ 
+
+1017
+00:24:28,880 --> 00:24:32,389
+iterating over the result set I
+go later into deep what I am doing
+
+1018
+00:24:32,389 --> 00:24:32,399
+go later into deep what I am doing
+ 
+
+1019
+00:24:32,399 --> 00:24:35,389
+go later into deep what I am doing
+it now the difference you might be
+
+1020
+00:24:35,389 --> 00:24:35,399
+it now the difference you might be
+ 
+
+1021
+00:24:35,399 --> 00:24:37,190
+it now the difference you might be
+seeing that I am not creating DB
+
+1022
+00:24:37,190 --> 00:24:37,200
+seeing that I am not creating DB
+ 
+
+1023
+00:24:37,200 --> 00:24:38,230
+seeing that I am not creating DB
+connection
+
+1024
+00:24:38,230 --> 00:24:38,240
+connection
+ 
+
+1025
+00:24:38,240 --> 00:24:42,149
+connection
+here okay I am not written any finally
+
+1026
+00:24:42,149 --> 00:24:42,159
+here okay I am not written any finally
+ 
+
+1027
+00:24:42,159 --> 00:24:44,110
+here okay I am not written any finally
+block where I'm closing the DB
+
+1028
+00:24:44,110 --> 00:24:44,120
+block where I'm closing the DB
+ 
+
+1029
+00:24:44,120 --> 00:24:46,389
+block where I'm closing the DB
+connection or closing the prepared
+
+1030
+00:24:46,389 --> 00:24:46,399
+connection or closing the prepared
+ 
+
+1031
+00:24:46,399 --> 00:24:49,190
+connection or closing the prepared
+statement anything nothing all I am
+
+1032
+00:24:49,190 --> 00:24:49,200
+statement anything nothing all I am
+ 
+
+1033
+00:24:49,200 --> 00:24:52,990
+statement anything nothing all I am
+using is just uh jdbc template execute
+
+1034
+00:24:52,990 --> 00:24:53,000
+using is just uh jdbc template execute
+ 
+
+1035
+00:24:53,000 --> 00:24:55,750
+using is just uh jdbc template execute
+just for executing the plane query there
+
+1036
+00:24:55,750 --> 00:24:55,760
+just for executing the plane query there
+ 
+
+1037
+00:24:55,760 --> 00:24:58,389
+just for executing the plane query there
+is something like update where for more
+
+1038
+00:24:58,389 --> 00:24:58,399
+is something like update where for more
+ 
+
+1039
+00:24:58,399 --> 00:25:00,190
+is something like update where for more
+more complex queries where you have to
+
+1040
+00:25:00,190 --> 00:25:00,200
+more complex queries where you have to
+ 
+
+1041
+00:25:00,200 --> 00:25:03,310
+more complex queries where you have to
+dynamically fill the values and it also
+
+1042
+00:25:03,310 --> 00:25:03,320
+dynamically fill the values and it also
+ 
+
+1043
+00:25:03,320 --> 00:25:06,190
+dynamically fill the values and it also
+provide for read like do query where
+
+1044
+00:25:06,190 --> 00:25:06,200
+provide for read like do query where
+ 
+
+1045
+00:25:06,200 --> 00:25:09,070
+provide for read like do query where
+which is used for fetching the
+
+1046
+00:25:09,070 --> 00:25:09,080
+which is used for fetching the
+ 
+
+1047
+00:25:09,080 --> 00:25:12,789
+which is used for fetching the
+data so this is your second class which
+
+1048
+00:25:12,789 --> 00:25:12,799
+data so this is your second class which
+ 
+
+1049
+00:25:12,799 --> 00:25:15,710
+data so this is your second class which
+you have to create and here if you
+
+1050
+00:25:15,710 --> 00:25:15,720
+you have to create and here if you
+ 
+
+1051
+00:25:15,720 --> 00:25:19,750
+you have to create and here if you
+see the service class which uses this
+
+1052
+00:25:19,750 --> 00:25:19,760
+see the service class which uses this
+ 
+
+1053
+00:25:19,760 --> 00:25:22,230
+see the service class which uses this
+actually this is more of a helper class
+
+1054
+00:25:22,230 --> 00:25:22,240
+actually this is more of a helper class
+ 
+
+1055
+00:25:22,240 --> 00:25:25,269
+actually this is more of a helper class
+I would say that this is your
+
+1056
+00:25:25,269 --> 00:25:25,279
+I would say that this is your
+ 
+
+1057
+00:25:25,279 --> 00:25:30,029
+I would say that this is your
+business logic class
+
+1058
+00:25:30,029 --> 00:25:30,039
+business logic class
+ 
+
+1059
+00:25:30,039 --> 00:25:32,350
+business logic class
+okay so this is I have annotated with at
+
+1060
+00:25:32,350 --> 00:25:32,360
+okay so this is I have annotated with at
+ 
+
+1061
+00:25:32,360 --> 00:25:33,990
+okay so this is I have annotated with at
+theate component you can also annotate
+
+1062
+00:25:33,990 --> 00:25:34,000
+theate component you can also annotate
+ 
+
+1063
+00:25:34,000 --> 00:25:37,430
+theate component you can also annotate
+it with at theate service okay so I have
+
+1064
+00:25:37,430 --> 00:25:37,440
+it with at theate service okay so I have
+ 
+
+1065
+00:25:37,440 --> 00:25:40,549
+it with at theate service okay so I have
+autowired this user
+
+1066
+00:25:40,549 --> 00:25:40,559
+autowired this user
+ 
+
+1067
+00:25:40,559 --> 00:25:42,430
+autowired this user
+repository
+
+1068
+00:25:42,430 --> 00:25:42,440
+repository
+ 
+
+1069
+00:25:42,440 --> 00:25:44,070
+repository
+okay
+
+1070
+00:25:44,070 --> 00:25:44,080
+okay
+ 
+
+1071
+00:25:44,080 --> 00:25:47,510
+okay
+now anybody wants to create a table they
+
+1072
+00:25:47,510 --> 00:25:47,520
+now anybody wants to create a table they
+ 
+
+1073
+00:25:47,520 --> 00:25:50,029
+now anybody wants to create a table they
+will invoke this and ultimately it will
+
+1074
+00:25:50,029 --> 00:25:50,039
+will invoke this and ultimately it will
+ 
+
+1075
+00:25:50,039 --> 00:25:52,870
+will invoke this and ultimately it will
+call user repository create table insert
+
+1076
+00:25:52,870 --> 00:25:52,880
+call user repository create table insert
+ 
+
+1077
+00:25:52,880 --> 00:25:55,669
+call user repository create table insert
+user this will ultimately go and call
+
+1078
+00:25:55,669 --> 00:25:55,679
+user this will ultimately go and call
+ 
+
+1079
+00:25:55,679 --> 00:25:59,389
+user this will ultimately go and call
+this method get user ultimate this and
+
+1080
+00:25:59,389 --> 00:25:59,399
+this method get user ultimate this and
+ 
+
+1081
+00:25:59,399 --> 00:26:02,110
+this method get user ultimate this and
+call this method it will get the list
+
+1082
+00:26:02,110 --> 00:26:02,120
+call this method it will get the list
+ 
+
+1083
+00:26:02,120 --> 00:26:04,029
+call this method it will get the list
+currently I'm doing my business logic is
+
+1084
+00:26:04,029 --> 00:26:04,039
+currently I'm doing my business logic is
+ 
+
+1085
+00:26:04,039 --> 00:26:06,430
+currently I'm doing my business logic is
+I'm just simply system do do do print
+
+1086
+00:26:06,430 --> 00:26:06,440
+I'm just simply system do do do print
+ 
+
+1087
+00:26:06,440 --> 00:26:08,950
+I'm just simply system do do do print
+and I'm writing and simply return the
+
+1088
+00:26:08,950 --> 00:26:08,960
+and I'm writing and simply return the
+ 
+
+1089
+00:26:08,960 --> 00:26:11,870
+and I'm writing and simply return the
+user okay so this class is nothing but a
+
+1090
+00:26:11,870 --> 00:26:11,880
+user okay so this class is nothing but a
+ 
+
+1091
+00:26:11,880 --> 00:26:14,549
+user okay so this class is nothing but a
+user service class is nothing but which
+
+1092
+00:26:14,549 --> 00:26:14,559
+user service class is nothing but which
+ 
+
+1093
+00:26:14,559 --> 00:26:19,269
+user service class is nothing but which
+is calling the repository class okay and
+
+1094
+00:26:19,269 --> 00:26:19,279
+is calling the repository class okay and
+ 
+
+1095
+00:26:19,279 --> 00:26:22,590
+is calling the repository class okay and
+it is your business logic class like
+
+1096
+00:26:22,590 --> 00:26:22,600
+it is your business logic class like
+ 
+
+1097
+00:26:22,600 --> 00:26:25,190
+it is your business logic class like
+after fetching the data from the DB any
+
+1098
+00:26:25,190 --> 00:26:25,200
+after fetching the data from the DB any
+ 
+
+1099
+00:26:25,200 --> 00:26:26,590
+after fetching the data from the DB any
+business logic you have to perform you
+
+1100
+00:26:26,590 --> 00:26:26,600
+business logic you have to perform you
+ 
+
+1101
+00:26:26,600 --> 00:26:29,990
+business logic you have to perform you
+can perform here at this Lev
+
+1102
+00:26:29,990 --> 00:26:30,000
+can perform here at this Lev
+ 
+
+1103
+00:26:30,000 --> 00:26:33,230
+can perform here at this Lev
+level and the last is you have to use an
+
+1104
+00:26:33,230 --> 00:26:33,240
+level and the last is you have to use an
+ 
+
+1105
+00:26:33,240 --> 00:26:35,830
+level and the last is you have to use an
+application. properties now here if you
+
+1106
+00:26:35,830 --> 00:26:35,840
+application. properties now here if you
+ 
+
+1107
+00:26:35,840 --> 00:26:37,669
+application. properties now here if you
+see that we are providing certain
+
+1108
+00:26:37,669 --> 00:26:37,679
+see that we are providing certain
+ 
+
+1109
+00:26:37,679 --> 00:26:40,310
+see that we are providing certain
+properties data source property like I'm
+
+1110
+00:26:40,310 --> 00:26:40,320
+properties data source property like I'm
+ 
+
+1111
+00:26:40,320 --> 00:26:41,990
+properties data source property like I'm
+providing the
+
+1112
+00:26:41,990 --> 00:26:42,000
+providing the
+ 
+
+1113
+00:26:42,000 --> 00:26:44,590
+providing the
+URL so now here if you see at the top
+
+1114
+00:26:44,590 --> 00:26:44,600
+URL so now here if you see at the top
+ 
+
+1115
+00:26:44,600 --> 00:26:45,990
+URL so now here if you see at the top
+plane
+
+1116
+00:26:45,990 --> 00:26:46,000
+plane
+ 
+
+1117
+00:26:46,000 --> 00:26:49,870
+plane
+jdbc you are providing the uh you are
+
+1118
+00:26:49,870 --> 00:26:49,880
+jdbc you are providing the uh you are
+ 
+
+1119
+00:26:49,880 --> 00:26:51,830
+jdbc you are providing the uh you are
+doing a connection and then providing a
+
+1120
+00:26:51,830 --> 00:26:51,840
+doing a connection and then providing a
+ 
+
+1121
+00:26:51,840 --> 00:26:55,750
+doing a connection and then providing a
+URL username password driver link all
+
+1122
+00:26:55,750 --> 00:26:55,760
+URL username password driver link all
+ 
+
+1123
+00:26:55,760 --> 00:26:57,430
+URL username password driver link all
+you have to do here is in the
+
+1124
+00:26:57,430 --> 00:26:57,440
+you have to do here is in the
+ 
+
+1125
+00:26:57,440 --> 00:26:59,389
+you have to do here is in the
+springboard is in the this application.
+
+1126
+00:26:59,389 --> 00:26:59,399
+springboard is in the this application.
+ 
+
+1127
+00:26:59,399 --> 00:27:02,750
+springboard is in the this application.
+properties you provide what is the URL
+
+1128
+00:27:02,750 --> 00:27:02,760
+properties you provide what is the URL
+ 
+
+1129
+00:27:02,760 --> 00:27:04,430
+properties you provide what is the URL
+the same thing this is your DB I am
+
+1130
+00:27:04,430 --> 00:27:04,440
+the same thing this is your DB I am
+ 
+
+1131
+00:27:04,440 --> 00:27:07,510
+the same thing this is your DB I am
+using memory version of H2 and
+
+1132
+00:27:07,510 --> 00:27:07,520
+using memory version of H2 and
+ 
+
+1133
+00:27:07,520 --> 00:27:12,110
+using memory version of H2 and
+jdbc the driver username password
+
+1134
+00:27:12,110 --> 00:27:12,120
+jdbc the driver username password
+ 
+
+1135
+00:27:12,120 --> 00:27:16,630
+jdbc the driver username password
+okay so now this data source this data
+
+1136
+00:27:16,630 --> 00:27:16,640
+okay so now this data source this data
+ 
+
+1137
+00:27:16,640 --> 00:27:18,190
+okay so now this data source this data
+source
+
+1138
+00:27:18,190 --> 00:27:18,200
+source
+ 
+
+1139
+00:27:18,200 --> 00:27:22,630
+source
+object data source object in Spring boot
+
+1140
+00:27:22,630 --> 00:27:22,640
+object data source object in Spring boot
+ 
+
+1141
+00:27:22,640 --> 00:27:26,470
+object data source object in Spring boot
+helps with two things one
+
+1142
+00:27:26,470 --> 00:27:26,480
+helps with two things one
+ 
+
+1143
+00:27:26,480 --> 00:27:29,350
+helps with two things one
+is database
+
+1144
+00:27:29,350 --> 00:27:29,360
+is database
+ 
+
+1145
+00:27:29,360 --> 00:27:32,230
+is database
+connection it creates a
+
+1146
+00:27:32,230 --> 00:27:32,240
+connection it creates a
+ 
+
+1147
+00:27:32,240 --> 00:27:36,549
+connection it creates a
+connection returns it manage it and also
+
+1148
+00:27:36,549 --> 00:27:36,559
+connection returns it manage it and also
+ 
+
+1149
+00:27:36,559 --> 00:27:38,350
+connection returns it manage it and also
+it helps with the connection pooling
+
+1150
+00:27:38,350 --> 00:27:38,360
+it helps with the connection pooling
+ 
+
+1151
+00:27:38,360 --> 00:27:40,509
+it helps with the connection pooling
+connection
+
+1152
+00:27:40,509 --> 00:27:40,519
+connection
+ 
+
+1153
+00:27:40,519 --> 00:27:43,789
+connection
+pool okay it manage the connection pool
+
+1154
+00:27:43,789 --> 00:27:43,799
+pool okay it manage the connection pool
+ 
+
+1155
+00:27:43,799 --> 00:27:48,190
+pool okay it manage the connection pool
+so this data source object so internally
+
+1156
+00:27:48,190 --> 00:27:48,200
+so this data source object so internally
+ 
+
+1157
+00:27:48,200 --> 00:27:51,029
+so this data source object so internally
+spring boot help us to do whatever we
+
+1158
+00:27:51,029 --> 00:27:51,039
+spring boot help us to do whatever we
+ 
+
+1159
+00:27:51,039 --> 00:27:55,070
+spring boot help us to do whatever we
+were doing class do for name okay then
+
+1160
+00:27:55,070 --> 00:27:55,080
+were doing class do for name okay then
+ 
+
+1161
+00:27:55,080 --> 00:27:58,149
+were doing class do for name okay then
+do create a connection and everything is
+
+1162
+00:27:58,149 --> 00:27:58,159
+do create a connection and everything is
+ 
+
+1163
+00:27:58,159 --> 00:28:01,070
+do create a connection and everything is
+spring boot does it and surprisingly I
+
+1164
+00:28:01,070 --> 00:28:01,080
+spring boot does it and surprisingly I
+ 
+
+1165
+00:28:01,080 --> 00:28:03,350
+spring boot does it and surprisingly I
+will tell you spring boot also by
+
+1166
+00:28:03,350 --> 00:28:03,360
+will tell you spring boot also by
+ 
+
+1167
+00:28:03,360 --> 00:28:06,190
+will tell you spring boot also by
+default provide us a connection pool
+
+1168
+00:28:06,190 --> 00:28:06,200
+default provide us a connection pool
+ 
+
+1169
+00:28:06,200 --> 00:28:09,509
+default provide us a connection pool
+also it is
+
+1170
+00:28:09,509 --> 00:28:09,519
+also it is
+ 
+
+1171
+00:28:09,519 --> 00:28:12,230
+also it is
+Hikari CP connection pool Hikari
+
+1172
+00:28:12,230 --> 00:28:12,240
+Hikari CP connection pool Hikari
+ 
+
+1173
+00:28:12,240 --> 00:28:15,509
+Hikari CP connection pool Hikari
+connection pool I will show you the demo
+
+1174
+00:28:15,509 --> 00:28:15,519
+connection pool I will show you the demo
+ 
+
+1175
+00:28:15,519 --> 00:28:17,509
+connection pool I will show you the demo
+but
+
+1176
+00:28:17,509 --> 00:28:17,519
+but
+ 
+
+1177
+00:28:17,519 --> 00:28:20,950
+but
+before uh going proceed further is this
+
+1178
+00:28:20,950 --> 00:28:20,960
+before uh going proceed further is this
+ 
+
+1179
+00:28:20,960 --> 00:28:23,750
+before uh going proceed further is this
+clear like how it is helping us
+
+1180
+00:28:23,750 --> 00:28:23,760
+clear like how it is helping us
+ 
+
+1181
+00:28:23,760 --> 00:28:26,470
+clear like how it is helping us
+resolving it so here if you see driver
+
+1182
+00:28:26,470 --> 00:28:26,480
+resolving it so here if you see driver
+ 
+
+1183
+00:28:26,480 --> 00:28:28,669
+resolving it so here if you see driver
+class loading are we doing anywhere
+
+1184
+00:28:28,669 --> 00:28:28,679
+class loading are we doing anywhere
+ 
+
+1185
+00:28:28,679 --> 00:28:31,549
+class loading are we doing anywhere
+driver class loading no we are not in
+
+1186
+00:28:31,549 --> 00:28:31,559
+driver class loading no we are not in
+ 
+
+1187
+00:28:31,559 --> 00:28:34,070
+driver class loading no we are not in
+the spring boot jdbc we are not doing
+
+1188
+00:28:34,070 --> 00:28:34,080
+the spring boot jdbc we are not doing
+ 
+
+1189
+00:28:34,080 --> 00:28:36,750
+the spring boot jdbc we are not doing
+class. for name and the driver path we
+
+1190
+00:28:36,750 --> 00:28:36,760
+class. for name and the driver path we
+ 
+
+1191
+00:28:36,760 --> 00:28:38,549
+class. for name and the driver path we
+are not doing anywhere this is just a
+
+1192
+00:28:38,549 --> 00:28:38,559
+are not doing anywhere this is just a
+ 
+
+1193
+00:28:38,559 --> 00:28:40,029
+are not doing anywhere this is just a
+business logic class so here if you see
+
+1194
+00:28:40,029 --> 00:28:40,039
+business logic class so here if you see
+ 
+
+1195
+00:28:40,039 --> 00:28:41,830
+business logic class so here if you see
+we are just directly using
+
+1196
+00:28:41,830 --> 00:28:41,840
+we are just directly using
+ 
+
+1197
+00:28:41,840 --> 00:28:45,149
+we are just directly using
+repository and application. properties
+
+1198
+00:28:45,149 --> 00:28:45,159
+repository and application. properties
+ 
+
+1199
+00:28:45,159 --> 00:28:48,310
+repository and application. properties
+we are not doing driver class so jdbc
+
+1200
+00:28:48,310 --> 00:28:48,320
+we are not doing driver class so jdbc
+ 
+
+1201
+00:28:48,320 --> 00:28:50,750
+we are not doing driver class so jdbc
+template loaded at the time of
+
+1202
+00:28:50,750 --> 00:28:50,760
+template loaded at the time of
+ 
+
+1203
+00:28:50,760 --> 00:28:53,470
+template loaded at the time of
+application startup in driver manager
+
+1204
+00:28:53,470 --> 00:28:53,480
+application startup in driver manager
+ 
+
+1205
+00:28:53,480 --> 00:28:55,269
+application startup in driver manager
+class let's see
+
+1206
+00:28:55,269 --> 00:28:55,279
+class let's see
+ 
+
+1207
+00:28:55,279 --> 00:28:58,990
+class let's see
+that so now let's see the
+
+1208
+00:28:58,990 --> 00:28:59,000
+that so now let's see the
+ 
+
+1209
+00:28:59,000 --> 00:29:01,269
+that so now let's see the
+driver manager class and I'm just
+
+1210
+00:29:01,269 --> 00:29:01,279
+driver manager class and I'm just
+ 
+
+1211
+00:29:01,279 --> 00:29:02,710
+driver manager class and I'm just
+starting an application so driver
+
+1212
+00:29:02,710 --> 00:29:02,720
+starting an application so driver
+ 
+
+1213
+00:29:02,720 --> 00:29:05,269
+starting an application so driver
+manager what we are saying is jdbc
+
+1214
+00:29:05,269 --> 00:29:05,279
+manager what we are saying is jdbc
+ 
+
+1215
+00:29:05,279 --> 00:29:07,750
+manager what we are saying is jdbc
+loaded at the time of application
+
+1216
+00:29:07,750 --> 00:29:07,760
+loaded at the time of application
+ 
+
+1217
+00:29:07,760 --> 00:29:10,509
+loaded at the time of application
+startup itself so now I'm starting the
+
+1218
+00:29:10,509 --> 00:29:10,519
+startup itself so now I'm starting the
+ 
+
+1219
+00:29:10,519 --> 00:29:13,389
+startup itself so now I'm starting the
+application in a debug mode now here if
+
+1220
+00:29:13,389 --> 00:29:13,399
+application in a debug mode now here if
+ 
+
+1221
+00:29:13,399 --> 00:29:15,950
+application in a debug mode now here if
+you see during application startup
+
+1222
+00:29:15,950 --> 00:29:15,960
+you see during application startup
+ 
+
+1223
+00:29:15,960 --> 00:29:19,230
+you see during application startup
+itself it is doing class. for name for
+
+1224
+00:29:19,230 --> 00:29:19,240
+itself it is doing class. for name for
+ 
+
+1225
+00:29:19,240 --> 00:29:21,509
+itself it is doing class. for name for
+us earlier we used to do in the plain
+
+1226
+00:29:21,509 --> 00:29:21,519
+us earlier we used to do in the plain
+ 
+
+1227
+00:29:21,519 --> 00:29:24,750
+us earlier we used to do in the plain
+jdbc now it is doing it okay and here if
+
+1228
+00:29:24,750 --> 00:29:24,760
+jdbc now it is doing it okay and here if
+ 
+
+1229
+00:29:24,760 --> 00:29:26,870
+jdbc now it is doing it okay and here if
+you see that it has the data which we
+
+1230
+00:29:26,870 --> 00:29:26,880
+you see that it has the data which we
+ 
+
+1231
+00:29:26,880 --> 00:29:28,990
+you see that it has the data which we
+provided all. as2 driver in the
+
+1232
+00:29:28,990 --> 00:29:29,000
+provided all. as2 driver in the
+ 
+
+1233
+00:29:29,000 --> 00:29:32,149
+provided all. as2 driver in the
+application. properties okay so one
+
+1234
+00:29:32,149 --> 00:29:32,159
+application. properties okay so one
+ 
+
+1235
+00:29:32,159 --> 00:29:35,230
+application. properties okay so one
+thing is driver class loading is now get
+
+1236
+00:29:35,230 --> 00:29:35,240
+thing is driver class loading is now get
+ 
+
+1237
+00:29:35,240 --> 00:29:37,830
+thing is driver class loading is now get
+abstracted from us jdbc template does
+
+1238
+00:29:37,830 --> 00:29:37,840
+abstracted from us jdbc template does
+ 
+
+1239
+00:29:37,840 --> 00:29:41,509
+abstracted from us jdbc template does
+it database connection making now you
+
+1240
+00:29:41,509 --> 00:29:41,519
+it database connection making now you
+ 
+
+1241
+00:29:41,519 --> 00:29:43,830
+it database connection making now you
+can ask here in this when is the
+
+1242
+00:29:43,830 --> 00:29:43,840
+can ask here in this when is the
+ 
+
+1243
+00:29:43,840 --> 00:29:46,190
+can ask here in this when is the
+database connection happening happen
+
+1244
+00:29:46,190 --> 00:29:46,200
+database connection happening happen
+ 
+
+1245
+00:29:46,200 --> 00:29:48,669
+database connection happening happen
+whenever we run any particular query
+
+1246
+00:29:48,669 --> 00:29:48,679
+whenever we run any particular query
+ 
+
+1247
+00:29:48,679 --> 00:29:52,269
+whenever we run any particular query
+through jdbc template like like do
+
+1248
+00:29:52,269 --> 00:29:52,279
+through jdbc template like like do
+ 
+
+1249
+00:29:52,279 --> 00:29:57,350
+through jdbc template like like do
+update do query at that point of time it
+
+1250
+00:29:57,350 --> 00:29:57,360
+update do query at that point of time it
+ 
+
+1251
+00:29:57,360 --> 00:29:59,430
+update do query at that point of time it
+tried to create create a corre
+
+1252
+00:29:59,430 --> 00:29:59,440
+tried to create create a corre
+ 
+
+1253
+00:29:59,440 --> 00:30:02,710
+tried to create create a corre
+connection okay so connection making
+
+1254
+00:30:02,710 --> 00:30:02,720
+connection okay so connection making
+ 
+
+1255
+00:30:02,720 --> 00:30:04,630
+connection okay so connection making
+from the either it has to make a new
+
+1256
+00:30:04,630 --> 00:30:04,640
+from the either it has to make a new
+ 
+
+1257
+00:30:04,640 --> 00:30:06,310
+from the either it has to make a new
+connection it will create that time or
+
+1258
+00:30:06,310 --> 00:30:06,320
+connection it will create that time or
+ 
+
+1259
+00:30:06,320 --> 00:30:08,789
+connection it will create that time or
+it has to take from the pool it will do
+
+1260
+00:30:08,789 --> 00:30:08,799
+it has to take from the pool it will do
+ 
+
+1261
+00:30:08,799 --> 00:30:11,269
+it has to take from the pool it will do
+that time itself now let's say that
+
+1262
+00:30:11,269 --> 00:30:11,279
+that time itself now let's say that
+ 
+
+1263
+00:30:11,279 --> 00:30:13,990
+that time itself now let's say that
+insert user I am trying to insert so if
+
+1264
+00:30:13,990 --> 00:30:14,000
+insert user I am trying to insert so if
+ 
+
+1265
+00:30:14,000 --> 00:30:16,590
+insert user I am trying to insert so if
+you go inside this
+
+1266
+00:30:16,590 --> 00:30:16,600
+you go inside this
+ 
+
+1267
+00:30:16,600 --> 00:30:18,149
+you go inside this
+update
+
+1268
+00:30:18,149 --> 00:30:18,159
+update
+ 
+
+1269
+00:30:18,159 --> 00:30:21,750
+update
+update this method it do execute if you
+
+1270
+00:30:21,750 --> 00:30:21,760
+update this method it do execute if you
+ 
+
+1271
+00:30:21,760 --> 00:30:23,630
+update this method it do execute if you
+go inside
+
+1272
+00:30:23,630 --> 00:30:23,640
+go inside
+ 
+
+1273
+00:30:23,640 --> 00:30:27,310
+go inside
+this it do this data source utils get
+
+1274
+00:30:27,310 --> 00:30:27,320
+this it do this data source utils get
+ 
+
+1275
+00:30:27,320 --> 00:30:29,269
+this it do this data source utils get
+connection
+
+1276
+00:30:29,269 --> 00:30:29,279
+connection
+ 
+
+1277
+00:30:29,279 --> 00:30:32,509
+connection
+okay so if you go inside this it will
+
+1278
+00:30:32,509 --> 00:30:32,519
+okay so if you go inside this it will
+ 
+
+1279
+00:30:32,519 --> 00:30:35,029
+okay so if you go inside this it will
+actually handles like the connection
+
+1280
+00:30:35,029 --> 00:30:35,039
+actually handles like the connection
+ 
+
+1281
+00:30:35,039 --> 00:30:37,870
+actually handles like the connection
+making do get connection from the data
+
+1282
+00:30:37,870 --> 00:30:37,880
+making do get connection from the data
+ 
+
+1283
+00:30:37,880 --> 00:30:41,750
+making do get connection from the data
+source okay exception handling so
+
+1284
+00:30:41,750 --> 00:30:41,760
+source okay exception handling so
+ 
+
+1285
+00:30:41,760 --> 00:30:44,590
+source okay exception handling so
+exception in plain jdbc we get very
+
+1286
+00:30:44,590 --> 00:30:44,600
+exception in plain jdbc we get very
+ 
+
+1287
+00:30:44,600 --> 00:30:48,310
+exception in plain jdbc we get very
+abstracted SQL exception but in jdbc
+
+1288
+00:30:48,310 --> 00:30:48,320
+abstracted SQL exception but in jdbc
+ 
+
+1289
+00:30:48,320 --> 00:30:51,590
+abstracted SQL exception but in jdbc
+template we get granual error like
+
+1290
+00:30:51,590 --> 00:30:51,600
+template we get granual error like
+ 
+
+1291
+00:30:51,600 --> 00:30:54,269
+template we get granual error like
+duplicate key exception query timeout
+
+1292
+00:30:54,269 --> 00:30:54,279
+duplicate key exception query timeout
+ 
+
+1293
+00:30:54,279 --> 00:30:58,870
+duplicate key exception query timeout
+exception so if you go this package a.
+
+1294
+00:30:58,870 --> 00:30:58,880
+exception so if you go this package a.
+ 
+
+1295
+00:30:58,880 --> 00:31:02,669
+exception so if you go this package a.
+springf framework. Dow package so let's
+
+1296
+00:31:02,669 --> 00:31:02,679
+springf framework. Dow package so let's
+ 
+
+1297
+00:31:02,679 --> 00:31:05,669
+springf framework. Dow package so let's
+see that package here if we see this
+
+1298
+00:31:05,669 --> 00:31:05,679
+see that package here if we see this
+ 
+
+1299
+00:31:05,679 --> 00:31:10,029
+see that package here if we see this
+package Dow on do spring framework. Dow
+
+1300
+00:31:10,029 --> 00:31:10,039
+package Dow on do spring framework. Dow
+ 
+
+1301
+00:31:10,039 --> 00:31:12,269
+package Dow on do spring framework. Dow
+package these are the different type of
+
+1302
+00:31:12,269 --> 00:31:12,279
+package these are the different type of
+ 
+
+1303
+00:31:12,279 --> 00:31:14,629
+package these are the different type of
+exception it provide cannot acquire lock
+
+1304
+00:31:14,629 --> 00:31:14,639
+exception it provide cannot acquire lock
+ 
+
+1305
+00:31:14,639 --> 00:31:18,830
+exception it provide cannot acquire lock
+exception data access exception data in
+
+1306
+00:31:18,830 --> 00:31:18,840
+exception data access exception data in
+ 
+
+1307
+00:31:18,840 --> 00:31:21,470
+exception data access exception data in
+Integrity violation exception duplicate
+
+1308
+00:31:21,470 --> 00:31:21,480
+Integrity violation exception duplicate
+ 
+
+1309
+00:31:21,480 --> 00:31:24,950
+Integrity violation exception duplicate
+key exception empty results exception so
+
+1310
+00:31:24,950 --> 00:31:24,960
+key exception empty results exception so
+ 
+
+1311
+00:31:24,960 --> 00:31:27,669
+key exception empty results exception so
+there are different type of exceptions
+
+1312
+00:31:27,669 --> 00:31:27,679
+there are different type of exceptions
+ 
+
+1313
+00:31:27,679 --> 00:31:31,230
+there are different type of exceptions
+can and come query timeout exception so
+
+1314
+00:31:31,230 --> 00:31:31,240
+can and come query timeout exception so
+ 
+
+1315
+00:31:31,240 --> 00:31:34,509
+can and come query timeout exception so
+all this jdbc template do mapping
+
+1316
+00:31:34,509 --> 00:31:34,519
+all this jdbc template do mapping
+ 
+
+1317
+00:31:34,519 --> 00:31:36,549
+all this jdbc template do mapping
+internally from instead of just throwing
+
+1318
+00:31:36,549 --> 00:31:36,559
+internally from instead of just throwing
+ 
+
+1319
+00:31:36,559 --> 00:31:39,710
+internally from instead of just throwing
+SQL exception it throws a granual level
+
+1320
+00:31:39,710 --> 00:31:39,720
+SQL exception it throws a granual level
+ 
+
+1321
+00:31:39,720 --> 00:31:41,789
+SQL exception it throws a granual level
+of exception and through spring boot in
+
+1322
+00:31:41,789 --> 00:31:41,799
+of exception and through spring boot in
+ 
+
+1323
+00:31:41,799 --> 00:31:43,669
+of exception and through spring boot in
+the previous video I have already told
+
+1324
+00:31:43,669 --> 00:31:43,679
+the previous video I have already told
+ 
+
+1325
+00:31:43,679 --> 00:31:46,669
+the previous video I have already told
+you how you can handle a exception of
+
+1326
+00:31:46,669 --> 00:31:46,679
+you how you can handle a exception of
+ 
+
+1327
+00:31:46,679 --> 00:31:50,870
+you how you can handle a exception of
+any particular type okay but you get
+
+1328
+00:31:50,870 --> 00:31:50,880
+any particular type okay but you get
+ 
+
+1329
+00:31:50,880 --> 00:31:54,629
+any particular type okay but you get
+some granual level exception and you can
+
+1330
+00:31:54,629 --> 00:31:54,639
+some granual level exception and you can
+ 
+
+1331
+00:31:54,639 --> 00:31:57,269
+some granual level exception and you can
+handle it properly it is not very like
+
+1332
+00:31:57,269 --> 00:31:57,279
+handle it properly it is not very like
+ 
+
+1333
+00:31:57,279 --> 00:31:59,789
+handle it properly it is not very like
+abstraction SQL exception happen what we
+
+1334
+00:31:59,789 --> 00:31:59,799
+abstraction SQL exception happen what we
+ 
+
+1335
+00:31:59,799 --> 00:32:01,669
+abstraction SQL exception happen what we
+don't
+
+1336
+00:32:01,669 --> 00:32:01,679
+don't
+ 
+
+1337
+00:32:01,679 --> 00:32:04,149
+don't
+know closing of the DB connection and
+
+1338
+00:32:04,149 --> 00:32:04,159
+know closing of the DB connection and
+ 
+
+1339
+00:32:04,159 --> 00:32:06,110
+know closing of the DB connection and
+other resources now again you can ask me
+
+1340
+00:32:06,110 --> 00:32:06,120
+other resources now again you can ask me
+ 
+
+1341
+00:32:06,120 --> 00:32:08,990
+other resources now again you can ask me
+sh like in the spring boot jdbc we are
+
+1342
+00:32:08,990 --> 00:32:09,000
+sh like in the spring boot jdbc we are
+ 
+
+1343
+00:32:09,000 --> 00:32:11,430
+sh like in the spring boot jdbc we are
+just using J jdbc template to execute
+
+1344
+00:32:11,430 --> 00:32:11,440
+just using J jdbc template to execute
+ 
+
+1345
+00:32:11,440 --> 00:32:14,870
+just using J jdbc template to execute
+the query okay plane query update but
+
+1346
+00:32:14,870 --> 00:32:14,880
+the query okay plane query update but
+ 
+
+1347
+00:32:14,880 --> 00:32:17,909
+the query okay plane query update but
+where are we closing it again that is
+
+1348
+00:32:17,909 --> 00:32:17,919
+where are we closing it again that is
+ 
+
+1349
+00:32:17,919 --> 00:32:22,590
+where are we closing it again that is
+handled by your jdbc template itself now
+
+1350
+00:32:22,590 --> 00:32:22,600
+handled by your jdbc template itself now
+ 
+
+1351
+00:32:22,600 --> 00:32:23,870
+handled by your jdbc template itself now
+let's goes
+
+1352
+00:32:23,870 --> 00:32:23,880
+let's goes
+ 
+
+1353
+00:32:23,880 --> 00:32:28,029
+let's goes
+to uh here let's say jdbc template.
+
+1354
+00:32:28,029 --> 00:32:28,039
+to uh here let's say jdbc template.
+ 
+
+1355
+00:32:28,039 --> 00:32:30,190
+to uh here let's say jdbc template.
+update I trying to insert right if you
+
+1356
+00:32:30,190 --> 00:32:30,200
+update I trying to insert right if you
+ 
+
+1357
+00:32:30,200 --> 00:32:32,350
+update I trying to insert right if you
+go inside
+
+1358
+00:32:32,350 --> 00:32:32,360
+go inside
+ 
+
+1359
+00:32:32,360 --> 00:32:36,950
+go inside
+this in the finally block it do cleanup
+
+1360
+00:32:36,950 --> 00:32:36,960
+this in the finally block it do cleanup
+ 
+
+1361
+00:32:36,960 --> 00:32:40,669
+this in the finally block it do cleanup
+parameters okay okay so here it has a
+
+1362
+00:32:40,669 --> 00:32:40,679
+parameters okay okay so here it has a
+ 
+
+1363
+00:32:40,679 --> 00:32:43,149
+parameters okay okay so here it has a
+proper knowledge that whether I have to
+
+1364
+00:32:43,149 --> 00:32:43,159
+proper knowledge that whether I have to
+ 
+
+1365
+00:32:43,159 --> 00:32:45,350
+proper knowledge that whether I have to
+close the connection or whether I have
+
+1366
+00:32:45,350 --> 00:32:45,360
+close the connection or whether I have
+ 
+
+1367
+00:32:45,360 --> 00:32:49,070
+close the connection or whether I have
+to put it back into the pool okay so you
+
+1368
+00:32:49,070 --> 00:32:49,080
+to put it back into the pool okay so you
+ 
+
+1369
+00:32:49,080 --> 00:32:50,909
+to put it back into the pool okay so you
+don't have to handle it that is also
+
+1370
+00:32:50,909 --> 00:32:50,919
+don't have to handle it that is also
+ 
+
+1371
+00:32:50,919 --> 00:32:53,029
+don't have to handle it that is also
+handled by your jdbc
+
+1372
+00:32:53,029 --> 00:32:53,039
+handled by your jdbc
+ 
+
+1373
+00:32:53,039 --> 00:32:56,430
+handled by your jdbc
+itself and the last thing is herey sh
+
+1374
+00:32:56,430 --> 00:32:56,440
+itself and the last thing is herey sh
+ 
+
+1375
+00:32:56,440 --> 00:32:58,509
+itself and the last thing is herey sh
+what about the DB connection pool still
+
+1376
+00:32:58,509 --> 00:32:58,519
+what about the DB connection pool still
+ 
+
+1377
+00:32:58,519 --> 00:33:01,870
+what about the DB connection pool still
+here I do not see where we are writing
+
+1378
+00:33:01,870 --> 00:33:01,880
+here I do not see where we are writing
+ 
+
+1379
+00:33:01,880 --> 00:33:05,389
+here I do not see where we are writing
+the connection pool logic like in a
+
+1380
+00:33:05,389 --> 00:33:05,399
+the connection pool logic like in a
+ 
+
+1381
+00:33:05,399 --> 00:33:09,230
+the connection pool logic like in a
+connection pool I have only this
+
+1382
+00:33:09,230 --> 00:33:09,240
+connection pool I have only this
+ 
+
+1383
+00:33:09,240 --> 00:33:12,070
+connection pool I have only this
+uh five
+
+1384
+00:33:12,070 --> 00:33:12,080
+uh five
+ 
+
+1385
+00:33:12,080 --> 00:33:16,310
+uh five
+jdbc connection pool and only this five
+
+1386
+00:33:16,310 --> 00:33:16,320
+jdbc connection pool and only this five
+ 
+
+1387
+00:33:16,320 --> 00:33:17,230
+jdbc connection pool and only this five
+would be
+
+1388
+00:33:17,230 --> 00:33:17,240
+would be
+ 
+
+1389
+00:33:17,240 --> 00:33:20,629
+would be
+used who is doing that so here if you
+
+1390
+00:33:20,629 --> 00:33:20,639
+used who is doing that so here if you
+ 
+
+1391
+00:33:20,639 --> 00:33:23,350
+used who is doing that so here if you
+see when you have defined this
+
+1392
+00:33:23,350 --> 00:33:23,360
+see when you have defined this
+ 
+
+1393
+00:33:23,360 --> 00:33:27,269
+see when you have defined this
+application. properties in data source
+
+1394
+00:33:27,269 --> 00:33:27,279
+application. properties in data source
+ 
+
+1395
+00:33:27,279 --> 00:33:28,310
+application. properties in data source
+okay
+
+1396
+00:33:28,310 --> 00:33:28,320
+okay
+ 
+
+1397
+00:33:28,320 --> 00:33:32,070
+okay
+so means you are relying on Spring boot
+
+1398
+00:33:32,070 --> 00:33:32,080
+so means you are relying on Spring boot
+ 
+
+1399
+00:33:32,080 --> 00:33:33,389
+so means you are relying on Spring boot
+that
+
+1400
+00:33:33,389 --> 00:33:33,399
+that
+ 
+
+1401
+00:33:33,399 --> 00:33:36,230
+that
+hey you use the data
+
+1402
+00:33:36,230 --> 00:33:36,240
+hey you use the data
+ 
+
+1403
+00:33:36,240 --> 00:33:39,350
+hey you use the data
+source see data source object right it
+
+1404
+00:33:39,350 --> 00:33:39,360
+source see data source object right it
+ 
+
+1405
+00:33:39,360 --> 00:33:40,950
+source see data source object right it
+helps you to connect to the database and
+
+1406
+00:33:40,950 --> 00:33:40,960
+helps you to connect to the database and
+ 
+
+1407
+00:33:40,960 --> 00:33:43,990
+helps you to connect to the database and
+helps to manage connection pool but here
+
+1408
+00:33:43,990 --> 00:33:44,000
+helps to manage connection pool but here
+ 
+
+1409
+00:33:44,000 --> 00:33:46,310
+helps to manage connection pool but here
+we just provided like what is the driver
+
+1410
+00:33:46,310 --> 00:33:46,320
+we just provided like what is the driver
+ 
+
+1411
+00:33:46,320 --> 00:33:48,830
+we just provided like what is the driver
+what is the URL username password we
+
+1412
+00:33:48,830 --> 00:33:48,840
+what is the URL username password we
+ 
+
+1413
+00:33:48,840 --> 00:33:50,669
+what is the URL username password we
+didn't tell like what data source we
+
+1414
+00:33:50,669 --> 00:33:50,679
+didn't tell like what data source we
+ 
+
+1415
+00:33:50,679 --> 00:33:53,269
+didn't tell like what data source we
+want to use there are different data
+
+1416
+00:33:53,269 --> 00:33:53,279
+want to use there are different data
+ 
+
+1417
+00:33:53,279 --> 00:33:56,230
+want to use there are different data
+sources which we can use but here we
+
+1418
+00:33:56,230 --> 00:33:56,240
+sources which we can use but here we
+ 
+
+1419
+00:33:56,240 --> 00:34:00,269
+sources which we can use but here we
+haven't told it so spring board use by
+
+1420
+00:34:00,269 --> 00:34:00,279
+haven't told it so spring board use by
+ 
+
+1421
+00:34:00,279 --> 00:34:04,629
+haven't told it so spring board use by
+default Hikari data source and Hikari
+
+1422
+00:34:04,629 --> 00:34:04,639
+default Hikari data source and Hikari
+ 
+
+1423
+00:34:04,639 --> 00:34:06,710
+default Hikari data source and Hikari
+data source also provide Hikari
+
+1424
+00:34:06,710 --> 00:34:06,720
+data source also provide Hikari
+ 
+
+1425
+00:34:06,720 --> 00:34:07,790
+data source also provide Hikari
+connection
+
+1426
+00:34:07,790 --> 00:34:07,800
+connection
+ 
+
+1427
+00:34:07,800 --> 00:34:10,990
+connection
+pool so now here if you
+
+1428
+00:34:10,990 --> 00:34:11,000
+pool so now here if you
+ 
+
+1429
+00:34:11,000 --> 00:34:13,790
+pool so now here if you
+see Hikari provide default jdbc
+
+1430
+00:34:13,790 --> 00:34:13,800
+see Hikari provide default jdbc
+ 
+
+1431
+00:34:13,800 --> 00:34:15,669
+see Hikari provide default jdbc
+connection pool that is Hikari CP
+
+1432
+00:34:15,669 --> 00:34:15,679
+connection pool that is Hikari CP
+ 
+
+1433
+00:34:15,679 --> 00:34:18,270
+connection pool that is Hikari CP
+connection pool with minimum and maximum
+
+1434
+00:34:18,270 --> 00:34:18,280
+connection pool with minimum and maximum
+ 
+
+1435
+00:34:18,280 --> 00:34:20,030
+connection pool with minimum and maximum
+pool size of
+
+1436
+00:34:20,030 --> 00:34:20,040
+pool size of
+ 
+
+1437
+00:34:20,040 --> 00:34:22,790
+pool size of
+10 and we can change the configuration
+
+1438
+00:34:22,790 --> 00:34:22,800
+10 and we can change the configuration
+ 
+
+1439
+00:34:22,800 --> 00:34:24,430
+10 and we can change the configuration
+in application. properties so in
+
+1440
+00:34:24,430 --> 00:34:24,440
+in application. properties so in
+ 
+
+1441
+00:34:24,440 --> 00:34:26,230
+in application. properties so in
+application do properties you can put
+
+1442
+00:34:26,230 --> 00:34:26,240
+application do properties you can put
+ 
+
+1443
+00:34:26,240 --> 00:34:29,149
+application do properties you can put
+like spring. data source s Hikari
+
+1444
+00:34:29,149 --> 00:34:29,159
+like spring. data source s Hikari
+ 
+
+1445
+00:34:29,159 --> 00:34:31,349
+like spring. data source s Hikari
+maximum pool is 10 and the minimum is
+
+1446
+00:34:31,349 --> 00:34:31,359
+maximum pool is 10 and the minimum is
+ 
+
+1447
+00:34:31,359 --> 00:34:35,550
+maximum pool is 10 and the minimum is
+five by default is 10 10 so here if you
+
+1448
+00:34:35,550 --> 00:34:35,560
+five by default is 10 10 so here if you
+ 
+
+1449
+00:34:35,560 --> 00:34:38,909
+five by default is 10 10 so here if you
+see we can check like uh how it is
+
+1450
+00:34:38,909 --> 00:34:38,919
+see we can check like uh how it is
+ 
+
+1451
+00:34:38,919 --> 00:34:43,550
+see we can check like uh how it is
+making a connection so uh Hikari data
+
+1452
+00:34:43,550 --> 00:34:43,560
+making a connection so uh Hikari data
+ 
+
+1453
+00:34:43,560 --> 00:34:46,190
+making a connection so uh Hikari data
+source whenever it will do get
+
+1454
+00:34:46,190 --> 00:34:46,200
+source whenever it will do get
+ 
+
+1455
+00:34:46,200 --> 00:34:49,909
+source whenever it will do get
+connection let's see
+
+1456
+00:34:49,909 --> 00:34:49,919
+
+ 
+
+1457
+00:34:49,919 --> 00:34:53,950
+
+that okay so hiari data source it
+
+1458
+00:34:53,950 --> 00:34:53,960
+that okay so hiari data source it
+ 
+
+1459
+00:34:53,960 --> 00:34:56,710
+that okay so hiari data source it
+came so here if you see Hikari pool it
+
+1460
+00:34:56,710 --> 00:34:56,720
+came so here if you see Hikari pool it
+ 
+
+1461
+00:34:56,720 --> 00:34:59,230
+came so here if you see Hikari pool it
+is using
+
+1462
+00:34:59,230 --> 00:34:59,240
+is using
+ 
+
+1463
+00:34:59,240 --> 00:35:01,470
+is using
+connection time out idle time out
+
+1464
+00:35:01,470 --> 00:35:01,480
+connection time out idle time out
+ 
+
+1465
+00:35:01,480 --> 00:35:04,430
+connection time out idle time out
+maximum maximum pool size 10 minimum is
+
+1466
+00:35:04,430 --> 00:35:04,440
+maximum maximum pool size 10 minimum is
+ 
+
+1467
+00:35:04,440 --> 00:35:08,550
+maximum maximum pool size 10 minimum is
+10 okay so spring boot act this Hikari
+
+1468
+00:35:08,550 --> 00:35:08,560
+10 okay so spring boot act this Hikari
+ 
+
+1469
+00:35:08,560 --> 00:35:10,829
+10 okay so spring boot act this Hikari
+is actually very efficient and it's very
+
+1470
+00:35:10,829 --> 00:35:10,839
+is actually very efficient and it's very
+ 
+
+1471
+00:35:10,839 --> 00:35:12,910
+is actually very efficient and it's very
+fast actually and no matter if you're
+
+1472
+00:35:12,910 --> 00:35:12,920
+fast actually and no matter if you're
+ 
+
+1473
+00:35:12,920 --> 00:35:17,150
+fast actually and no matter if you're
+using SQL postgress or S2 spring boot by
+
+1474
+00:35:17,150 --> 00:35:17,160
+using SQL postgress or S2 spring boot by
+ 
+
+1475
+00:35:17,160 --> 00:35:19,630
+using SQL postgress or S2 spring boot by
+default uses this only this data source
+
+1476
+00:35:19,630 --> 00:35:19,640
+default uses this only this data source
+ 
+
+1477
+00:35:19,640 --> 00:35:22,829
+default uses this only this data source
+only but if you want to use any other
+
+1478
+00:35:22,829 --> 00:35:22,839
+only but if you want to use any other
+ 
+
+1479
+00:35:22,839 --> 00:35:24,950
+only but if you want to use any other
+specific uh jdbc connection pool you
+
+1480
+00:35:24,950 --> 00:35:24,960
+specific uh jdbc connection pool you
+ 
+
+1481
+00:35:24,960 --> 00:35:27,470
+specific uh jdbc connection pool you
+don't want to use Hikari you don't you
+
+1482
+00:35:27,470 --> 00:35:27,480
+don't want to use Hikari you don't you
+ 
+
+1483
+00:35:27,480 --> 00:35:29,750
+don't want to use Hikari you don't you
+have you want to use some other one
+
+1484
+00:35:29,750 --> 00:35:29,760
+have you want to use some other one
+ 
+
+1485
+00:35:29,760 --> 00:35:32,430
+have you want to use some other one
+right uh maybe some from Apache or some
+
+1486
+00:35:32,430 --> 00:35:32,440
+right uh maybe some from Apache or some
+ 
+
+1487
+00:35:32,440 --> 00:35:34,950
+right uh maybe some from Apache or some
+uh something some other jdbc connection
+
+1488
+00:35:34,950 --> 00:35:34,960
+uh something some other jdbc connection
+ 
+
+1489
+00:35:34,960 --> 00:35:37,990
+uh something some other jdbc connection
+pool then instead of putting into the
+
+1490
+00:35:37,990 --> 00:35:38,000
+pool then instead of putting into the
+ 
+
+1491
+00:35:38,000 --> 00:35:39,710
+pool then instead of putting into the
+application. properties you don't have
+
+1492
+00:35:39,710 --> 00:35:39,720
+application. properties you don't have
+ 
+
+1493
+00:35:39,720 --> 00:35:42,829
+application. properties you don't have
+to put into application. properties then
+
+1494
+00:35:42,829 --> 00:35:42,839
+to put into application. properties then
+ 
+
+1495
+00:35:42,839 --> 00:35:46,069
+to put into application. properties then
+you can in your configuration at theate
+
+1496
+00:35:46,069 --> 00:35:46,079
+you can in your configuration at theate
+ 
+
+1497
+00:35:46,079 --> 00:35:49,349
+you can in your configuration at theate
+configuration class app config class you
+
+1498
+00:35:49,349 --> 00:35:49,359
+configuration class app config class you
+ 
+
+1499
+00:35:49,359 --> 00:35:50,750
+configuration class app config class you
+can create a
+
+1500
+00:35:50,750 --> 00:35:50,760
+can create a
+ 
+
+1501
+00:35:50,760 --> 00:35:54,030
+can create a
+bean of data source and then you can use
+
+1502
+00:35:54,030 --> 00:35:54,040
+bean of data source and then you can use
+ 
+
+1503
+00:35:54,040 --> 00:35:55,910
+bean of data source and then you can use
+whichever data source you want here in
+
+1504
+00:35:55,910 --> 00:35:55,920
+whichever data source you want here in
+ 
+
+1505
+00:35:55,920 --> 00:35:57,950
+whichever data source you want here in
+this for example I'm using the same Ki
+
+1506
+00:35:57,950 --> 00:35:57,960
+this for example I'm using the same Ki
+ 
+
+1507
+00:35:57,960 --> 00:36:00,990
+this for example I'm using the same Ki
+data source only okay uh but you can
+
+1508
+00:36:00,990 --> 00:36:01,000
+data source only okay uh but you can
+ 
+
+1509
+00:36:01,000 --> 00:36:03,030
+data source only okay uh but you can
+change it to any other jdbc connection
+
+1510
+00:36:03,030 --> 00:36:03,040
+change it to any other jdbc connection
+ 
+
+1511
+00:36:03,040 --> 00:36:05,990
+change it to any other jdbc connection
+pool which is available and you can use
+
+1512
+00:36:05,990 --> 00:36:06,000
+pool which is available and you can use
+ 
+
+1513
+00:36:06,000 --> 00:36:08,390
+pool which is available and you can use
+it on your own so here driver class name
+
+1514
+00:36:08,390 --> 00:36:08,400
+it on your own so here driver class name
+ 
+
+1515
+00:36:08,400 --> 00:36:10,750
+it on your own so here driver class name
+jdb instead of now application.
+
+1516
+00:36:10,750 --> 00:36:10,760
+jdb instead of now application.
+ 
+
+1517
+00:36:10,760 --> 00:36:13,349
+jdb instead of now application.
+properties I am providing the
+
+1518
+00:36:13,349 --> 00:36:13,359
+properties I am providing the
+ 
+
+1519
+00:36:13,359 --> 00:36:15,190
+properties I am providing the
+configuration for the data source like
+
+1520
+00:36:15,190 --> 00:36:15,200
+configuration for the data source like
+ 
+
+1521
+00:36:15,200 --> 00:36:19,349
+configuration for the data source like
+this jdbc pool username password like
+
+1522
+00:36:19,349 --> 00:36:19,359
+this jdbc pool username password like
+ 
+
+1523
+00:36:19,359 --> 00:36:21,710
+this jdbc pool username password like
+this okay now here I don't need to
+
+1524
+00:36:21,710 --> 00:36:21,720
+this okay now here I don't need to
+ 
+
+1525
+00:36:21,720 --> 00:36:23,550
+this okay now here I don't need to
+provide uh in the application.
+
+1526
+00:36:23,550 --> 00:36:23,560
+provide uh in the application.
+ 
+
+1527
+00:36:23,560 --> 00:36:25,829
+provide uh in the application.
+properties now this data source would be
+
+1528
+00:36:25,829 --> 00:36:25,839
+properties now this data source would be
+ 
+
+1529
+00:36:25,839 --> 00:36:28,109
+properties now this data source would be
+used currently here I am using Hikari
+
+1530
+00:36:28,109 --> 00:36:28,119
+used currently here I am using Hikari
+ 
+
+1531
+00:36:28,119 --> 00:36:30,430
+used currently here I am using Hikari
+only but you can use any you can replace
+
+1532
+00:36:30,430 --> 00:36:30,440
+only but you can use any you can replace
+ 
+
+1533
+00:36:30,440 --> 00:36:33,069
+only but you can use any you can replace
+it with anything
+
+1534
+00:36:33,069 --> 00:36:33,079
+it with anything
+ 
+
+1535
+00:36:33,079 --> 00:36:36,430
+it with anything
+okay and uh yeah we can show the
+
+1536
+00:36:36,430 --> 00:36:36,440
+okay and uh yeah we can show the
+ 
+
+1537
+00:36:36,440 --> 00:36:41,390
+okay and uh yeah we can show the
+complete demo
+
+1538
+00:36:41,390 --> 00:36:41,400
+
+ 
+
+1539
+00:36:41,400 --> 00:36:44,109
+
+here so here if you see that let's see
+
+1540
+00:36:44,109 --> 00:36:44,119
+here so here if you see that let's see
+ 
+
+1541
+00:36:44,119 --> 00:36:46,990
+here so here if you see that let's see
+this I'm calling this API jdbc okay
+
+1542
+00:36:46,990 --> 00:36:47,000
+this I'm calling this API jdbc okay
+ 
+
+1543
+00:36:47,000 --> 00:36:49,710
+this I'm calling this API jdbc okay
+first it will do create
+
+1544
+00:36:49,710 --> 00:36:49,720
+first it will do create
+ 
+
+1545
+00:36:49,720 --> 00:36:52,150
+first it will do create
+table user table is
+
+1546
+00:36:52,150 --> 00:36:52,160
+table user table is
+ 
+
+1547
+00:36:52,160 --> 00:36:56,710
+table user table is
+created if it's not then user one is
+
+1548
+00:36:56,710 --> 00:36:56,720
+created if it's not then user one is
+ 
+
+1549
+00:36:56,720 --> 00:36:58,710
+created if it's not then user one is
+added user is
+
+1550
+00:36:58,710 --> 00:36:58,720
+added user is
+ 
+
+1551
+00:36:58,720 --> 00:37:01,510
+added user is
+added and after that what it is doing is
+
+1552
+00:37:01,510 --> 00:37:01,520
+added and after that what it is doing is
+ 
+
+1553
+00:37:01,520 --> 00:37:05,270
+added and after that what it is doing is
+we are doing get user so we are using
+
+1554
+00:37:05,270 --> 00:37:05,280
+we are doing get user so we are using
+ 
+
+1555
+00:37:05,280 --> 00:37:07,430
+we are doing get user so we are using
+user service.
+
+1556
+00:37:07,430 --> 00:37:07,440
+user service.
+ 
+
+1557
+00:37:07,440 --> 00:37:10,510
+user service.
+getuser and this get user uh service
+
+1558
+00:37:10,510 --> 00:37:10,520
+getuser and this get user uh service
+ 
+
+1559
+00:37:10,520 --> 00:37:14,309
+getuser and this get user uh service
+layer calls repository it do get users
+
+1560
+00:37:14,309 --> 00:37:14,319
+layer calls repository it do get users
+ 
+
+1561
+00:37:14,319 --> 00:37:16,470
+layer calls repository it do get users
+so ultimately what are how many users we
+
+1562
+00:37:16,470 --> 00:37:16,480
+so ultimately what are how many users we
+ 
+
+1563
+00:37:16,480 --> 00:37:20,069
+so ultimately what are how many users we
+created two so I got a list of two users
+
+1564
+00:37:20,069 --> 00:37:20,079
+created two so I got a list of two users
+ 
+
+1565
+00:37:20,079 --> 00:37:23,870
+created two so I got a list of two users
+and I'm iterating it and printing
+
+1566
+00:37:23,870 --> 00:37:23,880
+
+ 
+
+1567
+00:37:23,880 --> 00:37:27,510
+
+it so two times it printed and ultimate
+
+1568
+00:37:27,510 --> 00:37:27,520
+it so two times it printed and ultimate
+ 
+
+1569
+00:37:27,520 --> 00:37:30,589
+it so two times it printed and ultimate
+Ely it returns list of user itself
+
+1570
+00:37:30,589 --> 00:37:30,599
+Ely it returns list of user itself
+ 
+
+1571
+00:37:30,599 --> 00:37:34,630
+Ely it returns list of user itself
+finished so here if you see two users it
+
+1572
+00:37:34,630 --> 00:37:34,640
+finished so here if you see two users it
+ 
+
+1573
+00:37:34,640 --> 00:37:37,589
+finished so here if you see two users it
+returns and also I was printing it so
+
+1574
+00:37:37,589 --> 00:37:37,599
+returns and also I was printing it so
+ 
+
+1575
+00:37:37,599 --> 00:37:39,790
+returns and also I was printing it so
+two users got
+
+1576
+00:37:39,790 --> 00:37:39,800
+two users got
+ 
+
+1577
+00:37:39,800 --> 00:37:43,470
+two users got
+printed okay jdbc template in Spring
+
+1578
+00:37:43,470 --> 00:37:43,480
+printed okay jdbc template in Spring
+ 
+
+1579
+00:37:43,480 --> 00:37:45,870
+printed okay jdbc template in Spring
+boot has couple of methods very
+
+1580
+00:37:45,870 --> 00:37:45,880
+boot has couple of methods very
+ 
+
+1581
+00:37:45,880 --> 00:37:48,790
+boot has couple of methods very
+frequently used method I will tell you
+
+1582
+00:37:48,790 --> 00:37:48,800
+frequently used method I will tell you
+ 
+
+1583
+00:37:48,800 --> 00:37:50,710
+frequently used method I will tell you
+one is
+
+1584
+00:37:50,710 --> 00:37:50,720
+one is
+ 
+
+1585
+00:37:50,720 --> 00:37:54,190
+one is
+update and it takes two parameter one is
+
+1586
+00:37:54,190 --> 00:37:54,200
+update and it takes two parameter one is
+ 
+
+1587
+00:37:54,200 --> 00:37:57,990
+update and it takes two parameter one is
+SQL a string and another is where where
+
+1588
+00:37:57,990 --> 00:37:58,000
+SQL a string and another is where where
+ 
+
+1589
+00:37:58,000 --> 00:38:01,309
+SQL a string and another is where where
+AR variable arguments okay so this
+
+1590
+00:38:01,309 --> 00:38:01,319
+AR variable arguments okay so this
+ 
+
+1591
+00:38:01,319 --> 00:38:04,069
+AR variable arguments okay so this
+update method can be used for insert
+
+1592
+00:38:04,069 --> 00:38:04,079
+update method can be used for insert
+ 
+
+1593
+00:38:04,079 --> 00:38:06,309
+update method can be used for insert
+update and delete
+
+1594
+00:38:06,309 --> 00:38:06,319
+update and delete
+ 
+
+1595
+00:38:06,319 --> 00:38:08,670
+update and delete
+operation so like
+
+1596
+00:38:08,670 --> 00:38:08,680
+operation so like
+ 
+
+1597
+00:38:08,680 --> 00:38:11,750
+operation so like
+this insert into user so I have written
+
+1598
+00:38:11,750 --> 00:38:11,760
+this insert into user so I have written
+ 
+
+1599
+00:38:11,760 --> 00:38:14,510
+this insert into user so I have written
+my SQL query as an string and two
+
+1600
+00:38:14,510 --> 00:38:14,520
+my SQL query as an string and two
+ 
+
+1601
+00:38:14,520 --> 00:38:17,030
+my SQL query as an string and two
+Dynamic values which I need to insert
+
+1602
+00:38:17,030 --> 00:38:17,040
+Dynamic values which I need to insert
+ 
+
+1603
+00:38:17,040 --> 00:38:19,430
+Dynamic values which I need to insert
+okay so this is my string now I'm using
+
+1604
+00:38:19,430 --> 00:38:19,440
+okay so this is my string now I'm using
+ 
+
+1605
+00:38:19,440 --> 00:38:24,470
+okay so this is my string now I'm using
+jdbc template. update your query and
+
+1606
+00:38:24,470 --> 00:38:24,480
+jdbc template. update your query and
+ 
+
+1607
+00:38:24,480 --> 00:38:26,750
+jdbc template. update your query and
+second is variable arguments like
+
+1608
+00:38:26,750 --> 00:38:26,760
+second is variable arguments like
+ 
+
+1609
+00:38:26,760 --> 00:38:28,990
+second is variable arguments like
+variable arguments 1 2 3 could be
+
+1610
+00:38:28,990 --> 00:38:29,000
+variable arguments 1 2 3 could be
+ 
+
+1611
+00:38:29,000 --> 00:38:31,990
+variable arguments 1 2 3 could be
+anything right so two Dynamic right so
+
+1612
+00:38:31,990 --> 00:38:32,000
+anything right so two Dynamic right so
+ 
+
+1613
+00:38:32,000 --> 00:38:35,510
+anything right so two Dynamic right so
+one is your string second is your
+
+1614
+00:38:35,510 --> 00:38:35,520
+one is your string second is your
+ 
+
+1615
+00:38:35,520 --> 00:38:37,190
+one is your string second is your
+integer this
+
+1616
+00:38:37,190 --> 00:38:37,200
+integer this
+ 
+
+1617
+00:38:37,200 --> 00:38:39,950
+integer this
+one okay similarly it can be used for
+
+1618
+00:38:39,950 --> 00:38:39,960
+one okay similarly it can be used for
+ 
+
+1619
+00:38:39,960 --> 00:38:42,030
+one okay similarly it can be used for
+update so this is one method very very
+
+1620
+00:38:42,030 --> 00:38:42,040
+update so this is one method very very
+ 
+
+1621
+00:38:42,040 --> 00:38:44,230
+update so this is one method very very
+commonly used method of jdbc
+
+1622
+00:38:44,230 --> 00:38:44,240
+commonly used method of jdbc
+ 
+
+1623
+00:38:44,240 --> 00:38:47,670
+commonly used method of jdbc
+template another is this one for
+
+1624
+00:38:47,670 --> 00:38:47,680
+template another is this one for
+ 
+
+1625
+00:38:47,680 --> 00:38:49,589
+template another is this one for
+updating
+
+1626
+00:38:49,589 --> 00:38:49,599
+updating
+ 
+
+1627
+00:38:49,599 --> 00:38:51,790
+updating
+update the same your query and the
+
+1628
+00:38:51,790 --> 00:38:51,800
+update the same your query and the
+ 
+
+1629
+00:38:51,800 --> 00:38:54,510
+update the same your query and the
+second is prepared statement Setter PSS
+
+1630
+00:38:54,510 --> 00:38:54,520
+second is prepared statement Setter PSS
+ 
+
+1631
+00:38:54,520 --> 00:38:56,870
+second is prepared statement Setter PSS
+you can say it is also you can use for
+
+1632
+00:38:56,870 --> 00:38:56,880
+you can say it is also you can use for
+ 
+
+1633
+00:38:56,880 --> 00:38:59,430
+you can say it is also you can use for
+insert update delete it is just for like
+
+1634
+00:38:59,430 --> 00:38:59,440
+insert update delete it is just for like
+ 
+
+1635
+00:38:59,440 --> 00:39:01,430
+insert update delete it is just for like
+more granual level or you can say that
+
+1636
+00:39:01,430 --> 00:39:01,440
+more granual level or you can say that
+ 
+
+1637
+00:39:01,440 --> 00:39:03,430
+more granual level or you can say that
+more if your queries are very very
+
+1638
+00:39:03,430 --> 00:39:03,440
+more if your queries are very very
+ 
+
+1639
+00:39:03,440 --> 00:39:06,150
+more if your queries are very very
+complex then prepared statement Setter
+
+1640
+00:39:06,150 --> 00:39:06,160
+complex then prepared statement Setter
+ 
+
+1641
+00:39:06,160 --> 00:39:07,630
+complex then prepared statement Setter
+is can be
+
+1642
+00:39:07,630 --> 00:39:07,640
+is can be
+ 
+
+1643
+00:39:07,640 --> 00:39:10,230
+is can be
+useful the similar first thing is insert
+
+1644
+00:39:10,230 --> 00:39:10,240
+useful the similar first thing is insert
+ 
+
+1645
+00:39:10,240 --> 00:39:13,190
+useful the similar first thing is insert
+query like you can write your string
+
+1646
+00:39:13,190 --> 00:39:13,200
+query like you can write your string
+ 
+
+1647
+00:39:13,200 --> 00:39:16,750
+query like you can write your string
+okay uh you have to set Dynamic values
+
+1648
+00:39:16,750 --> 00:39:16,760
+okay uh you have to set Dynamic values
+ 
+
+1649
+00:39:16,760 --> 00:39:19,790
+okay uh you have to set Dynamic values
+now I'm instead of uh using the previous
+
+1650
+00:39:19,790 --> 00:39:19,800
+now I'm instead of uh using the previous
+ 
+
+1651
+00:39:19,800 --> 00:39:22,550
+now I'm instead of uh using the previous
+I'm now using prepared statement Setter
+
+1652
+00:39:22,550 --> 00:39:22,560
+I'm now using prepared statement Setter
+ 
+
+1653
+00:39:22,560 --> 00:39:25,030
+I'm now using prepared statement Setter
+jdbc template. update the first
+
+1654
+00:39:25,030 --> 00:39:25,040
+jdbc template. update the first
+ 
+
+1655
+00:39:25,040 --> 00:39:28,270
+jdbc template. update the first
+parameter is your string query
+
+1656
+00:39:28,270 --> 00:39:28,280
+parameter is your string query
+ 
+
+1657
+00:39:28,280 --> 00:39:31,109
+parameter is your string query
+now second is prepared statement Setter
+
+1658
+00:39:31,109 --> 00:39:31,119
+now second is prepared statement Setter
+ 
+
+1659
+00:39:31,119 --> 00:39:34,470
+now second is prepared statement Setter
+so here if you see uh
+
+1660
+00:39:34,470 --> 00:39:34,480
+so here if you see uh
+ 
+
+1661
+00:39:34,480 --> 00:39:36,309
+so here if you see uh
+jdbc
+
+1662
+00:39:36,309 --> 00:39:36,319
+jdbc
+ 
+
+1663
+00:39:36,319 --> 00:39:39,990
+jdbc
+template update string
+
+1664
+00:39:39,990 --> 00:39:40,000
+template update string
+ 
+
+1665
+00:39:40,000 --> 00:39:42,829
+template update string
+SQL so yeah this prepared statement
+
+1666
+00:39:42,829 --> 00:39:42,839
+SQL so yeah this prepared statement
+ 
+
+1667
+00:39:42,839 --> 00:39:44,910
+SQL so yeah this prepared statement
+Setter here if you see it is a
+
+1668
+00:39:44,910 --> 00:39:44,920
+Setter here if you see it is a
+ 
+
+1669
+00:39:44,920 --> 00:39:47,550
+Setter here if you see it is a
+functional interface okay so you can use
+
+1670
+00:39:47,550 --> 00:39:47,560
+functional interface okay so you can use
+ 
+
+1671
+00:39:47,560 --> 00:39:49,750
+functional interface okay so you can use
+Lambda expression and it has only one
+
+1672
+00:39:49,750 --> 00:39:49,760
+Lambda expression and it has only one
+ 
+
+1673
+00:39:49,760 --> 00:39:51,750
+Lambda expression and it has only one
+method which need to be
+
+1674
+00:39:51,750 --> 00:39:51,760
+method which need to be
+ 
+
+1675
+00:39:51,760 --> 00:39:54,030
+method which need to be
+implemented okay so one
+
+1676
+00:39:54,030 --> 00:39:54,040
+implemented okay so one
+ 
+
+1677
+00:39:54,040 --> 00:39:57,069
+implemented okay so one
+method which accept prepared statement
+
+1678
+00:39:57,069 --> 00:39:57,079
+method which accept prepared statement
+ 
+
+1679
+00:39:57,079 --> 00:39:58,710
+method which accept prepared statement
+so
+
+1680
+00:39:58,710 --> 00:39:58,720
+so
+ 
+
+1681
+00:39:58,720 --> 00:40:00,270
+so
+that's why I'm using Lambda expression
+
+1682
+00:40:00,270 --> 00:40:00,280
+that's why I'm using Lambda expression
+ 
+
+1683
+00:40:00,280 --> 00:40:02,550
+that's why I'm using Lambda expression
+in Java playlist I've already explained
+
+1684
+00:40:02,550 --> 00:40:02,560
+in Java playlist I've already explained
+ 
+
+1685
+00:40:02,560 --> 00:40:04,550
+in Java playlist I've already explained
+it in depth how you can use Lambda
+
+1686
+00:40:04,550 --> 00:40:04,560
+it in depth how you can use Lambda
+ 
+
+1687
+00:40:04,560 --> 00:40:07,109
+it in depth how you can use Lambda
+expression so here I am just providing
+
+1688
+00:40:07,109 --> 00:40:07,119
+expression so here I am just providing
+ 
+
+1689
+00:40:07,119 --> 00:40:09,150
+expression so here I am just providing
+the implementation for that get values
+
+1690
+00:40:09,150 --> 00:40:09,160
+the implementation for that get values
+ 
+
+1691
+00:40:09,160 --> 00:40:11,349
+the implementation for that get values
+itself that whatever the prepared
+
+1692
+00:40:11,349 --> 00:40:11,359
+itself that whatever the prepared
+ 
+
+1693
+00:40:11,359 --> 00:40:13,870
+itself that whatever the prepared
+statement set the string the first one
+
+1694
+00:40:13,870 --> 00:40:13,880
+statement set the string the first one
+ 
+
+1695
+00:40:13,880 --> 00:40:17,670
+statement set the string the first one
+is a string username so for the first
+
+1696
+00:40:17,670 --> 00:40:17,680
+is a string username so for the first
+ 
+
+1697
+00:40:17,680 --> 00:40:21,109
+is a string username so for the first
+index it's a string second Index this
+
+1698
+00:40:21,109 --> 00:40:21,119
+index it's a string second Index this
+ 
+
+1699
+00:40:21,119 --> 00:40:21,950
+index it's a string second Index this
+one
+
+1700
+00:40:21,950 --> 00:40:21,960
+one
+ 
+
+1701
+00:40:21,960 --> 00:40:24,910
+one
+second is integer right so I'm providing
+
+1702
+00:40:24,910 --> 00:40:24,920
+second is integer right so I'm providing
+ 
+
+1703
+00:40:24,920 --> 00:40:27,870
+second is integer right so I'm providing
+H so this is fun to this is our index
+
+1704
+00:40:27,870 --> 00:40:27,880
+H so this is fun to this is our index
+ 
+
+1705
+00:40:27,880 --> 00:40:31,550
+H so this is fun to this is our index
+1 2 3 4 right so this is one this is two
+
+1706
+00:40:31,550 --> 00:40:31,560
+1 2 3 4 right so this is one this is two
+ 
+
+1707
+00:40:31,560 --> 00:40:32,829
+1 2 3 4 right so this is one this is two
+another question mark this would be
+
+1708
+00:40:32,829 --> 00:40:32,839
+another question mark this would be
+ 
+
+1709
+00:40:32,839 --> 00:40:36,630
+another question mark this would be
+three so this way you can add it okay so
+
+1710
+00:40:36,630 --> 00:40:36,640
+three so this way you can add it okay so
+ 
+
+1711
+00:40:36,640 --> 00:40:38,550
+three so this way you can add it okay so
+you can use it for insert update delete
+
+1712
+00:40:38,550 --> 00:40:38,560
+you can use it for insert update delete
+ 
+
+1713
+00:40:38,560 --> 00:40:41,349
+you can use it for insert update delete
+these are the two ways
+
+1714
+00:40:41,349 --> 00:40:41,359
+these are the two ways
+ 
+
+1715
+00:40:41,359 --> 00:40:43,829
+these are the two ways
+similarly now you have to fetch it right
+
+1716
+00:40:43,829 --> 00:40:43,839
+similarly now you have to fetch it right
+ 
+
+1717
+00:40:43,839 --> 00:40:45,069
+similarly now you have to fetch it right
+so one is
+
+1718
+00:40:45,069 --> 00:40:45,079
+so one is
+ 
+
+1719
+00:40:45,079 --> 00:40:48,190
+so one is
+query query method it takes one flavor
+
+1720
+00:40:48,190 --> 00:40:48,200
+query query method it takes one flavor
+ 
+
+1721
+00:40:48,200 --> 00:40:50,510
+query query method it takes one flavor
+is it takes two parameter one is a
+
+1722
+00:40:50,510 --> 00:40:50,520
+is it takes two parameter one is a
+ 
+
+1723
+00:40:50,520 --> 00:40:53,470
+is it takes two parameter one is a
+string which is your SQL query second is
+
+1724
+00:40:53,470 --> 00:40:53,480
+string which is your SQL query second is
+ 
+
+1725
+00:40:53,480 --> 00:40:56,750
+string which is your SQL query second is
+row mapper now it is used to F get
+
+1726
+00:40:56,750 --> 00:40:56,760
+row mapper now it is used to F get
+ 
+
+1727
+00:40:56,760 --> 00:40:59,670
+row mapper now it is used to F get
+multip mle rows you have to F multiple
+
+1728
+00:40:59,670 --> 00:40:59,680
+multip mle rows you have to F multiple
+ 
+
+1729
+00:40:59,680 --> 00:41:02,309
+multip mle rows you have to F multiple
+rows so now here if you see this query
+
+1730
+00:41:02,309 --> 00:41:02,319
+rows so now here if you see this query
+ 
+
+1731
+00:41:02,319 --> 00:41:04,630
+rows so now here if you see this query
+the jdbc template. query the first one
+
+1732
+00:41:04,630 --> 00:41:04,640
+the jdbc template. query the first one
+ 
+
+1733
+00:41:04,640 --> 00:41:07,670
+the jdbc template. query the first one
+is your select query a string and the
+
+1734
+00:41:07,670 --> 00:41:07,680
+is your select query a string and the
+ 
+
+1735
+00:41:07,680 --> 00:41:09,630
+is your select query a string and the
+second one is
+
+1736
+00:41:09,630 --> 00:41:09,640
+second one is
+ 
+
+1737
+00:41:09,640 --> 00:41:13,710
+second one is
+your row mapper so this row mapper is a
+
+1738
+00:41:13,710 --> 00:41:13,720
+your row mapper so this row mapper is a
+ 
+
+1739
+00:41:13,720 --> 00:41:15,430
+your row mapper so this row mapper is a
+functional interface which has one
+
+1740
+00:41:15,430 --> 00:41:15,440
+functional interface which has one
+ 
+
+1741
+00:41:15,440 --> 00:41:17,870
+functional interface which has one
+method map Pro which takes two
+
+1742
+00:41:17,870 --> 00:41:17,880
+method map Pro which takes two
+ 
+
+1743
+00:41:17,880 --> 00:41:20,750
+method map Pro which takes two
+parameters so that's why this two
+
+1744
+00:41:20,750 --> 00:41:20,760
+parameters so that's why this two
+ 
+
+1745
+00:41:20,760 --> 00:41:23,510
+parameters so that's why this two
+parameters and whenever this method get
+
+1746
+00:41:23,510 --> 00:41:23,520
+parameters and whenever this method get
+ 
+
+1747
+00:41:23,520 --> 00:41:25,150
+parameters and whenever this method get
+invoked this map
+
+1748
+00:41:25,150 --> 00:41:25,160
+invoked this map
+ 
+
+1749
+00:41:25,160 --> 00:41:28,030
+invoked this map
+Pro this is the implementation should
+
+1750
+00:41:28,030 --> 00:41:28,040
+Pro this is the implementation should
+ 
+
+1751
+00:41:28,040 --> 00:41:30,950
+Pro this is the implementation should
+run okay so see that what might be
+
+1752
+00:41:30,950 --> 00:41:30,960
+run okay so see that what might be
+ 
+
+1753
+00:41:30,960 --> 00:41:35,349
+run okay so see that what might be
+happening inside so in the user
+
+1754
+00:41:35,349 --> 00:41:35,359
+happening inside so in the user
+ 
+
+1755
+00:41:35,359 --> 00:41:38,069
+happening inside so in the user
+repository when I am doing get users
+
+1756
+00:41:38,069 --> 00:41:38,079
+repository when I am doing get users
+ 
+
+1757
+00:41:38,079 --> 00:41:40,829
+repository when I am doing get users
+let's see it might be doing
+
+1758
+00:41:40,829 --> 00:41:40,839
+let's see it might be doing
+ 
+
+1759
+00:41:40,839 --> 00:41:44,390
+let's see it might be doing
+query it going inside
+
+1760
+00:41:44,390 --> 00:41:44,400
+query it going inside
+ 
+
+1761
+00:41:44,400 --> 00:41:48,109
+query it going inside
+query uh
+
+1762
+00:41:48,109 --> 00:41:48,119
+query uh
+ 
+
+1763
+00:41:48,119 --> 00:41:51,190
+query uh
+here execute
+
+1764
+00:41:51,190 --> 00:41:51,200
+here execute
+ 
+
+1765
+00:41:51,200 --> 00:41:54,190
+here execute
+query after it executed the query it got
+
+1766
+00:41:54,190 --> 00:41:54,200
+query after it executed the query it got
+ 
+
+1767
+00:41:54,200 --> 00:41:55,910
+query after it executed the query it got
+a result set so result set can be like
+
+1768
+00:41:55,910 --> 00:41:55,920
+a result set so result set can be like
+ 
+
+1769
+00:41:55,920 --> 00:41:58,550
+a result set so result set can be like
+10 rows 20 rows then it has to extract
+
+1770
+00:41:58,550 --> 00:41:58,560
+10 rows 20 rows then it has to extract
+ 
+
+1771
+00:41:58,560 --> 00:41:59,910
+10 rows 20 rows then it has to extract
+data out of
+
+1772
+00:41:59,910 --> 00:41:59,920
+data out of
+ 
+
+1773
+00:41:59,920 --> 00:42:03,630
+data out of
+it row mapper now it is here if you see
+
+1774
+00:42:03,630 --> 00:42:03,640
+it row mapper now it is here if you see
+ 
+
+1775
+00:42:03,640 --> 00:42:07,109
+it row mapper now it is here if you see
+it is iterating over this each row set
+
+1776
+00:42:07,109 --> 00:42:07,119
+it is iterating over this each row set
+ 
+
+1777
+00:42:07,119 --> 00:42:11,309
+it is iterating over this each row set
+each row and calling the map row okay so
+
+1778
+00:42:11,309 --> 00:42:11,319
+each row and calling the map row okay so
+ 
+
+1779
+00:42:11,319 --> 00:42:13,910
+each row and calling the map row okay so
+now this will get executed for each row
+
+1780
+00:42:13,910 --> 00:42:13,920
+now this will get executed for each row
+ 
+
+1781
+00:42:13,920 --> 00:42:17,470
+now this will get executed for each row
+Set uh there are total five rows then
+
+1782
+00:42:17,470 --> 00:42:17,480
+Set uh there are total five rows then
+ 
+
+1783
+00:42:17,480 --> 00:42:20,430
+Set uh there are total five rows then
+for each row I am creating a user object
+
+1784
+00:42:20,430 --> 00:42:20,440
+for each row I am creating a user object
+ 
+
+1785
+00:42:20,440 --> 00:42:23,470
+for each row I am creating a user object
+and do a mapping like in the row this
+
+1786
+00:42:23,470 --> 00:42:23,480
+and do a mapping like in the row this
+ 
+
+1787
+00:42:23,480 --> 00:42:27,470
+and do a mapping like in the row this
+column row. get in user ID so I'm
+
+1788
+00:42:27,470 --> 00:42:27,480
+column row. get in user ID so I'm
+ 
+
+1789
+00:42:27,480 --> 00:42:30,589
+column row. get in user ID so I'm
+putting into this user ID field it's
+
+1790
+00:42:30,589 --> 00:42:30,599
+putting into this user ID field it's
+ 
+
+1791
+00:42:30,599 --> 00:42:33,190
+putting into this user ID field it's
+just a mapping between a column and the
+
+1792
+00:42:33,190 --> 00:42:33,200
+just a mapping between a column and the
+ 
+
+1793
+00:42:33,200 --> 00:42:36,589
+just a mapping between a column and the
+object user object so row set. getet
+
+1794
+00:42:36,589 --> 00:42:36,599
+object user object so row set. getet
+ 
+
+1795
+00:42:36,599 --> 00:42:39,710
+object user object so row set. getet
+string is like username I putting into
+
+1796
+00:42:39,710 --> 00:42:39,720
+string is like username I putting into
+ 
+
+1797
+00:42:39,720 --> 00:42:42,069
+string is like username I putting into
+username like this and ultimately it
+
+1798
+00:42:42,069 --> 00:42:42,079
+username like this and ultimately it
+ 
+
+1799
+00:42:42,079 --> 00:42:44,950
+username like this and ultimately it
+will return a list it will just keep on
+
+1800
+00:42:44,950 --> 00:42:44,960
+will return a list it will just keep on
+ 
+
+1801
+00:42:44,960 --> 00:42:46,670
+will return a list it will just keep on
+adding into the result list and
+
+1802
+00:42:46,670 --> 00:42:46,680
+adding into the result list and
+ 
+
+1803
+00:42:46,680 --> 00:42:50,910
+adding into the result list and
+ultimately return this list of
+
+1804
+00:42:50,910 --> 00:42:50,920
+ultimately return this list of
+ 
+
+1805
+00:42:50,920 --> 00:42:55,390
+ultimately return this list of
+user the second flavor is query for list
+
+1806
+00:42:55,390 --> 00:42:55,400
+user the second flavor is query for list
+ 
+
+1807
+00:42:55,400 --> 00:42:57,870
+user the second flavor is query for list
+again first parameter is a St and second
+
+1808
+00:42:57,870 --> 00:42:57,880
+again first parameter is a St and second
+ 
+
+1809
+00:42:57,880 --> 00:43:02,030
+again first parameter is a St and second
+is class the purpose is to get single
+
+1810
+00:43:02,030 --> 00:43:02,040
+is class the purpose is to get single
+ 
+
+1811
+00:43:02,040 --> 00:43:05,710
+is class the purpose is to get single
+column of multiple rows single column of
+
+1812
+00:43:05,710 --> 00:43:05,720
+column of multiple rows single column of
+ 
+
+1813
+00:43:05,720 --> 00:43:09,069
+column of multiple rows single column of
+multiple rows so here jdbc template.
+
+1814
+00:43:09,069 --> 00:43:09,079
+multiple rows so here jdbc template.
+ 
+
+1815
+00:43:09,079 --> 00:43:11,829
+multiple rows so here jdbc template.
+query for list provide the
+
+1816
+00:43:11,829 --> 00:43:11,839
+query for list provide the
+ 
+
+1817
+00:43:11,839 --> 00:43:16,829
+query for list provide the
+query select username from users if
+
+1818
+00:43:16,829 --> 00:43:16,839
+query select username from users if
+ 
+
+1819
+00:43:16,839 --> 00:43:19,549
+query select username from users if
+there are total 10 users you will get
+
+1820
+00:43:19,549 --> 00:43:19,559
+there are total 10 users you will get
+ 
+
+1821
+00:43:19,559 --> 00:43:23,510
+there are total 10 users you will get
+username for all the 10 users only so
+
+1822
+00:43:23,510 --> 00:43:23,520
+username for all the 10 users only so
+ 
+
+1823
+00:43:23,520 --> 00:43:26,630
+username for all the 10 users only so
+one column whenever you want to fet the
+
+1824
+00:43:26,630 --> 00:43:26,640
+one column whenever you want to fet the
+ 
+
+1825
+00:43:26,640 --> 00:43:30,109
+one column whenever you want to fet the
+one specific column for multiple rows
+
+1826
+00:43:30,109 --> 00:43:30,119
+one specific column for multiple rows
+ 
+
+1827
+00:43:30,119 --> 00:43:34,910
+one specific column for multiple rows
+then go ahead use this query for list
+
+1828
+00:43:34,910 --> 00:43:34,920
+then go ahead use this query for list
+ 
+
+1829
+00:43:34,920 --> 00:43:37,510
+then go ahead use this query for list
+okay so the second parameter is class
+
+1830
+00:43:37,510 --> 00:43:37,520
+okay so the second parameter is class
+ 
+
+1831
+00:43:37,520 --> 00:43:41,270
+okay so the second parameter is class
+type so this username is a string docl
+
+1832
+00:43:41,270 --> 00:43:41,280
+type so this username is a string docl
+ 
+
+1833
+00:43:41,280 --> 00:43:44,510
+type so this username is a string docl
+class okay so here if you see query for
+
+1834
+00:43:44,510 --> 00:43:44,520
+class okay so here if you see query for
+ 
+
+1835
+00:43:44,520 --> 00:43:48,470
+class okay so here if you see query for
+list and we can search for here query
+
+1836
+00:43:48,470 --> 00:43:48,480
+list and we can search for here query
+ 
+
+1837
+00:43:48,480 --> 00:43:50,430
+list and we can search for here query
+for list what it does get single column
+
+1838
+00:43:50,430 --> 00:43:50,440
+for list what it does get single column
+ 
+
+1839
+00:43:50,440 --> 00:43:53,670
+for list what it does get single column
+row mapper so it is a single column it's
+
+1840
+00:43:53,670 --> 00:43:53,680
+row mapper so it is a single column it's
+ 
+
+1841
+00:43:53,680 --> 00:43:55,430
+row mapper so it is a single column it's
+uh mapping is based on single column
+
+1842
+00:43:55,430 --> 00:43:55,440
+uh mapping is based on single column
+ 
+
+1843
+00:43:55,440 --> 00:43:58,510
+uh mapping is based on single column
+like a single type a
+
+1844
+00:43:58,510 --> 00:43:58,520
+like a single type a
+ 
+
+1845
+00:43:58,520 --> 00:44:01,109
+like a single type a
+string then the third query could be
+
+1846
+00:44:01,109 --> 00:44:01,119
+string then the third query could be
+ 
+
+1847
+00:44:01,119 --> 00:44:03,390
+string then the third query could be
+like query for object the first is your
+
+1848
+00:44:03,390 --> 00:44:03,400
+like query for object the first is your
+ 
+
+1849
+00:44:03,400 --> 00:44:06,630
+like query for object the first is your
+SQL query then arguments and the
+
+1850
+00:44:06,630 --> 00:44:06,640
+SQL query then arguments and the
+ 
+
+1851
+00:44:06,640 --> 00:44:09,510
+SQL query then arguments and the
+required type get single row this is
+
+1852
+00:44:09,510 --> 00:44:09,520
+required type get single row this is
+ 
+
+1853
+00:44:09,520 --> 00:44:13,069
+required type get single row this is
+used for fetching a single row so jdbc
+
+1854
+00:44:13,069 --> 00:44:13,079
+used for fetching a single row so jdbc
+ 
+
+1855
+00:44:13,079 --> 00:44:15,910
+used for fetching a single row so jdbc
+template that query for object the first
+
+1856
+00:44:15,910 --> 00:44:15,920
+template that query for object the first
+ 
+
+1857
+00:44:15,920 --> 00:44:18,750
+template that query for object the first
+is your SQL query select estess from
+
+1858
+00:44:18,750 --> 00:44:18,760
+is your SQL query select estess from
+ 
+
+1859
+00:44:18,760 --> 00:44:21,630
+is your SQL query select estess from
+user where user ID equals to it could be
+
+1860
+00:44:21,630 --> 00:44:21,640
+user where user ID equals to it could be
+ 
+
+1861
+00:44:21,640 --> 00:44:24,549
+user where user ID equals to it could be
+dynamic so that's where your second
+
+1862
+00:44:24,549 --> 00:44:24,559
+dynamic so that's where your second
+ 
+
+1863
+00:44:24,559 --> 00:44:26,710
+dynamic so that's where your second
+parameter comes into the picture object
+
+1864
+00:44:26,710 --> 00:44:26,720
+parameter comes into the picture object
+ 
+
+1865
+00:44:26,720 --> 00:44:27,710
+parameter comes into the picture object
+array
+
+1866
+00:44:27,710 --> 00:44:27,720
+array
+ 
+
+1867
+00:44:27,720 --> 00:44:29,990
+array
+so I'm creating an object array only one
+
+1868
+00:44:29,990 --> 00:44:30,000
+so I'm creating an object array only one
+ 
+
+1869
+00:44:30,000 --> 00:44:32,430
+so I'm creating an object array only one
+right in the array so I'm putting like
+
+1870
+00:44:32,430 --> 00:44:32,440
+right in the array so I'm putting like
+ 
+
+1871
+00:44:32,440 --> 00:44:34,790
+right in the array so I'm putting like
+it should be replaced with one if there
+
+1872
+00:44:34,790 --> 00:44:34,800
+it should be replaced with one if there
+ 
+
+1873
+00:44:34,800 --> 00:44:36,670
+it should be replaced with one if there
+are more question mark you can just put
+
+1874
+00:44:36,670 --> 00:44:36,680
+are more question mark you can just put
+ 
+
+1875
+00:44:36,680 --> 00:44:38,990
+are more question mark you can just put
+into arrays it will sequentially it will
+
+1876
+00:44:38,990 --> 00:44:39,000
+into arrays it will sequentially it will
+ 
+
+1877
+00:44:39,000 --> 00:44:41,150
+into arrays it will sequentially it will
+update the question mark so it will
+
+1878
+00:44:41,150 --> 00:44:41,160
+update the question mark so it will
+ 
+
+1879
+00:44:41,160 --> 00:44:44,430
+update the question mark so it will
+change user ID equals to one with this
+
+1880
+00:44:44,430 --> 00:44:44,440
+change user ID equals to one with this
+ 
+
+1881
+00:44:44,440 --> 00:44:46,549
+change user ID equals to one with this
+and the third one is required type is
+
+1882
+00:44:46,549 --> 00:44:46,559
+and the third one is required type is
+ 
+
+1883
+00:44:46,559 --> 00:44:49,870
+and the third one is required type is
+the object in which this row has to be
+
+1884
+00:44:49,870 --> 00:44:49,880
+the object in which this row has to be
+ 
+
+1885
+00:44:49,880 --> 00:44:52,790
+the object in which this row has to be
+mapped to so I want to map to the user
+
+1886
+00:44:52,790 --> 00:44:52,800
+mapped to so I want to map to the user
+ 
+
+1887
+00:44:52,800 --> 00:44:54,549
+mapped to so I want to map to the user
+so internally it will do mapping use
+
+1888
+00:44:54,549 --> 00:44:54,559
+so internally it will do mapping use
+ 
+
+1889
+00:44:54,559 --> 00:44:57,150
+so internally it will do mapping use
+make use of getter and Setters of user
+
+1890
+00:44:57,150 --> 00:44:57,160
+make use of getter and Setters of user
+ 
+
+1891
+00:44:57,160 --> 00:44:59,630
+make use of getter and Setters of user
+and it will map this each column of this
+
+1892
+00:44:59,630 --> 00:44:59,640
+and it will map this each column of this
+ 
+
+1893
+00:44:59,640 --> 00:45:02,630
+and it will map this each column of this
+row into this user
+
+1894
+00:45:02,630 --> 00:45:02,640
+row into this user
+ 
+
+1895
+00:45:02,640 --> 00:45:06,030
+row into this user
+object and the last is like query for
+
+1896
+00:45:06,030 --> 00:45:06,040
+object and the last is like query for
+ 
+
+1897
+00:45:06,040 --> 00:45:11,790
+object and the last is like query for
+object SQL and required type get only
+
+1898
+00:45:11,790 --> 00:45:11,800
+object SQL and required type get only
+ 
+
+1899
+00:45:11,800 --> 00:45:13,990
+object SQL and required type get only
+single value it is used for get only
+
+1900
+00:45:13,990 --> 00:45:14,000
+single value it is used for get only
+ 
+
+1901
+00:45:14,000 --> 00:45:17,510
+single value it is used for get only
+single value like jdpc template get
+
+1902
+00:45:17,510 --> 00:45:17,520
+single value like jdpc template get
+ 
+
+1903
+00:45:17,520 --> 00:45:20,750
+single value like jdpc template get
+query for object select count asress
+
+1904
+00:45:20,750 --> 00:45:20,760
+query for object select count asress
+ 
+
+1905
+00:45:20,760 --> 00:45:24,910
+query for object select count asress
+from user you do integer do class so now
+
+1906
+00:45:24,910 --> 00:45:24,920
+from user you do integer do class so now
+ 
+
+1907
+00:45:24,920 --> 00:45:26,390
+from user you do integer do class so now
+here if you see it return only one
+
+1908
+00:45:26,390 --> 00:45:26,400
+here if you see it return only one
+ 
+
+1909
+00:45:26,400 --> 00:45:29,190
+here if you see it return only one
+single value so if you have any
+
+1910
+00:45:29,190 --> 00:45:29,200
+single value so if you have any
+ 
+
+1911
+00:45:29,200 --> 00:45:30,790
+single value so if you have any
+requirement where you get only one
+
+1912
+00:45:30,790 --> 00:45:30,800
+requirement where you get only one
+ 
+
+1913
+00:45:30,800 --> 00:45:34,309
+requirement where you get only one
+single value then you can use this get
+
+1914
+00:45:34,309 --> 00:45:34,319
+single value then you can use this get
+ 
+
+1915
+00:45:34,319 --> 00:45:36,670
+single value then you can use this get
+for object so these are generally
+
+1916
+00:45:36,670 --> 00:45:36,680
+for object so these are generally
+ 
+
+1917
+00:45:36,680 --> 00:45:40,390
+for object so these are generally
+different flavors which uh jdbc template
+
+1918
+00:45:40,390 --> 00:45:40,400
+different flavors which uh jdbc template
+ 
+
+1919
+00:45:40,400 --> 00:45:43,470
+different flavors which uh jdbc template
+provides which you can do to insert
+
+1920
+00:45:43,470 --> 00:45:43,480
+provides which you can do to insert
+ 
+
+1921
+00:45:43,480 --> 00:45:45,990
+provides which you can do to insert
+update delete or fetch the
+
+1922
+00:45:45,990 --> 00:45:46,000
+update delete or fetch the
+ 
+
+1923
+00:45:46,000 --> 00:45:47,589
+update delete or fetch the
+data
+
+1924
+00:45:47,589 --> 00:45:47,599
+data
+ 
+
+1925
+00:45:47,599 --> 00:45:52,030
+data
+okay so but with this I hope that at
+
+1926
+00:45:52,030 --> 00:45:52,040
+okay so but with this I hope that at
+ 
+
+1927
+00:45:52,040 --> 00:45:53,950
+okay so but with this I hope that at
+least this
+
+1928
+00:45:53,950 --> 00:45:53,960
+least this
+ 
+
+1929
+00:45:53,960 --> 00:45:57,829
+least this
+jdbc and this driver part should be
+
+1930
+00:45:57,829 --> 00:45:57,839
+jdbc and this driver part should be
+ 
+
+1931
+00:45:57,839 --> 00:45:59,950
+jdbc and this driver part should be
+properly clear where this exactly comes
+
+1932
+00:45:59,950 --> 00:45:59,960
+properly clear where this exactly comes
+ 
+
+1933
+00:45:59,960 --> 00:46:01,630
+properly clear where this exactly comes
+into the picture how you can connect to
+
+1934
+00:46:01,630 --> 00:46:01,640
+into the picture how you can connect to
+ 
+
+1935
+00:46:01,640 --> 00:46:02,750
+into the picture how you can connect to
+the
+
+1936
+00:46:02,750 --> 00:46:02,760
+the
+ 
+
+1937
+00:46:02,760 --> 00:46:05,109
+the
+DV what all problems are there in the
+
+1938
+00:46:05,109 --> 00:46:05,119
+DV what all problems are there in the
+ 
+
+1939
+00:46:05,119 --> 00:46:07,109
+DV what all problems are there in the
+plane gdbc what spring boot jdbc
+
+1940
+00:46:07,109 --> 00:46:07,119
+plane gdbc what spring boot jdbc
+ 
+
+1941
+00:46:07,119 --> 00:46:09,150
+plane gdbc what spring boot jdbc
+resolves it and how it resolve
+
+1942
+00:46:09,150 --> 00:46:09,160
+resolves it and how it resolve
+ 
+
+1943
+00:46:09,160 --> 00:46:12,910
+resolves it and how it resolve
+it because then only it makes sense to
+
+1944
+00:46:12,910 --> 00:46:12,920
+it because then only it makes sense to
+ 
+
+1945
+00:46:12,920 --> 00:46:15,430
+it because then only it makes sense to
+understand om framework and jpn
+
+1946
+00:46:15,430 --> 00:46:15,440
+understand om framework and jpn
+ 
+
+1947
+00:46:15,440 --> 00:46:17,790
+understand om framework and jpn
+hibernate okay so next we will start
+
+1948
+00:46:17,790 --> 00:46:17,800
+hibernate okay so next we will start
+ 
+
+1949
+00:46:17,800 --> 00:46:20,670
+hibernate okay so next we will start
+with the orm object relational mapping
+
+1950
+00:46:20,670 --> 00:46:20,680
+with the orm object relational mapping
+ 
+
+1951
+00:46:20,680 --> 00:46:23,109
+with the orm object relational mapping
+but we'll see you in the part two but if
+
+1952
+00:46:23,109 --> 00:46:23,119
+but we'll see you in the part two but if
+ 
+
+1953
+00:46:23,119 --> 00:46:24,630
+but we'll see you in the part two but if
+the part one if you have any doubts
+
+1954
+00:46:24,630 --> 00:46:24,640
+the part one if you have any doubts
+ 
+
+1955
+00:46:24,640 --> 00:46:26,190
+the part one if you have any doubts
+let's discuss in the comment section
+
+1956
+00:46:26,190 --> 00:46:26,200
+let's discuss in the comment section
+ 
+
+1957
+00:46:26,200 --> 00:46:30,000
+let's discuss in the comment section
+thank you bye okay
+

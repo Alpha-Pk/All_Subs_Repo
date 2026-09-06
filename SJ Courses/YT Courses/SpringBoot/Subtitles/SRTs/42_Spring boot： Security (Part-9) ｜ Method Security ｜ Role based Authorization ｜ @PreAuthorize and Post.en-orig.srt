@@ -1,0 +1,6175 @@
+1
+00:00:00,000 --> 00:00:01,189
+
+Okay, share this side. Welcome to
+
+2
+00:00:01,189 --> 00:00:01,199
+Okay, share this side. Welcome to
+ 
+
+3
+00:00:01,199 --> 00:00:04,630
+Okay, share this side. Welcome to
+concept encoding and today is the last
+
+4
+00:00:04,630 --> 00:00:04,640
+concept encoding and today is the last
+ 
+
+5
+00:00:04,640 --> 00:00:08,310
+concept encoding and today is the last
+video of spring boot security. Right. So
+
+6
+00:00:08,310 --> 00:00:08,320
+video of spring boot security. Right. So
+ 
+
+7
+00:00:08,320 --> 00:00:11,190
+video of spring boot security. Right. So
+we have already covered most of the
+
+8
+00:00:11,190 --> 00:00:11,200
+we have already covered most of the
+ 
+
+9
+00:00:11,200 --> 00:00:13,749
+we have already covered most of the
+frequently asked and used authentication
+
+10
+00:00:13,749 --> 00:00:13,759
+frequently asked and used authentication
+ 
+
+11
+00:00:13,759 --> 00:00:16,870
+frequently asked and used authentication
+types and we have also seen one type of
+
+12
+00:00:16,870 --> 00:00:16,880
+types and we have also seen one type of
+ 
+
+13
+00:00:16,880 --> 00:00:18,950
+types and we have also seen one type of
+authorization which we used to put at
+
+14
+00:00:18,950 --> 00:00:18,960
+authorization which we used to put at
+ 
+
+15
+00:00:18,960 --> 00:00:21,590
+authorization which we used to put at
+the security filter layer itself. Okay.
+
+16
+00:00:21,590 --> 00:00:21,600
+the security filter layer itself. Okay.
+ 
+
+17
+00:00:21,600 --> 00:00:24,150
+the security filter layer itself. Okay.
+So today we will do the authorization at
+
+18
+00:00:24,150 --> 00:00:24,160
+So today we will do the authorization at
+ 
+
+19
+00:00:24,160 --> 00:00:28,830
+So today we will do the authorization at
+the annotation level. We will see that.
+
+20
+00:00:28,830 --> 00:00:28,840
+the annotation level. We will see that.
+ 
+
+21
+00:00:28,840 --> 00:00:31,509
+the annotation level. We will see that.
+So we as I already told you we have
+
+22
+00:00:31,509 --> 00:00:31,519
+So we as I already told you we have
+ 
+
+23
+00:00:31,519 --> 00:00:33,830
+So we as I already told you we have
+already covered how at security filter
+
+24
+00:00:33,830 --> 00:00:33,840
+already covered how at security filter
+ 
+
+25
+00:00:33,840 --> 00:00:35,430
+already covered how at security filter
+layer we can do the authorization. If
+
+26
+00:00:35,430 --> 00:00:35,440
+layer we can do the authorization. If
+ 
+
+27
+00:00:35,440 --> 00:00:38,470
+layer we can do the authorization. If
+you remember this code you know that
+
+28
+00:00:38,470 --> 00:00:38,480
+you remember this code you know that
+ 
+
+29
+00:00:38,480 --> 00:00:42,630
+you remember this code you know that
+right in the security config class we
+
+30
+00:00:42,630 --> 00:00:42,640
+right in the security config class we
+ 
+
+31
+00:00:42,640 --> 00:00:45,110
+right in the security config class we
+used to do like this request matcher
+
+32
+00:00:45,110 --> 00:00:45,120
+used to do like this request matcher
+ 
+
+33
+00:00:45,120 --> 00:00:49,110
+used to do like this request matcher
+this API should have this role. Okay. So
+
+34
+00:00:49,110 --> 00:00:49,120
+this API should have this role. Okay. So
+ 
+
+35
+00:00:49,120 --> 00:00:52,229
+this API should have this role. Okay. So
+this is we used to do at a security
+
+36
+00:00:52,229 --> 00:00:52,239
+this is we used to do at a security
+ 
+
+37
+00:00:52,239 --> 00:00:55,630
+this is we used to do at a security
+filter layer but it has certain
+
+38
+00:00:55,630 --> 00:00:55,640
+filter layer but it has certain
+ 
+
+39
+00:00:55,640 --> 00:00:58,310
+filter layer but it has certain
+challenges in large scale application
+
+40
+00:00:58,310 --> 00:00:58,320
+challenges in large scale application
+ 
+
+41
+00:00:58,320 --> 00:01:01,270
+challenges in large scale application
+where we used to have hundreds of API.
+
+42
+00:01:01,270 --> 00:01:01,280
+where we used to have hundreds of API.
+ 
+
+43
+00:01:01,280 --> 00:01:03,430
+where we used to have hundreds of API.
+You might think does any orgs has
+
+44
+00:01:03,430 --> 00:01:03,440
+You might think does any orgs has
+ 
+
+45
+00:01:03,440 --> 00:01:06,070
+You might think does any orgs has
+hundreds of API? Yes. Right. There are
+
+46
+00:01:06,070 --> 00:01:06,080
+hundreds of API? Yes. Right. There are
+ 
+
+47
+00:01:06,080 --> 00:01:09,270
+hundreds of API? Yes. Right. There are
+many orgs which has hundreds of APIs. In
+
+48
+00:01:09,270 --> 00:01:09,280
+many orgs which has hundreds of APIs. In
+ 
+
+49
+00:01:09,280 --> 00:01:12,310
+many orgs which has hundreds of APIs. In
+that scenario managing the roles at
+
+50
+00:01:12,310 --> 00:01:12,320
+that scenario managing the roles at
+ 
+
+51
+00:01:12,320 --> 00:01:14,149
+that scenario managing the roles at
+security filter might become difficult
+
+52
+00:01:14,149 --> 00:01:14,159
+security filter might become difficult
+ 
+
+53
+00:01:14,159 --> 00:01:16,710
+security filter might become difficult
+and cause a scalable issue. Just
+
+54
+00:01:16,710 --> 00:01:16,720
+and cause a scalable issue. Just
+ 
+
+55
+00:01:16,720 --> 00:01:19,429
+and cause a scalable issue. Just
+consider that you have all the APIs
+
+56
+00:01:19,429 --> 00:01:19,439
+consider that you have all the APIs
+ 
+
+57
+00:01:19,439 --> 00:01:21,350
+consider that you have all the APIs
+listing in your security filter chain
+
+58
+00:01:21,350 --> 00:01:21,360
+listing in your security filter chain
+ 
+
+59
+00:01:21,360 --> 00:01:23,910
+listing in your security filter chain
+itself and you are providing the roles
+
+60
+00:01:23,910 --> 00:01:23,920
+itself and you are providing the roles
+ 
+
+61
+00:01:23,920 --> 00:01:27,510
+itself and you are providing the roles
+here. So what is the better solution?
+
+62
+00:01:27,510 --> 00:01:27,520
+here. So what is the better solution?
+ 
+
+63
+00:01:27,520 --> 00:01:31,190
+here. So what is the better solution?
+The better solution is that the place
+
+64
+00:01:31,190 --> 00:01:31,200
+The better solution is that the place
+ 
+
+65
+00:01:31,200 --> 00:01:33,789
+The better solution is that the place
+where we have defined our
+
+66
+00:01:33,789 --> 00:01:33,799
+where we have defined our
+ 
+
+67
+00:01:33,799 --> 00:01:36,910
+where we have defined our
+endpoint generally at
+
+68
+00:01:36,910 --> 00:01:36,920
+endpoint generally at
+ 
+
+69
+00:01:36,920 --> 00:01:40,230
+endpoint generally at
+controller can we at that point itself
+
+70
+00:01:40,230 --> 00:01:40,240
+controller can we at that point itself
+ 
+
+71
+00:01:40,240 --> 00:01:42,109
+controller can we at that point itself
+we tell what is the
+
+72
+00:01:42,109 --> 00:01:42,119
+we tell what is the
+ 
+
+73
+00:01:42,119 --> 00:01:45,830
+we tell what is the
+authorization required for it. Okay. So
+
+74
+00:01:45,830 --> 00:01:45,840
+authorization required for it. Okay. So
+ 
+
+75
+00:01:45,840 --> 00:01:49,590
+authorization required for it. Okay. So
+means at controller layer at controller
+
+76
+00:01:49,590 --> 00:01:49,600
+means at controller layer at controller
+ 
+
+77
+00:01:49,600 --> 00:01:52,190
+means at controller layer at controller
+layer we can define the
+
+78
+00:01:52,190 --> 00:01:52,200
+layer we can define the
+ 
+
+79
+00:01:52,200 --> 00:01:54,830
+layer we can define the
+authorization okay and that's where our
+
+80
+00:01:54,830 --> 00:01:54,840
+authorization okay and that's where our
+ 
+
+81
+00:01:54,840 --> 00:01:57,149
+authorization okay and that's where our
+annotations comes into the
+
+82
+00:01:57,149 --> 00:01:57,159
+annotations comes into the
+ 
+
+83
+00:01:57,159 --> 00:02:00,310
+annotations comes into the
+picture. So here if you see this diagram
+
+84
+00:02:00,310 --> 00:02:00,320
+picture. So here if you see this diagram
+ 
+
+85
+00:02:00,320 --> 00:02:02,789
+picture. So here if you see this diagram
+once this is I have taken from our
+
+86
+00:02:02,789 --> 00:02:02,799
+once this is I have taken from our
+ 
+
+87
+00:02:02,799 --> 00:02:05,510
+once this is I have taken from our
+previous authentication. So what I
+
+88
+00:02:05,510 --> 00:02:05,520
+previous authentication. So what I
+ 
+
+89
+00:02:05,520 --> 00:02:08,229
+previous authentication. So what I
+wanted to show you here is that once a
+
+90
+00:02:08,229 --> 00:02:08,239
+wanted to show you here is that once a
+ 
+
+91
+00:02:08,239 --> 00:02:10,949
+wanted to show you here is that once a
+user is authenticated let's say user one
+
+92
+00:02:10,949 --> 00:02:10,959
+user is authenticated let's say user one
+ 
+
+93
+00:02:10,959 --> 00:02:12,990
+user is authenticated let's say user one
+is getting
+
+94
+00:02:12,990 --> 00:02:13,000
+is getting
+ 
+
+95
+00:02:13,000 --> 00:02:15,430
+is getting
+authenticated the authentication the
+
+96
+00:02:15,430 --> 00:02:15,440
+authenticated the authentication the
+ 
+
+97
+00:02:15,440 --> 00:02:17,990
+authenticated the authentication the
+full authentication has all the objects
+
+98
+00:02:17,990 --> 00:02:18,000
+full authentication has all the objects
+ 
+
+99
+00:02:18,000 --> 00:02:20,309
+full authentication has all the objects
+let's say granted authorities like
+
+100
+00:02:20,309 --> 00:02:20,319
+let's say granted authorities like
+ 
+
+101
+00:02:20,319 --> 00:02:22,390
+let's say granted authorities like
+whatever the roles we have defined
+
+102
+00:02:22,390 --> 00:02:22,400
+whatever the roles we have defined
+ 
+
+103
+00:02:22,400 --> 00:02:24,630
+whatever the roles we have defined
+everything is present inside it right
+
+104
+00:02:24,630 --> 00:02:24,640
+everything is present inside it right
+ 
+
+105
+00:02:24,640 --> 00:02:27,270
+everything is present inside it right
+all the and the same authentication
+
+106
+00:02:27,270 --> 00:02:27,280
+all the and the same authentication
+ 
+
+107
+00:02:27,280 --> 00:02:30,110
+all the and the same authentication
+object reaches till
+
+108
+00:02:30,110 --> 00:02:30,120
+object reaches till
+ 
+
+109
+00:02:30,120 --> 00:02:34,070
+object reaches till
+your controller level. So at controller
+
+110
+00:02:34,070 --> 00:02:34,080
+your controller level. So at controller
+ 
+
+111
+00:02:34,080 --> 00:02:36,630
+your controller level. So at controller
+level we will use this authentication
+
+112
+00:02:36,630 --> 00:02:36,640
+level we will use this authentication
+ 
+
+113
+00:02:36,640 --> 00:02:39,710
+level we will use this authentication
+object and do the
+
+114
+00:02:39,710 --> 00:02:39,720
+object and do the
+ 
+
+115
+00:02:39,720 --> 00:02:42,150
+object and do the
+authorization. So see this in the
+
+116
+00:02:42,150 --> 00:02:42,160
+authorization. So see this in the
+ 
+
+117
+00:02:42,160 --> 00:02:44,750
+authorization. So see this in the
+annotation based role based
+
+118
+00:02:44,750 --> 00:02:44,760
+annotation based role based
+ 
+
+119
+00:02:44,760 --> 00:02:47,229
+annotation based role based
+authorization there are two
+
+120
+00:02:47,229 --> 00:02:47,239
+authorization there are two
+ 
+
+121
+00:02:47,239 --> 00:02:50,790
+authorization there are two
+annotations which are primary used at
+
+122
+00:02:50,790 --> 00:02:50,800
+annotations which are primary used at
+ 
+
+123
+00:02:50,800 --> 00:02:53,589
+annotations which are primary used at
+the rate pre-authorize and add the rate
+
+124
+00:02:53,589 --> 00:02:53,599
+the rate pre-authorize and add the rate
+ 
+
+125
+00:02:53,599 --> 00:02:54,509
+the rate pre-authorize and add the rate
+post
+
+126
+00:02:54,509 --> 00:02:54,519
+post
+ 
+
+127
+00:02:54,519 --> 00:02:58,150
+post
+authorize. Pre-authorize means do the
+
+128
+00:02:58,150 --> 00:02:58,160
+authorize. Pre-authorize means do the
+ 
+
+129
+00:02:58,160 --> 00:03:01,550
+authorize. Pre-authorize means do the
+authorization before execution of the
+
+130
+00:03:01,550 --> 00:03:01,560
+authorization before execution of the
+ 
+
+131
+00:03:01,560 --> 00:03:05,430
+authorization before execution of the
+API logic. Before execution of the API
+
+132
+00:03:05,430 --> 00:03:05,440
+API logic. Before execution of the API
+ 
+
+133
+00:03:05,440 --> 00:03:06,509
+API logic. Before execution of the API
+do the
+
+134
+00:03:06,509 --> 00:03:06,519
+do the
+ 
+
+135
+00:03:06,519 --> 00:03:09,910
+do the
+authorization and post authorize means
+
+136
+00:03:09,910 --> 00:03:09,920
+authorization and post authorize means
+ 
+
+137
+00:03:09,920 --> 00:03:12,790
+authorization and post authorize means
+does authorization after execution of
+
+138
+00:03:12,790 --> 00:03:12,800
+does authorization after execution of
+ 
+
+139
+00:03:12,800 --> 00:03:15,509
+does authorization after execution of
+the API. So sometime what happen is you
+
+140
+00:03:15,509 --> 00:03:15,519
+the API. So sometime what happen is you
+ 
+
+141
+00:03:15,519 --> 00:03:17,110
+the API. So sometime what happen is you
+have a business logic. Let's say this is
+
+142
+00:03:17,110 --> 00:03:17,120
+have a business logic. Let's say this is
+ 
+
+143
+00:03:17,120 --> 00:03:20,309
+have a business logic. Let's say this is
+your endpoint user endpoint. So sometime
+
+144
+00:03:20,309 --> 00:03:20,319
+your endpoint user endpoint. So sometime
+ 
+
+145
+00:03:20,319 --> 00:03:22,550
+your endpoint user endpoint. So sometime
+is you need to execute the code logic
+
+146
+00:03:22,550 --> 00:03:22,560
+is you need to execute the code logic
+ 
+
+147
+00:03:22,560 --> 00:03:24,309
+is you need to execute the code logic
+and whatever the response you are
+
+148
+00:03:24,309 --> 00:03:24,319
+and whatever the response you are
+ 
+
+149
+00:03:24,319 --> 00:03:26,550
+and whatever the response you are
+getting inside that it might have
+
+150
+00:03:26,550 --> 00:03:26,560
+getting inside that it might have
+ 
+
+151
+00:03:26,560 --> 00:03:29,030
+getting inside that it might have
+certain data which we have to use and
+
+152
+00:03:29,030 --> 00:03:29,040
+certain data which we have to use and
+ 
+
+153
+00:03:29,040 --> 00:03:30,869
+certain data which we have to use and
+based on that we have to do the
+
+154
+00:03:30,869 --> 00:03:30,879
+based on that we have to do the
+ 
+
+155
+00:03:30,879 --> 00:03:34,149
+based on that we have to do the
+authorization logic authorization logic
+
+156
+00:03:34,149 --> 00:03:34,159
+authorization logic authorization logic
+ 
+
+157
+00:03:34,159 --> 00:03:36,949
+authorization logic authorization logic
+and then decide do we have to allow the
+
+158
+00:03:36,949 --> 00:03:36,959
+and then decide do we have to allow the
+ 
+
+159
+00:03:36,959 --> 00:03:39,670
+and then decide do we have to allow the
+user to access this API or not. Okay. So
+
+160
+00:03:39,670 --> 00:03:39,680
+user to access this API or not. Okay. So
+ 
+
+161
+00:03:39,680 --> 00:03:41,589
+user to access this API or not. Okay. So
+business logic runs first, authorization
+
+162
+00:03:41,589 --> 00:03:41,599
+business logic runs first, authorization
+ 
+
+163
+00:03:41,599 --> 00:03:43,750
+business logic runs first, authorization
+happens later in the authorized, post
+
+164
+00:03:43,750 --> 00:03:43,760
+happens later in the authorized, post
+ 
+
+165
+00:03:43,760 --> 00:03:45,509
+happens later in the authorized, post
+authorize and in pre-authorize
+
+166
+00:03:45,509 --> 00:03:45,519
+authorize and in pre-authorize
+ 
+
+167
+00:03:45,519 --> 00:03:47,270
+authorize and in pre-authorize
+authorization logic happen first and
+
+168
+00:03:47,270 --> 00:03:47,280
+authorization logic happen first and
+ 
+
+169
+00:03:47,280 --> 00:03:50,869
+authorization logic happen first and
+then only the API get executed. So first
+
+170
+00:03:50,869 --> 00:03:50,879
+then only the API get executed. So first
+ 
+
+171
+00:03:50,879 --> 00:03:54,470
+then only the API get executed. So first
+thing first we will see this annotation
+
+172
+00:03:54,470 --> 00:03:54,480
+thing first we will see this annotation
+ 
+
+173
+00:03:54,480 --> 00:03:57,429
+thing first we will see this annotation
+based authorization but first we have to
+
+174
+00:03:57,429 --> 00:03:57,439
+based authorization but first we have to
+ 
+
+175
+00:03:57,439 --> 00:03:59,429
+based authorization but first we have to
+create a user. So let's create a dynamic
+
+176
+00:03:59,429 --> 00:03:59,439
+create a user. So let's create a dynamic
+ 
+
+177
+00:03:59,439 --> 00:04:02,229
+create a user. So let's create a dynamic
+user. I have already shared this uh
+
+178
+00:04:02,229 --> 00:04:02,239
+user. I have already shared this uh
+ 
+
+179
+00:04:02,239 --> 00:04:04,149
+user. I have already shared this uh
+username and password creation video
+
+180
+00:04:04,149 --> 00:04:04,159
+username and password creation video
+ 
+
+181
+00:04:04,159 --> 00:04:05,750
+username and password creation video
+that how you can create a user
+
+182
+00:04:05,750 --> 00:04:05,760
+that how you can create a user
+ 
+
+183
+00:04:05,760 --> 00:04:08,470
+that how you can create a user
+dynamically. So here what I am doing is
+
+184
+00:04:08,470 --> 00:04:08,480
+dynamically. So here what I am doing is
+ 
+
+185
+00:04:08,480 --> 00:04:11,589
+dynamically. So here what I am doing is
+I am creating one table user login and
+
+186
+00:04:11,589 --> 00:04:11,599
+I am creating one table user login and
+ 
+
+187
+00:04:11,599 --> 00:04:15,870
+I am creating one table user login and
+in that I have id username
+
+188
+00:04:15,870 --> 00:04:15,880
+in that I have id username
+ 
+
+189
+00:04:15,880 --> 00:04:19,189
+in that I have id username
+password role and permission. So here
+
+190
+00:04:19,189 --> 00:04:19,199
+password role and permission. So here
+ 
+
+191
+00:04:19,199 --> 00:04:21,189
+password role and permission. So here
+it's like what I'm trying to do is let
+
+192
+00:04:21,189 --> 00:04:21,199
+it's like what I'm trying to do is let
+ 
+
+193
+00:04:21,199 --> 00:04:25,150
+it's like what I'm trying to do is let
+let's say user is
+
+194
+00:04:25,150 --> 00:04:25,160
+
+ 
+
+195
+00:04:25,160 --> 00:04:29,670
+
+shange let me it has a role user it has
+
+196
+00:04:29,670 --> 00:04:29,680
+shange let me it has a role user it has
+ 
+
+197
+00:04:29,680 --> 00:04:31,070
+shange let me it has a role user it has
+a
+
+198
+00:04:31,070 --> 00:04:31,080
+a
+ 
+
+199
+00:04:31,080 --> 00:04:32,590
+a
+role
+
+200
+00:04:32,590 --> 00:04:32,600
+role
+ 
+
+201
+00:04:32,600 --> 00:04:37,030
+role
+user but I can give I want to give only
+
+202
+00:04:37,030 --> 00:04:37,040
+user but I can give I want to give only
+ 
+
+203
+00:04:37,040 --> 00:04:40,350
+user but I can give I want to give only
+permission on let's say order
+
+204
+00:04:40,350 --> 00:04:40,360
+permission on let's say order
+ 
+
+205
+00:04:40,360 --> 00:04:44,390
+permission on let's say order
+API read I want to give this and let's
+
+206
+00:04:44,390 --> 00:04:44,400
+API read I want to give this and let's
+ 
+
+207
+00:04:44,400 --> 00:04:46,909
+API read I want to give this and let's
+say I want to give
+
+208
+00:04:46,909 --> 00:04:46,919
+say I want to give
+ 
+
+209
+00:04:46,919 --> 00:04:49,909
+say I want to give
+order delete
+
+210
+00:04:49,909 --> 00:04:49,919
+order delete
+ 
+
+211
+00:04:49,919 --> 00:04:53,550
+order delete
+request or let's say sales post
+
+212
+00:04:53,550 --> 00:04:53,560
+request or let's say sales post
+ 
+
+213
+00:04:53,560 --> 00:04:57,070
+request or let's say sales post
+something you can say that uh sales
+
+214
+00:04:57,070 --> 00:04:57,080
+something you can say that uh sales
+ 
+
+215
+00:04:57,080 --> 00:05:01,270
+something you can say that uh sales
+create permission and but that's all so
+
+216
+00:05:01,270 --> 00:05:01,280
+create permission and but that's all so
+ 
+
+217
+00:05:01,280 --> 00:05:04,310
+create permission and but that's all so
+here if if you see I want to do this
+
+218
+00:05:04,310 --> 00:05:04,320
+here if if you see I want to do this
+ 
+
+219
+00:05:04,320 --> 00:05:06,790
+here if if you see I want to do this
+authorization like this even though my
+
+220
+00:05:06,790 --> 00:05:06,800
+authorization like this even though my
+ 
+
+221
+00:05:06,800 --> 00:05:10,510
+authorization like this even though my
+role is user inside that also I want to
+
+222
+00:05:10,510 --> 00:05:10,520
+role is user inside that also I want to
+ 
+
+223
+00:05:10,520 --> 00:05:13,390
+role is user inside that also I want to
+control yeah even though you are a user
+
+224
+00:05:13,390 --> 00:05:13,400
+control yeah even though you are a user
+ 
+
+225
+00:05:13,400 --> 00:05:16,550
+control yeah even though you are a user
+role but only this thing you can do you
+
+226
+00:05:16,550 --> 00:05:16,560
+role but only this thing you can do you
+ 
+
+227
+00:05:16,560 --> 00:05:18,390
+role but only this thing you can do you
+can read the orders you You can delete
+
+228
+00:05:18,390 --> 00:05:18,400
+can read the orders you You can delete
+ 
+
+229
+00:05:18,400 --> 00:05:20,469
+can read the orders you You can delete
+the order but you can't create it but
+
+230
+00:05:20,469 --> 00:05:20,479
+the order but you can't create it but
+ 
+
+231
+00:05:20,479 --> 00:05:22,110
+the order but you can't create it but
+yeah you can create
+
+232
+00:05:22,110 --> 00:05:22,120
+yeah you can create
+ 
+
+233
+00:05:22,120 --> 00:05:25,189
+yeah you can create
+sales. So that way I want to create so
+
+234
+00:05:25,189 --> 00:05:25,199
+sales. So that way I want to create so
+ 
+
+235
+00:05:25,199 --> 00:05:27,110
+sales. So that way I want to create so
+there what I have done is while creating
+
+236
+00:05:27,110 --> 00:05:27,120
+there what I have done is while creating
+ 
+
+237
+00:05:27,120 --> 00:05:30,469
+there what I have done is while creating
+a user I have a username I have password
+
+238
+00:05:30,469 --> 00:05:30,479
+a user I have a username I have password
+ 
+
+239
+00:05:30,479 --> 00:05:33,150
+a user I have a username I have password
+role either it could be user it could be
+
+240
+00:05:33,150 --> 00:05:33,160
+role either it could be user it could be
+ 
+
+241
+00:05:33,160 --> 00:05:36,469
+role either it could be user it could be
+admin and for this role what all the
+
+242
+00:05:36,469 --> 00:05:36,479
+admin and for this role what all the
+ 
+
+243
+00:05:36,479 --> 00:05:39,029
+admin and for this role what all the
+permission user has. So I have created
+
+244
+00:05:39,029 --> 00:05:39,039
+permission user has. So I have created
+ 
+
+245
+00:05:39,039 --> 00:05:41,749
+permission user has. So I have created
+is one to many relationship. So I have
+
+246
+00:05:41,749 --> 00:05:41,759
+is one to many relationship. So I have
+ 
+
+247
+00:05:41,759 --> 00:05:43,909
+is one to many relationship. So I have
+created a user permission. It is also
+
+248
+00:05:43,909 --> 00:05:43,919
+created a user permission. It is also
+ 
+
+249
+00:05:43,919 --> 00:05:47,870
+created a user permission. It is also
+has ID and name. Okay.
+
+250
+00:05:47,870 --> 00:05:47,880
+has ID and name. Okay.
+ 
+
+251
+00:05:47,880 --> 00:05:51,590
+has ID and name. Okay.
+So one user can have many permissions
+
+252
+00:05:51,590 --> 00:05:51,600
+So one user can have many permissions
+ 
+
+253
+00:05:51,600 --> 00:05:54,390
+So one user can have many permissions
+like order read, sales read you can say
+
+254
+00:05:54,390 --> 00:05:54,400
+like order read, sales read you can say
+ 
+
+255
+00:05:54,400 --> 00:05:56,469
+like order read, sales read you can say
+that it's like a more granular level we
+
+256
+00:05:56,469 --> 00:05:56,479
+that it's like a more granular level we
+ 
+
+257
+00:05:56,479 --> 00:05:59,189
+that it's like a more granular level we
+can give here and here it is little bit
+
+258
+00:05:59,189 --> 00:05:59,199
+can give here and here it is little bit
+ 
+
+259
+00:05:59,199 --> 00:06:02,390
+can give here and here it is little bit
+at the top level user and user is what
+
+260
+00:06:02,390 --> 00:06:02,400
+at the top level user and user is what
+ 
+
+261
+00:06:02,400 --> 00:06:04,070
+at the top level user and user is what
+all granular level permission we can
+
+262
+00:06:04,070 --> 00:06:04,080
+all granular level permission we can
+ 
+
+263
+00:06:04,080 --> 00:06:04,990
+all granular level permission we can
+provide
+
+264
+00:06:04,990 --> 00:06:05,000
+provide
+ 
+
+265
+00:06:05,000 --> 00:06:07,670
+provide
+here. Okay. So these two tables I
+
+266
+00:06:07,670 --> 00:06:07,680
+here. Okay. So these two tables I
+ 
+
+267
+00:06:07,680 --> 00:06:09,390
+here. Okay. So these two tables I
+created
+
+268
+00:06:09,390 --> 00:06:09,400
+created
+ 
+
+269
+00:06:09,400 --> 00:06:13,430
+created
+it and here in the entity service. So
+
+270
+00:06:13,430 --> 00:06:13,440
+it and here in the entity service. So
+ 
+
+271
+00:06:13,440 --> 00:06:15,430
+it and here in the entity service. So
+this is our entity service. In the
+
+272
+00:06:15,430 --> 00:06:15,440
+this is our entity service. In the
+ 
+
+273
+00:06:15,440 --> 00:06:18,790
+this is our entity service. In the
+entity service you already know that we
+
+274
+00:06:18,790 --> 00:06:18,800
+entity service you already know that we
+ 
+
+275
+00:06:18,800 --> 00:06:20,390
+entity service you already know that we
+have to implement the user detail
+
+276
+00:06:20,390 --> 00:06:20,400
+have to implement the user detail
+ 
+
+277
+00:06:20,400 --> 00:06:22,390
+have to implement the user detail
+service. We have to override this load
+
+278
+00:06:22,390 --> 00:06:22,400
+service. We have to override this load
+ 
+
+279
+00:06:22,400 --> 00:06:25,390
+service. We have to override this load
+by username and this is to save. This is
+
+280
+00:06:25,390 --> 00:06:25,400
+by username and this is to save. This is
+ 
+
+281
+00:06:25,400 --> 00:06:27,670
+by username and this is to save. This is
+repository and this is the controller
+
+282
+00:06:27,670 --> 00:06:27,680
+repository and this is the controller
+ 
+
+283
+00:06:27,680 --> 00:06:31,670
+repository and this is the controller
+through which I have to create a user.
+
+284
+00:06:31,670 --> 00:06:31,680
+through which I have to create a user.
+ 
+
+285
+00:06:31,680 --> 00:06:34,870
+through which I have to create a user.
+So this is already we have seen like uh
+
+286
+00:06:34,870 --> 00:06:34,880
+So this is already we have seen like uh
+ 
+
+287
+00:06:34,880 --> 00:06:40,469
+So this is already we have seen like uh
+here in this video. Okay. So one thing I
+
+288
+00:06:40,469 --> 00:06:40,479
+here in this video. Okay. So one thing I
+ 
+
+289
+00:06:40,479 --> 00:06:42,629
+here in this video. Okay. So one thing I
+will come to this point later but one
+
+290
+00:06:42,629 --> 00:06:42,639
+will come to this point later but one
+ 
+
+291
+00:06:42,639 --> 00:06:44,710
+will come to this point later but one
+thing you notice this part we have also
+
+292
+00:06:44,710 --> 00:06:44,720
+thing you notice this part we have also
+ 
+
+293
+00:06:44,720 --> 00:06:47,350
+thing you notice this part we have also
+seen that in the previous video but here
+
+294
+00:06:47,350 --> 00:06:47,360
+seen that in the previous video but here
+ 
+
+295
+00:06:47,360 --> 00:06:49,950
+seen that in the previous video but here
+if you see in the get
+
+296
+00:06:49,950 --> 00:06:49,960
+if you see in the get
+ 
+
+297
+00:06:49,960 --> 00:06:52,629
+if you see in the get
+authorities okay when you are
+
+298
+00:06:52,629 --> 00:06:52,639
+authorities okay when you are
+ 
+
+299
+00:06:52,639 --> 00:06:54,870
+authorities okay when you are
+implementing the user details right we
+
+300
+00:06:54,870 --> 00:06:54,880
+implementing the user details right we
+ 
+
+301
+00:06:54,880 --> 00:06:57,070
+implementing the user details right we
+have to override this method get
+
+302
+00:06:57,070 --> 00:06:57,080
+have to override this method get
+ 
+
+303
+00:06:57,080 --> 00:06:59,870
+have to override this method get
+authorities okay so this is the same
+
+304
+00:06:59,870 --> 00:06:59,880
+authorities okay so this is the same
+ 
+
+305
+00:06:59,880 --> 00:07:03,029
+authorities okay so this is the same
+thing here if you see in the
+
+306
+00:07:03,029 --> 00:07:03,039
+thing here if you see in the
+ 
+
+307
+00:07:03,039 --> 00:07:04,390
+thing here if you see in the
+authentication object there is something
+
+308
+00:07:04,390 --> 00:07:04,400
+authentication object there is something
+ 
+
+309
+00:07:04,400 --> 00:07:07,029
+authentication object there is something
+called granted authorities this got
+
+310
+00:07:07,029 --> 00:07:07,039
+called granted authorities this got
+ 
+
+311
+00:07:07,039 --> 00:07:08,589
+called granted authorities this got
+filled up from this
+
+312
+00:07:08,589 --> 00:07:08,599
+filled up from this
+ 
+
+313
+00:07:08,599 --> 00:07:11,270
+filled up from this
+itself. Okay, this got filled from this
+
+314
+00:07:11,270 --> 00:07:11,280
+itself. Okay, this got filled from this
+ 
+
+315
+00:07:11,280 --> 00:07:13,070
+itself. Okay, this got filled from this
+itself granted
+
+316
+00:07:13,070 --> 00:07:13,080
+itself granted
+ 
+
+317
+00:07:13,080 --> 00:07:16,110
+itself granted
+authorities. So here if you see I am
+
+318
+00:07:16,110 --> 00:07:16,120
+authorities. So here if you see I am
+ 
+
+319
+00:07:16,120 --> 00:07:20,950
+authorities. So here if you see I am
+putting my role and also I am putting
+
+320
+00:07:20,950 --> 00:07:20,960
+putting my role and also I am putting
+ 
+
+321
+00:07:20,960 --> 00:07:23,950
+putting my role and also I am putting
+all my permission. So this
+
+322
+00:07:23,950 --> 00:07:23,960
+all my permission. So this
+ 
+
+323
+00:07:23,960 --> 00:07:27,029
+all my permission. So this
+list whatever this authentication will
+
+324
+00:07:27,029 --> 00:07:27,039
+list whatever this authentication will
+ 
+
+325
+00:07:27,039 --> 00:07:28,950
+list whatever this authentication will
+go here right ultimately in the
+
+326
+00:07:28,950 --> 00:07:28,960
+go here right ultimately in the
+ 
+
+327
+00:07:28,960 --> 00:07:31,350
+go here right ultimately in the
+authentication object this list will
+
+328
+00:07:31,350 --> 00:07:31,360
+authentication object this list will
+ 
+
+329
+00:07:31,360 --> 00:07:34,670
+authentication object this list will
+have everything let's say role
+
+330
+00:07:34,670 --> 00:07:34,680
+have everything let's say role
+ 
+
+331
+00:07:34,680 --> 00:07:36,830
+have everything let's say role
+user
+
+332
+00:07:36,830 --> 00:07:36,840
+user
+ 
+
+333
+00:07:36,840 --> 00:07:38,430
+user
+comma
+
+334
+00:07:38,430 --> 00:07:38,440
+comma
+ 
+
+335
+00:07:38,440 --> 00:07:41,629
+comma
+order
+
+336
+00:07:41,629 --> 00:07:41,639
+
+ 
+
+337
+00:07:41,639 --> 00:07:46,390
+
+reada sales create so everything will
+
+338
+00:07:46,390 --> 00:07:46,400
+reada sales create so everything will
+ 
+
+339
+00:07:46,400 --> 00:07:48,629
+reada sales create so everything will
+comes inside this granted authorities of
+
+340
+00:07:48,629 --> 00:07:48,639
+comes inside this granted authorities of
+ 
+
+341
+00:07:48,639 --> 00:07:51,909
+comes inside this granted authorities of
+authentication object okay so that's why
+
+342
+00:07:51,909 --> 00:07:51,919
+authentication object okay so that's why
+ 
+
+343
+00:07:51,919 --> 00:07:54,550
+authentication object okay so that's why
+in the same granted get authorities in
+
+344
+00:07:54,550 --> 00:07:54,560
+in the same granted get authorities in
+ 
+
+345
+00:07:54,560 --> 00:07:56,950
+in the same granted get authorities in
+the same list I am putting my roles and
+
+346
+00:07:56,950 --> 00:07:56,960
+the same list I am putting my roles and
+ 
+
+347
+00:07:56,960 --> 00:07:59,909
+the same list I am putting my roles and
+I am putting all my permissions also
+
+348
+00:07:59,909 --> 00:07:59,919
+I am putting all my permissions also
+ 
+
+349
+00:07:59,919 --> 00:08:01,950
+I am putting all my permissions also
+okay so that's what I'm
+
+350
+00:08:01,950 --> 00:08:01,960
+okay so that's what I'm
+ 
+
+351
+00:08:01,960 --> 00:08:05,790
+okay so that's what I'm
+doing so now let's
+
+352
+00:08:05,790 --> 00:08:05,800
+doing so now let's
+ 
+
+353
+00:08:05,800 --> 00:08:09,150
+doing so now let's
+see now we should be able to create
+
+354
+00:08:09,150 --> 00:08:09,160
+see now we should be able to create
+ 
+
+355
+00:08:09,160 --> 00:08:12,469
+see now we should be able to create
+user okay so here I am hitting this
+
+356
+00:08:12,469 --> 00:08:12,479
+user okay so here I am hitting this
+ 
+
+357
+00:08:12,479 --> 00:08:14,029
+user okay so here I am hitting this
+endpoint user
+
+358
+00:08:14,029 --> 00:08:14,039
+endpoint user
+ 
+
+359
+00:08:14,039 --> 00:08:18,150
+endpoint user
+login and my username let's say SJ
+
+360
+00:08:18,150 --> 00:08:18,160
+login and my username let's say SJ
+ 
+
+361
+00:08:18,160 --> 00:08:20,790
+login and my username let's say SJ
+password is let's say 1 2 3 role I am
+
+362
+00:08:20,790 --> 00:08:20,800
+password is let's say 1 2 3 role I am
+ 
+
+363
+00:08:20,800 --> 00:08:22,469
+password is let's say 1 2 3 role I am
+giving ro user
+
+364
+00:08:22,469 --> 00:08:22,479
+giving ro user
+ 
+
+365
+00:08:22,479 --> 00:08:24,950
+giving ro user
+Okay. And permission I am giving only
+
+366
+00:08:24,950 --> 00:08:24,960
+Okay. And permission I am giving only
+ 
+
+367
+00:08:24,960 --> 00:08:28,230
+Okay. And permission I am giving only
+one permission that is order read. Okay.
+
+368
+00:08:28,230 --> 00:08:28,240
+one permission that is order read. Okay.
+ 
+
+369
+00:08:28,240 --> 00:08:30,510
+one permission that is order read. Okay.
+And user is
+
+370
+00:08:30,510 --> 00:08:30,520
+And user is
+ 
+
+371
+00:08:30,520 --> 00:08:33,350
+And user is
+created. Now the user creation part is
+
+372
+00:08:33,350 --> 00:08:33,360
+created. Now the user creation part is
+ 
+
+373
+00:08:33,360 --> 00:08:35,990
+created. Now the user creation part is
+done. We can update our security config
+
+374
+00:08:35,990 --> 00:08:36,000
+done. We can update our security config
+ 
+
+375
+00:08:36,000 --> 00:08:36,829
+done. We can update our security config
+file
+
+376
+00:08:36,829 --> 00:08:36,839
+file
+ 
+
+377
+00:08:36,839 --> 00:08:39,990
+file
+also. So in the security config file we
+
+378
+00:08:39,990 --> 00:08:40,000
+also. So in the security config file we
+ 
+
+379
+00:08:40,000 --> 00:08:43,350
+also. So in the security config file we
+have to enable this annotation. Enable
+
+380
+00:08:43,350 --> 00:08:43,360
+have to enable this annotation. Enable
+ 
+
+381
+00:08:43,360 --> 00:08:46,990
+have to enable this annotation. Enable
+method security preost enable equals to
+
+382
+00:08:46,990 --> 00:08:47,000
+method security preost enable equals to
+ 
+
+383
+00:08:47,000 --> 00:08:50,870
+method security preost enable equals to
+true. Okay. Without enabling this the
+
+384
+00:08:50,870 --> 00:08:50,880
+true. Okay. Without enabling this the
+ 
+
+385
+00:08:50,880 --> 00:08:53,430
+true. Okay. Without enabling this the
+pre authorized and post authorized
+
+386
+00:08:53,430 --> 00:08:53,440
+pre authorized and post authorized
+ 
+
+387
+00:08:53,440 --> 00:08:55,389
+pre authorized and post authorized
+annotation would be
+
+388
+00:08:55,389 --> 00:08:55,399
+annotation would be
+ 
+
+389
+00:08:55,399 --> 00:08:58,230
+annotation would be
+ignored. Okay. So in the security config
+
+390
+00:08:58,230 --> 00:08:58,240
+ignored. Okay. So in the security config
+ 
+
+391
+00:08:58,240 --> 00:09:01,190
+ignored. Okay. So in the security config
+we have to tell that pre-post enabled
+
+392
+00:09:01,190 --> 00:09:01,200
+we have to tell that pre-post enabled
+ 
+
+393
+00:09:01,200 --> 00:09:03,710
+we have to tell that pre-post enabled
+equals to true. Then only this
+
+394
+00:09:03,710 --> 00:09:03,720
+equals to true. Then only this
+ 
+
+395
+00:09:03,720 --> 00:09:06,430
+equals to true. Then only this
+annotation would get
+
+396
+00:09:06,430 --> 00:09:06,440
+annotation would get
+ 
+
+397
+00:09:06,440 --> 00:09:08,269
+annotation would get
+intercepted.
+
+398
+00:09:08,269 --> 00:09:08,279
+intercepted.
+ 
+
+399
+00:09:08,279 --> 00:09:10,870
+intercepted.
+Okay. So currently I am doing basic
+
+400
+00:09:10,870 --> 00:09:10,880
+Okay. So currently I am doing basic
+ 
+
+401
+00:09:10,880 --> 00:09:12,389
+Okay. So currently I am doing basic
+authentic authentication just for
+
+402
+00:09:12,389 --> 00:09:12,399
+authentic authentication just for
+ 
+
+403
+00:09:12,399 --> 00:09:13,990
+authentic authentication just for
+testing. You can do with anything this
+
+404
+00:09:13,990 --> 00:09:14,000
+testing. You can do with anything this
+ 
+
+405
+00:09:14,000 --> 00:09:16,550
+testing. You can do with anything this
+annotation testing with JWT oath or this
+
+406
+00:09:16,550 --> 00:09:16,560
+annotation testing with JWT oath or this
+ 
+
+407
+00:09:16,560 --> 00:09:18,630
+annotation testing with JWT oath or this
+thing. But currently I'm testing for the
+
+408
+00:09:18,630 --> 00:09:18,640
+thing. But currently I'm testing for the
+ 
+
+409
+00:09:18,640 --> 00:09:21,350
+thing. But currently I'm testing for the
+simplicity basic authentication. Okay,
+
+410
+00:09:21,350 --> 00:09:21,360
+simplicity basic authentication. Okay,
+ 
+
+411
+00:09:21,360 --> 00:09:22,949
+simplicity basic authentication. Okay,
+because our purpose is to do
+
+412
+00:09:22,949 --> 00:09:22,959
+because our purpose is to do
+ 
+
+413
+00:09:22,959 --> 00:09:24,590
+because our purpose is to do
+authorization not
+
+414
+00:09:24,590 --> 00:09:24,600
+authorization not
+ 
+
+415
+00:09:24,600 --> 00:09:27,750
+authorization not
+authentication. So yeah this is the
+
+416
+00:09:27,750 --> 00:09:27,760
+authentication. So yeah this is the
+ 
+
+417
+00:09:27,760 --> 00:09:29,350
+authentication. So yeah this is the
+changes we have to do in security
+
+418
+00:09:29,350 --> 00:09:29,360
+changes we have to do in security
+ 
+
+419
+00:09:29,360 --> 00:09:31,430
+changes we have to do in security
+config. We have to enable the pre-post
+
+420
+00:09:31,430 --> 00:09:31,440
+config. We have to enable the pre-post
+ 
+
+421
+00:09:31,440 --> 00:09:32,670
+config. We have to enable the pre-post
+enabled to
+
+422
+00:09:32,670 --> 00:09:32,680
+enabled to
+ 
+
+423
+00:09:32,680 --> 00:09:35,269
+enabled to
+true. And for testing purpose I have
+
+424
+00:09:35,269 --> 00:09:35,279
+true. And for testing purpose I have
+ 
+
+425
+00:09:35,279 --> 00:09:37,910
+true. And for testing purpose I have
+created two controller one order and one
+
+426
+00:09:37,910 --> 00:09:37,920
+created two controller one order and one
+ 
+
+427
+00:09:37,920 --> 00:09:41,350
+created two controller one order and one
+for sales. So here if you see this is my
+
+428
+00:09:41,350 --> 00:09:41,360
+for sales. So here if you see this is my
+ 
+
+429
+00:09:41,360 --> 00:09:42,190
+for sales. So here if you see this is my
+one
+
+430
+00:09:42,190 --> 00:09:42,200
+one
+ 
+
+431
+00:09:42,200 --> 00:09:47,110
+one
+endpoint slash orders. Okay. A / API/
+
+432
+00:09:47,110 --> 00:09:47,120
+endpoint slash orders. Okay. A / API/
+ 
+
+433
+00:09:47,120 --> 00:09:49,670
+endpoint slash orders. Okay. A / API/
+orders and this is just I have let's say
+
+434
+00:09:49,670 --> 00:09:49,680
+orders and this is just I have let's say
+ 
+
+435
+00:09:49,680 --> 00:09:51,710
+orders and this is just I have let's say
+that all orders have been fetched
+
+436
+00:09:51,710 --> 00:09:51,720
+that all orders have been fetched
+ 
+
+437
+00:09:51,720 --> 00:09:53,750
+that all orders have been fetched
+successfully. Okay. We can make it
+
+438
+00:09:53,750 --> 00:09:53,760
+successfully. Okay. We can make it
+ 
+
+439
+00:09:53,760 --> 00:09:55,910
+successfully. Okay. We can make it
+dynamic. We will hit DB f the data but
+
+440
+00:09:55,910 --> 00:09:55,920
+dynamic. We will hit DB f the data but
+ 
+
+441
+00:09:55,920 --> 00:09:57,829
+dynamic. We will hit DB f the data but
+for now for simplicity because this is
+
+442
+00:09:57,829 --> 00:09:57,839
+for now for simplicity because this is
+ 
+
+443
+00:09:57,839 --> 00:10:00,230
+for now for simplicity because this is
+not our main purpose. Our main purpose
+
+444
+00:10:00,230 --> 00:10:00,240
+not our main purpose. Our main purpose
+ 
+
+445
+00:10:00,240 --> 00:10:01,150
+not our main purpose. Our main purpose
+is
+
+446
+00:10:01,150 --> 00:10:01,160
+is
+ 
+
+447
+00:10:01,160 --> 00:10:03,750
+is
+this. Okay. So I have used the
+
+448
+00:10:03,750 --> 00:10:03,760
+this. Okay. So I have used the
+ 
+
+449
+00:10:03,760 --> 00:10:06,190
+this. Okay. So I have used the
+annotation on top of
+
+450
+00:10:06,190 --> 00:10:06,200
+annotation on top of
+ 
+
+451
+00:10:06,200 --> 00:10:10,550
+annotation on top of
+this method in the controller class at
+
+452
+00:10:10,550 --> 00:10:10,560
+this method in the controller class at
+ 
+
+453
+00:10:10,560 --> 00:10:12,790
+this method in the controller class at
+the rate pre-authorize.
+
+454
+00:10:12,790 --> 00:10:12,800
+the rate pre-authorize.
+ 
+
+455
+00:10:12,800 --> 00:10:15,590
+the rate pre-authorize.
+Now here if you see I have used like has
+
+456
+00:10:15,590 --> 00:10:15,600
+Now here if you see I have used like has
+ 
+
+457
+00:10:15,600 --> 00:10:21,030
+Now here if you see I have used like has
+ro user I haven't put rod because inside
+
+458
+00:10:21,030 --> 00:10:21,040
+ro user I haven't put rod because inside
+ 
+
+459
+00:10:21,040 --> 00:10:26,190
+ro user I haven't put rod because inside
+the has ro has ro this is by default get
+
+460
+00:10:26,190 --> 00:10:26,200
+the has ro has ro this is by default get
+ 
+
+461
+00:10:26,200 --> 00:10:29,030
+the has ro has ro this is by default get
+added okay so you have to just put has
+
+462
+00:10:29,030 --> 00:10:29,040
+added okay so you have to just put has
+ 
+
+463
+00:10:29,040 --> 00:10:31,509
+added okay so you have to just put has
+ro user what is the role we want to give
+
+464
+00:10:31,509 --> 00:10:31,519
+ro user what is the role we want to give
+ 
+
+465
+00:10:31,519 --> 00:10:35,790
+ro user what is the role we want to give
+user and authority I want to give order
+
+466
+00:10:35,790 --> 00:10:35,800
+user and authority I want to give order
+ 
+
+467
+00:10:35,800 --> 00:10:39,550
+user and authority I want to give order
+read okay and similarly for the
+
+468
+00:10:39,550 --> 00:10:39,560
+read okay and similarly for the
+ 
+
+469
+00:10:39,560 --> 00:10:43,590
+read okay and similarly for the
+sales/ ai/ sales I have used at the rate
+
+470
+00:10:43,590 --> 00:10:43,600
+sales/ ai/ sales I have used at the rate
+ 
+
+471
+00:10:43,600 --> 00:10:47,030
+sales/ ai/ sales I have used at the rate
+pre-authorized annotation and I put that
+
+472
+00:10:47,030 --> 00:10:47,040
+pre-authorized annotation and I put that
+ 
+
+473
+00:10:47,040 --> 00:10:49,990
+pre-authorized annotation and I put that
+no matter whatever the role you have
+
+474
+00:10:49,990 --> 00:10:50,000
+no matter whatever the role you have
+ 
+
+475
+00:10:50,000 --> 00:10:51,910
+no matter whatever the role you have
+this has authority you should have this
+
+476
+00:10:51,910 --> 00:10:51,920
+this has authority you should have this
+ 
+
+477
+00:10:51,920 --> 00:10:54,190
+this has authority you should have this
+authority
+
+478
+00:10:54,190 --> 00:10:54,200
+authority
+ 
+
+479
+00:10:54,200 --> 00:10:56,829
+authority
+sales_read
+
+480
+00:10:56,829 --> 00:10:56,839
+sales_read
+ 
+
+481
+00:10:56,839 --> 00:10:58,990
+sales_read
+okay
+
+482
+00:10:58,990 --> 00:10:59,000
+okay
+ 
+
+483
+00:10:59,000 --> 00:11:02,069
+okay
+and we have already created a user which
+
+484
+00:11:02,069 --> 00:11:02,079
+and we have already created a user which
+ 
+
+485
+00:11:02,079 --> 00:11:07,790
+and we have already created a user which
+has both ro user and order read
+
+486
+00:11:07,790 --> 00:11:07,800
+has both ro user and order read
+ 
+
+487
+00:11:07,800 --> 00:11:10,230
+has both ro user and order read
+permission. So this is the place where
+
+488
+00:11:10,230 --> 00:11:10,240
+permission. So this is the place where
+ 
+
+489
+00:11:10,240 --> 00:11:12,949
+permission. So this is the place where
+we have created a user right this user
+
+490
+00:11:12,949 --> 00:11:12,959
+we have created a user right this user
+ 
+
+491
+00:11:12,959 --> 00:11:16,470
+we have created a user right this user
+is created what is the role rod user and
+
+492
+00:11:16,470 --> 00:11:16,480
+is created what is the role rod user and
+ 
+
+493
+00:11:16,480 --> 00:11:20,030
+is created what is the role rod user and
+what is the permission it has order
+
+494
+00:11:20,030 --> 00:11:20,040
+what is the permission it has order
+ 
+
+495
+00:11:20,040 --> 00:11:23,829
+what is the permission it has order
+read okay so this is totally qualified
+
+496
+00:11:23,829 --> 00:11:23,839
+read okay so this is totally qualified
+ 
+
+497
+00:11:23,839 --> 00:11:27,030
+read okay so this is totally qualified
+for this one order controller because it
+
+498
+00:11:27,030 --> 00:11:27,040
+for this one order controller because it
+ 
+
+499
+00:11:27,040 --> 00:11:31,069
+for this one order controller because it
+has the user role and it has order read
+
+500
+00:11:31,069 --> 00:11:31,079
+has the user role and it has order read
+ 
+
+501
+00:11:31,079 --> 00:11:35,430
+has the user role and it has order read
+also for sales it required sales read
+
+502
+00:11:35,430 --> 00:11:35,440
+also for sales it required sales read
+ 
+
+503
+00:11:35,440 --> 00:11:39,269
+also for sales it required sales read
+permission which doesn't have Okay. So
+
+504
+00:11:39,269 --> 00:11:39,279
+permission which doesn't have Okay. So
+ 
+
+505
+00:11:39,279 --> 00:11:41,350
+permission which doesn't have Okay. So
+now let's say that I am trying to access
+
+506
+00:11:41,350 --> 00:11:41,360
+now let's say that I am trying to access
+ 
+
+507
+00:11:41,360 --> 00:11:45,430
+now let's say that I am trying to access
+an API slash order/ API/ orderer API.
+
+508
+00:11:45,430 --> 00:11:45,440
+an API slash order/ API/ orderer API.
+ 
+
+509
+00:11:45,440 --> 00:11:47,110
+an API slash order/ API/ orderer API.
+Since it's a basic authentication, I am
+
+510
+00:11:47,110 --> 00:11:47,120
+Since it's a basic authentication, I am
+ 
+
+511
+00:11:47,120 --> 00:11:49,670
+Since it's a basic authentication, I am
+providing the username password SJ123.
+
+512
+00:11:49,670 --> 00:11:49,680
+providing the username password SJ123.
+ 
+
+513
+00:11:49,680 --> 00:11:52,310
+providing the username password SJ123.
+This is what I have created a user as
+
+514
+00:11:52,310 --> 00:11:52,320
+This is what I have created a user as
+ 
+
+515
+00:11:52,320 --> 00:11:53,790
+This is what I have created a user as
+username
+
+516
+00:11:53,790 --> 00:11:53,800
+username
+ 
+
+517
+00:11:53,800 --> 00:11:58,069
+username
+password. Okay. And when I hit it, all
+
+518
+00:11:58,069 --> 00:11:58,079
+password. Okay. And when I hit it, all
+ 
+
+519
+00:11:58,079 --> 00:12:00,670
+password. Okay. And when I hit it, all
+orders have been fed
+
+520
+00:12:00,670 --> 00:12:00,680
+orders have been fed
+ 
+
+521
+00:12:00,680 --> 00:12:02,949
+orders have been fed
+successfully. But when I try to access
+
+522
+00:12:02,949 --> 00:12:02,959
+successfully. But when I try to access
+ 
+
+523
+00:12:02,959 --> 00:12:07,030
+successfully. But when I try to access
+the sales API/ API/ sales if you see the
+
+524
+00:12:07,030 --> 00:12:07,040
+the sales API/ API/ sales if you see the
+ 
+
+525
+00:12:07,040 --> 00:12:10,829
+the sales API/ API/ sales if you see the
+same username password I got forbidden.
+
+526
+00:12:10,829 --> 00:12:10,839
+same username password I got forbidden.
+ 
+
+527
+00:12:10,839 --> 00:12:14,110
+same username password I got forbidden.
+Why? Because this
+
+528
+00:12:14,110 --> 00:12:14,120
+Why? Because this
+ 
+
+529
+00:12:14,120 --> 00:12:17,750
+Why? Because this
+required permission sales read which
+
+530
+00:12:17,750 --> 00:12:17,760
+required permission sales read which
+ 
+
+531
+00:12:17,760 --> 00:12:21,230
+required permission sales read which
+this user doesn't have. This user has
+
+532
+00:12:21,230 --> 00:12:21,240
+this user doesn't have. This user has
+ 
+
+533
+00:12:21,240 --> 00:12:26,509
+this user doesn't have. This user has
+only order read and user
+
+534
+00:12:26,509 --> 00:12:26,519
+
+ 
+
+535
+00:12:26,519 --> 00:12:29,190
+
+permission. Okay.
+
+536
+00:12:29,190 --> 00:12:29,200
+permission. Okay.
+ 
+
+537
+00:12:29,200 --> 00:12:33,750
+permission. Okay.
+Now at one at this point of time before
+
+538
+00:12:33,750 --> 00:12:33,760
+Now at one at this point of time before
+ 
+
+539
+00:12:33,760 --> 00:12:34,910
+Now at one at this point of time before
+proceeding
+
+540
+00:12:34,910 --> 00:12:34,920
+proceeding
+ 
+
+541
+00:12:34,920 --> 00:12:37,990
+proceeding
+further you might get one question what
+
+542
+00:12:37,990 --> 00:12:38,000
+further you might get one question what
+ 
+
+543
+00:12:38,000 --> 00:12:41,190
+further you might get one question what
+is the difference between has role and
+
+544
+00:12:41,190 --> 00:12:41,200
+is the difference between has role and
+ 
+
+545
+00:12:41,200 --> 00:12:44,310
+is the difference between has role and
+has authority. If you remember I have
+
+546
+00:12:44,310 --> 00:12:44,320
+has authority. If you remember I have
+ 
+
+547
+00:12:44,320 --> 00:12:46,470
+has authority. If you remember I have
+already explained that in the part where
+
+548
+00:12:46,470 --> 00:12:46,480
+already explained that in the part where
+ 
+
+549
+00:12:46,480 --> 00:12:49,110
+already explained that in the part where
+we have done the authority at the
+
+550
+00:12:49,110 --> 00:12:49,120
+we have done the authority at the
+ 
+
+551
+00:12:49,120 --> 00:12:50,710
+we have done the authority at the
+authorization at the security filter
+
+552
+00:12:50,710 --> 00:12:50,720
+authorization at the security filter
+ 
+
+553
+00:12:50,720 --> 00:12:53,990
+authorization at the security filter
+layer but again I will tell at code
+
+554
+00:12:53,990 --> 00:12:54,000
+layer but again I will tell at code
+ 
+
+555
+00:12:54,000 --> 00:12:58,269
+layer but again I will tell at code
+level it has no
+
+556
+00:12:58,269 --> 00:12:58,279
+level it has no
+ 
+
+557
+00:12:58,279 --> 00:13:02,389
+level it has no
+difference okay only difference is that
+
+558
+00:13:02,389 --> 00:13:02,399
+difference okay only difference is that
+ 
+
+559
+00:13:02,399 --> 00:13:06,430
+difference okay only difference is that
+when you use has role it will append
+
+560
+00:13:06,430 --> 00:13:06,440
+when you use has role it will append
+ 
+
+561
+00:13:06,440 --> 00:13:09,990
+when you use has role it will append
+roders that's all for authority it do
+
+562
+00:13:09,990 --> 00:13:10,000
+roders that's all for authority it do
+ 
+
+563
+00:13:10,000 --> 00:13:11,910
+roders that's all for authority it do
+not append anything whatever you give it
+
+564
+00:13:11,910 --> 00:13:11,920
+not append anything whatever you give it
+ 
+
+565
+00:13:11,920 --> 00:13:13,790
+not append anything whatever you give it
+will be used like
+
+566
+00:13:13,790 --> 00:13:13,800
+will be used like
+ 
+
+567
+00:13:13,800 --> 00:13:18,870
+will be used like
+that okay no difference and everything
+
+568
+00:13:18,870 --> 00:13:18,880
+that okay no difference and everything
+ 
+
+569
+00:13:18,880 --> 00:13:20,710
+that okay no difference and everything
+whatever the role whatever the authority
+
+570
+00:13:20,710 --> 00:13:20,720
+whatever the role whatever the authority
+ 
+
+571
+00:13:20,720 --> 00:13:22,150
+whatever the role whatever the authority
+you have defined everything will get
+
+572
+00:13:22,150 --> 00:13:22,160
+you have defined everything will get
+ 
+
+573
+00:13:22,160 --> 00:13:24,430
+you have defined everything will get
+appended into a single list
+
+574
+00:13:24,430 --> 00:13:24,440
+appended into a single list
+ 
+
+575
+00:13:24,440 --> 00:13:27,190
+appended into a single list
+only okay I will show you the code also
+
+576
+00:13:27,190 --> 00:13:27,200
+only okay I will show you the code also
+ 
+
+577
+00:13:27,200 --> 00:13:29,990
+only okay I will show you the code also
+inside has role also uses the same code
+
+578
+00:13:29,990 --> 00:13:30,000
+inside has role also uses the same code
+ 
+
+579
+00:13:30,000 --> 00:13:32,790
+inside has role also uses the same code
+authority you calls the same code itself
+
+580
+00:13:32,790 --> 00:13:32,800
+authority you calls the same code itself
+ 
+
+581
+00:13:32,800 --> 00:13:35,470
+authority you calls the same code itself
+okay so it just like for us very high
+
+582
+00:13:35,470 --> 00:13:35,480
+okay so it just like for us very high
+ 
+
+583
+00:13:35,480 --> 00:13:38,629
+okay so it just like for us very high
+level you can use role for high level
+
+584
+00:13:38,629 --> 00:13:38,639
+level you can use role for high level
+ 
+
+585
+00:13:38,639 --> 00:13:41,509
+level you can use role for high level
+distinction and authority has authority
+
+586
+00:13:41,509 --> 00:13:41,519
+distinction and authority has authority
+ 
+
+587
+00:13:41,519 --> 00:13:44,389
+distinction and authority has authority
+for the gr granular level distinction.
+
+588
+00:13:44,389 --> 00:13:44,399
+for the gr granular level distinction.
+ 
+
+589
+00:13:44,399 --> 00:13:46,470
+for the gr granular level distinction.
+Okay. But at the code level, if you go
+
+590
+00:13:46,470 --> 00:13:46,480
+Okay. But at the code level, if you go
+ 
+
+591
+00:13:46,480 --> 00:13:48,470
+Okay. But at the code level, if you go
+one step down, you will see no
+
+592
+00:13:48,470 --> 00:13:48,480
+one step down, you will see no
+ 
+
+593
+00:13:48,480 --> 00:13:50,790
+one step down, you will see no
+difference. Everything would be inside a
+
+594
+00:13:50,790 --> 00:13:50,800
+difference. Everything would be inside a
+ 
+
+595
+00:13:50,800 --> 00:13:54,710
+difference. Everything would be inside a
+list only. Ro, rod user and whatever the
+
+596
+00:13:54,710 --> 00:13:54,720
+list only. Ro, rod user and whatever the
+ 
+
+597
+00:13:54,720 --> 00:13:56,949
+list only. Ro, rod user and whatever the
+authority you will define. Let's say
+
+598
+00:13:56,949 --> 00:13:56,959
+authority you will define. Let's say
+ 
+
+599
+00:13:56,959 --> 00:14:00,310
+authority you will define. Let's say
+order, create, sales, read, everything
+
+600
+00:14:00,310 --> 00:14:00,320
+order, create, sales, read, everything
+ 
+
+601
+00:14:00,320 --> 00:14:02,470
+order, create, sales, read, everything
+would be like for this user. These are
+
+602
+00:14:02,470 --> 00:14:02,480
+would be like for this user. These are
+ 
+
+603
+00:14:02,480 --> 00:14:04,790
+would be like for this user. These are
+the all the permissions. Same thing I
+
+604
+00:14:04,790 --> 00:14:04,800
+the all the permissions. Same thing I
+ 
+
+605
+00:14:04,800 --> 00:14:07,110
+the all the permissions. Same thing I
+have mentioned here. Spring Boot treats
+
+606
+00:14:07,110 --> 00:14:07,120
+have mentioned here. Spring Boot treats
+ 
+
+607
+00:14:07,120 --> 00:14:11,110
+have mentioned here. Spring Boot treats
+both has role and has authority in a
+
+608
+00:14:11,110 --> 00:14:11,120
+both has role and has authority in a
+ 
+
+609
+00:14:11,120 --> 00:14:13,750
+both has role and has authority in a
+similar way. Only difference is that for
+
+610
+00:14:13,750 --> 00:14:13,760
+similar way. Only difference is that for
+ 
+
+611
+00:14:13,760 --> 00:14:17,590
+similar way. Only difference is that for
+has role rod is appended. So see this
+
+612
+00:14:17,590 --> 00:14:17,600
+has role rod is appended. So see this
+ 
+
+613
+00:14:17,600 --> 00:14:20,230
+has role rod is appended. So see this
+code if you open this security
+
+614
+00:14:20,230 --> 00:14:20,240
+code if you open this security
+ 
+
+615
+00:14:20,240 --> 00:14:23,189
+code if you open this security
+expression root on java it has has
+
+616
+00:14:23,189 --> 00:14:23,199
+expression root on java it has has
+ 
+
+617
+00:14:23,199 --> 00:14:26,269
+expression root on java it has has
+authority has authority calls has any
+
+618
+00:14:26,269 --> 00:14:26,279
+authority has authority calls has any
+ 
+
+619
+00:14:26,279 --> 00:14:29,750
+authority has authority calls has any
+authority it calls this and has any
+
+620
+00:14:29,750 --> 00:14:29,760
+authority it calls this and has any
+ 
+
+621
+00:14:29,760 --> 00:14:31,670
+authority it calls this and has any
+authority called has any authority name
+
+622
+00:14:31,670 --> 00:14:31,680
+authority called has any authority name
+ 
+
+623
+00:14:31,680 --> 00:14:33,629
+authority called has any authority name
+it ultimately calls this
+
+624
+00:14:33,629 --> 00:14:33,639
+it ultimately calls this
+ 
+
+625
+00:14:33,639 --> 00:14:37,430
+it ultimately calls this
+method and when you use has role
+
+626
+00:14:37,430 --> 00:14:37,440
+method and when you use has role
+ 
+
+627
+00:14:37,440 --> 00:14:40,069
+method and when you use has role
+internally it called has any role this
+
+628
+00:14:40,069 --> 00:14:40,079
+internally it called has any role this
+ 
+
+629
+00:14:40,079 --> 00:14:43,750
+internally it called has any role this
+and has any role calls the same
+
+630
+00:14:43,750 --> 00:14:43,760
+and has any role calls the same
+ 
+
+631
+00:14:43,760 --> 00:14:47,230
+and has any role calls the same
+ultimately no matter what you used has
+
+632
+00:14:47,230 --> 00:14:47,240
+ultimately no matter what you used has
+ 
+
+633
+00:14:47,240 --> 00:14:51,110
+ultimately no matter what you used has
+authority or has role both involves the
+
+634
+00:14:51,110 --> 00:14:51,120
+authority or has role both involves the
+ 
+
+635
+00:14:51,120 --> 00:14:53,829
+authority or has role both involves the
+same code. Only difference is that when
+
+636
+00:14:53,829 --> 00:14:53,839
+same code. Only difference is that when
+ 
+
+637
+00:14:53,839 --> 00:14:56,710
+same code. Only difference is that when
+you use has role right it put a default
+
+638
+00:14:56,710 --> 00:14:56,720
+you use has role right it put a default
+ 
+
+639
+00:14:56,720 --> 00:14:59,470
+you use has role right it put a default
+role prefix which is nothing but a role
+
+640
+00:14:59,470 --> 00:14:59,480
+role prefix which is nothing but a role
+ 
+
+641
+00:14:59,480 --> 00:15:02,949
+role prefix which is nothing but a role
+underscore but ultimately it would have
+
+642
+00:15:02,949 --> 00:15:02,959
+underscore but ultimately it would have
+ 
+
+643
+00:15:02,959 --> 00:15:06,829
+underscore but ultimately it would have
+is that a list of get authority
+
+644
+00:15:06,829 --> 00:15:06,839
+is that a list of get authority
+ 
+
+645
+00:15:06,839 --> 00:15:09,590
+is that a list of get authority
+set right it will get a list of get
+
+646
+00:15:09,590 --> 00:15:09,600
+set right it will get a list of get
+ 
+
+647
+00:15:09,600 --> 00:15:11,949
+set right it will get a list of get
+authority set. So what would happen
+
+648
+00:15:11,949 --> 00:15:11,959
+authority set. So what would happen
+ 
+
+649
+00:15:11,959 --> 00:15:16,509
+authority set. So what would happen
+is so here if you go while user
+
+650
+00:15:16,509 --> 00:15:16,519
+is so here if you go while user
+ 
+
+651
+00:15:16,519 --> 00:15:19,870
+is so here if you go while user
+creation we have given the right get
+
+652
+00:15:19,870 --> 00:15:19,880
+creation we have given the right get
+ 
+
+653
+00:15:19,880 --> 00:15:22,150
+creation we have given the right get
+authorities so here I am returning the
+
+654
+00:15:22,150 --> 00:15:22,160
+authorities so here I am returning the
+ 
+
+655
+00:15:22,160 --> 00:15:24,310
+authorities so here I am returning the
+authorities this authorities will have a
+
+656
+00:15:24,310 --> 00:15:24,320
+authorities this authorities will have a
+ 
+
+657
+00:15:24,320 --> 00:15:28,150
+authorities this authorities will have a
+role plus this permissions so internally
+
+658
+00:15:28,150 --> 00:15:28,160
+role plus this permissions so internally
+ 
+
+659
+00:15:28,160 --> 00:15:31,550
+role plus this permissions so internally
+what it does here
+
+660
+00:15:31,550 --> 00:15:31,560
+
+ 
+
+661
+00:15:31,560 --> 00:15:35,269
+
+is it will get in in this list it will
+
+662
+00:15:35,269 --> 00:15:35,279
+is it will get in in this list it will
+ 
+
+663
+00:15:35,279 --> 00:15:37,269
+is it will get in in this list it will
+have everything role plus authorities
+
+664
+00:15:37,269 --> 00:15:37,279
+have everything role plus authorities
+ 
+
+665
+00:15:37,279 --> 00:15:39,189
+have everything role plus authorities
+generally both are same so but it has
+
+666
+00:15:39,189 --> 00:15:39,199
+generally both are same so but it has
+ 
+
+667
+00:15:39,199 --> 00:15:42,710
+generally both are same so but it has
+the complete list role admin comma all
+
+668
+00:15:42,710 --> 00:15:42,720
+the complete list role admin comma all
+ 
+
+669
+00:15:42,720 --> 00:15:46,150
+the complete list role admin comma all
+this thing. Now it just check it will
+
+670
+00:15:46,150 --> 00:15:46,160
+this thing. Now it just check it will
+ 
+
+671
+00:15:46,160 --> 00:15:49,269
+this thing. Now it just check it will
+iterate that hey does user has this role
+
+672
+00:15:49,269 --> 00:15:49,279
+iterate that hey does user has this role
+ 
+
+673
+00:15:49,279 --> 00:15:51,110
+iterate that hey does user has this role
+which is contained in the list or not.
+
+674
+00:15:51,110 --> 00:15:51,120
+which is contained in the list or not.
+ 
+
+675
+00:15:51,120 --> 00:15:53,030
+which is contained in the list or not.
+So now here in this case what generally
+
+676
+00:15:53,030 --> 00:15:53,040
+So now here in this case what generally
+ 
+
+677
+00:15:53,040 --> 00:15:55,990
+So now here in this case what generally
+happened is you put has role user. So
+
+678
+00:15:55,990 --> 00:15:56,000
+happened is you put has role user. So
+ 
+
+679
+00:15:56,000 --> 00:15:57,910
+happened is you put has role user. So
+internally it automatically appended
+
+680
+00:15:57,910 --> 00:15:57,920
+internally it automatically appended
+ 
+
+681
+00:15:57,920 --> 00:16:01,629
+internally it automatically appended
+this default prefix. So it has put rod
+
+682
+00:16:01,629 --> 00:16:01,639
+this default prefix. So it has put rod
+ 
+
+683
+00:16:01,639 --> 00:16:05,189
+this default prefix. So it has put rod
+user. Now it will check does this
+
+684
+00:16:05,189 --> 00:16:05,199
+user. Now it will check does this
+ 
+
+685
+00:16:05,199 --> 00:16:08,389
+user. Now it will check does this
+present inside this list? Yes. Then it
+
+686
+00:16:08,389 --> 00:16:08,399
+present inside this list? Yes. Then it
+ 
+
+687
+00:16:08,399 --> 00:16:11,829
+present inside this list? Yes. Then it
+goes to the next one authority order
+
+688
+00:16:11,829 --> 00:16:11,839
+goes to the next one authority order
+ 
+
+689
+00:16:11,839 --> 00:16:14,150
+goes to the next one authority order
+read for order read has authority
+
+690
+00:16:14,150 --> 00:16:14,160
+read for order read has authority
+ 
+
+691
+00:16:14,160 --> 00:16:15,509
+read for order read has authority
+doesn't append anything. So it will
+
+692
+00:16:15,509 --> 00:16:15,519
+doesn't append anything. So it will
+ 
+
+693
+00:16:15,519 --> 00:16:17,670
+doesn't append anything. So it will
+directly check the same list what the
+
+694
+00:16:17,670 --> 00:16:17,680
+directly check the same list what the
+ 
+
+695
+00:16:17,680 --> 00:16:21,350
+directly check the same list what the
+same list has this order read also if
+
+696
+00:16:21,350 --> 00:16:21,360
+same list has this order read also if
+ 
+
+697
+00:16:21,360 --> 00:16:25,509
+same list has this order read also if
+yes then ultimately return true. So you
+
+698
+00:16:25,509 --> 00:16:25,519
+yes then ultimately return true. So you
+ 
+
+699
+00:16:25,519 --> 00:16:27,590
+yes then ultimately return true. So you
+understand that has role has authority
+
+700
+00:16:27,590 --> 00:16:27,600
+understand that has role has authority
+ 
+
+701
+00:16:27,600 --> 00:16:29,030
+understand that has role has authority
+has no difference only thing is the
+
+702
+00:16:29,030 --> 00:16:29,040
+has no difference only thing is the
+ 
+
+703
+00:16:29,040 --> 00:16:31,590
+has no difference only thing is the
+prefix get appended into the has role.
+
+704
+00:16:31,590 --> 00:16:31,600
+prefix get appended into the has role.
+ 
+
+705
+00:16:31,600 --> 00:16:33,030
+prefix get appended into the has role.
+So you we don't need to add ro
+
+706
+00:16:33,030 --> 00:16:33,040
+So you we don't need to add ro
+ 
+
+707
+00:16:33,040 --> 00:16:34,629
+So you we don't need to add ro
+underscore it will get automatically
+
+708
+00:16:34,629 --> 00:16:34,639
+underscore it will get automatically
+ 
+
+709
+00:16:34,639 --> 00:16:37,150
+underscore it will get automatically
+added
+
+710
+00:16:37,150 --> 00:16:37,160
+added
+ 
+
+711
+00:16:37,160 --> 00:16:41,350
+added
+but we generally use has role for high
+
+712
+00:16:41,350 --> 00:16:41,360
+but we generally use has role for high
+ 
+
+713
+00:16:41,360 --> 00:16:43,430
+but we generally use has role for high
+level distinction and has authority for
+
+714
+00:16:43,430 --> 00:16:43,440
+level distinction and has authority for
+ 
+
+715
+00:16:43,440 --> 00:16:47,550
+level distinction and has authority for
+more granular level distinction.
+
+716
+00:16:47,550 --> 00:16:47,560
+more granular level distinction.
+ 
+
+717
+00:16:47,560 --> 00:16:50,230
+more granular level distinction.
+Okay. Now one questions comes to our
+
+718
+00:16:50,230 --> 00:16:50,240
+Okay. Now one questions comes to our
+ 
+
+719
+00:16:50,240 --> 00:16:52,910
+Okay. Now one questions comes to our
+mind is how this authorization method
+
+720
+00:16:52,910 --> 00:16:52,920
+mind is how this authorization method
+ 
+
+721
+00:16:52,920 --> 00:16:55,910
+mind is how this authorization method
+invokes before invocation of a
+
+722
+00:16:55,910 --> 00:16:55,920
+invokes before invocation of a
+ 
+
+723
+00:16:55,920 --> 00:17:00,550
+invokes before invocation of a
+controller method. So this is is
+
+724
+00:17:00,550 --> 00:17:00,560
+controller method. So this is is
+ 
+
+725
+00:17:00,560 --> 00:17:02,550
+controller method. So this is is
+returning true and false right in the
+
+726
+00:17:02,550 --> 00:17:02,560
+returning true and false right in the
+ 
+
+727
+00:17:02,560 --> 00:17:05,350
+returning true and false right in the
+security expression root. So has role
+
+728
+00:17:05,350 --> 00:17:05,360
+security expression root. So has role
+ 
+
+729
+00:17:05,360 --> 00:17:08,789
+security expression root. So has role
+method get get invoked because in the
+
+730
+00:17:08,789 --> 00:17:08,799
+method get get invoked because in the
+ 
+
+731
+00:17:08,799 --> 00:17:10,549
+method get get invoked because in the
+pre-authorized annotation I have put has
+
+732
+00:17:10,549 --> 00:17:10,559
+pre-authorized annotation I have put has
+ 
+
+733
+00:17:10,559 --> 00:17:13,429
+pre-authorized annotation I have put has
+role has authority. So these methods are
+
+734
+00:17:13,429 --> 00:17:13,439
+role has authority. So these methods are
+ 
+
+735
+00:17:13,439 --> 00:17:16,750
+role has authority. So these methods are
+getting invoked. So how this get
+
+736
+00:17:16,750 --> 00:17:16,760
+getting invoked. So how this get
+ 
+
+737
+00:17:16,760 --> 00:17:21,510
+getting invoked. So how this get
+invoked? Who is taking care of it? So
+
+738
+00:17:21,510 --> 00:17:21,520
+invoked? Who is taking care of it? So
+ 
+
+739
+00:17:21,520 --> 00:17:23,990
+invoked? Who is taking care of it? So
+remember this diagram. So that's where I
+
+740
+00:17:23,990 --> 00:17:24,000
+remember this diagram. So that's where I
+ 
+
+741
+00:17:24,000 --> 00:17:26,949
+remember this diagram. So that's where I
+have also explained in previous videos
+
+742
+00:17:26,949 --> 00:17:26,959
+have also explained in previous videos
+ 
+
+743
+00:17:26,959 --> 00:17:29,710
+have also explained in previous videos
+of this spring boot
+
+744
+00:17:29,710 --> 00:17:29,720
+of this spring boot
+ 
+
+745
+00:17:29,720 --> 00:17:31,669
+of this spring boot
+interceptors right I have explained
+
+746
+00:17:31,669 --> 00:17:31,679
+interceptors right I have explained
+ 
+
+747
+00:17:31,679 --> 00:17:34,590
+interceptors right I have explained
+about the interceptor. So pre-authorized
+
+748
+00:17:34,590 --> 00:17:34,600
+about the interceptor. So pre-authorized
+ 
+
+749
+00:17:34,600 --> 00:17:38,789
+about the interceptor. So pre-authorized
+annotation is intercepted by this class
+
+750
+00:17:38,789 --> 00:17:38,799
+annotation is intercepted by this class
+ 
+
+751
+00:17:38,799 --> 00:17:43,549
+annotation is intercepted by this class
+authorization manager before method
+
+752
+00:17:43,549 --> 00:17:43,559
+authorization manager before method
+ 
+
+753
+00:17:43,559 --> 00:17:46,470
+authorization manager before method
+interceptor. Okay. So this intercept
+
+754
+00:17:46,470 --> 00:17:46,480
+interceptor. Okay. So this intercept
+ 
+
+755
+00:17:46,480 --> 00:17:47,549
+interceptor. Okay. So this intercept
+this
+
+756
+00:17:47,549 --> 00:17:47,559
+this
+ 
+
+757
+00:17:47,559 --> 00:17:49,909
+this
+annotation and how the interception
+
+758
+00:17:49,909 --> 00:17:49,919
+annotation and how the interception
+ 
+
+759
+00:17:49,919 --> 00:17:52,350
+annotation and how the interception
+works. How we can create write our own
+
+760
+00:17:52,350 --> 00:17:52,360
+works. How we can create write our own
+ 
+
+761
+00:17:52,360 --> 00:17:54,630
+works. How we can create write our own
+interceptors. What is the difference
+
+762
+00:17:54,630 --> 00:17:54,640
+interceptors. What is the difference
+ 
+
+763
+00:17:54,640 --> 00:17:56,710
+interceptors. What is the difference
+between filters and interceptors? I we
+
+764
+00:17:56,710 --> 00:17:56,720
+between filters and interceptors? I we
+ 
+
+765
+00:17:56,720 --> 00:17:58,549
+between filters and interceptors? I we
+have already covered this in depth one
+
+766
+00:17:58,549 --> 00:17:58,559
+have already covered this in depth one
+ 
+
+767
+00:17:58,559 --> 00:18:00,350
+have already covered this in depth one
+interceptor video and the filter versus
+
+768
+00:18:00,350 --> 00:18:00,360
+interceptor video and the filter versus
+ 
+
+769
+00:18:00,360 --> 00:18:03,270
+interceptor video and the filter versus
+interceptor. You will see how exactly
+
+770
+00:18:03,270 --> 00:18:03,280
+interceptor. You will see how exactly
+ 
+
+771
+00:18:03,280 --> 00:18:04,950
+interceptor. You will see how exactly
+the interceptor works. How we can create
+
+772
+00:18:04,950 --> 00:18:04,960
+the interceptor works. How we can create
+ 
+
+773
+00:18:04,960 --> 00:18:06,950
+the interceptor works. How we can create
+our own interceptors. We have already
+
+774
+00:18:06,950 --> 00:18:06,960
+our own interceptors. We have already
+ 
+
+775
+00:18:06,960 --> 00:18:10,870
+our own interceptors. We have already
+seen that. Okay. So this is one of the
+
+776
+00:18:10,870 --> 00:18:10,880
+seen that. Okay. So this is one of the
+ 
+
+777
+00:18:10,880 --> 00:18:12,950
+seen that. Okay. So this is one of the
+interceptors which tracks this
+
+778
+00:18:12,950 --> 00:18:12,960
+interceptors which tracks this
+ 
+
+779
+00:18:12,960 --> 00:18:14,950
+interceptors which tracks this
+annotation. So if you remember we have
+
+780
+00:18:14,950 --> 00:18:14,960
+annotation. So if you remember we have
+ 
+
+781
+00:18:14,960 --> 00:18:17,350
+annotation. So if you remember we have
+also created one interceptor we which
+
+782
+00:18:17,350 --> 00:18:17,360
+also created one interceptor we which
+ 
+
+783
+00:18:17,360 --> 00:18:19,350
+also created one interceptor we which
+tracks different annotation. So
+
+784
+00:18:19,350 --> 00:18:19,360
+tracks different annotation. So
+ 
+
+785
+00:18:19,360 --> 00:18:21,270
+tracks different annotation. So
+similarly this annotation is already
+
+786
+00:18:21,270 --> 00:18:21,280
+similarly this annotation is already
+ 
+
+787
+00:18:21,280 --> 00:18:23,830
+similarly this annotation is already
+there in the spring security framework
+
+788
+00:18:23,830 --> 00:18:23,840
+there in the spring security framework
+ 
+
+789
+00:18:23,840 --> 00:18:25,669
+there in the spring security framework
+which track this annotation
+
+790
+00:18:25,669 --> 00:18:25,679
+which track this annotation
+ 
+
+791
+00:18:25,679 --> 00:18:29,870
+which track this annotation
+authorization manager before method
+
+792
+00:18:29,870 --> 00:18:29,880
+
+ 
+
+793
+00:18:29,880 --> 00:18:33,110
+
+interceptor. Okay. So we know that okay
+
+794
+00:18:33,110 --> 00:18:33,120
+interceptor. Okay. So we know that okay
+ 
+
+795
+00:18:33,120 --> 00:18:35,430
+interceptor. Okay. So we know that okay
+this is the this annotation got
+
+796
+00:18:35,430 --> 00:18:35,440
+this is the this annotation got
+ 
+
+797
+00:18:35,440 --> 00:18:37,630
+this is the this annotation got
+intercepted by
+
+798
+00:18:37,630 --> 00:18:37,640
+intercepted by
+ 
+
+799
+00:18:37,640 --> 00:18:40,350
+intercepted by
+authorization manager before method
+
+800
+00:18:40,350 --> 00:18:40,360
+authorization manager before method
+ 
+
+801
+00:18:40,360 --> 00:18:43,510
+authorization manager before method
+interceptor. Now what it will do? Now
+
+802
+00:18:43,510 --> 00:18:43,520
+interceptor. Now what it will do? Now
+ 
+
+803
+00:18:43,520 --> 00:18:46,150
+interceptor. Now what it will do? Now
+what it will do is this whatever the
+
+804
+00:18:46,150 --> 00:18:46,160
+what it will do is this whatever the
+ 
+
+805
+00:18:46,160 --> 00:18:48,270
+what it will do is this whatever the
+string you provide inside
+
+806
+00:18:48,270 --> 00:18:48,280
+string you provide inside
+ 
+
+807
+00:18:48,280 --> 00:18:51,990
+string you provide inside
+this this is generally known as a spring
+
+808
+00:18:51,990 --> 00:18:52,000
+this this is generally known as a spring
+ 
+
+809
+00:18:52,000 --> 00:18:53,870
+this this is generally known as a spring
+expression language
+
+810
+00:18:53,870 --> 00:18:53,880
+expression language
+ 
+
+811
+00:18:53,880 --> 00:18:57,830
+expression language
+spel a spring expression language okay
+
+812
+00:18:57,830 --> 00:18:57,840
+spel a spring expression language okay
+ 
+
+813
+00:18:57,840 --> 00:19:00,150
+spel a spring expression language okay
+so generally what happened is when this
+
+814
+00:19:00,150 --> 00:19:00,160
+so generally what happened is when this
+ 
+
+815
+00:19:00,160 --> 00:19:04,630
+so generally what happened is when this
+interceptor got invoked because of this
+
+816
+00:19:04,630 --> 00:19:04,640
+interceptor got invoked because of this
+ 
+
+817
+00:19:04,640 --> 00:19:06,830
+interceptor got invoked because of this
+pre authorized
+
+818
+00:19:06,830 --> 00:19:06,840
+pre authorized
+ 
+
+819
+00:19:06,840 --> 00:19:10,230
+pre authorized
+annotation it first read the string from
+
+820
+00:19:10,230 --> 00:19:10,240
+annotation it first read the string from
+ 
+
+821
+00:19:10,240 --> 00:19:14,710
+annotation it first read the string from
+this annotation so it read this string
+
+822
+00:19:14,710 --> 00:19:14,720
+
+ 
+
+823
+00:19:14,720 --> 00:19:16,470
+
+Okay. So currently it's in a string
+
+824
+00:19:16,470 --> 00:19:16,480
+Okay. So currently it's in a string
+ 
+
+825
+00:19:16,480 --> 00:19:18,950
+Okay. So currently it's in a string
+format. Now what it will do is it will
+
+826
+00:19:18,950 --> 00:19:18,960
+format. Now what it will do is it will
+ 
+
+827
+00:19:18,960 --> 00:19:21,630
+format. Now what it will do is it will
+pass it to the spell expression
+
+828
+00:19:21,630 --> 00:19:21,640
+pass it to the spell expression
+ 
+
+829
+00:19:21,640 --> 00:19:24,870
+pass it to the spell expression
+parser. So there is a parser provided by
+
+830
+00:19:24,870 --> 00:19:24,880
+parser. So there is a parser provided by
+ 
+
+831
+00:19:24,880 --> 00:19:27,830
+parser. So there is a parser provided by
+the spring security framework which is
+
+832
+00:19:27,830 --> 00:19:27,840
+the spring security framework which is
+ 
+
+833
+00:19:27,840 --> 00:19:31,350
+the spring security framework which is
+spell parser. A spell expression parser.
+
+834
+00:19:31,350 --> 00:19:31,360
+spell parser. A spell expression parser.
+ 
+
+835
+00:19:31,360 --> 00:19:33,990
+spell parser. A spell expression parser.
+So what it do is it will convert this
+
+836
+00:19:33,990 --> 00:19:34,000
+So what it do is it will convert this
+ 
+
+837
+00:19:34,000 --> 00:19:38,870
+So what it do is it will convert this
+string to a abstract syntax tree. So now
+
+838
+00:19:38,870 --> 00:19:38,880
+string to a abstract syntax tree. So now
+ 
+
+839
+00:19:38,880 --> 00:19:41,669
+string to a abstract syntax tree. So now
+you will see the tree like this. What is
+
+840
+00:19:41,669 --> 00:19:41,679
+you will see the tree like this. What is
+ 
+
+841
+00:19:41,679 --> 00:19:43,750
+you will see the tree like this. What is
+the operation? End. This is the
+
+842
+00:19:43,750 --> 00:19:43,760
+the operation? End. This is the
+ 
+
+843
+00:19:43,760 --> 00:19:48,070
+the operation? End. This is the
+operation end. So it's left left operand
+
+844
+00:19:48,070 --> 00:19:48,080
+operation end. So it's left left operand
+ 
+
+845
+00:19:48,080 --> 00:19:51,150
+operation end. So it's left left operand
+right operand. Okay. So it's at a
+
+846
+00:19:51,150 --> 00:19:51,160
+right operand. Okay. So it's at a
+ 
+
+847
+00:19:51,160 --> 00:19:54,190
+right operand. Okay. So it's at a
+children. This is children zero. This is
+
+848
+00:19:54,190 --> 00:19:54,200
+children. This is children zero. This is
+ 
+
+849
+00:19:54,200 --> 00:19:56,909
+children. This is children zero. This is
+children one. So left operand right
+
+850
+00:19:56,909 --> 00:19:56,919
+children one. So left operand right
+ 
+
+851
+00:19:56,919 --> 00:20:01,029
+children one. So left operand right
+operent. Okay. So here it has end which
+
+852
+00:20:01,029 --> 00:20:01,039
+operent. Okay. So here it has end which
+ 
+
+853
+00:20:01,039 --> 00:20:04,150
+operent. Okay. So here it has end which
+is operation end. So it has this invoke
+
+854
+00:20:04,150 --> 00:20:04,160
+is operation end. So it has this invoke
+ 
+
+855
+00:20:04,160 --> 00:20:08,470
+is operation end. So it has this invoke
+this class which internally does this
+
+856
+00:20:08,470 --> 00:20:08,480
+this class which internally does this
+ 
+
+857
+00:20:08,480 --> 00:20:10,870
+this class which internally does this
+left operand right operent part the same
+
+858
+00:20:10,870 --> 00:20:10,880
+left operand right operent part the same
+ 
+
+859
+00:20:10,880 --> 00:20:13,909
+left operand right operent part the same
+thing. So what I'm trying to say that we
+
+860
+00:20:13,909 --> 00:20:13,919
+thing. So what I'm trying to say that we
+ 
+
+861
+00:20:13,919 --> 00:20:16,830
+thing. So what I'm trying to say that we
+don't have to write any of this thing it
+
+862
+00:20:16,830 --> 00:20:16,840
+don't have to write any of this thing it
+ 
+
+863
+00:20:16,840 --> 00:20:19,630
+don't have to write any of this thing it
+recursively resolve this
+
+864
+00:20:19,630 --> 00:20:19,640
+recursively resolve this
+ 
+
+865
+00:20:19,640 --> 00:20:22,710
+recursively resolve this
+expression. Okay so right it's a
+
+866
+00:20:22,710 --> 00:20:22,720
+expression. Okay so right it's a
+ 
+
+867
+00:20:22,720 --> 00:20:25,110
+expression. Okay so right it's a
+operation end. So it invokes this method
+
+868
+00:20:25,110 --> 00:20:25,120
+operation end. So it invokes this method
+ 
+
+869
+00:20:25,120 --> 00:20:27,190
+operation end. So it invokes this method
+then it's resolved its left operand.
+
+870
+00:20:27,190 --> 00:20:27,200
+then it's resolved its left operand.
+ 
+
+871
+00:20:27,200 --> 00:20:30,669
+then it's resolved its left operand.
+Left operent is your this zero
+
+872
+00:20:30,669 --> 00:20:30,679
+Left operent is your this zero
+ 
+
+873
+00:20:30,679 --> 00:20:33,430
+Left operent is your this zero
+part and again if you see this if you go
+
+874
+00:20:33,430 --> 00:20:33,440
+part and again if you see this if you go
+ 
+
+875
+00:20:33,440 --> 00:20:36,789
+part and again if you see this if you go
+inside this left operent again it's a
+
+876
+00:20:36,789 --> 00:20:36,799
+inside this left operent again it's a
+ 
+
+877
+00:20:36,799 --> 00:20:38,310
+inside this left operent again it's a
+recursive call. If there is any other
+
+878
+00:20:38,310 --> 00:20:38,320
+recursive call. If there is any other
+ 
+
+879
+00:20:38,320 --> 00:20:40,710
+recursive call. If there is any other
+operand let's say or so it will goes to
+
+880
+00:20:40,710 --> 00:20:40,720
+operand let's say or so it will goes to
+ 
+
+881
+00:20:40,720 --> 00:20:43,230
+operand let's say or so it will goes to
+that class that will have left right
+
+882
+00:20:43,230 --> 00:20:43,240
+that class that will have left right
+ 
+
+883
+00:20:43,240 --> 00:20:45,669
+that class that will have left right
+likewise and once that is resolved then
+
+884
+00:20:45,669 --> 00:20:45,679
+likewise and once that is resolved then
+ 
+
+885
+00:20:45,679 --> 00:20:47,750
+likewise and once that is resolved then
+it will automatically resolve the right
+
+886
+00:20:47,750 --> 00:20:47,760
+it will automatically resolve the right
+ 
+
+887
+00:20:47,760 --> 00:20:49,990
+it will automatically resolve the right
+oper and the same recursive operations
+
+888
+00:20:49,990 --> 00:20:50,000
+oper and the same recursive operations
+ 
+
+889
+00:20:50,000 --> 00:20:53,590
+oper and the same recursive operations
+happen and ultimately what it does is
+
+890
+00:20:53,590 --> 00:20:53,600
+happen and ultimately what it does is
+ 
+
+891
+00:20:53,600 --> 00:20:57,190
+happen and ultimately what it does is
+once it invokes all the method all the
+
+892
+00:20:57,190 --> 00:20:57,200
+once it invokes all the method all the
+ 
+
+893
+00:20:57,200 --> 00:20:59,990
+once it invokes all the method all the
+variables references right ultimately
+
+894
+00:20:59,990 --> 00:21:00,000
+variables references right ultimately
+ 
+
+895
+00:21:00,000 --> 00:21:02,070
+variables references right ultimately
+what it will do is this interceptor
+
+896
+00:21:02,070 --> 00:21:02,080
+what it will do is this interceptor
+ 
+
+897
+00:21:02,080 --> 00:21:04,470
+what it will do is this interceptor
+validate the result and decide whether
+
+898
+00:21:04,470 --> 00:21:04,480
+validate the result and decide whether
+ 
+
+899
+00:21:04,480 --> 00:21:07,510
+validate the result and decide whether
+to invoke the method or not. So these
+
+900
+00:21:07,510 --> 00:21:07,520
+to invoke the method or not. So these
+ 
+
+901
+00:21:07,520 --> 00:21:09,990
+to invoke the method or not. So these
+are the steps involved once the
+
+902
+00:21:09,990 --> 00:21:10,000
+are the steps involved once the
+ 
+
+903
+00:21:10,000 --> 00:21:12,310
+are the steps involved once the
+interceptor is invoked. So we can use
+
+904
+00:21:12,310 --> 00:21:12,320
+interceptor is invoked. So we can use
+ 
+
+905
+00:21:12,320 --> 00:21:14,390
+interceptor is invoked. So we can use
+more logical operation like currently we
+
+906
+00:21:14,390 --> 00:21:14,400
+more logical operation like currently we
+ 
+
+907
+00:21:14,400 --> 00:21:17,830
+more logical operation like currently we
+have used end right like has role and we
+
+908
+00:21:17,830 --> 00:21:17,840
+have used end right like has role and we
+ 
+
+909
+00:21:17,840 --> 00:21:20,470
+have used end right like has role and we
+have put and has authority. Similarly we
+
+910
+00:21:20,470 --> 00:21:20,480
+have put and has authority. Similarly we
+ 
+
+911
+00:21:20,480 --> 00:21:25,029
+have put and has authority. Similarly we
+can use or we can use not and similarly
+
+912
+00:21:25,029 --> 00:21:25,039
+can use or we can use not and similarly
+ 
+
+913
+00:21:25,039 --> 00:21:27,029
+can use or we can use not and similarly
+we have relational operator we can use
+
+914
+00:21:27,029 --> 00:21:27,039
+we have relational operator we can use
+ 
+
+915
+00:21:27,039 --> 00:21:32,070
+we have relational operator we can use
+like this value. So generally in the API
+
+916
+00:21:32,070 --> 00:21:32,080
+like this value. So generally in the API
+ 
+
+917
+00:21:32,080 --> 00:21:35,430
+like this value. So generally in the API
+slash user slash you might have some
+
+918
+00:21:35,430 --> 00:21:35,440
+slash user slash you might have some
+ 
+
+919
+00:21:35,440 --> 00:21:39,750
+slash user slash you might have some
+let's say ID. So we can also read we can
+
+920
+00:21:39,750 --> 00:21:39,760
+let's say ID. So we can also read we can
+ 
+
+921
+00:21:39,760 --> 00:21:40,590
+let's say ID. So we can also read we can
+put
+
+922
+00:21:40,590 --> 00:21:40,600
+put
+ 
+
+923
+00:21:40,600 --> 00:21:44,149
+put
+authorization logic on this value also.
+
+924
+00:21:44,149 --> 00:21:44,159
+authorization logic on this value also.
+ 
+
+925
+00:21:44,159 --> 00:21:48,070
+authorization logic on this value also.
+Okay. So value is 15 value not equals to
+
+926
+00:21:48,070 --> 00:21:48,080
+Okay. So value is 15 value not equals to
+ 
+
+927
+00:21:48,080 --> 00:21:49,830
+Okay. So value is 15 value not equals to
+15. I'll tell you when this comes into
+
+928
+00:21:49,830 --> 00:21:49,840
+15. I'll tell you when this comes into
+ 
+
+929
+00:21:49,840 --> 00:21:51,590
+15. I'll tell you when this comes into
+the picture like when it would be
+
+930
+00:21:51,590 --> 00:21:51,600
+the picture like when it would be
+ 
+
+931
+00:21:51,600 --> 00:21:54,149
+the picture like when it would be
+helpful for us. Just for example let's
+
+932
+00:21:54,149 --> 00:21:54,159
+helpful for us. Just for example let's
+ 
+
+933
+00:21:54,159 --> 00:21:55,710
+helpful for us. Just for example let's
+say I have created this
+
+934
+00:21:55,710 --> 00:21:55,720
+say I have created this
+ 
+
+935
+00:21:55,720 --> 00:21:59,029
+say I have created this
+endpoint fetch user details. What is
+
+936
+00:21:59,029 --> 00:21:59,039
+endpoint fetch user details. What is
+ 
+
+937
+00:21:59,039 --> 00:22:01,830
+endpoint fetch user details. What is
+this path variable? Path variable is ID.
+
+938
+00:22:01,830 --> 00:22:01,840
+this path variable? Path variable is ID.
+ 
+
+939
+00:22:01,840 --> 00:22:06,830
+this path variable? Path variable is ID.
+So the same ID I used here. ID should be
+
+940
+00:22:06,830 --> 00:22:06,840
+So the same ID I used here. ID should be
+ 
+
+941
+00:22:06,840 --> 00:22:12,190
+So the same ID I used here. ID should be
+this. Okay. Is this
+
+942
+00:22:12,190 --> 00:22:12,200
+this. Okay. Is this
+ 
+
+943
+00:22:12,200 --> 00:22:15,830
+this. Okay. Is this
+pre-authorize post authorize has access
+
+944
+00:22:15,830 --> 00:22:15,840
+pre-authorize post authorize has access
+ 
+
+945
+00:22:15,840 --> 00:22:18,390
+pre-authorize post authorize has access
+to your authentication object. Okay. We
+
+946
+00:22:18,390 --> 00:22:18,400
+to your authentication object. Okay. We
+ 
+
+947
+00:22:18,400 --> 00:22:20,789
+to your authentication object. Okay. We
+can see that. So if you open the code
+
+948
+00:22:20,789 --> 00:22:20,799
+can see that. So if you open the code
+ 
+
+949
+00:22:20,799 --> 00:22:24,830
+can see that. So if you open the code
+you can open that uh what was that
+
+950
+00:22:24,830 --> 00:22:24,840
+you can open that uh what was that
+ 
+
+951
+00:22:24,840 --> 00:22:27,270
+you can open that uh what was that
+authorization manager before method
+
+952
+00:22:27,270 --> 00:22:27,280
+authorization manager before method
+ 
+
+953
+00:22:27,280 --> 00:22:30,230
+authorization manager before method
+interceptor right so this is the attempt
+
+954
+00:22:30,230 --> 00:22:30,240
+interceptor right so this is the attempt
+ 
+
+955
+00:22:30,240 --> 00:22:32,190
+interceptor right so this is the attempt
+authorization will ultimately get
+
+956
+00:22:32,190 --> 00:22:32,200
+authorization will ultimately get
+ 
+
+957
+00:22:32,200 --> 00:22:34,710
+authorization will ultimately get
+invoked and attempt authorization if you
+
+958
+00:22:34,710 --> 00:22:34,720
+invoked and attempt authorization if you
+ 
+
+959
+00:22:34,720 --> 00:22:36,909
+invoked and attempt authorization if you
+see that it has like get
+
+960
+00:22:36,909 --> 00:22:36,919
+see that it has like get
+ 
+
+961
+00:22:36,919 --> 00:22:41,789
+see that it has like get
+authentication right so in the get au
+
+962
+00:22:41,789 --> 00:22:41,799
+authentication right so in the get au
+ 
+
+963
+00:22:41,799 --> 00:22:44,149
+authentication right so in the get au
+authentication security context holder
+
+964
+00:22:44,149 --> 00:22:44,159
+authentication security context holder
+ 
+
+965
+00:22:44,159 --> 00:22:45,830
+authentication security context holder
+strategy which we have put into the
+
+966
+00:22:45,830 --> 00:22:45,840
+strategy which we have put into the
+ 
+
+967
+00:22:45,840 --> 00:22:48,789
+strategy which we have put into the
+filter part okay from there it has the
+
+968
+00:22:48,789 --> 00:22:48,799
+filter part okay from there it has the
+ 
+
+969
+00:22:48,799 --> 00:22:50,510
+filter part okay from there it has the
+complete authentication
+
+970
+00:22:50,510 --> 00:22:50,520
+complete authentication
+ 
+
+971
+00:22:50,520 --> 00:22:53,510
+complete authentication
+object. Now based on that uh so it has
+
+972
+00:22:53,510 --> 00:22:53,520
+object. Now based on that uh so it has
+ 
+
+973
+00:22:53,520 --> 00:22:55,270
+object. Now based on that uh so it has
+access to the authentication object. So
+
+974
+00:22:55,270 --> 00:22:55,280
+access to the authentication object. So
+ 
+
+975
+00:22:55,280 --> 00:22:57,390
+access to the authentication object. So
+based on
+
+976
+00:22:57,390 --> 00:22:57,400
+based on
+ 
+
+977
+00:22:57,400 --> 00:22:59,990
+based on
+that if you want to put any logic we can
+
+978
+00:22:59,990 --> 00:23:00,000
+that if you want to put any logic we can
+ 
+
+979
+00:23:00,000 --> 00:23:02,549
+that if you want to put any logic we can
+put like this. So here if you remember
+
+980
+00:23:02,549 --> 00:23:02,559
+put like this. So here if you remember
+ 
+
+981
+00:23:02,559 --> 00:23:05,110
+put like this. So here if you remember
+that let's say I have created one user
+
+982
+00:23:05,110 --> 00:23:05,120
+that let's say I have created one user
+ 
+
+983
+00:23:05,120 --> 00:23:09,710
+that let's say I have created one user
+let's say RJ password is 1 2 3 and in
+
+984
+00:23:09,710 --> 00:23:09,720
+let's say RJ password is 1 2 3 and in
+ 
+
+985
+00:23:09,720 --> 00:23:13,310
+let's say RJ password is 1 2 3 and in
+DB and in DB it would be like
+
+986
+00:23:13,310 --> 00:23:13,320
+DB and in DB it would be like
+ 
+
+987
+00:23:13,320 --> 00:23:17,990
+DB and in DB it would be like
+ID1 RJ username password is 1 2 3. So
+
+988
+00:23:17,990 --> 00:23:18,000
+ID1 RJ username password is 1 2 3. So
+ 
+
+989
+00:23:18,000 --> 00:23:21,110
+ID1 RJ username password is 1 2 3. So
+this ID also comes this this is uni
+
+990
+00:23:21,110 --> 00:23:21,120
+this ID also comes this this is uni
+ 
+
+991
+00:23:21,120 --> 00:23:23,750
+this ID also comes this this is uni
+unique user ID. So this ultimately
+
+992
+00:23:23,750 --> 00:23:23,760
+unique user ID. So this ultimately
+ 
+
+993
+00:23:23,760 --> 00:23:26,630
+unique user ID. So this ultimately
+generally called as principal ID. Okay.
+
+994
+00:23:26,630 --> 00:23:26,640
+generally called as principal ID. Okay.
+ 
+
+995
+00:23:26,640 --> 00:23:28,470
+generally called as principal ID. Okay.
+So let's say that I want to make sure
+
+996
+00:23:28,470 --> 00:23:28,480
+So let's say that I want to make sure
+ 
+
+997
+00:23:28,480 --> 00:23:31,190
+So let's say that I want to make sure
+that whatever the user it is trying to
+
+998
+00:23:31,190 --> 00:23:31,200
+that whatever the user it is trying to
+ 
+
+999
+00:23:31,200 --> 00:23:33,990
+that whatever the user it is trying to
+fetch an ID. This should be the same
+
+1000
+00:23:33,990 --> 00:23:34,000
+fetch an ID. This should be the same
+ 
+
+1001
+00:23:34,000 --> 00:23:35,310
+fetch an ID. This should be the same
+user who is
+
+1002
+00:23:35,310 --> 00:23:35,320
+user who is
+ 
+
+1003
+00:23:35,320 --> 00:23:37,510
+user who is
+authenticated. Okay. So in basic
+
+1004
+00:23:37,510 --> 00:23:37,520
+authenticated. Okay. So in basic
+ 
+
+1005
+00:23:37,520 --> 00:23:40,710
+authenticated. Okay. So in basic
+authentication you are putting RJ and
+
+1006
+00:23:40,710 --> 00:23:40,720
+authentication you are putting RJ and
+ 
+
+1007
+00:23:40,720 --> 00:23:43,350
+authentication you are putting RJ and
+the password 1 2 3 right username
+
+1008
+00:23:43,350 --> 00:23:43,360
+the password 1 2 3 right username
+ 
+
+1009
+00:23:43,360 --> 00:23:44,870
+the password 1 2 3 right username
+password for the basic authentication
+
+1010
+00:23:44,870 --> 00:23:44,880
+password for the basic authentication
+ 
+
+1011
+00:23:44,880 --> 00:23:48,149
+password for the basic authentication
+when hitting any API. So first it goes
+
+1012
+00:23:48,149 --> 00:23:48,159
+when hitting any API. So first it goes
+ 
+
+1013
+00:23:48,159 --> 00:23:50,149
+when hitting any API. So first it goes
+to the filter f the authentication
+
+1014
+00:23:50,149 --> 00:23:50,159
+to the filter f the authentication
+ 
+
+1015
+00:23:50,159 --> 00:23:53,350
+to the filter f the authentication
+object and that authentication object
+
+1016
+00:23:53,350 --> 00:23:53,360
+object and that authentication object
+ 
+
+1017
+00:23:53,360 --> 00:23:55,270
+object and that authentication object
+get principle authentication it has this
+
+1018
+00:23:55,270 --> 00:23:55,280
+get principle authentication it has this
+ 
+
+1019
+00:23:55,280 --> 00:23:57,990
+get principle authentication it has this
+let's say ID this is the second user
+
+1020
+00:23:57,990 --> 00:23:58,000
+let's say ID this is the second user
+ 
+
+1021
+00:23:58,000 --> 00:24:00,350
+let's say ID this is the second user
+username is this password is
+
+1022
+00:24:00,350 --> 00:24:00,360
+username is this password is
+ 
+
+1023
+00:24:00,360 --> 00:24:03,590
+username is this password is
+this now I want to make sure that this
+
+1024
+00:24:03,590 --> 00:24:03,600
+this now I want to make sure that this
+ 
+
+1025
+00:24:03,600 --> 00:24:06,070
+this now I want to make sure that this
+API which is getting it is trying to hit
+
+1026
+00:24:06,070 --> 00:24:06,080
+API which is getting it is trying to hit
+ 
+
+1027
+00:24:06,080 --> 00:24:07,669
+API which is getting it is trying to hit
+let's say this user is calling an
+
+1028
+00:24:07,669 --> 00:24:07,679
+let's say this user is calling an
+ 
+
+1029
+00:24:07,679 --> 00:24:09,630
+let's say this user is calling an
+endpoint/
+
+1030
+00:24:09,630 --> 00:24:09,640
+endpoint/
+ 
+
+1031
+00:24:09,640 --> 00:24:13,350
+endpoint/
+user/3 but this user is unique user ID
+
+1032
+00:24:13,350 --> 00:24:13,360
+user/3 but this user is unique user ID
+ 
+
+1033
+00:24:13,360 --> 00:24:17,430
+user/3 but this user is unique user ID
+is two so I should not allow this user
+
+1034
+00:24:17,430 --> 00:24:17,440
+is two so I should not allow this user
+ 
+
+1035
+00:24:17,440 --> 00:24:20,070
+is two so I should not allow this user
+to hit the endpoint to fetch the details
+
+1036
+00:24:20,070 --> 00:24:20,080
+to hit the endpoint to fetch the details
+ 
+
+1037
+00:24:20,080 --> 00:24:22,789
+to hit the endpoint to fetch the details
+of some other user. So that's why I put
+
+1038
+00:24:22,789 --> 00:24:22,799
+of some other user. So that's why I put
+ 
+
+1039
+00:24:22,799 --> 00:24:24,669
+of some other user. So that's why I put
+this like okay check
+
+1040
+00:24:24,669 --> 00:24:24,679
+this like okay check
+ 
+
+1041
+00:24:24,679 --> 00:24:28,029
+this like okay check
+this whatever the ID user is trying to
+
+1042
+00:24:28,029 --> 00:24:28,039
+this whatever the ID user is trying to
+ 
+
+1043
+00:24:28,039 --> 00:24:31,830
+this whatever the ID user is trying to
+fetch in this endpoint is the same as
+
+1044
+00:24:31,830 --> 00:24:31,840
+fetch in this endpoint is the same as
+ 
+
+1045
+00:24:31,840 --> 00:24:34,710
+fetch in this endpoint is the same as
+what the principal ID what is this user
+
+1046
+00:24:34,710 --> 00:24:34,720
+what the principal ID what is this user
+ 
+
+1047
+00:24:34,720 --> 00:24:37,269
+what the principal ID what is this user
+who is actually authenticated. So that
+
+1048
+00:24:37,269 --> 00:24:37,279
+who is actually authenticated. So that
+ 
+
+1049
+00:24:37,279 --> 00:24:40,630
+who is actually authenticated. So that
+way you can also use so post authorize
+
+1050
+00:24:40,630 --> 00:24:40,640
+way you can also use so post authorize
+ 
+
+1051
+00:24:40,640 --> 00:24:43,269
+way you can also use so post authorize
+is very very similar. So only thing is
+
+1052
+00:24:43,269 --> 00:24:43,279
+is very very similar. So only thing is
+ 
+
+1053
+00:24:43,279 --> 00:24:45,510
+is very very similar. So only thing is
+it does the authorization after
+
+1054
+00:24:45,510 --> 00:24:45,520
+it does the authorization after
+ 
+
+1055
+00:24:45,520 --> 00:24:48,070
+it does the authorization after
+execution of the API but before sending
+
+1056
+00:24:48,070 --> 00:24:48,080
+execution of the API but before sending
+ 
+
+1057
+00:24:48,080 --> 00:24:49,950
+execution of the API but before sending
+the response back to the
+
+1058
+00:24:49,950 --> 00:24:49,960
+the response back to the
+ 
+
+1059
+00:24:49,960 --> 00:24:52,950
+the response back to the
+user and what is the interceptor
+
+1060
+00:24:52,950 --> 00:24:52,960
+user and what is the interceptor
+ 
+
+1061
+00:24:52,960 --> 00:24:55,110
+user and what is the interceptor
+authorization manager after method
+
+1062
+00:24:55,110 --> 00:24:55,120
+authorization manager after method
+ 
+
+1063
+00:24:55,120 --> 00:24:58,029
+authorization manager after method
+interceptor comes into the picture
+
+1064
+00:24:58,029 --> 00:24:58,039
+interceptor comes into the picture
+ 
+
+1065
+00:24:58,039 --> 00:25:00,870
+interceptor comes into the picture
+after. So we can see this like I have
+
+1066
+00:25:00,870 --> 00:25:00,880
+after. So we can see this like I have
+ 
+
+1067
+00:25:00,880 --> 00:25:03,390
+after. So we can see this like I have
+created two users just for testing
+
+1068
+00:25:03,390 --> 00:25:03,400
+created two users just for testing
+ 
+
+1069
+00:25:03,400 --> 00:25:07,110
+created two users just for testing
+purpose. So I have created A user role
+
+1070
+00:25:07,110 --> 00:25:07,120
+purpose. So I have created A user role
+ 
+
+1071
+00:25:07,120 --> 00:25:10,149
+purpose. So I have created A user role
+uh password 1 2 3 and it has role user
+
+1072
+00:25:10,149 --> 00:25:10,159
+uh password 1 2 3 and it has role user
+ 
+
+1073
+00:25:10,159 --> 00:25:11,310
+uh password 1 2 3 and it has role user
+and order
+
+1074
+00:25:11,310 --> 00:25:11,320
+and order
+ 
+
+1075
+00:25:11,320 --> 00:25:14,310
+and order
+read with the same role and permission I
+
+1076
+00:25:14,310 --> 00:25:14,320
+read with the same role and permission I
+ 
+
+1077
+00:25:14,320 --> 00:25:18,470
+read with the same role and permission I
+have created B user. So in DB it has uh
+
+1078
+00:25:18,470 --> 00:25:18,480
+have created B user. So in DB it has uh
+ 
+
+1079
+00:25:18,480 --> 00:25:22,230
+have created B user. So in DB it has uh
+A user has unique ID 1 and B user has
+
+1080
+00:25:22,230 --> 00:25:22,240
+A user has unique ID 1 and B user has
+ 
+
+1081
+00:25:22,240 --> 00:25:26,029
+A user has unique ID 1 and B user has
+unique ID 2. Okay.
+
+1082
+00:25:26,029 --> 00:25:26,039
+unique ID 2. Okay.
+ 
+
+1083
+00:25:26,039 --> 00:25:29,390
+unique ID 2. Okay.
+Now I am creating one
+
+1084
+00:25:29,390 --> 00:25:29,400
+Now I am creating one
+ 
+
+1085
+00:25:29,400 --> 00:25:32,549
+Now I am creating one
+controller let's say read order endpoint
+
+1086
+00:25:32,549 --> 00:25:32,559
+controller let's say read order endpoint
+ 
+
+1087
+00:25:32,559 --> 00:25:34,190
+controller let's say read order endpoint
+/ API/
+
+1088
+00:25:34,190 --> 00:25:34,200
+/ API/
+ 
+
+1089
+00:25:34,200 --> 00:25:37,510
+/ API/
+orderer. So in the pre-authorize I have
+
+1090
+00:25:37,510 --> 00:25:37,520
+orderer. So in the pre-authorize I have
+ 
+
+1091
+00:25:37,520 --> 00:25:41,909
+orderer. So in the pre-authorize I have
+put that user should has role user. So
+
+1092
+00:25:41,909 --> 00:25:41,919
+put that user should has role user. So
+ 
+
+1093
+00:25:41,919 --> 00:25:44,230
+put that user should has role user. So
+here if you see both has role user. This
+
+1094
+00:25:44,230 --> 00:25:44,240
+here if you see both has role user. This
+ 
+
+1095
+00:25:44,240 --> 00:25:47,230
+here if you see both has role user. This
+is also role user. This is also role
+
+1096
+00:25:47,230 --> 00:25:47,240
+is also role user. This is also role
+ 
+
+1097
+00:25:47,240 --> 00:25:50,510
+is also role user. This is also role
+user and should have authority order
+
+1098
+00:25:50,510 --> 00:25:50,520
+user and should have authority order
+ 
+
+1099
+00:25:50,520 --> 00:25:53,590
+user and should have authority order
+read. Okay. So this is a read API. Get
+
+1100
+00:25:53,590 --> 00:25:53,600
+read. Okay. So this is a read API. Get
+ 
+
+1101
+00:25:53,600 --> 00:25:56,149
+read. Okay. So this is a read API. Get
+read API. get call orders. So they
+
+1102
+00:25:56,149 --> 00:25:56,159
+read API. get call orders. So they
+ 
+
+1103
+00:25:56,159 --> 00:25:57,990
+read API. get call orders. So they
+should have order read permission. Both
+
+1104
+00:25:57,990 --> 00:25:58,000
+should have order read permission. Both
+ 
+
+1105
+00:25:58,000 --> 00:25:59,230
+should have order read permission. Both
+have order
+
+1106
+00:25:59,230 --> 00:25:59,240
+have order
+ 
+
+1107
+00:25:59,240 --> 00:26:01,070
+have order
+read.
+
+1108
+00:26:01,070 --> 00:26:01,080
+read.
+ 
+
+1109
+00:26:01,080 --> 00:26:04,470
+read.
+Okay. Now let's come to post authorized
+
+1110
+00:26:04,470 --> 00:26:04,480
+Okay. Now let's come to post authorized
+ 
+
+1111
+00:26:04,480 --> 00:26:08,230
+Okay. Now let's come to post authorized
+later. Now what would happen when you
+
+1112
+00:26:08,230 --> 00:26:08,240
+later. Now what would happen when you
+ 
+
+1113
+00:26:08,240 --> 00:26:09,789
+later. Now what would happen when you
+hit this
+
+1114
+00:26:09,789 --> 00:26:09,799
+hit this
+ 
+
+1115
+00:26:09,799 --> 00:26:12,870
+hit this
+endpoint / API/order who is trying to
+
+1116
+00:26:12,870 --> 00:26:12,880
+endpoint / API/order who is trying to
+ 
+
+1117
+00:26:12,880 --> 00:26:17,110
+endpoint / API/order who is trying to
+access B user 1 2 3 it is trying to hit.
+
+1118
+00:26:17,110 --> 00:26:17,120
+access B user 1 2 3 it is trying to hit.
+ 
+
+1119
+00:26:17,120 --> 00:26:19,510
+access B user 1 2 3 it is trying to hit.
+What would happen? The first
+
+1120
+00:26:19,510 --> 00:26:19,520
+What would happen? The first
+ 
+
+1121
+00:26:19,520 --> 00:26:21,830
+What would happen? The first
+pre-authorized will interceptor will get
+
+1122
+00:26:21,830 --> 00:26:21,840
+pre-authorized will interceptor will get
+ 
+
+1123
+00:26:21,840 --> 00:26:24,310
+pre-authorized will interceptor will get
+invoked. It will check does B user has
+
+1124
+00:26:24,310 --> 00:26:24,320
+invoked. It will check does B user has
+ 
+
+1125
+00:26:24,320 --> 00:26:28,310
+invoked. It will check does B user has
+the role user? Yes. Does B user has
+
+1126
+00:26:28,310 --> 00:26:28,320
+the role user? Yes. Does B user has
+ 
+
+1127
+00:26:28,320 --> 00:26:31,990
+the role user? Yes. Does B user has
+order read permission? Yes. Then it will
+
+1128
+00:26:31,990 --> 00:26:32,000
+order read permission? Yes. Then it will
+ 
+
+1129
+00:26:32,000 --> 00:26:36,149
+order read permission? Yes. Then it will
+go and execute this. So now in this one
+
+1130
+00:26:36,149 --> 00:26:36,159
+go and execute this. So now in this one
+ 
+
+1131
+00:26:36,159 --> 00:26:38,630
+go and execute this. So now in this one
+for hard-coded purpose I have created
+
+1132
+00:26:38,630 --> 00:26:38,640
+for hard-coded purpose I have created
+ 
+
+1133
+00:26:38,640 --> 00:26:42,510
+for hard-coded purpose I have created
+the order DTO and put a user ID
+
+1134
+00:26:42,510 --> 00:26:42,520
+the order DTO and put a user ID
+ 
+
+1135
+00:26:42,520 --> 00:26:45,590
+the order DTO and put a user ID
+one. Okay. and order id this that this
+
+1136
+00:26:45,590 --> 00:26:45,600
+one. Okay. and order id this that this
+ 
+
+1137
+00:26:45,600 --> 00:26:49,110
+one. Okay. and order id this that this
+order belongs to user id one and
+
+1138
+00:26:49,110 --> 00:26:49,120
+order belongs to user id one and
+ 
+
+1139
+00:26:49,120 --> 00:26:51,470
+order belongs to user id one and
+returning the
+
+1140
+00:26:51,470 --> 00:26:51,480
+returning the
+ 
+
+1141
+00:26:51,480 --> 00:26:55,390
+returning the
+dto. Now here I have used post authorize
+
+1142
+00:26:55,390 --> 00:26:55,400
+dto. Now here I have used post authorize
+ 
+
+1143
+00:26:55,400 --> 00:26:58,230
+dto. Now here I have used post authorize
+annotation. So what happen is in this
+
+1144
+00:26:58,230 --> 00:26:58,240
+annotation. So what happen is in this
+ 
+
+1145
+00:26:58,240 --> 00:26:59,990
+annotation. So what happen is in this
+post authorize there is something called
+
+1146
+00:26:59,990 --> 00:27:00,000
+post authorize there is something called
+ 
+
+1147
+00:27:00,000 --> 00:27:03,110
+post authorize there is something called
+return object. Return object it could be
+
+1148
+00:27:03,110 --> 00:27:03,120
+return object. Return object it could be
+ 
+
+1149
+00:27:03,120 --> 00:27:05,750
+return object. Return object it could be
+if you're using a string if you're using
+
+1150
+00:27:05,750 --> 00:27:05,760
+if you're using a string if you're using
+ 
+
+1151
+00:27:05,760 --> 00:27:07,070
+if you're using a string if you're using
+any
+
+1152
+00:27:07,070 --> 00:27:07,080
+any
+ 
+
+1153
+00:27:07,080 --> 00:27:11,110
+any
+object it internally type casted for us.
+
+1154
+00:27:11,110 --> 00:27:11,120
+object it internally type casted for us.
+ 
+
+1155
+00:27:11,120 --> 00:27:12,549
+object it internally type casted for us.
+We don't have to do that. we only have
+
+1156
+00:27:12,549 --> 00:27:12,559
+We don't have to do that. we only have
+ 
+
+1157
+00:27:12,559 --> 00:27:13,710
+We don't have to do that. we only have
+to use return
+
+1158
+00:27:13,710 --> 00:27:13,720
+to use return
+ 
+
+1159
+00:27:13,720 --> 00:27:16,830
+to use return
+object. So now I am checking
+
+1160
+00:27:16,830 --> 00:27:16,840
+object. So now I am checking
+ 
+
+1161
+00:27:16,840 --> 00:27:19,990
+object. So now I am checking
+that whatever the user who is
+
+1162
+00:27:19,990 --> 00:27:20,000
+that whatever the user who is
+ 
+
+1163
+00:27:20,000 --> 00:27:21,909
+that whatever the user who is
+authenticated and calling the endpoint.
+
+1164
+00:27:21,909 --> 00:27:21,919
+authenticated and calling the endpoint.
+ 
+
+1165
+00:27:21,919 --> 00:27:23,230
+authenticated and calling the endpoint.
+So here in this B
+
+1166
+00:27:23,230 --> 00:27:23,240
+So here in this B
+ 
+
+1167
+00:27:23,240 --> 00:27:28,190
+So here in this B
+user this B B user this unique ID is
+
+1168
+00:27:28,190 --> 00:27:28,200
+user this B B user this unique ID is
+ 
+
+1169
+00:27:28,200 --> 00:27:32,870
+user this B B user this unique ID is
+two. So this user should only get its
+
+1170
+00:27:32,870 --> 00:27:32,880
+two. So this user should only get its
+ 
+
+1171
+00:27:32,880 --> 00:27:35,990
+two. So this user should only get its
+its own order not somebody else order
+
+1172
+00:27:35,990 --> 00:27:36,000
+its own order not somebody else order
+ 
+
+1173
+00:27:36,000 --> 00:27:38,149
+its own order not somebody else order
+and this order contains for hardcoded
+
+1174
+00:27:38,149 --> 00:27:38,159
+and this order contains for hardcoded
+ 
+
+1175
+00:27:38,159 --> 00:27:39,750
+and this order contains for hardcoded
+purpose I have put that this order
+
+1176
+00:27:39,750 --> 00:27:39,760
+purpose I have put that this order
+ 
+
+1177
+00:27:39,760 --> 00:27:43,190
+purpose I have put that this order
+belongs to user ID 1. So now what I'm in
+
+1178
+00:27:43,190 --> 00:27:43,200
+belongs to user ID 1. So now what I'm in
+ 
+
+1179
+00:27:43,200 --> 00:27:44,870
+belongs to user ID 1. So now what I'm in
+the post authorize I'm checking the
+
+1180
+00:27:44,870 --> 00:27:44,880
+the post authorize I'm checking the
+ 
+
+1181
+00:27:44,880 --> 00:27:47,350
+the post authorize I'm checking the
+return object. So this order DTO
+
+1182
+00:27:47,350 --> 00:27:47,360
+return object. So this order DTO
+ 
+
+1183
+00:27:47,360 --> 00:27:50,110
+return object. So this order DTO
+internally type cast for us order
+
+1184
+00:27:50,110 --> 00:27:50,120
+internally type cast for us order
+ 
+
+1185
+00:27:50,120 --> 00:27:55,110
+internally type cast for us order
+DTO dot user id dot user id equals to
+
+1186
+00:27:55,110 --> 00:27:55,120
+DTO dot user id dot user id equals to
+ 
+
+1187
+00:27:55,120 --> 00:27:57,669
+DTO dot user id dot user id equals to
+equals to authentication.principle
+
+1188
+00:27:57,669 --> 00:27:57,679
+equals to authentication.principle
+ 
+
+1189
+00:27:57,679 --> 00:28:00,389
+equals to authentication.principle
+principal do id. So authentication
+
+1190
+00:28:00,389 --> 00:28:00,399
+principal do id. So authentication
+ 
+
+1191
+00:28:00,399 --> 00:28:03,549
+principal do id. So authentication
+dotprinciple do id for this b
+
+1192
+00:28:03,549 --> 00:28:03,559
+dotprinciple do id for this b
+ 
+
+1193
+00:28:03,559 --> 00:28:07,510
+dotprinciple do id for this b
+user the id would be this two. So this 1
+
+1194
+00:28:07,510 --> 00:28:07,520
+user the id would be this two. So this 1
+ 
+
+1195
+00:28:07,520 --> 00:28:11,110
+user the id would be this two. So this 1
+equals to equals to two. No. So means
+
+1196
+00:28:11,110 --> 00:28:11,120
+equals to equals to two. No. So means
+ 
+
+1197
+00:28:11,120 --> 00:28:13,350
+equals to equals to two. No. So means
+this user is trying to access the data
+
+1198
+00:28:13,350 --> 00:28:13,360
+this user is trying to access the data
+ 
+
+1199
+00:28:13,360 --> 00:28:16,990
+this user is trying to access the data
+of some other user. So it return
+
+1200
+00:28:16,990 --> 00:28:17,000
+of some other user. So it return
+ 
+
+1201
+00:28:17,000 --> 00:28:20,830
+of some other user. So it return
+forbid. But if I use the a
+
+1202
+00:28:20,830 --> 00:28:20,840
+forbid. But if I use the a
+ 
+
+1203
+00:28:20,840 --> 00:28:25,750
+forbid. But if I use the a
+user it return me the data. Why? because
+
+1204
+00:28:25,750 --> 00:28:25,760
+user it return me the data. Why? because
+ 
+
+1205
+00:28:25,760 --> 00:28:28,190
+user it return me the data. Why? because
+uh a user principal id is
+
+1206
+00:28:28,190 --> 00:28:28,200
+uh a user principal id is
+ 
+
+1207
+00:28:28,200 --> 00:28:31,430
+uh a user principal id is
+one and here in the hard-coded way I
+
+1208
+00:28:31,430 --> 00:28:31,440
+one and here in the hard-coded way I
+ 
+
+1209
+00:28:31,440 --> 00:28:33,230
+one and here in the hard-coded way I
+have put user id one only. So they got
+
+1210
+00:28:33,230 --> 00:28:33,240
+have put user id one only. So they got
+ 
+
+1211
+00:28:33,240 --> 00:28:36,070
+have put user id one only. So they got
+matched. So here if you see that in the
+
+1212
+00:28:36,070 --> 00:28:36,080
+matched. So here if you see that in the
+ 
+
+1213
+00:28:36,080 --> 00:28:38,990
+matched. So here if you see that in the
+post authorize what I just wanted to
+
+1214
+00:28:38,990 --> 00:28:39,000
+post authorize what I just wanted to
+ 
+
+1215
+00:28:39,000 --> 00:28:42,870
+post authorize what I just wanted to
+tell it access the code and before
+
+1216
+00:28:42,870 --> 00:28:42,880
+tell it access the code and before
+ 
+
+1217
+00:28:42,880 --> 00:28:46,630
+tell it access the code and before
+returning to the end user it has
+
+1218
+00:28:46,630 --> 00:28:46,640
+returning to the end user it has
+ 
+
+1219
+00:28:46,640 --> 00:28:48,590
+returning to the end user it has
+intercepted our return
+
+1220
+00:28:48,590 --> 00:28:48,600
+intercepted our return
+ 
+
+1221
+00:28:48,600 --> 00:28:51,430
+intercepted our return
+object from there whatever the field we
+
+1222
+00:28:51,430 --> 00:28:51,440
+object from there whatever the field we
+ 
+
+1223
+00:28:51,440 --> 00:28:54,190
+object from there whatever the field we
+want to check with the
+
+1224
+00:28:54,190 --> 00:28:54,200
+want to check with the
+ 
+
+1225
+00:28:54,200 --> 00:28:57,590
+want to check with the
+data. Okay we can do that logic and then
+
+1226
+00:28:57,590 --> 00:28:57,600
+data. Okay we can do that logic and then
+ 
+
+1227
+00:28:57,600 --> 00:29:00,630
+data. Okay we can do that logic and then
+only it will provide the response to the
+
+1228
+00:29:00,630 --> 00:29:00,640
+only it will provide the response to the
+ 
+
+1229
+00:29:00,640 --> 00:29:03,870
+only it will provide the response to the
+user.
+
+1230
+00:29:03,870 --> 00:29:03,880
+
+ 
+
+1231
+00:29:03,880 --> 00:29:06,149
+
+Okay. Okay guys, if you have any doubt,
+
+1232
+00:29:06,149 --> 00:29:06,159
+Okay. Okay guys, if you have any doubt,
+ 
+
+1233
+00:29:06,159 --> 00:29:08,070
+Okay. Okay guys, if you have any doubt,
+let me know. We can discuss further more
+
+1234
+00:29:08,070 --> 00:29:08,080
+let me know. We can discuss further more
+ 
+
+1235
+00:29:08,080 --> 00:29:12,720
+let me know. We can discuss further more
+in the comment section. Thank you. Bye.
+

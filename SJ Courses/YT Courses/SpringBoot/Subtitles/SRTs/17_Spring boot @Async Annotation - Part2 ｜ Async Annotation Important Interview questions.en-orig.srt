@@ -1,0 +1,5215 @@
+1
+00:00:01,000 --> 00:00:02,550
+
+hey guys welcome to concept and coding
+
+2
+00:00:02,550 --> 00:00:02,560
+hey guys welcome to concept and coding
+ 
+
+3
+00:00:02,560 --> 00:00:05,230
+hey guys welcome to concept and coding
+this is Shan and in the springbot series
+
+4
+00:00:05,230 --> 00:00:05,240
+this is Shan and in the springbot series
+ 
+
+5
+00:00:05,240 --> 00:00:07,309
+this is Shan and in the springbot series
+till now we have seen how the async
+
+6
+00:00:07,309 --> 00:00:07,319
+till now we have seen how the async
+ 
+
+7
+00:00:07,319 --> 00:00:10,350
+till now we have seen how the async
+annotation Works uh today I will I want
+
+8
+00:00:10,350 --> 00:00:10,360
+annotation Works uh today I will I want
+ 
+
+9
+00:00:10,360 --> 00:00:12,110
+annotation Works uh today I will I want
+to discuss more on this as sync
+
+10
+00:00:12,110 --> 00:00:12,120
+to discuss more on this as sync
+ 
+
+11
+00:00:12,120 --> 00:00:14,430
+to discuss more on this as sync
+annotation want to cover some important
+
+12
+00:00:14,430 --> 00:00:14,440
+annotation want to cover some important
+ 
+
+13
+00:00:14,440 --> 00:00:16,750
+annotation want to cover some important
+uh interview questions also so one of
+
+14
+00:00:16,750 --> 00:00:16,760
+uh interview questions also so one of
+ 
+
+15
+00:00:16,760 --> 00:00:19,189
+uh interview questions also so one of
+the interview question is
+
+16
+00:00:19,189 --> 00:00:19,199
+the interview question is
+ 
+
+17
+00:00:19,199 --> 00:00:21,710
+the interview question is
+that what are the conditions for using
+
+18
+00:00:21,710 --> 00:00:21,720
+that what are the conditions for using
+ 
+
+19
+00:00:21,720 --> 00:00:24,269
+that what are the conditions for using
+annotations to work properly so there
+
+20
+00:00:24,269 --> 00:00:24,279
+annotations to work properly so there
+ 
+
+21
+00:00:24,279 --> 00:00:26,189
+annotations to work properly so there
+are two conditions which I would say
+
+22
+00:00:26,189 --> 00:00:26,199
+are two conditions which I would say
+ 
+
+23
+00:00:26,199 --> 00:00:30,310
+are two conditions which I would say
+that one is that The async annotation
+
+24
+00:00:30,310 --> 00:00:30,320
+that one is that The async annotation
+ 
+
+25
+00:00:30,320 --> 00:00:32,269
+that one is that The async annotation
+where we are using on top of a method
+
+26
+00:00:32,269 --> 00:00:32,279
+where we are using on top of a method
+ 
+
+27
+00:00:32,279 --> 00:00:35,430
+where we are using on top of a method
+right that method should be in a
+
+28
+00:00:35,430 --> 00:00:35,440
+right that method should be in a
+ 
+
+29
+00:00:35,440 --> 00:00:36,830
+right that method should be in a
+different
+
+30
+00:00:36,830 --> 00:00:36,840
+different
+ 
+
+31
+00:00:36,840 --> 00:00:40,590
+different
+class uh from where it is being called
+
+32
+00:00:40,590 --> 00:00:40,600
+class uh from where it is being called
+ 
+
+33
+00:00:40,600 --> 00:00:43,029
+class uh from where it is being called
+right so that is one condition and
+
+34
+00:00:43,029 --> 00:00:43,039
+right so that is one condition and
+ 
+
+35
+00:00:43,039 --> 00:00:45,190
+right so that is one condition and
+second condition is the method on which
+
+36
+00:00:45,190 --> 00:00:45,200
+second condition is the method on which
+ 
+
+37
+00:00:45,200 --> 00:00:47,790
+second condition is the method on which
+this asnc annotation is used it should
+
+38
+00:00:47,790 --> 00:00:47,800
+this asnc annotation is used it should
+ 
+
+39
+00:00:47,800 --> 00:00:48,910
+this asnc annotation is used it should
+be public
+
+40
+00:00:48,910 --> 00:00:48,920
+be public
+ 
+
+41
+00:00:48,920 --> 00:00:51,750
+be public
+method now the question is why so now
+
+42
+00:00:51,750 --> 00:00:51,760
+method now the question is why so now
+ 
+
+43
+00:00:51,760 --> 00:00:54,229
+method now the question is why so now
+first let's see this example here in
+
+44
+00:00:54,229 --> 00:00:54,239
+first let's see this example here in
+ 
+
+45
+00:00:54,239 --> 00:00:57,630
+first let's see this example here in
+this we have a class user controller
+
+46
+00:00:57,630 --> 00:00:57,640
+this we have a class user controller
+ 
+
+47
+00:00:57,640 --> 00:00:59,509
+this we have a class user controller
+right and this is one method get user
+
+48
+00:00:59,509 --> 00:00:59,519
+right and this is one method get user
+ 
+
+49
+00:00:59,519 --> 00:01:00,509
+right and this is one method get user
+method
+
+50
+00:01:00,509 --> 00:01:00,519
+method
+ 
+
+51
+00:01:00,519 --> 00:01:02,069
+method
+when this get
+
+52
+00:01:02,069 --> 00:01:02,079
+when this get
+ 
+
+53
+00:01:02,079 --> 00:01:06,950
+when this get
+invoked it calls an async method test
+
+54
+00:01:06,950 --> 00:01:06,960
+invoked it calls an async method test
+ 
+
+55
+00:01:06,960 --> 00:01:09,270
+invoked it calls an async method test
+right so and one thing you will notice
+
+56
+00:01:09,270 --> 00:01:09,280
+right so and one thing you will notice
+ 
+
+57
+00:01:09,280 --> 00:01:12,670
+right so and one thing you will notice
+that this using method is in the same
+
+58
+00:01:12,670 --> 00:01:12,680
+that this using method is in the same
+ 
+
+59
+00:01:12,680 --> 00:01:15,910
+that this using method is in the same
+class in which this caller is present
+
+60
+00:01:15,910 --> 00:01:15,920
+class in which this caller is present
+ 
+
+61
+00:01:15,920 --> 00:01:18,749
+class in which this caller is present
+and expectation is that this using
+
+62
+00:01:18,749 --> 00:01:18,759
+and expectation is that this using
+ 
+
+63
+00:01:18,759 --> 00:01:22,069
+and expectation is that this using
+method will get run in a new thread that
+
+64
+00:01:22,069 --> 00:01:22,079
+method will get run in a new thread that
+ 
+
+65
+00:01:22,079 --> 00:01:24,670
+method will get run in a new thread that
+is my expectation because I have used a
+
+66
+00:01:24,670 --> 00:01:24,680
+is my expectation because I have used a
+ 
+
+67
+00:01:24,680 --> 00:01:27,230
+is my expectation because I have used a
+syn annotation on top of it but will
+
+68
+00:01:27,230 --> 00:01:27,240
+syn annotation on top of it but will
+ 
+
+69
+00:01:27,240 --> 00:01:31,749
+syn annotation on top of it but will
+this work as expected no why because
+
+70
+00:01:31,749 --> 00:01:31,759
+this work as expected no why because
+ 
+
+71
+00:01:31,759 --> 00:01:33,310
+this work as expected no why because
+these are the two condition which should
+
+72
+00:01:33,310 --> 00:01:33,320
+these are the two condition which should
+ 
+
+73
+00:01:33,320 --> 00:01:37,109
+these are the two condition which should
+get fulfilled that this method on which
+
+74
+00:01:37,109 --> 00:01:37,119
+get fulfilled that this method on which
+ 
+
+75
+00:01:37,119 --> 00:01:39,990
+get fulfilled that this method on which
+you have used a sync annotation should
+
+76
+00:01:39,990 --> 00:01:40,000
+you have used a sync annotation should
+ 
+
+77
+00:01:40,000 --> 00:01:43,190
+you have used a sync annotation should
+be in a different class from where it is
+
+78
+00:01:43,190 --> 00:01:43,200
+be in a different class from where it is
+ 
+
+79
+00:01:43,200 --> 00:01:46,950
+be in a different class from where it is
+getting called and it should be a public
+
+80
+00:01:46,950 --> 00:01:46,960
+getting called and it should be a public
+ 
+
+81
+00:01:46,960 --> 00:01:50,789
+getting called and it should be a public
+method okay so this will not work as
+
+82
+00:01:50,789 --> 00:01:50,799
+method okay so this will not work as
+ 
+
+83
+00:01:50,799 --> 00:01:52,590
+method okay so this will not work as
+expected because okay you have made this
+
+84
+00:01:52,590 --> 00:01:52,600
+expected because okay you have made this
+ 
+
+85
+00:01:52,600 --> 00:01:54,270
+expected because okay you have made this
+method public but this is in the same
+
+86
+00:01:54,270 --> 00:01:54,280
+method public but this is in the same
+ 
+
+87
+00:01:54,280 --> 00:01:57,029
+method public but this is in the same
+class as of this caller right from where
+
+88
+00:01:57,029 --> 00:01:57,039
+class as of this caller right from where
+ 
+
+89
+00:01:57,039 --> 00:01:58,350
+class as of this caller right from where
+it is getting called it is in the same
+
+90
+00:01:58,350 --> 00:01:58,360
+it is getting called it is in the same
+ 
+
+91
+00:01:58,360 --> 00:02:00,270
+it is getting called it is in the same
+class
+
+92
+00:02:00,270 --> 00:02:00,280
+class
+ 
+
+93
+00:02:00,280 --> 00:02:02,870
+class
+okay so to make it work properly you
+
+94
+00:02:02,870 --> 00:02:02,880
+okay so to make it work properly you
+ 
+
+95
+00:02:02,880 --> 00:02:07,949
+okay so to make it work properly you
+have to uh take this method into a
+
+96
+00:02:07,949 --> 00:02:07,959
+have to uh take this method into a
+ 
+
+97
+00:02:07,959 --> 00:02:10,550
+have to uh take this method into a
+different class itself so here if you
+
+98
+00:02:10,550 --> 00:02:10,560
+different class itself so here if you
+ 
+
+99
+00:02:10,560 --> 00:02:14,869
+different class itself so here if you
+see the output when I invoke this to get
+
+100
+00:02:14,869 --> 00:02:14,879
+see the output when I invoke this to get
+ 
+
+101
+00:02:14,879 --> 00:02:18,070
+see the output when I invoke this to get
+user is run by which thread some This
+
+102
+00:02:18,070 --> 00:02:18,080
+user is run by which thread some This
+ 
+
+103
+00:02:18,080 --> 00:02:20,309
+user is run by which thread some This
+Thread name so I'm put uh printing the
+
+104
+00:02:20,309 --> 00:02:20,319
+Thread name so I'm put uh printing the
+ 
+
+105
+00:02:20,319 --> 00:02:24,229
+Thread name so I'm put uh printing the
+thread name HTTP Neo something and when
+
+106
+00:02:24,229 --> 00:02:24,239
+thread name HTTP Neo something and when
+ 
+
+107
+00:02:24,239 --> 00:02:26,710
+thread name HTTP Neo something and when
+this method get invoked inside using
+
+108
+00:02:26,710 --> 00:02:26,720
+this method get invoked inside using
+ 
+
+109
+00:02:26,720 --> 00:02:31,030
+this method get invoked inside using
+method test what is the thread name same
+
+110
+00:02:31,030 --> 00:02:31,040
+method test what is the thread name same
+ 
+
+111
+00:02:31,040 --> 00:02:33,229
+method test what is the thread name same
+right but your expectation is that okay
+
+112
+00:02:33,229 --> 00:02:33,239
+right but your expectation is that okay
+ 
+
+113
+00:02:33,239 --> 00:02:35,030
+right but your expectation is that okay
+new thread will get created but no new
+
+114
+00:02:35,030 --> 00:02:35,040
+new thread will get created but no new
+ 
+
+115
+00:02:35,040 --> 00:02:37,670
+new thread will get created but no new
+thread is not get created okay so we
+
+116
+00:02:37,670 --> 00:02:37,680
+thread is not get created okay so we
+ 
+
+117
+00:02:37,680 --> 00:02:41,070
+thread is not get created okay so we
+have to have this method in a different
+
+118
+00:02:41,070 --> 00:02:41,080
+have to have this method in a different
+ 
+
+119
+00:02:41,080 --> 00:02:43,589
+have to have this method in a different
+class and it should be a public now you
+
+120
+00:02:43,589 --> 00:02:43,599
+class and it should be a public now you
+ 
+
+121
+00:02:43,599 --> 00:02:46,509
+class and it should be a public now you
+can ask me right hey why why we have to
+
+122
+00:02:46,509 --> 00:02:46,519
+can ask me right hey why why we have to
+ 
+
+123
+00:02:46,519 --> 00:02:50,030
+can ask me right hey why why we have to
+in this different class see the problem
+
+124
+00:02:50,030 --> 00:02:50,040
+in this different class see the problem
+ 
+
+125
+00:02:50,040 --> 00:02:53,589
+in this different class see the problem
+is not here the problem is with the
+
+126
+00:02:53,589 --> 00:02:53,599
+is not here the problem is with the
+ 
+
+127
+00:02:53,599 --> 00:02:58,430
+is not here the problem is with the
+framework so at back end we are using
+
+128
+00:02:58,430 --> 00:02:58,440
+framework so at back end we are using
+ 
+
+129
+00:02:58,440 --> 00:03:01,830
+framework so at back end we are using
+aop so when whenever you are using at
+
+130
+00:03:01,830 --> 00:03:01,840
+aop so when whenever you are using at
+ 
+
+131
+00:03:01,840 --> 00:03:04,309
+aop so when whenever you are using at
+theate async
+
+132
+00:03:04,309 --> 00:03:04,319
+theate async
+ 
+
+133
+00:03:04,319 --> 00:03:08,030
+theate async
+annotation aop get involved right uh if
+
+134
+00:03:08,030 --> 00:03:08,040
+annotation aop get involved right uh if
+ 
+
+135
+00:03:08,040 --> 00:03:10,430
+annotation aop get involved right uh if
+you have seen the aop video you might
+
+136
+00:03:10,430 --> 00:03:10,440
+you have seen the aop video you might
+ 
+
+137
+00:03:10,440 --> 00:03:13,309
+you have seen the aop video you might
+already know that how aop works so first
+
+138
+00:03:13,309 --> 00:03:13,319
+already know that how aop works so first
+ 
+
+139
+00:03:13,319 --> 00:03:15,350
+already know that how aop works so first
+step is it do
+
+140
+00:03:15,350 --> 00:03:15,360
+step is it do
+ 
+
+141
+00:03:15,360 --> 00:03:17,949
+step is it do
+intercept and once it is intercept it
+
+142
+00:03:17,949 --> 00:03:17,959
+intercept and once it is intercept it
+ 
+
+143
+00:03:17,959 --> 00:03:20,670
+intercept and once it is intercept it
+calls the proxy and then internally
+
+144
+00:03:20,670 --> 00:03:20,680
+calls the proxy and then internally
+ 
+
+145
+00:03:20,680 --> 00:03:23,149
+calls the proxy and then internally
+proxy mil might call your
+
+146
+00:03:23,149 --> 00:03:23,159
+proxy mil might call your
+ 
+
+147
+00:03:23,159 --> 00:03:28,390
+proxy mil might call your
+method so to to make this interception
+
+148
+00:03:28,390 --> 00:03:28,400
+method so to to make this interception
+ 
+
+149
+00:03:28,400 --> 00:03:32,630
+method so to to make this interception
+work these two conditions is required
+
+150
+00:03:32,630 --> 00:03:32,640
+work these two conditions is required
+ 
+
+151
+00:03:32,640 --> 00:03:34,910
+work these two conditions is required
+interception cannot work on private
+
+152
+00:03:34,910 --> 00:03:34,920
+interception cannot work on private
+ 
+
+153
+00:03:34,920 --> 00:03:37,309
+interception cannot work on private
+methods protected method it's only work
+
+154
+00:03:37,309 --> 00:03:37,319
+methods protected method it's only work
+ 
+
+155
+00:03:37,319 --> 00:03:39,710
+methods protected method it's only work
+on public methods and second
+
+156
+00:03:39,710 --> 00:03:39,720
+on public methods and second
+ 
+
+157
+00:03:39,720 --> 00:03:42,589
+on public methods and second
+interception only works when from class
+
+158
+00:03:42,589 --> 00:03:42,599
+interception only works when from class
+ 
+
+159
+00:03:42,599 --> 00:03:45,910
+interception only works when from class
+one to class two different classes get
+
+160
+00:03:45,910 --> 00:03:45,920
+one to class two different classes get
+ 
+
+161
+00:03:45,920 --> 00:03:49,670
+one to class two different classes get
+invoke right if in the same class you
+
+162
+00:03:49,670 --> 00:03:49,680
+invoke right if in the same class you
+ 
+
+163
+00:03:49,680 --> 00:03:52,670
+invoke right if in the same class you
+are calling a method interception would
+
+164
+00:03:52,670 --> 00:03:52,680
+are calling a method interception would
+ 
+
+165
+00:03:52,680 --> 00:03:54,869
+are calling a method interception would
+not be able interception is not even in
+
+166
+00:03:54,869 --> 00:03:54,879
+not be able interception is not even in
+ 
+
+167
+00:03:54,879 --> 00:03:57,869
+not be able interception is not even in
+the picture so only when you're calling
+
+168
+00:03:57,869 --> 00:03:57,879
+the picture so only when you're calling
+ 
+
+169
+00:03:57,879 --> 00:04:00,229
+the picture so only when you're calling
+from uh like you have one method in
+
+170
+00:04:00,229 --> 00:04:00,239
+from uh like you have one method in
+ 
+
+171
+00:04:00,239 --> 00:04:03,229
+from uh like you have one method in
+class one and you are invoking a method
+
+172
+00:04:03,229 --> 00:04:03,239
+class one and you are invoking a method
+ 
+
+173
+00:04:03,239 --> 00:04:06,429
+class one and you are invoking a method
+two which is in class two something then
+
+174
+00:04:06,429 --> 00:04:06,439
+two which is in class two something then
+ 
+
+175
+00:04:06,439 --> 00:04:09,470
+two which is in class two something then
+only interception comes into the picture
+
+176
+00:04:09,470 --> 00:04:09,480
+only interception comes into the picture
+ 
+
+177
+00:04:09,480 --> 00:04:12,190
+only interception comes into the picture
+so because of this interception
+
+178
+00:04:12,190 --> 00:04:12,200
+so because of this interception
+ 
+
+179
+00:04:12,200 --> 00:04:16,110
+so because of this interception
+logic you can say that interception has
+
+180
+00:04:16,110 --> 00:04:16,120
+logic you can say that interception has
+ 
+
+181
+00:04:16,120 --> 00:04:19,110
+logic you can say that interception has
+Works only when these two condition met
+
+182
+00:04:19,110 --> 00:04:19,120
+Works only when these two condition met
+ 
+
+183
+00:04:19,120 --> 00:04:23,550
+Works only when these two condition met
+and because of that whenever we use
+
+184
+00:04:23,550 --> 00:04:23,560
+and because of that whenever we use
+ 
+
+185
+00:04:23,560 --> 00:04:25,550
+and because of that whenever we use
+annotation these two conditions should
+
+186
+00:04:25,550 --> 00:04:25,560
+annotation these two conditions should
+ 
+
+187
+00:04:25,560 --> 00:04:27,629
+annotation these two conditions should
+be
+
+188
+00:04:27,629 --> 00:04:27,639
+be
+ 
+
+189
+00:04:27,639 --> 00:04:30,230
+be
+met okay so this is one thing very
+
+190
+00:04:30,230 --> 00:04:30,240
+met okay so this is one thing very
+ 
+
+191
+00:04:30,240 --> 00:04:32,189
+met okay so this is one thing very
+important and it's a very good uh
+
+192
+00:04:32,189 --> 00:04:32,199
+important and it's a very good uh
+ 
+
+193
+00:04:32,199 --> 00:04:35,390
+important and it's a very good uh
+interview question also now another
+
+194
+00:04:35,390 --> 00:04:35,400
+interview question also now another
+ 
+
+195
+00:04:35,400 --> 00:04:39,350
+interview question also now another
+interview question is how a sync and
+
+196
+00:04:39,350 --> 00:04:39,360
+interview question is how a sync and
+ 
+
+197
+00:04:39,360 --> 00:04:42,749
+interview question is how a sync and
+transaction management works together
+
+198
+00:04:42,749 --> 00:04:42,759
+transaction management works together
+ 
+
+199
+00:04:42,759 --> 00:04:44,230
+transaction management works together
+what are the
+
+200
+00:04:44,230 --> 00:04:44,240
+what are the
+ 
+
+201
+00:04:44,240 --> 00:04:47,870
+what are the
+challenges so I will explain you with
+
+202
+00:04:47,870 --> 00:04:47,880
+challenges so I will explain you with
+ 
+
+203
+00:04:47,880 --> 00:04:50,749
+challenges so I will explain you with
+different three use cases so use case
+
+204
+00:04:50,749 --> 00:04:50,759
+different three use cases so use case
+ 
+
+205
+00:04:50,759 --> 00:04:53,070
+different three use cases so use case
+one let's say that let's understand this
+
+206
+00:04:53,070 --> 00:04:53,080
+one let's say that let's understand this
+ 
+
+207
+00:04:53,080 --> 00:04:56,590
+one let's say that let's understand this
+use case one so I have a
+
+208
+00:04:56,590 --> 00:04:56,600
+use case one so I have a
+ 
+
+209
+00:04:56,600 --> 00:04:59,830
+use case one so I have a
+class okay in this class
+
+210
+00:04:59,830 --> 00:04:59,840
+class okay in this class
+ 
+
+211
+00:04:59,840 --> 00:05:03,550
+class okay in this class
+I am calling user service. update
+
+212
+00:05:03,550 --> 00:05:03,560
+I am calling user service. update
+ 
+
+213
+00:05:03,560 --> 00:05:05,870
+I am calling user service. update
+user so it
+
+214
+00:05:05,870 --> 00:05:05,880
+user so it
+ 
+
+215
+00:05:05,880 --> 00:05:09,270
+user so it
+is calling this method and here I have
+
+216
+00:05:09,270 --> 00:05:09,280
+is calling this method and here I have
+ 
+
+217
+00:05:09,280 --> 00:05:10,189
+is calling this method and here I have
+put
+
+218
+00:05:10,189 --> 00:05:10,199
+put
+ 
+
+219
+00:05:10,199 --> 00:05:12,350
+put
+transactional when I put a transaction
+
+220
+00:05:12,350 --> 00:05:12,360
+transactional when I put a transaction
+ 
+
+221
+00:05:12,360 --> 00:05:15,710
+transactional when I put a transaction
+means transaction will get created
+
+222
+00:05:15,710 --> 00:05:15,720
+means transaction will get created
+ 
+
+223
+00:05:15,720 --> 00:05:19,070
+means transaction will get created
+here so now here if you see I am doing
+
+224
+00:05:19,070 --> 00:05:19,080
+here so now here if you see I am doing
+ 
+
+225
+00:05:19,080 --> 00:05:22,230
+here so now here if you see I am doing
+some update user status update first
+
+226
+00:05:22,230 --> 00:05:22,240
+some update user status update first
+ 
+
+227
+00:05:22,240 --> 00:05:25,510
+some update user status update first
+name user first name last name whatever
+
+228
+00:05:25,510 --> 00:05:25,520
+name user first name last name whatever
+ 
+
+229
+00:05:25,520 --> 00:05:28,309
+name user first name last name whatever
+right and here if you see one more thing
+
+230
+00:05:28,309 --> 00:05:28,319
+right and here if you see one more thing
+ 
+
+231
+00:05:28,319 --> 00:05:31,830
+right and here if you see one more thing
+I am doing is I am calling one more
+
+232
+00:05:31,830 --> 00:05:31,840
+I am doing is I am calling one more
+ 
+
+233
+00:05:31,840 --> 00:05:34,070
+I am doing is I am calling one more
+method in a different
+
+234
+00:05:34,070 --> 00:05:34,080
+method in a different
+ 
+
+235
+00:05:34,080 --> 00:05:37,029
+method in a different
+class I want to do update user balance
+
+236
+00:05:37,029 --> 00:05:37,039
+class I want to do update user balance
+ 
+
+237
+00:05:37,039 --> 00:05:39,590
+class I want to do update user balance
+but instead of doing it here I am doing
+
+238
+00:05:39,590 --> 00:05:39,600
+but instead of doing it here I am doing
+ 
+
+239
+00:05:39,600 --> 00:05:42,110
+but instead of doing it here I am doing
+it here in a different class and I say
+
+240
+00:05:42,110 --> 00:05:42,120
+it here in a different class and I say
+ 
+
+241
+00:05:42,120 --> 00:05:44,469
+it here in a different class and I say
+that hey at theate async let's do this
+
+242
+00:05:44,469 --> 00:05:44,479
+that hey at theate async let's do this
+ 
+
+243
+00:05:44,479 --> 00:05:46,110
+that hey at theate async let's do this
+in an async
+
+244
+00:05:46,110 --> 00:05:46,120
+in an async
+ 
+
+245
+00:05:46,120 --> 00:05:50,110
+in an async
+manner okay so see this one again this
+
+246
+00:05:50,110 --> 00:05:50,120
+manner okay so see this one again this
+ 
+
+247
+00:05:50,120 --> 00:05:52,469
+manner okay so see this one again this
+class is invoking this which has at
+
+248
+00:05:52,469 --> 00:05:52,479
+class is invoking this which has at
+ 
+
+249
+00:05:52,479 --> 00:05:55,110
+class is invoking this which has at
+theate transactional and within the
+
+250
+00:05:55,110 --> 00:05:55,120
+theate transactional and within the
+ 
+
+251
+00:05:55,120 --> 00:05:57,790
+theate transactional and within the
+transactional method I am invoking a
+
+252
+00:05:57,790 --> 00:05:57,800
+transactional method I am invoking a
+ 
+
+253
+00:05:57,800 --> 00:06:01,029
+transactional method I am invoking a
+method which is us syn
+
+254
+00:06:01,029 --> 00:06:01,039
+method which is us syn
+ 
+
+255
+00:06:01,039 --> 00:06:03,430
+method which is us syn
+so what is the problem here the problem
+
+256
+00:06:03,430 --> 00:06:03,440
+so what is the problem here the problem
+ 
+
+257
+00:06:03,440 --> 00:06:06,510
+so what is the problem here the problem
+here that whenever you are creating a
+
+258
+00:06:06,510 --> 00:06:06,520
+here that whenever you are creating a
+ 
+
+259
+00:06:06,520 --> 00:06:08,070
+here that whenever you are creating a
+new
+
+260
+00:06:08,070 --> 00:06:08,080
+new
+ 
+
+261
+00:06:08,080 --> 00:06:10,830
+new
+thread it do not carry forward the
+
+262
+00:06:10,830 --> 00:06:10,840
+thread it do not carry forward the
+ 
+
+263
+00:06:10,840 --> 00:06:13,189
+thread it do not carry forward the
+transactional context so transactional
+
+264
+00:06:13,189 --> 00:06:13,199
+transactional context so transactional
+ 
+
+265
+00:06:13,199 --> 00:06:15,629
+transactional context so transactional
+context is all the information like okay
+
+266
+00:06:15,629 --> 00:06:15,639
+context is all the information like okay
+ 
+
+267
+00:06:15,639 --> 00:06:18,390
+context is all the information like okay
+what is the propagation level right and
+
+268
+00:06:18,390 --> 00:06:18,400
+what is the propagation level right and
+ 
+
+269
+00:06:18,400 --> 00:06:21,070
+what is the propagation level right and
+whatever the different information you
+
+270
+00:06:21,070 --> 00:06:21,080
+whatever the different information you
+ 
+
+271
+00:06:21,080 --> 00:06:24,589
+whatever the different information you
+have put into this transactional right
+
+272
+00:06:24,589 --> 00:06:24,599
+have put into this transactional right
+ 
+
+273
+00:06:24,599 --> 00:06:25,870
+have put into this transactional right
+uh what is the thread pool you are going
+
+274
+00:06:25,870 --> 00:06:25,880
+uh what is the thread pool you are going
+ 
+
+275
+00:06:25,880 --> 00:06:27,909
+uh what is the thread pool you are going
+to use and every information which is
+
+276
+00:06:27,909 --> 00:06:27,919
+to use and every information which is
+ 
+
+277
+00:06:27,919 --> 00:06:29,749
+to use and every information which is
+there in the context that is not not
+
+278
+00:06:29,749 --> 00:06:29,759
+there in the context that is not not
+ 
+
+279
+00:06:29,759 --> 00:06:32,589
+there in the context that is not not
+even passed here in the new thread so
+
+280
+00:06:32,589 --> 00:06:32,599
+even passed here in the new thread so
+ 
+
+281
+00:06:32,599 --> 00:06:36,670
+even passed here in the new thread so
+this code this code run without any
+
+282
+00:06:36,670 --> 00:06:36,680
+this code this code run without any
+ 
+
+283
+00:06:36,680 --> 00:06:39,430
+this code this code run without any
+transaction so now let's say that any
+
+284
+00:06:39,430 --> 00:06:39,440
+transaction so now let's say that any
+ 
+
+285
+00:06:39,440 --> 00:06:41,189
+transaction so now let's say that any
+issue comes in this
+
+286
+00:06:41,189 --> 00:06:41,199
+issue comes in this
+ 
+
+287
+00:06:41,199 --> 00:06:43,990
+issue comes in this
+method all the roll back will happen for
+
+288
+00:06:43,990 --> 00:06:44,000
+method all the roll back will happen for
+ 
+
+289
+00:06:44,000 --> 00:06:46,270
+method all the roll back will happen for
+this you have updated user status roll
+
+290
+00:06:46,270 --> 00:06:46,280
+this you have updated user status roll
+ 
+
+291
+00:06:46,280 --> 00:06:47,790
+this you have updated user status roll
+back will happen you have updated first
+
+292
+00:06:47,790 --> 00:06:47,800
+back will happen you have updated first
+ 
+
+293
+00:06:47,800 --> 00:06:49,950
+back will happen you have updated first
+name roll back will happen right
+
+294
+00:06:49,950 --> 00:06:49,960
+name roll back will happen right
+ 
+
+295
+00:06:49,960 --> 00:06:53,029
+name roll back will happen right
+whatever but here if you are updating
+
+296
+00:06:53,029 --> 00:06:53,039
+whatever but here if you are updating
+ 
+
+297
+00:06:53,039 --> 00:06:55,869
+whatever but here if you are updating
+the balance amount into this using roll
+
+298
+00:06:55,869 --> 00:06:55,879
+the balance amount into this using roll
+ 
+
+299
+00:06:55,879 --> 00:06:58,150
+the balance amount into this using roll
+back will not happen this because this
+
+300
+00:06:58,150 --> 00:06:58,160
+back will not happen this because this
+ 
+
+301
+00:06:58,160 --> 00:07:00,589
+back will not happen this because this
+is not running in a transac
+
+302
+00:07:00,589 --> 00:07:00,599
+is not running in a transac
+ 
+
+303
+00:07:00,599 --> 00:07:03,950
+is not running in a transac
+ction okay so transaction contexts do
+
+304
+00:07:03,950 --> 00:07:03,960
+ction okay so transaction contexts do
+ 
+
+305
+00:07:03,960 --> 00:07:07,830
+ction okay so transaction contexts do
+not transfer from colar thread to a new
+
+306
+00:07:07,830 --> 00:07:07,840
+not transfer from colar thread to a new
+ 
+
+307
+00:07:07,840 --> 00:07:11,670
+not transfer from colar thread to a new
+thread right so this is use case which
+
+308
+00:07:11,670 --> 00:07:11,680
+thread right so this is use case which
+ 
+
+309
+00:07:11,680 --> 00:07:15,270
+thread right so this is use case which
+should be avoided it will not work why
+
+310
+00:07:15,270 --> 00:07:15,280
+should be avoided it will not work why
+ 
+
+311
+00:07:15,280 --> 00:07:18,510
+should be avoided it will not work why
+transaction context is not carry forward
+
+312
+00:07:18,510 --> 00:07:18,520
+transaction context is not carry forward
+ 
+
+313
+00:07:18,520 --> 00:07:20,830
+transaction context is not carry forward
+to this async
+
+314
+00:07:20,830 --> 00:07:20,840
+to this async
+ 
+
+315
+00:07:20,840 --> 00:07:24,629
+to this async
+method use case two understand this use
+
+316
+00:07:24,629 --> 00:07:24,639
+method use case two understand this use
+ 
+
+317
+00:07:24,639 --> 00:07:28,629
+method use case two understand this use
+case now you have this class in this
+
+318
+00:07:28,629 --> 00:07:28,639
+case now you have this class in this
+ 
+
+319
+00:07:28,639 --> 00:07:32,029
+case now you have this class in this
+class you are invoking a user method now
+
+320
+00:07:32,029 --> 00:07:32,039
+class you are invoking a user method now
+ 
+
+321
+00:07:32,039 --> 00:07:35,189
+class you are invoking a user method now
+on this user method uh update user
+
+322
+00:07:35,189 --> 00:07:35,199
+on this user method uh update user
+ 
+
+323
+00:07:35,199 --> 00:07:37,510
+on this user method uh update user
+method itself you have both at theate
+
+324
+00:07:37,510 --> 00:07:37,520
+method itself you have both at theate
+ 
+
+325
+00:07:37,520 --> 00:07:40,350
+method itself you have both at theate
+transaction atate
+
+326
+00:07:40,350 --> 00:07:40,360
+transaction atate
+ 
+
+327
+00:07:40,360 --> 00:07:42,589
+transaction atate
+oring and you are doing all the
+
+328
+00:07:42,589 --> 00:07:42,599
+oring and you are doing all the
+ 
+
+329
+00:07:42,599 --> 00:07:44,469
+oring and you are doing all the
+operations inside this updating user
+
+330
+00:07:44,469 --> 00:07:44,479
+operations inside this updating user
+ 
+
+331
+00:07:44,479 --> 00:07:46,510
+operations inside this updating user
+status updating first name or whatever
+
+332
+00:07:46,510 --> 00:07:46,520
+status updating first name or whatever
+ 
+
+333
+00:07:46,520 --> 00:07:49,029
+status updating first name or whatever
+whatever the update you wanted to do but
+
+334
+00:07:49,029 --> 00:07:49,039
+whatever the update you wanted to do but
+ 
+
+335
+00:07:49,039 --> 00:07:51,309
+whatever the update you wanted to do but
+you have transactional and adorate anot
+
+336
+00:07:51,309 --> 00:07:51,319
+you have transactional and adorate anot
+ 
+
+337
+00:07:51,319 --> 00:07:53,189
+you have transactional and adorate anot
+annotation
+
+338
+00:07:53,189 --> 00:07:53,199
+annotation
+ 
+
+339
+00:07:53,199 --> 00:07:55,390
+annotation
+together is there any
+
+340
+00:07:55,390 --> 00:07:55,400
+together is there any
+ 
+
+341
+00:07:55,400 --> 00:07:58,350
+together is there any
+problem so problem is that use with
+
+342
+00:07:58,350 --> 00:07:58,360
+problem so problem is that use with
+ 
+
+343
+00:07:58,360 --> 00:08:00,270
+problem so problem is that use with
+precaution when can I say used with
+
+344
+00:08:00,270 --> 00:08:00,280
+precaution when can I say used with
+ 
+
+345
+00:08:00,280 --> 00:08:01,790
+precaution when can I say used with
+precaution mean first
+
+346
+00:08:01,790 --> 00:08:01,800
+precaution mean first
+ 
+
+347
+00:08:01,800 --> 00:08:05,070
+precaution mean first
+thing okay a new thread will be
+
+348
+00:08:05,070 --> 00:08:05,080
+thing okay a new thread will be
+ 
+
+349
+00:08:05,080 --> 00:08:07,749
+thing okay a new thread will be
+created a new thread will be created in
+
+350
+00:08:07,749 --> 00:08:07,759
+created a new thread will be created in
+ 
+
+351
+00:08:07,759 --> 00:08:10,510
+created a new thread will be created in
+which this update user will work now
+
+352
+00:08:10,510 --> 00:08:10,520
+which this update user will work now
+ 
+
+353
+00:08:10,520 --> 00:08:12,830
+which this update user will work now
+since also it has at theate transaction
+
+354
+00:08:12,830 --> 00:08:12,840
+since also it has at theate transaction
+ 
+
+355
+00:08:12,840 --> 00:08:17,230
+since also it has at theate transaction
+so means all this code will run in a
+
+356
+00:08:17,230 --> 00:08:17,240
+so means all this code will run in a
+ 
+
+357
+00:08:17,240 --> 00:08:20,869
+so means all this code will run in a
+transaction only okay so if any issue
+
+358
+00:08:20,869 --> 00:08:20,879
+transaction only okay so if any issue
+ 
+
+359
+00:08:20,879 --> 00:08:24,110
+transaction only okay so if any issue
+will happen roll back will happen but
+
+360
+00:08:24,110 --> 00:08:24,120
+will happen roll back will happen but
+ 
+
+361
+00:08:24,120 --> 00:08:26,830
+will happen roll back will happen but
+why I mention that use with precaution
+
+362
+00:08:26,830 --> 00:08:26,840
+why I mention that use with precaution
+ 
+
+363
+00:08:26,840 --> 00:08:28,029
+why I mention that use with precaution
+it
+
+364
+00:08:28,029 --> 00:08:28,039
+it
+ 
+
+365
+00:08:28,039 --> 00:08:31,589
+it
+because because of of this using the
+
+366
+00:08:31,589 --> 00:08:31,599
+because because of of this using the
+ 
+
+367
+00:08:31,599 --> 00:08:33,829
+because because of of this using the
+transaction context will not carry
+
+368
+00:08:33,829 --> 00:08:33,839
+transaction context will not carry
+ 
+
+369
+00:08:33,839 --> 00:08:37,269
+transaction context will not carry
+forward now suppose I have also put at
+
+370
+00:08:37,269 --> 00:08:37,279
+forward now suppose I have also put at
+ 
+
+371
+00:08:37,279 --> 00:08:39,269
+forward now suppose I have also put at
+the transactional
+
+372
+00:08:39,269 --> 00:08:39,279
+the transactional
+ 
+
+373
+00:08:39,279 --> 00:08:42,110
+the transactional
+here right and there are you know that
+
+374
+00:08:42,110 --> 00:08:42,120
+here right and there are you know that
+ 
+
+375
+00:08:42,120 --> 00:08:44,190
+here right and there are you know that
+there are different propagation level of
+
+376
+00:08:44,190 --> 00:08:44,200
+there are different propagation level of
+ 
+
+377
+00:08:44,200 --> 00:08:47,509
+there are different propagation level of
+transaction supports not supported right
+
+378
+00:08:47,509 --> 00:08:47,519
+transaction supports not supported right
+ 
+
+379
+00:08:47,519 --> 00:08:48,829
+transaction supports not supported right
+you already know that we have already
+
+380
+00:08:48,829 --> 00:08:48,839
+you already know that we have already
+ 
+
+381
+00:08:48,839 --> 00:08:51,870
+you already know that we have already
+seen different type of propagation level
+
+382
+00:08:51,870 --> 00:08:51,880
+seen different type of propagation level
+ 
+
+383
+00:08:51,880 --> 00:08:55,350
+seen different type of propagation level
+is there those will not work as
+
+384
+00:08:55,350 --> 00:08:55,360
+is there those will not work as
+ 
+
+385
+00:08:55,360 --> 00:08:58,470
+is there those will not work as
+expected right because even though you
+
+386
+00:08:58,470 --> 00:08:58,480
+expected right because even though you
+ 
+
+387
+00:08:58,480 --> 00:09:00,150
+expected right because even though you
+have uh
+
+388
+00:09:00,150 --> 00:09:00,160
+have uh
+ 
+
+389
+00:09:00,160 --> 00:09:02,790
+have uh
+use transactional and because but
+
+390
+00:09:02,790 --> 00:09:02,800
+use transactional and because but
+ 
+
+391
+00:09:02,800 --> 00:09:04,990
+use transactional and because but
+because of this at theate async
+
+392
+00:09:04,990 --> 00:09:05,000
+because of this at theate async
+ 
+
+393
+00:09:05,000 --> 00:09:07,030
+because of this at theate async
+annotation whatever the transaction
+
+394
+00:09:07,030 --> 00:09:07,040
+annotation whatever the transaction
+ 
+
+395
+00:09:07,040 --> 00:09:11,069
+annotation whatever the transaction
+context you have said before that is of
+
+396
+00:09:11,069 --> 00:09:11,079
+context you have said before that is of
+ 
+
+397
+00:09:11,079 --> 00:09:13,550
+context you have said before that is of
+that do not get carry forward at
+
+398
+00:09:13,550 --> 00:09:13,560
+that do not get carry forward at
+ 
+
+399
+00:09:13,560 --> 00:09:19,150
+that do not get carry forward at
+all so this will run in a new
+
+400
+00:09:19,150 --> 00:09:19,160
+all so this will run in a new
+ 
+
+401
+00:09:19,160 --> 00:09:21,310
+all so this will run in a new
+transaction okay so that's why I
+
+402
+00:09:21,310 --> 00:09:21,320
+transaction okay so that's why I
+ 
+
+403
+00:09:21,320 --> 00:09:23,949
+transaction okay so that's why I
+mentioned in a yellow and put that use
+
+404
+00:09:23,949 --> 00:09:23,959
+mentioned in a yellow and put that use
+ 
+
+405
+00:09:23,959 --> 00:09:26,710
+mentioned in a yellow and put that use
+with precaution as new thread will be
+
+406
+00:09:26,710 --> 00:09:26,720
+with precaution as new thread will be
+ 
+
+407
+00:09:26,720 --> 00:09:31,110
+with precaution as new thread will be
+created and have transaction management
+
+408
+00:09:31,110 --> 00:09:31,120
+created and have transaction management
+ 
+
+409
+00:09:31,120 --> 00:09:33,870
+created and have transaction management
+but context is not same as the parent
+
+410
+00:09:33,870 --> 00:09:33,880
+but context is not same as the parent
+ 
+
+411
+00:09:33,880 --> 00:09:35,790
+but context is not same as the parent
+one if parent also has a
+
+412
+00:09:35,790 --> 00:09:35,800
+one if parent also has a
+ 
+
+413
+00:09:35,800 --> 00:09:38,150
+one if parent also has a
+transaction right and here I am using
+
+414
+00:09:38,150 --> 00:09:38,160
+transaction right and here I am using
+ 
+
+415
+00:09:38,160 --> 00:09:40,590
+transaction right and here I am using
+that okay propagation is let's say
+
+416
+00:09:40,590 --> 00:09:40,600
+that okay propagation is let's say
+ 
+
+417
+00:09:40,600 --> 00:09:43,389
+that okay propagation is let's say
+whatever supported right so if parent
+
+418
+00:09:43,389 --> 00:09:43,399
+whatever supported right so if parent
+ 
+
+419
+00:09:43,399 --> 00:09:45,110
+whatever supported right so if parent
+transaction is there use the same one
+
+420
+00:09:45,110 --> 00:09:45,120
+transaction is there use the same one
+ 
+
+421
+00:09:45,120 --> 00:09:48,230
+transaction is there use the same one
+now this will not work as
+
+422
+00:09:48,230 --> 00:09:48,240
+now this will not work as
+ 
+
+423
+00:09:48,240 --> 00:09:50,470
+now this will not work as
+expected right so that's why I say that
+
+424
+00:09:50,470 --> 00:09:50,480
+expected right so that's why I say that
+ 
+
+425
+00:09:50,480 --> 00:09:52,910
+expected right so that's why I say that
+use with precaution because parent
+
+426
+00:09:52,910 --> 00:09:52,920
+use with precaution because parent
+ 
+
+427
+00:09:52,920 --> 00:09:55,350
+use with precaution because parent
+transaction context is not carry forward
+
+428
+00:09:55,350 --> 00:09:55,360
+transaction context is not carry forward
+ 
+
+429
+00:09:55,360 --> 00:09:59,590
+transaction context is not carry forward
+here because of this async annotation
+
+430
+00:09:59,590 --> 00:09:59,600
+here because of this async annotation
+ 
+
+431
+00:09:59,600 --> 00:10:02,310
+here because of this async annotation
+this is use case 3 is the very safe way
+
+432
+00:10:02,310 --> 00:10:02,320
+this is use case 3 is the very safe way
+ 
+
+433
+00:10:02,320 --> 00:10:05,590
+this is use case 3 is the very safe way
+and most popular way in the industry of
+
+434
+00:10:05,590 --> 00:10:05,600
+and most popular way in the industry of
+ 
+
+435
+00:10:05,600 --> 00:10:09,110
+and most popular way in the industry of
+using it how so you have a user
+
+436
+00:10:09,110 --> 00:10:09,120
+using it how so you have a user
+ 
+
+437
+00:10:09,120 --> 00:10:11,790
+using it how so you have a user
+controller class here if you see that I
+
+438
+00:10:11,790 --> 00:10:11,800
+controller class here if you see that I
+ 
+
+439
+00:10:11,800 --> 00:10:15,030
+controller class here if you see that I
+am calling a method update user now here
+
+440
+00:10:15,030 --> 00:10:15,040
+am calling a method update user now here
+ 
+
+441
+00:10:15,040 --> 00:10:17,350
+am calling a method update user now here
+if you see that this update user first I
+
+442
+00:10:17,350 --> 00:10:17,360
+if you see that this update user first I
+ 
+
+443
+00:10:17,360 --> 00:10:20,829
+if you see that this update user first I
+have used an using update user now what
+
+444
+00:10:20,829 --> 00:10:20,839
+have used an using update user now what
+ 
+
+445
+00:10:20,839 --> 00:10:24,590
+have used an using update user now what
+happen is your main thread is free it
+
+446
+00:10:24,590 --> 00:10:24,600
+happen is your main thread is free it
+ 
+
+447
+00:10:24,600 --> 00:10:26,829
+happen is your main thread is free it
+can proceed further it do not have to
+
+448
+00:10:26,829 --> 00:10:26,839
+can proceed further it do not have to
+ 
+
+449
+00:10:26,839 --> 00:10:29,790
+can proceed further it do not have to
+wait for update user now it's created a
+
+450
+00:10:29,790 --> 00:10:29,800
+wait for update user now it's created a
+ 
+
+451
+00:10:29,800 --> 00:10:31,790
+wait for update user now it's created a
+new thread and now update user now I
+
+452
+00:10:31,790 --> 00:10:31,800
+new thread and now update user now I
+ 
+
+453
+00:10:31,800 --> 00:10:32,829
+new thread and now update user now I
+have called
+
+454
+00:10:32,829 --> 00:10:32,839
+have called
+ 
+
+455
+00:10:32,839 --> 00:10:36,710
+have called
+update user in this utility and here I
+
+456
+00:10:36,710 --> 00:10:36,720
+update user in this utility and here I
+ 
+
+457
+00:10:36,720 --> 00:10:39,110
+update user in this utility and here I
+have put at that transaction so now
+
+458
+00:10:39,110 --> 00:10:39,120
+have put at that transaction so now
+ 
+
+459
+00:10:39,120 --> 00:10:40,790
+have put at that transaction so now
+everything runs in a transaction
+
+460
+00:10:40,790 --> 00:10:40,800
+everything runs in a transaction
+ 
+
+461
+00:10:40,800 --> 00:10:43,710
+everything runs in a transaction
+anything fails roll back will happen but
+
+462
+00:10:43,710 --> 00:10:43,720
+anything fails roll back will happen but
+ 
+
+463
+00:10:43,720 --> 00:10:46,750
+anything fails roll back will happen but
+what I have make sure that a separate
+
+464
+00:10:46,750 --> 00:10:46,760
+what I have make sure that a separate
+ 
+
+465
+00:10:46,760 --> 00:10:50,190
+what I have make sure that a separate
+thread is used to do this transactional
+
+466
+00:10:50,190 --> 00:10:50,200
+thread is used to do this transactional
+ 
+
+467
+00:10:50,200 --> 00:10:53,829
+thread is used to do this transactional
+work and my main thread is free totally
+
+468
+00:10:53,829 --> 00:10:53,839
+work and my main thread is free totally
+ 
+
+469
+00:10:53,839 --> 00:10:56,030
+work and my main thread is free totally
+so this is the correct way of using and
+
+470
+00:10:56,030 --> 00:10:56,040
+so this is the correct way of using and
+ 
+
+471
+00:10:56,040 --> 00:10:58,509
+so this is the correct way of using and
+this is the industry standard so
+
+472
+00:10:58,509 --> 00:10:58,519
+this is the industry standard so
+ 
+
+473
+00:10:58,519 --> 00:11:00,430
+this is the industry standard so
+whenever any question comes how you will
+
+474
+00:11:00,430 --> 00:11:00,440
+whenever any question comes how you will
+ 
+
+475
+00:11:00,440 --> 00:11:03,030
+whenever any question comes how you will
+use a sync annotation with
+
+476
+00:11:03,030 --> 00:11:03,040
+use a sync annotation with
+ 
+
+477
+00:11:03,040 --> 00:11:05,590
+use a sync annotation with
+transaction tell them the issue with
+
+478
+00:11:05,590 --> 00:11:05,600
+transaction tell them the issue with
+ 
+
+479
+00:11:05,600 --> 00:11:07,509
+transaction tell them the issue with
+first doing this transaction and then a
+
+480
+00:11:07,509 --> 00:11:07,519
+first doing this transaction and then a
+ 
+
+481
+00:11:07,519 --> 00:11:10,310
+first doing this transaction and then a
+SN or both together what are the
+
+482
+00:11:10,310 --> 00:11:10,320
+SN or both together what are the
+ 
+
+483
+00:11:10,320 --> 00:11:12,269
+SN or both together what are the
+challenges and which one is the correct
+
+484
+00:11:12,269 --> 00:11:12,279
+challenges and which one is the correct
+ 
+
+485
+00:11:12,279 --> 00:11:15,870
+challenges and which one is the correct
+way of doing
+
+486
+00:11:15,870 --> 00:11:15,880
+
+ 
+
+487
+00:11:15,880 --> 00:11:20,110
+
+it okay now another topic is a sync
+
+488
+00:11:20,110 --> 00:11:20,120
+it okay now another topic is a sync
+ 
+
+489
+00:11:20,120 --> 00:11:21,829
+it okay now another topic is a sync
+method return
+
+490
+00:11:21,829 --> 00:11:21,839
+method return
+ 
+
+491
+00:11:21,839 --> 00:11:25,310
+method return
+type so to understand this
+
+492
+00:11:25,310 --> 00:11:25,320
+type so to understand this
+ 
+
+493
+00:11:25,320 --> 00:11:27,990
+type so to understand this
+properly please do check out in the Java
+
+494
+00:11:27,990 --> 00:11:28,000
+properly please do check out in the Java
+ 
+
+495
+00:11:28,000 --> 00:11:30,629
+properly please do check out in the Java
+playlist this video future callable and
+
+496
+00:11:30,629 --> 00:11:30,639
+playlist this video future callable and
+ 
+
+497
+00:11:30,639 --> 00:11:33,350
+playlist this video future callable and
+completable future this already more
+
+498
+00:11:33,350 --> 00:11:33,360
+completable future this already more
+ 
+
+499
+00:11:33,360 --> 00:11:35,870
+completable future this already more
+than 1 hour video right this video I
+
+500
+00:11:35,870 --> 00:11:35,880
+than 1 hour video right this video I
+ 
+
+501
+00:11:35,880 --> 00:11:37,269
+than 1 hour video right this video I
+have already covered this in Java
+
+502
+00:11:37,269 --> 00:11:37,279
+have already covered this in Java
+ 
+
+503
+00:11:37,279 --> 00:11:38,790
+have already covered this in Java
+multi-threading future callable
+
+504
+00:11:38,790 --> 00:11:38,800
+multi-threading future callable
+ 
+
+505
+00:11:38,800 --> 00:11:41,509
+multi-threading future callable
+compatible future it's 1 hour plus video
+
+506
+00:11:41,509 --> 00:11:41,519
+compatible future it's 1 hour plus video
+ 
+
+507
+00:11:41,519 --> 00:11:43,990
+compatible future it's 1 hour plus video
+and I have covered in depth so covering
+
+508
+00:11:43,990 --> 00:11:44,000
+and I have covered in depth so covering
+ 
+
+509
+00:11:44,000 --> 00:11:45,790
+and I have covered in depth so covering
+here doesn't make sense because it's a
+
+510
+00:11:45,790 --> 00:11:45,800
+here doesn't make sense because it's a
+ 
+
+511
+00:11:45,800 --> 00:11:49,069
+here doesn't make sense because it's a
+Java uh topic and I have already
+
+512
+00:11:49,069 --> 00:11:49,079
+Java uh topic and I have already
+ 
+
+513
+00:11:49,079 --> 00:11:52,150
+Java uh topic and I have already
+explained in 1 hour plus in depth of
+
+514
+00:11:52,150 --> 00:11:52,160
+explained in 1 hour plus in depth of
+ 
+
+515
+00:11:52,160 --> 00:11:54,430
+explained in 1 hour plus in depth of
+this so check out the Java playlist you
+
+516
+00:11:54,430 --> 00:11:54,440
+this so check out the Java playlist you
+ 
+
+517
+00:11:54,440 --> 00:11:55,870
+this so check out the Java playlist you
+will get better understanding of this
+
+518
+00:11:55,870 --> 00:11:55,880
+will get better understanding of this
+ 
+
+519
+00:11:55,880 --> 00:11:59,069
+will get better understanding of this
+future callable and completable future
+
+520
+00:11:59,069 --> 00:11:59,079
+future callable and completable future
+ 
+
+521
+00:11:59,079 --> 00:12:01,870
+future callable and completable future
+but but I will tell you that uh how we
+
+522
+00:12:01,870 --> 00:12:01,880
+but but I will tell you that uh how we
+ 
+
+523
+00:12:01,880 --> 00:12:04,230
+but but I will tell you that uh how we
+can use it like by joining it with the
+
+524
+00:12:04,230 --> 00:12:04,240
+can use it like by joining it with the
+ 
+
+525
+00:12:04,240 --> 00:12:07,389
+can use it like by joining it with the
+spring boot so it will make more sense
+
+526
+00:12:07,389 --> 00:12:07,399
+spring boot so it will make more sense
+ 
+
+527
+00:12:07,399 --> 00:12:09,590
+spring boot so it will make more sense
+so let's say I'm using future and just
+
+528
+00:12:09,590 --> 00:12:09,600
+so let's say I'm using future and just
+ 
+
+529
+00:12:09,600 --> 00:12:13,230
+so let's say I'm using future and just
+for your information this future is now
+
+530
+00:12:13,230 --> 00:12:13,240
+for your information this future is now
+ 
+
+531
+00:12:13,240 --> 00:12:15,949
+for your information this future is now
+deprecated now completable future is
+
+532
+00:12:15,949 --> 00:12:15,959
+deprecated now completable future is
+ 
+
+533
+00:12:15,959 --> 00:12:17,590
+deprecated now completable future is
+mostly used in the
+
+534
+00:12:17,590 --> 00:12:17,600
+mostly used in the
+ 
+
+535
+00:12:17,600 --> 00:12:21,870
+mostly used in the
+industry so here if you see that the
+
+536
+00:12:21,870 --> 00:12:21,880
+industry so here if you see that the
+ 
+
+537
+00:12:21,880 --> 00:12:24,710
+industry so here if you see that the
+thing is when you are using an atate Ur
+
+538
+00:12:24,710 --> 00:12:24,720
+thing is when you are using an atate Ur
+ 
+
+539
+00:12:24,720 --> 00:12:26,509
+thing is when you are using an atate Ur
+sync annotation we know that it will
+
+540
+00:12:26,509 --> 00:12:26,519
+sync annotation we know that it will
+ 
+
+541
+00:12:26,519 --> 00:12:27,870
+sync annotation we know that it will
+create a new
+
+542
+00:12:27,870 --> 00:12:27,880
+create a new
+ 
+
+543
+00:12:27,880 --> 00:12:31,269
+create a new
+thread right so this is your main thread
+
+544
+00:12:31,269 --> 00:12:31,279
+thread right so this is your main thread
+ 
+
+545
+00:12:31,279 --> 00:12:33,110
+thread right so this is your main thread
+and by asking annotation it will create
+
+546
+00:12:33,110 --> 00:12:33,120
+and by asking annotation it will create
+ 
+
+547
+00:12:33,120 --> 00:12:35,030
+and by asking annotation it will create
+a new thread let's say thread
+
+548
+00:12:35,030 --> 00:12:35,040
+a new thread let's say thread
+ 
+
+549
+00:12:35,040 --> 00:12:37,350
+a new thread let's say thread
+one so if you
+
+550
+00:12:37,350 --> 00:12:37,360
+one so if you
+ 
+
+551
+00:12:37,360 --> 00:12:40,949
+one so if you
+want to retrieve the output of this
+
+552
+00:12:40,949 --> 00:12:40,959
+want to retrieve the output of this
+ 
+
+553
+00:12:40,959 --> 00:12:43,030
+want to retrieve the output of this
+thread one whatever the thread one has
+
+554
+00:12:43,030 --> 00:12:43,040
+thread one whatever the thread one has
+ 
+
+555
+00:12:43,040 --> 00:12:48,189
+thread one whatever the thread one has
+one work upon if if you want to get an
+
+556
+00:12:48,189 --> 00:12:48,199
+one work upon if if you want to get an
+ 
+
+557
+00:12:48,199 --> 00:12:51,430
+one work upon if if you want to get an
+output right that's where this future
+
+558
+00:12:51,430 --> 00:12:51,440
+output right that's where this future
+ 
+
+559
+00:12:51,440 --> 00:12:54,110
+output right that's where this future
+and completable future comes into the
+
+560
+00:12:54,110 --> 00:12:54,120
+and completable future comes into the
+ 
+
+561
+00:12:54,120 --> 00:12:56,949
+and completable future comes into the
+picture right so now here if you see
+
+562
+00:12:56,949 --> 00:12:56,959
+picture right so now here if you see
+ 
+
+563
+00:12:56,959 --> 00:12:59,590
+picture right so now here if you see
+that this performed task using method I
+
+564
+00:12:59,590 --> 00:12:59,600
+that this performed task using method I
+ 
+
+565
+00:12:59,600 --> 00:13:03,590
+that this performed task using method I
+have put at the a syn now it it it has
+
+566
+00:13:03,590 --> 00:13:03,600
+have put at the a syn now it it it has
+ 
+
+567
+00:13:03,600 --> 00:13:06,790
+have put at the a syn now it it it has
+to return a string but since it's an a
+
+568
+00:13:06,790 --> 00:13:06,800
+to return a string but since it's an a
+ 
+
+569
+00:13:06,800 --> 00:13:10,750
+to return a string but since it's an a
+syn I have wrapped into a
+
+570
+00:13:10,750 --> 00:13:10,760
+syn I have wrapped into a
+ 
+
+571
+00:13:10,760 --> 00:13:14,069
+syn I have wrapped into a
+future so now this is the caller method
+
+572
+00:13:14,069 --> 00:13:14,079
+future so now this is the caller method
+ 
+
+573
+00:13:14,079 --> 00:13:16,990
+future so now this is the caller method
+so when this method get invoked I am
+
+574
+00:13:16,990 --> 00:13:17,000
+so when this method get invoked I am
+ 
+
+575
+00:13:17,000 --> 00:13:19,990
+so when this method get invoked I am
+calling this perform aing task a new
+
+576
+00:13:19,990 --> 00:13:20,000
+calling this perform aing task a new
+ 
+
+577
+00:13:20,000 --> 00:13:23,150
+calling this perform aing task a new
+thread will get invoked which will work
+
+578
+00:13:23,150 --> 00:13:23,160
+thread will get invoked which will work
+ 
+
+579
+00:13:23,160 --> 00:13:26,230
+thread will get invoked which will work
+and It ultimately return this async
+
+580
+00:13:26,230 --> 00:13:26,240
+and It ultimately return this async
+ 
+
+581
+00:13:26,240 --> 00:13:29,870
+and It ultimately return this async
+result right this is a future
+
+582
+00:13:29,870 --> 00:13:29,880
+result right this is a future
+ 
+
+583
+00:13:29,880 --> 00:13:33,949
+result right this is a future
+now in the I can take this uh
+
+584
+00:13:33,949 --> 00:13:33,959
+now in the I can take this uh
+ 
+
+585
+00:13:33,959 --> 00:13:37,509
+now in the I can take this uh
+result in this one now maybe it will
+
+586
+00:13:37,509 --> 00:13:37,519
+result in this one now maybe it will
+ 
+
+587
+00:13:37,519 --> 00:13:40,990
+result in this one now maybe it will
+take let's say uh 15 seconds to complete
+
+588
+00:13:40,990 --> 00:13:41,000
+take let's say uh 15 seconds to complete
+ 
+
+589
+00:13:41,000 --> 00:13:44,389
+take let's say uh 15 seconds to complete
+it's okay our main method will just uh
+
+590
+00:13:44,389 --> 00:13:44,399
+it's okay our main method will just uh
+ 
+
+591
+00:13:44,399 --> 00:13:46,629
+it's okay our main method will just uh
+take a reference of this and continue
+
+592
+00:13:46,629 --> 00:13:46,639
+take a reference of this and continue
+ 
+
+593
+00:13:46,639 --> 00:13:49,710
+take a reference of this and continue
+forward continue its work now whenever
+
+594
+00:13:49,710 --> 00:13:49,720
+forward continue its work now whenever
+ 
+
+595
+00:13:49,720 --> 00:13:52,150
+forward continue its work now whenever
+you will do that on this future object
+
+596
+00:13:52,150 --> 00:13:52,160
+you will do that on this future object
+ 
+
+597
+00:13:52,160 --> 00:13:55,069
+you will do that on this future object
+uh which you have result. getet now our
+
+598
+00:13:55,069 --> 00:13:55,079
+uh which you have result. getet now our
+ 
+
+599
+00:13:55,079 --> 00:13:58,389
+uh which you have result. getet now our
+main thread will wait here till the
+
+600
+00:13:58,389 --> 00:13:58,399
+main thread will wait here till the
+ 
+
+601
+00:13:58,399 --> 00:14:00,990
+main thread will wait here till the
+output is a ailable now let's say that
+
+602
+00:14:00,990 --> 00:14:01,000
+output is a ailable now let's say that
+ 
+
+603
+00:14:01,000 --> 00:14:03,790
+output is a ailable now let's say that
+it is waiting like to get this uh task
+
+604
+00:14:03,790 --> 00:14:03,800
+it is waiting like to get this uh task
+ 
+
+605
+00:14:03,800 --> 00:14:06,189
+it is waiting like to get this uh task
+completed so it will wait here now our
+
+606
+00:14:06,189 --> 00:14:06,199
+completed so it will wait here now our
+ 
+
+607
+00:14:06,199 --> 00:14:08,030
+completed so it will wait here now our
+main thread will wait at this point when
+
+608
+00:14:08,030 --> 00:14:08,040
+main thread will wait at this point when
+ 
+
+609
+00:14:08,040 --> 00:14:10,949
+main thread will wait at this point when
+we do dot get till this method is not
+
+610
+00:14:10,949 --> 00:14:10,959
+we do dot get till this method is not
+ 
+
+611
+00:14:10,959 --> 00:14:13,389
+we do dot get till this method is not
+completed and once it is
+
+612
+00:14:13,389 --> 00:14:13,399
+completed and once it is
+ 
+
+613
+00:14:13,399 --> 00:14:16,430
+completed and once it is
+completed it will return
+
+614
+00:14:16,430 --> 00:14:16,440
+completed it will return
+ 
+
+615
+00:14:16,440 --> 00:14:19,030
+completed it will return
+this dotg will return this string
+
+616
+00:14:19,030 --> 00:14:19,040
+this dotg will return this string
+ 
+
+617
+00:14:19,040 --> 00:14:20,150
+this dotg will return this string
+whatever
+
+618
+00:14:20,150 --> 00:14:20,160
+whatever
+ 
+
+619
+00:14:20,160 --> 00:14:23,189
+whatever
+internally right and you can print
+
+620
+00:14:23,189 --> 00:14:23,199
+internally right and you can print
+ 
+
+621
+00:14:23,199 --> 00:14:29,990
+internally right and you can print
+it so this is one way of returning
+
+622
+00:14:29,990 --> 00:14:30,000
+it so this is one way of returning
+ 
+
+623
+00:14:30,000 --> 00:14:31,829
+it so this is one way of returning
+from an async method if you have a
+
+624
+00:14:31,829 --> 00:14:31,839
+from an async method if you have a
+ 
+
+625
+00:14:31,839 --> 00:14:35,069
+from an async method if you have a
+return type you can use future so this
+
+626
+00:14:35,069 --> 00:14:35,079
+return type you can use future so this
+ 
+
+627
+00:14:35,079 --> 00:14:38,150
+return type you can use future so this
+uh like this is one of the method get
+
+628
+00:14:38,150 --> 00:14:38,160
+uh like this is one of the method get
+ 
+
+629
+00:14:38,160 --> 00:14:40,949
+uh like this is one of the method get
+there are so many methods like get done
+
+630
+00:14:40,949 --> 00:14:40,959
+there are so many methods like get done
+ 
+
+631
+00:14:40,959 --> 00:14:42,350
+there are so many methods like get done
+is is
+
+632
+00:14:42,350 --> 00:14:42,360
+is is
+ 
+
+633
+00:14:42,360 --> 00:14:44,949
+is is
+cancelled all right and get with the
+
+634
+00:14:44,949 --> 00:14:44,959
+cancelled all right and get with the
+ 
+
+635
+00:14:44,959 --> 00:14:46,790
+cancelled all right and get with the
+timeout that I have covered in the Java
+
+636
+00:14:46,790 --> 00:14:46,800
+timeout that I have covered in the Java
+ 
+
+637
+00:14:46,800 --> 00:14:49,069
+timeout that I have covered in the Java
+video in depth what all functionality
+
+638
+00:14:49,069 --> 00:14:49,079
+video in depth what all functionality
+ 
+
+639
+00:14:49,079 --> 00:14:52,389
+video in depth what all functionality
+you can do so that is out of scope for
+
+640
+00:14:52,389 --> 00:14:52,399
+you can do so that is out of scope for
+ 
+
+641
+00:14:52,399 --> 00:14:55,470
+you can do so that is out of scope for
+this video but uh this is just to uh
+
+642
+00:14:55,470 --> 00:14:55,480
+this video but uh this is just to uh
+ 
+
+643
+00:14:55,480 --> 00:14:57,910
+this video but uh this is just to uh
+provide how you can use it uh in this
+
+644
+00:14:57,910 --> 00:14:57,920
+provide how you can use it uh in this
+ 
+
+645
+00:14:57,920 --> 00:14:59,670
+provide how you can use it uh in this
+way
+
+646
+00:14:59,670 --> 00:14:59,680
+way
+ 
+
+647
+00:14:59,680 --> 00:15:01,829
+way
+similarly completable future which was
+
+648
+00:15:01,829 --> 00:15:01,839
+similarly completable future which was
+ 
+
+649
+00:15:01,839 --> 00:15:05,150
+similarly completable future which was
+introduced in Java 8 the similar way you
+
+650
+00:15:05,150 --> 00:15:05,160
+introduced in Java 8 the similar way you
+ 
+
+651
+00:15:05,160 --> 00:15:07,069
+introduced in Java 8 the similar way you
+can say that complet completable future
+
+652
+00:15:07,069 --> 00:15:07,079
+can say that complet completable future
+ 
+
+653
+00:15:07,079 --> 00:15:09,550
+can say that complet completable future
+is just an enhanced version of
+
+654
+00:15:09,550 --> 00:15:09,560
+is just an enhanced version of
+ 
+
+655
+00:15:09,560 --> 00:15:12,910
+is just an enhanced version of
+future so here in this method now
+
+656
+00:15:12,910 --> 00:15:12,920
+future so here in this method now
+ 
+
+657
+00:15:12,920 --> 00:15:14,829
+future so here in this method now
+instead of future I am returning
+
+658
+00:15:14,829 --> 00:15:14,839
+instead of future I am returning
+ 
+
+659
+00:15:14,839 --> 00:15:17,749
+instead of future I am returning
+completable future the same no code
+
+660
+00:15:17,749 --> 00:15:17,759
+completable future the same no code
+ 
+
+661
+00:15:17,759 --> 00:15:21,870
+completable future the same no code
+change here it is invoking it it is just
+
+662
+00:15:21,870 --> 00:15:21,880
+change here it is invoking it it is just
+ 
+
+663
+00:15:21,880 --> 00:15:23,990
+change here it is invoking it it is just
+taking a reference of this completable
+
+664
+00:15:23,990 --> 00:15:24,000
+taking a reference of this completable
+ 
+
+665
+00:15:24,000 --> 00:15:26,670
+taking a reference of this completable
+future now main thread can continue its
+
+666
+00:15:26,670 --> 00:15:26,680
+future now main thread can continue its
+ 
+
+667
+00:15:26,680 --> 00:15:29,629
+future now main thread can continue its
+work without stopping now at this time
+
+668
+00:15:29,629 --> 00:15:29,639
+work without stopping now at this time
+ 
+
+669
+00:15:29,639 --> 00:15:32,189
+work without stopping now at this time
+when you're doing get it will wait wait
+
+670
+00:15:32,189 --> 00:15:32,199
+when you're doing get it will wait wait
+ 
+
+671
+00:15:32,199 --> 00:15:34,790
+when you're doing get it will wait wait
+for whom wait for this method to
+
+672
+00:15:34,790 --> 00:15:34,800
+for whom wait for this method to
+ 
+
+673
+00:15:34,800 --> 00:15:37,470
+for whom wait for this method to
+actually get completed once it completed
+
+674
+00:15:37,470 --> 00:15:37,480
+actually get completed once it completed
+ 
+
+675
+00:15:37,480 --> 00:15:39,470
+actually get completed once it completed
+it will get its output this
+
+676
+00:15:39,470 --> 00:15:39,480
+it will get its output this
+ 
+
+677
+00:15:39,480 --> 00:15:42,949
+it will get its output this
+one and you can print
+
+678
+00:15:42,949 --> 00:15:42,959
+one and you can print
+ 
+
+679
+00:15:42,959 --> 00:15:44,829
+one and you can print
+it
+
+680
+00:15:44,829 --> 00:15:44,839
+it
+ 
+
+681
+00:15:44,839 --> 00:15:48,790
+it
+okay so do check out this video to get a
+
+682
+00:15:48,790 --> 00:15:48,800
+okay so do check out this video to get a
+ 
+
+683
+00:15:48,800 --> 00:15:50,189
+okay so do check out this video to get a
+better understanding of completable
+
+684
+00:15:50,189 --> 00:15:50,199
+better understanding of completable
+ 
+
+685
+00:15:50,199 --> 00:15:51,829
+better understanding of completable
+future completable future is very very
+
+686
+00:15:51,829 --> 00:15:51,839
+future completable future is very very
+ 
+
+687
+00:15:51,839 --> 00:15:55,910
+future completable future is very very
+important and it's not like 5 10 minutes
+
+688
+00:15:55,910 --> 00:15:55,920
+important and it's not like 5 10 minutes
+ 
+
+689
+00:15:55,920 --> 00:15:58,629
+important and it's not like 5 10 minutes
+topic you will see a in-depth discussion
+
+690
+00:15:58,629 --> 00:15:58,639
+topic you will see a in-depth discussion
+ 
+
+691
+00:15:58,639 --> 00:16:01,150
+topic you will see a in-depth discussion
+how the chaining happens in this one
+
+692
+00:16:01,150 --> 00:16:01,160
+how the chaining happens in this one
+ 
+
+693
+00:16:01,160 --> 00:16:03,870
+how the chaining happens in this one
+supplier saying there lot chaining is
+
+694
+00:16:03,870 --> 00:16:03,880
+supplier saying there lot chaining is
+ 
+
+695
+00:16:03,880 --> 00:16:05,550
+supplier saying there lot chaining is
+very good capability of compatiable
+
+696
+00:16:05,550 --> 00:16:05,560
+very good capability of compatiable
+ 
+
+697
+00:16:05,560 --> 00:16:08,069
+very good capability of compatiable
+future do check
+
+698
+00:16:08,069 --> 00:16:08,079
+future do check
+ 
+
+699
+00:16:08,079 --> 00:16:11,309
+future do check
+out okay another important interview
+
+700
+00:16:11,309 --> 00:16:11,319
+out okay another important interview
+ 
+
+701
+00:16:11,319 --> 00:16:14,629
+out okay another important interview
+question is exception handling why
+
+702
+00:16:14,629 --> 00:16:14,639
+question is exception handling why
+ 
+
+703
+00:16:14,639 --> 00:16:16,790
+question is exception handling why
+important I'll tell you one interview
+
+704
+00:16:16,790 --> 00:16:16,800
+important I'll tell you one interview
+ 
+
+705
+00:16:16,800 --> 00:16:17,949
+important I'll tell you one interview
+question here
+
+706
+00:16:17,949 --> 00:16:17,959
+question here
+ 
+
+707
+00:16:17,959 --> 00:16:20,910
+question here
+is okay you have an as syn
+
+708
+00:16:20,910 --> 00:16:20,920
+is okay you have an as syn
+ 
+
+709
+00:16:20,920 --> 00:16:24,470
+is okay you have an as syn
+method which returns white let's say
+
+710
+00:16:24,470 --> 00:16:24,480
+method which returns white let's say
+ 
+
+711
+00:16:24,480 --> 00:16:27,910
+method which returns white let's say
+method one which do not return
+
+712
+00:16:27,910 --> 00:16:27,920
+method one which do not return
+ 
+
+713
+00:16:27,920 --> 00:16:30,430
+method one which do not return
+anything now since you have used at the
+
+714
+00:16:30,430 --> 00:16:30,440
+anything now since you have used at the
+ 
+
+715
+00:16:30,440 --> 00:16:32,910
+anything now since you have used at the
+rate using it is going to run in a
+
+716
+00:16:32,910 --> 00:16:32,920
+rate using it is going to run in a
+ 
+
+717
+00:16:32,920 --> 00:16:36,150
+rate using it is going to run in a
+different method now if any exception
+
+718
+00:16:36,150 --> 00:16:36,160
+different method now if any exception
+ 
+
+719
+00:16:36,160 --> 00:16:39,949
+different method now if any exception
+comes here how you going to handle that
+
+720
+00:16:39,949 --> 00:16:39,959
+comes here how you going to handle that
+ 
+
+721
+00:16:39,959 --> 00:16:41,309
+comes here how you going to handle that
+because your main method you have
+
+722
+00:16:41,309 --> 00:16:41,319
+because your main method you have
+ 
+
+723
+00:16:41,319 --> 00:16:42,870
+because your main method you have
+already you have invoked this and you
+
+724
+00:16:42,870 --> 00:16:42,880
+already you have invoked this and you
+ 
+
+725
+00:16:42,880 --> 00:16:45,509
+already you have invoked this and you
+have proceed further you have proceed
+
+726
+00:16:45,509 --> 00:16:45,519
+have proceed further you have proceed
+ 
+
+727
+00:16:45,519 --> 00:16:48,189
+have proceed further you have proceed
+further but if any exception comes into
+
+728
+00:16:48,189 --> 00:16:48,199
+further but if any exception comes into
+ 
+
+729
+00:16:48,199 --> 00:16:49,870
+further but if any exception comes into
+this new thread how you going to handle
+
+730
+00:16:49,870 --> 00:16:49,880
+this new thread how you going to handle
+ 
+
+731
+00:16:49,880 --> 00:16:51,990
+this new thread how you going to handle
+it that is very important interview
+
+732
+00:16:51,990 --> 00:16:52,000
+it that is very important interview
+ 
+
+733
+00:16:52,000 --> 00:16:54,430
+it that is very important interview
+question so I'll tell you this one but
+
+734
+00:16:54,430 --> 00:16:54,440
+question so I'll tell you this one but
+ 
+
+735
+00:16:54,440 --> 00:16:57,030
+question so I'll tell you this one but
+the first is very simple method which
+
+736
+00:16:57,030 --> 00:16:57,040
+the first is very simple method which
+ 
+
+737
+00:16:57,040 --> 00:16:59,230
+the first is very simple method which
+has return type
+
+738
+00:16:59,230 --> 00:16:59,240
+has return type
+ 
+
+739
+00:16:59,240 --> 00:17:02,829
+has return type
+you know how to handle it so whenever
+
+740
+00:17:02,829 --> 00:17:02,839
+you know how to handle it so whenever
+ 
+
+741
+00:17:02,839 --> 00:17:04,909
+you know how to handle it so whenever
+you are doing
+
+742
+00:17:04,909 --> 00:17:04,919
+you are doing
+ 
+
+743
+00:17:04,919 --> 00:17:09,150
+you are doing
+dotg this is the time if there is any
+
+744
+00:17:09,150 --> 00:17:09,160
+dotg this is the time if there is any
+ 
+
+745
+00:17:09,160 --> 00:17:12,029
+dotg this is the time if there is any
+exception in this using method it will
+
+746
+00:17:12,029 --> 00:17:12,039
+exception in this using method it will
+ 
+
+747
+00:17:12,039 --> 00:17:13,949
+exception in this using method it will
+throw at this point of time when you do
+
+748
+00:17:13,949 --> 00:17:13,959
+throw at this point of time when you do
+ 
+
+749
+00:17:13,959 --> 00:17:14,870
+throw at this point of time when you do
+dot
+
+750
+00:17:14,870 --> 00:17:14,880
+dot
+ 
+
+751
+00:17:14,880 --> 00:17:17,429
+dot
+get so at this point of time you have
+
+752
+00:17:17,429 --> 00:17:17,439
+get so at this point of time you have
+ 
+
+753
+00:17:17,439 --> 00:17:20,549
+get so at this point of time you have
+invoked the you have you have invoked
+
+754
+00:17:20,549 --> 00:17:20,559
+invoked the you have you have invoked
+ 
+
+755
+00:17:20,559 --> 00:17:23,110
+invoked the you have you have invoked
+the assing method now main method
+
+756
+00:17:23,110 --> 00:17:23,120
+the assing method now main method
+ 
+
+757
+00:17:23,120 --> 00:17:25,870
+the assing method now main method
+proceed further now if any exception
+
+758
+00:17:25,870 --> 00:17:25,880
+proceed further now if any exception
+ 
+
+759
+00:17:25,880 --> 00:17:29,630
+proceed further now if any exception
+comes only when main method do get at
+
+760
+00:17:29,630 --> 00:17:29,640
+comes only when main method do get at
+ 
+
+761
+00:17:29,640 --> 00:17:31,070
+comes only when main method do get at
+this point of time it will throw an
+
+762
+00:17:31,070 --> 00:17:31,080
+this point of time it will throw an
+ 
+
+763
+00:17:31,080 --> 00:17:32,549
+this point of time it will throw an
+exception and you can catch it and
+
+764
+00:17:32,549 --> 00:17:32,559
+exception and you can catch it and
+ 
+
+765
+00:17:32,559 --> 00:17:34,390
+exception and you can catch it and
+handle it like you want it you want to
+
+766
+00:17:34,390 --> 00:17:34,400
+handle it like you want it you want to
+ 
+
+767
+00:17:34,400 --> 00:17:37,070
+handle it like you want it you want to
+log it log it you want to print it print
+
+768
+00:17:37,070 --> 00:17:37,080
+log it log it you want to print it print
+ 
+
+769
+00:17:37,080 --> 00:17:39,350
+log it log it you want to print it print
+it or whatever you want you want to
+
+770
+00:17:39,350 --> 00:17:39,360
+it or whatever you want you want to
+ 
+
+771
+00:17:39,360 --> 00:17:42,230
+it or whatever you want you want to
+throw exception throw it so this is very
+
+772
+00:17:42,230 --> 00:17:42,240
+throw exception throw it so this is very
+ 
+
+773
+00:17:42,240 --> 00:17:44,669
+throw exception throw it so this is very
+very simple when the method has a return
+
+774
+00:17:44,669 --> 00:17:44,679
+very simple when the method has a return
+ 
+
+775
+00:17:44,679 --> 00:17:47,669
+very simple when the method has a return
+type we can have a completable future or
+
+776
+00:17:47,669 --> 00:17:47,679
+type we can have a completable future or
+ 
+
+777
+00:17:47,679 --> 00:17:49,789
+type we can have a completable future or
+future reference and using get we can
+
+778
+00:17:49,789 --> 00:17:49,799
+future reference and using get we can
+ 
+
+779
+00:17:49,799 --> 00:17:50,990
+future reference and using get we can
+catch
+
+780
+00:17:50,990 --> 00:17:51,000
+catch
+ 
+
+781
+00:17:51,000 --> 00:17:53,750
+catch
+it but this is where the interesting
+
+782
+00:17:53,750 --> 00:17:53,760
+it but this is where the interesting
+ 
+
+783
+00:17:53,760 --> 00:17:56,430
+it but this is where the interesting
+things Li is method which do not return
+
+784
+00:17:56,430 --> 00:17:56,440
+things Li is method which do not return
+ 
+
+785
+00:17:56,440 --> 00:17:58,510
+things Li is method which do not return
+anything so I have a method which
+
+786
+00:17:58,510 --> 00:17:58,520
+anything so I have a method which
+ 
+
+787
+00:17:58,520 --> 00:18:01,510
+anything so I have a method which
+returns wide and this is calling this
+
+788
+00:18:01,510 --> 00:18:01,520
+returns wide and this is calling this
+ 
+
+789
+00:18:01,520 --> 00:18:04,510
+returns wide and this is calling this
+method now if any exception comes here
+
+790
+00:18:04,510 --> 00:18:04,520
+method now if any exception comes here
+ 
+
+791
+00:18:04,520 --> 00:18:07,549
+method now if any exception comes here
+let's say I'm trying to do 1 divide by 0
+
+792
+00:18:07,549 --> 00:18:07,559
+let's say I'm trying to do 1 divide by 0
+ 
+
+793
+00:18:07,559 --> 00:18:09,510
+let's say I'm trying to do 1 divide by 0
+some exception comes
+
+794
+00:18:09,510 --> 00:18:09,520
+some exception comes
+ 
+
+795
+00:18:09,520 --> 00:18:12,669
+some exception comes
+here how this main thread because main
+
+796
+00:18:12,669 --> 00:18:12,679
+here how this main thread because main
+ 
+
+797
+00:18:12,679 --> 00:18:14,830
+here how this main thread because main
+thread has just invoked and proceed
+
+798
+00:18:14,830 --> 00:18:14,840
+thread has just invoked and proceed
+ 
+
+799
+00:18:14,840 --> 00:18:17,310
+thread has just invoked and proceed
+further now how I will handle this
+
+800
+00:18:17,310 --> 00:18:17,320
+further now how I will handle this
+ 
+
+801
+00:18:17,320 --> 00:18:19,830
+further now how I will handle this
+exception how I will do logging or how I
+
+802
+00:18:19,830 --> 00:18:19,840
+exception how I will do logging or how I
+ 
+
+803
+00:18:19,840 --> 00:18:23,310
+exception how I will do logging or how I
+will make sure that some exception get
+
+804
+00:18:23,310 --> 00:18:23,320
+will make sure that some exception get
+ 
+
+805
+00:18:23,320 --> 00:18:26,149
+will make sure that some exception get
+thrown so there are two ways to handle
+
+806
+00:18:26,149 --> 00:18:26,159
+thrown so there are two ways to handle
+ 
+
+807
+00:18:26,159 --> 00:18:29,909
+thrown so there are two ways to handle
+it one is you use a TR catch block
+
+808
+00:18:29,909 --> 00:18:29,919
+it one is you use a TR catch block
+ 
+
+809
+00:18:29,919 --> 00:18:32,070
+it one is you use a TR catch block
+inside this at the rate ass
+
+810
+00:18:32,070 --> 00:18:32,080
+inside this at the rate ass
+ 
+
+811
+00:18:32,080 --> 00:18:35,870
+inside this at the rate ass
+sync so here if you see you will perform
+
+812
+00:18:35,870 --> 00:18:35,880
+sync so here if you see you will perform
+ 
+
+813
+00:18:35,880 --> 00:18:38,630
+sync so here if you see you will perform
+some task now if any exception comes you
+
+814
+00:18:38,630 --> 00:18:38,640
+some task now if any exception comes you
+ 
+
+815
+00:18:38,640 --> 00:18:40,630
+some task now if any exception comes you
+will catch it so the catch is within
+
+816
+00:18:40,630 --> 00:18:40,640
+will catch it so the catch is within
+ 
+
+817
+00:18:40,640 --> 00:18:42,990
+will catch it so the catch is within
+this method itself a sing method so you
+
+818
+00:18:42,990 --> 00:18:43,000
+this method itself a sing method so you
+ 
+
+819
+00:18:43,000 --> 00:18:45,149
+this method itself a sing method so you
+will catch this and handle the exception
+
+820
+00:18:45,149 --> 00:18:45,159
+will catch this and handle the exception
+ 
+
+821
+00:18:45,159 --> 00:18:47,870
+will catch this and handle the exception
+here you want to log it just log
+
+822
+00:18:47,870 --> 00:18:47,880
+here you want to log it just log
+ 
+
+823
+00:18:47,880 --> 00:18:49,750
+here you want to log it just log
+it
+
+824
+00:18:49,750 --> 00:18:49,760
+it
+ 
+
+825
+00:18:49,760 --> 00:18:52,669
+it
+right but I'll tell you what is the
+
+826
+00:18:52,669 --> 00:18:52,679
+right but I'll tell you what is the
+ 
+
+827
+00:18:52,679 --> 00:18:54,750
+right but I'll tell you what is the
+industry
+
+828
+00:18:54,750 --> 00:18:54,760
+industry
+ 
+
+829
+00:18:54,760 --> 00:18:59,190
+industry
+uh what this industry follows and I I
+
+830
+00:18:59,190 --> 00:18:59,200
+uh what this industry follows and I I
+ 
+
+831
+00:18:59,200 --> 00:19:01,230
+uh what this industry follows and I I
+I'm thinking this is the better way to
+
+832
+00:19:01,230 --> 00:19:01,240
+I'm thinking this is the better way to
+ 
+
+833
+00:19:01,240 --> 00:19:03,430
+I'm thinking this is the better way to
+handle it rather than putting Tri catch
+
+834
+00:19:03,430 --> 00:19:03,440
+handle it rather than putting Tri catch
+ 
+
+835
+00:19:03,440 --> 00:19:06,909
+handle it rather than putting Tri catch
+into the each and every ass sync method
+
+836
+00:19:06,909 --> 00:19:06,919
+into the each and every ass sync method
+ 
+
+837
+00:19:06,919 --> 00:19:09,350
+into the each and every ass sync method
+so what happened so before I'm telling
+
+838
+00:19:09,350 --> 00:19:09,360
+so what happened so before I'm telling
+ 
+
+839
+00:19:09,360 --> 00:19:10,990
+so what happened so before I'm telling
+you
+
+840
+00:19:10,990 --> 00:19:11,000
+you
+ 
+
+841
+00:19:11,000 --> 00:19:13,430
+you
+this this see this one is spring boot
+
+842
+00:19:13,430 --> 00:19:13,440
+this this see this one is spring boot
+ 
+
+843
+00:19:13,440 --> 00:19:16,549
+this this see this one is spring boot
+framework code so spring boot has
+
+844
+00:19:16,549 --> 00:19:16,559
+framework code so spring boot has
+ 
+
+845
+00:19:16,559 --> 00:19:20,149
+framework code so spring boot has
+created one class internally simple
+
+846
+00:19:20,149 --> 00:19:20,159
+created one class internally simple
+ 
+
+847
+00:19:20,159 --> 00:19:23,990
+created one class internally simple
+async uncut exception Handler which
+
+848
+00:19:23,990 --> 00:19:24,000
+async uncut exception Handler which
+ 
+
+849
+00:19:24,000 --> 00:19:26,430
+async uncut exception Handler which
+implement this interface a sync
+
+850
+00:19:26,430 --> 00:19:26,440
+implement this interface a sync
+ 
+
+851
+00:19:26,440 --> 00:19:29,470
+implement this interface a sync
+uncut exception Handler
+
+852
+00:19:29,470 --> 00:19:29,480
+uncut exception Handler
+ 
+
+853
+00:19:29,480 --> 00:19:31,510
+uncut exception Handler
+and it has one method handle uncut
+
+854
+00:19:31,510 --> 00:19:31,520
+and it has one method handle uncut
+ 
+
+855
+00:19:31,520 --> 00:19:34,230
+and it has one method handle uncut
+exception and it will just log it
+
+856
+00:19:34,230 --> 00:19:34,240
+exception and it will just log it
+ 
+
+857
+00:19:34,240 --> 00:19:36,430
+exception and it will just log it
+unexpected exception occurred invoking a
+
+858
+00:19:36,430 --> 00:19:36,440
+unexpected exception occurred invoking a
+ 
+
+859
+00:19:36,440 --> 00:19:39,830
+unexpected exception occurred invoking a
+sying method so now let's say that I
+
+860
+00:19:39,830 --> 00:19:39,840
+sying method so now let's say that I
+ 
+
+861
+00:19:39,840 --> 00:19:40,950
+sying method so now let's say that I
+have this
+
+862
+00:19:40,950 --> 00:19:40,960
+have this
+ 
+
+863
+00:19:40,960 --> 00:19:43,590
+have this
+method a sying
+
+864
+00:19:43,590 --> 00:19:43,600
+method a sying
+ 
+
+865
+00:19:43,600 --> 00:19:46,630
+method a sying
+method and it is let's say I purposely
+
+866
+00:19:46,630 --> 00:19:46,640
+method and it is let's say I purposely
+ 
+
+867
+00:19:46,640 --> 00:19:49,110
+method and it is let's say I purposely
+doing this 5 divid by 0 so we know that
+
+868
+00:19:49,110 --> 00:19:49,120
+doing this 5 divid by 0 so we know that
+ 
+
+869
+00:19:49,120 --> 00:19:51,310
+doing this 5 divid by 0 so we know that
+it's going to throw an
+
+870
+00:19:51,310 --> 00:19:51,320
+it's going to throw an
+ 
+
+871
+00:19:51,320 --> 00:19:54,190
+it's going to throw an
+exception so now I don't have any try
+
+872
+00:19:54,190 --> 00:19:54,200
+exception so now I don't have any try
+ 
+
+873
+00:19:54,200 --> 00:19:56,830
+exception so now I don't have any try
+catch here so what would happen is
+
+874
+00:19:56,830 --> 00:19:56,840
+catch here so what would happen is
+ 
+
+875
+00:19:56,840 --> 00:19:59,830
+catch here so what would happen is
+spring boot this method this class get
+
+876
+00:19:59,830 --> 00:19:59,840
+spring boot this method this class get
+ 
+
+877
+00:19:59,840 --> 00:20:03,510
+spring boot this method this class get
+invoked so simple assing C exception
+
+878
+00:20:03,510 --> 00:20:03,520
+invoked so simple assing C exception
+ 
+
+879
+00:20:03,520 --> 00:20:06,590
+invoked so simple assing C exception
+Handler which is a child of this
+
+880
+00:20:06,590 --> 00:20:06,600
+Handler which is a child of this
+ 
+
+881
+00:20:06,600 --> 00:20:09,149
+Handler which is a child of this
+interface handle uncut exception will
+
+882
+00:20:09,149 --> 00:20:09,159
+interface handle uncut exception will
+ 
+
+883
+00:20:09,159 --> 00:20:11,750
+interface handle uncut exception will
+get invoked and it will print this
+
+884
+00:20:11,750 --> 00:20:11,760
+get invoked and it will print this
+ 
+
+885
+00:20:11,760 --> 00:20:15,149
+get invoked and it will print this
+unexpected exception occurred unexpected
+
+886
+00:20:15,149 --> 00:20:15,159
+unexpected exception occurred unexpected
+ 
+
+887
+00:20:15,159 --> 00:20:16,710
+unexpected exception occurred unexpected
+exception occurred invoking a sying
+
+888
+00:20:16,710 --> 00:20:16,720
+exception occurred invoking a sying
+ 
+
+889
+00:20:16,720 --> 00:20:19,350
+exception occurred invoking a sying
+method and this is the method name and
+
+890
+00:20:19,350 --> 00:20:19,360
+method and this is the method name and
+ 
+
+891
+00:20:19,360 --> 00:20:23,029
+method and this is the method name and
+this is the exception which it prints so
+
+892
+00:20:23,029 --> 00:20:23,039
+this is the exception which it prints so
+ 
+
+893
+00:20:23,039 --> 00:20:24,510
+this is the exception which it prints so
+it prints the complete exception and
+
+894
+00:20:24,510 --> 00:20:24,520
+it prints the complete exception and
+ 
+
+895
+00:20:24,520 --> 00:20:27,270
+it prints the complete exception and
+also the method
+
+896
+00:20:27,270 --> 00:20:27,280
+also the method
+ 
+
+897
+00:20:27,280 --> 00:20:29,590
+also the method
+name but
+
+898
+00:20:29,590 --> 00:20:29,600
+name but
+ 
+
+899
+00:20:29,600 --> 00:20:32,590
+name but
+you you can say that hey I this is I
+
+900
+00:20:32,590 --> 00:20:32,600
+you you can say that hey I this is I
+ 
+
+901
+00:20:32,600 --> 00:20:35,149
+you you can say that hey I this is I
+don't want this I want custom handling I
+
+902
+00:20:35,149 --> 00:20:35,159
+don't want this I want custom handling I
+ 
+
+903
+00:20:35,159 --> 00:20:38,710
+don't want this I want custom handling I
+want my custom handling where I might
+
+904
+00:20:38,710 --> 00:20:38,720
+want my custom handling where I might
+ 
+
+905
+00:20:38,720 --> 00:20:41,270
+want my custom handling where I might
+have different logic than just doing
+
+906
+00:20:41,270 --> 00:20:41,280
+have different logic than just doing
+ 
+
+907
+00:20:41,280 --> 00:20:44,750
+have different logic than just doing
+this so now you got one hint that if
+
+908
+00:20:44,750 --> 00:20:44,760
+this so now you got one hint that if
+ 
+
+909
+00:20:44,760 --> 00:20:47,750
+this so now you got one hint that if
+spring boot can implement this why not
+
+910
+00:20:47,750 --> 00:20:47,760
+spring boot can implement this why not
+ 
+
+911
+00:20:47,760 --> 00:20:51,789
+spring boot can implement this why not
+we and do our custom so that's what the
+
+912
+00:20:51,789 --> 00:20:51,799
+we and do our custom so that's what the
+ 
+
+913
+00:20:51,799 --> 00:20:55,470
+we and do our custom so that's what the
+solution is so here we create one class
+
+914
+00:20:55,470 --> 00:20:55,480
+solution is so here we create one class
+ 
+
+915
+00:20:55,480 --> 00:20:57,350
+solution is so here we create one class
+I have created this default us sync
+
+916
+00:20:57,350 --> 00:20:57,360
+I have created this default us sync
+ 
+
+917
+00:20:57,360 --> 00:20:59,230
+I have created this default us sync
+uncut Handler
+
+918
+00:20:59,230 --> 00:20:59,240
+uncut Handler
+ 
+
+919
+00:20:59,240 --> 00:21:01,630
+uncut Handler
+which implement this using uncut
+
+920
+00:21:01,630 --> 00:21:01,640
+which implement this using uncut
+ 
+
+921
+00:21:01,640 --> 00:21:04,270
+which implement this using uncut
+exception Handler and I have override
+
+922
+00:21:04,270 --> 00:21:04,280
+exception Handler and I have override
+ 
+
+923
+00:21:04,280 --> 00:21:07,590
+exception Handler and I have override
+this method handle uncut
+
+924
+00:21:07,590 --> 00:21:07,600
+this method handle uncut
+ 
+
+925
+00:21:07,600 --> 00:21:11,669
+this method handle uncut
+exception and here I am doing like in
+
+926
+00:21:11,669 --> 00:21:11,679
+exception and here I am doing like in
+ 
+
+927
+00:21:11,679 --> 00:21:14,549
+exception and here I am doing like in
+default I just printed you can handle it
+
+928
+00:21:14,549 --> 00:21:14,559
+default I just printed you can handle it
+ 
+
+929
+00:21:14,559 --> 00:21:15,789
+default I just printed you can handle it
+like you
+
+930
+00:21:15,789 --> 00:21:15,799
+like you
+ 
+
+931
+00:21:15,799 --> 00:21:19,310
+like you
+want right so this is the default
+
+932
+00:21:19,310 --> 00:21:19,320
+want right so this is the default
+ 
+
+933
+00:21:19,320 --> 00:21:21,990
+want right so this is the default
+handling which I wanted when any
+
+934
+00:21:21,990 --> 00:21:22,000
+handling which I wanted when any
+ 
+
+935
+00:21:22,000 --> 00:21:24,830
+handling which I wanted when any
+exception occur in an N sying
+
+936
+00:21:24,830 --> 00:21:24,840
+exception occur in an N sying
+ 
+
+937
+00:21:24,840 --> 00:21:28,750
+exception occur in an N sying
+thread okay so this is I created but I
+
+938
+00:21:28,750 --> 00:21:28,760
+thread okay so this is I created but I
+ 
+
+939
+00:21:28,760 --> 00:21:32,310
+thread okay so this is I created but I
+need to make sure that my
+
+940
+00:21:32,310 --> 00:21:32,320
+need to make sure that my
+ 
+
+941
+00:21:32,320 --> 00:21:35,190
+need to make sure that my
+this this class get invoked how you can
+
+942
+00:21:35,190 --> 00:21:35,200
+this this class get invoked how you can
+ 
+
+943
+00:21:35,200 --> 00:21:37,789
+this this class get invoked how you can
+make sure that so in this app
+
+944
+00:21:37,789 --> 00:21:37,799
+make sure that so in this app
+ 
+
+945
+00:21:37,799 --> 00:21:40,710
+make sure that so in this app
+configuration class you just need to
+
+946
+00:21:40,710 --> 00:21:40,720
+configuration class you just need to
+ 
+
+947
+00:21:40,720 --> 00:21:43,110
+configuration class you just need to
+implement this ass sync
+
+948
+00:21:43,110 --> 00:21:43,120
+implement this ass sync
+ 
+
+949
+00:21:43,120 --> 00:21:46,470
+implement this ass sync
+configur and what you have to do
+
+950
+00:21:46,470 --> 00:21:46,480
+configur and what you have to do
+ 
+
+951
+00:21:46,480 --> 00:21:49,590
+configur and what you have to do
+is in this method you have to return
+
+952
+00:21:49,590 --> 00:21:49,600
+is in this method you have to return
+ 
+
+953
+00:21:49,600 --> 00:21:53,830
+is in this method you have to return
+this object right this using C exception
+
+954
+00:21:53,830 --> 00:21:53,840
+this object right this using C exception
+ 
+
+955
+00:21:53,840 --> 00:21:56,669
+this object right this using C exception
+Handler so I have done
+
+956
+00:21:56,669 --> 00:21:56,679
+Handler so I have done
+ 
+
+957
+00:21:56,679 --> 00:21:59,950
+Handler so I have done
+autowired and this object this class so
+
+958
+00:21:59,950 --> 00:21:59,960
+autowired and this object this class so
+ 
+
+959
+00:21:59,960 --> 00:22:01,830
+autowired and this object this class so
+now when you have done Auto you know
+
+960
+00:22:01,830 --> 00:22:01,840
+now when you have done Auto you know
+ 
+
+961
+00:22:01,840 --> 00:22:04,430
+now when you have done Auto you know
+right what spring boot will try to do
+
+962
+00:22:04,430 --> 00:22:04,440
+right what spring boot will try to do
+ 
+
+963
+00:22:04,440 --> 00:22:06,230
+right what spring boot will try to do
+spring boot will try to see that hey if
+
+964
+00:22:06,230 --> 00:22:06,240
+spring boot will try to see that hey if
+ 
+
+965
+00:22:06,240 --> 00:22:09,390
+spring boot will try to see that hey if
+there any Bean present for this one so
+
+966
+00:22:09,390 --> 00:22:09,400
+there any Bean present for this one so
+ 
+
+967
+00:22:09,400 --> 00:22:11,269
+there any Bean present for this one so
+see here I have created one class with
+
+968
+00:22:11,269 --> 00:22:11,279
+see here I have created one class with
+ 
+
+969
+00:22:11,279 --> 00:22:13,350
+see here I have created one class with
+atate component you can have in this or
+
+970
+00:22:13,350 --> 00:22:13,360
+atate component you can have in this or
+ 
+
+971
+00:22:13,360 --> 00:22:15,310
+atate component you can have in this or
+in this class or in a different class
+
+972
+00:22:15,310 --> 00:22:15,320
+in this class or in a different class
+ 
+
+973
+00:22:15,320 --> 00:22:18,190
+in this class or in a different class
+also but here I have atate component on
+
+974
+00:22:18,190 --> 00:22:18,200
+also but here I have atate component on
+ 
+
+975
+00:22:18,200 --> 00:22:19,990
+also but here I have atate component on
+this one right so Bean is already
+
+976
+00:22:19,990 --> 00:22:20,000
+this one right so Bean is already
+ 
+
+977
+00:22:20,000 --> 00:22:25,630
+this one right so Bean is already
+created so this will get set here and
+
+978
+00:22:25,630 --> 00:22:25,640
+created so this will get set here and
+ 
+
+979
+00:22:25,640 --> 00:22:27,310
+created so this will get set here and
+whenever in the spring board it will do
+
+980
+00:22:27,310 --> 00:22:27,320
+whenever in the spring board it will do
+ 
+
+981
+00:22:27,320 --> 00:22:29,350
+whenever in the spring board it will do
+get a sync uncut exception Handler it
+
+982
+00:22:29,350 --> 00:22:29,360
+get a sync uncut exception Handler it
+ 
+
+983
+00:22:29,360 --> 00:22:34,470
+get a sync uncut exception Handler it
+will return this one so mine will get
+
+984
+00:22:34,470 --> 00:22:34,480
+
+ 
+
+985
+00:22:34,480 --> 00:22:37,909
+
+return so you got this part how you can
+
+986
+00:22:37,909 --> 00:22:37,919
+return so you got this part how you can
+ 
+
+987
+00:22:37,919 --> 00:22:41,350
+return so you got this part how you can
+configure your own custom exception
+
+988
+00:22:41,350 --> 00:22:41,360
+configure your own custom exception
+ 
+
+989
+00:22:41,360 --> 00:22:45,190
+configure your own custom exception
+Handler in case
+
+990
+00:22:45,190 --> 00:22:45,200
+
+ 
+
+991
+00:22:45,200 --> 00:22:48,750
+
+of method where return type is
+
+992
+00:22:48,750 --> 00:22:48,760
+of method where return type is
+ 
+
+993
+00:22:48,760 --> 00:22:52,230
+of method where return type is
+wide for an a sync
+
+994
+00:22:52,230 --> 00:22:52,240
+wide for an a sync
+ 
+
+995
+00:22:52,240 --> 00:22:55,710
+wide for an a sync
+annotation right just check this out the
+
+996
+00:22:55,710 --> 00:22:55,720
+annotation right just check this out the
+ 
+
+997
+00:22:55,720 --> 00:22:58,029
+annotation right just check this out the
+flow this is very simple you just have
+
+998
+00:22:58,029 --> 00:22:58,039
+flow this is very simple you just have
+ 
+
+999
+00:22:58,039 --> 00:23:00,510
+flow this is very simple you just have
+to over right one
+
+1000
+00:23:00,510 --> 00:23:00,520
+to over right one
+ 
+
+1001
+00:23:00,520 --> 00:23:04,029
+to over right one
+and this Bean will be uh get initialized
+
+1002
+00:23:04,029 --> 00:23:04,039
+and this Bean will be uh get initialized
+ 
+
+1003
+00:23:04,039 --> 00:23:05,950
+and this Bean will be uh get initialized
+here because we have done Auto add and
+
+1004
+00:23:05,950 --> 00:23:05,960
+here because we have done Auto add and
+ 
+
+1005
+00:23:05,960 --> 00:23:08,029
+here because we have done Auto add and
+we just have to return it whenever means
+
+1006
+00:23:08,029 --> 00:23:08,039
+we just have to return it whenever means
+ 
+
+1007
+00:23:08,039 --> 00:23:11,789
+we just have to return it whenever means
+spring is asking we are returning this
+
+1008
+00:23:11,789 --> 00:23:11,799
+spring is asking we are returning this
+ 
+
+1009
+00:23:11,799 --> 00:23:16,470
+spring is asking we are returning this
+one okay and here if you run this 5 / 0
+
+1010
+00:23:16,470 --> 00:23:16,480
+one okay and here if you run this 5 / 0
+ 
+
+1011
+00:23:16,480 --> 00:23:19,149
+one okay and here if you run this 5 / 0
+you will see that in default uncaught
+
+1012
+00:23:19,149 --> 00:23:19,159
+you will see that in default uncaught
+ 
+
+1013
+00:23:19,159 --> 00:23:21,909
+you will see that in default uncaught
+exception method which I printed not the
+
+1014
+00:23:21,909 --> 00:23:21,919
+exception method which I printed not the
+ 
+
+1015
+00:23:21,919 --> 00:23:24,149
+exception method which I printed not the
+spring
+
+1016
+00:23:24,149 --> 00:23:24,159
+spring
+ 
+
+1017
+00:23:24,159 --> 00:23:27,190
+spring
+one so in the spring one I have put
+
+1018
+00:23:27,190 --> 00:23:27,200
+one so in the spring one I have put
+ 
+
+1019
+00:23:27,200 --> 00:23:30,630
+one so in the spring one I have put
+empty app config just for showing that
+
+1020
+00:23:30,630 --> 00:23:30,640
+empty app config just for showing that
+ 
+
+1021
+00:23:30,640 --> 00:23:33,029
+empty app config just for showing that
+if if you don't handle yourself a spring
+
+1022
+00:23:33,029 --> 00:23:33,039
+if if you don't handle yourself a spring
+ 
+
+1023
+00:23:33,039 --> 00:23:34,549
+if if you don't handle yourself a spring
+will take care of
+
+1024
+00:23:34,549 --> 00:23:34,559
+will take care of
+ 
+
+1025
+00:23:34,559 --> 00:23:36,870
+will take care of
+it okay so based upon your business
+
+1026
+00:23:36,870 --> 00:23:36,880
+it okay so based upon your business
+ 
+
+1027
+00:23:36,880 --> 00:23:39,190
+it okay so based upon your business
+requirement either go for uh
+
+1028
+00:23:39,190 --> 00:23:39,200
+requirement either go for uh
+ 
+
+1029
+00:23:39,200 --> 00:23:41,310
+requirement either go for uh
+implementing the default or you can use
+
+1030
+00:23:41,310 --> 00:23:41,320
+implementing the default or you can use
+ 
+
+1031
+00:23:41,320 --> 00:23:43,630
+implementing the default or you can use
+try catch like depending upon your
+
+1032
+00:23:43,630 --> 00:23:43,640
+try catch like depending upon your
+ 
+
+1033
+00:23:43,640 --> 00:23:45,950
+try catch like depending upon your
+business
+
+1034
+00:23:45,950 --> 00:23:45,960
+business
+ 
+
+1035
+00:23:45,960 --> 00:23:49,149
+business
+requirement okay so these are some
+
+1036
+00:23:49,149 --> 00:23:49,159
+requirement okay so these are some
+ 
+
+1037
+00:23:49,159 --> 00:23:51,070
+requirement okay so these are some
+important interview questions of the
+
+1038
+00:23:51,070 --> 00:23:51,080
+important interview questions of the
+ 
+
+1039
+00:23:51,080 --> 00:23:54,950
+important interview questions of the
+async which I wanted to cover today and
+
+1040
+00:23:54,950 --> 00:23:54,960
+async which I wanted to cover today and
+ 
+
+1041
+00:23:54,960 --> 00:23:56,750
+async which I wanted to cover today and
+we'll see you in the next topic of a
+
+1042
+00:23:56,750 --> 00:23:56,760
+we'll see you in the next topic of a
+ 
+
+1043
+00:23:56,760 --> 00:24:00,440
+we'll see you in the next topic of a
+springboard thank you bye
+

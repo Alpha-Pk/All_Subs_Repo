@@ -1,0 +1,8225 @@
+1
+00:00:00,080 --> 00:00:01,670
+
+As I said welcome back to the channel
+
+2
+00:00:01,670 --> 00:00:01,680
+As I said welcome back to the channel
+ 
+
+3
+00:00:01,680 --> 00:00:04,070
+As I said welcome back to the channel
+and today we will see that how
+
+4
+00:00:04,070 --> 00:00:04,080
+and today we will see that how
+ 
+
+5
+00:00:04,080 --> 00:00:06,950
+and today we will see that how
+configuration property is useful for us.
+
+6
+00:00:06,950 --> 00:00:06,960
+configuration property is useful for us.
+ 
+
+7
+00:00:06,960 --> 00:00:09,190
+configuration property is useful for us.
+So but let's first see the problem then
+
+8
+00:00:09,190 --> 00:00:09,200
+So but let's first see the problem then
+ 
+
+9
+00:00:09,200 --> 00:00:12,709
+So but let's first see the problem then
+we will come back to this uh topic. So
+
+10
+00:00:12,709 --> 00:00:12,719
+we will come back to this uh topic. So
+ 
+
+11
+00:00:12,719 --> 00:00:14,709
+we will come back to this uh topic. So
+let's first see what the issue with the
+
+12
+00:00:14,709 --> 00:00:14,719
+let's first see what the issue with the
+ 
+
+13
+00:00:14,719 --> 00:00:17,430
+let's first see what the issue with the
+add the rate value annotation. We have
+
+14
+00:00:17,430 --> 00:00:17,440
+add the rate value annotation. We have
+ 
+
+15
+00:00:17,440 --> 00:00:21,590
+add the rate value annotation. We have
+already covered this right. So add the
+
+16
+00:00:21,590 --> 00:00:21,600
+already covered this right. So add the
+ 
+
+17
+00:00:21,600 --> 00:00:25,189
+already covered this right. So add the
+rate value is good for injecting a
+
+18
+00:00:25,189 --> 00:00:25,199
+rate value is good for injecting a
+ 
+
+19
+00:00:25,199 --> 00:00:28,630
+rate value is good for injecting a
+single property but it become pro
+
+20
+00:00:28,630 --> 00:00:28,640
+single property but it become pro
+ 
+
+21
+00:00:28,640 --> 00:00:31,509
+single property but it become pro
+problematic as configuration grows. So
+
+22
+00:00:31,509 --> 00:00:31,519
+problematic as configuration grows. So
+ 
+
+23
+00:00:31,519 --> 00:00:33,990
+problematic as configuration grows. So
+we know that we have certain properties
+
+24
+00:00:33,990 --> 00:00:34,000
+we know that we have certain properties
+ 
+
+25
+00:00:34,000 --> 00:00:36,790
+we know that we have certain properties
+in application
+
+26
+00:00:36,790 --> 00:00:36,800
+in application
+ 
+
+27
+00:00:36,800 --> 00:00:39,990
+in application
+dotproperty
+
+28
+00:00:39,990 --> 00:00:40,000
+
+ 
+
+29
+00:00:40,000 --> 00:00:43,510
+
+file. Okay. And with add the rate value
+
+30
+00:00:43,510 --> 00:00:43,520
+file. Okay. And with add the rate value
+ 
+
+31
+00:00:43,520 --> 00:00:46,630
+file. Okay. And with add the rate value
+we can inject that property into our
+
+32
+00:00:46,630 --> 00:00:46,640
+we can inject that property into our
+ 
+
+33
+00:00:46,640 --> 00:00:50,790
+we can inject that property into our
+Java code. Okay. How like this? Let's
+
+34
+00:00:50,790 --> 00:00:50,800
+Java code. Okay. How like this? Let's
+ 
+
+35
+00:00:50,800 --> 00:00:54,069
+Java code. Okay. How like this? Let's
+say I have a class DB connection. Okay.
+
+36
+00:00:54,069 --> 00:00:54,079
+say I have a class DB connection. Okay.
+ 
+
+37
+00:00:54,079 --> 00:00:58,549
+say I have a class DB connection. Okay.
+And I have this field string username.
+
+38
+00:00:58,549 --> 00:00:58,559
+And I have this field string username.
+ 
+
+39
+00:00:58,559 --> 00:01:01,189
+And I have this field string username.
+So there in application.properties
+
+40
+00:01:01,189 --> 00:01:01,199
+So there in application.properties
+ 
+
+41
+00:01:01,199 --> 00:01:05,109
+So there in application.properties
+there would be one config like app dot
+
+42
+00:01:05,109 --> 00:01:05,119
+there would be one config like app dot
+ 
+
+43
+00:01:05,119 --> 00:01:07,510
+there would be one config like app dot
+username.
+
+44
+00:01:07,510 --> 00:01:07,520
+username.
+ 
+
+45
+00:01:07,520 --> 00:01:09,670
+username.
+Okay. And whatever the value would be.
+
+46
+00:01:09,670 --> 00:01:09,680
+Okay. And whatever the value would be.
+ 
+
+47
+00:01:09,680 --> 00:01:13,750
+Okay. And whatever the value would be.
+So that I am injecting from my property
+
+48
+00:01:13,750 --> 00:01:13,760
+So that I am injecting from my property
+ 
+
+49
+00:01:13,760 --> 00:01:17,990
+So that I am injecting from my property
+file to this field like this. Okay. So
+
+50
+00:01:17,990 --> 00:01:18,000
+file to this field like this. Okay. So
+ 
+
+51
+00:01:18,000 --> 00:01:20,469
+file to this field like this. Okay. So
+we have already covered this. So we have
+
+52
+00:01:20,469 --> 00:01:20,479
+we have already covered this. So we have
+ 
+
+53
+00:01:20,479 --> 00:01:22,390
+we have already covered this. So we have
+to use this annotation add the rate
+
+54
+00:01:22,390 --> 00:01:22,400
+to use this annotation add the rate
+ 
+
+55
+00:01:22,400 --> 00:01:24,550
+to use this annotation add the rate
+value and then we have to use this
+
+56
+00:01:24,550 --> 00:01:24,560
+value and then we have to use this
+ 
+
+57
+00:01:24,560 --> 00:01:27,830
+value and then we have to use this
+placeholder and the
+
+58
+00:01:27,830 --> 00:01:27,840
+placeholder and the
+ 
+
+59
+00:01:27,840 --> 00:01:31,590
+placeholder and the
+property name what we have to inject.
+
+60
+00:01:31,590 --> 00:01:31,600
+property name what we have to inject.
+ 
+
+61
+00:01:31,600 --> 00:01:35,429
+property name what we have to inject.
+Okay. Now the problem is that if there
+
+62
+00:01:35,429 --> 00:01:35,439
+Okay. Now the problem is that if there
+ 
+
+63
+00:01:35,439 --> 00:01:37,749
+Okay. Now the problem is that if there
+are let's say a group of configuration
+
+64
+00:01:37,749 --> 00:01:37,759
+are let's say a group of configuration
+ 
+
+65
+00:01:37,759 --> 00:01:40,710
+are let's say a group of configuration
+which you have to use then it's always
+
+66
+00:01:40,710 --> 00:01:40,720
+which you have to use then it's always
+ 
+
+67
+00:01:40,720 --> 00:01:42,710
+which you have to use then it's always
+one to one mapping. So if you have to
+
+68
+00:01:42,710 --> 00:01:42,720
+one to one mapping. So if you have to
+ 
+
+69
+00:01:42,720 --> 00:01:45,830
+one to one mapping. So if you have to
+inject 10 values you have to do 10 times
+
+70
+00:01:45,830 --> 00:01:45,840
+inject 10 values you have to do 10 times
+ 
+
+71
+00:01:45,840 --> 00:01:47,990
+inject 10 values you have to do 10 times
+add the rate value add the rate value
+
+72
+00:01:47,990 --> 00:01:48,000
+add the rate value add the rate value
+ 
+
+73
+00:01:48,000 --> 00:01:51,190
+add the rate value add the rate value
+add the rate value likewise okay so one
+
+74
+00:01:51,190 --> 00:01:51,200
+add the rate value likewise okay so one
+ 
+
+75
+00:01:51,200 --> 00:01:53,429
+add the rate value likewise okay so one
+thing is it's too much duplication of
+
+76
+00:01:53,429 --> 00:01:53,439
+thing is it's too much duplication of
+ 
+
+77
+00:01:53,439 --> 00:01:55,350
+thing is it's too much duplication of
+add the rate value annotation or
+
+78
+00:01:55,350 --> 00:01:55,360
+add the rate value annotation or
+ 
+
+79
+00:01:55,360 --> 00:01:57,590
+add the rate value annotation or
+duplication in the sense is not like uh
+
+80
+00:01:57,590 --> 00:01:57,600
+duplication in the sense is not like uh
+ 
+
+81
+00:01:57,600 --> 00:01:59,990
+duplication in the sense is not like uh
+same configuration I mean you have to
+
+82
+00:01:59,990 --> 00:02:00,000
+same configuration I mean you have to
+ 
+
+83
+00:02:00,000 --> 00:02:03,749
+same configuration I mean you have to
+use a lot of this annotation let's say
+
+84
+00:02:03,749 --> 00:02:03,759
+use a lot of this annotation let's say
+ 
+
+85
+00:02:03,759 --> 00:02:05,270
+use a lot of this annotation let's say
+if you know you are working in a big
+
+86
+00:02:05,270 --> 00:02:05,280
+if you know you are working in a big
+ 
+
+87
+00:02:05,280 --> 00:02:07,510
+if you know you are working in a big
+tech organization definitely you know
+
+88
+00:02:07,510 --> 00:02:07,520
+tech organization definitely you know
+ 
+
+89
+00:02:07,520 --> 00:02:10,869
+tech organization definitely you know
+that 100,000
+
+90
+00:02:10,869 --> 00:02:10,879
+that 100,000
+ 
+
+91
+00:02:10,879 --> 00:02:13,670
+that 100,000
+like these These are very very commonly
+
+92
+00:02:13,670 --> 00:02:13,680
+like these These are very very commonly
+ 
+
+93
+00:02:13,680 --> 00:02:16,070
+like these These are very very commonly
+faced challenge in uh these tech
+
+94
+00:02:16,070 --> 00:02:16,080
+faced challenge in uh these tech
+ 
+
+95
+00:02:16,080 --> 00:02:18,869
+faced challenge in uh these tech
+companies like configuration
+
+96
+00:02:18,869 --> 00:02:18,879
+companies like configuration
+ 
+
+97
+00:02:18,879 --> 00:02:22,150
+companies like configuration
+continuously grows and lot of things are
+
+98
+00:02:22,150 --> 00:02:22,160
+continuously grows and lot of things are
+ 
+
+99
+00:02:22,160 --> 00:02:25,750
+continuously grows and lot of things are
+configurationdriven itself. Okay. So we
+
+100
+00:02:25,750 --> 00:02:25,760
+configurationdriven itself. Okay. So we
+ 
+
+101
+00:02:25,760 --> 00:02:28,710
+configurationdriven itself. Okay. So we
+have a huge number of configuration.
+
+102
+00:02:28,710 --> 00:02:28,720
+have a huge number of configuration.
+ 
+
+103
+00:02:28,720 --> 00:02:30,869
+have a huge number of configuration.
+Now if you have to do one to one mapping
+
+104
+00:02:30,869 --> 00:02:30,879
+Now if you have to do one to one mapping
+ 
+
+105
+00:02:30,879 --> 00:02:33,110
+Now if you have to do one to one mapping
+just see how many times or how many
+
+106
+00:02:33,110 --> 00:02:33,120
+just see how many times or how many
+ 
+
+107
+00:02:33,120 --> 00:02:36,790
+just see how many times or how many
+places we have to use this annotation.
+
+108
+00:02:36,790 --> 00:02:36,800
+places we have to use this annotation.
+ 
+
+109
+00:02:36,800 --> 00:02:40,150
+places we have to use this annotation.
+Okay. So that is the first problem. The
+
+110
+00:02:40,150 --> 00:02:40,160
+Okay. So that is the first problem. The
+ 
+
+111
+00:02:40,160 --> 00:02:42,309
+Okay. So that is the first problem. The
+second problem is there is no way to
+
+112
+00:02:42,309 --> 00:02:42,319
+second problem is there is no way to
+ 
+
+113
+00:02:42,319 --> 00:02:44,790
+second problem is there is no way to
+validate. Validate in the sense like I
+
+114
+00:02:44,790 --> 00:02:44,800
+validate. Validate in the sense like I
+ 
+
+115
+00:02:44,800 --> 00:02:47,589
+validate. Validate in the sense like I
+want to say that hey okay this password
+
+116
+00:02:47,589 --> 00:02:47,599
+want to say that hey okay this password
+ 
+
+117
+00:02:47,599 --> 00:02:49,750
+want to say that hey okay this password
+which is coming from the
+
+118
+00:02:49,750 --> 00:02:49,760
+which is coming from the
+ 
+
+119
+00:02:49,760 --> 00:02:51,830
+which is coming from the
+application.property it should be
+
+120
+00:02:51,830 --> 00:02:51,840
+application.property it should be
+ 
+
+121
+00:02:51,840 --> 00:02:54,229
+application.property it should be
+present. It should be greater than 10
+
+122
+00:02:54,229 --> 00:02:54,239
+present. It should be greater than 10
+ 
+
+123
+00:02:54,239 --> 00:02:57,589
+present. It should be greater than 10
+and less than 25 in size. There is no
+
+124
+00:02:57,589 --> 00:02:57,599
+and less than 25 in size. There is no
+ 
+
+125
+00:02:57,599 --> 00:03:01,430
+and less than 25 in size. There is no
+way to validate or put restriction
+
+126
+00:03:01,430 --> 00:03:01,440
+way to validate or put restriction
+ 
+
+127
+00:03:01,440 --> 00:03:05,430
+way to validate or put restriction
+and top of it. Okay. So once you have
+
+128
+00:03:05,430 --> 00:03:05,440
+and top of it. Okay. So once you have
+ 
+
+129
+00:03:05,440 --> 00:03:07,670
+and top of it. Okay. So once you have
+got the value from the
+
+130
+00:03:07,670 --> 00:03:07,680
+got the value from the
+ 
+
+131
+00:03:07,680 --> 00:03:09,589
+got the value from the
+application.properties properties after
+
+132
+00:03:09,589 --> 00:03:09,599
+application.properties properties after
+ 
+
+133
+00:03:09,599 --> 00:03:11,430
+application.properties properties after
+that you have to manually do the
+
+134
+00:03:11,430 --> 00:03:11,440
+that you have to manually do the
+ 
+
+135
+00:03:11,440 --> 00:03:14,229
+that you have to manually do the
+validation that whatever the value I
+
+136
+00:03:14,229 --> 00:03:14,239
+validation that whatever the value I
+ 
+
+137
+00:03:14,239 --> 00:03:18,390
+validation that whatever the value I
+receive it's valid or not okay so
+
+138
+00:03:18,390 --> 00:03:18,400
+receive it's valid or not okay so
+ 
+
+139
+00:03:18,400 --> 00:03:21,350
+receive it's valid or not okay so
+consider this two major problem which
+
+140
+00:03:21,350 --> 00:03:21,360
+consider this two major problem which
+ 
+
+141
+00:03:21,360 --> 00:03:25,509
+consider this two major problem which
+add the rate value has and now
+
+142
+00:03:25,509 --> 00:03:25,519
+add the rate value has and now
+ 
+
+143
+00:03:25,519 --> 00:03:27,830
+add the rate value has and now
+add the rate configuration properties
+
+144
+00:03:27,830 --> 00:03:27,840
+add the rate configuration properties
+ 
+
+145
+00:03:27,840 --> 00:03:30,949
+add the rate configuration properties
+comes into the picture. Okay. So now it
+
+146
+00:03:30,949 --> 00:03:30,959
+comes into the picture. Okay. So now it
+ 
+
+147
+00:03:30,959 --> 00:03:34,630
+comes into the picture. Okay. So now it
+would be easy to understand why at the
+
+148
+00:03:34,630 --> 00:03:34,640
+would be easy to understand why at the
+ 
+
+149
+00:03:34,640 --> 00:03:37,030
+would be easy to understand why at the
+rate configuration properties is very
+
+150
+00:03:37,030 --> 00:03:37,040
+rate configuration properties is very
+ 
+
+151
+00:03:37,040 --> 00:03:40,789
+rate configuration properties is very
+popular among industry. Okay.
+
+152
+00:03:40,789 --> 00:03:40,799
+popular among industry. Okay.
+ 
+
+153
+00:03:40,799 --> 00:03:43,990
+popular among industry. Okay.
+So it maps configuration
+
+154
+00:03:43,990 --> 00:03:44,000
+So it maps configuration
+ 
+
+155
+00:03:44,000 --> 00:03:46,550
+So it maps configuration
+from application.properties into Java
+
+156
+00:03:46,550 --> 00:03:46,560
+from application.properties into Java
+ 
+
+157
+00:03:46,560 --> 00:03:50,149
+from application.properties into Java
+object. This is important not to a one
+
+158
+00:03:50,149 --> 00:03:50,159
+object. This is important not to a one
+ 
+
+159
+00:03:50,159 --> 00:03:53,910
+object. This is important not to a one
+field to a Java object. Okay. So it
+
+160
+00:03:53,910 --> 00:03:53,920
+field to a Java object. Okay. So it
+ 
+
+161
+00:03:53,920 --> 00:03:56,470
+field to a Java object. Okay. So it
+makes our configuration structured,
+
+162
+00:03:56,470 --> 00:03:56,480
+makes our configuration structured,
+ 
+
+163
+00:03:56,480 --> 00:04:00,070
+makes our configuration structured,
+reusable and validated. How? Once you
+
+164
+00:04:00,070 --> 00:04:00,080
+reusable and validated. How? Once you
+ 
+
+165
+00:04:00,080 --> 00:04:02,630
+reusable and validated. How? Once you
+have the Java object, you can reuse it.
+
+166
+00:04:02,630 --> 00:04:02,640
+have the Java object, you can reuse it.
+ 
+
+167
+00:04:02,640 --> 00:04:05,110
+have the Java object, you can reuse it.
+You can pass it to different classes.
+
+168
+00:04:05,110 --> 00:04:05,120
+You can pass it to different classes.
+ 
+
+169
+00:04:05,120 --> 00:04:07,509
+You can pass it to different classes.
+Correct? You can have validation on top
+
+170
+00:04:07,509 --> 00:04:07,519
+Correct? You can have validation on top
+ 
+
+171
+00:04:07,519 --> 00:04:10,789
+Correct? You can have validation on top
+of it. How? I will also tell you. Okay?
+
+172
+00:04:10,789 --> 00:04:10,799
+of it. How? I will also tell you. Okay?
+ 
+
+173
+00:04:10,799 --> 00:04:13,270
+of it. How? I will also tell you. Okay?
+So, validation is very easy through
+
+174
+00:04:13,270 --> 00:04:13,280
+So, validation is very easy through
+ 
+
+175
+00:04:13,280 --> 00:04:14,789
+So, validation is very easy through
+annotations.
+
+176
+00:04:14,789 --> 00:04:14,799
+annotations.
+ 
+
+177
+00:04:14,799 --> 00:04:17,270
+annotations.
+Okay? And it's now structured. We have a
+
+178
+00:04:17,270 --> 00:04:17,280
+Okay? And it's now structured. We have a
+ 
+
+179
+00:04:17,280 --> 00:04:19,509
+Okay? And it's now structured. We have a
+proper Java like you you can group
+
+180
+00:04:19,509 --> 00:04:19,519
+proper Java like you you can group
+ 
+
+181
+00:04:19,519 --> 00:04:22,950
+proper Java like you you can group
+together particular. Let's say these are
+
+182
+00:04:22,950 --> 00:04:22,960
+together particular. Let's say these are
+ 
+
+183
+00:04:22,960 --> 00:04:25,990
+together particular. Let's say these are
+my uh invoice
+
+184
+00:04:25,990 --> 00:04:26,000
+my uh invoice
+ 
+
+185
+00:04:26,000 --> 00:04:28,710
+my uh invoice
+configuration. These are my sales
+
+186
+00:04:28,710 --> 00:04:28,720
+configuration. These are my sales
+ 
+
+187
+00:04:28,720 --> 00:04:31,590
+configuration. These are my sales
+configuration. So you can group in a
+
+188
+00:04:31,590 --> 00:04:31,600
+configuration. So you can group in a
+ 
+
+189
+00:04:31,600 --> 00:04:33,830
+configuration. So you can group in a
+Java object like configuration depend
+
+190
+00:04:33,830 --> 00:04:33,840
+Java object like configuration depend
+ 
+
+191
+00:04:33,840 --> 00:04:37,350
+Java object like configuration depend
+upon certain logical grouping you can
+
+192
+00:04:37,350 --> 00:04:37,360
+upon certain logical grouping you can
+ 
+
+193
+00:04:37,360 --> 00:04:40,629
+upon certain logical grouping you can
+do. Okay. So we can create some
+
+194
+00:04:40,629 --> 00:04:40,639
+do. Okay. So we can create some
+ 
+
+195
+00:04:40,639 --> 00:04:42,550
+do. Okay. So we can create some
+structured
+
+196
+00:04:42,550 --> 00:04:42,560
+structured
+ 
+
+197
+00:04:42,560 --> 00:04:44,150
+structured
+configuration
+
+198
+00:04:44,150 --> 00:04:44,160
+configuration
+ 
+
+199
+00:04:44,160 --> 00:04:46,629
+configuration
+uh which can be validated which can be
+
+200
+00:04:46,629 --> 00:04:46,639
+uh which can be validated which can be
+ 
+
+201
+00:04:46,639 --> 00:04:48,950
+uh which can be validated which can be
+reused.
+
+202
+00:04:48,950 --> 00:04:48,960
+reused.
+ 
+
+203
+00:04:48,960 --> 00:04:51,110
+reused.
+So now see this example
+
+204
+00:04:51,110 --> 00:04:51,120
+So now see this example
+ 
+
+205
+00:04:51,120 --> 00:04:53,030
+So now see this example
+application.properties.
+
+206
+00:04:53,030 --> 00:04:53,040
+application.properties.
+ 
+
+207
+00:04:53,040 --> 00:04:55,270
+application.properties.
+So here I have certain configuration
+
+208
+00:04:55,270 --> 00:04:55,280
+So here I have certain configuration
+ 
+
+209
+00:04:55,280 --> 00:04:58,870
+So here I have certain configuration
+like user.name name certain name user
+
+210
+00:04:58,870 --> 00:04:58,880
+like user.name name certain name user
+ 
+
+211
+00:04:58,880 --> 00:05:03,270
+like user.name name certain name user
+dot age user doactive so now how can I
+
+212
+00:05:03,270 --> 00:05:03,280
+dot age user doactive so now how can I
+ 
+
+213
+00:05:03,280 --> 00:05:07,670
+dot age user doactive so now how can I
+use it so now see this
+
+214
+00:05:07,670 --> 00:05:07,680
+use it so now see this
+ 
+
+215
+00:05:07,680 --> 00:05:12,629
+use it so now see this
+we have to create one Java class okay so
+
+216
+00:05:12,629 --> 00:05:12,639
+we have to create one Java class okay so
+ 
+
+217
+00:05:12,639 --> 00:05:14,150
+we have to create one Java class okay so
+let's say I created one user
+
+218
+00:05:14,150 --> 00:05:14,160
+let's say I created one user
+ 
+
+219
+00:05:14,160 --> 00:05:16,790
+let's say I created one user
+configuration because I want to group
+
+220
+00:05:16,790 --> 00:05:16,800
+configuration because I want to group
+ 
+
+221
+00:05:16,800 --> 00:05:19,270
+configuration because I want to group
+all the configuration related to user
+
+222
+00:05:19,270 --> 00:05:19,280
+all the configuration related to user
+ 
+
+223
+00:05:19,280 --> 00:05:22,790
+all the configuration related to user
+into one class okay into one object so I
+
+224
+00:05:22,790 --> 00:05:22,800
+into one class okay into one object so I
+ 
+
+225
+00:05:22,800 --> 00:05:26,070
+into one class okay into one object so I
+created a class user configuration
+
+226
+00:05:26,070 --> 00:05:26,080
+created a class user configuration
+ 
+
+227
+00:05:26,080 --> 00:05:28,230
+created a class user configuration
+I annotated with at the rate component.
+
+228
+00:05:28,230 --> 00:05:28,240
+I annotated with at the rate component.
+ 
+
+229
+00:05:28,240 --> 00:05:30,469
+I annotated with at the rate component.
+So I am telling that hey spring you
+
+230
+00:05:30,469 --> 00:05:30,479
+So I am telling that hey spring you
+ 
+
+231
+00:05:30,479 --> 00:05:34,150
+So I am telling that hey spring you
+create an object for this. Okay. Now I
+
+232
+00:05:34,150 --> 00:05:34,160
+create an object for this. Okay. Now I
+ 
+
+233
+00:05:34,160 --> 00:05:37,110
+create an object for this. Okay. Now I
+am also adding the annotation at the
+
+234
+00:05:37,110 --> 00:05:37,120
+am also adding the annotation at the
+ 
+
+235
+00:05:37,120 --> 00:05:40,230
+am also adding the annotation at the
+rate configuration properties.
+
+236
+00:05:40,230 --> 00:05:40,240
+rate configuration properties.
+ 
+
+237
+00:05:40,240 --> 00:05:43,909
+rate configuration properties.
+Okay. So whenever you add this
+
+238
+00:05:43,909 --> 00:05:43,919
+Okay. So whenever you add this
+ 
+
+239
+00:05:43,919 --> 00:05:45,430
+Okay. So whenever you add this
+annotation
+
+240
+00:05:45,430 --> 00:05:45,440
+annotation
+ 
+
+241
+00:05:45,440 --> 00:05:48,629
+annotation
+there is something called
+
+242
+00:05:48,629 --> 00:05:48,639
+there is something called
+ 
+
+243
+00:05:48,639 --> 00:05:50,950
+there is something called
+configuration
+
+244
+00:05:50,950 --> 00:05:50,960
+configuration
+ 
+
+245
+00:05:50,960 --> 00:05:53,990
+configuration
+binding.
+
+246
+00:05:53,990 --> 00:05:54,000
+
+ 
+
+247
+00:05:54,000 --> 00:05:57,189
+
+So its task is to bind between
+
+248
+00:05:57,189 --> 00:05:57,199
+So its task is to bind between
+ 
+
+249
+00:05:57,199 --> 00:05:58,710
+So its task is to bind between
+application
+
+250
+00:05:58,710 --> 00:05:58,720
+application
+ 
+
+251
+00:05:58,720 --> 00:06:00,230
+application
+do.properties
+
+252
+00:06:00,230 --> 00:06:00,240
+do.properties
+ 
+
+253
+00:06:00,240 --> 00:06:04,629
+do.properties
+and your Java object. Okay. So it helps
+
+254
+00:06:04,629 --> 00:06:04,639
+and your Java object. Okay. So it helps
+ 
+
+255
+00:06:04,639 --> 00:06:07,990
+and your Java object. Okay. So it helps
+in binding. Okay. So now I am adding
+
+256
+00:06:07,990 --> 00:06:08,000
+in binding. Okay. So now I am adding
+ 
+
+257
+00:06:08,000 --> 00:06:09,510
+in binding. Okay. So now I am adding
+this annotation at the rate
+
+258
+00:06:09,510 --> 00:06:09,520
+this annotation at the rate
+ 
+
+259
+00:06:09,520 --> 00:06:11,510
+this annotation at the rate
+configuration properties and I give the
+
+260
+00:06:11,510 --> 00:06:11,520
+configuration properties and I give the
+ 
+
+261
+00:06:11,520 --> 00:06:15,670
+configuration properties and I give the
+prefix any property start with user. So
+
+262
+00:06:15,670 --> 00:06:15,680
+prefix any property start with user. So
+ 
+
+263
+00:06:15,680 --> 00:06:19,670
+prefix any property start with user. So
+any property start with user is fall
+
+264
+00:06:19,670 --> 00:06:19,680
+any property start with user is fall
+ 
+
+265
+00:06:19,680 --> 00:06:23,350
+any property start with user is fall
+under this. So it's like user dotster.
+
+266
+00:06:23,350 --> 00:06:23,360
+under this. So it's like user dotster.
+ 
+
+267
+00:06:23,360 --> 00:06:26,469
+under this. So it's like user dotster.
+So it will catch all and it will try to
+
+268
+00:06:26,469 --> 00:06:26,479
+So it will catch all and it will try to
+ 
+
+269
+00:06:26,479 --> 00:06:27,990
+So it will catch all and it will try to
+map
+
+270
+00:06:27,990 --> 00:06:28,000
+map
+ 
+
+271
+00:06:28,000 --> 00:06:29,830
+map
+each
+
+272
+00:06:29,830 --> 00:06:29,840
+each
+ 
+
+273
+00:06:29,840 --> 00:06:31,909
+each
+application.property into this field
+
+274
+00:06:31,909 --> 00:06:31,919
+application.property into this field
+ 
+
+275
+00:06:31,919 --> 00:06:33,430
+application.property into this field
+now.
+
+276
+00:06:33,430 --> 00:06:33,440
+now.
+ 
+
+277
+00:06:33,440 --> 00:06:37,749
+now.
+Okay. So now this is clear. Now I have
+
+278
+00:06:37,749 --> 00:06:37,759
+Okay. So now this is clear. Now I have
+ 
+
+279
+00:06:37,759 --> 00:06:40,790
+Okay. So now this is clear. Now I have
+to create a field. So one is like name.
+
+280
+00:06:40,790 --> 00:06:40,800
+to create a field. So one is like name.
+ 
+
+281
+00:06:40,800 --> 00:06:43,670
+to create a field. So one is like name.
+So I created the exact same name. Okay.
+
+282
+00:06:43,670 --> 00:06:43,680
+So I created the exact same name. Okay.
+ 
+
+283
+00:06:43,680 --> 00:06:46,150
+So I created the exact same name. Okay.
+So generally okay there is certain
+
+284
+00:06:46,150 --> 00:06:46,160
+So generally okay there is certain
+ 
+
+285
+00:06:46,160 --> 00:06:49,990
+So generally okay there is certain
+relaxation. Let's say here you have is
+
+286
+00:06:49,990 --> 00:06:50,000
+relaxation. Let's say here you have is
+ 
+
+287
+00:06:50,000 --> 00:06:52,790
+relaxation. Let's say here you have is
+hyphen enabled something like this. So
+
+288
+00:06:52,790 --> 00:06:52,800
+hyphen enabled something like this. So
+ 
+
+289
+00:06:52,800 --> 00:06:56,469
+hyphen enabled something like this. So
+you can hear create is enabled camel
+
+290
+00:06:56,469 --> 00:06:56,479
+you can hear create is enabled camel
+ 
+
+291
+00:06:56,479 --> 00:07:00,870
+you can hear create is enabled camel
+case. Okay. So these are allowed. Okay.
+
+292
+00:07:00,870 --> 00:07:00,880
+case. Okay. So these are allowed. Okay.
+ 
+
+293
+00:07:00,880 --> 00:07:02,390
+case. Okay. So these are allowed. Okay.
+You won't face any problem that if you
+
+294
+00:07:02,390 --> 00:07:02,400
+You won't face any problem that if you
+ 
+
+295
+00:07:02,400 --> 00:07:04,790
+You won't face any problem that if you
+have used underscore here or hyphen here
+
+296
+00:07:04,790 --> 00:07:04,800
+have used underscore here or hyphen here
+ 
+
+297
+00:07:04,800 --> 00:07:07,589
+have used underscore here or hyphen here
+you you can't use like how you will use
+
+298
+00:07:07,589 --> 00:07:07,599
+you you can't use like how you will use
+ 
+
+299
+00:07:07,599 --> 00:07:09,029
+you you can't use like how you will use
+here. You also have to use underscore
+
+300
+00:07:09,029 --> 00:07:09,039
+here. You also have to use underscore
+ 
+
+301
+00:07:09,039 --> 00:07:11,510
+here. You also have to use underscore
+here. No. Okay. So if you use a camel
+
+302
+00:07:11,510 --> 00:07:11,520
+here. No. Okay. So if you use a camel
+ 
+
+303
+00:07:11,520 --> 00:07:13,510
+here. No. Okay. So if you use a camel
+case properly it would be able to do
+
+304
+00:07:13,510 --> 00:07:13,520
+case properly it would be able to do
+ 
+
+305
+00:07:13,520 --> 00:07:15,670
+case properly it would be able to do
+proper mapping.
+
+306
+00:07:15,670 --> 00:07:15,680
+proper mapping.
+ 
+
+307
+00:07:15,680 --> 00:07:18,790
+proper mapping.
+But I would always recommend that try to
+
+308
+00:07:18,790 --> 00:07:18,800
+But I would always recommend that try to
+ 
+
+309
+00:07:18,800 --> 00:07:21,909
+But I would always recommend that try to
+make a same name. the same name so that
+
+310
+00:07:21,909 --> 00:07:21,919
+make a same name. the same name so that
+ 
+
+311
+00:07:21,919 --> 00:07:24,150
+make a same name. the same name so that
+the mapping would be like we are 100%
+
+312
+00:07:24,150 --> 00:07:24,160
+the mapping would be like we are 100%
+ 
+
+313
+00:07:24,160 --> 00:07:26,870
+the mapping would be like we are 100%
+sure okay because see this mapping is
+
+314
+00:07:26,870 --> 00:07:26,880
+sure okay because see this mapping is
+ 
+
+315
+00:07:26,880 --> 00:07:28,710
+sure okay because see this mapping is
+not controlled by us it is done by
+
+316
+00:07:28,710 --> 00:07:28,720
+not controlled by us it is done by
+ 
+
+317
+00:07:28,720 --> 00:07:30,870
+not controlled by us it is done by
+configuration binding so it might be
+
+318
+00:07:30,870 --> 00:07:30,880
+configuration binding so it might be
+ 
+
+319
+00:07:30,880 --> 00:07:33,589
+configuration binding so it might be
+possible that uh it not able to bind
+
+320
+00:07:33,589 --> 00:07:33,599
+possible that uh it not able to bind
+ 
+
+321
+00:07:33,599 --> 00:07:35,589
+possible that uh it not able to bind
+certain property
+
+322
+00:07:35,589 --> 00:07:35,599
+certain property
+ 
+
+323
+00:07:35,599 --> 00:07:37,589
+certain property
+okay so now here if you see that I keep
+
+324
+00:07:37,589 --> 00:07:37,599
+okay so now here if you see that I keep
+ 
+
+325
+00:07:37,599 --> 00:07:39,510
+okay so now here if you see that I keep
+the same name so this name would get
+
+326
+00:07:39,510 --> 00:07:39,520
+the same name so this name would get
+ 
+
+327
+00:07:39,520 --> 00:07:42,309
+the same name so this name would get
+bind to this one this age will get bind
+
+328
+00:07:42,309 --> 00:07:42,319
+bind to this one this age will get bind
+ 
+
+329
+00:07:42,319 --> 00:07:45,909
+bind to this one this age will get bind
+to this field and this active get bind
+
+330
+00:07:45,909 --> 00:07:45,919
+to this field and this active get bind
+ 
+
+331
+00:07:45,919 --> 00:07:48,230
+to this field and this active get bind
+to this boolean
+
+332
+00:07:48,230 --> 00:07:48,240
+to this boolean
+ 
+
+333
+00:07:48,240 --> 00:07:52,710
+to this boolean
+okay so Now what will happen when you
+
+334
+00:07:52,710 --> 00:07:52,720
+okay so Now what will happen when you
+ 
+
+335
+00:07:52,720 --> 00:07:55,510
+okay so Now what will happen when you
+start an application? When you start an
+
+336
+00:07:55,510 --> 00:07:55,520
+start an application? When you start an
+ 
+
+337
+00:07:55,520 --> 00:07:57,189
+start an application? When you start an
+application,
+
+338
+00:07:57,189 --> 00:07:57,199
+application,
+ 
+
+339
+00:07:57,199 --> 00:07:59,430
+application,
+let's say we have annotated with at the
+
+340
+00:07:59,430 --> 00:07:59,440
+let's say we have annotated with at the
+ 
+
+341
+00:07:59,440 --> 00:08:02,869
+let's say we have annotated with at the
+rate component. So means a spring will
+
+342
+00:08:02,869 --> 00:08:02,879
+rate component. So means a spring will
+ 
+
+343
+00:08:02,879 --> 00:08:05,909
+rate component. So means a spring will
+create an empty bean first. It will
+
+344
+00:08:05,909 --> 00:08:05,919
+create an empty bean first. It will
+ 
+
+345
+00:08:05,919 --> 00:08:07,909
+create an empty bean first. It will
+create an empty bean. We have already
+
+346
+00:08:07,909 --> 00:08:07,919
+create an empty bean. We have already
+ 
+
+347
+00:08:07,919 --> 00:08:10,469
+create an empty bean. We have already
+discussed the life cycle of a bean in
+
+348
+00:08:10,469 --> 00:08:10,479
+discussed the life cycle of a bean in
+ 
+
+349
+00:08:10,479 --> 00:08:12,950
+discussed the life cycle of a bean in
+the starting of the series if you recall
+
+350
+00:08:12,950 --> 00:08:12,960
+the starting of the series if you recall
+ 
+
+351
+00:08:12,960 --> 00:08:15,749
+the starting of the series if you recall
+it. Okay. So first spring create an
+
+352
+00:08:15,749 --> 00:08:15,759
+it. Okay. So first spring create an
+ 
+
+353
+00:08:15,759 --> 00:08:19,430
+it. Okay. So first spring create an
+empty bean because using
+
+354
+00:08:19,430 --> 00:08:19,440
+empty bean because using
+ 
+
+355
+00:08:19,440 --> 00:08:21,510
+empty bean because using
+default
+
+356
+00:08:21,510 --> 00:08:21,520
+default
+ 
+
+357
+00:08:21,520 --> 00:08:23,990
+default
+constructor.
+
+358
+00:08:23,990 --> 00:08:24,000
+constructor.
+ 
+
+359
+00:08:24,000 --> 00:08:28,070
+constructor.
+Now once empty bean is created. Now okay
+
+360
+00:08:28,070 --> 00:08:28,080
+Now once empty bean is created. Now okay
+ 
+
+361
+00:08:28,080 --> 00:08:31,189
+Now once empty bean is created. Now okay
+and uh now the configuration binding
+
+362
+00:08:31,189 --> 00:08:31,199
+and uh now the configuration binding
+ 
+
+363
+00:08:31,199 --> 00:08:32,870
+and uh now the configuration binding
+during application startup only I'm
+
+364
+00:08:32,870 --> 00:08:32,880
+during application startup only I'm
+ 
+
+365
+00:08:32,880 --> 00:08:35,110
+during application startup only I'm
+saying configuration binding what it
+
+366
+00:08:35,110 --> 00:08:35,120
+saying configuration binding what it
+ 
+
+367
+00:08:35,120 --> 00:08:39,190
+saying configuration binding what it
+will do is it will try to fill up these
+
+368
+00:08:39,190 --> 00:08:39,200
+will do is it will try to fill up these
+ 
+
+369
+00:08:39,200 --> 00:08:43,190
+will do is it will try to fill up these
+values. So during empty bean these all
+
+370
+00:08:43,190 --> 00:08:43,200
+values. So during empty bean these all
+ 
+
+371
+00:08:43,200 --> 00:08:46,150
+values. So during empty bean these all
+have default values name would be let's
+
+372
+00:08:46,150 --> 00:08:46,160
+have default values name would be let's
+ 
+
+373
+00:08:46,160 --> 00:08:49,190
+have default values name would be let's
+say null age would be zero active would
+
+374
+00:08:49,190 --> 00:08:49,200
+say null age would be zero active would
+ 
+
+375
+00:08:49,200 --> 00:08:51,590
+say null age would be zero active would
+be false these are all default values
+
+376
+00:08:51,590 --> 00:08:51,600
+be false these are all default values
+ 
+
+377
+00:08:51,600 --> 00:08:57,350
+be false these are all default values
+say okay now configuration binding would
+
+378
+00:08:57,350 --> 00:08:57,360
+say okay now configuration binding would
+ 
+
+379
+00:08:57,360 --> 00:08:59,430
+say okay now configuration binding would
+bind would read the application.property
+
+380
+00:08:59,430 --> 00:08:59,440
+bind would read the application.property
+ 
+
+381
+00:08:59,440 --> 00:09:02,310
+bind would read the application.property
+property. Okay. And try to do the
+
+382
+00:09:02,310 --> 00:09:02,320
+property. Okay. And try to do the
+ 
+
+383
+00:09:02,320 --> 00:09:05,430
+property. Okay. And try to do the
+binding. Okay. Try to fill up this value
+
+384
+00:09:05,430 --> 00:09:05,440
+binding. Okay. Try to fill up this value
+ 
+
+385
+00:09:05,440 --> 00:09:08,949
+binding. Okay. Try to fill up this value
+using what? Using setter
+
+386
+00:09:08,949 --> 00:09:08,959
+using what? Using setter
+ 
+
+387
+00:09:08,959 --> 00:09:11,910
+using what? Using setter
+method. Okay. So, we need to have a
+
+388
+00:09:11,910 --> 00:09:11,920
+method. Okay. So, we need to have a
+ 
+
+389
+00:09:11,920 --> 00:09:14,630
+method. Okay. So, we need to have a
+getter and setters. Okay. Configuration
+
+390
+00:09:14,630 --> 00:09:14,640
+getter and setters. Okay. Configuration
+ 
+
+391
+00:09:14,640 --> 00:09:16,870
+getter and setters. Okay. Configuration
+binding is you going to use setter
+
+392
+00:09:16,870 --> 00:09:16,880
+binding is you going to use setter
+ 
+
+393
+00:09:16,880 --> 00:09:22,550
+binding is you going to use setter
+method to fill up these values using
+
+394
+00:09:22,550 --> 00:09:22,560
+method to fill up these values using
+ 
+
+395
+00:09:22,560 --> 00:09:25,110
+method to fill up these values using
+application.properties.
+
+396
+00:09:25,110 --> 00:09:25,120
+application.properties.
+ 
+
+397
+00:09:25,120 --> 00:09:28,470
+application.properties.
+Okay. Since we have already uh done add
+
+398
+00:09:28,470 --> 00:09:28,480
+Okay. Since we have already uh done add
+ 
+
+399
+00:09:28,480 --> 00:09:30,310
+Okay. Since we have already uh done add
+the rate component bean was already
+
+400
+00:09:30,310 --> 00:09:30,320
+the rate component bean was already
+ 
+
+401
+00:09:30,320 --> 00:09:32,790
+the rate component bean was already
+present but it's an empty bean means all
+
+402
+00:09:32,790 --> 00:09:32,800
+present but it's an empty bean means all
+ 
+
+403
+00:09:32,800 --> 00:09:35,750
+present but it's an empty bean means all
+it has default values and configuration
+
+404
+00:09:35,750 --> 00:09:35,760
+it has default values and configuration
+ 
+
+405
+00:09:35,760 --> 00:09:38,949
+it has default values and configuration
+binding now calling setter method to
+
+406
+00:09:38,949 --> 00:09:38,959
+binding now calling setter method to
+ 
+
+407
+00:09:38,959 --> 00:09:40,710
+binding now calling setter method to
+update these values through
+
+408
+00:09:40,710 --> 00:09:40,720
+update these values through
+ 
+
+409
+00:09:40,720 --> 00:09:44,389
+update these values through
+application.properties.
+
+410
+00:09:44,389 --> 00:09:44,399
+
+ 
+
+411
+00:09:44,399 --> 00:09:46,070
+
+Okay.
+
+412
+00:09:46,070 --> 00:09:46,080
+Okay.
+ 
+
+413
+00:09:46,080 --> 00:09:49,509
+Okay.
+Now whatever the user configuration
+
+414
+00:09:49,509 --> 00:09:49,519
+Now whatever the user configuration
+ 
+
+415
+00:09:49,519 --> 00:09:51,269
+Now whatever the user configuration
+class you have created or bean you have
+
+416
+00:09:51,269 --> 00:09:51,279
+class you have created or bean you have
+ 
+
+417
+00:09:51,279 --> 00:09:53,990
+class you have created or bean you have
+created you can simply inject it into
+
+418
+00:09:53,990 --> 00:09:54,000
+created you can simply inject it into
+ 
+
+419
+00:09:54,000 --> 00:09:57,030
+created you can simply inject it into
+whichever class you want. Okay. And use
+
+420
+00:09:57,030 --> 00:09:57,040
+whichever class you want. Okay. And use
+ 
+
+421
+00:09:57,040 --> 00:09:59,190
+whichever class you want. Okay. And use
+like a normal Java object like I am
+
+422
+00:09:59,190 --> 00:09:59,200
+like a normal Java object like I am
+ 
+
+423
+00:09:59,200 --> 00:10:01,430
+like a normal Java object like I am
+using user configuration dot get age get
+
+424
+00:10:01,430 --> 00:10:01,440
+using user configuration dot get age get
+ 
+
+425
+00:10:01,440 --> 00:10:03,430
+using user configuration dot get age get
+name is active. And here you can see
+
+426
+00:10:03,430 --> 00:10:03,440
+name is active. And here you can see
+ 
+
+427
+00:10:03,440 --> 00:10:07,030
+name is active. And here you can see
+that I am able to print it.
+
+428
+00:10:07,030 --> 00:10:07,040
+that I am able to print it.
+ 
+
+429
+00:10:07,040 --> 00:10:10,870
+that I am able to print it.
+Okay. So this is how simple it is. Now
+
+430
+00:10:10,870 --> 00:10:10,880
+Okay. So this is how simple it is. Now
+ 
+
+431
+00:10:10,880 --> 00:10:13,750
+Okay. So this is how simple it is. Now
+also you can see that you can properly
+
+432
+00:10:13,750 --> 00:10:13,760
+also you can see that you can properly
+ 
+
+433
+00:10:13,760 --> 00:10:17,190
+also you can see that you can properly
+like group the configurations logical
+
+434
+00:10:17,190 --> 00:10:17,200
+like group the configurations logical
+ 
+
+435
+00:10:17,200 --> 00:10:20,310
+like group the configurations logical
+grouping you can do you can reuse it
+
+436
+00:10:20,310 --> 00:10:20,320
+grouping you can do you can reuse it
+ 
+
+437
+00:10:20,320 --> 00:10:23,269
+grouping you can do you can reuse it
+okay you don't have to create another
+
+438
+00:10:23,269 --> 00:10:23,279
+okay you don't have to create another
+ 
+
+439
+00:10:23,279 --> 00:10:25,910
+okay you don't have to create another
+class for you reusing it again and again
+
+440
+00:10:25,910 --> 00:10:25,920
+class for you reusing it again and again
+ 
+
+441
+00:10:25,920 --> 00:10:27,350
+class for you reusing it again and again
+once you have created it now you can
+
+442
+00:10:27,350 --> 00:10:27,360
+once you have created it now you can
+ 
+
+443
+00:10:27,360 --> 00:10:30,069
+once you have created it now you can
+autowire it anywhere in the code base
+
+444
+00:10:30,069 --> 00:10:30,079
+autowire it anywhere in the code base
+ 
+
+445
+00:10:30,079 --> 00:10:32,230
+autowire it anywhere in the code base
+you want.
+
+446
+00:10:32,230 --> 00:10:32,240
+you want.
+ 
+
+447
+00:10:32,240 --> 00:10:34,710
+you want.
+Okay,
+
+448
+00:10:34,710 --> 00:10:34,720
+Okay,
+ 
+
+449
+00:10:34,720 --> 00:10:37,110
+Okay,
+one more advantage of this is like you
+
+450
+00:10:37,110 --> 00:10:37,120
+one more advantage of this is like you
+ 
+
+451
+00:10:37,120 --> 00:10:40,310
+one more advantage of this is like you
+can handle nested complex configuration
+
+452
+00:10:40,310 --> 00:10:40,320
+can handle nested complex configuration
+ 
+
+453
+00:10:40,320 --> 00:10:43,190
+can handle nested complex configuration
+nested complex. Now here if you see the
+
+454
+00:10:43,190 --> 00:10:43,200
+nested complex. Now here if you see the
+ 
+
+455
+00:10:43,200 --> 00:10:45,190
+nested complex. Now here if you see the
+first thing this is simple we have
+
+456
+00:10:45,190 --> 00:10:45,200
+first thing this is simple we have
+ 
+
+457
+00:10:45,200 --> 00:10:48,790
+first thing this is simple we have
+already seen that now see this two what
+
+458
+00:10:48,790 --> 00:10:48,800
+already seen that now see this two what
+ 
+
+459
+00:10:48,800 --> 00:10:52,710
+already seen that now see this two what
+I'm doing here is user dot so this would
+
+460
+00:10:52,710 --> 00:10:52,720
+I'm doing here is user dot so this would
+ 
+
+461
+00:10:52,720 --> 00:10:57,030
+I'm doing here is user dot so this would
+be handled by my this configuration
+
+462
+00:10:57,030 --> 00:10:57,040
+be handled by my this configuration
+ 
+
+463
+00:10:57,040 --> 00:10:59,110
+be handled by my this configuration
+okay here I have put at the rate
+
+464
+00:10:59,110 --> 00:10:59,120
+okay here I have put at the rate
+ 
+
+465
+00:10:59,120 --> 00:11:01,030
+okay here I have put at the rate
+configuration properties prefix equals
+
+466
+00:11:01,030 --> 00:11:01,040
+configuration properties prefix equals
+ 
+
+467
+00:11:01,040 --> 00:11:04,870
+configuration properties prefix equals
+to user so this configuration or this
+
+468
+00:11:04,870 --> 00:11:04,880
+to user so this configuration or this
+ 
+
+469
+00:11:04,880 --> 00:11:07,269
+to user so this configuration or this
+class configuration binding would be
+
+470
+00:11:07,269 --> 00:11:07,279
+class configuration binding would be
+ 
+
+471
+00:11:07,279 --> 00:11:10,230
+class configuration binding would be
+used to handle all user dotest because
+
+472
+00:11:10,230 --> 00:11:10,240
+used to handle all user dotest because
+ 
+
+473
+00:11:10,240 --> 00:11:13,269
+used to handle all user dotest because
+this is the prefix user. Okay. So for
+
+474
+00:11:13,269 --> 00:11:13,279
+this is the prefix user. Okay. So for
+ 
+
+475
+00:11:13,279 --> 00:11:15,750
+this is the prefix user. Okay. So for
+now any configuration starting with user
+
+476
+00:11:15,750 --> 00:11:15,760
+now any configuration starting with user
+ 
+
+477
+00:11:15,760 --> 00:11:18,790
+now any configuration starting with user
+dot configuration binding going to use
+
+478
+00:11:18,790 --> 00:11:18,800
+dot configuration binding going to use
+ 
+
+479
+00:11:18,800 --> 00:11:20,550
+dot configuration binding going to use
+this class.
+
+480
+00:11:20,550 --> 00:11:20,560
+this class.
+ 
+
+481
+00:11:20,560 --> 00:11:22,630
+this class.
+Now here if you see I have address dot
+
+482
+00:11:22,630 --> 00:11:22,640
+Now here if you see I have address dot
+ 
+
+483
+00:11:22,640 --> 00:11:26,230
+Now here if you see I have address dot
+city address dot country. So means we
+
+484
+00:11:26,230 --> 00:11:26,240
+city address dot country. So means we
+ 
+
+485
+00:11:26,240 --> 00:11:28,710
+city address dot country. So means we
+can create address as an object and
+
+486
+00:11:28,710 --> 00:11:28,720
+can create address as an object and
+ 
+
+487
+00:11:28,720 --> 00:11:31,350
+can create address as an object and
+these two can be field inside it. So
+
+488
+00:11:31,350 --> 00:11:31,360
+these two can be field inside it. So
+ 
+
+489
+00:11:31,360 --> 00:11:34,710
+these two can be field inside it. So
+that's where I have done. Okay. So here
+
+490
+00:11:34,710 --> 00:11:34,720
+that's where I have done. Okay. So here
+ 
+
+491
+00:11:34,720 --> 00:11:37,110
+that's where I have done. Okay. So here
+what I have done is I have created
+
+492
+00:11:37,110 --> 00:11:37,120
+what I have done is I have created
+ 
+
+493
+00:11:37,120 --> 00:11:40,710
+what I have done is I have created
+address config one nested class. Okay,
+
+494
+00:11:40,710 --> 00:11:40,720
+address config one nested class. Okay,
+ 
+
+495
+00:11:40,720 --> 00:11:42,790
+address config one nested class. Okay,
+within this
+
+496
+00:11:42,790 --> 00:11:42,800
+within this
+ 
+
+497
+00:11:42,800 --> 00:11:45,829
+within this
+user configuration, within this class,
+
+498
+00:11:45,829 --> 00:11:45,839
+user configuration, within this class,
+ 
+
+499
+00:11:45,839 --> 00:11:48,230
+user configuration, within this class,
+there is a nested
+
+500
+00:11:48,230 --> 00:11:48,240
+there is a nested
+ 
+
+501
+00:11:48,240 --> 00:11:51,509
+there is a nested
+class we are creating and okay, I gave a
+
+502
+00:11:51,509 --> 00:11:51,519
+class we are creating and okay, I gave a
+ 
+
+503
+00:11:51,519 --> 00:11:54,230
+class we are creating and okay, I gave a
+name address config and it has two field
+
+504
+00:11:54,230 --> 00:11:54,240
+name address config and it has two field
+ 
+
+505
+00:11:54,240 --> 00:11:56,550
+name address config and it has two field
+city and country. So, I have the same
+
+506
+00:11:56,550 --> 00:11:56,560
+city and country. So, I have the same
+ 
+
+507
+00:11:56,560 --> 00:11:58,790
+city and country. So, I have the same
+naming I have used. So, okay, it's
+
+508
+00:11:58,790 --> 00:11:58,800
+naming I have used. So, okay, it's
+ 
+
+509
+00:11:58,800 --> 00:12:01,590
+naming I have used. So, okay, it's
+getter and setter and getter and setter
+
+510
+00:12:01,590 --> 00:12:01,600
+getter and setter and getter and setter
+ 
+
+511
+00:12:01,600 --> 00:12:04,230
+getter and setter and getter and setter
+of all this one.
+
+512
+00:12:04,230 --> 00:12:04,240
+of all this one.
+ 
+
+513
+00:12:04,240 --> 00:12:07,829
+of all this one.
+Okay. And one thing is that I have
+
+514
+00:12:07,829 --> 00:12:07,839
+Okay. And one thing is that I have
+ 
+
+515
+00:12:07,839 --> 00:12:11,670
+Okay. And one thing is that I have
+specifically made it a static a static
+
+516
+00:12:11,670 --> 00:12:11,680
+specifically made it a static a static
+ 
+
+517
+00:12:11,680 --> 00:12:14,470
+specifically made it a static a static
+nested class. You can think of like why
+
+518
+00:12:14,470 --> 00:12:14,480
+nested class. You can think of like why
+ 
+
+519
+00:12:14,480 --> 00:12:16,870
+nested class. You can think of like why
+static why not non-static. If you
+
+520
+00:12:16,870 --> 00:12:16,880
+static why not non-static. If you
+ 
+
+521
+00:12:16,880 --> 00:12:18,710
+static why not non-static. If you
+remember in the Java series we have
+
+522
+00:12:18,710 --> 00:12:18,720
+remember in the Java series we have
+ 
+
+523
+00:12:18,720 --> 00:12:21,829
+remember in the Java series we have
+already covered this nested class. Okay.
+
+524
+00:12:21,829 --> 00:12:21,839
+already covered this nested class. Okay.
+ 
+
+525
+00:12:21,839 --> 00:12:24,310
+already covered this nested class. Okay.
+So nested class can be of static
+
+526
+00:12:24,310 --> 00:12:24,320
+So nested class can be of static
+ 
+
+527
+00:12:24,320 --> 00:12:27,350
+So nested class can be of static
+non-static. Okay. So why specifically
+
+528
+00:12:27,350 --> 00:12:27,360
+non-static. Okay. So why specifically
+ 
+
+529
+00:12:27,360 --> 00:12:30,550
+non-static. Okay. So why specifically
+here we have to use static. So the thing
+
+530
+00:12:30,550 --> 00:12:30,560
+here we have to use static. So the thing
+ 
+
+531
+00:12:30,560 --> 00:12:34,550
+here we have to use static. So the thing
+is how spring manage the bean. So see
+
+532
+00:12:34,550 --> 00:12:34,560
+is how spring manage the bean. So see
+ 
+
+533
+00:12:34,560 --> 00:12:36,389
+is how spring manage the bean. So see
+this flow with that you will get an
+
+534
+00:12:36,389 --> 00:12:36,399
+this flow with that you will get an
+ 
+
+535
+00:12:36,399 --> 00:12:39,350
+this flow with that you will get an
+answer generally like why static we have
+
+536
+00:12:39,350 --> 00:12:39,360
+answer generally like why static we have
+ 
+
+537
+00:12:39,360 --> 00:12:42,949
+answer generally like why static we have
+to create okay in this case whenever we
+
+538
+00:12:42,949 --> 00:12:42,959
+to create okay in this case whenever we
+ 
+
+539
+00:12:42,959 --> 00:12:45,030
+to create okay in this case whenever we
+are trying to do configuration binding
+
+540
+00:12:45,030 --> 00:12:45,040
+are trying to do configuration binding
+ 
+
+541
+00:12:45,040 --> 00:12:46,710
+are trying to do configuration binding
+only in case I'm telling you whenever we
+
+542
+00:12:46,710 --> 00:12:46,720
+only in case I'm telling you whenever we
+ 
+
+543
+00:12:46,720 --> 00:12:49,110
+only in case I'm telling you whenever we
+are trying to do configuration binding.
+
+544
+00:12:49,110 --> 00:12:49,120
+are trying to do configuration binding.
+ 
+
+545
+00:12:49,120 --> 00:12:52,870
+are trying to do configuration binding.
+Okay um in this case we always create an
+
+546
+00:12:52,870 --> 00:12:52,880
+Okay um in this case we always create an
+ 
+
+547
+00:12:52,880 --> 00:12:56,550
+Okay um in this case we always create an
+static nested class. Reason is first a
+
+548
+00:12:56,550 --> 00:12:56,560
+static nested class. Reason is first a
+ 
+
+549
+00:12:56,560 --> 00:12:59,030
+static nested class. Reason is first a
+spring creates user configuration bean
+
+550
+00:12:59,030 --> 00:12:59,040
+spring creates user configuration bean
+ 
+
+551
+00:12:59,040 --> 00:13:01,829
+spring creates user configuration bean
+because it add the red component. So
+
+552
+00:13:01,829 --> 00:13:01,839
+because it add the red component. So
+ 
+
+553
+00:13:01,839 --> 00:13:05,829
+because it add the red component. So
+user will creates its empty bean. Okay.
+
+554
+00:13:05,829 --> 00:13:05,839
+user will creates its empty bean. Okay.
+ 
+
+555
+00:13:05,839 --> 00:13:07,750
+user will creates its empty bean. Okay.
+Now it will see a field address
+
+556
+00:13:07,750 --> 00:13:07,760
+Now it will see a field address
+ 
+
+557
+00:13:07,760 --> 00:13:13,030
+Now it will see a field address
+configuration. Okay. So it now this
+
+558
+00:13:13,030 --> 00:13:13,040
+configuration. Okay. So it now this
+ 
+
+559
+00:13:13,040 --> 00:13:16,550
+configuration. Okay. So it now this
+it see this okay now what it will do
+
+560
+00:13:16,550 --> 00:13:16,560
+it see this okay now what it will do
+ 
+
+561
+00:13:16,560 --> 00:13:18,069
+it see this okay now what it will do
+once it's create an empty bean after
+
+562
+00:13:18,069 --> 00:13:18,079
+once it's create an empty bean after
+ 
+
+563
+00:13:18,079 --> 00:13:21,269
+once it's create an empty bean after
+that I'm saying empty bean is created.
+
+564
+00:13:21,269 --> 00:13:21,279
+that I'm saying empty bean is created.
+ 
+
+565
+00:13:21,279 --> 00:13:24,389
+that I'm saying empty bean is created.
+Now configuration
+
+566
+00:13:24,389 --> 00:13:24,399
+Now configuration
+ 
+
+567
+00:13:24,399 --> 00:13:25,910
+Now configuration
+binder
+
+568
+00:13:25,910 --> 00:13:25,920
+binder
+ 
+
+569
+00:13:25,920 --> 00:13:28,710
+binder
+got invoked. Now it is using the setter
+
+570
+00:13:28,710 --> 00:13:28,720
+got invoked. Now it is using the setter
+ 
+
+571
+00:13:28,720 --> 00:13:32,550
+got invoked. Now it is using the setter
+methods to uh set name age active from
+
+572
+00:13:32,550 --> 00:13:32,560
+methods to uh set name age active from
+ 
+
+573
+00:13:32,560 --> 00:13:34,949
+methods to uh set name age active from
+the application.properties.
+
+574
+00:13:34,949 --> 00:13:34,959
+the application.properties.
+ 
+
+575
+00:13:34,959 --> 00:13:38,870
+the application.properties.
+Okay. Now binder sees that uh address
+
+576
+00:13:38,870 --> 00:13:38,880
+Okay. Now binder sees that uh address
+ 
+
+577
+00:13:38,880 --> 00:13:42,069
+Okay. Now binder sees that uh address
+doconfig. Now it has to
+
+578
+00:13:42,069 --> 00:13:42,079
+doconfig. Now it has to
+ 
+
+579
+00:13:42,079 --> 00:13:46,069
+doconfig. Now it has to
+update the field of this. Okay. Now what
+
+580
+00:13:46,069 --> 00:13:46,079
+update the field of this. Okay. Now what
+ 
+
+581
+00:13:46,079 --> 00:13:48,230
+update the field of this. Okay. Now what
+it will do is it uses internally
+
+582
+00:13:48,230 --> 00:13:48,240
+it will do is it uses internally
+ 
+
+583
+00:13:48,240 --> 00:13:51,829
+it will do is it uses internally
+reflection and try to initiate the type
+
+584
+00:13:51,829 --> 00:13:51,839
+reflection and try to initiate the type
+ 
+
+585
+00:13:51,839 --> 00:13:54,230
+reflection and try to initiate the type
+address config using the default no r
+
+586
+00:13:54,230 --> 00:13:54,240
+address config using the default no r
+ 
+
+587
+00:13:54,240 --> 00:13:55,990
+address config using the default no r
+constructor.
+
+588
+00:13:55,990 --> 00:13:56,000
+constructor.
+ 
+
+589
+00:13:56,000 --> 00:13:59,990
+constructor.
+So internally binding calls the so it
+
+590
+00:13:59,990 --> 00:14:00,000
+So internally binding calls the so it
+ 
+
+591
+00:14:00,000 --> 00:14:02,629
+So internally binding calls the so it
+has to create an object
+
+592
+00:14:02,629 --> 00:14:02,639
+has to create an object
+ 
+
+593
+00:14:02,639 --> 00:14:07,189
+has to create an object
+of first address config.
+
+594
+00:14:07,189 --> 00:14:07,199
+of first address config.
+ 
+
+595
+00:14:07,199 --> 00:14:09,269
+of first address config.
+It has to create an object of this and
+
+596
+00:14:09,269 --> 00:14:09,279
+It has to create an object of this and
+ 
+
+597
+00:14:09,279 --> 00:14:11,750
+It has to create an object of this and
+after that it use it calls it setter
+
+598
+00:14:11,750 --> 00:14:11,760
+after that it use it calls it setter
+ 
+
+599
+00:14:11,760 --> 00:14:14,790
+after that it use it calls it setter
+method. Okay. And to create an object of
+
+600
+00:14:14,790 --> 00:14:14,800
+method. Okay. And to create an object of
+ 
+
+601
+00:14:14,800 --> 00:14:18,310
+method. Okay. And to create an object of
+it, it call the default constructor.
+
+602
+00:14:18,310 --> 00:14:18,320
+it, it call the default constructor.
+ 
+
+603
+00:14:18,320 --> 00:14:20,150
+it, it call the default constructor.
+Default
+
+604
+00:14:20,150 --> 00:14:20,160
+Default
+ 
+
+605
+00:14:20,160 --> 00:14:21,910
+Default
+constructor.
+
+606
+00:14:21,910 --> 00:14:21,920
+constructor.
+ 
+
+607
+00:14:21,920 --> 00:14:25,750
+constructor.
+Okay. Now understand that when you are
+
+608
+00:14:25,750 --> 00:14:25,760
+Okay. Now understand that when you are
+ 
+
+609
+00:14:25,760 --> 00:14:28,629
+Okay. Now understand that when you are
+not defining it static, let's say it is
+
+610
+00:14:28,629 --> 00:14:28,639
+not defining it static, let's say it is
+ 
+
+611
+00:14:28,639 --> 00:14:30,470
+not defining it static, let's say it is
+non-static.
+
+612
+00:14:30,470 --> 00:14:30,480
+non-static.
+ 
+
+613
+00:14:30,480 --> 00:14:33,430
+non-static.
+What if you can recall from from our
+
+614
+00:14:33,430 --> 00:14:33,440
+What if you can recall from from our
+ 
+
+615
+00:14:33,440 --> 00:14:35,829
+What if you can recall from from our
+Java series if you are following that
+
+616
+00:14:35,829 --> 00:14:35,839
+Java series if you are following that
+ 
+
+617
+00:14:35,839 --> 00:14:39,030
+Java series if you are following that
+whenever we create a nest uh nested
+
+618
+00:14:39,030 --> 00:14:39,040
+whenever we create a nest uh nested
+ 
+
+619
+00:14:39,040 --> 00:14:42,069
+whenever we create a nest uh nested
+class and it's a non-static what is the
+
+620
+00:14:42,069 --> 00:14:42,079
+class and it's a non-static what is the
+ 
+
+621
+00:14:42,079 --> 00:14:44,150
+class and it's a non-static what is the
+default constructor? Default constructor
+
+622
+00:14:44,150 --> 00:14:44,160
+default constructor? Default constructor
+ 
+
+623
+00:14:44,160 --> 00:14:48,069
+default constructor? Default constructor
+generally is your address config and it
+
+624
+00:14:48,069 --> 00:14:48,079
+generally is your address config and it
+ 
+
+625
+00:14:48,079 --> 00:14:51,990
+generally is your address config and it
+takes a parameter of your
+
+626
+00:14:51,990 --> 00:14:52,000
+takes a parameter of your
+ 
+
+627
+00:14:52,000 --> 00:14:53,750
+takes a parameter of your
+parent
+
+628
+00:14:53,750 --> 00:14:53,760
+parent
+ 
+
+629
+00:14:53,760 --> 00:14:57,829
+parent
+class user configuration let's say UC.
+
+630
+00:14:57,829 --> 00:14:57,839
+class user configuration let's say UC.
+ 
+
+631
+00:14:57,839 --> 00:14:59,910
+class user configuration let's say UC.
+So this is the default constructor which
+
+632
+00:14:59,910 --> 00:14:59,920
+So this is the default constructor which
+ 
+
+633
+00:14:59,920 --> 00:15:02,310
+So this is the default constructor which
+generally added even though I haven't
+
+634
+00:15:02,310 --> 00:15:02,320
+generally added even though I haven't
+ 
+
+635
+00:15:02,320 --> 00:15:05,670
+generally added even though I haven't
+written this constructor internally the
+
+636
+00:15:05,670 --> 00:15:05,680
+written this constructor internally the
+ 
+
+637
+00:15:05,680 --> 00:15:09,509
+written this constructor internally the
+default constructor it add is this not
+
+638
+00:15:09,509 --> 00:15:09,519
+default constructor it add is this not
+ 
+
+639
+00:15:09,519 --> 00:15:13,030
+default constructor it add is this not
+the default constructor with no argument
+
+640
+00:15:13,030 --> 00:15:13,040
+the default constructor with no argument
+ 
+
+641
+00:15:13,040 --> 00:15:15,269
+the default constructor with no argument
+this don't get added for the nested
+
+642
+00:15:15,269 --> 00:15:15,279
+this don't get added for the nested
+ 
+
+643
+00:15:15,279 --> 00:15:18,230
+this don't get added for the nested
+class for non-static this is the default
+
+644
+00:15:18,230 --> 00:15:18,240
+class for non-static this is the default
+ 
+
+645
+00:15:18,240 --> 00:15:20,629
+class for non-static this is the default
+constructor added and if you can recall
+
+646
+00:15:20,629 --> 00:15:20,639
+constructor added and if you can recall
+ 
+
+647
+00:15:20,639 --> 00:15:22,710
+constructor added and if you can recall
+we used to call it that hey user
+
+648
+00:15:22,710 --> 00:15:22,720
+we used to call it that hey user
+ 
+
+649
+00:15:22,720 --> 00:15:26,470
+we used to call it that hey user
+configuration object dot new and then
+
+650
+00:15:26,470 --> 00:15:26,480
+configuration object dot new and then
+ 
+
+651
+00:15:26,480 --> 00:15:29,750
+configuration object dot new and then
+your address config like this. Okay. So
+
+652
+00:15:29,750 --> 00:15:29,760
+your address config like this. Okay. So
+ 
+
+653
+00:15:29,760 --> 00:15:31,990
+your address config like this. Okay. So
+internally it always pass the reference
+
+654
+00:15:31,990 --> 00:15:32,000
+internally it always pass the reference
+ 
+
+655
+00:15:32,000 --> 00:15:35,670
+internally it always pass the reference
+of your parent object to here.
+
+656
+00:15:35,670 --> 00:15:35,680
+of your parent object to here.
+ 
+
+657
+00:15:35,680 --> 00:15:38,870
+of your parent object to here.
+Okay. So one thing we are clear that
+
+658
+00:15:38,870 --> 00:15:38,880
+Okay. So one thing we are clear that
+ 
+
+659
+00:15:38,880 --> 00:15:41,030
+Okay. So one thing we are clear that
+when we are using non-static then
+
+660
+00:15:41,030 --> 00:15:41,040
+when we are using non-static then
+ 
+
+661
+00:15:41,040 --> 00:15:44,310
+when we are using non-static then
+default constructor which get added is
+
+662
+00:15:44,310 --> 00:15:44,320
+default constructor which get added is
+ 
+
+663
+00:15:44,320 --> 00:15:47,430
+default constructor which get added is
+which take a reference of the parent
+
+664
+00:15:47,430 --> 00:15:47,440
+which take a reference of the parent
+ 
+
+665
+00:15:47,440 --> 00:15:53,030
+which take a reference of the parent
+object. Okay. But the binder reflection
+
+666
+00:15:53,030 --> 00:15:53,040
+object. Okay. But the binder reflection
+ 
+
+667
+00:15:53,040 --> 00:15:57,110
+object. Okay. But the binder reflection
+try to invoke the no arg constructor.
+
+668
+00:15:57,110 --> 00:15:57,120
+try to invoke the no arg constructor.
+ 
+
+669
+00:15:57,120 --> 00:16:01,430
+try to invoke the no arg constructor.
+Now if there is if this is non-static no
+
+670
+00:16:01,430 --> 00:16:01,440
+Now if there is if this is non-static no
+ 
+
+671
+00:16:01,440 --> 00:16:04,470
+Now if there is if this is non-static no
+arg means constructor which do not take
+
+672
+00:16:04,470 --> 00:16:04,480
+arg means constructor which do not take
+ 
+
+673
+00:16:04,480 --> 00:16:07,350
+arg means constructor which do not take
+any argument that doesn't even exist. So
+
+674
+00:16:07,350 --> 00:16:07,360
+any argument that doesn't even exist. So
+ 
+
+675
+00:16:07,360 --> 00:16:09,509
+any argument that doesn't even exist. So
+it will not work. Your binding will
+
+676
+00:16:09,509 --> 00:16:09,519
+it will not work. Your binding will
+ 
+
+677
+00:16:09,519 --> 00:16:11,590
+it will not work. Your binding will
+fail. Your binding will fail. Your
+
+678
+00:16:11,590 --> 00:16:11,600
+fail. Your binding will fail. Your
+ 
+
+679
+00:16:11,600 --> 00:16:14,470
+fail. Your binding will fail. Your
+binder will fail. So that's why we have
+
+680
+00:16:14,470 --> 00:16:14,480
+binder will fail. So that's why we have
+ 
+
+681
+00:16:14,480 --> 00:16:17,030
+binder will fail. So that's why we have
+make it static. So when you make it
+
+682
+00:16:17,030 --> 00:16:17,040
+make it static. So when you make it
+ 
+
+683
+00:16:17,040 --> 00:16:19,910
+make it static. So when you make it
+static means it is not associated with
+
+684
+00:16:19,910 --> 00:16:19,920
+static means it is not associated with
+ 
+
+685
+00:16:19,920 --> 00:16:22,710
+static means it is not associated with
+your parent class. Okay. And then the
+
+686
+00:16:22,710 --> 00:16:22,720
+your parent class. Okay. And then the
+ 
+
+687
+00:16:22,720 --> 00:16:24,550
+your parent class. Okay. And then the
+default constructor which got added is
+
+688
+00:16:24,550 --> 00:16:24,560
+default constructor which got added is
+ 
+
+689
+00:16:24,560 --> 00:16:28,790
+default constructor which got added is
+the no arg constructor. Okay. So your
+
+690
+00:16:28,790 --> 00:16:28,800
+the no arg constructor. Okay. So your
+ 
+
+691
+00:16:28,800 --> 00:16:31,350
+the no arg constructor. Okay. So your
+address config and the constructor which
+
+692
+00:16:31,350 --> 00:16:31,360
+address config and the constructor which
+ 
+
+693
+00:16:31,360 --> 00:16:33,189
+address config and the constructor which
+don't take any argument that will get
+
+694
+00:16:33,189 --> 00:16:33,199
+don't take any argument that will get
+ 
+
+695
+00:16:33,199 --> 00:16:36,550
+don't take any argument that will get
+added. Okay. And that's why here binder
+
+696
+00:16:36,550 --> 00:16:36,560
+added. Okay. And that's why here binder
+ 
+
+697
+00:16:36,560 --> 00:16:40,150
+added. Okay. And that's why here binder
+able to work. So that's why it is always
+
+698
+00:16:40,150 --> 00:16:40,160
+able to work. So that's why it is always
+ 
+
+699
+00:16:40,160 --> 00:16:44,389
+able to work. So that's why it is always
+created a static nested object.
+
+700
+00:16:44,389 --> 00:16:44,399
+created a static nested object.
+ 
+
+701
+00:16:44,399 --> 00:16:46,470
+created a static nested object.
+Okay.
+
+702
+00:16:46,470 --> 00:16:46,480
+Okay.
+ 
+
+703
+00:16:46,480 --> 00:16:48,949
+Okay.
+So yeah now come back to this one. Let's
+
+704
+00:16:48,949 --> 00:16:48,959
+So yeah now come back to this one. Let's
+ 
+
+705
+00:16:48,959 --> 00:16:52,949
+So yeah now come back to this one. Let's
+say I have a user inside this address
+
+706
+00:16:52,949 --> 00:16:52,959
+say I have a user inside this address
+ 
+
+707
+00:16:52,959 --> 00:16:55,670
+say I have a user inside this address
+dot city user dot address dot country.
+
+708
+00:16:55,670 --> 00:16:55,680
+dot city user dot address dot country.
+ 
+
+709
+00:16:55,680 --> 00:16:58,629
+dot city user dot address dot country.
+So what I did is I created address as an
+
+710
+00:16:58,629 --> 00:16:58,639
+So what I did is I created address as an
+ 
+
+711
+00:16:58,639 --> 00:17:02,230
+So what I did is I created address as an
+object and all later one it's a field
+
+712
+00:17:02,230 --> 00:17:02,240
+object and all later one it's a field
+ 
+
+713
+00:17:02,240 --> 00:17:05,350
+object and all later one it's a field
+inside a address. Okay. And since this
+
+714
+00:17:05,350 --> 00:17:05,360
+inside a address. Okay. And since this
+ 
+
+715
+00:17:05,360 --> 00:17:09,270
+inside a address. Okay. And since this
+is inside the user I created a nested a
+
+716
+00:17:09,270 --> 00:17:09,280
+is inside the user I created a nested a
+ 
+
+717
+00:17:09,280 --> 00:17:13,510
+is inside the user I created a nested a
+static nested class.
+
+718
+00:17:13,510 --> 00:17:13,520
+static nested class.
+ 
+
+719
+00:17:13,520 --> 00:17:16,069
+static nested class.
+Okay.
+
+720
+00:17:16,069 --> 00:17:16,079
+Okay.
+ 
+
+721
+00:17:16,079 --> 00:17:19,110
+Okay.
+And you can easily use it like uh there
+
+722
+00:17:19,110 --> 00:17:19,120
+And you can easily use it like uh there
+ 
+
+723
+00:17:19,120 --> 00:17:21,189
+And you can easily use it like uh there
+is like no problem at all like how we
+
+724
+00:17:21,189 --> 00:17:21,199
+is like no problem at all like how we
+ 
+
+725
+00:17:21,199 --> 00:17:24,789
+is like no problem at all like how we
+are going to create an uh object simple
+
+726
+00:17:24,789 --> 00:17:24,799
+are going to create an uh object simple
+ 
+
+727
+00:17:24,799 --> 00:17:29,909
+are going to create an uh object simple
+in that way you can use it.
+
+728
+00:17:29,909 --> 00:17:29,919
+
+ 
+
+729
+00:17:29,919 --> 00:17:32,710
+
+So this is one way of handling the
+
+730
+00:17:32,710 --> 00:17:32,720
+So this is one way of handling the
+ 
+
+731
+00:17:32,720 --> 00:17:36,070
+So this is one way of handling the
+nested complex configuration.
+
+732
+00:17:36,070 --> 00:17:36,080
+nested complex configuration.
+ 
+
+733
+00:17:36,080 --> 00:17:38,150
+nested complex configuration.
+Now we can also handle the configuration
+
+734
+00:17:38,150 --> 00:17:38,160
+Now we can also handle the configuration
+ 
+
+735
+00:17:38,160 --> 00:17:40,150
+Now we can also handle the configuration
+as list.
+
+736
+00:17:40,150 --> 00:17:40,160
+as list.
+ 
+
+737
+00:17:40,160 --> 00:17:43,110
+as list.
+Okay. See this one. Now we have already
+
+738
+00:17:43,110 --> 00:17:43,120
+Okay. See this one. Now we have already
+ 
+
+739
+00:17:43,120 --> 00:17:46,630
+Okay. See this one. Now we have already
+seen this one the simple one object one.
+
+740
+00:17:46,630 --> 00:17:46,640
+seen this one the simple one object one.
+ 
+
+741
+00:17:46,640 --> 00:17:50,150
+seen this one the simple one object one.
+So this is object this is simple direct
+
+742
+00:17:50,150 --> 00:17:50,160
+So this is object this is simple direct
+ 
+
+743
+00:17:50,160 --> 00:17:52,950
+So this is object this is simple direct
+mapping. Now this is we are telling you
+
+744
+00:17:52,950 --> 00:17:52,960
+mapping. Now this is we are telling you
+ 
+
+745
+00:17:52,960 --> 00:17:56,789
+mapping. Now this is we are telling you
+the list. Okay. So list I'm telling you
+
+746
+00:17:56,789 --> 00:17:56,799
+the list. Okay. So list I'm telling you
+ 
+
+747
+00:17:56,799 --> 00:17:59,190
+the list. Okay. So list I'm telling you
+the two flavor list of string list of
+
+748
+00:17:59,190 --> 00:17:59,200
+the two flavor list of string list of
+ 
+
+749
+00:17:59,200 --> 00:18:01,909
+the two flavor list of string list of
+object. So let's see first the list of a
+
+750
+00:18:01,909 --> 00:18:01,919
+object. So let's see first the list of a
+ 
+
+751
+00:18:01,919 --> 00:18:03,669
+object. So let's see first the list of a
+string. So let's say your configuration
+
+752
+00:18:03,669 --> 00:18:03,679
+string. So let's say your configuration
+ 
+
+753
+00:18:03,679 --> 00:18:05,909
+string. So let's say your configuration
+looks like this. User.0
+
+754
+00:18:05,909 --> 00:18:05,919
+looks like this. User.0
+ 
+
+755
+00:18:05,919 --> 00:18:10,470
+looks like this. User.0
+admin user. One editor. Likewise you
+
+756
+00:18:10,470 --> 00:18:10,480
+admin user. One editor. Likewise you
+ 
+
+757
+00:18:10,480 --> 00:18:13,590
+admin user. One editor. Likewise you
+have this. So the same at the rate
+
+758
+00:18:13,590 --> 00:18:13,600
+have this. So the same at the rate
+ 
+
+759
+00:18:13,600 --> 00:18:15,430
+have this. So the same at the rate
+component I want a spring to create an
+
+760
+00:18:15,430 --> 00:18:15,440
+component I want a spring to create an
+ 
+
+761
+00:18:15,440 --> 00:18:17,110
+component I want a spring to create an
+object. Add the red configuration
+
+762
+00:18:17,110 --> 00:18:17,120
+object. Add the red configuration
+ 
+
+763
+00:18:17,120 --> 00:18:20,630
+object. Add the red configuration
+properties and prefix user. So all the
+
+764
+00:18:20,630 --> 00:18:20,640
+properties and prefix user. So all the
+ 
+
+765
+00:18:20,640 --> 00:18:23,029
+properties and prefix user. So all the
+anything starting with user dot
+
+766
+00:18:23,029 --> 00:18:23,039
+anything starting with user dot
+ 
+
+767
+00:18:23,039 --> 00:18:26,470
+anything starting with user dot
+ultimately comes to this class. Okay. So
+
+768
+00:18:26,470 --> 00:18:26,480
+ultimately comes to this class. Okay. So
+ 
+
+769
+00:18:26,480 --> 00:18:28,789
+ultimately comes to this class. Okay. So
+name age active and this one we have
+
+770
+00:18:28,789 --> 00:18:28,799
+name age active and this one we have
+ 
+
+771
+00:18:28,799 --> 00:18:32,310
+name age active and this one we have
+already seen. Okay. So this is its
+
+772
+00:18:32,310 --> 00:18:32,320
+already seen. Okay. So this is its
+ 
+
+773
+00:18:32,320 --> 00:18:34,789
+already seen. Okay. So this is its
+static nested class we have already
+
+774
+00:18:34,789 --> 00:18:34,799
+static nested class we have already
+ 
+
+775
+00:18:34,799 --> 00:18:38,230
+static nested class we have already
+seen. Now this is the list one. So
+
+776
+00:18:38,230 --> 00:18:38,240
+seen. Now this is the list one. So
+ 
+
+777
+00:18:38,240 --> 00:18:41,110
+seen. Now this is the list one. So
+what's the field name? Roles. Okay. And
+
+778
+00:18:41,110 --> 00:18:41,120
+what's the field name? Roles. Okay. And
+ 
+
+779
+00:18:41,120 --> 00:18:44,230
+what's the field name? Roles. Okay. And
+what values generally putting a string.
+
+780
+00:18:44,230 --> 00:18:44,240
+what values generally putting a string.
+ 
+
+781
+00:18:44,240 --> 00:18:48,390
+what values generally putting a string.
+Okay. So simply I put list of string
+
+782
+00:18:48,390 --> 00:18:48,400
+Okay. So simply I put list of string
+ 
+
+783
+00:18:48,400 --> 00:18:51,750
+Okay. So simply I put list of string
+and I put it getter and setter method.
+
+784
+00:18:51,750 --> 00:18:51,760
+and I put it getter and setter method.
+ 
+
+785
+00:18:51,760 --> 00:18:55,510
+and I put it getter and setter method.
+Okay. It will automatically bind 01 in
+
+786
+00:18:55,510 --> 00:18:55,520
+Okay. It will automatically bind 01 in
+ 
+
+787
+00:18:55,520 --> 00:18:59,750
+Okay. It will automatically bind 01 in
+the same order to this one.
+
+788
+00:18:59,750 --> 00:18:59,760
+the same order to this one.
+ 
+
+789
+00:18:59,760 --> 00:19:03,750
+the same order to this one.
+Similarly here if you see user now here
+
+790
+00:19:03,750 --> 00:19:03,760
+Similarly here if you see user now here
+ 
+
+791
+00:19:03,760 --> 00:19:08,950
+Similarly here if you see user now here
+I have course zero dot name course 0
+
+792
+00:19:08,950 --> 00:19:08,960
+I have course zero dot name course 0
+ 
+
+793
+00:19:08,960 --> 00:19:12,789
+I have course zero dot name course 0
+enroll true similarly I have course one
+
+794
+00:19:12,789 --> 00:19:12,799
+enroll true similarly I have course one
+ 
+
+795
+00:19:12,799 --> 00:19:16,390
+enroll true similarly I have course one
+dot name course one dot enroll okay so
+
+796
+00:19:16,390 --> 00:19:16,400
+dot name course one dot enroll okay so
+ 
+
+797
+00:19:16,400 --> 00:19:19,110
+dot name course one dot enroll okay so
+now here if you see course you can
+
+798
+00:19:19,110 --> 00:19:19,120
+now here if you see course you can
+ 
+
+799
+00:19:19,120 --> 00:19:22,950
+now here if you see course you can
+visualize like course is an object which
+
+800
+00:19:22,950 --> 00:19:22,960
+visualize like course is an object which
+ 
+
+801
+00:19:22,960 --> 00:19:27,990
+visualize like course is an object which
+has name and enroll fields and we have
+
+802
+00:19:27,990 --> 00:19:28,000
+has name and enroll fields and we have
+ 
+
+803
+00:19:28,000 --> 00:19:30,390
+has name and enroll fields and we have
+zero one. So two objects of it. Okay. So
+
+804
+00:19:30,390 --> 00:19:30,400
+zero one. So two objects of it. Okay. So
+ 
+
+805
+00:19:30,400 --> 00:19:32,230
+zero one. So two objects of it. Okay. So
+it's an array of course. So it's an
+
+806
+00:19:32,230 --> 00:19:32,240
+it's an array of course. So it's an
+ 
+
+807
+00:19:32,240 --> 00:19:35,270
+it's an array of course. So it's an
+array of object. Okay. So this is the
+
+808
+00:19:35,270 --> 00:19:35,280
+array of object. Okay. So this is the
+ 
+
+809
+00:19:35,280 --> 00:19:38,230
+array of object. Okay. So this is the
+example. So now here if you see the list
+
+810
+00:19:38,230 --> 00:19:38,240
+example. So now here if you see the list
+ 
+
+811
+00:19:38,240 --> 00:19:43,190
+example. So now here if you see the list
+of course. Now again the course would be
+
+812
+00:19:43,190 --> 00:19:43,200
+of course. Now again the course would be
+ 
+
+813
+00:19:43,200 --> 00:19:46,710
+of course. Now again the course would be
+static nested class. So static nested
+
+814
+00:19:46,710 --> 00:19:46,720
+static nested class. So static nested
+ 
+
+815
+00:19:46,720 --> 00:19:48,950
+static nested class. So static nested
+class here in this one. Okay. So it is
+
+816
+00:19:48,950 --> 00:19:48,960
+class here in this one. Okay. So it is
+ 
+
+817
+00:19:48,960 --> 00:19:52,230
+class here in this one. Okay. So it is
+inside a user and I already told you why
+
+818
+00:19:52,230 --> 00:19:52,240
+inside a user and I already told you why
+ 
+
+819
+00:19:52,240 --> 00:19:56,470
+inside a user and I already told you why
+it need to be static. Okay. So now what
+
+820
+00:19:56,470 --> 00:19:56,480
+it need to be static. Okay. So now what
+ 
+
+821
+00:19:56,480 --> 00:19:58,630
+it need to be static. Okay. So now what
+two fields it has name and enrolled. So
+
+822
+00:19:58,630 --> 00:19:58,640
+two fields it has name and enrolled. So
+ 
+
+823
+00:19:58,640 --> 00:20:01,190
+two fields it has name and enrolled. So
+I have the same field name and enrolled.
+
+824
+00:20:01,190 --> 00:20:01,200
+I have the same field name and enrolled.
+ 
+
+825
+00:20:01,200 --> 00:20:03,430
+I have the same field name and enrolled.
+It's getter and setter and ultimately
+
+826
+00:20:03,430 --> 00:20:03,440
+It's getter and setter and ultimately
+ 
+
+827
+00:20:03,440 --> 00:20:05,909
+It's getter and setter and ultimately
+the getter and setter for this one. So
+
+828
+00:20:05,909 --> 00:20:05,919
+the getter and setter for this one. So
+ 
+
+829
+00:20:05,919 --> 00:20:08,549
+the getter and setter for this one. So
+it will be able to do proper mapping. So
+
+830
+00:20:08,549 --> 00:20:08,559
+it will be able to do proper mapping. So
+ 
+
+831
+00:20:08,559 --> 00:20:11,350
+it will be able to do proper mapping. So
+here here I am using it user
+
+832
+00:20:11,350 --> 00:20:11,360
+here here I am using it user
+ 
+
+833
+00:20:11,360 --> 00:20:12,870
+here here I am using it user
+configuration.get
+
+834
+00:20:12,870 --> 00:20:12,880
+configuration.get
+ 
+
+835
+00:20:12,880 --> 00:20:16,630
+configuration.get
+roles get zero get one. It would be the
+
+836
+00:20:16,630 --> 00:20:16,640
+roles get zero get one. It would be the
+ 
+
+837
+00:20:16,640 --> 00:20:19,990
+roles get zero get one. It would be the
+same order you will get admin editor.
+
+838
+00:20:19,990 --> 00:20:20,000
+same order you will get admin editor.
+ 
+
+839
+00:20:20,000 --> 00:20:22,070
+same order you will get admin editor.
+Similarly courses I am printing get
+
+840
+00:20:22,070 --> 00:20:22,080
+Similarly courses I am printing get
+ 
+
+841
+00:20:22,080 --> 00:20:26,630
+Similarly courses I am printing get
+quotes get zero its name and the get one
+
+842
+00:20:26,630 --> 00:20:26,640
+quotes get zero its name and the get one
+ 
+
+843
+00:20:26,640 --> 00:20:29,590
+quotes get zero its name and the get one
+get name. So Java springboard
+
+844
+00:20:29,590 --> 00:20:29,600
+get name. So Java springboard
+ 
+
+845
+00:20:29,600 --> 00:20:33,830
+get name. So Java springboard
+the same order.
+
+846
+00:20:33,830 --> 00:20:33,840
+
+ 
+
+847
+00:20:33,840 --> 00:20:37,110
+
+Okay. So we can also
+
+848
+00:20:37,110 --> 00:20:37,120
+Okay. So we can also
+ 
+
+849
+00:20:37,120 --> 00:20:40,470
+Okay. So we can also
+bind the list in application.properties
+
+850
+00:20:40,470 --> 00:20:40,480
+bind the list in application.properties
+ 
+
+851
+00:20:40,480 --> 00:20:43,510
+bind the list in application.properties
+to a list in Java object. Similarly
+
+852
+00:20:43,510 --> 00:20:43,520
+to a list in Java object. Similarly
+ 
+
+853
+00:20:43,520 --> 00:20:46,230
+to a list in Java object. Similarly
+configuration as map. Now here if you
+
+854
+00:20:46,230 --> 00:20:46,240
+configuration as map. Now here if you
+ 
+
+855
+00:20:46,240 --> 00:20:48,149
+configuration as map. Now here if you
+see
+
+856
+00:20:48,149 --> 00:20:48,159
+see
+ 
+
+857
+00:20:48,159 --> 00:20:51,270
+see
+see this one. So we have already seen
+
+858
+00:20:51,270 --> 00:20:51,280
+see this one. So we have already seen
+ 
+
+859
+00:20:51,280 --> 00:20:53,590
+see this one. So we have already seen
+different uh here again this is just to
+
+860
+00:20:53,590 --> 00:20:53,600
+different uh here again this is just to
+ 
+
+861
+00:20:53,600 --> 00:20:57,270
+different uh here again this is just to
+remind this is simple direct mapping
+
+862
+00:20:57,270 --> 00:20:57,280
+remind this is simple direct mapping
+ 
+
+863
+00:20:57,280 --> 00:20:59,909
+remind this is simple direct mapping
+this is object
+
+864
+00:20:59,909 --> 00:20:59,919
+this is object
+ 
+
+865
+00:20:59,919 --> 00:21:02,950
+this is object
+this is your
+
+866
+00:21:02,950 --> 00:21:02,960
+this is your
+ 
+
+867
+00:21:02,960 --> 00:21:04,950
+this is your
+list
+
+868
+00:21:04,950 --> 00:21:04,960
+list
+ 
+
+869
+00:21:04,960 --> 00:21:07,909
+list
+and now we are seeing the map. So now
+
+870
+00:21:07,909 --> 00:21:07,919
+and now we are seeing the map. So now
+ 
+
+871
+00:21:07,919 --> 00:21:11,270
+and now we are seeing the map. So now
+see this one user dot preference dot
+
+872
+00:21:11,270 --> 00:21:11,280
+see this one user dot preference dot
+ 
+
+873
+00:21:11,280 --> 00:21:13,510
+see this one user dot preference dot
+theme user.preference dot language
+
+874
+00:21:13,510 --> 00:21:13,520
+theme user.preference dot language
+ 
+
+875
+00:21:13,520 --> 00:21:15,270
+theme user.preference dot language
+user.preference preference time zone.
+
+876
+00:21:15,270 --> 00:21:15,280
+user.preference preference time zone.
+ 
+
+877
+00:21:15,280 --> 00:21:17,110
+user.preference preference time zone.
+Let's say your requirement is you want
+
+878
+00:21:17,110 --> 00:21:17,120
+Let's say your requirement is you want
+ 
+
+879
+00:21:17,120 --> 00:21:21,029
+Let's say your requirement is you want
+to store in a map is like theme
+
+880
+00:21:21,029 --> 00:21:21,039
+to store in a map is like theme
+ 
+
+881
+00:21:21,039 --> 00:21:22,549
+to store in a map is like theme
+dark
+
+882
+00:21:22,549 --> 00:21:22,559
+dark
+ 
+
+883
+00:21:22,559 --> 00:21:26,950
+dark
+language en so it's a string
+
+884
+00:21:26,950 --> 00:21:26,960
+language en so it's a string
+ 
+
+885
+00:21:26,960 --> 00:21:29,590
+language en so it's a string
+comma string let's say you want to store
+
+886
+00:21:29,590 --> 00:21:29,600
+comma string let's say you want to store
+ 
+
+887
+00:21:29,600 --> 00:21:31,350
+comma string let's say you want to store
+like this
+
+888
+00:21:31,350 --> 00:21:31,360
+like this
+ 
+
+889
+00:21:31,360 --> 00:21:33,110
+like this
+then
+
+890
+00:21:33,110 --> 00:21:33,120
+then
+ 
+
+891
+00:21:33,120 --> 00:21:35,909
+then
+even this this now you can say that here
+
+892
+00:21:35,909 --> 00:21:35,919
+even this this now you can say that here
+ 
+
+893
+00:21:35,919 --> 00:21:38,710
+even this this now you can say that here
+can you see that can with any other way
+
+894
+00:21:38,710 --> 00:21:38,720
+can you see that can with any other way
+ 
+
+895
+00:21:38,720 --> 00:21:41,750
+can you see that can with any other way
+can you handle it without even map so
+
+896
+00:21:41,750 --> 00:21:41,760
+can you handle it without even map so
+ 
+
+897
+00:21:41,760 --> 00:21:44,470
+can you handle it without even map so
+here if you see user dot So this class
+
+898
+00:21:44,470 --> 00:21:44,480
+here if you see user dot So this class
+ 
+
+899
+00:21:44,480 --> 00:21:46,149
+here if you see user dot So this class
+going to this prefix class going to
+
+900
+00:21:46,149 --> 00:21:46,159
+going to this prefix class going to
+ 
+
+901
+00:21:46,159 --> 00:21:48,549
+going to this prefix class going to
+handle it. Okay. Now you say that
+
+902
+00:21:48,549 --> 00:21:48,559
+handle it. Okay. Now you say that
+ 
+
+903
+00:21:48,559 --> 00:21:50,470
+handle it. Okay. Now you say that
+preference dot theme preference dot
+
+904
+00:21:50,470 --> 00:21:50,480
+preference dot theme preference dot
+ 
+
+905
+00:21:50,480 --> 00:21:52,630
+preference dot theme preference dot
+language preference dot time zone. You
+
+906
+00:21:52,630 --> 00:21:52,640
+language preference dot time zone. You
+ 
+
+907
+00:21:52,640 --> 00:21:55,830
+language preference dot time zone. You
+can say that hey I can create an object
+
+908
+00:21:55,830 --> 00:21:55,840
+can say that hey I can create an object
+ 
+
+909
+00:21:55,840 --> 00:21:58,070
+can say that hey I can create an object
+of preferences
+
+910
+00:21:58,070 --> 00:21:58,080
+of preferences
+ 
+
+911
+00:21:58,080 --> 00:22:00,870
+of preferences
+and these are all
+
+912
+00:22:00,870 --> 00:22:00,880
+and these are all
+ 
+
+913
+00:22:00,880 --> 00:22:03,110
+and these are all
+fields within a preference. That's what
+
+914
+00:22:03,110 --> 00:22:03,120
+fields within a preference. That's what
+ 
+
+915
+00:22:03,120 --> 00:22:06,149
+fields within a preference. That's what
+we did for the object.
+
+916
+00:22:06,149 --> 00:22:06,159
+we did for the object.
+ 
+
+917
+00:22:06,159 --> 00:22:10,390
+we did for the object.
+Yes, you can do that also. Okay. And if
+
+918
+00:22:10,390 --> 00:22:10,400
+Yes, you can do that also. Okay. And if
+ 
+
+919
+00:22:10,400 --> 00:22:12,390
+Yes, you can do that also. Okay. And if
+you want you can also handle through a
+
+920
+00:22:12,390 --> 00:22:12,400
+you want you can also handle through a
+ 
+
+921
+00:22:12,400 --> 00:22:15,430
+you want you can also handle through a
+map. So this preference become your map
+
+922
+00:22:15,430 --> 00:22:15,440
+map. So this preference become your map
+ 
+
+923
+00:22:15,440 --> 00:22:18,870
+map. So this preference become your map
+name. So here I created a map string
+
+924
+00:22:18,870 --> 00:22:18,880
+name. So here I created a map string
+ 
+
+925
+00:22:18,880 --> 00:22:21,029
+name. So here I created a map string
+comma string and preferences this become
+
+926
+00:22:21,029 --> 00:22:21,039
+comma string and preferences this become
+ 
+
+927
+00:22:21,039 --> 00:22:25,590
+comma string and preferences this become
+my map field name and this is key. This
+
+928
+00:22:25,590 --> 00:22:25,600
+my map field name and this is key. This
+ 
+
+929
+00:22:25,600 --> 00:22:28,950
+my map field name and this is key. This
+is value key value. Key value. Okay. So
+
+930
+00:22:28,950 --> 00:22:28,960
+is value key value. Key value. Okay. So
+ 
+
+931
+00:22:28,960 --> 00:22:30,470
+is value key value. Key value. Okay. So
+now here if you see just getter and
+
+932
+00:22:30,470 --> 00:22:30,480
+now here if you see just getter and
+ 
+
+933
+00:22:30,480 --> 00:22:33,029
+now here if you see just getter and
+setter now it will bind like this become
+
+934
+00:22:33,029 --> 00:22:33,039
+setter now it will bind like this become
+ 
+
+935
+00:22:33,039 --> 00:22:35,669
+setter now it will bind like this become
+your key. This is value. This is key.
+
+936
+00:22:35,669 --> 00:22:35,679
+your key. This is value. This is key.
+ 
+
+937
+00:22:35,679 --> 00:22:37,110
+your key. This is value. This is key.
+This is value. This is key. This is
+
+938
+00:22:37,110 --> 00:22:37,120
+This is value. This is key. This is
+ 
+
+939
+00:22:37,120 --> 00:22:40,549
+This is value. This is key. This is
+value. That is also possible. But if you
+
+940
+00:22:40,549 --> 00:22:40,559
+value. That is also possible. But if you
+ 
+
+941
+00:22:40,559 --> 00:22:44,070
+value. That is also possible. But if you
+want to use as an object, create a
+
+942
+00:22:44,070 --> 00:22:44,080
+want to use as an object, create a
+ 
+
+943
+00:22:44,080 --> 00:22:47,909
+want to use as an object, create a
+nested class and uh a static nested
+
+944
+00:22:47,909 --> 00:22:47,919
+nested class and uh a static nested
+ 
+
+945
+00:22:47,919 --> 00:22:49,990
+nested class and uh a static nested
+class and create a preference as an
+
+946
+00:22:49,990 --> 00:22:50,000
+class and create a preference as an
+ 
+
+947
+00:22:50,000 --> 00:22:52,470
+class and create a preference as an
+object that is also possible like what
+
+948
+00:22:52,470 --> 00:22:52,480
+object that is also possible like what
+ 
+
+949
+00:22:52,480 --> 00:22:55,190
+object that is also possible like what
+we did for the address.
+
+950
+00:22:55,190 --> 00:22:55,200
+we did for the address.
+ 
+
+951
+00:22:55,200 --> 00:22:57,830
+we did for the address.
+Okay. But alternatively, you can also
+
+952
+00:22:57,830 --> 00:22:57,840
+Okay. But alternatively, you can also
+ 
+
+953
+00:22:57,840 --> 00:23:00,070
+Okay. But alternatively, you can also
+create a key like this. So this is your
+
+954
+00:23:00,070 --> 00:23:00,080
+create a key like this. So this is your
+ 
+
+955
+00:23:00,080 --> 00:23:01,830
+create a key like this. So this is your
+map field name and this is your becomes
+
+956
+00:23:01,830 --> 00:23:01,840
+map field name and this is your becomes
+ 
+
+957
+00:23:01,840 --> 00:23:04,710
+map field name and this is your becomes
+your key value. And this is how I'm able
+
+958
+00:23:04,710 --> 00:23:04,720
+your key value. And this is how I'm able
+ 
+
+959
+00:23:04,720 --> 00:23:08,070
+your key value. And this is how I'm able
+to use it. So this is my map, right? Get
+
+960
+00:23:08,070 --> 00:23:08,080
+to use it. So this is my map, right? Get
+ 
+
+961
+00:23:08,080 --> 00:23:12,549
+to use it. So this is my map, right? Get
+preference, get key name, theme. Okay,
+
+962
+00:23:12,549 --> 00:23:12,559
+preference, get key name, theme. Okay,
+ 
+
+963
+00:23:12,559 --> 00:23:14,549
+preference, get key name, theme. Okay,
+so it works.
+
+964
+00:23:14,549 --> 00:23:14,559
+so it works.
+ 
+
+965
+00:23:14,559 --> 00:23:17,110
+so it works.
+Similarly, map of an object. So this is
+
+966
+00:23:17,110 --> 00:23:17,120
+Similarly, map of an object. So this is
+ 
+
+967
+00:23:17,120 --> 00:23:20,149
+Similarly, map of an object. So this is
+here if you see it's a map string, a
+
+968
+00:23:20,149 --> 00:23:20,159
+here if you see it's a map string, a
+ 
+
+969
+00:23:20,159 --> 00:23:23,909
+here if you see it's a map string, a
+string. So we can also extend it to the
+
+970
+00:23:23,909 --> 00:23:23,919
+string. So we can also extend it to the
+ 
+
+971
+00:23:23,919 --> 00:23:26,230
+string. So we can also extend it to the
+map of an object. So see this is an
+
+972
+00:23:26,230 --> 00:23:26,240
+map of an object. So see this is an
+ 
+
+973
+00:23:26,240 --> 00:23:28,549
+map of an object. So see this is an
+example
+
+974
+00:23:28,549 --> 00:23:28,559
+example
+ 
+
+975
+00:23:28,559 --> 00:23:31,909
+example
+user dot. Okay. So anything is starting
+
+976
+00:23:31,909 --> 00:23:31,919
+user dot. Okay. So anything is starting
+ 
+
+977
+00:23:31,919 --> 00:23:35,029
+user dot. Okay. So anything is starting
+with user going to ultimately to the
+
+978
+00:23:35,029 --> 00:23:35,039
+with user going to ultimately to the
+ 
+
+979
+00:23:35,039 --> 00:23:36,710
+with user going to ultimately to the
+user configuration because that's the
+
+980
+00:23:36,710 --> 00:23:36,720
+user configuration because that's the
+ 
+
+981
+00:23:36,720 --> 00:23:39,350
+user configuration because that's the
+prefix. So that's till now we are clear.
+
+982
+00:23:39,350 --> 00:23:39,360
+prefix. So that's till now we are clear.
+ 
+
+983
+00:23:39,360 --> 00:23:41,510
+prefix. So that's till now we are clear.
+Now here if you see what the
+
+984
+00:23:41,510 --> 00:23:41,520
+Now here if you see what the
+ 
+
+985
+00:23:41,520 --> 00:23:45,029
+Now here if you see what the
+configuration look like locations dot
+
+986
+00:23:45,029 --> 00:23:45,039
+configuration look like locations dot
+ 
+
+987
+00:23:45,039 --> 00:23:47,270
+configuration look like locations dot
+home dot city
+
+988
+00:23:47,270 --> 00:23:47,280
+home dot city
+ 
+
+989
+00:23:47,280 --> 00:23:51,669
+home dot city
+locations dot dot country location dot
+
+990
+00:23:51,669 --> 00:23:51,679
+locations dot dot country location dot
+ 
+
+991
+00:23:51,679 --> 00:23:55,350
+locations dot dot country location dot
+office dot city location dot office dot
+
+992
+00:23:55,350 --> 00:23:55,360
+office dot city location dot office dot
+ 
+
+993
+00:23:55,360 --> 00:23:59,190
+office dot city location dot office dot
+country okay. So what do you see here?
+
+994
+00:23:59,190 --> 00:23:59,200
+country okay. So what do you see here?
+ 
+
+995
+00:23:59,200 --> 00:24:02,470
+country okay. So what do you see here?
+So here if you see
+
+996
+00:24:02,470 --> 00:24:02,480
+So here if you see
+ 
+
+997
+00:24:02,480 --> 00:24:05,830
+So here if you see
+this location
+
+998
+00:24:05,830 --> 00:24:05,840
+
+ 
+
+999
+00:24:05,840 --> 00:24:10,230
+
+can be our map field name.
+
+1000
+00:24:10,230 --> 00:24:10,240
+can be our map field name.
+ 
+
+1001
+00:24:10,240 --> 00:24:14,870
+can be our map field name.
+Okay. So I created first thing is map
+
+1002
+00:24:14,870 --> 00:24:14,880
+Okay. So I created first thing is map
+ 
+
+1003
+00:24:14,880 --> 00:24:18,870
+Okay. So I created first thing is map
+field name. Okay. Now here if you see
+
+1004
+00:24:18,870 --> 00:24:18,880
+field name. Okay. Now here if you see
+ 
+
+1005
+00:24:18,880 --> 00:24:23,269
+field name. Okay. Now here if you see
+this becomes my like a string home
+
+1006
+00:24:23,269 --> 00:24:23,279
+this becomes my like a string home
+ 
+
+1007
+00:24:23,279 --> 00:24:27,830
+this becomes my like a string home
+office. So my map is like
+
+1008
+00:24:27,830 --> 00:24:27,840
+office. So my map is like
+ 
+
+1009
+00:24:27,840 --> 00:24:31,110
+office. So my map is like
+home and now I'm creating an object
+
+1010
+00:24:31,110 --> 00:24:31,120
+home and now I'm creating an object
+ 
+
+1011
+00:24:31,120 --> 00:24:36,950
+home and now I'm creating an object
+which has city country city country okay
+
+1012
+00:24:36,950 --> 00:24:36,960
+which has city country city country okay
+ 
+
+1013
+00:24:36,960 --> 00:24:41,269
+which has city country city country okay
+then I have a key office
+
+1014
+00:24:41,269 --> 00:24:41,279
+then I have a key office
+ 
+
+1015
+00:24:41,279 --> 00:24:44,310
+then I have a key office
+then I have let's say this is an object
+
+1016
+00:24:44,310 --> 00:24:44,320
+then I have let's say this is an object
+ 
+
+1017
+00:24:44,320 --> 00:24:46,630
+then I have let's say this is an object
+office city office dot country so I have
+
+1018
+00:24:46,630 --> 00:24:46,640
+office city office dot country so I have
+ 
+
+1019
+00:24:46,640 --> 00:24:49,909
+office city office dot country so I have
+an object which has the city country
+
+1020
+00:24:49,909 --> 00:24:49,919
+an object which has the city country
+ 
+
+1021
+00:24:49,919 --> 00:24:52,950
+an object which has the city country
+okay so this is just like you can also
+
+1022
+00:24:52,950 --> 00:24:52,960
+okay so this is just like you can also
+ 
+
+1023
+00:24:52,960 --> 00:24:54,549
+okay so this is just like you can also
+handle through an object object but I
+
+1024
+00:24:54,549 --> 00:24:54,559
+handle through an object object but I
+ 
+
+1025
+00:24:54,559 --> 00:24:56,390
+handle through an object object but I
+want to handle through a map. So like
+
+1026
+00:24:56,390 --> 00:24:56,400
+want to handle through a map. So like
+ 
+
+1027
+00:24:56,400 --> 00:24:59,190
+want to handle through a map. So like
+this we can do that. So this become my
+
+1028
+00:24:59,190 --> 00:24:59,200
+this we can do that. So this become my
+ 
+
+1029
+00:24:59,200 --> 00:25:01,510
+this we can do that. So this become my
+map whatever the map I'm going to create
+
+1030
+00:25:01,510 --> 00:25:01,520
+map whatever the map I'm going to create
+ 
+
+1031
+00:25:01,520 --> 00:25:05,830
+map whatever the map I'm going to create
+it's field name then these become my key
+
+1032
+00:25:05,830 --> 00:25:05,840
+it's field name then these become my key
+ 
+
+1033
+00:25:05,840 --> 00:25:09,110
+it's field name then these become my key
+and internally this become like an
+
+1034
+00:25:09,110 --> 00:25:09,120
+and internally this become like an
+ 
+
+1035
+00:25:09,120 --> 00:25:12,470
+and internally this become like an
+object which has this values.
+
+1036
+00:25:12,470 --> 00:25:12,480
+object which has this values.
+ 
+
+1037
+00:25:12,480 --> 00:25:16,710
+object which has this values.
+So this is how I did it like map string
+
+1038
+00:25:16,710 --> 00:25:16,720
+So this is how I did it like map string
+ 
+
+1039
+00:25:16,720 --> 00:25:18,549
+So this is how I did it like map string
+address config. So here I already have
+
+1040
+00:25:18,549 --> 00:25:18,559
+address config. So here I already have
+ 
+
+1041
+00:25:18,559 --> 00:25:20,390
+address config. So here I already have
+an address config right from previous
+
+1042
+00:25:20,390 --> 00:25:20,400
+an address config right from previous
+ 
+
+1043
+00:25:20,400 --> 00:25:23,029
+an address config right from previous
+one. Okay, I already have a static
+
+1044
+00:25:23,029 --> 00:25:23,039
+one. Okay, I already have a static
+ 
+
+1045
+00:25:23,039 --> 00:25:25,510
+one. Okay, I already have a static
+nested class. So, address config has the
+
+1046
+00:25:25,510 --> 00:25:25,520
+nested class. So, address config has the
+ 
+
+1047
+00:25:25,520 --> 00:25:26,950
+nested class. So, address config has the
+city and country. That's why I use the
+
+1048
+00:25:26,950 --> 00:25:26,960
+city and country. That's why I use the
+ 
+
+1049
+00:25:26,960 --> 00:25:31,269
+city and country. That's why I use the
+same field city and country. Okay, so
+
+1050
+00:25:31,269 --> 00:25:31,279
+same field city and country. Okay, so
+ 
+
+1051
+00:25:31,279 --> 00:25:33,909
+same field city and country. Okay, so
+I am creating a map of a string, address
+
+1052
+00:25:33,909 --> 00:25:33,919
+I am creating a map of a string, address
+ 
+
+1053
+00:25:33,919 --> 00:25:36,230
+I am creating a map of a string, address
+config. So, a string going to be this
+
+1054
+00:25:36,230 --> 00:25:36,240
+config. So, a string going to be this
+ 
+
+1055
+00:25:36,240 --> 00:25:40,149
+config. So, a string going to be this
+one either home or either office. Okay.
+
+1056
+00:25:40,149 --> 00:25:40,159
+one either home or either office. Okay.
+ 
+
+1057
+00:25:40,159 --> 00:25:42,710
+one either home or either office. Okay.
+And address config has this city
+
+1058
+00:25:42,710 --> 00:25:42,720
+And address config has this city
+ 
+
+1059
+00:25:42,720 --> 00:25:46,470
+And address config has this city
+country. Okay. And this location is the
+
+1060
+00:25:46,470 --> 00:25:46,480
+country. Okay. And this location is the
+ 
+
+1061
+00:25:46,480 --> 00:25:48,950
+country. Okay. And this location is the
+my field name.
+
+1062
+00:25:48,950 --> 00:25:48,960
+my field name.
+ 
+
+1063
+00:25:48,960 --> 00:25:52,070
+my field name.
+That's all the getter and setter.
+
+1064
+00:25:52,070 --> 00:25:52,080
+That's all the getter and setter.
+ 
+
+1065
+00:25:52,080 --> 00:25:54,310
+That's all the getter and setter.
+Now it will properly bind it. So it will
+
+1066
+00:25:54,310 --> 00:25:54,320
+Now it will properly bind it. So it will
+ 
+
+1067
+00:25:54,320 --> 00:25:58,230
+Now it will properly bind it. So it will
+look for the map which has this name. So
+
+1068
+00:25:58,230 --> 00:25:58,240
+look for the map which has this name. So
+ 
+
+1069
+00:25:58,240 --> 00:26:02,070
+look for the map which has this name. So
+it found this. Okay. Then it will store
+
+1070
+00:26:02,070 --> 00:26:02,080
+it found this. Okay. Then it will store
+ 
+
+1071
+00:26:02,080 --> 00:26:05,029
+it found this. Okay. Then it will store
+the key. This become your key home. So
+
+1072
+00:26:05,029 --> 00:26:05,039
+the key. This become your key home. So
+ 
+
+1073
+00:26:05,039 --> 00:26:07,909
+the key. This become your key home. So
+it will create one home. And then this
+
+1074
+00:26:07,909 --> 00:26:07,919
+it will create one home. And then this
+ 
+
+1075
+00:26:07,919 --> 00:26:10,310
+it will create one home. And then this
+city home dot city home dot country. So
+
+1076
+00:26:10,310 --> 00:26:10,320
+city home dot city home dot country. So
+ 
+
+1077
+00:26:10,320 --> 00:26:12,630
+city home dot city home dot country. So
+this city and country it will see that
+
+1078
+00:26:12,630 --> 00:26:12,640
+this city and country it will see that
+ 
+
+1079
+00:26:12,640 --> 00:26:15,269
+this city and country it will see that
+okay address config is the object. So it
+
+1080
+00:26:15,269 --> 00:26:15,279
+okay address config is the object. So it
+ 
+
+1081
+00:26:15,279 --> 00:26:18,390
+okay address config is the object. So it
+will get this object bind this city and
+
+1082
+00:26:18,390 --> 00:26:18,400
+will get this object bind this city and
+ 
+
+1083
+00:26:18,400 --> 00:26:22,710
+will get this object bind this city and
+country and store it here.
+
+1084
+00:26:22,710 --> 00:26:22,720
+country and store it here.
+ 
+
+1085
+00:26:22,720 --> 00:26:25,350
+country and store it here.
+So we can even create complex map
+
+1086
+00:26:25,350 --> 00:26:25,360
+So we can even create complex map
+ 
+
+1087
+00:26:25,360 --> 00:26:28,390
+So we can even create complex map
+objects also and you can simply use it
+
+1088
+00:26:28,390 --> 00:26:28,400
+objects also and you can simply use it
+ 
+
+1089
+00:26:28,400 --> 00:26:32,070
+objects also and you can simply use it
+like this normal how Java object is used
+
+1090
+00:26:32,070 --> 00:26:32,080
+like this normal how Java object is used
+ 
+
+1091
+00:26:32,080 --> 00:26:34,310
+like this normal how Java object is used
+to access the values.
+
+1092
+00:26:34,310 --> 00:26:34,320
+to access the values.
+ 
+
+1093
+00:26:34,320 --> 00:26:39,029
+to access the values.
+Okay, you are able to get the location.
+
+1094
+00:26:39,029 --> 00:26:39,039
+Okay, you are able to get the location.
+ 
+
+1095
+00:26:39,039 --> 00:26:42,950
+Okay, you are able to get the location.
+Okay. So till now it's clear that we can
+
+1096
+00:26:42,950 --> 00:26:42,960
+Okay. So till now it's clear that we can
+ 
+
+1097
+00:26:42,960 --> 00:26:46,710
+Okay. So till now it's clear that we can
+map even the complex configurations
+
+1098
+00:26:46,710 --> 00:26:46,720
+map even the complex configurations
+ 
+
+1099
+00:26:46,720 --> 00:26:49,750
+map even the complex configurations
+in our Java objects either it's a list
+
+1100
+00:26:49,750 --> 00:26:49,760
+in our Java objects either it's a list
+ 
+
+1101
+00:26:49,760 --> 00:26:52,230
+in our Java objects either it's a list
+list of object map of object normal
+
+1102
+00:26:52,230 --> 00:26:52,240
+list of object map of object normal
+ 
+
+1103
+00:26:52,240 --> 00:26:54,789
+list of object map of object normal
+object direct values everything we can
+
+1104
+00:26:54,789 --> 00:26:54,799
+object direct values everything we can
+ 
+
+1105
+00:26:54,799 --> 00:26:56,549
+object direct values everything we can
+do that
+
+1106
+00:26:56,549 --> 00:26:56,559
+do that
+ 
+
+1107
+00:26:56,559 --> 00:27:00,230
+do that
+now another advantage is the validations
+
+1108
+00:27:00,230 --> 00:27:00,240
+now another advantage is the validations
+ 
+
+1109
+00:27:00,240 --> 00:27:02,390
+now another advantage is the validations
+spring boot automatically validate
+
+1110
+00:27:02,390 --> 00:27:02,400
+spring boot automatically validate
+ 
+
+1111
+00:27:02,400 --> 00:27:05,110
+spring boot automatically validate
+fields after binding
+
+1112
+00:27:05,110 --> 00:27:05,120
+fields after binding
+ 
+
+1113
+00:27:05,120 --> 00:27:08,070
+fields after binding
+before the app fully starts. So one
+
+1114
+00:27:08,070 --> 00:27:08,080
+before the app fully starts. So one
+ 
+
+1115
+00:27:08,080 --> 00:27:11,430
+before the app fully starts. So one
+thing is you have to add this dependency
+
+1116
+00:27:11,430 --> 00:27:11,440
+thing is you have to add this dependency
+ 
+
+1117
+00:27:11,440 --> 00:27:13,909
+thing is you have to add this dependency
+spring boot starter validation because
+
+1118
+00:27:13,909 --> 00:27:13,919
+spring boot starter validation because
+ 
+
+1119
+00:27:13,919 --> 00:27:16,549
+spring boot starter validation because
+this will add enable certain annotations
+
+1120
+00:27:16,549 --> 00:27:16,559
+this will add enable certain annotations
+ 
+
+1121
+00:27:16,559 --> 00:27:19,750
+this will add enable certain annotations
+which we are going to use.
+
+1122
+00:27:19,750 --> 00:27:19,760
+which we are going to use.
+ 
+
+1123
+00:27:19,760 --> 00:27:23,750
+which we are going to use.
+So first thing is we need to add add the
+
+1124
+00:27:23,750 --> 00:27:23,760
+So first thing is we need to add add the
+ 
+
+1125
+00:27:23,760 --> 00:27:27,430
+So first thing is we need to add add the
+rate validated annotation on top of our
+
+1126
+00:27:27,430 --> 00:27:27,440
+rate validated annotation on top of our
+ 
+
+1127
+00:27:27,440 --> 00:27:29,830
+rate validated annotation on top of our
+add the configuration property class.
+
+1128
+00:27:29,830 --> 00:27:29,840
+add the configuration property class.
+ 
+
+1129
+00:27:29,840 --> 00:27:33,830
+add the configuration property class.
+Okay. And also remember that whenever
+
+1130
+00:27:33,830 --> 00:27:33,840
+Okay. And also remember that whenever
+ 
+
+1131
+00:27:33,840 --> 00:27:35,909
+Okay. And also remember that whenever
+any validation fail application will not
+
+1132
+00:27:35,909 --> 00:27:35,919
+any validation fail application will not
+ 
+
+1133
+00:27:35,919 --> 00:27:38,870
+any validation fail application will not
+even start itself. So see this example
+
+1134
+00:27:38,870 --> 00:27:38,880
+even start itself. So see this example
+ 
+
+1135
+00:27:38,880 --> 00:27:42,470
+even start itself. So see this example
+now this is very simple one. I created
+
+1136
+00:27:42,470 --> 00:27:42,480
+now this is very simple one. I created
+ 
+
+1137
+00:27:42,480 --> 00:27:45,430
+now this is very simple one. I created
+at the rate component I want a spring to
+
+1138
+00:27:45,430 --> 00:27:45,440
+at the rate component I want a spring to
+ 
+
+1139
+00:27:45,440 --> 00:27:48,310
+at the rate component I want a spring to
+create a bean. Add the red configuration
+
+1140
+00:27:48,310 --> 00:27:48,320
+create a bean. Add the red configuration
+ 
+
+1141
+00:27:48,320 --> 00:27:51,590
+create a bean. Add the red configuration
+property means after the MTB is created
+
+1142
+00:27:51,590 --> 00:27:51,600
+property means after the MTB is created
+ 
+
+1143
+00:27:51,600 --> 00:27:55,430
+property means after the MTB is created
+by spring configuration binding
+
+1144
+00:27:55,430 --> 00:27:55,440
+by spring configuration binding
+ 
+
+1145
+00:27:55,440 --> 00:27:58,389
+by spring configuration binding
+will start its work and it will bind all
+
+1146
+00:27:58,389 --> 00:27:58,399
+will start its work and it will bind all
+ 
+
+1147
+00:27:58,399 --> 00:28:00,710
+will start its work and it will bind all
+the configuration starting with user to
+
+1148
+00:28:00,710 --> 00:28:00,720
+the configuration starting with user to
+ 
+
+1149
+00:28:00,720 --> 00:28:03,909
+the configuration starting with user to
+its fields. Now I also put validated
+
+1150
+00:28:03,909 --> 00:28:03,919
+its fields. Now I also put validated
+ 
+
+1151
+00:28:03,919 --> 00:28:06,149
+its fields. Now I also put validated
+means all the annotations which I am
+
+1152
+00:28:06,149 --> 00:28:06,159
+means all the annotations which I am
+ 
+
+1153
+00:28:06,159 --> 00:28:08,549
+means all the annotations which I am
+going to add now that need to be
+
+1154
+00:28:08,549 --> 00:28:08,559
+going to add now that need to be
+ 
+
+1155
+00:28:08,559 --> 00:28:12,230
+going to add now that need to be
+validated. Okay. So now here if you see
+
+1156
+00:28:12,230 --> 00:28:12,240
+validated. Okay. So now here if you see
+ 
+
+1157
+00:28:12,240 --> 00:28:15,510
+validated. Okay. So now here if you see
+I have put add the rate not blank
+
+1158
+00:28:15,510 --> 00:28:15,520
+I have put add the rate not blank
+ 
+
+1159
+00:28:15,520 --> 00:28:17,830
+I have put add the rate not blank
+message and I give the messages name
+
+1160
+00:28:17,830 --> 00:28:17,840
+message and I give the messages name
+ 
+
+1161
+00:28:17,840 --> 00:28:21,350
+message and I give the messages name
+must not be empty on the top of this
+
+1162
+00:28:21,350 --> 00:28:21,360
+must not be empty on the top of this
+ 
+
+1163
+00:28:21,360 --> 00:28:23,669
+must not be empty on the top of this
+name. So now here if you see what I'm
+
+1164
+00:28:23,669 --> 00:28:23,679
+name. So now here if you see what I'm
+ 
+
+1165
+00:28:23,679 --> 00:28:26,950
+name. So now here if you see what I'm
+trying to do is adding a validation.
+
+1166
+00:28:26,950 --> 00:28:26,960
+trying to do is adding a validation.
+ 
+
+1167
+00:28:26,960 --> 00:28:29,590
+trying to do is adding a validation.
+Okay, whatever the value. So first
+
+1168
+00:28:29,590 --> 00:28:29,600
+Okay, whatever the value. So first
+ 
+
+1169
+00:28:29,600 --> 00:28:31,669
+Okay, whatever the value. So first
+sequence is
+
+1170
+00:28:31,669 --> 00:28:31,679
+sequence is
+ 
+
+1171
+00:28:31,679 --> 00:28:34,630
+sequence is
+empty bean.
+
+1172
+00:28:34,630 --> 00:28:34,640
+empty bean.
+ 
+
+1173
+00:28:34,640 --> 00:28:37,750
+empty bean.
+Second is binding
+
+1174
+00:28:37,750 --> 00:28:37,760
+Second is binding
+ 
+
+1175
+00:28:37,760 --> 00:28:41,510
+Second is binding
+like binding is your property
+
+1176
+00:28:41,510 --> 00:28:41,520
+like binding is your property
+ 
+
+1177
+00:28:41,520 --> 00:28:45,830
+like binding is your property
+to object and the third is validation.
+
+1178
+00:28:45,830 --> 00:28:45,840
+to object and the third is validation.
+ 
+
+1179
+00:28:45,840 --> 00:28:48,789
+to object and the third is validation.
+Okay. So validate what it will validate?
+
+1180
+00:28:48,789 --> 00:28:48,799
+Okay. So validate what it will validate?
+ 
+
+1181
+00:28:48,799 --> 00:28:51,350
+Okay. So validate what it will validate?
+it will validate the value of these
+
+1182
+00:28:51,350 --> 00:28:51,360
+it will validate the value of these
+ 
+
+1183
+00:28:51,360 --> 00:28:54,149
+it will validate the value of these
+fields whatever the annotation we have
+
+1184
+00:28:54,149 --> 00:28:54,159
+fields whatever the annotation we have
+ 
+
+1185
+00:28:54,159 --> 00:28:57,669
+fields whatever the annotation we have
+to use okay let's say that for the age I
+
+1186
+00:28:57,669 --> 00:28:57,679
+to use okay let's say that for the age I
+ 
+
+1187
+00:28:57,679 --> 00:28:59,190
+to use okay let's say that for the age I
+have used the annotation add the rate
+
+1188
+00:28:59,190 --> 00:28:59,200
+have used the annotation add the rate
+ 
+
+1189
+00:28:59,200 --> 00:29:02,389
+have used the annotation add the rate
+min value equals to one so means the
+
+1190
+00:29:02,389 --> 00:29:02,399
+min value equals to one so means the
+ 
+
+1191
+00:29:02,399 --> 00:29:05,590
+min value equals to one so means the
+minimum value of the age should be one
+
+1192
+00:29:05,590 --> 00:29:05,600
+minimum value of the age should be one
+ 
+
+1193
+00:29:05,600 --> 00:29:07,430
+minimum value of the age should be one
+okay and for the testing purpose in
+
+1194
+00:29:07,430 --> 00:29:07,440
+okay and for the testing purpose in
+ 
+
+1195
+00:29:07,440 --> 00:29:11,430
+okay and for the testing purpose in
+application.properties I have put zero
+
+1196
+00:29:11,430 --> 00:29:11,440
+application.properties I have put zero
+ 
+
+1197
+00:29:11,440 --> 00:29:14,870
+application.properties I have put zero
+okay so when you start an application
+
+1198
+00:29:14,870 --> 00:29:14,880
+okay so when you start an application
+ 
+
+1199
+00:29:14,880 --> 00:29:19,350
+okay so when you start an application
+itself it says that failed
+
+1200
+00:29:19,350 --> 00:29:19,360
+itself it says that failed
+ 
+
+1201
+00:29:19,360 --> 00:29:21,430
+itself it says that failed
+H cannot be zero whatever the message
+
+1202
+00:29:21,430 --> 00:29:21,440
+H cannot be zero whatever the message
+ 
+
+1203
+00:29:21,440 --> 00:29:24,310
+H cannot be zero whatever the message
+you have given.
+
+1204
+00:29:24,310 --> 00:29:24,320
+you have given.
+ 
+
+1205
+00:29:24,320 --> 00:29:27,590
+you have given.
+Okay, your validation fails. So see how
+
+1206
+00:29:27,590 --> 00:29:27,600
+Okay, your validation fails. So see how
+ 
+
+1207
+00:29:27,600 --> 00:29:31,110
+Okay, your validation fails. So see how
+easy it is to validate the values which
+
+1208
+00:29:31,110 --> 00:29:31,120
+easy it is to validate the values which
+ 
+
+1209
+00:29:31,120 --> 00:29:34,870
+easy it is to validate the values which
+are coming from application.properties.
+
+1210
+00:29:34,870 --> 00:29:34,880
+are coming from application.properties.
+ 
+
+1211
+00:29:34,880 --> 00:29:38,230
+are coming from application.properties.
+Okay. And there are so many validations
+
+1212
+00:29:38,230 --> 00:29:38,240
+Okay. And there are so many validations
+ 
+
+1213
+00:29:38,240 --> 00:29:40,549
+Okay. And there are so many validations
+which we can use like at the rate not
+
+1214
+00:29:40,549 --> 00:29:40,559
+which we can use like at the rate not
+ 
+
+1215
+00:29:40,559 --> 00:29:43,909
+which we can use like at the rate not
+null you can use like this value cannot
+
+1216
+00:29:43,909 --> 00:29:43,919
+null you can use like this value cannot
+ 
+
+1217
+00:29:43,919 --> 00:29:46,710
+null you can use like this value cannot
+be null. Not blank means not null, not
+
+1218
+00:29:46,710 --> 00:29:46,720
+be null. Not blank means not null, not
+ 
+
+1219
+00:29:46,720 --> 00:29:50,789
+be null. Not blank means not null, not
+empty. Okay. So here like uh not empty
+
+1220
+00:29:50,789 --> 00:29:50,799
+empty. Okay. So here like uh not empty
+ 
+
+1221
+00:29:50,799 --> 00:29:52,789
+empty. Okay. So here like uh not empty
+you can use it on top of list and map
+
+1222
+00:29:52,789 --> 00:29:52,799
+you can use it on top of list and map
+ 
+
+1223
+00:29:52,799 --> 00:29:55,590
+you can use it on top of list and map
+that it should have certain values. Add
+
+1224
+00:29:55,590 --> 00:29:55,600
+that it should have certain values. Add
+ 
+
+1225
+00:29:55,600 --> 00:29:57,909
+that it should have certain values. Add
+the red min, minimum value, add the red
+
+1226
+00:29:57,909 --> 00:29:57,919
+the red min, minimum value, add the red
+ 
+
+1227
+00:29:57,919 --> 00:29:59,669
+the red min, minimum value, add the red
+max. If you want to define what is the
+
+1228
+00:29:59,669 --> 00:29:59,679
+max. If you want to define what is the
+ 
+
+1229
+00:29:59,679 --> 00:30:03,110
+max. If you want to define what is the
+maximum value, positive or you can use
+
+1230
+00:30:03,110 --> 00:30:03,120
+maximum value, positive or you can use
+ 
+
+1231
+00:30:03,120 --> 00:30:04,789
+maximum value, positive or you can use
+positive or zero. It's like greater than
+
+1232
+00:30:04,789 --> 00:30:04,799
+positive or zero. It's like greater than
+ 
+
+1233
+00:30:04,799 --> 00:30:07,269
+positive or zero. It's like greater than
+0, greater than equals to 0. Similarly
+
+1234
+00:30:07,269 --> 00:30:07,279
+0, greater than equals to 0. Similarly
+ 
+
+1235
+00:30:07,279 --> 00:30:08,549
+0, greater than equals to 0. Similarly
+at the rate negative, at the rate
+
+1236
+00:30:08,549 --> 00:30:08,559
+at the rate negative, at the rate
+ 
+
+1237
+00:30:08,559 --> 00:30:10,470
+at the rate negative, at the rate
+negative or 0, less than 0 or less than
+
+1238
+00:30:10,470 --> 00:30:10,480
+negative or 0, less than 0 or less than
+ 
+
+1239
+00:30:10,480 --> 00:30:12,950
+negative or 0, less than 0 or less than
+equals to 0. Okay. So there are
+
+1240
+00:30:12,950 --> 00:30:12,960
+equals to 0. Okay. So there are
+ 
+
+1241
+00:30:12,960 --> 00:30:16,230
+equals to 0. Okay. So there are
+different reaxes. If you see that these
+
+1242
+00:30:16,230 --> 00:30:16,240
+different reaxes. If you see that these
+ 
+
+1243
+00:30:16,240 --> 00:30:19,029
+different reaxes. If you see that these
+are nothing but like hibernate if you
+
+1244
+00:30:19,029 --> 00:30:19,039
+are nothing but like hibernate if you
+ 
+
+1245
+00:30:19,039 --> 00:30:21,190
+are nothing but like hibernate if you
+have seen the hibernate validations
+
+1246
+00:30:21,190 --> 00:30:21,200
+have seen the hibernate validations
+ 
+
+1247
+00:30:21,200 --> 00:30:23,669
+have seen the hibernate validations
+right it is very similar to that one
+
+1248
+00:30:23,669 --> 00:30:23,679
+right it is very similar to that one
+ 
+
+1249
+00:30:23,679 --> 00:30:27,669
+right it is very similar to that one
+internally actually it use that only
+
+1250
+00:30:27,669 --> 00:30:27,679
+internally actually it use that only
+ 
+
+1251
+00:30:27,679 --> 00:30:29,750
+internally actually it use that only
+okay so if you are familiar with
+
+1252
+00:30:29,750 --> 00:30:29,760
+okay so if you are familiar with
+ 
+
+1253
+00:30:29,760 --> 00:30:31,350
+okay so if you are familiar with
+hibernate we have seen the hibernate
+
+1254
+00:30:31,350 --> 00:30:31,360
+hibernate we have seen the hibernate
+ 
+
+1255
+00:30:31,360 --> 00:30:34,310
+hibernate we have seen the hibernate
+validations also previously okay so it's
+
+1256
+00:30:34,310 --> 00:30:34,320
+validations also previously okay so it's
+ 
+
+1257
+00:30:34,320 --> 00:30:38,310
+validations also previously okay so it's
+very similar to that one only.
+
+1258
+00:30:38,310 --> 00:30:38,320
+very similar to that one only.
+ 
+
+1259
+00:30:38,320 --> 00:30:40,789
+very similar to that one only.
+Now last thing would be like one
+
+1260
+00:30:40,789 --> 00:30:40,799
+Now last thing would be like one
+ 
+
+1261
+00:30:40,799 --> 00:30:43,590
+Now last thing would be like one
+questions comes to our mind. Okay. Sh
+
+1262
+00:30:43,590 --> 00:30:43,600
+questions comes to our mind. Okay. Sh
+ 
+
+1263
+00:30:43,600 --> 00:30:45,590
+questions comes to our mind. Okay. Sh
+one doubt.
+
+1264
+00:30:45,590 --> 00:30:45,600
+one doubt.
+ 
+
+1265
+00:30:45,600 --> 00:30:48,310
+one doubt.
+What we are saying is currently till our
+
+1266
+00:30:48,310 --> 00:30:48,320
+What we are saying is currently till our
+ 
+
+1267
+00:30:48,320 --> 00:30:53,909
+What we are saying is currently till our
+sequences we are creating an empty bean.
+
+1268
+00:30:53,909 --> 00:30:53,919
+sequences we are creating an empty bean.
+ 
+
+1269
+00:30:53,919 --> 00:30:56,230
+sequences we are creating an empty bean.
+Why? Because we have used at the rate
+
+1270
+00:30:56,230 --> 00:30:56,240
+Why? Because we have used at the rate
+ 
+
+1271
+00:30:56,240 --> 00:30:57,909
+Why? Because we have used at the rate
+component.
+
+1272
+00:30:57,909 --> 00:30:57,919
+component.
+ 
+
+1273
+00:30:57,919 --> 00:30:59,750
+component.
+This is very important. So see the
+
+1274
+00:30:59,750 --> 00:30:59,760
+This is very important. So see the
+ 
+
+1275
+00:30:59,760 --> 00:31:02,710
+This is very important. So see the
+sequence and then see the answer also.
+
+1276
+00:31:02,710 --> 00:31:02,720
+sequence and then see the answer also.
+ 
+
+1277
+00:31:02,720 --> 00:31:04,789
+sequence and then see the answer also.
+The second thing is we are saying
+
+1278
+00:31:04,789 --> 00:31:04,799
+The second thing is we are saying
+ 
+
+1279
+00:31:04,799 --> 00:31:07,430
+The second thing is we are saying
+configuration binding
+
+1280
+00:31:07,430 --> 00:31:07,440
+configuration binding
+ 
+
+1281
+00:31:07,440 --> 00:31:10,389
+configuration binding
+configuration binding.
+
+1282
+00:31:10,389 --> 00:31:10,399
+configuration binding.
+ 
+
+1283
+00:31:10,399 --> 00:31:12,070
+configuration binding.
+What it will do is it will use the
+
+1284
+00:31:12,070 --> 00:31:12,080
+What it will do is it will use the
+ 
+
+1285
+00:31:12,080 --> 00:31:15,590
+What it will do is it will use the
+setter method
+
+1286
+00:31:15,590 --> 00:31:15,600
+
+ 
+
+1287
+00:31:15,600 --> 00:31:20,149
+
+and invokes the setter method to update
+
+1288
+00:31:20,149 --> 00:31:20,159
+and invokes the setter method to update
+ 
+
+1289
+00:31:20,159 --> 00:31:23,269
+and invokes the setter method to update
+update the fields
+
+1290
+00:31:23,269 --> 00:31:23,279
+update the fields
+ 
+
+1291
+00:31:23,279 --> 00:31:27,029
+update the fields
+using application
+
+1292
+00:31:27,029 --> 00:31:27,039
+using application
+ 
+
+1293
+00:31:27,039 --> 00:31:29,830
+using application
+dotproperties.
+
+1294
+00:31:29,830 --> 00:31:29,840
+dotproperties.
+ 
+
+1295
+00:31:29,840 --> 00:31:33,190
+dotproperties.
+Now what if I have to make my
+
+1296
+00:31:33,190 --> 00:31:33,200
+Now what if I have to make my
+ 
+
+1297
+00:31:33,200 --> 00:31:36,310
+Now what if I have to make my
+configuration class immutable?
+
+1298
+00:31:36,310 --> 00:31:36,320
+configuration class immutable?
+ 
+
+1299
+00:31:36,320 --> 00:31:38,310
+configuration class immutable?
+Okay, generally this is how the
+
+1300
+00:31:38,310 --> 00:31:38,320
+Okay, generally this is how the
+ 
+
+1301
+00:31:38,320 --> 00:31:40,710
+Okay, generally this is how the
+interviewer asks the uh interview
+
+1302
+00:31:40,710 --> 00:31:40,720
+interviewer asks the uh interview
+ 
+
+1303
+00:31:40,720 --> 00:31:43,350
+interviewer asks the uh interview
+question generally that how you can make
+
+1304
+00:31:43,350 --> 00:31:43,360
+question generally that how you can make
+ 
+
+1305
+00:31:43,360 --> 00:31:46,630
+question generally that how you can make
+your configuration properties class
+
+1306
+00:31:46,630 --> 00:31:46,640
+your configuration properties class
+ 
+
+1307
+00:31:46,640 --> 00:31:48,230
+your configuration properties class
+immutable.
+
+1308
+00:31:48,230 --> 00:31:48,240
+immutable.
+ 
+
+1309
+00:31:48,240 --> 00:31:50,870
+immutable.
+Okay, because let's say you have given
+
+1310
+00:31:50,870 --> 00:31:50,880
+Okay, because let's say you have given
+ 
+
+1311
+00:31:50,880 --> 00:31:52,710
+Okay, because let's say you have given
+an answer through at the rate component
+
+1312
+00:31:52,710 --> 00:31:52,720
+an answer through at the rate component
+ 
+
+1313
+00:31:52,720 --> 00:31:55,190
+an answer through at the rate component
+one then definitely the sequence going
+
+1314
+00:31:55,190 --> 00:31:55,200
+one then definitely the sequence going
+ 
+
+1315
+00:31:55,200 --> 00:31:56,789
+one then definitely the sequence going
+to be like this. First bean would be
+
+1316
+00:31:56,789 --> 00:31:56,799
+to be like this. First bean would be
+ 
+
+1317
+00:31:56,799 --> 00:31:59,029
+to be like this. First bean would be
+created and after that configuration
+
+1318
+00:31:59,029 --> 00:31:59,039
+created and after that configuration
+ 
+
+1319
+00:31:59,039 --> 00:32:01,990
+created and after that configuration
+binding has to invoke the setter method
+
+1320
+00:32:01,990 --> 00:32:02,000
+binding has to invoke the setter method
+ 
+
+1321
+00:32:02,000 --> 00:32:04,950
+binding has to invoke the setter method
+to update the values and whenever you
+
+1322
+00:32:04,950 --> 00:32:04,960
+to update the values and whenever you
+ 
+
+1323
+00:32:04,960 --> 00:32:07,110
+to update the values and whenever you
+have a setter method definitely it's not
+
+1324
+00:32:07,110 --> 00:32:07,120
+have a setter method definitely it's not
+ 
+
+1325
+00:32:07,120 --> 00:32:09,269
+have a setter method definitely it's not
+an immutable class. Immutable class
+
+1326
+00:32:09,269 --> 00:32:09,279
+an immutable class. Immutable class
+ 
+
+1327
+00:32:09,279 --> 00:32:11,029
+an immutable class. Immutable class
+means once you have defined the value it
+
+1328
+00:32:11,029 --> 00:32:11,039
+means once you have defined the value it
+ 
+
+1329
+00:32:11,039 --> 00:32:13,750
+means once you have defined the value it
+cannot be changed. Okay. But if this is
+
+1330
+00:32:13,750 --> 00:32:13,760
+cannot be changed. Okay. But if this is
+ 
+
+1331
+00:32:13,760 --> 00:32:15,830
+cannot be changed. Okay. But if this is
+the how we are doing this currently it
+
+1332
+00:32:15,830 --> 00:32:15,840
+the how we are doing this currently it
+ 
+
+1333
+00:32:15,840 --> 00:32:18,470
+the how we are doing this currently it
+is definitely not immutable. Why? First
+
+1334
+00:32:18,470 --> 00:32:18,480
+is definitely not immutable. Why? First
+ 
+
+1335
+00:32:18,480 --> 00:32:22,070
+is definitely not immutable. Why? First
+during empty bean let's say age is zero.
+
+1336
+00:32:22,070 --> 00:32:22,080
+during empty bean let's say age is zero.
+ 
+
+1337
+00:32:22,080 --> 00:32:23,590
+during empty bean let's say age is zero.
+Then during configuration binding it
+
+1338
+00:32:23,590 --> 00:32:23,600
+Then during configuration binding it
+ 
+
+1339
+00:32:23,600 --> 00:32:25,509
+Then during configuration binding it
+call the setter method. update it with
+
+1340
+00:32:25,509 --> 00:32:25,519
+call the setter method. update it with
+ 
+
+1341
+00:32:25,519 --> 00:32:27,669
+call the setter method. update it with
+the whatever the property value it has.
+
+1342
+00:32:27,669 --> 00:32:27,679
+the whatever the property value it has.
+ 
+
+1343
+00:32:27,679 --> 00:32:29,750
+the whatever the property value it has.
+Let's say I have defined 27. So you are
+
+1344
+00:32:29,750 --> 00:32:29,760
+Let's say I have defined 27. So you are
+ 
+
+1345
+00:32:29,760 --> 00:32:31,750
+Let's say I have defined 27. So you are
+changing it. Definitely it's not an
+
+1346
+00:32:31,750 --> 00:32:31,760
+changing it. Definitely it's not an
+ 
+
+1347
+00:32:31,760 --> 00:32:35,350
+changing it. Definitely it's not an
+immutable. So now the question of uh the
+
+1348
+00:32:35,350 --> 00:32:35,360
+immutable. So now the question of uh the
+ 
+
+1349
+00:32:35,360 --> 00:32:37,269
+immutable. So now the question of uh the
+ask question intention is how you can
+
+1350
+00:32:37,269 --> 00:32:37,279
+ask question intention is how you can
+ 
+
+1351
+00:32:37,279 --> 00:32:39,509
+ask question intention is how you can
+make this configuration class immutable
+
+1352
+00:32:39,509 --> 00:32:39,519
+make this configuration class immutable
+ 
+
+1353
+00:32:39,519 --> 00:32:42,470
+make this configuration class immutable
+generally which is very important.
+
+1354
+00:32:42,470 --> 00:32:42,480
+generally which is very important.
+ 
+
+1355
+00:32:42,480 --> 00:32:44,310
+generally which is very important.
+Once you read the configuration from the
+
+1356
+00:32:44,310 --> 00:32:44,320
+Once you read the configuration from the
+ 
+
+1357
+00:32:44,320 --> 00:32:46,149
+Once you read the configuration from the
+properties it should not be changed by
+
+1358
+00:32:46,149 --> 00:32:46,159
+properties it should not be changed by
+ 
+
+1359
+00:32:46,159 --> 00:32:48,310
+properties it should not be changed by
+anyone. So this is very very important
+
+1360
+00:32:48,310 --> 00:32:48,320
+anyone. So this is very very important
+ 
+
+1361
+00:32:48,320 --> 00:32:50,230
+anyone. So this is very very important
+and this is how actually it's used in
+
+1362
+00:32:50,230 --> 00:32:50,240
+and this is how actually it's used in
+ 
+
+1363
+00:32:50,240 --> 00:32:53,909
+and this is how actually it's used in
+the industry. It should be immutable.
+
+1364
+00:32:53,909 --> 00:32:53,919
+the industry. It should be immutable.
+ 
+
+1365
+00:32:53,919 --> 00:32:58,230
+the industry. It should be immutable.
+So answer is constructor binding.
+
+1366
+00:32:58,230 --> 00:32:58,240
+So answer is constructor binding.
+ 
+
+1367
+00:32:58,240 --> 00:33:00,549
+So answer is constructor binding.
+Okay. So see this how we can do that
+
+1368
+00:33:00,549 --> 00:33:00,559
+Okay. So see this how we can do that
+ 
+
+1369
+00:33:00,559 --> 00:33:04,310
+Okay. So see this how we can do that
+very very simple. Okay. But very minor
+
+1370
+00:33:04,310 --> 00:33:04,320
+very very simple. Okay. But very minor
+ 
+
+1371
+00:33:04,320 --> 00:33:07,909
+very very simple. Okay. But very minor
+you can say that uh observation here
+
+1372
+00:33:07,909 --> 00:33:07,919
+you can say that uh observation here
+ 
+
+1373
+00:33:07,919 --> 00:33:10,630
+you can say that uh observation here
+what we are doing. So first I created
+
+1374
+00:33:10,630 --> 00:33:10,640
+what we are doing. So first I created
+ 
+
+1375
+00:33:10,640 --> 00:33:12,149
+what we are doing. So first I created
+earlier the class name was user
+
+1376
+00:33:12,149 --> 00:33:12,159
+earlier the class name was user
+ 
+
+1377
+00:33:12,159 --> 00:33:13,350
+earlier the class name was user
+configuration. I just changed the name
+
+1378
+00:33:13,350 --> 00:33:13,360
+configuration. I just changed the name
+ 
+
+1379
+00:33:13,360 --> 00:33:15,509
+configuration. I just changed the name
+to immutable user configuration. Nothing
+
+1380
+00:33:15,509 --> 00:33:15,519
+to immutable user configuration. Nothing
+ 
+
+1381
+00:33:15,519 --> 00:33:19,509
+to immutable user configuration. Nothing
+same thing. Okay. Now here I make the
+
+1382
+00:33:19,509 --> 00:33:19,519
+same thing. Okay. Now here I make the
+ 
+
+1383
+00:33:19,519 --> 00:33:21,830
+same thing. Okay. Now here I make the
+all the fields final.
+
+1384
+00:33:21,830 --> 00:33:21,840
+all the fields final.
+ 
+
+1385
+00:33:21,840 --> 00:33:24,389
+all the fields final.
+Now constructor binding as the name says
+
+1386
+00:33:24,389 --> 00:33:24,399
+Now constructor binding as the name says
+ 
+
+1387
+00:33:24,399 --> 00:33:27,190
+Now constructor binding as the name says
+so we going to be using constructor
+
+1388
+00:33:27,190 --> 00:33:27,200
+so we going to be using constructor
+ 
+
+1389
+00:33:27,200 --> 00:33:29,750
+so we going to be using constructor
+when the object is first time object is
+
+1390
+00:33:29,750 --> 00:33:29,760
+when the object is first time object is
+ 
+
+1391
+00:33:29,760 --> 00:33:31,509
+when the object is first time object is
+going to get create at the time of
+
+1392
+00:33:31,509 --> 00:33:31,519
+going to get create at the time of
+ 
+
+1393
+00:33:31,519 --> 00:33:33,110
+going to get create at the time of
+creation of the object itself I'm going
+
+1394
+00:33:33,110 --> 00:33:33,120
+creation of the object itself I'm going
+ 
+
+1395
+00:33:33,120 --> 00:33:36,549
+creation of the object itself I'm going
+to initialize this so immutable user
+
+1396
+00:33:36,549 --> 00:33:36,559
+to initialize this so immutable user
+ 
+
+1397
+00:33:36,559 --> 00:33:38,789
+to initialize this so immutable user
+configuration I'm creating a constructor
+
+1398
+00:33:38,789 --> 00:33:38,799
+configuration I'm creating a constructor
+ 
+
+1399
+00:33:38,799 --> 00:33:41,830
+configuration I'm creating a constructor
+and all the fields
+
+1400
+00:33:41,830 --> 00:33:41,840
+and all the fields
+ 
+
+1401
+00:33:41,840 --> 00:33:45,590
+and all the fields
+okay and that going to initialize at the
+
+1402
+00:33:45,590 --> 00:33:45,600
+okay and that going to initialize at the
+ 
+
+1403
+00:33:45,600 --> 00:33:50,710
+okay and that going to initialize at the
+time of object creation itself okay so
+
+1404
+00:33:50,710 --> 00:33:50,720
+time of object creation itself okay so
+ 
+
+1405
+00:33:50,720 --> 00:33:52,870
+time of object creation itself okay so
+it's not first like you are going to
+
+1406
+00:33:52,870 --> 00:33:52,880
+it's not first like you are going to
+ 
+
+1407
+00:33:52,880 --> 00:33:55,590
+it's not first like you are going to
+create an empty bean or no whenever
+
+1408
+00:33:55,590 --> 00:33:55,600
+create an empty bean or no whenever
+ 
+
+1409
+00:33:55,600 --> 00:33:57,590
+create an empty bean or no whenever
+somebody has to create an object it has
+
+1410
+00:33:57,590 --> 00:33:57,600
+somebody has to create an object it has
+ 
+
+1411
+00:33:57,600 --> 00:33:59,990
+somebody has to create an object it has
+to pass this value and at the time of
+
+1412
+00:33:59,990 --> 00:34:00,000
+to pass this value and at the time of
+ 
+
+1413
+00:34:00,000 --> 00:34:01,909
+to pass this value and at the time of
+object creation itself these values
+
+1414
+00:34:01,909 --> 00:34:01,919
+object creation itself these values
+ 
+
+1415
+00:34:01,919 --> 00:34:04,070
+object creation itself these values
+would be set
+
+1416
+00:34:04,070 --> 00:34:04,080
+would be set
+ 
+
+1417
+00:34:04,080 --> 00:34:06,710
+would be set
+okay so this is going to be the thing
+
+1418
+00:34:06,710 --> 00:34:06,720
+okay so this is going to be the thing
+ 
+
+1419
+00:34:06,720 --> 00:34:09,190
+okay so this is going to be the thing
+and then here I have only getter methods
+
+1420
+00:34:09,190 --> 00:34:09,200
+and then here I have only getter methods
+ 
+
+1421
+00:34:09,200 --> 00:34:13,430
+and then here I have only getter methods
+no setter method now see what things we
+
+1422
+00:34:13,430 --> 00:34:13,440
+no setter method now see what things we
+ 
+
+1423
+00:34:13,440 --> 00:34:15,750
+no setter method now see what things we
+needed one thing you notice that there
+
+1424
+00:34:15,750 --> 00:34:15,760
+needed one thing you notice that there
+ 
+
+1425
+00:34:15,760 --> 00:34:18,230
+needed one thing you notice that there
+is no add the rate component I removed
+
+1426
+00:34:18,230 --> 00:34:18,240
+is no add the rate component I removed
+ 
+
+1427
+00:34:18,240 --> 00:34:21,829
+is no add the rate component I removed
+it why because as soon as you put at the
+
+1428
+00:34:21,829 --> 00:34:21,839
+it why because as soon as you put at the
+ 
+
+1429
+00:34:21,839 --> 00:34:24,790
+it why because as soon as you put at the
+rate component
+
+1430
+00:34:24,790 --> 00:34:24,800
+rate component
+ 
+
+1431
+00:34:24,800 --> 00:34:28,950
+rate component
+means you are telling a spring that hey
+
+1432
+00:34:28,950 --> 00:34:28,960
+means you are telling a spring that hey
+ 
+
+1433
+00:34:28,960 --> 00:34:31,349
+means you are telling a spring that hey
+you manage the creation of an object
+
+1434
+00:34:31,349 --> 00:34:31,359
+you manage the creation of an object
+ 
+
+1435
+00:34:31,359 --> 00:34:34,069
+you manage the creation of an object
+okay and when spring going to manage the
+
+1436
+00:34:34,069 --> 00:34:34,079
+okay and when spring going to manage the
+ 
+
+1437
+00:34:34,079 --> 00:34:36,069
+okay and when spring going to manage the
+creation of an object spring doesn't
+
+1438
+00:34:36,069 --> 00:34:36,079
+creation of an object spring doesn't
+ 
+
+1439
+00:34:36,079 --> 00:34:39,510
+creation of an object spring doesn't
+know how to or what value I need to
+
+1440
+00:34:39,510 --> 00:34:39,520
+know how to or what value I need to
+ 
+
+1441
+00:34:39,520 --> 00:34:41,510
+know how to or what value I need to
+provide here
+
+1442
+00:34:41,510 --> 00:34:41,520
+provide here
+ 
+
+1443
+00:34:41,520 --> 00:34:43,510
+provide here
+what value I need to provide here what
+
+1444
+00:34:43,510 --> 00:34:43,520
+what value I need to provide here what
+ 
+
+1445
+00:34:43,520 --> 00:34:45,589
+what value I need to provide here what
+name I need to provide here what age I
+
+1446
+00:34:45,589 --> 00:34:45,599
+name I need to provide here what age I
+ 
+
+1447
+00:34:45,599 --> 00:34:47,349
+name I need to provide here what age I
+need to provide here what active I need
+
+1448
+00:34:47,349 --> 00:34:47,359
+need to provide here what active I need
+ 
+
+1449
+00:34:47,359 --> 00:34:51,430
+need to provide here what active I need
+to provide here okay so spring
+
+1450
+00:34:51,430 --> 00:34:51,440
+to provide here okay so spring
+ 
+
+1451
+00:34:51,440 --> 00:34:53,430
+to provide here okay so spring
+Or you can say that spring IOC inversion
+
+1452
+00:34:53,430 --> 00:34:53,440
+Or you can say that spring IOC inversion
+ 
+
+1453
+00:34:53,440 --> 00:34:56,950
+Or you can say that spring IOC inversion
+of control doesn't know how to invoke
+
+1454
+00:34:56,950 --> 00:34:56,960
+of control doesn't know how to invoke
+ 
+
+1455
+00:34:56,960 --> 00:34:58,870
+of control doesn't know how to invoke
+this constructor what value I need to
+
+1456
+00:34:58,870 --> 00:34:58,880
+this constructor what value I need to
+ 
+
+1457
+00:34:58,880 --> 00:35:01,430
+this constructor what value I need to
+pass. So
+
+1458
+00:35:01,430 --> 00:35:01,440
+pass. So
+ 
+
+1459
+00:35:01,440 --> 00:35:02,950
+pass. So
+at the rate component that's why I
+
+1460
+00:35:02,950 --> 00:35:02,960
+at the rate component that's why I
+ 
+
+1461
+00:35:02,960 --> 00:35:06,630
+at the rate component that's why I
+removed it. Okay. And I gave this
+
+1462
+00:35:06,630 --> 00:35:06,640
+removed it. Okay. And I gave this
+ 
+
+1463
+00:35:06,640 --> 00:35:12,150
+removed it. Okay. And I gave this
+responsibility to configuration
+
+1464
+00:35:12,150 --> 00:35:12,160
+responsibility to configuration
+ 
+
+1465
+00:35:12,160 --> 00:35:14,630
+responsibility to configuration
+binding itself. Okay. earlier
+
+1466
+00:35:14,630 --> 00:35:14,640
+binding itself. Okay. earlier
+ 
+
+1467
+00:35:14,640 --> 00:35:17,910
+binding itself. Okay. earlier
+configuration binding sees that hey okay
+
+1468
+00:35:17,910 --> 00:35:17,920
+configuration binding sees that hey okay
+ 
+
+1469
+00:35:17,920 --> 00:35:19,670
+configuration binding sees that hey okay
+whatever the user configuration I have
+
+1470
+00:35:19,670 --> 00:35:19,680
+whatever the user configuration I have
+ 
+
+1471
+00:35:19,680 --> 00:35:22,150
+whatever the user configuration I have
+it's object is already present yes
+
+1472
+00:35:22,150 --> 00:35:22,160
+it's object is already present yes
+ 
+
+1473
+00:35:22,160 --> 00:35:25,510
+it's object is already present yes
+object is already present yes then call
+
+1474
+00:35:25,510 --> 00:35:25,520
+object is already present yes then call
+ 
+
+1475
+00:35:25,520 --> 00:35:29,750
+object is already present yes then call
+the setter method to update the values
+
+1476
+00:35:29,750 --> 00:35:29,760
+the setter method to update the values
+ 
+
+1477
+00:35:29,760 --> 00:35:32,230
+the setter method to update the values
+now we just need to tell that hey you
+
+1478
+00:35:32,230 --> 00:35:32,240
+now we just need to tell that hey you
+ 
+
+1479
+00:35:32,240 --> 00:35:34,230
+now we just need to tell that hey you
+also have to take the responsibility of
+
+1480
+00:35:34,230 --> 00:35:34,240
+also have to take the responsibility of
+ 
+
+1481
+00:35:34,240 --> 00:35:37,270
+also have to take the responsibility of
+creation the object also okay and that's
+
+1482
+00:35:37,270 --> 00:35:37,280
+creation the object also okay and that's
+ 
+
+1483
+00:35:37,280 --> 00:35:41,270
+creation the object also okay and that's
+we do by like this in our main class
+
+1484
+00:35:41,270 --> 00:35:41,280
+we do by like this in our main class
+ 
+
+1485
+00:35:41,280 --> 00:35:43,910
+we do by like this in our main class
+application class we have to tell Add
+
+1486
+00:35:43,910 --> 00:35:43,920
+application class we have to tell Add
+ 
+
+1487
+00:35:43,920 --> 00:35:47,109
+application class we have to tell Add
+the rate configuration properties scan.
+
+1488
+00:35:47,109 --> 00:35:47,119
+the rate configuration properties scan.
+ 
+
+1489
+00:35:47,119 --> 00:35:49,829
+the rate configuration properties scan.
+So whenever you add this configuration
+
+1490
+00:35:49,829 --> 00:35:49,839
+So whenever you add this configuration
+ 
+
+1491
+00:35:49,839 --> 00:35:52,390
+So whenever you add this configuration
+whenever you add this annotation at the
+
+1492
+00:35:52,390 --> 00:35:52,400
+whenever you add this annotation at the
+ 
+
+1493
+00:35:52,400 --> 00:35:54,870
+whenever you add this annotation at the
+rate configuration properties scan what
+
+1494
+00:35:54,870 --> 00:35:54,880
+rate configuration properties scan what
+ 
+
+1495
+00:35:54,880 --> 00:35:56,710
+rate configuration properties scan what
+we are telling to the configuration
+
+1496
+00:35:56,710 --> 00:35:56,720
+we are telling to the configuration
+ 
+
+1497
+00:35:56,720 --> 00:35:59,270
+we are telling to the configuration
+binding that hey I am giving the
+
+1498
+00:35:59,270 --> 00:35:59,280
+binding that hey I am giving the
+ 
+
+1499
+00:35:59,280 --> 00:36:02,069
+binding that hey I am giving the
+responsibility to you to create an
+
+1500
+00:36:02,069 --> 00:36:02,079
+responsibility to you to create an
+ 
+
+1501
+00:36:02,079 --> 00:36:05,910
+responsibility to you to create an
+object for this configuration class
+
+1502
+00:36:05,910 --> 00:36:05,920
+object for this configuration class
+ 
+
+1503
+00:36:05,920 --> 00:36:08,790
+object for this configuration class
+property class also.
+
+1504
+00:36:08,790 --> 00:36:08,800
+property class also.
+ 
+
+1505
+00:36:08,800 --> 00:36:11,910
+property class also.
+Okay. So I am not relying on a spring.
+
+1506
+00:36:11,910 --> 00:36:11,920
+Okay. So I am not relying on a spring.
+ 
+
+1507
+00:36:11,920 --> 00:36:13,750
+Okay. So I am not relying on a spring.
+I'm giving the responsibility to
+
+1508
+00:36:13,750 --> 00:36:13,760
+I'm giving the responsibility to
+ 
+
+1509
+00:36:13,760 --> 00:36:15,510
+I'm giving the responsibility to
+configuration binding itself that you
+
+1510
+00:36:15,510 --> 00:36:15,520
+configuration binding itself that you
+ 
+
+1511
+00:36:15,520 --> 00:36:19,349
+configuration binding itself that you
+create an object. Okay. And when
+
+1512
+00:36:19,349 --> 00:36:19,359
+create an object. Okay. And when
+ 
+
+1513
+00:36:19,359 --> 00:36:23,270
+create an object. Okay. And when
+it scan for it so it knows so it first
+
+1514
+00:36:23,270 --> 00:36:23,280
+it scan for it so it knows so it first
+ 
+
+1515
+00:36:23,280 --> 00:36:26,069
+it scan for it so it knows so it first
+read application.properties.
+
+1516
+00:36:26,069 --> 00:36:26,079
+read application.properties.
+ 
+
+1517
+00:36:26,079 --> 00:36:28,630
+read application.properties.
+Okay. And then
+
+1518
+00:36:28,630 --> 00:36:28,640
+Okay. And then
+ 
+
+1519
+00:36:28,640 --> 00:36:31,190
+Okay. And then
+when it find this object find this class
+
+1520
+00:36:31,190 --> 00:36:31,200
+when it find this object find this class
+ 
+
+1521
+00:36:31,200 --> 00:36:34,230
+when it find this object find this class
+it need to invoke its constructor. It
+
+1522
+00:36:34,230 --> 00:36:34,240
+it need to invoke its constructor. It
+ 
+
+1523
+00:36:34,240 --> 00:36:36,630
+it need to invoke its constructor. It
+will do the binding. Okay. What value
+
+1524
+00:36:36,630 --> 00:36:36,640
+will do the binding. Okay. What value
+ 
+
+1525
+00:36:36,640 --> 00:36:39,349
+will do the binding. Okay. What value
+exact it has to pass. Now it knows
+
+1526
+00:36:39,349 --> 00:36:39,359
+exact it has to pass. Now it knows
+ 
+
+1527
+00:36:39,359 --> 00:36:40,470
+exact it has to pass. Now it knows
+because it has read from
+
+1528
+00:36:40,470 --> 00:36:40,480
+because it has read from
+ 
+
+1529
+00:36:40,480 --> 00:36:42,630
+because it has read from
+application.properties. properties.
+
+1530
+00:36:42,630 --> 00:36:42,640
+application.properties. properties.
+ 
+
+1531
+00:36:42,640 --> 00:36:45,670
+application.properties. properties.
+Okay. So at the time of con uh creation
+
+1532
+00:36:45,670 --> 00:36:45,680
+Okay. So at the time of con uh creation
+ 
+
+1533
+00:36:45,680 --> 00:36:47,750
+Okay. So at the time of con uh creation
+of a new object, this value would be
+
+1534
+00:36:47,750 --> 00:36:47,760
+of a new object, this value would be
+ 
+
+1535
+00:36:47,760 --> 00:36:51,109
+of a new object, this value would be
+set. Okay. And there are no setters and
+
+1536
+00:36:51,109 --> 00:36:51,119
+set. Okay. And there are no setters and
+ 
+
+1537
+00:36:51,119 --> 00:36:53,510
+set. Okay. And there are no setters and
+these are final. So now our class is
+
+1538
+00:36:53,510 --> 00:36:53,520
+these are final. So now our class is
+ 
+
+1539
+00:36:53,520 --> 00:36:55,430
+these are final. So now our class is
+immutable.
+
+1540
+00:36:55,430 --> 00:36:55,440
+immutable.
+ 
+
+1541
+00:36:55,440 --> 00:36:57,190
+immutable.
+So these
+
+1542
+00:36:57,190 --> 00:36:57,200
+So these
+ 
+
+1543
+00:36:57,200 --> 00:36:59,910
+So these
+this is the only change. No add the rate
+
+1544
+00:36:59,910 --> 00:36:59,920
+this is the only change. No add the rate
+ 
+
+1545
+00:36:59,920 --> 00:37:01,910
+this is the only change. No add the rate
+component. You only got why because
+
+1546
+00:37:01,910 --> 00:37:01,920
+component. You only got why because
+ 
+
+1547
+00:37:01,920 --> 00:37:04,390
+component. You only got why because
+spring doesn't know what value I need to
+
+1548
+00:37:04,390 --> 00:37:04,400
+spring doesn't know what value I need to
+ 
+
+1549
+00:37:04,400 --> 00:37:08,310
+spring doesn't know what value I need to
+pass. Okay. So that's why spring won't
+
+1550
+00:37:08,310 --> 00:37:08,320
+pass. Okay. So that's why spring won't
+ 
+
+1551
+00:37:08,320 --> 00:37:09,829
+pass. Okay. So that's why spring won't
+be able to create an object of it. So
+
+1552
+00:37:09,829 --> 00:37:09,839
+be able to create an object of it. So
+ 
+
+1553
+00:37:09,839 --> 00:37:11,670
+be able to create an object of it. So
+that's why we I have removed it at that
+
+1554
+00:37:11,670 --> 00:37:11,680
+that's why we I have removed it at that
+ 
+
+1555
+00:37:11,680 --> 00:37:12,950
+that's why we I have removed it at that
+component. I don't want to give you the
+
+1556
+00:37:12,950 --> 00:37:12,960
+component. I don't want to give you the
+ 
+
+1557
+00:37:12,960 --> 00:37:14,470
+component. I don't want to give you the
+responsibility
+
+1558
+00:37:14,470 --> 00:37:14,480
+responsibility
+ 
+
+1559
+00:37:14,480 --> 00:37:17,510
+responsibility
+and who knows what value to pass is
+
+1560
+00:37:17,510 --> 00:37:17,520
+and who knows what value to pass is
+ 
+
+1561
+00:37:17,520 --> 00:37:19,190
+and who knows what value to pass is
+configuration binding because it reads
+
+1562
+00:37:19,190 --> 00:37:19,200
+configuration binding because it reads
+ 
+
+1563
+00:37:19,200 --> 00:37:22,630
+configuration binding because it reads
+the application.property. So this is how
+
+1564
+00:37:22,630 --> 00:37:22,640
+the application.property. So this is how
+ 
+
+1565
+00:37:22,640 --> 00:37:25,589
+the application.property. So this is how
+we tell okay at the rate configuration
+
+1566
+00:37:25,589 --> 00:37:25,599
+we tell okay at the rate configuration
+ 
+
+1567
+00:37:25,599 --> 00:37:28,390
+we tell okay at the rate configuration
+property scan on top of your main class
+
+1568
+00:37:28,390 --> 00:37:28,400
+property scan on top of your main class
+ 
+
+1569
+00:37:28,400 --> 00:37:31,589
+property scan on top of your main class
+application class.
+
+1570
+00:37:31,589 --> 00:37:31,599
+application class.
+ 
+
+1571
+00:37:31,599 --> 00:37:33,510
+application class.
+Okay. But you might be thinking hey
+
+1572
+00:37:33,510 --> 00:37:33,520
+Okay. But you might be thinking hey
+ 
+
+1573
+00:37:33,520 --> 00:37:35,990
+Okay. But you might be thinking hey
+earlier why it's not an issue earlier
+
+1574
+00:37:35,990 --> 00:37:36,000
+earlier why it's not an issue earlier
+ 
+
+1575
+00:37:36,000 --> 00:37:38,069
+earlier why it's not an issue earlier
+whatever we are doing it when it is not
+
+1576
+00:37:38,069 --> 00:37:38,079
+whatever we are doing it when it is not
+ 
+
+1577
+00:37:38,079 --> 00:37:40,790
+whatever we are doing it when it is not
+immutable. See earlier it's not an issue
+
+1578
+00:37:40,790 --> 00:37:40,800
+immutable. See earlier it's not an issue
+ 
+
+1579
+00:37:40,800 --> 00:37:42,870
+immutable. See earlier it's not an issue
+because even though we have used at the
+
+1580
+00:37:42,870 --> 00:37:42,880
+because even though we have used at the
+ 
+
+1581
+00:37:42,880 --> 00:37:46,069
+because even though we have used at the
+rate component okay
+
+1582
+00:37:46,069 --> 00:37:46,079
+rate component okay
+ 
+
+1583
+00:37:46,079 --> 00:37:48,710
+rate component okay
+there we have default constructor
+
+1584
+00:37:48,710 --> 00:37:48,720
+there we have default constructor
+ 
+
+1585
+00:37:48,720 --> 00:37:51,349
+there we have default constructor
+default constructor which is no arg
+
+1586
+00:37:51,349 --> 00:37:51,359
+default constructor which is no arg
+ 
+
+1587
+00:37:51,359 --> 00:37:55,190
+default constructor which is no arg
+constructor so our spring inversion of
+
+1588
+00:37:55,190 --> 00:37:55,200
+constructor so our spring inversion of
+ 
+
+1589
+00:37:55,200 --> 00:37:58,310
+constructor so our spring inversion of
+control can create an empty bean create
+
+1590
+00:37:58,310 --> 00:37:58,320
+control can create an empty bean create
+ 
+
+1591
+00:37:58,320 --> 00:38:01,349
+control can create an empty bean create
+an empty bean by calling a no arg
+
+1592
+00:38:01,349 --> 00:38:01,359
+an empty bean by calling a no arg
+ 
+
+1593
+00:38:01,359 --> 00:38:03,829
+an empty bean by calling a no arg
+constructor so that's why at the rate
+
+1594
+00:38:03,829 --> 00:38:03,839
+constructor so that's why at the rate
+ 
+
+1595
+00:38:03,839 --> 00:38:06,230
+constructor so that's why at the rate
+component was working properly it able
+
+1596
+00:38:06,230 --> 00:38:06,240
+component was working properly it able
+ 
+
+1597
+00:38:06,240 --> 00:38:08,069
+component was working properly it able
+to create an object through calling the
+
+1598
+00:38:08,069 --> 00:38:08,079
+to create an object through calling the
+ 
+
+1599
+00:38:08,079 --> 00:38:10,790
+to create an object through calling the
+default no constructor. Okay. And then
+
+1600
+00:38:10,790 --> 00:38:10,800
+default no constructor. Okay. And then
+ 
+
+1601
+00:38:10,800 --> 00:38:12,310
+default no constructor. Okay. And then
+configuration binding calling setter
+
+1602
+00:38:12,310 --> 00:38:12,320
+configuration binding calling setter
+ 
+
+1603
+00:38:12,320 --> 00:38:15,670
+configuration binding calling setter
+method to update it. But here in the
+
+1604
+00:38:15,670 --> 00:38:15,680
+method to update it. But here in the
+ 
+
+1605
+00:38:15,680 --> 00:38:17,430
+method to update it. But here in the
+immutable since we don't have setter
+
+1606
+00:38:17,430 --> 00:38:17,440
+immutable since we don't have setter
+ 
+
+1607
+00:38:17,440 --> 00:38:20,230
+immutable since we don't have setter
+method. Okay. And we don't have this
+
+1608
+00:38:20,230 --> 00:38:20,240
+method. Okay. And we don't have this
+ 
+
+1609
+00:38:20,240 --> 00:38:24,390
+method. Okay. And we don't have this
+default constructor no or constructor.
+
+1610
+00:38:24,390 --> 00:38:24,400
+default constructor no or constructor.
+ 
+
+1611
+00:38:24,400 --> 00:38:25,910
+default constructor no or constructor.
+Okay. So that's why add the rate
+
+1612
+00:38:25,910 --> 00:38:25,920
+Okay. So that's why add the rate
+ 
+
+1613
+00:38:25,920 --> 00:38:28,390
+Okay. So that's why add the rate
+component will not work
+
+1614
+00:38:28,390 --> 00:38:28,400
+component will not work
+ 
+
+1615
+00:38:28,400 --> 00:38:30,950
+component will not work
+and that's where configuration bindings
+
+1616
+00:38:30,950 --> 00:38:30,960
+and that's where configuration bindings
+ 
+
+1617
+00:38:30,960 --> 00:38:35,349
+and that's where configuration bindings
+comes into the picture.
+
+1618
+00:38:35,349 --> 00:38:35,359
+
+ 
+
+1619
+00:38:35,359 --> 00:38:37,829
+
+Okay. And here if you see it worked
+
+1620
+00:38:37,829 --> 00:38:37,839
+Okay. And here if you see it worked
+ 
+
+1621
+00:38:37,839 --> 00:38:39,750
+Okay. And here if you see it worked
+properly. Our immutable objects work
+
+1622
+00:38:39,750 --> 00:38:39,760
+properly. Our immutable objects work
+ 
+
+1623
+00:38:39,760 --> 00:38:42,230
+properly. Our immutable objects work
+properly. And also there is no
+
+1624
+00:38:42,230 --> 00:38:42,240
+properly. And also there is no
+ 
+
+1625
+00:38:42,240 --> 00:38:43,589
+properly. And also there is no
+difference in the validation of the
+
+1626
+00:38:43,589 --> 00:38:43,599
+difference in the validation of the
+ 
+
+1627
+00:38:43,599 --> 00:38:45,510
+difference in the validation of the
+field like how we used to validate the
+
+1628
+00:38:45,510 --> 00:38:45,520
+field like how we used to validate the
+ 
+
+1629
+00:38:45,520 --> 00:38:48,150
+field like how we used to validate the
+field like add the rate minimum uh add
+
+1630
+00:38:48,150 --> 00:38:48,160
+field like add the rate minimum uh add
+ 
+
+1631
+00:38:48,160 --> 00:38:51,589
+field like add the rate minimum uh add
+the rate not null like in uh nonmutable
+
+1632
+00:38:51,589 --> 00:38:51,599
+the rate not null like in uh nonmutable
+ 
+
+1633
+00:38:51,599 --> 00:38:53,270
+the rate not null like in uh nonmutable
+class like similarly for the mutable
+
+1634
+00:38:53,270 --> 00:38:53,280
+class like similarly for the mutable
+ 
+
+1635
+00:38:53,280 --> 00:38:55,030
+class like similarly for the mutable
+also it's the same thing you can use
+
+1636
+00:38:55,030 --> 00:38:55,040
+also it's the same thing you can use
+ 
+
+1637
+00:38:55,040 --> 00:38:58,150
+also it's the same thing you can use
+above the field itself.
+
+1638
+00:38:58,150 --> 00:38:58,160
+above the field itself.
+ 
+
+1639
+00:38:58,160 --> 00:39:01,349
+above the field itself.
+Okay. I hope this is clear. Add the rate
+
+1640
+00:39:01,349 --> 00:39:01,359
+Okay. I hope this is clear. Add the rate
+ 
+
+1641
+00:39:01,359 --> 00:39:02,710
+Okay. I hope this is clear. Add the rate
+configuration properties. If there is
+
+1642
+00:39:02,710 --> 00:39:02,720
+configuration properties. If there is
+ 
+
+1643
+00:39:02,720 --> 00:39:04,310
+configuration properties. If there is
+any doubt let me know. We can discuss
+
+1644
+00:39:04,310 --> 00:39:04,320
+any doubt let me know. We can discuss
+ 
+
+1645
+00:39:04,320 --> 00:39:07,839
+any doubt let me know. We can discuss
+further in the comment section.
+

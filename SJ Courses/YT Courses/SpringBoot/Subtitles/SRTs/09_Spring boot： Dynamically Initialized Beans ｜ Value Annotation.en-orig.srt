@@ -1,0 +1,2525 @@
+1
+00:00:00,080 --> 00:00:01,630
+
+hey guys welcome to concept and coding
+
+2
+00:00:01,630 --> 00:00:01,640
+hey guys welcome to concept and coding
+ 
+
+3
+00:00:01,640 --> 00:00:03,869
+hey guys welcome to concept and coding
+this is Shan and today in Spring boot we
+
+4
+00:00:03,869 --> 00:00:03,879
+this is Shan and today in Spring boot we
+ 
+
+5
+00:00:03,879 --> 00:00:06,190
+this is Shan and today in Spring boot we
+are going to see how to dynamically
+
+6
+00:00:06,190 --> 00:00:06,200
+are going to see how to dynamically
+ 
+
+7
+00:00:06,200 --> 00:00:10,150
+are going to see how to dynamically
+initialize Bean using at theate Value
+
+8
+00:00:10,150 --> 00:00:10,160
+initialize Bean using at theate Value
+ 
+
+9
+00:00:10,160 --> 00:00:12,749
+initialize Bean using at theate Value
+annotation if you remember in the
+
+10
+00:00:12,749 --> 00:00:12,759
+annotation if you remember in the
+ 
+
+11
+00:00:12,759 --> 00:00:15,629
+annotation if you remember in the
+dependency injection video I told you
+
+12
+00:00:15,629 --> 00:00:15,639
+dependency injection video I told you
+ 
+
+13
+00:00:15,639 --> 00:00:19,230
+dependency injection video I told you
+about unsatisfied dependency problem and
+
+14
+00:00:19,230 --> 00:00:19,240
+about unsatisfied dependency problem and
+ 
+
+15
+00:00:19,240 --> 00:00:21,230
+about unsatisfied dependency problem and
+how you can resolve it using at theate
+
+16
+00:00:21,230 --> 00:00:21,240
+how you can resolve it using at theate
+ 
+
+17
+00:00:21,240 --> 00:00:22,630
+how you can resolve it using at theate
+qualifier
+
+18
+00:00:22,630 --> 00:00:22,640
+qualifier
+ 
+
+19
+00:00:22,640 --> 00:00:25,310
+qualifier
+annotation lot of comments I have
+
+20
+00:00:25,310 --> 00:00:25,320
+annotation lot of comments I have
+ 
+
+21
+00:00:25,320 --> 00:00:28,830
+annotation lot of comments I have
+received that hey when we are using at
+
+22
+00:00:28,830 --> 00:00:28,840
+received that hey when we are using at
+ 
+
+23
+00:00:28,840 --> 00:00:30,790
+received that hey when we are using at
+the rate qualifier notation will it not
+
+24
+00:00:30,790 --> 00:00:30,800
+the rate qualifier notation will it not
+ 
+
+25
+00:00:30,800 --> 00:00:33,630
+the rate qualifier notation will it not
+break dependency inversion so if you
+
+26
+00:00:33,630 --> 00:00:33,640
+break dependency inversion so if you
+ 
+
+27
+00:00:33,640 --> 00:00:36,190
+break dependency inversion so if you
+read all this right all this red lines
+
+28
+00:00:36,190 --> 00:00:36,200
+read all this right all this red lines
+ 
+
+29
+00:00:36,200 --> 00:00:38,310
+read all this right all this red lines
+you will find one thing that they are
+
+30
+00:00:38,310 --> 00:00:38,320
+you will find one thing that they are
+ 
+
+31
+00:00:38,320 --> 00:00:40,150
+you will find one thing that they are
+pointing one only one thing that it will
+
+32
+00:00:40,150 --> 00:00:40,160
+pointing one only one thing that it will
+ 
+
+33
+00:00:40,160 --> 00:00:43,910
+pointing one only one thing that it will
+break dependency inversion right so I'll
+
+34
+00:00:43,910 --> 00:00:43,920
+break dependency inversion right so I'll
+ 
+
+35
+00:00:43,920 --> 00:00:45,389
+break dependency inversion right so I'll
+tell you quickly tell you what is
+
+36
+00:00:45,389 --> 00:00:45,399
+tell you quickly tell you what is
+ 
+
+37
+00:00:45,399 --> 00:00:48,389
+tell you quickly tell you what is
+unsatisfied dependency problem how
+
+38
+00:00:48,389 --> 00:00:48,399
+unsatisfied dependency problem how
+ 
+
+39
+00:00:48,399 --> 00:00:52,470
+unsatisfied dependency problem how
+qualifier we are using it and then two
+
+40
+00:00:52,470 --> 00:00:52,480
+qualifier we are using it and then two
+ 
+
+41
+00:00:52,480 --> 00:00:54,510
+qualifier we are using it and then two
+solution first and second solution how
+
+42
+00:00:54,510 --> 00:00:54,520
+solution first and second solution how
+ 
+
+43
+00:00:54,520 --> 00:00:55,670
+solution first and second solution how
+we can make it
+
+44
+00:00:55,670 --> 00:00:55,680
+we can make it
+ 
+
+45
+00:00:55,680 --> 00:00:58,670
+we can make it
+Dynamic okay so in the unsatisfied
+
+46
+00:00:58,670 --> 00:00:58,680
+Dynamic okay so in the unsatisfied
+ 
+
+47
+00:00:58,680 --> 00:01:00,270
+Dynamic okay so in the unsatisfied
+dependency program what what is the
+
+48
+00:01:00,270 --> 00:01:00,280
+dependency program what what is the
+ 
+
+49
+00:01:00,280 --> 00:01:03,270
+dependency program what what is the
+problem is that there is an interface
+
+50
+00:01:03,270 --> 00:01:03,280
+problem is that there is an interface
+ 
+
+51
+00:01:03,280 --> 00:01:06,469
+problem is that there is an interface
+order and there are two Childs online
+
+52
+00:01:06,469 --> 00:01:06,479
+order and there are two Childs online
+ 
+
+53
+00:01:06,479 --> 00:01:08,710
+order and there are two Childs online
+order offline order both are at theate
+
+54
+00:01:08,710 --> 00:01:08,720
+order offline order both are at theate
+ 
+
+55
+00:01:08,720 --> 00:01:11,910
+order offline order both are at theate
+components means manage by
+
+56
+00:01:11,910 --> 00:01:11,920
+components means manage by
+ 
+
+57
+00:01:11,920 --> 00:01:15,350
+components means manage by
+spring so very very basic class itself
+
+58
+00:01:15,350 --> 00:01:15,360
+spring so very very basic class itself
+ 
+
+59
+00:01:15,360 --> 00:01:18,910
+spring so very very basic class itself
+one Constructor method and one uh create
+
+60
+00:01:18,910 --> 00:01:18,920
+one Constructor method and one uh create
+ 
+
+61
+00:01:18,920 --> 00:01:20,429
+one Constructor method and one uh create
+order method which is just printing
+
+62
+00:01:20,429 --> 00:01:20,439
+order method which is just printing
+ 
+
+63
+00:01:20,439 --> 00:01:22,109
+order method which is just printing
+created online order created offline
+
+64
+00:01:22,109 --> 00:01:22,119
+created online order created offline
+ 
+
+65
+00:01:22,119 --> 00:01:23,469
+created online order created offline
+orders very
+
+66
+00:01:23,469 --> 00:01:23,479
+orders very
+ 
+
+67
+00:01:23,479 --> 00:01:26,670
+orders very
+simple now here what happening is we
+
+68
+00:01:26,670 --> 00:01:26,680
+simple now here what happening is we
+ 
+
+69
+00:01:26,680 --> 00:01:28,710
+simple now here what happening is we
+have a user class which is a
+
+70
+00:01:28,710 --> 00:01:28,720
+have a user class which is a
+ 
+
+71
+00:01:28,720 --> 00:01:31,990
+have a user class which is a
+controller now now it has a dependency
+
+72
+00:01:31,990 --> 00:01:32,000
+controller now now it has a dependency
+ 
+
+73
+00:01:32,000 --> 00:01:35,550
+controller now now it has a dependency
+on this order object so I have put Auto
+
+74
+00:01:35,550 --> 00:01:35,560
+on this order object so I have put Auto
+ 
+
+75
+00:01:35,560 --> 00:01:37,950
+on this order object so I have put Auto
+order now what would happen is when you
+
+76
+00:01:37,950 --> 00:01:37,960
+order now what would happen is when you
+ 
+
+77
+00:01:37,960 --> 00:01:40,310
+order now what would happen is when you
+start an application so this controller
+
+78
+00:01:40,310 --> 00:01:40,320
+start an application so this controller
+ 
+
+79
+00:01:40,320 --> 00:01:42,590
+start an application so this controller
+is single turn scope because if you by
+
+80
+00:01:42,590 --> 00:01:42,600
+is single turn scope because if you by
+ 
+
+81
+00:01:42,600 --> 00:01:44,709
+is single turn scope because if you by
+default is a scope so it is eagerly
+
+82
+00:01:44,709 --> 00:01:44,719
+default is a scope so it is eagerly
+ 
+
+83
+00:01:44,719 --> 00:01:46,550
+default is a scope so it is eagerly
+initialized so spring will try to create
+
+84
+00:01:46,550 --> 00:01:46,560
+initialized so spring will try to create
+ 
+
+85
+00:01:46,560 --> 00:01:49,069
+initialized so spring will try to create
+its object and while creating an object
+
+86
+00:01:49,069 --> 00:01:49,079
+its object and while creating an object
+ 
+
+87
+00:01:49,079 --> 00:01:51,550
+its object and while creating an object
+it will try to resolve the dependency
+
+88
+00:01:51,550 --> 00:01:51,560
+it will try to resolve the dependency
+ 
+
+89
+00:01:51,560 --> 00:01:54,749
+it will try to resolve the dependency
+now a spring doesn't know hey Which
+
+90
+00:01:54,749 --> 00:01:54,759
+now a spring doesn't know hey Which
+ 
+
+91
+00:01:54,759 --> 00:01:57,590
+now a spring doesn't know hey Which
+object to assign to this order whether
+
+92
+00:01:57,590 --> 00:01:57,600
+object to assign to this order whether
+ 
+
+93
+00:01:57,600 --> 00:02:00,469
+object to assign to this order whether
+online order or offline order now spring
+
+94
+00:02:00,469 --> 00:02:00,479
+online order or offline order now spring
+ 
+
+95
+00:02:00,479 --> 00:02:02,990
+online order or offline order now spring
+doesn't assume anything so it will just
+
+96
+00:02:02,990 --> 00:02:03,000
+doesn't assume anything so it will just
+ 
+
+97
+00:02:03,000 --> 00:02:05,350
+doesn't assume anything so it will just
+fail application failed to start error
+
+98
+00:02:05,350 --> 00:02:05,360
+fail application failed to start error
+ 
+
+99
+00:02:05,360 --> 00:02:07,590
+fail application failed to start error
+creating Bean with name user it doesn't
+
+100
+00:02:07,590 --> 00:02:07,600
+creating Bean with name user it doesn't
+ 
+
+101
+00:02:07,600 --> 00:02:10,469
+creating Bean with name user it doesn't
+able to create the bean user because it
+
+102
+00:02:10,469 --> 00:02:10,479
+able to create the bean user because it
+ 
+
+103
+00:02:10,479 --> 00:02:14,550
+able to create the bean user because it
+not able to resolve the dependency order
+
+104
+00:02:14,550 --> 00:02:14,560
+not able to resolve the dependency order
+ 
+
+105
+00:02:14,560 --> 00:02:18,030
+not able to resolve the dependency order
+which one online or offline so to solve
+
+106
+00:02:18,030 --> 00:02:18,040
+which one online or offline so to solve
+ 
+
+107
+00:02:18,040 --> 00:02:21,350
+which one online or offline so to solve
+this we see that there is one more that
+
+108
+00:02:21,350 --> 00:02:21,360
+this we see that there is one more that
+ 
+
+109
+00:02:21,360 --> 00:02:23,110
+this we see that there is one more that
+at theate primary and at theate
+
+110
+00:02:23,110 --> 00:02:23,120
+at theate primary and at theate
+ 
+
+111
+00:02:23,120 --> 00:02:26,150
+at theate primary and at theate
+qualifier so how at theate qualifier was
+
+112
+00:02:26,150 --> 00:02:26,160
+qualifier so how at theate qualifier was
+ 
+
+113
+00:02:26,160 --> 00:02:30,430
+qualifier so how at theate qualifier was
+solving it is we provided the qualif
+
+114
+00:02:30,430 --> 00:02:30,440
+solving it is we provided the qualif
+ 
+
+115
+00:02:30,440 --> 00:02:33,110
+solving it is we provided the qualif
+one name to online order so in the
+
+116
+00:02:33,110 --> 00:02:33,120
+one name to online order so in the
+ 
+
+117
+00:02:33,120 --> 00:02:35,589
+one name to online order so in the
+online order above atate component we
+
+118
+00:02:35,589 --> 00:02:35,599
+online order above atate component we
+ 
+
+119
+00:02:35,599 --> 00:02:38,990
+online order above atate component we
+add at theate qualifier give any name
+
+120
+00:02:38,990 --> 00:02:39,000
+add at theate qualifier give any name
+ 
+
+121
+00:02:39,000 --> 00:02:41,229
+add at theate qualifier give any name
+similarly for offline we have added this
+
+122
+00:02:41,229 --> 00:02:41,239
+similarly for offline we have added this
+ 
+
+123
+00:02:41,239 --> 00:02:43,869
+similarly for offline we have added this
+annotation at theate qualifier offline
+
+124
+00:02:43,869 --> 00:02:43,879
+annotation at theate qualifier offline
+ 
+
+125
+00:02:43,879 --> 00:02:45,670
+annotation at theate qualifier offline
+order object any
+
+126
+00:02:45,670 --> 00:02:45,680
+order object any
+ 
+
+127
+00:02:45,680 --> 00:02:48,710
+order object any
+name and in this user
+
+128
+00:02:48,710 --> 00:02:48,720
+name and in this user
+ 
+
+129
+00:02:48,720 --> 00:02:51,910
+name and in this user
+class in this apart from this what we
+
+130
+00:02:51,910 --> 00:02:51,920
+class in this apart from this what we
+ 
+
+131
+00:02:51,920 --> 00:02:54,710
+class in this apart from this what we
+were doing before we have also added
+
+132
+00:02:54,710 --> 00:02:54,720
+were doing before we have also added
+ 
+
+133
+00:02:54,720 --> 00:02:57,110
+were doing before we have also added
+this qualifier hey spring when you are
+
+134
+00:02:57,110 --> 00:02:57,120
+this qualifier hey spring when you are
+ 
+
+135
+00:02:57,120 --> 00:03:01,190
+this qualifier hey spring when you are
+creating an object of user right so
+
+136
+00:03:01,190 --> 00:03:01,200
+creating an object of user right so
+ 
+
+137
+00:03:01,200 --> 00:03:03,830
+creating an object of user right so
+if there are more than one order like
+
+138
+00:03:03,830 --> 00:03:03,840
+if there are more than one order like
+ 
+
+139
+00:03:03,840 --> 00:03:05,470
+if there are more than one order like
+this is just an interface right if there
+
+140
+00:03:05,470 --> 00:03:05,480
+this is just an interface right if there
+ 
+
+141
+00:03:05,480 --> 00:03:08,110
+this is just an interface right if there
+are multiple Childs you can which one
+
+142
+00:03:08,110 --> 00:03:08,120
+are multiple Childs you can which one
+ 
+
+143
+00:03:08,120 --> 00:03:10,710
+are multiple Childs you can which one
+which object you have to assign to this
+
+144
+00:03:10,710 --> 00:03:10,720
+which object you have to assign to this
+ 
+
+145
+00:03:10,720 --> 00:03:13,949
+which object you have to assign to this
+one this this qualifier online order
+
+146
+00:03:13,949 --> 00:03:13,959
+one this this qualifier online order
+ 
+
+147
+00:03:13,959 --> 00:03:16,670
+one this this qualifier online order
+object so this object this class online
+
+148
+00:03:16,670 --> 00:03:16,680
+object so this object this class online
+ 
+
+149
+00:03:16,680 --> 00:03:19,110
+object so this object this class online
+order object will get injected
+
+150
+00:03:19,110 --> 00:03:19,120
+order object will get injected
+ 
+
+151
+00:03:19,120 --> 00:03:23,030
+order object will get injected
+here right so this is where everybody
+
+152
+00:03:23,030 --> 00:03:23,040
+here right so this is where everybody
+ 
+
+153
+00:03:23,040 --> 00:03:25,710
+here right so this is where everybody
+pointed out that hey Shan when we are
+
+154
+00:03:25,710 --> 00:03:25,720
+pointed out that hey Shan when we are
+ 
+
+155
+00:03:25,720 --> 00:03:28,110
+pointed out that hey Shan when we are
+using at theate qualifier it's kind of
+
+156
+00:03:28,110 --> 00:03:28,120
+using at theate qualifier it's kind of
+ 
+
+157
+00:03:28,120 --> 00:03:30,390
+using at theate qualifier it's kind of
+we are hardcoded the value
+
+158
+00:03:30,390 --> 00:03:30,400
+we are hardcoded the value
+ 
+
+159
+00:03:30,400 --> 00:03:32,710
+we are hardcoded the value
+now this order will always be like
+
+160
+00:03:32,710 --> 00:03:32,720
+now this order will always be like
+ 
+
+161
+00:03:32,720 --> 00:03:35,750
+now this order will always be like
+online order object if user wanted
+
+162
+00:03:35,750 --> 00:03:35,760
+online order object if user wanted
+ 
+
+163
+00:03:35,760 --> 00:03:38,309
+online order object if user wanted
+offline you can't do it because now when
+
+164
+00:03:38,309 --> 00:03:38,319
+offline you can't do it because now when
+ 
+
+165
+00:03:38,319 --> 00:03:41,270
+offline you can't do it because now when
+spring will create a user object it will
+
+166
+00:03:41,270 --> 00:03:41,280
+spring will create a user object it will
+ 
+
+167
+00:03:41,280 --> 00:03:44,309
+spring will create a user object it will
+only assign this online order so
+
+168
+00:03:44,309 --> 00:03:44,319
+only assign this online order so
+ 
+
+169
+00:03:44,319 --> 00:03:46,949
+only assign this online order so
+whenever you will hit an API create
+
+170
+00:03:46,949 --> 00:03:46,959
+whenever you will hit an API create
+ 
+
+171
+00:03:46,959 --> 00:03:49,550
+whenever you will hit an API create
+order so order do create order which one
+
+172
+00:03:49,550 --> 00:03:49,560
+order so order do create order which one
+ 
+
+173
+00:03:49,560 --> 00:03:51,949
+order so order do create order which one
+it will invoke online order one created
+
+174
+00:03:51,949 --> 00:03:51,959
+it will invoke online order one created
+ 
+
+175
+00:03:51,959 --> 00:03:56,309
+it will invoke online order one created
+online order created online order so it
+
+176
+00:03:56,309 --> 00:03:56,319
+online order created online order so it
+ 
+
+177
+00:03:56,319 --> 00:03:58,350
+online order created online order so it
+breaks dependency inversion which says
+
+178
+00:03:58,350 --> 00:03:58,360
+breaks dependency inversion which says
+ 
+
+179
+00:03:58,360 --> 00:04:00,350
+breaks dependency inversion which says
+that dynamically you can provide any
+
+180
+00:04:00,350 --> 00:04:00,360
+that dynamically you can provide any
+ 
+
+181
+00:04:00,360 --> 00:04:02,270
+that dynamically you can provide any
+value now it's not Dynamic you have
+
+182
+00:04:02,270 --> 00:04:02,280
+value now it's not Dynamic you have
+ 
+
+183
+00:04:02,280 --> 00:04:06,110
+value now it's not Dynamic you have
+hardcoded it so I'll tell you
+
+184
+00:04:06,110 --> 00:04:06,120
+hardcoded it so I'll tell you
+ 
+
+185
+00:04:06,120 --> 00:04:09,750
+hardcoded it so I'll tell you
+that the first solution for the dynamic
+
+186
+00:04:09,750 --> 00:04:09,760
+that the first solution for the dynamic
+ 
+
+187
+00:04:09,760 --> 00:04:12,710
+that the first solution for the dynamic
+using first is using qualifiers itself
+
+188
+00:04:12,710 --> 00:04:12,720
+using first is using qualifiers itself
+ 
+
+189
+00:04:12,720 --> 00:04:15,789
+using first is using qualifiers itself
+so the same order two Childs online
+
+190
+00:04:15,789 --> 00:04:15,799
+so the same order two Childs online
+ 
+
+191
+00:04:15,799 --> 00:04:18,749
+so the same order two Childs online
+offline the same qualifiers is there for
+
+192
+00:04:18,749 --> 00:04:18,759
+offline the same qualifiers is there for
+ 
+
+193
+00:04:18,759 --> 00:04:21,509
+offline the same qualifiers is there for
+the online order qualifier is present
+
+194
+00:04:21,509 --> 00:04:21,519
+the online order qualifier is present
+ 
+
+195
+00:04:21,519 --> 00:04:25,070
+the online order qualifier is present
+for the offline order now here in the
+
+196
+00:04:25,070 --> 00:04:25,080
+for the offline order now here in the
+ 
+
+197
+00:04:25,080 --> 00:04:28,070
+for the offline order now here in the
+user class what we have done is we have
+
+198
+00:04:28,070 --> 00:04:28,080
+user class what we have done is we have
+ 
+
+199
+00:04:28,080 --> 00:04:31,070
+user class what we have done is we have
+created two objects
+
+200
+00:04:31,070 --> 00:04:31,080
+created two objects
+ 
+
+201
+00:04:31,080 --> 00:04:33,590
+created two objects
+order same one order
+
+202
+00:04:33,590 --> 00:04:33,600
+order same one order
+ 
+
+203
+00:04:33,600 --> 00:04:37,550
+order same one order
+object but qualifier is online order
+
+204
+00:04:37,550 --> 00:04:37,560
+object but qualifier is online order
+ 
+
+205
+00:04:37,560 --> 00:04:40,390
+object but qualifier is online order
+object right so this is the object
+
+206
+00:04:40,390 --> 00:04:40,400
+object right so this is the object
+ 
+
+207
+00:04:40,400 --> 00:04:41,790
+object right so this is the object
+online order
+
+208
+00:04:41,790 --> 00:04:41,800
+online order
+ 
+
+209
+00:04:41,800 --> 00:04:44,390
+online order
+object which is of type order and the
+
+210
+00:04:44,390 --> 00:04:44,400
+object which is of type order and the
+ 
+
+211
+00:04:44,400 --> 00:04:46,830
+object which is of type order and the
+qualifier is online order object another
+
+212
+00:04:46,830 --> 00:04:46,840
+qualifier is online order object another
+ 
+
+213
+00:04:46,840 --> 00:04:50,230
+qualifier is online order object another
+is offline order object again same type
+
+214
+00:04:50,230 --> 00:04:50,240
+is offline order object again same type
+ 
+
+215
+00:04:50,240 --> 00:04:52,430
+is offline order object again same type
+order only and the qualifier is offline
+
+216
+00:04:52,430 --> 00:04:52,440
+order only and the qualifier is offline
+ 
+
+217
+00:04:52,440 --> 00:04:56,710
+order only and the qualifier is offline
+order object okay so see both this
+
+218
+00:04:56,710 --> 00:04:56,720
+order object okay so see both this
+ 
+
+219
+00:04:56,720 --> 00:04:58,469
+order object okay so see both this
+online order and offline order both are
+
+220
+00:04:58,469 --> 00:04:58,479
+online order and offline order both are
+ 
+
+221
+00:04:58,479 --> 00:05:00,870
+online order and offline order both are
+single time both are single turn only
+
+222
+00:05:00,870 --> 00:05:00,880
+single time both are single turn only
+ 
+
+223
+00:05:00,880 --> 00:05:03,629
+single time both are single turn only
+right so both beans will get constructed
+
+224
+00:05:03,629 --> 00:05:03,639
+right so both beans will get constructed
+ 
+
+225
+00:05:03,639 --> 00:05:05,830
+right so both beans will get constructed
+so these Bean will get injected here
+
+226
+00:05:05,830 --> 00:05:05,840
+so these Bean will get injected here
+ 
+
+227
+00:05:05,840 --> 00:05:10,510
+so these Bean will get injected here
+into this respective objects offline
+
+228
+00:05:10,510 --> 00:05:10,520
+into this respective objects offline
+ 
+
+229
+00:05:10,520 --> 00:05:13,670
+into this respective objects offline
+offline order Bean will get injected
+
+230
+00:05:13,670 --> 00:05:13,680
+offline order Bean will get injected
+ 
+
+231
+00:05:13,680 --> 00:05:16,749
+offline order Bean will get injected
+here in this one because of this
+
+232
+00:05:16,749 --> 00:05:16,759
+here in this one because of this
+ 
+
+233
+00:05:16,759 --> 00:05:19,469
+here in this one because of this
+qualifier online order Bean will get
+
+234
+00:05:19,469 --> 00:05:19,479
+qualifier online order Bean will get
+ 
+
+235
+00:05:19,479 --> 00:05:22,550
+qualifier online order Bean will get
+injected here in this object because of
+
+236
+00:05:22,550 --> 00:05:22,560
+injected here in this object because of
+ 
+
+237
+00:05:22,560 --> 00:05:23,309
+injected here in this object because of
+this
+
+238
+00:05:23,309 --> 00:05:23,319
+this
+ 
+
+239
+00:05:23,319 --> 00:05:26,350
+this
+qualifier right so
+
+240
+00:05:26,350 --> 00:05:26,360
+qualifier right so
+ 
+
+241
+00:05:26,360 --> 00:05:30,790
+qualifier right so
+now here we have provided two objects
+
+242
+00:05:30,790 --> 00:05:30,800
+now here we have provided two objects
+ 
+
+243
+00:05:30,800 --> 00:05:32,590
+now here we have provided two objects
+right two
+
+244
+00:05:32,590 --> 00:05:32,600
+right two
+ 
+
+245
+00:05:32,600 --> 00:05:35,430
+right two
+qualifiers two objects now in this
+
+246
+00:05:35,430 --> 00:05:35,440
+qualifiers two objects now in this
+ 
+
+247
+00:05:35,440 --> 00:05:38,909
+qualifiers two objects now in this
+create user now since we want Dynamic
+
+248
+00:05:38,909 --> 00:05:38,919
+create user now since we want Dynamic
+ 
+
+249
+00:05:38,919 --> 00:05:41,510
+create user now since we want Dynamic
+based upon user so now let's say in the
+
+250
+00:05:41,510 --> 00:05:41,520
+based upon user so now let's say in the
+ 
+
+251
+00:05:41,520 --> 00:05:44,350
+based upon user so now let's say in the
+create order I have put okay hey user
+
+252
+00:05:44,350 --> 00:05:44,360
+create order I have put okay hey user
+ 
+
+253
+00:05:44,360 --> 00:05:46,870
+create order I have put okay hey user
+what you wanted is online order whether
+
+254
+00:05:46,870 --> 00:05:46,880
+what you wanted is online order whether
+ 
+
+255
+00:05:46,880 --> 00:05:49,870
+what you wanted is online order whether
+it's true or false is online order if it
+
+256
+00:05:49,870 --> 00:05:49,880
+it's true or false is online order if it
+ 
+
+257
+00:05:49,880 --> 00:05:53,110
+it's true or false is online order if it
+is an online order yes then use online
+
+258
+00:05:53,110 --> 00:05:53,120
+is an online order yes then use online
+ 
+
+259
+00:05:53,120 --> 00:05:56,469
+is an online order yes then use online
+order object create order use this
+
+260
+00:05:56,469 --> 00:05:56,479
+order object create order use this
+ 
+
+261
+00:05:56,479 --> 00:05:59,830
+order object create order use this
+one else if it is false it will go to
+
+262
+00:05:59,830 --> 00:05:59,840
+one else if it is false it will go to
+ 
+
+263
+00:05:59,840 --> 00:06:02,270
+one else if it is false it will go to
+lse part and use offline order object it
+
+264
+00:06:02,270 --> 00:06:02,280
+lse part and use offline order object it
+ 
+
+265
+00:06:02,280 --> 00:06:05,670
+lse part and use offline order object it
+will use this offline
+
+266
+00:06:05,670 --> 00:06:05,680
+will use this offline
+ 
+
+267
+00:06:05,680 --> 00:06:10,150
+will use this offline
+okay so that is clear that how you can
+
+268
+00:06:10,150 --> 00:06:10,160
+okay so that is clear that how you can
+ 
+
+269
+00:06:10,160 --> 00:06:12,510
+okay so that is clear that how you can
+create dynamically using at theate
+
+270
+00:06:12,510 --> 00:06:12,520
+create dynamically using at theate
+ 
+
+271
+00:06:12,520 --> 00:06:14,749
+create dynamically using at theate
+qualifier and this is very very popular
+
+272
+00:06:14,749 --> 00:06:14,759
+qualifier and this is very very popular
+ 
+
+273
+00:06:14,759 --> 00:06:18,790
+qualifier and this is very very popular
+way this is how actually in live today
+
+274
+00:06:18,790 --> 00:06:18,800
+way this is how actually in live today
+ 
+
+275
+00:06:18,800 --> 00:06:20,950
+way this is how actually in live today
+industry does it so it's a industry
+
+276
+00:06:20,950 --> 00:06:20,960
+industry does it so it's a industry
+ 
+
+277
+00:06:20,960 --> 00:06:23,909
+industry does it so it's a industry
+standard way of doing it so the second
+
+278
+00:06:23,909 --> 00:06:23,919
+standard way of doing it so the second
+ 
+
+279
+00:06:23,919 --> 00:06:25,430
+standard way of doing it so the second
+this is kind of a second solution where
+
+280
+00:06:25,430 --> 00:06:25,440
+this is kind of a second solution where
+ 
+
+281
+00:06:25,440 --> 00:06:28,029
+this is kind of a second solution where
+you can dynamically uh initialize your
+
+282
+00:06:28,029 --> 00:06:28,039
+you can dynamically uh initialize your
+ 
+
+283
+00:06:28,039 --> 00:06:31,629
+you can dynamically uh initialize your
+bean so in the second way I have created
+
+284
+00:06:31,629 --> 00:06:31,639
+bean so in the second way I have created
+ 
+
+285
+00:06:31,639 --> 00:06:32,350
+bean so in the second way I have created
+an
+
+286
+00:06:32,350 --> 00:06:32,360
+an
+ 
+
+287
+00:06:32,360 --> 00:06:35,029
+an
+order you have online order offline
+
+288
+00:06:35,029 --> 00:06:35,039
+order you have online order offline
+ 
+
+289
+00:06:35,039 --> 00:06:37,589
+order you have online order offline
+order now notice that there is no add
+
+290
+00:06:37,589 --> 00:06:37,599
+order now notice that there is no add
+ 
+
+291
+00:06:37,599 --> 00:06:38,589
+order now notice that there is no add
+theate
+
+292
+00:06:38,589 --> 00:06:38,599
+theate
+ 
+
+293
+00:06:38,599 --> 00:06:41,589
+theate
+component there is no at theate
+
+294
+00:06:41,589 --> 00:06:41,599
+component there is no at theate
+ 
+
+295
+00:06:41,599 --> 00:06:44,710
+component there is no at theate
+component here too where I am using
+
+296
+00:06:44,710 --> 00:06:44,720
+component here too where I am using
+ 
+
+297
+00:06:44,720 --> 00:06:47,749
+component here too where I am using
+configuration Bean that's why I am
+
+298
+00:06:47,749 --> 00:06:47,759
+configuration Bean that's why I am
+ 
+
+299
+00:06:47,759 --> 00:06:50,550
+configuration Bean that's why I am
+manually providing the configuration
+
+300
+00:06:50,550 --> 00:06:50,560
+manually providing the configuration
+ 
+
+301
+00:06:50,560 --> 00:06:53,350
+manually providing the configuration
+now okay so
+
+302
+00:06:53,350 --> 00:06:53,360
+now okay so
+ 
+
+303
+00:06:53,360 --> 00:06:56,390
+now okay so
+now rest all the code is same so rest
+
+304
+00:06:56,390 --> 00:06:56,400
+now rest all the code is same so rest
+ 
+
+305
+00:06:56,400 --> 00:06:59,029
+now rest all the code is same so rest
+all code is same no changes only thing
+
+306
+00:06:59,029 --> 00:06:59,039
+all code is same no changes only thing
+ 
+
+307
+00:06:59,039 --> 00:07:00,510
+all code is same no changes only thing
+is
+
+308
+00:07:00,510 --> 00:07:00,520
+is
+ 
+
+309
+00:07:00,520 --> 00:07:02,589
+is
+I am using now atate bean I have already
+
+310
+00:07:02,589 --> 00:07:02,599
+I am using now atate bean I have already
+ 
+
+311
+00:07:02,599 --> 00:07:05,270
+I am using now atate bean I have already
+explained uh how to create a bean using
+
+312
+00:07:05,270 --> 00:07:05,280
+explained uh how to create a bean using
+ 
+
+313
+00:07:05,280 --> 00:07:06,909
+explained uh how to create a bean using
+at theate Bean
+
+314
+00:07:06,909 --> 00:07:06,919
+at theate Bean
+ 
+
+315
+00:07:06,919 --> 00:07:09,589
+at theate Bean
+annotation now here see what I have done
+
+316
+00:07:09,589 --> 00:07:09,599
+annotation now here see what I have done
+ 
+
+317
+00:07:09,599 --> 00:07:11,830
+annotation now here see what I have done
+is create order Bean so return type is
+
+318
+00:07:11,830 --> 00:07:11,840
+is create order Bean so return type is
+ 
+
+319
+00:07:11,840 --> 00:07:14,469
+is create order Bean so return type is
+order so it will create an order type
+
+320
+00:07:14,469 --> 00:07:14,479
+order so it will create an order type
+ 
+
+321
+00:07:14,479 --> 00:07:17,550
+order so it will create an order type
+whether online order or offline order
+
+322
+00:07:17,550 --> 00:07:17,560
+whether online order or offline order
+ 
+
+323
+00:07:17,560 --> 00:07:20,230
+whether online order or offline order
+but I want dynamically so I want I what
+
+324
+00:07:20,230 --> 00:07:20,240
+but I want dynamically so I want I what
+ 
+
+325
+00:07:20,240 --> 00:07:23,230
+but I want dynamically so I want I what
+I did is used at the rate value
+
+326
+00:07:23,230 --> 00:07:23,240
+I did is used at the rate value
+ 
+
+327
+00:07:23,240 --> 00:07:26,189
+I did is used at the rate value
+annotation so at theate Value annotation
+
+328
+00:07:26,189 --> 00:07:26,199
+annotation so at theate Value annotation
+ 
+
+329
+00:07:26,199 --> 00:07:28,589
+annotation so at theate Value annotation
+and this is a placeholder this is how
+
+330
+00:07:28,589 --> 00:07:28,599
+and this is a placeholder this is how
+ 
+
+331
+00:07:28,599 --> 00:07:30,270
+and this is a placeholder this is how
+you do it
+
+332
+00:07:30,270 --> 00:07:30,280
+you do it
+ 
+
+333
+00:07:30,280 --> 00:07:34,029
+you do it
+okay Boolean is Boolean is online order
+
+334
+00:07:34,029 --> 00:07:34,039
+okay Boolean is Boolean is online order
+ 
+
+335
+00:07:34,039 --> 00:07:35,830
+okay Boolean is Boolean is online order
+and this condition is same if it is
+
+336
+00:07:35,830 --> 00:07:35,840
+and this condition is same if it is
+ 
+
+337
+00:07:35,840 --> 00:07:39,589
+and this condition is same if it is
+online order return online order object
+
+338
+00:07:39,589 --> 00:07:39,599
+online order return online order object
+ 
+
+339
+00:07:39,599 --> 00:07:42,830
+online order return online order object
+else return offline order object now you
+
+340
+00:07:42,830 --> 00:07:42,840
+else return offline order object now you
+ 
+
+341
+00:07:42,840 --> 00:07:46,189
+else return offline order object now you
+can ask me hey from where this value
+
+342
+00:07:46,189 --> 00:07:46,199
+can ask me hey from where this value
+ 
+
+343
+00:07:46,199 --> 00:07:49,550
+can ask me hey from where this value
+comes see at theate value
+
+344
+00:07:49,550 --> 00:07:49,560
+comes see at theate value
+ 
+
+345
+00:07:49,560 --> 00:07:53,070
+comes see at theate value
+means at theate Value is used to inject
+
+346
+00:07:53,070 --> 00:07:53,080
+means at theate Value is used to inject
+ 
+
+347
+00:07:53,080 --> 00:07:55,830
+means at theate Value is used to inject
+values from various sources like
+
+348
+00:07:55,830 --> 00:07:55,840
+values from various sources like
+ 
+
+349
+00:07:55,840 --> 00:07:57,070
+values from various sources like
+property
+
+350
+00:07:57,070 --> 00:07:57,080
+property
+ 
+
+351
+00:07:57,080 --> 00:08:00,790
+property
+file environment variables or inline
+
+352
+00:08:00,790 --> 00:08:00,800
+file environment variables or inline
+ 
+
+353
+00:08:00,800 --> 00:08:04,309
+file environment variables or inline
+literals so in this examples this value
+
+354
+00:08:04,309 --> 00:08:04,319
+literals so in this examples this value
+ 
+
+355
+00:08:04,319 --> 00:08:07,909
+literals so in this examples this value
+is coming from configuration so in there
+
+356
+00:08:07,909 --> 00:08:07,919
+is coming from configuration so in there
+ 
+
+357
+00:08:07,919 --> 00:08:09,309
+is coming from configuration so in there
+is something called application do
+
+358
+00:08:09,309 --> 00:08:09,319
+is something called application do
+ 
+
+359
+00:08:09,319 --> 00:08:10,909
+is something called application do
+properties I have already explained you
+
+360
+00:08:10,909 --> 00:08:10,919
+properties I have already explained you
+ 
+
+361
+00:08:10,919 --> 00:08:14,189
+properties I have already explained you
+in the May one uh May one video right I
+
+362
+00:08:14,189 --> 00:08:14,199
+in the May one uh May one video right I
+ 
+
+363
+00:08:14,199 --> 00:08:16,909
+in the May one uh May one video right I
+think from starting third or fourth in
+
+364
+00:08:16,909 --> 00:08:16,919
+think from starting third or fourth in
+ 
+
+365
+00:08:16,919 --> 00:08:18,990
+think from starting third or fourth in
+this playlist so in the application.
+
+366
+00:08:18,990 --> 00:08:19,000
+this playlist so in the application.
+ 
+
+367
+00:08:19,000 --> 00:08:22,189
+this playlist so in the application.
+properties I have said is online order I
+
+368
+00:08:22,189 --> 00:08:22,199
+properties I have said is online order I
+ 
+
+369
+00:08:22,199 --> 00:08:23,350
+properties I have said is online order I
+have put
+
+370
+00:08:23,350 --> 00:08:23,360
+have put
+ 
+
+371
+00:08:23,360 --> 00:08:27,430
+have put
+false so now what would happen is this
+
+372
+00:08:27,430 --> 00:08:27,440
+false so now what would happen is this
+ 
+
+373
+00:08:27,440 --> 00:08:32,870
+false so now what would happen is this
+configuration ultimately get set it to
+
+374
+00:08:32,870 --> 00:08:32,880
+configuration ultimately get set it to
+ 
+
+375
+00:08:32,880 --> 00:08:35,630
+
+here right so what spring will does is
+
+376
+00:08:35,630 --> 00:08:35,640
+here right so what spring will does is
+ 
+
+377
+00:08:35,640 --> 00:08:37,589
+here right so what spring will does is
+so whenever spring will see that okay
+
+378
+00:08:37,589 --> 00:08:37,599
+so whenever spring will see that okay
+ 
+
+379
+00:08:37,599 --> 00:08:39,990
+so whenever spring will see that okay
+atate value is there and whatever the
+
+380
+00:08:39,990 --> 00:08:40,000
+atate value is there and whatever the
+ 
+
+381
+00:08:40,000 --> 00:08:42,949
+atate value is there and whatever the
+placeholder is online order now spring
+
+382
+00:08:42,949 --> 00:08:42,959
+placeholder is online order now spring
+ 
+
+383
+00:08:42,959 --> 00:08:45,590
+placeholder is online order now spring
+will see okay in the configuration is
+
+384
+00:08:45,590 --> 00:08:45,600
+will see okay in the configuration is
+ 
+
+385
+00:08:45,600 --> 00:08:48,590
+will see okay in the configuration is
+same value present if yes it will use
+
+386
+00:08:48,590 --> 00:08:48,600
+same value present if yes it will use
+ 
+
+387
+00:08:48,600 --> 00:08:51,990
+same value present if yes it will use
+this so the false would be assigned
+
+388
+00:08:51,990 --> 00:08:52,000
+this so the false would be assigned
+ 
+
+389
+00:08:52,000 --> 00:08:54,230
+this so the false would be assigned
+here so now what would happen is is
+
+390
+00:08:54,230 --> 00:08:54,240
+here so now what would happen is is
+ 
+
+391
+00:08:54,240 --> 00:08:56,389
+here so now what would happen is is
+online order false it will return
+
+392
+00:08:56,389 --> 00:08:56,399
+online order false it will return
+ 
+
+393
+00:08:56,399 --> 00:09:00,350
+online order false it will return
+offline order object Okay so whenever
+
+394
+00:09:00,350 --> 00:09:00,360
+offline order object Okay so whenever
+ 
+
+395
+00:09:00,360 --> 00:09:04,670
+offline order object Okay so whenever
+spring has to create a bean of order it
+
+396
+00:09:04,670 --> 00:09:04,680
+spring has to create a bean of order it
+ 
+
+397
+00:09:04,680 --> 00:09:06,150
+spring has to create a bean of order it
+will now use
+
+398
+00:09:06,150 --> 00:09:06,160
+will now use
+ 
+
+399
+00:09:06,160 --> 00:09:08,949
+will now use
+this okay so now what would happen when
+
+400
+00:09:08,949 --> 00:09:08,959
+this okay so now what would happen when
+ 
+
+401
+00:09:08,959 --> 00:09:12,030
+this okay so now what would happen when
+you start an application so in the user
+
+402
+00:09:12,030 --> 00:09:12,040
+you start an application so in the user
+ 
+
+403
+00:09:12,040 --> 00:09:14,630
+you start an application so in the user
+here if you see this is at theate
+
+404
+00:09:14,630 --> 00:09:14,640
+here if you see this is at theate
+ 
+
+405
+00:09:14,640 --> 00:09:17,470
+here if you see this is at theate
+controller and it's a single turn so
+
+406
+00:09:17,470 --> 00:09:17,480
+controller and it's a single turn so
+ 
+
+407
+00:09:17,480 --> 00:09:19,230
+controller and it's a single turn so
+during application startup eagerly
+
+408
+00:09:19,230 --> 00:09:19,240
+during application startup eagerly
+ 
+
+409
+00:09:19,240 --> 00:09:22,430
+during application startup eagerly
+spring triy to initialize this eagerly
+
+410
+00:09:22,430 --> 00:09:22,440
+spring triy to initialize this eagerly
+ 
+
+411
+00:09:22,440 --> 00:09:24,829
+spring triy to initialize this eagerly
+so it will create a user
+
+412
+00:09:24,829 --> 00:09:24,839
+so it will create a user
+ 
+
+413
+00:09:24,839 --> 00:09:27,670
+so it will create a user
+be now it will see that any dependency
+
+414
+00:09:27,670 --> 00:09:27,680
+be now it will see that any dependency
+ 
+
+415
+00:09:27,680 --> 00:09:30,750
+be now it will see that any dependency
+yes order it has to to resolve so now
+
+416
+00:09:30,750 --> 00:09:30,760
+yes order it has to to resolve so now
+ 
+
+417
+00:09:30,760 --> 00:09:33,069
+yes order it has to to resolve so now
+spring tries to resolve or create an
+
+418
+00:09:33,069 --> 00:09:33,079
+spring tries to resolve or create an
+ 
+
+419
+00:09:33,079 --> 00:09:37,150
+spring tries to resolve or create an
+order being which one online or offline
+
+420
+00:09:37,150 --> 00:09:37,160
+order being which one online or offline
+ 
+
+421
+00:09:37,160 --> 00:09:38,870
+order being which one online or offline
+now here if you see no at theate
+
+422
+00:09:38,870 --> 00:09:38,880
+now here if you see no at theate
+ 
+
+423
+00:09:38,880 --> 00:09:41,310
+now here if you see no at theate
+component is present
+
+424
+00:09:41,310 --> 00:09:41,320
+component is present
+ 
+
+425
+00:09:41,320 --> 00:09:43,590
+component is present
+so it will see okay is there any
+
+426
+00:09:43,590 --> 00:09:43,600
+so it will see okay is there any
+ 
+
+427
+00:09:43,600 --> 00:09:45,870
+so it will see okay is there any
+configuration I have been provided yes
+
+428
+00:09:45,870 --> 00:09:45,880
+configuration I have been provided yes
+ 
+
+429
+00:09:45,880 --> 00:09:48,509
+configuration I have been provided yes
+there is a configuration provided for
+
+430
+00:09:48,509 --> 00:09:48,519
+there is a configuration provided for
+ 
+
+431
+00:09:48,519 --> 00:09:51,790
+there is a configuration provided for
+order now it will use this now it will
+
+432
+00:09:51,790 --> 00:09:51,800
+order now it will use this now it will
+ 
+
+433
+00:09:51,800 --> 00:09:53,990
+order now it will use this now it will
+run this and see that okay at theate
+
+434
+00:09:53,990 --> 00:09:54,000
+run this and see that okay at theate
+ 
+
+435
+00:09:54,000 --> 00:09:56,069
+run this and see that okay at theate
+Value any property file something
+
+436
+00:09:56,069 --> 00:09:56,079
+Value any property file something
+ 
+
+437
+00:09:56,079 --> 00:09:58,310
+Value any property file something
+present yes in property file a table to
+
+438
+00:09:58,310 --> 00:09:58,320
+present yes in property file a table to
+ 
+
+439
+00:09:58,320 --> 00:10:00,150
+present yes in property file a table to
+find this value
+
+440
+00:10:00,150 --> 00:10:00,160
+find this value
+ 
+
+441
+00:10:00,160 --> 00:10:03,030
+find this value
+false okay offline order so this will
+
+442
+00:10:03,030 --> 00:10:03,040
+false okay offline order so this will
+ 
+
+443
+00:10:03,040 --> 00:10:04,750
+false okay offline order so this will
+get inserted
+
+444
+00:10:04,750 --> 00:10:04,760
+get inserted
+ 
+
+445
+00:10:04,760 --> 00:10:06,949
+get inserted
+with offline
+
+446
+00:10:06,949 --> 00:10:06,959
+with offline
+ 
+
+447
+00:10:06,959 --> 00:10:10,030
+with offline
+order okay and when you will hit this
+
+448
+00:10:10,030 --> 00:10:10,040
+order okay and when you will hit this
+ 
+
+449
+00:10:10,040 --> 00:10:13,190
+order okay and when you will hit this
+API order. create order will be called
+
+450
+00:10:13,190 --> 00:10:13,200
+API order. create order will be called
+ 
+
+451
+00:10:13,200 --> 00:10:15,949
+API order. create order will be called
+offline order created offline
+
+452
+00:10:15,949 --> 00:10:15,959
+offline order created offline
+ 
+
+453
+00:10:15,959 --> 00:10:17,949
+offline order created offline
+order and if you want to change
+
+454
+00:10:17,949 --> 00:10:17,959
+order and if you want to change
+ 
+
+455
+00:10:17,959 --> 00:10:19,870
+order and if you want to change
+dynamically in the application.
+
+456
+00:10:19,870 --> 00:10:19,880
+dynamically in the application.
+ 
+
+457
+00:10:19,880 --> 00:10:21,949
+dynamically in the application.
+properties itself change it to
+
+458
+00:10:21,949 --> 00:10:21,959
+properties itself change it to
+ 
+
+459
+00:10:21,959 --> 00:10:24,670
+properties itself change it to
+true when you change it to true
+
+460
+00:10:24,670 --> 00:10:24,680
+true when you change it to true
+ 
+
+461
+00:10:24,680 --> 00:10:27,150
+true when you change it to true
+ultimately this will get changed to
+
+462
+00:10:27,150 --> 00:10:27,160
+ultimately this will get changed to
+ 
+
+463
+00:10:27,160 --> 00:10:29,710
+ultimately this will get changed to
+online order because it's like true it
+
+464
+00:10:29,710 --> 00:10:29,720
+online order because it's like true it
+ 
+
+465
+00:10:29,720 --> 00:10:31,710
+online order because it's like true it
+will return online order so see
+
+466
+00:10:31,710 --> 00:10:31,720
+will return online order so see
+ 
+
+467
+00:10:31,720 --> 00:10:33,949
+will return online order so see
+dynamically we are changing it but here
+
+468
+00:10:33,949 --> 00:10:33,959
+dynamically we are changing it but here
+ 
+
+469
+00:10:33,959 --> 00:10:36,870
+dynamically we are changing it but here
+instead of uh client input we are
+
+470
+00:10:36,870 --> 00:10:36,880
+instead of uh client input we are
+ 
+
+471
+00:10:36,880 --> 00:10:39,350
+instead of uh client input we are
+changing it based on
+
+472
+00:10:39,350 --> 00:10:39,360
+changing it based on
+ 
+
+473
+00:10:39,360 --> 00:10:41,550
+changing it based on
+configuration and then the first example
+
+474
+00:10:41,550 --> 00:10:41,560
+configuration and then the first example
+ 
+
+475
+00:10:41,560 --> 00:10:42,990
+configuration and then the first example
+we have seen based on the client input
+
+476
+00:10:42,990 --> 00:10:43,000
+we have seen based on the client input
+ 
+
+477
+00:10:43,000 --> 00:10:45,750
+we have seen based on the client input
+how you can do
+
+478
+00:10:45,750 --> 00:10:45,760
+
+ 
+
+479
+00:10:45,760 --> 00:10:48,550
+
+it okay so you understand this at the
+
+480
+00:10:48,550 --> 00:10:48,560
+it okay so you understand this at the
+ 
+
+481
+00:10:48,560 --> 00:10:50,150
+it okay so you understand this at the
+rate value right it is used to inject
+
+482
+00:10:50,150 --> 00:10:50,160
+rate value right it is used to inject
+ 
+
+483
+00:10:50,160 --> 00:10:51,949
+rate value right it is used to inject
+value from various sources like property
+
+484
+00:10:51,949 --> 00:10:51,959
+value from various sources like property
+ 
+
+485
+00:10:51,959 --> 00:10:55,230
+value from various sources like property
+file and inline literals inline literals
+
+486
+00:10:55,230 --> 00:10:55,240
+file and inline literals inline literals
+ 
+
+487
+00:10:55,240 --> 00:10:57,430
+file and inline literals inline literals
+means you can also provide at theate
+
+488
+00:10:57,430 --> 00:10:57,440
+means you can also provide at theate
+ 
+
+489
+00:10:57,440 --> 00:10:59,550
+means you can also provide at theate
+Value directly literal a string l you
+
+490
+00:10:59,550 --> 00:10:59,560
+Value directly literal a string l you
+ 
+
+491
+00:10:59,560 --> 00:11:02,310
+Value directly literal a string l you
+have provided false true
+
+492
+00:11:02,310 --> 00:11:02,320
+have provided false true
+ 
+
+493
+00:11:02,320 --> 00:11:04,750
+have provided false true
+directly right so this value will get
+
+494
+00:11:04,750 --> 00:11:04,760
+directly right so this value will get
+ 
+
+495
+00:11:04,760 --> 00:11:06,829
+directly right so this value will get
+set to whatever you have set so in this
+
+496
+00:11:06,829 --> 00:11:06,839
+set to whatever you have set so in this
+ 
+
+497
+00:11:06,839 --> 00:11:07,750
+set to whatever you have set so in this
+case
+
+498
+00:11:07,750 --> 00:11:07,760
+case
+ 
+
+499
+00:11:07,760 --> 00:11:10,910
+case
+false I hope this should be clear now
+
+500
+00:11:10,910 --> 00:11:10,920
+false I hope this should be clear now
+ 
+
+501
+00:11:10,920 --> 00:11:13,030
+false I hope this should be clear now
+how to dynamically initialization of
+
+502
+00:11:13,030 --> 00:11:13,040
+how to dynamically initialization of
+ 
+
+503
+00:11:13,040 --> 00:11:14,710
+how to dynamically initialization of
+Bean if there is any doubt let me know
+
+504
+00:11:14,710 --> 00:11:14,720
+Bean if there is any doubt let me know
+ 
+
+505
+00:11:14,720 --> 00:11:19,480
+Bean if there is any doubt let me know
+we can discuss further thank you bye
+

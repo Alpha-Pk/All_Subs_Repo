@@ -1,0 +1,6335 @@
+1
+00:00:01,520 --> 00:00:03,110
+
+hey guys welcome to concept and coding
+
+2
+00:00:03,110 --> 00:00:03,120
+hey guys welcome to concept and coding
+ 
+
+3
+00:00:03,120 --> 00:00:05,110
+hey guys welcome to concept and coding
+this is Shan and today in the spring
+
+4
+00:00:05,110 --> 00:00:05,120
+this is Shan and today in the spring
+ 
+
+5
+00:00:05,120 --> 00:00:07,590
+this is Shan and today in the spring
+boot video we are going to cover the
+
+6
+00:00:07,590 --> 00:00:07,600
+boot video we are going to cover the
+ 
+
+7
+00:00:07,600 --> 00:00:10,310
+boot video we are going to cover the
+custom interceptors right very very
+
+8
+00:00:10,310 --> 00:00:10,320
+custom interceptors right very very
+ 
+
+9
+00:00:10,320 --> 00:00:12,350
+custom interceptors right very very
+important topic because in future
+
+10
+00:00:12,350 --> 00:00:12,360
+important topic because in future
+ 
+
+11
+00:00:12,360 --> 00:00:15,269
+important topic because in future
+whatever the topics we are going to
+
+12
+00:00:15,269 --> 00:00:15,279
+whatever the topics we are going to
+ 
+
+13
+00:00:15,279 --> 00:00:19,390
+whatever the topics we are going to
+cover caching logging authentication we
+
+14
+00:00:19,390 --> 00:00:19,400
+cover caching logging authentication we
+ 
+
+15
+00:00:19,400 --> 00:00:22,230
+cover caching logging authentication we
+might have to write our own custom
+
+16
+00:00:22,230 --> 00:00:22,240
+might have to write our own custom
+ 
+
+17
+00:00:22,240 --> 00:00:25,189
+might have to write our own custom
+interceptors so before we touch those
+
+18
+00:00:25,189 --> 00:00:25,199
+interceptors so before we touch those
+ 
+
+19
+00:00:25,199 --> 00:00:28,310
+interceptors so before we touch those
+topics this has to be pretty clear so
+
+20
+00:00:28,310 --> 00:00:28,320
+topics this has to be pretty clear so
+ 
+
+21
+00:00:28,320 --> 00:00:30,509
+topics this has to be pretty clear so
+what is Interceptor actually
+
+22
+00:00:30,509 --> 00:00:30,519
+what is Interceptor actually
+ 
+
+23
+00:00:30,519 --> 00:00:33,869
+what is Interceptor actually
+uh so I would say in a very simple words
+
+24
+00:00:33,869 --> 00:00:33,879
+uh so I would say in a very simple words
+ 
+
+25
+00:00:33,879 --> 00:00:34,950
+uh so I would say in a very simple words
+it's a
+
+26
+00:00:34,950 --> 00:00:34,960
+it's a
+ 
+
+27
+00:00:34,960 --> 00:00:39,030
+it's a
+mediator which get invoked before or
+
+28
+00:00:39,030 --> 00:00:39,040
+mediator which get invoked before or
+ 
+
+29
+00:00:39,040 --> 00:00:41,910
+mediator which get invoked before or
+after your actual
+
+30
+00:00:41,910 --> 00:00:41,920
+after your actual
+ 
+
+31
+00:00:41,920 --> 00:00:45,590
+after your actual
+code right so this is what we can say as
+
+32
+00:00:45,590 --> 00:00:45,600
+code right so this is what we can say as
+ 
+
+33
+00:00:45,600 --> 00:00:48,430
+code right so this is what we can say as
+an
+
+34
+00:00:48,430 --> 00:00:48,440
+
+ 
+
+35
+00:00:48,440 --> 00:00:51,750
+
+Interceptor so this is the two
+
+36
+00:00:51,750 --> 00:00:51,760
+Interceptor so this is the two
+ 
+
+37
+00:00:51,760 --> 00:00:53,709
+Interceptor so this is the two
+prerequisite video I would like to
+
+38
+00:00:53,709 --> 00:00:53,719
+prerequisite video I would like to
+ 
+
+39
+00:00:53,719 --> 00:00:55,990
+prerequisite video I would like to
+suggest and the links I will give you in
+
+40
+00:00:55,990 --> 00:00:56,000
+suggest and the links I will give you in
+ 
+
+41
+00:00:56,000 --> 00:00:58,790
+suggest and the links I will give you in
+the description section that this is the
+
+42
+00:00:58,790 --> 00:00:58,800
+the description section that this is the
+ 
+
+43
+00:00:58,800 --> 00:01:01,549
+the description section that this is the
+Java ins this Java playlist you will get
+
+44
+00:01:01,549 --> 00:01:01,559
+Java ins this Java playlist you will get
+ 
+
+45
+00:01:01,559 --> 00:01:03,830
+Java ins this Java playlist you will get
+this annotation video in depth and in
+
+46
+00:01:03,830 --> 00:01:03,840
+this annotation video in depth and in
+ 
+
+47
+00:01:03,840 --> 00:01:06,469
+this annotation video in depth and in
+the spring boot playlist itself I hope
+
+48
+00:01:06,469 --> 00:01:06,479
+the spring boot playlist itself I hope
+ 
+
+49
+00:01:06,479 --> 00:01:07,990
+the spring boot playlist itself I hope
+that if you are watching this
+
+50
+00:01:07,990 --> 00:01:08,000
+that if you are watching this
+ 
+
+51
+00:01:08,000 --> 00:01:10,429
+that if you are watching this
+Interceptor video uh you are following
+
+52
+00:01:10,429 --> 00:01:10,439
+Interceptor video uh you are following
+ 
+
+53
+00:01:10,439 --> 00:01:13,310
+Interceptor video uh you are following
+the sequence and aop you have already
+
+54
+00:01:13,310 --> 00:01:13,320
+the sequence and aop you have already
+ 
+
+55
+00:01:13,320 --> 00:01:17,070
+the sequence and aop you have already
+covered okay with that being said let's
+
+56
+00:01:17,070 --> 00:01:17,080
+covered okay with that being said let's
+ 
+
+57
+00:01:17,080 --> 00:01:20,990
+covered okay with that being said let's
+start with the custom
+
+58
+00:01:20,990 --> 00:01:21,000
+start with the custom
+ 
+
+59
+00:01:21,000 --> 00:01:24,590
+start with the custom
+interceptors so now the first is we have
+
+60
+00:01:24,590 --> 00:01:24,600
+interceptors so now the first is we have
+ 
+
+61
+00:01:24,600 --> 00:01:27,030
+interceptors so now the first is we have
+to write a custom Interceptor for
+
+62
+00:01:27,030 --> 00:01:27,040
+to write a custom Interceptor for
+ 
+
+63
+00:01:27,040 --> 00:01:30,270
+to write a custom Interceptor for
+request before even reaching to a
+
+64
+00:01:30,270 --> 00:01:30,280
+request before even reaching to a
+ 
+
+65
+00:01:30,280 --> 00:01:33,990
+request before even reaching to a
+specific controller class right so now
+
+66
+00:01:33,990 --> 00:01:34,000
+specific controller class right so now
+ 
+
+67
+00:01:34,000 --> 00:01:35,950
+specific controller class right so now
+let's say that take this example very
+
+68
+00:01:35,950 --> 00:01:35,960
+let's say that take this example very
+ 
+
+69
+00:01:35,960 --> 00:01:38,630
+let's say that take this example very
+very simple example I have taken a user
+
+70
+00:01:38,630 --> 00:01:38,640
+very simple example I have taken a user
+ 
+
+71
+00:01:38,640 --> 00:01:41,670
+very simple example I have taken a user
+controller I have written One controller
+
+72
+00:01:41,670 --> 00:01:41,680
+controller I have written One controller
+ 
+
+73
+00:01:41,680 --> 00:01:44,230
+controller I have written One controller
+rest controller user
+
+74
+00:01:44,230 --> 00:01:44,240
+rest controller user
+ 
+
+75
+00:01:44,240 --> 00:01:46,910
+rest controller user
+controller it has one method which I
+
+76
+00:01:46,910 --> 00:01:46,920
+controller it has one method which I
+ 
+
+77
+00:01:46,920 --> 00:01:49,950
+controller it has one method which I
+have put get mapping annotation and the
+
+78
+00:01:49,950 --> 00:01:49,960
+have put get mapping annotation and the
+ 
+
+79
+00:01:49,960 --> 00:01:52,310
+have put get mapping annotation and the
+path I have given is get
+
+80
+00:01:52,310 --> 00:01:52,320
+path I have given is get
+ 
+
+81
+00:01:52,320 --> 00:01:57,749
+path I have given is get
+user but I want some custom Interceptor
+
+82
+00:01:57,749 --> 00:01:57,759
+user but I want some custom Interceptor
+ 
+
+83
+00:01:57,759 --> 00:02:00,550
+user but I want some custom Interceptor
+before even my controller get
+
+84
+00:02:00,550 --> 00:02:00,560
+before even my controller get
+ 
+
+85
+00:02:00,560 --> 00:02:03,550
+before even my controller get
+involed now if you remember the very
+
+86
+00:02:03,550 --> 00:02:03,560
+involed now if you remember the very
+ 
+
+87
+00:02:03,560 --> 00:02:05,469
+involed now if you remember the very
+very first video of the spring boot
+
+88
+00:02:05,469 --> 00:02:05,479
+very first video of the spring boot
+ 
+
+89
+00:02:05,479 --> 00:02:08,469
+very first video of the spring boot
+playlist intro introduction there I
+
+90
+00:02:08,469 --> 00:02:08,479
+playlist intro introduction there I
+ 
+
+91
+00:02:08,479 --> 00:02:11,390
+playlist intro introduction there I
+showed you this diagram right so when
+
+92
+00:02:11,390 --> 00:02:11,400
+showed you this diagram right so when
+ 
+
+93
+00:02:11,400 --> 00:02:14,470
+showed you this diagram right so when
+the request actually comes right first
+
+94
+00:02:14,470 --> 00:02:14,480
+the request actually comes right first
+ 
+
+95
+00:02:14,480 --> 00:02:17,910
+the request actually comes right first
+it goes to uh the sulet container right
+
+96
+00:02:17,910 --> 00:02:17,920
+it goes to uh the sulet container right
+ 
+
+97
+00:02:17,920 --> 00:02:20,710
+it goes to uh the sulet container right
+where our application is deployed then
+
+98
+00:02:20,710 --> 00:02:20,720
+where our application is deployed then
+ 
+
+99
+00:02:20,720 --> 00:02:23,070
+where our application is deployed then
+we have something called dispatcher
+
+100
+00:02:23,070 --> 00:02:23,080
+we have something called dispatcher
+ 
+
+101
+00:02:23,080 --> 00:02:26,509
+we have something called dispatcher
+sulet so dispatcher suet is one which is
+
+102
+00:02:26,509 --> 00:02:26,519
+sulet so dispatcher suet is one which is
+ 
+
+103
+00:02:26,519 --> 00:02:28,830
+sulet so dispatcher suet is one which is
+responsible right okay the with the
+
+104
+00:02:28,830 --> 00:02:28,840
+responsible right okay the with the
+ 
+
+105
+00:02:28,840 --> 00:02:30,710
+responsible right okay the with the
+request which is coming
+
+106
+00:02:30,710 --> 00:02:30,720
+request which is coming
+ 
+
+107
+00:02:30,720 --> 00:02:33,350
+request which is coming
+which controller it should assign to so
+
+108
+00:02:33,350 --> 00:02:33,360
+which controller it should assign to so
+ 
+
+109
+00:02:33,360 --> 00:02:35,309
+which controller it should assign to so
+it will choose the controller
+
+110
+00:02:35,309 --> 00:02:35,319
+it will choose the controller
+ 
+
+111
+00:02:35,319 --> 00:02:40,550
+it will choose the controller
+also okay so now we want a custom
+
+112
+00:02:40,550 --> 00:02:40,560
+also okay so now we want a custom
+ 
+
+113
+00:02:40,560 --> 00:02:43,270
+also okay so now we want a custom
+Interceptor before reaching to our
+
+114
+00:02:43,270 --> 00:02:43,280
+Interceptor before reaching to our
+ 
+
+115
+00:02:43,280 --> 00:02:46,270
+Interceptor before reaching to our
+particular controller so means somewhere
+
+116
+00:02:46,270 --> 00:02:46,280
+particular controller so means somewhere
+ 
+
+117
+00:02:46,280 --> 00:02:48,589
+particular controller so means somewhere
+dispatcher ofet and
+
+118
+00:02:48,589 --> 00:02:48,599
+dispatcher ofet and
+ 
+
+119
+00:02:48,599 --> 00:02:52,790
+dispatcher ofet and
+this uh invoking the controller method
+
+120
+00:02:52,790 --> 00:02:52,800
+this uh invoking the controller method
+ 
+
+121
+00:02:52,800 --> 00:02:56,509
+this uh invoking the controller method
+we our code of custom Interceptor should
+
+122
+00:02:56,509 --> 00:02:56,519
+we our code of custom Interceptor should
+ 
+
+123
+00:02:56,519 --> 00:02:58,229
+we our code of custom Interceptor should
+get
+
+124
+00:02:58,229 --> 00:02:58,239
+get
+ 
+
+125
+00:02:58,239 --> 00:03:01,949
+get
+involed okay so let's see that how can
+
+126
+00:03:01,949 --> 00:03:01,959
+involed okay so let's see that how can
+ 
+
+127
+00:03:01,959 --> 00:03:02,990
+involed okay so let's see that how can
+be
+
+128
+00:03:02,990 --> 00:03:03,000
+be
+ 
+
+129
+00:03:03,000 --> 00:03:06,670
+be
+done so let's say that this is
+
+130
+00:03:06,670 --> 00:03:06,680
+done so let's say that this is
+ 
+
+131
+00:03:06,680 --> 00:03:10,309
+done so let's say that this is
+one user controller I have created very
+
+132
+00:03:10,309 --> 00:03:10,319
+one user controller I have created very
+ 
+
+133
+00:03:10,319 --> 00:03:14,270
+one user controller I have created very
+very basic only has one get method get
+
+134
+00:03:14,270 --> 00:03:14,280
+very basic only has one get method get
+ 
+
+135
+00:03:14,280 --> 00:03:17,110
+very basic only has one get method get
+user and
+
+136
+00:03:17,110 --> 00:03:17,120
+user and
+ 
+
+137
+00:03:17,120 --> 00:03:20,350
+user and
+uh this is the custom Interceptor I have
+
+138
+00:03:20,350 --> 00:03:20,360
+uh this is the custom Interceptor I have
+ 
+
+139
+00:03:20,360 --> 00:03:23,830
+uh this is the custom Interceptor I have
+created so I have created a public class
+
+140
+00:03:23,830 --> 00:03:23,840
+created so I have created a public class
+ 
+
+141
+00:03:23,840 --> 00:03:26,030
+created so I have created a public class
+my custom Interceptor and I have
+
+142
+00:03:26,030 --> 00:03:26,040
+my custom Interceptor and I have
+ 
+
+143
+00:03:26,040 --> 00:03:28,429
+my custom Interceptor and I have
+annotated with at the component means
+
+144
+00:03:28,429 --> 00:03:28,439
+annotated with at the component means
+ 
+
+145
+00:03:28,439 --> 00:03:32,149
+annotated with at the component means
+spring will uh take care of its uh Bean
+
+146
+00:03:32,149 --> 00:03:32,159
+spring will uh take care of its uh Bean
+ 
+
+147
+00:03:32,159 --> 00:03:34,830
+spring will uh take care of its uh Bean
+creation Now here if you see I have
+
+148
+00:03:34,830 --> 00:03:34,840
+creation Now here if you see I have
+ 
+
+149
+00:03:34,840 --> 00:03:38,509
+creation Now here if you see I have
+implement it with the Handler
+
+150
+00:03:38,509 --> 00:03:38,519
+implement it with the Handler
+ 
+
+151
+00:03:38,519 --> 00:03:41,830
+implement it with the Handler
+Interceptor so when you implement it
+
+152
+00:03:41,830 --> 00:03:41,840
+Interceptor so when you implement it
+ 
+
+153
+00:03:41,840 --> 00:03:45,110
+Interceptor so when you implement it
+with the Handler Interceptor you have to
+
+154
+00:03:45,110 --> 00:03:45,120
+with the Handler Interceptor you have to
+ 
+
+155
+00:03:45,120 --> 00:03:48,429
+with the Handler Interceptor you have to
+provide an implementation for this three
+
+156
+00:03:48,429 --> 00:03:48,439
+provide an implementation for this three
+ 
+
+157
+00:03:48,439 --> 00:03:53,789
+provide an implementation for this three
+methods preh handle po handle and after
+
+158
+00:03:53,789 --> 00:03:53,799
+methods preh handle po handle and after
+ 
+
+159
+00:03:53,799 --> 00:03:57,350
+methods preh handle po handle and after
+completion okay so preh handle is like
+
+160
+00:03:57,350 --> 00:03:57,360
+completion okay so preh handle is like
+ 
+
+161
+00:03:57,360 --> 00:04:00,670
+completion okay so preh handle is like
+before even your user control method get
+
+162
+00:04:00,670 --> 00:04:00,680
+before even your user control method get
+ 
+
+163
+00:04:00,680 --> 00:04:03,710
+before even your user control method get
+invoked this will get
+
+164
+00:04:03,710 --> 00:04:03,720
+invoked this will get
+ 
+
+165
+00:04:03,720 --> 00:04:07,229
+invoked this will get
+executed after that your actual code
+
+166
+00:04:07,229 --> 00:04:07,239
+executed after that your actual code
+ 
+
+167
+00:04:07,239 --> 00:04:09,030
+executed after that your actual code
+will get executed means your user
+
+168
+00:04:09,030 --> 00:04:09,040
+will get executed means your user
+ 
+
+169
+00:04:09,040 --> 00:04:10,869
+will get executed means your user
+controller will get
+
+170
+00:04:10,869 --> 00:04:10,879
+controller will get
+ 
+
+171
+00:04:10,879 --> 00:04:14,509
+controller will get
+invoked and once your actual code get
+
+172
+00:04:14,509 --> 00:04:14,519
+invoked and once your actual code get
+ 
+
+173
+00:04:14,519 --> 00:04:17,870
+invoked and once your actual code get
+invoked then post handle will get
+
+174
+00:04:17,870 --> 00:04:17,880
+invoked then post handle will get
+ 
+
+175
+00:04:17,880 --> 00:04:20,629
+invoked then post handle will get
+executed and after that after completion
+
+176
+00:04:20,629 --> 00:04:20,639
+executed and after that after completion
+ 
+
+177
+00:04:20,639 --> 00:04:23,230
+executed and after that after completion
+will get
+
+178
+00:04:23,230 --> 00:04:23,240
+
+ 
+
+179
+00:04:23,240 --> 00:04:26,830
+
+executed okay so this is the three
+
+180
+00:04:26,830 --> 00:04:26,840
+executed okay so this is the three
+ 
+
+181
+00:04:26,840 --> 00:04:29,189
+executed okay so this is the three
+methods which is uh the meaning so you
+
+182
+00:04:29,189 --> 00:04:29,199
+methods which is uh the meaning so you
+ 
+
+183
+00:04:29,199 --> 00:04:30,909
+methods which is uh the meaning so you
+can ask me right herey sh what is the
+
+184
+00:04:30,909 --> 00:04:30,919
+can ask me right herey sh what is the
+ 
+
+185
+00:04:30,919 --> 00:04:32,710
+can ask me right herey sh what is the
+difference between post handle and after
+
+186
+00:04:32,710 --> 00:04:32,720
+difference between post handle and after
+ 
+
+187
+00:04:32,720 --> 00:04:35,110
+difference between post handle and after
+completion both is getting executed
+
+188
+00:04:35,110 --> 00:04:35,120
+completion both is getting executed
+ 
+
+189
+00:04:35,120 --> 00:04:38,550
+completion both is getting executed
+after my controller I will tell you but
+
+190
+00:04:38,550 --> 00:04:38,560
+after my controller I will tell you but
+ 
+
+191
+00:04:38,560 --> 00:04:40,550
+after my controller I will tell you but
+for
+
+192
+00:04:40,550 --> 00:04:40,560
+for
+ 
+
+193
+00:04:40,560 --> 00:04:43,629
+for
+now just uh consider this one if we have
+
+194
+00:04:43,629 --> 00:04:43,639
+now just uh consider this one if we have
+ 
+
+195
+00:04:43,639 --> 00:04:46,830
+now just uh consider this one if we have
+implements the Handler Interceptor we
+
+196
+00:04:46,830 --> 00:04:46,840
+implements the Handler Interceptor we
+ 
+
+197
+00:04:46,840 --> 00:04:49,070
+implements the Handler Interceptor we
+have to provide an implementation of
+
+198
+00:04:49,070 --> 00:04:49,080
+have to provide an implementation of
+ 
+
+199
+00:04:49,080 --> 00:04:51,749
+have to provide an implementation of
+this three depending upon our needs like
+
+200
+00:04:51,749 --> 00:04:51,759
+this three depending upon our needs like
+ 
+
+201
+00:04:51,759 --> 00:04:54,270
+this three depending upon our needs like
+how we want it what we wanted to do in
+
+202
+00:04:54,270 --> 00:04:54,280
+how we want it what we wanted to do in
+ 
+
+203
+00:04:54,280 --> 00:04:56,670
+how we want it what we wanted to do in
+this okay
+
+204
+00:04:56,670 --> 00:04:56,680
+this okay
+ 
+
+205
+00:04:56,680 --> 00:05:00,230
+this okay
+now we have to register
+
+206
+00:05:00,230 --> 00:05:00,240
+now we have to register
+ 
+
+207
+00:05:00,240 --> 00:05:02,990
+now we have to register
+this Interceptor like for which API it
+
+208
+00:05:02,990 --> 00:05:03,000
+this Interceptor like for which API it
+ 
+
+209
+00:05:03,000 --> 00:05:05,790
+this Interceptor like for which API it
+has to invoke so how to do that in our
+
+210
+00:05:05,790 --> 00:05:05,800
+has to invoke so how to do that in our
+ 
+
+211
+00:05:05,800 --> 00:05:08,710
+has to invoke so how to do that in our
+configuration class app config we have
+
+212
+00:05:08,710 --> 00:05:08,720
+configuration class app config we have
+ 
+
+213
+00:05:08,720 --> 00:05:11,670
+configuration class app config we have
+to implement web MVC
+
+214
+00:05:11,670 --> 00:05:11,680
+to implement web MVC
+ 
+
+215
+00:05:11,680 --> 00:05:14,790
+to implement web MVC
+configurer inside that we have to
+
+216
+00:05:14,790 --> 00:05:14,800
+configurer inside that we have to
+ 
+
+217
+00:05:14,800 --> 00:05:17,510
+configurer inside that we have to
+override this method add
+
+218
+00:05:17,510 --> 00:05:17,520
+override this method add
+ 
+
+219
+00:05:17,520 --> 00:05:20,430
+override this method add
+Interceptor and inside this method we
+
+220
+00:05:20,430 --> 00:05:20,440
+Interceptor and inside this method we
+ 
+
+221
+00:05:20,440 --> 00:05:23,070
+Interceptor and inside this method we
+have to do a registry so this is the
+
+222
+00:05:23,070 --> 00:05:23,080
+have to do a registry so this is the
+ 
+
+223
+00:05:23,080 --> 00:05:26,270
+have to do a registry so this is the
+parameter it accept registry inside this
+
+224
+00:05:26,270 --> 00:05:26,280
+parameter it accept registry inside this
+ 
+
+225
+00:05:26,280 --> 00:05:28,790
+parameter it accept registry inside this
+we have to add our Interceptor hey this
+
+226
+00:05:28,790 --> 00:05:28,800
+we have to add our Interceptor hey this
+ 
+
+227
+00:05:28,800 --> 00:05:32,150
+we have to add our Interceptor hey this
+is my custom Interceptor so here if you
+
+228
+00:05:32,150 --> 00:05:32,160
+is my custom Interceptor so here if you
+ 
+
+229
+00:05:32,160 --> 00:05:35,029
+is my custom Interceptor so here if you
+see that I have already done at theate
+
+230
+00:05:35,029 --> 00:05:35,039
+see that I have already done at theate
+ 
+
+231
+00:05:35,039 --> 00:05:37,110
+see that I have already done at theate
+component right so means Bean is already
+
+232
+00:05:37,110 --> 00:05:37,120
+component right so means Bean is already
+ 
+
+233
+00:05:37,120 --> 00:05:39,909
+component right so means Bean is already
+created that's why I'm just doing at the
+
+234
+00:05:39,909 --> 00:05:39,919
+created that's why I'm just doing at the
+ 
+
+235
+00:05:39,919 --> 00:05:43,909
+created that's why I'm just doing at the
+rate auto here if if I am not writing it
+
+236
+00:05:43,909 --> 00:05:43,919
+rate auto here if if I am not writing it
+ 
+
+237
+00:05:43,919 --> 00:05:46,110
+rate auto here if if I am not writing it
+at the rate component you know what has
+
+238
+00:05:46,110 --> 00:05:46,120
+at the rate component you know what has
+ 
+
+239
+00:05:46,120 --> 00:05:48,510
+at the rate component you know what has
+to be done at theate Bean here and
+
+240
+00:05:48,510 --> 00:05:48,520
+to be done at theate Bean here and
+ 
+
+241
+00:05:48,520 --> 00:05:51,790
+to be done at theate Bean here and
+creating a new object here okay so
+
+242
+00:05:51,790 --> 00:05:51,800
+creating a new object here okay so
+ 
+
+243
+00:05:51,800 --> 00:05:53,469
+creating a new object here okay so
+currently I'm doing at theate Auto
+
+244
+00:05:53,469 --> 00:05:53,479
+currently I'm doing at theate Auto
+ 
+
+245
+00:05:53,479 --> 00:05:57,670
+currently I'm doing at theate Auto
+because atate component is there so Bean
+
+246
+00:05:57,670 --> 00:05:57,680
+because atate component is there so Bean
+ 
+
+247
+00:05:57,680 --> 00:05:59,510
+because atate component is there so Bean
+would be created and that would get Auto
+
+248
+00:05:59,510 --> 00:05:59,520
+would be created and that would get Auto
+ 
+
+249
+00:05:59,520 --> 00:06:01,110
+would be created and that would get Auto
+here
+
+250
+00:06:01,110 --> 00:06:01,120
+here
+ 
+
+251
+00:06:01,120 --> 00:06:03,469
+here
+so now coming back again to this method
+
+252
+00:06:03,469 --> 00:06:03,479
+so now coming back again to this method
+ 
+
+253
+00:06:03,479 --> 00:06:06,550
+so now coming back again to this method
+first in the registry we have to add the
+
+254
+00:06:06,550 --> 00:06:06,560
+first in the registry we have to add the
+ 
+
+255
+00:06:06,560 --> 00:06:08,629
+first in the registry we have to add the
+interceptors and we have to provide what
+
+256
+00:06:08,629 --> 00:06:08,639
+interceptors and we have to provide what
+ 
+
+257
+00:06:08,639 --> 00:06:10,710
+interceptors and we have to provide what
+is the custom Interceptor we have to
+
+258
+00:06:10,710 --> 00:06:10,720
+is the custom Interceptor we have to
+ 
+
+259
+00:06:10,720 --> 00:06:14,230
+is the custom Interceptor we have to
+invoke then this two is like first at
+
+260
+00:06:14,230 --> 00:06:14,240
+invoke then this two is like first at
+ 
+
+261
+00:06:14,240 --> 00:06:19,189
+invoke then this two is like first at
+path pattern for what all urls we have
+
+262
+00:06:19,189 --> 00:06:19,199
+path pattern for what all urls we have
+ 
+
+263
+00:06:19,199 --> 00:06:21,909
+path pattern for what all urls we have
+to invoke this custom Interceptor so
+
+264
+00:06:21,909 --> 00:06:21,919
+to invoke this custom Interceptor so
+ 
+
+265
+00:06:21,919 --> 00:06:24,510
+to invoke this custom Interceptor so
+it's a pattern so it's a comma separated
+
+266
+00:06:24,510 --> 00:06:24,520
+it's a pattern so it's a comma separated
+ 
+
+267
+00:06:24,520 --> 00:06:27,629
+it's a pattern so it's a comma separated
+list right so what I have given is/ API
+
+268
+00:06:27,629 --> 00:06:27,639
+list right so what I have given is/ API
+ 
+
+269
+00:06:27,639 --> 00:06:30,110
+list right so what I have given is/ API
+SL estess
+
+270
+00:06:30,110 --> 00:06:30,120
+SL estess
+ 
+
+271
+00:06:30,120 --> 00:06:36,189
+SL estess
+any like/ API SL get user any
+
+272
+00:06:36,189 --> 00:06:36,199
+any like/ API SL get user any
+ 
+
+273
+00:06:36,199 --> 00:06:38,909
+any like/ API SL get user any
+API right sis can be replaced with
+
+274
+00:06:38,909 --> 00:06:38,919
+API right sis can be replaced with
+ 
+
+275
+00:06:38,919 --> 00:06:41,710
+API right sis can be replaced with
+anything it will get this custom
+
+276
+00:06:41,710 --> 00:06:41,720
+anything it will get this custom
+ 
+
+277
+00:06:41,720 --> 00:06:43,550
+anything it will get this custom
+Interceptor will get
+
+278
+00:06:43,550 --> 00:06:43,560
+Interceptor will get
+ 
+
+279
+00:06:43,560 --> 00:06:46,909
+Interceptor will get
+invol now here is one more uh field is
+
+280
+00:06:46,909 --> 00:06:46,919
+invol now here is one more uh field is
+ 
+
+281
+00:06:46,919 --> 00:06:52,070
+invol now here is one more uh field is
+exclude path P patterns so if there are
+
+282
+00:06:52,070 --> 00:06:52,080
+exclude path P patterns so if there are
+ 
+
+283
+00:06:52,080 --> 00:06:54,790
+exclude path P patterns so if there are
+certain path which you have to exclude
+
+284
+00:06:54,790 --> 00:06:54,800
+certain path which you have to exclude
+ 
+
+285
+00:06:54,800 --> 00:06:57,869
+certain path which you have to exclude
+out of this you can specifically mention
+
+286
+00:06:57,869 --> 00:06:57,879
+out of this you can specifically mention
+ 
+
+287
+00:06:57,879 --> 00:07:00,589
+out of this you can specifically mention
+this and it can get exclusion
+
+288
+00:07:00,589 --> 00:07:00,599
+this and it can get exclusion
+ 
+
+289
+00:07:00,599 --> 00:07:03,189
+this and it can get exclusion
+uh so here I mentioned / API / update
+
+290
+00:07:03,189 --> 00:07:03,199
+uh so here I mentioned / API / update
+ 
+
+291
+00:07:03,199 --> 00:07:05,909
+uh so here I mentioned / API / update
+user so that would now be excluded and
+
+292
+00:07:05,909 --> 00:07:05,919
+user so that would now be excluded and
+ 
+
+293
+00:07:05,919 --> 00:07:08,749
+user so that would now be excluded and
+also delete user also will get excluded
+
+294
+00:07:08,749 --> 00:07:08,759
+also delete user also will get excluded
+ 
+
+295
+00:07:08,759 --> 00:07:10,270
+also delete user also will get excluded
+okay for rest
+
+296
+00:07:10,270 --> 00:07:10,280
+okay for rest
+ 
+
+297
+00:07:10,280 --> 00:07:14,909
+okay for rest
+other this Interceptor will get
+
+298
+00:07:14,909 --> 00:07:14,919
+other this Interceptor will get
+ 
+
+299
+00:07:14,919 --> 00:07:17,909
+other this Interceptor will get
+applied okay so the changes are clear
+
+300
+00:07:17,909 --> 00:07:17,919
+applied okay so the changes are clear
+ 
+
+301
+00:07:17,919 --> 00:07:21,309
+applied okay so the changes are clear
+right we have to first provide
+
+302
+00:07:21,309 --> 00:07:21,319
+right we have to first provide
+ 
+
+303
+00:07:21,319 --> 00:07:24,350
+right we have to first provide
+our custom Interceptor where we will
+
+304
+00:07:24,350 --> 00:07:24,360
+our custom Interceptor where we will
+ 
+
+305
+00:07:24,360 --> 00:07:28,510
+our custom Interceptor where we will
+override this uh methods by implementing
+
+306
+00:07:28,510 --> 00:07:28,520
+override this uh methods by implementing
+ 
+
+307
+00:07:28,520 --> 00:07:30,309
+override this uh methods by implementing
+the Handler interceptor and we will
+
+308
+00:07:30,309 --> 00:07:30,319
+the Handler interceptor and we will
+ 
+
+309
+00:07:30,319 --> 00:07:32,309
+the Handler interceptor and we will
+provide like what exactly we
+
+310
+00:07:32,309 --> 00:07:32,319
+provide like what exactly we
+ 
+
+311
+00:07:32,319 --> 00:07:34,990
+provide like what exactly we
+wanted okay and then we have to
+
+312
+00:07:34,990 --> 00:07:35,000
+wanted okay and then we have to
+ 
+
+313
+00:07:35,000 --> 00:07:39,070
+wanted okay and then we have to
+configure our custom Interceptor like
+
+314
+00:07:39,070 --> 00:07:39,080
+configure our custom Interceptor like
+ 
+
+315
+00:07:39,080 --> 00:07:43,510
+configure our custom Interceptor like
+this so this is for like when before
+
+316
+00:07:43,510 --> 00:07:43,520
+this so this is for like when before
+ 
+
+317
+00:07:43,520 --> 00:07:47,309
+this so this is for like when before
+even our controller get invoked now here
+
+318
+00:07:47,309 --> 00:07:47,319
+even our controller get invoked now here
+ 
+
+319
+00:07:47,319 --> 00:07:48,270
+even our controller get invoked now here
+if you
+
+320
+00:07:48,270 --> 00:07:48,280
+if you
+ 
+
+321
+00:07:48,280 --> 00:07:53,029
+if you
+see if I am opening here dispatcher ofet
+
+322
+00:07:53,029 --> 00:07:53,039
+see if I am opening here dispatcher ofet
+ 
+
+323
+00:07:53,039 --> 00:07:56,189
+see if I am opening here dispatcher ofet
+so here if you see that it is inside
+
+324
+00:07:56,189 --> 00:07:56,199
+so here if you see that it is inside
+ 
+
+325
+00:07:56,199 --> 00:07:59,950
+so here if you see that it is inside
+your spring web MVC right and and it is
+
+326
+00:07:59,950 --> 00:07:59,960
+your spring web MVC right and and it is
+ 
+
+327
+00:07:59,960 --> 00:08:02,589
+your spring web MVC right and and it is
+the dispatcher subet do class we are
+
+328
+00:08:02,589 --> 00:08:02,599
+the dispatcher subet do class we are
+ 
+
+329
+00:08:02,599 --> 00:08:06,469
+the dispatcher subet do class we are
+inside a dispatcher sulet docl class so
+
+330
+00:08:06,469 --> 00:08:06,479
+inside a dispatcher sulet docl class so
+ 
+
+331
+00:08:06,479 --> 00:08:11,790
+inside a dispatcher sulet docl class so
+in this one if you see um do
+
+332
+00:08:11,790 --> 00:08:11,800
+in this one if you see um do
+ 
+
+333
+00:08:11,800 --> 00:08:15,110
+in this one if you see um do
+dispatch okay so this is actually
+
+334
+00:08:15,110 --> 00:08:15,120
+dispatch okay so this is actually
+ 
+
+335
+00:08:15,120 --> 00:08:18,110
+dispatch okay so this is actually
+dispatch so here it will do is first
+
+336
+00:08:18,110 --> 00:08:18,120
+dispatch so here it will do is first
+ 
+
+337
+00:08:18,120 --> 00:08:21,510
+dispatch so here it will do is first
+apply the preh handle so when it say
+
+338
+00:08:21,510 --> 00:08:21,520
+apply the preh handle so when it say
+ 
+
+339
+00:08:21,520 --> 00:08:23,270
+apply the preh handle so when it say
+that apply the preh handle means it
+
+340
+00:08:23,270 --> 00:08:23,280
+that apply the preh handle means it
+ 
+
+341
+00:08:23,280 --> 00:08:24,830
+that apply the preh handle means it
+first it
+
+342
+00:08:24,830 --> 00:08:24,840
+first it
+ 
+
+343
+00:08:24,840 --> 00:08:27,710
+first it
+will based on this it will invoke this
+
+344
+00:08:27,710 --> 00:08:27,720
+will based on this it will invoke this
+ 
+
+345
+00:08:27,720 --> 00:08:29,909
+will based on this it will invoke this
+preh handle
+
+346
+00:08:29,909 --> 00:08:29,919
+preh handle
+ 
+
+347
+00:08:29,919 --> 00:08:32,750
+preh handle
+after that it will call ha. handle so
+
+348
+00:08:32,750 --> 00:08:32,760
+after that it will call ha. handle so
+ 
+
+349
+00:08:32,760 --> 00:08:34,550
+after that it will call ha. handle so
+this is the place where actual your
+
+350
+00:08:34,550 --> 00:08:34,560
+this is the place where actual your
+ 
+
+351
+00:08:34,560 --> 00:08:36,790
+this is the place where actual your
+controller will get invoked this is the
+
+352
+00:08:36,790 --> 00:08:36,800
+controller will get invoked this is the
+ 
+
+353
+00:08:36,800 --> 00:08:39,469
+controller will get invoked this is the
+place your actual controller will get
+
+354
+00:08:39,469 --> 00:08:39,479
+place your actual controller will get
+ 
+
+355
+00:08:39,479 --> 00:08:42,190
+place your actual controller will get
+invoked so now
+
+356
+00:08:42,190 --> 00:08:42,200
+invoked so now
+ 
+
+357
+00:08:42,200 --> 00:08:45,310
+invoked so now
+means your controller get invoked now
+
+358
+00:08:45,310 --> 00:08:45,320
+means your controller get invoked now
+ 
+
+359
+00:08:45,320 --> 00:08:48,230
+means your controller get invoked now
+your code will get executed now see
+
+360
+00:08:48,230 --> 00:08:48,240
+your code will get executed now see
+ 
+
+361
+00:08:48,240 --> 00:08:50,070
+your code will get executed now see
+difference between post handle and after
+
+362
+00:08:50,070 --> 00:08:50,080
+difference between post handle and after
+ 
+
+363
+00:08:50,080 --> 00:08:52,910
+difference between post handle and after
+completion so now your controller get
+
+364
+00:08:52,910 --> 00:08:52,920
+completion so now your controller get
+ 
+
+365
+00:08:52,920 --> 00:08:55,630
+completion so now your controller get
+executed after it's completed it is
+
+366
+00:08:55,630 --> 00:08:55,640
+executed after it's completed it is
+ 
+
+367
+00:08:55,640 --> 00:08:58,670
+executed after it's completed it is
+running the post handle right okay so it
+
+368
+00:08:58,670 --> 00:08:58,680
+running the post handle right okay so it
+ 
+
+369
+00:08:58,680 --> 00:09:01,670
+running the post handle right okay so it
+makes sense post post so after your
+
+370
+00:09:01,670 --> 00:09:01,680
+makes sense post post so after your
+ 
+
+371
+00:09:01,680 --> 00:09:04,069
+makes sense post post so after your
+controller this code will get
+
+372
+00:09:04,069 --> 00:09:04,079
+controller this code will get
+ 
+
+373
+00:09:04,079 --> 00:09:06,870
+controller this code will get
+executed now what about this
+
+374
+00:09:06,870 --> 00:09:06,880
+executed now what about this
+ 
+
+375
+00:09:06,880 --> 00:09:10,750
+executed now what about this
+after so this after is like say that
+
+376
+00:09:10,750 --> 00:09:10,760
+after so this after is like say that
+ 
+
+377
+00:09:10,760 --> 00:09:13,350
+after so this after is like say that
+whether it's a success or even if there
+
+378
+00:09:13,350 --> 00:09:13,360
+whether it's a success or even if there
+ 
+
+379
+00:09:13,360 --> 00:09:14,430
+whether it's a success or even if there
+is
+
+380
+00:09:14,430 --> 00:09:14,440
+is
+ 
+
+381
+00:09:14,440 --> 00:09:17,870
+is
+exception after completion will run so
+
+382
+00:09:17,870 --> 00:09:17,880
+exception after completion will run so
+ 
+
+383
+00:09:17,880 --> 00:09:20,990
+exception after completion will run so
+if there any exception your post will
+
+384
+00:09:20,990 --> 00:09:21,000
+if there any exception your post will
+ 
+
+385
+00:09:21,000 --> 00:09:24,269
+if there any exception your post will
+not get executed but after will be so I
+
+386
+00:09:24,269 --> 00:09:24,279
+not get executed but after will be so I
+ 
+
+387
+00:09:24,279 --> 00:09:26,590
+not get executed but after will be so I
+think it's similarly like finally in
+
+388
+00:09:26,590 --> 00:09:26,600
+think it's similarly like finally in
+ 
+
+389
+00:09:26,600 --> 00:09:28,990
+think it's similarly like finally in
+Java right so no matter even if there is
+
+390
+00:09:28,990 --> 00:09:29,000
+Java right so no matter even if there is
+ 
+
+391
+00:09:29,000 --> 00:09:30,069
+Java right so no matter even if there is
+an
+
+392
+00:09:30,069 --> 00:09:30,079
+an
+ 
+
+393
+00:09:30,079 --> 00:09:32,630
+an
+ception after completion will run so
+
+394
+00:09:32,630 --> 00:09:32,640
+ception after completion will run so
+ 
+
+395
+00:09:32,640 --> 00:09:35,110
+ception after completion will run so
+this is Success so whenever so preh
+
+396
+00:09:35,110 --> 00:09:35,120
+this is Success so whenever so preh
+ 
+
+397
+00:09:35,120 --> 00:09:37,910
+this is Success so whenever so preh
+handle run after preh
+
+398
+00:09:37,910 --> 00:09:37,920
+handle run after preh
+ 
+
+399
+00:09:37,920 --> 00:09:41,389
+handle run after preh
+handle uh your controller then post and
+
+400
+00:09:41,389 --> 00:09:41,399
+handle uh your controller then post and
+ 
+
+401
+00:09:41,399 --> 00:09:44,990
+handle uh your controller then post and
+after that uh this success here inside
+
+402
+00:09:44,990 --> 00:09:45,000
+after that uh this success here inside
+ 
+
+403
+00:09:45,000 --> 00:09:46,910
+after that uh this success here inside
+it is also running
+
+404
+00:09:46,910 --> 00:09:46,920
+it is also running
+ 
+
+405
+00:09:46,920 --> 00:09:49,350
+it is also running
+after okay so during success also it
+
+406
+00:09:49,350 --> 00:09:49,360
+after okay so during success also it
+ 
+
+407
+00:09:49,360 --> 00:09:51,910
+after okay so during success also it
+will run and if there is any exception
+
+408
+00:09:51,910 --> 00:09:51,920
+will run and if there is any exception
+ 
+
+409
+00:09:51,920 --> 00:09:55,269
+will run and if there is any exception
+also it will run after okay so I hope
+
+410
+00:09:55,269 --> 00:09:55,279
+also it will run after okay so I hope
+ 
+
+411
+00:09:55,279 --> 00:09:57,110
+also it will run after okay so I hope
+the difference is clear between post
+
+412
+00:09:57,110 --> 00:09:57,120
+the difference is clear between post
+ 
+
+413
+00:09:57,120 --> 00:09:59,750
+the difference is clear between post
+handle and after completion
+
+414
+00:09:59,750 --> 00:09:59,760
+handle and after completion
+ 
+
+415
+00:09:59,760 --> 00:10:02,110
+handle and after completion
+so now here if you see if I run this get
+
+416
+00:10:02,110 --> 00:10:02,120
+so now here if you see if I run this get
+ 
+
+417
+00:10:02,120 --> 00:10:04,430
+so now here if you see if I run this get
+user if I hit this get user
+
+418
+00:10:04,430 --> 00:10:04,440
+user if I hit this get user
+ 
+
+419
+00:10:04,440 --> 00:10:08,670
+user if I hit this get user
+API so I have added in the path param /
+
+420
+00:10:08,670 --> 00:10:08,680
+API so I have added in the path param /
+ 
+
+421
+00:10:08,680 --> 00:10:11,470
+API so I have added in the path param /
+API SL so anything so it this custom
+
+422
+00:10:11,470 --> 00:10:11,480
+API SL so anything so it this custom
+ 
+
+423
+00:10:11,480 --> 00:10:13,509
+API SL so anything so it this custom
+interception should invoke and it is
+
+424
+00:10:13,509 --> 00:10:13,519
+interception should invoke and it is
+ 
+
+425
+00:10:13,519 --> 00:10:16,790
+interception should invoke and it is
+also not excluded so first it goes
+
+426
+00:10:16,790 --> 00:10:16,800
+also not excluded so first it goes
+ 
+
+427
+00:10:16,800 --> 00:10:18,069
+also not excluded so first it goes
+inside preh
+
+428
+00:10:18,069 --> 00:10:18,079
+inside preh
+ 
+
+429
+00:10:18,079 --> 00:10:22,030
+inside preh
+handle then it invoke my controller so
+
+430
+00:10:22,030 --> 00:10:22,040
+handle then it invoke my controller so
+ 
+
+431
+00:10:22,040 --> 00:10:23,790
+handle then it invoke my controller so
+controller is doing
+
+432
+00:10:23,790 --> 00:10:23,800
+controller is doing
+ 
+
+433
+00:10:23,800 --> 00:10:27,030
+controller is doing
+something okay then after that it goes
+
+434
+00:10:27,030 --> 00:10:27,040
+something okay then after that it goes
+ 
+
+435
+00:10:27,040 --> 00:10:28,550
+something okay then after that it goes
+out post handle and after that
+
+436
+00:10:28,550 --> 00:10:28,560
+out post handle and after that
+ 
+
+437
+00:10:28,560 --> 00:10:32,630
+out post handle and after that
+completion even even though it's a
+
+438
+00:10:32,630 --> 00:10:32,640
+
+ 
+
+439
+00:10:32,640 --> 00:10:37,389
+
+success okay so this is how you do when
+
+440
+00:10:37,389 --> 00:10:37,399
+success okay so this is how you do when
+ 
+
+441
+00:10:37,399 --> 00:10:40,670
+success okay so this is how you do when
+you have to intercept the request before
+
+442
+00:10:40,670 --> 00:10:40,680
+you have to intercept the request before
+ 
+
+443
+00:10:40,680 --> 00:10:43,829
+you have to intercept the request before
+reaching to a specific controller
+
+444
+00:10:43,829 --> 00:10:43,839
+reaching to a specific controller
+ 
+
+445
+00:10:43,839 --> 00:10:47,230
+reaching to a specific controller
+class okay it it would be helpful in so
+
+446
+00:10:47,230 --> 00:10:47,240
+class okay it it would be helpful in so
+ 
+
+447
+00:10:47,240 --> 00:10:49,629
+class okay it it would be helpful in so
+many use cases authentication
+
+448
+00:10:49,629 --> 00:10:49,639
+many use cases authentication
+ 
+
+449
+00:10:49,639 --> 00:10:53,069
+many use cases authentication
+authorization we'll see that later part
+
+450
+00:10:53,069 --> 00:10:53,079
+authorization we'll see that later part
+ 
+
+451
+00:10:53,079 --> 00:10:55,269
+authorization we'll see that later part
+but this should be clear like how to
+
+452
+00:10:55,269 --> 00:10:55,279
+but this should be clear like how to
+ 
+
+453
+00:10:55,279 --> 00:10:56,790
+but this should be clear like how to
+intercept the calls
+
+454
+00:10:56,790 --> 00:10:56,800
+intercept the calls
+ 
+
+455
+00:10:56,800 --> 00:11:01,590
+intercept the calls
+before call reach to the control
+
+456
+00:11:01,590 --> 00:11:01,600
+
+ 
+
+457
+00:11:01,600 --> 00:11:03,750
+
+now the second part
+
+458
+00:11:03,750 --> 00:11:03,760
+now the second part
+ 
+
+459
+00:11:03,760 --> 00:11:06,990
+now the second part
+is I want to have a custom Interceptor
+
+460
+00:11:06,990 --> 00:11:07,000
+is I want to have a custom Interceptor
+ 
+
+461
+00:11:07,000 --> 00:11:09,870
+is I want to have a custom Interceptor
+for request after reaching to a specific
+
+462
+00:11:09,870 --> 00:11:09,880
+for request after reaching to a specific
+ 
+
+463
+00:11:09,880 --> 00:11:12,350
+for request after reaching to a specific
+controller class so now the uh my
+
+464
+00:11:12,350 --> 00:11:12,360
+controller class so now the uh my
+ 
+
+465
+00:11:12,360 --> 00:11:15,110
+controller class so now the uh my
+controller has been invoked and now it
+
+466
+00:11:15,110 --> 00:11:15,120
+controller has been invoked and now it
+ 
+
+467
+00:11:15,120 --> 00:11:17,190
+controller has been invoked and now it
+is invoking particular methods or
+
+468
+00:11:17,190 --> 00:11:17,200
+is invoking particular methods or
+ 
+
+469
+00:11:17,200 --> 00:11:19,550
+is invoking particular methods or
+something now I want my custom
+
+470
+00:11:19,550 --> 00:11:19,560
+something now I want my custom
+ 
+
+471
+00:11:19,560 --> 00:11:21,949
+something now I want my custom
+Interceptor so now we'll see that how to
+
+472
+00:11:21,949 --> 00:11:21,959
+Interceptor so now we'll see that how to
+ 
+
+473
+00:11:21,959 --> 00:11:25,190
+Interceptor so now we'll see that how to
+do that so I will break it down into two
+
+474
+00:11:25,190 --> 00:11:25,200
+do that so I will break it down into two
+ 
+
+475
+00:11:25,200 --> 00:11:28,150
+do that so I will break it down into two
+step the step one is creation of custom
+
+476
+00:11:28,150 --> 00:11:28,160
+step the step one is creation of custom
+ 
+
+477
+00:11:28,160 --> 00:11:30,870
+step the step one is creation of custom
+annotation
+
+478
+00:11:30,870 --> 00:11:30,880
+annotation
+ 
+
+479
+00:11:30,880 --> 00:11:35,069
+annotation
+okay so how do you create a first custom
+
+480
+00:11:35,069 --> 00:11:35,079
+okay so how do you create a first custom
+ 
+
+481
+00:11:35,079 --> 00:11:37,629
+okay so how do you create a first custom
+annotation we can create custom
+
+482
+00:11:37,629 --> 00:11:37,639
+annotation we can create custom
+ 
+
+483
+00:11:37,639 --> 00:11:41,829
+annotation we can create custom
+annotation using the keyword at theate
+
+484
+00:11:41,829 --> 00:11:41,839
+annotation using the keyword at theate
+ 
+
+485
+00:11:41,839 --> 00:11:44,470
+annotation using the keyword at theate
+interface
+
+486
+00:11:44,470 --> 00:11:44,480
+interface
+ 
+
+487
+00:11:44,480 --> 00:11:47,110
+interface
+okay so this is an
+
+488
+00:11:47,110 --> 00:11:47,120
+okay so this is an
+ 
+
+489
+00:11:47,120 --> 00:11:50,389
+okay so this is an
+example where if you see I am
+
+490
+00:11:50,389 --> 00:11:50,399
+example where if you see I am
+ 
+
+491
+00:11:50,399 --> 00:11:53,430
+example where if you see I am
+creating my custom annotation so I am
+
+492
+00:11:53,430 --> 00:11:53,440
+creating my custom annotation so I am
+ 
+
+493
+00:11:53,440 --> 00:11:55,750
+creating my custom annotation so I am
+using keyword at theate interface and I
+
+494
+00:11:55,750 --> 00:11:55,760
+using keyword at theate interface and I
+ 
+
+495
+00:11:55,760 --> 00:11:58,230
+using keyword at theate interface and I
+can give whatever name I like for my
+
+496
+00:11:58,230 --> 00:11:58,240
+can give whatever name I like for my
+ 
+
+497
+00:11:58,240 --> 00:12:00,430
+can give whatever name I like for my
+annotation I have given the name my
+
+498
+00:12:00,430 --> 00:12:00,440
+annotation I have given the name my
+ 
+
+499
+00:12:00,440 --> 00:12:03,750
+annotation I have given the name my
+custom annotation okay so now this
+
+500
+00:12:03,750 --> 00:12:03,760
+custom annotation okay so now this
+ 
+
+501
+00:12:03,760 --> 00:12:06,389
+custom annotation okay so now this
+annotation I can
+
+502
+00:12:06,389 --> 00:12:06,399
+annotation I can
+ 
+
+503
+00:12:06,399 --> 00:12:09,509
+annotation I can
+use like this like you are using like
+
+504
+00:12:09,509 --> 00:12:09,519
+use like this like you are using like
+ 
+
+505
+00:12:09,519 --> 00:12:13,269
+use like this like you are using like
+atate override at theate something like
+
+506
+00:12:13,269 --> 00:12:13,279
+atate override at theate something like
+ 
+
+507
+00:12:13,279 --> 00:12:16,150
+atate override at theate something like
+rest controller request controller at
+
+508
+00:12:16,150 --> 00:12:16,160
+rest controller request controller at
+ 
+
+509
+00:12:16,160 --> 00:12:18,550
+rest controller request controller at
+theate get mapping similarly now this is
+
+510
+00:12:18,550 --> 00:12:18,560
+theate get mapping similarly now this is
+ 
+
+511
+00:12:18,560 --> 00:12:20,910
+theate get mapping similarly now this is
+my I have created annotation so I'm
+
+512
+00:12:20,910 --> 00:12:20,920
+my I have created annotation so I'm
+ 
+
+513
+00:12:20,920 --> 00:12:24,350
+my I have created annotation so I'm
+using at theate my custom
+
+514
+00:12:24,350 --> 00:12:24,360
+using at theate my custom
+ 
+
+515
+00:12:24,360 --> 00:12:27,430
+using at theate my custom
+annotation okay so currently what it
+
+516
+00:12:27,430 --> 00:12:27,440
+annotation okay so currently what it
+ 
+
+517
+00:12:27,440 --> 00:12:29,670
+annotation okay so currently what it
+will do nothing I have just just created
+
+518
+00:12:29,670 --> 00:12:29,680
+will do nothing I have just just created
+ 
+
+519
+00:12:29,680 --> 00:12:32,069
+will do nothing I have just just created
+an annotation we will see how to make
+
+520
+00:12:32,069 --> 00:12:32,079
+an annotation we will see how to make
+ 
+
+521
+00:12:32,079 --> 00:12:36,230
+an annotation we will see how to make
+use of this annotation but this is one
+
+522
+00:12:36,230 --> 00:12:36,240
+use of this annotation but this is one
+ 
+
+523
+00:12:36,240 --> 00:12:39,750
+use of this annotation but this is one
+way we can create our
+
+524
+00:12:39,750 --> 00:12:39,760
+way we can create our
+ 
+
+525
+00:12:39,760 --> 00:12:42,870
+way we can create our
+annotation now very very two important
+
+526
+00:12:42,870 --> 00:12:42,880
+annotation now very very two important
+ 
+
+527
+00:12:42,880 --> 00:12:45,350
+annotation now very very two important
+meta annotation property which we have
+
+528
+00:12:45,350 --> 00:12:45,360
+meta annotation property which we have
+ 
+
+529
+00:12:45,360 --> 00:12:49,470
+meta annotation property which we have
+to understand right if you go through
+
+530
+00:12:49,470 --> 00:12:49,480
+to understand right if you go through
+ 
+
+531
+00:12:49,480 --> 00:12:51,350
+to understand right if you go through
+this one right you will find totally
+
+532
+00:12:51,350 --> 00:12:51,360
+this one right you will find totally
+ 
+
+533
+00:12:51,360 --> 00:12:55,389
+this one right you will find totally
+in-depth one but here I'm just setting
+
+534
+00:12:55,389 --> 00:12:55,399
+in-depth one but here I'm just setting
+ 
+
+535
+00:12:55,399 --> 00:12:57,670
+in-depth one but here I'm just setting
+up the context uh which is very very
+
+536
+00:12:57,670 --> 00:12:57,680
+up the context uh which is very very
+ 
+
+537
+00:12:57,680 --> 00:13:00,150
+up the context uh which is very very
+important to understand this so this two
+
+538
+00:13:00,150 --> 00:13:00,160
+important to understand this so this two
+ 
+
+539
+00:13:00,160 --> 00:13:02,829
+important to understand this so this two
+meta annotation has to be clear very
+
+540
+00:13:02,829 --> 00:13:02,839
+meta annotation has to be clear very
+ 
+
+541
+00:13:02,839 --> 00:13:05,870
+meta annotation has to be clear very
+well one is at the rate target So Meta
+
+542
+00:13:05,870 --> 00:13:05,880
+well one is at the rate target So Meta
+ 
+
+543
+00:13:05,880 --> 00:13:09,110
+well one is at the rate target So Meta
+means annotation which are applied over
+
+544
+00:13:09,110 --> 00:13:09,120
+means annotation which are applied over
+ 
+
+545
+00:13:09,120 --> 00:13:10,189
+means annotation which are applied over
+an
+
+546
+00:13:10,189 --> 00:13:10,199
+an
+ 
+
+547
+00:13:10,199 --> 00:13:13,389
+an
+annotation okay so don't worry we will
+
+548
+00:13:13,389 --> 00:13:13,399
+annotation okay so don't worry we will
+ 
+
+549
+00:13:13,399 --> 00:13:17,150
+annotation okay so don't worry we will
+I'll will tell you how so here at the
+
+550
+00:13:17,150 --> 00:13:17,160
+I'll will tell you how so here at the
+ 
+
+551
+00:13:17,160 --> 00:13:20,590
+I'll will tell you how so here at the
+Target meta annotation means this meta
+
+552
+00:13:20,590 --> 00:13:20,600
+Target meta annotation means this meta
+ 
+
+553
+00:13:20,600 --> 00:13:22,310
+Target meta annotation means this meta
+annotation
+
+554
+00:13:22,310 --> 00:13:22,320
+annotation
+ 
+
+555
+00:13:22,320 --> 00:13:26,269
+annotation
+tells where we can apply the particular
+
+556
+00:13:26,269 --> 00:13:26,279
+tells where we can apply the particular
+ 
+
+557
+00:13:26,279 --> 00:13:29,110
+tells where we can apply the particular
+annotation right on a method or a class
+
+558
+00:13:29,110 --> 00:13:29,120
+annotation right on a method or a class
+ 
+
+559
+00:13:29,120 --> 00:13:32,189
+annotation right on a method or a class
+class or Constructor Etc let's see this
+
+560
+00:13:32,189 --> 00:13:32,199
+class or Constructor Etc let's see this
+ 
+
+561
+00:13:32,199 --> 00:13:34,870
+class or Constructor Etc let's see this
+example so I am creating my custom
+
+562
+00:13:34,870 --> 00:13:34,880
+example so I am creating my custom
+ 
+
+563
+00:13:34,880 --> 00:13:37,389
+example so I am creating my custom
+annotation using a keyword add the rate
+
+564
+00:13:37,389 --> 00:13:37,399
+annotation using a keyword add the rate
+ 
+
+565
+00:13:37,399 --> 00:13:39,990
+annotation using a keyword add the rate
+interface I am creating my custom
+
+566
+00:13:39,990 --> 00:13:40,000
+interface I am creating my custom
+ 
+
+567
+00:13:40,000 --> 00:13:43,990
+interface I am creating my custom
+annotation whatever I like now this
+
+568
+00:13:43,990 --> 00:13:44,000
+annotation whatever I like now this
+ 
+
+569
+00:13:44,000 --> 00:13:46,710
+annotation whatever I like now this
+annotation I will I should apply it over
+
+570
+00:13:46,710 --> 00:13:46,720
+annotation I will I should apply it over
+ 
+
+571
+00:13:46,720 --> 00:13:50,590
+annotation I will I should apply it over
+method over class over Constructor what
+
+572
+00:13:50,590 --> 00:13:50,600
+method over class over Constructor what
+ 
+
+573
+00:13:50,600 --> 00:13:54,189
+method over class over Constructor what
+all so using at theate Target meta
+
+574
+00:13:54,189 --> 00:13:54,199
+all so using at theate Target meta
+ 
+
+575
+00:13:54,199 --> 00:13:58,629
+all so using at theate Target meta
+annotation I can specify this so here at
+
+576
+00:13:58,629 --> 00:13:58,639
+annotation I can specify this so here at
+ 
+
+577
+00:13:58,639 --> 00:14:00,910
+annotation I can specify this so here at
+the Target I said that element type do
+
+578
+00:14:00,910 --> 00:14:00,920
+the Target I said that element type do
+ 
+
+579
+00:14:00,920 --> 00:14:03,829
+the Target I said that element type do
+method so means over a method only you
+
+580
+00:14:03,829 --> 00:14:03,839
+method so means over a method only you
+ 
+
+581
+00:14:03,839 --> 00:14:06,550
+method so means over a method only you
+can use this
+
+582
+00:14:06,550 --> 00:14:06,560
+can use this
+ 
+
+583
+00:14:06,560 --> 00:14:10,069
+can use this
+annotation if you have more than one
+
+584
+00:14:10,069 --> 00:14:10,079
+annotation if you have more than one
+ 
+
+585
+00:14:10,079 --> 00:14:12,350
+annotation if you have more than one
+places you want to use it you can tell
+
+586
+00:14:12,350 --> 00:14:12,360
+places you want to use it you can tell
+ 
+
+587
+00:14:12,360 --> 00:14:14,910
+places you want to use it you can tell
+it like this like an
+
+588
+00:14:14,910 --> 00:14:14,920
+it like this like an
+ 
+
+589
+00:14:14,920 --> 00:14:17,629
+it like this like an
+array element type. Constructor you can
+
+590
+00:14:17,629 --> 00:14:17,639
+array element type. Constructor you can
+ 
+
+591
+00:14:17,639 --> 00:14:20,189
+array element type. Constructor you can
+use this annotation my custom annotation
+
+592
+00:14:20,189 --> 00:14:20,199
+use this annotation my custom annotation
+ 
+
+593
+00:14:20,199 --> 00:14:21,829
+use this annotation my custom annotation
+which I have created you can use it over
+
+594
+00:14:21,829 --> 00:14:21,839
+which I have created you can use it over
+ 
+
+595
+00:14:21,839 --> 00:14:24,670
+which I have created you can use it over
+Constructor over method over par uh
+
+596
+00:14:24,670 --> 00:14:24,680
+Constructor over method over par uh
+ 
+
+597
+00:14:24,680 --> 00:14:26,910
+Constructor over method over par uh
+parameters or over fields
+
+598
+00:14:26,910 --> 00:14:26,920
+parameters or over fields
+ 
+
+599
+00:14:26,920 --> 00:14:31,710
+parameters or over fields
+also right so there are many ways we can
+
+600
+00:14:31,710 --> 00:14:31,720
+also right so there are many ways we can
+ 
+
+601
+00:14:31,720 --> 00:14:35,230
+also right so there are many ways we can
+uh tell that hey yes this annotation you
+
+602
+00:14:35,230 --> 00:14:35,240
+uh tell that hey yes this annotation you
+ 
+
+603
+00:14:35,240 --> 00:14:38,189
+uh tell that hey yes this annotation you
+can use at all this places so this is
+
+604
+00:14:38,189 --> 00:14:38,199
+can use at all this places so this is
+ 
+
+605
+00:14:38,199 --> 00:14:41,590
+can use at all this places so this is
+the purpose of Target meta annotation
+
+606
+00:14:41,590 --> 00:14:41,600
+the purpose of Target meta annotation
+ 
+
+607
+00:14:41,600 --> 00:14:43,389
+the purpose of Target meta annotation
+right and I and I think you already got
+
+608
+00:14:43,389 --> 00:14:43,399
+right and I and I think you already got
+ 
+
+609
+00:14:43,399 --> 00:14:45,470
+right and I and I think you already got
+it why it's called meta annotation means
+
+610
+00:14:45,470 --> 00:14:45,480
+it why it's called meta annotation means
+ 
+
+611
+00:14:45,480 --> 00:14:48,030
+it why it's called meta annotation means
+it is used over an annotation so this is
+
+612
+00:14:48,030 --> 00:14:48,040
+it is used over an annotation so this is
+ 
+
+613
+00:14:48,040 --> 00:14:49,749
+it is used over an annotation so this is
+one of my annotation my custom
+
+614
+00:14:49,749 --> 00:14:49,759
+one of my annotation my custom
+ 
+
+615
+00:14:49,759 --> 00:14:53,269
+one of my annotation my custom
+annotation so this at theate Target is
+
+616
+00:14:53,269 --> 00:14:53,279
+annotation so this at theate Target is
+ 
+
+617
+00:14:53,279 --> 00:14:56,829
+annotation so this at theate Target is
+you used over a
+
+618
+00:14:56,829 --> 00:14:56,839
+you used over a
+ 
+
+619
+00:14:56,839 --> 00:15:00,189
+you used over a
+annotation and another is at theate
+
+620
+00:15:00,189 --> 00:15:00,199
+annotation and another is at theate
+ 
+
+621
+00:15:00,199 --> 00:15:04,430
+annotation and another is at theate
+retention this meta annotation tells how
+
+622
+00:15:04,430 --> 00:15:04,440
+retention this meta annotation tells how
+ 
+
+623
+00:15:04,440 --> 00:15:06,670
+retention this meta annotation tells how
+the particular annotation will be stored
+
+624
+00:15:06,670 --> 00:15:06,680
+the particular annotation will be stored
+ 
+
+625
+00:15:06,680 --> 00:15:07,870
+the particular annotation will be stored
+in
+
+626
+00:15:07,870 --> 00:15:07,880
+in
+ 
+
+627
+00:15:07,880 --> 00:15:10,710
+in
+Java so these are the three values one
+
+628
+00:15:10,710 --> 00:15:10,720
+Java so these are the three values one
+ 
+
+629
+00:15:10,720 --> 00:15:14,550
+Java so these are the three values one
+is retention policy. Source annotation
+
+630
+00:15:14,550 --> 00:15:14,560
+is retention policy. Source annotation
+ 
+
+631
+00:15:14,560 --> 00:15:17,470
+is retention policy. Source annotation
+will be discarded by compiler itself and
+
+632
+00:15:17,470 --> 00:15:17,480
+will be discarded by compiler itself and
+ 
+
+633
+00:15:17,480 --> 00:15:20,509
+will be discarded by compiler itself and
+it's not even recorded in do class
+
+634
+00:15:20,509 --> 00:15:20,519
+it's not even recorded in do class
+ 
+
+635
+00:15:20,519 --> 00:15:23,749
+it's not even recorded in do class
+file right so here if you see this
+
+636
+00:15:23,749 --> 00:15:23,759
+file right so here if you see this
+ 
+
+637
+00:15:23,759 --> 00:15:26,509
+file right so here if you see this
+example I have created an annotation at
+
+638
+00:15:26,509 --> 00:15:26,519
+example I have created an annotation at
+ 
+
+639
+00:15:26,519 --> 00:15:30,150
+example I have created an annotation at
+theate interface my custom annotation
+
+640
+00:15:30,150 --> 00:15:30,160
+theate interface my custom annotation
+ 
+
+641
+00:15:30,160 --> 00:15:32,189
+theate interface my custom annotation
+Target I have given that okay used it
+
+642
+00:15:32,189 --> 00:15:32,199
+Target I have given that okay used it
+ 
+
+643
+00:15:32,199 --> 00:15:34,870
+Target I have given that okay used it
+over a method but what is the retention
+
+644
+00:15:34,870 --> 00:15:34,880
+over a method but what is the retention
+ 
+
+645
+00:15:34,880 --> 00:15:37,150
+over a method but what is the retention
+I have given retention policy.
+
+646
+00:15:37,150 --> 00:15:37,160
+I have given retention policy.
+ 
+
+647
+00:15:37,160 --> 00:15:40,350
+I have given retention policy.
+Source okay so this annotation I'm using
+
+648
+00:15:40,350 --> 00:15:40,360
+Source okay so this annotation I'm using
+ 
+
+649
+00:15:40,360 --> 00:15:41,150
+Source okay so this annotation I'm using
+in
+
+650
+00:15:41,150 --> 00:15:41,160
+in
+ 
+
+651
+00:15:41,160 --> 00:15:44,470
+in
+a I have created a class user and I have
+
+652
+00:15:44,470 --> 00:15:44,480
+a I have created a class user and I have
+ 
+
+653
+00:15:44,480 --> 00:15:46,670
+a I have created a class user and I have
+a method update user over that I am
+
+654
+00:15:46,670 --> 00:15:46,680
+a method update user over that I am
+ 
+
+655
+00:15:46,680 --> 00:15:50,230
+a method update user over that I am
+using it okay so it's valid but when I
+
+656
+00:15:50,230 --> 00:15:50,240
+using it okay so it's valid but when I
+ 
+
+657
+00:15:50,240 --> 00:15:53,309
+using it okay so it's valid but when I
+am converting I'm doing let's say Java C
+
+658
+00:15:53,309 --> 00:15:53,319
+am converting I'm doing let's say Java C
+ 
+
+659
+00:15:53,319 --> 00:15:56,509
+am converting I'm doing let's say Java C
+now this Java class now converting it to
+
+660
+00:15:56,509 --> 00:15:56,519
+now this Java class now converting it to
+ 
+
+661
+00:15:56,519 --> 00:15:59,509
+now this Java class now converting it to
+a bite clod let's say Do class file now
+
+662
+00:15:59,509 --> 00:15:59,519
+a bite clod let's say Do class file now
+ 
+
+663
+00:15:59,519 --> 00:16:02,230
+a bite clod let's say Do class file now
+in the dot class file since I am using
+
+664
+00:16:02,230 --> 00:16:02,240
+in the dot class file since I am using
+ 
+
+665
+00:16:02,240 --> 00:16:04,990
+in the dot class file since I am using
+Source it will not this annotation will
+
+666
+00:16:04,990 --> 00:16:05,000
+Source it will not this annotation will
+ 
+
+667
+00:16:05,000 --> 00:16:07,749
+Source it will not this annotation will
+not get converted or not carry forward
+
+668
+00:16:07,749 --> 00:16:07,759
+not get converted or not carry forward
+ 
+
+669
+00:16:07,759 --> 00:16:09,550
+not get converted or not carry forward
+in the dot class file so here if you see
+
+670
+00:16:09,550 --> 00:16:09,560
+in the dot class file so here if you see
+ 
+
+671
+00:16:09,560 --> 00:16:11,749
+in the dot class file so here if you see
+there is no
+
+672
+00:16:11,749 --> 00:16:11,759
+there is no
+ 
+
+673
+00:16:11,759 --> 00:16:14,990
+there is no
+annotation and if you see at the rate
+
+674
+00:16:14,990 --> 00:16:15,000
+annotation and if you see at the rate
+ 
+
+675
+00:16:15,000 --> 00:16:17,550
+annotation and if you see at the rate
+override annotation right actually it is
+
+676
+00:16:17,550 --> 00:16:17,560
+override annotation right actually it is
+ 
+
+677
+00:16:17,560 --> 00:16:20,470
+override annotation right actually it is
+source so it is just for the readability
+
+678
+00:16:20,470 --> 00:16:20,480
+source so it is just for the readability
+ 
+
+679
+00:16:20,480 --> 00:16:22,430
+source so it is just for the readability
+of the
+
+680
+00:16:22,430 --> 00:16:22,440
+of the
+ 
+
+681
+00:16:22,440 --> 00:16:26,990
+of the
+engineers but it do not add any value it
+
+682
+00:16:26,990 --> 00:16:27,000
+engineers but it do not add any value it
+ 
+
+683
+00:16:27,000 --> 00:16:31,030
+engineers but it do not add any value it
+even not even converted to our bite
+
+684
+00:16:31,030 --> 00:16:31,040
+even not even converted to our bite
+ 
+
+685
+00:16:31,040 --> 00:16:33,590
+even not even converted to our bite
+code okay so annotation will be
+
+686
+00:16:33,590 --> 00:16:33,600
+code okay so annotation will be
+ 
+
+687
+00:16:33,600 --> 00:16:35,790
+code okay so annotation will be
+discarded by compiler itself and it's
+
+688
+00:16:35,790 --> 00:16:35,800
+discarded by compiler itself and it's
+ 
+
+689
+00:16:35,800 --> 00:16:37,870
+discarded by compiler itself and it's
+not even recorded in dot class
+
+690
+00:16:37,870 --> 00:16:37,880
+not even recorded in dot class
+ 
+
+691
+00:16:37,880 --> 00:16:40,350
+not even recorded in dot class
+file there is another retention policies
+
+692
+00:16:40,350 --> 00:16:40,360
+file there is another retention policies
+ 
+
+693
+00:16:40,360 --> 00:16:42,829
+file there is another retention policies
+is do class annotation will be recorded
+
+694
+00:16:42,829 --> 00:16:42,839
+is do class annotation will be recorded
+ 
+
+695
+00:16:42,839 --> 00:16:46,110
+is do class annotation will be recorded
+in do class file but ignored by jvm
+
+696
+00:16:46,110 --> 00:16:46,120
+in do class file but ignored by jvm
+ 
+
+697
+00:16:46,120 --> 00:16:49,230
+in do class file but ignored by jvm
+during runtime so if you
+
+698
+00:16:49,230 --> 00:16:49,240
+during runtime so if you
+ 
+
+699
+00:16:49,240 --> 00:16:52,749
+during runtime so if you
+use do
+
+700
+00:16:52,749 --> 00:16:52,759
+use do
+ 
+
+701
+00:16:52,759 --> 00:16:56,150
+use do
+class then here during this do class
+
+702
+00:16:56,150 --> 00:16:56,160
+class then here during this do class
+ 
+
+703
+00:16:56,160 --> 00:16:59,389
+class then here during this do class
+file you might see at theate my
+
+704
+00:16:59,389 --> 00:16:59,399
+file you might see at theate my
+ 
+
+705
+00:16:59,399 --> 00:17:00,749
+file you might see at theate my
+custom
+
+706
+00:17:00,749 --> 00:17:00,759
+custom
+ 
+
+707
+00:17:00,759 --> 00:17:03,270
+custom
+annotation but will it add any value
+
+708
+00:17:03,270 --> 00:17:03,280
+annotation but will it add any value
+ 
+
+709
+00:17:03,280 --> 00:17:06,710
+annotation but will it add any value
+nothing right because jvm during runtime
+
+710
+00:17:06,710 --> 00:17:06,720
+nothing right because jvm during runtime
+ 
+
+711
+00:17:06,720 --> 00:17:09,189
+nothing right because jvm during runtime
+will not even considered it and it
+
+712
+00:17:09,189 --> 00:17:09,199
+will not even considered it and it
+ 
+
+713
+00:17:09,199 --> 00:17:10,309
+will not even considered it and it
+totally
+
+714
+00:17:10,309 --> 00:17:10,319
+totally
+ 
+
+715
+00:17:10,319 --> 00:17:14,630
+totally
+ignore right so you can say that it's uh
+
+716
+00:17:14,630 --> 00:17:14,640
+ignore right so you can say that it's uh
+ 
+
+717
+00:17:14,640 --> 00:17:16,429
+ignore right so you can say that it's uh
+in the bite code even though it's added
+
+718
+00:17:16,429 --> 00:17:16,439
+in the bite code even though it's added
+ 
+
+719
+00:17:16,439 --> 00:17:20,350
+in the bite code even though it's added
+but jvm will not even consider it and
+
+720
+00:17:20,350 --> 00:17:20,360
+but jvm will not even consider it and
+ 
+
+721
+00:17:20,360 --> 00:17:22,270
+but jvm will not even consider it and
+there is something called dot runtime
+
+722
+00:17:22,270 --> 00:17:22,280
+there is something called dot runtime
+ 
+
+723
+00:17:22,280 --> 00:17:24,390
+there is something called dot runtime
+annotation will be recorded in do class
+
+724
+00:17:24,390 --> 00:17:24,400
+annotation will be recorded in do class
+ 
+
+725
+00:17:24,400 --> 00:17:27,590
+annotation will be recorded in do class
+file and also available during the run
+
+726
+00:17:27,590 --> 00:17:27,600
+file and also available during the run
+ 
+
+727
+00:17:27,600 --> 00:17:31,070
+file and also available during the run
+time so so now here for this one only we
+
+728
+00:17:31,070 --> 00:17:31,080
+time so so now here for this one only we
+ 
+
+729
+00:17:31,080 --> 00:17:33,909
+time so so now here for this one only we
+can write some custom logic that hey
+
+730
+00:17:33,909 --> 00:17:33,919
+can write some custom logic that hey
+ 
+
+731
+00:17:33,919 --> 00:17:37,070
+can write some custom logic that hey
+during your code is running during run
+
+732
+00:17:37,070 --> 00:17:37,080
+during your code is running during run
+ 
+
+733
+00:17:37,080 --> 00:17:40,470
+during your code is running during run
+time you can fetch The annotation and do
+
+734
+00:17:40,470 --> 00:17:40,480
+time you can fetch The annotation and do
+ 
+
+735
+00:17:40,480 --> 00:17:43,950
+time you can fetch The annotation and do
+something based on that okay so here if
+
+736
+00:17:43,950 --> 00:17:43,960
+something based on that okay so here if
+ 
+
+737
+00:17:43,960 --> 00:17:46,630
+something based on that okay so here if
+you see an example I have creating my
+
+738
+00:17:46,630 --> 00:17:46,640
+you see an example I have creating my
+ 
+
+739
+00:17:46,640 --> 00:17:49,270
+you see an example I have creating my
+annotation my custom annotation uses the
+
+740
+00:17:49,270 --> 00:17:49,280
+annotation my custom annotation uses the
+ 
+
+741
+00:17:49,280 --> 00:17:51,110
+annotation my custom annotation uses the
+keyword at theate
+
+742
+00:17:51,110 --> 00:17:51,120
+keyword at theate
+ 
+
+743
+00:17:51,120 --> 00:17:53,870
+keyword at theate
+interface Target is Method and retention
+
+744
+00:17:53,870 --> 00:17:53,880
+interface Target is Method and retention
+ 
+
+745
+00:17:53,880 --> 00:17:54,549
+interface Target is Method and retention
+is
+
+746
+00:17:54,549 --> 00:17:54,559
+is
+ 
+
+747
+00:17:54,559 --> 00:17:57,029
+is
+runtime and I'm using this annotation
+
+748
+00:17:57,029 --> 00:17:57,039
+runtime and I'm using this annotation
+ 
+
+749
+00:17:57,039 --> 00:17:59,430
+runtime and I'm using this annotation
+over this method which which is inside a
+
+750
+00:17:59,430 --> 00:17:59,440
+over this method which which is inside a
+ 
+
+751
+00:17:59,440 --> 00:18:02,710
+over this method which which is inside a
+user class now I converted it to a do
+
+752
+00:18:02,710 --> 00:18:02,720
+user class now I converted it to a do
+ 
+
+753
+00:18:02,720 --> 00:18:05,870
+user class now I converted it to a do
+class file here if you see now here if
+
+754
+00:18:05,870 --> 00:18:05,880
+class file here if you see now here if
+ 
+
+755
+00:18:05,880 --> 00:18:08,909
+class file here if you see now here if
+you see that it's get inside a do class
+
+756
+00:18:08,909 --> 00:18:08,919
+you see that it's get inside a do class
+ 
+
+757
+00:18:08,919 --> 00:18:11,830
+you see that it's get inside a do class
+file and even during the run time also I
+
+758
+00:18:11,830 --> 00:18:11,840
+file and even during the run time also I
+ 
+
+759
+00:18:11,840 --> 00:18:15,510
+file and even during the run time also I
+can even do reflection and read hey this
+
+760
+00:18:15,510 --> 00:18:15,520
+can even do reflection and read hey this
+ 
+
+761
+00:18:15,520 --> 00:18:19,149
+can even do reflection and read hey this
+method has any annotation if yes do this
+
+762
+00:18:19,149 --> 00:18:19,159
+method has any annotation if yes do this
+ 
+
+763
+00:18:19,159 --> 00:18:23,390
+method has any annotation if yes do this
+something we'll see that but this three
+
+764
+00:18:23,390 --> 00:18:23,400
+something we'll see that but this three
+ 
+
+765
+00:18:23,400 --> 00:18:27,070
+something we'll see that but this three
+are the retention
+
+766
+00:18:27,070 --> 00:18:27,080
+
+ 
+
+767
+00:18:27,080 --> 00:18:31,110
+
+policies so whenever we are creating our
+
+768
+00:18:31,110 --> 00:18:31,120
+policies so whenever we are creating our
+ 
+
+769
+00:18:31,120 --> 00:18:34,070
+policies so whenever we are creating our
+custom annotation right we have to
+
+770
+00:18:34,070 --> 00:18:34,080
+custom annotation right we have to
+ 
+
+771
+00:18:34,080 --> 00:18:35,870
+custom annotation right we have to
+provide what is the Target and what is
+
+772
+00:18:35,870 --> 00:18:35,880
+provide what is the Target and what is
+ 
+
+773
+00:18:35,880 --> 00:18:36,630
+provide what is the Target and what is
+the
+
+774
+00:18:36,630 --> 00:18:36,640
+the
+ 
+
+775
+00:18:36,640 --> 00:18:41,750
+the
+retention so this two like we have to
+
+776
+00:18:41,750 --> 00:18:41,760
+retention so this two like we have to
+ 
+
+777
+00:18:41,760 --> 00:18:44,430
+retention so this two like we have to
+provide now one more very very important
+
+778
+00:18:44,430 --> 00:18:44,440
+provide now one more very very important
+ 
+
+779
+00:18:44,440 --> 00:18:46,750
+provide now one more very very important
+part when we will write our interceptors
+
+780
+00:18:46,750 --> 00:18:46,760
+part when we will write our interceptors
+ 
+
+781
+00:18:46,760 --> 00:18:50,950
+part when we will write our interceptors
+right we have to uh you can say that add
+
+782
+00:18:50,950 --> 00:18:50,960
+right we have to uh you can say that add
+ 
+
+783
+00:18:50,960 --> 00:18:54,430
+right we have to uh you can say that add
+some information for a particular method
+
+784
+00:18:54,430 --> 00:18:54,440
+some information for a particular method
+ 
+
+785
+00:18:54,440 --> 00:18:57,909
+some information for a particular method
+right so how to in The annotation my
+
+786
+00:18:57,909 --> 00:18:57,919
+right so how to in The annotation my
+ 
+
+787
+00:18:57,919 --> 00:19:00,710
+right so how to in The annotation my
+custom annotation how I can send certain
+
+788
+00:19:00,710 --> 00:19:00,720
+custom annotation how I can send certain
+ 
+
+789
+00:19:00,720 --> 00:19:04,310
+custom annotation how I can send certain
+information so there are Fields also so
+
+790
+00:19:04,310 --> 00:19:04,320
+information so there are Fields also so
+ 
+
+791
+00:19:04,320 --> 00:19:06,270
+information so there are Fields also so
+we can create a custom annotation with
+
+792
+00:19:06,270 --> 00:19:06,280
+we can create a custom annotation with
+ 
+
+793
+00:19:06,280 --> 00:19:09,149
+we can create a custom annotation with
+method which is more like a field and
+
+794
+00:19:09,149 --> 00:19:09,159
+method which is more like a field and
+ 
+
+795
+00:19:09,159 --> 00:19:11,430
+method which is more like a field and
+inside this field we can add
+
+796
+00:19:11,430 --> 00:19:11,440
+inside this field we can add
+ 
+
+797
+00:19:11,440 --> 00:19:15,549
+inside this field we can add
+value so here this methods which we are
+
+798
+00:19:15,549 --> 00:19:15,559
+value so here this methods which we are
+ 
+
+799
+00:19:15,559 --> 00:19:19,190
+value so here this methods which we are
+going to write has no parameter no body
+
+800
+00:19:19,190 --> 00:19:19,200
+going to write has no parameter no body
+ 
+
+801
+00:19:19,200 --> 00:19:22,029
+going to write has no parameter no body
+first second thing is return type is
+
+802
+00:19:22,029 --> 00:19:22,039
+first second thing is return type is
+ 
+
+803
+00:19:22,039 --> 00:19:25,029
+first second thing is return type is
+very very restricted to primitive in in
+
+804
+00:19:25,029 --> 00:19:25,039
+very very restricted to primitive in in
+ 
+
+805
+00:19:25,039 --> 00:19:28,149
+very very restricted to primitive in in
+Boolean double so there are total eight
+
+806
+00:19:28,149 --> 00:19:28,159
+Boolean double so there are total eight
+ 
+
+807
+00:19:28,159 --> 00:19:31,390
+Boolean double so there are total eight
+uh primitive types so it is limited to
+
+808
+00:19:31,390 --> 00:19:31,400
+uh primitive types so it is limited to
+ 
+
+809
+00:19:31,400 --> 00:19:33,830
+uh primitive types so it is limited to
+primitive types you can use a string you
+
+810
+00:19:33,830 --> 00:19:33,840
+primitive types you can use a string you
+ 
+
+811
+00:19:33,840 --> 00:19:37,350
+primitive types you can use a string you
+can use enum you can use like Class Type
+
+812
+00:19:37,350 --> 00:19:37,360
+can use enum you can use like Class Type
+ 
+
+813
+00:19:37,360 --> 00:19:39,590
+can use enum you can use like Class Type
+class whether it should be a string dot
+
+814
+00:19:39,590 --> 00:19:39,600
+class whether it should be a string dot
+ 
+
+815
+00:19:39,600 --> 00:19:42,470
+class whether it should be a string dot
+class whatever do class right but should
+
+816
+00:19:42,470 --> 00:19:42,480
+class whatever do class right but should
+ 
+
+817
+00:19:42,480 --> 00:19:43,510
+class whatever do class right but should
+be dot
+
+818
+00:19:43,510 --> 00:19:43,520
+be dot
+ 
+
+819
+00:19:43,520 --> 00:19:46,950
+be dot
+class right annotations on array of
+
+820
+00:19:46,950 --> 00:19:46,960
+class right annotations on array of
+ 
+
+821
+00:19:46,960 --> 00:19:50,590
+class right annotations on array of
+above you can say string array int array
+
+822
+00:19:50,590 --> 00:19:50,600
+above you can say string array int array
+ 
+
+823
+00:19:50,600 --> 00:19:53,390
+above you can say string array int array
+Boolean array that also can be
+
+824
+00:19:53,390 --> 00:19:53,400
+Boolean array that also can be
+ 
+
+825
+00:19:53,400 --> 00:19:56,149
+Boolean array that also can be
+used right uh why why there is a
+
+826
+00:19:56,149 --> 00:19:56,159
+used right uh why why there is a
+ 
+
+827
+00:19:56,159 --> 00:19:58,190
+used right uh why why there is a
+restriction if if something is going in
+
+828
+00:19:58,190 --> 00:19:58,200
+restriction if if something is going in
+ 
+
+829
+00:19:58,200 --> 00:20:00,590
+restriction if if something is going in
+your in your mind like hey because see
+
+830
+00:20:00,590 --> 00:20:00,600
+your in your mind like hey because see
+ 
+
+831
+00:20:00,600 --> 00:20:02,870
+your in your mind like hey because see
+annotations are very lightweight right
+
+832
+00:20:02,870 --> 00:20:02,880
+annotations are very lightweight right
+ 
+
+833
+00:20:02,880 --> 00:20:05,909
+annotations are very lightweight right
+we have to keep it very very restricted
+
+834
+00:20:05,909 --> 00:20:05,919
+we have to keep it very very restricted
+ 
+
+835
+00:20:05,919 --> 00:20:08,789
+we have to keep it very very restricted
+because we don't want to expand its uh
+
+836
+00:20:08,789 --> 00:20:08,799
+because we don't want to expand its uh
+ 
+
+837
+00:20:08,799 --> 00:20:12,390
+because we don't want to expand its uh
+use cases and all so that's why this
+
+838
+00:20:12,390 --> 00:20:12,400
+use cases and all so that's why this
+ 
+
+839
+00:20:12,400 --> 00:20:15,909
+use cases and all so that's why this
+only return types are allowed and how to
+
+840
+00:20:15,909 --> 00:20:15,919
+only return types are allowed and how to
+ 
+
+841
+00:20:15,919 --> 00:20:18,669
+only return types are allowed and how to
+do that I am writing my own custom
+
+842
+00:20:18,669 --> 00:20:18,679
+do that I am writing my own custom
+ 
+
+843
+00:20:18,679 --> 00:20:21,350
+do that I am writing my own custom
+annotation my custom annotation with at
+
+844
+00:20:21,350 --> 00:20:21,360
+annotation my custom annotation with at
+ 
+
+845
+00:20:21,360 --> 00:20:22,669
+annotation my custom annotation with at
+theate interface
+
+846
+00:20:22,669 --> 00:20:22,679
+theate interface
+ 
+
+847
+00:20:22,679 --> 00:20:25,230
+theate interface
+keyword I have used at theate Target at
+
+848
+00:20:25,230 --> 00:20:25,240
+keyword I have used at theate Target at
+ 
+
+849
+00:20:25,240 --> 00:20:28,149
+keyword I have used at theate Target at
+theate retention now here if you see I
+
+850
+00:20:28,149 --> 00:20:28,159
+theate retention now here if you see I
+ 
+
+851
+00:20:28,159 --> 00:20:31,750
+theate retention now here if you see I
+want one value let's
+
+852
+00:20:31,750 --> 00:20:31,760
+want one value let's
+ 
+
+853
+00:20:31,760 --> 00:20:35,350
+want one value let's
+say key so here if you see that this
+
+854
+00:20:35,350 --> 00:20:35,360
+say key so here if you see that this
+ 
+
+855
+00:20:35,360 --> 00:20:39,909
+say key so here if you see that this
+method doesn't have any return type and
+
+856
+00:20:39,909 --> 00:20:39,919
+method doesn't have any return type and
+ 
+
+857
+00:20:39,919 --> 00:20:43,230
+method doesn't have any return type and
+uh not any parameter and return type is
+
+858
+00:20:43,230 --> 00:20:43,240
+uh not any parameter and return type is
+ 
+
+859
+00:20:43,240 --> 00:20:45,669
+uh not any parameter and return type is
+a string which is allowed
+
+860
+00:20:45,669 --> 00:20:45,679
+a string which is allowed
+ 
+
+861
+00:20:45,679 --> 00:20:48,870
+a string which is allowed
+one right and you can provide a default
+
+862
+00:20:48,870 --> 00:20:48,880
+one right and you can provide a default
+ 
+
+863
+00:20:48,880 --> 00:20:51,390
+one right and you can provide a default
+uh value for this is like like default
+
+864
+00:20:51,390 --> 00:20:51,400
+uh value for this is like like default
+ 
+
+865
+00:20:51,400 --> 00:20:55,070
+uh value for this is like like default
+default key name now in this class over
+
+866
+00:20:55,070 --> 00:20:55,080
+default key name now in this class over
+ 
+
+867
+00:20:55,080 --> 00:20:57,190
+default key name now in this class over
+this method when I using this annotation
+
+868
+00:20:57,190 --> 00:20:57,200
+this method when I using this annotation
+ 
+
+869
+00:20:57,200 --> 00:21:00,470
+this method when I using this annotation
+I can pass certain information like this
+
+870
+00:21:00,470 --> 00:21:00,480
+I can pass certain information like this
+ 
+
+871
+00:21:00,480 --> 00:21:02,190
+I can pass certain information like this
+for this
+
+872
+00:21:02,190 --> 00:21:02,200
+for this
+ 
+
+873
+00:21:02,200 --> 00:21:05,750
+for this
+key value is user key for this method
+
+874
+00:21:05,750 --> 00:21:05,760
+key value is user key for this method
+ 
+
+875
+00:21:05,760 --> 00:21:09,990
+key value is user key for this method
+user key now wherever my Interceptor
+
+876
+00:21:09,990 --> 00:21:10,000
+user key now wherever my Interceptor
+ 
+
+877
+00:21:10,000 --> 00:21:14,149
+user key now wherever my Interceptor
+will catch it up it can get this value
+
+878
+00:21:14,149 --> 00:21:14,159
+will catch it up it can get this value
+ 
+
+879
+00:21:14,159 --> 00:21:16,669
+will catch it up it can get this value
+also from this annotation we will see
+
+880
+00:21:16,669 --> 00:21:16,679
+also from this annotation we will see
+ 
+
+881
+00:21:16,679 --> 00:21:18,789
+also from this annotation we will see
+tell you how but for now you can say
+
+882
+00:21:18,789 --> 00:21:18,799
+tell you how but for now you can say
+ 
+
+883
+00:21:18,799 --> 00:21:21,269
+tell you how but for now you can say
+that when you write a custom
+
+884
+00:21:21,269 --> 00:21:21,279
+that when you write a custom
+ 
+
+885
+00:21:21,279 --> 00:21:23,630
+that when you write a custom
+annotation we can pass certain value
+
+886
+00:21:23,630 --> 00:21:23,640
+annotation we can pass certain value
+ 
+
+887
+00:21:23,640 --> 00:21:26,549
+annotation we can pass certain value
+like this and when we write our own
+
+888
+00:21:26,549 --> 00:21:26,559
+like this and when we write our own
+ 
+
+889
+00:21:26,559 --> 00:21:28,549
+like this and when we write our own
+Interceptor right during caching dur
+
+890
+00:21:28,549 --> 00:21:28,559
+Interceptor right during caching dur
+ 
+
+891
+00:21:28,559 --> 00:21:30,669
+Interceptor right during caching dur
+during logging this feature going to
+
+892
+00:21:30,669 --> 00:21:30,679
+during logging this feature going to
+ 
+
+893
+00:21:30,679 --> 00:21:33,590
+during logging this feature going to
+help us a lot because we always have to
+
+894
+00:21:33,590 --> 00:21:33,600
+help us a lot because we always have to
+ 
+
+895
+00:21:33,600 --> 00:21:37,269
+help us a lot because we always have to
+pass certain information during
+
+896
+00:21:37,269 --> 00:21:37,279
+pass certain information during
+ 
+
+897
+00:21:37,279 --> 00:21:39,669
+pass certain information during
+interceptors so this is one example I
+
+898
+00:21:39,669 --> 00:21:39,679
+interceptors so this is one example I
+ 
+
+899
+00:21:39,679 --> 00:21:42,830
+interceptors so this is one example I
+showed you like with more Fields like I
+
+900
+00:21:42,830 --> 00:21:42,840
+showed you like with more Fields like I
+ 
+
+901
+00:21:42,840 --> 00:21:44,870
+showed you like with more Fields like I
+am writing my custom annotation at the
+
+902
+00:21:44,870 --> 00:21:44,880
+am writing my custom annotation at the
+ 
+
+903
+00:21:44,880 --> 00:21:48,789
+am writing my custom annotation at the
+interface this now I have just for uh
+
+904
+00:21:48,789 --> 00:21:48,799
+interface this now I have just for uh
+ 
+
+905
+00:21:48,799 --> 00:21:50,590
+interface this now I have just for uh
+demoing purpose I have written one
+
+906
+00:21:50,590 --> 00:21:50,600
+demoing purpose I have written one
+ 
+
+907
+00:21:50,600 --> 00:21:53,350
+demoing purpose I have written one
+method like int key I I don't call it a
+
+908
+00:21:53,350 --> 00:21:53,360
+method like int key I I don't call it a
+ 
+
+909
+00:21:53,360 --> 00:21:55,630
+method like int key I I don't call it a
+method I will call it a field mostly uh
+
+910
+00:21:55,630 --> 00:21:55,640
+method I will call it a field mostly uh
+ 
+
+911
+00:21:55,640 --> 00:21:57,390
+method I will call it a field mostly uh
+it's a field only generally but this is
+
+912
+00:21:57,390 --> 00:21:57,400
+it's a field only generally but this is
+ 
+
+913
+00:21:57,400 --> 00:21:59,350
+it's a field only generally but this is
+the way of representing it inside this
+
+914
+00:21:59,350 --> 00:21:59,360
+the way of representing it inside this
+ 
+
+915
+00:21:59,360 --> 00:22:02,789
+the way of representing it inside this
+one so int key no parameter return type
+
+916
+00:22:02,789 --> 00:22:02,799
+one so int key no parameter return type
+ 
+
+917
+00:22:02,799 --> 00:22:06,390
+one so int key no parameter return type
+is in a string return type is a string
+
+918
+00:22:06,390 --> 00:22:06,400
+is in a string return type is a string
+ 
+
+919
+00:22:06,400 --> 00:22:08,549
+is in a string return type is a string
+default value you can give anything here
+
+920
+00:22:08,549 --> 00:22:08,559
+default value you can give anything here
+ 
+
+921
+00:22:08,559 --> 00:22:12,470
+default value you can give anything here
+I have given zero Class Type key so this
+
+922
+00:22:12,470 --> 00:22:12,480
+I have given zero Class Type key so this
+ 
+
+923
+00:22:12,480 --> 00:22:14,909
+I have given zero Class Type key so this
+is the return type default I have
+
+924
+00:22:14,909 --> 00:22:14,919
+is the return type default I have
+ 
+
+925
+00:22:14,919 --> 00:22:16,990
+is the return type default I have
+written a string do
+
+926
+00:22:16,990 --> 00:22:17,000
+written a string do
+ 
+
+927
+00:22:17,000 --> 00:22:20,549
+written a string do
+class enum key so you can create any
+
+928
+00:22:20,549 --> 00:22:20,559
+class enum key so you can create any
+ 
+
+929
+00:22:20,559 --> 00:22:23,830
+class enum key so you can create any
+enum so default value is this and return
+
+930
+00:22:23,830 --> 00:22:23,840
+enum so default value is this and return
+ 
+
+931
+00:22:23,840 --> 00:22:25,310
+enum so default value is this and return
+type is enum
+
+932
+00:22:25,310 --> 00:22:25,320
+type is enum
+ 
+
+933
+00:22:25,320 --> 00:22:29,310
+type is enum
+only string array key so you can return
+
+934
+00:22:29,310 --> 00:22:29,320
+only string array key so you can return
+ 
+
+935
+00:22:29,320 --> 00:22:31,390
+only string array key so you can return
+string array default value you can
+
+936
+00:22:31,390 --> 00:22:31,400
+string array default value you can
+ 
+
+937
+00:22:31,400 --> 00:22:33,750
+string array default value you can
+return any array of the string similarly
+
+938
+00:22:33,750 --> 00:22:33,760
+return any array of the string similarly
+ 
+
+939
+00:22:33,760 --> 00:22:36,510
+return any array of the string similarly
+like this and in the class when you're
+
+940
+00:22:36,510 --> 00:22:36,520
+like this and in the class when you're
+ 
+
+941
+00:22:36,520 --> 00:22:39,750
+like this and in the class when you're
+using this you can use my custom
+
+942
+00:22:39,750 --> 00:22:39,760
+using this you can use my custom
+ 
+
+943
+00:22:39,760 --> 00:22:42,230
+using this you can use my custom
+annotation which you have created now
+
+944
+00:22:42,230 --> 00:22:42,240
+annotation which you have created now
+ 
+
+945
+00:22:42,240 --> 00:22:44,870
+annotation which you have created now
+you can pass certain value int key I am
+
+946
+00:22:44,870 --> 00:22:44,880
+you can pass certain value int key I am
+ 
+
+947
+00:22:44,880 --> 00:22:48,510
+you can pass certain value int key I am
+passing 10 a string key a string right
+
+948
+00:22:48,510 --> 00:22:48,520
+passing 10 a string key a string right
+ 
+
+949
+00:22:48,520 --> 00:22:50,710
+passing 10 a string key a string right
+so I'm passing some
+
+950
+00:22:50,710 --> 00:22:50,720
+so I'm passing some
+ 
+
+951
+00:22:50,720 --> 00:22:55,149
+so I'm passing some
+user Class Type key I am passing user do
+
+952
+00:22:55,149 --> 00:22:55,159
+user Class Type key I am passing user do
+ 
+
+953
+00:22:55,159 --> 00:22:58,909
+user Class Type key I am passing user do
+class enum key I am passing some another
+
+954
+00:22:58,909 --> 00:22:58,919
+class enum key I am passing some another
+ 
+
+955
+00:22:58,919 --> 00:23:01,430
+class enum key I am passing some another
+Ina so you got it right we can pass
+
+956
+00:23:01,430 --> 00:23:01,440
+Ina so you got it right we can pass
+ 
+
+957
+00:23:01,440 --> 00:23:04,950
+Ina so you got it right we can pass
+certain values in this annotation so you
+
+958
+00:23:04,950 --> 00:23:04,960
+certain values in this annotation so you
+ 
+
+959
+00:23:04,960 --> 00:23:07,190
+certain values in this annotation so you
+can say that these are mostly fields and
+
+960
+00:23:07,190 --> 00:23:07,200
+can say that these are mostly fields and
+ 
+
+961
+00:23:07,200 --> 00:23:09,390
+can say that these are mostly fields and
+we are just filling the values of these
+
+962
+00:23:09,390 --> 00:23:09,400
+we are just filling the values of these
+ 
+
+963
+00:23:09,400 --> 00:23:11,430
+we are just filling the values of these
+fields and you can provide a default
+
+964
+00:23:11,430 --> 00:23:11,440
+fields and you can provide a default
+ 
+
+965
+00:23:11,440 --> 00:23:14,149
+fields and you can provide a default
+method like here inside that
+
+966
+00:23:14,149 --> 00:23:14,159
+method like here inside that
+ 
+
+967
+00:23:14,159 --> 00:23:16,710
+method like here inside that
+itself so at this point of time you
+
+968
+00:23:16,710 --> 00:23:16,720
+itself so at this point of time you
+ 
+
+969
+00:23:16,720 --> 00:23:20,310
+itself so at this point of time you
+should be clear that how to create a
+
+970
+00:23:20,310 --> 00:23:20,320
+should be clear that how to create a
+ 
+
+971
+00:23:20,320 --> 00:23:21,590
+should be clear that how to create a
+custom
+
+972
+00:23:21,590 --> 00:23:21,600
+custom
+ 
+
+973
+00:23:21,600 --> 00:23:25,510
+custom
+annotation now you can write your custom
+
+974
+00:23:25,510 --> 00:23:25,520
+annotation now you can write your custom
+ 
+
+975
+00:23:25,520 --> 00:23:27,789
+annotation now you can write your custom
+annotation like at theate I can even
+
+976
+00:23:27,789 --> 00:23:27,799
+annotation like at theate I can even
+ 
+
+977
+00:23:27,799 --> 00:23:30,750
+annotation like at theate I can even
+create at theate Shan so at this point
+
+978
+00:23:30,750 --> 00:23:30,760
+create at theate Shan so at this point
+ 
+
+979
+00:23:30,760 --> 00:23:33,470
+create at theate Shan so at this point
+we should be clear like how to create
+
+980
+00:23:33,470 --> 00:23:33,480
+we should be clear like how to create
+ 
+
+981
+00:23:33,480 --> 00:23:35,590
+we should be clear like how to create
+now the second part is creating our
+
+982
+00:23:35,590 --> 00:23:35,600
+now the second part is creating our
+ 
+
+983
+00:23:35,600 --> 00:23:37,029
+now the second part is creating our
+custom
+
+984
+00:23:37,029 --> 00:23:37,039
+custom
+ 
+
+985
+00:23:37,039 --> 00:23:39,870
+custom
+interceptors so now here if you see what
+
+986
+00:23:39,870 --> 00:23:39,880
+interceptors so now here if you see what
+ 
+
+987
+00:23:39,880 --> 00:23:41,390
+interceptors so now here if you see what
+I am doing
+
+988
+00:23:41,390 --> 00:23:41,400
+I am doing
+ 
+
+989
+00:23:41,400 --> 00:23:44,070
+I am doing
+here I am creating a user controller
+
+990
+00:23:44,070 --> 00:23:44,080
+here I am creating a user controller
+ 
+
+991
+00:23:44,080 --> 00:23:46,630
+here I am creating a user controller
+class very very simple class I having
+
+992
+00:23:46,630 --> 00:23:46,640
+class very very simple class I having
+ 
+
+993
+00:23:46,640 --> 00:23:50,750
+class very very simple class I having
+one method get user which is with this
+
+994
+00:23:50,750 --> 00:23:50,760
+one method get user which is with this
+ 
+
+995
+00:23:50,760 --> 00:23:53,909
+one method get user which is with this
+uh path get mapping this is the path and
+
+996
+00:23:53,909 --> 00:23:53,919
+uh path get mapping this is the path and
+ 
+
+997
+00:23:53,919 --> 00:23:57,110
+uh path get mapping this is the path and
+this is invoking this
+
+998
+00:23:57,110 --> 00:23:57,120
+this is invoking this
+ 
+
+999
+00:23:57,120 --> 00:24:00,830
+this is invoking this
+user this is is invoking this user class
+
+1000
+00:24:00,830 --> 00:24:00,840
+user this is is invoking this user class
+ 
+
+1001
+00:24:00,840 --> 00:24:03,909
+user this is is invoking this user class
+okay uh annotated with adorate component
+
+1002
+00:24:03,909 --> 00:24:03,919
+okay uh annotated with adorate component
+ 
+
+1003
+00:24:03,919 --> 00:24:05,669
+okay uh annotated with adorate component
+beans beans is created by
+
+1004
+00:24:05,669 --> 00:24:05,679
+beans beans is created by
+ 
+
+1005
+00:24:05,679 --> 00:24:09,510
+beans beans is created by
+Spring it has one method called get user
+
+1006
+00:24:09,510 --> 00:24:09,520
+Spring it has one method called get user
+ 
+
+1007
+00:24:09,520 --> 00:24:11,630
+Spring it has one method called get user
+now here if you see that get user I have
+
+1008
+00:24:11,630 --> 00:24:11,640
+now here if you see that get user I have
+ 
+
+1009
+00:24:11,640 --> 00:24:14,470
+now here if you see that get user I have
+annotated with my at theate custom
+
+1010
+00:24:14,470 --> 00:24:14,480
+annotated with my at theate custom
+ 
+
+1011
+00:24:14,480 --> 00:24:16,549
+annotated with my at theate custom
+annotation so this is the custom
+
+1012
+00:24:16,549 --> 00:24:16,559
+annotation so this is the custom
+ 
+
+1013
+00:24:16,559 --> 00:24:18,549
+annotation so this is the custom
+annotation I have created now we already
+
+1014
+00:24:18,549 --> 00:24:18,559
+annotation I have created now we already
+ 
+
+1015
+00:24:18,559 --> 00:24:22,510
+annotation I have created now we already
+know how to create right and only one
+
+1016
+00:24:22,510 --> 00:24:22,520
+know how to create right and only one
+ 
+
+1017
+00:24:22,520 --> 00:24:25,510
+know how to create right and only one
+name a string default value is uh empty
+
+1018
+00:24:25,510 --> 00:24:25,520
+name a string default value is uh empty
+ 
+
+1019
+00:24:25,520 --> 00:24:29,389
+name a string default value is uh empty
+so name I can provide user
+
+1020
+00:24:29,389 --> 00:24:29,399
+so name I can provide user
+ 
+
+1021
+00:24:29,399 --> 00:24:31,350
+so name I can provide user
+okay so this is the custom annotation I
+
+1022
+00:24:31,350 --> 00:24:31,360
+okay so this is the custom annotation I
+ 
+
+1023
+00:24:31,360 --> 00:24:33,669
+okay so this is the custom annotation I
+have given over the get
+
+1024
+00:24:33,669 --> 00:24:33,679
+have given over the get
+ 
+
+1025
+00:24:33,679 --> 00:24:37,070
+have given over the get
+user now I want to write my
+
+1026
+00:24:37,070 --> 00:24:37,080
+user now I want to write my
+ 
+
+1027
+00:24:37,080 --> 00:24:40,070
+user now I want to write my
+Interceptor okay if you have seen the
+
+1028
+00:24:40,070 --> 00:24:40,080
+Interceptor okay if you have seen the
+ 
+
+1029
+00:24:40,080 --> 00:24:43,830
+Interceptor okay if you have seen the
+aop video you can easily get it how to
+
+1030
+00:24:43,830 --> 00:24:43,840
+aop video you can easily get it how to
+ 
+
+1031
+00:24:43,840 --> 00:24:46,389
+aop video you can easily get it how to
+write an Interceptor now I am writing I
+
+1032
+00:24:46,389 --> 00:24:46,399
+write an Interceptor now I am writing I
+ 
+
+1033
+00:24:46,399 --> 00:24:49,549
+write an Interceptor now I am writing I
+am creating a class my custom
+
+1034
+00:24:49,549 --> 00:24:49,559
+am creating a class my custom
+ 
+
+1035
+00:24:49,559 --> 00:24:52,070
+am creating a class my custom
+Interceptor at theate component tells
+
+1036
+00:24:52,070 --> 00:24:52,080
+Interceptor at theate component tells
+ 
+
+1037
+00:24:52,080 --> 00:24:54,470
+Interceptor at theate component tells
+that bean should be created by Spring
+
+1038
+00:24:54,470 --> 00:24:54,480
+that bean should be created by Spring
+ 
+
+1039
+00:24:54,480 --> 00:24:58,110
+that bean should be created by Spring
+add theate expect means that this class
+
+1040
+00:24:58,110 --> 00:24:58,120
+add theate expect means that this class
+ 
+
+1041
+00:24:58,120 --> 00:24:59,669
+add theate expect means that this class
+will will be considered as an
+
+1042
+00:24:59,669 --> 00:24:59,679
+will will be considered as an
+ 
+
+1043
+00:24:59,679 --> 00:25:01,789
+will will be considered as an
+Interceptor where we'll have a point cut
+
+1044
+00:25:01,789 --> 00:25:01,799
+Interceptor where we'll have a point cut
+ 
+
+1045
+00:25:01,799 --> 00:25:03,070
+Interceptor where we'll have a point cut
+and
+
+1046
+00:25:03,070 --> 00:25:03,080
+and
+ 
+
+1047
+00:25:03,080 --> 00:25:08,630
+and
+advice okay so now I am writing one
+
+1048
+00:25:08,630 --> 00:25:08,640
+
+ 
+
+1049
+00:25:08,640 --> 00:25:11,269
+
+method if if you get a doubt what is
+
+1050
+00:25:11,269 --> 00:25:11,279
+method if if you get a doubt what is
+ 
+
+1051
+00:25:11,279 --> 00:25:13,510
+method if if you get a doubt what is
+point cut what advice I would say stop
+
+1052
+00:25:13,510 --> 00:25:13,520
+point cut what advice I would say stop
+ 
+
+1053
+00:25:13,520 --> 00:25:15,950
+point cut what advice I would say stop
+here itself please check out the aop
+
+1054
+00:25:15,950 --> 00:25:15,960
+here itself please check out the aop
+ 
+
+1055
+00:25:15,960 --> 00:25:18,549
+here itself please check out the aop
+video and then come back uh otherwise it
+
+1056
+00:25:18,549 --> 00:25:18,559
+video and then come back uh otherwise it
+ 
+
+1057
+00:25:18,559 --> 00:25:20,190
+video and then come back uh otherwise it
+will create you the confusion because we
+
+1058
+00:25:20,190 --> 00:25:20,200
+will create you the confusion because we
+ 
+
+1059
+00:25:20,200 --> 00:25:21,870
+will create you the confusion because we
+have already discussed the point cut and
+
+1060
+00:25:21,870 --> 00:25:21,880
+have already discussed the point cut and
+ 
+
+1061
+00:25:21,880 --> 00:25:24,230
+have already discussed the point cut and
+advice in depth in
+
+1062
+00:25:24,230 --> 00:25:24,240
+advice in depth in
+ 
+
+1063
+00:25:24,240 --> 00:25:27,070
+advice in depth in
+aop so now here if you see
+
+1064
+00:25:27,070 --> 00:25:27,080
+aop so now here if you see
+ 
+
+1065
+00:25:27,080 --> 00:25:29,190
+aop so now here if you see
+that this
+
+1066
+00:25:29,190 --> 00:25:29,200
+that this
+ 
+
+1067
+00:25:29,200 --> 00:25:33,350
+that this
+method I am providing one point cut at
+
+1068
+00:25:33,350 --> 00:25:33,360
+method I am providing one point cut at
+ 
+
+1069
+00:25:33,360 --> 00:25:34,870
+method I am providing one point cut at
+the rate
+
+1070
+00:25:34,870 --> 00:25:34,880
+the rate
+ 
+
+1071
+00:25:34,880 --> 00:25:37,510
+the rate
+annotation so what atate annotation you
+
+1072
+00:25:37,510 --> 00:25:37,520
+annotation so what atate annotation you
+ 
+
+1073
+00:25:37,520 --> 00:25:39,149
+annotation so what atate annotation you
+remember you can you
+
+1074
+00:25:39,149 --> 00:25:39,159
+remember you can you
+ 
+
+1075
+00:25:39,159 --> 00:25:42,909
+remember you can you
+recall it will look for this annotation
+
+1076
+00:25:42,909 --> 00:25:42,919
+recall it will look for this annotation
+ 
+
+1077
+00:25:42,919 --> 00:25:44,789
+recall it will look for this annotation
+which we have provided so com concept
+
+1078
+00:25:44,789 --> 00:25:44,799
+which we have provided so com concept
+ 
+
+1079
+00:25:44,799 --> 00:25:47,549
+which we have provided so com concept
+encoding do learning spring boot. custom
+
+1080
+00:25:47,549 --> 00:25:47,559
+encoding do learning spring boot. custom
+ 
+
+1081
+00:25:47,559 --> 00:25:51,669
+encoding do learning spring boot. custom
+Interceptor so this is the path where I
+
+1082
+00:25:51,669 --> 00:25:51,679
+Interceptor so this is the path where I
+ 
+
+1083
+00:25:51,679 --> 00:25:54,510
+Interceptor so this is the path where I
+have created this my custom
+
+1084
+00:25:54,510 --> 00:25:54,520
+have created this my custom
+ 
+
+1085
+00:25:54,520 --> 00:25:58,669
+have created this my custom
+annotation right so this is the
+
+1086
+00:25:58,669 --> 00:25:58,679
+annotation right so this is the
+ 
+
+1087
+00:25:58,679 --> 00:26:01,029
+annotation right so this is the
+path for this my custom annotation this
+
+1088
+00:26:01,029 --> 00:26:01,039
+path for this my custom annotation this
+ 
+
+1089
+00:26:01,039 --> 00:26:05,029
+path for this my custom annotation this
+one this one my custom annotation so at
+
+1090
+00:26:05,029 --> 00:26:05,039
+one this one my custom annotation so at
+ 
+
+1091
+00:26:05,039 --> 00:26:06,950
+one this one my custom annotation so at
+theate annotation
+
+1092
+00:26:06,950 --> 00:26:06,960
+theate annotation
+ 
+
+1093
+00:26:06,960 --> 00:26:11,230
+theate annotation
+means hey run this advice run this
+
+1094
+00:26:11,230 --> 00:26:11,240
+means hey run this advice run this
+ 
+
+1095
+00:26:11,240 --> 00:26:13,350
+means hey run this advice run this
+advice or this
+
+1096
+00:26:13,350 --> 00:26:13,360
+advice or this
+ 
+
+1097
+00:26:13,360 --> 00:26:16,470
+advice or this
+method when whenever you see this
+
+1098
+00:26:16,470 --> 00:26:16,480
+method when whenever you see this
+ 
+
+1099
+00:26:16,480 --> 00:26:18,430
+method when whenever you see this
+annotation my custom
+
+1100
+00:26:18,430 --> 00:26:18,440
+annotation my custom
+ 
+
+1101
+00:26:18,440 --> 00:26:21,990
+annotation my custom
+annotation okay so now here if you see
+
+1102
+00:26:21,990 --> 00:26:22,000
+annotation okay so now here if you see
+ 
+
+1103
+00:26:22,000 --> 00:26:25,669
+annotation okay so now here if you see
+from here this class user controller I
+
+1104
+00:26:25,669 --> 00:26:25,679
+from here this class user controller I
+ 
+
+1105
+00:26:25,679 --> 00:26:28,950
+from here this class user controller I
+am controlling I I am calling
+
+1106
+00:26:28,950 --> 00:26:28,960
+am controlling I I am calling
+ 
+
+1107
+00:26:28,960 --> 00:26:32,870
+am controlling I I am calling
+this this class user class this method
+
+1108
+00:26:32,870 --> 00:26:32,880
+this this class user class this method
+ 
+
+1109
+00:26:32,880 --> 00:26:35,350
+this this class user class this method
+from user controller I am calling user
+
+1110
+00:26:35,350 --> 00:26:35,360
+from user controller I am calling user
+ 
+
+1111
+00:26:35,360 --> 00:26:38,870
+from user controller I am calling user
+class and now this method has annotation
+
+1112
+00:26:38,870 --> 00:26:38,880
+class and now this method has annotation
+ 
+
+1113
+00:26:38,880 --> 00:26:41,669
+class and now this method has annotation
+at the rate my custom annotation so what
+
+1114
+00:26:41,669 --> 00:26:41,679
+at the rate my custom annotation so what
+ 
+
+1115
+00:26:41,679 --> 00:26:44,389
+at the rate my custom annotation so what
+it will do is it will intercept it and
+
+1116
+00:26:44,389 --> 00:26:44,399
+it will do is it will intercept it and
+ 
+
+1117
+00:26:44,399 --> 00:26:46,830
+it will do is it will intercept it and
+how intercept will work in the aop I
+
+1118
+00:26:46,830 --> 00:26:46,840
+how intercept will work in the aop I
+ 
+
+1119
+00:26:46,840 --> 00:26:50,430
+how intercept will work in the aop I
+have already showed you that what how
+
+1120
+00:26:50,430 --> 00:26:50,440
+have already showed you that what how
+ 
+
+1121
+00:26:50,440 --> 00:26:53,750
+have already showed you that what how
+internally the proxy get involved and
+
+1122
+00:26:53,750 --> 00:26:53,760
+internally the proxy get involved and
+ 
+
+1123
+00:26:53,760 --> 00:26:55,029
+internally the proxy get involved and
+what would
+
+1124
+00:26:55,029 --> 00:26:55,039
+what would
+ 
+
+1125
+00:26:55,039 --> 00:26:58,389
+what would
+happen so but because of this point card
+
+1126
+00:26:58,389 --> 00:26:58,399
+happen so but because of this point card
+ 
+
+1127
+00:26:58,399 --> 00:27:02,470
+happen so but because of this point card
+we can tell that okay listen to this
+
+1128
+00:27:02,470 --> 00:27:02,480
+we can tell that okay listen to this
+ 
+
+1129
+00:27:02,480 --> 00:27:05,630
+we can tell that okay listen to this
+annotation and once you find this
+
+1130
+00:27:05,630 --> 00:27:05,640
+annotation and once you find this
+ 
+
+1131
+00:27:05,640 --> 00:27:08,710
+annotation and once you find this
+annotation okay like when a particular
+
+1132
+00:27:08,710 --> 00:27:08,720
+annotation okay like when a particular
+ 
+
+1133
+00:27:08,720 --> 00:27:11,789
+annotation okay like when a particular
+method is invoked and that method is
+
+1134
+00:27:11,789 --> 00:27:11,799
+method is invoked and that method is
+ 
+
+1135
+00:27:11,799 --> 00:27:14,269
+method is invoked and that method is
+annotated with that annotation is
+
+1136
+00:27:14,269 --> 00:27:14,279
+annotated with that annotation is
+ 
+
+1137
+00:27:14,279 --> 00:27:18,190
+annotated with that annotation is
+specific annotation I have to run this
+
+1138
+00:27:18,190 --> 00:27:18,200
+specific annotation I have to run this
+ 
+
+1139
+00:27:18,200 --> 00:27:20,630
+specific annotation I have to run this
+advice so here if you see that it is
+
+1140
+00:27:20,630 --> 00:27:20,640
+advice so here if you see that it is
+ 
+
+1141
+00:27:20,640 --> 00:27:23,830
+advice so here if you see that it is
+like at theate around means before then
+
+1142
+00:27:23,830 --> 00:27:23,840
+like at theate around means before then
+ 
+
+1143
+00:27:23,840 --> 00:27:27,909
+like at theate around means before then
+your code and then after so here do
+
+1144
+00:27:27,909 --> 00:27:27,919
+your code and then after so here do
+ 
+
+1145
+00:27:27,919 --> 00:27:30,430
+your code and then after so here do
+something something before actual method
+
+1146
+00:27:30,430 --> 00:27:30,440
+something something before actual method
+ 
+
+1147
+00:27:30,440 --> 00:27:32,549
+something something before actual method
+now see this what I'm doing
+
+1148
+00:27:32,549 --> 00:27:32,559
+now see this what I'm doing
+ 
+
+1149
+00:27:32,559 --> 00:27:35,430
+now see this what I'm doing
+here now I have a joint point right from
+
+1150
+00:27:35,430 --> 00:27:35,440
+here now I have a joint point right from
+ 
+
+1151
+00:27:35,440 --> 00:27:39,750
+here now I have a joint point right from
+this joint point I can take out a
+
+1152
+00:27:39,750 --> 00:27:39,760
+this joint point I can take out a
+ 
+
+1153
+00:27:39,760 --> 00:27:43,350
+this joint point I can take out a
+method okay this
+
+1154
+00:27:43,350 --> 00:27:43,360
+method okay this
+ 
+
+1155
+00:27:43,360 --> 00:27:45,389
+method okay this
+method right all the metadata
+
+1156
+00:27:45,389 --> 00:27:45,399
+method right all the metadata
+ 
+
+1157
+00:27:45,399 --> 00:27:47,149
+method right all the metadata
+information about this method I can get
+
+1158
+00:27:47,149 --> 00:27:47,159
+information about this method I can get
+ 
+
+1159
+00:27:47,159 --> 00:27:48,590
+information about this method I can get
+what is the return type what is the
+
+1160
+00:27:48,590 --> 00:27:48,600
+what is the return type what is the
+ 
+
+1161
+00:27:48,600 --> 00:27:50,630
+what is the return type what is the
+parameter is this method has any
+
+1162
+00:27:50,630 --> 00:27:50,640
+parameter is this method has any
+ 
+
+1163
+00:27:50,640 --> 00:27:53,070
+parameter is this method has any
+annotation all this thing I can do so
+
+1164
+00:27:53,070 --> 00:27:53,080
+annotation all this thing I can do so
+ 
+
+1165
+00:27:53,080 --> 00:27:54,830
+annotation all this thing I can do so
+now that's the same thing I'm doing hey
+
+1166
+00:27:54,830 --> 00:27:54,840
+now that's the same thing I'm doing hey
+ 
+
+1167
+00:27:54,840 --> 00:27:58,310
+now that's the same thing I'm doing hey
+this method is annotation present this
+
+1168
+00:27:58,310 --> 00:27:58,320
+this method is annotation present this
+ 
+
+1169
+00:27:58,320 --> 00:28:02,230
+this method is annotation present this
+my custom annotation if this is present
+
+1170
+00:28:02,230 --> 00:28:02,240
+my custom annotation if this is present
+ 
+
+1171
+00:28:02,240 --> 00:28:04,669
+my custom annotation if this is present
+true then what I doing is from this
+
+1172
+00:28:04,669 --> 00:28:04,679
+true then what I doing is from this
+ 
+
+1173
+00:28:04,679 --> 00:28:06,909
+true then what I doing is from this
+method I am taking out this annotation
+
+1174
+00:28:06,909 --> 00:28:06,919
+method I am taking out this annotation
+ 
+
+1175
+00:28:06,919 --> 00:28:09,750
+method I am taking out this annotation
+details so now I am getting this
+
+1176
+00:28:09,750 --> 00:28:09,760
+details so now I am getting this
+ 
+
+1177
+00:28:09,760 --> 00:28:11,509
+details so now I am getting this
+annotation
+
+1178
+00:28:11,509 --> 00:28:11,519
+annotation
+ 
+
+1179
+00:28:11,519 --> 00:28:14,590
+annotation
+detail and see that from this annotation
+
+1180
+00:28:14,590 --> 00:28:14,600
+detail and see that from this annotation
+ 
+
+1181
+00:28:14,600 --> 00:28:18,590
+detail and see that from this annotation
+I can read out this dot
+
+1182
+00:28:18,590 --> 00:28:18,600
+I can read out this dot
+ 
+
+1183
+00:28:18,600 --> 00:28:22,909
+I can read out this dot
+name okay it will print
+
+1184
+00:28:22,909 --> 00:28:22,919
+name okay it will print
+ 
+
+1185
+00:28:22,919 --> 00:28:25,710
+name okay it will print
+user okay and after that I have done
+
+1186
+00:28:25,710 --> 00:28:25,720
+user okay and after that I have done
+ 
+
+1187
+00:28:25,720 --> 00:28:28,230
+user okay and after that I have done
+some pre-work I just did print in and
+
+1188
+00:28:28,230 --> 00:28:28,240
+some pre-work I just did print in and
+ 
+
+1189
+00:28:28,240 --> 00:28:30,269
+some pre-work I just did print in and
+after that it called proceed and you
+
+1190
+00:28:30,269 --> 00:28:30,279
+after that it called proceed and you
+ 
+
+1191
+00:28:30,279 --> 00:28:32,710
+after that it called proceed and you
+know that when it call proceed what it
+
+1192
+00:28:32,710 --> 00:28:32,720
+know that when it call proceed what it
+ 
+
+1193
+00:28:32,720 --> 00:28:36,230
+know that when it call proceed what it
+happen our actual method will get invoke
+
+1194
+00:28:36,230 --> 00:28:36,240
+happen our actual method will get invoke
+ 
+
+1195
+00:28:36,240 --> 00:28:39,070
+happen our actual method will get invoke
+this get the user detail and after once
+
+1196
+00:28:39,070 --> 00:28:39,080
+this get the user detail and after once
+ 
+
+1197
+00:28:39,080 --> 00:28:41,230
+this get the user detail and after once
+it done it will do something after
+
+1198
+00:28:41,230 --> 00:28:41,240
+it done it will do something after
+ 
+
+1199
+00:28:41,240 --> 00:28:44,870
+it done it will do something after
+actual method so now if you run this
+
+1200
+00:28:44,870 --> 00:28:44,880
+actual method so now if you run this
+ 
+
+1201
+00:28:44,880 --> 00:28:46,470
+actual method so now if you run this
+what would happen is it will print do
+
+1202
+00:28:46,470 --> 00:28:46,480
+what would happen is it will print do
+ 
+
+1203
+00:28:46,480 --> 00:28:48,230
+what would happen is it will print do
+something before actual method so this
+
+1204
+00:28:48,230 --> 00:28:48,240
+something before actual method so this
+ 
+
+1205
+00:28:48,240 --> 00:28:52,269
+something before actual method so this
+got printed after that
+
+1206
+00:28:52,269 --> 00:28:52,279
+got printed after that
+ 
+
+1207
+00:28:52,279 --> 00:28:55,750
+got printed after that
+uh when it try to invoke this right when
+
+1208
+00:28:55,750 --> 00:28:55,760
+uh when it try to invoke this right when
+ 
+
+1209
+00:28:55,760 --> 00:28:59,350
+uh when it try to invoke this right when
+it try to invoke this method get used us
+
+1210
+00:28:59,350 --> 00:28:59,360
+it try to invoke this method get used us
+ 
+
+1211
+00:28:59,360 --> 00:29:01,350
+it try to invoke this method get used us
+okay so because of this point cut it
+
+1212
+00:29:01,350 --> 00:29:01,360
+okay so because of this point cut it
+ 
+
+1213
+00:29:01,360 --> 00:29:03,230
+okay so because of this point cut it
+goes here it print
+
+1214
+00:29:03,230 --> 00:29:03,240
+goes here it print
+ 
+
+1215
+00:29:03,240 --> 00:29:06,350
+goes here it print
+this and here if you see that yes this
+
+1216
+00:29:06,350 --> 00:29:06,360
+this and here if you see that yes this
+ 
+
+1217
+00:29:06,360 --> 00:29:08,070
+this and here if you see that yes this
+method is annotated with my custom
+
+1218
+00:29:08,070 --> 00:29:08,080
+method is annotated with my custom
+ 
+
+1219
+00:29:08,080 --> 00:29:10,269
+method is annotated with my custom
+annotation so it will uh annotation
+
+1220
+00:29:10,269 --> 00:29:10,279
+annotation so it will uh annotation
+ 
+
+1221
+00:29:10,279 --> 00:29:12,710
+annotation so it will uh annotation
+present true it will get The annotation
+
+1222
+00:29:12,710 --> 00:29:12,720
+present true it will get The annotation
+ 
+
+1223
+00:29:12,720 --> 00:29:14,830
+present true it will get The annotation
+and it will name from annotation it will
+
+1224
+00:29:14,830 --> 00:29:14,840
+and it will name from annotation it will
+ 
+
+1225
+00:29:14,840 --> 00:29:16,590
+and it will name from annotation it will
+print
+
+1226
+00:29:16,590 --> 00:29:16,600
+print
+ 
+
+1227
+00:29:16,600 --> 00:29:19,029
+print
+user and then ultimately it will call
+
+1228
+00:29:19,029 --> 00:29:19,039
+user and then ultimately it will call
+ 
+
+1229
+00:29:19,039 --> 00:29:22,590
+user and then ultimately it will call
+the method get the user
+
+1230
+00:29:22,590 --> 00:29:22,600
+the method get the user
+ 
+
+1231
+00:29:22,600 --> 00:29:25,430
+the method get the user
+details and after that do something
+
+1232
+00:29:25,430 --> 00:29:25,440
+details and after that do something
+ 
+
+1233
+00:29:25,440 --> 00:29:27,029
+details and after that do something
+after actual
+
+1234
+00:29:27,029 --> 00:29:27,039
+after actual
+ 
+
+1235
+00:29:27,039 --> 00:29:33,389
+after actual
+method so we have created our one
+
+1236
+00:29:33,389 --> 00:29:33,399
+method so we have created our one
+ 
+
+1237
+00:29:33,399 --> 00:29:35,269
+method so we have created our one
+Interceptor okay so both the
+
+1238
+00:29:35,269 --> 00:29:35,279
+Interceptor okay so both the
+ 
+
+1239
+00:29:35,279 --> 00:29:38,990
+Interceptor okay so both the
+interceptors I have tell uh told you if
+
+1240
+00:29:38,990 --> 00:29:39,000
+interceptors I have tell uh told you if
+ 
+
+1241
+00:29:39,000 --> 00:29:41,470
+interceptors I have tell uh told you if
+we want to have a Interceptor before
+
+1242
+00:29:41,470 --> 00:29:41,480
+we want to have a Interceptor before
+ 
+
+1243
+00:29:41,480 --> 00:29:45,070
+we want to have a Interceptor before
+even the controller how we can do that
+
+1244
+00:29:45,070 --> 00:29:45,080
+even the controller how we can do that
+ 
+
+1245
+00:29:45,080 --> 00:29:47,590
+even the controller how we can do that
+right and if we want after the
+
+1246
+00:29:47,590 --> 00:29:47,600
+right and if we want after the
+ 
+
+1247
+00:29:47,600 --> 00:29:50,350
+right and if we want after the
+controller like any particular method or
+
+1248
+00:29:50,350 --> 00:29:50,360
+controller like any particular method or
+ 
+
+1249
+00:29:50,360 --> 00:29:53,310
+controller like any particular method or
+annotation right we have to Pro written
+
+1250
+00:29:53,310 --> 00:29:53,320
+annotation right we have to Pro written
+ 
+
+1251
+00:29:53,320 --> 00:29:56,230
+annotation right we have to Pro written
+an interception how how we can do
+
+1252
+00:29:56,230 --> 00:29:56,240
+an interception how how we can do
+ 
+
+1253
+00:29:56,240 --> 00:30:00,070
+an interception how how we can do
+that okay so practice this out a lot
+
+1254
+00:30:00,070 --> 00:30:00,080
+that okay so practice this out a lot
+ 
+
+1255
+00:30:00,080 --> 00:30:03,269
+that okay so practice this out a lot
+because in future videos we might have
+
+1256
+00:30:03,269 --> 00:30:03,279
+because in future videos we might have
+ 
+
+1257
+00:30:03,279 --> 00:30:06,710
+because in future videos we might have
+to write few interceptors uh because
+
+1258
+00:30:06,710 --> 00:30:06,720
+to write few interceptors uh because
+ 
+
+1259
+00:30:06,720 --> 00:30:09,110
+to write few interceptors uh because
+that's the that's very much required for
+
+1260
+00:30:09,110 --> 00:30:09,120
+that's the that's very much required for
+ 
+
+1261
+00:30:09,120 --> 00:30:11,630
+that's the that's very much required for
+logging for caching for authentication
+
+1262
+00:30:11,630 --> 00:30:11,640
+logging for caching for authentication
+ 
+
+1263
+00:30:11,640 --> 00:30:14,070
+logging for caching for authentication
+authorization everything okay guys any
+
+1264
+00:30:14,070 --> 00:30:14,080
+authorization everything okay guys any
+ 
+
+1265
+00:30:14,080 --> 00:30:17,269
+authorization everything okay guys any
+doubts feel free to uh comment uh we
+
+1266
+00:30:17,269 --> 00:30:17,279
+doubts feel free to uh comment uh we
+ 
+
+1267
+00:30:17,279 --> 00:30:22,240
+doubts feel free to uh comment uh we
+will discuss further thank you bye
+

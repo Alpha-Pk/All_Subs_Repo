@@ -1,0 +1,6215 @@
+1
+00:00:00,000 --> 00:00:01,470
+
+Hey, Shaan this side. Welcome to Concept
+
+2
+00:00:01,470 --> 00:00:01,480
+Hey, Shaan this side. Welcome to Concept
+ 
+
+3
+00:00:01,480 --> 00:00:03,150
+Hey, Shaan this side. Welcome to Concept
+and Coding. And in the previous video,
+
+4
+00:00:03,150 --> 00:00:03,160
+and Coding. And in the previous video,
+ 
+
+5
+00:00:03,160 --> 00:00:04,790
+and Coding. And in the previous video,
+we have already seen the JPA
+
+6
+00:00:04,790 --> 00:00:04,800
+we have already seen the JPA
+ 
+
+7
+00:00:04,800 --> 00:00:07,870
+we have already seen the JPA
+architecture and its life cycle and how
+
+8
+00:00:07,870 --> 00:00:07,880
+architecture and its life cycle and how
+ 
+
+9
+00:00:07,880 --> 00:00:09,230
+architecture and its life cycle and how
+to set up.
+
+10
+00:00:09,230 --> 00:00:09,240
+to set up.
+ 
+
+11
+00:00:09,240 --> 00:00:11,230
+to set up.
+In this video, I'll tell you a very
+
+12
+00:00:11,230 --> 00:00:11,240
+In this video, I'll tell you a very
+ 
+
+13
+00:00:11,240 --> 00:00:14,110
+In this video, I'll tell you a very
+important first level caching.
+
+14
+00:00:14,110 --> 00:00:14,120
+important first level caching.
+ 
+
+15
+00:00:14,120 --> 00:00:15,550
+important first level caching.
+But if you have not seen the previous
+
+16
+00:00:15,550 --> 00:00:15,560
+But if you have not seen the previous
+ 
+
+17
+00:00:15,560 --> 00:00:17,150
+But if you have not seen the previous
+video, I would highly recommend it
+
+18
+00:00:17,150 --> 00:00:17,160
+video, I would highly recommend it
+ 
+
+19
+00:00:17,160 --> 00:00:20,110
+video, I would highly recommend it
+because it's totally dependent on it.
+
+20
+00:00:20,110 --> 00:00:20,120
+because it's totally dependent on it.
+ 
+
+21
+00:00:20,120 --> 00:00:22,390
+because it's totally dependent on it.
+In case, if you missed it, I will just
+
+22
+00:00:22,390 --> 00:00:22,400
+In case, if you missed it, I will just
+ 
+
+23
+00:00:22,400 --> 00:00:24,430
+In case, if you missed it, I will just
+briefly explain the life cycle. I will
+
+24
+00:00:24,430 --> 00:00:24,440
+briefly explain the life cycle. I will
+ 
+
+25
+00:00:24,440 --> 00:00:27,430
+briefly explain the life cycle. I will
+not again tell it in depth, just one use
+
+26
+00:00:27,430 --> 00:00:27,440
+not again tell it in depth, just one use
+ 
+
+27
+00:00:27,440 --> 00:00:28,430
+not again tell it in depth, just one use
+case
+
+28
+00:00:28,430 --> 00:00:28,440
+case
+ 
+
+29
+00:00:28,440 --> 00:00:30,430
+case
+because without this, first level
+
+30
+00:00:30,430 --> 00:00:30,440
+because without this, first level
+ 
+
+31
+00:00:30,440 --> 00:00:32,190
+because without this, first level
+caching would be like incomplete if you
+
+32
+00:00:32,190 --> 00:00:32,200
+caching would be like incomplete if you
+ 
+
+33
+00:00:32,200 --> 00:00:33,670
+caching would be like incomplete if you
+have not watched the previous video and
+
+34
+00:00:33,670 --> 00:00:33,680
+have not watched the previous video and
+ 
+
+35
+00:00:33,680 --> 00:00:35,550
+have not watched the previous video and
+directly jumping here. So, just to
+
+36
+00:00:35,550 --> 00:00:35,560
+directly jumping here. So, just to
+ 
+
+37
+00:00:35,560 --> 00:00:39,310
+directly jumping here. So, just to
+maintain a context, uh let me take 2
+
+38
+00:00:39,310 --> 00:00:39,320
+maintain a context, uh let me take 2
+ 
+
+39
+00:00:39,320 --> 00:00:41,790
+maintain a context, uh let me take 2
+minutes to quickly uh revise the life
+
+40
+00:00:41,790 --> 00:00:41,800
+minutes to quickly uh revise the life
+ 
+
+41
+00:00:41,800 --> 00:00:43,430
+minutes to quickly uh revise the life
+cycle of it.
+
+42
+00:00:43,430 --> 00:00:43,440
+cycle of it.
+ 
+
+43
+00:00:43,440 --> 00:00:45,590
+cycle of it.
+So, here, just with the very simple one
+
+44
+00:00:45,590 --> 00:00:45,600
+So, here, just with the very simple one
+ 
+
+45
+00:00:45,600 --> 00:00:47,230
+So, here, just with the very simple one
+example, I will show you this. Let's say
+
+46
+00:00:47,230 --> 00:00:47,240
+example, I will show you this. Let's say
+ 
+
+47
+00:00:47,240 --> 00:00:51,710
+example, I will show you this. Let's say
+that I am creating user entity
+
+48
+00:00:51,710 --> 00:00:51,720
+
+ 
+
+49
+00:00:51,720 --> 00:00:55,590
+
+a equals to new user
+
+50
+00:00:55,590 --> 00:00:55,600
+a equals to new user
+ 
+
+51
+00:00:55,600 --> 00:00:57,110
+a equals to new user
+entity.
+
+52
+00:00:57,110 --> 00:00:57,120
+entity.
+ 
+
+53
+00:00:57,120 --> 00:01:00,150
+entity.
+This is my one uh user entity created.
+
+54
+00:01:00,150 --> 00:01:00,160
+This is my one uh user entity created.
+ 
+
+55
+00:01:00,160 --> 00:01:02,670
+This is my one uh user entity created.
+I am creating a transaction,
+
+56
+00:01:02,670 --> 00:01:02,680
+I am creating a transaction,
+ 
+
+57
+00:01:02,680 --> 00:01:06,030
+I am creating a transaction,
+okay? And I'm doing begin.
+
+58
+00:01:06,030 --> 00:01:06,040
+okay? And I'm doing begin.
+ 
+
+59
+00:01:06,040 --> 00:01:07,830
+okay? And I'm doing begin.
+I am doing
+
+60
+00:01:07,830 --> 00:01:07,840
+I am doing
+ 
+
+61
+00:01:07,840 --> 00:01:11,310
+I am doing
+entity manager
+
+62
+00:01:11,310 --> 00:01:11,320
+entity manager
+ 
+
+63
+00:01:11,320 --> 00:01:13,390
+entity manager
+.
+
+64
+00:01:13,390 --> 00:01:13,400
+.
+ 
+
+65
+00:01:13,400 --> 00:01:15,510
+.
+persist
+
+66
+00:01:15,510 --> 00:01:15,520
+persist
+ 
+
+67
+00:01:15,520 --> 00:01:18,230
+persist
+a, this object.
+
+68
+00:01:18,230 --> 00:01:18,240
+a, this object.
+ 
+
+69
+00:01:18,240 --> 00:01:22,790
+a, this object.
+Then I am saying that, "Okay,
+
+70
+00:01:22,790 --> 00:01:22,800
+Then I am saying that, "Okay,
+ 
+
+71
+00:01:22,800 --> 00:01:24,430
+Then I am saying that, "Okay,
+I want to remove it. Entity
+
+72
+00:01:24,430 --> 00:01:24,440
+I want to remove it. Entity
+ 
+
+73
+00:01:24,440 --> 00:01:27,230
+I want to remove it. Entity
+manager.remove
+
+74
+00:01:27,230 --> 00:01:27,240
+manager.remove
+ 
+
+75
+00:01:27,240 --> 00:01:29,030
+manager.remove
+a."
+
+76
+00:01:29,030 --> 00:01:29,040
+a."
+ 
+
+77
+00:01:29,040 --> 00:01:31,030
+a."
+Then again, I change my mind. Hey,
+
+78
+00:01:31,030 --> 00:01:31,040
+Then again, I change my mind. Hey,
+ 
+
+79
+00:01:31,040 --> 00:01:33,550
+Then again, I change my mind. Hey,
+entity manager
+
+80
+00:01:33,550 --> 00:01:33,560
+entity manager
+ 
+
+81
+00:01:33,560 --> 00:01:36,150
+entity manager
+. persist.
+
+82
+00:01:36,150 --> 00:01:36,160
+. persist.
+ 
+
+83
+00:01:36,160 --> 00:01:37,110
+. persist.
+Okay?
+
+84
+00:01:37,110 --> 00:01:37,120
+Okay?
+ 
+
+85
+00:01:37,120 --> 00:01:38,830
+Okay?
+And then I say that,
+
+86
+00:01:38,830 --> 00:01:38,840
+And then I say that,
+ 
+
+87
+00:01:38,840 --> 00:01:40,990
+And then I say that,
+"Commit."
+
+88
+00:01:40,990 --> 00:01:41,000
+"Commit."
+ 
+
+89
+00:01:41,000 --> 00:01:43,230
+"Commit."
+Finish. So, what would happen as per the
+
+90
+00:01:43,230 --> 00:01:43,240
+Finish. So, what would happen as per the
+ 
+
+91
+00:01:43,240 --> 00:01:44,790
+Finish. So, what would happen as per the
+life cycle of this?
+
+92
+00:01:44,790 --> 00:01:44,800
+life cycle of this?
+ 
+
+93
+00:01:44,800 --> 00:01:47,510
+life cycle of this?
+So, whenever you are creating a new
+
+94
+00:01:47,510 --> 00:01:47,520
+So, whenever you are creating a new
+ 
+
+95
+00:01:47,520 --> 00:01:49,190
+So, whenever you are creating a new
+entity,
+
+96
+00:01:49,190 --> 00:01:49,200
+entity,
+ 
+
+97
+00:01:49,200 --> 00:01:53,030
+entity,
+it is currently in the new state.
+
+98
+00:01:53,030 --> 00:01:53,040
+it is currently in the new state.
+ 
+
+99
+00:01:53,040 --> 00:01:54,190
+it is currently in the new state.
+Okay?
+
+100
+00:01:54,190 --> 00:01:54,200
+Okay?
+ 
+
+101
+00:01:54,200 --> 00:01:56,710
+Okay?
+So, when you created a transaction and
+
+102
+00:01:56,710 --> 00:01:56,720
+So, when you created a transaction and
+ 
+
+103
+00:01:56,720 --> 00:01:59,550
+So, when you created a transaction and
+calls the entity manager.persist
+
+104
+00:01:59,550 --> 00:01:59,560
+calls the entity manager.persist
+ 
+
+105
+00:01:59,560 --> 00:02:02,510
+calls the entity manager.persist
+means you want to insert into DB.
+
+106
+00:02:02,510 --> 00:02:02,520
+means you want to insert into DB.
+ 
+
+107
+00:02:02,520 --> 00:02:04,310
+means you want to insert into DB.
+You are not directly dealing with the
+
+108
+00:02:04,310 --> 00:02:04,320
+You are not directly dealing with the
+ 
+
+109
+00:02:04,320 --> 00:02:05,550
+You are not directly dealing with the
+DB.
+
+110
+00:02:05,550 --> 00:02:05,560
+DB.
+ 
+
+111
+00:02:05,560 --> 00:02:08,510
+DB.
+So, entity manager is provided API and
+
+112
+00:02:08,510 --> 00:02:08,520
+So, entity manager is provided API and
+ 
+
+113
+00:02:08,520 --> 00:02:10,230
+So, entity manager is provided API and
+its API is provided by hibernate
+
+114
+00:02:10,230 --> 00:02:10,240
+its API is provided by hibernate
+ 
+
+115
+00:02:10,240 --> 00:02:13,070
+its API is provided by hibernate
+session.impl. In that, first it will
+
+116
+00:02:13,070 --> 00:02:13,080
+session.impl. In that, first it will
+ 
+
+117
+00:02:13,080 --> 00:02:15,390
+session.impl. In that, first it will
+goes to
+
+118
+00:02:15,390 --> 00:02:15,400
+goes to
+ 
+
+119
+00:02:15,400 --> 00:02:17,190
+goes to
+persistence context. So, this is your
+
+120
+00:02:17,190 --> 00:02:17,200
+persistence context. So, this is your
+ 
+
+121
+00:02:17,200 --> 00:02:19,350
+persistence context. So, this is your
+persistence context.
+
+122
+00:02:19,350 --> 00:02:19,360
+persistence context.
+ 
+
+123
+00:02:19,360 --> 00:02:22,070
+persistence context.
+It will manage this entity.
+
+124
+00:02:22,070 --> 00:02:22,080
+It will manage this entity.
+ 
+
+125
+00:02:22,080 --> 00:02:23,710
+It will manage this entity.
+So, currently
+
+126
+00:02:23,710 --> 00:02:23,720
+So, currently
+ 
+
+127
+00:02:23,720 --> 00:02:25,830
+So, currently
+A is over here.
+
+128
+00:02:25,830 --> 00:02:25,840
+A is over here.
+ 
+
+129
+00:02:25,840 --> 00:02:27,590
+A is over here.
+Okay, it's not there into the DB even
+
+130
+00:02:27,590 --> 00:02:27,600
+Okay, it's not there into the DB even
+ 
+
+131
+00:02:27,600 --> 00:02:28,670
+Okay, it's not there into the DB even
+though you have called persist,
+
+132
+00:02:28,670 --> 00:02:28,680
+though you have called persist,
+ 
+
+133
+00:02:28,680 --> 00:02:30,710
+though you have called persist,
+remember.
+
+134
+00:02:30,710 --> 00:02:30,720
+remember.
+ 
+
+135
+00:02:30,720 --> 00:02:32,430
+remember.
+Now, let's say that you have called
+
+136
+00:02:32,430 --> 00:02:32,440
+Now, let's say that you have called
+ 
+
+137
+00:02:32,440 --> 00:02:35,030
+Now, let's say that you have called
+remove. Hey, I want to remove it, delete
+
+138
+00:02:35,030 --> 00:02:35,040
+remove. Hey, I want to remove it, delete
+ 
+
+139
+00:02:35,040 --> 00:02:36,190
+remove. Hey, I want to remove it, delete
+it.
+
+140
+00:02:36,190 --> 00:02:36,200
+it.
+ 
+
+141
+00:02:36,200 --> 00:02:38,949
+it.
+So, it will goes to a new state called
+
+142
+00:02:38,949 --> 00:02:38,959
+So, it will goes to a new state called
+ 
+
+143
+00:02:38,959 --> 00:02:40,310
+So, it will goes to a new state called
+remove.
+
+144
+00:02:40,310 --> 00:02:40,320
+remove.
+ 
+
+145
+00:02:40,320 --> 00:02:43,110
+remove.
+So, again, it is inside a persistence
+
+146
+00:02:43,110 --> 00:02:43,120
+So, again, it is inside a persistence
+ 
+
+147
+00:02:43,120 --> 00:02:44,510
+So, again, it is inside a persistence
+context
+
+148
+00:02:44,510 --> 00:02:44,520
+context
+ 
+
+149
+00:02:44,520 --> 00:02:46,870
+context
+but estate of the entity has been
+
+150
+00:02:46,870 --> 00:02:46,880
+but estate of the entity has been
+ 
+
+151
+00:02:46,880 --> 00:02:49,350
+but estate of the entity has been
+changed. Now, A is present here.
+
+152
+00:02:49,350 --> 00:02:49,360
+changed. Now, A is present here.
+ 
+
+153
+00:02:49,360 --> 00:02:51,430
+changed. Now, A is present here.
+Its estate has been changed to remove.
+
+154
+00:02:51,430 --> 00:02:51,440
+Its estate has been changed to remove.
+ 
+
+155
+00:02:51,440 --> 00:02:54,590
+Its estate has been changed to remove.
+But, again, it's not there into the DB.
+
+156
+00:02:54,590 --> 00:02:54,600
+But, again, it's not there into the DB.
+ 
+
+157
+00:02:54,600 --> 00:02:56,310
+But, again, it's not there into the DB.
+Remove means
+
+158
+00:02:56,310 --> 00:02:56,320
+Remove means
+ 
+
+159
+00:02:56,320 --> 00:02:59,390
+Remove means
+whenever the data is flushed
+
+160
+00:02:59,390 --> 00:02:59,400
+whenever the data is flushed
+ 
+
+161
+00:02:59,400 --> 00:03:01,870
+whenever the data is flushed
+it will get removed from the DB.
+
+162
+00:03:01,870 --> 00:03:01,880
+it will get removed from the DB.
+ 
+
+163
+00:03:01,880 --> 00:03:03,670
+it will get removed from the DB.
+From your perceptive, you have first
+
+164
+00:03:03,670 --> 00:03:03,680
+From your perceptive, you have first
+ 
+
+165
+00:03:03,680 --> 00:03:05,949
+From your perceptive, you have first
+inserted and then you are removing it.
+
+166
+00:03:05,949 --> 00:03:05,959
+inserted and then you are removing it.
+ 
+
+167
+00:03:05,959 --> 00:03:08,390
+inserted and then you are removing it.
+But, actual DB is not yet comes into the
+
+168
+00:03:08,390 --> 00:03:08,400
+But, actual DB is not yet comes into the
+ 
+
+169
+00:03:08,400 --> 00:03:10,350
+But, actual DB is not yet comes into the
+picture because everything is currently
+
+170
+00:03:10,350 --> 00:03:10,360
+picture because everything is currently
+ 
+
+171
+00:03:10,360 --> 00:03:14,430
+picture because everything is currently
+happening in the persistence context.
+
+172
+00:03:14,430 --> 00:03:14,440
+happening in the persistence context.
+ 
+
+173
+00:03:14,440 --> 00:03:16,030
+happening in the persistence context.
+Now, you said that no, no, I want it
+
+174
+00:03:16,030 --> 00:03:16,040
+Now, you said that no, no, I want it
+ 
+
+175
+00:03:16,040 --> 00:03:17,270
+Now, you said that no, no, I want it
+again
+
+176
+00:03:17,270 --> 00:03:17,280
+again
+ 
+
+177
+00:03:17,280 --> 00:03:19,670
+again
+and I want to persist it. So, it will
+
+178
+00:03:19,670 --> 00:03:19,680
+and I want to persist it. So, it will
+ 
+
+179
+00:03:19,680 --> 00:03:22,350
+and I want to persist it. So, it will
+again goes back to the persistent
+
+180
+00:03:22,350 --> 00:03:22,360
+again goes back to the persistent
+ 
+
+181
+00:03:22,360 --> 00:03:25,229
+again goes back to the persistent
+estate. Now, A is here. So, you know
+
+182
+00:03:25,229 --> 00:03:25,239
+estate. Now, A is here. So, you know
+ 
+
+183
+00:03:25,239 --> 00:03:26,509
+estate. Now, A is here. So, you know
+that
+
+184
+00:03:26,509 --> 00:03:26,519
+that
+ 
+
+185
+00:03:26,519 --> 00:03:30,550
+that
+your entity estate
+
+186
+00:03:30,550 --> 00:03:30,560
+your entity estate
+ 
+
+187
+00:03:30,560 --> 00:03:32,670
+your entity estate
+entity estate or you can say that life
+
+188
+00:03:32,670 --> 00:03:32,680
+entity estate or you can say that life
+ 
+
+189
+00:03:32,680 --> 00:03:34,830
+entity estate or you can say that life
+cycle is
+
+190
+00:03:34,830 --> 00:03:34,840
+cycle is
+ 
+
+191
+00:03:34,840 --> 00:03:37,630
+cycle is
+current from new to manage to remove or
+
+192
+00:03:37,630 --> 00:03:37,640
+current from new to manage to remove or
+ 
+
+193
+00:03:37,640 --> 00:03:40,470
+current from new to manage to remove or
+you can even detach it. Okay, you can do
+
+194
+00:03:40,470 --> 00:03:40,480
+you can even detach it. Okay, you can do
+ 
+
+195
+00:03:40,480 --> 00:03:43,390
+you can even detach it. Okay, you can do
+whatever. But, once you do commit, means
+
+196
+00:03:43,390 --> 00:03:43,400
+whatever. But, once you do commit, means
+ 
+
+197
+00:03:43,400 --> 00:03:44,949
+whatever. But, once you do commit, means
+you are flushing it to the DB. You are
+
+198
+00:03:44,949 --> 00:03:44,959
+you are flushing it to the DB. You are
+ 
+
+199
+00:03:44,959 --> 00:03:48,350
+you are flushing it to the DB. You are
+syncing it with the DB. If it is managed
+
+200
+00:03:48,350 --> 00:03:48,360
+syncing it with the DB. If it is managed
+ 
+
+201
+00:03:48,360 --> 00:03:50,190
+syncing it with the DB. If it is managed
+then you are flushing it, it goes there
+
+202
+00:03:50,190 --> 00:03:50,200
+then you are flushing it, it goes there
+ 
+
+203
+00:03:50,200 --> 00:03:51,509
+then you are flushing it, it goes there
+and insert it.
+
+204
+00:03:51,509 --> 00:03:51,519
+and insert it.
+ 
+
+205
+00:03:51,519 --> 00:03:53,670
+and insert it.
+If it is already there, A is already
+
+206
+00:03:53,670 --> 00:03:53,680
+If it is already there, A is already
+ 
+
+207
+00:03:53,680 --> 00:03:56,670
+If it is already there, A is already
+there, and it is in removed state, now
+
+208
+00:03:56,670 --> 00:03:56,680
+there, and it is in removed state, now
+ 
+
+209
+00:03:56,680 --> 00:03:58,230
+there, and it is in removed state, now
+you do flush,
+
+210
+00:03:58,230 --> 00:03:58,240
+you do flush,
+ 
+
+211
+00:03:58,240 --> 00:04:00,550
+you do flush,
+it will remove it. Then it is actually
+
+212
+00:04:00,550 --> 00:04:00,560
+it will remove it. Then it is actually
+ 
+
+213
+00:04:00,560 --> 00:04:02,230
+it will remove it. Then it is actually
+removed from the DB.
+
+214
+00:04:02,230 --> 00:04:02,240
+removed from the DB.
+ 
+
+215
+00:04:02,240 --> 00:04:04,870
+removed from the DB.
+So, till commit means commit is the time
+
+216
+00:04:04,870 --> 00:04:04,880
+So, till commit means commit is the time
+ 
+
+217
+00:04:04,880 --> 00:04:07,390
+So, till commit means commit is the time
+when actual flush happen. So, till flush
+
+218
+00:04:07,390 --> 00:04:07,400
+when actual flush happen. So, till flush
+ 
+
+219
+00:04:07,400 --> 00:04:10,270
+when actual flush happen. So, till flush
+happens, everything is handled in
+
+220
+00:04:10,270 --> 00:04:10,280
+happens, everything is handled in
+ 
+
+221
+00:04:10,280 --> 00:04:11,910
+happens, everything is handled in
+memory.
+
+222
+00:04:11,910 --> 00:04:11,920
+memory.
+ 
+
+223
+00:04:11,920 --> 00:04:13,830
+memory.
+That's handled through persistence
+
+224
+00:04:13,830 --> 00:04:13,840
+That's handled through persistence
+ 
+
+225
+00:04:13,840 --> 00:04:16,470
+That's handled through persistence
+context. And that's what helps in the
+
+226
+00:04:16,470 --> 00:04:16,480
+context. And that's what helps in the
+ 
+
+227
+00:04:16,480 --> 00:04:18,830
+context. And that's what helps in the
+first level caching. So, now let's see
+
+228
+00:04:18,830 --> 00:04:18,840
+first level caching. So, now let's see
+ 
+
+229
+00:04:18,840 --> 00:04:21,390
+first level caching. So, now let's see
+one example. So, very very basic example
+
+230
+00:04:21,390 --> 00:04:21,400
+one example. So, very very basic example
+ 
+
+231
+00:04:21,400 --> 00:04:22,790
+one example. So, very very basic example
+which in the previous video we have
+
+232
+00:04:22,790 --> 00:04:22,800
+which in the previous video we have
+ 
+
+233
+00:04:22,800 --> 00:04:26,070
+which in the previous video we have
+created. So, I have created one test JPA
+
+234
+00:04:26,070 --> 00:04:26,080
+created. So, I have created one test JPA
+ 
+
+235
+00:04:26,080 --> 00:04:27,390
+created. So, I have created one test JPA
+interface
+
+236
+00:04:27,390 --> 00:04:27,400
+interface
+ 
+
+237
+00:04:27,400 --> 00:04:28,790
+interface
+API.
+
+238
+00:04:28,790 --> 00:04:28,800
+API.
+ 
+
+239
+00:04:28,800 --> 00:04:31,230
+API.
+There I have created a user.
+
+240
+00:04:31,230 --> 00:04:31,240
+There I have created a user.
+ 
+
+241
+00:04:31,240 --> 00:04:33,950
+There I have created a user.
+Okay? Now, I am trying to save it into
+
+242
+00:04:33,950 --> 00:04:33,960
+Okay? Now, I am trying to save it into
+ 
+
+243
+00:04:33,960 --> 00:04:37,710
+Okay? Now, I am trying to save it into
+DB. I am calling the user service API.
+
+244
+00:04:37,710 --> 00:04:37,720
+DB. I am calling the user service API.
+ 
+
+245
+00:04:37,720 --> 00:04:39,870
+DB. I am calling the user service API.
+And after inserting, I am doing a select
+
+246
+00:04:39,870 --> 00:04:39,880
+And after inserting, I am doing a select
+ 
+
+247
+00:04:39,880 --> 00:04:41,630
+And after inserting, I am doing a select
+query. So, this is my expectation.
+
+248
+00:04:41,630 --> 00:04:41,640
+query. So, this is my expectation.
+ 
+
+249
+00:04:41,640 --> 00:04:44,390
+query. So, this is my expectation.
+First, I am inserting, and and then I am
+
+250
+00:04:44,390 --> 00:04:44,400
+First, I am inserting, and and then I am
+ 
+
+251
+00:04:44,400 --> 00:04:46,030
+First, I am inserting, and and then I am
+fetching.
+
+252
+00:04:46,030 --> 00:04:46,040
+fetching.
+ 
+
+253
+00:04:46,040 --> 00:04:48,990
+fetching.
+So, during insert, I am calling user
+
+254
+00:04:48,990 --> 00:04:49,000
+So, during insert, I am calling user
+ 
+
+255
+00:04:49,000 --> 00:04:50,790
+So, during insert, I am calling user
+detail service save.
+
+256
+00:04:50,790 --> 00:04:50,800
+detail service save.
+ 
+
+257
+00:04:50,800 --> 00:04:53,470
+detail service save.
+And internally, it is dealing with user
+
+258
+00:04:53,470 --> 00:04:53,480
+And internally, it is dealing with user
+ 
+
+259
+00:04:53,480 --> 00:04:55,550
+And internally, it is dealing with user
+repository. User detail repository is
+
+260
+00:04:55,550 --> 00:04:55,560
+repository. User detail repository is
+ 
+
+261
+00:04:55,560 --> 00:04:57,670
+repository. User detail repository is
+just an interface which I have written
+
+262
+00:04:57,670 --> 00:04:57,680
+just an interface which I have written
+ 
+
+263
+00:04:57,680 --> 00:05:01,070
+just an interface which I have written
+which extend JPA repository. That's all.
+
+264
+00:05:01,070 --> 00:05:01,080
+which extend JPA repository. That's all.
+ 
+
+265
+00:05:01,080 --> 00:05:02,990
+which extend JPA repository. That's all.
+So, this is very very basic which we
+
+266
+00:05:02,990 --> 00:05:03,000
+So, this is very very basic which we
+ 
+
+267
+00:05:03,000 --> 00:05:05,990
+So, this is very very basic which we
+have already seen. Now, if I start an
+
+268
+00:05:05,990 --> 00:05:06,000
+have already seen. Now, if I start an
+ 
+
+269
+00:05:06,000 --> 00:05:07,750
+have already seen. Now, if I start an
+application,
+
+270
+00:05:07,750 --> 00:05:07,760
+application,
+ 
+
+271
+00:05:07,760 --> 00:05:09,310
+application,
+now I am starting an application, you
+
+272
+00:05:09,310 --> 00:05:09,320
+now I am starting an application, you
+ 
+
+273
+00:05:09,320 --> 00:05:10,630
+now I am starting an application, you
+will see that
+
+274
+00:05:10,630 --> 00:05:10,640
+will see that
+ 
+
+275
+00:05:10,640 --> 00:05:13,310
+will see that
+the first it drops and create a table
+
+276
+00:05:13,310 --> 00:05:13,320
+the first it drops and create a table
+ 
+
+277
+00:05:13,320 --> 00:05:16,150
+the first it drops and create a table
+because we are using in-memory DB.
+
+278
+00:05:16,150 --> 00:05:16,160
+because we are using in-memory DB.
+ 
+
+279
+00:05:16,160 --> 00:05:17,470
+because we are using in-memory DB.
+Okay?
+
+280
+00:05:17,470 --> 00:05:17,480
+Okay?
+ 
+
+281
+00:05:17,480 --> 00:05:20,270
+Okay?
+Now, I am creating hitting this API,
+
+282
+00:05:20,270 --> 00:05:20,280
+Now, I am creating hitting this API,
+ 
+
+283
+00:05:20,280 --> 00:05:22,150
+Now, I am creating hitting this API,
+test JPA.
+
+284
+00:05:22,150 --> 00:05:22,160
+test JPA.
+ 
+
+285
+00:05:22,160 --> 00:05:23,790
+test JPA.
+So, what is the expectation before I
+
+286
+00:05:23,790 --> 00:05:23,800
+So, what is the expectation before I
+ 
+
+287
+00:05:23,800 --> 00:05:26,190
+So, what is the expectation before I
+hit? Expectation is
+
+288
+00:05:26,190 --> 00:05:26,200
+hit? Expectation is
+ 
+
+289
+00:05:26,200 --> 00:05:28,270
+hit? Expectation is
+first it will insert,
+
+290
+00:05:28,270 --> 00:05:28,280
+first it will insert,
+ 
+
+291
+00:05:28,280 --> 00:05:30,909
+first it will insert,
+then it will make one select query.
+
+292
+00:05:30,909 --> 00:05:30,919
+then it will make one select query.
+ 
+
+293
+00:05:30,919 --> 00:05:32,830
+then it will make one select query.
+Let's hit it.
+
+294
+00:05:32,830 --> 00:05:32,840
+Let's hit it.
+ 
+
+295
+00:05:32,840 --> 00:05:34,670
+Let's hit it.
+So, here if you say that we are able to
+
+296
+00:05:34,670 --> 00:05:34,680
+So, here if you say that we are able to
+ 
+
+297
+00:05:34,680 --> 00:05:36,550
+So, here if you say that we are able to
+see the data.
+
+298
+00:05:36,550 --> 00:05:36,560
+see the data.
+ 
+
+299
+00:05:36,560 --> 00:05:39,790
+see the data.
+Now, we are able to see one insert. Yes,
+
+300
+00:05:39,790 --> 00:05:39,800
+Now, we are able to see one insert. Yes,
+ 
+
+301
+00:05:39,800 --> 00:05:42,230
+Now, we are able to see one insert. Yes,
+but where is the select query?
+
+302
+00:05:42,230 --> 00:05:42,240
+but where is the select query?
+ 
+
+303
+00:05:42,240 --> 00:05:44,470
+but where is the select query?
+Why there is no select query is there?
+
+304
+00:05:44,470 --> 00:05:44,480
+Why there is no select query is there?
+ 
+
+305
+00:05:44,480 --> 00:05:46,110
+Why there is no select query is there?
+But how come I am able to fetch the
+
+306
+00:05:46,110 --> 00:05:46,120
+But how come I am able to fetch the
+ 
+
+307
+00:05:46,120 --> 00:05:47,430
+But how come I am able to fetch the
+data.
+
+308
+00:05:47,430 --> 00:05:47,440
+data.
+ 
+
+309
+00:05:47,440 --> 00:05:51,710
+data.
+It's because of cache.
+
+310
+00:05:51,710 --> 00:05:51,720
+
+ 
+
+311
+00:05:51,720 --> 00:05:53,750
+
+Okay, so what is happening inside? How
+
+312
+00:05:53,750 --> 00:05:53,760
+Okay, so what is happening inside? How
+ 
+
+313
+00:05:53,760 --> 00:05:55,550
+Okay, so what is happening inside? How
+the first level caching works? So, let's
+
+314
+00:05:55,550 --> 00:05:55,560
+the first level caching works? So, let's
+ 
+
+315
+00:05:55,560 --> 00:05:57,190
+the first level caching works? So, let's
+see what is happening.
+
+316
+00:05:57,190 --> 00:05:57,200
+see what is happening.
+ 
+
+317
+00:05:57,200 --> 00:05:59,870
+see what is happening.
+So, when this API is invoked, when this
+
+318
+00:05:59,870 --> 00:05:59,880
+So, when this API is invoked, when this
+ 
+
+319
+00:05:59,880 --> 00:06:01,990
+So, when this API is invoked, when this
+API is invoked,
+
+320
+00:06:01,990 --> 00:06:02,000
+API is invoked,
+ 
+
+321
+00:06:02,000 --> 00:06:05,910
+API is invoked,
+what it is doing is
+
+322
+00:06:05,910 --> 00:06:05,920
+
+ 
+
+323
+00:06:05,920 --> 00:06:07,990
+
+what it is doing is it is first calling
+
+324
+00:06:07,990 --> 00:06:08,000
+what it is doing is it is first calling
+ 
+
+325
+00:06:08,000 --> 00:06:09,750
+what it is doing is it is first calling
+save user.
+
+326
+00:06:09,750 --> 00:06:09,760
+save user.
+ 
+
+327
+00:06:09,760 --> 00:06:12,030
+save user.
+Okay? So, when the save user is
+
+328
+00:06:12,030 --> 00:06:12,040
+Okay? So, when the save user is
+ 
+
+329
+00:06:12,040 --> 00:06:13,470
+Okay? So, when the save user is
+happening,
+
+330
+00:06:13,470 --> 00:06:13,480
+happening,
+ 
+
+331
+00:06:13,480 --> 00:06:15,230
+happening,
+so it is calling
+
+332
+00:06:15,230 --> 00:06:15,240
+so it is calling
+ 
+
+333
+00:06:15,240 --> 00:06:18,110
+so it is calling
+this JPA repository save user.
+
+334
+00:06:18,110 --> 00:06:18,120
+this JPA repository save user.
+ 
+
+335
+00:06:18,120 --> 00:06:20,110
+this JPA repository save user.
+Okay, so internally you know that,
+
+336
+00:06:20,110 --> 00:06:20,120
+Okay, so internally you know that,
+ 
+
+337
+00:06:20,120 --> 00:06:22,070
+Okay, so internally you know that,
+right? What would happen? So, inside a
+
+338
+00:06:22,070 --> 00:06:22,080
+right? What would happen? So, inside a
+ 
+
+339
+00:06:22,080 --> 00:06:25,790
+right? What would happen? So, inside a
+save user,
+
+340
+00:06:25,790 --> 00:06:25,800
+
+ 
+
+341
+00:06:25,800 --> 00:06:28,870
+
+internally it's using an entity manager
+
+342
+00:06:28,870 --> 00:06:28,880
+internally it's using an entity manager
+ 
+
+343
+00:06:28,880 --> 00:06:32,190
+internally it's using an entity manager
+calling persist. Okay? Internally it is
+
+344
+00:06:32,190 --> 00:06:32,200
+calling persist. Okay? Internally it is
+ 
+
+345
+00:06:32,200 --> 00:06:35,070
+calling persist. Okay? Internally it is
+calling
+
+346
+00:06:35,070 --> 00:06:35,080
+
+ 
+
+347
+00:06:35,080 --> 00:06:37,110
+
+entity manager
+
+348
+00:06:37,110 --> 00:06:37,120
+entity manager
+ 
+
+349
+00:06:37,120 --> 00:06:39,950
+entity manager
+\{{}dot} persist.
+
+350
+00:06:39,950 --> 00:06:39,960
+\{{}dot} persist.
+ 
+
+351
+00:06:39,960 --> 00:06:42,830
+\{{}dot} persist.
+Now, if you remember, I told you that
+
+352
+00:06:42,830 --> 00:06:42,840
+Now, if you remember, I told you that
+ 
+
+353
+00:06:42,840 --> 00:06:45,110
+Now, if you remember, I told you that
+whenever entity manager persist was
+
+354
+00:06:45,110 --> 00:06:45,120
+whenever entity manager persist was
+ 
+
+355
+00:06:45,120 --> 00:06:46,909
+whenever entity manager persist was
+there, so this is nothing but a method
+
+356
+00:06:46,909 --> 00:06:46,919
+there, so this is nothing but a method
+ 
+
+357
+00:06:46,919 --> 00:06:48,150
+there, so this is nothing but a method
+interface.
+
+358
+00:06:48,150 --> 00:06:48,160
+interface.
+ 
+
+359
+00:06:48,160 --> 00:06:51,830
+interface.
+Session IMPL
+
+360
+00:06:51,830 --> 00:06:51,840
+
+ 
+
+361
+00:06:51,840 --> 00:06:53,470
+
+is the one Hibernate provided an
+
+362
+00:06:53,470 --> 00:06:53,480
+is the one Hibernate provided an
+ 
+
+363
+00:06:53,480 --> 00:06:57,950
+is the one Hibernate provided an
+implementation for this persist.
+
+364
+00:06:57,950 --> 00:06:57,960
+
+ 
+
+365
+00:06:57,960 --> 00:07:00,630
+
+And when the persist is happen, we are
+
+366
+00:07:00,630 --> 00:07:00,640
+And when the persist is happen, we are
+ 
+
+367
+00:07:00,640 --> 00:07:03,710
+And when the persist is happen, we are
+creating a
+
+368
+00:07:03,710 --> 00:07:03,720
+creating a
+ 
+
+369
+00:07:03,720 --> 00:07:06,550
+creating a
+persistence context.
+
+370
+00:07:06,550 --> 00:07:06,560
+persistence context.
+ 
+
+371
+00:07:06,560 --> 00:07:08,950
+persistence context.
+Okay? And this persistence context,
+
+372
+00:07:08,950 --> 00:07:08,960
+Okay? And this persistence context,
+ 
+
+373
+00:07:08,960 --> 00:07:11,790
+Okay? And this persistence context,
+whatever the object entity you want to
+
+374
+00:07:11,790 --> 00:07:11,800
+whatever the object entity you want to
+ 
+
+375
+00:07:11,800 --> 00:07:15,630
+whatever the object entity you want to
+create, it first hold it.
+
+376
+00:07:15,630 --> 00:07:15,640
+create, it first hold it.
+ 
+
+377
+00:07:15,640 --> 00:07:18,310
+create, it first hold it.
+Okay? So, you never interact directly
+
+378
+00:07:18,310 --> 00:07:18,320
+Okay? So, you never interact directly
+ 
+
+379
+00:07:18,320 --> 00:07:20,230
+Okay? So, you never interact directly
+with DB. If you understand this
+
+380
+00:07:20,230 --> 00:07:20,240
+with DB. If you understand this
+ 
+
+381
+00:07:20,240 --> 00:07:22,630
+with DB. If you understand this
+lifecycle, you will get to know that
+
+382
+00:07:22,630 --> 00:07:22,640
+lifecycle, you will get to know that
+ 
+
+383
+00:07:22,640 --> 00:07:24,510
+lifecycle, you will get to know that
+DB only comes into the picture when we
+
+384
+00:07:24,510 --> 00:07:24,520
+DB only comes into the picture when we
+ 
+
+385
+00:07:24,520 --> 00:07:27,590
+DB only comes into the picture when we
+do commit, when we do flush.
+
+386
+00:07:27,590 --> 00:07:27,600
+do commit, when we do flush.
+ 
+
+387
+00:07:27,600 --> 00:07:29,830
+do commit, when we do flush.
+Till then, everything is there, the
+
+388
+00:07:29,830 --> 00:07:29,840
+Till then, everything is there, the
+ 
+
+389
+00:07:29,840 --> 00:07:32,630
+Till then, everything is there, the
+state of the entity is
+
+390
+00:07:32,630 --> 00:07:32,640
+state of the entity is
+ 
+
+391
+00:07:32,640 --> 00:07:35,470
+state of the entity is
+there by the persistence context only.
+
+392
+00:07:35,470 --> 00:07:35,480
+there by the persistence context only.
+ 
+
+393
+00:07:35,480 --> 00:07:40,030
+there by the persistence context only.
+So, we can say that one entity manager
+
+394
+00:07:40,030 --> 00:07:40,040
+So, we can say that one entity manager
+ 
+
+395
+00:07:40,040 --> 00:07:43,310
+So, we can say that one entity manager
+equals to one persistence context.
+
+396
+00:07:43,310 --> 00:07:43,320
+equals to one persistence context.
+ 
+
+397
+00:07:43,320 --> 00:07:45,790
+equals to one persistence context.
+If you have two entity manager, it will
+
+398
+00:07:45,790 --> 00:07:45,800
+If you have two entity manager, it will
+ 
+
+399
+00:07:45,800 --> 00:07:47,750
+If you have two entity manager, it will
+have another persistence context. So,
+
+400
+00:07:47,750 --> 00:07:47,760
+have another persistence context. So,
+ 
+
+401
+00:07:47,760 --> 00:07:49,350
+have another persistence context. So,
+one-to-one mapping.
+
+402
+00:07:49,350 --> 00:07:49,360
+one-to-one mapping.
+ 
+
+403
+00:07:49,360 --> 00:07:52,950
+one-to-one mapping.
+And this second persistence context
+
+404
+00:07:52,950 --> 00:07:52,960
+And this second persistence context
+ 
+
+405
+00:07:52,960 --> 00:07:54,950
+And this second persistence context
+is totally isolated from one another.
+
+406
+00:07:54,950 --> 00:07:54,960
+is totally isolated from one another.
+ 
+
+407
+00:07:54,960 --> 00:07:57,550
+is totally isolated from one another.
+There is no interaction.
+
+408
+00:07:57,550 --> 00:07:57,560
+There is no interaction.
+ 
+
+409
+00:07:57,560 --> 00:08:00,590
+There is no interaction.
+If any data is present here,
+
+410
+00:08:00,590 --> 00:08:00,600
+If any data is present here,
+ 
+
+411
+00:08:00,600 --> 00:08:03,190
+If any data is present here,
+this data is not visible to us.
+
+412
+00:08:03,190 --> 00:08:03,200
+this data is not visible to us.
+ 
+
+413
+00:08:03,200 --> 00:08:04,710
+this data is not visible to us.
+Okay?
+
+414
+00:08:04,710 --> 00:08:04,720
+Okay?
+ 
+
+415
+00:08:04,720 --> 00:08:06,670
+Okay?
+So, now in this what happening is when
+
+416
+00:08:06,670 --> 00:08:06,680
+So, now in this what happening is when
+ 
+
+417
+00:08:06,680 --> 00:08:07,990
+So, now in this what happening is when
+you are doing
+
+418
+00:08:07,990 --> 00:08:08,000
+you are doing
+ 
+
+419
+00:08:08,000 --> 00:08:10,710
+you are doing
+doing save user, internally it is
+
+420
+00:08:10,710 --> 00:08:10,720
+doing save user, internally it is
+ 
+
+421
+00:08:10,720 --> 00:08:12,630
+doing save user, internally it is
+calling entity manager.persist. So,
+
+422
+00:08:12,630 --> 00:08:12,640
+calling entity manager.persist. So,
+ 
+
+423
+00:08:12,640 --> 00:08:14,470
+calling entity manager.persist. So,
+means it is able to find an entity
+
+424
+00:08:14,470 --> 00:08:14,480
+means it is able to find an entity
+ 
+
+425
+00:08:14,480 --> 00:08:17,270
+means it is able to find an entity
+manager first. It is able to find an
+
+426
+00:08:17,270 --> 00:08:17,280
+manager first. It is able to find an
+ 
+
+427
+00:08:17,280 --> 00:08:18,990
+manager first. It is able to find an
+entity manager object. So, means entity
+
+428
+00:08:18,990 --> 00:08:19,000
+entity manager object. So, means entity
+ 
+
+429
+00:08:19,000 --> 00:08:20,909
+entity manager object. So, means entity
+manager is there.
+
+430
+00:08:20,909 --> 00:08:20,919
+manager is there.
+ 
+
+431
+00:08:20,919 --> 00:08:22,909
+manager is there.
+And it when it is doing persist,
+
+432
+00:08:22,909 --> 00:08:22,919
+And it when it is doing persist,
+ 
+
+433
+00:08:22,919 --> 00:08:24,950
+And it when it is doing persist,
+internally it first create a persistence
+
+434
+00:08:24,950 --> 00:08:24,960
+internally it first create a persistence
+ 
+
+435
+00:08:24,960 --> 00:08:26,350
+internally it first create a persistence
+context.
+
+436
+00:08:26,350 --> 00:08:26,360
+context.
+ 
+
+437
+00:08:26,360 --> 00:08:29,030
+context.
+And it stores the data.
+
+438
+00:08:29,030 --> 00:08:29,040
+And it stores the data.
+ 
+
+439
+00:08:29,040 --> 00:08:30,790
+And it stores the data.
+This entity
+
+440
+00:08:30,790 --> 00:08:30,800
+This entity
+ 
+
+441
+00:08:30,800 --> 00:08:34,070
+This entity
+user detail this is stored there.
+
+442
+00:08:34,070 --> 00:08:34,080
+user detail this is stored there.
+ 
+
+443
+00:08:34,080 --> 00:08:36,550
+user detail this is stored there.
+Okay, so let's see that. So, here it
+
+444
+00:08:36,550 --> 00:08:36,560
+Okay, so let's see that. So, here it
+ 
+
+445
+00:08:36,560 --> 00:08:38,790
+Okay, so let's see that. So, here it
+calls save user.
+
+446
+00:08:38,790 --> 00:08:38,800
+calls save user.
+ 
+
+447
+00:08:38,800 --> 00:08:42,990
+calls save user.
+So, internally it calls this and the
+
+448
+00:08:42,990 --> 00:08:43,000
+So, internally it calls this and the
+ 
+
+449
+00:08:43,000 --> 00:08:45,350
+So, internally it calls this and the
+control comes to
+
+450
+00:08:45,350 --> 00:08:45,360
+control comes to
+ 
+
+451
+00:08:45,360 --> 00:08:46,790
+control comes to
+this save.
+
+452
+00:08:46,790 --> 00:08:46,800
+this save.
+ 
+
+453
+00:08:46,800 --> 00:08:48,270
+this save.
+Right? This is what simple JPA
+
+454
+00:08:48,270 --> 00:08:48,280
+Right? This is what simple JPA
+ 
+
+455
+00:08:48,280 --> 00:08:50,030
+Right? This is what simple JPA
+repository, right? We are calling JPA
+
+456
+00:08:50,030 --> 00:08:50,040
+repository, right? We are calling JPA
+ 
+
+457
+00:08:50,040 --> 00:08:51,750
+repository, right? We are calling JPA
+repository itself.
+
+458
+00:08:51,750 --> 00:08:51,760
+repository itself.
+ 
+
+459
+00:08:51,760 --> 00:08:53,790
+repository itself.
+User service and user service is calling
+
+460
+00:08:53,790 --> 00:08:53,800
+User service and user service is calling
+ 
+
+461
+00:08:53,800 --> 00:08:57,310
+User service and user service is calling
+JPA repository. So, it will comes here.
+
+462
+00:08:57,310 --> 00:08:57,320
+JPA repository. So, it will comes here.
+ 
+
+463
+00:08:57,320 --> 00:08:58,950
+JPA repository. So, it will comes here.
+Now, here it is calling entity
+
+464
+00:08:58,950 --> 00:08:58,960
+Now, here it is calling entity
+ 
+
+465
+00:08:58,960 --> 00:09:01,670
+Now, here it is calling entity
+manager.persist.
+
+466
+00:09:01,670 --> 00:09:01,680
+manager.persist.
+ 
+
+467
+00:09:01,680 --> 00:09:03,430
+manager.persist.
+So, you know that it will go into the
+
+468
+00:09:03,430 --> 00:09:03,440
+So, you know that it will go into the
+ 
+
+469
+00:09:03,440 --> 00:09:05,990
+So, you know that it will go into the
+session.impl and from that session it
+
+470
+00:09:05,990 --> 00:09:06,000
+session.impl and from that session it
+ 
+
+471
+00:09:06,000 --> 00:09:07,990
+session.impl and from that session it
+will create a persistence context. So,
+
+472
+00:09:07,990 --> 00:09:08,000
+will create a persistence context. So,
+ 
+
+473
+00:09:08,000 --> 00:09:09,670
+will create a persistence context. So,
+now here if you see,
+
+474
+00:09:09,670 --> 00:09:09,680
+now here if you see,
+ 
+
+475
+00:09:09,680 --> 00:09:12,950
+now here if you see,
+it is adding the entity.
+
+476
+00:09:12,950 --> 00:09:12,960
+it is adding the entity.
+ 
+
+477
+00:09:12,960 --> 00:09:17,670
+it is adding the entity.
+So, it will put in in the map.
+
+478
+00:09:17,670 --> 00:09:17,680
+So, it will put in in the map.
+ 
+
+479
+00:09:17,680 --> 00:09:20,590
+So, it will put in in the map.
+It will put if it is absent. What? This
+
+480
+00:09:20,590 --> 00:09:20,600
+It will put if it is absent. What? This
+ 
+
+481
+00:09:20,600 --> 00:09:21,710
+It will put if it is absent. What? This
+key.
+
+482
+00:09:21,710 --> 00:09:21,720
+key.
+ 
+
+483
+00:09:21,720 --> 00:09:23,990
+key.
+What is the key? This user which you're
+
+484
+00:09:23,990 --> 00:09:24,000
+What is the key? This user which you're
+ 
+
+485
+00:09:24,000 --> 00:09:26,430
+What is the key? This user which you're
+trying to insert.
+
+486
+00:09:26,430 --> 00:09:26,440
+trying to insert.
+ 
+
+487
+00:09:26,440 --> 00:09:28,430
+trying to insert.
+This one.
+
+488
+00:09:28,430 --> 00:09:28,440
+This one.
+ 
+
+489
+00:09:28,440 --> 00:09:31,190
+This one.
+This user which you're trying to save.
+
+490
+00:09:31,190 --> 00:09:31,200
+This user which you're trying to save.
+ 
+
+491
+00:09:31,200 --> 00:09:34,310
+This user which you're trying to save.
+So, it will create a key and it insert
+
+492
+00:09:34,310 --> 00:09:34,320
+So, it will create a key and it insert
+ 
+
+493
+00:09:34,320 --> 00:09:36,190
+So, it will create a key and it insert
+into the map. And the object is your
+
+494
+00:09:36,190 --> 00:09:36,200
+into the map. And the object is your
+ 
+
+495
+00:09:36,200 --> 00:09:38,430
+into the map. And the object is your
+complete object.
+
+496
+00:09:38,430 --> 00:09:38,440
+complete object.
+ 
+
+497
+00:09:38,440 --> 00:09:41,870
+complete object.
+Okay, now data is present here.
+
+498
+00:09:41,870 --> 00:09:41,880
+Okay, now data is present here.
+ 
+
+499
+00:09:41,880 --> 00:09:43,510
+Okay, now data is present here.
+Now data is
+
+500
+00:09:43,510 --> 00:09:43,520
+Now data is
+ 
+
+501
+00:09:43,520 --> 00:09:45,230
+Now data is
+present here. From earlier you created a
+
+502
+00:09:45,230 --> 00:09:45,240
+present here. From earlier you created a
+ 
+
+503
+00:09:45,240 --> 00:09:47,790
+present here. From earlier you created a
+new object, you call persist. Now data
+
+504
+00:09:47,790 --> 00:09:47,800
+new object, you call persist. Now data
+ 
+
+505
+00:09:47,800 --> 00:09:49,550
+new object, you call persist. Now data
+is present here.
+
+506
+00:09:49,550 --> 00:09:49,560
+is present here.
+ 
+
+507
+00:09:49,560 --> 00:09:51,190
+is present here.
+Save is
+
+508
+00:09:51,190 --> 00:09:51,200
+Save is
+ 
+
+509
+00:09:51,200 --> 00:09:52,510
+Save is
+annotated with at the rate
+
+510
+00:09:52,510 --> 00:09:52,520
+annotated with at the rate
+ 
+
+511
+00:09:52,520 --> 00:09:54,830
+annotated with at the rate
+transactional. Means, if you remember
+
+512
+00:09:54,830 --> 00:09:54,840
+transactional. Means, if you remember
+ 
+
+513
+00:09:54,840 --> 00:09:56,870
+transactional. Means, if you remember
+from the transactional video,
+
+514
+00:09:56,870 --> 00:09:56,880
+from the transactional video,
+ 
+
+515
+00:09:56,880 --> 00:09:58,630
+from the transactional video,
+there is a transactional interceptor
+
+516
+00:09:58,630 --> 00:09:58,640
+there is a transactional interceptor
+ 
+
+517
+00:09:58,640 --> 00:10:01,150
+there is a transactional interceptor
+which do begin and commit. So, means
+
+518
+00:10:01,150 --> 00:10:01,160
+which do begin and commit. So, means
+ 
+
+519
+00:10:01,160 --> 00:10:03,990
+which do begin and commit. So, means
+commit has happened. So, at this time
+
+520
+00:10:03,990 --> 00:10:04,000
+commit has happened. So, at this time
+ 
+
+521
+00:10:04,000 --> 00:10:06,550
+commit has happened. So, at this time
+flush would have happened. So, it would
+
+522
+00:10:06,550 --> 00:10:06,560
+flush would have happened. So, it would
+ 
+
+523
+00:10:06,560 --> 00:10:10,310
+flush would have happened. So, it would
+have inserted make one insert query.
+
+524
+00:10:10,310 --> 00:10:10,320
+have inserted make one insert query.
+ 
+
+525
+00:10:10,320 --> 00:10:11,990
+have inserted make one insert query.
+Also.
+
+526
+00:10:11,990 --> 00:10:12,000
+Also.
+ 
+
+527
+00:10:12,000 --> 00:10:15,110
+Also.
+So, data is there into this uh
+
+528
+00:10:15,110 --> 00:10:15,120
+So, data is there into this uh
+ 
+
+529
+00:10:15,120 --> 00:10:17,390
+So, data is there into this uh
+persistence and it has flushed into the
+
+530
+00:10:17,390 --> 00:10:17,400
+persistence and it has flushed into the
+ 
+
+531
+00:10:17,400 --> 00:10:21,710
+persistence and it has flushed into the
+DB also. Now DB is in sync.
+
+532
+00:10:21,710 --> 00:10:21,720
+
+ 
+
+533
+00:10:21,720 --> 00:10:23,510
+
+Now you are doing get query. So, one
+
+534
+00:10:23,510 --> 00:10:23,520
+Now you are doing get query. So, one
+ 
+
+535
+00:10:23,520 --> 00:10:25,870
+Now you are doing get query. So, one
+insert query is done. One insert query
+
+536
+00:10:25,870 --> 00:10:25,880
+insert query is done. One insert query
+ 
+
+537
+00:10:25,880 --> 00:10:27,030
+insert query is done. One insert query
+is done.
+
+538
+00:10:27,030 --> 00:10:27,040
+is done.
+ 
+
+539
+00:10:27,040 --> 00:10:29,510
+is done.
+Now you are doing get user. Again, when
+
+540
+00:10:29,510 --> 00:10:29,520
+Now you are doing get user. Again, when
+ 
+
+541
+00:10:29,520 --> 00:10:31,510
+Now you are doing get user. Again, when
+you are doing a get user,
+
+542
+00:10:31,510 --> 00:10:31,520
+you are doing a get user,
+ 
+
+543
+00:10:31,520 --> 00:10:34,470
+you are doing a get user,
+okay, by primary key, what happens?
+
+544
+00:10:34,470 --> 00:10:34,480
+okay, by primary key, what happens?
+ 
+
+545
+00:10:34,480 --> 00:10:36,390
+okay, by primary key, what happens?
+Let's see that.
+
+546
+00:10:36,390 --> 00:10:36,400
+Let's see that.
+ 
+
+547
+00:10:36,400 --> 00:10:39,190
+Let's see that.
+When we are doing get user or let's say
+
+548
+00:10:39,190 --> 00:10:39,200
+When we are doing get user or let's say
+ 
+
+549
+00:10:39,200 --> 00:10:42,190
+When we are doing get user or let's say
+that find by ID. One one ID I'm trying
+
+550
+00:10:42,190 --> 00:10:42,200
+that find by ID. One one ID I'm trying
+ 
+
+551
+00:10:42,200 --> 00:10:43,910
+that find by ID. One one ID I'm trying
+to fetch, right? So, internally what it
+
+552
+00:10:43,910 --> 00:10:43,920
+to fetch, right? So, internally what it
+ 
+
+553
+00:10:43,920 --> 00:10:45,110
+to fetch, right? So, internally what it
+does?
+
+554
+00:10:45,110 --> 00:10:45,120
+does?
+ 
+
+555
+00:10:45,120 --> 00:10:47,750
+does?
+Again, entity manager.
+
+556
+00:10:47,750 --> 00:10:47,760
+Again, entity manager.
+ 
+
+557
+00:10:47,760 --> 00:10:49,870
+Again, entity manager.
+So, currently
+
+558
+00:10:49,870 --> 00:10:49,880
+So, currently
+ 
+
+559
+00:10:49,880 --> 00:10:52,430
+So, currently
+it is trying able to find the same
+
+560
+00:10:52,430 --> 00:10:52,440
+it is trying able to find the same
+ 
+
+561
+00:10:52,440 --> 00:10:54,630
+it is trying able to find the same
+entity manager object.
+
+562
+00:10:54,630 --> 00:10:54,640
+entity manager object.
+ 
+
+563
+00:10:54,640 --> 00:10:56,870
+entity manager object.
+Okay, so this is also working with the
+
+564
+00:10:56,870 --> 00:10:56,880
+Okay, so this is also working with the
+ 
+
+565
+00:10:56,880 --> 00:10:58,910
+Okay, so this is also working with the
+same entity manager which is this is
+
+566
+00:10:58,910 --> 00:10:58,920
+same entity manager which is this is
+ 
+
+567
+00:10:58,920 --> 00:11:00,470
+same entity manager which is this is
+working.
+
+568
+00:11:00,470 --> 00:11:00,480
+working.
+ 
+
+569
+00:11:00,480 --> 00:11:02,550
+working.
+When this the same entity manager is you
+
+570
+00:11:02,550 --> 00:11:02,560
+When this the same entity manager is you
+ 
+
+571
+00:11:02,560 --> 00:11:04,390
+When this the same entity manager is you
+are working with, means the same
+
+572
+00:11:04,390 --> 00:11:04,400
+are working with, means the same
+ 
+
+573
+00:11:04,400 --> 00:11:07,590
+are working with, means the same
+persistence context it is aware of and
+
+574
+00:11:07,590 --> 00:11:07,600
+persistence context it is aware of and
+ 
+
+575
+00:11:07,600 --> 00:11:09,590
+persistence context it is aware of and
+if that persistence context has that
+
+576
+00:11:09,590 --> 00:11:09,600
+if that persistence context has that
+ 
+
+577
+00:11:09,600 --> 00:11:10,590
+if that persistence context has that
+data,
+
+578
+00:11:10,590 --> 00:11:10,600
+data,
+ 
+
+579
+00:11:10,600 --> 00:11:12,910
+data,
+it will not even go to DB.
+
+580
+00:11:12,910 --> 00:11:12,920
+it will not even go to DB.
+ 
+
+581
+00:11:12,920 --> 00:11:15,870
+it will not even go to DB.
+So, when the get user happen, so what
+
+582
+00:11:15,870 --> 00:11:15,880
+So, when the get user happen, so what
+ 
+
+583
+00:11:15,880 --> 00:11:17,510
+So, when the get user happen, so what
+would happen is
+
+584
+00:11:17,510 --> 00:11:17,520
+would happen is
+ 
+
+585
+00:11:17,520 --> 00:11:20,390
+would happen is
+when you call find by ID, get user,
+
+586
+00:11:20,390 --> 00:11:20,400
+when you call find by ID, get user,
+ 
+
+587
+00:11:20,400 --> 00:11:22,270
+when you call find by ID, get user,
+internally it call find by ID and find
+
+588
+00:11:22,270 --> 00:11:22,280
+internally it call find by ID and find
+ 
+
+589
+00:11:22,280 --> 00:11:25,870
+internally it call find by ID and find
+by ID, you know that session
+
+590
+00:11:25,870 --> 00:11:25,880
+by ID, you know that session
+ 
+
+591
+00:11:25,880 --> 00:11:29,150
+by ID, you know that session
+IMPL and session IMPL internally
+
+592
+00:11:29,150 --> 00:11:29,160
+IMPL and session IMPL internally
+ 
+
+593
+00:11:29,160 --> 00:11:31,470
+IMPL and session IMPL internally
+calls persistence context and their get
+
+594
+00:11:31,470 --> 00:11:31,480
+calls persistence context and their get
+ 
+
+595
+00:11:31,480 --> 00:11:32,990
+calls persistence context and their get
+entity.
+
+596
+00:11:32,990 --> 00:11:33,000
+entity.
+ 
+
+597
+00:11:33,000 --> 00:11:35,030
+entity.
+So, whatever the key map we have
+
+598
+00:11:35,030 --> 00:11:35,040
+So, whatever the key map we have
+ 
+
+599
+00:11:35,040 --> 00:11:37,710
+So, whatever the key map we have
+created, it try to fetch the key.
+
+600
+00:11:37,710 --> 00:11:37,720
+created, it try to fetch the key.
+ 
+
+601
+00:11:37,720 --> 00:11:42,550
+created, it try to fetch the key.
+Now here, since it is the same
+
+602
+00:11:42,550 --> 00:11:42,560
+Now here, since it is the same
+ 
+
+603
+00:11:42,560 --> 00:11:45,030
+Now here, since it is the same
+entity manager,
+
+604
+00:11:45,030 --> 00:11:45,040
+entity manager,
+ 
+
+605
+00:11:45,040 --> 00:11:46,550
+entity manager,
+we are using the same entity manager,
+
+606
+00:11:46,550 --> 00:11:46,560
+we are using the same entity manager,
+ 
+
+607
+00:11:46,560 --> 00:11:49,230
+we are using the same entity manager,
+same persistence context is used, and
+
+608
+00:11:49,230 --> 00:11:49,240
+same persistence context is used, and
+ 
+
+609
+00:11:49,240 --> 00:11:52,110
+same persistence context is used, and
+that's why it is able to fetch the data.
+
+610
+00:11:52,110 --> 00:11:52,120
+that's why it is able to fetch the data.
+ 
+
+611
+00:11:52,120 --> 00:11:54,510
+that's why it is able to fetch the data.
+So, no select query,
+
+612
+00:11:54,510 --> 00:11:54,520
+So, no select query,
+ 
+
+613
+00:11:54,520 --> 00:11:56,870
+So, no select query,
+no select query is hit. It returned from
+
+614
+00:11:56,870 --> 00:11:56,880
+no select query is hit. It returned from
+ 
+
+615
+00:11:56,880 --> 00:12:00,030
+no select query is hit. It returned from
+the cache.
+
+616
+00:12:00,030 --> 00:12:00,040
+
+ 
+
+617
+00:12:00,040 --> 00:12:02,230
+
+Now you can ask me a question that
+
+618
+00:12:02,230 --> 00:12:02,240
+Now you can ask me a question that
+ 
+
+619
+00:12:02,240 --> 00:12:03,310
+Now you can ask me a question that
+Hey Sean,
+
+620
+00:12:03,310 --> 00:12:03,320
+Hey Sean,
+ 
+
+621
+00:12:03,320 --> 00:12:06,790
+Hey Sean,
+how the same entity manager is used?
+
+622
+00:12:06,790 --> 00:12:06,800
+how the same entity manager is used?
+ 
+
+623
+00:12:06,800 --> 00:12:08,670
+how the same entity manager is used?
+I'll show you. In the dispatch If you go
+
+624
+00:12:08,670 --> 00:12:08,680
+I'll show you. In the dispatch If you go
+ 
+
+625
+00:12:08,680 --> 00:12:10,950
+I'll show you. In the dispatch If you go
+little deep in the you will al- already
+
+626
+00:12:10,950 --> 00:12:10,960
+little deep in the you will al- already
+ 
+
+627
+00:12:10,960 --> 00:12:12,270
+little deep in the you will al- already
+get to know
+
+628
+00:12:12,270 --> 00:12:12,280
+get to know
+ 
+
+629
+00:12:12,280 --> 00:12:14,550
+get to know
+if you go inside dispatcher servlet, you
+
+630
+00:12:14,550 --> 00:12:14,560
+if you go inside dispatcher servlet, you
+ 
+
+631
+00:12:14,560 --> 00:12:15,830
+if you go inside dispatcher servlet, you
+know that dispatcher servlet is the
+
+632
+00:12:15,830 --> 00:12:15,840
+know that dispatcher servlet is the
+ 
+
+633
+00:12:15,840 --> 00:12:18,110
+know that dispatcher servlet is the
+first controller.
+
+634
+00:12:18,110 --> 00:12:18,120
+first controller.
+ 
+
+635
+00:12:18,120 --> 00:12:19,590
+first controller.
+So, in the dispatcher servlet, there is
+
+636
+00:12:19,590 --> 00:12:19,600
+So, in the dispatcher servlet, there is
+ 
+
+637
+00:12:19,600 --> 00:12:21,750
+So, in the dispatcher servlet, there is
+something called apply pre-handle.
+
+638
+00:12:21,750 --> 00:12:21,760
+something called apply pre-handle.
+ 
+
+639
+00:12:21,760 --> 00:12:23,270
+something called apply pre-handle.
+Before it actually invokes the
+
+640
+00:12:23,270 --> 00:12:23,280
+Before it actually invokes the
+ 
+
+641
+00:12:23,280 --> 00:12:25,750
+Before it actually invokes the
+controller, there is a pre-handle.
+
+642
+00:12:25,750 --> 00:12:25,760
+controller, there is a pre-handle.
+ 
+
+643
+00:12:25,760 --> 00:12:27,510
+controller, there is a pre-handle.
+And this pre-handle here, if you see,
+
+644
+00:12:27,510 --> 00:12:27,520
+And this pre-handle here, if you see,
+ 
+
+645
+00:12:27,520 --> 00:12:29,470
+And this pre-handle here, if you see,
+whatever the during application is start
+
+646
+00:12:29,470 --> 00:12:29,480
+whatever the during application is start
+ 
+
+647
+00:12:29,480 --> 00:12:31,190
+whatever the during application is start
+up, in the previous video we have seen,
+
+648
+00:12:31,190 --> 00:12:31,200
+up, in the previous video we have seen,
+ 
+
+649
+00:12:31,200 --> 00:12:32,670
+up, in the previous video we have seen,
+right? It creates an entity manager
+
+650
+00:12:32,670 --> 00:12:32,680
+right? It creates an entity manager
+ 
+
+651
+00:12:32,680 --> 00:12:35,310
+right? It creates an entity manager
+factory. It fetches that factory and
+
+652
+00:12:35,310 --> 00:12:35,320
+factory. It fetches that factory and
+ 
+
+653
+00:12:35,320 --> 00:12:38,550
+factory. It fetches that factory and
+creates the entity manager.
+
+654
+00:12:38,550 --> 00:12:38,560
+creates the entity manager.
+ 
+
+655
+00:12:38,560 --> 00:12:40,710
+creates the entity manager.
+So, for each
+
+656
+00:12:40,710 --> 00:12:40,720
+So, for each
+ 
+
+657
+00:12:40,720 --> 00:12:43,430
+So, for each
+HTTP request,
+
+658
+00:12:43,430 --> 00:12:43,440
+HTTP request,
+ 
+
+659
+00:12:43,440 --> 00:12:46,350
+HTTP request,
+one entity manager is created by
+
+660
+00:12:46,350 --> 00:12:46,360
+one entity manager is created by
+ 
+
+661
+00:12:46,360 --> 00:12:47,990
+one entity manager is created by
+default.
+
+662
+00:12:47,990 --> 00:12:48,000
+default.
+ 
+
+663
+00:12:48,000 --> 00:12:50,150
+default.
+Remember that, right?
+
+664
+00:12:50,150 --> 00:12:50,160
+Remember that, right?
+ 
+
+665
+00:12:50,160 --> 00:12:52,950
+Remember that, right?
+So, I have created
+
+666
+00:12:52,950 --> 00:12:52,960
+So, I have created
+ 
+
+667
+00:12:52,960 --> 00:12:56,910
+So, I have created
+one HTTP request. Now if you see,
+
+668
+00:12:56,910 --> 00:12:56,920
+one HTTP request. Now if you see,
+ 
+
+669
+00:12:56,920 --> 00:13:02,710
+one HTTP request. Now if you see,
+now when I call the first like test JPA.
+
+670
+00:13:02,710 --> 00:13:02,720
+
+ 
+
+671
+00:13:02,720 --> 00:13:05,070
+
+When I call this API, one HTTP request
+
+672
+00:13:05,070 --> 00:13:05,080
+When I call this API, one HTTP request
+ 
+
+673
+00:13:05,080 --> 00:13:07,630
+When I call this API, one HTTP request
+means one entity manager
+
+674
+00:13:07,630 --> 00:13:07,640
+means one entity manager
+ 
+
+675
+00:13:07,640 --> 00:13:10,390
+means one entity manager
+and one persistence context.
+
+676
+00:13:10,390 --> 00:13:10,400
+and one persistence context.
+ 
+
+677
+00:13:10,400 --> 00:13:13,230
+and one persistence context.
+Okay? Now whenever I do DB query, save,
+
+678
+00:13:13,230 --> 00:13:13,240
+Okay? Now whenever I do DB query, save,
+ 
+
+679
+00:13:13,240 --> 00:13:14,870
+Okay? Now whenever I do DB query, save,
+get,
+
+680
+00:13:14,870 --> 00:13:14,880
+get,
+ 
+
+681
+00:13:14,880 --> 00:13:17,430
+get,
+right? So, the same entity manager is
+
+682
+00:13:17,430 --> 00:13:17,440
+right? So, the same entity manager is
+ 
+
+683
+00:13:17,440 --> 00:13:19,670
+right? So, the same entity manager is
+used, means same persistence context.
+
+684
+00:13:19,670 --> 00:13:19,680
+used, means same persistence context.
+ 
+
+685
+00:13:19,680 --> 00:13:21,430
+used, means same persistence context.
+So, whatever the data is is present into
+
+686
+00:13:21,430 --> 00:13:21,440
+So, whatever the data is is present into
+ 
+
+687
+00:13:21,440 --> 00:13:23,230
+So, whatever the data is is present into
+the persistence context, it will return
+
+688
+00:13:23,230 --> 00:13:23,240
+the persistence context, it will return
+ 
+
+689
+00:13:23,240 --> 00:13:24,870
+the persistence context, it will return
+me.
+
+690
+00:13:24,870 --> 00:13:24,880
+me.
+ 
+
+691
+00:13:24,880 --> 00:13:26,830
+me.
+Okay? Now here, if you see, I have
+
+692
+00:13:26,830 --> 00:13:26,840
+Okay? Now here, if you see, I have
+ 
+
+693
+00:13:26,840 --> 00:13:29,390
+Okay? Now here, if you see, I have
+created one more API, read JPA.
+
+694
+00:13:29,390 --> 00:13:29,400
+created one more API, read JPA.
+ 
+
+695
+00:13:29,400 --> 00:13:32,270
+created one more API, read JPA.
+It is doing direct get user, this same
+
+696
+00:13:32,270 --> 00:13:32,280
+It is doing direct get user, this same
+ 
+
+697
+00:13:32,280 --> 00:13:34,270
+It is doing direct get user, this same
+only. It is trying to fetch.
+
+698
+00:13:34,270 --> 00:13:34,280
+only. It is trying to fetch.
+ 
+
+699
+00:13:34,280 --> 00:13:37,590
+only. It is trying to fetch.
+If I call new API \{{}slash} read \{{}hyphen}
+
+700
+00:13:37,590 --> 00:13:37,600
+If I call new API \{{}slash} read \{{}hyphen}
+ 
+
+701
+00:13:37,600 --> 00:13:38,910
+If I call new API \{{}slash} read \{{}hyphen}
+JPA,
+
+702
+00:13:38,910 --> 00:13:38,920
+JPA,
+ 
+
+703
+00:13:38,920 --> 00:13:41,910
+JPA,
+new API means new HTTP request I'm
+
+704
+00:13:41,910 --> 00:13:41,920
+new API means new HTTP request I'm
+ 
+
+705
+00:13:41,920 --> 00:13:43,910
+new API means new HTTP request I'm
+hitting. I'm hitting new API, right? New
+
+706
+00:13:43,910 --> 00:13:43,920
+hitting. I'm hitting new API, right? New
+ 
+
+707
+00:13:43,920 --> 00:13:45,430
+hitting. I'm hitting new API, right? New
+HTTP request.
+
+708
+00:13:45,430 --> 00:13:45,440
+HTTP request.
+ 
+
+709
+00:13:45,440 --> 00:13:47,390
+HTTP request.
+New HTTP request means second entity
+
+710
+00:13:47,390 --> 00:13:47,400
+New HTTP request means second entity
+ 
+
+711
+00:13:47,400 --> 00:13:50,350
+New HTTP request means second entity
+means new entity manager it will create.
+
+712
+00:13:50,350 --> 00:13:50,360
+means new entity manager it will create.
+ 
+
+713
+00:13:50,360 --> 00:13:52,710
+means new entity manager it will create.
+And new entity manager means new
+
+714
+00:13:52,710 --> 00:13:52,720
+And new entity manager means new
+ 
+
+715
+00:13:52,720 --> 00:13:54,470
+And new entity manager means new
+persistence context.
+
+716
+00:13:54,470 --> 00:13:54,480
+persistence context.
+ 
+
+717
+00:13:54,480 --> 00:13:56,910
+persistence context.
+And it do not know about the data which
+
+718
+00:13:56,910 --> 00:13:56,920
+And it do not know about the data which
+ 
+
+719
+00:13:56,920 --> 00:13:58,790
+And it do not know about the data which
+is present into another persistence
+
+720
+00:13:58,790 --> 00:13:58,800
+is present into another persistence
+ 
+
+721
+00:13:58,800 --> 00:14:00,230
+is present into another persistence
+context.
+
+722
+00:14:00,230 --> 00:14:00,240
+context.
+ 
+
+723
+00:14:00,240 --> 00:14:02,070
+context.
+So, it will make a select query, fresh
+
+724
+00:14:02,070 --> 00:14:02,080
+So, it will make a select query, fresh
+ 
+
+725
+00:14:02,080 --> 00:14:04,310
+So, it will make a select query, fresh
+select query here.
+
+726
+00:14:04,310 --> 00:14:04,320
+select query here.
+ 
+
+727
+00:14:04,320 --> 00:14:06,870
+select query here.
+It will make a fresh select query here.
+
+728
+00:14:06,870 --> 00:14:06,880
+It will make a fresh select query here.
+ 
+
+729
+00:14:06,880 --> 00:14:09,230
+It will make a fresh select query here.
+Let's see this one, okay?
+
+730
+00:14:09,230 --> 00:14:09,240
+Let's see this one, okay?
+ 
+
+731
+00:14:09,240 --> 00:14:11,990
+Let's see this one, okay?
+So, in the entity controller,
+
+732
+00:14:11,990 --> 00:14:12,000
+So, in the entity controller,
+ 
+
+733
+00:14:12,000 --> 00:14:15,750
+So, in the entity controller,
+I have two APIs, one test JPA.
+
+734
+00:14:15,750 --> 00:14:15,760
+I have two APIs, one test JPA.
+ 
+
+735
+00:14:15,760 --> 00:14:18,110
+I have two APIs, one test JPA.
+This has save user
+
+736
+00:14:18,110 --> 00:14:18,120
+This has save user
+ 
+
+737
+00:14:18,120 --> 00:14:20,590
+This has save user
+and find by ID.
+
+738
+00:14:20,590 --> 00:14:20,600
+and find by ID.
+ 
+
+739
+00:14:20,600 --> 00:14:23,350
+and find by ID.
+And then I have read JPA. There I have
+
+740
+00:14:23,350 --> 00:14:23,360
+And then I have read JPA. There I have
+ 
+
+741
+00:14:23,360 --> 00:14:25,470
+And then I have read JPA. There I have
+two select query, two times.
+
+742
+00:14:25,470 --> 00:14:25,480
+two select query, two times.
+ 
+
+743
+00:14:25,480 --> 00:14:27,350
+two select query, two times.
+Just two time find.
+
+744
+00:14:27,350 --> 00:14:27,360
+Just two time find.
+ 
+
+745
+00:14:27,360 --> 00:14:28,470
+Just two time find.
+Okay?
+
+746
+00:14:28,470 --> 00:14:28,480
+Okay?
+ 
+
+747
+00:14:28,480 --> 00:14:29,630
+Okay?
+And
+
+748
+00:14:29,630 --> 00:14:29,640
+And
+ 
+
+749
+00:14:29,640 --> 00:14:33,350
+And
+also, let me put a debugger point in
+
+750
+00:14:33,350 --> 00:14:33,360
+also, let me put a debugger point in
+ 
+
+751
+00:14:33,360 --> 00:14:35,950
+also, let me put a debugger point in
+stateful persistence manager at entity
+
+752
+00:14:35,950 --> 00:14:35,960
+stateful persistence manager at entity
+ 
+
+753
+00:14:35,960 --> 00:14:37,910
+stateful persistence manager at entity
+state.
+
+754
+00:14:37,910 --> 00:14:37,920
+state.
+ 
+
+755
+00:14:37,920 --> 00:14:41,550
+state.
+So, I am starting a debugger point.
+
+756
+00:14:41,550 --> 00:14:41,560
+So, I am starting a debugger point.
+ 
+
+757
+00:14:41,560 --> 00:14:43,630
+So, I am starting a debugger point.
+So, when I started the application, you
+
+758
+00:14:43,630 --> 00:14:43,640
+So, when I started the application, you
+ 
+
+759
+00:14:43,640 --> 00:14:45,470
+So, when I started the application, you
+know that fresh table is started because
+
+760
+00:14:45,470 --> 00:14:45,480
+know that fresh table is started because
+ 
+
+761
+00:14:45,480 --> 00:14:48,829
+know that fresh table is started because
+we are using H2 database in memory.
+
+762
+00:14:48,829 --> 00:14:48,839
+we are using H2 database in memory.
+ 
+
+763
+00:14:48,839 --> 00:14:51,270
+we are using H2 database in memory.
+Now, I'm first calling test JPA. I am
+
+764
+00:14:51,270 --> 00:14:51,280
+Now, I'm first calling test JPA. I am
+ 
+
+765
+00:14:51,280 --> 00:14:53,390
+Now, I'm first calling test JPA. I am
+hitting it.
+
+766
+00:14:53,390 --> 00:14:53,400
+hitting it.
+ 
+
+767
+00:14:53,400 --> 00:14:57,030
+hitting it.
+So, see, I am trying to do first save.
+
+768
+00:14:57,030 --> 00:14:57,040
+So, see, I am trying to do first save.
+ 
+
+769
+00:14:57,040 --> 00:14:58,590
+So, see, I am trying to do first save.
+Because test JPA, what is the
+
+770
+00:14:58,590 --> 00:14:58,600
+Because test JPA, what is the
+ 
+
+771
+00:14:58,600 --> 00:15:01,270
+Because test JPA, what is the
+functionality? We are first inserting
+
+772
+00:15:01,270 --> 00:15:01,280
+functionality? We are first inserting
+ 
+
+773
+00:15:01,280 --> 00:15:03,870
+functionality? We are first inserting
+and then query.
+
+774
+00:15:03,870 --> 00:15:03,880
+and then query.
+ 
+
+775
+00:15:03,880 --> 00:15:06,230
+and then query.
+So, first inserting. It goes inside
+
+776
+00:15:06,230 --> 00:15:06,240
+So, first inserting. It goes inside
+ 
+
+777
+00:15:06,240 --> 00:15:07,910
+So, first inserting. It goes inside
+save.
+
+778
+00:15:07,910 --> 00:15:07,920
+save.
+ 
+
+779
+00:15:07,920 --> 00:15:13,070
+save.
+Okay? So, entity manager.
+
+780
+00:15:13,070 --> 00:15:13,080
+
+ 
+
+781
+00:15:13,080 --> 00:15:15,670
+
+So, it goes to entity manager.process.
+
+782
+00:15:15,670 --> 00:15:15,680
+So, it goes to entity manager.process.
+ 
+
+783
+00:15:15,680 --> 00:15:18,390
+So, it goes to entity manager.process.
+So, now see, if you are doing process,
+
+784
+00:15:18,390 --> 00:15:18,400
+So, now see, if you are doing process,
+ 
+
+785
+00:15:18,400 --> 00:15:20,950
+So, now see, if you are doing process,
+what would happen is
+
+786
+00:15:20,950 --> 00:15:20,960
+what would happen is
+ 
+
+787
+00:15:20,960 --> 00:15:24,630
+what would happen is
+it will first try to insert this entity
+
+788
+00:15:24,630 --> 00:15:24,640
+it will first try to insert this entity
+ 
+
+789
+00:15:24,640 --> 00:15:25,950
+it will first try to insert this entity
+into the
+
+790
+00:15:25,950 --> 00:15:25,960
+into the
+ 
+
+791
+00:15:25,960 --> 00:15:28,710
+into the
+persistence context map, cache, you can
+
+792
+00:15:28,710 --> 00:15:28,720
+persistence context map, cache, you can
+ 
+
+793
+00:15:28,720 --> 00:15:30,670
+persistence context map, cache, you can
+say that. So, this is my entity, this is
+
+794
+00:15:30,670 --> 00:15:30,680
+say that. So, this is my entity, this is
+ 
+
+795
+00:15:30,680 --> 00:15:32,590
+say that. So, this is my entity, this is
+the key.
+
+796
+00:15:32,590 --> 00:15:32,600
+the key.
+ 
+
+797
+00:15:32,600 --> 00:15:35,630
+the key.
+So, it is inserting into this.
+
+798
+00:15:35,630 --> 00:15:35,640
+So, it is inserting into this.
+ 
+
+799
+00:15:35,640 --> 00:15:37,030
+So, it is inserting into this.
+After that,
+
+800
+00:15:37,030 --> 00:15:37,040
+After that,
+ 
+
+801
+00:15:37,040 --> 00:15:40,390
+After that,
+it has committed it because he save is
+
+802
+00:15:40,390 --> 00:15:40,400
+it has committed it because he save is
+ 
+
+803
+00:15:40,400 --> 00:15:43,070
+it has committed it because he save is
+transaction, so committed happen.
+
+804
+00:15:43,070 --> 00:15:43,080
+transaction, so committed happen.
+ 
+
+805
+00:15:43,080 --> 00:15:45,270
+transaction, so committed happen.
+Okay, so means insert query might have
+
+806
+00:15:45,270 --> 00:15:45,280
+Okay, so means insert query might have
+ 
+
+807
+00:15:45,280 --> 00:15:46,550
+Okay, so means insert query might have
+happened.
+
+808
+00:15:46,550 --> 00:15:46,560
+happened.
+ 
+
+809
+00:15:46,560 --> 00:15:48,630
+happened.
+Now, it is trying to do controller is
+
+810
+00:15:48,630 --> 00:15:48,640
+Now, it is trying to do controller is
+ 
+
+811
+00:15:48,640 --> 00:15:50,070
+Now, it is trying to do controller is
+trying to do
+
+812
+00:15:50,070 --> 00:15:50,080
+trying to do
+ 
+
+813
+00:15:50,080 --> 00:15:52,390
+trying to do
+the get query. So, now it is doing find
+
+814
+00:15:52,390 --> 00:15:52,400
+the get query. So, now it is doing find
+ 
+
+815
+00:15:52,400 --> 00:15:54,190
+the get query. So, now it is doing find
+by ID.
+
+816
+00:15:54,190 --> 00:15:54,200
+by ID.
+ 
+
+817
+00:15:54,200 --> 00:15:57,230
+by ID.
+So, here if you see, will it go to DB?
+
+818
+00:15:57,230 --> 00:15:57,240
+So, here if you see, will it go to DB?
+ 
+
+819
+00:15:57,240 --> 00:15:59,390
+So, here if you see, will it go to DB?
+First, it will check the persistence
+
+820
+00:15:59,390 --> 00:15:59,400
+First, it will check the persistence
+ 
+
+821
+00:15:59,400 --> 00:16:02,190
+First, it will check the persistence
+context that, "Hey, is data is present
+
+822
+00:16:02,190 --> 00:16:02,200
+context that, "Hey, is data is present
+ 
+
+823
+00:16:02,200 --> 00:16:03,950
+context that, "Hey, is data is present
+into the entities by key?" See, this is
+
+824
+00:16:03,950 --> 00:16:03,960
+into the entities by key?" See, this is
+ 
+
+825
+00:16:03,960 --> 00:16:05,310
+into the entities by key?" See, this is
+a map.
+
+826
+00:16:05,310 --> 00:16:05,320
+a map.
+ 
+
+827
+00:16:05,320 --> 00:16:07,110
+a map.
+The key is there.
+
+828
+00:16:07,110 --> 00:16:07,120
+The key is there.
+ 
+
+829
+00:16:07,120 --> 00:16:08,550
+The key is there.
+And what is the key it's trying to look?
+
+830
+00:16:08,550 --> 00:16:08,560
+And what is the key it's trying to look?
+ 
+
+831
+00:16:08,560 --> 00:16:10,150
+And what is the key it's trying to look?
+Yes, the same.
+
+832
+00:16:10,150 --> 00:16:10,160
+Yes, the same.
+ 
+
+833
+00:16:10,160 --> 00:16:12,510
+Yes, the same.
+So, it has the data
+
+834
+00:16:12,510 --> 00:16:12,520
+So, it has the data
+ 
+
+835
+00:16:12,520 --> 00:16:14,670
+So, it has the data
+and it will return it.
+
+836
+00:16:14,670 --> 00:16:14,680
+and it will return it.
+ 
+
+837
+00:16:14,680 --> 00:16:17,910
+and it will return it.
+Now, if you see the console,
+
+838
+00:16:17,910 --> 00:16:17,920
+Now, if you see the console,
+ 
+
+839
+00:16:17,920 --> 00:16:21,110
+Now, if you see the console,
+insert query happened, but there is no
+
+840
+00:16:21,110 --> 00:16:21,120
+insert query happened, but there is no
+ 
+
+841
+00:16:21,120 --> 00:16:23,190
+insert query happened, but there is no
+select query.
+
+842
+00:16:23,190 --> 00:16:23,200
+select query.
+ 
+
+843
+00:16:23,200 --> 00:16:25,829
+select query.
+Because same persistence manager is used
+
+844
+00:16:25,829 --> 00:16:25,839
+Because same persistence manager is used
+ 
+
+845
+00:16:25,839 --> 00:16:27,870
+Because same persistence manager is used
+because it is created at the one HTTP
+
+846
+00:16:27,870 --> 00:16:27,880
+because it is created at the one HTTP
+ 
+
+847
+00:16:27,880 --> 00:16:29,990
+because it is created at the one HTTP
+request.
+
+848
+00:16:29,990 --> 00:16:30,000
+request.
+ 
+
+849
+00:16:30,000 --> 00:16:33,750
+request.
+Now, see, application is still running.
+
+850
+00:16:33,750 --> 00:16:33,760
+Now, see, application is still running.
+ 
+
+851
+00:16:33,760 --> 00:16:35,910
+Now, see, application is still running.
+Data might be present into the DB yet.
+
+852
+00:16:35,910 --> 00:16:35,920
+Data might be present into the DB yet.
+ 
+
+853
+00:16:35,920 --> 00:16:40,110
+Data might be present into the DB yet.
+Like uh if we connect the DB,
+
+854
+00:16:40,110 --> 00:16:40,120
+Like uh if we connect the DB,
+ 
+
+855
+00:16:40,120 --> 00:16:42,550
+Like uh if we connect the DB,
+application is running, data is there.
+
+856
+00:16:42,550 --> 00:16:42,560
+application is running, data is there.
+ 
+
+857
+00:16:42,560 --> 00:16:47,270
+application is running, data is there.
+Now, if I am running another read
+
+858
+00:16:47,270 --> 00:16:47,280
+Now, if I am running another read
+ 
+
+859
+00:16:47,280 --> 00:16:49,430
+Now, if I am running another read
+\{{}hyphen}jpa. So, in read\{{}hyphen}jpa,
+
+860
+00:16:49,430 --> 00:16:49,440
+\{{}hyphen}jpa. So, in read\{{}hyphen}jpa,
+ 
+
+861
+00:16:49,440 --> 00:16:52,470
+\{{}hyphen}jpa. So, in read\{{}hyphen}jpa,
+what is happening?
+
+862
+00:16:52,470 --> 00:16:52,480
+
+ 
+
+863
+00:16:52,480 --> 00:16:54,190
+
+Two times.
+
+864
+00:16:54,190 --> 00:16:54,200
+Two times.
+ 
+
+865
+00:16:54,200 --> 00:16:56,510
+Two times.
+Two times
+
+866
+00:16:56,510 --> 00:16:56,520
+Two times
+ 
+
+867
+00:16:56,520 --> 00:16:59,150
+Two times
+find by ID is happening.
+
+868
+00:16:59,150 --> 00:16:59,160
+find by ID is happening.
+ 
+
+869
+00:16:59,160 --> 00:17:00,470
+find by ID is happening.
+Now,
+
+870
+00:17:00,470 --> 00:17:00,480
+Now,
+ 
+
+871
+00:17:00,480 --> 00:17:02,470
+Now,
+I told you whenever a new request, so
+
+872
+00:17:02,470 --> 00:17:02,480
+I told you whenever a new request, so
+ 
+
+873
+00:17:02,480 --> 00:17:04,710
+I told you whenever a new request, so
+I'm going to hit this, so new HTTP
+
+874
+00:17:04,710 --> 00:17:04,720
+I'm going to hit this, so new HTTP
+ 
+
+875
+00:17:04,720 --> 00:17:06,949
+I'm going to hit this, so new HTTP
+request, new entity manager.
+
+876
+00:17:06,949 --> 00:17:06,959
+request, new entity manager.
+ 
+
+877
+00:17:06,959 --> 00:17:08,790
+request, new entity manager.
+New entity manager doesn't know about
+
+878
+00:17:08,790 --> 00:17:08,800
+New entity manager doesn't know about
+ 
+
+879
+00:17:08,800 --> 00:17:11,350
+New entity manager doesn't know about
+the previous entity manager persistence
+
+880
+00:17:11,350 --> 00:17:11,360
+the previous entity manager persistence
+ 
+
+881
+00:17:11,360 --> 00:17:14,270
+the previous entity manager persistence
+context. It will create its own.
+
+882
+00:17:14,270 --> 00:17:14,280
+context. It will create its own.
+ 
+
+883
+00:17:14,280 --> 00:17:16,550
+context. It will create its own.
+So, for the first time, it will has to
+
+884
+00:17:16,550 --> 00:17:16,560
+So, for the first time, it will has to
+ 
+
+885
+00:17:16,560 --> 00:17:19,150
+So, for the first time, it will has to
+go to the DB, fetch this data from the
+
+886
+00:17:19,150 --> 00:17:19,160
+go to the DB, fetch this data from the
+ 
+
+887
+00:17:19,160 --> 00:17:20,949
+go to the DB, fetch this data from the
+DB.
+
+888
+00:17:20,949 --> 00:17:20,959
+DB.
+ 
+
+889
+00:17:20,959 --> 00:17:22,790
+DB.
+But and then it will put into its
+
+890
+00:17:22,790 --> 00:17:22,800
+But and then it will put into its
+ 
+
+891
+00:17:22,800 --> 00:17:24,590
+But and then it will put into its
+persistence context.
+
+892
+00:17:24,590 --> 00:17:24,600
+persistence context.
+ 
+
+893
+00:17:24,600 --> 00:17:26,230
+persistence context.
+And the second time
+
+894
+00:17:26,230 --> 00:17:26,240
+And the second time
+ 
+
+895
+00:17:26,240 --> 00:17:27,910
+And the second time
+the select query it would be a cache
+
+896
+00:17:27,910 --> 00:17:27,920
+the select query it would be a cache
+ 
+
+897
+00:17:27,920 --> 00:17:29,750
+the select query it would be a cache
+hit. So only one time select query we
+
+898
+00:17:29,750 --> 00:17:29,760
+hit. So only one time select query we
+ 
+
+899
+00:17:29,760 --> 00:17:31,430
+hit. So only one time select query we
+should be able to see.
+
+900
+00:17:31,430 --> 00:17:31,440
+should be able to see.
+ 
+
+901
+00:17:31,440 --> 00:17:33,510
+should be able to see.
+So let's hit it.
+
+902
+00:17:33,510 --> 00:17:33,520
+So let's hit it.
+ 
+
+903
+00:17:33,520 --> 00:17:36,670
+So let's hit it.
+So I am calling find by ID.
+
+904
+00:17:36,670 --> 00:17:36,680
+So I am calling find by ID.
+ 
+
+905
+00:17:36,680 --> 00:17:39,870
+So I am calling find by ID.
+Okay. So first I am hitting get entity.
+
+906
+00:17:39,870 --> 00:17:39,880
+Okay. So first I am hitting get entity.
+ 
+
+907
+00:17:39,880 --> 00:17:42,030
+Okay. So first I am hitting get entity.
+Will it be able to get the entity? Here
+
+908
+00:17:42,030 --> 00:17:42,040
+Will it be able to get the entity? Here
+ 
+
+909
+00:17:42,040 --> 00:17:43,710
+Will it be able to get the entity? Here
+if you see, null.
+
+910
+00:17:43,710 --> 00:17:43,720
+if you see, null.
+ 
+
+911
+00:17:43,720 --> 00:17:47,430
+if you see, null.
+No. It will goes to the DB.
+
+912
+00:17:47,430 --> 00:17:47,440
+No. It will goes to the DB.
+ 
+
+913
+00:17:47,440 --> 00:17:50,230
+No. It will goes to the DB.
+Found find the data, insert it. It will
+
+914
+00:17:50,230 --> 00:17:50,240
+Found find the data, insert it. It will
+ 
+
+915
+00:17:50,240 --> 00:17:52,470
+Found find the data, insert it. It will
+adding it. Now second time it is
+
+916
+00:17:52,470 --> 00:17:52,480
+adding it. Now second time it is
+ 
+
+917
+00:17:52,480 --> 00:17:53,470
+adding it. Now second time it is
+hitting.
+
+918
+00:17:53,470 --> 00:17:53,480
+hitting.
+ 
+
+919
+00:17:53,480 --> 00:17:55,750
+hitting.
+Will it be able to find it? Yes, it able
+
+920
+00:17:55,750 --> 00:17:55,760
+Will it be able to find it? Yes, it able
+ 
+
+921
+00:17:55,760 --> 00:17:57,070
+Will it be able to find it? Yes, it able
+to find.
+
+922
+00:17:57,070 --> 00:17:57,080
+to find.
+ 
+
+923
+00:17:57,080 --> 00:17:58,950
+to find.
+Holder is there.
+
+924
+00:17:58,950 --> 00:17:58,960
+Holder is there.
+ 
+
+925
+00:17:58,960 --> 00:18:01,510
+Holder is there.
+Second time there is no hit. Now if you
+
+926
+00:18:01,510 --> 00:18:01,520
+Second time there is no hit. Now if you
+ 
+
+927
+00:18:01,520 --> 00:18:02,910
+Second time there is no hit. Now if you
+see the console,
+
+928
+00:18:02,910 --> 00:18:02,920
+see the console,
+ 
+
+929
+00:18:02,920 --> 00:18:06,630
+see the console,
+only one select query.
+
+930
+00:18:06,630 --> 00:18:06,640
+
+ 
+
+931
+00:18:06,640 --> 00:18:08,070
+
+Sometimes
+
+932
+00:18:08,070 --> 00:18:08,080
+Sometimes
+ 
+
+933
+00:18:08,080 --> 00:18:10,350
+Sometimes
+we get difficulty in understanding this.
+
+934
+00:18:10,350 --> 00:18:10,360
+we get difficulty in understanding this.
+ 
+
+935
+00:18:10,360 --> 00:18:12,830
+we get difficulty in understanding this.
+I have shown you by running this itself.
+
+936
+00:18:12,830 --> 00:18:12,840
+I have shown you by running this itself.
+ 
+
+937
+00:18:12,840 --> 00:18:15,790
+I have shown you by running this itself.
+So we can also run this
+
+938
+00:18:15,790 --> 00:18:15,800
+So we can also run this
+ 
+
+939
+00:18:15,800 --> 00:18:18,590
+So we can also run this
+by using our own creating own entity
+
+940
+00:18:18,590 --> 00:18:18,600
+by using our own creating own entity
+ 
+
+941
+00:18:18,600 --> 00:18:21,230
+by using our own creating own entity
+manager. So you can also try using this.
+
+942
+00:18:21,230 --> 00:18:21,240
+manager. So you can also try using this.
+ 
+
+943
+00:18:21,240 --> 00:18:23,150
+manager. So you can also try using this.
+So in the service class
+
+944
+00:18:23,150 --> 00:18:23,160
+So in the service class
+ 
+
+945
+00:18:23,160 --> 00:18:25,310
+So in the service class
+I am creating a entity manager factory,
+
+946
+00:18:25,310 --> 00:18:25,320
+I am creating a entity manager factory,
+ 
+
+947
+00:18:25,320 --> 00:18:26,870
+I am creating a entity manager factory,
+auto wired it.
+
+948
+00:18:26,870 --> 00:18:26,880
+auto wired it.
+ 
+
+949
+00:18:26,880 --> 00:18:28,190
+auto wired it.
+Object is created at the time of
+
+950
+00:18:28,190 --> 00:18:28,200
+Object is created at the time of
+ 
+
+951
+00:18:28,200 --> 00:18:29,830
+Object is created at the time of
+application itself. I am just auto
+
+952
+00:18:29,830 --> 00:18:29,840
+application itself. I am just auto
+ 
+
+953
+00:18:29,840 --> 00:18:31,990
+application itself. I am just auto
+wiring it. Same object would be used.
+
+954
+00:18:31,990 --> 00:18:32,000
+wiring it. Same object would be used.
+ 
+
+955
+00:18:32,000 --> 00:18:34,430
+wiring it. Same object would be used.
+So now I am creating first session. In
+
+956
+00:18:34,430 --> 00:18:34,440
+So now I am creating first session. In
+ 
+
+957
+00:18:34,440 --> 00:18:36,350
+So now I am creating first session. In
+Hibernate terms I will say that session
+
+958
+00:18:36,350 --> 00:18:36,360
+Hibernate terms I will say that session
+ 
+
+959
+00:18:36,360 --> 00:18:37,710
+Hibernate terms I will say that session
+is created.
+
+960
+00:18:37,710 --> 00:18:37,720
+is created.
+ 
+
+961
+00:18:37,720 --> 00:18:39,270
+is created.
+Means I am creating entity manager
+
+962
+00:18:39,270 --> 00:18:39,280
+Means I am creating entity manager
+ 
+
+963
+00:18:39,280 --> 00:18:42,350
+Means I am creating entity manager
+object through factory.
+
+964
+00:18:42,350 --> 00:18:42,360
+object through factory.
+ 
+
+965
+00:18:42,360 --> 00:18:45,950
+object through factory.
+After that I started the transaction.
+
+966
+00:18:45,950 --> 00:18:45,960
+After that I started the transaction.
+ 
+
+967
+00:18:45,960 --> 00:18:49,190
+After that I started the transaction.
+I am doing persist and two times fetch.
+
+968
+00:18:49,190 --> 00:18:49,200
+I am doing persist and two times fetch.
+ 
+
+969
+00:18:49,200 --> 00:18:52,590
+I am doing persist and two times fetch.
+So means three DB queries.
+
+970
+00:18:52,590 --> 00:18:52,600
+So means three DB queries.
+ 
+
+971
+00:18:52,600 --> 00:18:53,670
+So means three DB queries.
+Okay.
+
+972
+00:18:53,670 --> 00:18:53,680
+Okay.
+ 
+
+973
+00:18:53,680 --> 00:18:55,750
+Okay.
+And then I am printing it and then I am
+
+974
+00:18:55,750 --> 00:18:55,760
+And then I am printing it and then I am
+ 
+
+975
+00:18:55,760 --> 00:18:57,670
+And then I am printing it and then I am
+committing the transaction here. I am
+
+976
+00:18:57,670 --> 00:18:57,680
+committing the transaction here. I am
+ 
+
+977
+00:18:57,680 --> 00:19:00,990
+committing the transaction here. I am
+doing flushing here and then closing the
+
+978
+00:19:00,990 --> 00:19:01,000
+doing flushing here and then closing the
+ 
+
+979
+00:19:01,000 --> 00:19:02,710
+doing flushing here and then closing the
+entity.
+
+980
+00:19:02,710 --> 00:19:02,720
+entity.
+ 
+
+981
+00:19:02,720 --> 00:19:06,630
+entity.
+So this session is closed here.
+
+982
+00:19:06,630 --> 00:19:06,640
+
+ 
+
+983
+00:19:06,640 --> 00:19:09,310
+
+So now if you see that what happening is
+
+984
+00:19:09,310 --> 00:19:09,320
+So now if you see that what happening is
+ 
+
+985
+00:19:09,320 --> 00:19:11,590
+So now if you see that what happening is
+when you are running this code
+
+986
+00:19:11,590 --> 00:19:11,600
+when you are running this code
+ 
+
+987
+00:19:11,600 --> 00:19:13,390
+when you are running this code
+first session is created means entity
+
+988
+00:19:13,390 --> 00:19:13,400
+first session is created means entity
+ 
+
+989
+00:19:13,400 --> 00:19:15,270
+first session is created means entity
+manager knows about the DB like from
+
+990
+00:19:15,270 --> 00:19:15,280
+manager knows about the DB like from
+ 
+
+991
+00:19:15,280 --> 00:19:16,710
+manager knows about the DB like from
+this entity manager
+
+992
+00:19:16,710 --> 00:19:16,720
+this entity manager
+ 
+
+993
+00:19:16,720 --> 00:19:17,950
+this entity manager
+factory
+
+994
+00:19:17,950 --> 00:19:17,960
+factory
+ 
+
+995
+00:19:17,960 --> 00:19:20,030
+factory
+it knows how to interact with the DB.
+
+996
+00:19:20,030 --> 00:19:20,040
+it knows how to interact with the DB.
+ 
+
+997
+00:19:20,040 --> 00:19:22,430
+it knows how to interact with the DB.
+So, it will entity manager would be
+
+998
+00:19:22,430 --> 00:19:22,440
+So, it will entity manager would be
+ 
+
+999
+00:19:22,440 --> 00:19:23,990
+So, it will entity manager would be
+created.
+
+1000
+00:19:23,990 --> 00:19:24,000
+created.
+ 
+
+1001
+00:19:24,000 --> 00:19:26,350
+created.
+Purchase user. So, this user would be
+
+1002
+00:19:26,350 --> 00:19:26,360
+Purchase user. So, this user would be
+ 
+
+1003
+00:19:26,360 --> 00:19:28,310
+Purchase user. So, this user would be
+inserted first. So, what if it is a
+
+1004
+00:19:28,310 --> 00:19:28,320
+inserted first. So, what if it is a
+ 
+
+1005
+00:19:28,320 --> 00:19:31,190
+inserted first. So, what if it is a
+fresh user? So, first insert
+
+1006
+00:19:31,190 --> 00:19:31,200
+fresh user? So, first insert
+ 
+
+1007
+00:19:31,200 --> 00:19:33,350
+fresh user? So, first insert
+So, first persistence context would be
+
+1008
+00:19:33,350 --> 00:19:33,360
+So, first persistence context would be
+ 
+
+1009
+00:19:33,360 --> 00:19:35,030
+So, first persistence context would be
+created.
+
+1010
+00:19:35,030 --> 00:19:35,040
+created.
+ 
+
+1011
+00:19:35,040 --> 00:19:38,910
+created.
+Insert this user, let's say hashtag one.
+
+1012
+00:19:38,910 --> 00:19:38,920
+Insert this user, let's say hashtag one.
+ 
+
+1013
+00:19:38,920 --> 00:19:39,950
+Insert this user, let's say hashtag one.
+Key would be
+
+1014
+00:19:39,950 --> 00:19:39,960
+Key would be
+ 
+
+1015
+00:19:39,960 --> 00:19:41,670
+Key would be
+created and the value
+
+1016
+00:19:41,670 --> 00:19:41,680
+created and the value
+ 
+
+1017
+00:19:41,680 --> 00:19:43,470
+created and the value
+So, one and then it make an insert
+
+1018
+00:19:43,470 --> 00:19:43,480
+So, one and then it make an insert
+ 
+
+1019
+00:19:43,480 --> 00:19:45,110
+So, one and then it make an insert
+query.
+
+1020
+00:19:45,110 --> 00:19:45,120
+query.
+ 
+
+1021
+00:19:45,120 --> 00:19:46,630
+query.
+Okay?
+
+1022
+00:19:46,630 --> 00:19:46,640
+Okay?
+ 
+
+1023
+00:19:46,640 --> 00:19:48,190
+Okay?
+Insert query would be
+
+1024
+00:19:48,190 --> 00:19:48,200
+Insert query would be
+ 
+
+1025
+00:19:48,200 --> 00:19:50,670
+Insert query would be
+made during this commit flush.
+
+1026
+00:19:50,670 --> 00:19:50,680
+made during this commit flush.
+ 
+
+1027
+00:19:50,680 --> 00:19:51,910
+made during this commit flush.
+Okay?
+
+1028
+00:19:51,910 --> 00:19:51,920
+Okay?
+ 
+
+1029
+00:19:51,920 --> 00:19:54,950
+Okay?
+Now, after that a find come.
+
+1030
+00:19:54,950 --> 00:19:54,960
+Now, after that a find come.
+ 
+
+1031
+00:19:54,960 --> 00:19:57,110
+Now, after that a find come.
+So, it is using the same entity manager,
+
+1032
+00:19:57,110 --> 00:19:57,120
+So, it is using the same entity manager,
+ 
+
+1033
+00:19:57,120 --> 00:19:59,190
+So, it is using the same entity manager,
+right? Now, it is easy to visualize.
+
+1034
+00:19:59,190 --> 00:19:59,200
+right? Now, it is easy to visualize.
+ 
+
+1035
+00:19:59,200 --> 00:20:01,750
+right? Now, it is easy to visualize.
+Same entity manager it's using. So, when
+
+1036
+00:20:01,750 --> 00:20:01,760
+Same entity manager it's using. So, when
+ 
+
+1037
+00:20:01,760 --> 00:20:03,750
+Same entity manager it's using. So, when
+it do find means
+
+1038
+00:20:03,750 --> 00:20:03,760
+it do find means
+ 
+
+1039
+00:20:03,760 --> 00:20:05,990
+it do find means
+same persistence context, currently data
+
+1040
+00:20:05,990 --> 00:20:06,000
+same persistence context, currently data
+ 
+
+1041
+00:20:06,000 --> 00:20:07,990
+same persistence context, currently data
+is not there into the DB because I we
+
+1042
+00:20:07,990 --> 00:20:08,000
+is not there into the DB because I we
+ 
+
+1043
+00:20:08,000 --> 00:20:10,430
+is not there into the DB because I we
+have not done the flush.
+
+1044
+00:20:10,430 --> 00:20:10,440
+have not done the flush.
+ 
+
+1045
+00:20:10,440 --> 00:20:11,510
+have not done the flush.
+Okay? So, it's there only in the
+
+1046
+00:20:11,510 --> 00:20:11,520
+Okay? So, it's there only in the
+ 
+
+1047
+00:20:11,520 --> 00:20:13,150
+Okay? So, it's there only in the
+persistence context.
+
+1048
+00:20:13,150 --> 00:20:13,160
+persistence context.
+ 
+
+1049
+00:20:13,160 --> 00:20:16,150
+persistence context.
+Now, I'm doing find. So, find
+
+1050
+00:20:16,150 --> 00:20:16,160
+Now, I'm doing find. So, find
+ 
+
+1051
+00:20:16,160 --> 00:20:18,270
+Now, I'm doing find. So, find
+will it be able to find? Yes.
+
+1052
+00:20:18,270 --> 00:20:18,280
+will it be able to find? Yes.
+ 
+
+1053
+00:20:18,280 --> 00:20:21,670
+will it be able to find? Yes.
+So, no DB query is required. Again, I am
+
+1054
+00:20:21,670 --> 00:20:21,680
+So, no DB query is required. Again, I am
+ 
+
+1055
+00:20:21,680 --> 00:20:22,710
+So, no DB query is required. Again, I am
+doing
+
+1056
+00:20:22,710 --> 00:20:22,720
+doing
+ 
+
+1057
+00:20:22,720 --> 00:20:25,590
+doing
+will it require again DB query? No.
+
+1058
+00:20:25,590 --> 00:20:25,600
+will it require again DB query? No.
+ 
+
+1059
+00:20:25,600 --> 00:20:27,430
+will it require again DB query? No.
+Same entity manager, same persistence
+
+1060
+00:20:27,430 --> 00:20:27,440
+Same entity manager, same persistence
+ 
+
+1061
+00:20:27,440 --> 00:20:29,830
+Same entity manager, same persistence
+context, able to find it.
+
+1062
+00:20:29,830 --> 00:20:29,840
+context, able to find it.
+ 
+
+1063
+00:20:29,840 --> 00:20:32,310
+context, able to find it.
+So, no. After that, I am printing it and
+
+1064
+00:20:32,310 --> 00:20:32,320
+So, no. After that, I am printing it and
+ 
+
+1065
+00:20:32,320 --> 00:20:33,710
+So, no. After that, I am printing it and
+doing committing.
+
+1066
+00:20:33,710 --> 00:20:33,720
+doing committing.
+ 
+
+1067
+00:20:33,720 --> 00:20:35,830
+doing committing.
+Now, during this commit it do the flush.
+
+1068
+00:20:35,830 --> 00:20:35,840
+Now, during this commit it do the flush.
+ 
+
+1069
+00:20:35,840 --> 00:20:38,590
+Now, during this commit it do the flush.
+So, means now insert query will go.
+
+1070
+00:20:38,590 --> 00:20:38,600
+So, means now insert query will go.
+ 
+
+1071
+00:20:38,600 --> 00:20:40,910
+So, means now insert query will go.
+And this user is also go
+
+1072
+00:20:40,910 --> 00:20:40,920
+And this user is also go
+ 
+
+1073
+00:20:40,920 --> 00:20:44,230
+And this user is also go
+entry goes here into the DB.
+
+1074
+00:20:44,230 --> 00:20:44,240
+entry goes here into the DB.
+ 
+
+1075
+00:20:44,240 --> 00:20:47,150
+entry goes here into the DB.
+Now, the second time I am doing
+
+1076
+00:20:47,150 --> 00:20:47,160
+Now, the second time I am doing
+ 
+
+1077
+00:20:47,160 --> 00:20:48,830
+Now, the second time I am doing
+another entity manager. Second entity
+
+1078
+00:20:48,830 --> 00:20:48,840
+another entity manager. Second entity
+ 
+
+1079
+00:20:48,840 --> 00:20:50,830
+another entity manager. Second entity
+manager is created.
+
+1080
+00:20:50,830 --> 00:20:50,840
+manager is created.
+ 
+
+1081
+00:20:50,840 --> 00:20:53,030
+manager is created.
+Second entity manager means new
+
+1082
+00:20:53,030 --> 00:20:53,040
+Second entity manager means new
+ 
+
+1083
+00:20:53,040 --> 00:20:55,670
+Second entity manager means new
+persistence context.
+
+1084
+00:20:55,670 --> 00:20:55,680
+persistence context.
+ 
+
+1085
+00:20:55,680 --> 00:20:57,790
+persistence context.
+I am creating a transaction, committing
+
+1086
+00:20:57,790 --> 00:20:57,800
+I am creating a transaction, committing
+ 
+
+1087
+00:20:57,800 --> 00:20:59,710
+I am creating a transaction, committing
+it here.
+
+1088
+00:20:59,710 --> 00:20:59,720
+it here.
+ 
+
+1089
+00:20:59,720 --> 00:21:03,150
+it here.
+So, now I am first trying to find.
+
+1090
+00:21:03,150 --> 00:21:03,160
+So, now I am first trying to find.
+ 
+
+1091
+00:21:03,160 --> 00:21:04,790
+So, now I am first trying to find.
+Find the one.
+
+1092
+00:21:04,790 --> 00:21:04,800
+Find the one.
+ 
+
+1093
+00:21:04,800 --> 00:21:07,070
+Find the one.
+Does this entity manager knows about
+
+1094
+00:21:07,070 --> 00:21:07,080
+Does this entity manager knows about
+ 
+
+1095
+00:21:07,080 --> 00:21:08,990
+Does this entity manager knows about
+this persistence context? Let's say that
+
+1096
+00:21:08,990 --> 00:21:09,000
+this persistence context? Let's say that
+ 
+
+1097
+00:21:09,000 --> 00:21:11,070
+this persistence context? Let's say that
+even though I am not closing this entity
+
+1098
+00:21:11,070 --> 00:21:11,080
+even though I am not closing this entity
+ 
+
+1099
+00:21:11,080 --> 00:21:12,310
+even though I am not closing this entity
+manager.
+
+1100
+00:21:12,310 --> 00:21:12,320
+manager.
+ 
+
+1101
+00:21:12,320 --> 00:21:14,710
+manager.
+It's open, let's say.
+
+1102
+00:21:14,710 --> 00:21:14,720
+It's open, let's say.
+ 
+
+1103
+00:21:14,720 --> 00:21:15,950
+It's open, let's say.
+But
+
+1104
+00:21:15,950 --> 00:21:15,960
+But
+ 
+
+1105
+00:21:15,960 --> 00:21:17,670
+But
+will this know about this persistence
+
+1106
+00:21:17,670 --> 00:21:17,680
+will this know about this persistence
+ 
+
+1107
+00:21:17,680 --> 00:21:19,630
+will this know about this persistence
+context? No, this is separate entity
+
+1108
+00:21:19,630 --> 00:21:19,640
+context? No, this is separate entity
+ 
+
+1109
+00:21:19,640 --> 00:21:20,950
+context? No, this is separate entity
+manager.
+
+1110
+00:21:20,950 --> 00:21:20,960
+manager.
+ 
+
+1111
+00:21:20,960 --> 00:21:22,830
+manager.
+It knows about its persistent context
+
+1112
+00:21:22,830 --> 00:21:22,840
+It knows about its persistent context
+ 
+
+1113
+00:21:22,840 --> 00:21:24,190
+It knows about its persistent context
+only.
+
+1114
+00:21:24,190 --> 00:21:24,200
+only.
+ 
+
+1115
+00:21:24,200 --> 00:21:27,910
+only.
+So, it will try to hit a query.
+
+1116
+00:21:27,910 --> 00:21:27,920
+So, it will try to hit a query.
+ 
+
+1117
+00:21:27,920 --> 00:21:30,270
+So, it will try to hit a query.
+Okay, it don't know about it. So, when
+
+1118
+00:21:30,270 --> 00:21:30,280
+Okay, it don't know about it. So, when
+ 
+
+1119
+00:21:30,280 --> 00:21:32,550
+Okay, it don't know about it. So, when
+it do find
+
+1120
+00:21:32,550 --> 00:21:32,560
+it do find
+ 
+
+1121
+00:21:32,560 --> 00:21:35,150
+it do find
+it find it no, then it goes to the DB.
+
+1122
+00:21:35,150 --> 00:21:35,160
+it find it no, then it goes to the DB.
+ 
+
+1123
+00:21:35,160 --> 00:21:38,030
+it find it no, then it goes to the DB.
+DB already has that data user one.
+
+1124
+00:21:38,030 --> 00:21:38,040
+DB already has that data user one.
+ 
+
+1125
+00:21:38,040 --> 00:21:42,030
+DB already has that data user one.
+So, it will bring it and add it here.
+
+1126
+00:21:42,030 --> 00:21:42,040
+So, it will bring it and add it here.
+ 
+
+1127
+00:21:42,040 --> 00:21:43,350
+So, it will bring it and add it here.
+Okay.
+
+1128
+00:21:43,350 --> 00:21:43,360
+Okay.
+ 
+
+1129
+00:21:43,360 --> 00:21:45,350
+Okay.
+So, one time select query happen at this
+
+1130
+00:21:45,350 --> 00:21:45,360
+So, one time select query happen at this
+ 
+
+1131
+00:21:45,360 --> 00:21:47,270
+So, one time select query happen at this
+time.
+
+1132
+00:21:47,270 --> 00:21:47,280
+time.
+ 
+
+1133
+00:21:47,280 --> 00:21:49,310
+time.
+After that it will do again find. Second
+
+1134
+00:21:49,310 --> 00:21:49,320
+After that it will do again find. Second
+ 
+
+1135
+00:21:49,320 --> 00:21:51,270
+After that it will do again find. Second
+time find comes. Now it will goes to
+
+1136
+00:21:51,270 --> 00:21:51,280
+time find comes. Now it will goes to
+ 
+
+1137
+00:21:51,280 --> 00:21:53,590
+time find comes. Now it will goes to
+persistence context.
+
+1138
+00:21:53,590 --> 00:21:53,600
+persistence context.
+ 
+
+1139
+00:21:53,600 --> 00:21:55,630
+persistence context.
+Now it find yes. Now it does it need to
+
+1140
+00:21:55,630 --> 00:21:55,640
+Now it find yes. Now it does it need to
+ 
+
+1141
+00:21:55,640 --> 00:21:57,350
+Now it find yes. Now it does it need to
+go to the DB? No, it is already found
+
+1142
+00:21:57,350 --> 00:21:57,360
+go to the DB? No, it is already found
+ 
+
+1143
+00:21:57,360 --> 00:21:59,750
+go to the DB? No, it is already found
+the data. So, it return it.
+
+1144
+00:21:59,750 --> 00:21:59,760
+the data. So, it return it.
+ 
+
+1145
+00:21:59,760 --> 00:22:01,830
+the data. So, it return it.
+Data is found, then I do commit. So,
+
+1146
+00:22:01,830 --> 00:22:01,840
+Data is found, then I do commit. So,
+ 
+
+1147
+00:22:01,840 --> 00:22:04,150
+Data is found, then I do commit. So,
+there is nothing to flush. It's only get
+
+1148
+00:22:04,150 --> 00:22:04,160
+there is nothing to flush. It's only get
+ 
+
+1149
+00:22:04,160 --> 00:22:05,230
+there is nothing to flush. It's only get
+query.
+
+1150
+00:22:05,230 --> 00:22:05,240
+query.
+ 
+
+1151
+00:22:05,240 --> 00:22:07,430
+query.
+And then it will close it.
+
+1152
+00:22:07,430 --> 00:22:07,440
+And then it will close it.
+ 
+
+1153
+00:22:07,440 --> 00:22:09,830
+And then it will close it.
+So, one insert, one select query happen.
+
+1154
+00:22:09,830 --> 00:22:09,840
+So, one insert, one select query happen.
+ 
+
+1155
+00:22:09,840 --> 00:22:11,750
+So, one insert, one select query happen.
+So, now here if you see application is
+
+1156
+00:22:11,750 --> 00:22:11,760
+So, now here if you see application is
+ 
+
+1157
+00:22:11,760 --> 00:22:13,190
+So, now here if you see application is
+start up.
+
+1158
+00:22:13,190 --> 00:22:13,200
+start up.
+ 
+
+1159
+00:22:13,200 --> 00:22:15,070
+start up.
+So, one insert
+
+1160
+00:22:15,070 --> 00:22:15,080
+So, one insert
+ 
+
+1161
+00:22:15,080 --> 00:22:18,030
+So, one insert
+at this time.
+
+1162
+00:22:18,030 --> 00:22:18,040
+at this time.
+ 
+
+1163
+00:22:18,040 --> 00:22:20,270
+at this time.
+And one
+
+1164
+00:22:20,270 --> 00:22:20,280
+And one
+ 
+
+1165
+00:22:20,280 --> 00:22:22,390
+And one
+select query
+
+1166
+00:22:22,390 --> 00:22:22,400
+select query
+ 
+
+1167
+00:22:22,400 --> 00:22:24,910
+select query
+at this time.
+
+1168
+00:22:24,910 --> 00:22:24,920
+at this time.
+ 
+
+1169
+00:22:24,920 --> 00:22:28,470
+at this time.
+So, I hope you able to clarify how it is
+
+1170
+00:22:28,470 --> 00:22:28,480
+So, I hope you able to clarify how it is
+ 
+
+1171
+00:22:28,480 --> 00:22:30,270
+So, I hope you able to clarify how it is
+working.
+
+1172
+00:22:30,270 --> 00:22:30,280
+working.
+ 
+
+1173
+00:22:30,280 --> 00:22:32,190
+working.
+Okay.
+
+1174
+00:22:32,190 --> 00:22:32,200
+Okay.
+ 
+
+1175
+00:22:32,200 --> 00:22:34,230
+Okay.
+And I already told you very important,
+
+1176
+00:22:34,230 --> 00:22:34,240
+And I already told you very important,
+ 
+
+1177
+00:22:34,240 --> 00:22:36,190
+And I already told you very important,
+it's very easy to remember entity
+
+1178
+00:22:36,190 --> 00:22:36,200
+it's very easy to remember entity
+ 
+
+1179
+00:22:36,200 --> 00:22:39,390
+it's very easy to remember entity
+manager is created at an HTTP request.
+
+1180
+00:22:39,390 --> 00:22:39,400
+manager is created at an HTTP request.
+ 
+
+1181
+00:22:39,400 --> 00:22:42,190
+manager is created at an HTTP request.
+Because even though we are calling uh
+
+1182
+00:22:42,190 --> 00:22:42,200
+Because even though we are calling uh
+ 
+
+1183
+00:22:42,200 --> 00:22:47,030
+Because even though we are calling uh
+repository, JPA repository, like save
+
+1184
+00:22:47,030 --> 00:22:47,040
+repository, JPA repository, like save
+ 
+
+1185
+00:22:47,040 --> 00:22:48,310
+repository, JPA repository, like save
+query
+
+1186
+00:22:48,310 --> 00:22:48,320
+query
+ 
+
+1187
+00:22:48,320 --> 00:22:50,750
+query
+internally it only goes ahead and find
+
+1188
+00:22:50,750 --> 00:22:50,760
+internally it only goes ahead and find
+ 
+
+1189
+00:22:50,760 --> 00:22:53,070
+internally it only goes ahead and find
+out the entity manager. We always find
+
+1190
+00:22:53,070 --> 00:22:53,080
+out the entity manager. We always find
+ 
+
+1191
+00:22:53,080 --> 00:22:55,030
+out the entity manager. We always find
+confusion. Hey, does it pick one entity
+
+1192
+00:22:55,030 --> 00:22:55,040
+confusion. Hey, does it pick one entity
+ 
+
+1193
+00:22:55,040 --> 00:22:56,710
+confusion. Hey, does it pick one entity
+manager, different entity manager? Will
+
+1194
+00:22:56,710 --> 00:22:56,720
+manager, different entity manager? Will
+ 
+
+1195
+00:22:56,720 --> 00:22:58,710
+manager, different entity manager? Will
+it be able to cache it or not?
+
+1196
+00:22:58,710 --> 00:22:58,720
+it be able to cache it or not?
+ 
+
+1197
+00:22:58,720 --> 00:23:00,710
+it be able to cache it or not?
+I always easy to remember that
+
+1198
+00:23:00,710 --> 00:23:00,720
+I always easy to remember that
+ 
+
+1199
+00:23:00,720 --> 00:23:03,630
+I always easy to remember that
+dispatcher servlet is the one which
+
+1200
+00:23:03,630 --> 00:23:03,640
+dispatcher servlet is the one which
+ 
+
+1201
+00:23:03,640 --> 00:23:05,830
+dispatcher servlet is the one which
+create a entity manager at the time of
+
+1202
+00:23:05,830 --> 00:23:05,840
+create a entity manager at the time of
+ 
+
+1203
+00:23:05,840 --> 00:23:08,990
+create a entity manager at the time of
+every HTTP request.
+
+1204
+00:23:08,990 --> 00:23:09,000
+every HTTP request.
+ 
+
+1205
+00:23:09,000 --> 00:23:12,150
+every HTTP request.
+So, this is known as first
+
+1206
+00:23:12,150 --> 00:23:12,160
+So, this is known as first
+ 
+
+1207
+00:23:12,160 --> 00:23:15,070
+So, this is known as first
+level caching.
+
+1208
+00:23:15,070 --> 00:23:15,080
+level caching.
+ 
+
+1209
+00:23:15,080 --> 00:23:18,350
+level caching.
+Okay, where
+
+1210
+00:23:18,350 --> 00:23:18,360
+
+ 
+
+1211
+00:23:18,360 --> 00:23:22,030
+
+two entity manager, one entity manager
+
+1212
+00:23:22,030 --> 00:23:22,040
+two entity manager, one entity manager
+ 
+
+1213
+00:23:22,040 --> 00:23:26,550
+two entity manager, one entity manager
+have their own persistence context
+
+1214
+00:23:26,550 --> 00:23:26,560
+have their own persistence context
+ 
+
+1215
+00:23:26,560 --> 00:23:28,870
+have their own persistence context
+and they both are independent to each
+
+1216
+00:23:28,870 --> 00:23:28,880
+and they both are independent to each
+ 
+
+1217
+00:23:28,880 --> 00:23:31,790
+and they both are independent to each
+other and isolated.
+
+1218
+00:23:31,790 --> 00:23:31,800
+other and isolated.
+ 
+
+1219
+00:23:31,800 --> 00:23:34,670
+other and isolated.
+Okay, any call from
+
+1220
+00:23:34,670 --> 00:23:34,680
+Okay, any call from
+ 
+
+1221
+00:23:34,680 --> 00:23:35,990
+Okay, any call from
+individual
+
+1222
+00:23:35,990 --> 00:23:36,000
+individual
+ 
+
+1223
+00:23:36,000 --> 00:23:37,990
+individual
+entity manager
+
+1224
+00:23:37,990 --> 00:23:38,000
+entity manager
+ 
+
+1225
+00:23:38,000 --> 00:23:41,470
+entity manager
+persistence context help in doing the
+
+1226
+00:23:41,470 --> 00:23:41,480
+persistence context help in doing the
+ 
+
+1227
+00:23:41,480 --> 00:23:44,030
+persistence context help in doing the
+managing the caching from this. There is
+
+1228
+00:23:44,030 --> 00:23:44,040
+managing the caching from this. There is
+ 
+
+1229
+00:23:44,040 --> 00:23:46,430
+managing the caching from this. There is
+no knowledge of inter
+
+1230
+00:23:46,430 --> 00:23:46,440
+no knowledge of inter
+ 
+
+1231
+00:23:46,440 --> 00:23:48,950
+no knowledge of inter
+persistence context.
+
+1232
+00:23:48,950 --> 00:23:48,960
+persistence context.
+ 
+
+1233
+00:23:48,960 --> 00:23:51,430
+persistence context.
+That's where second
+
+1234
+00:23:51,430 --> 00:23:51,440
+That's where second
+ 
+
+1235
+00:23:51,440 --> 00:23:53,870
+That's where second
+level caching comes into the picture. We
+
+1236
+00:23:53,870 --> 00:23:53,880
+level caching comes into the picture. We
+ 
+
+1237
+00:23:53,880 --> 00:23:55,430
+level caching comes into the picture. We
+will see it later.
+
+1238
+00:23:55,430 --> 00:23:55,440
+will see it later.
+ 
+
+1239
+00:23:55,440 --> 00:23:56,550
+will see it later.
+Okay, guys. Thank you. If you have any
+
+1240
+00:23:56,550 --> 00:23:56,560
+Okay, guys. Thank you. If you have any
+ 
+
+1241
+00:23:56,560 --> 00:23:58,110
+Okay, guys. Thank you. If you have any
+question, we can discuss in the comment
+
+1242
+00:23:58,110 --> 00:23:58,120
+question, we can discuss in the comment
+ 
+
+1243
+00:23:58,120 --> 00:24:01,200
+question, we can discuss in the comment
+section. Thank you. Bye.
+

@@ -1,0 +1,5285 @@
+1
+00:00:00,840 --> 00:00:02,270
+
+hey guys welcome to concept and coding
+
+2
+00:00:02,270 --> 00:00:02,280
+hey guys welcome to concept and coding
+ 
+
+3
+00:00:02,280 --> 00:00:05,190
+hey guys welcome to concept and coding
+this is Shan so yesterday I made a video
+
+4
+00:00:05,190 --> 00:00:05,200
+this is Shan so yesterday I made a video
+ 
+
+5
+00:00:05,200 --> 00:00:08,549
+this is Shan so yesterday I made a video
+on Spring Boot interceptors and I see
+
+6
+00:00:08,549 --> 00:00:08,559
+on Spring Boot interceptors and I see
+ 
+
+7
+00:00:08,559 --> 00:00:11,150
+on Spring Boot interceptors and I see
+lot of comments regarding filters versus
+
+8
+00:00:11,150 --> 00:00:11,160
+lot of comments regarding filters versus
+ 
+
+9
+00:00:11,160 --> 00:00:14,030
+lot of comments regarding filters versus
+interceptors and what is Filters
+
+10
+00:00:14,030 --> 00:00:14,040
+interceptors and what is Filters
+ 
+
+11
+00:00:14,040 --> 00:00:17,990
+interceptors and what is Filters
+specifically uh so I I what I
+
+12
+00:00:17,990 --> 00:00:18,000
+specifically uh so I I what I
+ 
+
+13
+00:00:18,000 --> 00:00:19,990
+specifically uh so I I what I
+anticipated from this is that there are
+
+14
+00:00:19,990 --> 00:00:20,000
+anticipated from this is that there are
+ 
+
+15
+00:00:20,000 --> 00:00:23,109
+anticipated from this is that there are
+lot of doubts between when to use filter
+
+16
+00:00:23,109 --> 00:00:23,119
+lot of doubts between when to use filter
+ 
+
+17
+00:00:23,119 --> 00:00:25,189
+lot of doubts between when to use filter
+when to use Interceptor what is the
+
+18
+00:00:25,189 --> 00:00:25,199
+when to use Interceptor what is the
+ 
+
+19
+00:00:25,199 --> 00:00:28,029
+when to use Interceptor what is the
+exact difference so today I will discuss
+
+20
+00:00:28,029 --> 00:00:28,039
+exact difference so today I will discuss
+ 
+
+21
+00:00:28,039 --> 00:00:30,589
+exact difference so today I will discuss
+uh about this and I hope that after this
+
+22
+00:00:30,589 --> 00:00:30,599
+uh about this and I hope that after this
+ 
+
+23
+00:00:30,599 --> 00:00:33,990
+uh about this and I hope that after this
+video your doubts will get clarified and
+
+24
+00:00:33,990 --> 00:00:34,000
+video your doubts will get clarified and
+ 
+
+25
+00:00:34,000 --> 00:00:35,590
+video your doubts will get clarified and
+like you can easily decide when to go
+
+26
+00:00:35,590 --> 00:00:35,600
+like you can easily decide when to go
+ 
+
+27
+00:00:35,600 --> 00:00:38,229
+like you can easily decide when to go
+for filter when to go for Interceptor
+
+28
+00:00:38,229 --> 00:00:38,239
+for filter when to go for Interceptor
+ 
+
+29
+00:00:38,239 --> 00:00:40,430
+for filter when to go for Interceptor
+okay let's start without wasting any
+
+30
+00:00:40,430 --> 00:00:40,440
+okay let's start without wasting any
+ 
+
+31
+00:00:40,440 --> 00:00:44,150
+okay let's start without wasting any
+time so let's before even seeing further
+
+32
+00:00:44,150 --> 00:00:44,160
+time so let's before even seeing further
+ 
+
+33
+00:00:44,160 --> 00:00:47,110
+time so let's before even seeing further
+right let's see this oneliner definition
+
+34
+00:00:47,110 --> 00:00:47,120
+right let's see this oneliner definition
+ 
+
+35
+00:00:47,120 --> 00:00:49,590
+right let's see this oneliner definition
+right and even though if you don't
+
+36
+00:00:49,590 --> 00:00:49,600
+right and even though if you don't
+ 
+
+37
+00:00:49,600 --> 00:00:52,470
+right and even though if you don't
+understand any of this terms it's okay
+
+38
+00:00:52,470 --> 00:00:52,480
+understand any of this terms it's okay
+ 
+
+39
+00:00:52,480 --> 00:00:54,310
+understand any of this terms it's okay
+because once we go further after that we
+
+40
+00:00:54,310 --> 00:00:54,320
+because once we go further after that we
+ 
+
+41
+00:00:54,320 --> 00:00:56,150
+because once we go further after that we
+will come back again and then we read
+
+42
+00:00:56,150 --> 00:00:56,160
+will come back again and then we read
+ 
+
+43
+00:00:56,160 --> 00:01:00,029
+will come back again and then we read
+this it will make more sense so filter
+
+44
+00:01:00,029 --> 00:01:00,039
+this it will make more sense so filter
+ 
+
+45
+00:01:00,039 --> 00:01:03,270
+this it will make more sense so filter
+it intercept the sttp request and
+
+46
+00:01:03,270 --> 00:01:03,280
+it intercept the sttp request and
+ 
+
+47
+00:01:03,280 --> 00:01:06,190
+it intercept the sttp request and
+response before they reach to the
+
+48
+00:01:06,190 --> 00:01:06,200
+response before they reach to the
+ 
+
+49
+00:01:06,200 --> 00:01:10,030
+response before they reach to the
+subet okay and what is Interceptor says
+
+50
+00:01:10,030 --> 00:01:10,040
+subet okay and what is Interceptor says
+ 
+
+51
+00:01:10,040 --> 00:01:12,950
+subet okay and what is Interceptor says
+it's specific to Spring framework and
+
+52
+00:01:12,950 --> 00:01:12,960
+it's specific to Spring framework and
+ 
+
+53
+00:01:12,960 --> 00:01:16,149
+it's specific to Spring framework and
+intercept HTTP request and response
+
+54
+00:01:16,149 --> 00:01:16,159
+intercept HTTP request and response
+ 
+
+55
+00:01:16,159 --> 00:01:18,789
+intercept HTTP request and response
+before they reach to the controller or I
+
+56
+00:01:18,789 --> 00:01:18,799
+before they reach to the controller or I
+ 
+
+57
+00:01:18,799 --> 00:01:21,030
+before they reach to the controller or I
+would say that before they reach to the
+
+58
+00:01:21,030 --> 00:01:21,040
+would say that before they reach to the
+ 
+
+59
+00:01:21,040 --> 00:01:26,270
+would say that before they reach to the
+controller and after
+
+60
+00:01:26,270 --> 00:01:26,280
+
+ 
+
+61
+00:01:26,280 --> 00:01:29,950
+
+subet okay so read it one more time it
+
+62
+00:01:29,950 --> 00:01:29,960
+subet okay so read it one more time it
+ 
+
+63
+00:01:29,960 --> 00:01:32,350
+subet okay so read it one more time it
+filter intercept the HTTP request and
+
+64
+00:01:32,350 --> 00:01:32,360
+filter intercept the HTTP request and
+ 
+
+65
+00:01:32,360 --> 00:01:35,830
+filter intercept the HTTP request and
+response before the request reach to the
+
+66
+00:01:35,830 --> 00:01:35,840
+response before the request reach to the
+ 
+
+67
+00:01:35,840 --> 00:01:38,950
+response before the request reach to the
+sulet and Interceptor is after
+
+68
+00:01:38,950 --> 00:01:38,960
+sulet and Interceptor is after
+ 
+
+69
+00:01:38,960 --> 00:01:43,749
+sulet and Interceptor is after
+sulet but before controller okay so just
+
+70
+00:01:43,749 --> 00:01:43,759
+sulet but before controller okay so just
+ 
+
+71
+00:01:43,759 --> 00:01:46,389
+sulet but before controller okay so just
+keep this in mind and we'll proceed
+
+72
+00:01:46,389 --> 00:01:46,399
+keep this in mind and we'll proceed
+ 
+
+73
+00:01:46,399 --> 00:01:48,469
+keep this in mind and we'll proceed
+further this two definition will get
+
+74
+00:01:48,469 --> 00:01:48,479
+further this two definition will get
+ 
+
+75
+00:01:48,479 --> 00:01:51,709
+further this two definition will get
+clear soon so if you remember this
+
+76
+00:01:51,709 --> 00:01:51,719
+clear soon so if you remember this
+ 
+
+77
+00:01:51,719 --> 00:01:53,910
+clear soon so if you remember this
+diagram which I have discussed in the
+
+78
+00:01:53,910 --> 00:01:53,920
+diagram which I have discussed in the
+ 
+
+79
+00:01:53,920 --> 00:01:55,870
+diagram which I have discussed in the
+first video of a spring boot discussion
+
+80
+00:01:55,870 --> 00:01:55,880
+first video of a spring boot discussion
+ 
+
+81
+00:01:55,880 --> 00:01:59,350
+first video of a spring boot discussion
+and in yesterday also in the uh
+
+82
+00:01:59,350 --> 00:01:59,360
+and in yesterday also in the uh
+ 
+
+83
+00:01:59,360 --> 00:02:02,950
+and in yesterday also in the uh
+intercept video so we know that right
+
+84
+00:02:02,950 --> 00:02:02,960
+intercept video so we know that right
+ 
+
+85
+00:02:02,960 --> 00:02:04,469
+intercept video so we know that right
+when a request comes
+
+86
+00:02:04,469 --> 00:02:04,479
+when a request comes
+ 
+
+87
+00:02:04,479 --> 00:02:06,870
+when a request comes
+in our sulet
+
+88
+00:02:06,870 --> 00:02:06,880
+in our sulet
+ 
+
+89
+00:02:06,880 --> 00:02:10,350
+in our sulet
+container catches it and it will pass it
+
+90
+00:02:10,350 --> 00:02:10,360
+container catches it and it will pass it
+ 
+
+91
+00:02:10,360 --> 00:02:13,550
+container catches it and it will pass it
+to one of the sulet so in Spring boot we
+
+92
+00:02:13,550 --> 00:02:13,560
+to one of the sulet so in Spring boot we
+ 
+
+93
+00:02:13,560 --> 00:02:16,750
+to one of the sulet so in Spring boot we
+have a dispatcher sulet dispatcher sub
+
+94
+00:02:16,750 --> 00:02:16,760
+have a dispatcher sulet dispatcher sub
+ 
+
+95
+00:02:16,760 --> 00:02:18,350
+have a dispatcher sulet dispatcher sub
+takes care of couple of things right
+
+96
+00:02:18,350 --> 00:02:18,360
+takes care of couple of things right
+ 
+
+97
+00:02:18,360 --> 00:02:20,949
+takes care of couple of things right
+which controller this request should go
+
+98
+00:02:20,949 --> 00:02:20,959
+which controller this request should go
+ 
+
+99
+00:02:20,959 --> 00:02:22,949
+which controller this request should go
+right and it will create an instance and
+
+100
+00:02:22,949 --> 00:02:22,959
+right and it will create an instance and
+ 
+
+101
+00:02:22,959 --> 00:02:25,309
+right and it will create an instance and
+it will ultimately invoke that
+
+102
+00:02:25,309 --> 00:02:25,319
+it will ultimately invoke that
+ 
+
+103
+00:02:25,319 --> 00:02:29,509
+it will ultimately invoke that
+controller okay so this is I hope it's
+
+104
+00:02:29,509 --> 00:02:29,519
+controller okay so this is I hope it's
+ 
+
+105
+00:02:29,519 --> 00:02:32,949
+controller okay so this is I hope it's
+clear but now let's see this one I have
+
+106
+00:02:32,949 --> 00:02:32,959
+clear but now let's see this one I have
+ 
+
+107
+00:02:32,959 --> 00:02:36,509
+clear but now let's see this one I have
+further drilled down this diagram to
+
+108
+00:02:36,509 --> 00:02:36,519
+further drilled down this diagram to
+ 
+
+109
+00:02:36,519 --> 00:02:38,350
+further drilled down this diagram to
+understand the filter and Interceptor
+
+110
+00:02:38,350 --> 00:02:38,360
+understand the filter and Interceptor
+ 
+
+111
+00:02:38,360 --> 00:02:42,110
+understand the filter and Interceptor
+more when the request comes in so here
+
+112
+00:02:42,110 --> 00:02:42,120
+more when the request comes in so here
+ 
+
+113
+00:02:42,120 --> 00:02:46,110
+more when the request comes in so here
+if you say when the request comes in it
+
+114
+00:02:46,110 --> 00:02:46,120
+if you say when the request comes in it
+ 
+
+115
+00:02:46,120 --> 00:02:48,390
+if you say when the request comes in it
+goes to our sulet container in that case
+
+116
+00:02:48,390 --> 00:02:48,400
+goes to our sulet container in that case
+ 
+
+117
+00:02:48,400 --> 00:02:49,630
+goes to our sulet container in that case
+let's say
+
+118
+00:02:49,630 --> 00:02:49,640
+let's say
+ 
+
+119
+00:02:49,640 --> 00:02:51,750
+let's say
+tomcat now when the
+
+120
+00:02:51,750 --> 00:02:51,760
+tomcat now when the
+ 
+
+121
+00:02:51,760 --> 00:02:55,350
+tomcat now when the
+Tomcat or sulet container get this HTTP
+
+122
+00:02:55,350 --> 00:02:55,360
+Tomcat or sulet container get this HTTP
+ 
+
+123
+00:02:55,360 --> 00:02:57,949
+Tomcat or sulet container get this HTTP
+request what it will do is before
+
+124
+00:02:57,949 --> 00:02:57,959
+request what it will do is before
+ 
+
+125
+00:02:57,959 --> 00:03:01,149
+request what it will do is before
+assigning to a sulet particular
+
+126
+00:03:01,149 --> 00:03:01,159
+assigning to a sulet particular
+ 
+
+127
+00:03:01,159 --> 00:03:05,110
+assigning to a sulet particular
+subet our filter comes into the picture
+
+128
+00:03:05,110 --> 00:03:05,120
+subet our filter comes into the picture
+ 
+
+129
+00:03:05,120 --> 00:03:07,070
+subet our filter comes into the picture
+we can have multiple filter filter one
+
+130
+00:03:07,070 --> 00:03:07,080
+we can have multiple filter filter one
+ 
+
+131
+00:03:07,080 --> 00:03:09,390
+we can have multiple filter filter one
+Filter 2 it's a generally they call as a
+
+132
+00:03:09,390 --> 00:03:09,400
+Filter 2 it's a generally they call as a
+ 
+
+133
+00:03:09,400 --> 00:03:12,430
+Filter 2 it's a generally they call as a
+chain of filters right so after filter
+
+134
+00:03:12,430 --> 00:03:12,440
+chain of filters right so after filter
+ 
+
+135
+00:03:12,440 --> 00:03:14,869
+chain of filters right so after filter
+one filter two will run if there are
+
+136
+00:03:14,869 --> 00:03:14,879
+one filter two will run if there are
+ 
+
+137
+00:03:14,879 --> 00:03:18,270
+one filter two will run if there are
+more filters that will run and after
+
+138
+00:03:18,270 --> 00:03:18,280
+more filters that will run and after
+ 
+
+139
+00:03:18,280 --> 00:03:22,949
+more filters that will run and after
+that one of the specific sulet will get
+
+140
+00:03:22,949 --> 00:03:22,959
+that one of the specific sulet will get
+ 
+
+141
+00:03:22,959 --> 00:03:25,710
+that one of the specific sulet will get
+involved right now let's say that if we
+
+142
+00:03:25,710 --> 00:03:25,720
+involved right now let's say that if we
+ 
+
+143
+00:03:25,720 --> 00:03:27,229
+involved right now let's say that if we
+are running a spring boot then
+
+144
+00:03:27,229 --> 00:03:27,239
+are running a spring boot then
+ 
+
+145
+00:03:27,239 --> 00:03:29,789
+are running a spring boot then
+dispatcher subet will get involed and
+
+146
+00:03:29,789 --> 00:03:29,799
+dispatcher subet will get involed and
+ 
+
+147
+00:03:29,799 --> 00:03:31,869
+dispatcher subet will get involed and
+and this dispatcher subet now here is
+
+148
+00:03:31,869 --> 00:03:31,879
+and this dispatcher subet now here is
+ 
+
+149
+00:03:31,879 --> 00:03:33,589
+and this dispatcher subet now here is
+our
+
+150
+00:03:33,589 --> 00:03:33,599
+our
+ 
+
+151
+00:03:33,599 --> 00:03:35,229
+our
+Interceptor
+
+152
+00:03:35,229 --> 00:03:35,239
+Interceptor
+ 
+
+153
+00:03:35,239 --> 00:03:38,789
+Interceptor
+so before this dispatcher subet handles
+
+154
+00:03:38,789 --> 00:03:38,799
+so before this dispatcher subet handles
+ 
+
+155
+00:03:38,799 --> 00:03:41,190
+so before this dispatcher subet handles
+the request to controller our
+
+156
+00:03:41,190 --> 00:03:41,200
+the request to controller our
+ 
+
+157
+00:03:41,200 --> 00:03:44,509
+the request to controller our
+interceptors comes into the picture here
+
+158
+00:03:44,509 --> 00:03:44,519
+interceptors comes into the picture here
+ 
+
+159
+00:03:44,519 --> 00:03:47,990
+interceptors comes into the picture here
+so with this diagram now you should uh
+
+160
+00:03:47,990 --> 00:03:48,000
+so with this diagram now you should uh
+ 
+
+161
+00:03:48,000 --> 00:03:50,350
+so with this diagram now you should uh
+see that where the filter lies in and
+
+162
+00:03:50,350 --> 00:03:50,360
+see that where the filter lies in and
+ 
+
+163
+00:03:50,360 --> 00:03:53,110
+see that where the filter lies in and
+where the interceptors lies in so filter
+
+164
+00:03:53,110 --> 00:03:53,120
+where the interceptors lies in so filter
+ 
+
+165
+00:03:53,120 --> 00:03:55,910
+where the interceptors lies in so filter
+lies in before the request handed over
+
+166
+00:03:55,910 --> 00:03:55,920
+lies in before the request handed over
+ 
+
+167
+00:03:55,920 --> 00:03:56,910
+lies in before the request handed over
+to
+
+168
+00:03:56,910 --> 00:03:56,920
+to
+ 
+
+169
+00:03:56,920 --> 00:04:01,030
+to
+suent and interceptors lies before the
+
+170
+00:04:01,030 --> 00:04:01,040
+suent and interceptors lies before the
+ 
+
+171
+00:04:01,040 --> 00:04:03,789
+suent and interceptors lies before the
+request handed over to
+
+172
+00:04:03,789 --> 00:04:03,799
+request handed over to
+ 
+
+173
+00:04:03,799 --> 00:04:06,550
+request handed over to
+controllers okay so now with this one
+
+174
+00:04:06,550 --> 00:04:06,560
+controllers okay so now with this one
+ 
+
+175
+00:04:06,560 --> 00:04:08,830
+controllers okay so now with this one
+few doubts might have come to your mind
+
+176
+00:04:08,830 --> 00:04:08,840
+few doubts might have come to your mind
+ 
+
+177
+00:04:08,840 --> 00:04:10,910
+few doubts might have come to your mind
+that hey first of all what is sulet is
+
+178
+00:04:10,910 --> 00:04:10,920
+that hey first of all what is sulet is
+ 
+
+179
+00:04:10,920 --> 00:04:13,670
+that hey first of all what is sulet is
+it possible that more than one one sulet
+
+180
+00:04:13,670 --> 00:04:13,680
+it possible that more than one one sulet
+ 
+
+181
+00:04:13,680 --> 00:04:17,030
+it possible that more than one one sulet
+is there let me tell you about this one
+
+182
+00:04:17,030 --> 00:04:17,040
+is there let me tell you about this one
+ 
+
+183
+00:04:17,040 --> 00:04:20,189
+is there let me tell you about this one
+so what happen is first of all what is
+
+184
+00:04:20,189 --> 00:04:20,199
+so what happen is first of all what is
+ 
+
+185
+00:04:20,199 --> 00:04:21,830
+so what happen is first of all what is
+sulet
+
+186
+00:04:21,830 --> 00:04:21,840
+sulet
+ 
+
+187
+00:04:21,840 --> 00:04:26,629
+sulet
+okay sulet is nothing but a Java class
+
+188
+00:04:26,629 --> 00:04:26,639
+okay sulet is nothing but a Java class
+ 
+
+189
+00:04:26,639 --> 00:04:29,749
+okay sulet is nothing but a Java class
+which accept the incoming request
+
+190
+00:04:29,749 --> 00:04:29,759
+which accept the incoming request
+ 
+
+191
+00:04:29,759 --> 00:04:34,189
+which accept the incoming request
+process it and Returns the response okay
+
+192
+00:04:34,189 --> 00:04:34,199
+process it and Returns the response okay
+ 
+
+193
+00:04:34,199 --> 00:04:37,670
+process it and Returns the response okay
+so in you can say that it is a play like
+
+194
+00:04:37,670 --> 00:04:37,680
+so in you can say that it is a play like
+ 
+
+195
+00:04:37,680 --> 00:04:39,310
+so in you can say that it is a play like
+a plain Java code itself it's our
+
+196
+00:04:39,310 --> 00:04:39,320
+a plain Java code itself it's our
+ 
+
+197
+00:04:39,320 --> 00:04:40,710
+a plain Java code itself it's our
+business logic
+
+198
+00:04:40,710 --> 00:04:40,720
+business logic
+ 
+
+199
+00:04:40,720 --> 00:04:43,870
+business logic
+sulet its purpose is that whatever the
+
+200
+00:04:43,870 --> 00:04:43,880
+sulet its purpose is that whatever the
+ 
+
+201
+00:04:43,880 --> 00:04:45,710
+sulet its purpose is that whatever the
+uh request coming
+
+202
+00:04:45,710 --> 00:04:45,720
+uh request coming
+ 
+
+203
+00:04:45,720 --> 00:04:49,189
+uh request coming
+in process it and return the response
+
+204
+00:04:49,189 --> 00:04:49,199
+in process it and return the response
+ 
+
+205
+00:04:49,199 --> 00:04:52,790
+in process it and return the response
+also okay that's what sulet is you
+
+206
+00:04:52,790 --> 00:04:52,800
+also okay that's what sulet is you
+ 
+
+207
+00:04:52,800 --> 00:04:55,150
+also okay that's what sulet is you
+remember that uh if you have worked in
+
+208
+00:04:55,150 --> 00:04:55,160
+remember that uh if you have worked in
+ 
+
+209
+00:04:55,160 --> 00:04:58,430
+remember that uh if you have worked in
+monolithic Services right let's say that
+
+210
+00:04:58,430 --> 00:04:58,440
+monolithic Services right let's say that
+ 
+
+211
+00:04:58,440 --> 00:05:00,390
+monolithic Services right let's say that
+we have rest apis
+
+212
+00:05:00,390 --> 00:05:00,400
+we have rest apis
+ 
+
+213
+00:05:00,400 --> 00:05:03,469
+we have rest apis
+also we have soap API
+
+214
+00:05:03,469 --> 00:05:03,479
+also we have soap API
+ 
+
+215
+00:05:03,479 --> 00:05:06,870
+also we have soap API
+also we have something called expose API
+
+216
+00:05:06,870 --> 00:05:06,880
+also we have something called expose API
+ 
+
+217
+00:05:06,880 --> 00:05:09,590
+also we have something called expose API
+for file uploading multi multiple
+
+218
+00:05:09,590 --> 00:05:09,600
+for file uploading multi multiple
+ 
+
+219
+00:05:09,600 --> 00:05:12,189
+for file uploading multi multiple
+different tasks so what we can do is we
+
+220
+00:05:12,189 --> 00:05:12,199
+different tasks so what we can do is we
+ 
+
+221
+00:05:12,199 --> 00:05:14,230
+different tasks so what we can do is we
+can write different suets for this so I
+
+222
+00:05:14,230 --> 00:05:14,240
+can write different suets for this so I
+ 
+
+223
+00:05:14,240 --> 00:05:16,909
+can write different suets for this so I
+can create one sulet which handles only
+
+224
+00:05:16,909 --> 00:05:16,919
+can create one sulet which handles only
+ 
+
+225
+00:05:16,919 --> 00:05:20,110
+can create one sulet which handles only
+rest apis I can create another subet
+
+226
+00:05:20,110 --> 00:05:20,120
+rest apis I can create another subet
+ 
+
+227
+00:05:20,120 --> 00:05:22,909
+rest apis I can create another subet
+which handles soap apis I can create
+
+228
+00:05:22,909 --> 00:05:22,919
+which handles soap apis I can create
+ 
+
+229
+00:05:22,919 --> 00:05:25,590
+which handles soap apis I can create
+another sulet which can handle only file
+
+230
+00:05:25,590 --> 00:05:25,600
+another sulet which can handle only file
+ 
+
+231
+00:05:25,600 --> 00:05:28,950
+another sulet which can handle only file
+uploads so multiple or you can say that
+
+232
+00:05:28,950 --> 00:05:28,960
+uploads so multiple or you can say that
+ 
+
+233
+00:05:28,960 --> 00:05:31,309
+uploads so multiple or you can say that
+you can create one one more suets which
+
+234
+00:05:31,309 --> 00:05:31,319
+you can create one one more suets which
+ 
+
+235
+00:05:31,319 --> 00:05:35,909
+you can create one one more suets which
+handle only static data like images or
+
+236
+00:05:35,909 --> 00:05:35,919
+handle only static data like images or
+ 
+
+237
+00:05:35,919 --> 00:05:38,670
+handle only static data like images or
+something okay so when the request comes
+
+238
+00:05:38,670 --> 00:05:38,680
+something okay so when the request comes
+ 
+
+239
+00:05:38,680 --> 00:05:41,950
+something okay so when the request comes
+to The sulet Container it decide that
+
+240
+00:05:41,950 --> 00:05:41,960
+to The sulet Container it decide that
+ 
+
+241
+00:05:41,960 --> 00:05:44,870
+to The sulet Container it decide that
+hey this request will be handled by
+
+242
+00:05:44,870 --> 00:05:44,880
+hey this request will be handled by
+ 
+
+243
+00:05:44,880 --> 00:05:49,270
+hey this request will be handled by
+which which sulet so each sulet can
+
+244
+00:05:49,270 --> 00:05:49,280
+which which sulet so each sulet can
+ 
+
+245
+00:05:49,280 --> 00:05:52,270
+which which sulet so each sulet can
+configure that hey this rest API let's
+
+246
+00:05:52,270 --> 00:05:52,280
+configure that hey this rest API let's
+ 
+
+247
+00:05:52,280 --> 00:05:54,070
+configure that hey this rest API let's
+say that this can configure the hey I
+
+248
+00:05:54,070 --> 00:05:54,080
+say that this can configure the hey I
+ 
+
+249
+00:05:54,080 --> 00:05:55,510
+say that this can configure the hey I
+can handle
+
+250
+00:05:55,510 --> 00:05:55,520
+can handle
+ 
+
+251
+00:05:55,520 --> 00:05:57,950
+can handle
+slash
+
+252
+00:05:57,950 --> 00:05:57,960
+slash
+ 
+
+253
+00:05:57,960 --> 00:06:01,950
+slash
+API SL star so anything which is start
+
+254
+00:06:01,950 --> 00:06:01,960
+API SL star so anything which is start
+ 
+
+255
+00:06:01,960 --> 00:06:05,550
+API SL star so anything which is start
+with/ API I can handle it okay similarly
+
+256
+00:06:05,550 --> 00:06:05,560
+with/ API I can handle it okay similarly
+ 
+
+257
+00:06:05,560 --> 00:06:09,110
+with/ API I can handle it okay similarly
+soap API can provide some configuration
+
+258
+00:06:09,110 --> 00:06:09,120
+soap API can provide some configuration
+ 
+
+259
+00:06:09,120 --> 00:06:12,189
+soap API can provide some configuration
+which sulet container will use and
+
+260
+00:06:12,189 --> 00:06:12,199
+which sulet container will use and
+ 
+
+261
+00:06:12,199 --> 00:06:16,230
+which sulet container will use and
+decide which sulet to invoke now in the
+
+262
+00:06:16,230 --> 00:06:16,240
+decide which sulet to invoke now in the
+ 
+
+263
+00:06:16,240 --> 00:06:18,390
+decide which sulet to invoke now in the
+microservices right and now let's say
+
+264
+00:06:18,390 --> 00:06:18,400
+microservices right and now let's say
+ 
+
+265
+00:06:18,400 --> 00:06:19,909
+microservices right and now let's say
+that when we are discussing about spring
+
+266
+00:06:19,909 --> 00:06:19,919
+that when we are discussing about spring
+ 
+
+267
+00:06:19,919 --> 00:06:22,150
+that when we are discussing about spring
+boot is specific and it's a microservice
+
+268
+00:06:22,150 --> 00:06:22,160
+boot is specific and it's a microservice
+ 
+
+269
+00:06:22,160 --> 00:06:24,150
+boot is specific and it's a microservice
+let's say that it's not a monolithic
+
+270
+00:06:24,150 --> 00:06:24,160
+let's say that it's not a monolithic
+ 
+
+271
+00:06:24,160 --> 00:06:25,870
+let's say that it's not a monolithic
+where I have static data also and
+
+272
+00:06:25,870 --> 00:06:25,880
+where I have static data also and
+ 
+
+273
+00:06:25,880 --> 00:06:29,150
+where I have static data also and
+something soap apis and all so now when
+
+274
+00:06:29,150 --> 00:06:29,160
+something soap apis and all so now when
+ 
+
+275
+00:06:29,160 --> 00:06:31,830
+something soap apis and all so now when
+you say that when we discuss more about
+
+276
+00:06:31,830 --> 00:06:31,840
+you say that when we discuss more about
+ 
+
+277
+00:06:31,840 --> 00:06:34,990
+you say that when we discuss more about
+uh microservices and specifically spring
+
+278
+00:06:34,990 --> 00:06:35,000
+uh microservices and specifically spring
+ 
+
+279
+00:06:35,000 --> 00:06:38,870
+uh microservices and specifically spring
+boot so there the need of multiple subet
+
+280
+00:06:38,870 --> 00:06:38,880
+boot so there the need of multiple subet
+ 
+
+281
+00:06:38,880 --> 00:06:43,469
+boot so there the need of multiple subet
+are reduced in 2017 16 when we used to
+
+282
+00:06:43,469 --> 00:06:43,479
+are reduced in 2017 16 when we used to
+ 
+
+283
+00:06:43,479 --> 00:06:46,189
+are reduced in 2017 16 when we used to
+code we used to have multiple subet and
+
+284
+00:06:46,189 --> 00:06:46,199
+code we used to have multiple subet and
+ 
+
+285
+00:06:46,199 --> 00:06:47,749
+code we used to have multiple subet and
+this is suets are nothing but a plain
+
+286
+00:06:47,749 --> 00:06:47,759
+this is suets are nothing but a plain
+ 
+
+287
+00:06:47,759 --> 00:06:49,510
+this is suets are nothing but a plain
+Java code right so whatever the
+
+288
+00:06:49,510 --> 00:06:49,520
+Java code right so whatever the
+ 
+
+289
+00:06:49,520 --> 00:06:51,749
+Java code right so whatever the
+controller you are writing it just like
+
+290
+00:06:51,749 --> 00:06:51,759
+controller you are writing it just like
+ 
+
+291
+00:06:51,759 --> 00:06:55,510
+controller you are writing it just like
+a specific apis like this is let's say/
+
+292
+00:06:55,510 --> 00:06:55,520
+a specific apis like this is let's say/
+ 
+
+293
+00:06:55,520 --> 00:07:01,990
+a specific apis like this is let's say/
+API SL user another control / API SL
+
+294
+00:07:01,990 --> 00:07:02,000
+API SL user another control / API SL
+ 
+
+295
+00:07:02,000 --> 00:07:04,990
+API SL user another control / API SL
+let's say order but here this sulet
+
+296
+00:07:04,990 --> 00:07:05,000
+let's say order but here this sulet
+ 
+
+297
+00:07:05,000 --> 00:07:08,510
+let's say order but here this sulet
+accept anything SL API star so anything
+
+298
+00:07:08,510 --> 00:07:08,520
+accept anything SL API star so anything
+ 
+
+299
+00:07:08,520 --> 00:07:11,510
+accept anything SL API star so anything
+start with/ API this dispatcher subet
+
+300
+00:07:11,510 --> 00:07:11,520
+start with/ API this dispatcher subet
+ 
+
+301
+00:07:11,520 --> 00:07:13,430
+start with/ API this dispatcher subet
+will take care of it earlier we don't
+
+302
+00:07:13,430 --> 00:07:13,440
+will take care of it earlier we don't
+ 
+
+303
+00:07:13,440 --> 00:07:14,909
+will take care of it earlier we don't
+used to have this controller in this
+
+304
+00:07:14,909 --> 00:07:14,919
+used to have this controller in this
+ 
+
+305
+00:07:14,919 --> 00:07:16,670
+used to have this controller in this
+subet itself we used to have all the
+
+306
+00:07:16,670 --> 00:07:16,680
+subet itself we used to have all the
+ 
+
+307
+00:07:16,680 --> 00:07:19,670
+subet itself we used to have all the
+code logic and we have Factory here okay
+
+308
+00:07:19,670 --> 00:07:19,680
+code logic and we have Factory here okay
+ 
+
+309
+00:07:19,680 --> 00:07:22,790
+code logic and we have Factory here okay
+if it is user go and perform this logic
+
+310
+00:07:22,790 --> 00:07:22,800
+if it is user go and perform this logic
+ 
+
+311
+00:07:22,800 --> 00:07:26,309
+if it is user go and perform this logic
+if it is order go and perform this logic
+
+312
+00:07:26,309 --> 00:07:26,319
+if it is order go and perform this logic
+ 
+
+313
+00:07:26,319 --> 00:07:29,670
+if it is order go and perform this logic
+okay so what I mean to say here is that
+
+314
+00:07:29,670 --> 00:07:29,680
+okay so what I mean to say here is that
+ 
+
+315
+00:07:29,680 --> 00:07:32,189
+okay so what I mean to say here is that
+now when we are specifically doing
+
+316
+00:07:32,189 --> 00:07:32,199
+now when we are specifically doing
+ 
+
+317
+00:07:32,199 --> 00:07:34,950
+now when we are specifically doing
+microservices and spring boot the need
+
+318
+00:07:34,950 --> 00:07:34,960
+microservices and spring boot the need
+ 
+
+319
+00:07:34,960 --> 00:07:37,950
+microservices and spring boot the need
+of multiple servlets has been reduced so
+
+320
+00:07:37,950 --> 00:07:37,960
+of multiple servlets has been reduced so
+ 
+
+321
+00:07:37,960 --> 00:07:41,189
+of multiple servlets has been reduced so
+mostly our dispatcher subet if you see
+
+322
+00:07:41,189 --> 00:07:41,199
+mostly our dispatcher subet if you see
+ 
+
+323
+00:07:41,199 --> 00:07:44,149
+mostly our dispatcher subet if you see
+the default configuration is uh slash
+
+324
+00:07:44,149 --> 00:07:44,159
+the default configuration is uh slash
+ 
+
+325
+00:07:44,159 --> 00:07:47,550
+the default configuration is uh slash
+estess slash asress means anything any
+
+326
+00:07:47,550 --> 00:07:47,560
+estess slash asress means anything any
+ 
+
+327
+00:07:47,560 --> 00:07:49,950
+estess slash asress means anything any
+API dispatcher subet would be able to
+
+328
+00:07:49,950 --> 00:07:49,960
+API dispatcher subet would be able to
+ 
+
+329
+00:07:49,960 --> 00:07:52,469
+API dispatcher subet would be able to
+handle so whatever the request coming is
+
+330
+00:07:52,469 --> 00:07:52,479
+handle so whatever the request coming is
+ 
+
+331
+00:07:52,479 --> 00:07:55,189
+handle so whatever the request coming is
+to the tomat if tomat seees that okay
+
+332
+00:07:55,189 --> 00:07:55,199
+to the tomat if tomat seees that okay
+ 
+
+333
+00:07:55,199 --> 00:07:57,510
+to the tomat if tomat seees that okay
+request is started with Slash and
+
+334
+00:07:57,510 --> 00:07:57,520
+request is started with Slash and
+ 
+
+335
+00:07:57,520 --> 00:07:59,790
+request is started with Slash and
+anything it will just pass it to the
+
+336
+00:07:59,790 --> 00:07:59,800
+anything it will just pass it to the
+ 
+
+337
+00:07:59,800 --> 00:08:02,110
+anything it will just pass it to the
+dispatcher subet dispatcher subet will
+
+338
+00:08:02,110 --> 00:08:02,120
+dispatcher subet dispatcher subet will
+ 
+
+339
+00:08:02,120 --> 00:08:04,390
+dispatcher subet dispatcher subet will
+pass it to one of the
+
+340
+00:08:04,390 --> 00:08:04,400
+pass it to one of the
+ 
+
+341
+00:08:04,400 --> 00:08:08,869
+pass it to one of the
+controller okay so now you know what is
+
+342
+00:08:08,869 --> 00:08:08,879
+controller okay so now you know what is
+ 
+
+343
+00:08:08,879 --> 00:08:11,909
+controller okay so now you know what is
+sulet okay and this is one I show that
+
+344
+00:08:11,909 --> 00:08:11,919
+sulet okay and this is one I show that
+ 
+
+345
+00:08:11,919 --> 00:08:14,270
+sulet okay and this is one I show that
+we can create multiple sulet if we want
+
+346
+00:08:14,270 --> 00:08:14,280
+we can create multiple sulet if we want
+ 
+
+347
+00:08:14,280 --> 00:08:16,790
+we can create multiple sulet if we want
+subet one I can configur it to rest API
+
+348
+00:08:16,790 --> 00:08:16,800
+subet one I can configur it to rest API
+ 
+
+349
+00:08:16,800 --> 00:08:20,629
+subet one I can configur it to rest API
+subet 2 can be configured for soap apis
+
+350
+00:08:20,629 --> 00:08:20,639
+subet 2 can be configured for soap apis
+ 
+
+351
+00:08:20,639 --> 00:08:23,230
+subet 2 can be configured for soap apis
+similarly dispatcher subet default is
+
+352
+00:08:23,230 --> 00:08:23,240
+similarly dispatcher subet default is
+ 
+
+353
+00:08:23,240 --> 00:08:27,070
+similarly dispatcher subet default is
+slash this okay and today if even if you
+
+354
+00:08:27,070 --> 00:08:27,080
+slash this okay and today if even if you
+ 
+
+355
+00:08:27,080 --> 00:08:29,189
+slash this okay and today if even if you
+want hey dispatcher ofet I only want to
+
+356
+00:08:29,189 --> 00:08:29,199
+want hey dispatcher ofet I only want to
+ 
+
+357
+00:08:29,199 --> 00:08:30,869
+want hey dispatcher ofet I only want to
+hand SL
+
+358
+00:08:30,869 --> 00:08:30,879
+hand SL
+ 
+
+359
+00:08:30,879 --> 00:08:35,750
+hand SL
+API SL asress that also you can do okay
+
+360
+00:08:35,750 --> 00:08:35,760
+API SL asress that also you can do okay
+ 
+
+361
+00:08:35,760 --> 00:08:37,630
+API SL asress that also you can do okay
+I won't go further into that how you can
+
+362
+00:08:37,630 --> 00:08:37,640
+I won't go further into that how you can
+ 
+
+363
+00:08:37,640 --> 00:08:39,750
+I won't go further into that how you can
+do it but in the at theate configuration
+
+364
+00:08:39,750 --> 00:08:39,760
+do it but in the at theate configuration
+ 
+
+365
+00:08:39,760 --> 00:08:42,550
+do it but in the at theate configuration
+class itself you can do that you can
+
+366
+00:08:42,550 --> 00:08:42,560
+class itself you can do that you can
+ 
+
+367
+00:08:42,560 --> 00:08:44,790
+class itself you can do that you can
+update this configuration to this and
+
+368
+00:08:44,790 --> 00:08:44,800
+update this configuration to this and
+ 
+
+369
+00:08:44,800 --> 00:08:47,070
+update this configuration to this and
+only only those apis will comes to a
+
+370
+00:08:47,070 --> 00:08:47,080
+only only those apis will comes to a
+ 
+
+371
+00:08:47,080 --> 00:08:49,389
+only only those apis will comes to a
+dispatcher sub not
+
+372
+00:08:49,389 --> 00:08:49,399
+dispatcher sub not
+ 
+
+373
+00:08:49,399 --> 00:08:53,030
+dispatcher sub not
+all so with this diagram at least now we
+
+374
+00:08:53,030 --> 00:08:53,040
+all so with this diagram at least now we
+ 
+
+375
+00:08:53,040 --> 00:08:56,910
+all so with this diagram at least now we
+are clear that filter is before the
+
+376
+00:08:56,910 --> 00:08:56,920
+are clear that filter is before the
+ 
+
+377
+00:08:56,920 --> 00:09:00,190
+are clear that filter is before the
+request get assigned to a particular sub
+
+378
+00:09:00,190 --> 00:09:00,200
+request get assigned to a particular sub
+ 
+
+379
+00:09:00,200 --> 00:09:02,990
+request get assigned to a particular sub
+and Interceptor is after one of the
+
+380
+00:09:02,990 --> 00:09:03,000
+and Interceptor is after one of the
+ 
+
+381
+00:09:03,000 --> 00:09:06,150
+and Interceptor is after one of the
+subet is assigned specifically so this
+
+382
+00:09:06,150 --> 00:09:06,160
+subet is assigned specifically so this
+ 
+
+383
+00:09:06,160 --> 00:09:09,150
+subet is assigned specifically so this
+is very very uh spring related part so
+
+384
+00:09:09,150 --> 00:09:09,160
+is very very uh spring related part so
+ 
+
+385
+00:09:09,160 --> 00:09:11,750
+is very very uh spring related part so
+if I just uh pick a red color I would
+
+386
+00:09:11,750 --> 00:09:11,760
+if I just uh pick a red color I would
+ 
+
+387
+00:09:11,760 --> 00:09:14,230
+if I just uh pick a red color I would
+say that this is very very specific to
+
+388
+00:09:14,230 --> 00:09:14,240
+say that this is very very specific to
+ 
+
+389
+00:09:14,240 --> 00:09:15,790
+say that this is very very specific to
+Spring
+
+390
+00:09:15,790 --> 00:09:15,800
+Spring
+ 
+
+391
+00:09:15,800 --> 00:09:19,750
+Spring
+framework so Interceptor is you can say
+
+392
+00:09:19,750 --> 00:09:19,760
+framework so Interceptor is you can say
+ 
+
+393
+00:09:19,760 --> 00:09:22,389
+framework so Interceptor is you can say
+that two two points one
+
+394
+00:09:22,389 --> 00:09:22,399
+that two two points one
+ 
+
+395
+00:09:22,399 --> 00:09:25,829
+that two two points one
+is after the sulet is
+
+396
+00:09:25,829 --> 00:09:25,839
+is after the sulet is
+ 
+
+397
+00:09:25,839 --> 00:09:29,910
+is after the sulet is
+chosen and which sulet is specifically
+
+398
+00:09:29,910 --> 00:09:29,920
+chosen and which sulet is specifically
+ 
+
+399
+00:09:29,920 --> 00:09:31,990
+chosen and which sulet is specifically
+spring boot so dispatcher sub is very
+
+400
+00:09:31,990 --> 00:09:32,000
+spring boot so dispatcher sub is very
+ 
+
+401
+00:09:32,000 --> 00:09:33,550
+spring boot so dispatcher sub is very
+very specific for spring boot so
+
+402
+00:09:33,550 --> 00:09:33,560
+very specific for spring boot so
+ 
+
+403
+00:09:33,560 --> 00:09:35,350
+very specific for spring boot so
+Interceptor is nothing but a spring boot
+
+404
+00:09:35,350 --> 00:09:35,360
+Interceptor is nothing but a spring boot
+ 
+
+405
+00:09:35,360 --> 00:09:38,269
+Interceptor is nothing but a spring boot
+concept which I would say so once the
+
+406
+00:09:38,269 --> 00:09:38,279
+concept which I would say so once the
+ 
+
+407
+00:09:38,279 --> 00:09:40,910
+concept which I would say so once the
+spring boot sulet which is dispatcher
+
+408
+00:09:40,910 --> 00:09:40,920
+spring boot sulet which is dispatcher
+ 
+
+409
+00:09:40,920 --> 00:09:42,269
+spring boot sulet which is dispatcher
+sulet is
+
+410
+00:09:42,269 --> 00:09:42,279
+sulet is
+ 
+
+411
+00:09:42,279 --> 00:09:45,470
+sulet is
+chosen so then before this dispatcher
+
+412
+00:09:45,470 --> 00:09:45,480
+chosen so then before this dispatcher
+ 
+
+413
+00:09:45,480 --> 00:09:47,910
+chosen so then before this dispatcher
+subet assign the request to the
+
+414
+00:09:47,910 --> 00:09:47,920
+subet assign the request to the
+ 
+
+415
+00:09:47,920 --> 00:09:50,750
+subet assign the request to the
+controller intercept
+
+416
+00:09:50,750 --> 00:09:50,760
+controller intercept
+ 
+
+417
+00:09:50,760 --> 00:09:53,509
+controller intercept
+intercepted and for filter you can uh
+
+418
+00:09:53,509 --> 00:09:53,519
+intercepted and for filter you can uh
+ 
+
+419
+00:09:53,519 --> 00:09:56,389
+intercepted and for filter you can uh
+say that before the sulet container
+
+420
+00:09:56,389 --> 00:09:56,399
+say that before the sulet container
+ 
+
+421
+00:09:56,399 --> 00:09:59,030
+say that before the sulet container
+assign the request to one of the sulet
+
+422
+00:09:59,030 --> 00:09:59,040
+assign the request to one of the sulet
+ 
+
+423
+00:09:59,040 --> 00:10:00,949
+assign the request to one of the sulet
+before for that itself filters comes
+
+424
+00:10:00,949 --> 00:10:00,959
+before for that itself filters comes
+ 
+
+425
+00:10:00,959 --> 00:10:02,030
+before for that itself filters comes
+into the
+
+426
+00:10:02,030 --> 00:10:02,040
+into the
+ 
+
+427
+00:10:02,040 --> 00:10:04,990
+into the
+picture so now you are clear that when
+
+428
+00:10:04,990 --> 00:10:05,000
+picture so now you are clear that when
+ 
+
+429
+00:10:05,000 --> 00:10:07,470
+picture so now you are clear that when
+to use filter whenever you want to put a
+
+430
+00:10:07,470 --> 00:10:07,480
+to use filter whenever you want to put a
+ 
+
+431
+00:10:07,480 --> 00:10:10,990
+to use filter whenever you want to put a
+logic which is common for all the suets
+
+432
+00:10:10,990 --> 00:10:11,000
+logic which is common for all the suets
+ 
+
+433
+00:10:11,000 --> 00:10:12,790
+logic which is common for all the suets
+like spring boot
+
+434
+00:10:12,790 --> 00:10:12,800
+like spring boot
+ 
+
+435
+00:10:12,800 --> 00:10:16,350
+like spring boot
+security like spring
+
+436
+00:10:16,350 --> 00:10:16,360
+security like spring
+ 
+
+437
+00:10:16,360 --> 00:10:18,030
+security like spring
+boot
+
+438
+00:10:18,030 --> 00:10:18,040
+boot
+ 
+
+439
+00:10:18,040 --> 00:10:21,870
+boot
+security so uh spring boot security is
+
+440
+00:10:21,870 --> 00:10:21,880
+security so uh spring boot security is
+ 
+
+441
+00:10:21,880 --> 00:10:25,509
+security so uh spring boot security is
+uh uses filter because it it is applied
+
+442
+00:10:25,509 --> 00:10:25,519
+uh uses filter because it it is applied
+ 
+
+443
+00:10:25,519 --> 00:10:28,590
+uh uses filter because it it is applied
+all HTTP request and response and
+
+444
+00:10:28,590 --> 00:10:28,600
+all HTTP request and response and
+ 
+
+445
+00:10:28,600 --> 00:10:30,470
+all HTTP request and response and
+irrespective of of the suets because
+
+446
+00:10:30,470 --> 00:10:30,480
+irrespective of of the suets because
+ 
+
+447
+00:10:30,480 --> 00:10:33,230
+irrespective of of the suets because
+it's a very very generic code it's not
+
+448
+00:10:33,230 --> 00:10:33,240
+it's a very very generic code it's not
+ 
+
+449
+00:10:33,240 --> 00:10:34,949
+it's a very very generic code it's not
+very specific to our application or
+
+450
+00:10:34,949 --> 00:10:34,959
+very specific to our application or
+ 
+
+451
+00:10:34,959 --> 00:10:37,030
+very specific to our application or
+something so it can be applied to
+
+452
+00:10:37,030 --> 00:10:37,040
+something so it can be applied to
+ 
+
+453
+00:10:37,040 --> 00:10:39,590
+something so it can be applied to
+multiple suets also so that's why it
+
+454
+00:10:39,590 --> 00:10:39,600
+multiple suets also so that's why it
+ 
+
+455
+00:10:39,600 --> 00:10:43,710
+multiple suets also so that's why it
+uses a filter so it it lies in this
+
+456
+00:10:43,710 --> 00:10:43,720
+uses a filter so it it lies in this
+ 
+
+457
+00:10:43,720 --> 00:10:46,509
+uses a filter so it it lies in this
+area okay and whenever you want
+
+458
+00:10:46,509 --> 00:10:46,519
+area okay and whenever you want
+ 
+
+459
+00:10:46,519 --> 00:10:50,470
+area okay and whenever you want
+something specific to your application
+
+460
+00:10:50,470 --> 00:10:50,480
+something specific to your application
+ 
+
+461
+00:10:50,480 --> 00:10:53,629
+something specific to your application
+particular sulet okay I want let's say
+
+462
+00:10:53,629 --> 00:10:53,639
+particular sulet okay I want let's say
+ 
+
+463
+00:10:53,639 --> 00:10:55,389
+particular sulet okay I want let's say
+this dispatcher subet so let's say that
+
+464
+00:10:55,389 --> 00:10:55,399
+this dispatcher subet so let's say that
+ 
+
+465
+00:10:55,399 --> 00:10:58,629
+this dispatcher subet so let's say that
+call this as a rest API subet if
+
+466
+00:10:58,629 --> 00:10:58,639
+call this as a rest API subet if
+ 
+
+467
+00:10:58,639 --> 00:11:01,509
+call this as a rest API subet if
+anything is specifics to rest API subet
+
+468
+00:11:01,509 --> 00:11:01,519
+anything is specifics to rest API subet
+ 
+
+469
+00:11:01,519 --> 00:11:04,509
+anything is specifics to rest API subet
+then you can add Interceptor for this
+
+470
+00:11:04,509 --> 00:11:04,519
+then you can add Interceptor for this
+ 
+
+471
+00:11:04,519 --> 00:11:06,509
+then you can add Interceptor for this
+okay so you got it anything is specific
+
+472
+00:11:06,509 --> 00:11:06,519
+okay so you got it anything is specific
+ 
+
+473
+00:11:06,519 --> 00:11:08,670
+okay so you got it anything is specific
+to a particular sulet you can use
+
+474
+00:11:08,670 --> 00:11:08,680
+to a particular sulet you can use
+ 
+
+475
+00:11:08,680 --> 00:11:11,629
+to a particular sulet you can use
+Interceptor anything which is common for
+
+476
+00:11:11,629 --> 00:11:11,639
+Interceptor anything which is common for
+ 
+
+477
+00:11:11,639 --> 00:11:16,710
+Interceptor anything which is common for
+all the suets you can use
+
+478
+00:11:16,710 --> 00:11:16,720
+
+ 
+
+479
+00:11:16,720 --> 00:11:19,670
+
+filter okay so this is what I have
+
+480
+00:11:19,670 --> 00:11:19,680
+filter okay so this is what I have
+ 
+
+481
+00:11:19,680 --> 00:11:22,150
+filter okay so this is what I have
+explained it here so filter is used when
+
+482
+00:11:22,150 --> 00:11:22,160
+explained it here so filter is used when
+ 
+
+483
+00:11:22,160 --> 00:11:24,350
+explained it here so filter is used when
+we want to intercept HTTP request and
+
+484
+00:11:24,350 --> 00:11:24,360
+we want to intercept HTTP request and
+ 
+
+485
+00:11:24,360 --> 00:11:27,430
+we want to intercept HTTP request and
+response and logic agnostic of the
+
+486
+00:11:27,430 --> 00:11:27,440
+response and logic agnostic of the
+ 
+
+487
+00:11:27,440 --> 00:11:30,269
+response and logic agnostic of the
+underlying cetes we can have many
+
+488
+00:11:30,269 --> 00:11:30,279
+underlying cetes we can have many
+ 
+
+489
+00:11:30,279 --> 00:11:32,949
+underlying cetes we can have many
+filters and have ordering between them
+
+490
+00:11:32,949 --> 00:11:32,959
+filters and have ordering between them
+ 
+
+491
+00:11:32,959 --> 00:11:34,629
+filters and have ordering between them
+you can provide an ordering which one to
+
+492
+00:11:34,629 --> 00:11:34,639
+you can provide an ordering which one to
+ 
+
+493
+00:11:34,639 --> 00:11:36,710
+you can provide an ordering which one to
+run in which
+
+494
+00:11:36,710 --> 00:11:36,720
+run in which
+ 
+
+495
+00:11:36,720 --> 00:11:39,509
+run in which
+orders similarly in intercept is used
+
+496
+00:11:39,509 --> 00:11:39,519
+orders similarly in intercept is used
+ 
+
+497
+00:11:39,519 --> 00:11:41,790
+orders similarly in intercept is used
+when we want to intercept HTTP request
+
+498
+00:11:41,790 --> 00:11:41,800
+when we want to intercept HTTP request
+ 
+
+499
+00:11:41,800 --> 00:11:45,430
+when we want to intercept HTTP request
+and response same and add logic specific
+
+500
+00:11:45,430 --> 00:11:45,440
+and response same and add logic specific
+ 
+
+501
+00:11:45,440 --> 00:11:48,150
+and response same and add logic specific
+to a particular subet in this case uh
+
+502
+00:11:48,150 --> 00:11:48,160
+to a particular subet in this case uh
+ 
+
+503
+00:11:48,160 --> 00:11:49,949
+to a particular subet in this case uh
+Interceptor is mostly a spring boot
+
+504
+00:11:49,949 --> 00:11:49,959
+Interceptor is mostly a spring boot
+ 
+
+505
+00:11:49,959 --> 00:11:52,150
+Interceptor is mostly a spring boot
+concept you can say that so we can say
+
+506
+00:11:52,150 --> 00:11:52,160
+concept you can say that so we can say
+ 
+
+507
+00:11:52,160 --> 00:11:54,629
+concept you can say that so we can say
+that uh specific to a spring boot subet
+
+508
+00:11:54,629 --> 00:11:54,639
+that uh specific to a spring boot subet
+ 
+
+509
+00:11:54,639 --> 00:11:58,350
+that uh specific to a spring boot subet
+dispatcher subet so it intercept it
+
+510
+00:11:58,350 --> 00:11:58,360
+dispatcher subet so it intercept it
+ 
+
+511
+00:11:58,360 --> 00:12:00,430
+dispatcher subet so it intercept it
+whatever the request request is coming
+
+512
+00:12:00,430 --> 00:12:00,440
+whatever the request request is coming
+ 
+
+513
+00:12:00,440 --> 00:12:02,350
+whatever the request request is coming
+sulet container whatever the request is
+
+514
+00:12:02,350 --> 00:12:02,360
+sulet container whatever the request is
+ 
+
+515
+00:12:02,360 --> 00:12:04,350
+sulet container whatever the request is
+coming to dispatch a sulet let's say out
+
+516
+00:12:04,350 --> 00:12:04,360
+coming to dispatch a sulet let's say out
+ 
+
+517
+00:12:04,360 --> 00:12:06,030
+coming to dispatch a sulet let's say out
+of many let's assume that there are many
+
+518
+00:12:06,030 --> 00:12:06,040
+of many let's assume that there are many
+ 
+
+519
+00:12:06,040 --> 00:12:08,110
+of many let's assume that there are many
+subet so whatever it is coming to
+
+520
+00:12:08,110 --> 00:12:08,120
+subet so whatever it is coming to
+ 
+
+521
+00:12:08,120 --> 00:12:10,350
+subet so whatever it is coming to
+dispatch a subet this Interceptor will
+
+522
+00:12:10,350 --> 00:12:10,360
+dispatch a subet this Interceptor will
+ 
+
+523
+00:12:10,360 --> 00:12:13,069
+dispatch a subet this Interceptor will
+only take your intercept that only it
+
+524
+00:12:13,069 --> 00:12:13,079
+only take your intercept that only it
+ 
+
+525
+00:12:13,079 --> 00:12:17,030
+only take your intercept that only it
+can't intercept salet to a request right
+
+526
+00:12:17,030 --> 00:12:17,040
+can't intercept salet to a request right
+ 
+
+527
+00:12:17,040 --> 00:12:20,550
+can't intercept salet to a request right
+so that's what I mean here it's specific
+
+528
+00:12:20,550 --> 00:12:20,560
+so that's what I mean here it's specific
+ 
+
+529
+00:12:20,560 --> 00:12:23,310
+so that's what I mean here it's specific
+to a particular subid we can have many
+
+530
+00:12:23,310 --> 00:12:23,320
+to a particular subid we can have many
+ 
+
+531
+00:12:23,320 --> 00:12:25,470
+to a particular subid we can have many
+interceptors and have ordering between
+
+532
+00:12:25,470 --> 00:12:25,480
+interceptors and have ordering between
+ 
+
+533
+00:12:25,480 --> 00:12:28,110
+interceptors and have ordering between
+them two also this is also possible we
+
+534
+00:12:28,110 --> 00:12:28,120
+them two also this is also possible we
+ 
+
+535
+00:12:28,120 --> 00:12:30,350
+them two also this is also possible we
+can have more than one interceptors also
+
+536
+00:12:30,350 --> 00:12:30,360
+can have more than one interceptors also
+ 
+
+537
+00:12:30,360 --> 00:12:33,269
+can have more than one interceptors also
+I will tell you how you can have so here
+
+538
+00:12:33,269 --> 00:12:33,279
+I will tell you how you can have so here
+ 
+
+539
+00:12:33,279 --> 00:12:35,350
+I will tell you how you can have so here
+multiple interceptors and its ordering
+
+540
+00:12:35,350 --> 00:12:35,360
+multiple interceptors and its ordering
+ 
+
+541
+00:12:35,360 --> 00:12:36,430
+multiple interceptors and its ordering
+how to write
+
+542
+00:12:36,430 --> 00:12:36,440
+how to write
+ 
+
+543
+00:12:36,440 --> 00:12:39,430
+how to write
+it so in previous video right I already
+
+544
+00:12:39,430 --> 00:12:39,440
+it so in previous video right I already
+ 
+
+545
+00:12:39,440 --> 00:12:41,870
+it so in previous video right I already
+told you how you can add one Interceptor
+
+546
+00:12:41,870 --> 00:12:41,880
+told you how you can add one Interceptor
+ 
+
+547
+00:12:41,880 --> 00:12:43,629
+told you how you can add one Interceptor
+I showed you by creating one custom
+
+548
+00:12:43,629 --> 00:12:43,639
+I showed you by creating one custom
+ 
+
+549
+00:12:43,639 --> 00:12:46,389
+I showed you by creating one custom
+inter uh Interceptor and there we
+
+550
+00:12:46,389 --> 00:12:46,399
+inter uh Interceptor and there we
+ 
+
+551
+00:12:46,399 --> 00:12:48,750
+inter uh Interceptor and there we
+discussed about preh handle post handle
+
+552
+00:12:48,750 --> 00:12:48,760
+discussed about preh handle post handle
+ 
+
+553
+00:12:48,760 --> 00:12:50,030
+discussed about preh handle post handle
+after
+
+554
+00:12:50,030 --> 00:12:50,040
+after
+ 
+
+555
+00:12:50,040 --> 00:12:53,870
+after
+completion okay so here I will show you
+
+556
+00:12:53,870 --> 00:12:53,880
+completion okay so here I will show you
+ 
+
+557
+00:12:53,880 --> 00:12:55,030
+completion okay so here I will show you
+how you can add more than one
+
+558
+00:12:55,030 --> 00:12:55,040
+how you can add more than one
+ 
+
+559
+00:12:55,040 --> 00:12:57,110
+how you can add more than one
+Interceptor and ordering
+
+560
+00:12:57,110 --> 00:12:57,120
+Interceptor and ordering
+ 
+
+561
+00:12:57,120 --> 00:12:59,870
+Interceptor and ordering
+also so here if you see that one more
+
+562
+00:12:59,870 --> 00:12:59,880
+also so here if you see that one more
+ 
+
+563
+00:12:59,880 --> 00:13:02,550
+also so here if you see that one more
+thing is the preh handle so preh handle
+
+564
+00:13:02,550 --> 00:13:02,560
+thing is the preh handle so preh handle
+ 
+
+565
+00:13:02,560 --> 00:13:04,910
+thing is the preh handle so preh handle
+is something which returns true or false
+
+566
+00:13:04,910 --> 00:13:04,920
+is something which returns true or false
+ 
+
+567
+00:13:04,920 --> 00:13:07,470
+is something which returns true or false
+right this post handle returns wide
+
+568
+00:13:07,470 --> 00:13:07,480
+right this post handle returns wide
+ 
+
+569
+00:13:07,480 --> 00:13:10,030
+right this post handle returns wide
+after completion returns white this preh
+
+570
+00:13:10,030 --> 00:13:10,040
+after completion returns white this preh
+ 
+
+571
+00:13:10,040 --> 00:13:11,910
+after completion returns white this preh
+handle returns true and false so if preh
+
+572
+00:13:11,910 --> 00:13:11,920
+handle returns true and false so if preh
+ 
+
+573
+00:13:11,920 --> 00:13:14,910
+handle returns true and false so if preh
+handle return false next filter and
+
+574
+00:13:14,910 --> 00:13:14,920
+handle return false next filter and
+ 
+
+575
+00:13:14,920 --> 00:13:17,829
+handle return false next filter and
+controller will not get invoked so here
+
+576
+00:13:17,829 --> 00:13:17,839
+controller will not get invoked so here
+ 
+
+577
+00:13:17,839 --> 00:13:20,269
+controller will not get invoked so here
+in the code itself we can check uh so
+
+578
+00:13:20,269 --> 00:13:20,279
+in the code itself we can check uh so
+ 
+
+579
+00:13:20,279 --> 00:13:23,629
+in the code itself we can check uh so
+here if you see uh what was that
+
+580
+00:13:23,629 --> 00:13:23,639
+here if you see uh what was that
+ 
+
+581
+00:13:23,639 --> 00:13:27,110
+here if you see uh what was that
+dispatcher subet apply preh handle if
+
+582
+00:13:27,110 --> 00:13:27,120
+dispatcher subet apply preh handle if
+ 
+
+583
+00:13:27,120 --> 00:13:29,110
+dispatcher subet apply preh handle if
+preh handle return Falls this become
+
+584
+00:13:29,110 --> 00:13:29,120
+preh handle return Falls this become
+ 
+
+585
+00:13:29,120 --> 00:13:31,230
+preh handle return Falls this become
+come true and it will just simply
+
+586
+00:13:31,230 --> 00:13:31,240
+come true and it will just simply
+ 
+
+587
+00:13:31,240 --> 00:13:34,790
+come true and it will just simply
+return okay your next your next
+
+588
+00:13:34,790 --> 00:13:34,800
+return okay your next your next
+ 
+
+589
+00:13:34,800 --> 00:13:38,150
+return okay your next your next
+controller and next uh not next filter
+
+590
+00:13:38,150 --> 00:13:38,160
+controller and next uh not next filter
+ 
+
+591
+00:13:38,160 --> 00:13:40,990
+controller and next uh not next filter
+next controller and next
+
+592
+00:13:40,990 --> 00:13:41,000
+next controller and next
+ 
+
+593
+00:13:41,000 --> 00:13:44,790
+next controller and next
+Interceptor will not get invoked itself
+
+594
+00:13:44,790 --> 00:13:44,800
+Interceptor will not get invoked itself
+ 
+
+595
+00:13:44,800 --> 00:13:47,230
+Interceptor will not get invoked itself
+so how to create how to add more than
+
+596
+00:13:47,230 --> 00:13:47,240
+so how to create how to add more than
+ 
+
+597
+00:13:47,240 --> 00:13:48,870
+so how to create how to add more than
+one Interceptor so now let's say that
+
+598
+00:13:48,870 --> 00:13:48,880
+one Interceptor so now let's say that
+ 
+
+599
+00:13:48,880 --> 00:13:50,949
+one Interceptor so now let's say that
+from the previous video you already know
+
+600
+00:13:50,949 --> 00:13:50,959
+from the previous video you already know
+ 
+
+601
+00:13:50,959 --> 00:13:54,069
+from the previous video you already know
+that how to create one Interceptor
+
+602
+00:13:54,069 --> 00:13:54,079
+that how to create one Interceptor
+ 
+
+603
+00:13:54,079 --> 00:13:55,910
+that how to create one Interceptor
+similarly I have created another
+
+604
+00:13:55,910 --> 00:13:55,920
+similarly I have created another
+ 
+
+605
+00:13:55,920 --> 00:13:59,110
+similarly I have created another
+Interceptor and I have Auto wired here
+
+606
+00:13:59,110 --> 00:13:59,120
+Interceptor and I have Auto wired here
+ 
+
+607
+00:13:59,120 --> 00:14:00,749
+Interceptor and I have Auto wired here
+and from previous video you also know
+
+608
+00:14:00,749 --> 00:14:00,759
+and from previous video you also know
+ 
+
+609
+00:14:00,759 --> 00:14:03,629
+and from previous video you also know
+that how to register it similarly you
+
+610
+00:14:03,629 --> 00:14:03,639
+that how to register it similarly you
+ 
+
+611
+00:14:03,639 --> 00:14:06,470
+that how to register it similarly you
+can also add one more time registry. add
+
+612
+00:14:06,470 --> 00:14:06,480
+can also add one more time registry. add
+ 
+
+613
+00:14:06,480 --> 00:14:08,790
+can also add one more time registry. add
+Interceptor you can add the second one
+
+614
+00:14:08,790 --> 00:14:08,800
+Interceptor you can add the second one
+ 
+
+615
+00:14:08,800 --> 00:14:11,710
+Interceptor you can add the second one
+also and you'll see that this sequence
+
+616
+00:14:11,710 --> 00:14:11,720
+also and you'll see that this sequence
+ 
+
+617
+00:14:11,720 --> 00:14:14,629
+also and you'll see that this sequence
+is actually followed so since you added
+
+618
+00:14:14,629 --> 00:14:14,639
+is actually followed so since you added
+ 
+
+619
+00:14:14,639 --> 00:14:17,670
+is actually followed so since you added
+my custom Interceptor one my custom
+
+620
+00:14:17,670 --> 00:14:17,680
+my custom Interceptor one my custom
+ 
+
+621
+00:14:17,680 --> 00:14:20,269
+my custom Interceptor one my custom
+Interceptor 2 so this Interceptor would
+
+622
+00:14:20,269 --> 00:14:20,279
+Interceptor 2 so this Interceptor would
+ 
+
+623
+00:14:20,279 --> 00:14:23,790
+Interceptor 2 so this Interceptor would
+be executed first this would be executed
+
+624
+00:14:23,790 --> 00:14:23,800
+be executed first this would be executed
+ 
+
+625
+00:14:23,800 --> 00:14:27,269
+be executed first this would be executed
+second so now you have
+
+626
+00:14:27,269 --> 00:14:27,279
+second so now you have
+ 
+
+627
+00:14:27,279 --> 00:14:30,430
+second so now you have
+Interceptor one
+
+628
+00:14:30,430 --> 00:14:30,440
+Interceptor one
+ 
+
+629
+00:14:30,440 --> 00:14:33,470
+Interceptor one
+Interceptor 2 so when the request comes
+
+630
+00:14:33,470 --> 00:14:33,480
+Interceptor 2 so when the request comes
+ 
+
+631
+00:14:33,480 --> 00:14:37,430
+Interceptor 2 so when the request comes
+in so request goes like this and
+
+632
+00:14:37,430 --> 00:14:37,440
+in so request goes like this and
+ 
+
+633
+00:14:37,440 --> 00:14:40,629
+in so request goes like this and
+response goes like this so this is your
+
+634
+00:14:40,629 --> 00:14:40,639
+response goes like this so this is your
+ 
+
+635
+00:14:40,639 --> 00:14:43,590
+response goes like this so this is your
+request and this is your response so
+
+636
+00:14:43,590 --> 00:14:43,600
+request and this is your response so
+ 
+
+637
+00:14:43,600 --> 00:14:46,189
+request and this is your response so
+when the request comes in what it goes
+
+638
+00:14:46,189 --> 00:14:46,199
+when the request comes in what it goes
+ 
+
+639
+00:14:46,199 --> 00:14:49,590
+when the request comes in what it goes
+one Interceptor one
+
+640
+00:14:49,590 --> 00:14:49,600
+one Interceptor one
+ 
+
+641
+00:14:49,600 --> 00:14:53,269
+one Interceptor one
+request and then Interceptor 2 and when
+
+642
+00:14:53,269 --> 00:14:53,279
+request and then Interceptor 2 and when
+ 
+
+643
+00:14:53,279 --> 00:14:56,389
+request and then Interceptor 2 and when
+the response goes out so response what
+
+644
+00:14:56,389 --> 00:14:56,399
+the response goes out so response what
+ 
+
+645
+00:14:56,399 --> 00:14:58,670
+the response goes out so response what
+you will see Interceptor two will get
+
+646
+00:14:58,670 --> 00:14:58,680
+you will see Interceptor two will get
+ 
+
+647
+00:14:58,680 --> 00:15:00,509
+you will see Interceptor two will get
+invoked first then Interceptor one
+
+648
+00:15:00,509 --> 00:15:00,519
+invoked first then Interceptor one
+ 
+
+649
+00:15:00,519 --> 00:15:02,749
+invoked first then Interceptor one
+because Interceptor 2 Interceptor one
+
+650
+00:15:02,749 --> 00:15:02,759
+because Interceptor 2 Interceptor one
+ 
+
+651
+00:15:02,759 --> 00:15:07,150
+because Interceptor 2 Interceptor one
+like this okay so here I'm showing you
+
+652
+00:15:07,150 --> 00:15:07,160
+like this okay so here I'm showing you
+ 
+
+653
+00:15:07,160 --> 00:15:10,949
+like this okay so here I'm showing you
+the output right so only I have put a
+
+654
+00:15:10,949 --> 00:15:10,959
+the output right so only I have put a
+ 
+
+655
+00:15:10,959 --> 00:15:13,030
+the output right so only I have put a
+cog in preh handle post handle and after
+
+656
+00:15:13,030 --> 00:15:13,040
+cog in preh handle post handle and after
+ 
+
+657
+00:15:13,040 --> 00:15:14,550
+cog in preh handle post handle and after
+completion so here if you see when the
+
+658
+00:15:14,550 --> 00:15:14,560
+completion so here if you see when the
+ 
+
+659
+00:15:14,560 --> 00:15:17,069
+completion so here if you see when the
+request comes in so this is the order is
+
+660
+00:15:17,069 --> 00:15:17,079
+request comes in so this is the order is
+ 
+
+661
+00:15:17,079 --> 00:15:18,710
+request comes in so this is the order is
+maintained so Interceptor one it is
+
+662
+00:15:18,710 --> 00:15:18,720
+maintained so Interceptor one it is
+ 
+
+663
+00:15:18,720 --> 00:15:20,389
+maintained so Interceptor one it is
+going first so first it will go inside
+
+664
+00:15:20,389 --> 00:15:20,399
+going first so first it will go inside
+ 
+
+665
+00:15:20,399 --> 00:15:23,030
+going first so first it will go inside
+preh handle preh handle of Interceptor
+
+666
+00:15:23,030 --> 00:15:23,040
+preh handle preh handle of Interceptor
+ 
+
+667
+00:15:23,040 --> 00:15:26,150
+preh handle preh handle of Interceptor
+one so request is coming right so
+
+668
+00:15:26,150 --> 00:15:26,160
+one so request is coming right so
+ 
+
+669
+00:15:26,160 --> 00:15:28,629
+one so request is coming right so
+Interceptor one then Interceptor 2 so
+
+670
+00:15:28,629 --> 00:15:28,639
+Interceptor one then Interceptor 2 so
+ 
+
+671
+00:15:28,639 --> 00:15:31,230
+Interceptor one then Interceptor 2 so
+inter Interceptor one then preh handle
+
+672
+00:15:31,230 --> 00:15:31,240
+inter Interceptor one then preh handle
+ 
+
+673
+00:15:31,240 --> 00:15:32,870
+inter Interceptor one then preh handle
+of Interceptor
+
+674
+00:15:32,870 --> 00:15:32,880
+of Interceptor
+ 
+
+675
+00:15:32,880 --> 00:15:36,350
+of Interceptor
+2 right then your code logic then your
+
+676
+00:15:36,350 --> 00:15:36,360
+2 right then your code logic then your
+ 
+
+677
+00:15:36,360 --> 00:15:39,189
+2 right then your code logic then your
+code logic now it has to response goes
+
+678
+00:15:39,189 --> 00:15:39,199
+code logic now it has to response goes
+ 
+
+679
+00:15:39,199 --> 00:15:41,509
+code logic now it has to response goes
+out right then post handle of
+
+680
+00:15:41,509 --> 00:15:41,519
+out right then post handle of
+ 
+
+681
+00:15:41,519 --> 00:15:43,230
+out right then post handle of
+Interceptor 2
+
+682
+00:15:43,230 --> 00:15:43,240
+Interceptor 2
+ 
+
+683
+00:15:43,240 --> 00:15:46,509
+Interceptor 2
+first post handle of Interceptor
+
+684
+00:15:46,509 --> 00:15:46,519
+first post handle of Interceptor
+ 
+
+685
+00:15:46,519 --> 00:15:49,550
+first post handle of Interceptor
+one similarly after completion of two
+
+686
+00:15:49,550 --> 00:15:49,560
+one similarly after completion of two
+ 
+
+687
+00:15:49,560 --> 00:15:52,829
+one similarly after completion of two
+and then one and ultimately it goes
+
+688
+00:15:52,829 --> 00:15:52,839
+and then one and ultimately it goes
+ 
+
+689
+00:15:52,839 --> 00:15:55,309
+and then one and ultimately it goes
+out okay so this is how the sequence is
+
+690
+00:15:55,309 --> 00:15:55,319
+out okay so this is how the sequence is
+ 
+
+691
+00:15:55,319 --> 00:15:59,230
+out okay so this is how the sequence is
+maintained
+
+692
+00:15:59,230 --> 00:15:59,240
+
+ 
+
+693
+00:15:59,240 --> 00:16:02,350
+
+and how to add filter you can add your
+
+694
+00:16:02,350 --> 00:16:02,360
+and how to add filter you can add your
+ 
+
+695
+00:16:02,360 --> 00:16:06,350
+and how to add filter you can add your
+filters also like here if you see either
+
+696
+00:16:06,350 --> 00:16:06,360
+filters also like here if you see either
+ 
+
+697
+00:16:06,360 --> 00:16:09,230
+filters also like here if you see either
+Jakarta do suet you can use or here in
+
+698
+00:16:09,230 --> 00:16:09,240
+Jakarta do suet you can use or here in
+ 
+
+699
+00:16:09,240 --> 00:16:13,189
+Jakarta do suet you can use or here in
+the Java X do you will find
+
+700
+00:16:13,189 --> 00:16:13,199
+the Java X do you will find
+ 
+
+701
+00:16:13,199 --> 00:16:15,230
+the Java X do you will find
+filter you can choose any of this
+
+702
+00:16:15,230 --> 00:16:15,240
+filter you can choose any of this
+ 
+
+703
+00:16:15,240 --> 00:16:18,590
+filter you can choose any of this
+Library so I'm creating my filter one
+
+704
+00:16:18,590 --> 00:16:18,600
+Library so I'm creating my filter one
+ 
+
+705
+00:16:18,600 --> 00:16:21,269
+Library so I'm creating my filter one
+implement this filter so it has three
+
+706
+00:16:21,269 --> 00:16:21,279
+implement this filter so it has three
+ 
+
+707
+00:16:21,279 --> 00:16:25,990
+implement this filter so it has three
+method in it do filter and Destroy so in
+
+708
+00:16:25,990 --> 00:16:26,000
+method in it do filter and Destroy so in
+ 
+
+709
+00:16:26,000 --> 00:16:29,069
+method in it do filter and Destroy so in
+it like uh once the object of this my my
+
+710
+00:16:29,069 --> 00:16:29,079
+it like uh once the object of this my my
+ 
+
+711
+00:16:29,079 --> 00:16:31,870
+it like uh once the object of this my my
+filter is get created this method is get
+
+712
+00:16:31,870 --> 00:16:31,880
+filter is get created this method is get
+ 
+
+713
+00:16:31,880 --> 00:16:34,629
+filter is get created this method is get
+invoked only one time if you have to
+
+714
+00:16:34,629 --> 00:16:34,639
+invoked only one time if you have to
+ 
+
+715
+00:16:34,639 --> 00:16:36,230
+invoked only one time if you have to
+initialize something generally I've
+
+716
+00:16:36,230 --> 00:16:36,240
+initialize something generally I've
+ 
+
+717
+00:16:36,240 --> 00:16:38,790
+initialize something generally I've
+never seen we uh I have specifically
+
+718
+00:16:38,790 --> 00:16:38,800
+never seen we uh I have specifically
+ 
+
+719
+00:16:38,800 --> 00:16:41,590
+never seen we uh I have specifically
+initialized something but even if let's
+
+720
+00:16:41,590 --> 00:16:41,600
+initialized something but even if let's
+ 
+
+721
+00:16:41,600 --> 00:16:44,509
+initialized something but even if let's
+say you want to set up uh some name or
+
+722
+00:16:44,509 --> 00:16:44,519
+say you want to set up uh some name or
+ 
+
+723
+00:16:44,519 --> 00:16:47,030
+say you want to set up uh some name or
+something you want to specifically
+
+724
+00:16:47,030 --> 00:16:47,040
+something you want to specifically
+ 
+
+725
+00:16:47,040 --> 00:16:48,790
+something you want to specifically
+initialize something in this you can do
+
+726
+00:16:48,790 --> 00:16:48,800
+initialize something in this you can do
+ 
+
+727
+00:16:48,800 --> 00:16:52,350
+initialize something in this you can do
+that right but this is the main part do
+
+728
+00:16:52,350 --> 00:16:52,360
+that right but this is the main part do
+ 
+
+729
+00:16:52,360 --> 00:16:55,509
+that right but this is the main part do
+filter so do filter is like do
+
+730
+00:16:55,509 --> 00:16:55,519
+filter so do filter is like do
+ 
+
+731
+00:16:55,519 --> 00:16:58,389
+filter so do filter is like do
+something before you process the request
+
+732
+00:16:58,389 --> 00:16:58,399
+something before you process the request
+ 
+
+733
+00:16:58,399 --> 00:17:00,990
+something before you process the request
+so this is like do filter right
+
+734
+00:17:00,990 --> 00:17:01,000
+so this is like do filter right
+ 
+
+735
+00:17:01,000 --> 00:17:03,790
+so this is like do filter right
+next here if there are multiple filter
+
+736
+00:17:03,790 --> 00:17:03,800
+next here if there are multiple filter
+ 
+
+737
+00:17:03,800 --> 00:17:07,110
+next here if there are multiple filter
+filter 1 Filter 2 filter 3 So currently
+
+738
+00:17:07,110 --> 00:17:07,120
+filter 1 Filter 2 filter 3 So currently
+ 
+
+739
+00:17:07,120 --> 00:17:10,750
+filter 1 Filter 2 filter 3 So currently
+let's say this my filter one after that
+
+740
+00:17:10,750 --> 00:17:10,760
+let's say this my filter one after that
+ 
+
+741
+00:17:10,760 --> 00:17:12,710
+let's say this my filter one after that
+when you do do filter it will just call
+
+742
+00:17:12,710 --> 00:17:12,720
+when you do do filter it will just call
+ 
+
+743
+00:17:12,720 --> 00:17:14,390
+when you do do filter it will just call
+the next thing if the next part is
+
+744
+00:17:14,390 --> 00:17:14,400
+the next thing if the next part is
+ 
+
+745
+00:17:14,400 --> 00:17:17,350
+the next thing if the next part is
+Filter 2 it will call it if the next
+
+746
+00:17:17,350 --> 00:17:17,360
+Filter 2 it will call it if the next
+ 
+
+747
+00:17:17,360 --> 00:17:19,949
+Filter 2 it will call it if the next
+part is let's say code logic itself no
+
+748
+00:17:19,949 --> 00:17:19,959
+part is let's say code logic itself no
+ 
+
+749
+00:17:19,959 --> 00:17:22,150
+part is let's say code logic itself no
+more filter then code logic will get
+
+750
+00:17:22,150 --> 00:17:22,160
+more filter then code logic will get
+ 
+
+751
+00:17:22,160 --> 00:17:24,590
+more filter then code logic will get
+invoked right and the similar behavior
+
+752
+00:17:24,590 --> 00:17:24,600
+invoked right and the similar behavior
+ 
+
+753
+00:17:24,600 --> 00:17:26,750
+invoked right and the similar behavior
+is maintained in the filter also so when
+
+754
+00:17:26,750 --> 00:17:26,760
+is maintained in the filter also so when
+ 
+
+755
+00:17:26,760 --> 00:17:28,909
+is maintained in the filter also so when
+the request comes in it goes in here
+
+756
+00:17:28,909 --> 00:17:28,919
+the request comes in it goes in here
+ 
+
+757
+00:17:28,919 --> 00:17:31,510
+the request comes in it goes in here
+filter 1 Filter 2 filter 3 and the when
+
+758
+00:17:31,510 --> 00:17:31,520
+filter 1 Filter 2 filter 3 and the when
+ 
+
+759
+00:17:31,520 --> 00:17:33,390
+filter 1 Filter 2 filter 3 and the when
+the response goes out it goes into
+
+760
+00:17:33,390 --> 00:17:33,400
+the response goes out it goes into
+ 
+
+761
+00:17:33,400 --> 00:17:37,789
+the response goes out it goes into
+reverse filter 3 Filter 2 filter 1 so do
+
+762
+00:17:37,789 --> 00:17:37,799
+reverse filter 3 Filter 2 filter 1 so do
+ 
+
+763
+00:17:37,799 --> 00:17:40,270
+reverse filter 3 Filter 2 filter 1 so do
+filter is nothing but process the rest
+
+764
+00:17:40,270 --> 00:17:40,280
+filter is nothing but process the rest
+ 
+
+765
+00:17:40,280 --> 00:17:42,070
+filter is nothing but process the rest
+of the code if you are at filter one the
+
+766
+00:17:42,070 --> 00:17:42,080
+of the code if you are at filter one the
+ 
+
+767
+00:17:42,080 --> 00:17:44,310
+of the code if you are at filter one the
+process next of the code is Filter 2 if
+
+768
+00:17:44,310 --> 00:17:44,320
+process next of the code is Filter 2 if
+ 
+
+769
+00:17:44,320 --> 00:17:47,270
+process next of the code is Filter 2 if
+you are filter two next code is filter 3
+
+770
+00:17:47,270 --> 00:17:47,280
+you are filter two next code is filter 3
+ 
+
+771
+00:17:47,280 --> 00:17:49,230
+you are filter two next code is filter 3
+if filter 3 next is your actual code
+
+772
+00:17:49,230 --> 00:17:49,240
+if filter 3 next is your actual code
+ 
+
+773
+00:17:49,240 --> 00:17:51,710
+if filter 3 next is your actual code
+logic and then reverse so this is the
+
+774
+00:17:51,710 --> 00:17:51,720
+logic and then reverse so this is the
+ 
+
+775
+00:17:51,720 --> 00:17:53,870
+logic and then reverse so this is the
+after processing
+
+776
+00:17:53,870 --> 00:17:53,880
+after processing
+ 
+
+777
+00:17:53,880 --> 00:17:57,669
+after processing
+it similarly I have added another filter
+
+778
+00:17:57,669 --> 00:17:57,679
+it similarly I have added another filter
+ 
+
+779
+00:17:57,679 --> 00:18:00,470
+it similarly I have added another filter
+my filter to imp imps filter the same
+
+780
+00:18:00,470 --> 00:18:00,480
+my filter to imp imps filter the same
+ 
+
+781
+00:18:00,480 --> 00:18:02,510
+my filter to imp imps filter the same
+thing I've just puted the logic my
+
+782
+00:18:02,510 --> 00:18:02,520
+thing I've just puted the logic my
+ 
+
+783
+00:18:02,520 --> 00:18:03,870
+thing I've just puted the logic my
+filter 2
+
+784
+00:18:03,870 --> 00:18:03,880
+filter 2
+ 
+
+785
+00:18:03,880 --> 00:18:06,870
+filter 2
+inside process it something my filter 2
+
+786
+00:18:06,870 --> 00:18:06,880
+inside process it something my filter 2
+ 
+
+787
+00:18:06,880 --> 00:18:09,549
+inside process it something my filter 2
+complete here my filter one is
+
+788
+00:18:09,549 --> 00:18:09,559
+complete here my filter one is
+ 
+
+789
+00:18:09,559 --> 00:18:13,510
+complete here my filter one is
+there okay now this is the
+
+790
+00:18:13,510 --> 00:18:13,520
+there okay now this is the
+ 
+
+791
+00:18:13,520 --> 00:18:16,029
+there okay now this is the
+configuration so here I am creating a
+
+792
+00:18:16,029 --> 00:18:16,039
+configuration so here I am creating a
+ 
+
+793
+00:18:16,039 --> 00:18:19,789
+configuration so here I am creating a
+bean of my filter my first filter in
+
+794
+00:18:19,789 --> 00:18:19,799
+bean of my filter my first filter in
+ 
+
+795
+00:18:19,799 --> 00:18:21,669
+bean of my filter my first filter in
+this I am doing its registration so this
+
+796
+00:18:21,669 --> 00:18:21,679
+this I am doing its registration so this
+ 
+
+797
+00:18:21,679 --> 00:18:24,789
+this I am doing its registration so this
+is the process how you can create an
+
+798
+00:18:24,789 --> 00:18:24,799
+is the process how you can create an
+ 
+
+799
+00:18:24,799 --> 00:18:28,230
+is the process how you can create an
+object of registration be you can set
+
+800
+00:18:28,230 --> 00:18:28,240
+object of registration be you can set
+ 
+
+801
+00:18:28,240 --> 00:18:30,270
+object of registration be you can set
+the filter so I am creating a new object
+
+802
+00:18:30,270 --> 00:18:30,280
+the filter so I am creating a new object
+ 
+
+803
+00:18:30,280 --> 00:18:32,230
+the filter so I am creating a new object
+because here if you see that I am not
+
+804
+00:18:32,230 --> 00:18:32,240
+because here if you see that I am not
+ 
+
+805
+00:18:32,240 --> 00:18:34,510
+because here if you see that I am not
+putting at theate component otherwise I
+
+806
+00:18:34,510 --> 00:18:34,520
+putting at theate component otherwise I
+ 
+
+807
+00:18:34,520 --> 00:18:36,110
+putting at theate component otherwise I
+don't have to create a new
+
+808
+00:18:36,110 --> 00:18:36,120
+don't have to create a new
+ 
+
+809
+00:18:36,120 --> 00:18:39,310
+don't have to create a new
+object so I am creating an object what
+
+810
+00:18:39,310 --> 00:18:39,320
+object so I am creating an object what
+ 
+
+811
+00:18:39,320 --> 00:18:40,149
+object so I am creating an object what
+is the
+
+812
+00:18:40,149 --> 00:18:40,159
+is the
+ 
+
+813
+00:18:40,159 --> 00:18:43,029
+is the
+filter this filter can take care of what
+
+814
+00:18:43,029 --> 00:18:43,039
+filter this filter can take care of what
+ 
+
+815
+00:18:43,039 --> 00:18:48,510
+filter this filter can take care of what
+all URL so I have put SL Asis right and
+
+816
+00:18:48,510 --> 00:18:48,520
+all URL so I have put SL Asis right and
+ 
+
+817
+00:18:48,520 --> 00:18:51,350
+all URL so I have put SL Asis right and
+I have set the specific order to so just
+
+818
+00:18:51,350 --> 00:18:51,360
+I have set the specific order to so just
+ 
+
+819
+00:18:51,360 --> 00:18:53,789
+I have set the specific order to so just
+specifically purposely I have given it
+
+820
+00:18:53,789 --> 00:18:53,799
+specifically purposely I have given it
+ 
+
+821
+00:18:53,799 --> 00:18:56,669
+specifically purposely I have given it
+order two for the filter one and for
+
+822
+00:18:56,669 --> 00:18:56,679
+order two for the filter one and for
+ 
+
+823
+00:18:56,679 --> 00:18:58,430
+order two for the filter one and for
+Filter 2 I have specifically given the
+
+824
+00:18:58,430 --> 00:18:58,440
+Filter 2 I have specifically given the
+ 
+
+825
+00:18:58,440 --> 00:19:01,230
+Filter 2 I have specifically given the
+order one just to show you that uh
+
+826
+00:19:01,230 --> 00:19:01,240
+order one just to show you that uh
+ 
+
+827
+00:19:01,240 --> 00:19:03,870
+order one just to show you that uh
+through this order we can maintain the
+
+828
+00:19:03,870 --> 00:19:03,880
+through this order we can maintain the
+ 
+
+829
+00:19:03,880 --> 00:19:06,230
+through this order we can maintain the
+sequence similarly I created a second
+
+830
+00:19:06,230 --> 00:19:06,240
+sequence similarly I created a second
+ 
+
+831
+00:19:06,240 --> 00:19:08,510
+sequence similarly I created a second
+filter so I have created an object of a
+
+832
+00:19:08,510 --> 00:19:08,520
+filter so I have created an object of a
+ 
+
+833
+00:19:08,520 --> 00:19:11,230
+filter so I have created an object of a
+registration Bean set the filter for
+
+834
+00:19:11,230 --> 00:19:11,240
+registration Bean set the filter for
+ 
+
+835
+00:19:11,240 --> 00:19:14,870
+registration Bean set the filter for
+this okay my filter two what all added
+
+836
+00:19:14,870 --> 00:19:14,880
+this okay my filter two what all added
+ 
+
+837
+00:19:14,880 --> 00:19:17,190
+this okay my filter two what all added
+what all for this specific URL pattern
+
+838
+00:19:17,190 --> 00:19:17,200
+what all for this specific URL pattern
+ 
+
+839
+00:19:17,200 --> 00:19:19,590
+what all for this specific URL pattern
+this filter will get invoke and the
+
+840
+00:19:19,590 --> 00:19:19,600
+this filter will get invoke and the
+ 
+
+841
+00:19:19,600 --> 00:19:22,870
+this filter will get invoke and the
+order I have kept it one and I have
+
+842
+00:19:22,870 --> 00:19:22,880
+order I have kept it one and I have
+ 
+
+843
+00:19:22,880 --> 00:19:25,310
+order I have kept it one and I have
+return this registration
+
+844
+00:19:25,310 --> 00:19:25,320
+return this registration
+ 
+
+845
+00:19:25,320 --> 00:19:27,950
+return this registration
+Bean that's all now when you see the
+
+846
+00:19:27,950 --> 00:19:27,960
+Bean that's all now when you see the
+ 
+
+847
+00:19:27,960 --> 00:19:30,789
+Bean that's all now when you see the
+output so now you have
+
+848
+00:19:30,789 --> 00:19:30,799
+output so now you have
+ 
+
+849
+00:19:30,799 --> 00:19:35,630
+output so now you have
+Filter 2 and then filter 1 because its
+
+850
+00:19:35,630 --> 00:19:35,640
+Filter 2 and then filter 1 because its
+ 
+
+851
+00:19:35,640 --> 00:19:37,750
+Filter 2 and then filter 1 because its
+order is
+
+852
+00:19:37,750 --> 00:19:37,760
+order is
+ 
+
+853
+00:19:37,760 --> 00:19:40,950
+order is
+one for the filter 2 right and this
+
+854
+00:19:40,950 --> 00:19:40,960
+one for the filter 2 right and this
+ 
+
+855
+00:19:40,960 --> 00:19:42,710
+one for the filter 2 right and this
+order is
+
+856
+00:19:42,710 --> 00:19:42,720
+order is
+ 
+
+857
+00:19:42,720 --> 00:19:45,149
+order is
+two I have specifically purposely
+
+858
+00:19:45,149 --> 00:19:45,159
+two I have specifically purposely
+ 
+
+859
+00:19:45,159 --> 00:19:47,310
+two I have specifically purposely
+mentioned this so now when the request
+
+860
+00:19:47,310 --> 00:19:47,320
+mentioned this so now when the request
+ 
+
+861
+00:19:47,320 --> 00:19:50,350
+mentioned this so now when the request
+comes in first it will invoke Filter
+
+862
+00:19:50,350 --> 00:19:50,360
+comes in first it will invoke Filter
+ 
+
+863
+00:19:50,360 --> 00:19:52,909
+comes in first it will invoke Filter
+2 and then filter one and during the
+
+864
+00:19:52,909 --> 00:19:52,919
+2 and then filter one and during the
+ 
+
+865
+00:19:52,919 --> 00:19:54,510
+2 and then filter one and during the
+response
+
+866
+00:19:54,510 --> 00:19:54,520
+response
+ 
+
+867
+00:19:54,520 --> 00:19:58,190
+response
+reverse my filter 2 inside so first it
+
+868
+00:19:58,190 --> 00:19:58,200
+reverse my filter 2 inside so first it
+ 
+
+869
+00:19:58,200 --> 00:20:01,909
+reverse my filter 2 inside so first it
+goes here my inside this one then it
+
+870
+00:20:01,909 --> 00:20:01,919
+goes here my inside this one then it
+ 
+
+871
+00:20:01,919 --> 00:20:04,310
+goes here my inside this one then it
+will go what it would happen is it will
+
+872
+00:20:04,310 --> 00:20:04,320
+will go what it would happen is it will
+ 
+
+873
+00:20:04,320 --> 00:20:07,270
+will go what it would happen is it will
+go inside this my filter two inside and
+
+874
+00:20:07,270 --> 00:20:07,280
+go inside this my filter two inside and
+ 
+
+875
+00:20:07,280 --> 00:20:10,470
+go inside this my filter two inside and
+do do filter process rest of the code
+
+876
+00:20:10,470 --> 00:20:10,480
+do do filter process rest of the code
+ 
+
+877
+00:20:10,480 --> 00:20:12,190
+do do filter process rest of the code
+now the process rest of the codee there
+
+878
+00:20:12,190 --> 00:20:12,200
+now the process rest of the codee there
+ 
+
+879
+00:20:12,200 --> 00:20:14,470
+now the process rest of the codee there
+is more filter yes filter one so it will
+
+880
+00:20:14,470 --> 00:20:14,480
+is more filter yes filter one so it will
+ 
+
+881
+00:20:14,480 --> 00:20:17,630
+is more filter yes filter one so it will
+goes to the next filter my filter in
+
+882
+00:20:17,630 --> 00:20:17,640
+goes to the next filter my filter in
+ 
+
+883
+00:20:17,640 --> 00:20:20,029
+goes to the next filter my filter in
+filter one inside now this filter one it
+
+884
+00:20:20,029 --> 00:20:20,039
+filter one inside now this filter one it
+ 
+
+885
+00:20:20,039 --> 00:20:23,789
+filter one inside now this filter one it
+goes inside printed this do filter means
+
+886
+00:20:23,789 --> 00:20:23,799
+goes inside printed this do filter means
+ 
+
+887
+00:20:23,799 --> 00:20:26,070
+goes inside printed this do filter means
+process next of the code next of the
+
+888
+00:20:26,070 --> 00:20:26,080
+process next of the code next of the
+ 
+
+889
+00:20:26,080 --> 00:20:27,950
+process next of the code next of the
+code no more filter so code logic will
+
+890
+00:20:27,950 --> 00:20:27,960
+code no more filter so code logic will
+ 
+
+891
+00:20:27,960 --> 00:20:30,789
+code no more filter so code logic will
+run hitting so this is my business logic
+
+892
+00:20:30,789 --> 00:20:30,799
+run hitting so this is my business logic
+ 
+
+893
+00:20:30,799 --> 00:20:31,710
+run hitting so this is my business logic
+code
+
+894
+00:20:31,710 --> 00:20:31,720
+code
+ 
+
+895
+00:20:31,720 --> 00:20:35,149
+code
+logic now the response goes out so first
+
+896
+00:20:35,149 --> 00:20:35,159
+logic now the response goes out so first
+ 
+
+897
+00:20:35,159 --> 00:20:38,710
+logic now the response goes out so first
+it will goes out of this my filter 1
+
+898
+00:20:38,710 --> 00:20:38,720
+it will goes out of this my filter 1
+ 
+
+899
+00:20:38,720 --> 00:20:40,789
+it will goes out of this my filter 1
+completed and then after that it will
+
+900
+00:20:40,789 --> 00:20:40,799
+completed and then after that it will
+ 
+
+901
+00:20:40,799 --> 00:20:43,990
+completed and then after that it will
+goes out of my filter 2
+
+902
+00:20:43,990 --> 00:20:44,000
+goes out of my filter 2
+ 
+
+903
+00:20:44,000 --> 00:20:46,070
+goes out of my filter 2
+completed okay so this is how you can
+
+904
+00:20:46,070 --> 00:20:46,080
+completed okay so this is how you can
+ 
+
+905
+00:20:46,080 --> 00:20:48,830
+completed okay so this is how you can
+create filter and if you add both
+
+906
+00:20:48,830 --> 00:20:48,840
+create filter and if you add both
+ 
+
+907
+00:20:48,840 --> 00:20:51,270
+create filter and if you add both
+interceptors so if you add both the
+
+908
+00:20:51,270 --> 00:20:51,280
+interceptors so if you add both the
+ 
+
+909
+00:20:51,280 --> 00:20:54,110
+interceptors so if you add both the
+logic from the above one right and you
+
+910
+00:20:54,110 --> 00:20:54,120
+logic from the above one right and you
+ 
+
+911
+00:20:54,120 --> 00:20:56,190
+logic from the above one right and you
+run the output here if you see this
+
+912
+00:20:56,190 --> 00:20:56,200
+run the output here if you see this
+ 
+
+913
+00:20:56,200 --> 00:20:59,390
+run the output here if you see this
+would happen so your is like sulet
+
+914
+00:20:59,390 --> 00:20:59,400
+would happen so your is like sulet
+ 
+
+915
+00:20:59,400 --> 00:21:02,390
+would happen so your is like sulet
+container then filter then
+
+916
+00:21:02,390 --> 00:21:02,400
+container then filter then
+ 
+
+917
+00:21:02,400 --> 00:21:04,750
+container then filter then
+sulet and then
+
+918
+00:21:04,750 --> 00:21:04,760
+sulet and then
+ 
+
+919
+00:21:04,760 --> 00:21:10,669
+sulet and then
+controller so here you have uh this is
+
+920
+00:21:10,669 --> 00:21:10,679
+controller so here you have uh this is
+ 
+
+921
+00:21:10,679 --> 00:21:14,110
+controller so here you have uh this is
+your filter and and this will be your
+
+922
+00:21:14,110 --> 00:21:14,120
+your filter and and this will be your
+ 
+
+923
+00:21:14,120 --> 00:21:17,310
+your filter and and this will be your
+Interceptor so first filter will run my
+
+924
+00:21:17,310 --> 00:21:17,320
+Interceptor so first filter will run my
+ 
+
+925
+00:21:17,320 --> 00:21:20,669
+Interceptor so first filter will run my
+filter one so I have just here by doing
+
+926
+00:21:20,669 --> 00:21:20,679
+filter one so I have just here by doing
+ 
+
+927
+00:21:20,679 --> 00:21:22,350
+filter one so I have just here by doing
+that I just change the order properly
+
+928
+00:21:22,350 --> 00:21:22,360
+that I just change the order properly
+ 
+
+929
+00:21:22,360 --> 00:21:23,990
+that I just change the order properly
+filter one I have changed the order to
+
+930
+00:21:23,990 --> 00:21:24,000
+filter one I have changed the order to
+ 
+
+931
+00:21:24,000 --> 00:21:26,390
+filter one I have changed the order to
+one and filter two I change the order to
+
+932
+00:21:26,390 --> 00:21:26,400
+one and filter two I change the order to
+ 
+
+933
+00:21:26,400 --> 00:21:28,590
+one and filter two I change the order to
+two just so that it meant it don't
+
+934
+00:21:28,590 --> 00:21:28,600
+two just so that it meant it don't
+ 
+
+935
+00:21:28,600 --> 00:21:31,029
+two just so that it meant it don't
+confused like filter 1 Y is second so
+
+936
+00:21:31,029 --> 00:21:31,039
+confused like filter 1 Y is second so
+ 
+
+937
+00:21:31,039 --> 00:21:32,909
+confused like filter 1 Y is second so
+I've corrected the order
+
+938
+00:21:32,909 --> 00:21:32,919
+I've corrected the order
+ 
+
+939
+00:21:32,919 --> 00:21:35,830
+I've corrected the order
+here so now when the request so filter 1
+
+940
+00:21:35,830 --> 00:21:35,840
+here so now when the request so filter 1
+ 
+
+941
+00:21:35,840 --> 00:21:38,789
+here so now when the request so filter 1
+Filter 2 then here we have
+
+942
+00:21:38,789 --> 00:21:38,799
+Filter 2 then here we have
+ 
+
+943
+00:21:38,799 --> 00:21:43,029
+Filter 2 then here we have
+Interceptor one Interceptor 2 so now
+
+944
+00:21:43,029 --> 00:21:43,039
+Interceptor one Interceptor 2 so now
+ 
+
+945
+00:21:43,039 --> 00:21:47,549
+Interceptor one Interceptor 2 so now
+request coming is inside filter
+
+946
+00:21:47,549 --> 00:21:47,559
+request coming is inside filter
+ 
+
+947
+00:21:47,559 --> 00:21:52,470
+request coming is inside filter
+one then it goes inside uh Filter
+
+948
+00:21:52,470 --> 00:21:52,480
+one then it goes inside uh Filter
+ 
+
+949
+00:21:52,480 --> 00:21:55,990
+one then it goes inside uh Filter
+2 right after filter to uh there is no
+
+950
+00:21:55,990 --> 00:21:56,000
+2 right after filter to uh there is no
+ 
+
+951
+00:21:56,000 --> 00:21:58,070
+2 right after filter to uh there is no
+more filters so it will pass it to one
+
+952
+00:21:58,070 --> 00:21:58,080
+more filters so it will pass it to one
+ 
+
+953
+00:21:58,080 --> 00:21:59,110
+more filters so it will pass it to one
+of the sub
+
+954
+00:21:59,110 --> 00:21:59,120
+of the sub
+ 
+
+955
+00:21:59,120 --> 00:22:01,110
+of the sub
+and after the suet so this is your code
+
+956
+00:22:01,110 --> 00:22:01,120
+and after the suet so this is your code
+ 
+
+957
+00:22:01,120 --> 00:22:02,230
+and after the suet so this is your code
+logic
+
+958
+00:22:02,230 --> 00:22:02,240
+logic
+ 
+
+959
+00:22:02,240 --> 00:22:06,310
+logic
+here so after so this is your sulet now
+
+960
+00:22:06,310 --> 00:22:06,320
+here so after so this is your sulet now
+ 
+
+961
+00:22:06,320 --> 00:22:09,310
+here so after so this is your sulet now
+suet before it pass to the controller it
+
+962
+00:22:09,310 --> 00:22:09,320
+suet before it pass to the controller it
+ 
+
+963
+00:22:09,320 --> 00:22:12,230
+suet before it pass to the controller it
+will goes to the Interceptor one right
+
+964
+00:22:12,230 --> 00:22:12,240
+will goes to the Interceptor one right
+ 
+
+965
+00:22:12,240 --> 00:22:15,590
+will goes to the Interceptor one right
+so inside preh handle of Interceptor one
+
+966
+00:22:15,590 --> 00:22:15,600
+so inside preh handle of Interceptor one
+ 
+
+967
+00:22:15,600 --> 00:22:18,789
+so inside preh handle of Interceptor one
+now request goes to Interceptor 2 now
+
+968
+00:22:18,789 --> 00:22:18,799
+now request goes to Interceptor 2 now
+ 
+
+969
+00:22:18,799 --> 00:22:21,789
+now request goes to Interceptor 2 now
+ultimately your code logic your
+
+970
+00:22:21,789 --> 00:22:21,799
+ultimately your code logic your
+ 
+
+971
+00:22:21,799 --> 00:22:24,149
+ultimately your code logic your
+controller now the response goes out
+
+972
+00:22:24,149 --> 00:22:24,159
+controller now the response goes out
+ 
+
+973
+00:22:24,159 --> 00:22:27,269
+controller now the response goes out
+right so first Interceptor two will get
+
+974
+00:22:27,269 --> 00:22:27,279
+right so first Interceptor two will get
+ 
+
+975
+00:22:27,279 --> 00:22:30,630
+right so first Interceptor two will get
+invol right so this is all your
+
+976
+00:22:30,630 --> 00:22:30,640
+invol right so this is all your
+ 
+
+977
+00:22:30,640 --> 00:22:33,430
+invol right so this is all your
+Interceptor so post handle of
+
+978
+00:22:33,430 --> 00:22:33,440
+Interceptor so post handle of
+ 
+
+979
+00:22:33,440 --> 00:22:36,310
+Interceptor so post handle of
+Interceptor 2 post handle of Interceptor
+
+980
+00:22:36,310 --> 00:22:36,320
+Interceptor 2 post handle of Interceptor
+ 
+
+981
+00:22:36,320 --> 00:22:38,630
+Interceptor 2 post handle of Interceptor
+1 then after completion of Interceptor 2
+
+982
+00:22:38,630 --> 00:22:38,640
+1 then after completion of Interceptor 2
+ 
+
+983
+00:22:38,640 --> 00:22:41,390
+1 then after completion of Interceptor 2
+after completion of Interceptor one
+
+984
+00:22:41,390 --> 00:22:41,400
+after completion of Interceptor one
+ 
+
+985
+00:22:41,400 --> 00:22:43,789
+after completion of Interceptor one
+ultimately filter
+
+986
+00:22:43,789 --> 00:22:43,799
+ultimately filter
+ 
+
+987
+00:22:43,799 --> 00:22:49,390
+ultimately filter
+two and ultimately filter one and goes
+
+988
+00:22:49,390 --> 00:22:49,400
+two and ultimately filter one and goes
+ 
+
+989
+00:22:49,400 --> 00:22:53,470
+two and ultimately filter one and goes
+out so you got it like how the sequence
+
+990
+00:22:53,470 --> 00:22:53,480
+out so you got it like how the sequence
+ 
+
+991
+00:22:53,480 --> 00:22:56,110
+out so you got it like how the sequence
+generally maintain what's the difference
+
+992
+00:22:56,110 --> 00:22:56,120
+generally maintain what's the difference
+ 
+
+993
+00:22:56,120 --> 00:22:58,710
+generally maintain what's the difference
+between uh filter and interceptor and
+
+994
+00:22:58,710 --> 00:22:58,720
+between uh filter and interceptor and
+ 
+
+995
+00:22:58,720 --> 00:23:01,149
+between uh filter and interceptor and
+when to use it
+
+996
+00:23:01,149 --> 00:23:01,159
+when to use it
+ 
+
+997
+00:23:01,159 --> 00:23:03,549
+when to use it
+see if somebody say that hey you can
+
+998
+00:23:03,549 --> 00:23:03,559
+see if somebody say that hey you can
+ 
+
+999
+00:23:03,559 --> 00:23:05,029
+see if somebody say that hey you can
+change the header you can change the
+
+1000
+00:23:05,029 --> 00:23:05,039
+change the header you can change the
+ 
+
+1001
+00:23:05,039 --> 00:23:07,590
+change the header you can change the
+request you can change the response you
+
+1002
+00:23:07,590 --> 00:23:07,600
+request you can change the response you
+ 
+
+1003
+00:23:07,600 --> 00:23:09,350
+request you can change the response you
+can change it into Interceptor also you
+
+1004
+00:23:09,350 --> 00:23:09,360
+can change it into Interceptor also you
+ 
+
+1005
+00:23:09,360 --> 00:23:11,110
+can change it into Interceptor also you
+can change it into filter
+
+1006
+00:23:11,110 --> 00:23:11,120
+can change it into filter
+ 
+
+1007
+00:23:11,120 --> 00:23:15,269
+can change it into filter
+also but when to use right Interceptor
+
+1008
+00:23:15,269 --> 00:23:15,279
+also but when to use right Interceptor
+ 
+
+1009
+00:23:15,279 --> 00:23:17,390
+also but when to use right Interceptor
+also has access to request and response
+
+1010
+00:23:17,390 --> 00:23:17,400
+also has access to request and response
+ 
+
+1011
+00:23:17,400 --> 00:23:19,789
+also has access to request and response
+filter also has access to request and
+
+1012
+00:23:19,789 --> 00:23:19,799
+filter also has access to request and
+ 
+
+1013
+00:23:19,799 --> 00:23:23,269
+filter also has access to request and
+response but the only thing is what
+
+1014
+00:23:23,269 --> 00:23:23,279
+response but the only thing is what
+ 
+
+1015
+00:23:23,279 --> 00:23:26,470
+response but the only thing is what
+specific purpose you are using if it
+
+1016
+00:23:26,470 --> 00:23:26,480
+specific purpose you are using if it
+ 
+
+1017
+00:23:26,480 --> 00:23:27,430
+specific purpose you are using if it
+says
+
+1018
+00:23:27,430 --> 00:23:27,440
+says
+ 
+
+1019
+00:23:27,440 --> 00:23:30,870
+says
+generic no matter about suets different
+
+1020
+00:23:30,870 --> 00:23:30,880
+generic no matter about suets different
+ 
+
+1021
+00:23:30,880 --> 00:23:34,470
+generic no matter about suets different
+different suets use it at filter if it
+
+1022
+00:23:34,470 --> 00:23:34,480
+different suets use it at filter if it
+ 
+
+1023
+00:23:34,480 --> 00:23:37,110
+different suets use it at filter if it
+is very specific to you can say that a
+
+1024
+00:23:37,110 --> 00:23:37,120
+is very specific to you can say that a
+ 
+
+1025
+00:23:37,120 --> 00:23:40,470
+is very specific to you can say that a
+spring framework and very very specific
+
+1026
+00:23:40,470 --> 00:23:40,480
+spring framework and very very specific
+ 
+
+1027
+00:23:40,480 --> 00:23:44,669
+spring framework and very very specific
+to your one particular uh sulet then go
+
+1028
+00:23:44,669 --> 00:23:44,679
+to your one particular uh sulet then go
+ 
+
+1029
+00:23:44,679 --> 00:23:45,789
+to your one particular uh sulet then go
+for
+
+1030
+00:23:45,789 --> 00:23:45,799
+for
+ 
+
+1031
+00:23:45,799 --> 00:23:48,430
+for
+Interceptor okay I hope this clarifies
+
+1032
+00:23:48,430 --> 00:23:48,440
+Interceptor okay I hope this clarifies
+ 
+
+1033
+00:23:48,440 --> 00:23:50,750
+Interceptor okay I hope this clarifies
+but if there is any out we can discuss
+
+1034
+00:23:50,750 --> 00:23:50,760
+but if there is any out we can discuss
+ 
+
+1035
+00:23:50,760 --> 00:23:54,350
+but if there is any out we can discuss
+further and uh we'll see what question
+
+1036
+00:23:54,350 --> 00:23:54,360
+further and uh we'll see what question
+ 
+
+1037
+00:23:54,360 --> 00:23:56,310
+further and uh we'll see what question
+can come in we can I'll try to answer
+
+1038
+00:23:56,310 --> 00:23:56,320
+can come in we can I'll try to answer
+ 
+
+1039
+00:23:56,320 --> 00:23:57,789
+can come in we can I'll try to answer
+those and if you have any more
+
+1040
+00:23:57,789 --> 00:23:57,799
+those and if you have any more
+ 
+
+1041
+00:23:57,799 --> 00:23:59,070
+those and if you have any more
+additional information information about
+
+1042
+00:23:59,070 --> 00:23:59,080
+additional information information about
+ 
+
+1043
+00:23:59,080 --> 00:24:02,029
+additional information information about
+this that hey uh in this scenario filter
+
+1044
+00:24:02,029 --> 00:24:02,039
+this that hey uh in this scenario filter
+ 
+
+1045
+00:24:02,039 --> 00:24:03,909
+this that hey uh in this scenario filter
+is better than Interceptor or this I
+
+1046
+00:24:03,909 --> 00:24:03,919
+is better than Interceptor or this I
+ 
+
+1047
+00:24:03,919 --> 00:24:06,029
+is better than Interceptor or this I
+don't consider filter or Interceptor is
+
+1048
+00:24:06,029 --> 00:24:06,039
+don't consider filter or Interceptor is
+ 
+
+1049
+00:24:06,039 --> 00:24:08,149
+don't consider filter or Interceptor is
+better or not both are totally different
+
+1050
+00:24:08,149 --> 00:24:08,159
+better or not both are totally different
+ 
+
+1051
+00:24:08,159 --> 00:24:09,510
+better or not both are totally different
+both are totally different at different
+
+1052
+00:24:09,510 --> 00:24:09,520
+both are totally different at different
+ 
+
+1053
+00:24:09,520 --> 00:24:12,870
+both are totally different at different
+places but still if you have uh such
+
+1054
+00:24:12,870 --> 00:24:12,880
+places but still if you have uh such
+ 
+
+1055
+00:24:12,880 --> 00:24:15,029
+places but still if you have uh such
+points we can further discuss more on
+
+1056
+00:24:15,029 --> 00:24:15,039
+points we can further discuss more on
+ 
+
+1057
+00:24:15,039 --> 00:24:19,600
+points we can further discuss more on
+that okay guys thank you bye
+

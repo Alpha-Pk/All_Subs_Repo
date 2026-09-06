@@ -1,0 +1,5075 @@
+1
+00:00:00,640 --> 00:00:02,190
+
+hey guys welcome to concept and coding
+
+2
+00:00:02,190 --> 00:00:02,200
+hey guys welcome to concept and coding
+ 
+
+3
+00:00:02,200 --> 00:00:04,070
+hey guys welcome to concept and coding
+this is Shan and today in Spring boot I
+
+4
+00:00:04,070 --> 00:00:04,080
+this is Shan and today in Spring boot I
+ 
+
+5
+00:00:04,080 --> 00:00:07,309
+this is Shan and today in Spring boot I
+will be covering hatos restful apis yeah
+
+6
+00:00:07,309 --> 00:00:07,319
+will be covering hatos restful apis yeah
+ 
+
+7
+00:00:07,319 --> 00:00:09,470
+will be covering hatos restful apis yeah
+weird name right and even if you see its
+
+8
+00:00:09,470 --> 00:00:09,480
+weird name right and even if you see its
+ 
+
+9
+00:00:09,480 --> 00:00:12,270
+weird name right and even if you see its
+full form like its full form says that
+
+10
+00:00:12,270 --> 00:00:12,280
+full form like its full form says that
+ 
+
+11
+00:00:12,280 --> 00:00:14,990
+full form like its full form says that
+hyper media as the engine of application
+
+12
+00:00:14,990 --> 00:00:15,000
+hyper media as the engine of application
+ 
+
+13
+00:00:15,000 --> 00:00:19,230
+hyper media as the engine of application
+State Mo here right so before we start
+
+14
+00:00:19,230 --> 00:00:19,240
+State Mo here right so before we start
+ 
+
+15
+00:00:19,240 --> 00:00:21,230
+State Mo here right so before we start
+if you search over the internet and you
+
+16
+00:00:21,230 --> 00:00:21,240
+if you search over the internet and you
+ 
+
+17
+00:00:21,240 --> 00:00:23,990
+if you search over the internet and you
+will see that hey is it still popular
+
+18
+00:00:23,990 --> 00:00:24,000
+will see that hey is it still popular
+ 
+
+19
+00:00:24,000 --> 00:00:25,630
+will see that hey is it still popular
+you will see many feedback which says
+
+20
+00:00:25,630 --> 00:00:25,640
+you will see many feedback which says
+ 
+
+21
+00:00:25,640 --> 00:00:28,310
+you will see many feedback which says
+that nowadays companies are not using it
+
+22
+00:00:28,310 --> 00:00:28,320
+that nowadays companies are not using it
+ 
+
+23
+00:00:28,320 --> 00:00:31,669
+that nowadays companies are not using it
+it has so many disadvantage don't use it
+
+24
+00:00:31,669 --> 00:00:31,679
+it has so many disadvantage don't use it
+ 
+
+25
+00:00:31,679 --> 00:00:34,150
+it has so many disadvantage don't use it
+but I would say that hey guys welcome to
+
+26
+00:00:34,150 --> 00:00:34,160
+but I would say that hey guys welcome to
+ 
+
+27
+00:00:34,160 --> 00:00:37,950
+but I would say that hey guys welcome to
+reality hatos is being used in very big
+
+28
+00:00:37,950 --> 00:00:37,960
+reality hatos is being used in very big
+ 
+
+29
+00:00:37,960 --> 00:00:40,110
+reality hatos is being used in very big
+product companies today
+
+30
+00:00:40,110 --> 00:00:40,120
+product companies today
+ 
+
+31
+00:00:40,120 --> 00:00:43,790
+product companies today
+also right and I will not only tell you
+
+32
+00:00:43,790 --> 00:00:43,800
+also right and I will not only tell you
+ 
+
+33
+00:00:43,800 --> 00:00:47,229
+also right and I will not only tell you
+what how not to use it but also tell how
+
+34
+00:00:47,229 --> 00:00:47,239
+what how not to use it but also tell how
+ 
+
+35
+00:00:47,239 --> 00:00:50,709
+what how not to use it but also tell how
+to use it what advantage it adds it
+
+36
+00:00:50,709 --> 00:00:50,719
+to use it what advantage it adds it
+ 
+
+37
+00:00:50,719 --> 00:00:54,750
+to use it what advantage it adds it
+tells the client what the next action
+
+38
+00:00:54,750 --> 00:00:54,760
+tells the client what the next action
+ 
+
+39
+00:00:54,760 --> 00:00:58,630
+tells the client what the next action
+you can perform after a particular
+
+40
+00:00:58,630 --> 00:00:58,640
+you can perform after a particular
+ 
+
+41
+00:00:58,640 --> 00:01:00,470
+you can perform after a particular
+step let
+
+42
+00:01:00,470 --> 00:01:00,480
+step let
+ 
+
+43
+00:01:00,480 --> 00:01:02,349
+step let
+understand this with this
+
+44
+00:01:02,349 --> 00:01:02,359
+understand this with this
+ 
+
+45
+00:01:02,359 --> 00:01:05,950
+understand this with this
+example so here in this simple example
+
+46
+00:01:05,950 --> 00:01:05,960
+example so here in this simple example
+ 
+
+47
+00:01:05,960 --> 00:01:08,550
+example so here in this simple example
+let's say that I have reached to this
+
+48
+00:01:08,550 --> 00:01:08,560
+let's say that I have reached to this
+ 
+
+49
+00:01:08,560 --> 00:01:13,270
+let's say that I have reached to this
+step using a post API SL add user I am
+
+50
+00:01:13,270 --> 00:01:13,280
+step using a post API SL add user I am
+ 
+
+51
+00:01:13,280 --> 00:01:16,030
+step using a post API SL add user I am
+able to add a user but with currently
+
+52
+00:01:16,030 --> 00:01:16,040
+able to add a user but with currently
+ 
+
+53
+00:01:16,040 --> 00:01:16,789
+able to add a user but with currently
+it's
+
+54
+00:01:16,789 --> 00:01:16,799
+it's
+ 
+
+55
+00:01:16,799 --> 00:01:19,429
+it's
+unverified now what's the next step I
+
+56
+00:01:19,429 --> 00:01:19,439
+unverified now what's the next step I
+ 
+
+57
+00:01:19,439 --> 00:01:22,190
+unverified now what's the next step I
+can do the next step I after adding a
+
+58
+00:01:22,190 --> 00:01:22,200
+can do the next step I after adding a
+ 
+
+59
+00:01:22,200 --> 00:01:25,749
+can do the next step I after adding a
+user I can do is I can make a get call
+
+60
+00:01:25,749 --> 00:01:25,759
+user I can do is I can make a get call
+ 
+
+61
+00:01:25,759 --> 00:01:28,390
+user I can do is I can make a get call
+and get the details of this user I can
+
+62
+00:01:28,390 --> 00:01:28,400
+and get the details of this user I can
+ 
+
+63
+00:01:28,400 --> 00:01:32,429
+and get the details of this user I can
+even delete this that also I can do or I
+
+64
+00:01:32,429 --> 00:01:32,439
+even delete this that also I can do or I
+ 
+
+65
+00:01:32,439 --> 00:01:36,069
+even delete this that also I can do or I
+can even verify this user right so
+
+66
+00:01:36,069 --> 00:01:36,079
+can even verify this user right so
+ 
+
+67
+00:01:36,079 --> 00:01:39,230
+can even verify this user right so
+verify again has different ways so you
+
+68
+00:01:39,230 --> 00:01:39,240
+verify again has different ways so you
+ 
+
+69
+00:01:39,240 --> 00:01:42,149
+verify again has different ways so you
+can say that after verifying uh there
+
+70
+00:01:42,149 --> 00:01:42,159
+can say that after verifying uh there
+ 
+
+71
+00:01:42,159 --> 00:01:43,870
+can say that after verifying uh there
+are different ways to verify one is
+
+72
+00:01:43,870 --> 00:01:43,880
+are different ways to verify one is
+ 
+
+73
+00:01:43,880 --> 00:01:46,389
+are different ways to verify one is
+through SMS so when I say that SMS
+
+74
+00:01:46,389 --> 00:01:46,399
+through SMS so when I say that SMS
+ 
+
+75
+00:01:46,399 --> 00:01:49,109
+through SMS so when I say that SMS
+verify start let's say that you get some
+
+76
+00:01:49,109 --> 00:01:49,119
+verify start let's say that you get some
+ 
+
+77
+00:01:49,119 --> 00:01:52,310
+verify start let's say that you get some
+PIN code and which you might have to
+
+78
+00:01:52,310 --> 00:01:52,320
+PIN code and which you might have to
+ 
+
+79
+00:01:52,320 --> 00:01:55,389
+PIN code and which you might have to
+enter through which you will finish it
+
+80
+00:01:55,389 --> 00:01:55,399
+enter through which you will finish it
+ 
+
+81
+00:01:55,399 --> 00:01:57,550
+enter through which you will finish it
+so different API for start different API
+
+82
+00:01:57,550 --> 00:01:57,560
+so different API for start different API
+ 
+
+83
+00:01:57,560 --> 00:02:01,149
+so different API for start different API
+for finish similarly for email verify
+
+84
+00:02:01,149 --> 00:02:01,159
+for finish similarly for email verify
+ 
+
+85
+00:02:01,159 --> 00:02:03,870
+for finish similarly for email verify
+start where you will get a email has
+
+86
+00:02:03,870 --> 00:02:03,880
+start where you will get a email has
+ 
+
+87
+00:02:03,880 --> 00:02:06,789
+start where you will get a email has
+been sent to user that hey this is the
+
+88
+00:02:06,789 --> 00:02:06,799
+been sent to user that hey this is the
+ 
+
+89
+00:02:06,799 --> 00:02:09,589
+been sent to user that hey this is the
+code now you have to push it somewhere
+
+90
+00:02:09,589 --> 00:02:09,599
+code now you have to push it somewhere
+ 
+
+91
+00:02:09,599 --> 00:02:11,790
+code now you have to push it somewhere
+so you will actually finishing your
+
+92
+00:02:11,790 --> 00:02:11,800
+so you will actually finishing your
+ 
+
+93
+00:02:11,800 --> 00:02:13,229
+so you will actually finishing your
+email
+
+94
+00:02:13,229 --> 00:02:13,239
+email
+ 
+
+95
+00:02:13,239 --> 00:02:16,550
+email
+verify so this is a small use case which
+
+96
+00:02:16,550 --> 00:02:16,560
+verify so this is a small use case which
+ 
+
+97
+00:02:16,560 --> 00:02:18,350
+verify so this is a small use case which
+I have come up with and I will tell you
+
+98
+00:02:18,350 --> 00:02:18,360
+I have come up with and I will tell you
+ 
+
+99
+00:02:18,360 --> 00:02:20,910
+I have come up with and I will tell you
+why it is important to understand when
+
+100
+00:02:20,910 --> 00:02:20,920
+why it is important to understand when
+ 
+
+101
+00:02:20,920 --> 00:02:23,270
+why it is important to understand when
+we will see when not to use and when to
+
+102
+00:02:23,270 --> 00:02:23,280
+we will see when not to use and when to
+ 
+
+103
+00:02:23,280 --> 00:02:25,030
+we will see when not to use and when to
+use it
+
+104
+00:02:25,030 --> 00:02:25,040
+use it
+ 
+
+105
+00:02:25,040 --> 00:02:27,990
+use it
+but you got it right when I say that it
+
+106
+00:02:27,990 --> 00:02:28,000
+but you got it right when I say that it
+ 
+
+107
+00:02:28,000 --> 00:02:30,390
+but you got it right when I say that it
+tells the client what's the next action
+
+108
+00:02:30,390 --> 00:02:30,400
+tells the client what's the next action
+ 
+
+109
+00:02:30,400 --> 00:02:33,030
+tells the client what's the next action
+you can perform after particular step so
+
+110
+00:02:33,030 --> 00:02:33,040
+you can perform after particular step so
+ 
+
+111
+00:02:33,040 --> 00:02:36,949
+you can perform after particular step so
+this is one step and what is the next
+
+112
+00:02:36,949 --> 00:02:36,959
+this is one step and what is the next
+ 
+
+113
+00:02:36,959 --> 00:02:40,550
+this is one step and what is the next
+action after adding a user either you
+
+114
+00:02:40,550 --> 00:02:40,560
+action after adding a user either you
+ 
+
+115
+00:02:40,560 --> 00:02:43,390
+action after adding a user either you
+can do a get call either you can delete
+
+116
+00:02:43,390 --> 00:02:43,400
+can do a get call either you can delete
+ 
+
+117
+00:02:43,400 --> 00:02:45,309
+can do a get call either you can delete
+it or either you can verify it these are
+
+118
+00:02:45,309 --> 00:02:45,319
+it or either you can verify it these are
+ 
+
+119
+00:02:45,319 --> 00:02:48,949
+it or either you can verify it these are
+the next action you can do okay and we
+
+120
+00:02:48,949 --> 00:02:48,959
+the next action you can do okay and we
+ 
+
+121
+00:02:48,959 --> 00:02:51,670
+the next action you can do okay and we
+will see uh more details but let's see
+
+122
+00:02:51,670 --> 00:02:51,680
+will see uh more details but let's see
+ 
+
+123
+00:02:51,680 --> 00:02:55,190
+will see uh more details but let's see
+that how the response looks like so now
+
+124
+00:02:55,190 --> 00:02:55,200
+that how the response looks like so now
+ 
+
+125
+00:02:55,200 --> 00:02:57,790
+that how the response looks like so now
+let's say that I am using a post API to
+
+126
+00:02:57,790 --> 00:02:57,800
+let's say that I am using a post API to
+ 
+
+127
+00:02:57,800 --> 00:03:00,869
+let's say that I am using a post API to
+add a user
+
+128
+00:03:00,869 --> 00:03:00,879
+add a user
+ 
+
+129
+00:03:00,879 --> 00:03:05,509
+add a user
+now the response of it if you are not
+
+130
+00:03:05,509 --> 00:03:05,519
+now the response of it if you are not
+ 
+
+131
+00:03:05,519 --> 00:03:08,509
+now the response of it if you are not
+using a heos link how it going to look
+
+132
+00:03:08,509 --> 00:03:08,519
+using a heos link how it going to look
+ 
+
+133
+00:03:08,519 --> 00:03:10,550
+using a heos link how it going to look
+like so this is the response you will
+
+134
+00:03:10,550 --> 00:03:10,560
+like so this is the response you will
+ 
+
+135
+00:03:10,560 --> 00:03:14,030
+like so this is the response you will
+get when you add a particular user you
+
+136
+00:03:14,030 --> 00:03:14,040
+get when you add a particular user you
+ 
+
+137
+00:03:14,040 --> 00:03:16,710
+get when you add a particular user you
+got a user ID okay this ID is
+
+138
+00:03:16,710 --> 00:03:16,720
+got a user ID okay this ID is
+ 
+
+139
+00:03:16,720 --> 00:03:20,270
+got a user ID okay this ID is
+representing a unique ID in your DB
+
+140
+00:03:20,270 --> 00:03:20,280
+representing a unique ID in your DB
+ 
+
+141
+00:03:20,280 --> 00:03:22,750
+representing a unique ID in your DB
+through which you can fet the details so
+
+142
+00:03:22,750 --> 00:03:22,760
+through which you can fet the details so
+ 
+
+143
+00:03:22,760 --> 00:03:25,670
+through which you can fet the details so
+we return a user ID and let's say name
+
+144
+00:03:25,670 --> 00:03:25,680
+we return a user ID and let's say name
+ 
+
+145
+00:03:25,680 --> 00:03:27,270
+we return a user ID and let's say name
+and currently what is the verified
+
+146
+00:03:27,270 --> 00:03:27,280
+and currently what is the verified
+ 
+
+147
+00:03:27,280 --> 00:03:30,670
+and currently what is the verified
+status let's say it's unverified
+
+148
+00:03:30,670 --> 00:03:30,680
+status let's say it's unverified
+ 
+
+149
+00:03:30,680 --> 00:03:33,990
+status let's say it's unverified
+but what if I want to use heos Link heos
+
+150
+00:03:33,990 --> 00:03:34,000
+but what if I want to use heos Link heos
+ 
+
+151
+00:03:34,000 --> 00:03:36,509
+but what if I want to use heos Link heos
+restful API so in this case with heos
+
+152
+00:03:36,509 --> 00:03:36,519
+restful API so in this case with heos
+ 
+
+153
+00:03:36,519 --> 00:03:39,309
+restful API so in this case with heos
+link this is how the response generally
+
+154
+00:03:39,309 --> 00:03:39,319
+link this is how the response generally
+ 
+
+155
+00:03:39,319 --> 00:03:40,229
+link this is how the response generally
+looks
+
+156
+00:03:40,229 --> 00:03:40,239
+looks
+ 
+
+157
+00:03:40,239 --> 00:03:44,390
+looks
+like we send the user ID same name
+
+158
+00:03:44,390 --> 00:03:44,400
+like we send the user ID same name
+ 
+
+159
+00:03:44,400 --> 00:03:48,550
+like we send the user ID same name
+verify status unverified but see this
+
+160
+00:03:48,550 --> 00:03:48,560
+verify status unverified but see this
+ 
+
+161
+00:03:48,560 --> 00:03:53,750
+verify status unverified but see this
+is so links inside links we send what
+
+162
+00:03:53,750 --> 00:03:53,760
+is so links inside links we send what
+ 
+
+163
+00:03:53,760 --> 00:03:56,990
+is so links inside links we send what
+all the next step you can do so it's an
+
+164
+00:03:56,990 --> 00:03:57,000
+all the next step you can do so it's an
+ 
+
+165
+00:03:57,000 --> 00:04:00,429
+all the next step you can do so it's an
+array so it's an array you can even have
+
+166
+00:04:00,429 --> 00:04:00,439
+array so it's an array you can even have
+ 
+
+167
+00:04:00,439 --> 00:04:04,270
+array so it's an array you can even have
+more like this so all the actions which
+
+168
+00:04:04,270 --> 00:04:04,280
+more like this so all the actions which
+ 
+
+169
+00:04:04,280 --> 00:04:05,470
+more like this so all the actions which
+can be
+
+170
+00:04:05,470 --> 00:04:05,480
+can be
+ 
+
+171
+00:04:05,480 --> 00:04:10,229
+can be
+done after this current state what all
+
+172
+00:04:10,229 --> 00:04:10,239
+done after this current state what all
+ 
+
+173
+00:04:10,239 --> 00:04:13,229
+done after this current state what all
+the next things you can do you can put
+
+174
+00:04:13,229 --> 00:04:13,239
+the next things you can do you can put
+ 
+
+175
+00:04:13,239 --> 00:04:15,429
+the next things you can do you can put
+it into the links so here I have just
+
+176
+00:04:15,429 --> 00:04:15,439
+it into the links so here I have just
+ 
+
+177
+00:04:15,439 --> 00:04:18,469
+it into the links so here I have just
+for example I have added one link where
+
+178
+00:04:18,469 --> 00:04:18,479
+for example I have added one link where
+ 
+
+179
+00:04:18,479 --> 00:04:20,710
+for example I have added one link where
+it says that relation is
+
+180
+00:04:20,710 --> 00:04:20,720
+it says that relation is
+ 
+
+181
+00:04:20,720 --> 00:04:24,270
+it says that relation is
+self the URI and what is the type so
+
+182
+00:04:24,270 --> 00:04:24,280
+self the URI and what is the type so
+ 
+
+183
+00:04:24,280 --> 00:04:27,070
+self the URI and what is the type so
+this is nothing but a HTTP method for
+
+184
+00:04:27,070 --> 00:04:27,080
+this is nothing but a HTTP method for
+ 
+
+185
+00:04:27,080 --> 00:04:29,469
+this is nothing but a HTTP method for
+this URI whether it's a get call Post
+
+186
+00:04:29,469 --> 00:04:29,479
+this URI whether it's a get call Post
+ 
+
+187
+00:04:29,479 --> 00:04:32,950
+this URI whether it's a get call Post
+call patch call delete call so we can
+
+188
+00:04:32,950 --> 00:04:32,960
+call patch call delete call so we can
+ 
+
+189
+00:04:32,960 --> 00:04:37,990
+call patch call delete call so we can
+add that URI is the what is the next URI
+
+190
+00:04:37,990 --> 00:04:38,000
+add that URI is the what is the next URI
+ 
+
+191
+00:04:38,000 --> 00:04:39,230
+add that URI is the what is the next URI
+can be
+
+192
+00:04:39,230 --> 00:04:39,240
+can be
+ 
+
+193
+00:04:39,240 --> 00:04:42,469
+can be
+invoked right and what is the relation
+
+194
+00:04:42,469 --> 00:04:42,479
+invoked right and what is the relation
+ 
+
+195
+00:04:42,479 --> 00:04:44,070
+invoked right and what is the relation
+of this
+
+196
+00:04:44,070 --> 00:04:44,080
+of this
+ 
+
+197
+00:04:44,080 --> 00:04:48,350
+of this
+API with this current
+
+198
+00:04:48,350 --> 00:04:48,360
+API with this current
+ 
+
+199
+00:04:48,360 --> 00:04:52,590
+API with this current
+state okay so currently I put self means
+
+200
+00:04:52,590 --> 00:04:52,600
+state okay so currently I put self means
+ 
+
+201
+00:04:52,600 --> 00:04:56,749
+state okay so currently I put self means
+this API will return you the details of
+
+202
+00:04:56,749 --> 00:04:56,759
+this API will return you the details of
+ 
+
+203
+00:04:56,759 --> 00:04:59,830
+this API will return you the details of
+this only it's generally a get call self
+
+204
+00:04:59,830 --> 00:04:59,840
+this only it's generally a get call self
+ 
+
+205
+00:04:59,840 --> 00:05:02,469
+this only it's generally a get call self
+is always def facto you can say that
+
+206
+00:05:02,469 --> 00:05:02,479
+is always def facto you can say that
+ 
+
+207
+00:05:02,479 --> 00:05:04,590
+is always def facto you can say that
+even if I don't write get right and if
+
+208
+00:05:04,590 --> 00:05:04,600
+even if I don't write get right and if
+ 
+
+209
+00:05:04,600 --> 00:05:07,390
+even if I don't write get right and if
+it is relation is self it's a def facto
+
+210
+00:05:07,390 --> 00:05:07,400
+it is relation is self it's a def facto
+ 
+
+211
+00:05:07,400 --> 00:05:09,510
+it is relation is self it's a def facto
+it's like a get call for this one if you
+
+212
+00:05:09,510 --> 00:05:09,520
+it's like a get call for this one if you
+ 
+
+213
+00:05:09,520 --> 00:05:12,670
+it's like a get call for this one if you
+have to F the details of this user ID
+
+214
+00:05:12,670 --> 00:05:12,680
+have to F the details of this user ID
+ 
+
+215
+00:05:12,680 --> 00:05:14,909
+have to F the details of this user ID
+generally self represent that only that
+
+216
+00:05:14,909 --> 00:05:14,919
+generally self represent that only that
+ 
+
+217
+00:05:14,919 --> 00:05:17,510
+generally self represent that only that
+it's a get call
+
+218
+00:05:17,510 --> 00:05:17,520
+it's a get call
+ 
+
+219
+00:05:17,520 --> 00:05:20,430
+it's a get call
+okay but still we will see more details
+
+220
+00:05:20,430 --> 00:05:20,440
+okay but still we will see more details
+ 
+
+221
+00:05:20,440 --> 00:05:23,309
+okay but still we will see more details
+about it but for now what I wanted to
+
+222
+00:05:23,309 --> 00:05:23,319
+about it but for now what I wanted to
+ 
+
+223
+00:05:23,319 --> 00:05:26,550
+about it but for now what I wanted to
+show you without hatos link generally
+
+224
+00:05:26,550 --> 00:05:26,560
+show you without hatos link generally
+ 
+
+225
+00:05:26,560 --> 00:05:29,230
+show you without hatos link generally
+what how the response look like and with
+
+226
+00:05:29,230 --> 00:05:29,240
+what how the response look like and with
+ 
+
+227
+00:05:29,240 --> 00:05:30,390
+what how the response look like and with
+hatos
+
+228
+00:05:30,390 --> 00:05:30,400
+hatos
+ 
+
+229
+00:05:30,400 --> 00:05:32,950
+hatos
+how the response generally looks like so
+
+230
+00:05:32,950 --> 00:05:32,960
+how the response generally looks like so
+ 
+
+231
+00:05:32,960 --> 00:05:34,790
+how the response generally looks like so
+this is what
+
+232
+00:05:34,790 --> 00:05:34,800
+this is what
+ 
+
+233
+00:05:34,800 --> 00:05:38,950
+this is what
+actually important here we
+
+234
+00:05:38,950 --> 00:05:38,960
+actually important here we
+ 
+
+235
+00:05:38,960 --> 00:05:43,430
+actually important here we
+provide what all the next action can be
+
+236
+00:05:43,430 --> 00:05:43,440
+provide what all the next action can be
+ 
+
+237
+00:05:43,440 --> 00:05:46,510
+provide what all the next action can be
+taken after this
+
+238
+00:05:46,510 --> 00:05:46,520
+taken after this
+ 
+
+239
+00:05:46,520 --> 00:05:49,749
+taken after this
+step how to do that I will tell
+
+240
+00:05:49,749 --> 00:05:49,759
+step how to do that I will tell
+ 
+
+241
+00:05:49,759 --> 00:05:54,270
+step how to do that I will tell
+you but before understanding how to do
+
+242
+00:05:54,270 --> 00:05:54,280
+you but before understanding how to do
+ 
+
+243
+00:05:54,280 --> 00:05:58,270
+you but before understanding how to do
+this let's understand when to use and
+
+244
+00:05:58,270 --> 00:05:58,280
+this let's understand when to use and
+ 
+
+245
+00:05:58,280 --> 00:06:00,749
+this let's understand when to use and
+why to use hatos Lang very important
+
+246
+00:06:00,749 --> 00:06:00,759
+why to use hatos Lang very important
+ 
+
+247
+00:06:00,759 --> 00:06:04,350
+why to use hatos Lang very important
+right so the are two major purpose of
+
+248
+00:06:04,350 --> 00:06:04,360
+right so the are two major purpose of
+ 
+
+249
+00:06:04,360 --> 00:06:07,749
+right so the are two major purpose of
+using hatos link right and the two major
+
+250
+00:06:07,749 --> 00:06:07,759
+using hatos link right and the two major
+ 
+
+251
+00:06:07,759 --> 00:06:11,029
+using hatos link right and the two major
+purpose we want to use heos is to
+
+252
+00:06:11,029 --> 00:06:11,039
+purpose we want to use heos is to
+ 
+
+253
+00:06:11,039 --> 00:06:14,710
+purpose we want to use heos is to
+achieve loose coupling and API
+
+254
+00:06:14,710 --> 00:06:14,720
+achieve loose coupling and API
+ 
+
+255
+00:06:14,720 --> 00:06:17,150
+achieve loose coupling and API
+Discovery so when I say that loose
+
+256
+00:06:17,150 --> 00:06:17,160
+Discovery so when I say that loose
+ 
+
+257
+00:06:17,160 --> 00:06:19,029
+Discovery so when I say that loose
+coupling is loose coupling
+
+258
+00:06:19,029 --> 00:06:19,039
+coupling is loose coupling
+ 
+
+259
+00:06:19,039 --> 00:06:21,309
+coupling is loose coupling
+between your
+
+260
+00:06:21,309 --> 00:06:21,319
+between your
+ 
+
+261
+00:06:21,319 --> 00:06:23,710
+between your
+client and
+
+262
+00:06:23,710 --> 00:06:23,720
+client and
+ 
+
+263
+00:06:23,720 --> 00:06:27,909
+client and
+server
+
+264
+00:06:27,909 --> 00:06:27,919
+
+ 
+
+265
+00:06:27,919 --> 00:06:30,350
+
+application and when I say that API
+
+266
+00:06:30,350 --> 00:06:30,360
+application and when I say that API
+ 
+
+267
+00:06:30,360 --> 00:06:32,270
+application and when I say that API
+Discovery what I mean is that let's say
+
+268
+00:06:32,270 --> 00:06:32,280
+Discovery what I mean is that let's say
+ 
+
+269
+00:06:32,280 --> 00:06:35,110
+Discovery what I mean is that let's say
+at server there are hundreds of
+
+270
+00:06:35,110 --> 00:06:35,120
+at server there are hundreds of
+ 
+
+271
+00:06:35,120 --> 00:06:39,230
+at server there are hundreds of
+apis so client should not have like
+
+272
+00:06:39,230 --> 00:06:39,240
+apis so client should not have like
+ 
+
+273
+00:06:39,240 --> 00:06:42,270
+apis so client should not have like
+difficult time to understand like okay
+
+274
+00:06:42,270 --> 00:06:42,280
+difficult time to understand like okay
+ 
+
+275
+00:06:42,280 --> 00:06:45,029
+difficult time to understand like okay
+uh where this API going to be used where
+
+276
+00:06:45,029 --> 00:06:45,039
+uh where this API going to be used where
+ 
+
+277
+00:06:45,039 --> 00:06:47,309
+uh where this API going to be used where
+this API going to be used what should be
+
+278
+00:06:47,309 --> 00:06:47,319
+this API going to be used what should be
+ 
+
+279
+00:06:47,319 --> 00:06:51,430
+this API going to be used what should be
+the API for this so in the links itself
+
+280
+00:06:51,430 --> 00:06:51,440
+the API for this so in the links itself
+ 
+
+281
+00:06:51,440 --> 00:06:55,710
+the API for this so in the links itself
+you are getting your uh API showed that
+
+282
+00:06:55,710 --> 00:06:55,720
+you are getting your uh API showed that
+ 
+
+283
+00:06:55,720 --> 00:06:58,589
+you are getting your uh API showed that
+hey invoke this API you can invoke this
+
+284
+00:06:58,589 --> 00:06:58,599
+hey invoke this API you can invoke this
+ 
+
+285
+00:06:58,599 --> 00:07:00,189
+hey invoke this API you can invoke this
+API after this one
+
+286
+00:07:00,189 --> 00:07:00,199
+API after this one
+ 
+
+287
+00:07:00,199 --> 00:07:02,469
+API after this one
+you can invoke all this this API after
+
+288
+00:07:02,469 --> 00:07:02,479
+you can invoke all this this API after
+ 
+
+289
+00:07:02,479 --> 00:07:05,589
+you can invoke all this this API after
+this okay so that's what I mean here API
+
+290
+00:07:05,589 --> 00:07:05,599
+this okay so that's what I mean here API
+ 
+
+291
+00:07:05,599 --> 00:07:08,189
+this okay so that's what I mean here API
+Discovery even though client not need to
+
+292
+00:07:08,189 --> 00:07:08,199
+Discovery even though client not need to
+ 
+
+293
+00:07:08,199 --> 00:07:11,510
+Discovery even though client not need to
+have like okay what all the different
+
+294
+00:07:11,510 --> 00:07:11,520
+have like okay what all the different
+ 
+
+295
+00:07:11,520 --> 00:07:15,309
+have like okay what all the different
+apis are available server here tell me
+
+296
+00:07:15,309 --> 00:07:15,319
+apis are available server here tell me
+ 
+
+297
+00:07:15,319 --> 00:07:17,790
+apis are available server here tell me
+no it's not required even server in the
+
+298
+00:07:17,790 --> 00:07:17,800
+no it's not required even server in the
+ 
+
+299
+00:07:17,800 --> 00:07:20,830
+no it's not required even server in the
+links itself can tell these are the five
+
+300
+00:07:20,830 --> 00:07:20,840
+links itself can tell these are the five
+ 
+
+301
+00:07:20,840 --> 00:07:23,990
+links itself can tell these are the five
+apis now eligible after this particular
+
+302
+00:07:23,990 --> 00:07:24,000
+apis now eligible after this particular
+ 
+
+303
+00:07:24,000 --> 00:07:27,990
+apis now eligible after this particular
+step now client can use
+
+304
+00:07:27,990 --> 00:07:28,000
+
+ 
+
+305
+00:07:28,000 --> 00:07:31,869
+
+those now to achieve above server
+
+306
+00:07:31,869 --> 00:07:31,879
+those now to achieve above server
+ 
+
+307
+00:07:31,879 --> 00:07:34,909
+those now to achieve above server
+provide the next set of API action in
+
+308
+00:07:34,909 --> 00:07:34,919
+provide the next set of API action in
+ 
+
+309
+00:07:34,919 --> 00:07:38,350
+provide the next set of API action in
+the response itself right which client
+
+310
+00:07:38,350 --> 00:07:38,360
+the response itself right which client
+ 
+
+311
+00:07:38,360 --> 00:07:40,390
+the response itself right which client
+can take so that client have less
+
+312
+00:07:40,390 --> 00:07:40,400
+can take so that client have less
+ 
+
+313
+00:07:40,400 --> 00:07:42,909
+can take so that client have less
+business logic around apis which API to
+
+314
+00:07:42,909 --> 00:07:42,919
+business logic around apis which API to
+ 
+
+315
+00:07:42,919 --> 00:07:46,110
+business logic around apis which API to
+invoke when to invoke how to
+
+316
+00:07:46,110 --> 00:07:46,120
+invoke when to invoke how to
+ 
+
+317
+00:07:46,120 --> 00:07:48,029
+invoke when to invoke how to
+invoke but
+
+318
+00:07:48,029 --> 00:07:48,039
+invoke but
+ 
+
+319
+00:07:48,039 --> 00:07:51,430
+invoke but
+remember adding all the next set of
+
+320
+00:07:51,430 --> 00:07:51,440
+remember adding all the next set of
+ 
+
+321
+00:07:51,440 --> 00:07:54,950
+remember adding all the next set of
+action can make our API response blow up
+
+322
+00:07:54,950 --> 00:07:54,960
+action can make our API response blow up
+ 
+
+323
+00:07:54,960 --> 00:07:58,149
+action can make our API response blow up
+and has several disadvantage before
+
+324
+00:07:58,149 --> 00:07:58,159
+and has several disadvantage before
+ 
+
+325
+00:07:58,159 --> 00:07:59,869
+and has several disadvantage before
+telling you the disadvantage let see
+
+326
+00:07:59,869 --> 00:07:59,879
+telling you the disadvantage let see
+ 
+
+327
+00:07:59,879 --> 00:08:03,629
+telling you the disadvantage let see
+this response now let's say that I
+
+328
+00:08:03,629 --> 00:08:03,639
+this response now let's say that I
+ 
+
+329
+00:08:03,639 --> 00:08:06,629
+this response now let's say that I
+showed you this example right now let's
+
+330
+00:08:06,629 --> 00:08:06,639
+showed you this example right now let's
+ 
+
+331
+00:08:06,639 --> 00:08:09,550
+showed you this example right now let's
+say that when the user has been added
+
+332
+00:08:09,550 --> 00:08:09,560
+say that when the user has been added
+ 
+
+333
+00:08:09,560 --> 00:08:13,270
+say that when the user has been added
+through post API this/ add user now in
+
+334
+00:08:13,270 --> 00:08:13,280
+through post API this/ add user now in
+ 
+
+335
+00:08:13,280 --> 00:08:16,550
+through post API this/ add user now in
+the response I am sending the
+
+336
+00:08:16,550 --> 00:08:16,560
+the response I am sending the
+ 
+
+337
+00:08:16,560 --> 00:08:20,350
+the response I am sending the
+next actions link what can be performed
+
+338
+00:08:20,350 --> 00:08:20,360
+next actions link what can be performed
+ 
+
+339
+00:08:20,360 --> 00:08:23,909
+next actions link what can be performed
+so I can do get call delete call verify
+
+340
+00:08:23,909 --> 00:08:23,919
+so I can do get call delete call verify
+ 
+
+341
+00:08:23,919 --> 00:08:26,350
+so I can do get call delete call verify
+call something something something now
+
+342
+00:08:26,350 --> 00:08:26,360
+call something something something now
+ 
+
+343
+00:08:26,360 --> 00:08:30,270
+call something something something now
+if I add all the links like this so
+
+344
+00:08:30,270 --> 00:08:30,280
+if I add all the links like this so
+ 
+
+345
+00:08:30,280 --> 00:08:33,509
+if I add all the links like this so
+after post let's say
+
+346
+00:08:33,509 --> 00:08:33,519
+after post let's say
+ 
+
+347
+00:08:33,519 --> 00:08:36,750
+after post let's say
+post add user
+
+348
+00:08:36,750 --> 00:08:36,760
+post add user
+ 
+
+349
+00:08:36,760 --> 00:08:40,790
+post add user
+call now if my response looks like this
+
+350
+00:08:40,790 --> 00:08:40,800
+call now if my response looks like this
+ 
+
+351
+00:08:40,800 --> 00:08:42,709
+call now if my response looks like this
+hey in the link I am providing hey you
+
+352
+00:08:42,709 --> 00:08:42,719
+hey in the link I am providing hey you
+ 
+
+353
+00:08:42,719 --> 00:08:45,910
+hey in the link I am providing hey you
+can invoke get call you can invoke
+
+354
+00:08:45,910 --> 00:08:45,920
+can invoke get call you can invoke
+ 
+
+355
+00:08:45,920 --> 00:08:49,269
+can invoke get call you can invoke
+delete so type I have put delete this is
+
+356
+00:08:49,269 --> 00:08:49,279
+delete so type I have put delete this is
+ 
+
+357
+00:08:49,279 --> 00:08:51,990
+delete so type I have put delete this is
+the API URI and the relation I have put
+
+358
+00:08:51,990 --> 00:08:52,000
+the API URI and the relation I have put
+ 
+
+359
+00:08:52,000 --> 00:08:54,670
+the API URI and the relation I have put
+is that hey this the relation of this
+
+360
+00:08:54,670 --> 00:08:54,680
+is that hey this the relation of this
+ 
+
+361
+00:08:54,680 --> 00:08:58,069
+is that hey this the relation of this
+API after the this next step is to
+
+362
+00:08:58,069 --> 00:08:58,079
+API after the this next step is to
+ 
+
+363
+00:08:58,079 --> 00:09:02,550
+API after the this next step is to
+remove it okay so I have put remove then
+
+364
+00:09:02,550 --> 00:09:02,560
+remove it okay so I have put remove then
+ 
+
+365
+00:09:02,560 --> 00:09:04,509
+remove it okay so I have put remove then
+you can also update it so for example I
+
+366
+00:09:04,509 --> 00:09:04,519
+you can also update it so for example I
+ 
+
+367
+00:09:04,519 --> 00:09:06,750
+you can also update it so for example I
+have just put hey you can use this API
+
+368
+00:09:06,750 --> 00:09:06,760
+have just put hey you can use this API
+ 
+
+369
+00:09:06,760 --> 00:09:10,150
+have just put hey you can use this API
+it's a patch and relation is you
+
+370
+00:09:10,150 --> 00:09:10,160
+it's a patch and relation is you
+ 
+
+371
+00:09:10,160 --> 00:09:13,150
+it's a patch and relation is you
+updation you can do verify you can
+
+372
+00:09:13,150 --> 00:09:13,160
+updation you can do verify you can
+ 
+
+373
+00:09:13,160 --> 00:09:15,430
+updation you can do verify you can
+either you can do verify start or verify
+
+374
+00:09:15,430 --> 00:09:15,440
+either you can do verify start or verify
+ 
+
+375
+00:09:15,440 --> 00:09:17,829
+either you can do verify start or verify
+finished depend because still verify is
+
+376
+00:09:17,829 --> 00:09:17,839
+finished depend because still verify is
+ 
+
+377
+00:09:17,839 --> 00:09:21,150
+finished depend because still verify is
+not finished it is still in unverified
+
+378
+00:09:21,150 --> 00:09:21,160
+not finished it is still in unverified
+ 
+
+379
+00:09:21,160 --> 00:09:25,190
+not finished it is still in unverified
+so both are eligible verify start is
+
+380
+00:09:25,190 --> 00:09:25,200
+so both are eligible verify start is
+ 
+
+381
+00:09:25,200 --> 00:09:27,949
+so both are eligible verify start is
+also an eligible operation verify finish
+
+382
+00:09:27,949 --> 00:09:27,959
+also an eligible operation verify finish
+ 
+
+383
+00:09:27,959 --> 00:09:29,590
+also an eligible operation verify finish
+is also an eligible operation because
+
+384
+00:09:29,590 --> 00:09:29,600
+is also an eligible operation because
+ 
+
+385
+00:09:29,600 --> 00:09:31,910
+is also an eligible operation because
+currently status is
+
+386
+00:09:31,910 --> 00:09:31,920
+currently status is
+ 
+
+387
+00:09:31,920 --> 00:09:34,910
+currently status is
+unverified so now here if you see one
+
+388
+00:09:34,910 --> 00:09:34,920
+unverified so now here if you see one
+ 
+
+389
+00:09:34,920 --> 00:09:39,829
+unverified so now here if you see one
+thing if we keep on adding next set of
+
+390
+00:09:39,829 --> 00:09:39,839
+thing if we keep on adding next set of
+ 
+
+391
+00:09:39,839 --> 00:09:42,750
+thing if we keep on adding next set of
+operation this is just a very basic use
+
+392
+00:09:42,750 --> 00:09:42,760
+operation this is just a very basic use
+ 
+
+393
+00:09:42,760 --> 00:09:44,310
+operation this is just a very basic use
+case I have taken and now here if you
+
+394
+00:09:44,310 --> 00:09:44,320
+case I have taken and now here if you
+ 
+
+395
+00:09:44,320 --> 00:09:47,590
+case I have taken and now here if you
+see 1 2 3 for five links I have added
+
+396
+00:09:47,590 --> 00:09:47,600
+see 1 2 3 for five links I have added
+ 
+
+397
+00:09:47,600 --> 00:09:50,069
+see 1 2 3 for five links I have added
+now in a big Industries after a
+
+398
+00:09:50,069 --> 00:09:50,079
+now in a big Industries after a
+ 
+
+399
+00:09:50,079 --> 00:09:52,430
+now in a big Industries after a
+particular step there are so many things
+
+400
+00:09:52,430 --> 00:09:52,440
+particular step there are so many things
+ 
+
+401
+00:09:52,440 --> 00:09:56,030
+particular step there are so many things
+is possible if you keep on adding all
+
+402
+00:09:56,030 --> 00:09:56,040
+is possible if you keep on adding all
+ 
+
+403
+00:09:56,040 --> 00:09:59,550
+is possible if you keep on adding all
+the next set of operations
+
+404
+00:09:59,550 --> 00:09:59,560
+the next set of operations
+ 
+
+405
+00:09:59,560 --> 00:10:02,990
+the next set of operations
+it going to bloat your API
+
+406
+00:10:02,990 --> 00:10:03,000
+it going to bloat your API
+ 
+
+407
+00:10:03,000 --> 00:10:05,350
+it going to bloat your API
+response right and that's where
+
+408
+00:10:05,350 --> 00:10:05,360
+response right and that's where
+ 
+
+409
+00:10:05,360 --> 00:10:07,389
+response right and that's where
+everywhere we say that never use it
+
+410
+00:10:07,389 --> 00:10:07,399
+everywhere we say that never use it
+ 
+
+411
+00:10:07,399 --> 00:10:10,150
+everywhere we say that never use it
+never use it because if you use it
+
+412
+00:10:10,150 --> 00:10:10,160
+never use it because if you use it
+ 
+
+413
+00:10:10,160 --> 00:10:12,870
+never use it because if you use it
+heavily if you keep on putting the next
+
+414
+00:10:12,870 --> 00:10:12,880
+heavily if you keep on putting the next
+ 
+
+415
+00:10:12,880 --> 00:10:15,389
+heavily if you keep on putting the next
+set of action
+
+416
+00:10:15,389 --> 00:10:15,399
+set of action
+ 
+
+417
+00:10:15,399 --> 00:10:19,870
+set of action
+ultimately not recommended at all right
+
+418
+00:10:19,870 --> 00:10:19,880
+ultimately not recommended at all right
+ 
+
+419
+00:10:19,880 --> 00:10:21,829
+ultimately not recommended at all right
+why because it will increase the
+
+420
+00:10:21,829 --> 00:10:21,839
+why because it will increase the
+ 
+
+421
+00:10:21,839 --> 00:10:24,269
+why because it will increase the
+complexity as server side why it will
+
+422
+00:10:24,269 --> 00:10:24,279
+complexity as server side why it will
+ 
+
+423
+00:10:24,279 --> 00:10:26,269
+complexity as server side why it will
+increase the complexity of server side
+
+424
+00:10:26,269 --> 00:10:26,279
+increase the complexity of server side
+ 
+
+425
+00:10:26,279 --> 00:10:28,670
+increase the complexity of server side
+because see all this links are Dynamic
+
+426
+00:10:28,670 --> 00:10:28,680
+because see all this links are Dynamic
+ 
+
+427
+00:10:28,680 --> 00:10:31,670
+because see all this links are Dynamic
+it's not static links based upon the
+
+428
+00:10:31,670 --> 00:10:31,680
+it's not static links based upon the
+ 
+
+429
+00:10:31,680 --> 00:10:34,389
+it's not static links based upon the
+current state I am
+
+430
+00:10:34,389 --> 00:10:34,399
+current state I am
+ 
+
+431
+00:10:34,399 --> 00:10:36,430
+current state I am
+determining what
+
+432
+00:10:36,430 --> 00:10:36,440
+determining what
+ 
+
+433
+00:10:36,440 --> 00:10:40,069
+determining what
+all what all steps are applicable so I'm
+
+434
+00:10:40,069 --> 00:10:40,079
+all what all steps are applicable so I'm
+ 
+
+435
+00:10:40,079 --> 00:10:42,750
+all what all steps are applicable so I'm
+creating those links dynamically right
+
+436
+00:10:42,750 --> 00:10:42,760
+creating those links dynamically right
+ 
+
+437
+00:10:42,760 --> 00:10:46,949
+creating those links dynamically right
+for you might be some other idid getting
+
+438
+00:10:46,949 --> 00:10:46,959
+for you might be some other idid getting
+ 
+
+439
+00:10:46,959 --> 00:10:48,949
+for you might be some other idid getting
+created for me some other ID getting
+
+440
+00:10:48,949 --> 00:10:48,959
+created for me some other ID getting
+ 
+
+441
+00:10:48,959 --> 00:10:51,430
+created for me some other ID getting
+created so it's all Dynamic so at if you
+
+442
+00:10:51,430 --> 00:10:51,440
+created so it's all Dynamic so at if you
+ 
+
+443
+00:10:51,440 --> 00:10:55,230
+created so it's all Dynamic so at if you
+are at step one this three actions is
+
+444
+00:10:55,230 --> 00:10:55,240
+are at step one this three actions is
+ 
+
+445
+00:10:55,240 --> 00:10:56,949
+are at step one this three actions is
+getting into the link if you are at a
+
+446
+00:10:56,949 --> 00:10:56,959
+getting into the link if you are at a
+ 
+
+447
+00:10:56,959 --> 00:10:59,030
+getting into the link if you are at a
+step two only these two links are
+
+448
+00:10:59,030 --> 00:10:59,040
+step two only these two links are
+ 
+
+449
+00:10:59,040 --> 00:11:01,269
+step two only these two links are
+getting created so these are dynamically
+
+450
+00:11:01,269 --> 00:11:01,279
+getting created so these are dynamically
+ 
+
+451
+00:11:01,279 --> 00:11:03,230
+getting created so these are dynamically
+at server side so means you are
+
+452
+00:11:03,230 --> 00:11:03,240
+at server side so means you are
+ 
+
+453
+00:11:03,240 --> 00:11:06,590
+at server side so means you are
+increasing the complexity at server side
+
+454
+00:11:06,590 --> 00:11:06,600
+increasing the complexity at server side
+ 
+
+455
+00:11:06,600 --> 00:11:09,230
+increasing the complexity at server side
+and also when you are adding this uh
+
+456
+00:11:09,230 --> 00:11:09,240
+and also when you are adding this uh
+ 
+
+457
+00:11:09,240 --> 00:11:12,430
+and also when you are adding this uh
+business logic you are increasing the
+
+458
+00:11:12,430 --> 00:11:12,440
+business logic you are increasing the
+ 
+
+459
+00:11:12,440 --> 00:11:15,750
+business logic you are increasing the
+payload size also and ultimately it
+
+460
+00:11:15,750 --> 00:11:15,760
+payload size also and ultimately it
+ 
+
+461
+00:11:15,760 --> 00:11:18,990
+payload size also and ultimately it
+nothing it will impact your latency
+
+462
+00:11:18,990 --> 00:11:19,000
+nothing it will impact your latency
+ 
+
+463
+00:11:19,000 --> 00:11:23,910
+nothing it will impact your latency
+too so never ever add all the possible
+
+464
+00:11:23,910 --> 00:11:23,920
+too so never ever add all the possible
+ 
+
+465
+00:11:23,920 --> 00:11:26,310
+too so never ever add all the possible
+next set of action just like that never
+
+466
+00:11:26,310 --> 00:11:26,320
+next set of action just like that never
+ 
+
+467
+00:11:26,320 --> 00:11:30,629
+next set of action just like that never
+ever do that hey this this is all 10 20
+
+468
+00:11:30,629 --> 00:11:30,639
+ever do that hey this this is all 10 20
+ 
+
+469
+00:11:30,639 --> 00:11:34,550
+ever do that hey this this is all 10 20
+actions are possible do that no so now
+
+470
+00:11:34,550 --> 00:11:34,560
+actions are possible do that no so now
+ 
+
+471
+00:11:34,560 --> 00:11:38,069
+actions are possible do that no so now
+you can ask me right hey if I if I can't
+
+472
+00:11:38,069 --> 00:11:38,079
+you can ask me right hey if I if I can't
+ 
+
+473
+00:11:38,079 --> 00:11:42,310
+you can ask me right hey if I if I can't
+add all next set of action then what
+
+474
+00:11:42,310 --> 00:11:42,320
+add all next set of action then what
+ 
+
+475
+00:11:42,320 --> 00:11:44,629
+add all next set of action then what
+next set of action I can
+
+476
+00:11:44,629 --> 00:11:44,639
+next set of action I can
+ 
+
+477
+00:11:44,639 --> 00:11:49,150
+next set of action I can
+add I'll tell you but with this example
+
+478
+00:11:49,150 --> 00:11:49,160
+add I'll tell you but with this example
+ 
+
+479
+00:11:49,160 --> 00:11:51,910
+add I'll tell you but with this example
+first let's see this go back to
+
+480
+00:11:51,910 --> 00:11:51,920
+first let's see this go back to
+ 
+
+481
+00:11:51,920 --> 00:11:54,949
+first let's see this go back to
+again so we have to do proper analysis
+
+482
+00:11:54,949 --> 00:11:54,959
+again so we have to do proper analysis
+ 
+
+483
+00:11:54,959 --> 00:11:58,310
+again so we have to do proper analysis
+need to be done what actually will help
+
+484
+00:11:58,310 --> 00:11:58,320
+need to be done what actually will help
+ 
+
+485
+00:11:58,320 --> 00:12:01,190
+need to be done what actually will help
+us to achieve lose
+
+486
+00:12:01,190 --> 00:12:01,200
+us to achieve lose
+ 
+
+487
+00:12:01,200 --> 00:12:04,190
+us to achieve lose
+coupling now see this diagram
+
+488
+00:12:04,190 --> 00:12:04,200
+coupling now see this diagram
+ 
+
+489
+00:12:04,200 --> 00:12:05,949
+coupling now see this diagram
+again
+
+490
+00:12:05,949 --> 00:12:05,959
+again
+ 
+
+491
+00:12:05,959 --> 00:12:08,629
+again
+so just in one minute I will walk you
+
+492
+00:12:08,629 --> 00:12:08,639
+so just in one minute I will walk you
+ 
+
+493
+00:12:08,639 --> 00:12:10,190
+so just in one minute I will walk you
+through this diagram again what I'm
+
+494
+00:12:10,190 --> 00:12:10,200
+through this diagram again what I'm
+ 
+
+495
+00:12:10,200 --> 00:12:12,870
+through this diagram again what I'm
+trying to achieve so I have added a user
+
+496
+00:12:12,870 --> 00:12:12,880
+trying to achieve so I have added a user
+ 
+
+497
+00:12:12,880 --> 00:12:15,189
+trying to achieve so I have added a user
+through post API which user is in
+
+498
+00:12:15,189 --> 00:12:15,199
+through post API which user is in
+ 
+
+499
+00:12:15,199 --> 00:12:17,750
+through post API which user is in
+currently unverified State you can do a
+
+500
+00:12:17,750 --> 00:12:17,760
+currently unverified State you can do a
+ 
+
+501
+00:12:17,760 --> 00:12:19,990
+currently unverified State you can do a
+get call you can do delete it and even
+
+502
+00:12:19,990 --> 00:12:20,000
+get call you can do delete it and even
+ 
+
+503
+00:12:20,000 --> 00:12:23,590
+get call you can do delete it and even
+you can verify for verify you can do
+
+504
+00:12:23,590 --> 00:12:23,600
+you can verify for verify you can do
+ 
+
+505
+00:12:23,600 --> 00:12:26,710
+you can verify for verify you can do
+through SMS or through email and in both
+
+506
+00:12:26,710 --> 00:12:26,720
+through SMS or through email and in both
+ 
+
+507
+00:12:26,720 --> 00:12:29,590
+through SMS or through email and in both
+the way you first have to do this a API
+
+508
+00:12:29,590 --> 00:12:29,600
+the way you first have to do this a API
+ 
+
+509
+00:12:29,600 --> 00:12:32,389
+the way you first have to do this a API
+start SMS verify start and then SMI
+
+510
+00:12:32,389 --> 00:12:32,399
+start SMS verify start and then SMI
+ 
+
+511
+00:12:32,399 --> 00:12:33,350
+start SMS verify start and then SMI
+verify
+
+512
+00:12:33,350 --> 00:12:33,360
+verify
+ 
+
+513
+00:12:33,360 --> 00:12:36,550
+verify
+finish email email verify start email
+
+514
+00:12:36,550 --> 00:12:36,560
+finish email email verify start email
+ 
+
+515
+00:12:36,560 --> 00:12:39,750
+finish email email verify start email
+verify finish okay after this your user
+
+516
+00:12:39,750 --> 00:12:39,760
+verify finish okay after this your user
+ 
+
+517
+00:12:39,760 --> 00:12:42,030
+verify finish okay after this your user
+will get verified but let's say this is
+
+518
+00:12:42,030 --> 00:12:42,040
+will get verified but let's say this is
+ 
+
+519
+00:12:42,040 --> 00:12:44,829
+will get verified but let's say this is
+the diagram which I have done so now
+
+520
+00:12:44,829 --> 00:12:44,839
+the diagram which I have done so now
+ 
+
+521
+00:12:44,839 --> 00:12:47,350
+the diagram which I have done so now
+let's understand
+
+522
+00:12:47,350 --> 00:12:47,360
+let's understand
+ 
+
+523
+00:12:47,360 --> 00:12:51,389
+let's understand
+this so here if you see
+
+524
+00:12:51,389 --> 00:12:51,399
+this so here if you see
+ 
+
+525
+00:12:51,399 --> 00:12:54,230
+this so here if you see
+that let's forget that we are not using
+
+526
+00:12:54,230 --> 00:12:54,240
+that let's forget that we are not using
+ 
+
+527
+00:12:54,240 --> 00:12:59,230
+that let's forget that we are not using
+heos let's say that we are not using
+
+528
+00:12:59,230 --> 00:12:59,240
+heos let's say that we are not using
+ 
+
+529
+00:12:59,240 --> 00:13:01,189
+heos let's say that we are not using
+heos for a moment let's say we are not
+
+530
+00:13:01,189 --> 00:13:01,199
+heos for a moment let's say we are not
+ 
+
+531
+00:13:01,199 --> 00:13:04,910
+heos for a moment let's say we are not
+using it so how your response going to
+
+532
+00:13:04,910 --> 00:13:04,920
+using it so how your response going to
+ 
+
+533
+00:13:04,920 --> 00:13:08,269
+using it so how your response going to
+look like after this
+
+534
+00:13:08,269 --> 00:13:08,279
+look like after this
+ 
+
+535
+00:13:08,279 --> 00:13:10,870
+look like after this
+post add
+
+536
+00:13:10,870 --> 00:13:10,880
+post add
+ 
+
+537
+00:13:10,880 --> 00:13:14,389
+post add
+user call how your response going to
+
+538
+00:13:14,389 --> 00:13:14,399
+user call how your response going to
+ 
+
+539
+00:13:14,399 --> 00:13:17,310
+user call how your response going to
+look like so you are adding a user
+
+540
+00:13:17,310 --> 00:13:17,320
+look like so you are adding a user
+ 
+
+541
+00:13:17,320 --> 00:13:19,389
+look like so you are adding a user
+ID your
+
+542
+00:13:19,389 --> 00:13:19,399
+ID your
+ 
+
+543
+00:13:19,399 --> 00:13:22,350
+ID your
+name what is the current uh verify
+
+544
+00:13:22,350 --> 00:13:22,360
+name what is the current uh verify
+ 
+
+545
+00:13:22,360 --> 00:13:24,550
+name what is the current uh verify
+status it is
+
+546
+00:13:24,550 --> 00:13:24,560
+status it is
+ 
+
+547
+00:13:24,560 --> 00:13:28,350
+status it is
+unverified okay but also let's say that
+
+548
+00:13:28,350 --> 00:13:28,360
+unverified okay but also let's say that
+ 
+
+549
+00:13:28,360 --> 00:13:30,470
+unverified okay but also let's say that
+the server also Al do has the knowledge
+
+550
+00:13:30,470 --> 00:13:30,480
+the server also Al do has the knowledge
+ 
+
+551
+00:13:30,480 --> 00:13:32,150
+the server also Al do has the knowledge
+that okay for this
+
+552
+00:13:32,150 --> 00:13:32,160
+that okay for this
+ 
+
+553
+00:13:32,160 --> 00:13:35,629
+that okay for this
+country verify type should be SMS so
+
+554
+00:13:35,629 --> 00:13:35,639
+country verify type should be SMS so
+ 
+
+555
+00:13:35,639 --> 00:13:39,949
+country verify type should be SMS so
+that uh client should initiate a SMS
+
+556
+00:13:39,949 --> 00:13:39,959
+that uh client should initiate a SMS
+ 
+
+557
+00:13:39,959 --> 00:13:41,230
+that uh client should initiate a SMS
+verify
+
+558
+00:13:41,230 --> 00:13:41,240
+verify
+ 
+
+559
+00:13:41,240 --> 00:13:44,990
+verify
+start So currently verify type is SMS
+
+560
+00:13:44,990 --> 00:13:45,000
+start So currently verify type is SMS
+ 
+
+561
+00:13:45,000 --> 00:13:48,069
+start So currently verify type is SMS
+and verify state is currently not yet
+
+562
+00:13:48,069 --> 00:13:48,079
+and verify state is currently not yet
+ 
+
+563
+00:13:48,079 --> 00:13:50,949
+and verify state is currently not yet
+started SMS is not yet started so means
+
+564
+00:13:50,949 --> 00:13:50,959
+started SMS is not yet started so means
+ 
+
+565
+00:13:50,959 --> 00:13:53,749
+started SMS is not yet started so means
+it has to first start if it is already
+
+566
+00:13:53,749 --> 00:13:53,759
+it has to first start if it is already
+ 
+
+567
+00:13:53,759 --> 00:13:57,069
+it has to first start if it is already
+started means you can only do finish now
+
+568
+00:13:57,069 --> 00:13:57,079
+started means you can only do finish now
+ 
+
+569
+00:13:57,079 --> 00:13:59,590
+started means you can only do finish now
+so this is a very basic response let's
+
+570
+00:13:59,590 --> 00:13:59,600
+so this is a very basic response let's
+ 
+
+571
+00:13:59,600 --> 00:14:02,030
+so this is a very basic response let's
+say that the server is sending to the
+
+572
+00:14:02,030 --> 00:14:02,040
+say that the server is sending to the
+ 
+
+573
+00:14:02,040 --> 00:14:04,829
+say that the server is sending to the
+client currently user is
+
+574
+00:14:04,829 --> 00:14:04,839
+client currently user is
+ 
+
+575
+00:14:04,839 --> 00:14:07,829
+client currently user is
+unverified user can verify using type
+
+576
+00:14:07,829 --> 00:14:07,839
+unverified user can verify using type
+ 
+
+577
+00:14:07,839 --> 00:14:10,550
+unverified user can verify using type
+SMS and currently the verify state is
+
+578
+00:14:10,550 --> 00:14:10,560
+SMS and currently the verify state is
+ 
+
+579
+00:14:10,560 --> 00:14:12,069
+SMS and currently the verify state is
+not yet
+
+580
+00:14:12,069 --> 00:14:12,079
+not yet
+ 
+
+581
+00:14:12,079 --> 00:14:15,829
+not yet
+started so now see what the client logic
+
+582
+00:14:15,829 --> 00:14:15,839
+started so now see what the client logic
+ 
+
+583
+00:14:15,839 --> 00:14:18,870
+started so now see what the client logic
+look like see I not a uh client side uh
+
+584
+00:14:18,870 --> 00:14:18,880
+look like see I not a uh client side uh
+ 
+
+585
+00:14:18,880 --> 00:14:22,710
+look like see I not a uh client side uh
+engineer so definitely this code is not
+
+586
+00:14:22,710 --> 00:14:22,720
+engineer so definitely this code is not
+ 
+
+587
+00:14:22,720 --> 00:14:25,629
+engineer so definitely this code is not
+uh valid for client but the logic should
+
+588
+00:14:25,629 --> 00:14:25,639
+uh valid for client but the logic should
+ 
+
+589
+00:14:25,639 --> 00:14:27,670
+uh valid for client but the logic should
+be I think the same if the client has to
+
+590
+00:14:27,670 --> 00:14:27,680
+be I think the same if the client has to
+ 
+
+591
+00:14:27,680 --> 00:14:30,590
+be I think the same if the client has to
+code this way so what client will should
+
+592
+00:14:30,590 --> 00:14:30,600
+code this way so what client will should
+ 
+
+593
+00:14:30,600 --> 00:14:34,670
+code this way so what client will should
+do to get user
+
+594
+00:14:34,670 --> 00:14:34,680
+do to get user
+ 
+
+595
+00:14:34,680 --> 00:14:36,870
+do to get user
+verified so client will check this
+
+596
+00:14:36,870 --> 00:14:36,880
+verified so client will check this
+ 
+
+597
+00:14:36,880 --> 00:14:39,990
+verified so client will check this
+response hey if verify status is
+
+598
+00:14:39,990 --> 00:14:40,000
+response hey if verify status is
+ 
+
+599
+00:14:40,000 --> 00:14:42,430
+response hey if verify status is
+unverified yes it is reading from the
+
+600
+00:14:42,430 --> 00:14:42,440
+unverified yes it is reading from the
+ 
+
+601
+00:14:42,440 --> 00:14:46,670
+unverified yes it is reading from the
+response unverified go to the next step
+
+602
+00:14:46,670 --> 00:14:46,680
+response unverified go to the next step
+ 
+
+603
+00:14:46,680 --> 00:14:49,269
+response unverified go to the next step
+what is the verified type if it is SMS
+
+604
+00:14:49,269 --> 00:14:49,279
+what is the verified type if it is SMS
+ 
+
+605
+00:14:49,279 --> 00:14:54,829
+what is the verified type if it is SMS
+or email if it okay it is SMS go inside
+
+606
+00:14:54,829 --> 00:14:54,839
+or email if it okay it is SMS go inside
+ 
+
+607
+00:14:54,839 --> 00:14:58,389
+or email if it okay it is SMS go inside
+this does verify status has been started
+
+608
+00:14:58,389 --> 00:14:58,399
+this does verify status has been started
+ 
+
+609
+00:14:58,399 --> 00:14:59,550
+this does verify status has been started
+oh it's
+
+610
+00:14:59,550 --> 00:14:59,560
+oh it's
+ 
+
+611
+00:14:59,560 --> 00:15:03,150
+oh it's
+not yet started if it is not yet started
+
+612
+00:15:03,150 --> 00:15:03,160
+not yet started if it is not yet started
+ 
+
+613
+00:15:03,160 --> 00:15:07,629
+not yet started if it is not yet started
+means I have to call this API SMS verify
+
+614
+00:15:07,629 --> 00:15:07,639
+means I have to call this API SMS verify
+ 
+
+615
+00:15:07,639 --> 00:15:14,230
+means I have to call this API SMS verify
+start if the verify state is let's say
+
+616
+00:15:14,230 --> 00:15:14,240
+start if the verify state is let's say
+ 
+
+617
+00:15:14,240 --> 00:15:18,829
+start if the verify state is let's say
+started then I have to invoke SMS verify
+
+618
+00:15:18,829 --> 00:15:18,839
+started then I have to invoke SMS verify
+ 
+
+619
+00:15:18,839 --> 00:15:20,870
+started then I have to invoke SMS verify
+finish
+
+620
+00:15:20,870 --> 00:15:20,880
+finish
+ 
+
+621
+00:15:20,880 --> 00:15:24,710
+finish
+API and if it is an email the same thing
+
+622
+00:15:24,710 --> 00:15:24,720
+API and if it is an email the same thing
+ 
+
+623
+00:15:24,720 --> 00:15:28,389
+API and if it is an email the same thing
+if verify state is not yet started I
+
+624
+00:15:28,389 --> 00:15:28,399
+if verify state is not yet started I
+ 
+
+625
+00:15:28,399 --> 00:15:30,030
+if verify state is not yet started I
+have to
+
+626
+00:15:30,030 --> 00:15:30,040
+have to
+ 
+
+627
+00:15:30,040 --> 00:15:33,790
+have to
+call this API email verify start if
+
+628
+00:15:33,790 --> 00:15:33,800
+call this API email verify start if
+ 
+
+629
+00:15:33,800 --> 00:15:36,509
+call this API email verify start if
+verify state is started I have to call
+
+630
+00:15:36,509 --> 00:15:36,519
+verify state is started I have to call
+ 
+
+631
+00:15:36,519 --> 00:15:39,230
+verify state is started I have to call
+email verify finish so now here if you
+
+632
+00:15:39,230 --> 00:15:39,240
+email verify finish so now here if you
+ 
+
+633
+00:15:39,240 --> 00:15:41,629
+email verify finish so now here if you
+see this generally the client code
+
+634
+00:15:41,629 --> 00:15:41,639
+see this generally the client code
+ 
+
+635
+00:15:41,639 --> 00:15:45,309
+see this generally the client code
+should be present to initiate a
+
+636
+00:15:45,309 --> 00:15:45,319
+should be present to initiate a
+ 
+
+637
+00:15:45,319 --> 00:15:47,389
+should be present to initiate a
+verify for the
+
+638
+00:15:47,389 --> 00:15:47,399
+verify for the
+ 
+
+639
+00:15:47,399 --> 00:15:51,110
+verify for the
+user now I see that there is a lot tight
+
+640
+00:15:51,110 --> 00:15:51,120
+user now I see that there is a lot tight
+ 
+
+641
+00:15:51,120 --> 00:15:54,710
+user now I see that there is a lot tight
+coupling between clients and server
+
+642
+00:15:54,710 --> 00:15:54,720
+coupling between clients and server
+ 
+
+643
+00:15:54,720 --> 00:15:57,590
+coupling between clients and server
+client needs some info before it can
+
+644
+00:15:57,590 --> 00:15:57,600
+client needs some info before it can
+ 
+
+645
+00:15:57,600 --> 00:16:01,389
+client needs some info before it can
+decide which a API verify API to invoke
+
+646
+00:16:01,389 --> 00:16:01,399
+decide which a API verify API to invoke
+ 
+
+647
+00:16:01,399 --> 00:16:03,230
+decide which a API verify API to invoke
+now client here if you see lot of
+
+648
+00:16:03,230 --> 00:16:03,240
+now client here if you see lot of
+ 
+
+649
+00:16:03,240 --> 00:16:05,069
+now client here if you see lot of
+business logic why client has this
+
+650
+00:16:05,069 --> 00:16:05,079
+business logic why client has this
+ 
+
+651
+00:16:05,079 --> 00:16:08,309
+business logic why client has this
+business logic here if it is unverified
+
+652
+00:16:08,309 --> 00:16:08,319
+business logic here if it is unverified
+ 
+
+653
+00:16:08,319 --> 00:16:11,269
+business logic here if it is unverified
+whether through SMS or email if SMS
+
+654
+00:16:11,269 --> 00:16:11,279
+whether through SMS or email if SMS
+ 
+
+655
+00:16:11,279 --> 00:16:13,069
+whether through SMS or email if SMS
+whether it has been started or not
+
+656
+00:16:13,069 --> 00:16:13,079
+whether it has been started or not
+ 
+
+657
+00:16:13,079 --> 00:16:15,509
+whether it has been started or not
+started if not started invoke this API
+
+658
+00:16:15,509 --> 00:16:15,519
+started if not started invoke this API
+ 
+
+659
+00:16:15,519 --> 00:16:17,629
+started if not started invoke this API
+if it started invoke this
+
+660
+00:16:17,629 --> 00:16:17,639
+if it started invoke this
+ 
+
+661
+00:16:17,639 --> 00:16:21,949
+if it started invoke this
+API so this is I call it very tight
+
+662
+00:16:21,949 --> 00:16:21,959
+API so this is I call it very tight
+ 
+
+663
+00:16:21,959 --> 00:16:24,470
+API so this is I call it very tight
+coupling and this is just a one use case
+
+664
+00:16:24,470 --> 00:16:24,480
+coupling and this is just a one use case
+ 
+
+665
+00:16:24,480 --> 00:16:26,829
+coupling and this is just a one use case
+if there are 100 of use case imagine the
+
+666
+00:16:26,829 --> 00:16:26,839
+if there are 100 of use case imagine the
+ 
+
+667
+00:16:26,839 --> 00:16:30,069
+if there are 100 of use case imagine the
+client code now let's say that heos
+
+668
+00:16:30,069 --> 00:16:30,079
+client code now let's say that heos
+ 
+
+669
+00:16:30,079 --> 00:16:31,749
+client code now let's say that heos
+comes into the
+
+670
+00:16:31,749 --> 00:16:31,759
+comes into the
+ 
+
+671
+00:16:31,759 --> 00:16:36,269
+comes into the
+picture I can make this typ couple code
+
+672
+00:16:36,269 --> 00:16:36,279
+picture I can make this typ couple code
+ 
+
+673
+00:16:36,279 --> 00:16:39,230
+picture I can make this typ couple code
+into a loose couple through heos link
+
+674
+00:16:39,230 --> 00:16:39,240
+into a loose couple through heos link
+ 
+
+675
+00:16:39,240 --> 00:16:41,509
+into a loose couple through heos link
+now let's say that this is the response
+
+676
+00:16:41,509 --> 00:16:41,519
+now let's say that this is the response
+ 
+
+677
+00:16:41,519 --> 00:16:44,509
+now let's say that this is the response
+I will send what is the user
+
+678
+00:16:44,509 --> 00:16:44,519
+I will send what is the user
+ 
+
+679
+00:16:44,519 --> 00:16:48,590
+I will send what is the user
+ID name verify status unverified but now
+
+680
+00:16:48,590 --> 00:16:48,600
+ID name verify status unverified but now
+ 
+
+681
+00:16:48,600 --> 00:16:51,309
+ID name verify status unverified but now
+here if you see that I am not sending
+
+682
+00:16:51,309 --> 00:16:51,319
+here if you see that I am not sending
+ 
+
+683
+00:16:51,319 --> 00:16:54,710
+here if you see that I am not sending
+sms or not yet started at server side
+
+684
+00:16:54,710 --> 00:16:54,720
+sms or not yet started at server side
+ 
+
+685
+00:16:54,720 --> 00:16:57,790
+sms or not yet started at server side
+itself I will compute all this thing and
+
+686
+00:16:57,790 --> 00:16:57,800
+itself I will compute all this thing and
+ 
+
+687
+00:16:57,800 --> 00:17:01,309
+itself I will compute all this thing and
+in the link I will just simply provide
+
+688
+00:17:01,309 --> 00:17:01,319
+in the link I will just simply provide
+ 
+
+689
+00:17:01,319 --> 00:17:05,510
+in the link I will just simply provide
+hey this is the next you should do you
+
+690
+00:17:05,510 --> 00:17:05,520
+hey this is the next you should do you
+ 
+
+691
+00:17:05,520 --> 00:17:09,350
+hey this is the next you should do you
+you can do this is the URI this is the
+
+692
+00:17:09,350 --> 00:17:09,360
+you can do this is the URI this is the
+ 
+
+693
+00:17:09,360 --> 00:17:11,949
+you can do this is the URI this is the
+post call and the relation is that uh
+
+694
+00:17:11,949 --> 00:17:11,959
+post call and the relation is that uh
+ 
+
+695
+00:17:11,959 --> 00:17:15,789
+post call and the relation is that uh
+this is a verify link you can do verify
+
+696
+00:17:15,789 --> 00:17:15,799
+this is a verify link you can do verify
+ 
+
+697
+00:17:15,799 --> 00:17:18,510
+this is a verify link you can do verify
+so here if you see I am just telling
+
+698
+00:17:18,510 --> 00:17:18,520
+so here if you see I am just telling
+ 
+
+699
+00:17:18,520 --> 00:17:22,909
+so here if you see I am just telling
+invoke this API SMS verify finish now
+
+700
+00:17:22,909 --> 00:17:22,919
+invoke this API SMS verify finish now
+ 
+
+701
+00:17:22,919 --> 00:17:25,510
+invoke this API SMS verify finish now
+internally server itself has determined
+
+702
+00:17:25,510 --> 00:17:25,520
+internally server itself has determined
+ 
+
+703
+00:17:25,520 --> 00:17:29,230
+internally server itself has determined
+that okay it is unverified and I have
+
+704
+00:17:29,230 --> 00:17:29,240
+that okay it is unverified and I have
+ 
+
+705
+00:17:29,240 --> 00:17:32,510
+that okay it is unverified and I have
+already started I started the SMS
+
+706
+00:17:32,510 --> 00:17:32,520
+already started I started the SMS
+ 
+
+707
+00:17:32,520 --> 00:17:35,110
+already started I started the SMS
+verification so next can be done is
+
+708
+00:17:35,110 --> 00:17:35,120
+verification so next can be done is
+ 
+
+709
+00:17:35,120 --> 00:17:36,390
+verification so next can be done is
+finish
+
+710
+00:17:36,390 --> 00:17:36,400
+finish
+ 
+
+711
+00:17:36,400 --> 00:17:39,190
+finish
+only okay so I have just provided the
+
+712
+00:17:39,190 --> 00:17:39,200
+only okay so I have just provided the
+ 
+
+713
+00:17:39,200 --> 00:17:41,190
+only okay so I have just provided the
+next link only this one I haven't
+
+714
+00:17:41,190 --> 00:17:41,200
+next link only this one I haven't
+ 
+
+715
+00:17:41,200 --> 00:17:44,430
+next link only this one I haven't
+doesn't provided all the links only this
+
+716
+00:17:44,430 --> 00:17:44,440
+doesn't provided all the links only this
+ 
+
+717
+00:17:44,440 --> 00:17:47,470
+doesn't provided all the links only this
+now how the client code going to look
+
+718
+00:17:47,470 --> 00:17:47,480
+now how the client code going to look
+ 
+
+719
+00:17:47,480 --> 00:17:51,270
+now how the client code going to look
+like if verify status is unverified yes
+
+720
+00:17:51,270 --> 00:17:51,280
+like if verify status is unverified yes
+ 
+
+721
+00:17:51,280 --> 00:17:52,630
+like if verify status is unverified yes
+it is
+
+722
+00:17:52,630 --> 00:17:52,640
+it is
+ 
+
+723
+00:17:52,640 --> 00:17:55,470
+it is
+unverified use the link which is given
+
+724
+00:17:55,470 --> 00:17:55,480
+unverified use the link which is given
+ 
+
+725
+00:17:55,480 --> 00:17:59,549
+unverified use the link which is given
+in the heos just use this link and and
+
+726
+00:17:59,549 --> 00:17:59,559
+in the heos just use this link and and
+ 
+
+727
+00:17:59,559 --> 00:18:02,750
+in the heos just use this link and and
+invoke just invoke
+
+728
+00:18:02,750 --> 00:18:02,760
+invoke just invoke
+ 
+
+729
+00:18:02,760 --> 00:18:05,270
+invoke just invoke
+it now client doesn't need to know
+
+730
+00:18:05,270 --> 00:18:05,280
+it now client doesn't need to know
+ 
+
+731
+00:18:05,280 --> 00:18:08,470
+it now client doesn't need to know
+whether I can uh do it through SMS or
+
+732
+00:18:08,470 --> 00:18:08,480
+whether I can uh do it through SMS or
+ 
+
+733
+00:18:08,480 --> 00:18:11,590
+whether I can uh do it through SMS or
+email whether SMS is started or not
+
+734
+00:18:11,590 --> 00:18:11,600
+email whether SMS is started or not
+ 
+
+735
+00:18:11,600 --> 00:18:13,789
+email whether SMS is started or not
+started if it is already started I need
+
+736
+00:18:13,789 --> 00:18:13,799
+started if it is already started I need
+ 
+
+737
+00:18:13,799 --> 00:18:17,230
+started if it is already started I need
+to invoke this finish all this logic is
+
+738
+00:18:17,230 --> 00:18:17,240
+to invoke this finish all this logic is
+ 
+
+739
+00:18:17,240 --> 00:18:20,750
+to invoke this finish all this logic is
+now goes to the server right now here if
+
+740
+00:18:20,750 --> 00:18:20,760
+now goes to the server right now here if
+ 
+
+741
+00:18:20,760 --> 00:18:23,590
+now goes to the server right now here if
+you see that client is now we can say
+
+742
+00:18:23,590 --> 00:18:23,600
+you see that client is now we can say
+ 
+
+743
+00:18:23,600 --> 00:18:26,190
+you see that client is now we can say
+that the client and service is Loosely
+
+744
+00:18:26,190 --> 00:18:26,200
+that the client and service is Loosely
+ 
+
+745
+00:18:26,200 --> 00:18:29,070
+that the client and service is Loosely
+coupled and all this logic right this is
+
+746
+00:18:29,070 --> 00:18:29,080
+coupled and all this logic right this is
+ 
+
+747
+00:18:29,080 --> 00:18:31,350
+coupled and all this logic right this is
+actually business logic this should be
+
+748
+00:18:31,350 --> 00:18:31,360
+actually business logic this should be
+ 
+
+749
+00:18:31,360 --> 00:18:34,630
+actually business logic this should be
+present at server like what's the next
+
+750
+00:18:34,630 --> 00:18:34,640
+present at server like what's the next
+ 
+
+751
+00:18:34,640 --> 00:18:37,710
+present at server like what's the next
+thing is
+
+752
+00:18:37,710 --> 00:18:37,720
+
+ 
+
+753
+00:18:37,720 --> 00:18:42,270
+
+eligible so you got it when to use it
+
+754
+00:18:42,270 --> 00:18:42,280
+eligible so you got it when to use it
+ 
+
+755
+00:18:42,280 --> 00:18:44,669
+eligible so you got it when to use it
+how how with this
+
+756
+00:18:44,669 --> 00:18:44,679
+how how with this
+ 
+
+757
+00:18:44,679 --> 00:18:48,350
+how how with this
+example we have from a tight couple
+
+758
+00:18:48,350 --> 00:18:48,360
+example we have from a tight couple
+ 
+
+759
+00:18:48,360 --> 00:18:51,070
+example we have from a tight couple
+between client and server how we have
+
+760
+00:18:51,070 --> 00:18:51,080
+between client and server how we have
+ 
+
+761
+00:18:51,080 --> 00:18:52,590
+between client and server how we have
+achieved the loose
+
+762
+00:18:52,590 --> 00:18:52,600
+achieved the loose
+ 
+
+763
+00:18:52,600 --> 00:18:55,710
+achieved the loose
+coupling so this is how I believe it
+
+764
+00:18:55,710 --> 00:18:55,720
+coupling so this is how I believe it
+ 
+
+765
+00:18:55,720 --> 00:18:58,310
+coupling so this is how I believe it
+should be hatos Ling should be used we
+
+766
+00:18:58,310 --> 00:18:58,320
+should be hatos Ling should be used we
+ 
+
+767
+00:18:58,320 --> 00:19:01,149
+should be hatos Ling should be used we
+should not put unnecessarily the next
+
+768
+00:19:01,149 --> 00:19:01,159
+should not put unnecessarily the next
+ 
+
+769
+00:19:01,159 --> 00:19:04,470
+should not put unnecessarily the next
+links otherwise it going to be difficult
+
+770
+00:19:04,470 --> 00:19:04,480
+links otherwise it going to be difficult
+ 
+
+771
+00:19:04,480 --> 00:19:08,990
+links otherwise it going to be difficult
+hell to manage this API so very
+
+772
+00:19:08,990 --> 00:19:09,000
+hell to manage this API so very
+ 
+
+773
+00:19:09,000 --> 00:19:12,990
+hell to manage this API so very
+cautiously we have to add a link yes if
+
+774
+00:19:12,990 --> 00:19:13,000
+cautiously we have to add a link yes if
+ 
+
+775
+00:19:13,000 --> 00:19:14,590
+cautiously we have to add a link yes if
+you don't add it there would be a tight
+
+776
+00:19:14,590 --> 00:19:14,600
+you don't add it there would be a tight
+ 
+
+777
+00:19:14,600 --> 00:19:17,149
+you don't add it there would be a tight
+coupl if we add it yes we are achieving
+
+778
+00:19:17,149 --> 00:19:17,159
+coupl if we add it yes we are achieving
+ 
+
+779
+00:19:17,159 --> 00:19:20,510
+coupl if we add it yes we are achieving
+loose coupling okay so this is one
+
+780
+00:19:20,510 --> 00:19:20,520
+loose coupling okay so this is one
+ 
+
+781
+00:19:20,520 --> 00:19:23,710
+loose coupling okay so this is one
+example if you understand it now I will
+
+782
+00:19:23,710 --> 00:19:23,720
+example if you understand it now I will
+ 
+
+783
+00:19:23,720 --> 00:19:27,710
+example if you understand it now I will
+tell you how we can add this
+
+784
+00:19:27,710 --> 00:19:27,720
+tell you how we can add this
+ 
+
+785
+00:19:27,720 --> 00:19:30,230
+tell you how we can add this
+link so one thing is we have to add a
+
+786
+00:19:30,230 --> 00:19:30,240
+link so one thing is we have to add a
+ 
+
+787
+00:19:30,240 --> 00:19:32,549
+link so one thing is we have to add a
+dependency so this is in the dependency
+
+788
+00:19:32,549 --> 00:19:32,559
+dependency so this is in the dependency
+ 
+
+789
+00:19:32,559 --> 00:19:36,230
+dependency so this is in the dependency
+you have to put into the pal a do spring
+
+790
+00:19:36,230 --> 00:19:36,240
+you have to put into the pal a do spring
+ 
+
+791
+00:19:36,240 --> 00:19:38,990
+you have to put into the pal a do spring
+spring framework. boot spring boot
+
+792
+00:19:38,990 --> 00:19:39,000
+spring framework. boot spring boot
+ 
+
+793
+00:19:39,000 --> 00:19:41,070
+spring framework. boot spring boot
+starter heos and whatever the latest
+
+794
+00:19:41,070 --> 00:19:41,080
+starter heos and whatever the latest
+ 
+
+795
+00:19:41,080 --> 00:19:44,909
+starter heos and whatever the latest
+version you can use it okay so now here
+
+796
+00:19:44,909 --> 00:19:44,919
+version you can use it okay so now here
+ 
+
+797
+00:19:44,919 --> 00:19:48,310
+version you can use it okay so now here
+if you see this is the rest controller
+
+798
+00:19:48,310 --> 00:19:48,320
+if you see this is the rest controller
+ 
+
+799
+00:19:48,320 --> 00:19:52,909
+if you see this is the rest controller
+and this is the post add user call so
+
+800
+00:19:52,909 --> 00:19:52,919
+and this is the post add user call so
+ 
+
+801
+00:19:52,919 --> 00:19:55,789
+and this is the post add user call so
+whenever uh user is getting added this
+
+802
+00:19:55,789 --> 00:19:55,799
+whenever uh user is getting added this
+ 
+
+803
+00:19:55,799 --> 00:19:58,710
+whenever uh user is getting added this
+API will get involved so here I just
+
+804
+00:19:58,710 --> 00:19:58,720
+API will get involved so here I just
+ 
+
+805
+00:19:58,720 --> 00:20:02,110
+API will get involved so here I just
+getting a response just see that this
+
+806
+00:20:02,110 --> 00:20:02,120
+getting a response just see that this
+ 
+
+807
+00:20:02,120 --> 00:20:05,270
+getting a response just see that this
+user response has all this things user
+
+808
+00:20:05,270 --> 00:20:05,280
+user response has all this things user
+ 
+
+809
+00:20:05,280 --> 00:20:10,230
+user response has all this things user
+ID name verify State this thing itself
+
+810
+00:20:10,230 --> 00:20:10,240
+ID name verify State this thing itself
+ 
+
+811
+00:20:10,240 --> 00:20:15,750
+ID name verify State this thing itself
+user ID name verify State and for links
+
+812
+00:20:15,750 --> 00:20:15,760
+user ID name verify State and for links
+ 
+
+813
+00:20:15,760 --> 00:20:18,270
+user ID name verify State and for links
+what I have done
+
+814
+00:20:18,270 --> 00:20:18,280
+what I have done
+ 
+
+815
+00:20:18,280 --> 00:20:21,990
+what I have done
+is I have created a new class hatos
+
+816
+00:20:21,990 --> 00:20:22,000
+is I have created a new class hatos
+ 
+
+817
+00:20:22,000 --> 00:20:26,789
+is I have created a new class hatos
+links and in that I have put the list of
+
+818
+00:20:26,789 --> 00:20:26,799
+links and in that I have put the list of
+ 
+
+819
+00:20:26,799 --> 00:20:30,029
+links and in that I have put the list of
+Link okay and I have provided one add
+
+820
+00:20:30,029 --> 00:20:30,039
+Link okay and I have provided one add
+ 
+
+821
+00:20:30,039 --> 00:20:32,990
+Link okay and I have provided one add
+link where the link can be added so this
+
+822
+00:20:32,990 --> 00:20:33,000
+link where the link can be added so this
+ 
+
+823
+00:20:33,000 --> 00:20:35,789
+link where the link can be added so this
+link right this link object it is coming
+
+824
+00:20:35,789 --> 00:20:35,799
+link right this link object it is coming
+ 
+
+825
+00:20:35,799 --> 00:20:37,909
+link right this link object it is coming
+from that spring boot the dependency
+
+826
+00:20:37,909 --> 00:20:37,919
+from that spring boot the dependency
+ 
+
+827
+00:20:37,919 --> 00:20:40,789
+from that spring boot the dependency
+which we have added so this dependency
+
+828
+00:20:40,789 --> 00:20:40,799
+which we have added so this dependency
+ 
+
+829
+00:20:40,799 --> 00:20:42,270
+which we have added so this dependency
+this link object is
+
+830
+00:20:42,270 --> 00:20:42,280
+this link object is
+ 
+
+831
+00:20:42,280 --> 00:20:45,630
+this link object is
+coming so why I have uh so why in this I
+
+832
+00:20:45,630 --> 00:20:45,640
+coming so why I have uh so why in this I
+ 
+
+833
+00:20:45,640 --> 00:20:49,149
+coming so why I have uh so why in this I
+haven't added that list of Link because
+
+834
+00:20:49,149 --> 00:20:49,159
+haven't added that list of Link because
+ 
+
+835
+00:20:49,159 --> 00:20:54,029
+haven't added that list of Link because
+see we could have 20 50 apis and in 50
+
+836
+00:20:54,029 --> 00:20:54,039
+see we could have 20 50 apis and in 50
+ 
+
+837
+00:20:54,039 --> 00:20:56,950
+see we could have 20 50 apis and in 50
+apis we might have to add a hatos link
+
+838
+00:20:56,950 --> 00:20:56,960
+apis we might have to add a hatos link
+ 
+
+839
+00:20:56,960 --> 00:20:59,630
+apis we might have to add a hatos link
+so we can't uh so it's better that we
+
+840
+00:20:59,630 --> 00:20:59,640
+so we can't uh so it's better that we
+ 
+
+841
+00:20:59,640 --> 00:21:01,630
+so we can't uh so it's better that we
+create one class in that we put a list
+
+842
+00:21:01,630 --> 00:21:01,640
+create one class in that we put a list
+ 
+
+843
+00:21:01,640 --> 00:21:05,070
+create one class in that we put a list
+of link and in the response whichever
+
+844
+00:21:05,070 --> 00:21:05,080
+of link and in the response whichever
+ 
+
+845
+00:21:05,080 --> 00:21:07,510
+of link and in the response whichever
+required it can extend it automatically
+
+846
+00:21:07,510 --> 00:21:07,520
+required it can extend it automatically
+ 
+
+847
+00:21:07,520 --> 00:21:10,110
+required it can extend it automatically
+add link this links will be also part of
+
+848
+00:21:10,110 --> 00:21:10,120
+add link this links will be also part of
+ 
+
+849
+00:21:10,120 --> 00:21:11,269
+add link this links will be also part of
+this
+
+850
+00:21:11,269 --> 00:21:11,279
+this
+ 
+
+851
+00:21:11,279 --> 00:21:15,430
+this
+one okay so now when the AP got invoked
+
+852
+00:21:15,430 --> 00:21:15,440
+one okay so now when the AP got invoked
+ 
+
+853
+00:21:15,440 --> 00:21:19,510
+one okay so now when the AP got invoked
+now let's say that user. get user uh or
+
+854
+00:21:19,510 --> 00:21:19,520
+now let's say that user. get user uh or
+ 
+
+855
+00:21:19,520 --> 00:21:21,390
+now let's say that user. get user uh or
+you can say that instead of get user
+
+856
+00:21:21,390 --> 00:21:21,400
+you can say that instead of get user
+ 
+
+857
+00:21:21,400 --> 00:21:25,110
+you can say that instead of get user
+let's say that add user would happen and
+
+858
+00:21:25,110 --> 00:21:25,120
+let's say that add user would happen and
+ 
+
+859
+00:21:25,120 --> 00:21:26,789
+let's say that add user would happen and
+this is the response you
+
+860
+00:21:26,789 --> 00:21:26,799
+this is the response you
+ 
+
+861
+00:21:26,799 --> 00:21:30,230
+this is the response you
+got okay now in this response already
+
+862
+00:21:30,230 --> 00:21:30,240
+got okay now in this response already
+ 
+
+863
+00:21:30,240 --> 00:21:32,510
+got okay now in this response already
+this fields are filled up user ID name
+
+864
+00:21:32,510 --> 00:21:32,520
+this fields are filled up user ID name
+ 
+
+865
+00:21:32,520 --> 00:21:36,110
+this fields are filled up user ID name
+and verify status now we have we have to
+
+866
+00:21:36,110 --> 00:21:36,120
+and verify status now we have we have to
+ 
+
+867
+00:21:36,120 --> 00:21:41,110
+and verify status now we have we have to
+add the links so here how to add a
+
+868
+00:21:41,110 --> 00:21:41,120
+add the links so here how to add a
+ 
+
+869
+00:21:41,120 --> 00:21:43,549
+add the links so here how to add a
+link so there are two ways I will tell
+
+870
+00:21:43,549 --> 00:21:43,559
+link so there are two ways I will tell
+ 
+
+871
+00:21:43,559 --> 00:21:46,830
+link so there are two ways I will tell
+you the one way is through web MVC link
+
+872
+00:21:46,830 --> 00:21:46,840
+you the one way is through web MVC link
+ 
+
+873
+00:21:46,840 --> 00:21:50,950
+you the one way is through web MVC link
+Builder so what we can do is uh do link
+
+874
+00:21:50,950 --> 00:21:50,960
+Builder so what we can do is uh do link
+ 
+
+875
+00:21:50,960 --> 00:21:55,269
+Builder so what we can do is uh do link
+to user controller. class this
+
+876
+00:21:55,269 --> 00:21:55,279
+to user controller. class this
+ 
+
+877
+00:21:55,279 --> 00:21:59,269
+to user controller. class this
+class slash what is the next
+
+878
+00:21:59,269 --> 00:21:59,279
+class slash what is the next
+ 
+
+879
+00:21:59,279 --> 00:22:00,909
+class slash what is the next
+next
+
+880
+00:22:00,909 --> 00:22:00,919
+next
+ 
+
+881
+00:22:00,919 --> 00:22:03,710
+next
+URI right so user controller class what
+
+882
+00:22:03,710 --> 00:22:03,720
+URI right so user controller class what
+ 
+
+883
+00:22:03,720 --> 00:22:06,149
+URI right so user controller class what
+it will do is let's say this class is/
+
+884
+00:22:06,149 --> 00:22:06,159
+it will do is let's say this class is/
+ 
+
+885
+00:22:06,159 --> 00:22:08,350
+it will do is let's say this class is/
+API slash so that would be
+
+886
+00:22:08,350 --> 00:22:08,360
+API slash so that would be
+ 
+
+887
+00:22:08,360 --> 00:22:12,110
+API slash so that would be
+used so slash API SL would get
+
+888
+00:22:12,110 --> 00:22:12,120
+used so slash API SL would get
+ 
+
+889
+00:22:12,120 --> 00:22:15,549
+used so slash API SL would get
+added then this
+
+890
+00:22:15,549 --> 00:22:15,559
+added then this
+ 
+
+891
+00:22:15,559 --> 00:22:19,669
+added then this
+method SMS hyen verify hyphen finish
+
+892
+00:22:19,669 --> 00:22:19,679
+method SMS hyen verify hyphen finish
+ 
+
+893
+00:22:19,679 --> 00:22:20,669
+method SMS hyen verify hyphen finish
+this get
+
+894
+00:22:20,669 --> 00:22:20,679
+this get
+ 
+
+895
+00:22:20,679 --> 00:22:22,549
+this get
+added
+
+896
+00:22:22,549 --> 00:22:22,559
+added
+ 
+
+897
+00:22:22,559 --> 00:22:26,190
+added
+slash the dynamic user id/ let's say 1 2
+
+898
+00:22:26,190 --> 00:22:26,200
+slash the dynamic user id/ let's say 1 2
+ 
+
+899
+00:22:26,200 --> 00:22:28,990
+slash the dynamic user id/ let's say 1 2
+3 4 5 6 this from this user us response
+
+900
+00:22:28,990 --> 00:22:29,000
+3 4 5 6 this from this user us response
+ 
+
+901
+00:22:29,000 --> 00:22:31,710
+3 4 5 6 this from this user us response
+I am reading this user
+
+902
+00:22:31,710 --> 00:22:31,720
+I am reading this user
+ 
+
+903
+00:22:31,720 --> 00:22:35,750
+I am reading this user
+ID what is the relation it's the URI
+
+904
+00:22:35,750 --> 00:22:35,760
+ID what is the relation it's the URI
+ 
+
+905
+00:22:35,760 --> 00:22:38,590
+ID what is the relation it's the URI
+which I am adding it is to verify so
+
+906
+00:22:38,590 --> 00:22:38,600
+which I am adding it is to verify so
+ 
+
+907
+00:22:38,600 --> 00:22:41,029
+which I am adding it is to verify so
+this is the relation it's a verify link
+
+908
+00:22:41,029 --> 00:22:41,039
+this is the relation it's a verify link
+ 
+
+909
+00:22:41,039 --> 00:22:45,310
+this is the relation it's a verify link
+and it is a post type the same
+
+910
+00:22:45,310 --> 00:22:45,320
+and it is a post type the same
+ 
+
+911
+00:22:45,320 --> 00:22:47,590
+and it is a post type the same
+which ultimately it's going to be show
+
+912
+00:22:47,590 --> 00:22:47,600
+which ultimately it's going to be show
+ 
+
+913
+00:22:47,600 --> 00:22:48,750
+which ultimately it's going to be show
+like
+
+914
+00:22:48,750 --> 00:22:48,760
+like
+ 
+
+915
+00:22:48,760 --> 00:22:51,470
+like
+this right and you can add into your
+
+916
+00:22:51,470 --> 00:22:51,480
+this right and you can add into your
+ 
+
+917
+00:22:51,480 --> 00:22:55,590
+this right and you can add into your
+response response. addlink add this link
+
+918
+00:22:55,590 --> 00:22:55,600
+response response. addlink add this link
+ 
+
+919
+00:22:55,600 --> 00:22:57,669
+response response. addlink add this link
+so this is the user response right and
+
+920
+00:22:57,669 --> 00:22:57,679
+so this is the user response right and
+ 
+
+921
+00:22:57,679 --> 00:22:59,950
+so this is the user response right and
+this since this is a child of this hatos
+
+922
+00:22:59,950 --> 00:22:59,960
+this since this is a child of this hatos
+ 
+
+923
+00:22:59,960 --> 00:23:02,909
+this since this is a child of this hatos
+link you can call add link also and this
+
+924
+00:23:02,909 --> 00:23:02,919
+link you can call add link also and this
+ 
+
+925
+00:23:02,919 --> 00:23:05,310
+link you can call add link also and this
+one link get added if you have to add
+
+926
+00:23:05,310 --> 00:23:05,320
+one link get added if you have to add
+ 
+
+927
+00:23:05,320 --> 00:23:07,390
+one link get added if you have to add
+more link you can keep on adding more
+
+928
+00:23:07,390 --> 00:23:07,400
+more link you can keep on adding more
+ 
+
+929
+00:23:07,400 --> 00:23:09,950
+more link you can keep on adding more
+link do add link one more you can create
+
+930
+00:23:09,950 --> 00:23:09,960
+link do add link one more you can create
+ 
+
+931
+00:23:09,960 --> 00:23:12,470
+link do add link one more you can create
+you can add it but I would always say
+
+932
+00:23:12,470 --> 00:23:12,480
+you can add it but I would always say
+ 
+
+933
+00:23:12,480 --> 00:23:14,590
+you can add it but I would always say
+you that add
+
+934
+00:23:14,590 --> 00:23:14,600
+you that add
+ 
+
+935
+00:23:14,600 --> 00:23:17,110
+you that add
+cautiously so this is one way to add and
+
+936
+00:23:17,110 --> 00:23:17,120
+cautiously so this is one way to add and
+ 
+
+937
+00:23:17,120 --> 00:23:19,789
+cautiously so this is one way to add and
+another way to add is like link off this
+
+938
+00:23:19,789 --> 00:23:19,799
+another way to add is like link off this
+ 
+
+939
+00:23:19,799 --> 00:23:22,510
+another way to add is like link off this
+link object is the same the dependency
+
+940
+00:23:22,510 --> 00:23:22,520
+link object is the same the dependency
+ 
+
+941
+00:23:22,520 --> 00:23:25,909
+link object is the same the dependency
+which we have added link. off and you
+
+942
+00:23:25,909 --> 00:23:25,919
+which we have added link. off and you
+ 
+
+943
+00:23:25,919 --> 00:23:30,549
+which we have added link. off and you
+can provide the UR itself whatever the/
+
+944
+00:23:30,549 --> 00:23:30,559
+can provide the UR itself whatever the/
+ 
+
+945
+00:23:30,559 --> 00:23:35,350
+can provide the UR itself whatever the/
+API SL this this is all a string you
+
+946
+00:23:35,350 --> 00:23:35,360
+API SL this this is all a string you
+ 
+
+947
+00:23:35,360 --> 00:23:36,549
+API SL this this is all a string you
+have made a
+
+948
+00:23:36,549 --> 00:23:36,559
+have made a
+ 
+
+949
+00:23:36,559 --> 00:23:39,750
+have made a
+URI then what is the relation and what
+
+950
+00:23:39,750 --> 00:23:39,760
+URI then what is the relation and what
+ 
+
+951
+00:23:39,760 --> 00:23:41,830
+URI then what is the relation and what
+is the with type and you can add this
+
+952
+00:23:41,830 --> 00:23:41,840
+is the with type and you can add this
+ 
+
+953
+00:23:41,840 --> 00:23:44,190
+is the with type and you can add this
+link so both the ways whichever you find
+
+954
+00:23:44,190 --> 00:23:44,200
+link so both the ways whichever you find
+ 
+
+955
+00:23:44,200 --> 00:23:47,269
+link so both the ways whichever you find
+it's easy and uh either through slash
+
+956
+00:23:47,269 --> 00:23:47,279
+it's easy and uh either through slash
+ 
+
+957
+00:23:47,279 --> 00:23:50,549
+it's easy and uh either through slash
+slash or either directly simply in one
+
+958
+00:23:50,549 --> 00:23:50,559
+slash or either directly simply in one
+ 
+
+959
+00:23:50,559 --> 00:23:55,350
+slash or either directly simply in one
+string we can add it in to our
+
+960
+00:23:55,350 --> 00:23:55,360
+string we can add it in to our
+ 
+
+961
+00:23:55,360 --> 00:23:58,070
+string we can add it in to our
+response okay and this is how it going
+
+962
+00:23:58,070 --> 00:23:58,080
+response okay and this is how it going
+ 
+
+963
+00:23:58,080 --> 00:24:01,830
+response okay and this is how it going
+to get added so it's an array we have
+
+964
+00:24:01,830 --> 00:24:01,840
+to get added so it's an array we have
+ 
+
+965
+00:24:01,840 --> 00:24:04,630
+to get added so it's an array we have
+added as an array list right so it's an
+
+966
+00:24:04,630 --> 00:24:04,640
+added as an array list right so it's an
+ 
+
+967
+00:24:04,640 --> 00:24:07,830
+added as an array list right so it's an
+array and we have added only one link
+
+968
+00:24:07,830 --> 00:24:07,840
+array and we have added only one link
+ 
+
+969
+00:24:07,840 --> 00:24:10,230
+array and we have added only one link
+which is verify relation type is post
+
+970
+00:24:10,230 --> 00:24:10,240
+which is verify relation type is post
+ 
+
+971
+00:24:10,240 --> 00:24:13,710
+which is verify relation type is post
+and this is the verify
+
+972
+00:24:13,710 --> 00:24:13,720
+and this is the verify
+ 
+
+973
+00:24:13,720 --> 00:24:17,029
+and this is the verify
+link okay so this is based on our
+
+974
+00:24:17,029 --> 00:24:17,039
+link okay so this is based on our
+ 
+
+975
+00:24:17,039 --> 00:24:19,230
+link okay so this is based on our
+business logic based on business logic
+
+976
+00:24:19,230 --> 00:24:19,240
+business logic based on business logic
+ 
+
+977
+00:24:19,240 --> 00:24:20,029
+business logic based on business logic
+we
+
+978
+00:24:20,029 --> 00:24:20,039
+we
+ 
+
+979
+00:24:20,039 --> 00:24:25,110
+we
+determine what UI to add it's not a
+
+980
+00:24:25,110 --> 00:24:25,120
+determine what UI to add it's not a
+ 
+
+981
+00:24:25,120 --> 00:24:30,070
+determine what UI to add it's not a
+static so I hope this heos is
+
+982
+00:24:30,070 --> 00:24:30,080
+static so I hope this heos is
+ 
+
+983
+00:24:30,080 --> 00:24:33,669
+static so I hope this heos is
+clear if there is an argument comes that
+
+984
+00:24:33,669 --> 00:24:33,679
+clear if there is an argument comes that
+ 
+
+985
+00:24:33,679 --> 00:24:36,389
+clear if there is an argument comes that
+why you are using it what advantage heos
+
+986
+00:24:36,389 --> 00:24:36,399
+why you are using it what advantage heos
+ 
+
+987
+00:24:36,399 --> 00:24:38,669
+why you are using it what advantage heos
+you're going to add loose coupling is
+
+988
+00:24:38,669 --> 00:24:38,679
+you're going to add loose coupling is
+ 
+
+989
+00:24:38,679 --> 00:24:41,950
+you're going to add loose coupling is
+the big advantage and maybe you can come
+
+990
+00:24:41,950 --> 00:24:41,960
+the big advantage and maybe you can come
+ 
+
+991
+00:24:41,960 --> 00:24:44,510
+the big advantage and maybe you can come
+up with your own example but this is the
+
+992
+00:24:44,510 --> 00:24:44,520
+up with your own example but this is the
+ 
+
+993
+00:24:44,520 --> 00:24:46,350
+up with your own example but this is the
+example which I come up with where
+
+994
+00:24:46,350 --> 00:24:46,360
+example which I come up with where
+ 
+
+995
+00:24:46,360 --> 00:24:47,190
+example which I come up with where
+through
+
+996
+00:24:47,190 --> 00:24:47,200
+through
+ 
+
+997
+00:24:47,200 --> 00:24:50,269
+through
+verify I have showed you how the tight
+
+998
+00:24:50,269 --> 00:24:50,279
+verify I have showed you how the tight
+ 
+
+999
+00:24:50,279 --> 00:24:51,830
+verify I have showed you how the tight
+coupling looks
+
+1000
+00:24:51,830 --> 00:24:51,840
+coupling looks
+ 
+
+1001
+00:24:51,840 --> 00:24:55,350
+coupling looks
+like and how we can achieve the loose
+
+1002
+00:24:55,350 --> 00:24:55,360
+like and how we can achieve the loose
+ 
+
+1003
+00:24:55,360 --> 00:24:58,590
+like and how we can achieve the loose
+coupling with the hatos Ling but if you
+
+1004
+00:24:58,590 --> 00:24:58,600
+coupling with the hatos Ling but if you
+ 
+
+1005
+00:24:58,600 --> 00:25:00,590
+coupling with the hatos Ling but if you
+have more doubts let's discuss in the
+
+1006
+00:25:00,590 --> 00:25:00,600
+have more doubts let's discuss in the
+ 
+
+1007
+00:25:00,600 --> 00:25:02,630
+have more doubts let's discuss in the
+comment section and but I hope this
+
+1008
+00:25:02,630 --> 00:25:02,640
+comment section and but I hope this
+ 
+
+1009
+00:25:02,640 --> 00:25:04,789
+comment section and but I hope this
+video would be uh useful but this is
+
+1010
+00:25:04,789 --> 00:25:04,799
+video would be uh useful but this is
+ 
+
+1011
+00:25:04,799 --> 00:25:06,549
+video would be uh useful but this is
+this topic is generally known as hatos
+
+1012
+00:25:06,549 --> 00:25:06,559
+this topic is generally known as hatos
+ 
+
+1013
+00:25:06,559 --> 00:25:07,630
+this topic is generally known as hatos
+restful
+
+1014
+00:25:07,630 --> 00:25:07,640
+restful
+ 
+
+1015
+00:25:07,640 --> 00:25:12,520
+restful
+apis okay guys thank you bye
+

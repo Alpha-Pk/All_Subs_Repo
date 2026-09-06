@@ -1,0 +1,5215 @@
+1
+00:00:00,480 --> 00:00:02,470
+
+hey guys sh said welcome to concept and
+
+2
+00:00:02,470 --> 00:00:02,480
+hey guys sh said welcome to concept and
+ 
+
+3
+00:00:02,480 --> 00:00:04,670
+hey guys sh said welcome to concept and
+coding and you already know that in
+
+4
+00:00:04,670 --> 00:00:04,680
+coding and you already know that in
+ 
+
+5
+00:00:04,680 --> 00:00:07,270
+coding and you already know that in
+Spring boot I'm going to start Spring
+
+6
+00:00:07,270 --> 00:00:07,280
+Spring boot I'm going to start Spring
+ 
+
+7
+00:00:07,280 --> 00:00:11,070
+Spring boot I'm going to start Spring
+Security and to understand it better
+
+8
+00:00:11,070 --> 00:00:11,080
+Security and to understand it better
+ 
+
+9
+00:00:11,080 --> 00:00:13,350
+Security and to understand it better
+it's very much Essential to understand
+
+10
+00:00:13,350 --> 00:00:13,360
+it's very much Essential to understand
+ 
+
+11
+00:00:13,360 --> 00:00:15,669
+it's very much Essential to understand
+the common attacks also then only we
+
+12
+00:00:15,669 --> 00:00:15,679
+the common attacks also then only we
+ 
+
+13
+00:00:15,679 --> 00:00:17,310
+the common attacks also then only we
+would be able to understand the
+
+14
+00:00:17,310 --> 00:00:17,320
+would be able to understand the
+ 
+
+15
+00:00:17,320 --> 00:00:20,230
+would be able to understand the
+importance of Spring Security okay so in
+
+16
+00:00:20,230 --> 00:00:20,240
+importance of Spring Security okay so in
+ 
+
+17
+00:00:20,240 --> 00:00:22,070
+importance of Spring Security okay so in
+today's video I will cover very very
+
+18
+00:00:22,070 --> 00:00:22,080
+today's video I will cover very very
+ 
+
+19
+00:00:22,080 --> 00:00:24,710
+today's video I will cover very very
+important topics with demo like how
+
+20
+00:00:24,710 --> 00:00:24,720
+important topics with demo like how
+ 
+
+21
+00:00:24,720 --> 00:00:27,509
+important topics with demo like how
+these attacks happen and how we can
+
+22
+00:00:27,509 --> 00:00:27,519
+these attacks happen and how we can
+ 
+
+23
+00:00:27,519 --> 00:00:30,230
+these attacks happen and how we can
+protect them like we can see that also
+
+24
+00:00:30,230 --> 00:00:30,240
+protect them like we can see that also
+ 
+
+25
+00:00:30,240 --> 00:00:32,389
+protect them like we can see that also
+in in detail Spring Security how to
+
+26
+00:00:32,389 --> 00:00:32,399
+in in detail Spring Security how to
+ 
+
+27
+00:00:32,399 --> 00:00:34,910
+in in detail Spring Security how to
+protect these attacks but today let's
+
+28
+00:00:34,910 --> 00:00:34,920
+protect these attacks but today let's
+ 
+
+29
+00:00:34,920 --> 00:00:36,270
+protect these attacks but today let's
+understand what are this attacks how it
+
+30
+00:00:36,270 --> 00:00:36,280
+understand what are this attacks how it
+ 
+
+31
+00:00:36,280 --> 00:00:39,310
+understand what are this attacks how it
+happen with a demo the first very
+
+32
+00:00:39,310 --> 00:00:39,320
+happen with a demo the first very
+ 
+
+33
+00:00:39,320 --> 00:00:41,150
+happen with a demo the first very
+important and sometime it's asked in an
+
+34
+00:00:41,150 --> 00:00:41,160
+important and sometime it's asked in an
+ 
+
+35
+00:00:41,160 --> 00:00:44,590
+important and sometime it's asked in an
+interview also csrf cross site request
+
+36
+00:00:44,590 --> 00:00:44,600
+interview also csrf cross site request
+ 
+
+37
+00:00:44,600 --> 00:00:48,790
+interview also csrf cross site request
+forgery what does it do just see this
+
+38
+00:00:48,790 --> 00:00:48,800
+forgery what does it do just see this
+ 
+
+39
+00:00:48,800 --> 00:00:51,790
+forgery what does it do just see this
+point first user is already
+
+40
+00:00:51,790 --> 00:00:51,800
+point first user is already
+ 
+
+41
+00:00:51,800 --> 00:00:55,510
+point first user is already
+authenticated to a site okay let's say
+
+42
+00:00:55,510 --> 00:00:55,520
+authenticated to a site okay let's say
+ 
+
+43
+00:00:55,520 --> 00:00:57,389
+authenticated to a site okay let's say
+that you have one
+
+44
+00:00:57,389 --> 00:00:57,399
+that you have one
+ 
+
+45
+00:00:57,399 --> 00:01:00,709
+that you have one
+side something let's say Gmail
+
+46
+00:01:00,709 --> 00:01:00,719
+side something let's say Gmail
+ 
+
+47
+00:01:00,719 --> 00:01:02,990
+side something let's say Gmail
+. you are already
+
+48
+00:01:02,990 --> 00:01:03,000
+. you are already
+ 
+
+49
+00:01:03,000 --> 00:01:07,109
+. you are already
+authenticated okay the csrf attack
+
+50
+00:01:07,109 --> 00:01:07,119
+authenticated okay the csrf attack
+ 
+
+51
+00:01:07,119 --> 00:01:10,870
+authenticated okay the csrf attack
+tricks a browser into making unwanted
+
+52
+00:01:10,870 --> 00:01:10,880
+tricks a browser into making unwanted
+ 
+
+53
+00:01:10,880 --> 00:01:13,789
+tricks a browser into making unwanted
+request to a site where user is already
+
+54
+00:01:13,789 --> 00:01:13,799
+request to a site where user is already
+ 
+
+55
+00:01:13,799 --> 00:01:16,149
+request to a site where user is already
+authenticated so what does it line says
+
+56
+00:01:16,149 --> 00:01:16,159
+authenticated so what does it line says
+ 
+
+57
+00:01:16,159 --> 00:01:20,069
+authenticated so what does it line says
+that so this means that this attack what
+
+58
+00:01:20,069 --> 00:01:20,079
+that so this means that this attack what
+ 
+
+59
+00:01:20,079 --> 00:01:22,710
+that so this means that this attack what
+it does is that your browser so now
+
+60
+00:01:22,710 --> 00:01:22,720
+it does is that your browser so now
+ 
+
+61
+00:01:22,720 --> 00:01:25,630
+it does is that your browser so now
+let's say that for a minute this is a
+
+62
+00:01:25,630 --> 00:01:25,640
+let's say that for a minute this is a
+ 
+
+63
+00:01:25,640 --> 00:01:27,950
+let's say that for a minute this is a
+session based you can say that
+
+64
+00:01:27,950 --> 00:01:27,960
+session based you can say that
+ 
+
+65
+00:01:27,960 --> 00:01:30,630
+session based you can say that
+authentication your browser
+
+66
+00:01:30,630 --> 00:01:30,640
+authentication your browser
+ 
+
+67
+00:01:30,640 --> 00:01:33,550
+authentication your browser
+okay your browser in your
+
+68
+00:01:33,550 --> 00:01:33,560
+okay your browser in your
+ 
+
+69
+00:01:33,560 --> 00:01:37,510
+okay your browser in your
+cookie has a session stored has a
+
+70
+00:01:37,510 --> 00:01:37,520
+cookie has a session stored has a
+ 
+
+71
+00:01:37,520 --> 00:01:39,310
+cookie has a session stored has a
+session ID is
+
+72
+00:01:39,310 --> 00:01:39,320
+session ID is
+ 
+
+73
+00:01:39,320 --> 00:01:43,230
+session ID is
+stored now let's say that when you get
+
+74
+00:01:43,230 --> 00:01:43,240
+stored now let's say that when you get
+ 
+
+75
+00:01:43,240 --> 00:01:44,350
+stored now let's say that when you get
+some
+
+76
+00:01:44,350 --> 00:01:44,360
+some
+ 
+
+77
+00:01:44,360 --> 00:01:47,230
+some
+link click
+
+78
+00:01:47,230 --> 00:01:47,240
+link click
+ 
+
+79
+00:01:47,240 --> 00:01:50,149
+link click
+here and this is link is hosted by some
+
+80
+00:01:50,149 --> 00:01:50,159
+here and this is link is hosted by some
+ 
+
+81
+00:01:50,159 --> 00:01:53,230
+here and this is link is hosted by some
+attacker like it's not from a genuine
+
+82
+00:01:53,230 --> 00:01:53,240
+attacker like it's not from a genuine
+ 
+
+83
+00:01:53,240 --> 00:01:56,789
+attacker like it's not from a genuine
+and you somehow attacker tricked you
+
+84
+00:01:56,789 --> 00:01:56,799
+and you somehow attacker tricked you
+ 
+
+85
+00:01:56,799 --> 00:02:00,029
+and you somehow attacker tricked you
+that hey click you click here then your
+
+86
+00:02:00,029 --> 00:02:00,039
+that hey click you click here then your
+ 
+
+87
+00:02:00,039 --> 00:02:02,069
+that hey click you click here then your
+will get resolved or something and now
+
+88
+00:02:02,069 --> 00:02:02,079
+will get resolved or something and now
+ 
+
+89
+00:02:02,079 --> 00:02:05,749
+will get resolved or something and now
+you clicked here now what happen is with
+
+90
+00:02:05,749 --> 00:02:05,759
+you clicked here now what happen is with
+ 
+
+91
+00:02:05,759 --> 00:02:09,430
+you clicked here now what happen is with
+the help of this csrf attack what this
+
+92
+00:02:09,430 --> 00:02:09,440
+the help of this csrf attack what this
+ 
+
+93
+00:02:09,440 --> 00:02:11,910
+the help of this csrf attack what this
+attacker will do is it will make an
+
+94
+00:02:11,910 --> 00:02:11,920
+attacker will do is it will make an
+ 
+
+95
+00:02:11,920 --> 00:02:14,710
+attacker will do is it will make an
+unwanted request to this site where you
+
+96
+00:02:14,710 --> 00:02:14,720
+unwanted request to this site where you
+ 
+
+97
+00:02:14,720 --> 00:02:17,229
+unwanted request to this site where you
+already authenticated and it your
+
+98
+00:02:17,229 --> 00:02:17,239
+already authenticated and it your
+ 
+
+99
+00:02:17,239 --> 00:02:19,229
+already authenticated and it your
+browser will automatically add the
+
+100
+00:02:19,229 --> 00:02:19,239
+browser will automatically add the
+ 
+
+101
+00:02:19,239 --> 00:02:22,949
+browser will automatically add the
+session ID while sending this request
+
+102
+00:02:22,949 --> 00:02:22,959
+session ID while sending this request
+ 
+
+103
+00:02:22,959 --> 00:02:25,869
+session ID while sending this request
+okay so it will also send this cookie
+
+104
+00:02:25,869 --> 00:02:25,879
+okay so it will also send this cookie
+ 
+
+105
+00:02:25,879 --> 00:02:28,750
+okay so it will also send this cookie
+and this session ID browsers generally
+
+106
+00:02:28,750 --> 00:02:28,760
+and this session ID browsers generally
+ 
+
+107
+00:02:28,760 --> 00:02:30,670
+and this session ID browsers generally
+automatically adds it
+
+108
+00:02:30,670 --> 00:02:30,680
+automatically adds it
+ 
+
+109
+00:02:30,680 --> 00:02:32,390
+automatically adds it
+okay this
+
+110
+00:02:32,390 --> 00:02:32,400
+okay this
+ 
+
+111
+00:02:32,400 --> 00:02:36,350
+okay this
+session so now when gmail.com request
+
+112
+00:02:36,350 --> 00:02:36,360
+session so now when gmail.com request
+ 
+
+113
+00:02:36,360 --> 00:02:38,509
+session so now when gmail.com request
+will come let's say it's uh for
+
+114
+00:02:38,509 --> 00:02:38,519
+will come let's say it's uh for
+ 
+
+115
+00:02:38,519 --> 00:02:41,589
+will come let's say it's uh for
+accessing some mail it will say that yes
+
+116
+00:02:41,589 --> 00:02:41,599
+accessing some mail it will say that yes
+ 
+
+117
+00:02:41,599 --> 00:02:43,149
+accessing some mail it will say that yes
+cookie this session this session is
+
+118
+00:02:43,149 --> 00:02:43,159
+cookie this session this session is
+ 
+
+119
+00:02:43,159 --> 00:02:45,430
+cookie this session this session is
+already valid and it will grant the
+
+120
+00:02:45,430 --> 00:02:45,440
+already valid and it will grant the
+ 
+
+121
+00:02:45,440 --> 00:02:48,270
+already valid and it will grant the
+access so you are totally unaware of
+
+122
+00:02:48,270 --> 00:02:48,280
+access so you are totally unaware of
+ 
+
+123
+00:02:48,280 --> 00:02:50,309
+access so you are totally unaware of
+this that hey only you click on this
+
+124
+00:02:50,309 --> 00:02:50,319
+this that hey only you click on this
+ 
+
+125
+00:02:50,319 --> 00:02:52,190
+this that hey only you click on this
+link this click is intend to do
+
+126
+00:02:52,190 --> 00:02:52,200
+link this click is intend to do
+ 
+
+127
+00:02:52,200 --> 00:02:54,990
+link this click is intend to do
+something else but in the background it
+
+128
+00:02:54,990 --> 00:02:55,000
+something else but in the background it
+ 
+
+129
+00:02:55,000 --> 00:02:57,390
+something else but in the background it
+initiated one request on your behalf
+
+130
+00:02:57,390 --> 00:02:57,400
+initiated one request on your behalf
+ 
+
+131
+00:02:57,400 --> 00:03:01,110
+initiated one request on your behalf
+using and your browser is is adding your
+
+132
+00:03:01,110 --> 00:03:01,120
+using and your browser is is adding your
+ 
+
+133
+00:03:01,120 --> 00:03:04,750
+using and your browser is is adding your
+session so that's what it says that csrf
+
+134
+00:03:04,750 --> 00:03:04,760
+session so that's what it says that csrf
+ 
+
+135
+00:03:04,760 --> 00:03:06,589
+session so that's what it says that csrf
+ATT tricks a browser into making
+
+136
+00:03:06,589 --> 00:03:06,599
+ATT tricks a browser into making
+ 
+
+137
+00:03:06,599 --> 00:03:09,309
+ATT tricks a browser into making
+unwanted requests to a site where user
+
+138
+00:03:09,309 --> 00:03:09,319
+unwanted requests to a site where user
+ 
+
+139
+00:03:09,319 --> 00:03:10,430
+unwanted requests to a site where user
+is already
+
+140
+00:03:10,430 --> 00:03:10,440
+is already
+ 
+
+141
+00:03:10,440 --> 00:03:12,990
+is already
+authenticated mostly applicable where
+
+142
+00:03:12,990 --> 00:03:13,000
+authenticated mostly applicable where
+ 
+
+143
+00:03:13,000 --> 00:03:15,990
+authenticated mostly applicable where
+State and session is managed so it's a
+
+144
+00:03:15,990 --> 00:03:16,000
+State and session is managed so it's a
+ 
+
+145
+00:03:16,000 --> 00:03:18,509
+State and session is managed so it's a
+like a state
+
+146
+00:03:18,509 --> 00:03:18,519
+like a state
+ 
+
+147
+00:03:18,519 --> 00:03:22,470
+like a state
+full right or session is managed only in
+
+148
+00:03:22,470 --> 00:03:22,480
+full right or session is managed only in
+ 
+
+149
+00:03:22,480 --> 00:03:23,710
+full right or session is managed only in
+that so you know right there are two
+
+150
+00:03:23,710 --> 00:03:23,720
+that so you know right there are two
+ 
+
+151
+00:03:23,720 --> 00:03:26,350
+that so you know right there are two
+types stateless and stateful so
+
+152
+00:03:26,350 --> 00:03:26,360
+types stateless and stateful so
+ 
+
+153
+00:03:26,360 --> 00:03:28,429
+types stateless and stateful so
+generally this attack is mostly you can
+
+154
+00:03:28,429 --> 00:03:28,439
+generally this attack is mostly you can
+ 
+
+155
+00:03:28,439 --> 00:03:31,550
+generally this attack is mostly you can
+say that happen with state is maintained
+
+156
+00:03:31,550 --> 00:03:31,560
+say that happen with state is maintained
+ 
+
+157
+00:03:31,560 --> 00:03:33,509
+say that happen with state is maintained
+your cookie in this your state session
+
+158
+00:03:33,509 --> 00:03:33,519
+your cookie in this your state session
+ 
+
+159
+00:03:33,519 --> 00:03:37,030
+your cookie in this your state session
+is maintained right so let me show you a
+
+160
+00:03:37,030 --> 00:03:37,040
+is maintained right so let me show you a
+ 
+
+161
+00:03:37,040 --> 00:03:40,550
+is maintained right so let me show you a
+demo of this one just for demo purpose
+
+162
+00:03:40,550 --> 00:03:40,560
+demo of this one just for demo purpose
+ 
+
+163
+00:03:40,560 --> 00:03:42,270
+demo of this one just for demo purpose
+I'm using a spring boot
+
+164
+00:03:42,270 --> 00:03:42,280
+I'm using a spring boot
+ 
+
+165
+00:03:42,280 --> 00:03:44,390
+I'm using a spring boot
+only don't worry about this we will
+
+166
+00:03:44,390 --> 00:03:44,400
+only don't worry about this we will
+ 
+
+167
+00:03:44,400 --> 00:03:46,190
+only don't worry about this we will
+discuss in depth when we will learn
+
+168
+00:03:46,190 --> 00:03:46,200
+discuss in depth when we will learn
+ 
+
+169
+00:03:46,200 --> 00:03:48,309
+discuss in depth when we will learn
+spring board security but here you just
+
+170
+00:03:48,309 --> 00:03:48,319
+spring board security but here you just
+ 
+
+171
+00:03:48,319 --> 00:03:50,309
+spring board security but here you just
+need to concentrate on
+
+172
+00:03:50,309 --> 00:03:50,319
+need to concentrate on
+ 
+
+173
+00:03:50,319 --> 00:03:53,990
+need to concentrate on
+this your server let's say that you
+
+174
+00:03:53,990 --> 00:03:54,000
+this your server let's say that you
+ 
+
+175
+00:03:54,000 --> 00:03:55,509
+this your server let's say that you
+whatever the server you are running
+
+176
+00:03:55,509 --> 00:03:55,519
+whatever the server you are running
+ 
+
+177
+00:03:55,519 --> 00:03:58,429
+whatever the server you are running
+either Gmail or either anything Bank
+
+178
+00:03:58,429 --> 00:03:58,439
+either Gmail or either anything Bank
+ 
+
+179
+00:03:58,439 --> 00:04:00,869
+either Gmail or either anything Bank
+anything you have specifically mentioned
+
+180
+00:04:00,869 --> 00:04:00,879
+anything you have specifically mentioned
+ 
+
+181
+00:04:00,879 --> 00:04:02,830
+anything you have specifically mentioned
+that hey what no matter whatever the
+
+182
+00:04:02,830 --> 00:04:02,840
+that hey what no matter whatever the
+ 
+
+183
+00:04:02,840 --> 00:04:05,830
+that hey what no matter whatever the
+request is you have to authenticate it
+
+184
+00:04:05,830 --> 00:04:05,840
+request is you have to authenticate it
+ 
+
+185
+00:04:05,840 --> 00:04:07,830
+request is you have to authenticate it
+without authentication no request should
+
+186
+00:04:07,830 --> 00:04:07,840
+without authentication no request should
+ 
+
+187
+00:04:07,840 --> 00:04:11,429
+without authentication no request should
+comes to me yes good right we have done
+
+188
+00:04:11,429 --> 00:04:11,439
+comes to me yes good right we have done
+ 
+
+189
+00:04:11,439 --> 00:04:13,830
+comes to me yes good right we have done
+that and you have an end point like
+
+190
+00:04:13,830 --> 00:04:13,840
+that and you have an end point like
+ 
+
+191
+00:04:13,840 --> 00:04:15,750
+that and you have an end point like
+where we have to do transfer money
+
+192
+00:04:15,750 --> 00:04:15,760
+where we have to do transfer money
+ 
+
+193
+00:04:15,760 --> 00:04:19,189
+where we have to do transfer money
+transfer SL transfer and if this
+
+194
+00:04:19,189 --> 00:04:19,199
+transfer SL transfer and if this
+ 
+
+195
+00:04:19,199 --> 00:04:22,710
+transfer SL transfer and if this
+request get initiated it will transfer
+
+196
+00:04:22,710 --> 00:04:22,720
+request get initiated it will transfer
+ 
+
+197
+00:04:22,720 --> 00:04:23,390
+request get initiated it will transfer
+the
+
+198
+00:04:23,390 --> 00:04:23,400
+the
+ 
+
+199
+00:04:23,400 --> 00:04:27,270
+the
+amount to whatever to whom you have
+
+200
+00:04:27,270 --> 00:04:27,280
+amount to whatever to whom you have
+ 
+
+201
+00:04:27,280 --> 00:04:30,550
+amount to whatever to whom you have
+mentioned just a uh test testing
+
+202
+00:04:30,550 --> 00:04:30,560
+mentioned just a uh test testing
+ 
+
+203
+00:04:30,560 --> 00:04:33,070
+mentioned just a uh test testing
+purpose so now what your expectation
+
+204
+00:04:33,070 --> 00:04:33,080
+purpose so now what your expectation
+ 
+
+205
+00:04:33,080 --> 00:04:35,990
+purpose so now what your expectation
+from this is like anyone who is calling
+
+206
+00:04:35,990 --> 00:04:36,000
+from this is like anyone who is calling
+ 
+
+207
+00:04:36,000 --> 00:04:39,150
+from this is like anyone who is calling
+this API is already authenticated
+
+208
+00:04:39,150 --> 00:04:39,160
+this API is already authenticated
+ 
+
+209
+00:04:39,160 --> 00:04:41,749
+this API is already authenticated
+because I have put into that like any
+
+210
+00:04:41,749 --> 00:04:41,759
+because I have put into that like any
+ 
+
+211
+00:04:41,759 --> 00:04:44,830
+because I have put into that like any
+request no matter any request should be
+
+212
+00:04:44,830 --> 00:04:44,840
+request no matter any request should be
+ 
+
+213
+00:04:44,840 --> 00:04:47,870
+request no matter any request should be
+authenticated should be
+
+214
+00:04:47,870 --> 00:04:47,880
+authenticated should be
+ 
+
+215
+00:04:47,880 --> 00:04:51,749
+authenticated should be
+authenticated okay so now let's see this
+
+216
+00:04:51,749 --> 00:04:51,759
+authenticated okay so now let's see this
+ 
+
+217
+00:04:51,759 --> 00:04:53,870
+authenticated okay so now let's see this
+one is step
+
+218
+00:04:53,870 --> 00:04:53,880
+one is step
+ 
+
+219
+00:04:53,880 --> 00:04:57,950
+one is step
+one we will also see this in parallel
+
+220
+00:04:57,950 --> 00:04:57,960
+one we will also see this in parallel
+ 
+
+221
+00:04:57,960 --> 00:05:00,390
+one we will also see this in parallel
+what is the step one
+
+222
+00:05:00,390 --> 00:05:00,400
+what is the step one
+ 
+
+223
+00:05:00,400 --> 00:05:03,270
+what is the step one
+I am making a user authenticated on a
+
+224
+00:05:03,270 --> 00:05:03,280
+I am making a user authenticated on a
+ 
+
+225
+00:05:03,280 --> 00:05:06,469
+I am making a user authenticated on a
+server now let's see that now let's
+
+226
+00:05:06,469 --> 00:05:06,479
+server now let's see that now let's
+ 
+
+227
+00:05:06,479 --> 00:05:09,629
+server now let's see that now let's
+first try to get ourself authenticated
+
+228
+00:05:09,629 --> 00:05:09,639
+first try to get ourself authenticated
+ 
+
+229
+00:05:09,639 --> 00:05:11,670
+first try to get ourself authenticated
+on a particular server so in this case I
+
+230
+00:05:11,670 --> 00:05:11,680
+on a particular server so in this case I
+ 
+
+231
+00:05:11,680 --> 00:05:13,830
+on a particular server so in this case I
+am running a server on my Local Host
+
+232
+00:05:13,830 --> 00:05:13,840
+am running a server on my Local Host
+ 
+
+233
+00:05:13,840 --> 00:05:15,430
+am running a server on my Local Host
+just assume that it could be anything
+
+234
+00:05:15,430 --> 00:05:15,440
+just assume that it could be anything
+ 
+
+235
+00:05:15,440 --> 00:05:17,990
+just assume that it could be anything
+Gmail Facebook Instagram where you are
+
+236
+00:05:17,990 --> 00:05:18,000
+Gmail Facebook Instagram where you are
+ 
+
+237
+00:05:18,000 --> 00:05:19,870
+Gmail Facebook Instagram where you are
+authenticated and we are for now
+
+238
+00:05:19,870 --> 00:05:19,880
+authenticated and we are for now
+ 
+
+239
+00:05:19,880 --> 00:05:22,749
+authenticated and we are for now
+assuming that it's a session based
+
+240
+00:05:22,749 --> 00:05:22,759
+assuming that it's a session based
+ 
+
+241
+00:05:22,759 --> 00:05:25,510
+assuming that it's a session based
+authentication means in cookies some
+
+242
+00:05:25,510 --> 00:05:25,520
+authentication means in cookies some
+ 
+
+243
+00:05:25,520 --> 00:05:27,350
+authentication means in cookies some
+session ID would be stored so let me
+
+244
+00:05:27,350 --> 00:05:27,360
+session ID would be stored so let me
+ 
+
+245
+00:05:27,360 --> 00:05:31,350
+session ID would be stored so let me
+also open inspect element user
+
+246
+00:05:31,350 --> 00:05:31,360
+also open inspect element user
+ 
+
+247
+00:05:31,360 --> 00:05:33,830
+also open inspect element user
+and let me put a password don't worry
+
+248
+00:05:33,830 --> 00:05:33,840
+and let me put a password don't worry
+ 
+
+249
+00:05:33,840 --> 00:05:35,749
+and let me put a password don't worry
+about this how I got this password we
+
+250
+00:05:35,749 --> 00:05:35,759
+about this how I got this password we
+ 
+
+251
+00:05:35,759 --> 00:05:38,390
+about this how I got this password we
+will cover this into Spring Security in
+
+252
+00:05:38,390 --> 00:05:38,400
+will cover this into Spring Security in
+ 
+
+253
+00:05:38,400 --> 00:05:39,990
+will cover this into Spring Security in
+depth so now let's say I am
+
+254
+00:05:39,990 --> 00:05:40,000
+depth so now let's say I am
+ 
+
+255
+00:05:40,000 --> 00:05:44,469
+depth so now let's say I am
+authenticated myself sign in so what has
+
+256
+00:05:44,469 --> 00:05:44,479
+authenticated myself sign in so what has
+ 
+
+257
+00:05:44,479 --> 00:05:46,350
+authenticated myself sign in so what has
+happened is here if you see that when I
+
+258
+00:05:46,350 --> 00:05:46,360
+happened is here if you see that when I
+ 
+
+259
+00:05:46,360 --> 00:05:47,670
+happened is here if you see that when I
+try to do a
+
+260
+00:05:47,670 --> 00:05:47,680
+try to do a
+ 
+
+261
+00:05:47,680 --> 00:05:52,189
+try to do a
+login I got one session one session is
+
+262
+00:05:52,189 --> 00:05:52,199
+login I got one session one session is
+ 
+
+263
+00:05:52,199 --> 00:05:55,029
+login I got one session one session is
+attached or return in the cookie and the
+
+264
+00:05:55,029 --> 00:05:55,039
+attached or return in the cookie and the
+ 
+
+265
+00:05:55,039 --> 00:05:57,110
+attached or return in the cookie and the
+same session is getting maintained by
+
+266
+00:05:57,110 --> 00:05:57,120
+same session is getting maintained by
+ 
+
+267
+00:05:57,120 --> 00:05:58,230
+same session is getting maintained by
+the server
+
+268
+00:05:58,230 --> 00:05:58,240
+the server
+ 
+
+269
+00:05:58,240 --> 00:06:00,230
+the server
+also now
+
+270
+00:06:00,230 --> 00:06:00,240
+also now
+ 
+
+271
+00:06:00,240 --> 00:06:01,790
+also now
+what is the Second
+
+272
+00:06:01,790 --> 00:06:01,800
+what is the Second
+ 
+
+273
+00:06:01,800 --> 00:06:05,430
+what is the Second
+Step okay this see this on red in
+
+274
+00:06:05,430 --> 00:06:05,440
+Step okay this see this on red in
+ 
+
+275
+00:06:05,440 --> 00:06:08,189
+Step okay this see this on red in
+cookies in the response one session got
+
+276
+00:06:08,189 --> 00:06:08,199
+cookies in the response one session got
+ 
+
+277
+00:06:08,199 --> 00:06:12,189
+cookies in the response one session got
+added now let's say that some malous
+
+278
+00:06:12,189 --> 00:06:12,199
+added now let's say that some malous
+ 
+
+279
+00:06:12,199 --> 00:06:13,950
+added now let's say that some malous
+link to this
+
+280
+00:06:13,950 --> 00:06:13,960
+link to this
+ 
+
+281
+00:06:13,960 --> 00:06:18,870
+link to this
+user is received through email or um
+
+282
+00:06:18,870 --> 00:06:18,880
+user is received through email or um
+ 
+
+283
+00:06:18,880 --> 00:06:21,230
+user is received through email or um
+through any other way or let's say just
+
+284
+00:06:21,230 --> 00:06:21,240
+through any other way or let's say just
+ 
+
+285
+00:06:21,240 --> 00:06:24,550
+through any other way or let's say just
+browsing some websites and he said said
+
+286
+00:06:24,550 --> 00:06:24,560
+browsing some websites and he said said
+ 
+
+287
+00:06:24,560 --> 00:06:28,270
+browsing some websites and he said said
+okay got this link so what would happen
+
+288
+00:06:28,270 --> 00:06:28,280
+okay got this link so what would happen
+ 
+
+289
+00:06:28,280 --> 00:06:30,710
+okay got this link so what would happen
+so I have just created one basic
+
+290
+00:06:30,710 --> 00:06:30,720
+so I have just created one basic
+ 
+
+291
+00:06:30,720 --> 00:06:34,749
+so I have just created one basic
+HTML where what happen is whenever you
+
+292
+00:06:34,749 --> 00:06:34,759
+HTML where what happen is whenever you
+ 
+
+293
+00:06:34,759 --> 00:06:38,589
+HTML where what happen is whenever you
+click a link here internally it will
+
+294
+00:06:38,589 --> 00:06:38,599
+click a link here internally it will
+ 
+
+295
+00:06:38,599 --> 00:06:41,670
+click a link here internally it will
+call this transfer API which we have
+
+296
+00:06:41,670 --> 00:06:41,680
+call this transfer API which we have
+ 
+
+297
+00:06:41,680 --> 00:06:44,430
+call this transfer API which we have
+created right to transfer the amount
+
+298
+00:06:44,430 --> 00:06:44,440
+created right to transfer the amount
+ 
+
+299
+00:06:44,440 --> 00:06:47,150
+created right to transfer the amount
+okay but here if you see that I am not
+
+300
+00:06:47,150 --> 00:06:47,160
+okay but here if you see that I am not
+ 
+
+301
+00:06:47,160 --> 00:06:50,110
+okay but here if you see that I am not
+attaching any cookie or session that
+
+302
+00:06:50,110 --> 00:06:50,120
+attaching any cookie or session that
+ 
+
+303
+00:06:50,120 --> 00:06:53,029
+attaching any cookie or session that
+your browser will automatically do okay
+
+304
+00:06:53,029 --> 00:06:53,039
+your browser will automatically do okay
+ 
+
+305
+00:06:53,039 --> 00:06:57,230
+your browser will automatically do okay
+browser will add whenever any request is
+
+306
+00:06:57,230 --> 00:06:57,240
+browser will add whenever any request is
+ 
+
+307
+00:06:57,240 --> 00:07:02,430
+browser will add whenever any request is
+sent browser adds the session okay so
+
+308
+00:07:02,430 --> 00:07:02,440
+sent browser adds the session okay so
+ 
+
+309
+00:07:02,440 --> 00:07:06,710
+sent browser adds the session okay so
+this is the HTML now also let me open
+
+310
+00:07:06,710 --> 00:07:06,720
+this is the HTML now also let me open
+ 
+
+311
+00:07:06,720 --> 00:07:10,230
+this is the HTML now also let me open
+the inspect element now just assume that
+
+312
+00:07:10,230 --> 00:07:10,240
+the inspect element now just assume that
+ 
+
+313
+00:07:10,240 --> 00:07:12,869
+the inspect element now just assume that
+you got some link through WhatsApp
+
+314
+00:07:12,869 --> 00:07:12,879
+you got some link through WhatsApp
+ 
+
+315
+00:07:12,879 --> 00:07:15,869
+you got some link through WhatsApp
+through Gmail or through while browsing
+
+316
+00:07:15,869 --> 00:07:15,879
+through Gmail or through while browsing
+ 
+
+317
+00:07:15,879 --> 00:07:20,029
+through Gmail or through while browsing
+and somehow you click any malous link
+
+318
+00:07:20,029 --> 00:07:20,039
+and somehow you click any malous link
+ 
+
+319
+00:07:20,039 --> 00:07:23,589
+and somehow you click any malous link
+see transfer $1,000 to
+
+320
+00:07:23,589 --> 00:07:23,599
+see transfer $1,000 to
+ 
+
+321
+00:07:23,599 --> 00:07:26,390
+see transfer $1,000 to
+attacker and here if you
+
+322
+00:07:26,390 --> 00:07:26,400
+attacker and here if you
+ 
+
+323
+00:07:26,400 --> 00:07:30,869
+attacker and here if you
+see in the request the session has been
+
+324
+00:07:30,869 --> 00:07:30,879
+see in the request the session has been
+ 
+
+325
+00:07:30,879 --> 00:07:34,469
+see in the request the session has been
+added what is the session mm e1n it
+
+326
+00:07:34,469 --> 00:07:34,479
+added what is the session mm e1n it
+ 
+
+327
+00:07:34,479 --> 00:07:37,309
+added what is the session mm e1n it
+should be the same as this one mme
+
+328
+00:07:37,309 --> 00:07:37,319
+should be the same as this one mme
+ 
+
+329
+00:07:37,319 --> 00:07:42,350
+should be the same as this one mme
+e1n so your browser adds the session
+
+330
+00:07:42,350 --> 00:07:42,360
+e1n so your browser adds the session
+ 
+
+331
+00:07:42,360 --> 00:07:44,550
+e1n so your browser adds the session
+whenever any request is made from like
+
+332
+00:07:44,550 --> 00:07:44,560
+whenever any request is made from like
+ 
+
+333
+00:07:44,560 --> 00:07:49,990
+whenever any request is made from like
+from your browser okay so that is where
+
+334
+00:07:49,990 --> 00:07:50,000
+from your browser okay so that is where
+ 
+
+335
+00:07:50,000 --> 00:07:53,510
+from your browser okay so that is where
+you can say that it's a csrf
+
+336
+00:07:53,510 --> 00:07:53,520
+you can say that it's a csrf
+ 
+
+337
+00:07:53,520 --> 00:07:55,950
+you can say that it's a csrf
+attack where attacker tricks your
+
+338
+00:07:55,950 --> 00:07:55,960
+attack where attacker tricks your
+ 
+
+339
+00:07:55,960 --> 00:07:58,149
+attack where attacker tricks your
+browser into making unwanted requests
+
+340
+00:07:58,149 --> 00:07:58,159
+browser into making unwanted requests
+ 
+
+341
+00:07:58,159 --> 00:07:59,589
+browser into making unwanted requests
+where user is already authentic
+
+342
+00:07:59,589 --> 00:07:59,599
+where user is already authentic
+ 
+
+343
+00:07:59,599 --> 00:08:01,749
+where user is already authentic
+indicated I hope that clarifies don't
+
+344
+00:08:01,749 --> 00:08:01,759
+indicated I hope that clarifies don't
+ 
+
+345
+00:08:01,759 --> 00:08:06,029
+indicated I hope that clarifies don't
+worry about this uh how this
+
+346
+00:08:06,029 --> 00:08:06,039
+worry about this uh how this
+ 
+
+347
+00:08:06,039 --> 00:08:08,550
+worry about this uh how this
+uh this one happening what I have
+
+348
+00:08:08,550 --> 00:08:08,560
+uh this one happening what I have
+ 
+
+349
+00:08:08,560 --> 00:08:10,070
+uh this one happening what I have
+written we will see that into Spring
+
+350
+00:08:10,070 --> 00:08:10,080
+written we will see that into Spring
+ 
+
+351
+00:08:10,080 --> 00:08:11,869
+written we will see that into Spring
+Security but for now you need to
+
+352
+00:08:11,869 --> 00:08:11,879
+Security but for now you need to
+ 
+
+353
+00:08:11,879 --> 00:08:14,710
+Security but for now you need to
+understand what is this
+
+354
+00:08:14,710 --> 00:08:14,720
+understand what is this
+ 
+
+355
+00:08:14,720 --> 00:08:18,790
+understand what is this
+attack okay we have seen that in the
+
+356
+00:08:18,790 --> 00:08:18,800
+attack okay we have seen that in the
+ 
+
+357
+00:08:18,800 --> 00:08:21,149
+attack okay we have seen that in the
+attack wherever uh the browser
+
+358
+00:08:21,149 --> 00:08:21,159
+attack wherever uh the browser
+ 
+
+359
+00:08:21,159 --> 00:08:22,869
+attack wherever uh the browser
+automatically adds the session which is
+
+360
+00:08:22,869 --> 00:08:22,879
+automatically adds the session which is
+ 
+
+361
+00:08:22,879 --> 00:08:26,149
+automatically adds the session which is
+generally the same as what you got when
+
+362
+00:08:26,149 --> 00:08:26,159
+generally the same as what you got when
+ 
+
+363
+00:08:26,159 --> 00:08:28,550
+generally the same as what you got when
+you were authenticated because browser
+
+364
+00:08:28,550 --> 00:08:28,560
+you were authenticated because browser
+ 
+
+365
+00:08:28,560 --> 00:08:32,190
+you were authenticated because browser
+stores it in the cookie so how to get
+
+366
+00:08:32,190 --> 00:08:32,200
+stores it in the cookie so how to get
+ 
+
+367
+00:08:32,200 --> 00:08:35,630
+stores it in the cookie so how to get
+protected from the csrf attack by using
+
+368
+00:08:35,630 --> 00:08:35,640
+protected from the csrf attack by using
+ 
+
+369
+00:08:35,640 --> 00:08:38,790
+protected from the csrf attack by using
+csrf token so
+
+370
+00:08:38,790 --> 00:08:38,800
+csrf token so
+ 
+
+371
+00:08:38,800 --> 00:08:41,550
+csrf token so
+generally apart from the
+
+372
+00:08:41,550 --> 00:08:41,560
+generally apart from the
+ 
+
+373
+00:08:41,560 --> 00:08:43,909
+generally apart from the
+cookie if you want to get protected from
+
+374
+00:08:43,909 --> 00:08:43,919
+cookie if you want to get protected from
+ 
+
+375
+00:08:43,919 --> 00:08:45,910
+cookie if you want to get protected from
+the csrf attack there is something
+
+376
+00:08:45,910 --> 00:08:45,920
+the csrf attack there is something
+ 
+
+377
+00:08:45,920 --> 00:08:49,630
+the csrf attack there is something
+called csrf token
+
+378
+00:08:49,630 --> 00:08:49,640
+
+ 
+
+379
+00:08:49,640 --> 00:08:53,590
+
+also okay so browser you can say that
+
+380
+00:08:53,590 --> 00:08:53,600
+also okay so browser you can say that
+ 
+
+381
+00:08:53,600 --> 00:08:56,470
+also okay so browser you can say that
+server Returns the token in response
+
+382
+00:08:56,470 --> 00:08:56,480
+server Returns the token in response
+ 
+
+383
+00:08:56,480 --> 00:08:59,470
+server Returns the token in response
+also and this token is you can say that
+
+384
+00:08:59,470 --> 00:08:59,480
+also and this token is you can say that
+ 
+
+385
+00:08:59,480 --> 00:09:01,750
+also and this token is you can say that
+known only to an authenticated
+
+386
+00:09:01,750 --> 00:09:01,760
+known only to an authenticated
+ 
+
+387
+00:09:01,760 --> 00:09:05,670
+known only to an authenticated
+legitimate source so as authenticate
+
+388
+00:09:05,670 --> 00:09:05,680
+legitimate source so as authenticate
+ 
+
+389
+00:09:05,680 --> 00:09:08,430
+legitimate source so as authenticate
+forms or website only append the csrf
+
+390
+00:09:08,430 --> 00:09:08,440
+forms or website only append the csrf
+ 
+
+391
+00:09:08,440 --> 00:09:09,670
+forms or website only append the csrf
+token in the
+
+392
+00:09:09,670 --> 00:09:09,680
+token in the
+ 
+
+393
+00:09:09,680 --> 00:09:14,670
+token in the
+request okay so if I am making if I am
+
+394
+00:09:14,670 --> 00:09:14,680
+request okay so if I am making if I am
+ 
+
+395
+00:09:14,680 --> 00:09:17,310
+request okay so if I am making if I am
+an attacker I using this HTML I don't
+
+396
+00:09:17,310 --> 00:09:17,320
+an attacker I using this HTML I don't
+ 
+
+397
+00:09:17,320 --> 00:09:20,470
+an attacker I using this HTML I don't
+know what is the csrf token what value I
+
+398
+00:09:20,470 --> 00:09:20,480
+know what is the csrf token what value I
+ 
+
+399
+00:09:20,480 --> 00:09:23,310
+know what is the csrf token what value I
+need to put I don't know only those who
+
+400
+00:09:23,310 --> 00:09:23,320
+need to put I don't know only those who
+ 
+
+401
+00:09:23,320 --> 00:09:25,190
+need to put I don't know only those who
+are legitimate Source they know what is
+
+402
+00:09:25,190 --> 00:09:25,200
+are legitimate Source they know what is
+ 
+
+403
+00:09:25,200 --> 00:09:27,430
+are legitimate Source they know what is
+the token and they will only append it
+
+404
+00:09:27,430 --> 00:09:27,440
+the token and they will only append it
+ 
+
+405
+00:09:27,440 --> 00:09:30,990
+the token and they will only append it
+so that your server knows that okay this
+
+406
+00:09:30,990 --> 00:09:31,000
+so that your server knows that okay this
+ 
+
+407
+00:09:31,000 --> 00:09:32,670
+so that your server knows that okay this
+request is coming from a legitimate
+
+408
+00:09:32,670 --> 00:09:32,680
+request is coming from a legitimate
+ 
+
+409
+00:09:32,680 --> 00:09:34,310
+request is coming from a legitimate
+Source or
+
+410
+00:09:34,310 --> 00:09:34,320
+Source or
+ 
+
+411
+00:09:34,320 --> 00:09:37,949
+Source or
+not the second attack is xss cross side
+
+412
+00:09:37,949 --> 00:09:37,959
+not the second attack is xss cross side
+ 
+
+413
+00:09:37,959 --> 00:09:40,990
+not the second attack is xss cross side
+scripting very very important
+
+414
+00:09:40,990 --> 00:09:41,000
+scripting very very important
+ 
+
+415
+00:09:41,000 --> 00:09:44,190
+scripting very very important
+okay understand it from a use case where
+
+416
+00:09:44,190 --> 00:09:44,200
+okay understand it from a use case where
+ 
+
+417
+00:09:44,200 --> 00:09:47,470
+okay understand it from a use case where
+you have a web page where considered as
+
+418
+00:09:47,470 --> 00:09:47,480
+you have a web page where considered as
+ 
+
+419
+00:09:47,480 --> 00:09:48,910
+you have a web page where considered as
+a
+
+420
+00:09:48,910 --> 00:09:48,920
+a
+ 
+
+421
+00:09:48,920 --> 00:09:53,949
+a
+comments okay user one its comments user
+
+422
+00:09:53,949 --> 00:09:53,959
+comments okay user one its comments user
+ 
+
+423
+00:09:53,959 --> 00:09:57,910
+comments okay user one its comments user
+to its comments now there is something
+
+424
+00:09:57,910 --> 00:09:57,920
+to its comments now there is something
+ 
+
+425
+00:09:57,920 --> 00:09:59,870
+to its comments now there is something
+called post
+
+426
+00:09:59,870 --> 00:09:59,880
+called post
+ 
+
+427
+00:09:59,880 --> 00:10:02,750
+called post
+you have to post something okay and once
+
+428
+00:10:02,750 --> 00:10:02,760
+you have to post something okay and once
+ 
+
+429
+00:10:02,760 --> 00:10:05,430
+you have to post something okay and once
+you post it it will also be shown here
+
+430
+00:10:05,430 --> 00:10:05,440
+you post it it will also be shown here
+ 
+
+431
+00:10:05,440 --> 00:10:08,190
+you post it it will also be shown here
+like I have posted let's say my commment
+
+432
+00:10:08,190 --> 00:10:08,200
+like I have posted let's say my commment
+ 
+
+433
+00:10:08,200 --> 00:10:11,470
+like I have posted let's say my commment
+it will come so for
+
+434
+00:10:11,470 --> 00:10:11,480
+it will come so for
+ 
+
+435
+00:10:11,480 --> 00:10:15,670
+it will come so for
+now what xss does is it allow a attacker
+
+436
+00:10:15,670 --> 00:10:15,680
+now what xss does is it allow a attacker
+ 
+
+437
+00:10:15,680 --> 00:10:19,670
+now what xss does is it allow a attacker
+to put a malous script into a web page
+
+438
+00:10:19,670 --> 00:10:19,680
+to put a malous script into a web page
+ 
+
+439
+00:10:19,680 --> 00:10:22,269
+to put a malous script into a web page
+viewed by other user so now let's say
+
+440
+00:10:22,269 --> 00:10:22,279
+viewed by other user so now let's say
+ 
+
+441
+00:10:22,279 --> 00:10:24,470
+viewed by other user so now let's say
+that this is the web page if you come
+
+442
+00:10:24,470 --> 00:10:24,480
+that this is the web page if you come
+ 
+
+443
+00:10:24,480 --> 00:10:27,110
+that this is the web page if you come
+you also see the comments from different
+
+444
+00:10:27,110 --> 00:10:27,120
+you also see the comments from different
+ 
+
+445
+00:10:27,120 --> 00:10:29,350
+you also see the comments from different
+users and you can also post your
+
+446
+00:10:29,350 --> 00:10:29,360
+users and you can also post your
+ 
+
+447
+00:10:29,360 --> 00:10:32,310
+users and you can also post your
+comments also so what if you inside a
+
+448
+00:10:32,310 --> 00:10:32,320
+comments also so what if you inside a
+ 
+
+449
+00:10:32,320 --> 00:10:34,670
+comments also so what if you inside a
+post instead of writing you put a script
+
+450
+00:10:34,670 --> 00:10:34,680
+post instead of writing you put a script
+ 
+
+451
+00:10:34,680 --> 00:10:38,430
+post instead of writing you put a script
+some and then a script would be stored
+
+452
+00:10:38,430 --> 00:10:38,440
+some and then a script would be stored
+ 
+
+453
+00:10:38,440 --> 00:10:41,230
+some and then a script would be stored
+now any other user comes to this web
+
+454
+00:10:41,230 --> 00:10:41,240
+now any other user comes to this web
+ 
+
+455
+00:10:41,240 --> 00:10:43,790
+now any other user comes to this web
+page it comments would be shown by user
+
+456
+00:10:43,790 --> 00:10:43,800
+page it comments would be shown by user
+ 
+
+457
+00:10:43,800 --> 00:10:45,829
+page it comments would be shown by user
+one user two and also your comment where
+
+458
+00:10:45,829 --> 00:10:45,839
+one user two and also your comment where
+ 
+
+459
+00:10:45,839 --> 00:10:48,269
+one user two and also your comment where
+you have put a script so that script
+
+460
+00:10:48,269 --> 00:10:48,279
+you have put a script so that script
+ 
+
+461
+00:10:48,279 --> 00:10:49,550
+you have put a script so that script
+will
+
+462
+00:10:49,550 --> 00:10:49,560
+will
+ 
+
+463
+00:10:49,560 --> 00:10:51,110
+will
+run
+
+464
+00:10:51,110 --> 00:10:51,120
+run
+ 
+
+465
+00:10:51,120 --> 00:10:54,750
+run
+so commonly used for steing the session
+
+466
+00:10:54,750 --> 00:10:54,760
+so commonly used for steing the session
+ 
+
+467
+00:10:54,760 --> 00:10:57,949
+so commonly used for steing the session
+or deform the website okay I will tell
+
+468
+00:10:57,949 --> 00:10:57,959
+or deform the website okay I will tell
+ 
+
+469
+00:10:57,959 --> 00:11:00,790
+or deform the website okay I will tell
+you how we will see a demo
+
+470
+00:11:00,790 --> 00:11:00,800
+you how we will see a demo
+ 
+
+471
+00:11:00,800 --> 00:11:02,949
+you how we will see a demo
+so for demo purpose I am creating two
+
+472
+00:11:02,949 --> 00:11:02,959
+so for demo purpose I am creating two
+ 
+
+473
+00:11:02,959 --> 00:11:06,910
+so for demo purpose I am creating two
+endpoints one is a get Call of this/
+
+474
+00:11:06,910 --> 00:11:06,920
+endpoints one is a get Call of this/
+ 
+
+475
+00:11:06,920 --> 00:11:10,350
+endpoints one is a get Call of this/
+exes where it will what it will do is it
+
+476
+00:11:10,350 --> 00:11:10,360
+exes where it will what it will do is it
+ 
+
+477
+00:11:10,360 --> 00:11:12,590
+exes where it will what it will do is it
+will just load all the comments which
+
+478
+00:11:12,590 --> 00:11:12,600
+will just load all the comments which
+ 
+
+479
+00:11:12,600 --> 00:11:15,710
+will just load all the comments which
+are present just return it nothing
+
+480
+00:11:15,710 --> 00:11:15,720
+are present just return it nothing
+ 
+
+481
+00:11:15,720 --> 00:11:19,790
+are present just return it nothing
+else okay and also you will see that I
+
+482
+00:11:19,790 --> 00:11:19,800
+else okay and also you will see that I
+ 
+
+483
+00:11:19,800 --> 00:11:23,110
+else okay and also you will see that I
+am using controller not rest controller
+
+484
+00:11:23,110 --> 00:11:23,120
+am using controller not rest controller
+ 
+
+485
+00:11:23,120 --> 00:11:26,750
+am using controller not rest controller
+okay why because uh I want to render the
+
+486
+00:11:26,750 --> 00:11:26,760
+okay why because uh I want to render the
+ 
+
+487
+00:11:26,760 --> 00:11:29,710
+okay why because uh I want to render the
+page I want to render the page I will
+
+488
+00:11:29,710 --> 00:11:29,720
+page I want to render the page I will
+ 
+
+489
+00:11:29,720 --> 00:11:31,470
+page I want to render the page I will
+see you I will show you with an example
+
+490
+00:11:31,470 --> 00:11:31,480
+see you I will show you with an example
+ 
+
+491
+00:11:31,480 --> 00:11:33,870
+see you I will show you with an example
+what does it mean the
+
+492
+00:11:33,870 --> 00:11:33,880
+what does it mean the
+ 
+
+493
+00:11:33,880 --> 00:11:38,230
+what does it mean the
+second API is post SL commment what here
+
+494
+00:11:38,230 --> 00:11:38,240
+second API is post SL commment what here
+ 
+
+495
+00:11:38,240 --> 00:11:40,710
+second API is post SL commment what here
+what it will do is this you are allowed
+
+496
+00:11:40,710 --> 00:11:40,720
+what it will do is this you are allowed
+ 
+
+497
+00:11:40,720 --> 00:11:43,870
+what it will do is this you are allowed
+to post anything and that will stored it
+
+498
+00:11:43,870 --> 00:11:43,880
+to post anything and that will stored it
+ 
+
+499
+00:11:43,880 --> 00:11:46,069
+to post anything and that will stored it
+in somewhere in the DB or somewhere in
+
+500
+00:11:46,069 --> 00:11:46,079
+in somewhere in the DB or somewhere in
+ 
+
+501
+00:11:46,079 --> 00:11:49,710
+in somewhere in the DB or somewhere in
+memory and during get call that whole
+
+502
+00:11:49,710 --> 00:11:49,720
+memory and during get call that whole
+ 
+
+503
+00:11:49,720 --> 00:11:53,430
+memory and during get call that whole
+complete list would be shown very simple
+
+504
+00:11:53,430 --> 00:11:53,440
+complete list would be shown very simple
+ 
+
+505
+00:11:53,440 --> 00:11:55,629
+complete list would be shown very simple
+and this is a code I have written very
+
+506
+00:11:55,629 --> 00:11:55,639
+and this is a code I have written very
+ 
+
+507
+00:11:55,639 --> 00:11:57,550
+and this is a code I have written very
+basic so I have used at theate
+
+508
+00:11:57,550 --> 00:11:57,560
+basic so I have used at theate
+ 
+
+509
+00:11:57,560 --> 00:11:59,629
+basic so I have used at theate
+controller and if you have following the
+
+510
+00:11:59,629 --> 00:11:59,639
+controller and if you have following the
+ 
+
+511
+00:11:59,639 --> 00:12:01,670
+controller and if you have following the
+spring boot playlist you know that what
+
+512
+00:12:01,670 --> 00:12:01,680
+spring boot playlist you know that what
+ 
+
+513
+00:12:01,680 --> 00:12:03,190
+spring boot playlist you know that what
+is the difference between controller and
+
+514
+00:12:03,190 --> 00:12:03,200
+is the difference between controller and
+ 
+
+515
+00:12:03,200 --> 00:12:05,990
+is the difference between controller and
+dress controller okay since I am using
+
+516
+00:12:05,990 --> 00:12:06,000
+dress controller okay since I am using
+ 
+
+517
+00:12:06,000 --> 00:12:09,310
+dress controller okay since I am using
+controller I'm returning xss it will try
+
+518
+00:12:09,310 --> 00:12:09,320
+controller I'm returning xss it will try
+ 
+
+519
+00:12:09,320 --> 00:12:12,629
+controller I'm returning xss it will try
+to load xs. HML it will try to render it
+
+520
+00:12:12,629 --> 00:12:12,639
+to load xs. HML it will try to render it
+ 
+
+521
+00:12:12,639 --> 00:12:16,949
+to load xs. HML it will try to render it
+okay so there I have created one xs.
+
+522
+00:12:16,949 --> 00:12:16,959
+okay so there I have created one xs.
+ 
+
+523
+00:12:16,959 --> 00:12:21,990
+okay so there I have created one xs.
+HTML okay so now here if you see this
+
+524
+00:12:21,990 --> 00:12:22,000
+HTML okay so now here if you see this
+ 
+
+525
+00:12:22,000 --> 00:12:25,990
+HTML okay so now here if you see this
+get end point is like
+
+526
+00:12:25,990 --> 00:12:26,000
+
+ 
+
+527
+00:12:26,000 --> 00:12:29,670
+
+just whenever this is called it will
+
+528
+00:12:29,670 --> 00:12:29,680
+just whenever this is called it will
+ 
+
+529
+00:12:29,680 --> 00:12:32,790
+just whenever this is called it will
+just simply return all the comments all
+
+530
+00:12:32,790 --> 00:12:32,800
+just simply return all the comments all
+ 
+
+531
+00:12:32,800 --> 00:12:35,790
+just simply return all the comments all
+the comments right whatever we have and
+
+532
+00:12:35,790 --> 00:12:35,800
+the comments right whatever we have and
+ 
+
+533
+00:12:35,800 --> 00:12:37,110
+the comments right whatever we have and
+in the
+
+534
+00:12:37,110 --> 00:12:37,120
+in the
+ 
+
+535
+00:12:37,120 --> 00:12:39,670
+in the
+post I am just adding a comment whatever
+
+536
+00:12:39,670 --> 00:12:39,680
+post I am just adding a comment whatever
+ 
+
+537
+00:12:39,680 --> 00:12:41,350
+post I am just adding a comment whatever
+the comment I am coming see whatever the
+
+538
+00:12:41,350 --> 00:12:41,360
+the comment I am coming see whatever the
+ 
+
+539
+00:12:41,360 --> 00:12:42,990
+the comment I am coming see whatever the
+comments I'm getting in a string
+
+540
+00:12:42,990 --> 00:12:43,000
+comments I'm getting in a string
+ 
+
+541
+00:12:43,000 --> 00:12:44,430
+comments I'm getting in a string
+directly whatever the user is putting
+
+542
+00:12:44,430 --> 00:12:44,440
+directly whatever the user is putting
+ 
+
+543
+00:12:44,440 --> 00:12:46,430
+directly whatever the user is putting
+some script or something I directly
+
+544
+00:12:46,430 --> 00:12:46,440
+some script or something I directly
+ 
+
+545
+00:12:46,440 --> 00:12:49,629
+some script or something I directly
+added into my list okay since in the
+
+546
+00:12:49,629 --> 00:12:49,639
+added into my list okay since in the
+ 
+
+547
+00:12:49,639 --> 00:12:51,470
+added into my list okay since in the
+spring boot everything is a single turn
+
+548
+00:12:51,470 --> 00:12:51,480
+spring boot everything is a single turn
+ 
+
+549
+00:12:51,480 --> 00:12:53,710
+spring boot everything is a single turn
+only one object is created so that's
+
+550
+00:12:53,710 --> 00:12:53,720
+only one object is created so that's
+ 
+
+551
+00:12:53,720 --> 00:12:56,829
+only one object is created so that's
+where even if you hit multiple times it
+
+552
+00:12:56,829 --> 00:12:56,839
+where even if you hit multiple times it
+ 
+
+553
+00:12:56,839 --> 00:12:58,990
+where even if you hit multiple times it
+will get stored into this objects only
+
+554
+00:12:58,990 --> 00:12:59,000
+will get stored into this objects only
+ 
+
+555
+00:12:59,000 --> 00:13:00,910
+will get stored into this objects only
+okay okay so don't get confused why why
+
+556
+00:13:00,910 --> 00:13:00,920
+okay okay so don't get confused why why
+ 
+
+557
+00:13:00,920 --> 00:13:03,110
+okay okay so don't get confused why why
+not creating every time new object so
+
+558
+00:13:03,110 --> 00:13:03,120
+not creating every time new object so
+ 
+
+559
+00:13:03,120 --> 00:13:04,750
+not creating every time new object so
+anytime you add a new comment it will
+
+560
+00:13:04,750 --> 00:13:04,760
+anytime you add a new comment it will
+ 
+
+561
+00:13:04,760 --> 00:13:08,150
+anytime you add a new comment it will
+keep on appending to this list okay and
+
+562
+00:13:08,150 --> 00:13:08,160
+keep on appending to this list okay and
+ 
+
+563
+00:13:08,160 --> 00:13:11,710
+keep on appending to this list okay and
+during get it will simply return all the
+
+564
+00:13:11,710 --> 00:13:11,720
+during get it will simply return all the
+ 
+
+565
+00:13:11,720 --> 00:13:15,670
+during get it will simply return all the
+list okay so now let's see step one I am
+
+566
+00:13:15,670 --> 00:13:15,680
+list okay so now let's see step one I am
+ 
+
+567
+00:13:15,680 --> 00:13:19,150
+list okay so now let's see step one I am
+hitting slash xss okay so here it will
+
+568
+00:13:19,150 --> 00:13:19,160
+hitting slash xss okay so here it will
+ 
+
+569
+00:13:19,160 --> 00:13:20,710
+hitting slash xss okay so here it will
+render this
+
+570
+00:13:20,710 --> 00:13:20,720
+render this
+ 
+
+571
+00:13:20,720 --> 00:13:23,310
+render this
+page here I am rendering this page leave
+
+572
+00:13:23,310 --> 00:13:23,320
+page here I am rendering this page leave
+ 
+
+573
+00:13:23,320 --> 00:13:27,350
+page here I am rendering this page leave
+a comment and simply you are able to see
+
+574
+00:13:27,350 --> 00:13:27,360
+a comment and simply you are able to see
+ 
+
+575
+00:13:27,360 --> 00:13:29,150
+a comment and simply you are able to see
+whatever the script you want to put or
+
+576
+00:13:29,150 --> 00:13:29,160
+whatever the script you want to put or
+ 
+
+577
+00:13:29,160 --> 00:13:30,670
+whatever the script you want to put or
+comment you want to put you can see
+
+578
+00:13:30,670 --> 00:13:30,680
+comment you want to put you can see
+ 
+
+579
+00:13:30,680 --> 00:13:33,150
+comment you want to put you can see
+submit okay and all the comments will be
+
+580
+00:13:33,150 --> 00:13:33,160
+submit okay and all the comments will be
+ 
+
+581
+00:13:33,160 --> 00:13:34,150
+submit okay and all the comments will be
+shown
+
+582
+00:13:34,150 --> 00:13:34,160
+shown
+ 
+
+583
+00:13:34,160 --> 00:13:37,670
+shown
+here so let's see okay so here if you
+
+584
+00:13:37,670 --> 00:13:37,680
+here so let's see okay so here if you
+ 
+
+585
+00:13:37,680 --> 00:13:39,310
+here so let's see okay so here if you
+see that leave a
+
+586
+00:13:39,310 --> 00:13:39,320
+see that leave a
+ 
+
+587
+00:13:39,320 --> 00:13:43,189
+see that leave a
+comment now let's see I am an attacker
+
+588
+00:13:43,189 --> 00:13:43,199
+comment now let's see I am an attacker
+ 
+
+589
+00:13:43,199 --> 00:13:47,550
+comment now let's see I am an attacker
+and I have put script alert xss attack
+
+590
+00:13:47,550 --> 00:13:47,560
+and I have put script alert xss attack
+ 
+
+591
+00:13:47,560 --> 00:13:50,749
+and I have put script alert xss attack
+some any just basic script now once I
+
+592
+00:13:50,749 --> 00:13:50,759
+some any just basic script now once I
+ 
+
+593
+00:13:50,759 --> 00:13:54,430
+some any just basic script now once I
+call This And click on submit what would
+
+594
+00:13:54,430 --> 00:13:54,440
+call This And click on submit what would
+ 
+
+595
+00:13:54,440 --> 00:13:58,150
+call This And click on submit what would
+happen see it's a attack happen there is
+
+596
+00:13:58,150 --> 00:13:58,160
+happen see it's a attack happen there is
+ 
+
+597
+00:13:58,160 --> 00:13:59,550
+happen see it's a attack happen there is
+a popup comes
+
+598
+00:13:59,550 --> 00:13:59,560
+a popup comes
+ 
+
+599
+00:13:59,560 --> 00:14:03,150
+a popup comes
+why because your browser initiated the
+
+600
+00:14:03,150 --> 00:14:03,160
+why because your browser initiated the
+ 
+
+601
+00:14:03,160 --> 00:14:04,829
+why because your browser initiated the
+script
+
+602
+00:14:04,829 --> 00:14:04,839
+script
+ 
+
+603
+00:14:04,839 --> 00:14:07,629
+script
+itself your browser initiated the script
+
+604
+00:14:07,629 --> 00:14:07,639
+itself your browser initiated the script
+ 
+
+605
+00:14:07,639 --> 00:14:09,269
+itself your browser initiated the script
+itself
+
+606
+00:14:09,269 --> 00:14:09,279
+itself
+ 
+
+607
+00:14:09,279 --> 00:14:12,829
+itself
+so when you click on
+
+608
+00:14:12,829 --> 00:14:12,839
+so when you click on
+ 
+
+609
+00:14:12,839 --> 00:14:15,910
+so when you click on
+submit you first click the post API this
+
+610
+00:14:15,910 --> 00:14:15,920
+submit you first click the post API this
+ 
+
+611
+00:14:15,920 --> 00:14:18,389
+submit you first click the post API this
+is the post end point so means this
+
+612
+00:14:18,389 --> 00:14:18,399
+is the post end point so means this
+ 
+
+613
+00:14:18,399 --> 00:14:21,150
+is the post end point so means this
+comment got stored this comment got
+
+614
+00:14:21,150 --> 00:14:21,160
+comment got stored this comment got
+ 
+
+615
+00:14:21,160 --> 00:14:23,910
+comment got stored this comment got
+stored now let's say any other any other
+
+616
+00:14:23,910 --> 00:14:23,920
+stored now let's say any other any other
+ 
+
+617
+00:14:23,920 --> 00:14:26,910
+stored now let's say any other any other
+user is coming and to this web page so
+
+618
+00:14:26,910 --> 00:14:26,920
+user is coming and to this web page so
+ 
+
+619
+00:14:26,920 --> 00:14:29,910
+user is coming and to this web page so
+definitely there is a get call happen SL
+
+620
+00:14:29,910 --> 00:14:29,920
+definitely there is a get call happen SL
+ 
+
+621
+00:14:29,920 --> 00:14:32,670
+definitely there is a get call happen SL
+xss okay and it will load all the
+
+622
+00:14:32,670 --> 00:14:32,680
+xss okay and it will load all the
+ 
+
+623
+00:14:32,680 --> 00:14:35,389
+xss okay and it will load all the
+comments and as soon as this scripted
+
+624
+00:14:35,389 --> 00:14:35,399
+comments and as soon as this scripted
+ 
+
+625
+00:14:35,399 --> 00:14:37,310
+comments and as soon as this scripted
+comment get loaded your browser will
+
+626
+00:14:37,310 --> 00:14:37,320
+comment get loaded your browser will
+ 
+
+627
+00:14:37,320 --> 00:14:41,670
+comment get loaded your browser will
+execute it and this uh popup comes now
+
+628
+00:14:41,670 --> 00:14:41,680
+execute it and this uh popup comes now
+ 
+
+629
+00:14:41,680 --> 00:14:43,629
+execute it and this uh popup comes now
+you will say that hey what's the problem
+
+630
+00:14:43,629 --> 00:14:43,639
+you will say that hey what's the problem
+ 
+
+631
+00:14:43,639 --> 00:14:46,710
+you will say that hey what's the problem
+in this so it's not uh uh like harmful
+
+632
+00:14:46,710 --> 00:14:46,720
+in this so it's not uh uh like harmful
+ 
+
+633
+00:14:46,720 --> 00:14:49,470
+in this so it's not uh uh like harmful
+right it's just a popup just assume that
+
+634
+00:14:49,470 --> 00:14:49,480
+right it's just a popup just assume that
+ 
+
+635
+00:14:49,480 --> 00:14:52,710
+right it's just a popup just assume that
+from this a simple script what if I
+
+636
+00:14:52,710 --> 00:14:52,720
+from this a simple script what if I
+ 
+
+637
+00:14:52,720 --> 00:14:54,470
+from this a simple script what if I
+change to this
+
+638
+00:14:54,470 --> 00:14:54,480
+change to this
+ 
+
+639
+00:14:54,480 --> 00:14:58,670
+change to this
+one I am taking you to some attacker
+
+640
+00:14:58,670 --> 00:14:58,680
+one I am taking you to some attacker
+ 
+
+641
+00:14:58,680 --> 00:14:59,990
+one I am taking you to some attacker
+site
+
+642
+00:14:59,990 --> 00:15:00,000
+site
+ 
+
+643
+00:15:00,000 --> 00:15:02,189
+site
+and just say that this is the attacker
+
+644
+00:15:02,189 --> 00:15:02,199
+and just say that this is the attacker
+ 
+
+645
+00:15:02,199 --> 00:15:06,069
+and just say that this is the attacker
+link URI you don't even know and in the
+
+646
+00:15:06,069 --> 00:15:06,079
+link URI you don't even know and in the
+ 
+
+647
+00:15:06,079 --> 00:15:08,430
+link URI you don't even know and in the
+request I just put document. cookie you
+
+648
+00:15:08,430 --> 00:15:08,440
+request I just put document. cookie you
+ 
+
+649
+00:15:08,440 --> 00:15:11,790
+request I just put document. cookie you
+know that now whatever the cookie is
+
+650
+00:15:11,790 --> 00:15:11,800
+know that now whatever the cookie is
+ 
+
+651
+00:15:11,800 --> 00:15:16,550
+know that now whatever the cookie is
+present in your browser will get to the
+
+652
+00:15:16,550 --> 00:15:16,560
+present in your browser will get to the
+ 
+
+653
+00:15:16,560 --> 00:15:19,470
+present in your browser will get to the
+attacker now attacker knows your cookie
+
+654
+00:15:19,470 --> 00:15:19,480
+attacker now attacker knows your cookie
+ 
+
+655
+00:15:19,480 --> 00:15:22,230
+attacker now attacker knows your cookie
+and this cookie only has your session ID
+
+656
+00:15:22,230 --> 00:15:22,240
+and this cookie only has your session ID
+ 
+
+657
+00:15:22,240 --> 00:15:26,310
+and this cookie only has your session ID
+now wherever you are authenticated where
+
+658
+00:15:26,310 --> 00:15:26,320
+now wherever you are authenticated where
+ 
+
+659
+00:15:26,320 --> 00:15:28,629
+now wherever you are authenticated where
+this session ID is applicable attacker
+
+660
+00:15:28,629 --> 00:15:28,639
+this session ID is applicable attacker
+ 
+
+661
+00:15:28,639 --> 00:15:30,670
+this session ID is applicable attacker
+can access it freely
+
+662
+00:15:30,670 --> 00:15:30,680
+can access it freely
+ 
+
+663
+00:15:30,680 --> 00:15:33,870
+can access it freely
+totally so it is not just like one popup
+
+664
+00:15:33,870 --> 00:15:33,880
+totally so it is not just like one popup
+ 
+
+665
+00:15:33,880 --> 00:15:37,509
+totally so it is not just like one popup
+attack you can replace this inside in
+
+666
+00:15:37,509 --> 00:15:37,519
+attack you can replace this inside in
+ 
+
+667
+00:15:37,519 --> 00:15:39,590
+attack you can replace this inside in
+instead of simple alert you can change
+
+668
+00:15:39,590 --> 00:15:39,600
+instead of simple alert you can change
+ 
+
+669
+00:15:39,600 --> 00:15:42,910
+instead of simple alert you can change
+it to like this by for stealing your
+
+670
+00:15:42,910 --> 00:15:42,920
+it to like this by for stealing your
+ 
+
+671
+00:15:42,920 --> 00:15:46,629
+it to like this by for stealing your
+cookie now attacker has your cookie your
+
+672
+00:15:46,629 --> 00:15:46,639
+cookie now attacker has your cookie your
+ 
+
+673
+00:15:46,639 --> 00:15:49,910
+cookie now attacker has your cookie your
+session you will lose the data or the
+
+674
+00:15:49,910 --> 00:15:49,920
+session you will lose the data or the
+ 
+
+675
+00:15:49,920 --> 00:15:52,189
+session you will lose the data or the
+security
+
+676
+00:15:52,189 --> 00:15:52,199
+security
+ 
+
+677
+00:15:52,199 --> 00:15:54,150
+security
+compromise so what shall we do to
+
+678
+00:15:54,150 --> 00:15:54,160
+compromise so what shall we do to
+ 
+
+679
+00:15:54,160 --> 00:15:56,430
+compromise so what shall we do to
+protect it so
+
+680
+00:15:56,430 --> 00:15:56,440
+protect it so
+ 
+
+681
+00:15:56,440 --> 00:15:59,550
+protect it so
+generally we have to do proper escaping
+
+682
+00:15:59,550 --> 00:15:59,560
+generally we have to do proper escaping
+ 
+
+683
+00:15:59,560 --> 00:16:01,990
+generally we have to do proper escaping
+the user input so wherever we are
+
+684
+00:16:01,990 --> 00:16:02,000
+the user input so wherever we are
+ 
+
+685
+00:16:02,000 --> 00:16:04,269
+the user input so wherever we are
+accepting the user
+
+686
+00:16:04,269 --> 00:16:04,279
+accepting the user
+ 
+
+687
+00:16:04,279 --> 00:16:06,749
+accepting the user
+input we don't know what user is
+
+688
+00:16:06,749 --> 00:16:06,759
+input we don't know what user is
+ 
+
+689
+00:16:06,759 --> 00:16:09,629
+input we don't know what user is
+entering so we have to take this special
+
+690
+00:16:09,629 --> 00:16:09,639
+entering so we have to take this special
+ 
+
+691
+00:16:09,639 --> 00:16:11,470
+entering so we have to take this special
+characters and we have to properly
+
+692
+00:16:11,470 --> 00:16:11,480
+characters and we have to properly
+ 
+
+693
+00:16:11,480 --> 00:16:14,350
+characters and we have to properly
+Escape it like this has to be changed to
+
+694
+00:16:14,350 --> 00:16:14,360
+Escape it like this has to be changed to
+ 
+
+695
+00:16:14,360 --> 00:16:17,269
+Escape it like this has to be changed to
+this okay so that browser don't treat it
+
+696
+00:16:17,269 --> 00:16:17,279
+this okay so that browser don't treat it
+ 
+
+697
+00:16:17,279 --> 00:16:20,150
+this okay so that browser don't treat it
+as any script which it has to run so it
+
+698
+00:16:20,150 --> 00:16:20,160
+as any script which it has to run so it
+ 
+
+699
+00:16:20,160 --> 00:16:22,670
+as any script which it has to run so it
+will be shown as it is like an string so
+
+700
+00:16:22,670 --> 00:16:22,680
+will be shown as it is like an string so
+ 
+
+701
+00:16:22,680 --> 00:16:24,710
+will be shown as it is like an string so
+you don't have to worry about that your
+
+702
+00:16:24,710 --> 00:16:24,720
+you don't have to worry about that your
+ 
+
+703
+00:16:24,720 --> 00:16:26,189
+you don't have to worry about that your
+any script will
+
+704
+00:16:26,189 --> 00:16:26,199
+any script will
+ 
+
+705
+00:16:26,199 --> 00:16:28,350
+any script will
+run okay and you have to do proper
+
+706
+00:16:28,350 --> 00:16:28,360
+run okay and you have to do proper
+ 
+
+707
+00:16:28,360 --> 00:16:30,870
+run okay and you have to do proper
+validation what what values are allowed
+
+708
+00:16:30,870 --> 00:16:30,880
+validation what what values are allowed
+ 
+
+709
+00:16:30,880 --> 00:16:33,269
+validation what what values are allowed
+what values are not allowed in the like
+
+710
+00:16:33,269 --> 00:16:33,279
+what values are not allowed in the like
+ 
+
+711
+00:16:33,279 --> 00:16:35,030
+what values are not allowed in the like
+user can
+
+712
+00:16:35,030 --> 00:16:35,040
+user can
+ 
+
+713
+00:16:35,040 --> 00:16:38,710
+user can
+use so ex is clear
+
+714
+00:16:38,710 --> 00:16:38,720
+use so ex is clear
+ 
+
+715
+00:16:38,720 --> 00:16:42,269
+use so ex is clear
+right there is something called C also
+
+716
+00:16:42,269 --> 00:16:42,279
+right there is something called C also
+ 
+
+717
+00:16:42,279 --> 00:16:45,870
+right there is something called C also
+very important cross origin resource
+
+718
+00:16:45,870 --> 00:16:45,880
+very important cross origin resource
+ 
+
+719
+00:16:45,880 --> 00:16:49,110
+very important cross origin resource
+sharing so first of all it's not an
+
+720
+00:16:49,110 --> 00:16:49,120
+sharing so first of all it's not an
+ 
+
+721
+00:16:49,120 --> 00:16:51,790
+sharing so first of all it's not an
+attack but more of a security feature
+
+722
+00:16:51,790 --> 00:16:51,800
+attack but more of a security feature
+ 
+
+723
+00:16:51,800 --> 00:16:55,069
+attack but more of a security feature
+which you can enable it or disable it
+
+724
+00:16:55,069 --> 00:16:55,079
+which you can enable it or disable it
+ 
+
+725
+00:16:55,079 --> 00:16:58,269
+which you can enable it or disable it
+okay that it's a security feature that
+
+726
+00:16:58,269 --> 00:16:58,279
+okay that it's a security feature that
+ 
+
+727
+00:16:58,279 --> 00:17:00,509
+okay that it's a security feature that
+restrict web pages from making request
+
+728
+00:17:00,509 --> 00:17:00,519
+restrict web pages from making request
+ 
+
+729
+00:17:00,519 --> 00:17:03,389
+restrict web pages from making request
+to different origin unless Allowed by
+
+730
+00:17:03,389 --> 00:17:03,399
+to different origin unless Allowed by
+ 
+
+731
+00:17:03,399 --> 00:17:06,470
+to different origin unless Allowed by
+the server so here if you see that first
+
+732
+00:17:06,470 --> 00:17:06,480
+the server so here if you see that first
+ 
+
+733
+00:17:06,480 --> 00:17:07,789
+the server so here if you see that first
+of all what do you mean by different
+
+734
+00:17:07,789 --> 00:17:07,799
+of all what do you mean by different
+ 
+
+735
+00:17:07,799 --> 00:17:11,909
+of all what do you mean by different
+origin different origin is like protocol
+
+736
+00:17:11,909 --> 00:17:11,919
+origin different origin is like protocol
+ 
+
+737
+00:17:11,919 --> 00:17:15,590
+origin different origin is like protocol
+plus domain Plus Port so let's say that
+
+738
+00:17:15,590 --> 00:17:15,600
+plus domain Plus Port so let's say that
+ 
+
+739
+00:17:15,600 --> 00:17:19,829
+plus domain Plus Port so let's say that
+for example this your client is sending
+
+740
+00:17:19,829 --> 00:17:19,839
+for example this your client is sending
+ 
+
+741
+00:17:19,839 --> 00:17:21,710
+for example this your client is sending
+this so this is your
+
+742
+00:17:21,710 --> 00:17:21,720
+this so this is your
+ 
+
+743
+00:17:21,720 --> 00:17:25,549
+this so this is your
+server okay and request can come from
+
+744
+00:17:25,549 --> 00:17:25,559
+server okay and request can come from
+ 
+
+745
+00:17:25,559 --> 00:17:28,950
+server okay and request can come from
+anywhere some let's say that valid
+
+746
+00:17:28,950 --> 00:17:28,960
+anywhere some let's say that valid
+ 
+
+747
+00:17:28,960 --> 00:17:31,470
+anywhere some let's say that valid
+clients and some attacker
+
+748
+00:17:31,470 --> 00:17:31,480
+clients and some attacker
+ 
+
+749
+00:17:31,480 --> 00:17:35,590
+clients and some attacker
+also now server should tell that hey
+
+750
+00:17:35,590 --> 00:17:35,600
+also now server should tell that hey
+ 
+
+751
+00:17:35,600 --> 00:17:38,549
+also now server should tell that hey
+only these are allowed if I get a
+
+752
+00:17:38,549 --> 00:17:38,559
+only these are allowed if I get a
+ 
+
+753
+00:17:38,559 --> 00:17:40,270
+only these are allowed if I get a
+request from
+
+754
+00:17:40,270 --> 00:17:40,280
+request from
+ 
+
+755
+00:17:40,280 --> 00:17:43,789
+request from
+these URLs then only allowed it
+
+756
+00:17:43,789 --> 00:17:43,799
+these URLs then only allowed it
+ 
+
+757
+00:17:43,799 --> 00:17:47,270
+these URLs then only allowed it
+otherwise I will not entertain it okay
+
+758
+00:17:47,270 --> 00:17:47,280
+otherwise I will not entertain it okay
+ 
+
+759
+00:17:47,280 --> 00:17:49,830
+otherwise I will not entertain it okay
+so that's where like protocol domain and
+
+760
+00:17:49,830 --> 00:17:49,840
+so that's where like protocol domain and
+ 
+
+761
+00:17:49,840 --> 00:17:53,190
+so that's where like protocol domain and
+Port all three should be defined so that
+
+762
+00:17:53,190 --> 00:17:53,200
+Port all three should be defined so that
+ 
+
+763
+00:17:53,200 --> 00:17:56,149
+Port all three should be defined so that
+server knows that yes only if there is a
+
+764
+00:17:56,149 --> 00:17:56,159
+server knows that yes only if there is a
+ 
+
+765
+00:17:56,159 --> 00:17:57,909
+server knows that yes only if there is a
+matching request coming from this then
+
+766
+00:17:57,909 --> 00:17:57,919
+matching request coming from this then
+ 
+
+767
+00:17:57,919 --> 00:17:59,470
+matching request coming from this then
+only I will entertain
+
+768
+00:17:59,470 --> 00:17:59,480
+only I will entertain
+ 
+
+769
+00:17:59,480 --> 00:18:04,710
+only I will entertain
+for example client is like https some
+
+770
+00:18:04,710 --> 00:18:04,720
+for example client is like https some
+ 
+
+771
+00:18:04,720 --> 00:18:07,390
+for example client is like https some
+local L 8080 and your server is running
+
+772
+00:18:07,390 --> 00:18:07,400
+local L 8080 and your server is running
+ 
+
+773
+00:18:07,400 --> 00:18:09,029
+local L 8080 and your server is running
+on
+
+774
+00:18:09,029 --> 00:18:09,039
+on
+ 
+
+775
+00:18:09,039 --> 00:18:11,390
+on
+HTTP again it is considered as a
+
+776
+00:18:11,390 --> 00:18:11,400
+HTTP again it is considered as a
+ 
+
+777
+00:18:11,400 --> 00:18:13,909
+HTTP again it is considered as a
+different origin not the same origin if
+
+778
+00:18:13,909 --> 00:18:13,919
+different origin not the same origin if
+ 
+
+779
+00:18:13,919 --> 00:18:15,950
+different origin not the same origin if
+it is the same origin it will uh no
+
+780
+00:18:15,950 --> 00:18:15,960
+it is the same origin it will uh no
+ 
+
+781
+00:18:15,960 --> 00:18:19,070
+it is the same origin it will uh no
+issues it will like from the same uh
+
+782
+00:18:19,070 --> 00:18:19,080
+issues it will like from the same uh
+ 
+
+783
+00:18:19,080 --> 00:18:22,390
+issues it will like from the same uh
+authenticated user valid client only but
+
+784
+00:18:22,390 --> 00:18:22,400
+authenticated user valid client only but
+ 
+
+785
+00:18:22,400 --> 00:18:24,230
+authenticated user valid client only but
+the problem comes when the like
+
+786
+00:18:24,230 --> 00:18:24,240
+the problem comes when the like
+ 
+
+787
+00:18:24,240 --> 00:18:27,270
+the problem comes when the like
+different origin like so consider this
+
+788
+00:18:27,270 --> 00:18:27,280
+different origin like so consider this
+ 
+
+789
+00:18:27,280 --> 00:18:28,950
+different origin like so consider this
+as use as a different origin because
+
+790
+00:18:28,950 --> 00:18:28,960
+as use as a different origin because
+ 
+
+791
+00:18:28,960 --> 00:18:30,430
+as use as a different origin because
+protocol is different client is running
+
+792
+00:18:30,430 --> 00:18:30,440
+protocol is different client is running
+ 
+
+793
+00:18:30,440 --> 00:18:32,909
+protocol is different client is running
+on HTTP as server is running on HTTP
+
+794
+00:18:32,909 --> 00:18:32,919
+on HTTP as server is running on HTTP
+ 
+
+795
+00:18:32,919 --> 00:18:34,470
+on HTTP as server is running on HTTP
+again it is considered
+
+796
+00:18:34,470 --> 00:18:34,480
+again it is considered
+ 
+
+797
+00:18:34,480 --> 00:18:36,830
+again it is considered
+as different
+
+798
+00:18:36,830 --> 00:18:36,840
+as different
+ 
+
+799
+00:18:36,840 --> 00:18:41,310
+as different
+origin so means here server has to allow
+
+800
+00:18:41,310 --> 00:18:41,320
+origin so means here server has to allow
+ 
+
+801
+00:18:41,320 --> 00:18:42,669
+origin so means here server has to allow
+the request from
+
+802
+00:18:42,669 --> 00:18:42,679
+the request from
+ 
+
+803
+00:18:42,679 --> 00:18:45,630
+the request from
+https local L
+
+804
+00:18:45,630 --> 00:18:45,640
+https local L
+ 
+
+805
+00:18:45,640 --> 00:18:47,990
+https local L
+8080 similarly let's say port numbers
+
+806
+00:18:47,990 --> 00:18:48,000
+8080 similarly let's say port numbers
+ 
+
+807
+00:18:48,000 --> 00:18:49,830
+8080 similarly let's say port numbers
+are different then also it is considered
+
+808
+00:18:49,830 --> 00:18:49,840
+are different then also it is considered
+ 
+
+809
+00:18:49,840 --> 00:18:52,789
+are different then also it is considered
+a different origin similarly client is
+
+810
+00:18:52,789 --> 00:18:52,799
+a different origin similarly client is
+ 
+
+811
+00:18:52,799 --> 00:18:54,669
+a different origin similarly client is
+running on sub. local server is running
+
+812
+00:18:54,669 --> 00:18:54,679
+running on sub. local server is running
+ 
+
+813
+00:18:54,679 --> 00:18:56,870
+running on sub. local server is running
+on local then again it is considered as
+
+814
+00:18:56,870 --> 00:18:56,880
+on local then again it is considered as
+ 
+
+815
+00:18:56,880 --> 00:18:58,950
+on local then again it is considered as
+different origin
+
+816
+00:18:58,950 --> 00:18:58,960
+different origin
+ 
+
+817
+00:18:58,960 --> 00:19:01,750
+different origin
+so in all these scenarios server has to
+
+818
+00:19:01,750 --> 00:19:01,760
+so in all these scenarios server has to
+ 
+
+819
+00:19:01,760 --> 00:19:04,110
+so in all these scenarios server has to
+specifically Whit list
+
+820
+00:19:04,110 --> 00:19:04,120
+specifically Whit list
+ 
+
+821
+00:19:04,120 --> 00:19:06,669
+specifically Whit list
+this so that request can be entertained
+
+822
+00:19:06,669 --> 00:19:06,679
+this so that request can be entertained
+ 
+
+823
+00:19:06,679 --> 00:19:10,870
+this so that request can be entertained
+from here and how you can do that by
+
+824
+00:19:10,870 --> 00:19:10,880
+from here and how you can do that by
+ 
+
+825
+00:19:10,880 --> 00:19:14,270
+from here and how you can do that by
+setting exess control allw origin there
+
+826
+00:19:14,270 --> 00:19:14,280
+setting exess control allw origin there
+ 
+
+827
+00:19:14,280 --> 00:19:16,070
+setting exess control allw origin there
+is whenever you hit a request you will
+
+828
+00:19:16,070 --> 00:19:16,080
+is whenever you hit a request you will
+ 
+
+829
+00:19:16,080 --> 00:19:20,909
+is whenever you hit a request you will
+see this in this one we have to set so
+
+830
+00:19:20,909 --> 00:19:20,919
+see this in this one we have to set so
+ 
+
+831
+00:19:20,919 --> 00:19:22,830
+see this in this one we have to set so
+here just don't worry about this we will
+
+832
+00:19:22,830 --> 00:19:22,840
+here just don't worry about this we will
+ 
+
+833
+00:19:22,840 --> 00:19:25,710
+here just don't worry about this we will
+see into Spring Security but here if you
+
+834
+00:19:25,710 --> 00:19:25,720
+see into Spring Security but here if you
+ 
+
+835
+00:19:25,720 --> 00:19:30,230
+see into Spring Security but here if you
+see that I am allowing this one
+
+836
+00:19:30,230 --> 00:19:30,240
+see that I am allowing this one
+ 
+
+837
+00:19:30,240 --> 00:19:34,029
+see that I am allowing this one
+course configuration allowed origin list
+
+838
+00:19:34,029 --> 00:19:34,039
+course configuration allowed origin list
+ 
+
+839
+00:19:34,039 --> 00:19:37,430
+course configuration allowed origin list
+what all is allowed I am putting here so
+
+840
+00:19:37,430 --> 00:19:37,440
+what all is allowed I am putting here so
+ 
+
+841
+00:19:37,440 --> 00:19:41,230
+what all is allowed I am putting here so
+allowed https sub Local H 9090 I am
+
+842
+00:19:41,230 --> 00:19:41,240
+allowed https sub Local H 9090 I am
+ 
+
+843
+00:19:41,240 --> 00:19:45,470
+allowed https sub Local H 9090 I am
+allowing only this URL for get postp put
+
+844
+00:19:45,470 --> 00:19:45,480
+allowing only this URL for get postp put
+ 
+
+845
+00:19:45,480 --> 00:19:48,149
+allowing only this URL for get postp put
+delete purpose okay and this is the
+
+846
+00:19:48,149 --> 00:19:48,159
+delete purpose okay and this is the
+ 
+
+847
+00:19:48,159 --> 00:19:49,310
+delete purpose okay and this is the
+allowed
+
+848
+00:19:49,310 --> 00:19:49,320
+allowed
+ 
+
+849
+00:19:49,320 --> 00:19:52,390
+allowed
+header so I will allow any request
+
+850
+00:19:52,390 --> 00:19:52,400
+header so I will allow any request
+ 
+
+851
+00:19:52,400 --> 00:19:54,430
+header so I will allow any request
+coming from this but not from this but
+
+852
+00:19:54,430 --> 00:19:54,440
+coming from this but not from this but
+ 
+
+853
+00:19:54,440 --> 00:19:58,870
+coming from this but not from this but
+not from this so This Way
+
+854
+00:19:58,870 --> 00:19:58,880
+not from this so This Way
+ 
+
+855
+00:19:58,880 --> 00:20:01,789
+not from this so This Way
+you can manage or you can say that it's
+
+856
+00:20:01,789 --> 00:20:01,799
+you can manage or you can say that it's
+ 
+
+857
+00:20:01,799 --> 00:20:05,029
+you can manage or you can say that it's
+a security feature like you can say that
+
+858
+00:20:05,029 --> 00:20:05,039
+a security feature like you can say that
+ 
+
+859
+00:20:05,039 --> 00:20:06,430
+a security feature like you can say that
+consider this request like the first
+
+860
+00:20:06,430 --> 00:20:06,440
+consider this request like the first
+ 
+
+861
+00:20:06,440 --> 00:20:09,750
+consider this request like the first
+csrf attack okay so you can say that
+
+862
+00:20:09,750 --> 00:20:09,760
+csrf attack okay so you can say that
+ 
+
+863
+00:20:09,760 --> 00:20:13,390
+csrf attack okay so you can say that
+course can become the first security
+
+864
+00:20:13,390 --> 00:20:13,400
+course can become the first security
+ 
+
+865
+00:20:13,400 --> 00:20:17,750
+course can become the first security
+gate maybe you csrf token is required
+
+866
+00:20:17,750 --> 00:20:17,760
+gate maybe you csrf token is required
+ 
+
+867
+00:20:17,760 --> 00:20:21,149
+gate maybe you csrf token is required
+that is must okay but you can say that
+
+868
+00:20:21,149 --> 00:20:21,159
+that is must okay but you can say that
+ 
+
+869
+00:20:21,159 --> 00:20:23,510
+that is must okay but you can say that
+this course can become a first line of
+
+870
+00:20:23,510 --> 00:20:23,520
+this course can become a first line of
+ 
+
+871
+00:20:23,520 --> 00:20:26,149
+this course can become a first line of
+defense that if you are uh clicking on
+
+872
+00:20:26,149 --> 00:20:26,159
+defense that if you are uh clicking on
+ 
+
+873
+00:20:26,159 --> 00:20:29,350
+defense that if you are uh clicking on
+some of the link and that server the
+
+874
+00:20:29,350 --> 00:20:29,360
+some of the link and that server the
+ 
+
+875
+00:20:29,360 --> 00:20:32,510
+some of the link and that server the
+attacker server is running on some other
+
+876
+00:20:32,510 --> 00:20:32,520
+attacker server is running on some other
+ 
+
+877
+00:20:32,520 --> 00:20:34,350
+attacker server is running on some other
+uh different
+
+878
+00:20:34,350 --> 00:20:34,360
+uh different
+ 
+
+879
+00:20:34,360 --> 00:20:36,789
+uh different
+origin this is C become the first line
+
+880
+00:20:36,789 --> 00:20:36,799
+origin this is C become the first line
+ 
+
+881
+00:20:36,799 --> 00:20:38,350
+origin this is C become the first line
+of defense
+
+882
+00:20:38,350 --> 00:20:38,360
+of defense
+ 
+
+883
+00:20:38,360 --> 00:20:41,789
+of defense
+that it will not even
+
+884
+00:20:41,789 --> 00:20:41,799
+that it will not even
+ 
+
+885
+00:20:41,799 --> 00:20:45,470
+that it will not even
+entertain okay because server has only
+
+886
+00:20:45,470 --> 00:20:45,480
+entertain okay because server has only
+ 
+
+887
+00:20:45,480 --> 00:20:50,390
+entertain okay because server has only
+allowed request from this
+
+888
+00:20:50,390 --> 00:20:50,400
+
+ 
+
+889
+00:20:50,400 --> 00:20:54,190
+
+itself and the last one is SQL injection
+
+890
+00:20:54,190 --> 00:20:54,200
+itself and the last one is SQL injection
+ 
+
+891
+00:20:54,200 --> 00:20:57,950
+itself and the last one is SQL injection
+in this one attacker manipulates SQL
+
+892
+00:20:57,950 --> 00:20:57,960
+in this one attacker manipulates SQL
+ 
+
+893
+00:20:57,960 --> 00:20:59,470
+in this one attacker manipulates SQL
+query
+
+894
+00:20:59,470 --> 00:20:59,480
+query
+ 
+
+895
+00:20:59,480 --> 00:21:02,149
+query
+by inserting malous input into the user
+
+896
+00:21:02,149 --> 00:21:02,159
+by inserting malous input into the user
+ 
+
+897
+00:21:02,159 --> 00:21:05,870
+by inserting malous input into the user
+field so I'm creating a very very simple
+
+898
+00:21:05,870 --> 00:21:05,880
+field so I'm creating a very very simple
+ 
+
+899
+00:21:05,880 --> 00:21:09,350
+field so I'm creating a very very simple
+here let's say that search
+
+900
+00:21:09,350 --> 00:21:09,360
+here let's say that search
+ 
+
+901
+00:21:09,360 --> 00:21:12,190
+here let's say that search
+field now whatever you put search let's
+
+902
+00:21:12,190 --> 00:21:12,200
+field now whatever you put search let's
+ 
+
+903
+00:21:12,200 --> 00:21:15,470
+field now whatever you put search let's
+say that uh cold
+
+904
+00:21:15,470 --> 00:21:15,480
+say that uh cold
+ 
+
+905
+00:21:15,480 --> 00:21:18,430
+say that uh cold
+drinks what if you are using this input
+
+906
+00:21:18,430 --> 00:21:18,440
+drinks what if you are using this input
+ 
+
+907
+00:21:18,440 --> 00:21:21,549
+drinks what if you are using this input
+and putting into query select estess
+
+908
+00:21:21,549 --> 00:21:21,559
+and putting into query select estess
+ 
+
+909
+00:21:21,559 --> 00:21:23,789
+and putting into query select estess
+from products
+
+910
+00:21:23,789 --> 00:21:23,799
+from products
+ 
+
+911
+00:21:23,799 --> 00:21:27,390
+from products
+where uh type equals to and this
+
+912
+00:21:27,390 --> 00:21:27,400
+where uh type equals to and this
+ 
+
+913
+00:21:27,400 --> 00:21:29,269
+where uh type equals to and this
+whatever it is coming
+
+914
+00:21:29,269 --> 00:21:29,279
+whatever it is coming
+ 
+
+915
+00:21:29,279 --> 00:21:32,510
+whatever it is coming
+search value you are directly using
+
+916
+00:21:32,510 --> 00:21:32,520
+search value you are directly using
+ 
+
+917
+00:21:32,520 --> 00:21:35,310
+search value you are directly using
+whatever user is putting into your DB
+
+918
+00:21:35,310 --> 00:21:35,320
+whatever user is putting into your DB
+ 
+
+919
+00:21:35,320 --> 00:21:39,470
+whatever user is putting into your DB
+query so here I can put some
+
+920
+00:21:39,470 --> 00:21:39,480
+query so here I can put some
+ 
+
+921
+00:21:39,480 --> 00:21:44,310
+query so here I can put some
+malous uh you can say that query which
+
+922
+00:21:44,310 --> 00:21:44,320
+malous uh you can say that query which
+ 
+
+923
+00:21:44,320 --> 00:21:47,110
+malous uh you can say that query which
+can even like give me
+
+924
+00:21:47,110 --> 00:21:47,120
+can even like give me
+ 
+
+925
+00:21:47,120 --> 00:21:49,590
+can even like give me
+the data which for which I'm not even
+
+926
+00:21:49,590 --> 00:21:49,600
+the data which for which I'm not even
+ 
+
+927
+00:21:49,600 --> 00:21:51,870
+the data which for which I'm not even
+authenticated or even I can delete your
+
+928
+00:21:51,870 --> 00:21:51,880
+authenticated or even I can delete your
+ 
+
+929
+00:21:51,880 --> 00:21:55,669
+authenticated or even I can delete your
+DB also or get your DB table name
+
+930
+00:21:55,669 --> 00:21:55,679
+DB also or get your DB table name
+ 
+
+931
+00:21:55,679 --> 00:21:58,350
+DB also or get your DB table name
+complete right so with SQL injection
+
+932
+00:21:58,350 --> 00:21:58,360
+complete right so with SQL injection
+ 
+
+933
+00:21:58,360 --> 00:22:00,909
+complete right so with SQL injection
+like your DB is not safe even I can get
+
+934
+00:22:00,909 --> 00:22:00,919
+like your DB is not safe even I can get
+ 
+
+935
+00:22:00,919 --> 00:22:02,630
+like your DB is not safe even I can get
+what is the table what are the column
+
+936
+00:22:02,630 --> 00:22:02,640
+what is the table what are the column
+ 
+
+937
+00:22:02,640 --> 00:22:05,710
+what is the table what are the column
+name I can delete it or I can access the
+
+938
+00:22:05,710 --> 00:22:05,720
+name I can delete it or I can access the
+ 
+
+939
+00:22:05,720 --> 00:22:09,070
+name I can delete it or I can access the
+unauthorized data also from the DB so in
+
+940
+00:22:09,070 --> 00:22:09,080
+unauthorized data also from the DB so in
+ 
+
+941
+00:22:09,080 --> 00:22:11,350
+unauthorized data also from the DB so in
+this example I'm showing this only very
+
+942
+00:22:11,350 --> 00:22:11,360
+this example I'm showing this only very
+ 
+
+943
+00:22:11,360 --> 00:22:14,470
+this example I'm showing this only very
+simple find API and I'm using this
+
+944
+00:22:14,470 --> 00:22:14,480
+simple find API and I'm using this
+ 
+
+945
+00:22:14,480 --> 00:22:17,149
+simple find API and I'm using this
+whatever the name is given by the user
+
+946
+00:22:17,149 --> 00:22:17,159
+whatever the name is given by the user
+ 
+
+947
+00:22:17,159 --> 00:22:20,390
+whatever the name is given by the user
+I'm directly putting into the query okay
+
+948
+00:22:20,390 --> 00:22:20,400
+I'm directly putting into the query okay
+ 
+
+949
+00:22:20,400 --> 00:22:22,990
+I'm directly putting into the query okay
+so now here if you see in
+
+950
+00:22:22,990 --> 00:22:23,000
+so now here if you see in
+ 
+
+951
+00:22:23,000 --> 00:22:26,750
+so now here if you see in
+my DB currently there are two
+
+952
+00:22:26,750 --> 00:22:26,760
+my DB currently there are two
+ 
+
+953
+00:22:26,760 --> 00:22:29,630
+my DB currently there are two
+users okay and my query says that
+
+954
+00:22:29,630 --> 00:22:29,640
+users okay and my query says that
+ 
+
+955
+00:22:29,640 --> 00:22:32,990
+users okay and my query says that
+whatever the username comes only that
+
+956
+00:22:32,990 --> 00:22:33,000
+whatever the username comes only that
+ 
+
+957
+00:22:33,000 --> 00:22:36,029
+whatever the username comes only that
+would be return if a a a comes only that
+
+958
+00:22:36,029 --> 00:22:36,039
+would be return if a a a comes only that
+ 
+
+959
+00:22:36,039 --> 00:22:37,430
+would be return if a a a comes only that
+should be
+
+960
+00:22:37,430 --> 00:22:37,440
+should be
+ 
+
+961
+00:22:37,440 --> 00:22:41,149
+should be
+written but now let's say that what if I
+
+962
+00:22:41,149 --> 00:22:41,159
+written but now let's say that what if I
+ 
+
+963
+00:22:41,159 --> 00:22:44,789
+written but now let's say that what if I
+put hit the query like this SL
+
+964
+00:22:44,789 --> 00:22:44,799
+put hit the query like this SL
+ 
+
+965
+00:22:44,799 --> 00:22:47,789
+put hit the query like this SL
+find here if you see Slash find now
+
+966
+00:22:47,789 --> 00:22:47,799
+find here if you see Slash find now
+ 
+
+967
+00:22:47,799 --> 00:22:51,590
+find here if you see Slash find now
+instead of name I am giving like this
+
+968
+00:22:51,590 --> 00:22:51,600
+instead of name I am giving like this
+ 
+
+969
+00:22:51,600 --> 00:22:53,149
+instead of name I am giving like this
+slash
+
+970
+00:22:53,149 --> 00:22:53,159
+slash
+ 
+
+971
+00:22:53,159 --> 00:22:58,070
+slash
+or 1 = to 1 now directly it will replace
+
+972
+00:22:58,070 --> 00:22:58,080
+or 1 = to 1 now directly it will replace
+ 
+
+973
+00:22:58,080 --> 00:23:02,510
+or 1 = to 1 now directly it will replace
+here so what it will be like user undor
+
+974
+00:23:02,510 --> 00:23:02,520
+here so what it will be like user undor
+ 
+
+975
+00:23:02,520 --> 00:23:07,110
+here so what it will be like user undor
+name equals to so first this will finish
+
+976
+00:23:07,110 --> 00:23:07,120
+name equals to so first this will finish
+ 
+
+977
+00:23:07,120 --> 00:23:12,110
+name equals to so first this will finish
+this then it will append this or 1 = to
+
+978
+00:23:12,110 --> 00:23:12,120
+this then it will append this or 1 = to
+ 
+
+979
+00:23:12,120 --> 00:23:14,590
+this then it will append this or 1 = to
+1 and then you have this one which will
+
+980
+00:23:14,590 --> 00:23:14,600
+1 and then you have this one which will
+ 
+
+981
+00:23:14,600 --> 00:23:17,630
+1 and then you have this one which will
+complete this now your query become this
+
+982
+00:23:17,630 --> 00:23:17,640
+complete this now your query become this
+ 
+
+983
+00:23:17,640 --> 00:23:19,990
+complete this now your query become this
+select estess from user details where
+
+984
+00:23:19,990 --> 00:23:20,000
+select estess from user details where
+ 
+
+985
+00:23:20,000 --> 00:23:24,110
+select estess from user details where
+username equals to this so it is empty
+
+986
+00:23:24,110 --> 00:23:24,120
+username equals to this so it is empty
+ 
+
+987
+00:23:24,120 --> 00:23:26,630
+username equals to this so it is empty
+or 1al to 1 become true so it will
+
+988
+00:23:26,630 --> 00:23:26,640
+or 1al to 1 become true so it will
+ 
+
+989
+00:23:26,640 --> 00:23:32,029
+or 1al to 1 become true so it will
+return all the values in the
+
+990
+00:23:32,029 --> 00:23:32,039
+
+ 
+
+991
+00:23:32,039 --> 00:23:35,350
+
+DB you you got it like what happened
+
+992
+00:23:35,350 --> 00:23:35,360
+DB you you got it like what happened
+ 
+
+993
+00:23:35,360 --> 00:23:38,990
+DB you you got it like what happened
+here I put certain values which is
+
+994
+00:23:38,990 --> 00:23:39,000
+here I put certain values which is
+ 
+
+995
+00:23:39,000 --> 00:23:41,750
+here I put certain values which is
+not properly uh you can say that
+
+996
+00:23:41,750 --> 00:23:41,760
+not properly uh you can say that
+ 
+
+997
+00:23:41,760 --> 00:23:43,470
+not properly uh you can say that
+validated and used directly into the
+
+998
+00:23:43,470 --> 00:23:43,480
+validated and used directly into the
+ 
+
+999
+00:23:43,480 --> 00:23:47,149
+validated and used directly into the
+query and I manipulated it such that it
+
+1000
+00:23:47,149 --> 00:23:47,159
+query and I manipulated it such that it
+ 
+
+1001
+00:23:47,159 --> 00:23:49,269
+query and I manipulated it such that it
+returns me the complete data or
+
+1002
+00:23:49,269 --> 00:23:49,279
+returns me the complete data or
+ 
+
+1003
+00:23:49,279 --> 00:23:52,310
+returns me the complete data or
+unauthorized
+
+1004
+00:23:52,310 --> 00:23:52,320
+
+ 
+
+1005
+00:23:52,320 --> 00:23:55,630
+
+data we can also use it to F the DB name
+
+1006
+00:23:55,630 --> 00:23:55,640
+data we can also use it to F the DB name
+ 
+
+1007
+00:23:55,640 --> 00:23:58,430
+data we can also use it to F the DB name
+table name and you can also drop the D
+
+1008
+00:23:58,430 --> 00:23:58,440
+table name and you can also drop the D
+ 
+
+1009
+00:23:58,440 --> 00:24:02,549
+table name and you can also drop the D
+DB also tables also so it's very very
+
+1010
+00:24:02,549 --> 00:24:02,559
+DB also tables also so it's very very
+ 
+
+1011
+00:24:02,559 --> 00:24:04,710
+DB also tables also so it's very very
+important uh to get protected from the
+
+1012
+00:24:04,710 --> 00:24:04,720
+important uh to get protected from the
+ 
+
+1013
+00:24:04,720 --> 00:24:08,269
+important uh to get protected from the
+SQL injection and how to protect it by
+
+1014
+00:24:08,269 --> 00:24:08,279
+SQL injection and how to protect it by
+ 
+
+1015
+00:24:08,279 --> 00:24:09,990
+SQL injection and how to protect it by
+we have already seen that in the SQL
+
+1016
+00:24:09,990 --> 00:24:10,000
+we have already seen that in the SQL
+ 
+
+1017
+00:24:10,000 --> 00:24:12,149
+we have already seen that in the SQL
+when we covered jpql right by
+
+1018
+00:24:12,149 --> 00:24:12,159
+when we covered jpql right by
+ 
+
+1019
+00:24:12,159 --> 00:24:15,470
+when we covered jpql right by
+parameterized query we can protect it so
+
+1020
+00:24:15,470 --> 00:24:15,480
+parameterized query we can protect it so
+ 
+
+1021
+00:24:15,480 --> 00:24:17,710
+parameterized query we can protect it so
+whatever the name is coming don't use it
+
+1022
+00:24:17,710 --> 00:24:17,720
+whatever the name is coming don't use it
+ 
+
+1023
+00:24:17,720 --> 00:24:21,750
+whatever the name is coming don't use it
+as it is you have to use like this
+
+1024
+00:24:21,750 --> 00:24:21,760
+as it is you have to use like this
+ 
+
+1025
+00:24:21,760 --> 00:24:23,149
+as it is you have to use like this
+parameterize
+
+1026
+00:24:23,149 --> 00:24:23,159
+parameterize
+ 
+
+1027
+00:24:23,159 --> 00:24:26,990
+parameterize
+it okay so set parameters so that it
+
+1028
+00:24:26,990 --> 00:24:27,000
+it okay so set parameters so that it
+ 
+
+1029
+00:24:27,000 --> 00:24:29,149
+it okay so set parameters so that it
+would be like not as considered as a
+
+1030
+00:24:29,149 --> 00:24:29,159
+would be like not as considered as a
+ 
+
+1031
+00:24:29,159 --> 00:24:31,510
+would be like not as considered as a
+query it will be considered as a value
+
+1032
+00:24:31,510 --> 00:24:31,520
+query it will be considered as a value
+ 
+
+1033
+00:24:31,520 --> 00:24:35,110
+query it will be considered as a value
+string okay and then you will get no
+
+1034
+00:24:35,110 --> 00:24:35,120
+string okay and then you will get no
+ 
+
+1035
+00:24:35,120 --> 00:24:38,830
+string okay and then you will get no
+data so because with this name/ all 1al
+
+1036
+00:24:38,830 --> 00:24:38,840
+data so because with this name/ all 1al
+ 
+
+1037
+00:24:38,840 --> 00:24:42,190
+data so because with this name/ all 1al
+to 1 nothing matched
+
+1038
+00:24:42,190 --> 00:24:42,200
+to 1 nothing matched
+ 
+
+1039
+00:24:42,200 --> 00:24:44,909
+to 1 nothing matched
+so it's safe
+
+1040
+00:24:44,909 --> 00:24:44,919
+so it's safe
+ 
+
+1041
+00:24:44,919 --> 00:24:47,990
+so it's safe
+now okay guys any doubt let me know uh
+
+1042
+00:24:47,990 --> 00:24:48,000
+now okay guys any doubt let me know uh
+ 
+
+1043
+00:24:48,000 --> 00:24:52,520
+now okay guys any doubt let me know uh
+we'll discuss more thank you bye
+

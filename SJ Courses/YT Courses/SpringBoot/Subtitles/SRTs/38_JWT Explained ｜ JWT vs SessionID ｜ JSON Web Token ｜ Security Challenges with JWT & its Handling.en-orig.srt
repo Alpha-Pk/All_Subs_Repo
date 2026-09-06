@@ -1,0 +1,10155 @@
+1
+00:00:00,399 --> 00:00:01,949
+
+hey guys welcome to concept and coding
+
+2
+00:00:01,949 --> 00:00:01,959
+hey guys welcome to concept and coding
+ 
+
+3
+00:00:01,959 --> 00:00:04,070
+hey guys welcome to concept and coding
+and this is Shan and today we are going
+
+4
+00:00:04,070 --> 00:00:04,080
+and this is Shan and today we are going
+ 
+
+5
+00:00:04,080 --> 00:00:09,270
+and this is Shan and today we are going
+to do this JWT Json WB token and if you
+
+6
+00:00:09,270 --> 00:00:09,280
+to do this JWT Json WB token and if you
+ 
+
+7
+00:00:09,280 --> 00:00:12,789
+to do this JWT Json WB token and if you
+have not seen the O and cryptography
+
+8
+00:00:12,789 --> 00:00:12,799
+have not seen the O and cryptography
+ 
+
+9
+00:00:12,799 --> 00:00:15,390
+have not seen the O and cryptography
+videos in the same playlist then I would
+
+10
+00:00:15,390 --> 00:00:15,400
+videos in the same playlist then I would
+ 
+
+11
+00:00:15,400 --> 00:00:17,189
+videos in the same playlist then I would
+highly recommend to go through this
+
+12
+00:00:17,189 --> 00:00:17,199
+highly recommend to go through this
+ 
+
+13
+00:00:17,199 --> 00:00:21,710
+highly recommend to go through this
+because JWT is highly linked with it o
+
+14
+00:00:21,710 --> 00:00:21,720
+because JWT is highly linked with it o
+ 
+
+15
+00:00:21,720 --> 00:00:26,910
+because JWT is highly linked with it o
+uses JWT and JWT uses cryptographic keys
+
+16
+00:00:26,910 --> 00:00:26,920
+uses JWT and JWT uses cryptographic keys
+ 
+
+17
+00:00:26,920 --> 00:00:30,589
+uses JWT and JWT uses cryptographic keys
+and all right so go through that on it's
+
+18
+00:00:30,589 --> 00:00:30,599
+and all right so go through that on it's
+ 
+
+19
+00:00:30,599 --> 00:00:32,910
+and all right so go through that on it's
+already been covered and today let's
+
+20
+00:00:32,910 --> 00:00:32,920
+already been covered and today let's
+ 
+
+21
+00:00:32,920 --> 00:00:34,910
+already been covered and today let's
+just start without any wasting time what
+
+22
+00:00:34,910 --> 00:00:34,920
+just start without any wasting time what
+ 
+
+23
+00:00:34,920 --> 00:00:36,229
+just start without any wasting time what
+is
+
+24
+00:00:36,229 --> 00:00:36,239
+is
+ 
+
+25
+00:00:36,239 --> 00:00:39,270
+is
+JWT so in a very very simple
+
+26
+00:00:39,270 --> 00:00:39,280
+JWT so in a very very simple
+ 
+
+27
+00:00:39,280 --> 00:00:42,990
+JWT so in a very very simple
+term it provides a secure way of
+
+28
+00:00:42,990 --> 00:00:43,000
+term it provides a secure way of
+ 
+
+29
+00:00:43,000 --> 00:00:45,750
+term it provides a secure way of
+transmitting information between parties
+
+30
+00:00:45,750 --> 00:00:45,760
+transmitting information between parties
+ 
+
+31
+00:00:45,760 --> 00:00:47,310
+transmitting information between parties
+as a Json
+
+32
+00:00:47,310 --> 00:00:47,320
+as a Json
+ 
+
+33
+00:00:47,320 --> 00:00:50,869
+as a Json
+object right so you already know Json
+
+34
+00:00:50,869 --> 00:00:50,879
+object right so you already know Json
+ 
+
+35
+00:00:50,879 --> 00:00:52,069
+object right so you already know Json
+object
+
+36
+00:00:52,069 --> 00:00:52,079
+object
+ 
+
+37
+00:00:52,079 --> 00:00:56,069
+object
+right it would it's like key value pair
+
+38
+00:00:56,069 --> 00:00:56,079
+right it would it's like key value pair
+ 
+
+39
+00:00:56,079 --> 00:00:59,430
+right it would it's like key value pair
+key and then value comma key value
+
+40
+00:00:59,430 --> 00:00:59,440
+key and then value comma key value
+ 
+
+41
+00:00:59,440 --> 00:01:02,670
+key and then value comma key value
+objects generally right
+
+42
+00:01:02,670 --> 00:01:02,680
+objects generally right
+ 
+
+43
+00:01:02,680 --> 00:01:07,109
+objects generally right
+so what JWT is just a secure way of
+
+44
+00:01:07,109 --> 00:01:07,119
+so what JWT is just a secure way of
+ 
+
+45
+00:01:07,119 --> 00:01:09,630
+so what JWT is just a secure way of
+transmitting information between
+
+46
+00:01:09,630 --> 00:01:09,640
+transmitting information between
+ 
+
+47
+00:01:09,640 --> 00:01:13,190
+transmitting information between
+parties okay this information can be
+
+48
+00:01:13,190 --> 00:01:13,200
+parties okay this information can be
+ 
+
+49
+00:01:13,200 --> 00:01:15,950
+parties okay this information can be
+verified because it's digit digitally
+
+50
+00:01:15,950 --> 00:01:15,960
+verified because it's digit digitally
+ 
+
+51
+00:01:15,960 --> 00:01:20,030
+verified because it's digit digitally
+sign using RS Etc like hm is one more
+
+52
+00:01:20,030 --> 00:01:20,040
+sign using RS Etc like hm is one more
+ 
+
+53
+00:01:20,040 --> 00:01:23,670
+sign using RS Etc like hm is one more
+algo which we can use okay so the
+
+54
+00:01:23,670 --> 00:01:23,680
+algo which we can use okay so the
+ 
+
+55
+00:01:23,680 --> 00:01:26,190
+algo which we can use okay so the
+message which you are transmitting
+
+56
+00:01:26,190 --> 00:01:26,200
+message which you are transmitting
+ 
+
+57
+00:01:26,200 --> 00:01:28,550
+message which you are transmitting
+between parties that can be digitally
+
+58
+00:01:28,550 --> 00:01:28,560
+between parties that can be digitally
+ 
+
+59
+00:01:28,560 --> 00:01:30,910
+between parties that can be digitally
+signed and how you can digitally signed
+
+60
+00:01:30,910 --> 00:01:30,920
+signed and how you can digitally signed
+ 
+
+61
+00:01:30,920 --> 00:01:32,950
+signed and how you can digitally signed
+I have already explained in the
+
+62
+00:01:32,950 --> 00:01:32,960
+I have already explained in the
+ 
+
+63
+00:01:32,960 --> 00:01:36,429
+I have already explained in the
+cryptography but for now in this
+
+64
+00:01:36,429 --> 00:01:36,439
+cryptography but for now in this
+ 
+
+65
+00:01:36,439 --> 00:01:39,830
+cryptography but for now in this
+definition what you have to focus on is
+
+66
+00:01:39,830 --> 00:01:39,840
+definition what you have to focus on is
+ 
+
+67
+00:01:39,840 --> 00:01:43,270
+definition what you have to focus on is
+it was developed as just a way of
+
+68
+00:01:43,270 --> 00:01:43,280
+it was developed as just a way of
+ 
+
+69
+00:01:43,280 --> 00:01:45,990
+it was developed as just a way of
+transmitting information securely that's
+
+70
+00:01:45,990 --> 00:01:46,000
+transmitting information securely that's
+ 
+
+71
+00:01:46,000 --> 00:01:51,270
+transmitting information securely that's
+all but over the time we are using JWT
+
+72
+00:01:51,270 --> 00:01:51,280
+all but over the time we are using JWT
+ 
+
+73
+00:01:51,280 --> 00:01:54,389
+all but over the time we are using JWT
+in many different areas for
+
+74
+00:01:54,389 --> 00:01:54,399
+in many different areas for
+ 
+
+75
+00:01:54,399 --> 00:01:58,870
+in many different areas for
+authentication for authorization and in
+
+76
+00:01:58,870 --> 00:01:58,880
+authentication for authorization and in
+ 
+
+77
+00:01:58,880 --> 00:02:00,749
+authentication for authorization and in
+SSO when whenever you are doing single
+
+78
+00:02:00,749 --> 00:02:00,759
+SSO when whenever you are doing single
+ 
+
+79
+00:02:00,759 --> 00:02:03,270
+SSO when whenever you are doing single
+sign on right you are using JWT and this
+
+80
+00:02:03,270 --> 00:02:03,280
+sign on right you are using JWT and this
+ 
+
+81
+00:02:03,280 --> 00:02:05,230
+sign on right you are using JWT and this
+is also one of the good interview
+
+82
+00:02:05,230 --> 00:02:05,240
+is also one of the good interview
+ 
+
+83
+00:02:05,240 --> 00:02:07,469
+is also one of the good interview
+question how you will Implement single
+
+84
+00:02:07,469 --> 00:02:07,479
+question how you will Implement single
+ 
+
+85
+00:02:07,479 --> 00:02:09,749
+question how you will Implement single
+sign on to implement a single sign on
+
+86
+00:02:09,749 --> 00:02:09,759
+sign on to implement a single sign on
+ 
+
+87
+00:02:09,759 --> 00:02:11,150
+sign on to implement a single sign on
+you need
+
+88
+00:02:11,150 --> 00:02:11,160
+you need
+ 
+
+89
+00:02:11,160 --> 00:02:14,270
+you need
+JWT right so when I say that
+
+90
+00:02:14,270 --> 00:02:14,280
+JWT right so when I say that
+ 
+
+91
+00:02:14,280 --> 00:02:16,390
+JWT right so when I say that
+authentication JWT is used for
+
+92
+00:02:16,390 --> 00:02:16,400
+authentication JWT is used for
+ 
+
+93
+00:02:16,400 --> 00:02:18,750
+authentication JWT is used for
+authentication means confirming the user
+
+94
+00:02:18,750 --> 00:02:18,760
+authentication means confirming the user
+ 
+
+95
+00:02:18,760 --> 00:02:22,229
+authentication means confirming the user
+identity if I am Shan it verifies that
+
+96
+00:02:22,229 --> 00:02:22,239
+identity if I am Shan it verifies that
+ 
+
+97
+00:02:22,239 --> 00:02:25,350
+identity if I am Shan it verifies that
+yes he is Shan the message which is
+
+98
+00:02:25,350 --> 00:02:25,360
+yes he is Shan the message which is
+ 
+
+99
+00:02:25,360 --> 00:02:29,589
+yes he is Shan the message which is
+coming from Shan authorization means
+
+100
+00:02:29,589 --> 00:02:29,599
+coming from Shan authorization means
+ 
+
+101
+00:02:29,599 --> 00:02:32,150
+coming from Shan authorization means
+it's check for permission if I am trying
+
+102
+00:02:32,150 --> 00:02:32,160
+it's check for permission if I am trying
+ 
+
+103
+00:02:32,160 --> 00:02:36,670
+it's check for permission if I am trying
+to fetch certain details then JWT also
+
+104
+00:02:36,670 --> 00:02:36,680
+to fetch certain details then JWT also
+ 
+
+105
+00:02:36,680 --> 00:02:39,670
+to fetch certain details then JWT also
+helps in authorization that does Shan
+
+106
+00:02:39,670 --> 00:02:39,680
+helps in authorization that does Shan
+ 
+
+107
+00:02:39,680 --> 00:02:42,710
+helps in authorization that does Shan
+has authority to fet this detail or not
+
+108
+00:02:42,710 --> 00:02:42,720
+has authority to fet this detail or not
+ 
+
+109
+00:02:42,720 --> 00:02:46,190
+has authority to fet this detail or not
+yes authentication is done I am Shan but
+
+110
+00:02:46,190 --> 00:02:46,200
+yes authentication is done I am Shan but
+ 
+
+111
+00:02:46,200 --> 00:02:48,350
+yes authentication is done I am Shan but
+do I have an authority to fetch certain
+
+112
+00:02:48,350 --> 00:02:48,360
+do I have an authority to fetch certain
+ 
+
+113
+00:02:48,360 --> 00:02:51,949
+do I have an authority to fetch certain
+details or not that also you can do and
+
+114
+00:02:51,949 --> 00:02:51,959
+details or not that also you can do and
+ 
+
+115
+00:02:51,959 --> 00:02:54,670
+details or not that also you can do and
+single sign on you already know that you
+
+116
+00:02:54,670 --> 00:02:54,680
+single sign on you already know that you
+ 
+
+117
+00:02:54,680 --> 00:02:58,149
+single sign on you already know that you
+have signed in one application one you
+
+118
+00:02:58,149 --> 00:02:58,159
+have signed in one application one you
+ 
+
+119
+00:02:58,159 --> 00:03:01,350
+have signed in one application one you
+have signed in you have already logged
+
+120
+00:03:01,350 --> 00:03:01,360
+have signed in you have already logged
+ 
+
+121
+00:03:01,360 --> 00:03:06,630
+have signed in you have already logged
+in now there are different app app 2 app
+
+122
+00:03:06,630 --> 00:03:06,640
+in now there are different app app 2 app
+ 
+
+123
+00:03:06,640 --> 00:03:09,309
+in now there are different app app 2 app
+3 right same
+
+124
+00:03:09,309 --> 00:03:09,319
+3 right same
+ 
+
+125
+00:03:09,319 --> 00:03:12,470
+3 right same
+user so here you have signed in but with
+
+126
+00:03:12,470 --> 00:03:12,480
+user so here you have signed in but with
+ 
+
+127
+00:03:12,480 --> 00:03:16,070
+user so here you have signed in but with
+a single sign on you can log to
+
+128
+00:03:16,070 --> 00:03:16,080
+a single sign on you can log to
+ 
+
+129
+00:03:16,080 --> 00:03:20,190
+a single sign on you can log to
+different application now without trying
+
+130
+00:03:20,190 --> 00:03:20,200
+different application now without trying
+ 
+
+131
+00:03:20,200 --> 00:03:24,149
+different application now without trying
+to provide your username password so it
+
+132
+00:03:24,149 --> 00:03:24,159
+to provide your username password so it
+ 
+
+133
+00:03:24,159 --> 00:03:26,110
+to provide your username password so it
+it was built as a way of just
+
+134
+00:03:26,110 --> 00:03:26,120
+it was built as a way of just
+ 
+
+135
+00:03:26,120 --> 00:03:28,429
+it was built as a way of just
+transmitting information securely but
+
+136
+00:03:28,429 --> 00:03:28,439
+transmitting information securely but
+ 
+
+137
+00:03:28,439 --> 00:03:31,030
+transmitting information securely but
+this is today at this three places it is
+
+138
+00:03:31,030 --> 00:03:31,040
+this is today at this three places it is
+ 
+
+139
+00:03:31,040 --> 00:03:32,550
+this is today at this three places it is
+highly
+
+140
+00:03:32,550 --> 00:03:32,560
+highly
+ 
+
+141
+00:03:32,560 --> 00:03:36,990
+highly
+used and this advantages we will come
+
+142
+00:03:36,990 --> 00:03:37,000
+used and this advantages we will come
+ 
+
+143
+00:03:37,000 --> 00:03:40,390
+used and this advantages we will come
+again once we have finished all the
+
+144
+00:03:40,390 --> 00:03:40,400
+again once we have finished all the
+ 
+
+145
+00:03:40,400 --> 00:03:42,390
+again once we have finished all the
+understanding of the JWT because then
+
+146
+00:03:42,390 --> 00:03:42,400
+understanding of the JWT because then
+ 
+
+147
+00:03:42,400 --> 00:03:44,190
+understanding of the JWT because then
+only it will make sense because when I
+
+148
+00:03:44,190 --> 00:03:44,200
+only it will make sense because when I
+ 
+
+149
+00:03:44,200 --> 00:03:46,670
+only it will make sense because when I
+say that it is self-contained it's only
+
+150
+00:03:46,670 --> 00:03:46,680
+say that it is self-contained it's only
+ 
+
+151
+00:03:46,680 --> 00:03:49,110
+say that it is self-contained it's only
+when you understand what is JWT how it
+
+152
+00:03:49,110 --> 00:03:49,120
+when you understand what is JWT how it
+ 
+
+153
+00:03:49,120 --> 00:03:51,429
+when you understand what is JWT how it
+is a structure looks like then only you
+
+154
+00:03:51,429 --> 00:03:51,439
+is a structure looks like then only you
+ 
+
+155
+00:03:51,439 --> 00:03:54,470
+is a structure looks like then only you
+will get to know yes it's self-contain
+
+156
+00:03:54,470 --> 00:03:54,480
+will get to know yes it's self-contain
+ 
+
+157
+00:03:54,480 --> 00:03:56,270
+will get to know yes it's self-contain
+okay so don't worry we will come back to
+
+158
+00:03:56,270 --> 00:03:56,280
+okay so don't worry we will come back to
+ 
+
+159
+00:03:56,280 --> 00:03:57,309
+okay so don't worry we will come back to
+its
+
+160
+00:03:57,309 --> 00:03:57,319
+its
+ 
+
+161
+00:03:57,319 --> 00:03:59,750
+its
+Advantage one more time once we will
+
+162
+00:03:59,750 --> 00:03:59,760
+Advantage one more time once we will
+ 
+
+163
+00:03:59,760 --> 00:04:02,390
+Advantage one more time once we will
+complet the JWT but for
+
+164
+00:04:02,390 --> 00:04:02,400
+complet the JWT but for
+ 
+
+165
+00:04:02,400 --> 00:04:06,390
+complet the JWT but for
+now what is JWT and where today they are
+
+166
+00:04:06,390 --> 00:04:06,400
+now what is JWT and where today they are
+ 
+
+167
+00:04:06,400 --> 00:04:13,390
+now what is JWT and where today they are
+highly used that should be in uh total
+
+168
+00:04:13,390 --> 00:04:13,400
+
+ 
+
+169
+00:04:13,400 --> 00:04:17,909
+
+Clarity okay so this is you can say
+
+170
+00:04:17,909 --> 00:04:17,919
+Clarity okay so this is you can say
+ 
+
+171
+00:04:17,919 --> 00:04:21,790
+Clarity okay so this is you can say
+a flow of JWT today in the
+
+172
+00:04:21,790 --> 00:04:21,800
+a flow of JWT today in the
+ 
+
+173
+00:04:21,800 --> 00:04:24,909
+a flow of JWT today in the
+authentication uh part so this is let's
+
+174
+00:04:24,909 --> 00:04:24,919
+authentication uh part so this is let's
+ 
+
+175
+00:04:24,919 --> 00:04:26,469
+authentication uh part so this is let's
+say this is a
+
+176
+00:04:26,469 --> 00:04:26,479
+say this is a
+ 
+
+177
+00:04:26,479 --> 00:04:29,790
+say this is a
+client okay so this is the first happen
+
+178
+00:04:29,790 --> 00:04:29,800
+client okay so this is the first happen
+ 
+
+179
+00:04:29,800 --> 00:04:32,350
+client okay so this is the first happen
+is so this is your author authentication
+
+180
+00:04:32,350 --> 00:04:32,360
+is so this is your author authentication
+ 
+
+181
+00:04:32,360 --> 00:04:35,870
+is so this is your author authentication
+server so let's say any
+
+182
+00:04:35,870 --> 00:04:35,880
+server so let's say any
+ 
+
+183
+00:04:35,880 --> 00:04:37,990
+server so let's say any
+server
+
+184
+00:04:37,990 --> 00:04:38,000
+server
+ 
+
+185
+00:04:38,000 --> 00:04:40,790
+server
+which uh there are many third party
+
+186
+00:04:40,790 --> 00:04:40,800
+which uh there are many third party
+ 
+
+187
+00:04:40,800 --> 00:04:44,469
+which uh there are many third party
+libraries available which provides you
+
+188
+00:04:44,469 --> 00:04:44,479
+libraries available which provides you
+ 
+
+189
+00:04:44,479 --> 00:04:46,510
+libraries available which provides you
+the apis through which you can generate
+
+190
+00:04:46,510 --> 00:04:46,520
+the apis through which you can generate
+ 
+
+191
+00:04:46,520 --> 00:04:50,510
+the apis through which you can generate
+token validate token and all right so
+
+192
+00:04:50,510 --> 00:04:50,520
+token validate token and all right so
+ 
+
+193
+00:04:50,520 --> 00:04:52,670
+token validate token and all right so
+that's why any application authoriz
+
+194
+00:04:52,670 --> 00:04:52,680
+that's why any application authoriz
+ 
+
+195
+00:04:52,680 --> 00:04:54,150
+that's why any application authoriz
+authentication
+
+196
+00:04:54,150 --> 00:04:54,160
+authentication
+ 
+
+197
+00:04:54,160 --> 00:04:58,629
+authentication
+server so this is your app this is your
+
+198
+00:04:58,629 --> 00:04:58,639
+server so this is your app this is your
+ 
+
+199
+00:04:58,639 --> 00:05:02,590
+server so this is your app this is your
+application
+
+200
+00:05:02,590 --> 00:05:02,600
+
+ 
+
+201
+00:05:02,600 --> 00:05:08,430
+
+right so and this is let's say any third
+
+202
+00:05:08,430 --> 00:05:08,440
+right so and this is let's say any third
+ 
+
+203
+00:05:08,440 --> 00:05:11,749
+right so and this is let's say any third
+party
+
+204
+00:05:11,749 --> 00:05:11,759
+
+ 
+
+205
+00:05:11,759 --> 00:05:13,710
+
+application
+
+206
+00:05:13,710 --> 00:05:13,720
+application
+ 
+
+207
+00:05:13,720 --> 00:05:15,950
+application
+which
+
+208
+00:05:15,950 --> 00:05:15,960
+which
+ 
+
+209
+00:05:15,960 --> 00:05:18,909
+which
+support token
+
+210
+00:05:18,909 --> 00:05:18,919
+support token
+ 
+
+211
+00:05:18,919 --> 00:05:22,110
+support token
+generation and validation okay there are
+
+212
+00:05:22,110 --> 00:05:22,120
+generation and validation okay there are
+ 
+
+213
+00:05:22,120 --> 00:05:23,790
+generation and validation okay there are
+so many available today and that's one
+
+214
+00:05:23,790 --> 00:05:23,800
+so many available today and that's one
+ 
+
+215
+00:05:23,800 --> 00:05:26,670
+so many available today and that's one
+of the advantages of JW that you don't
+
+216
+00:05:26,670 --> 00:05:26,680
+of the advantages of JW that you don't
+ 
+
+217
+00:05:26,680 --> 00:05:28,950
+of the advantages of JW that you don't
+have to incorporate the authentication
+
+218
+00:05:28,950 --> 00:05:28,960
+have to incorporate the authentication
+ 
+
+219
+00:05:28,960 --> 00:05:32,790
+have to incorporate the authentication
+logic in your yourself there are already
+
+220
+00:05:32,790 --> 00:05:32,800
+logic in your yourself there are already
+ 
+
+221
+00:05:32,800 --> 00:05:35,790
+logic in your yourself there are already
+uh third party libraries available which
+
+222
+00:05:35,790 --> 00:05:35,800
+uh third party libraries available which
+ 
+
+223
+00:05:35,800 --> 00:05:38,550
+uh third party libraries available which
+we can use and they will take care of
+
+224
+00:05:38,550 --> 00:05:38,560
+we can use and they will take care of
+ 
+
+225
+00:05:38,560 --> 00:05:40,469
+we can use and they will take care of
+generating a token validating the token
+
+226
+00:05:40,469 --> 00:05:40,479
+generating a token validating the token
+ 
+
+227
+00:05:40,479 --> 00:05:43,110
+generating a token validating the token
+for you you just have to invoke them
+
+228
+00:05:43,110 --> 00:05:43,120
+for you you just have to invoke them
+ 
+
+229
+00:05:43,120 --> 00:05:45,029
+for you you just have to invoke them
+okay so let's call that third party
+
+230
+00:05:45,029 --> 00:05:45,039
+okay so let's call that third party
+ 
+
+231
+00:05:45,039 --> 00:05:47,950
+okay so let's call that third party
+application as authentication server so
+
+232
+00:05:47,950 --> 00:05:47,960
+application as authentication server so
+ 
+
+233
+00:05:47,960 --> 00:05:48,830
+application as authentication server so
+as a
+
+234
+00:05:48,830 --> 00:05:48,840
+as a
+ 
+
+235
+00:05:48,840 --> 00:05:51,790
+as a
+client right first I have to provide the
+
+236
+00:05:51,790 --> 00:05:51,800
+client right first I have to provide the
+ 
+
+237
+00:05:51,800 --> 00:05:55,029
+client right first I have to provide the
+username password so it will goes to an
+
+238
+00:05:55,029 --> 00:05:55,039
+username password so it will goes to an
+ 
+
+239
+00:05:55,039 --> 00:05:57,350
+username password so it will goes to an
+authentication server you provided your
+
+240
+00:05:57,350 --> 00:05:57,360
+authentication server you provided your
+ 
+
+241
+00:05:57,360 --> 00:05:59,990
+authentication server you provided your
+username password now what this
+
+242
+00:05:59,990 --> 00:06:00,000
+username password now what this
+ 
+
+243
+00:06:00,000 --> 00:06:01,590
+username password now what this
+authentication server will do it will
+
+244
+00:06:01,590 --> 00:06:01,600
+authentication server will do it will
+ 
+
+245
+00:06:01,600 --> 00:06:04,590
+authentication server will do it will
+generate the token and return right it
+
+246
+00:06:04,590 --> 00:06:04,600
+generate the token and return right it
+ 
+
+247
+00:06:04,600 --> 00:06:07,990
+generate the token and return right it
+will generate the token JWT and it will
+
+248
+00:06:07,990 --> 00:06:08,000
+will generate the token JWT and it will
+ 
+
+249
+00:06:08,000 --> 00:06:09,710
+will generate the token JWT and it will
+return back to the
+
+250
+00:06:09,710 --> 00:06:09,720
+return back to the
+ 
+
+251
+00:06:09,720 --> 00:06:12,430
+return back to the
+client now client will do is the client
+
+252
+00:06:12,430 --> 00:06:12,440
+client now client will do is the client
+ 
+
+253
+00:06:12,440 --> 00:06:16,350
+client now client will do is the client
+has the JWT now it wanted to access a
+
+254
+00:06:16,350 --> 00:06:16,360
+has the JWT now it wanted to access a
+ 
+
+255
+00:06:16,360 --> 00:06:19,029
+has the JWT now it wanted to access a
+particular resource right so what it
+
+256
+00:06:19,029 --> 00:06:19,039
+particular resource right so what it
+ 
+
+257
+00:06:19,039 --> 00:06:22,189
+particular resource right so what it
+will do is it will call our application
+
+258
+00:06:22,189 --> 00:06:22,199
+will do is it will call our application
+ 
+
+259
+00:06:22,199 --> 00:06:24,830
+will do is it will call our application
+resource where the resource is actually
+
+260
+00:06:24,830 --> 00:06:24,840
+resource where the resource is actually
+ 
+
+261
+00:06:24,840 --> 00:06:27,749
+resource where the resource is actually
+stored so it will call the resource and
+
+262
+00:06:27,749 --> 00:06:27,759
+stored so it will call the resource and
+ 
+
+263
+00:06:27,759 --> 00:06:31,510
+stored so it will call the resource and
+pass the JWT in the header in the
+
+264
+00:06:31,510 --> 00:06:31,520
+pass the JWT in the header in the
+ 
+
+265
+00:06:31,520 --> 00:06:34,189
+pass the JWT in the header in the
+header okay so let's say call the get
+
+266
+00:06:34,189 --> 00:06:34,199
+header okay so let's say call the get
+ 
+
+267
+00:06:34,199 --> 00:06:37,309
+header okay so let's say call the get
+API this is the get API let's say uh
+
+268
+00:06:37,309 --> 00:06:37,319
+API this is the get API let's say uh
+ 
+
+269
+00:06:37,319 --> 00:06:42,189
+API this is the get API let's say uh
+some details but it passed the JWT also
+
+270
+00:06:42,189 --> 00:06:42,199
+some details but it passed the JWT also
+ 
+
+271
+00:06:42,199 --> 00:06:44,309
+some details but it passed the JWT also
+now what this resource server your
+
+272
+00:06:44,309 --> 00:06:44,319
+now what this resource server your
+ 
+
+273
+00:06:44,319 --> 00:06:46,589
+now what this resource server your
+application will do is it will
+
+274
+00:06:46,589 --> 00:06:46,599
+application will do is it will
+ 
+
+275
+00:06:46,599 --> 00:06:48,870
+application will do is it will
+internally calls the API of
+
+276
+00:06:48,870 --> 00:06:48,880
+internally calls the API of
+ 
+
+277
+00:06:48,880 --> 00:06:51,350
+internally calls the API of
+authorization server let's say some
+
+278
+00:06:51,350 --> 00:06:51,360
+authorization server let's say some
+ 
+
+279
+00:06:51,360 --> 00:06:55,350
+authorization server let's say some
+verify API and it will pass the token
+
+280
+00:06:55,350 --> 00:06:55,360
+verify API and it will pass the token
+ 
+
+281
+00:06:55,360 --> 00:06:58,230
+verify API and it will pass the token
+which it get from the client now this
+
+282
+00:06:58,230 --> 00:06:58,240
+which it get from the client now this
+ 
+
+283
+00:06:58,240 --> 00:06:59,710
+which it get from the client now this
+all this logic present in to
+
+284
+00:06:59,710 --> 00:06:59,720
+all this logic present in to
+ 
+
+285
+00:06:59,720 --> 00:07:01,150
+all this logic present in to
+authentication server where it will
+
+286
+00:07:01,150 --> 00:07:01,160
+authentication server where it will
+ 
+
+287
+00:07:01,160 --> 00:07:03,749
+authentication server where it will
+validate yes this token is generated by
+
+288
+00:07:03,749 --> 00:07:03,759
+validate yes this token is generated by
+ 
+
+289
+00:07:03,759 --> 00:07:06,510
+validate yes this token is generated by
+me it is valid I'll tell you we will go
+
+290
+00:07:06,510 --> 00:07:06,520
+me it is valid I'll tell you we will go
+ 
+
+291
+00:07:06,520 --> 00:07:08,909
+me it is valid I'll tell you we will go
+more deeper into the token part how it
+
+292
+00:07:08,909 --> 00:07:08,919
+more deeper into the token part how it
+ 
+
+293
+00:07:08,919 --> 00:07:12,710
+more deeper into the token part how it
+validates it but just for now understand
+
+294
+00:07:12,710 --> 00:07:12,720
+validates it but just for now understand
+ 
+
+295
+00:07:12,720 --> 00:07:14,790
+validates it but just for now understand
+that author uh authentication server
+
+296
+00:07:14,790 --> 00:07:14,800
+that author uh authentication server
+ 
+
+297
+00:07:14,800 --> 00:07:17,469
+that author uh authentication server
+will validate the token and it will tell
+
+298
+00:07:17,469 --> 00:07:17,479
+will validate the token and it will tell
+ 
+
+299
+00:07:17,479 --> 00:07:19,909
+will validate the token and it will tell
+to your application that yes this is
+
+300
+00:07:19,909 --> 00:07:19,919
+to your application that yes this is
+ 
+
+301
+00:07:19,919 --> 00:07:21,230
+to your application that yes this is
+token is
+
+302
+00:07:21,230 --> 00:07:21,240
+token is
+ 
+
+303
+00:07:21,240 --> 00:07:24,869
+token is
+verified it's valid it's valid token
+
+304
+00:07:24,869 --> 00:07:24,879
+verified it's valid it's valid token
+ 
+
+305
+00:07:24,879 --> 00:07:26,749
+verified it's valid it's valid token
+once it is valid token resource owner
+
+306
+00:07:26,749 --> 00:07:26,759
+once it is valid token resource owner
+ 
+
+307
+00:07:26,759 --> 00:07:28,950
+once it is valid token resource owner
+will grant you the permission and it
+
+308
+00:07:28,950 --> 00:07:28,960
+will grant you the permission and it
+ 
+
+309
+00:07:28,960 --> 00:07:33,469
+will grant you the permission and it
+will turn you the
+
+310
+00:07:33,469 --> 00:07:33,479
+
+ 
+
+311
+00:07:33,479 --> 00:07:38,110
+
+data okay so this is the flow diagram of
+
+312
+00:07:38,110 --> 00:07:38,120
+data okay so this is the flow diagram of
+ 
+
+313
+00:07:38,120 --> 00:07:41,070
+data okay so this is the flow diagram of
+JWT so till now we are clear but before
+
+314
+00:07:41,070 --> 00:07:41,080
+JWT so till now we are clear but before
+ 
+
+315
+00:07:41,080 --> 00:07:43,309
+JWT so till now we are clear but before
+we uh proceed further we need to
+
+316
+00:07:43,309 --> 00:07:43,319
+we uh proceed further we need to
+ 
+
+317
+00:07:43,319 --> 00:07:46,189
+we uh proceed further we need to
+understand what was popular before
+
+318
+00:07:46,189 --> 00:07:46,199
+understand what was popular before
+ 
+
+319
+00:07:46,199 --> 00:07:50,430
+understand what was popular before
+JWT and what are the problems with
+
+320
+00:07:50,430 --> 00:07:50,440
+
+ 
+
+321
+00:07:50,440 --> 00:07:55,550
+
+it so if you remember right before JWT
+
+322
+00:07:55,550 --> 00:07:55,560
+it so if you remember right before JWT
+ 
+
+323
+00:07:55,560 --> 00:07:57,869
+it so if you remember right before JWT
+there was something called session ID or
+
+324
+00:07:57,869 --> 00:07:57,879
+there was something called session ID or
+ 
+
+325
+00:07:57,879 --> 00:08:00,430
+there was something called session ID or
+many engineers might know it through J
+
+326
+00:08:00,430 --> 00:08:00,440
+many engineers might know it through J
+ 
+
+327
+00:08:00,440 --> 00:08:03,430
+many engineers might know it through J
+session ID I have worked with J session
+
+328
+00:08:03,430 --> 00:08:03,440
+session ID I have worked with J session
+ 
+
+329
+00:08:03,440 --> 00:08:07,990
+session ID I have worked with J session
+ID right so but this was very very
+
+330
+00:08:07,990 --> 00:08:08,000
+ID right so but this was very very
+ 
+
+331
+00:08:08,000 --> 00:08:10,070
+ID right so but this was very very
+popular session
+
+332
+00:08:10,070 --> 00:08:10,080
+popular session
+ 
+
+333
+00:08:10,080 --> 00:08:13,070
+popular session
+ID so in this what used to happen is
+
+334
+00:08:13,070 --> 00:08:13,080
+ID so in this what used to happen is
+ 
+
+335
+00:08:13,080 --> 00:08:16,790
+ID so in this what used to happen is
+let's say a client first what it will do
+
+336
+00:08:16,790 --> 00:08:16,800
+let's say a client first what it will do
+ 
+
+337
+00:08:16,800 --> 00:08:20,149
+let's say a client first what it will do
+is it login with username password the
+
+338
+00:08:20,149 --> 00:08:20,159
+is it login with username password the
+ 
+
+339
+00:08:20,159 --> 00:08:22,589
+is it login with username password the
+same let's say author authorization or
+
+340
+00:08:22,589 --> 00:08:22,599
+same let's say author authorization or
+ 
+
+341
+00:08:22,599 --> 00:08:24,270
+same let's say author authorization or
+authentication server third party server
+
+342
+00:08:24,270 --> 00:08:24,280
+authentication server third party server
+ 
+
+343
+00:08:24,280 --> 00:08:26,790
+authentication server third party server
+is there or generally what used to
+
+344
+00:08:26,790 --> 00:08:26,800
+is there or generally what used to
+ 
+
+345
+00:08:26,800 --> 00:08:30,430
+is there or generally what used to
+happen was resource server itself
+
+346
+00:08:30,430 --> 00:08:30,440
+happen was resource server itself
+ 
+
+347
+00:08:30,440 --> 00:08:34,350
+happen was resource server itself
+performs this task also generally there
+
+348
+00:08:34,350 --> 00:08:34,360
+performs this task also generally there
+ 
+
+349
+00:08:34,360 --> 00:08:36,469
+performs this task also generally there
+is no third party library but for
+
+350
+00:08:36,469 --> 00:08:36,479
+is no third party library but for
+ 
+
+351
+00:08:36,479 --> 00:08:38,350
+is no third party library but for
+simplification purpose let's say that
+
+352
+00:08:38,350 --> 00:08:38,360
+simplification purpose let's say that
+ 
+
+353
+00:08:38,360 --> 00:08:39,909
+simplification purpose let's say that
+you have another
+
+354
+00:08:39,909 --> 00:08:39,919
+you have another
+ 
+
+355
+00:08:39,919 --> 00:08:41,589
+you have another
+application
+
+356
+00:08:41,589 --> 00:08:41,599
+application
+ 
+
+357
+00:08:41,599 --> 00:08:47,110
+application
+which generate the session ID okay so
+
+358
+00:08:47,110 --> 00:08:47,120
+which generate the session ID okay so
+ 
+
+359
+00:08:47,120 --> 00:08:50,829
+which generate the session ID okay so
+first user provide a login with username
+
+360
+00:08:50,829 --> 00:08:50,839
+first user provide a login with username
+ 
+
+361
+00:08:50,839 --> 00:08:53,790
+first user provide a login with username
+password it goes to your application
+
+362
+00:08:53,790 --> 00:08:53,800
+password it goes to your application
+ 
+
+363
+00:08:53,800 --> 00:08:56,070
+password it goes to your application
+what it will do is it will create the
+
+364
+00:08:56,070 --> 00:08:56,080
+what it will do is it will create the
+ 
+
+365
+00:08:56,080 --> 00:08:58,430
+what it will do is it will create the
+session ID and save it in
+
+366
+00:08:58,430 --> 00:08:58,440
+session ID and save it in
+ 
+
+367
+00:08:58,440 --> 00:09:03,069
+session ID and save it in
+DB that's the important part it will put
+
+368
+00:09:03,069 --> 00:09:03,079
+DB that's the important part it will put
+ 
+
+369
+00:09:03,079 --> 00:09:05,870
+DB that's the important part it will put
+into the DB that this is the session
+
+370
+00:09:05,870 --> 00:09:05,880
+into the DB that this is the session
+ 
+
+371
+00:09:05,880 --> 00:09:09,550
+into the DB that this is the session
+ID right and store all the information
+
+372
+00:09:09,550 --> 00:09:09,560
+ID right and store all the information
+ 
+
+373
+00:09:09,560 --> 00:09:14,670
+ID right and store all the information
+like expiry time let's say session ID
+
+374
+00:09:14,670 --> 00:09:14,680
+like expiry time let's say session ID
+ 
+
+375
+00:09:14,680 --> 00:09:17,750
+like expiry time let's say session ID
+this belongs to this user this is the
+
+376
+00:09:17,750 --> 00:09:17,760
+this belongs to this user this is the
+ 
+
+377
+00:09:17,760 --> 00:09:21,069
+this belongs to this user this is the
+expiry time and other information that
+
+378
+00:09:21,069 --> 00:09:21,079
+expiry time and other information that
+ 
+
+379
+00:09:21,079 --> 00:09:22,630
+expiry time and other information that
+what are the
+
+380
+00:09:22,630 --> 00:09:22,640
+what are the
+ 
+
+381
+00:09:22,640 --> 00:09:26,670
+what are the
+roles like it can only uh fetch user
+
+382
+00:09:26,670 --> 00:09:26,680
+roles like it can only uh fetch user
+ 
+
+383
+00:09:26,680 --> 00:09:29,790
+roles like it can only uh fetch user
+details let's say certain roles it has
+
+384
+00:09:29,790 --> 00:09:29,800
+details let's say certain roles it has
+ 
+
+385
+00:09:29,800 --> 00:09:32,310
+details let's say certain roles it has
+put so all this
+
+386
+00:09:32,310 --> 00:09:32,320
+put so all this
+ 
+
+387
+00:09:32,320 --> 00:09:36,230
+put so all this
+data will put will be inserted into DB
+
+388
+00:09:36,230 --> 00:09:36,240
+data will put will be inserted into DB
+ 
+
+389
+00:09:36,240 --> 00:09:39,670
+data will put will be inserted into DB
+and this ID session ID which is just a
+
+390
+00:09:39,670 --> 00:09:39,680
+and this ID session ID which is just a
+ 
+
+391
+00:09:39,680 --> 00:09:44,190
+and this ID session ID which is just a
+unique random key will be given back to
+
+392
+00:09:44,190 --> 00:09:44,200
+unique random key will be given back to
+ 
+
+393
+00:09:44,200 --> 00:09:45,710
+unique random key will be given back to
+the
+
+394
+00:09:45,710 --> 00:09:45,720
+the
+ 
+
+395
+00:09:45,720 --> 00:09:49,150
+the
+client now with this ID so whenever it
+
+396
+00:09:49,150 --> 00:09:49,160
+client now with this ID so whenever it
+ 
+
+397
+00:09:49,160 --> 00:09:51,949
+client now with this ID so whenever it
+send a request in the cookies this
+
+398
+00:09:51,949 --> 00:09:51,959
+send a request in the cookies this
+ 
+
+399
+00:09:51,959 --> 00:09:54,069
+send a request in the cookies this
+client will also pass
+
+400
+00:09:54,069 --> 00:09:54,079
+client will also pass
+ 
+
+401
+00:09:54,079 --> 00:09:57,069
+client will also pass
+this J session
+
+402
+00:09:57,069 --> 00:09:57,079
+this J session
+ 
+
+403
+00:09:57,079 --> 00:10:01,750
+this J session
+ID right now this resource server has to
+
+404
+00:10:01,750 --> 00:10:01,760
+ID right now this resource server has to
+ 
+
+405
+00:10:01,760 --> 00:10:05,829
+ID right now this resource server has to
+call the DB now with this J session ID
+
+406
+00:10:05,829 --> 00:10:05,839
+call the DB now with this J session ID
+ 
+
+407
+00:10:05,839 --> 00:10:09,509
+call the DB now with this J session ID
+fetch all the details do all the logic
+
+408
+00:10:09,509 --> 00:10:09,519
+fetch all the details do all the logic
+ 
+
+409
+00:10:09,519 --> 00:10:11,750
+fetch all the details do all the logic
+okay expiry time does it
+
+410
+00:10:11,750 --> 00:10:11,760
+okay expiry time does it
+ 
+
+411
+00:10:11,760 --> 00:10:15,630
+okay expiry time does it
+expired roles these are the roles so
+
+412
+00:10:15,630 --> 00:10:15,640
+expired roles these are the roles so
+ 
+
+413
+00:10:15,640 --> 00:10:17,710
+expired roles these are the roles so
+whatever the operation it wanted me to
+
+414
+00:10:17,710 --> 00:10:17,720
+whatever the operation it wanted me to
+ 
+
+415
+00:10:17,720 --> 00:10:21,550
+whatever the operation it wanted me to
+do send like fetch this does it has this
+
+416
+00:10:21,550 --> 00:10:21,560
+do send like fetch this does it has this
+ 
+
+417
+00:10:21,560 --> 00:10:24,750
+do send like fetch this does it has this
+roles or not so it will do lot of
+
+418
+00:10:24,750 --> 00:10:24,760
+roles or not so it will do lot of
+ 
+
+419
+00:10:24,760 --> 00:10:27,030
+roles or not so it will do lot of
+validation at their side and if it is
+
+420
+00:10:27,030 --> 00:10:27,040
+validation at their side and if it is
+ 
+
+421
+00:10:27,040 --> 00:10:29,750
+validation at their side and if it is
+got validated then only it it will send
+
+422
+00:10:29,750 --> 00:10:29,760
+got validated then only it it will send
+ 
+
+423
+00:10:29,760 --> 00:10:32,509
+got validated then only it it will send
+the response else it will throw
+
+424
+00:10:32,509 --> 00:10:32,519
+the response else it will throw
+ 
+
+425
+00:10:32,519 --> 00:10:36,430
+the response else it will throw
+error so one of the major major
+
+426
+00:10:36,430 --> 00:10:36,440
+error so one of the major major
+ 
+
+427
+00:10:36,440 --> 00:10:38,670
+error so one of the major major
+catch is
+
+428
+00:10:38,670 --> 00:10:38,680
+catch is
+ 
+
+429
+00:10:38,680 --> 00:10:42,629
+catch is
+that every time you are hitting a
+
+430
+00:10:42,629 --> 00:10:42,639
+that every time you are hitting a
+ 
+
+431
+00:10:42,639 --> 00:10:44,509
+that every time you are hitting a
+request to F the
+
+432
+00:10:44,509 --> 00:10:44,519
+request to F the
+ 
+
+433
+00:10:44,519 --> 00:10:48,710
+request to F the
+details it is hitting the DB to face the
+
+434
+00:10:48,710 --> 00:10:48,720
+details it is hitting the DB to face the
+ 
+
+435
+00:10:48,720 --> 00:10:51,069
+details it is hitting the DB to face the
+details from this particular J session
+
+436
+00:10:51,069 --> 00:10:51,079
+details from this particular J session
+ 
+
+437
+00:10:51,079 --> 00:10:54,750
+details from this particular J session
+ID why because at the time of creation
+
+438
+00:10:54,750 --> 00:10:54,760
+ID why because at the time of creation
+ 
+
+439
+00:10:54,760 --> 00:10:57,629
+ID why because at the time of creation
+of J session ID when the time you
+
+440
+00:10:57,629 --> 00:10:57,639
+of J session ID when the time you
+ 
+
+441
+00:10:57,639 --> 00:11:00,269
+of J session ID when the time you
+provided username password
+
+442
+00:11:00,269 --> 00:11:00,279
+provided username password
+ 
+
+443
+00:11:00,279 --> 00:11:05,550
+provided username password
+it was stored in DB so it is State
+
+444
+00:11:05,550 --> 00:11:05,560
+it was stored in DB so it is State
+ 
+
+445
+00:11:05,560 --> 00:11:09,790
+it was stored in DB so it is State
+full and JWT
+
+446
+00:11:09,790 --> 00:11:09,800
+
+ 
+
+447
+00:11:09,800 --> 00:11:15,310
+
+is stat less there is no DB touch
+
+448
+00:11:15,310 --> 00:11:15,320
+is stat less there is no DB touch
+ 
+
+449
+00:11:15,320 --> 00:11:18,230
+is stat less there is no DB touch
+whatever the JWT token we are returning
+
+450
+00:11:18,230 --> 00:11:18,240
+whatever the JWT token we are returning
+ 
+
+451
+00:11:18,240 --> 00:11:21,750
+whatever the JWT token we are returning
+that JWT token has all the information
+
+452
+00:11:21,750 --> 00:11:21,760
+that JWT token has all the information
+ 
+
+453
+00:11:21,760 --> 00:11:26,150
+that JWT token has all the information
+like expiry regarding user information
+
+454
+00:11:26,150 --> 00:11:26,160
+like expiry regarding user information
+ 
+
+455
+00:11:26,160 --> 00:11:29,870
+like expiry regarding user information
+Etc so there is no need for d
+
+456
+00:11:29,870 --> 00:11:29,880
+Etc so there is no need for d
+ 
+
+457
+00:11:29,880 --> 00:11:33,030
+Etc so there is no need for d
+B and that's one of the advantage that
+
+458
+00:11:33,030 --> 00:11:33,040
+B and that's one of the advantage that
+ 
+
+459
+00:11:33,040 --> 00:11:35,670
+B and that's one of the advantage that
+it is
+
+460
+00:11:35,670 --> 00:11:35,680
+
+ 
+
+461
+00:11:35,680 --> 00:11:37,750
+
+stateless
+
+462
+00:11:37,750 --> 00:11:37,760
+stateless
+ 
+
+463
+00:11:37,760 --> 00:11:40,910
+stateless
+so your J session ID
+
+464
+00:11:40,910 --> 00:11:40,920
+so your J session ID
+ 
+
+465
+00:11:40,920 --> 00:11:42,790
+so your J session ID
+is
+
+466
+00:11:42,790 --> 00:11:42,800
+is
+ 
+
+467
+00:11:42,800 --> 00:11:45,790
+is
+stateful it rely on server side Estate
+
+468
+00:11:45,790 --> 00:11:45,800
+stateful it rely on server side Estate
+ 
+
+469
+00:11:45,800 --> 00:11:49,150
+stateful it rely on server side Estate
+Management right and since DB comes into
+
+470
+00:11:49,150 --> 00:11:49,160
+Management right and since DB comes into
+ 
+
+471
+00:11:49,160 --> 00:11:51,750
+Management right and since DB comes into
+the picture now you know that in case of
+
+472
+00:11:51,750 --> 00:11:51,760
+the picture now you know that in case of
+ 
+
+473
+00:11:51,760 --> 00:11:54,509
+the picture now you know that in case of
+distributed system this might cause a
+
+474
+00:11:54,509 --> 00:11:54,519
+distributed system this might cause a
+ 
+
+475
+00:11:54,519 --> 00:11:58,470
+distributed system this might cause a
+problem right let's say the server the
+
+476
+00:11:58,470 --> 00:11:58,480
+problem right let's say the server the
+ 
+
+477
+00:11:58,480 --> 00:12:02,269
+problem right let's say the server the
+application which creates this session
+
+478
+00:12:02,269 --> 00:12:02,279
+application which creates this session
+ 
+
+479
+00:12:02,279 --> 00:12:06,230
+application which creates this session
+ID into this DB right so there are let's
+
+480
+00:12:06,230 --> 00:12:06,240
+ID into this DB right so there are let's
+ 
+
+481
+00:12:06,240 --> 00:12:09,190
+ID into this DB right so there are let's
+say different cluster of DB this is
+
+482
+00:12:09,190 --> 00:12:09,200
+say different cluster of DB this is
+ 
+
+483
+00:12:09,200 --> 00:12:12,310
+say different cluster of DB this is
+Master Slave this is one cluster one
+
+484
+00:12:12,310 --> 00:12:12,320
+Master Slave this is one cluster one
+ 
+
+485
+00:12:12,320 --> 00:12:14,910
+Master Slave this is one cluster one
+let's say there are different cluster of
+
+486
+00:12:14,910 --> 00:12:14,920
+let's say there are different cluster of
+ 
+
+487
+00:12:14,920 --> 00:12:18,750
+let's say there are different cluster of
+DB so in a distributed system this all
+
+488
+00:12:18,750 --> 00:12:18,760
+DB so in a distributed system this all
+ 
+
+489
+00:12:18,760 --> 00:12:20,910
+DB so in a distributed system this all
+has to be sync up all DBS has to be sync
+
+490
+00:12:20,910 --> 00:12:20,920
+has to be sync up all DBS has to be sync
+ 
+
+491
+00:12:20,920 --> 00:12:23,990
+has to be sync up all DBS has to be sync
+up we don't know this get request this
+
+492
+00:12:23,990 --> 00:12:24,000
+up we don't know this get request this
+ 
+
+493
+00:12:24,000 --> 00:12:25,949
+up we don't know this get request this
+get request comes to
+
+494
+00:12:25,949 --> 00:12:25,959
+get request comes to
+ 
+
+495
+00:12:25,959 --> 00:12:30,069
+get request comes to
+where okay so in case of distributed
+
+496
+00:12:30,069 --> 00:12:30,079
+where okay so in case of distributed
+ 
+
+497
+00:12:30,079 --> 00:12:33,030
+where okay so in case of distributed
+system extra handling need to be taken
+
+498
+00:12:33,030 --> 00:12:33,040
+system extra handling need to be taken
+ 
+
+499
+00:12:33,040 --> 00:12:36,189
+system extra handling need to be taken
+care right and also one important part
+
+500
+00:12:36,189 --> 00:12:36,199
+care right and also one important part
+ 
+
+501
+00:12:36,199 --> 00:12:38,069
+care right and also one important part
+is during your get
+
+502
+00:12:38,069 --> 00:12:38,079
+is during your get
+ 
+
+503
+00:12:38,079 --> 00:12:41,590
+is during your get
+request your application has to query
+
+504
+00:12:41,590 --> 00:12:41,600
+request your application has to query
+ 
+
+505
+00:12:41,600 --> 00:12:45,269
+request your application has to query
+the DB perform validation on top of it
+
+506
+00:12:45,269 --> 00:12:45,279
+the DB perform validation on top of it
+ 
+
+507
+00:12:45,279 --> 00:12:48,470
+the DB perform validation on top of it
+so there would be an extra latency add
+
+508
+00:12:48,470 --> 00:12:48,480
+so there would be an extra latency add
+ 
+
+509
+00:12:48,480 --> 00:12:52,189
+so there would be an extra latency add
+up of quiring the DB now let's go back
+
+510
+00:12:52,189 --> 00:12:52,199
+up of quiring the DB now let's go back
+ 
+
+511
+00:12:52,199 --> 00:12:56,110
+up of quiring the DB now let's go back
+to the JWT again that what is it
+
+512
+00:12:56,110 --> 00:12:56,120
+to the JWT again that what is it
+ 
+
+513
+00:12:56,120 --> 00:13:00,269
+to the JWT again that what is it
+structure how does it become stateless
+
+514
+00:13:00,269 --> 00:13:00,279
+structure how does it become stateless
+ 
+
+515
+00:13:00,279 --> 00:13:02,829
+structure how does it become stateless
+right it needed so many information that
+
+516
+00:13:02,829 --> 00:13:02,839
+right it needed so many information that
+ 
+
+517
+00:13:02,839 --> 00:13:05,910
+right it needed so many information that
+roles expiry user ID and maybe some
+
+518
+00:13:05,910 --> 00:13:05,920
+roles expiry user ID and maybe some
+ 
+
+519
+00:13:05,920 --> 00:13:09,189
+roles expiry user ID and maybe some
+other unique ID how it is able to store
+
+520
+00:13:09,189 --> 00:13:09,199
+other unique ID how it is able to store
+ 
+
+521
+00:13:09,199 --> 00:13:10,829
+other unique ID how it is able to store
+this just a
+
+522
+00:13:10,829 --> 00:13:10,839
+this just a
+ 
+
+523
+00:13:10,839 --> 00:13:14,870
+this just a
+token right so this is the JWT structure
+
+524
+00:13:14,870 --> 00:13:14,880
+token right so this is the JWT structure
+ 
+
+525
+00:13:14,880 --> 00:13:17,269
+token right so this is the JWT structure
+so there are three things right
+
+526
+00:13:17,269 --> 00:13:17,279
+so there are three things right
+ 
+
+527
+00:13:17,279 --> 00:13:19,150
+so there are three things right
+JWT
+
+528
+00:13:19,150 --> 00:13:19,160
+JWT
+ 
+
+529
+00:13:19,160 --> 00:13:23,829
+JWT
+jws jwe e but whenever we are talking
+
+530
+00:13:23,829 --> 00:13:23,839
+jws jwe e but whenever we are talking
+ 
+
+531
+00:13:23,839 --> 00:13:27,030
+jws jwe e but whenever we are talking
+about JWT right ultimately actually we
+
+532
+00:13:27,030 --> 00:13:27,040
+about JWT right ultimately actually we
+ 
+
+533
+00:13:27,040 --> 00:13:30,870
+about JWT right ultimately actually we
+are always talking
+
+534
+00:13:30,870 --> 00:13:30,880
+are always talking
+ 
+
+535
+00:13:30,880 --> 00:13:34,829
+are always talking
+jws right so this you can say that
+
+536
+00:13:34,829 --> 00:13:34,839
+jws right so this you can say that
+ 
+
+537
+00:13:34,839 --> 00:13:40,030
+jws right so this you can say that
+always used together JWT jws we will
+
+538
+00:13:40,030 --> 00:13:40,040
+always used together JWT jws we will
+ 
+
+539
+00:13:40,040 --> 00:13:42,910
+always used together JWT jws we will
+I'll tell you how so let's say
+
+540
+00:13:42,910 --> 00:13:42,920
+I'll tell you how so let's say
+ 
+
+541
+00:13:42,920 --> 00:13:44,829
+I'll tell you how so let's say
+understand this JWT structure JWT
+
+542
+00:13:44,829 --> 00:13:44,839
+understand this JWT structure JWT
+ 
+
+543
+00:13:44,839 --> 00:13:47,790
+understand this JWT structure JWT
+structure has three part one after that
+
+544
+00:13:47,790 --> 00:13:47,800
+structure has three part one after that
+ 
+
+545
+00:13:47,800 --> 00:13:48,670
+structure has three part one after that
+there is
+
+546
+00:13:48,670 --> 00:13:48,680
+there is
+ 
+
+547
+00:13:48,680 --> 00:13:53,389
+there is
+a DOT period then this is the second
+
+548
+00:13:53,389 --> 00:13:53,399
+a DOT period then this is the second
+ 
+
+549
+00:13:53,399 --> 00:13:58,030
+a DOT period then this is the second
+part then again there is a DOT and this
+
+550
+00:13:58,030 --> 00:13:58,040
+part then again there is a DOT and this
+ 
+
+551
+00:13:58,040 --> 00:14:00,230
+part then again there is a DOT and this
+is the third part
+
+552
+00:14:00,230 --> 00:14:00,240
+is the third part
+ 
+
+553
+00:14:00,240 --> 00:14:02,230
+is the third part
+okay so this first part is known as
+
+554
+00:14:02,230 --> 00:14:02,240
+okay so this first part is known as
+ 
+
+555
+00:14:02,240 --> 00:14:04,550
+okay so this first part is known as
+header the second part is known as
+
+556
+00:14:04,550 --> 00:14:04,560
+header the second part is known as
+ 
+
+557
+00:14:04,560 --> 00:14:07,949
+header the second part is known as
+payload and the third part is known as
+
+558
+00:14:07,949 --> 00:14:07,959
+payload and the third part is known as
+ 
+
+559
+00:14:07,959 --> 00:14:11,990
+payload and the third part is known as
+signature right let's go one by one
+
+560
+00:14:11,990 --> 00:14:12,000
+signature right let's go one by one
+ 
+
+561
+00:14:12,000 --> 00:14:14,829
+signature right let's go one by one
+header so header already contains the
+
+562
+00:14:14,829 --> 00:14:14,839
+header so header already contains the
+ 
+
+563
+00:14:14,839 --> 00:14:17,110
+header so header already contains the
+metadata information of the token metad
+
+564
+00:14:17,110 --> 00:14:17,120
+metadata information of the token metad
+ 
+
+565
+00:14:17,120 --> 00:14:21,790
+metadata information of the token metad
+data like what is the type always JWT
+
+566
+00:14:21,790 --> 00:14:21,800
+data like what is the type always JWT
+ 
+
+567
+00:14:21,800 --> 00:14:23,749
+data like what is the type always JWT
+you will always find I have never seen
+
+568
+00:14:23,749 --> 00:14:23,759
+you will always find I have never seen
+ 
+
+569
+00:14:23,759 --> 00:14:26,710
+you will always find I have never seen
+any other value apart from JWT till now
+
+570
+00:14:26,710 --> 00:14:26,720
+any other value apart from JWT till now
+ 
+
+571
+00:14:26,720 --> 00:14:28,030
+any other value apart from JWT till now
+it's always
+
+572
+00:14:28,030 --> 00:14:28,040
+it's always
+ 
+
+573
+00:14:28,040 --> 00:14:32,629
+it's always
+JWT elgo the signing algorithm so here
+
+574
+00:14:32,629 --> 00:14:32,639
+JWT elgo the signing algorithm so here
+ 
+
+575
+00:14:32,639 --> 00:14:34,150
+JWT elgo the signing algorithm so here
+is the signing algorithm which you have
+
+576
+00:14:34,150 --> 00:14:34,160
+is the signing algorithm which you have
+ 
+
+577
+00:14:34,160 --> 00:14:36,310
+is the signing algorithm which you have
+used RSA or
+
+578
+00:14:36,310 --> 00:14:36,320
+used RSA or
+ 
+
+579
+00:14:36,320 --> 00:14:38,509
+used RSA or
+hmac right or if there are other
+
+580
+00:14:38,509 --> 00:14:38,519
+hmac right or if there are other
+ 
+
+581
+00:14:38,519 --> 00:14:40,829
+hmac right or if there are other
+different algorithms you can use it
+
+582
+00:14:40,829 --> 00:14:40,839
+different algorithms you can use it
+ 
+
+583
+00:14:40,839 --> 00:14:43,350
+different algorithms you can use it
+right RSA have already explained you in
+
+584
+00:14:43,350 --> 00:14:43,360
+right RSA have already explained you in
+ 
+
+585
+00:14:43,360 --> 00:14:45,910
+right RSA have already explained you in
+the previous cryptographic video and
+
+586
+00:14:45,910 --> 00:14:45,920
+the previous cryptographic video and
+ 
+
+587
+00:14:45,920 --> 00:14:48,829
+the previous cryptographic video and
+hmac is also I've explained you this is
+
+588
+00:14:48,829 --> 00:14:48,839
+hmac is also I've explained you this is
+ 
+
+589
+00:14:48,839 --> 00:14:49,670
+hmac is also I've explained you this is
+uh
+
+590
+00:14:49,670 --> 00:14:49,680
+uh
+ 
+
+591
+00:14:49,680 --> 00:14:52,110
+uh
+symmetric this is symmetric cryptography
+
+592
+00:14:52,110 --> 00:14:52,120
+symmetric this is symmetric cryptography
+ 
+
+593
+00:14:52,120 --> 00:14:56,269
+symmetric this is symmetric cryptography
+key this is a symmetric cryptography key
+
+594
+00:14:56,269 --> 00:14:56,279
+key this is a symmetric cryptography key
+ 
+
+595
+00:14:56,279 --> 00:14:59,389
+key this is a symmetric cryptography key
+right so I've already explained this so
+
+596
+00:14:59,389 --> 00:14:59,399
+right so I've already explained this so
+ 
+
+597
+00:14:59,399 --> 00:15:02,069
+right so I've already explained this so
+header contains information about
+
+598
+00:15:02,069 --> 00:15:02,079
+header contains information about
+ 
+
+599
+00:15:02,079 --> 00:15:06,069
+header contains information about
+metadata of the payload and the
+
+600
+00:15:06,069 --> 00:15:06,079
+metadata of the payload and the
+ 
+
+601
+00:15:06,079 --> 00:15:08,670
+metadata of the payload and the
+signature now your payload so I told you
+
+602
+00:15:08,670 --> 00:15:08,680
+signature now your payload so I told you
+ 
+
+603
+00:15:08,680 --> 00:15:10,749
+signature now your payload so I told you
+that payload actually contains the
+
+604
+00:15:10,749 --> 00:15:10,759
+that payload actually contains the
+ 
+
+605
+00:15:10,759 --> 00:15:13,310
+that payload actually contains the
+information or you can say that actually
+
+606
+00:15:13,310 --> 00:15:13,320
+information or you can say that actually
+ 
+
+607
+00:15:13,320 --> 00:15:14,430
+information or you can say that actually
+contain
+
+608
+00:15:14,430 --> 00:15:14,440
+contain
+ 
+
+609
+00:15:14,440 --> 00:15:17,550
+contain
+claims right so in simple terms user
+
+610
+00:15:17,550 --> 00:15:17,560
+claims right so in simple terms user
+ 
+
+611
+00:15:17,560 --> 00:15:19,150
+claims right so in simple terms user
+information or any additional
+
+612
+00:15:19,150 --> 00:15:19,160
+information or any additional
+ 
+
+613
+00:15:19,160 --> 00:15:22,749
+information or any additional
+information is kept here right JWT see
+
+614
+00:15:22,749 --> 00:15:22,759
+information is kept here right JWT see
+ 
+
+615
+00:15:22,759 --> 00:15:24,069
+information is kept here right JWT see
+that these are the
+
+616
+00:15:24,069 --> 00:15:24,079
+that these are the
+ 
+
+617
+00:15:24,079 --> 00:15:26,749
+that these are the
+claims the understand claims nothing
+
+618
+00:15:26,749 --> 00:15:26,759
+claims the understand claims nothing
+ 
+
+619
+00:15:26,759 --> 00:15:28,749
+claims the understand claims nothing
+like a just an information whatever you
+
+620
+00:15:28,749 --> 00:15:28,759
+like a just an information whatever you
+ 
+
+621
+00:15:28,759 --> 00:15:32,430
+like a just an information whatever you
+want to cap so this claims are divided
+
+622
+00:15:32,430 --> 00:15:32,440
+want to cap so this claims are divided
+ 
+
+623
+00:15:32,440 --> 00:15:36,269
+want to cap so this claims are divided
+into three parts registered claims
+
+624
+00:15:36,269 --> 00:15:36,279
+into three parts registered claims
+ 
+
+625
+00:15:36,279 --> 00:15:37,230
+into three parts registered claims
+public
+
+626
+00:15:37,230 --> 00:15:37,240
+public
+ 
+
+627
+00:15:37,240 --> 00:15:41,509
+public
+claims private claims okay so in the
+
+628
+00:15:41,509 --> 00:15:41,519
+claims private claims okay so in the
+ 
+
+629
+00:15:41,519 --> 00:15:44,670
+claims private claims okay so in the
+payload it is all comes under this only
+
+630
+00:15:44,670 --> 00:15:44,680
+payload it is all comes under this only
+ 
+
+631
+00:15:44,680 --> 00:15:46,710
+payload it is all comes under this only
+all comes under this
+
+632
+00:15:46,710 --> 00:15:46,720
+all comes under this
+ 
+
+633
+00:15:46,720 --> 00:15:50,949
+all comes under this
+only but let's say that there are
+
+634
+00:15:50,949 --> 00:15:50,959
+only but let's say that there are
+ 
+
+635
+00:15:50,959 --> 00:15:53,150
+only but let's say that there are
+certain this
+
+636
+00:15:53,150 --> 00:15:53,160
+certain this
+ 
+
+637
+00:15:53,160 --> 00:15:57,389
+certain this
+Words which are reserved by JWT so those
+
+638
+00:15:57,389 --> 00:15:57,399
+Words which are reserved by JWT so those
+ 
+
+639
+00:15:57,399 --> 00:15:59,590
+Words which are reserved by JWT so those
+are known as registered claims
+
+640
+00:15:59,590 --> 00:15:59,600
+are known as registered claims
+ 
+
+641
+00:15:59,600 --> 00:16:03,350
+are known as registered claims
+they have very specific meaning for
+
+642
+00:16:03,350 --> 00:16:03,360
+they have very specific meaning for
+ 
+
+643
+00:16:03,360 --> 00:16:04,870
+they have very specific meaning for
+example
+
+644
+00:16:04,870 --> 00:16:04,880
+example
+ 
+
+645
+00:16:04,880 --> 00:16:08,389
+example
+ISS which JWT understand as
+
+646
+00:16:08,389 --> 00:16:08,399
+ISS which JWT understand as
+ 
+
+647
+00:16:08,399 --> 00:16:12,670
+ISS which JWT understand as
+issuer the entity that issued the JWT
+
+648
+00:16:12,670 --> 00:16:12,680
+issuer the entity that issued the JWT
+ 
+
+649
+00:16:12,680 --> 00:16:18,870
+issuer the entity that issued the JWT
+for example ISS is issued by some uh JWT
+
+650
+00:16:18,870 --> 00:16:18,880
+for example ISS is issued by some uh JWT
+ 
+
+651
+00:16:18,880 --> 00:16:20,509
+for example ISS is issued by some uh JWT
+issuer at
+
+652
+00:16:20,509 --> 00:16:20,519
+issuer at
+ 
+
+653
+00:16:20,519 --> 00:16:23,470
+issuer at
+theate something some website link or
+
+654
+00:16:23,470 --> 00:16:23,480
+theate something some website link or
+ 
+
+655
+00:16:23,480 --> 00:16:26,350
+theate something some website link or
+something which identifies who is the
+
+656
+00:16:26,350 --> 00:16:26,360
+something which identifies who is the
+ 
+
+657
+00:16:26,360 --> 00:16:29,910
+something which identifies who is the
+issuer then subject identifies the user
+
+658
+00:16:29,910 --> 00:16:29,920
+issuer then subject identifies the user
+ 
+
+659
+00:16:29,920 --> 00:16:35,069
+issuer then subject identifies the user
+let's say subject sub 1 2 3 4 5 6 7 some
+
+660
+00:16:35,069 --> 00:16:35,079
+let's say subject sub 1 2 3 4 5 6 7 some
+ 
+
+661
+00:16:35,079 --> 00:16:37,389
+let's say subject sub 1 2 3 4 5 6 7 some
+unique identifier which identifies the
+
+662
+00:16:37,389 --> 00:16:37,399
+unique identifier which identifies the
+ 
+
+663
+00:16:37,399 --> 00:16:38,710
+unique identifier which identifies the
+user who is the
+
+664
+00:16:38,710 --> 00:16:38,720
+user who is the
+ 
+
+665
+00:16:38,720 --> 00:16:41,590
+user who is the
+user then your audience identify the
+
+666
+00:16:41,590 --> 00:16:41,600
+user then your audience identify the
+ 
+
+667
+00:16:41,600 --> 00:16:44,030
+user then your audience identify the
+recipient for which token is intended
+
+668
+00:16:44,030 --> 00:16:44,040
+recipient for which token is intended
+ 
+
+669
+00:16:44,040 --> 00:16:48,350
+recipient for which token is intended
+AUD let's say AUD would be uh your
+
+670
+00:16:48,350 --> 00:16:48,360
+AUD let's say AUD would be uh your
+ 
+
+671
+00:16:48,360 --> 00:16:50,629
+AUD let's say AUD would be uh your
+whatever your your company name or
+
+672
+00:16:50,629 --> 00:16:50,639
+whatever your your company name or
+ 
+
+673
+00:16:50,639 --> 00:16:54,910
+whatever your your company name or
+anything for which it identify the
+
+674
+00:16:54,910 --> 00:16:54,920
+anything for which it identify the
+ 
+
+675
+00:16:54,920 --> 00:16:58,189
+anything for which it identify the
+recipient then expiry time after this so
+
+676
+00:16:58,189 --> 00:16:58,199
+recipient then expiry time after this so
+ 
+
+677
+00:16:58,199 --> 00:17:00,870
+recipient then expiry time after this so
+exp is is like which tell the expiry
+
+678
+00:17:00,870 --> 00:17:00,880
+exp is is like which tell the expiry
+ 
+
+679
+00:17:00,880 --> 00:17:03,829
+exp is is like which tell the expiry
+time after this time token is not
+
+680
+00:17:03,829 --> 00:17:03,839
+time after this time token is not
+ 
+
+681
+00:17:03,839 --> 00:17:08,390
+time after this time token is not
+valid then NBF not before time before
+
+682
+00:17:08,390 --> 00:17:08,400
+valid then NBF not before time before
+ 
+
+683
+00:17:08,400 --> 00:17:10,789
+valid then NBF not before time before
+this token should not be
+
+684
+00:17:10,789 --> 00:17:10,799
+this token should not be
+ 
+
+685
+00:17:10,799 --> 00:17:13,590
+this token should not be
+accepted right so whatever the time is
+
+686
+00:17:13,590 --> 00:17:13,600
+accepted right so whatever the time is
+ 
+
+687
+00:17:13,600 --> 00:17:15,909
+accepted right so whatever the time is
+there before that you cannot accept the
+
+688
+00:17:15,909 --> 00:17:15,919
+there before that you cannot accept the
+ 
+
+689
+00:17:15,919 --> 00:17:19,230
+there before that you cannot accept the
+token and expiry is that after that this
+
+690
+00:17:19,230 --> 00:17:19,240
+token and expiry is that after that this
+ 
+
+691
+00:17:19,240 --> 00:17:21,350
+token and expiry is that after that this
+token is not
+
+692
+00:17:21,350 --> 00:17:21,360
+token is not
+ 
+
+693
+00:17:21,360 --> 00:17:24,470
+token is not
+valid then there is something called IAT
+
+694
+00:17:24,470 --> 00:17:24,480
+valid then there is something called IAT
+ 
+
+695
+00:17:24,480 --> 00:17:27,590
+valid then there is something called IAT
+the time which token is issued and jti
+
+696
+00:17:27,590 --> 00:17:27,600
+the time which token is issued and jti
+ 
+
+697
+00:17:27,600 --> 00:17:31,190
+the time which token is issued and jti
+is unique J ID some unique ID for this
+
+698
+00:17:31,190 --> 00:17:31,200
+is unique J ID some unique ID for this
+ 
+
+699
+00:17:31,200 --> 00:17:34,830
+is unique J ID some unique ID for this
+token so if you see that these names are
+
+700
+00:17:34,830 --> 00:17:34,840
+token so if you see that these names are
+ 
+
+701
+00:17:34,840 --> 00:17:38,990
+token so if you see that these names are
+reserved by JWT means they have pre uh
+
+702
+00:17:38,990 --> 00:17:39,000
+reserved by JWT means they have pre uh
+ 
+
+703
+00:17:39,000 --> 00:17:40,750
+reserved by JWT means they have pre uh
+predefined name and
+
+704
+00:17:40,750 --> 00:17:40,760
+predefined name and
+ 
+
+705
+00:17:40,760 --> 00:17:43,390
+predefined name and
+meaning but now let's say that apart
+
+706
+00:17:43,390 --> 00:17:43,400
+meaning but now let's say that apart
+ 
+
+707
+00:17:43,400 --> 00:17:46,950
+meaning but now let's say that apart
+from this registered name you have to
+
+708
+00:17:46,950 --> 00:17:46,960
+from this registered name you have to
+ 
+
+709
+00:17:46,960 --> 00:17:49,590
+from this registered name you have to
+put some other like I have put here
+
+710
+00:17:49,590 --> 00:17:49,600
+put some other like I have put here
+ 
+
+711
+00:17:49,600 --> 00:17:51,830
+put some other like I have put here
+email though those would be considered
+
+712
+00:17:51,830 --> 00:17:51,840
+email though those would be considered
+ 
+
+713
+00:17:51,840 --> 00:17:55,270
+email though those would be considered
+as a public claim it's a custom claim
+
+714
+00:17:55,270 --> 00:17:55,280
+as a public claim it's a custom claim
+ 
+
+715
+00:17:55,280 --> 00:17:57,149
+as a public claim it's a custom claim
+which can be shared and understood by
+
+716
+00:17:57,149 --> 00:17:57,159
+which can be shared and understood by
+ 
+
+717
+00:17:57,159 --> 00:18:00,270
+which can be shared and understood by
+multiple parties right so I have given
+
+718
+00:18:00,270 --> 00:18:00,280
+multiple parties right so I have given
+ 
+
+719
+00:18:00,280 --> 00:18:02,430
+multiple parties right so I have given
+the name email anybody can understand
+
+720
+00:18:02,430 --> 00:18:02,440
+the name email anybody can understand
+ 
+
+721
+00:18:02,440 --> 00:18:04,390
+the name email anybody can understand
+that it will contain an email ID of the
+
+722
+00:18:04,390 --> 00:18:04,400
+that it will contain an email ID of the
+ 
+
+723
+00:18:04,400 --> 00:18:06,669
+that it will contain an email ID of the
+user right or
+
+724
+00:18:06,669 --> 00:18:06,679
+user right or
+ 
+
+725
+00:18:06,679 --> 00:18:12,070
+user right or
+certains don't never ever put some very
+
+726
+00:18:12,070 --> 00:18:12,080
+certains don't never ever put some very
+ 
+
+727
+00:18:12,080 --> 00:18:14,549
+certains don't never ever put some very
+very you can say that confidential
+
+728
+00:18:14,549 --> 00:18:14,559
+very you can say that confidential
+ 
+
+729
+00:18:14,559 --> 00:18:16,350
+very you can say that confidential
+information inside a
+
+730
+00:18:16,350 --> 00:18:16,360
+information inside a
+ 
+
+731
+00:18:16,360 --> 00:18:19,430
+information inside a
+payload like some password or all never
+
+732
+00:18:19,430 --> 00:18:19,440
+payload like some password or all never
+ 
+
+733
+00:18:19,440 --> 00:18:22,830
+payload like some password or all never
+put never put your confidential
+
+734
+00:18:22,830 --> 00:18:22,840
+put never put your confidential
+ 
+
+735
+00:18:22,840 --> 00:18:27,070
+put never put your confidential
+information inside a payload right so
+
+736
+00:18:27,070 --> 00:18:27,080
+information inside a payload right so
+ 
+
+737
+00:18:27,080 --> 00:18:28,990
+information inside a payload right so
+let's say email apart from that let's
+
+738
+00:18:28,990 --> 00:18:29,000
+let's say email apart from that let's
+ 
+
+739
+00:18:29,000 --> 00:18:35,149
+let's say email apart from that let's
+say that uh okay um some C uh country so
+
+740
+00:18:35,149 --> 00:18:35,159
+say that uh okay um some C uh country so
+ 
+
+741
+00:18:35,159 --> 00:18:37,950
+say that uh okay um some C uh country so
+I can put country let's say
+
+742
+00:18:37,950 --> 00:18:37,960
+I can put country let's say
+ 
+
+743
+00:18:37,960 --> 00:18:40,470
+I can put country let's say
+India so if you see that these are not
+
+744
+00:18:40,470 --> 00:18:40,480
+India so if you see that these are not
+ 
+
+745
+00:18:40,480 --> 00:18:42,710
+India so if you see that these are not
+registered names I can put anything
+
+746
+00:18:42,710 --> 00:18:42,720
+registered names I can put anything
+ 
+
+747
+00:18:42,720 --> 00:18:45,630
+registered names I can put anything
+email country City or let's say that
+
+748
+00:18:45,630 --> 00:18:45,640
+email country City or let's say that
+ 
+
+749
+00:18:45,640 --> 00:18:48,990
+email country City or let's say that
+last name first name so these are you
+
+750
+00:18:48,990 --> 00:18:49,000
+last name first name so these are you
+ 
+
+751
+00:18:49,000 --> 00:18:51,750
+last name first name so these are you
+can say that a public claim which is
+
+752
+00:18:51,750 --> 00:18:51,760
+can say that a public claim which is
+ 
+
+753
+00:18:51,760 --> 00:18:54,029
+can say that a public claim which is
+understood which is understood by
+
+754
+00:18:54,029 --> 00:18:54,039
+understood which is understood by
+ 
+
+755
+00:18:54,039 --> 00:18:57,390
+understood which is understood by
+multiple parties right they know that
+
+756
+00:18:57,390 --> 00:18:57,400
+multiple parties right they know that
+ 
+
+757
+00:18:57,400 --> 00:18:59,430
+multiple parties right they know that
+okay country I will get the what is the
+
+758
+00:18:59,430 --> 00:18:59,440
+okay country I will get the what is the
+ 
+
+759
+00:18:59,440 --> 00:19:02,909
+okay country I will get the what is the
+country name for this user like City I
+
+760
+00:19:02,909 --> 00:19:02,919
+country name for this user like City I
+ 
+
+761
+00:19:02,919 --> 00:19:05,430
+country name for this user like City I
+know that this what city belongs
+
+762
+00:19:05,430 --> 00:19:05,440
+know that this what city belongs
+ 
+
+763
+00:19:05,440 --> 00:19:08,190
+know that this what city belongs
+to so these are the public claims these
+
+764
+00:19:08,190 --> 00:19:08,200
+to so these are the public claims these
+ 
+
+765
+00:19:08,200 --> 00:19:10,990
+to so these are the public claims these
+are custom claims you can use any but it
+
+766
+00:19:10,990 --> 00:19:11,000
+are custom claims you can use any but it
+ 
+
+767
+00:19:11,000 --> 00:19:12,789
+are custom claims you can use any but it
+should be shared and understood by
+
+768
+00:19:12,789 --> 00:19:12,799
+should be shared and understood by
+ 
+
+769
+00:19:12,799 --> 00:19:14,149
+should be shared and understood by
+multiple
+
+770
+00:19:14,149 --> 00:19:14,159
+multiple
+ 
+
+771
+00:19:14,159 --> 00:19:16,029
+multiple
+parties then there is something called
+
+772
+00:19:16,029 --> 00:19:16,039
+parties then there is something called
+ 
+
+773
+00:19:16,039 --> 00:19:18,990
+parties then there is something called
+private claims which is like understood
+
+774
+00:19:18,990 --> 00:19:19,000
+private claims which is like understood
+ 
+
+775
+00:19:19,000 --> 00:19:20,590
+private claims which is like understood
+by
+
+776
+00:19:20,590 --> 00:19:20,600
+by
+ 
+
+777
+00:19:20,600 --> 00:19:23,789
+by
+this your authentication server itself
+
+778
+00:19:23,789 --> 00:19:23,799
+this your authentication server itself
+ 
+
+779
+00:19:23,799 --> 00:19:28,230
+this your authentication server itself
+so let's say that it calls that username
+
+780
+00:19:28,230 --> 00:19:28,240
+so let's say that it calls that username
+ 
+
+781
+00:19:28,240 --> 00:19:29,350
+so let's say that it calls that username
+password
+
+782
+00:19:29,350 --> 00:19:29,360
+password
+ 
+
+783
+00:19:29,360 --> 00:19:31,310
+password
+now this authentication server has to
+
+784
+00:19:31,310 --> 00:19:31,320
+now this authentication server has to
+ 
+
+785
+00:19:31,320 --> 00:19:35,029
+now this authentication server has to
+generate the token now let's say it has
+
+786
+00:19:35,029 --> 00:19:35,039
+generate the token now let's say it has
+ 
+
+787
+00:19:35,039 --> 00:19:37,149
+generate the token now let's say it has
+put uh
+
+788
+00:19:37,149 --> 00:19:37,159
+put uh
+ 
+
+789
+00:19:37,159 --> 00:19:40,029
+put uh
+I some IM
+
+790
+00:19:40,029 --> 00:19:40,039
+I some IM
+ 
+
+791
+00:19:40,039 --> 00:19:43,270
+I some IM
+am right and this is uh let's say
+
+792
+00:19:43,270 --> 00:19:43,280
+am right and this is uh let's say
+ 
+
+793
+00:19:43,280 --> 00:19:46,390
+am right and this is uh let's say
+resource server and resource server one
+
+794
+00:19:46,390 --> 00:19:46,400
+resource server and resource server one
+ 
+
+795
+00:19:46,400 --> 00:19:48,950
+resource server and resource server one
+resource server 2 and it is passing this
+
+796
+00:19:48,950 --> 00:19:48,960
+resource server 2 and it is passing this
+ 
+
+797
+00:19:48,960 --> 00:19:52,870
+resource server 2 and it is passing this
+token to this JWT token to
+
+798
+00:19:52,870 --> 00:19:52,880
+token to this JWT token to
+ 
+
+799
+00:19:52,880 --> 00:19:55,350
+token to this JWT token to
+this now does resource server one
+
+800
+00:19:55,350 --> 00:19:55,360
+this now does resource server one
+ 
+
+801
+00:19:55,360 --> 00:19:58,710
+this now does resource server one
+understood this what is am what is am it
+
+802
+00:19:58,710 --> 00:19:58,720
+understood this what is am what is am it
+ 
+
+803
+00:19:58,720 --> 00:20:01,470
+understood this what is am what is am it
+hasn't understood it even though it is
+
+804
+00:20:01,470 --> 00:20:01,480
+hasn't understood it even though it is
+ 
+
+805
+00:20:01,480 --> 00:20:03,630
+hasn't understood it even though it is
+present inside here in the payload let's
+
+806
+00:20:03,630 --> 00:20:03,640
+present inside here in the payload let's
+ 
+
+807
+00:20:03,640 --> 00:20:05,710
+present inside here in the payload let's
+say another I
+
+808
+00:20:05,710 --> 00:20:05,720
+say another I
+ 
+
+809
+00:20:05,720 --> 00:20:09,070
+say another I
+am this is not understood by resource
+
+810
+00:20:09,070 --> 00:20:09,080
+am this is not understood by resource
+ 
+
+811
+00:20:09,080 --> 00:20:11,350
+am this is not understood by resource
+server one resource server two when they
+
+812
+00:20:11,350 --> 00:20:11,360
+server one resource server two when they
+ 
+
+813
+00:20:11,360 --> 00:20:13,310
+server one resource server two when they
+pass it to authorization server for
+
+814
+00:20:13,310 --> 00:20:13,320
+pass it to authorization server for
+ 
+
+815
+00:20:13,320 --> 00:20:17,310
+pass it to authorization server for
+validate only this understood it maybe
+
+816
+00:20:17,310 --> 00:20:17,320
+validate only this understood it maybe
+ 
+
+817
+00:20:17,320 --> 00:20:19,950
+validate only this understood it maybe
+for some internal purpose it might have
+
+818
+00:20:19,950 --> 00:20:19,960
+for some internal purpose it might have
+ 
+
+819
+00:20:19,960 --> 00:20:22,870
+for some internal purpose it might have
+added it which is not understood by
+
+820
+00:20:22,870 --> 00:20:22,880
+added it which is not understood by
+ 
+
+821
+00:20:22,880 --> 00:20:25,710
+added it which is not understood by
+multiple parties that's what known as
+
+822
+00:20:25,710 --> 00:20:25,720
+multiple parties that's what known as
+ 
+
+823
+00:20:25,720 --> 00:20:28,990
+multiple parties that's what known as
+private claim public claim is under by
+
+824
+00:20:28,990 --> 00:20:29,000
+private claim public claim is under by
+ 
+
+825
+00:20:29,000 --> 00:20:31,029
+private claim public claim is under by
+multiple parties like let's say country
+
+826
+00:20:31,029 --> 00:20:31,039
+multiple parties like let's say country
+ 
+
+827
+00:20:31,039 --> 00:20:33,190
+multiple parties like let's say country
+yes now resource server can understood
+
+828
+00:20:33,190 --> 00:20:33,200
+yes now resource server can understood
+ 
+
+829
+00:20:33,200 --> 00:20:36,430
+yes now resource server can understood
+that this is the country for the user
+
+830
+00:20:36,430 --> 00:20:36,440
+that this is the country for the user
+ 
+
+831
+00:20:36,440 --> 00:20:38,909
+that this is the country for the user
+but what is imem I don't know I don't
+
+832
+00:20:38,909 --> 00:20:38,919
+but what is imem I don't know I don't
+ 
+
+833
+00:20:38,919 --> 00:20:41,950
+but what is imem I don't know I don't
+know only authentication server might
+
+834
+00:20:41,950 --> 00:20:41,960
+know only authentication server might
+ 
+
+835
+00:20:41,960 --> 00:20:44,710
+know only authentication server might
+know it who has added it so that is
+
+836
+00:20:44,710 --> 00:20:44,720
+know it who has added it so that is
+ 
+
+837
+00:20:44,720 --> 00:20:47,029
+know it who has added it so that is
+known as private claim it is again a
+
+838
+00:20:47,029 --> 00:20:47,039
+known as private claim it is again a
+ 
+
+839
+00:20:47,039 --> 00:20:49,870
+known as private claim it is again a
+custom claim you can add anything but
+
+840
+00:20:49,870 --> 00:20:49,880
+custom claim you can add anything but
+ 
+
+841
+00:20:49,880 --> 00:20:52,230
+custom claim you can add anything but
+these are not identified for but these
+
+842
+00:20:52,230 --> 00:20:52,240
+these are not identified for but these
+ 
+
+843
+00:20:52,240 --> 00:20:55,430
+these are not identified for but these
+are intended for internal use only and
+
+844
+00:20:55,430 --> 00:20:55,440
+are intended for internal use only and
+ 
+
+845
+00:20:55,440 --> 00:20:56,669
+are intended for internal use only and
+not
+
+846
+00:20:56,669 --> 00:20:56,679
+not
+ 
+
+847
+00:20:56,679 --> 00:20:58,909
+not
+standardized right so these are not
+
+848
+00:20:58,909 --> 00:20:58,919
+standardized right so these are not
+ 
+
+849
+00:20:58,919 --> 00:21:01,110
+standardized right so these are not
+standard like not expected other parties
+
+850
+00:21:01,110 --> 00:21:01,120
+standard like not expected other parties
+ 
+
+851
+00:21:01,120 --> 00:21:03,310
+standard like not expected other parties
+to know this resource server one doesn't
+
+852
+00:21:03,310 --> 00:21:03,320
+to know this resource server one doesn't
+ 
+
+853
+00:21:03,320 --> 00:21:04,909
+to know this resource server one doesn't
+know this resource server two doesn't
+
+854
+00:21:04,909 --> 00:21:04,919
+know this resource server two doesn't
+ 
+
+855
+00:21:04,919 --> 00:21:07,750
+know this resource server two doesn't
+know this authentication server which
+
+856
+00:21:07,750 --> 00:21:07,760
+know this authentication server which
+ 
+
+857
+00:21:07,760 --> 00:21:10,310
+know this authentication server which
+created it they only noce it that's why
+
+858
+00:21:10,310 --> 00:21:10,320
+created it they only noce it that's why
+ 
+
+859
+00:21:10,320 --> 00:21:11,909
+created it they only noce it that's why
+known as private
+
+860
+00:21:11,909 --> 00:21:11,919
+known as private
+ 
+
+861
+00:21:11,919 --> 00:21:16,310
+known as private
+claim so understood so in the payload
+
+862
+00:21:16,310 --> 00:21:16,320
+claim so understood so in the payload
+ 
+
+863
+00:21:16,320 --> 00:21:19,070
+claim so understood so in the payload
+you can have have this claims but these
+
+864
+00:21:19,070 --> 00:21:19,080
+you can have have this claims but these
+ 
+
+865
+00:21:19,080 --> 00:21:20,789
+you can have have this claims but these
+claims are generally divided into three
+
+866
+00:21:20,789 --> 00:21:20,799
+claims are generally divided into three
+ 
+
+867
+00:21:20,799 --> 00:21:23,350
+claims are generally divided into three
+parts but it all under the same objects
+
+868
+00:21:23,350 --> 00:21:23,360
+parts but it all under the same objects
+ 
+
+869
+00:21:23,360 --> 00:21:25,789
+parts but it all under the same objects
+just an
+
+870
+00:21:25,789 --> 00:21:25,799
+
+ 
+
+871
+00:21:25,799 --> 00:21:27,990
+
+object now the third part is your
+
+872
+00:21:27,990 --> 00:21:28,000
+object now the third part is your
+ 
+
+873
+00:21:28,000 --> 00:21:30,310
+object now the third part is your
+signature this is very very important
+
+874
+00:21:30,310 --> 00:21:30,320
+signature this is very very important
+ 
+
+875
+00:21:30,320 --> 00:21:32,630
+signature this is very very important
+and that's why I told you sometime JWT
+
+876
+00:21:32,630 --> 00:21:32,640
+and that's why I told you sometime JWT
+ 
+
+877
+00:21:32,640 --> 00:21:36,990
+and that's why I told you sometime JWT
+and jws when we whoever tells you JWT
+
+878
+00:21:36,990 --> 00:21:37,000
+and jws when we whoever tells you JWT
+ 
+
+879
+00:21:37,000 --> 00:21:40,510
+and jws when we whoever tells you JWT
+sometimes also covers jws because
+
+880
+00:21:40,510 --> 00:21:40,520
+sometimes also covers jws because
+ 
+
+881
+00:21:40,520 --> 00:21:43,990
+sometimes also covers jws because
+signature the third part of uh token is
+
+882
+00:21:43,990 --> 00:21:44,000
+signature the third part of uh token is
+ 
+
+883
+00:21:44,000 --> 00:21:47,230
+signature the third part of uh token is
+your signature and that's what jws also
+
+884
+00:21:47,230 --> 00:21:47,240
+your signature and that's what jws also
+ 
+
+885
+00:21:47,240 --> 00:21:51,390
+your signature and that's what jws also
+is Json WAP signature okay so they are
+
+886
+00:21:51,390 --> 00:21:51,400
+is Json WAP signature okay so they are
+ 
+
+887
+00:21:51,400 --> 00:21:54,310
+is Json WAP signature okay so they are
+used you can say that
+
+888
+00:21:54,310 --> 00:21:54,320
+used you can say that
+ 
+
+889
+00:21:54,320 --> 00:21:56,590
+used you can say that
+interchangeably so now what signature
+
+890
+00:21:56,590 --> 00:21:56,600
+interchangeably so now what signature
+ 
+
+891
+00:21:56,600 --> 00:22:00,590
+interchangeably so now what signature
+now you now you have
+
+892
+00:22:00,590 --> 00:22:00,600
+
+ 
+
+893
+00:22:00,600 --> 00:22:03,870
+
+header now you have
+
+894
+00:22:03,870 --> 00:22:03,880
+header now you have
+ 
+
+895
+00:22:03,880 --> 00:22:06,110
+header now you have
+payload now what you will do how you
+
+896
+00:22:06,110 --> 00:22:06,120
+payload now what you will do how you
+ 
+
+897
+00:22:06,120 --> 00:22:08,190
+payload now what you will do how you
+will get a
+
+898
+00:22:08,190 --> 00:22:08,200
+will get a
+ 
+
+899
+00:22:08,200 --> 00:22:10,630
+will get a
+signature so what signature will do is
+
+900
+00:22:10,630 --> 00:22:10,640
+signature so what signature will do is
+ 
+
+901
+00:22:10,640 --> 00:22:14,310
+signature so what signature will do is
+it will first encode JWT header it will
+
+902
+00:22:14,310 --> 00:22:14,320
+it will first encode JWT header it will
+ 
+
+903
+00:22:14,320 --> 00:22:16,870
+it will first encode JWT header it will
+first
+
+904
+00:22:16,870 --> 00:22:16,880
+first
+ 
+
+905
+00:22:16,880 --> 00:22:20,149
+first
+encode header base
+
+906
+00:22:20,149 --> 00:22:20,159
+encode header base
+ 
+
+907
+00:22:20,159 --> 00:22:23,669
+encode header base
+64 encoder it will do
+
+908
+00:22:23,669 --> 00:22:23,679
+64 encoder it will do
+ 
+
+909
+00:22:23,679 --> 00:22:28,070
+64 encoder it will do
+header payload also it will do uh encode
+
+910
+00:22:28,070 --> 00:22:28,080
+header payload also it will do uh encode
+ 
+
+911
+00:22:28,080 --> 00:22:31,029
+header payload also it will do uh encode
+basic 64 encoding for this payload so it
+
+912
+00:22:31,029 --> 00:22:31,039
+basic 64 encoding for this payload so it
+ 
+
+913
+00:22:31,039 --> 00:22:32,710
+basic 64 encoding for this payload so it
+will also
+
+914
+00:22:32,710 --> 00:22:32,720
+will also
+ 
+
+915
+00:22:32,720 --> 00:22:35,710
+will also
+do base
+
+916
+00:22:35,710 --> 00:22:35,720
+do base
+ 
+
+917
+00:22:35,720 --> 00:22:38,070
+do base
+64 encoding for
+
+918
+00:22:38,070 --> 00:22:38,080
+64 encoding for
+ 
+
+919
+00:22:38,080 --> 00:22:41,430
+64 encoding for
+payload so it first encoded this header
+
+920
+00:22:41,430 --> 00:22:41,440
+payload so it first encoded this header
+ 
+
+921
+00:22:41,440 --> 00:22:43,190
+payload so it first encoded this header
+and it then it first encoded this
+
+922
+00:22:43,190 --> 00:22:43,200
+and it then it first encoded this
+ 
+
+923
+00:22:43,200 --> 00:22:44,510
+and it then it first encoded this
+payload
+
+924
+00:22:44,510 --> 00:22:44,520
+payload
+ 
+
+925
+00:22:44,520 --> 00:22:48,110
+payload
+okay then in con and concatenate the
+
+926
+00:22:48,110 --> 00:22:48,120
+okay then in con and concatenate the
+ 
+
+927
+00:22:48,120 --> 00:22:51,870
+okay then in con and concatenate the
+header and payload using this dot period
+
+928
+00:22:51,870 --> 00:22:51,880
+header and payload using this dot period
+ 
+
+929
+00:22:51,880 --> 00:22:54,230
+header and payload using this dot period
+so it will put a period and then it
+
+930
+00:22:54,230 --> 00:22:54,240
+so it will put a period and then it
+ 
+
+931
+00:22:54,240 --> 00:22:57,430
+so it will put a period and then it
+concact inate this so it's now one
+
+932
+00:22:57,430 --> 00:22:57,440
+concact inate this so it's now one
+ 
+
+933
+00:22:57,440 --> 00:22:59,149
+concact inate this so it's now one
+string
+
+934
+00:22:59,149 --> 00:22:59,159
+string
+ 
+
+935
+00:22:59,159 --> 00:23:03,029
+string
+okay so it would become like this your
+
+936
+00:23:03,029 --> 00:23:03,039
+okay so it would become like this your
+ 
+
+937
+00:23:03,039 --> 00:23:05,350
+okay so it would become like this your
+header and then your encoded payload
+
+938
+00:23:05,350 --> 00:23:05,360
+header and then your encoded payload
+ 
+
+939
+00:23:05,360 --> 00:23:07,430
+header and then your encoded payload
+encoded header encoded payload so this
+
+940
+00:23:07,430 --> 00:23:07,440
+encoded header encoded payload so this
+ 
+
+941
+00:23:07,440 --> 00:23:09,110
+encoded header encoded payload so this
+is known as your
+
+942
+00:23:09,110 --> 00:23:09,120
+is known as your
+ 
+
+943
+00:23:09,120 --> 00:23:12,190
+is known as your
+message or generally you can say that uh
+
+944
+00:23:12,190 --> 00:23:12,200
+message or generally you can say that uh
+ 
+
+945
+00:23:12,200 --> 00:23:13,990
+message or generally you can say that uh
+your
+
+946
+00:23:13,990 --> 00:23:14,000
+your
+ 
+
+947
+00:23:14,000 --> 00:23:19,510
+your
+information now you are using RSC or any
+
+948
+00:23:19,510 --> 00:23:19,520
+information now you are using RSC or any
+ 
+
+949
+00:23:19,520 --> 00:23:21,750
+information now you are using RSC or any
+cryptographic either a symmetric or
+
+950
+00:23:21,750 --> 00:23:21,760
+cryptographic either a symmetric or
+ 
+
+951
+00:23:21,760 --> 00:23:23,950
+cryptographic either a symmetric or
+symmetric to create a digital signature
+
+952
+00:23:23,950 --> 00:23:23,960
+symmetric to create a digital signature
+ 
+
+953
+00:23:23,960 --> 00:23:28,029
+symmetric to create a digital signature
+now you will pass it this message string
+
+954
+00:23:28,029 --> 00:23:28,039
+now you will pass it this message string
+ 
+
+955
+00:23:28,039 --> 00:23:30,029
+now you will pass it this message string
+to
+
+956
+00:23:30,029 --> 00:23:30,039
+to
+ 
+
+957
+00:23:30,039 --> 00:23:32,590
+to
+algorithm right so this is your one
+
+958
+00:23:32,590 --> 00:23:32,600
+algorithm right so this is your one
+ 
+
+959
+00:23:32,600 --> 00:23:34,909
+algorithm right so this is your one
+string
+
+960
+00:23:34,909 --> 00:23:34,919
+string
+ 
+
+961
+00:23:34,919 --> 00:23:39,110
+string
+message comma some key because now we
+
+962
+00:23:39,110 --> 00:23:39,120
+message comma some key because now we
+ 
+
+963
+00:23:39,120 --> 00:23:41,230
+message comma some key because now we
+are passing it to algorithm if you are
+
+964
+00:23:41,230 --> 00:23:41,240
+are passing it to algorithm if you are
+ 
+
+965
+00:23:41,240 --> 00:23:44,470
+are passing it to algorithm if you are
+using RSA for example a symmetric key
+
+966
+00:23:44,470 --> 00:23:44,480
+using RSA for example a symmetric key
+ 
+
+967
+00:23:44,480 --> 00:23:46,430
+using RSA for example a symmetric key
+you have to pass here private
+
+968
+00:23:46,430 --> 00:23:46,440
+you have to pass here private
+ 
+
+969
+00:23:46,440 --> 00:23:50,029
+you have to pass here private
+key if you are using hmac you have to
+
+970
+00:23:50,029 --> 00:23:50,039
+key if you are using hmac you have to
+ 
+
+971
+00:23:50,039 --> 00:23:53,510
+key if you are using hmac you have to
+pass one secret key and the same secret
+
+972
+00:23:53,510 --> 00:23:53,520
+pass one secret key and the same secret
+ 
+
+973
+00:23:53,520 --> 00:23:56,470
+pass one secret key and the same secret
+key would be used at the time
+
+974
+00:23:56,470 --> 00:23:56,480
+key would be used at the time
+ 
+
+975
+00:23:56,480 --> 00:23:59,549
+key would be used at the time
+of digitally
+
+976
+00:23:59,549 --> 00:23:59,559
+of digitally
+ 
+
+977
+00:23:59,559 --> 00:24:04,029
+of digitally
+signing it digitally verifying
+
+978
+00:24:04,029 --> 00:24:04,039
+
+ 
+
+979
+00:24:04,039 --> 00:24:07,549
+
+it right because in symmetric key the
+
+980
+00:24:07,549 --> 00:24:07,559
+it right because in symmetric key the
+ 
+
+981
+00:24:07,559 --> 00:24:12,470
+it right because in symmetric key the
+same key is used same key is used while
+
+982
+00:24:12,470 --> 00:24:12,480
+same key is used same key is used while
+ 
+
+983
+00:24:12,480 --> 00:24:14,830
+same key is used same key is used while
+signing and while verifying it while
+
+984
+00:24:14,830 --> 00:24:14,840
+signing and while verifying it while
+ 
+
+985
+00:24:14,840 --> 00:24:18,470
+signing and while verifying it while
+right and in the RSA two keys are used
+
+986
+00:24:18,470 --> 00:24:18,480
+right and in the RSA two keys are used
+ 
+
+987
+00:24:18,480 --> 00:24:22,149
+right and in the RSA two keys are used
+uh private key and public key so during
+
+988
+00:24:22,149 --> 00:24:22,159
+uh private key and public key so during
+ 
+
+989
+00:24:22,159 --> 00:24:25,029
+uh private key and public key so during
+signing it is signed through private key
+
+990
+00:24:25,029 --> 00:24:25,039
+signing it is signed through private key
+ 
+
+991
+00:24:25,039 --> 00:24:27,549
+signing it is signed through private key
+and during verifying the signature it is
+
+992
+00:24:27,549 --> 00:24:27,559
+and during verifying the signature it is
+ 
+
+993
+00:24:27,559 --> 00:24:30,669
+and during verifying the signature it is
+verified through public
+
+994
+00:24:30,669 --> 00:24:30,679
+
+ 
+
+995
+00:24:30,679 --> 00:24:32,430
+
+key
+
+996
+00:24:32,430 --> 00:24:32,440
+key
+ 
+
+997
+00:24:32,440 --> 00:24:36,990
+key
+okay now once you have uh got this
+
+998
+00:24:36,990 --> 00:24:37,000
+okay now once you have uh got this
+ 
+
+999
+00:24:37,000 --> 00:24:39,430
+okay now once you have uh got this
+signature let's say some
+
+1000
+00:24:39,430 --> 00:24:39,440
+signature let's say some
+ 
+
+1001
+00:24:39,440 --> 00:24:42,350
+signature let's say some
+string encode the signature also
+
+1002
+00:24:42,350 --> 00:24:42,360
+string encode the signature also
+ 
+
+1003
+00:24:42,360 --> 00:24:43,950
+string encode the signature also
+generate in the previous step you can
+
+1004
+00:24:43,950 --> 00:24:43,960
+generate in the previous step you can
+ 
+
+1005
+00:24:43,960 --> 00:24:48,870
+generate in the previous step you can
+encode it right now let's say you have
+
+1006
+00:24:48,870 --> 00:24:48,880
+encode it right now let's say you have
+ 
+
+1007
+00:24:48,880 --> 00:24:51,350
+encode it right now let's say you have
+so whatever the signature you got let's
+
+1008
+00:24:51,350 --> 00:24:51,360
+so whatever the signature you got let's
+ 
+
+1009
+00:24:51,360 --> 00:24:54,149
+so whatever the signature you got let's
+say x y z a b c this is the signature
+
+1010
+00:24:54,149 --> 00:24:54,159
+say x y z a b c this is the signature
+ 
+
+1011
+00:24:54,159 --> 00:24:55,190
+say x y z a b c this is the signature
+you
+
+1012
+00:24:55,190 --> 00:24:55,200
+you
+ 
+
+1013
+00:24:55,200 --> 00:24:59,549
+you
+got right you have to encode it also
+
+1014
+00:24:59,549 --> 00:24:59,559
+got right you have to encode it also
+ 
+
+1015
+00:24:59,559 --> 00:25:04,310
+got right you have to encode it also
+you have to encode it base 64 encode it
+
+1016
+00:25:04,310 --> 00:25:04,320
+you have to encode it base 64 encode it
+ 
+
+1017
+00:25:04,320 --> 00:25:07,750
+you have to encode it base 64 encode it
+also and concatenate using this dot so
+
+1018
+00:25:07,750 --> 00:25:07,760
+also and concatenate using this dot so
+ 
+
+1019
+00:25:07,760 --> 00:25:09,510
+also and concatenate using this dot so
+your
+
+1020
+00:25:09,510 --> 00:25:09,520
+your
+ 
+
+1021
+00:25:09,520 --> 00:25:14,630
+your
+header base 64 your header
+
+1022
+00:25:14,630 --> 00:25:14,640
+header base 64 your header
+ 
+
+1023
+00:25:14,640 --> 00:25:17,549
+header base 64 your header
+dot base 64 your
+
+1024
+00:25:17,549 --> 00:25:17,559
+dot base 64 your
+ 
+
+1025
+00:25:17,559 --> 00:25:21,710
+dot base 64 your
+payload dot now your base 64 encode of
+
+1026
+00:25:21,710 --> 00:25:21,720
+payload dot now your base 64 encode of
+ 
+
+1027
+00:25:21,720 --> 00:25:24,950
+payload dot now your base 64 encode of
+your
+
+1028
+00:25:24,950 --> 00:25:24,960
+
+ 
+
+1029
+00:25:24,960 --> 00:25:27,389
+
+signature got it so ultimately this is
+
+1030
+00:25:27,389 --> 00:25:27,399
+signature got it so ultimately this is
+ 
+
+1031
+00:25:27,399 --> 00:25:31,510
+signature got it so ultimately this is
+your JWT going to looks like so this is
+
+1032
+00:25:31,510 --> 00:25:31,520
+your JWT going to looks like so this is
+ 
+
+1033
+00:25:31,520 --> 00:25:34,549
+your JWT going to looks like so this is
+your P 64 of
+
+1034
+00:25:34,549 --> 00:25:34,559
+your P 64 of
+ 
+
+1035
+00:25:34,559 --> 00:25:36,269
+your P 64 of
+header
+
+1036
+00:25:36,269 --> 00:25:36,279
+header
+ 
+
+1037
+00:25:36,279 --> 00:25:39,669
+header
+dot this is your base 64 encoding of
+
+1038
+00:25:39,669 --> 00:25:39,679
+dot this is your base 64 encoding of
+ 
+
+1039
+00:25:39,679 --> 00:25:41,990
+dot this is your base 64 encoding of
+your
+
+1040
+00:25:41,990 --> 00:25:42,000
+
+ 
+
+1041
+00:25:42,000 --> 00:25:46,830
+
+payload dot this is your base 64 en code
+
+1042
+00:25:46,830 --> 00:25:46,840
+payload dot this is your base 64 en code
+ 
+
+1043
+00:25:46,840 --> 00:25:49,149
+payload dot this is your base 64 en code
+of your signature
+
+1044
+00:25:49,149 --> 00:25:49,159
+of your signature
+ 
+
+1045
+00:25:49,159 --> 00:25:51,630
+of your signature
+value and how the signature value is
+
+1046
+00:25:51,630 --> 00:25:51,640
+value and how the signature value is
+ 
+
+1047
+00:25:51,640 --> 00:25:56,269
+value and how the signature value is
+generated I told you okay so here I have
+
+1048
+00:25:56,269 --> 00:25:56,279
+generated I told you okay so here I have
+ 
+
+1049
+00:25:56,279 --> 00:25:59,470
+generated I told you okay so here I have
+shown one sample uh get
+
+1050
+00:25:59,470 --> 00:25:59,480
+shown one sample uh get
+ 
+
+1051
+00:25:59,480 --> 00:26:03,389
+shown one sample uh get
+request here I have shown you one sample
+
+1052
+00:26:03,389 --> 00:26:03,399
+request here I have shown you one sample
+ 
+
+1053
+00:26:03,399 --> 00:26:06,269
+request here I have shown you one sample
+API here if you see that I am making a
+
+1054
+00:26:06,269 --> 00:26:06,279
+API here if you see that I am making a
+ 
+
+1055
+00:26:06,279 --> 00:26:09,230
+API here if you see that I am making a
+get request to this some dummy
+
+1056
+00:26:09,230 --> 00:26:09,240
+get request to this some dummy
+ 
+
+1057
+00:26:09,240 --> 00:26:13,750
+get request to this some dummy
+API okay and in the header part there is
+
+1058
+00:26:13,750 --> 00:26:13,760
+API okay and in the header part there is
+ 
+
+1059
+00:26:13,760 --> 00:26:16,389
+API okay and in the header part there is
+a header called authorization you have
+
+1060
+00:26:16,389 --> 00:26:16,399
+a header called authorization you have
+ 
+
+1061
+00:26:16,399 --> 00:26:20,070
+a header called authorization you have
+to pass like beer and pass this this
+
+1062
+00:26:20,070 --> 00:26:20,080
+to pass like beer and pass this this
+ 
+
+1063
+00:26:20,080 --> 00:26:22,789
+to pass like beer and pass this this
+token now you can ask me right why we
+
+1064
+00:26:22,789 --> 00:26:22,799
+token now you can ask me right why we
+ 
+
+1065
+00:26:22,799 --> 00:26:26,909
+token now you can ask me right why we
+have to pass this beer so in the header
+
+1066
+00:26:26,909 --> 00:26:26,919
+have to pass this beer so in the header
+ 
+
+1067
+00:26:26,919 --> 00:26:29,669
+have to pass this beer so in the header
+right there are you can add multiple
+
+1068
+00:26:29,669 --> 00:26:29,679
+right there are you can add multiple
+ 
+
+1069
+00:26:29,679 --> 00:26:31,549
+right there are you can add multiple
+like key
+
+1070
+00:26:31,549 --> 00:26:31,559
+like key
+ 
+
+1071
+00:26:31,559 --> 00:26:34,110
+like key
+value right so one of the standard
+
+1072
+00:26:34,110 --> 00:26:34,120
+value right so one of the standard
+ 
+
+1073
+00:26:34,120 --> 00:26:36,470
+value right so one of the standard
+industry standard is that wherever you
+
+1074
+00:26:36,470 --> 00:26:36,480
+industry standard is that wherever you
+ 
+
+1075
+00:26:36,480 --> 00:26:38,750
+industry standard is that wherever you
+are passing the credential you have to
+
+1076
+00:26:38,750 --> 00:26:38,760
+are passing the credential you have to
+ 
+
+1077
+00:26:38,760 --> 00:26:41,430
+are passing the credential you have to
+pass the credential into authorization
+
+1078
+00:26:41,430 --> 00:26:41,440
+pass the credential into authorization
+ 
+
+1079
+00:26:41,440 --> 00:26:43,830
+pass the credential into authorization
+header so that it would be handled
+
+1080
+00:26:43,830 --> 00:26:43,840
+header so that it would be handled
+ 
+
+1081
+00:26:43,840 --> 00:26:46,310
+header so that it would be handled
+accordingly by the server right so
+
+1082
+00:26:46,310 --> 00:26:46,320
+accordingly by the server right so
+ 
+
+1083
+00:26:46,320 --> 00:26:47,510
+accordingly by the server right so
+that's why I told you right there are
+
+1084
+00:26:47,510 --> 00:26:47,520
+that's why I told you right there are
+ 
+
+1085
+00:26:47,520 --> 00:26:49,549
+that's why I told you right there are
+certain industry standard that yes I
+
+1086
+00:26:49,549 --> 00:26:49,559
+certain industry standard that yes I
+ 
+
+1087
+00:26:49,559 --> 00:26:51,269
+certain industry standard that yes I
+will get credential so it should be
+
+1088
+00:26:51,269 --> 00:26:51,279
+will get credential so it should be
+ 
+
+1089
+00:26:51,279 --> 00:26:53,909
+will get credential so it should be
+inside this header of the authorization
+
+1090
+00:26:53,909 --> 00:26:53,919
+inside this header of the authorization
+ 
+
+1091
+00:26:53,919 --> 00:26:56,310
+inside this header of the authorization
+so they can put a specific logic it
+
+1092
+00:26:56,310 --> 00:26:56,320
+so they can put a specific logic it
+ 
+
+1093
+00:26:56,320 --> 00:26:57,950
+so they can put a specific logic it
+should not be like randomly anywhere
+
+1094
+00:26:57,950 --> 00:26:57,960
+should not be like randomly anywhere
+ 
+
+1095
+00:26:57,960 --> 00:26:59,110
+should not be like randomly anywhere
+coming
+
+1096
+00:26:59,110 --> 00:26:59,120
+coming
+ 
+
+1097
+00:26:59,120 --> 00:27:00,669
+coming
+so this is the header name they have
+
+1098
+00:27:00,669 --> 00:27:00,679
+so this is the header name they have
+ 
+
+1099
+00:27:00,679 --> 00:27:02,870
+so this is the header name they have
+decided that okay authorization put
+
+1100
+00:27:02,870 --> 00:27:02,880
+decided that okay authorization put
+ 
+
+1101
+00:27:02,880 --> 00:27:04,990
+decided that okay authorization put
+inside this now inside this
+
+1102
+00:27:04,990 --> 00:27:05,000
+inside this now inside this
+ 
+
+1103
+00:27:05,000 --> 00:27:06,590
+inside this now inside this
+authorization there are multiple thing
+
+1104
+00:27:06,590 --> 00:27:06,600
+authorization there are multiple thing
+ 
+
+1105
+00:27:06,600 --> 00:27:07,470
+authorization there are multiple thing
+like
+
+1106
+00:27:07,470 --> 00:27:07,480
+like
+ 
+
+1107
+00:27:07,480 --> 00:27:09,669
+like
+basic
+
+1108
+00:27:09,669 --> 00:27:09,679
+basic
+ 
+
+1109
+00:27:09,679 --> 00:27:12,950
+basic
+beer when like you are doing that basic
+
+1110
+00:27:12,950 --> 00:27:12,960
+beer when like you are doing that basic
+ 
+
+1111
+00:27:12,960 --> 00:27:15,710
+beer when like you are doing that basic
+and then some encoded value a b c d e f
+
+1112
+00:27:15,710 --> 00:27:15,720
+and then some encoded value a b c d e f
+ 
+
+1113
+00:27:15,720 --> 00:27:18,830
+and then some encoded value a b c d e f
+g something so basic means that you are
+
+1114
+00:27:18,830 --> 00:27:18,840
+g something so basic means that you are
+ 
+
+1115
+00:27:18,840 --> 00:27:20,669
+g something so basic means that you are
+passing
+
+1116
+00:27:20,669 --> 00:27:20,679
+passing
+ 
+
+1117
+00:27:20,679 --> 00:27:23,909
+passing
+username password so when you decode
+
+1118
+00:27:23,909 --> 00:27:23,919
+username password so when you decode
+ 
+
+1119
+00:27:23,919 --> 00:27:27,590
+username password so when you decode
+this base 64 value decode this for the
+
+1120
+00:27:27,590 --> 00:27:27,600
+this base 64 value decode this for the
+ 
+
+1121
+00:27:27,600 --> 00:27:29,590
+this base 64 value decode this for the
+basic you will get like something that
+
+1122
+00:27:29,590 --> 00:27:29,600
+basic you will get like something that
+ 
+
+1123
+00:27:29,600 --> 00:27:32,350
+basic you will get like something that
+this username colon
+
+1124
+00:27:32,350 --> 00:27:32,360
+this username colon
+ 
+
+1125
+00:27:32,360 --> 00:27:34,750
+this username colon
+password but if you are passing like
+
+1126
+00:27:34,750 --> 00:27:34,760
+password but if you are passing like
+ 
+
+1127
+00:27:34,760 --> 00:27:38,470
+password but if you are passing like
+beer and then value then server will
+
+1128
+00:27:38,470 --> 00:27:38,480
+beer and then value then server will
+ 
+
+1129
+00:27:38,480 --> 00:27:39,669
+beer and then value then server will
+understand that okay this is not
+
+1130
+00:27:39,669 --> 00:27:39,679
+understand that okay this is not
+ 
+
+1131
+00:27:39,679 --> 00:27:42,830
+understand that okay this is not
+username password this is token beer
+
+1132
+00:27:42,830 --> 00:27:42,840
+username password this is token beer
+ 
+
+1133
+00:27:42,840 --> 00:27:45,470
+username password this is token beer
+means like industry standard means token
+
+1134
+00:27:45,470 --> 00:27:45,480
+means like industry standard means token
+ 
+
+1135
+00:27:45,480 --> 00:27:48,830
+means like industry standard means token
+is passed to me so I should behave in
+
+1136
+00:27:48,830 --> 00:27:48,840
+is passed to me so I should behave in
+ 
+
+1137
+00:27:48,840 --> 00:27:50,909
+is passed to me so I should behave in
+accordingly okay so you might have a
+
+1138
+00:27:50,909 --> 00:27:50,919
+accordingly okay so you might have a
+ 
+
+1139
+00:27:50,919 --> 00:27:52,830
+accordingly okay so you might have a
+different logic if user name password
+
+1140
+00:27:52,830 --> 00:27:52,840
+different logic if user name password
+ 
+
+1141
+00:27:52,840 --> 00:27:54,909
+different logic if user name password
+passed you might have a different logic
+
+1142
+00:27:54,909 --> 00:27:54,919
+passed you might have a different logic
+ 
+
+1143
+00:27:54,919 --> 00:27:57,710
+passed you might have a different logic
+that okay if beer comes means token is
+
+1144
+00:27:57,710 --> 00:27:57,720
+that okay if beer comes means token is
+ 
+
+1145
+00:27:57,720 --> 00:28:00,549
+that okay if beer comes means token is
+passed to me then I have to call certain
+
+1146
+00:28:00,549 --> 00:28:00,559
+passed to me then I have to call certain
+ 
+
+1147
+00:28:00,559 --> 00:28:02,149
+passed to me then I have to call certain
+server and validate
+
+1148
+00:28:02,149 --> 00:28:02,159
+server and validate
+ 
+
+1149
+00:28:02,159 --> 00:28:06,830
+server and validate
+it okay so JWT is always passed from
+
+1150
+00:28:06,830 --> 00:28:06,840
+it okay so JWT is always passed from
+ 
+
+1151
+00:28:06,840 --> 00:28:08,470
+it okay so JWT is always passed from
+client to server in the header of
+
+1152
+00:28:08,470 --> 00:28:08,480
+client to server in the header of
+ 
+
+1153
+00:28:08,480 --> 00:28:10,990
+client to server in the header of
+authorization but with the beerer word
+
+1154
+00:28:10,990 --> 00:28:11,000
+authorization but with the beerer word
+ 
+
+1155
+00:28:11,000 --> 00:28:13,830
+authorization but with the beerer word
+not basic remember basic is for username
+
+1156
+00:28:13,830 --> 00:28:13,840
+not basic remember basic is for username
+ 
+
+1157
+00:28:13,840 --> 00:28:16,350
+not basic remember basic is for username
+password so credentials always passed
+
+1158
+00:28:16,350 --> 00:28:16,360
+password so credentials always passed
+ 
+
+1159
+00:28:16,360 --> 00:28:17,669
+password so credentials always passed
+into
+
+1160
+00:28:17,669 --> 00:28:17,679
+into
+ 
+
+1161
+00:28:17,679 --> 00:28:22,149
+into
+authorization so this is the sample
+
+1162
+00:28:22,149 --> 00:28:22,159
+
+ 
+
+1163
+00:28:22,159 --> 00:28:25,509
+
+request okay so now before going to the
+
+1164
+00:28:25,509 --> 00:28:25,519
+request okay so now before going to the
+ 
+
+1165
+00:28:25,519 --> 00:28:27,110
+request okay so now before going to the
+challenges with
+
+1166
+00:28:27,110 --> 00:28:27,120
+challenges with
+ 
+
+1167
+00:28:27,120 --> 00:28:29,470
+challenges with
+JWT
+
+1168
+00:28:29,470 --> 00:28:29,480
+JWT
+ 
+
+1169
+00:28:29,480 --> 00:28:31,830
+JWT
+so now let's come back to Advantage
+
+1170
+00:28:31,830 --> 00:28:31,840
+so now let's come back to Advantage
+ 
+
+1171
+00:28:31,840 --> 00:28:33,350
+so now let's come back to Advantage
+first thing is you understand that it's
+
+1172
+00:28:33,350 --> 00:28:33,360
+first thing is you understand that it's
+ 
+
+1173
+00:28:33,360 --> 00:28:34,110
+first thing is you understand that it's
+a
+
+1174
+00:28:34,110 --> 00:28:34,120
+a
+ 
+
+1175
+00:28:34,120 --> 00:28:37,430
+a
+compact we are encoding it and because
+
+1176
+00:28:37,430 --> 00:28:37,440
+compact we are encoding it and because
+ 
+
+1177
+00:28:37,440 --> 00:28:40,269
+compact we are encoding it and because
+of its size it can be go inside a header
+
+1178
+00:28:40,269 --> 00:28:40,279
+of its size it can be go inside a header
+ 
+
+1179
+00:28:40,279 --> 00:28:42,669
+of its size it can be go inside a header
+itself HTTP header itself and it
+
+1180
+00:28:42,669 --> 00:28:42,679
+itself HTTP header itself and it
+ 
+
+1181
+00:28:42,679 --> 00:28:46,149
+itself HTTP header itself and it
+transmission is also fast because of its
+
+1182
+00:28:46,149 --> 00:28:46,159
+transmission is also fast because of its
+ 
+
+1183
+00:28:46,159 --> 00:28:47,430
+transmission is also fast because of its
+small
+
+1184
+00:28:47,430 --> 00:28:47,440
+small
+ 
+
+1185
+00:28:47,440 --> 00:28:49,870
+small
+size I have already told you it is
+
+1186
+00:28:49,870 --> 00:28:49,880
+size I have already told you it is
+ 
+
+1187
+00:28:49,880 --> 00:28:52,430
+size I have already told you it is
+stateless it is self-contained all the
+
+1188
+00:28:52,430 --> 00:28:52,440
+stateless it is self-contained all the
+ 
+
+1189
+00:28:52,440 --> 00:28:55,509
+stateless it is self-contained all the
+information you can Capt it expiry time
+
+1190
+00:28:55,509 --> 00:28:55,519
+information you can Capt it expiry time
+ 
+
+1191
+00:28:55,519 --> 00:28:57,029
+information you can Capt it expiry time
+user ID
+
+1192
+00:28:57,029 --> 00:28:57,039
+user ID
+ 
+
+1193
+00:28:57,039 --> 00:28:58,870
+user ID
+anything
+
+1194
+00:28:58,870 --> 00:28:58,880
+anything
+ 
+
+1195
+00:28:58,880 --> 00:29:02,029
+anything
+it is can be digitally signed so I've
+
+1196
+00:29:02,029 --> 00:29:02,039
+it is can be digitally signed so I've
+ 
+
+1197
+00:29:02,039 --> 00:29:05,310
+it is can be digitally signed so I've
+already told you jws generally what we
+
+1198
+00:29:05,310 --> 00:29:05,320
+already told you jws generally what we
+ 
+
+1199
+00:29:05,320 --> 00:29:08,070
+already told you jws generally what we
+understand JWT so we are we are adding a
+
+1200
+00:29:08,070 --> 00:29:08,080
+understand JWT so we are we are adding a
+ 
+
+1201
+00:29:08,080 --> 00:29:11,870
+understand JWT so we are we are adding a
+signature right so that is jws so means
+
+1202
+00:29:11,870 --> 00:29:11,880
+signature right so that is jws so means
+ 
+
+1203
+00:29:11,880 --> 00:29:16,190
+signature right so that is jws so means
+we are signing your token so JWT jws is
+
+1204
+00:29:16,190 --> 00:29:16,200
+we are signing your token so JWT jws is
+ 
+
+1205
+00:29:16,200 --> 00:29:18,470
+we are signing your token so JWT jws is
+using interchangeably you can say that
+
+1206
+00:29:18,470 --> 00:29:18,480
+using interchangeably you can say that
+ 
+
+1207
+00:29:18,480 --> 00:29:21,269
+using interchangeably you can say that
+so we can sign it using hm and RSA and
+
+1208
+00:29:21,269 --> 00:29:21,279
+so we can sign it using hm and RSA and
+ 
+
+1209
+00:29:21,279 --> 00:29:24,029
+so we can sign it using hm and RSA and
+when you sign it at the receiver end you
+
+1210
+00:29:24,029 --> 00:29:24,039
+when you sign it at the receiver end you
+ 
+
+1211
+00:29:24,039 --> 00:29:27,630
+when you sign it at the receiver end you
+can validate that yes the message is not
+
+1212
+00:29:27,630 --> 00:29:27,640
+can validate that yes the message is not
+ 
+
+1213
+00:29:27,640 --> 00:29:29,549
+can validate that yes the message is not
+changed at
+
+1214
+00:29:29,549 --> 00:29:29,559
+changed at
+ 
+
+1215
+00:29:29,559 --> 00:29:33,470
+changed at
+all right built in expiry time I told
+
+1216
+00:29:33,470 --> 00:29:33,480
+all right built in expiry time I told
+ 
+
+1217
+00:29:33,480 --> 00:29:35,430
+all right built in expiry time I told
+you that it is stateless you can add
+
+1218
+00:29:35,430 --> 00:29:35,440
+you that it is stateless you can add
+ 
+
+1219
+00:29:35,440 --> 00:29:39,190
+you that it is stateless you can add
+expiry uh time here so you don't need DB
+
+1220
+00:29:39,190 --> 00:29:39,200
+expiry uh time here so you don't need DB
+ 
+
+1221
+00:29:39,200 --> 00:29:41,789
+expiry uh time here so you don't need DB
+so built-in expir expiry mechanism is
+
+1222
+00:29:41,789 --> 00:29:41,799
+so built-in expir expiry mechanism is
+ 
+
+1223
+00:29:41,799 --> 00:29:45,029
+so built-in expir expiry mechanism is
+there custom claim additional data can
+
+1224
+00:29:45,029 --> 00:29:45,039
+there custom claim additional data can
+ 
+
+1225
+00:29:45,039 --> 00:29:48,070
+there custom claim additional data can
+be added in JWT like roles you have to
+
+1226
+00:29:48,070 --> 00:29:48,080
+be added in JWT like roles you have to
+ 
+
+1227
+00:29:48,080 --> 00:29:49,830
+be added in JWT like roles you have to
+add certain roles for this user you can
+
+1228
+00:29:49,830 --> 00:29:49,840
+add certain roles for this user you can
+ 
+
+1229
+00:29:49,840 --> 00:29:52,710
+add certain roles for this user you can
+add it into the claim itself so these
+
+1230
+00:29:52,710 --> 00:29:52,720
+add it into the claim itself so these
+ 
+
+1231
+00:29:52,720 --> 00:29:55,070
+add it into the claim itself so these
+are all the advantage of JWT which makes
+
+1232
+00:29:55,070 --> 00:29:55,080
+are all the advantage of JWT which makes
+ 
+
+1233
+00:29:55,080 --> 00:29:57,029
+are all the advantage of JWT which makes
+it
+
+1234
+00:29:57,029 --> 00:29:57,039
+it
+ 
+
+1235
+00:29:57,039 --> 00:30:00,310
+it
+stateless but now very very important
+
+1236
+00:30:00,310 --> 00:30:00,320
+stateless but now very very important
+ 
+
+1237
+00:30:00,320 --> 00:30:02,870
+stateless but now very very important
+part from interview perceptive what are
+
+1238
+00:30:02,870 --> 00:30:02,880
+part from interview perceptive what are
+ 
+
+1239
+00:30:02,880 --> 00:30:05,350
+part from interview perceptive what are
+the challenges with JWT so you
+
+1240
+00:30:05,350 --> 00:30:05,360
+the challenges with JWT so you
+ 
+
+1241
+00:30:05,360 --> 00:30:07,430
+the challenges with JWT so you
+understood till now right but before
+
+1242
+00:30:07,430 --> 00:30:07,440
+understood till now right but before
+ 
+
+1243
+00:30:07,440 --> 00:30:09,669
+understood till now right but before
+challenges I will also tell you that uh
+
+1244
+00:30:09,669 --> 00:30:09,679
+challenges I will also tell you that uh
+ 
+
+1245
+00:30:09,679 --> 00:30:11,830
+challenges I will also tell you that uh
+let's say single sign on
+
+1246
+00:30:11,830 --> 00:30:11,840
+let's say single sign on
+ 
+
+1247
+00:30:11,840 --> 00:30:14,509
+let's say single sign on
+SSO so let's say that this is your
+
+1248
+00:30:14,509 --> 00:30:14,519
+SSO so let's say that this is your
+ 
+
+1249
+00:30:14,519 --> 00:30:17,389
+SSO so let's say that this is your
+company you have app
+
+1250
+00:30:17,389 --> 00:30:17,399
+company you have app
+ 
+
+1251
+00:30:17,399 --> 00:30:19,990
+company you have app
+one app
+
+1252
+00:30:19,990 --> 00:30:20,000
+one app
+ 
+
+1253
+00:30:20,000 --> 00:30:25,110
+one app
+2 app three this is you so now I think
+
+1254
+00:30:25,110 --> 00:30:25,120
+2 app three this is you so now I think
+ 
+
+1255
+00:30:25,120 --> 00:30:27,029
+2 app three this is you so now I think
+you already know what how the single
+
+1256
+00:30:27,029 --> 00:30:27,039
+you already know what how the single
+ 
+
+1257
+00:30:27,039 --> 00:30:31,549
+you already know what how the single
+sign on works so first it will goes to
+
+1258
+00:30:31,549 --> 00:30:31,559
+sign on works so first it will goes to
+ 
+
+1259
+00:30:31,559 --> 00:30:33,870
+sign on works so first it will goes to
+certain authentication server where it
+
+1260
+00:30:33,870 --> 00:30:33,880
+certain authentication server where it
+ 
+
+1261
+00:30:33,880 --> 00:30:36,990
+certain authentication server where it
+provided username password it will get
+
+1262
+00:30:36,990 --> 00:30:37,000
+provided username password it will get
+ 
+
+1263
+00:30:37,000 --> 00:30:38,710
+provided username password it will get
+the JWT
+
+1264
+00:30:38,710 --> 00:30:38,720
+the JWT
+ 
+
+1265
+00:30:38,720 --> 00:30:40,789
+the JWT
+token now what does happen with the
+
+1266
+00:30:40,789 --> 00:30:40,799
+token now what does happen with the
+ 
+
+1267
+00:30:40,799 --> 00:30:42,830
+token now what does happen with the
+single sign on is let's say you are
+
+1268
+00:30:42,830 --> 00:30:42,840
+single sign on is let's say you are
+ 
+
+1269
+00:30:42,840 --> 00:30:45,350
+single sign on is let's say you are
+trying to log in to uh you are trying to
+
+1270
+00:30:45,350 --> 00:30:45,360
+trying to log in to uh you are trying to
+ 
+
+1271
+00:30:45,360 --> 00:30:46,630
+trying to log in to uh you are trying to
+opening this
+
+1272
+00:30:46,630 --> 00:30:46,640
+opening this
+ 
+
+1273
+00:30:46,640 --> 00:30:51,630
+opening this
+F1 www. let's say f1.com you trying to
+
+1274
+00:30:51,630 --> 00:30:51,640
+F1 www. let's say f1.com you trying to
+ 
+
+1275
+00:30:51,640 --> 00:30:54,830
+F1 www. let's say f1.com you trying to
+open it so what it will do is it will
+
+1276
+00:30:54,830 --> 00:30:54,840
+open it so what it will do is it will
+ 
+
+1277
+00:30:54,840 --> 00:30:58,110
+open it so what it will do is it will
+pass the JWT token also whatever the you
+
+1278
+00:30:58,110 --> 00:30:58,120
+pass the JWT token also whatever the you
+ 
+
+1279
+00:30:58,120 --> 00:31:00,470
+pass the JWT token also whatever the you
+have received and when this app1
+
+1280
+00:31:00,470 --> 00:31:00,480
+have received and when this app1
+ 
+
+1281
+00:31:00,480 --> 00:31:03,990
+have received and when this app1
+received JWT token it internally try to
+
+1282
+00:31:03,990 --> 00:31:04,000
+received JWT token it internally try to
+ 
+
+1283
+00:31:04,000 --> 00:31:09,190
+received JWT token it internally try to
+verifies the your JWT if it verifies it
+
+1284
+00:31:09,190 --> 00:31:09,200
+verifies the your JWT if it verifies it
+ 
+
+1285
+00:31:09,200 --> 00:31:10,870
+verifies the your JWT if it verifies it
+will sign
+
+1286
+00:31:10,870 --> 00:31:10,880
+will sign
+ 
+
+1287
+00:31:10,880 --> 00:31:13,990
+will sign
+in right and all this user information
+
+1288
+00:31:13,990 --> 00:31:14,000
+in right and all this user information
+ 
+
+1289
+00:31:14,000 --> 00:31:16,149
+in right and all this user information
+like let's say username email ID is
+
+1290
+00:31:16,149 --> 00:31:16,159
+like let's say username email ID is
+ 
+
+1291
+00:31:16,159 --> 00:31:18,310
+like let's say username email ID is
+already available in your payload so it
+
+1292
+00:31:18,310 --> 00:31:18,320
+already available in your payload so it
+ 
+
+1293
+00:31:18,320 --> 00:31:21,950
+already available in your payload so it
+can help you to sign in say hi Shan how
+
+1294
+00:31:21,950 --> 00:31:21,960
+can help you to sign in say hi Shan how
+ 
+
+1295
+00:31:21,960 --> 00:31:24,350
+can help you to sign in say hi Shan how
+does it know it knows to JWT token
+
+1296
+00:31:24,350 --> 00:31:24,360
+does it know it knows to JWT token
+ 
+
+1297
+00:31:24,360 --> 00:31:27,269
+does it know it knows to JWT token
+itself that payload has may be my name
+
+1298
+00:31:27,269 --> 00:31:27,279
+itself that payload has may be my name
+ 
+
+1299
+00:31:27,279 --> 00:31:30,990
+itself that payload has may be my name
+my email ID ID so it able to verify me
+
+1300
+00:31:30,990 --> 00:31:31,000
+my email ID ID so it able to verify me
+ 
+
+1301
+00:31:31,000 --> 00:31:33,230
+my email ID ID so it able to verify me
+similarly when it able to goes to app2
+
+1302
+00:31:33,230 --> 00:31:33,240
+similarly when it able to goes to app2
+ 
+
+1303
+00:31:33,240 --> 00:31:36,950
+similarly when it able to goes to app2
+it will pass the JWT app to uses the
+
+1304
+00:31:36,950 --> 00:31:36,960
+it will pass the JWT app to uses the
+ 
+
+1305
+00:31:36,960 --> 00:31:38,710
+it will pass the JWT app to uses the
+let's say verify this token from the
+
+1306
+00:31:38,710 --> 00:31:38,720
+let's say verify this token from the
+ 
+
+1307
+00:31:38,720 --> 00:31:41,990
+let's say verify this token from the
+server authentication server once it Val
+
+1308
+00:31:41,990 --> 00:31:42,000
+server authentication server once it Val
+ 
+
+1309
+00:31:42,000 --> 00:31:43,549
+server authentication server once it Val
+validated
+
+1310
+00:31:43,549 --> 00:31:43,559
+validated
+ 
+
+1311
+00:31:43,559 --> 00:31:46,669
+validated
+so verification signature everything is
+
+1312
+00:31:46,669 --> 00:31:46,679
+so verification signature everything is
+ 
+
+1313
+00:31:46,679 --> 00:31:48,870
+so verification signature everything is
+all good nothing tampered it will help
+
+1314
+00:31:48,870 --> 00:31:48,880
+all good nothing tampered it will help
+ 
+
+1315
+00:31:48,880 --> 00:31:51,389
+all good nothing tampered it will help
+me sign in also so here if you see only
+
+1316
+00:31:51,389 --> 00:31:51,399
+me sign in also so here if you see only
+ 
+
+1317
+00:31:51,399 --> 00:31:53,549
+me sign in also so here if you see only
+once I have provided the username
+
+1318
+00:31:53,549 --> 00:31:53,559
+once I have provided the username
+ 
+
+1319
+00:31:53,559 --> 00:31:55,710
+once I have provided the username
+password I got the token now the same
+
+1320
+00:31:55,710 --> 00:31:55,720
+password I got the token now the same
+ 
+
+1321
+00:31:55,720 --> 00:31:58,310
+password I got the token now the same
+token I'm using it to login at multiple
+
+1322
+00:31:58,310 --> 00:31:58,320
+token I'm using it to login at multiple
+ 
+
+1323
+00:31:58,320 --> 00:32:01,549
+token I'm using it to login at multiple
+places so that is known as SSO and this
+
+1324
+00:32:01,549 --> 00:32:01,559
+places so that is known as SSO and this
+ 
+
+1325
+00:32:01,559 --> 00:32:05,029
+places so that is known as SSO and this
+is implemented through JWT now there is
+
+1326
+00:32:05,029 --> 00:32:05,039
+is implemented through JWT now there is
+ 
+
+1327
+00:32:05,039 --> 00:32:06,830
+is implemented through JWT now there is
+one big problem with
+
+1328
+00:32:06,830 --> 00:32:06,840
+one big problem with
+ 
+
+1329
+00:32:06,840 --> 00:32:09,389
+one big problem with
+JWT token
+
+1330
+00:32:09,389 --> 00:32:09,399
+JWT token
+ 
+
+1331
+00:32:09,399 --> 00:32:13,830
+JWT token
+invalidation since JWT is
+
+1332
+00:32:13,830 --> 00:32:13,840
+invalidation since JWT is
+ 
+
+1333
+00:32:13,840 --> 00:32:17,070
+invalidation since JWT is
+stateless what does stateless means that
+
+1334
+00:32:17,070 --> 00:32:17,080
+stateless what does stateless means that
+ 
+
+1335
+00:32:17,080 --> 00:32:20,950
+stateless what does stateless means that
+these servers application Server doesn't
+
+1336
+00:32:20,950 --> 00:32:20,960
+these servers application Server doesn't
+ 
+
+1337
+00:32:20,960 --> 00:32:24,110
+these servers application Server doesn't
+know about this JWT at
+
+1338
+00:32:24,110 --> 00:32:24,120
+know about this JWT at
+ 
+
+1339
+00:32:24,120 --> 00:32:28,470
+know about this JWT at
+all right it is issued to a user now
+
+1340
+00:32:28,470 --> 00:32:28,480
+all right it is issued to a user now
+ 
+
+1341
+00:32:28,480 --> 00:32:31,070
+all right it is issued to a user now
+once it comes to them they just validate
+
+1342
+00:32:31,070 --> 00:32:31,080
+once it comes to them they just validate
+ 
+
+1343
+00:32:31,080 --> 00:32:34,549
+once it comes to them they just validate
+it if it is valid they will provide it
+
+1344
+00:32:34,549 --> 00:32:34,559
+it if it is valid they will provide it
+ 
+
+1345
+00:32:34,559 --> 00:32:36,590
+it if it is valid they will provide it
+the
+
+1346
+00:32:36,590 --> 00:32:36,600
+the
+ 
+
+1347
+00:32:36,600 --> 00:32:39,789
+the
+access now let's say that this user is
+
+1348
+00:32:39,789 --> 00:32:39,799
+access now let's say that this user is
+ 
+
+1349
+00:32:39,799 --> 00:32:42,629
+access now let's say that this user is
+fraud user this is
+
+1350
+00:32:42,629 --> 00:32:42,639
+fraud user this is
+ 
+
+1351
+00:32:42,639 --> 00:32:46,110
+fraud user this is
+fraud now I want to
+
+1352
+00:32:46,110 --> 00:32:46,120
+fraud now I want to
+ 
+
+1353
+00:32:46,120 --> 00:32:50,470
+fraud now I want to
+block now I want to block him block this
+
+1354
+00:32:50,470 --> 00:32:50,480
+block now I want to block him block this
+ 
+
+1355
+00:32:50,480 --> 00:32:55,070
+block now I want to block him block this
+user but this user has a token which has
+
+1356
+00:32:55,070 --> 00:32:55,080
+user but this user has a token which has
+ 
+
+1357
+00:32:55,080 --> 00:32:59,110
+user but this user has a token which has
+expiry time of let's say
+
+1358
+00:32:59,110 --> 00:32:59,120
+expiry time of let's say
+ 
+
+1359
+00:32:59,120 --> 00:33:02,909
+expiry time of let's say
+uh today is uh March let's say April
+
+1360
+00:33:02,909 --> 00:33:02,919
+uh today is uh March let's say April
+ 
+
+1361
+00:33:02,919 --> 00:33:07,789
+uh today is uh March let's say April
+till 20th or uh 21st April so till 21st
+
+1362
+00:33:07,789 --> 00:33:07,799
+till 20th or uh 21st April so till 21st
+ 
+
+1363
+00:33:07,799 --> 00:33:11,190
+till 20th or uh 21st April so till 21st
+April this has a valid token now even
+
+1364
+00:33:11,190 --> 00:33:11,200
+April this has a valid token now even
+ 
+
+1365
+00:33:11,200 --> 00:33:13,269
+April this has a valid token now even
+though this is a fraud user how you will
+
+1366
+00:33:13,269 --> 00:33:13,279
+though this is a fraud user how you will
+ 
+
+1367
+00:33:13,279 --> 00:33:16,029
+though this is a fraud user how you will
+make this token invalidate if I make
+
+1368
+00:33:16,029 --> 00:33:16,039
+make this token invalidate if I make
+ 
+
+1369
+00:33:16,039 --> 00:33:18,350
+make this token invalidate if I make
+this request to this application to it
+
+1370
+00:33:18,350 --> 00:33:18,360
+this request to this application to it
+ 
+
+1371
+00:33:18,360 --> 00:33:21,110
+this request to this application to it
+will check with the server pass this
+
+1372
+00:33:21,110 --> 00:33:21,120
+will check with the server pass this
+ 
+
+1373
+00:33:21,120 --> 00:33:23,750
+will check with the server pass this
+token hey this token is valid it its
+
+1374
+00:33:23,750 --> 00:33:23,760
+token hey this token is valid it its
+ 
+
+1375
+00:33:23,760 --> 00:33:26,909
+token hey this token is valid it its
+expiry is not yet come so how you will
+
+1376
+00:33:26,909 --> 00:33:26,919
+expiry is not yet come so how you will
+ 
+
+1377
+00:33:26,919 --> 00:33:29,430
+expiry is not yet come so how you will
+invalidate the Tok token so let's say
+
+1378
+00:33:29,430 --> 00:33:29,440
+invalidate the Tok token so let's say
+ 
+
+1379
+00:33:29,440 --> 00:33:31,710
+invalidate the Tok token so let's say
+that I have a blacklisted user how to
+
+1380
+00:33:31,710 --> 00:33:31,720
+that I have a blacklisted user how to
+ 
+
+1381
+00:33:31,720 --> 00:33:34,710
+that I have a blacklisted user how to
+invalidate a token before its expiration
+
+1382
+00:33:34,710 --> 00:33:34,720
+invalidate a token before its expiration
+ 
+
+1383
+00:33:34,720 --> 00:33:36,230
+invalidate a token before its expiration
+biggest
+
+1384
+00:33:36,230 --> 00:33:36,240
+biggest
+ 
+
+1385
+00:33:36,240 --> 00:33:40,190
+biggest
+problem so there are today multiple ways
+
+1386
+00:33:40,190 --> 00:33:40,200
+problem so there are today multiple ways
+ 
+
+1387
+00:33:40,200 --> 00:33:42,190
+problem so there are today multiple ways
+through which we are doing
+
+1388
+00:33:42,190 --> 00:33:42,200
+through which we are doing
+ 
+
+1389
+00:33:42,200 --> 00:33:46,269
+through which we are doing
+this first is server need to keep the
+
+1390
+00:33:46,269 --> 00:33:46,279
+this first is server need to keep the
+ 
+
+1391
+00:33:46,279 --> 00:33:48,430
+this first is server need to keep the
+list of blacklisted
+
+1392
+00:33:48,430 --> 00:33:48,440
+list of blacklisted
+ 
+
+1393
+00:33:48,440 --> 00:33:51,430
+list of blacklisted
+tokens right and either the DB or cash
+
+1394
+00:33:51,430 --> 00:33:51,440
+tokens right and either the DB or cash
+ 
+
+1395
+00:33:51,440 --> 00:33:54,149
+tokens right and either the DB or cash
+up lookup is required while validating
+
+1396
+00:33:54,149 --> 00:33:54,159
+up lookup is required while validating
+ 
+
+1397
+00:33:54,159 --> 00:33:56,269
+up lookup is required while validating
+so
+
+1398
+00:33:56,269 --> 00:33:56,279
+so
+ 
+
+1399
+00:33:56,279 --> 00:33:59,269
+so
+here you have authentication server
+
+1400
+00:33:59,269 --> 00:33:59,279
+here you have authentication server
+ 
+
+1401
+00:33:59,279 --> 00:34:02,310
+here you have authentication server
+right and then there you have app one
+
+1402
+00:34:02,310 --> 00:34:02,320
+right and then there you have app one
+ 
+
+1403
+00:34:02,320 --> 00:34:08,470
+right and then there you have app one
+app 2 multiple so it can maintain
+
+1404
+00:34:08,470 --> 00:34:08,480
+app 2 multiple so it can maintain
+ 
+
+1405
+00:34:08,480 --> 00:34:13,589
+app 2 multiple so it can maintain
+a token blacklisted blacklisted tokens
+
+1406
+00:34:13,589 --> 00:34:13,599
+a token blacklisted blacklisted tokens
+ 
+
+1407
+00:34:13,599 --> 00:34:16,109
+a token blacklisted blacklisted tokens
+right and each token is identified uning
+
+1408
+00:34:16,109 --> 00:34:16,119
+right and each token is identified uning
+ 
+
+1409
+00:34:16,119 --> 00:34:18,589
+right and each token is identified uning
+a particular ID I already told you there
+
+1410
+00:34:18,589 --> 00:34:18,599
+a particular ID I already told you there
+ 
+
+1411
+00:34:18,599 --> 00:34:22,430
+a particular ID I already told you there
+is something called J jti unique token
+
+1412
+00:34:22,430 --> 00:34:22,440
+is something called J jti unique token
+ 
+
+1413
+00:34:22,440 --> 00:34:26,710
+is something called J jti unique token
+ID right so now let's say that based on
+
+1414
+00:34:26,710 --> 00:34:26,720
+ID right so now let's say that based on
+ 
+
+1415
+00:34:26,720 --> 00:34:30,190
+ID right so now let's say that based on
+that it put the particular jti this
+
+1416
+00:34:30,190 --> 00:34:30,200
+that it put the particular jti this
+ 
+
+1417
+00:34:30,200 --> 00:34:32,629
+that it put the particular jti this
+token is invalid this is
+
+1418
+00:34:32,629 --> 00:34:32,639
+token is invalid this is
+ 
+
+1419
+00:34:32,639 --> 00:34:35,869
+token is invalid this is
+blacklisted now when uh this fraud user
+
+1420
+00:34:35,869 --> 00:34:35,879
+blacklisted now when uh this fraud user
+ 
+
+1421
+00:34:35,879 --> 00:34:38,430
+blacklisted now when uh this fraud user
+is passing the JWT token and it is
+
+1422
+00:34:38,430 --> 00:34:38,440
+is passing the JWT token and it is
+ 
+
+1423
+00:34:38,440 --> 00:34:40,990
+is passing the JWT token and it is
+trying to validate it it will check its
+
+1424
+00:34:40,990 --> 00:34:41,000
+trying to validate it it will check its
+ 
+
+1425
+00:34:41,000 --> 00:34:42,990
+trying to validate it it will check its
+blacklisted whether it's putting it in
+
+1426
+00:34:42,990 --> 00:34:43,000
+blacklisted whether it's putting it in
+ 
+
+1427
+00:34:43,000 --> 00:34:44,430
+blacklisted whether it's putting it in
+cash whether it
+
+1428
+00:34:44,430 --> 00:34:44,440
+cash whether it
+ 
+
+1429
+00:34:44,440 --> 00:34:47,230
+cash whether it
+is putting it in DB this blacklisted
+
+1430
+00:34:47,230 --> 00:34:47,240
+is putting it in DB this blacklisted
+ 
+
+1431
+00:34:47,240 --> 00:34:49,909
+is putting it in DB this blacklisted
+list it can validate that hey this token
+
+1432
+00:34:49,909 --> 00:34:49,919
+list it can validate that hey this token
+ 
+
+1433
+00:34:49,919 --> 00:34:53,030
+list it can validate that hey this token
+ID is there in the blacklisted L I need
+
+1434
+00:34:53,030 --> 00:34:53,040
+ID is there in the blacklisted L I need
+ 
+
+1435
+00:34:53,040 --> 00:34:54,389
+ID is there in the blacklisted L I need
+to deny
+
+1436
+00:34:54,389 --> 00:34:54,399
+to deny
+ 
+
+1437
+00:34:54,399 --> 00:34:58,829
+to deny
+it but this has a problem that which the
+
+1438
+00:34:58,829 --> 00:34:58,839
+it but this has a problem that which the
+ 
+
+1439
+00:34:58,839 --> 00:35:00,630
+it but this has a problem that which the
+problem earlier you were solving with
+
+1440
+00:35:00,630 --> 00:35:00,640
+problem earlier you were solving with
+ 
+
+1441
+00:35:00,640 --> 00:35:04,230
+problem earlier you were solving with
+session ID avoid look up of DB or cash
+
+1442
+00:35:04,230 --> 00:35:04,240
+session ID avoid look up of DB or cash
+ 
+
+1443
+00:35:04,240 --> 00:35:07,030
+session ID avoid look up of DB or cash
+now you are doing that okay so this is
+
+1444
+00:35:07,030 --> 00:35:07,040
+now you are doing that okay so this is
+ 
+
+1445
+00:35:07,040 --> 00:35:09,470
+now you are doing that okay so this is
+one problem but so this this will solve
+
+1446
+00:35:09,470 --> 00:35:09,480
+one problem but so this this will solve
+ 
+
+1447
+00:35:09,480 --> 00:35:10,950
+one problem but so this this will solve
+the problem but this again has a
+
+1448
+00:35:10,950 --> 00:35:10,960
+the problem but this again has a
+ 
+
+1449
+00:35:10,960 --> 00:35:14,390
+the problem but this again has a
+disadvantage that you have to do a DB or
+
+1450
+00:35:14,390 --> 00:35:14,400
+disadvantage that you have to do a DB or
+ 
+
+1451
+00:35:14,400 --> 00:35:18,870
+disadvantage that you have to do a DB or
+cash lookup okay what are the other ways
+
+1452
+00:35:18,870 --> 00:35:18,880
+cash lookup okay what are the other ways
+ 
+
+1453
+00:35:18,880 --> 00:35:20,790
+cash lookup okay what are the other ways
+the another way is just change the
+
+1454
+00:35:20,790 --> 00:35:20,800
+the another way is just change the
+ 
+
+1455
+00:35:20,800 --> 00:35:22,069
+the another way is just change the
+secret key
+
+1456
+00:35:22,069 --> 00:35:22,079
+secret key
+ 
+
+1457
+00:35:22,079 --> 00:35:25,230
+secret key
+itself so the change the secret key uh
+
+1458
+00:35:25,230 --> 00:35:25,240
+itself so the change the secret key uh
+ 
+
+1459
+00:35:25,240 --> 00:35:27,750
+itself so the change the secret key uh
+let's say that the uh earlier you were
+
+1460
+00:35:27,750 --> 00:35:27,760
+let's say that the uh earlier you were
+ 
+
+1461
+00:35:27,760 --> 00:35:31,990
+let's say that the uh earlier you were
+using for signing it you are using RSA
+
+1462
+00:35:31,990 --> 00:35:32,000
+using for signing it you are using RSA
+ 
+
+1463
+00:35:32,000 --> 00:35:34,589
+using for signing it you are using RSA
+let's say you are using private key
+
+1464
+00:35:34,589 --> 00:35:34,599
+let's say you are using private key
+ 
+
+1465
+00:35:34,599 --> 00:35:38,550
+let's say you are using private key
+public key one this is public key one
+
+1466
+00:35:38,550 --> 00:35:38,560
+public key one this is public key one
+ 
+
+1467
+00:35:38,560 --> 00:35:42,510
+public key one this is public key one
+now you have changed this key to 22 so
+
+1468
+00:35:42,510 --> 00:35:42,520
+now you have changed this key to 22 so
+ 
+
+1469
+00:35:42,520 --> 00:35:44,430
+now you have changed this key to 22 so
+now at the time of
+
+1470
+00:35:44,430 --> 00:35:44,440
+now at the time of
+ 
+
+1471
+00:35:44,440 --> 00:35:46,430
+now at the time of
+verification it will verify the
+
+1472
+00:35:46,430 --> 00:35:46,440
+verification it will verify the
+ 
+
+1473
+00:35:46,440 --> 00:35:50,309
+verification it will verify the
+signature right so now it will try to
+
+1474
+00:35:50,309 --> 00:35:50,319
+signature right so now it will try to
+ 
+
+1475
+00:35:50,319 --> 00:35:53,589
+signature right so now it will try to
+verify with the new public key so it
+
+1476
+00:35:53,589 --> 00:35:53,599
+verify with the new public key so it
+ 
+
+1477
+00:35:53,599 --> 00:35:56,109
+verify with the new public key so it
+will invalidate because it was signed
+
+1478
+00:35:56,109 --> 00:35:56,119
+will invalidate because it was signed
+ 
+
+1479
+00:35:56,119 --> 00:35:58,270
+will invalidate because it was signed
+through one private key one
+
+1480
+00:35:58,270 --> 00:35:58,280
+through one private key one
+ 
+
+1481
+00:35:58,280 --> 00:36:00,870
+through one private key one
+and if it will only be verified properly
+
+1482
+00:36:00,870 --> 00:36:00,880
+and if it will only be verified properly
+ 
+
+1483
+00:36:00,880 --> 00:36:03,470
+and if it will only be verified properly
+if you sign it with public key one only
+
+1484
+00:36:03,470 --> 00:36:03,480
+if you sign it with public key one only
+ 
+
+1485
+00:36:03,480 --> 00:36:06,069
+if you sign it with public key one only
+but now you have changed the key itself
+
+1486
+00:36:06,069 --> 00:36:06,079
+but now you have changed the key itself
+ 
+
+1487
+00:36:06,079 --> 00:36:07,510
+but now you have changed the key itself
+so it
+
+1488
+00:36:07,510 --> 00:36:07,520
+so it
+ 
+
+1489
+00:36:07,520 --> 00:36:10,950
+so it
+will it will Deni the user but what is
+
+1490
+00:36:10,950 --> 00:36:10,960
+will it will Deni the user but what is
+ 
+
+1491
+00:36:10,960 --> 00:36:13,710
+will it will Deni the user but what is
+the problem or if the apart from this
+
+1492
+00:36:13,710 --> 00:36:13,720
+the problem or if the apart from this
+ 
+
+1493
+00:36:13,720 --> 00:36:15,870
+the problem or if the apart from this
+fraud user if there are some genuine
+
+1494
+00:36:15,870 --> 00:36:15,880
+fraud user if there are some genuine
+ 
+
+1495
+00:36:15,880 --> 00:36:16,910
+fraud user if there are some genuine
+user
+
+1496
+00:36:16,910 --> 00:36:16,920
+user
+ 
+
+1497
+00:36:16,920 --> 00:36:19,790
+user
+also which was given a token using
+
+1498
+00:36:19,790 --> 00:36:19,800
+also which was given a token using
+ 
+
+1499
+00:36:19,800 --> 00:36:22,510
+also which was given a token using
+private key one which was given a token
+
+1500
+00:36:22,510 --> 00:36:22,520
+private key one which was given a token
+ 
+
+1501
+00:36:22,520 --> 00:36:25,670
+private key one which was given a token
+which was signed using private key one
+
+1502
+00:36:25,670 --> 00:36:25,680
+which was signed using private key one
+ 
+
+1503
+00:36:25,680 --> 00:36:27,829
+which was signed using private key one
+that will not be able to access access
+
+1504
+00:36:27,829 --> 00:36:27,839
+that will not be able to access access
+ 
+
+1505
+00:36:27,839 --> 00:36:30,630
+that will not be able to access access
+your data also they might have to log in
+
+1506
+00:36:30,630 --> 00:36:30,640
+your data also they might have to log in
+ 
+
+1507
+00:36:30,640 --> 00:36:33,750
+your data also they might have to log in
+again so that's the problem thatth
+
+1508
+00:36:33,750 --> 00:36:33,760
+again so that's the problem thatth
+ 
+
+1509
+00:36:33,760 --> 00:36:35,870
+again so that's the problem thatth
+second is if you change the secret key
+
+1510
+00:36:35,870 --> 00:36:35,880
+second is if you change the secret key
+ 
+
+1511
+00:36:35,880 --> 00:36:38,390
+second is if you change the secret key
+this will solve the problem but this
+
+1512
+00:36:38,390 --> 00:36:38,400
+this will solve the problem but this
+ 
+
+1513
+00:36:38,400 --> 00:36:41,309
+this will solve the problem but this
+will make the JWT invalidate for all
+
+1514
+00:36:41,309 --> 00:36:41,319
+will make the JWT invalidate for all
+ 
+
+1515
+00:36:41,319 --> 00:36:44,589
+will make the JWT invalidate for all
+genuine user also but this is you can
+
+1516
+00:36:44,589 --> 00:36:44,599
+genuine user also but this is you can
+ 
+
+1517
+00:36:44,599 --> 00:36:46,829
+genuine user also but this is you can
+say that again a
+
+1518
+00:36:46,829 --> 00:36:46,839
+say that again a
+ 
+
+1519
+00:36:46,839 --> 00:36:50,309
+say that again a
+problem what other thing we can do is
+
+1520
+00:36:50,309 --> 00:36:50,319
+problem what other thing we can do is
+ 
+
+1521
+00:36:50,319 --> 00:36:53,230
+problem what other thing we can do is
+make a token should be very short live
+
+1522
+00:36:53,230 --> 00:36:53,240
+make a token should be very short live
+ 
+
+1523
+00:36:53,240 --> 00:36:54,829
+make a token should be very short live
+instead of till
+
+1524
+00:36:54,829 --> 00:36:54,839
+instead of till
+ 
+
+1525
+00:36:54,839 --> 00:36:57,109
+instead of till
+April right let's say instead of till
+
+1526
+00:36:57,109 --> 00:36:57,119
+April right let's say instead of till
+ 
+
+1527
+00:36:57,119 --> 00:36:59,990
+April right let's say instead of till
+April what if I make that okay uh only
+
+1528
+00:36:59,990 --> 00:37:00,000
+April what if I make that okay uh only
+ 
+
+1529
+00:37:00,000 --> 00:37:02,550
+April what if I make that okay uh only
+for 5 minutes your token is
+
+1530
+00:37:02,550 --> 00:37:02,560
+for 5 minutes your token is
+ 
+
+1531
+00:37:02,560 --> 00:37:05,470
+for 5 minutes your token is
+valid only for 5 minutes your token is
+
+1532
+00:37:05,470 --> 00:37:05,480
+valid only for 5 minutes your token is
+ 
+
+1533
+00:37:05,480 --> 00:37:08,829
+valid only for 5 minutes your token is
+valid okay so this will resolve a
+
+1534
+00:37:08,829 --> 00:37:08,839
+valid okay so this will resolve a
+ 
+
+1535
+00:37:08,839 --> 00:37:12,030
+valid okay so this will resolve a
+problem but still till 5 minute that
+
+1536
+00:37:12,030 --> 00:37:12,040
+problem but still till 5 minute that
+ 
+
+1537
+00:37:12,040 --> 00:37:15,790
+problem but still till 5 minute that
+problem exist so this sometimes is very
+
+1538
+00:37:15,790 --> 00:37:15,800
+problem exist so this sometimes is very
+ 
+
+1539
+00:37:15,800 --> 00:37:18,829
+problem exist so this sometimes is very
+popular and also this is popular that
+
+1540
+00:37:18,829 --> 00:37:18,839
+popular and also this is popular that
+ 
+
+1541
+00:37:18,839 --> 00:37:21,150
+popular and also this is popular that
+token should be used only
+
+1542
+00:37:21,150 --> 00:37:21,160
+token should be used only
+ 
+
+1543
+00:37:21,160 --> 00:37:24,990
+token should be used only
+once so generally this is combined token
+
+1544
+00:37:24,990 --> 00:37:25,000
+once so generally this is combined token
+ 
+
+1545
+00:37:25,000 --> 00:37:28,510
+once so generally this is combined token
+should be used only once plus very short
+
+1546
+00:37:28,510 --> 00:37:28,520
+should be used only once plus very short
+ 
+
+1547
+00:37:28,520 --> 00:37:30,950
+should be used only once plus very short
+live let's say 5 minutes and it should
+
+1548
+00:37:30,950 --> 00:37:30,960
+live let's say 5 minutes and it should
+ 
+
+1549
+00:37:30,960 --> 00:37:32,710
+live let's say 5 minutes and it should
+be used only
+
+1550
+00:37:32,710 --> 00:37:32,720
+be used only
+ 
+
+1551
+00:37:32,720 --> 00:37:34,790
+be used only
+once after that you should generate a
+
+1552
+00:37:34,790 --> 00:37:34,800
+once after that you should generate a
+ 
+
+1553
+00:37:34,800 --> 00:37:38,230
+once after that you should generate a
+new token so this might solve a
+
+1554
+00:37:38,230 --> 00:37:38,240
+new token so this might solve a
+ 
+
+1555
+00:37:38,240 --> 00:37:40,349
+new token so this might solve a
+problem okay so but these are the
+
+1556
+00:37:40,349 --> 00:37:40,359
+problem okay so but these are the
+ 
+
+1557
+00:37:40,359 --> 00:37:42,390
+problem okay so but these are the
+different ways based upon your
+
+1558
+00:37:42,390 --> 00:37:42,400
+different ways based upon your
+ 
+
+1559
+00:37:42,400 --> 00:37:45,550
+different ways based upon your
+requirement uh one of the solution is
+
+1560
+00:37:45,550 --> 00:37:45,560
+requirement uh one of the solution is
+ 
+
+1561
+00:37:45,560 --> 00:37:47,870
+requirement uh one of the solution is
+implemented right so can you can also
+
+1562
+00:37:47,870 --> 00:37:47,880
+implemented right so can you can also
+ 
+
+1563
+00:37:47,880 --> 00:37:49,630
+implemented right so can you can also
+ask me that hey sh how do we know that
+
+1564
+00:37:49,630 --> 00:37:49,640
+ask me that hey sh how do we know that
+ 
+
+1565
+00:37:49,640 --> 00:37:52,790
+ask me that hey sh how do we know that
+to token should be used only once again
+
+1566
+00:37:52,790 --> 00:37:52,800
+to token should be used only once again
+ 
+
+1567
+00:37:52,800 --> 00:37:57,870
+to token should be used only once again
+to implement this this uh J J jti the
+
+1568
+00:37:57,870 --> 00:37:57,880
+to implement this this uh J J jti the
+ 
+
+1569
+00:37:57,880 --> 00:38:01,829
+to implement this this uh J J jti the
+unique token ID jti unique token ID is
+
+1570
+00:38:01,829 --> 00:38:01,839
+unique token ID jti unique token ID is
+ 
+
+1571
+00:38:01,839 --> 00:38:03,710
+unique token ID jti unique token ID is
+some somebody it has to be stored in
+
+1572
+00:38:03,710 --> 00:38:03,720
+some somebody it has to be stored in
+ 
+
+1573
+00:38:03,720 --> 00:38:05,670
+some somebody it has to be stored in
+cash or somewhere where it will check
+
+1574
+00:38:05,670 --> 00:38:05,680
+cash or somewhere where it will check
+ 
+
+1575
+00:38:05,680 --> 00:38:07,950
+cash or somewhere where it will check
+that hey I have seen this token
+
+1576
+00:38:07,950 --> 00:38:07,960
+that hey I have seen this token
+ 
+
+1577
+00:38:07,960 --> 00:38:12,630
+that hey I have seen this token
+before right so somewhere it has to do
+
+1578
+00:38:12,630 --> 00:38:12,640
+before right so somewhere it has to do
+ 
+
+1579
+00:38:12,640 --> 00:38:16,390
+before right so somewhere it has to do
+the DB so but you can say that the
+
+1580
+00:38:16,390 --> 00:38:16,400
+the DB so but you can say that the
+ 
+
+1581
+00:38:16,400 --> 00:38:18,829
+the DB so but you can say that the
+shortlived tokens are that's why very
+
+1582
+00:38:18,829 --> 00:38:18,839
+shortlived tokens are that's why very
+ 
+
+1583
+00:38:18,839 --> 00:38:20,829
+shortlived tokens are that's why very
+popular it's not whenever you get a
+
+1584
+00:38:20,829 --> 00:38:20,839
+popular it's not whenever you get a
+ 
+
+1585
+00:38:20,839 --> 00:38:23,349
+popular it's not whenever you get a
+token it's not valid for One Day 2 Day
+
+1586
+00:38:23,349 --> 00:38:23,359
+token it's not valid for One Day 2 Day
+ 
+
+1587
+00:38:23,359 --> 00:38:25,750
+token it's not valid for One Day 2 Day
+one month they are very
+
+1588
+00:38:25,750 --> 00:38:25,760
+one month they are very
+ 
+
+1589
+00:38:25,760 --> 00:38:28,750
+one month they are very
+shli use it for in within 5 10 minutes
+
+1590
+00:38:28,750 --> 00:38:28,760
+shli use it for in within 5 10 minutes
+ 
+
+1591
+00:38:28,760 --> 00:38:31,309
+shli use it for in within 5 10 minutes
+after that you have to might need to log
+
+1592
+00:38:31,309 --> 00:38:31,319
+after that you have to might need to log
+ 
+
+1593
+00:38:31,319 --> 00:38:32,349
+after that you have to might need to log
+in
+
+1594
+00:38:32,349 --> 00:38:32,359
+in
+ 
+
+1595
+00:38:32,359 --> 00:38:35,150
+in
+again okay so token invalidation has a
+
+1596
+00:38:35,150 --> 00:38:35,160
+again okay so token invalidation has a
+ 
+
+1597
+00:38:35,160 --> 00:38:37,270
+again okay so token invalidation has a
+problem genuine problem there are
+
+1598
+00:38:37,270 --> 00:38:37,280
+problem genuine problem there are
+ 
+
+1599
+00:38:37,280 --> 00:38:39,270
+problem genuine problem there are
+different solution for this based upon
+
+1600
+00:38:39,270 --> 00:38:39,280
+different solution for this based upon
+ 
+
+1601
+00:38:39,280 --> 00:38:41,630
+different solution for this based upon
+the requirement of the let's say the
+
+1602
+00:38:41,630 --> 00:38:41,640
+the requirement of the let's say the
+ 
+
+1603
+00:38:41,640 --> 00:38:43,829
+the requirement of the let's say the
+question which has been asked or your
+
+1604
+00:38:43,829 --> 00:38:43,839
+question which has been asked or your
+ 
+
+1605
+00:38:43,839 --> 00:38:47,150
+question which has been asked or your
+company multiple uh you can say that mix
+
+1606
+00:38:47,150 --> 00:38:47,160
+company multiple uh you can say that mix
+ 
+
+1607
+00:38:47,160 --> 00:38:50,470
+company multiple uh you can say that mix
+or one of the solution is
+
+1608
+00:38:50,470 --> 00:38:50,480
+or one of the solution is
+ 
+
+1609
+00:38:50,480 --> 00:38:53,829
+or one of the solution is
+implemented second JWT token is encoded
+
+1610
+00:38:53,829 --> 00:38:53,839
+implemented second JWT token is encoded
+ 
+
+1611
+00:38:53,839 --> 00:38:56,589
+implemented second JWT token is encoded
+not encrypted so it's less secure I told
+
+1612
+00:38:56,589 --> 00:38:56,599
+not encrypted so it's less secure I told
+ 
+
+1613
+00:38:56,599 --> 00:38:57,950
+not encrypted so it's less secure I told
+you right you have
+
+1614
+00:38:57,950 --> 00:38:57,960
+you right you have
+ 
+
+1615
+00:38:57,960 --> 00:39:01,030
+you right you have
+header then you have payload and then
+
+1616
+00:39:01,030 --> 00:39:01,040
+header then you have payload and then
+ 
+
+1617
+00:39:01,040 --> 00:39:04,390
+header then you have payload and then
+you have signature part ultimately token
+
+1618
+00:39:04,390 --> 00:39:04,400
+you have signature part ultimately token
+ 
+
+1619
+00:39:04,400 --> 00:39:07,910
+you have signature part ultimately token
+is your encoding of header dot encoding
+
+1620
+00:39:07,910 --> 00:39:07,920
+is your encoding of header dot encoding
+ 
+
+1621
+00:39:07,920 --> 00:39:12,190
+is your encoding of header dot encoding
+of payload dot encoding Bas 64 encoding
+
+1622
+00:39:12,190 --> 00:39:12,200
+of payload dot encoding Bas 64 encoding
+ 
+
+1623
+00:39:12,200 --> 00:39:14,829
+of payload dot encoding Bas 64 encoding
+of your signature value which ultimately
+
+1624
+00:39:14,829 --> 00:39:14,839
+of your signature value which ultimately
+ 
+
+1625
+00:39:14,839 --> 00:39:17,309
+of your signature value which ultimately
+got so here if you see that payload has
+
+1626
+00:39:17,309 --> 00:39:17,319
+got so here if you see that payload has
+ 
+
+1627
+00:39:17,319 --> 00:39:19,790
+got so here if you see that payload has
+mostly all the
+
+1628
+00:39:19,790 --> 00:39:19,800
+mostly all the
+ 
+
+1629
+00:39:19,800 --> 00:39:22,470
+mostly all the
+information and that is encoded and you
+
+1630
+00:39:22,470 --> 00:39:22,480
+information and that is encoded and you
+ 
+
+1631
+00:39:22,480 --> 00:39:24,829
+information and that is encoded and you
+know that this encoded payload you can
+
+1632
+00:39:24,829 --> 00:39:24,839
+know that this encoded payload you can
+ 
+
+1633
+00:39:24,839 --> 00:39:28,190
+know that this encoded payload you can
+simply do base 64 decode and you will
+
+1634
+00:39:28,190 --> 00:39:28,200
+simply do base 64 decode and you will
+ 
+
+1635
+00:39:28,200 --> 00:39:31,750
+simply do base 64 decode and you will
+get the data so this is less secure and
+
+1636
+00:39:31,750 --> 00:39:31,760
+get the data so this is less secure and
+ 
+
+1637
+00:39:31,760 --> 00:39:34,910
+get the data so this is less secure and
+for that jwe comes into the picture
+
+1638
+00:39:34,910 --> 00:39:34,920
+for that jwe comes into the picture
+ 
+
+1639
+00:39:34,920 --> 00:39:37,470
+for that jwe comes into the picture
+which is Json web
+
+1640
+00:39:37,470 --> 00:39:37,480
+which is Json web
+ 
+
+1641
+00:39:37,480 --> 00:39:41,030
+which is Json web
+encryption so what it does is nothing
+
+1642
+00:39:41,030 --> 00:39:41,040
+encryption so what it does is nothing
+ 
+
+1643
+00:39:41,040 --> 00:39:42,950
+encryption so what it does is nothing
+exactly same what we are doing but
+
+1644
+00:39:42,950 --> 00:39:42,960
+exactly same what we are doing but
+ 
+
+1645
+00:39:42,960 --> 00:39:45,790
+exactly same what we are doing but
+instead of encoding this uh letter of
+
+1646
+00:39:45,790 --> 00:39:45,800
+instead of encoding this uh letter of
+ 
+
+1647
+00:39:45,800 --> 00:39:48,829
+instead of encoding this uh letter of
+this payload it will do encryption of
+
+1648
+00:39:48,829 --> 00:39:48,839
+this payload it will do encryption of
+ 
+
+1649
+00:39:48,839 --> 00:39:52,670
+this payload it will do encryption of
+this payload that's all and at the
+
+1650
+00:39:52,670 --> 00:39:52,680
+this payload that's all and at the
+ 
+
+1651
+00:39:52,680 --> 00:39:55,390
+this payload that's all and at the
+receiver side when verify should be
+
+1652
+00:39:55,390 --> 00:39:55,400
+receiver side when verify should be
+ 
+
+1653
+00:39:55,400 --> 00:39:58,190
+receiver side when verify should be
+happen they can decrypt it so your
+
+1654
+00:39:58,190 --> 00:39:58,200
+happen they can decrypt it so your
+ 
+
+1655
+00:39:58,200 --> 00:40:01,470
+happen they can decrypt it so your
+authentication server knows the keys
+
+1656
+00:40:01,470 --> 00:40:01,480
+authentication server knows the keys
+ 
+
+1657
+00:40:01,480 --> 00:40:04,990
+authentication server knows the keys
+let's say RSA for encryption decryption
+
+1658
+00:40:04,990 --> 00:40:05,000
+let's say RSA for encryption decryption
+ 
+
+1659
+00:40:05,000 --> 00:40:07,630
+let's say RSA for encryption decryption
+encryption should happen through public
+
+1660
+00:40:07,630 --> 00:40:07,640
+encryption should happen through public
+ 
+
+1661
+00:40:07,640 --> 00:40:09,510
+encryption should happen through public
+key decryption should happen through
+
+1662
+00:40:09,510 --> 00:40:09,520
+key decryption should happen through
+ 
+
+1663
+00:40:09,520 --> 00:40:11,230
+key decryption should happen through
+private key we have already discussed in
+
+1664
+00:40:11,230 --> 00:40:11,240
+private key we have already discussed in
+ 
+
+1665
+00:40:11,240 --> 00:40:14,710
+private key we have already discussed in
+the previous video right but JWT is
+
+1666
+00:40:14,710 --> 00:40:14,720
+the previous video right but JWT is
+ 
+
+1667
+00:40:14,720 --> 00:40:17,510
+the previous video right but JWT is
+Right encrypt your payload
+
+1668
+00:40:17,510 --> 00:40:17,520
+Right encrypt your payload
+ 
+
+1669
+00:40:17,520 --> 00:40:21,030
+Right encrypt your payload
+only so JWT token is encoded not
+
+1670
+00:40:21,030 --> 00:40:21,040
+only so JWT token is encoded not
+ 
+
+1671
+00:40:21,040 --> 00:40:23,870
+only so JWT token is encoded not
+encrypted it's let secure what to do go
+
+1672
+00:40:23,870 --> 00:40:23,880
+encrypted it's let secure what to do go
+ 
+
+1673
+00:40:23,880 --> 00:40:27,750
+encrypted it's let secure what to do go
+for jwe in the jwe your payload part is
+
+1674
+00:40:27,750 --> 00:40:27,760
+for jwe in the jwe your payload part is
+ 
+
+1675
+00:40:27,760 --> 00:40:30,910
+for jwe in the jwe your payload part is
+encrypted and when your application
+
+1676
+00:40:30,910 --> 00:40:30,920
+encrypted and when your application
+ 
+
+1677
+00:40:30,920 --> 00:40:32,589
+encrypted and when your application
+calls
+
+1678
+00:40:32,589 --> 00:40:32,599
+calls
+ 
+
+1679
+00:40:32,599 --> 00:40:34,710
+calls
+the your
+
+1680
+00:40:34,710 --> 00:40:34,720
+the your
+ 
+
+1681
+00:40:34,720 --> 00:40:38,069
+the your
+application calls the server to verify
+
+1682
+00:40:38,069 --> 00:40:38,079
+application calls the server to verify
+ 
+
+1683
+00:40:38,079 --> 00:40:40,670
+application calls the server to verify
+it so server knows already the key how
+
+1684
+00:40:40,670 --> 00:40:40,680
+it so server knows already the key how
+ 
+
+1685
+00:40:40,680 --> 00:40:42,270
+it so server knows already the key how
+to decrypt it so they will decrypt the
+
+1686
+00:40:42,270 --> 00:40:42,280
+to decrypt it so they will decrypt the
+ 
+
+1687
+00:40:42,280 --> 00:40:45,349
+to decrypt it so they will decrypt the
+payload and then do
+
+1688
+00:40:45,349 --> 00:40:45,359
+payload and then do
+ 
+
+1689
+00:40:45,359 --> 00:40:48,190
+payload and then do
+it f the information and check expiry
+
+1690
+00:40:48,190 --> 00:40:48,200
+it f the information and check expiry
+ 
+
+1691
+00:40:48,200 --> 00:40:51,230
+it f the information and check expiry
+time and all and then do the
+
+1692
+00:40:51,230 --> 00:40:51,240
+time and all and then do the
+ 
+
+1693
+00:40:51,240 --> 00:40:55,109
+time and all and then do the
+validation okay so third the interview
+
+1694
+00:40:55,109 --> 00:40:55,119
+validation okay so third the interview
+ 
+
+1695
+00:40:55,119 --> 00:40:57,790
+validation okay so third the interview
+question comes is that
+
+1696
+00:40:57,790 --> 00:40:57,800
+question comes is that
+ 
+
+1697
+00:40:57,800 --> 00:41:01,150
+question comes is that
+in the JWT token ultimately let's say
+
+1698
+00:41:01,150 --> 00:41:01,160
+in the JWT token ultimately let's say
+ 
+
+1699
+00:41:01,160 --> 00:41:03,270
+in the JWT token ultimately let's say
+now you will get more clarity JWT and
+
+1700
+00:41:03,270 --> 00:41:03,280
+now you will get more clarity JWT and
+ 
+
+1701
+00:41:03,280 --> 00:41:07,510
+now you will get more clarity JWT and
+jws JWT token if it is not jws in the
+
+1702
+00:41:07,510 --> 00:41:07,520
+jws JWT token if it is not jws in the
+ 
+
+1703
+00:41:07,520 --> 00:41:10,550
+jws JWT token if it is not jws in the
+JWT token you have header you have
+
+1704
+00:41:10,550 --> 00:41:10,560
+JWT token you have header you have
+ 
+
+1705
+00:41:10,560 --> 00:41:14,390
+JWT token you have header you have
+payload and there is no signature so in
+
+1706
+00:41:14,390 --> 00:41:14,400
+payload and there is no signature so in
+ 
+
+1707
+00:41:14,400 --> 00:41:17,190
+payload and there is no signature so in
+the header you know that ALG part which
+
+1708
+00:41:17,190 --> 00:41:17,200
+the header you know that ALG part which
+ 
+
+1709
+00:41:17,200 --> 00:41:19,069
+the header you know that ALG part which
+say that what algorithm you are using
+
+1710
+00:41:19,069 --> 00:41:19,079
+say that what algorithm you are using
+ 
+
+1711
+00:41:19,079 --> 00:41:20,109
+say that what algorithm you are using
+for
+
+1712
+00:41:20,109 --> 00:41:20,119
+for
+ 
+
+1713
+00:41:20,119 --> 00:41:22,550
+for
+Signature it is
+
+1714
+00:41:22,550 --> 00:41:22,560
+Signature it is
+ 
+
+1715
+00:41:22,560 --> 00:41:25,790
+Signature it is
+none I am not signing
+
+1716
+00:41:25,790 --> 00:41:25,800
+none I am not signing
+ 
+
+1717
+00:41:25,800 --> 00:41:29,309
+none I am not signing
+it so such that is known as unsecured
+
+1718
+00:41:29,309 --> 00:41:29,319
+it so such that is known as unsecured
+ 
+
+1719
+00:41:29,319 --> 00:41:32,750
+it so such that is known as unsecured
+JWT where your algorithm is none for the
+
+1720
+00:41:32,750 --> 00:41:32,760
+JWT where your algorithm is none for the
+ 
+
+1721
+00:41:32,760 --> 00:41:35,990
+JWT where your algorithm is none for the
+signature that JWT should be
+
+1722
+00:41:35,990 --> 00:41:36,000
+signature that JWT should be
+ 
+
+1723
+00:41:36,000 --> 00:41:39,510
+signature that JWT should be
+rejected ultimately this is JWT there is
+
+1724
+00:41:39,510 --> 00:41:39,520
+rejected ultimately this is JWT there is
+ 
+
+1725
+00:41:39,520 --> 00:41:42,150
+rejected ultimately this is JWT there is
+no signature part and algorithm is
+
+1726
+00:41:42,150 --> 00:41:42,160
+no signature part and algorithm is
+ 
+
+1727
+00:41:42,160 --> 00:41:45,390
+no signature part and algorithm is
+none but this is known as unsecured JWT
+
+1728
+00:41:45,390 --> 00:41:45,400
+none but this is known as unsecured JWT
+ 
+
+1729
+00:41:45,400 --> 00:41:49,190
+none but this is known as unsecured JWT
+jws is Json WAP signature where you have
+
+1730
+00:41:49,190 --> 00:41:49,200
+jws is Json WAP signature where you have
+ 
+
+1731
+00:41:49,200 --> 00:41:50,550
+jws is Json WAP signature where you have
+a
+
+1732
+00:41:50,550 --> 00:41:50,560
+a
+ 
+
+1733
+00:41:50,560 --> 00:41:53,430
+a
+algorithm RSA hm whichever and you have
+
+1734
+00:41:53,430 --> 00:41:53,440
+algorithm RSA hm whichever and you have
+ 
+
+1735
+00:41:53,440 --> 00:41:55,190
+algorithm RSA hm whichever and you have
+doing the signature also putting the
+
+1736
+00:41:55,190 --> 00:41:55,200
+doing the signature also putting the
+ 
+
+1737
+00:41:55,200 --> 00:41:58,470
+doing the signature also putting the
+signature but that is known as JW s but
+
+1738
+00:41:58,470 --> 00:41:58,480
+signature but that is known as JW s but
+ 
+
+1739
+00:41:58,480 --> 00:42:01,670
+signature but that is known as JW s but
+since nobody is using JWT without the
+
+1740
+00:42:01,670 --> 00:42:01,680
+since nobody is using JWT without the
+ 
+
+1741
+00:42:01,680 --> 00:42:04,150
+since nobody is using JWT without the
+signature so that's why the terms are
+
+1742
+00:42:04,150 --> 00:42:04,160
+signature so that's why the terms are
+ 
+
+1743
+00:42:04,160 --> 00:42:08,309
+signature so that's why the terms are
+JWT jws used interchangeably because
+
+1744
+00:42:08,309 --> 00:42:08,319
+JWT jws used interchangeably because
+ 
+
+1745
+00:42:08,319 --> 00:42:11,589
+JWT jws used interchangeably because
+nobody use JWT token with algo none
+
+1746
+00:42:11,589 --> 00:42:11,599
+nobody use JWT token with algo none
+ 
+
+1747
+00:42:11,599 --> 00:42:14,950
+nobody use JWT token with algo none
+signature always
+
+1748
+00:42:14,950 --> 00:42:14,960
+
+ 
+
+1749
+00:42:14,960 --> 00:42:17,309
+
+present okay so without signature it is
+
+1750
+00:42:17,309 --> 00:42:17,319
+present okay so without signature it is
+ 
+
+1751
+00:42:17,319 --> 00:42:19,390
+present okay so without signature it is
+known as unsecured JWT which is never
+
+1752
+00:42:19,390 --> 00:42:19,400
+known as unsecured JWT which is never
+ 
+
+1753
+00:42:19,400 --> 00:42:21,670
+known as unsecured JWT which is never
+entertained it should never be it should
+
+1754
+00:42:21,670 --> 00:42:21,680
+entertained it should never be it should
+ 
+
+1755
+00:42:21,680 --> 00:42:26,109
+entertained it should never be it should
+always be rejected with algo with none
+
+1756
+00:42:26,109 --> 00:42:26,119
+always be rejected with algo with none
+ 
+
+1757
+00:42:26,119 --> 00:42:28,309
+always be rejected with algo with none
+remember
+
+1758
+00:42:28,309 --> 00:42:28,319
+remember
+ 
+
+1759
+00:42:28,319 --> 00:42:30,710
+remember
+now see this fourth and fifth part is
+
+1760
+00:42:30,710 --> 00:42:30,720
+now see this fourth and fifth part is
+ 
+
+1761
+00:42:30,720 --> 00:42:33,270
+now see this fourth and fifth part is
+very important from uh you can say that
+
+1762
+00:42:33,270 --> 00:42:33,280
+very important from uh you can say that
+ 
+
+1763
+00:42:33,280 --> 00:42:36,910
+very important from uh you can say that
+interview and uh uh the majorly attacker
+
+1764
+00:42:36,910 --> 00:42:36,920
+interview and uh uh the majorly attacker
+ 
+
+1765
+00:42:36,920 --> 00:42:39,750
+interview and uh uh the majorly attacker
+which use there is something called
+
+1766
+00:42:39,750 --> 00:42:39,760
+which use there is something called
+ 
+
+1767
+00:42:39,760 --> 00:42:42,349
+which use there is something called
+jwk jwk
+
+1768
+00:42:42,349 --> 00:42:42,359
+jwk jwk
+ 
+
+1769
+00:42:42,359 --> 00:42:45,069
+jwk jwk
+exploit so in the
+
+1770
+00:42:45,069 --> 00:42:45,079
+exploit so in the
+ 
+
+1771
+00:42:45,079 --> 00:42:47,710
+exploit so in the
+header I told you about type I told you
+
+1772
+00:42:47,710 --> 00:42:47,720
+header I told you about type I told you
+ 
+
+1773
+00:42:47,720 --> 00:42:50,109
+header I told you about type I told you
+about algo but there is something called
+
+1774
+00:42:50,109 --> 00:42:50,119
+about algo but there is something called
+ 
+
+1775
+00:42:50,119 --> 00:42:51,870
+about algo but there is something called
+jwk
+
+1776
+00:42:51,870 --> 00:42:51,880
+jwk
+ 
+
+1777
+00:42:51,880 --> 00:42:56,190
+jwk
+also right it is uh your key Json WAP
+
+1778
+00:42:56,190 --> 00:42:56,200
+also right it is uh your key Json WAP
+ 
+
+1779
+00:42:56,200 --> 00:42:57,910
+also right it is uh your key Json WAP
+key
+
+1780
+00:42:57,910 --> 00:42:57,920
+key
+ 
+
+1781
+00:42:57,920 --> 00:43:00,829
+key
+so public key is shared in
+
+1782
+00:43:00,829 --> 00:43:00,839
+so public key is shared in
+ 
+
+1783
+00:43:00,839 --> 00:43:05,270
+so public key is shared in
+this public key is shared in this all
+
+1784
+00:43:05,270 --> 00:43:05,280
+this public key is shared in this all
+ 
+
+1785
+00:43:05,280 --> 00:43:10,150
+this public key is shared in this all
+and it say that so you know that
+
+1786
+00:43:10,150 --> 00:43:10,160
+and it say that so you know that
+ 
+
+1787
+00:43:10,160 --> 00:43:12,430
+and it say that so you know that
+signature you have a
+
+1788
+00:43:12,430 --> 00:43:12,440
+signature you have a
+ 
+
+1789
+00:43:12,440 --> 00:43:17,549
+signature you have a
+message so message is sign using what
+
+1790
+00:43:17,549 --> 00:43:17,559
+message so message is sign using what
+ 
+
+1791
+00:43:17,559 --> 00:43:20,150
+message so message is sign using what
+key private
+
+1792
+00:43:20,150 --> 00:43:20,160
+key private
+ 
+
+1793
+00:43:20,160 --> 00:43:26,109
+key private
+key and this verify message is verified
+
+1794
+00:43:26,109 --> 00:43:26,119
+key and this verify message is verified
+ 
+
+1795
+00:43:26,119 --> 00:43:27,910
+key and this verify message is verified
+through
+
+1796
+00:43:27,910 --> 00:43:27,920
+through
+ 
+
+1797
+00:43:27,920 --> 00:43:32,309
+through
+public key now this message JWT you got
+
+1798
+00:43:32,309 --> 00:43:32,319
+public key now this message JWT you got
+ 
+
+1799
+00:43:32,319 --> 00:43:35,430
+public key now this message JWT you got
+a message and it is already
+
+1800
+00:43:35,430 --> 00:43:35,440
+a message and it is already
+ 
+
+1801
+00:43:35,440 --> 00:43:40,309
+a message and it is already
+signed right and now this user is trying
+
+1802
+00:43:40,309 --> 00:43:40,319
+signed right and now this user is trying
+ 
+
+1803
+00:43:40,319 --> 00:43:41,870
+signed right and now this user is trying
+to call
+
+1804
+00:43:41,870 --> 00:43:41,880
+to call
+ 
+
+1805
+00:43:41,880 --> 00:43:45,589
+to call
+a resource server and passing the
+
+1806
+00:43:45,589 --> 00:43:45,599
+a resource server and passing the
+ 
+
+1807
+00:43:45,599 --> 00:43:49,390
+a resource server and passing the
+JWT now this resource server should not
+
+1808
+00:43:49,390 --> 00:43:49,400
+JWT now this resource server should not
+ 
+
+1809
+00:43:49,400 --> 00:43:52,870
+JWT now this resource server should not
+have any logic to read the in the header
+
+1810
+00:43:52,870 --> 00:43:52,880
+have any logic to read the in the header
+ 
+
+1811
+00:43:52,880 --> 00:43:56,430
+have any logic to read the in the header
+there would be some jwk it will pass the
+
+1812
+00:43:56,430 --> 00:43:56,440
+there would be some jwk it will pass the
+ 
+
+1813
+00:43:56,440 --> 00:43:59,829
+there would be some jwk it will pass the
+public key also this n or E combinedly
+
+1814
+00:43:59,829 --> 00:43:59,839
+public key also this n or E combinedly
+ 
+
+1815
+00:43:59,839 --> 00:44:03,109
+public key also this n or E combinedly
+form a public key right this is I think
+
+1816
+00:44:03,109 --> 00:44:03,119
+form a public key right this is I think
+ 
+
+1817
+00:44:03,119 --> 00:44:05,470
+form a public key right this is I think
+your exponent part and this is your
+
+1818
+00:44:05,470 --> 00:44:05,480
+your exponent part and this is your
+ 
+
+1819
+00:44:05,480 --> 00:44:08,230
+your exponent part and this is your
+modulus part so these both combined make
+
+1820
+00:44:08,230 --> 00:44:08,240
+modulus part so these both combined make
+ 
+
+1821
+00:44:08,240 --> 00:44:09,270
+modulus part so these both combined make
+a public
+
+1822
+00:44:09,270 --> 00:44:09,280
+a public
+ 
+
+1823
+00:44:09,280 --> 00:44:14,710
+a public
+key so resource server should not
+
+1824
+00:44:14,710 --> 00:44:14,720
+key so resource server should not
+ 
+
+1825
+00:44:14,720 --> 00:44:19,510
+key so resource server should not
+verify your JWT with the public key
+
+1826
+00:44:19,510 --> 00:44:19,520
+verify your JWT with the public key
+ 
+
+1827
+00:44:19,520 --> 00:44:22,990
+verify your JWT with the public key
+which is coming inside this jwk no it
+
+1828
+00:44:22,990 --> 00:44:23,000
+which is coming inside this jwk no it
+ 
+
+1829
+00:44:23,000 --> 00:44:25,670
+which is coming inside this jwk no it
+might be possible that attacker has
+
+1830
+00:44:25,670 --> 00:44:25,680
+might be possible that attacker has
+ 
+
+1831
+00:44:25,680 --> 00:44:27,589
+might be possible that attacker has
+changed the message
+
+1832
+00:44:27,589 --> 00:44:27,599
+changed the message
+ 
+
+1833
+00:44:27,599 --> 00:44:30,309
+changed the message
+right and put its own public key and it
+
+1834
+00:44:30,309 --> 00:44:30,319
+right and put its own public key and it
+ 
+
+1835
+00:44:30,319 --> 00:44:33,069
+right and put its own public key and it
+changed the signature also the signature
+
+1836
+00:44:33,069 --> 00:44:33,079
+changed the signature also the signature
+ 
+
+1837
+00:44:33,079 --> 00:44:36,270
+changed the signature also the signature
+of the so it is possible that in the
+
+1838
+00:44:36,270 --> 00:44:36,280
+of the so it is possible that in the
+ 
+
+1839
+00:44:36,280 --> 00:44:39,990
+of the so it is possible that in the
+payload in the payload attacker has
+
+1840
+00:44:39,990 --> 00:44:40,000
+payload in the payload attacker has
+ 
+
+1841
+00:44:40,000 --> 00:44:43,510
+payload in the payload attacker has
+added some added some values and it
+
+1842
+00:44:43,510 --> 00:44:43,520
+added some added some values and it
+ 
+
+1843
+00:44:43,520 --> 00:44:46,510
+added some added some values and it
+signed it again with its
+
+1844
+00:44:46,510 --> 00:44:46,520
+signed it again with its
+ 
+
+1845
+00:44:46,520 --> 00:44:48,910
+signed it again with its
+attacker private
+
+1846
+00:44:48,910 --> 00:44:48,920
+attacker private
+ 
+
+1847
+00:44:48,920 --> 00:44:53,829
+attacker private
+key now it you got the JWT from this now
+
+1848
+00:44:53,829 --> 00:44:53,839
+key now it you got the JWT from this now
+ 
+
+1849
+00:44:53,839 --> 00:44:56,190
+key now it you got the JWT from this now
+you have to verify this sign digitally
+
+1850
+00:44:56,190 --> 00:44:56,200
+you have to verify this sign digitally
+ 
+
+1851
+00:44:56,200 --> 00:44:59,270
+you have to verify this sign digitally
+signed that it it is coming uh it is a
+
+1852
+00:44:59,270 --> 00:44:59,280
+signed that it it is coming uh it is a
+ 
+
+1853
+00:44:59,280 --> 00:45:03,430
+signed that it it is coming uh it is a
+valid or not is data is tampered or not
+
+1854
+00:45:03,430 --> 00:45:03,440
+valid or not is data is tampered or not
+ 
+
+1855
+00:45:03,440 --> 00:45:06,510
+valid or not is data is tampered or not
+if you use this public key which is
+
+1856
+00:45:06,510 --> 00:45:06,520
+if you use this public key which is
+ 
+
+1857
+00:45:06,520 --> 00:45:10,030
+if you use this public key which is
+coming in this jwk you might get yes it
+
+1858
+00:45:10,030 --> 00:45:10,040
+coming in this jwk you might get yes it
+ 
+
+1859
+00:45:10,040 --> 00:45:12,069
+coming in this jwk you might get yes it
+is verified because attacker might have
+
+1860
+00:45:12,069 --> 00:45:12,079
+is verified because attacker might have
+ 
+
+1861
+00:45:12,079 --> 00:45:15,390
+is verified because attacker might have
+added its public key hey verify with my
+
+1862
+00:45:15,390 --> 00:45:15,400
+added its public key hey verify with my
+ 
+
+1863
+00:45:15,400 --> 00:45:18,870
+added its public key hey verify with my
+public key so you might get accepted
+
+1864
+00:45:18,870 --> 00:45:18,880
+public key so you might get accepted
+ 
+
+1865
+00:45:18,880 --> 00:45:21,230
+public key so you might get accepted
+this payload that this is valid payload
+
+1866
+00:45:21,230 --> 00:45:21,240
+this payload that this is valid payload
+ 
+
+1867
+00:45:21,240 --> 00:45:22,990
+this payload that this is valid payload
+but might attacker might added some
+
+1868
+00:45:22,990 --> 00:45:23,000
+but might attacker might added some
+ 
+
+1869
+00:45:23,000 --> 00:45:25,270
+but might attacker might added some
+other details which is not
+
+1870
+00:45:25,270 --> 00:45:25,280
+other details which is not
+ 
+
+1871
+00:45:25,280 --> 00:45:28,950
+other details which is not
+intended so JWT exploit is that never
+
+1872
+00:45:28,950 --> 00:45:28,960
+intended so JWT exploit is that never
+ 
+
+1873
+00:45:28,960 --> 00:45:32,109
+intended so JWT exploit is that never
+use public key which is shared inside
+
+1874
+00:45:32,109 --> 00:45:32,119
+use public key which is shared inside
+ 
+
+1875
+00:45:32,119 --> 00:45:34,710
+use public key which is shared inside
+this jwk within a
+
+1876
+00:45:34,710 --> 00:45:34,720
+this jwk within a
+ 
+
+1877
+00:45:34,720 --> 00:45:37,190
+this jwk within a
+header so what to
+
+1878
+00:45:37,190 --> 00:45:37,200
+header so what to
+ 
+
+1879
+00:45:37,200 --> 00:45:40,309
+header so what to
+do how so now let's say that resource
+
+1880
+00:45:40,309 --> 00:45:40,319
+do how so now let's say that resource
+ 
+
+1881
+00:45:40,319 --> 00:45:43,910
+do how so now let's say that resource
+owner want a public key want a public
+
+1882
+00:45:43,910 --> 00:45:43,920
+owner want a public key want a public
+ 
+
+1883
+00:45:43,920 --> 00:45:47,950
+owner want a public key want a public
+key to verify it how to do that or let's
+
+1884
+00:45:47,950 --> 00:45:47,960
+key to verify it how to do that or let's
+ 
+
+1885
+00:45:47,960 --> 00:45:51,069
+key to verify it how to do that or let's
+say that resource owner is calling the
+
+1886
+00:45:51,069 --> 00:45:51,079
+say that resource owner is calling the
+ 
+
+1887
+00:45:51,079 --> 00:45:53,430
+say that resource owner is calling the
+authentication server now authentication
+
+1888
+00:45:53,430 --> 00:45:53,440
+authentication server now authentication
+ 
+
+1889
+00:45:53,440 --> 00:45:57,030
+authentication server now authentication
+server has to get the public key to sign
+
+1890
+00:45:57,030 --> 00:45:57,040
+server has to get the public key to sign
+ 
+
+1891
+00:45:57,040 --> 00:45:59,829
+server has to get the public key to sign
+it how it know there is something called
+
+1892
+00:45:59,829 --> 00:45:59,839
+it how it know there is something called
+ 
+
+1893
+00:45:59,839 --> 00:46:03,710
+it how it know there is something called
+K ID key ID I told you initially right
+
+1894
+00:46:03,710 --> 00:46:03,720
+K ID key ID I told you initially right
+ 
+
+1895
+00:46:03,720 --> 00:46:05,829
+K ID key ID I told you initially right
+there is something in the header also
+
+1896
+00:46:05,829 --> 00:46:05,839
+there is something in the header also
+ 
+
+1897
+00:46:05,839 --> 00:46:08,430
+there is something in the header also
+there is something called kid which you
+
+1898
+00:46:08,430 --> 00:46:08,440
+there is something called kid which you
+ 
+
+1899
+00:46:08,440 --> 00:46:12,230
+there is something called kid which you
+can add it inside a jwk also at the top
+
+1900
+00:46:12,230 --> 00:46:12,240
+can add it inside a jwk also at the top
+ 
+
+1901
+00:46:12,240 --> 00:46:15,630
+can add it inside a jwk also at the top
+also so this K ID is nothing but a key
+
+1902
+00:46:15,630 --> 00:46:15,640
+also so this K ID is nothing but a key
+ 
+
+1903
+00:46:15,640 --> 00:46:19,190
+also so this K ID is nothing but a key
+ID right and this key ID
+
+1904
+00:46:19,190 --> 00:46:19,200
+ID right and this key ID
+ 
+
+1905
+00:46:19,200 --> 00:46:22,349
+ID right and this key ID
+is used by your authentication server
+
+1906
+00:46:22,349 --> 00:46:22,359
+is used by your authentication server
+ 
+
+1907
+00:46:22,359 --> 00:46:23,549
+is used by your authentication server
+there
+
+1908
+00:46:23,549 --> 00:46:23,559
+there
+ 
+
+1909
+00:46:23,559 --> 00:46:25,710
+there
+is you whatever the authentication
+
+1910
+00:46:25,710 --> 00:46:25,720
+is you whatever the authentication
+ 
+
+1911
+00:46:25,720 --> 00:46:27,710
+is you whatever the authentication
+server you are using right
+
+1912
+00:46:27,710 --> 00:46:27,720
+server you are using right
+ 
+
+1913
+00:46:27,720 --> 00:46:31,109
+server you are using right
+they all maintain a well-known jwk Json
+
+1914
+00:46:31,109 --> 00:46:31,119
+they all maintain a well-known jwk Json
+ 
+
+1915
+00:46:31,119 --> 00:46:33,390
+they all maintain a well-known jwk Json
+so they have their own uh you can say
+
+1916
+00:46:33,390 --> 00:46:33,400
+so they have their own uh you can say
+ 
+
+1917
+00:46:33,400 --> 00:46:37,549
+so they have their own uh you can say
+that a link where they have list of
+
+1918
+00:46:37,549 --> 00:46:37,559
+that a link where they have list of
+ 
+
+1919
+00:46:37,559 --> 00:46:41,190
+that a link where they have list of
+public key list of public key which can
+
+1920
+00:46:41,190 --> 00:46:41,200
+public key list of public key which can
+ 
+
+1921
+00:46:41,200 --> 00:46:42,190
+public key list of public key which can
+be
+
+1922
+00:46:42,190 --> 00:46:42,200
+be
+ 
+
+1923
+00:46:42,200 --> 00:46:44,549
+be
+used so these are you can say that the
+
+1924
+00:46:44,549 --> 00:46:44,559
+used so these are you can say that the
+ 
+
+1925
+00:46:44,559 --> 00:46:47,910
+used so these are you can say that the
+wh listed publ key which authentication
+
+1926
+00:46:47,910 --> 00:46:47,920
+wh listed publ key which authentication
+ 
+
+1927
+00:46:47,920 --> 00:46:49,829
+wh listed publ key which authentication
+server can use and since these are
+
+1928
+00:46:49,829 --> 00:46:49,839
+server can use and since these are
+ 
+
+1929
+00:46:49,839 --> 00:46:52,430
+server can use and since these are
+public key everybody can know it right
+
+1930
+00:46:52,430 --> 00:46:52,440
+public key everybody can know it right
+ 
+
+1931
+00:46:52,440 --> 00:46:54,630
+public key everybody can know it right
+there's nothing to hide it so that's why
+
+1932
+00:46:54,630 --> 00:46:54,640
+there's nothing to hide it so that's why
+ 
+
+1933
+00:46:54,640 --> 00:46:56,910
+there's nothing to hide it so that's why
+they have generally this kind of we uh
+
+1934
+00:46:56,910 --> 00:46:56,920
+they have generally this kind of we uh
+ 
+
+1935
+00:46:56,920 --> 00:47:00,069
+they have generally this kind of we uh
+link whatever the author authorization
+
+1936
+00:47:00,069 --> 00:47:00,079
+link whatever the author authorization
+ 
+
+1937
+00:47:00,079 --> 00:47:01,829
+link whatever the author authorization
+server authentication server third party
+
+1938
+00:47:01,829 --> 00:47:01,839
+server authentication server third party
+ 
+
+1939
+00:47:01,839 --> 00:47:03,990
+server authentication server third party
+you are using they might have their own
+
+1940
+00:47:03,990 --> 00:47:04,000
+you are using they might have their own
+ 
+
+1941
+00:47:04,000 --> 00:47:08,670
+you are using they might have their own
+well-known JW k. Json this will contain
+
+1942
+00:47:08,670 --> 00:47:08,680
+well-known JW k. Json this will contain
+ 
+
+1943
+00:47:08,680 --> 00:47:11,670
+well-known JW k. Json this will contain
+the list of public key and each one will
+
+1944
+00:47:11,670 --> 00:47:11,680
+the list of public key and each one will
+ 
+
+1945
+00:47:11,680 --> 00:47:17,470
+the list of public key and each one will
+have a ID so this ID is present here so
+
+1946
+00:47:17,470 --> 00:47:17,480
+have a ID so this ID is present here so
+ 
+
+1947
+00:47:17,480 --> 00:47:20,470
+have a ID so this ID is present here so
+how the public key now authorization
+
+1948
+00:47:20,470 --> 00:47:20,480
+how the public key now authorization
+ 
+
+1949
+00:47:20,480 --> 00:47:22,349
+how the public key now authorization
+server knows that which public key I
+
+1950
+00:47:22,349 --> 00:47:22,359
+server knows that which public key I
+ 
+
+1951
+00:47:22,359 --> 00:47:25,790
+server knows that which public key I
+need to use to verify this signature it
+
+1952
+00:47:25,790 --> 00:47:25,800
+need to use to verify this signature it
+ 
+
+1953
+00:47:25,800 --> 00:47:27,630
+need to use to verify this signature it
+uses the K ID
+
+1954
+00:47:27,630 --> 00:47:27,640
+uses the K ID
+ 
+
+1955
+00:47:27,640 --> 00:47:30,190
+uses the K ID
+look it into its wh listed public key
+
+1956
+00:47:30,190 --> 00:47:30,200
+look it into its wh listed public key
+ 
+
+1957
+00:47:30,200 --> 00:47:32,430
+look it into its wh listed public key
+and choose when K ID okay this is the
+
+1958
+00:47:32,430 --> 00:47:32,440
+and choose when K ID okay this is the
+ 
+
+1959
+00:47:32,440 --> 00:47:34,910
+and choose when K ID okay this is the
+public key this is the K ID this is
+
+1960
+00:47:34,910 --> 00:47:34,920
+public key this is the K ID this is
+ 
+
+1961
+00:47:34,920 --> 00:47:38,109
+public key this is the K ID this is
+somewhere stored securely publicly and
+
+1962
+00:47:38,109 --> 00:47:38,119
+somewhere stored securely publicly and
+ 
+
+1963
+00:47:38,119 --> 00:47:39,990
+somewhere stored securely publicly and
+it will use
+
+1964
+00:47:39,990 --> 00:47:40,000
+it will use
+ 
+
+1965
+00:47:40,000 --> 00:47:42,430
+it will use
+that so now you know that these are the
+
+1966
+00:47:42,430 --> 00:47:42,440
+that so now you know that these are the
+ 
+
+1967
+00:47:42,440 --> 00:47:45,589
+that so now you know that these are the
+white listed these are the wh listed
+
+1968
+00:47:45,589 --> 00:47:45,599
+white listed these are the wh listed
+ 
+
+1969
+00:47:45,599 --> 00:47:48,549
+white listed these are the wh listed
+public keis which can be used right and
+
+1970
+00:47:48,549 --> 00:47:48,559
+public keis which can be used right and
+ 
+
+1971
+00:47:48,559 --> 00:47:50,870
+public keis which can be used right and
+with the kid you can get
+
+1972
+00:47:50,870 --> 00:47:50,880
+with the kid you can get
+ 
+
+1973
+00:47:50,880 --> 00:47:54,150
+with the kid you can get
+that with the kid you can uh use that
+
+1974
+00:47:54,150 --> 00:47:54,160
+that with the kid you can uh use that
+ 
+
+1975
+00:47:54,160 --> 00:47:55,829
+that with the kid you can uh use that
+from the
+
+1976
+00:47:55,829 --> 00:47:55,839
+from the
+ 
+
+1977
+00:47:55,839 --> 00:47:59,710
+from the
+list so you got it now if attacker you
+
+1978
+00:47:59,710 --> 00:47:59,720
+list so you got it now if attacker you
+ 
+
+1979
+00:47:59,720 --> 00:48:01,630
+list so you got it now if attacker you
+can say that what if attacker adds its
+
+1980
+00:48:01,630 --> 00:48:01,640
+can say that what if attacker adds its
+ 
+
+1981
+00:48:01,640 --> 00:48:05,030
+can say that what if attacker adds its
+own public key here right and pass that
+
+1982
+00:48:05,030 --> 00:48:05,040
+own public key here right and pass that
+ 
+
+1983
+00:48:05,040 --> 00:48:09,470
+own public key here right and pass that
+K ID right then it's an issue then we
+
+1984
+00:48:09,470 --> 00:48:09,480
+K ID right then it's an issue then we
+ 
+
+1985
+00:48:09,480 --> 00:48:11,430
+K ID right then it's an issue then we
+have to use a third party that's why we
+
+1986
+00:48:11,430 --> 00:48:11,440
+have to use a third party that's why we
+ 
+
+1987
+00:48:11,440 --> 00:48:14,549
+have to use a third party that's why we
+always say that choose a third party
+
+1988
+00:48:14,549 --> 00:48:14,559
+always say that choose a third party
+ 
+
+1989
+00:48:14,559 --> 00:48:18,109
+always say that choose a third party
+properly who is well known has taking
+
+1990
+00:48:18,109 --> 00:48:18,119
+properly who is well known has taking
+ 
+
+1991
+00:48:18,119 --> 00:48:20,950
+properly who is well known has taking
+all the precautions right security
+
+1992
+00:48:20,950 --> 00:48:20,960
+all the precautions right security
+ 
+
+1993
+00:48:20,960 --> 00:48:24,030
+all the precautions right security
+measures otherwise attacker may add its
+
+1994
+00:48:24,030 --> 00:48:24,040
+measures otherwise attacker may add its
+ 
+
+1995
+00:48:24,040 --> 00:48:27,750
+measures otherwise attacker may add its
+own public key into its Whit listed
+
+1996
+00:48:27,750 --> 00:48:27,760
+own public key into its Whit listed
+ 
+
+1997
+00:48:27,760 --> 00:48:31,710
+own public key into its Whit listed
+right somehow and then pass its own kid
+
+1998
+00:48:31,710 --> 00:48:31,720
+right somehow and then pass its own kid
+ 
+
+1999
+00:48:31,720 --> 00:48:34,790
+right somehow and then pass its own kid
+in the header and your author resource
+
+2000
+00:48:34,790 --> 00:48:34,800
+in the header and your author resource
+ 
+
+2001
+00:48:34,800 --> 00:48:37,710
+in the header and your author resource
+server uh or maybe you when you pass
+
+2002
+00:48:37,710 --> 00:48:37,720
+server uh or maybe you when you pass
+ 
+
+2003
+00:48:37,720 --> 00:48:39,829
+server uh or maybe you when you pass
+authentication server use that K ID and
+
+2004
+00:48:39,829 --> 00:48:39,839
+authentication server use that K ID and
+ 
+
+2005
+00:48:39,839 --> 00:48:42,589
+authentication server use that K ID and
+he said that yes this is present into my
+
+2006
+00:48:42,589 --> 00:48:42,599
+he said that yes this is present into my
+ 
+
+2007
+00:48:42,599 --> 00:48:46,109
+he said that yes this is present into my
+white listed public a let's accept this
+
+2008
+00:48:46,109 --> 00:48:46,119
+white listed public a let's accept this
+ 
+
+2009
+00:48:46,119 --> 00:48:48,670
+white listed public a let's accept this
+payload so you got it right the these
+
+2010
+00:48:48,670 --> 00:48:48,680
+payload so you got it right the these
+ 
+
+2011
+00:48:48,680 --> 00:48:51,789
+payload so you got it right the these
+are some of the issues with the uh
+
+2012
+00:48:51,789 --> 00:48:51,799
+are some of the issues with the uh
+ 
+
+2013
+00:48:51,799 --> 00:48:55,710
+are some of the issues with the uh
+JWT and this is actually what JWT
+
+2014
+00:48:55,710 --> 00:48:55,720
+JWT and this is actually what JWT
+ 
+
+2015
+00:48:55,720 --> 00:49:00,230
+JWT and this is actually what JWT
+is I hope it's uh clear what problem it
+
+2016
+00:49:00,230 --> 00:49:00,240
+is I hope it's uh clear what problem it
+ 
+
+2017
+00:49:00,240 --> 00:49:04,150
+is I hope it's uh clear what problem it
+solves what problem it has no there is
+
+2018
+00:49:04,150 --> 00:49:04,160
+solves what problem it has no there is
+ 
+
+2019
+00:49:04,160 --> 00:49:08,109
+solves what problem it has no there is
+no Silver Bullet for any technology JWT
+
+2020
+00:49:08,109 --> 00:49:08,119
+no Silver Bullet for any technology JWT
+ 
+
+2021
+00:49:08,119 --> 00:49:11,950
+no Silver Bullet for any technology JWT
+is highly used but it has certain gaps
+
+2022
+00:49:11,950 --> 00:49:11,960
+is highly used but it has certain gaps
+ 
+
+2023
+00:49:11,960 --> 00:49:14,829
+is highly used but it has certain gaps
+but there are like if used
+
+2024
+00:49:14,829 --> 00:49:14,839
+but there are like if used
+ 
+
+2025
+00:49:14,839 --> 00:49:18,390
+but there are like if used
+properly right then it's uh like very
+
+2026
+00:49:18,390 --> 00:49:18,400
+properly right then it's uh like very
+ 
+
+2027
+00:49:18,400 --> 00:49:20,630
+properly right then it's uh like very
+very beneficial it makes life easier
+
+2028
+00:49:20,630 --> 00:49:20,640
+very beneficial it makes life easier
+ 
+
+2029
+00:49:20,640 --> 00:49:22,349
+very beneficial it makes life easier
+authentication
+
+2030
+00:49:22,349 --> 00:49:22,359
+authentication
+ 
+
+2031
+00:49:22,359 --> 00:49:28,799
+authentication
+part okay guys see you soon bye and
+

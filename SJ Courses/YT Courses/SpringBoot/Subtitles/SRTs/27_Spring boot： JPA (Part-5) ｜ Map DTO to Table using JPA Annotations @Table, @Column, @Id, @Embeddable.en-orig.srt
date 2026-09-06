@@ -1,0 +1,9685 @@
+1
+00:00:00,199 --> 00:00:02,070
+
+hey guys sh the side welcome to concept
+
+2
+00:00:02,070 --> 00:00:02,080
+hey guys sh the side welcome to concept
+ 
+
+3
+00:00:02,080 --> 00:00:05,309
+hey guys sh the side welcome to concept
+and coding uh in jpa till now we have
+
+4
+00:00:05,309 --> 00:00:05,319
+and coding uh in jpa till now we have
+ 
+
+5
+00:00:05,319 --> 00:00:09,110
+and coding uh in jpa till now we have
+seen about what is jdbc and in the jpa
+
+6
+00:00:09,110 --> 00:00:09,120
+seen about what is jdbc and in the jpa
+ 
+
+7
+00:00:09,120 --> 00:00:11,509
+seen about what is jdbc and in the jpa
+architecture and first level caching
+
+8
+00:00:11,509 --> 00:00:11,519
+architecture and first level caching
+ 
+
+9
+00:00:11,519 --> 00:00:13,870
+architecture and first level caching
+second level caching right and many more
+
+10
+00:00:13,870 --> 00:00:13,880
+second level caching right and many more
+ 
+
+11
+00:00:13,880 --> 00:00:18,230
+second level caching right and many more
+things so today let's go further and see
+
+12
+00:00:18,230 --> 00:00:18,240
+things so today let's go further and see
+ 
+
+13
+00:00:18,240 --> 00:00:21,990
+things so today let's go further and see
+more annotations and how the mapping of
+
+14
+00:00:21,990 --> 00:00:22,000
+more annotations and how the mapping of
+ 
+
+15
+00:00:22,000 --> 00:00:25,429
+more annotations and how the mapping of
+the entity and tables happens so this is
+
+16
+00:00:25,429 --> 00:00:25,439
+the entity and tables happens so this is
+ 
+
+17
+00:00:25,439 --> 00:00:28,310
+the entity and tables happens so this is
+the first thing we have to configure in
+
+18
+00:00:28,310 --> 00:00:28,320
+the first thing we have to configure in
+ 
+
+19
+00:00:28,320 --> 00:00:30,870
+the first thing we have to configure in
+our application. property
+
+20
+00:00:30,870 --> 00:00:30,880
+our application. property
+ 
+
+21
+00:00:30,880 --> 00:00:34,229
+our application. property
+spring. jpa do hybernate
+
+22
+00:00:34,229 --> 00:00:34,239
+spring. jpa do hybernate
+ 
+
+23
+00:00:34,239 --> 00:00:38,470
+spring. jpa do hybernate
+doddl auto what does it do it's a
+
+24
+00:00:38,470 --> 00:00:38,480
+doddl auto what does it do it's a
+ 
+
+25
+00:00:38,480 --> 00:00:40,670
+doddl auto what does it do it's a
+configuration which tell hibernate
+
+26
+00:00:40,670 --> 00:00:40,680
+configuration which tell hibernate
+ 
+
+27
+00:00:40,680 --> 00:00:42,709
+configuration which tell hibernate
+regarding how to create and manage the
+
+28
+00:00:42,709 --> 00:00:42,719
+regarding how to create and manage the
+ 
+
+29
+00:00:42,719 --> 00:00:47,069
+regarding how to create and manage the
+DB schema so we have to add it
+
+30
+00:00:47,069 --> 00:00:47,079
+DB schema so we have to add it
+ 
+
+31
+00:00:47,079 --> 00:00:51,510
+DB schema so we have to add it
+into application. properties file okay
+
+32
+00:00:51,510 --> 00:00:51,520
+into application. properties file okay
+ 
+
+33
+00:00:51,520 --> 00:00:52,349
+into application. properties file okay
+so
+
+34
+00:00:52,349 --> 00:00:52,359
+so
+ 
+
+35
+00:00:52,359 --> 00:00:54,830
+so
+here here if you see in the application
+
+36
+00:00:54,830 --> 00:00:54,840
+here here if you see in the application
+ 
+
+37
+00:00:54,840 --> 00:00:58,389
+here here if you see in the application
+do properties we have to add this
+
+38
+00:00:58,389 --> 00:00:58,399
+do properties we have to add this
+ 
+
+39
+00:00:58,399 --> 00:01:00,990
+do properties we have to add this
+value so in the application. properties
+
+40
+00:01:00,990 --> 00:01:01,000
+value so in the application. properties
+ 
+
+41
+00:01:01,000 --> 00:01:03,229
+value so in the application. properties
+we have to add this value so we can
+
+42
+00:01:03,229 --> 00:01:03,239
+we have to add this value so we can
+ 
+
+43
+00:01:03,239 --> 00:01:07,510
+we have to add this value so we can
+provide certain values like none update
+
+44
+00:01:07,510 --> 00:01:07,520
+provide certain values like none update
+ 
+
+45
+00:01:07,520 --> 00:01:10,230
+provide certain values like none update
+validate create create draw okay
+
+46
+00:01:10,230 --> 00:01:10,240
+validate create create draw okay
+ 
+
+47
+00:01:10,240 --> 00:01:12,510
+validate create create draw okay
+depending upon our use case we can
+
+48
+00:01:12,510 --> 00:01:12,520
+depending upon our use case we can
+ 
+
+49
+00:01:12,520 --> 00:01:15,469
+depending upon our use case we can
+Define any one of them so the first one
+
+50
+00:01:15,469 --> 00:01:15,479
+Define any one of them so the first one
+ 
+
+51
+00:01:15,479 --> 00:01:16,870
+Define any one of them so the first one
+is the
+
+52
+00:01:16,870 --> 00:01:16,880
+is the
+ 
+
+53
+00:01:16,880 --> 00:01:20,789
+is the
+none it do not create a schema do not
+
+54
+00:01:20,789 --> 00:01:20,799
+none it do not create a schema do not
+ 
+
+55
+00:01:20,799 --> 00:01:23,109
+none it do not create a schema do not
+update a schema do not delete a schema
+
+56
+00:01:23,109 --> 00:01:23,119
+update a schema do not delete a schema
+ 
+
+57
+00:01:23,119 --> 00:01:26,270
+update a schema do not delete a schema
+actually it does nothing and it is good
+
+58
+00:01:26,270 --> 00:01:26,280
+actually it does nothing and it is good
+ 
+
+59
+00:01:26,280 --> 00:01:28,830
+actually it does nothing and it is good
+for production so for production I would
+
+60
+00:01:28,830 --> 00:01:28,840
+for production so for production I would
+ 
+
+61
+00:01:28,840 --> 00:01:31,550
+for production so for production I would
+always recommend using use this only
+
+62
+00:01:31,550 --> 00:01:31,560
+always recommend using use this only
+ 
+
+63
+00:01:31,560 --> 00:01:33,389
+always recommend using use this only
+nothing else because in production we do
+
+64
+00:01:33,389 --> 00:01:33,399
+nothing else because in production we do
+ 
+
+65
+00:01:33,399 --> 00:01:36,670
+nothing else because in production we do
+write DB script and then give to DBA DBA
+
+66
+00:01:36,670 --> 00:01:36,680
+write DB script and then give to DBA DBA
+ 
+
+67
+00:01:36,680 --> 00:01:39,069
+write DB script and then give to DBA DBA
+will run we have a plan for roll back
+
+68
+00:01:39,069 --> 00:01:39,079
+will run we have a plan for roll back
+ 
+
+69
+00:01:39,079 --> 00:01:43,749
+will run we have a plan for roll back
+everything okay so always use none in
+
+70
+00:01:43,749 --> 00:01:43,759
+everything okay so always use none in
+ 
+
+71
+00:01:43,759 --> 00:01:45,069
+everything okay so always use none in
+the
+
+72
+00:01:45,069 --> 00:01:45,079
+the
+ 
+
+73
+00:01:45,079 --> 00:01:47,069
+the
+production while you are doing
+
+74
+00:01:47,069 --> 00:01:47,079
+production while you are doing
+ 
+
+75
+00:01:47,079 --> 00:01:49,950
+production while you are doing
+development update is a good choice like
+
+76
+00:01:49,950 --> 00:01:49,960
+development update is a good choice like
+ 
+
+77
+00:01:49,960 --> 00:01:52,789
+development update is a good choice like
+here like it will create a schema if it
+
+78
+00:01:52,789 --> 00:01:52,799
+here like it will create a schema if it
+ 
+
+79
+00:01:52,799 --> 00:01:56,550
+here like it will create a schema if it
+is not there it will update the schema
+
+80
+00:01:56,550 --> 00:01:56,560
+is not there it will update the schema
+ 
+
+81
+00:01:56,560 --> 00:01:58,029
+is not there it will update the schema
+okay if it is already there let's say
+
+82
+00:01:58,029 --> 00:01:58,039
+okay if it is already there let's say
+ 
+
+83
+00:01:58,039 --> 00:02:00,830
+okay if it is already there let's say
+you are there are already four columns
+
+84
+00:02:00,830 --> 00:02:00,840
+you are there are already four columns
+ 
+
+85
+00:02:00,840 --> 00:02:03,190
+you are there are already four columns
+now in your entity there are five
+
+86
+00:02:03,190 --> 00:02:03,200
+now in your entity there are five
+ 
+
+87
+00:02:03,200 --> 00:02:05,109
+now in your entity there are five
+columns so one new column so it will
+
+88
+00:02:05,109 --> 00:02:05,119
+columns so one new column so it will
+ 
+
+89
+00:02:05,119 --> 00:02:08,309
+columns so one new column so it will
+update it will add new but it will not
+
+90
+00:02:08,309 --> 00:02:08,319
+update it will add new but it will not
+ 
+
+91
+00:02:08,319 --> 00:02:11,470
+update it will add new but it will not
+delete anything okay does update but
+
+92
+00:02:11,470 --> 00:02:11,480
+delete anything okay does update but
+ 
+
+93
+00:02:11,480 --> 00:02:14,589
+delete anything okay does update but
+without deleting any existing data or
+
+94
+00:02:14,589 --> 00:02:14,599
+without deleting any existing data or
+ 
+
+95
+00:02:14,599 --> 00:02:17,270
+without deleting any existing data or
+schema good for development
+
+96
+00:02:17,270 --> 00:02:17,280
+schema good for development
+ 
+
+97
+00:02:17,280 --> 00:02:20,150
+schema good for development
+environment the third one is validate
+
+98
+00:02:20,150 --> 00:02:20,160
+environment the third one is validate
+ 
+
+99
+00:02:20,160 --> 00:02:22,710
+environment the third one is validate
+again it do not create do not update do
+
+100
+00:02:22,710 --> 00:02:22,720
+again it do not create do not update do
+ 
+
+101
+00:02:22,720 --> 00:02:26,270
+again it do not create do not update do
+not delete any data or schema it just
+
+102
+00:02:26,270 --> 00:02:26,280
+not delete any data or schema it just
+ 
+
+103
+00:02:26,280 --> 00:02:29,229
+not delete any data or schema it just
+validate or do a matching between the
+
+104
+00:02:29,229 --> 00:02:29,239
+validate or do a matching between the
+ 
+
+105
+00:02:29,239 --> 00:02:30,869
+validate or do a matching between the
+entity
+
+106
+00:02:30,869 --> 00:02:30,879
+entity
+ 
+
+107
+00:02:30,879 --> 00:02:34,070
+entity
+and the DB schema right whatever the
+
+108
+00:02:34,070 --> 00:02:34,080
+and the DB schema right whatever the
+ 
+
+109
+00:02:34,080 --> 00:02:36,270
+and the DB schema right whatever the
+entities which you have created in your
+
+110
+00:02:36,270 --> 00:02:36,280
+entities which you have created in your
+ 
+
+111
+00:02:36,280 --> 00:02:38,949
+entities which you have created in your
+classes and it will match that both are
+
+112
+00:02:38,949 --> 00:02:38,959
+classes and it will match that both are
+ 
+
+113
+00:02:38,959 --> 00:02:41,309
+classes and it will match that both are
+matching or not if it find any
+
+114
+00:02:41,309 --> 00:02:41,319
+matching or not if it find any
+ 
+
+115
+00:02:41,319 --> 00:02:43,750
+matching or not if it find any
+discrepancy it will throw an
+
+116
+00:02:43,750 --> 00:02:43,760
+discrepancy it will throw an
+ 
+
+117
+00:02:43,760 --> 00:02:46,670
+discrepancy it will throw an
+exception then fourth one is create it
+
+118
+00:02:46,670 --> 00:02:46,680
+exception then fourth one is create it
+ 
+
+119
+00:02:46,680 --> 00:02:49,350
+exception then fourth one is create it
+will create a schema update a schema and
+
+120
+00:02:49,350 --> 00:02:49,360
+will create a schema update a schema and
+ 
+
+121
+00:02:49,360 --> 00:02:53,229
+will create a schema update a schema and
+yes it deletes the schema also so drop
+
+122
+00:02:53,229 --> 00:02:53,239
+yes it deletes the schema also so drop
+ 
+
+123
+00:02:53,239 --> 00:02:55,309
+yes it deletes the schema also so drop
+and recreate the schema during
+
+124
+00:02:55,309 --> 00:02:55,319
+and recreate the schema during
+ 
+
+125
+00:02:55,319 --> 00:02:58,110
+and recreate the schema during
+application startup so whenever you
+
+126
+00:02:58,110 --> 00:02:58,120
+application startup so whenever you
+ 
+
+127
+00:02:58,120 --> 00:02:59,869
+application startup so whenever you
+start your application right so for
+
+128
+00:02:59,869 --> 00:02:59,879
+start your application right so for
+ 
+
+129
+00:02:59,879 --> 00:03:02,949
+start your application right so for
+first it will drop drop all the data all
+
+130
+00:03:02,949 --> 00:03:02,959
+first it will drop drop all the data all
+ 
+
+131
+00:03:02,959 --> 00:03:07,270
+first it will drop drop all the data all
+the schema and then creates a new schema
+
+132
+00:03:07,270 --> 00:03:07,280
+the schema and then creates a new schema
+ 
+
+133
+00:03:07,280 --> 00:03:09,270
+the schema and then creates a new schema
+fresh similarly there is something
+
+134
+00:03:09,270 --> 00:03:09,280
+fresh similarly there is something
+ 
+
+135
+00:03:09,280 --> 00:03:11,470
+fresh similarly there is something
+called create hyphen drop it is very
+
+136
+00:03:11,470 --> 00:03:11,480
+called create hyphen drop it is very
+ 
+
+137
+00:03:11,480 --> 00:03:14,350
+called create hyphen drop it is very
+very similar to create but only thing
+
+138
+00:03:14,350 --> 00:03:14,360
+very similar to create but only thing
+ 
+
+139
+00:03:14,360 --> 00:03:18,390
+very similar to create but only thing
+is when you start an application it will
+
+140
+00:03:18,390 --> 00:03:18,400
+is when you start an application it will
+ 
+
+141
+00:03:18,400 --> 00:03:21,710
+is when you start an application it will
+create the schema but when you shut down
+
+142
+00:03:21,710 --> 00:03:21,720
+create the schema but when you shut down
+ 
+
+143
+00:03:21,720 --> 00:03:24,589
+create the schema but when you shut down
+the application it will drop the schema
+
+144
+00:03:24,589 --> 00:03:24,599
+the application it will drop the schema
+ 
+
+145
+00:03:24,599 --> 00:03:27,830
+the application it will drop the schema
+okay so create what it does is during
+
+146
+00:03:27,830 --> 00:03:27,840
+okay so create what it does is during
+ 
+
+147
+00:03:27,840 --> 00:03:30,550
+okay so create what it does is during
+application startup itself it first drop
+
+148
+00:03:30,550 --> 00:03:30,560
+application startup itself it first drop
+ 
+
+149
+00:03:30,560 --> 00:03:33,229
+application startup itself it first drop
+and then recreate here what it will do
+
+150
+00:03:33,229 --> 00:03:33,239
+and then recreate here what it will do
+ 
+
+151
+00:03:33,239 --> 00:03:35,429
+and then recreate here what it will do
+is during a startup it just do only
+
+152
+00:03:35,429 --> 00:03:35,439
+is during a startup it just do only
+ 
+
+153
+00:03:35,439 --> 00:03:37,229
+is during a startup it just do only
+create and during application shutdown
+
+154
+00:03:37,229 --> 00:03:37,239
+create and during application shutdown
+ 
+
+155
+00:03:37,239 --> 00:03:39,429
+create and during application shutdown
+it just do only
+
+156
+00:03:39,429 --> 00:03:39,439
+it just do only
+ 
+
+157
+00:03:39,439 --> 00:03:42,470
+it just do only
+drop okay you
+
+158
+00:03:42,470 --> 00:03:42,480
+drop okay you
+ 
+
+159
+00:03:42,480 --> 00:03:45,789
+drop okay you
+can test all these things by keeping the
+
+160
+00:03:45,789 --> 00:03:45,799
+can test all these things by keeping the
+ 
+
+161
+00:03:45,799 --> 00:03:48,149
+can test all these things by keeping the
+value here let's say for say I am using
+
+162
+00:03:48,149 --> 00:03:48,159
+value here let's say for say I am using
+ 
+
+163
+00:03:48,159 --> 00:03:53,110
+value here let's say for say I am using
+Create hyphen drop okay so now when I
+
+164
+00:03:53,110 --> 00:03:53,120
+Create hyphen drop okay so now when I
+ 
+
+165
+00:03:53,120 --> 00:03:54,789
+Create hyphen drop okay so now when I
+start an
+
+166
+00:03:54,789 --> 00:03:54,799
+start an
+ 
+
+167
+00:03:54,799 --> 00:03:57,309
+start an
+application so what it
+
+168
+00:03:57,309 --> 00:03:57,319
+application so what it
+ 
+
+169
+00:03:57,319 --> 00:04:00,589
+application so what it
+does it just create table
+
+170
+00:04:00,589 --> 00:04:00,599
+does it just create table
+ 
+
+171
+00:04:00,599 --> 00:04:02,309
+does it just create table
+when I stop the application now I'm
+
+172
+00:04:02,309 --> 00:04:02,319
+when I stop the application now I'm
+ 
+
+173
+00:04:02,319 --> 00:04:06,750
+when I stop the application now I'm
+stopping it so during a stop it drops it
+
+174
+00:04:06,750 --> 00:04:06,760
+stopping it so during a stop it drops it
+ 
+
+175
+00:04:06,760 --> 00:04:09,390
+stopping it so during a stop it drops it
+okay similarly if I use
+
+176
+00:04:09,390 --> 00:04:09,400
+okay similarly if I use
+ 
+
+177
+00:04:09,400 --> 00:04:11,710
+okay similarly if I use
+create you know what will happen during
+
+178
+00:04:11,710 --> 00:04:11,720
+create you know what will happen during
+ 
+
+179
+00:04:11,720 --> 00:04:15,069
+create you know what will happen during
+create only it will first drop and then
+
+180
+00:04:15,069 --> 00:04:15,079
+create only it will first drop and then
+ 
+
+181
+00:04:15,079 --> 00:04:18,030
+create only it will first drop and then
+create okay so first it will drop table
+
+182
+00:04:18,030 --> 00:04:18,040
+create okay so first it will drop table
+ 
+
+183
+00:04:18,040 --> 00:04:19,629
+create okay so first it will drop table
+and then
+
+184
+00:04:19,629 --> 00:04:19,639
+and then
+ 
+
+185
+00:04:19,639 --> 00:04:23,430
+and then
+create okay so we can easily validate uh
+
+186
+00:04:23,430 --> 00:04:23,440
+create okay so we can easily validate uh
+ 
+
+187
+00:04:23,440 --> 00:04:25,629
+create okay so we can easily validate uh
+using this and we can choose depending
+
+188
+00:04:25,629 --> 00:04:25,639
+using this and we can choose depending
+ 
+
+189
+00:04:25,639 --> 00:04:27,230
+using this and we can choose depending
+upon our choice but I have already told
+
+190
+00:04:27,230 --> 00:04:27,240
+upon our choice but I have already told
+ 
+
+191
+00:04:27,240 --> 00:04:29,909
+upon our choice but I have already told
+you in production always go for none and
+
+192
+00:04:29,909 --> 00:04:29,919
+you in production always go for none and
+ 
+
+193
+00:04:29,919 --> 00:04:32,990
+you in production always go for none and
+development uh update is
+
+194
+00:04:32,990 --> 00:04:33,000
+development uh update is
+ 
+
+195
+00:04:33,000 --> 00:04:35,230
+development uh update is
+sufficient okay before proceeding
+
+196
+00:04:35,230 --> 00:04:35,240
+sufficient okay before proceeding
+ 
+
+197
+00:04:35,240 --> 00:04:37,950
+sufficient okay before proceeding
+further let me also tell you about
+
+198
+00:04:37,950 --> 00:04:37,960
+further let me also tell you about
+ 
+
+199
+00:04:37,960 --> 00:04:39,870
+further let me also tell you about
+difference between DB and esema I'm not
+
+200
+00:04:39,870 --> 00:04:39,880
+difference between DB and esema I'm not
+ 
+
+201
+00:04:39,880 --> 00:04:42,870
+difference between DB and esema I'm not
+sure I am uh I'm pretty much sure many
+
+202
+00:04:42,870 --> 00:04:42,880
+sure I am uh I'm pretty much sure many
+ 
+
+203
+00:04:42,880 --> 00:04:45,070
+sure I am uh I'm pretty much sure many
+of you are already aware of this it's uh
+
+204
+00:04:45,070 --> 00:04:45,080
+of you are already aware of this it's uh
+ 
+
+205
+00:04:45,080 --> 00:04:47,790
+of you are already aware of this it's uh
+nothing related with Java it's a DB
+
+206
+00:04:47,790 --> 00:04:47,800
+nothing related with Java it's a DB
+ 
+
+207
+00:04:47,800 --> 00:04:51,710
+nothing related with Java it's a DB
+concept so there are two part right DB
+
+208
+00:04:51,710 --> 00:04:51,720
+concept so there are two part right DB
+ 
+
+209
+00:04:51,720 --> 00:04:55,350
+concept so there are two part right DB
+and schema a DB can have multiple
+
+210
+00:04:55,350 --> 00:04:55,360
+and schema a DB can have multiple
+ 
+
+211
+00:04:55,360 --> 00:04:58,430
+and schema a DB can have multiple
+schemas right SCH schema 1 SCH schema 2
+
+212
+00:04:58,430 --> 00:04:58,440
+schemas right SCH schema 1 SCH schema 2
+ 
+
+213
+00:04:58,440 --> 00:05:01,830
+schemas right SCH schema 1 SCH schema 2
+SCH schema 3 SCH schema 4 right so you
+
+214
+00:05:01,830 --> 00:05:01,840
+SCH schema 3 SCH schema 4 right so you
+ 
+
+215
+00:05:01,840 --> 00:05:04,670
+SCH schema 3 SCH schema 4 right so you
+can in this schema you can have logical
+
+216
+00:05:04,670 --> 00:05:04,680
+can in this schema you can have logical
+ 
+
+217
+00:05:04,680 --> 00:05:07,990
+can in this schema you can have logical
+grouping of tables table one table two
+
+218
+00:05:07,990 --> 00:05:08,000
+grouping of tables table one table two
+ 
+
+219
+00:05:08,000 --> 00:05:11,150
+grouping of tables table one table two
+Table Three let's say table four table 5
+
+220
+00:05:11,150 --> 00:05:11,160
+Table Three let's say table four table 5
+ 
+
+221
+00:05:11,160 --> 00:05:14,510
+Table Three let's say table four table 5
+Table Six belongs to schema 2 similarly
+
+222
+00:05:14,510 --> 00:05:14,520
+Table Six belongs to schema 2 similarly
+ 
+
+223
+00:05:14,520 --> 00:05:17,189
+Table Six belongs to schema 2 similarly
+you can logical group the tables into
+
+224
+00:05:17,189 --> 00:05:17,199
+you can logical group the tables into
+ 
+
+225
+00:05:17,199 --> 00:05:18,150
+you can logical group the tables into
+different
+
+226
+00:05:18,150 --> 00:05:18,160
+different
+ 
+
+227
+00:05:18,160 --> 00:05:21,189
+different
+schemas so how these are helpful right
+
+228
+00:05:21,189 --> 00:05:21,199
+schemas so how these are helpful right
+ 
+
+229
+00:05:21,199 --> 00:05:23,070
+schemas so how these are helpful right
+generally in organization where they
+
+230
+00:05:23,070 --> 00:05:23,080
+generally in organization where they
+ 
+
+231
+00:05:23,080 --> 00:05:26,309
+generally in organization where they
+have only one DB but there are multiple
+
+232
+00:05:26,309 --> 00:05:26,319
+have only one DB but there are multiple
+ 
+
+233
+00:05:26,319 --> 00:05:28,469
+have only one DB but there are multiple
+teams so they can create different
+
+234
+00:05:28,469 --> 00:05:28,479
+teams so they can create different
+ 
+
+235
+00:05:28,479 --> 00:05:30,590
+teams so they can create different
+schemas for each team and they can
+
+236
+00:05:30,590 --> 00:05:30,600
+schemas for each team and they can
+ 
+
+237
+00:05:30,600 --> 00:05:32,790
+schemas for each team and they can
+provide a proper ownership to the
+
+238
+00:05:32,790 --> 00:05:32,800
+provide a proper ownership to the
+ 
+
+239
+00:05:32,800 --> 00:05:35,469
+provide a proper ownership to the
+different team to each schema so they
+
+240
+00:05:35,469 --> 00:05:35,479
+different team to each schema so they
+ 
+
+241
+00:05:35,479 --> 00:05:38,830
+different team to each schema so they
+can utilize Only One DB but inside 1 DB
+
+242
+00:05:38,830 --> 00:05:38,840
+can utilize Only One DB but inside 1 DB
+ 
+
+243
+00:05:38,840 --> 00:05:41,150
+can utilize Only One DB but inside 1 DB
+itself they can have multiple schema and
+
+244
+00:05:41,150 --> 00:05:41,160
+itself they can have multiple schema and
+ 
+
+245
+00:05:41,160 --> 00:05:43,469
+itself they can have multiple schema and
+each schema ownership belongs to one
+
+246
+00:05:43,469 --> 00:05:43,479
+each schema ownership belongs to one
+ 
+
+247
+00:05:43,479 --> 00:05:46,029
+each schema ownership belongs to one
+particular team you can say okay so they
+
+248
+00:05:46,029 --> 00:05:46,039
+particular team you can say okay so they
+ 
+
+249
+00:05:46,039 --> 00:05:48,469
+particular team you can say okay so they
+can group their tables in a particular
+
+250
+00:05:48,469 --> 00:05:48,479
+can group their tables in a particular
+ 
+
+251
+00:05:48,479 --> 00:05:51,070
+can group their tables in a particular
+schema and they own the ownership for
+
+252
+00:05:51,070 --> 00:05:51,080
+schema and they own the ownership for
+ 
+
+253
+00:05:51,080 --> 00:05:54,629
+schema and they own the ownership for
+that one if you don't provide any schema
+
+254
+00:05:54,629 --> 00:05:54,639
+that one if you don't provide any schema
+ 
+
+255
+00:05:54,639 --> 00:05:56,830
+that one if you don't provide any schema
+then you are ultimately adding your
+
+256
+00:05:56,830 --> 00:05:56,840
+then you are ultimately adding your
+ 
+
+257
+00:05:56,840 --> 00:06:00,749
+then you are ultimately adding your
+table directly here okay so
+
+258
+00:06:00,749 --> 00:06:00,759
+table directly here okay so
+ 
+
+259
+00:06:00,759 --> 00:06:03,870
+table directly here okay so
+that is also right but uh if if if you
+
+260
+00:06:03,870 --> 00:06:03,880
+that is also right but uh if if if you
+ 
+
+261
+00:06:03,880 --> 00:06:07,390
+that is also right but uh if if if you
+can say that in your company
+
+262
+00:06:07,390 --> 00:06:07,400
+can say that in your company
+ 
+
+263
+00:06:07,400 --> 00:06:12,029
+can say that in your company
+each team has their own DB then this is
+
+264
+00:06:12,029 --> 00:06:12,039
+each team has their own DB then this is
+ 
+
+265
+00:06:12,039 --> 00:06:16,150
+each team has their own DB then this is
+okay right my team has my own DB so that
+
+266
+00:06:16,150 --> 00:06:16,160
+okay right my team has my own DB so that
+ 
+
+267
+00:06:16,160 --> 00:06:17,870
+okay right my team has my own DB so that
+is okay I don't have to create a schema
+
+268
+00:06:17,870 --> 00:06:17,880
+is okay I don't have to create a schema
+ 
+
+269
+00:06:17,880 --> 00:06:20,230
+is okay I don't have to create a schema
+but there are a scenario like if One DB
+
+270
+00:06:20,230 --> 00:06:20,240
+but there are a scenario like if One DB
+ 
+
+271
+00:06:20,240 --> 00:06:23,110
+but there are a scenario like if One DB
+is shared by multiple teams then schemas
+
+272
+00:06:23,110 --> 00:06:23,120
+is shared by multiple teams then schemas
+ 
+
+273
+00:06:23,120 --> 00:06:25,950
+is shared by multiple teams then schemas
+comes into the picture Okay so that's
+
+274
+00:06:25,950 --> 00:06:25,960
+comes into the picture Okay so that's
+ 
+
+275
+00:06:25,960 --> 00:06:28,790
+comes into the picture Okay so that's
+where uh the terms schema we are seeing
+
+276
+00:06:28,790 --> 00:06:28,800
+where uh the terms schema we are seeing
+ 
+
+277
+00:06:28,800 --> 00:06:31,430
+where uh the terms schema we are seeing
+it uh
+
+278
+00:06:31,430 --> 00:06:31,440
+it uh
+ 
+
+279
+00:06:31,440 --> 00:06:35,230
+it uh
+right okay now let's start the first
+
+280
+00:06:35,230 --> 00:06:35,240
+right okay now let's start the first
+ 
+
+281
+00:06:35,240 --> 00:06:37,629
+right okay now let's start the first
+thing we have to start with atate table
+
+282
+00:06:37,629 --> 00:06:37,639
+thing we have to start with atate table
+ 
+
+283
+00:06:37,639 --> 00:06:40,749
+thing we have to start with atate table
+annotation so if you remember from our
+
+284
+00:06:40,749 --> 00:06:40,759
+annotation so if you remember from our
+ 
+
+285
+00:06:40,759 --> 00:06:43,589
+annotation so if you remember from our
+previous video while creating an entity
+
+286
+00:06:43,589 --> 00:06:43,599
+previous video while creating an entity
+ 
+
+287
+00:06:43,599 --> 00:06:45,830
+previous video while creating an entity
+I was using at theate entity annotation
+
+288
+00:06:45,830 --> 00:06:45,840
+I was using at theate entity annotation
+ 
+
+289
+00:06:45,840 --> 00:06:49,430
+I was using at theate entity annotation
+because this will tell that jpa has to
+
+290
+00:06:49,430 --> 00:06:49,440
+because this will tell that jpa has to
+ 
+
+291
+00:06:49,440 --> 00:06:51,510
+because this will tell that jpa has to
+look for this class and treat this class
+
+292
+00:06:51,510 --> 00:06:51,520
+look for this class and treat this class
+ 
+
+293
+00:06:51,520 --> 00:06:55,830
+look for this class and treat this class
+as an entity means it is equivalent to a
+
+294
+00:06:55,830 --> 00:06:55,840
+as an entity means it is equivalent to a
+ 
+
+295
+00:06:55,840 --> 00:06:57,430
+as an entity means it is equivalent to a
+table in a
+
+296
+00:06:57,430 --> 00:06:57,440
+table in a
+ 
+
+297
+00:06:57,440 --> 00:07:00,710
+table in a
+DB okay and each stance of this entity
+
+298
+00:07:00,710 --> 00:07:00,720
+DB okay and each stance of this entity
+ 
+
+299
+00:07:00,720 --> 00:07:04,309
+DB okay and each stance of this entity
+considered as a row in that table but we
+
+300
+00:07:04,309 --> 00:07:04,319
+considered as a row in that table but we
+ 
+
+301
+00:07:04,319 --> 00:07:07,070
+considered as a row in that table but we
+were not using at the table annotation
+
+302
+00:07:07,070 --> 00:07:07,080
+were not using at the table annotation
+ 
+
+303
+00:07:07,080 --> 00:07:10,869
+were not using at the table annotation
+till yet why because it's an optional
+
+304
+00:07:10,869 --> 00:07:10,879
+till yet why because it's an optional
+ 
+
+305
+00:07:10,879 --> 00:07:13,230
+till yet why because it's an optional
+field if you don't Define it hnet will
+
+306
+00:07:13,230 --> 00:07:13,240
+field if you don't Define it hnet will
+ 
+
+307
+00:07:13,240 --> 00:07:14,670
+field if you don't Define it hnet will
+create the table name based on the
+
+308
+00:07:14,670 --> 00:07:14,680
+create the table name based on the
+ 
+
+309
+00:07:14,680 --> 00:07:17,430
+create the table name based on the
+entity name so my entity name is user
+
+310
+00:07:17,430 --> 00:07:17,440
+entity name so my entity name is user
+ 
+
+311
+00:07:17,440 --> 00:07:19,670
+entity name so my entity name is user
+detail so maybe hibernate internally
+
+312
+00:07:19,670 --> 00:07:19,680
+detail so maybe hibernate internally
+ 
+
+313
+00:07:19,680 --> 00:07:23,070
+detail so maybe hibernate internally
+will create user uncore details so
+
+314
+00:07:23,070 --> 00:07:23,080
+will create user uncore details so
+ 
+
+315
+00:07:23,080 --> 00:07:25,550
+will create user uncore details so
+generally S2 will create all capital
+
+316
+00:07:25,550 --> 00:07:25,560
+generally S2 will create all capital
+ 
+
+317
+00:07:25,560 --> 00:07:27,950
+generally S2 will create all capital
+letter and follow the camel case
+
+318
+00:07:27,950 --> 00:07:27,960
+letter and follow the camel case
+ 
+
+319
+00:07:27,960 --> 00:07:29,309
+letter and follow the camel case
+whenever there is a camel case it put
+
+320
+00:07:29,309 --> 00:07:29,319
+whenever there is a camel case it put
+ 
+
+321
+00:07:29,319 --> 00:07:30,110
+whenever there is a camel case it put
+under
+
+322
+00:07:30,110 --> 00:07:30,120
+under
+ 
+
+323
+00:07:30,120 --> 00:07:32,869
+under
+underscore but you can specifically
+
+324
+00:07:32,869 --> 00:07:32,879
+underscore but you can specifically
+ 
+
+325
+00:07:32,879 --> 00:07:35,189
+underscore but you can specifically
+mention Yourself by at theate table
+
+326
+00:07:35,189 --> 00:07:35,199
+mention Yourself by at theate table
+ 
+
+327
+00:07:35,199 --> 00:07:37,869
+mention Yourself by at theate table
+itself give the name so when you will
+
+328
+00:07:37,869 --> 00:07:37,879
+itself give the name so when you will
+ 
+
+329
+00:07:37,879 --> 00:07:40,189
+itself give the name so when you will
+check your DB you will see that this
+
+330
+00:07:40,189 --> 00:07:40,199
+check your DB you will see that this
+ 
+
+331
+00:07:40,199 --> 00:07:43,070
+check your DB you will see that this
+name whatever you have defined here that
+
+332
+00:07:43,070 --> 00:07:43,080
+name whatever you have defined here that
+ 
+
+333
+00:07:43,080 --> 00:07:45,110
+name whatever you have defined here that
+will come
+
+334
+00:07:45,110 --> 00:07:45,120
+will come
+ 
+
+335
+00:07:45,120 --> 00:07:48,589
+will come
+okay so if you see inside this table
+
+336
+00:07:48,589 --> 00:07:48,599
+okay so if you see inside this table
+ 
+
+337
+00:07:48,599 --> 00:07:51,670
+okay so if you see inside this table
+annotation this is the name which is
+
+338
+00:07:51,670 --> 00:07:51,680
+annotation this is the name which is
+ 
+
+339
+00:07:51,680 --> 00:07:54,790
+annotation this is the name which is
+used to provide what a specific name you
+
+340
+00:07:54,790 --> 00:07:54,800
+used to provide what a specific name you
+ 
+
+341
+00:07:54,800 --> 00:07:58,230
+used to provide what a specific name you
+wanted to give to your table okay then
+
+342
+00:07:58,230 --> 00:07:58,240
+wanted to give to your table okay then
+ 
+
+343
+00:07:58,240 --> 00:07:59,950
+wanted to give to your table okay then
+there is something called scheme
+
+344
+00:07:59,950 --> 00:07:59,960
+there is something called scheme
+ 
+
+345
+00:07:59,960 --> 00:08:02,790
+there is something called scheme
+I already told you what a schema is
+
+346
+00:08:02,790 --> 00:08:02,800
+I already told you what a schema is
+ 
+
+347
+00:08:02,800 --> 00:08:06,670
+I already told you what a schema is
+right so if you want your table to be
+
+348
+00:08:06,670 --> 00:08:06,680
+right so if you want your table to be
+ 
+
+349
+00:08:06,680 --> 00:08:09,390
+right so if you want your table to be
+part of a particular schema then provide
+
+350
+00:08:09,390 --> 00:08:09,400
+part of a particular schema then provide
+ 
+
+351
+00:08:09,400 --> 00:08:10,430
+part of a particular schema then provide
+it
+
+352
+00:08:10,430 --> 00:08:10,440
+it
+ 
+
+353
+00:08:10,440 --> 00:08:13,270
+it
+here okay if you don't want to be part
+
+354
+00:08:13,270 --> 00:08:13,280
+here okay if you don't want to be part
+ 
+
+355
+00:08:13,280 --> 00:08:17,350
+here okay if you don't want to be part
+of any schema don't add it okay so now
+
+356
+00:08:17,350 --> 00:08:17,360
+of any schema don't add it okay so now
+ 
+
+357
+00:08:17,360 --> 00:08:19,309
+of any schema don't add it okay so now
+here if you see
+
+358
+00:08:19,309 --> 00:08:19,319
+here if you see
+ 
+
+359
+00:08:19,319 --> 00:08:22,629
+here if you see
+that I want to part of any schema so I
+
+360
+00:08:22,629 --> 00:08:22,639
+that I want to part of any schema so I
+ 
+
+361
+00:08:22,639 --> 00:08:24,469
+that I want to part of any schema so I
+put schema and provided the name
+
+362
+00:08:24,469 --> 00:08:24,479
+put schema and provided the name
+ 
+
+363
+00:08:24,479 --> 00:08:27,790
+put schema and provided the name
+onboarding so there is one schema so
+
+364
+00:08:27,790 --> 00:08:27,800
+onboarding so there is one schema so
+ 
+
+365
+00:08:27,800 --> 00:08:29,550
+onboarding so there is one schema so
+remember that hibernate not
+
+366
+00:08:29,550 --> 00:08:29,560
+remember that hibernate not
+ 
+
+367
+00:08:29,560 --> 00:08:31,950
+remember that hibernate not
+automatically create this schema we have
+
+368
+00:08:31,950 --> 00:08:31,960
+automatically create this schema we have
+ 
+
+369
+00:08:31,960 --> 00:08:35,029
+automatically create this schema we have
+to create the schema so here in this
+
+370
+00:08:35,029 --> 00:08:35,039
+to create the schema so here in this
+ 
+
+371
+00:08:35,039 --> 00:08:38,870
+to create the schema so here in this
+case how we can create the schema is see
+
+372
+00:08:38,870 --> 00:08:38,880
+case how we can create the schema is see
+ 
+
+373
+00:08:38,880 --> 00:08:42,589
+case how we can create the schema is see
+this one so in application. properties
+
+374
+00:08:42,589 --> 00:08:42,599
+this one so in application. properties
+ 
+
+375
+00:08:42,599 --> 00:08:44,470
+this one so in application. properties
+there is something called spring.
+
+376
+00:08:44,470 --> 00:08:44,480
+there is something called spring.
+ 
+
+377
+00:08:44,480 --> 00:08:47,550
+there is something called spring.
+datasource DOL where we have provided
+
+378
+00:08:47,550 --> 00:08:47,560
+datasource DOL where we have provided
+ 
+
+379
+00:08:47,560 --> 00:08:51,829
+datasource DOL where we have provided
+what is the DB okay there we have to
+
+380
+00:08:51,829 --> 00:08:51,839
+what is the DB okay there we have to
+ 
+
+381
+00:08:51,839 --> 00:08:53,630
+what is the DB okay there we have to
+provide like
+
+382
+00:08:53,630 --> 00:08:53,640
+provide like
+ 
+
+383
+00:08:53,640 --> 00:08:57,150
+provide like
+this in it equals to now we have to
+
+384
+00:08:57,150 --> 00:08:57,160
+this in it equals to now we have to
+ 
+
+385
+00:08:57,160 --> 00:08:59,509
+this in it equals to now we have to
+create a schema create a schema if not
+
+386
+00:08:59,509 --> 00:08:59,519
+create a schema create a schema if not
+ 
+
+387
+00:08:59,519 --> 00:09:01,590
+create a schema create a schema if not
+exist whatever the name of the schema
+
+388
+00:09:01,590 --> 00:09:01,600
+exist whatever the name of the schema
+ 
+
+389
+00:09:01,600 --> 00:09:03,350
+exist whatever the name of the schema
+you want to give if you want to create
+
+390
+00:09:03,350 --> 00:09:03,360
+you want to give if you want to create
+ 
+
+391
+00:09:03,360 --> 00:09:05,910
+you want to give if you want to create
+more schema you can another at like
+
+392
+00:09:05,910 --> 00:09:05,920
+more schema you can another at like
+ 
+
+393
+00:09:05,920 --> 00:09:08,110
+more schema you can another at like
+create schema you can add as many
+
+394
+00:09:08,110 --> 00:09:08,120
+create schema you can add as many
+ 
+
+395
+00:09:08,120 --> 00:09:11,670
+create schema you can add as many
+schemas you like this wanted okay so we
+
+396
+00:09:11,670 --> 00:09:11,680
+schemas you like this wanted okay so we
+ 
+
+397
+00:09:11,680 --> 00:09:13,550
+schemas you like this wanted okay so we
+can create a schema
+
+398
+00:09:13,550 --> 00:09:13,560
+can create a schema
+ 
+
+399
+00:09:13,560 --> 00:09:16,310
+can create a schema
+first schemas are not if you just write
+
+400
+00:09:16,310 --> 00:09:16,320
+first schemas are not if you just write
+ 
+
+401
+00:09:16,320 --> 00:09:19,550
+first schemas are not if you just write
+a schema here but not right here
+
+402
+00:09:19,550 --> 00:09:19,560
+a schema here but not right here
+ 
+
+403
+00:09:19,560 --> 00:09:21,630
+a schema here but not right here
+hibernate not will not automatically
+
+404
+00:09:21,630 --> 00:09:21,640
+hibernate not will not automatically
+ 
+
+405
+00:09:21,640 --> 00:09:23,269
+hibernate not will not automatically
+create a schema it will say that schema
+
+406
+00:09:23,269 --> 00:09:23,279
+create a schema it will say that schema
+ 
+
+407
+00:09:23,279 --> 00:09:27,150
+create a schema it will say that schema
+not found so we first have to create the
+
+408
+00:09:27,150 --> 00:09:27,160
+not found so we first have to create the
+ 
+
+409
+00:09:27,160 --> 00:09:31,350
+not found so we first have to create the
+schema like this okay then we can tell
+
+410
+00:09:31,350 --> 00:09:31,360
+schema like this okay then we can tell
+ 
+
+411
+00:09:31,360 --> 00:09:33,550
+schema like this okay then we can tell
+that okay this table should belongs to
+
+412
+00:09:33,550 --> 00:09:33,560
+that okay this table should belongs to
+ 
+
+413
+00:09:33,560 --> 00:09:36,190
+that okay this table should belongs to
+this schema if you don't want to be part
+
+414
+00:09:36,190 --> 00:09:36,200
+this schema if you don't want to be part
+ 
+
+415
+00:09:36,200 --> 00:09:39,389
+this schema if you don't want to be part
+of this or any schema don't write it
+
+416
+00:09:39,389 --> 00:09:39,399
+of this or any schema don't write it
+ 
+
+417
+00:09:39,399 --> 00:09:41,430
+of this or any schema don't write it
+okay so now what would happen is if you
+
+418
+00:09:41,430 --> 00:09:41,440
+okay so now what would happen is if you
+ 
+
+419
+00:09:41,440 --> 00:09:45,110
+okay so now what would happen is if you
+see there is one schema already created
+
+420
+00:09:45,110 --> 00:09:45,120
+see there is one schema already created
+ 
+
+421
+00:09:45,120 --> 00:09:48,590
+see there is one schema already created
+okay and now this user details goes
+
+422
+00:09:48,590 --> 00:09:48,600
+okay and now this user details goes
+ 
+
+423
+00:09:48,600 --> 00:09:51,389
+okay and now this user details goes
+here user details goes
+
+424
+00:09:51,389 --> 00:09:51,399
+here user details goes
+ 
+
+425
+00:09:51,399 --> 00:09:55,110
+here user details goes
+here so there I I I also have one more
+
+426
+00:09:55,110 --> 00:09:55,120
+here so there I I I also have one more
+ 
+
+427
+00:09:55,120 --> 00:09:57,590
+here so there I I I also have one more
+entity which is like order
+
+428
+00:09:57,590 --> 00:09:57,600
+entity which is like order
+ 
+
+429
+00:09:57,600 --> 00:10:00,470
+entity which is like order
+details right and I didn't use any
+
+430
+00:10:00,470 --> 00:10:00,480
+details right and I didn't use any
+ 
+
+431
+00:10:00,480 --> 00:10:03,269
+details right and I didn't use any
+schema so it directly goes under the DB
+
+432
+00:10:03,269 --> 00:10:03,279
+schema so it directly goes under the DB
+ 
+
+433
+00:10:03,279 --> 00:10:05,509
+schema so it directly goes under the DB
+it is not under part of any
+
+434
+00:10:05,509 --> 00:10:05,519
+it is not under part of any
+ 
+
+435
+00:10:05,519 --> 00:10:07,030
+it is not under part of any
+schema
+
+436
+00:10:07,030 --> 00:10:07,040
+schema
+ 
+
+437
+00:10:07,040 --> 00:10:09,949
+schema
+okay so and I already told you what is
+
+438
+00:10:09,949 --> 00:10:09,959
+okay so and I already told you what is
+ 
+
+439
+00:10:09,959 --> 00:10:11,990
+okay so and I already told you what is
+schema it's nothing but a logical
+
+440
+00:10:11,990 --> 00:10:12,000
+schema it's nothing but a logical
+ 
+
+441
+00:10:12,000 --> 00:10:15,550
+schema it's nothing but a logical
+grouping of tables okay you can provide
+
+442
+00:10:15,550 --> 00:10:15,560
+grouping of tables okay you can provide
+ 
+
+443
+00:10:15,560 --> 00:10:17,430
+grouping of tables okay you can provide
+some permission that only these these
+
+444
+00:10:17,430 --> 00:10:17,440
+some permission that only these these
+ 
+
+445
+00:10:17,440 --> 00:10:19,990
+some permission that only these these
+these teams or Engineers will have
+
+446
+00:10:19,990 --> 00:10:20,000
+these teams or Engineers will have
+ 
+
+447
+00:10:20,000 --> 00:10:22,110
+these teams or Engineers will have
+permission for this schema nobody can
+
+448
+00:10:22,110 --> 00:10:22,120
+permission for this schema nobody can
+ 
+
+449
+00:10:22,120 --> 00:10:25,590
+permission for this schema nobody can
+access it apart from those rules okay so
+
+450
+00:10:25,590 --> 00:10:25,600
+access it apart from those rules okay so
+ 
+
+451
+00:10:25,600 --> 00:10:28,030
+access it apart from those rules okay so
+that's why if you want you can use
+
+452
+00:10:28,030 --> 00:10:28,040
+that's why if you want you can use
+ 
+
+453
+00:10:28,040 --> 00:10:30,430
+that's why if you want you can use
+schema provide like this on in the
+
+454
+00:10:30,430 --> 00:10:30,440
+schema provide like this on in the
+ 
+
+455
+00:10:30,440 --> 00:10:32,030
+schema provide like this on in the
+condition that you have defined the
+
+456
+00:10:32,030 --> 00:10:32,040
+condition that you have defined the
+ 
+
+457
+00:10:32,040 --> 00:10:35,870
+condition that you have defined the
+schema or created the schema before
+
+458
+00:10:35,870 --> 00:10:35,880
+
+ 
+
+459
+00:10:35,880 --> 00:10:38,750
+
+itself so then you have third one here
+
+460
+00:10:38,750 --> 00:10:38,760
+itself so then you have third one here
+ 
+
+461
+00:10:38,760 --> 00:10:43,030
+itself so then you have third one here
+in this uh table attribute is unique
+
+462
+00:10:43,030 --> 00:10:43,040
+in this uh table attribute is unique
+ 
+
+463
+00:10:43,040 --> 00:10:47,350
+in this uh table attribute is unique
+constraints so like this you can add in
+
+464
+00:10:47,350 --> 00:10:47,360
+constraints so like this you can add in
+ 
+
+465
+00:10:47,360 --> 00:10:51,069
+constraints so like this you can add in
+a table we have multiple columns which
+
+466
+00:10:51,069 --> 00:10:51,079
+a table we have multiple columns which
+ 
+
+467
+00:10:51,079 --> 00:10:52,629
+a table we have multiple columns which
+you want it to be
+
+468
+00:10:52,629 --> 00:10:52,639
+you want it to be
+ 
+
+469
+00:10:52,639 --> 00:10:55,629
+you want it to be
+unique okay column one column two column
+
+470
+00:10:55,629 --> 00:10:55,639
+unique okay column one column two column
+ 
+
+471
+00:10:55,639 --> 00:10:58,269
+unique okay column one column two column
+3 let's say you want certain columns to
+
+472
+00:10:58,269 --> 00:10:58,279
+3 let's say you want certain columns to
+ 
+
+473
+00:10:58,279 --> 00:11:00,230
+3 let's say you want certain columns to
+be unique
+
+474
+00:11:00,230 --> 00:11:00,240
+be unique
+ 
+
+475
+00:11:00,240 --> 00:11:03,629
+be unique
+then you can Define like this so unique
+
+476
+00:11:03,629 --> 00:11:03,639
+then you can Define like this so unique
+ 
+
+477
+00:11:03,639 --> 00:11:07,069
+then you can Define like this so unique
+constraints equals to right and it
+
+478
+00:11:07,069 --> 00:11:07,079
+constraints equals to right and it
+ 
+
+479
+00:11:07,079 --> 00:11:10,269
+constraints equals to right and it
+accept The annotation unique constant
+
+480
+00:11:10,269 --> 00:11:10,279
+accept The annotation unique constant
+ 
+
+481
+00:11:10,279 --> 00:11:13,150
+accept The annotation unique constant
+annotation column name whatever the
+
+482
+00:11:13,150 --> 00:11:13,160
+annotation column name whatever the
+ 
+
+483
+00:11:13,160 --> 00:11:16,150
+annotation column name whatever the
+column name uh which you have provided
+
+484
+00:11:16,150 --> 00:11:16,160
+column name uh which you have provided
+ 
+
+485
+00:11:16,160 --> 00:11:19,350
+column name uh which you have provided
+so single column unique constraint so I
+
+486
+00:11:19,350 --> 00:11:19,360
+so single column unique constraint so I
+ 
+
+487
+00:11:19,360 --> 00:11:21,949
+so single column unique constraint so I
+might have a column name phone now I
+
+488
+00:11:21,949 --> 00:11:21,959
+might have a column name phone now I
+ 
+
+489
+00:11:21,959 --> 00:11:24,710
+might have a column name phone now I
+made it unique constraint so all the
+
+490
+00:11:24,710 --> 00:11:24,720
+made it unique constraint so all the
+ 
+
+491
+00:11:24,720 --> 00:11:27,750
+made it unique constraint so all the
+values inside it would be unique
+
+492
+00:11:27,750 --> 00:11:27,760
+values inside it would be unique
+ 
+
+493
+00:11:27,760 --> 00:11:31,670
+values inside it would be unique
+similarly you can also so club together
+
+494
+00:11:31,670 --> 00:11:31,680
+similarly you can also so club together
+ 
+
+495
+00:11:31,680 --> 00:11:35,430
+similarly you can also so club together
+two columns together composite unique
+
+496
+00:11:35,430 --> 00:11:35,440
+two columns together composite unique
+ 
+
+497
+00:11:35,440 --> 00:11:38,069
+two columns together composite unique
+constraint so they both together should
+
+498
+00:11:38,069 --> 00:11:38,079
+constraint so they both together should
+ 
+
+499
+00:11:38,079 --> 00:11:40,550
+constraint so they both together should
+be unique name and email together should
+
+500
+00:11:40,550 --> 00:11:40,560
+be unique name and email together should
+ 
+
+501
+00:11:40,560 --> 00:11:41,590
+be unique name and email together should
+be
+
+502
+00:11:41,590 --> 00:11:41,600
+be
+ 
+
+503
+00:11:41,600 --> 00:11:44,790
+be
+unique okay so you can give like this
+
+504
+00:11:44,790 --> 00:11:44,800
+unique okay so you can give like this
+ 
+
+505
+00:11:44,800 --> 00:11:48,110
+unique okay so you can give like this
+column names equals to this one at
+
+506
+00:11:48,110 --> 00:11:48,120
+column names equals to this one at
+ 
+
+507
+00:11:48,120 --> 00:11:50,230
+column names equals to this one at
+theate unique
+
+508
+00:11:50,230 --> 00:11:50,240
+theate unique
+ 
+
+509
+00:11:50,240 --> 00:11:52,829
+theate unique
+constraint okay so this is a table level
+
+510
+00:11:52,829 --> 00:11:52,839
+constraint okay so this is a table level
+ 
+
+511
+00:11:52,839 --> 00:11:55,949
+constraint okay so this is a table level
+so in in a particular table whatever the
+
+512
+00:11:55,949 --> 00:11:55,959
+so in in a particular table whatever the
+ 
+
+513
+00:11:55,959 --> 00:11:58,750
+so in in a particular table whatever the
+columns you have you can provide this
+
+514
+00:11:58,750 --> 00:11:58,760
+columns you have you can provide this
+ 
+
+515
+00:11:58,760 --> 00:12:02,430
+columns you have you can provide this
+unique constraint like this
+
+516
+00:12:02,430 --> 00:12:02,440
+unique constraint like this
+ 
+
+517
+00:12:02,440 --> 00:12:06,629
+unique constraint like this
+okay so now here if you see that this is
+
+518
+00:12:06,629 --> 00:12:06,639
+okay so now here if you see that this is
+ 
+
+519
+00:12:06,639 --> 00:12:09,829
+okay so now here if you see that this is
+my Fields columns and I have put a
+
+520
+00:12:09,829 --> 00:12:09,839
+my Fields columns and I have put a
+ 
+
+521
+00:12:09,839 --> 00:12:12,110
+my Fields columns and I have put a
+constraint unique constraint on phone
+
+522
+00:12:12,110 --> 00:12:12,120
+constraint unique constraint on phone
+ 
+
+523
+00:12:12,120 --> 00:12:17,230
+constraint unique constraint on phone
+and name and email so if you check the
+
+524
+00:12:17,230 --> 00:12:17,240
+and name and email so if you check the
+ 
+
+525
+00:12:17,240 --> 00:12:23,949
+and name and email so if you check the
+schema here I will see that
+
+526
+00:12:23,949 --> 00:12:23,959
+
+ 
+
+527
+00:12:23,959 --> 00:12:27,949
+
+uh here I can see that phone
+
+528
+00:12:27,949 --> 00:12:27,959
+uh here I can see that phone
+ 
+
+529
+00:12:27,959 --> 00:12:33,430
+uh here I can see that phone
+number is is constraint added UK is uh
+
+530
+00:12:33,430 --> 00:12:33,440
+number is is constraint added UK is uh
+ 
+
+531
+00:12:33,440 --> 00:12:36,629
+number is is constraint added UK is uh
+uni key right unique constraint
+
+532
+00:12:36,629 --> 00:12:36,639
+uni key right unique constraint
+ 
+
+533
+00:12:36,639 --> 00:12:40,509
+uni key right unique constraint
+similarly this both email and name they
+
+534
+00:12:40,509 --> 00:12:40,519
+similarly this both email and name they
+ 
+
+535
+00:12:40,519 --> 00:12:44,670
+similarly this both email and name they
+both are same key right because I have
+
+536
+00:12:44,670 --> 00:12:44,680
+both are same key right because I have
+ 
+
+537
+00:12:44,680 --> 00:12:48,509
+both are same key right because I have
+used it together so together they form a
+
+538
+00:12:48,509 --> 00:12:48,519
+used it together so together they form a
+ 
+
+539
+00:12:48,519 --> 00:12:49,750
+used it together so together they form a
+unique
+
+540
+00:12:49,750 --> 00:12:49,760
+unique
+ 
+
+541
+00:12:49,760 --> 00:12:53,910
+unique
+constraint okay so like this you can add
+
+542
+00:12:53,910 --> 00:12:53,920
+constraint okay so like this you can add
+ 
+
+543
+00:12:53,920 --> 00:12:56,470
+constraint okay so like this you can add
+more values so table has one more
+
+544
+00:12:56,470 --> 00:12:56,480
+more values so table has one more
+ 
+
+545
+00:12:56,480 --> 00:13:01,990
+more values so table has one more
+attribute which we can use is index
+
+546
+00:13:01,990 --> 00:13:02,000
+
+ 
+
+547
+00:13:02,000 --> 00:13:05,550
+
+so here if you go
+
+548
+00:13:05,550 --> 00:13:05,560
+so here if you go
+ 
+
+549
+00:13:05,560 --> 00:13:09,310
+so here if you go
+here so we can add indexes like this you
+
+550
+00:13:09,310 --> 00:13:09,320
+here so we can add indexes like this you
+ 
+
+551
+00:13:09,320 --> 00:13:13,230
+here so we can add indexes like this you
+can use indexes equals to
+
+552
+00:13:13,230 --> 00:13:13,240
+can use indexes equals to
+ 
+
+553
+00:13:13,240 --> 00:13:15,990
+can use indexes equals to
+and any number of index you want to
+
+554
+00:13:15,990 --> 00:13:16,000
+and any number of index you want to
+ 
+
+555
+00:13:16,000 --> 00:13:19,670
+and any number of index you want to
+create on a Columns of a table so now
+
+556
+00:13:19,670 --> 00:13:19,680
+create on a Columns of a table so now
+ 
+
+557
+00:13:19,680 --> 00:13:22,069
+create on a Columns of a table so now
+let's say that I want to create so these
+
+558
+00:13:22,069 --> 00:13:22,079
+let's say that I want to create so these
+ 
+
+559
+00:13:22,079 --> 00:13:25,350
+let's say that I want to create so these
+are my column I want to create an index
+
+560
+00:13:25,350 --> 00:13:25,360
+are my column I want to create an index
+ 
+
+561
+00:13:25,360 --> 00:13:29,350
+are my column I want to create an index
+on phone okay so I have put the name
+
+562
+00:13:29,350 --> 00:13:29,360
+on phone okay so I have put the name
+ 
+
+563
+00:13:29,360 --> 00:13:32,350
+on phone okay so I have put the name
+name of an index in the column list
+
+564
+00:13:32,350 --> 00:13:32,360
+name of an index in the column list
+ 
+
+565
+00:13:32,360 --> 00:13:34,430
+name of an index in the column list
+which is an string I give like phone
+
+566
+00:13:34,430 --> 00:13:34,440
+which is an string I give like phone
+ 
+
+567
+00:13:34,440 --> 00:13:36,949
+which is an string I give like phone
+this is the column name so on
+
+568
+00:13:36,949 --> 00:13:36,959
+this is the column name so on
+ 
+
+569
+00:13:36,959 --> 00:13:40,629
+this is the column name so on
+phone this index is created okay on
+
+570
+00:13:40,629 --> 00:13:40,639
+phone this index is created okay on
+ 
+
+571
+00:13:40,639 --> 00:13:44,110
+phone this index is created okay on
+phone similarly I created another index
+
+572
+00:13:44,110 --> 00:13:44,120
+phone similarly I created another index
+ 
+
+573
+00:13:44,120 --> 00:13:47,269
+phone similarly I created another index
+okay I gave this name and on the
+
+574
+00:13:47,269 --> 00:13:47,279
+okay I gave this name and on the
+ 
+
+575
+00:13:47,279 --> 00:13:50,030
+okay I gave this name and on the
+composite column on this two columns I
+
+576
+00:13:50,030 --> 00:13:50,040
+composite column on this two columns I
+ 
+
+577
+00:13:50,040 --> 00:13:52,389
+composite column on this two columns I
+have added it so here column list if you
+
+578
+00:13:52,389 --> 00:13:52,399
+have added it so here column list if you
+ 
+
+579
+00:13:52,399 --> 00:13:55,030
+have added it so here column list if you
+go inside this index annotation right
+
+580
+00:13:55,030 --> 00:13:55,040
+go inside this index annotation right
+ 
+
+581
+00:13:55,040 --> 00:13:56,829
+go inside this index annotation right
+column list is then a string so it
+
+582
+00:13:56,829 --> 00:13:56,839
+column list is then a string so it
+ 
+
+583
+00:13:56,839 --> 00:14:00,430
+column list is then a string so it
+accept like this okay so name comma
+
+584
+00:14:00,430 --> 00:14:00,440
+accept like this okay so name comma
+ 
+
+585
+00:14:00,440 --> 00:14:01,269
+accept like this okay so name comma
+comma
+
+586
+00:14:01,269 --> 00:14:01,279
+comma
+ 
+
+587
+00:14:01,279 --> 00:14:03,550
+comma
+separated so comma separated column we
+
+588
+00:14:03,550 --> 00:14:03,560
+separated so comma separated column we
+ 
+
+589
+00:14:03,560 --> 00:14:06,150
+separated so comma separated column we
+can provide so name comma email so index
+
+590
+00:14:06,150 --> 00:14:06,160
+can provide so name comma email so index
+ 
+
+591
+00:14:06,160 --> 00:14:08,829
+can provide so name comma email so index
+on composite columns okay so here if you
+
+592
+00:14:08,829 --> 00:14:08,839
+on composite columns okay so here if you
+ 
+
+593
+00:14:08,839 --> 00:14:09,749
+on composite columns okay so here if you
+see
+
+594
+00:14:09,749 --> 00:14:09,759
+see
+ 
+
+595
+00:14:09,759 --> 00:14:15,509
+see
+that the same name which is on name and
+
+596
+00:14:15,509 --> 00:14:15,519
+that the same name which is on name and
+ 
+
+597
+00:14:15,519 --> 00:14:20,550
+that the same name which is on name and
+email okay so now it's been
+
+598
+00:14:20,550 --> 00:14:20,560
+
+ 
+
+599
+00:14:20,560 --> 00:14:23,470
+
+indexed now we have to see add theate
+
+600
+00:14:23,470 --> 00:14:23,480
+indexed now we have to see add theate
+ 
+
+601
+00:14:23,480 --> 00:14:25,790
+indexed now we have to see add theate
+column annotation very simple again it's
+
+602
+00:14:25,790 --> 00:14:25,800
+column annotation very simple again it's
+ 
+
+603
+00:14:25,800 --> 00:14:28,710
+column annotation very simple again it's
+an optional field if not defined jpa
+
+604
+00:14:28,710 --> 00:14:28,720
+an optional field if not defined jpa
+ 
+
+605
+00:14:28,720 --> 00:14:31,629
+an optional field if not defined jpa
+will add added with default values okay
+
+606
+00:14:31,629 --> 00:14:31,639
+will add added with default values okay
+ 
+
+607
+00:14:31,639 --> 00:14:33,949
+will add added with default values okay
+so now let's say that I have created
+
+608
+00:14:33,949 --> 00:14:33,959
+so now let's say that I have created
+ 
+
+609
+00:14:33,959 --> 00:14:35,829
+so now let's say that I have created
+entity and I provided the table name
+
+610
+00:14:35,829 --> 00:14:35,839
+entity and I provided the table name
+ 
+
+611
+00:14:35,839 --> 00:14:41,069
+entity and I provided the table name
+user details okay and U now these are
+
+612
+00:14:41,069 --> 00:14:41,079
+user details okay and U now these are
+ 
+
+613
+00:14:41,079 --> 00:14:43,829
+user details okay and U now these are
+all the fields even though here and here
+
+614
+00:14:43,829 --> 00:14:43,839
+all the fields even though here and here
+ 
+
+615
+00:14:43,839 --> 00:14:45,590
+all the fields even though here and here
+I haven't provideed at the rate column
+
+616
+00:14:45,590 --> 00:14:45,600
+I haven't provideed at the rate column
+ 
+
+617
+00:14:45,600 --> 00:14:47,749
+I haven't provideed at the rate column
+and for this I am providing at theate
+
+618
+00:14:47,749 --> 00:14:47,759
+and for this I am providing at theate
+ 
+
+619
+00:14:47,759 --> 00:14:51,710
+and for this I am providing at theate
+column jpa also add annotation for this
+
+620
+00:14:51,710 --> 00:14:51,720
+column jpa also add annotation for this
+ 
+
+621
+00:14:51,720 --> 00:14:54,069
+column jpa also add annotation for this
+for this but with default values but
+
+622
+00:14:54,069 --> 00:14:54,079
+for this but with default values but
+ 
+
+623
+00:14:54,079 --> 00:14:56,949
+for this but with default values but
+here I am not using default values I'm
+
+624
+00:14:56,949 --> 00:14:56,959
+here I am not using default values I'm
+ 
+
+625
+00:14:56,959 --> 00:14:59,590
+here I am not using default values I'm
+setting mine so at theate column
+
+626
+00:14:59,590 --> 00:14:59,600
+setting mine so at theate column
+ 
+
+627
+00:14:59,600 --> 00:15:02,470
+setting mine so at theate column
+name even though it's name but in the DB
+
+628
+00:15:02,470 --> 00:15:02,480
+name even though it's name but in the DB
+ 
+
+629
+00:15:02,480 --> 00:15:06,629
+name even though it's name but in the DB
+I want name full underscore name okay so
+
+630
+00:15:06,629 --> 00:15:06,639
+I want name full underscore name okay so
+ 
+
+631
+00:15:06,639 --> 00:15:09,069
+I want name full underscore name okay so
+if you see that in DB what name comes
+
+632
+00:15:09,069 --> 00:15:09,079
+if you see that in DB what name comes
+ 
+
+633
+00:15:09,079 --> 00:15:12,550
+if you see that in DB what name comes
+full underscore name not just
+
+634
+00:15:12,550 --> 00:15:12,560
+full underscore name not just
+ 
+
+635
+00:15:12,560 --> 00:15:16,550
+full underscore name not just
+name okay so that is one thing another
+
+636
+00:15:16,550 --> 00:15:16,560
+name okay so that is one thing another
+ 
+
+637
+00:15:16,560 --> 00:15:21,389
+name okay so that is one thing another
+thing is if there is only one column you
+
+638
+00:15:21,389 --> 00:15:21,399
+thing is if there is only one column you
+ 
+
+639
+00:15:21,399 --> 00:15:23,710
+thing is if there is only one column you
+want to make it unique you can also do
+
+640
+00:15:23,710 --> 00:15:23,720
+want to make it unique you can also do
+ 
+
+641
+00:15:23,720 --> 00:15:26,069
+want to make it unique you can also do
+it here unique equals to True similarly
+
+642
+00:15:26,069 --> 00:15:26,079
+it here unique equals to True similarly
+ 
+
+643
+00:15:26,079 --> 00:15:29,350
+it here unique equals to True similarly
+as we saw above right we have unique
+
+644
+00:15:29,350 --> 00:15:29,360
+as we saw above right we have unique
+ 
+
+645
+00:15:29,360 --> 00:15:31,350
+as we saw above right we have unique
+constraint so there also you can use it
+
+646
+00:15:31,350 --> 00:15:31,360
+constraint so there also you can use it
+ 
+
+647
+00:15:31,360 --> 00:15:34,350
+constraint so there also you can use it
+on a single column or if you don't want
+
+648
+00:15:34,350 --> 00:15:34,360
+on a single column or if you don't want
+ 
+
+649
+00:15:34,360 --> 00:15:36,670
+on a single column or if you don't want
+to use at a table level you can also use
+
+650
+00:15:36,670 --> 00:15:36,680
+to use at a table level you can also use
+ 
+
+651
+00:15:36,680 --> 00:15:38,629
+to use at a table level you can also use
+at a column level so you can use like
+
+652
+00:15:38,629 --> 00:15:38,639
+at a column level so you can use like
+ 
+
+653
+00:15:38,639 --> 00:15:41,509
+at a column level so you can use like
+unique equals to true if you want to
+
+654
+00:15:41,509 --> 00:15:41,519
+unique equals to true if you want to
+ 
+
+655
+00:15:41,519 --> 00:15:44,230
+unique equals to true if you want to
+make it nullable true or false that it
+
+656
+00:15:44,230 --> 00:15:44,240
+make it nullable true or false that it
+ 
+
+657
+00:15:44,240 --> 00:15:46,189
+make it nullable true or false that it
+value can be null or not you can provide
+
+658
+00:15:46,189 --> 00:15:46,199
+value can be null or not you can provide
+ 
+
+659
+00:15:46,199 --> 00:15:48,949
+value can be null or not you can provide
+like it can be empty or not so by
+
+660
+00:15:48,949 --> 00:15:48,959
+like it can be empty or not so by
+ 
+
+661
+00:15:48,959 --> 00:15:52,629
+like it can be empty or not so by
+this attribute you can set it and even
+
+662
+00:15:52,629 --> 00:15:52,639
+this attribute you can set it and even
+ 
+
+663
+00:15:52,639 --> 00:15:54,829
+this attribute you can set it and even
+the length of the field you can
+
+664
+00:15:54,829 --> 00:15:54,839
+the length of the field you can
+ 
+
+665
+00:15:54,839 --> 00:15:57,350
+the length of the field you can
+determine if you don't provide this
+
+666
+00:15:57,350 --> 00:15:57,360
+determine if you don't provide this
+ 
+
+667
+00:15:57,360 --> 00:15:59,189
+determine if you don't provide this
+value
+
+668
+00:15:59,189 --> 00:15:59,199
+value
+ 
+
+669
+00:15:59,199 --> 00:16:01,949
+value
+jpa internally set the default values
+
+670
+00:16:01,949 --> 00:16:01,959
+jpa internally set the default values
+ 
+
+671
+00:16:01,959 --> 00:16:05,829
+jpa internally set the default values
+like email it will considered as capital
+
+672
+00:16:05,829 --> 00:16:05,839
+like email it will considered as capital
+ 
+
+673
+00:16:05,839 --> 00:16:09,790
+like email it will considered as capital
+hnet generally uh for S2 everything uh
+
+674
+00:16:09,790 --> 00:16:09,800
+hnet generally uh for S2 everything uh
+ 
+
+675
+00:16:09,800 --> 00:16:12,829
+hnet generally uh for S2 everything uh
+turned out to be a capital uh letters
+
+676
+00:16:12,829 --> 00:16:12,839
+turned out to be a capital uh letters
+ 
+
+677
+00:16:12,839 --> 00:16:16,629
+turned out to be a capital uh letters
+right and uh phone it changed to phone
+
+678
+00:16:16,629 --> 00:16:16,639
+right and uh phone it changed to phone
+ 
+
+679
+00:16:16,639 --> 00:16:18,790
+right and uh phone it changed to phone
+but with default values unique might be
+
+680
+00:16:18,790 --> 00:16:18,800
+but with default values unique might be
+ 
+
+681
+00:16:18,800 --> 00:16:20,990
+but with default values unique might be
+false nullable might be false length
+
+682
+00:16:20,990 --> 00:16:21,000
+false nullable might be false length
+ 
+
+683
+00:16:21,000 --> 00:16:24,110
+false nullable might be false length
+might be let's say 50 okay so some
+
+684
+00:16:24,110 --> 00:16:24,120
+might be let's say 50 okay so some
+ 
+
+685
+00:16:24,120 --> 00:16:26,949
+might be let's say 50 okay so some
+default values it will
+
+686
+00:16:26,949 --> 00:16:26,959
+default values it will
+ 
+
+687
+00:16:26,959 --> 00:16:29,670
+default values it will
+set okay
+
+688
+00:16:29,670 --> 00:16:29,680
+set okay
+ 
+
+689
+00:16:29,680 --> 00:16:32,470
+set okay
+now these are the two another important
+
+690
+00:16:32,470 --> 00:16:32,480
+now these are the two another important
+ 
+
+691
+00:16:32,480 --> 00:16:35,230
+now these are the two another important
+annotation we have to be aware at theate
+
+692
+00:16:35,230 --> 00:16:35,240
+annotation we have to be aware at theate
+ 
+
+693
+00:16:35,240 --> 00:16:38,030
+annotation we have to be aware at theate
+ID annotation and at theate generated
+
+694
+00:16:38,030 --> 00:16:38,040
+ID annotation and at theate generated
+ 
+
+695
+00:16:38,040 --> 00:16:39,629
+ID annotation and at theate generated
+value
+
+696
+00:16:39,629 --> 00:16:39,639
+value
+ 
+
+697
+00:16:39,639 --> 00:16:42,189
+value
+annotation so
+
+698
+00:16:42,189 --> 00:16:42,199
+annotation so
+ 
+
+699
+00:16:42,199 --> 00:16:47,110
+annotation so
+now what at theate ID is used for it is
+
+700
+00:16:47,110 --> 00:16:47,120
+now what at theate ID is used for it is
+ 
+
+701
+00:16:47,120 --> 00:16:49,870
+now what at theate ID is used for it is
+used to Mark the field as a primary
+
+702
+00:16:49,870 --> 00:16:49,880
+used to Mark the field as a primary
+ 
+
+703
+00:16:49,880 --> 00:16:54,350
+used to Mark the field as a primary
+key okay every table should have one
+
+704
+00:16:54,350 --> 00:16:54,360
+key okay every table should have one
+ 
+
+705
+00:16:54,360 --> 00:16:57,990
+key okay every table should have one
+unique value which is used to uniquely
+
+706
+00:16:57,990 --> 00:16:58,000
+unique value which is used to uniquely
+ 
+
+707
+00:16:58,000 --> 00:17:00,990
+unique value which is used to uniquely
+identify each each record that is known
+
+708
+00:17:00,990 --> 00:17:01,000
+identify each each record that is known
+ 
+
+709
+00:17:01,000 --> 00:17:05,309
+identify each each record that is known
+as primary key and in an entity and in
+
+710
+00:17:05,309 --> 00:17:05,319
+as primary key and in an entity and in
+ 
+
+711
+00:17:05,319 --> 00:17:09,510
+as primary key and in an entity and in
+an entity right the class we can use at
+
+712
+00:17:09,510 --> 00:17:09,520
+an entity right the class we can use at
+ 
+
+713
+00:17:09,520 --> 00:17:11,750
+an entity right the class we can use at
+theate ID
+
+714
+00:17:11,750 --> 00:17:11,760
+theate ID
+ 
+
+715
+00:17:11,760 --> 00:17:15,470
+theate ID
+annotation to Mark the field as primary
+
+716
+00:17:15,470 --> 00:17:15,480
+annotation to Mark the field as primary
+ 
+
+717
+00:17:15,480 --> 00:17:18,590
+annotation to Mark the field as primary
+key so each entity can have only one
+
+718
+00:17:18,590 --> 00:17:18,600
+key so each entity can have only one
+ 
+
+719
+00:17:18,600 --> 00:17:22,069
+key so each entity can have only one
+primary key so each entity at theate
+
+720
+00:17:22,069 --> 00:17:22,079
+primary key so each entity at theate
+ 
+
+721
+00:17:22,079 --> 00:17:25,870
+primary key so each entity at theate
+entity can can have only one primary
+
+722
+00:17:25,870 --> 00:17:25,880
+entity can can have only one primary
+ 
+
+723
+00:17:25,880 --> 00:17:29,750
+entity can can have only one primary
+key and only one field can be with atate
+
+724
+00:17:29,750 --> 00:17:29,760
+key and only one field can be with atate
+ 
+
+725
+00:17:29,760 --> 00:17:32,549
+key and only one field can be with atate
+ID I can't do like hey this is also
+
+726
+00:17:32,549 --> 00:17:32,559
+ID I can't do like hey this is also
+ 
+
+727
+00:17:32,559 --> 00:17:36,470
+ID I can't do like hey this is also
+atate ID email is also atate ID no only
+
+728
+00:17:36,470 --> 00:17:36,480
+atate ID email is also atate ID no only
+ 
+
+729
+00:17:36,480 --> 00:17:39,710
+atate ID email is also atate ID no only
+one field we can mark it at the rate
+
+730
+00:17:39,710 --> 00:17:39,720
+one field we can mark it at the rate
+ 
+
+731
+00:17:39,720 --> 00:17:42,270
+one field we can mark it at the rate
+ID but now your question might come hey
+
+732
+00:17:42,270 --> 00:17:42,280
+ID but now your question might come hey
+ 
+
+733
+00:17:42,280 --> 00:17:44,110
+ID but now your question might come hey
+what about the composite primary key in
+
+734
+00:17:44,110 --> 00:17:44,120
+what about the composite primary key in
+ 
+
+735
+00:17:44,120 --> 00:17:48,350
+what about the composite primary key in
+composite key there can be more than one
+
+736
+00:17:48,350 --> 00:17:48,360
+composite key there can be more than one
+ 
+
+737
+00:17:48,360 --> 00:17:52,390
+composite key there can be more than one
+column then how to do that because we
+
+738
+00:17:52,390 --> 00:17:52,400
+column then how to do that because we
+ 
+
+739
+00:17:52,400 --> 00:17:54,470
+column then how to do that because we
+have put a constraint that at theate ID
+
+740
+00:17:54,470 --> 00:17:54,480
+have put a constraint that at theate ID
+ 
+
+741
+00:17:54,480 --> 00:17:59,390
+have put a constraint that at theate ID
+can only be used on one field
+
+742
+00:17:59,390 --> 00:17:59,400
+can only be used on one field
+ 
+
+743
+00:17:59,400 --> 00:18:01,630
+can only be used on one field
+but what about the composite primary key
+
+744
+00:18:01,630 --> 00:18:01,640
+but what about the composite primary key
+ 
+
+745
+00:18:01,640 --> 00:18:03,470
+but what about the composite primary key
+how it can be
+
+746
+00:18:03,470 --> 00:18:03,480
+how it can be
+ 
+
+747
+00:18:03,480 --> 00:18:08,510
+how it can be
+handled so there are two ways to
+
+748
+00:18:08,510 --> 00:18:08,520
+handled so there are two ways to
+ 
+
+749
+00:18:08,520 --> 00:18:11,590
+handled so there are two ways to
+handle composite primary key One is
+
+750
+00:18:11,590 --> 00:18:11,600
+handle composite primary key One is
+ 
+
+751
+00:18:11,600 --> 00:18:14,390
+handle composite primary key One is
+using at the rate embeddable and at the
+
+752
+00:18:14,390 --> 00:18:14,400
+using at the rate embeddable and at the
+ 
+
+753
+00:18:14,400 --> 00:18:17,510
+using at the rate embeddable and at the
+rate embedded ID another is with at
+
+754
+00:18:17,510 --> 00:18:17,520
+rate embedded ID another is with at
+ 
+
+755
+00:18:17,520 --> 00:18:20,510
+rate embedded ID another is with at
+theate ID class and at theate ID
+
+756
+00:18:20,510 --> 00:18:20,520
+theate ID class and at theate ID
+ 
+
+757
+00:18:20,520 --> 00:18:24,149
+theate ID class and at theate ID
+annotation okay so we'll see this but
+
+758
+00:18:24,149 --> 00:18:24,159
+annotation okay so we'll see this but
+ 
+
+759
+00:18:24,159 --> 00:18:26,710
+annotation okay so we'll see this but
+there are certain rules which we have to
+
+760
+00:18:26,710 --> 00:18:26,720
+there are certain rules which we have to
+ 
+
+761
+00:18:26,720 --> 00:18:29,149
+there are certain rules which we have to
+follow
+
+762
+00:18:29,149 --> 00:18:29,159
+follow
+ 
+
+763
+00:18:29,159 --> 00:18:32,110
+follow
+so it must be a public class so we
+
+764
+00:18:32,110 --> 00:18:32,120
+so it must be a public class so we
+ 
+
+765
+00:18:32,120 --> 00:18:35,710
+so it must be a public class so we
+create a new class where we provide all
+
+766
+00:18:35,710 --> 00:18:35,720
+create a new class where we provide all
+ 
+
+767
+00:18:35,720 --> 00:18:38,470
+create a new class where we provide all
+the fields which are composite primary
+
+768
+00:18:38,470 --> 00:18:38,480
+the fields which are composite primary
+ 
+
+769
+00:18:38,480 --> 00:18:41,990
+the fields which are composite primary
+key that class should be a public
+
+770
+00:18:41,990 --> 00:18:42,000
+key that class should be a public
+ 
+
+771
+00:18:42,000 --> 00:18:44,990
+key that class should be a public
+class I will provide you a reason also
+
+772
+00:18:44,990 --> 00:18:45,000
+class I will provide you a reason also
+ 
+
+773
+00:18:45,000 --> 00:18:47,789
+class I will provide you a reason also
+it must implement the serializable
+
+774
+00:18:47,789 --> 00:18:47,799
+it must implement the serializable
+ 
+
+775
+00:18:47,799 --> 00:18:50,110
+it must implement the serializable
+interface right that public class need
+
+776
+00:18:50,110 --> 00:18:50,120
+interface right that public class need
+ 
+
+777
+00:18:50,120 --> 00:18:53,110
+interface right that public class need
+to implement the serializable interface
+
+778
+00:18:53,110 --> 00:18:53,120
+to implement the serializable interface
+ 
+
+779
+00:18:53,120 --> 00:18:55,510
+to implement the serializable interface
+it should have one no argument
+
+780
+00:18:55,510 --> 00:18:55,520
+it should have one no argument
+ 
+
+781
+00:18:55,520 --> 00:18:58,070
+it should have one no argument
+Constructor and must override the equal
+
+782
+00:18:58,070 --> 00:18:58,080
+Constructor and must override the equal
+ 
+
+783
+00:18:58,080 --> 00:18:59,549
+Constructor and must override the equal
+and hash code
+
+784
+00:18:59,549 --> 00:18:59,559
+and hash code
+ 
+
+785
+00:18:59,559 --> 00:19:01,990
+and hash code
+method okay so there is a proper
+
+786
+00:19:01,990 --> 00:19:02,000
+method okay so there is a proper
+ 
+
+787
+00:19:02,000 --> 00:19:03,909
+method okay so there is a proper
+reasoning why this rule need to be
+
+788
+00:19:03,909 --> 00:19:03,919
+reasoning why this rule need to be
+ 
+
+789
+00:19:03,919 --> 00:19:06,470
+reasoning why this rule need to be
+followed and we'll see that first let's
+
+790
+00:19:06,470 --> 00:19:06,480
+followed and we'll see that first let's
+ 
+
+791
+00:19:06,480 --> 00:19:09,430
+followed and we'll see that first let's
+see with this at theate ID class and at
+
+792
+00:19:09,430 --> 00:19:09,440
+see with this at theate ID class and at
+ 
+
+793
+00:19:09,440 --> 00:19:12,669
+see with this at theate ID class and at
+theate ID annotation how composite
+
+794
+00:19:12,669 --> 00:19:12,679
+theate ID annotation how composite
+ 
+
+795
+00:19:12,679 --> 00:19:16,029
+theate ID annotation how composite
+primary key can be defined primary key
+
+796
+00:19:16,029 --> 00:19:16,039
+primary key can be defined primary key
+ 
+
+797
+00:19:16,039 --> 00:19:17,430
+primary key can be defined primary key
+it's already clear right we have already
+
+798
+00:19:17,430 --> 00:19:17,440
+it's already clear right we have already
+ 
+
+799
+00:19:17,440 --> 00:19:20,350
+it's already clear right we have already
+seen example here I am using primary key
+
+800
+00:19:20,350 --> 00:19:20,360
+seen example here I am using primary key
+ 
+
+801
+00:19:20,360 --> 00:19:24,149
+seen example here I am using primary key
+at the rate ID okay so ID is my primary
+
+802
+00:19:24,149 --> 00:19:24,159
+at the rate ID okay so ID is my primary
+ 
+
+803
+00:19:24,159 --> 00:19:25,630
+at the rate ID okay so ID is my primary
+key
+
+804
+00:19:25,630 --> 00:19:25,640
+key
+ 
+
+805
+00:19:25,640 --> 00:19:30,190
+key
+PK but for composite key CK how to do it
+
+806
+00:19:30,190 --> 00:19:30,200
+PK but for composite key CK how to do it
+ 
+
+807
+00:19:30,200 --> 00:19:32,029
+PK but for composite key CK how to do it
+so first approach let's say that using
+
+808
+00:19:32,029 --> 00:19:32,039
+so first approach let's say that using
+ 
+
+809
+00:19:32,039 --> 00:19:35,070
+so first approach let's say that using
+at theate ID class and at theate ID
+
+810
+00:19:35,070 --> 00:19:35,080
+at theate ID class and at theate ID
+ 
+
+811
+00:19:35,080 --> 00:19:38,830
+at theate ID class and at theate ID
+annotation now let's say that this is my
+
+812
+00:19:38,830 --> 00:19:38,840
+annotation now let's say that this is my
+ 
+
+813
+00:19:38,840 --> 00:19:41,750
+annotation now let's say that this is my
+table okay I have created an entity this
+
+814
+00:19:41,750 --> 00:19:41,760
+table okay I have created an entity this
+ 
+
+815
+00:19:41,760 --> 00:19:43,870
+table okay I have created an entity this
+is the table name which I have given
+
+816
+00:19:43,870 --> 00:19:43,880
+is the table name which I have given
+ 
+
+817
+00:19:43,880 --> 00:19:46,350
+is the table name which I have given
+these are the field and I want these two
+
+818
+00:19:46,350 --> 00:19:46,360
+these are the field and I want these two
+ 
+
+819
+00:19:46,360 --> 00:19:49,789
+these are the field and I want these two
+columns to Mark as a composite key name
+
+820
+00:19:49,789 --> 00:19:49,799
+columns to Mark as a composite key name
+ 
+
+821
+00:19:49,799 --> 00:19:52,029
+columns to Mark as a composite key name
+and address together they uniquely
+
+822
+00:19:52,029 --> 00:19:52,039
+and address together they uniquely
+ 
+
+823
+00:19:52,039 --> 00:19:53,590
+and address together they uniquely
+identify a
+
+824
+00:19:53,590 --> 00:19:53,600
+identify a
+ 
+
+825
+00:19:53,600 --> 00:19:57,390
+identify a
+row okay so now here in this how we can
+
+826
+00:19:57,390 --> 00:19:57,400
+row okay so now here in this how we can
+ 
+
+827
+00:19:57,400 --> 00:20:00,190
+row okay so now here in this how we can
+do is I can't put at the ID here atate
+
+828
+00:20:00,190 --> 00:20:00,200
+do is I can't put at the ID here atate
+ 
+
+829
+00:20:00,200 --> 00:20:03,390
+do is I can't put at the ID here atate
+ID here no it won't
+
+830
+00:20:03,390 --> 00:20:03,400
+ID here no it won't
+ 
+
+831
+00:20:03,400 --> 00:20:06,149
+ID here no it won't
+work so we am first approach we are
+
+832
+00:20:06,149 --> 00:20:06,159
+work so we am first approach we are
+ 
+
+833
+00:20:06,159 --> 00:20:11,430
+work so we am first approach we are
+using it at theate ID class so see this
+
+834
+00:20:11,430 --> 00:20:11,440
+
+ 
+
+835
+00:20:11,440 --> 00:20:14,350
+
+one so I have created one
+
+836
+00:20:14,350 --> 00:20:14,360
+one so I have created one
+ 
+
+837
+00:20:14,360 --> 00:20:18,470
+one so I have created one
+class public class the first rule I have
+
+838
+00:20:18,470 --> 00:20:18,480
+class public class the first rule I have
+ 
+
+839
+00:20:18,480 --> 00:20:20,470
+class public class the first rule I have
+created a public class let's say user
+
+840
+00:20:20,470 --> 00:20:20,480
+created a public class let's say user
+ 
+
+841
+00:20:20,480 --> 00:20:24,070
+created a public class let's say user
+details CK composite key and I have
+
+842
+00:20:24,070 --> 00:20:24,080
+details CK composite key and I have
+ 
+
+843
+00:20:24,080 --> 00:20:27,070
+details CK composite key and I have
+implement the serializable second
+
+844
+00:20:27,070 --> 00:20:27,080
+implement the serializable second
+ 
+
+845
+00:20:27,080 --> 00:20:31,310
+implement the serializable second
+rule okay we Define all the fields which
+
+846
+00:20:31,310 --> 00:20:31,320
+rule okay we Define all the fields which
+ 
+
+847
+00:20:31,320 --> 00:20:34,110
+rule okay we Define all the fields which
+I wanted to consider as a composite key
+
+848
+00:20:34,110 --> 00:20:34,120
+I wanted to consider as a composite key
+ 
+
+849
+00:20:34,120 --> 00:20:36,350
+I wanted to consider as a composite key
+so I want name and address right so I
+
+850
+00:20:36,350 --> 00:20:36,360
+so I want name and address right so I
+ 
+
+851
+00:20:36,360 --> 00:20:38,390
+so I want name and address right so I
+put name and address
+
+852
+00:20:38,390 --> 00:20:38,400
+put name and address
+ 
+
+853
+00:20:38,400 --> 00:20:42,070
+put name and address
+here the third rule it should have one
+
+854
+00:20:42,070 --> 00:20:42,080
+here the third rule it should have one
+ 
+
+855
+00:20:42,080 --> 00:20:43,950
+here the third rule it should have one
+no argument Constructor even if you
+
+856
+00:20:43,950 --> 00:20:43,960
+no argument Constructor even if you
+ 
+
+857
+00:20:43,960 --> 00:20:45,990
+no argument Constructor even if you
+don't write it generally uh default
+
+858
+00:20:45,990 --> 00:20:46,000
+don't write it generally uh default
+ 
+
+859
+00:20:46,000 --> 00:20:48,549
+don't write it generally uh default
+Constructor is always added if you don't
+
+860
+00:20:48,549 --> 00:20:48,559
+Constructor is always added if you don't
+ 
+
+861
+00:20:48,559 --> 00:20:51,830
+Constructor is always added if you don't
+have any argument Constructor but for uh
+
+862
+00:20:51,830 --> 00:20:51,840
+have any argument Constructor but for uh
+ 
+
+863
+00:20:51,840 --> 00:20:53,909
+have any argument Constructor but for uh
+rules to follow just to say I mentioned
+
+864
+00:20:53,909 --> 00:20:53,919
+rules to follow just to say I mentioned
+ 
+
+865
+00:20:53,919 --> 00:20:57,029
+rules to follow just to say I mentioned
+here that this is the third rule which
+
+866
+00:20:57,029 --> 00:20:57,039
+here that this is the third rule which
+ 
+
+867
+00:20:57,039 --> 00:20:58,669
+here that this is the third rule which
+says that there should be one no
+
+868
+00:20:58,669 --> 00:20:58,679
+says that there should be one no
+ 
+
+869
+00:20:58,679 --> 00:21:00,549
+says that there should be one no
+argument Constructor should be
+
+870
+00:21:00,549 --> 00:21:00,559
+argument Constructor should be
+ 
+
+871
+00:21:00,559 --> 00:21:03,789
+argument Constructor should be
+present and the fourth rule says that we
+
+872
+00:21:03,789 --> 00:21:03,799
+present and the fourth rule says that we
+ 
+
+873
+00:21:03,799 --> 00:21:06,149
+present and the fourth rule says that we
+should overwrite the equal and the hash
+
+874
+00:21:06,149 --> 00:21:06,159
+should overwrite the equal and the hash
+ 
+
+875
+00:21:06,159 --> 00:21:09,510
+should overwrite the equal and the hash
+code method so I have overrided so I
+
+876
+00:21:09,510 --> 00:21:09,520
+code method so I have overrided so I
+ 
+
+877
+00:21:09,520 --> 00:21:11,590
+code method so I have overrided so I
+have name and address right so equals I
+
+878
+00:21:11,590 --> 00:21:11,600
+have name and address right so equals I
+ 
+
+879
+00:21:11,600 --> 00:21:14,190
+have name and address right so equals I
+have said that if
+
+880
+00:21:14,190 --> 00:21:14,200
+have said that if
+ 
+
+881
+00:21:14,200 --> 00:21:16,870
+have said that if
+object whatever the this object and the
+
+882
+00:21:16,870 --> 00:21:16,880
+object whatever the this object and the
+ 
+
+883
+00:21:16,880 --> 00:21:18,710
+object whatever the this object and the
+object which is coming if both are equal
+
+884
+00:21:18,710 --> 00:21:18,720
+object which is coming if both are equal
+ 
+
+885
+00:21:18,720 --> 00:21:21,350
+object which is coming if both are equal
+directly return true no problem the
+
+886
+00:21:21,350 --> 00:21:21,360
+directly return true no problem the
+ 
+
+887
+00:21:21,360 --> 00:21:23,669
+directly return true no problem the
+other use case is that if the object
+
+888
+00:21:23,669 --> 00:21:23,679
+other use case is that if the object
+ 
+
+889
+00:21:23,679 --> 00:21:25,750
+other use case is that if the object
+which is coming and this objects are
+
+890
+00:21:25,750 --> 00:21:25,760
+which is coming and this objects are
+ 
+
+891
+00:21:25,760 --> 00:21:28,750
+which is coming and this objects are
+different then return FSE
+
+892
+00:21:28,750 --> 00:21:28,760
+different then return FSE
+ 
+
+893
+00:21:28,760 --> 00:21:32,230
+different then return FSE
+if the instance instance is same it is
+
+894
+00:21:32,230 --> 00:21:32,240
+if the instance instance is same it is
+ 
+
+895
+00:21:32,240 --> 00:21:34,590
+if the instance instance is same it is
+still a user detail CK then I can
+
+896
+00:21:34,590 --> 00:21:34,600
+still a user detail CK then I can
+ 
+
+897
+00:21:34,600 --> 00:21:37,430
+still a user detail CK then I can
+compare this individual value also if
+
+898
+00:21:37,430 --> 00:21:37,440
+compare this individual value also if
+ 
+
+899
+00:21:37,440 --> 00:21:39,990
+compare this individual value also if
+values also matching name and address is
+
+900
+00:21:39,990 --> 00:21:40,000
+values also matching name and address is
+ 
+
+901
+00:21:40,000 --> 00:21:41,669
+values also matching name and address is
+also matching then I would say that yes
+
+902
+00:21:41,669 --> 00:21:41,679
+also matching then I would say that yes
+ 
+
+903
+00:21:41,679 --> 00:21:45,350
+also matching then I would say that yes
+they are equal okay either so in short
+
+904
+00:21:45,350 --> 00:21:45,360
+they are equal okay either so in short
+ 
+
+905
+00:21:45,360 --> 00:21:48,710
+they are equal okay either so in short
+either both the objects this
+
+906
+00:21:48,710 --> 00:21:48,720
+either both the objects this
+ 
+
+907
+00:21:48,720 --> 00:21:51,470
+either both the objects this
+object the one in the parameter and the
+
+908
+00:21:51,470 --> 00:21:51,480
+object the one in the parameter and the
+ 
+
+909
+00:21:51,480 --> 00:21:55,590
+object the one in the parameter and the
+one this object if both are same then
+
+910
+00:21:55,590 --> 00:21:55,600
+one this object if both are same then
+ 
+
+911
+00:21:55,600 --> 00:21:57,909
+one this object if both are same then
+return true if both objects are
+
+912
+00:21:57,909 --> 00:21:57,919
+return true if both objects are
+ 
+
+913
+00:21:57,919 --> 00:22:01,269
+return true if both objects are
+different but of same type then we
+
+914
+00:22:01,269 --> 00:22:01,279
+different but of same type then we
+ 
+
+915
+00:22:01,279 --> 00:22:03,149
+different but of same type then we
+individually compare all the values like
+
+916
+00:22:03,149 --> 00:22:03,159
+individually compare all the values like
+ 
+
+917
+00:22:03,159 --> 00:22:05,190
+individually compare all the values like
+name address if they both are equal then
+
+918
+00:22:05,190 --> 00:22:05,200
+name address if they both are equal then
+ 
+
+919
+00:22:05,200 --> 00:22:07,070
+name address if they both are equal then
+we say that yes the both objects are
+
+920
+00:22:07,070 --> 00:22:07,080
+we say that yes the both objects are
+ 
+
+921
+00:22:07,080 --> 00:22:10,870
+we say that yes the both objects are
+equal and similarly hash code I am using
+
+922
+00:22:10,870 --> 00:22:10,880
+equal and similarly hash code I am using
+ 
+
+923
+00:22:10,880 --> 00:22:14,149
+equal and similarly hash code I am using
+objects. hash and passing this list of
+
+924
+00:22:14,149 --> 00:22:14,159
+objects. hash and passing this list of
+ 
+
+925
+00:22:14,159 --> 00:22:16,190
+objects. hash and passing this list of
+values and internally it will create
+
+926
+00:22:16,190 --> 00:22:16,200
+values and internally it will create
+ 
+
+927
+00:22:16,200 --> 00:22:18,510
+values and internally it will create
+some hash code and
+
+928
+00:22:18,510 --> 00:22:18,520
+some hash code and
+ 
+
+929
+00:22:18,520 --> 00:22:22,029
+some hash code and
+return okay so this is the fourth like
+
+930
+00:22:22,029 --> 00:22:22,039
+return okay so this is the fourth like
+ 
+
+931
+00:22:22,039 --> 00:22:24,590
+return okay so this is the fourth like
+you have to uh provide your
+
+932
+00:22:24,590 --> 00:22:24,600
+you have to uh provide your
+ 
+
+933
+00:22:24,600 --> 00:22:27,230
+you have to uh provide your
+own functionality for the equals and
+
+934
+00:22:27,230 --> 00:22:27,240
+own functionality for the equals and
+ 
+
+935
+00:22:27,240 --> 00:22:29,710
+own functionality for the equals and
+hash code I will tell you all also
+
+936
+00:22:29,710 --> 00:22:29,720
+hash code I will tell you all also
+ 
+
+937
+00:22:29,720 --> 00:22:32,750
+hash code I will tell you all also
+y now once this class is
+
+938
+00:22:32,750 --> 00:22:32,760
+y now once this class is
+ 
+
+939
+00:22:32,760 --> 00:22:35,110
+y now once this class is
+created what we have to do is in your
+
+940
+00:22:35,110 --> 00:22:35,120
+created what we have to do is in your
+ 
+
+941
+00:22:35,120 --> 00:22:37,789
+created what we have to do is in your
+entity class where you have defined your
+
+942
+00:22:37,789 --> 00:22:37,799
+entity class where you have defined your
+ 
+
+943
+00:22:37,799 --> 00:22:41,310
+entity class where you have defined your
+table there we have to use this atate ID
+
+944
+00:22:41,310 --> 00:22:41,320
+table there we have to use this atate ID
+ 
+
+945
+00:22:41,320 --> 00:22:42,230
+table there we have to use this atate ID
+class
+
+946
+00:22:42,230 --> 00:22:42,240
+class
+ 
+
+947
+00:22:42,240 --> 00:22:46,230
+class
+annotation and this is the class user
+
+948
+00:22:46,230 --> 00:22:46,240
+annotation and this is the class user
+ 
+
+949
+00:22:46,240 --> 00:22:50,230
+annotation and this is the class user
+details ck. class okay like this we have
+
+950
+00:22:50,230 --> 00:22:50,240
+details ck. class okay like this we have
+ 
+
+951
+00:22:50,240 --> 00:22:51,549
+details ck. class okay like this we have
+to provide this
+
+952
+00:22:51,549 --> 00:22:51,559
+to provide this
+ 
+
+953
+00:22:51,559 --> 00:22:55,190
+to provide this
+annotation and whatever the
+
+954
+00:22:55,190 --> 00:22:55,200
+annotation and whatever the
+ 
+
+955
+00:22:55,200 --> 00:22:57,710
+annotation and whatever the
+fields for which you have determined a
+
+956
+00:22:57,710 --> 00:22:57,720
+fields for which you have determined a
+ 
+
+957
+00:22:57,720 --> 00:22:59,710
+fields for which you have determined a
+composite key you have put at theate ID
+
+958
+00:22:59,710 --> 00:22:59,720
+composite key you have put at theate ID
+ 
+
+959
+00:22:59,720 --> 00:23:02,590
+composite key you have put at theate ID
+over here so remember that this ID is
+
+960
+00:23:02,590 --> 00:23:02,600
+over here so remember that this ID is
+ 
+
+961
+00:23:02,600 --> 00:23:05,710
+over here so remember that this ID is
+not equivalent to that primary key no
+
+962
+00:23:05,710 --> 00:23:05,720
+not equivalent to that primary key no
+ 
+
+963
+00:23:05,720 --> 00:23:07,669
+not equivalent to that primary key no
+now you have annotated your class with
+
+964
+00:23:07,669 --> 00:23:07,679
+now you have annotated your class with
+ 
+
+965
+00:23:07,679 --> 00:23:10,950
+now you have annotated your class with
+adate ID class right now whatever the
+
+966
+00:23:10,950 --> 00:23:10,960
+adate ID class right now whatever the
+ 
+
+967
+00:23:10,960 --> 00:23:14,470
+adate ID class right now whatever the
+adate ID you will put on the field those
+
+968
+00:23:14,470 --> 00:23:14,480
+adate ID you will put on the field those
+ 
+
+969
+00:23:14,480 --> 00:23:17,110
+adate ID you will put on the field those
+together would be considered as
+
+970
+00:23:17,110 --> 00:23:17,120
+together would be considered as
+ 
+
+971
+00:23:17,120 --> 00:23:18,549
+together would be considered as
+composite key and those should be
+
+972
+00:23:18,549 --> 00:23:18,559
+composite key and those should be
+ 
+
+973
+00:23:18,559 --> 00:23:22,029
+composite key and those should be
+present into this class
+
+974
+00:23:22,029 --> 00:23:22,039
+present into this class
+ 
+
+975
+00:23:22,039 --> 00:23:25,950
+present into this class
+here okay now here if you see the schema
+
+976
+00:23:25,950 --> 00:23:25,960
+here okay now here if you see the schema
+ 
+
+977
+00:23:25,960 --> 00:23:27,990
+here okay now here if you see the schema
+uh you will see that index name it
+
+978
+00:23:27,990 --> 00:23:28,000
+uh you will see that index name it
+ 
+
+979
+00:23:28,000 --> 00:23:29,230
+uh you will see that index name it
+created
+
+980
+00:23:29,230 --> 00:23:29,240
+created
+ 
+
+981
+00:23:29,240 --> 00:23:32,549
+created
+on address and name this address and
+
+982
+00:23:32,549 --> 00:23:32,559
+on address and name this address and
+ 
+
+983
+00:23:32,559 --> 00:23:38,470
+on address and name this address and
+name it created a composite key
+
+984
+00:23:38,470 --> 00:23:38,480
+name it created a composite key
+ 
+
+985
+00:23:38,480 --> 00:23:41,710
+name it created a composite key
+together okay so this is one way but now
+
+986
+00:23:41,710 --> 00:23:41,720
+together okay so this is one way but now
+ 
+
+987
+00:23:41,720 --> 00:23:43,789
+together okay so this is one way but now
+your question can come is say why it has
+
+988
+00:23:43,789 --> 00:23:43,799
+your question can come is say why it has
+ 
+
+989
+00:23:43,799 --> 00:23:45,669
+your question can come is say why it has
+to implement
+
+990
+00:23:45,669 --> 00:23:45,679
+to implement
+ 
+
+991
+00:23:45,679 --> 00:23:48,310
+to implement
+serializable why we have to implement
+
+992
+00:23:48,310 --> 00:23:48,320
+serializable why we have to implement
+ 
+
+993
+00:23:48,320 --> 00:23:51,750
+serializable why we have to implement
+equal and hash code so this is my
+
+994
+00:23:51,750 --> 00:23:51,760
+equal and hash code so this is my
+ 
+
+995
+00:23:51,760 --> 00:23:53,390
+equal and hash code so this is my
+understanding why we need to override
+
+996
+00:23:53,390 --> 00:23:53,400
+understanding why we need to override
+ 
+
+997
+00:23:53,400 --> 00:23:55,830
+understanding why we need to override
+equal and hash code so you from the
+
+998
+00:23:55,830 --> 00:23:55,840
+equal and hash code so you from the
+ 
+
+999
+00:23:55,840 --> 00:23:58,870
+equal and hash code so you from the
+previous video you know that jpa
+
+1000
+00:23:58,870 --> 00:23:58,880
+previous video you know that jpa
+ 
+
+1001
+00:23:58,880 --> 00:24:01,549
+previous video you know that jpa
+internally maintain first level caching
+
+1002
+00:24:01,549 --> 00:24:01,559
+internally maintain first level caching
+ 
+
+1003
+00:24:01,559 --> 00:24:03,269
+internally maintain first level caching
+and also it we can Implement second
+
+1004
+00:24:03,269 --> 00:24:03,279
+and also it we can Implement second
+ 
+
+1005
+00:24:03,279 --> 00:24:08,350
+and also it we can Implement second
+level caching and in both it uses
+
+1006
+00:24:08,350 --> 00:24:08,360
+level caching and in both it uses
+ 
+
+1007
+00:24:08,360 --> 00:24:10,870
+level caching and in both it uses
+hashmap and generally we have key and
+
+1008
+00:24:10,870 --> 00:24:10,880
+hashmap and generally we have key and
+ 
+
+1009
+00:24:10,880 --> 00:24:12,470
+hashmap and generally we have key and
+value right in hashmap the key is
+
+1010
+00:24:12,470 --> 00:24:12,480
+value right in hashmap the key is
+ 
+
+1011
+00:24:12,480 --> 00:24:15,269
+value right in hashmap the key is
+generally the primary key so now here in
+
+1012
+00:24:15,269 --> 00:24:15,279
+generally the primary key so now here in
+ 
+
+1013
+00:24:15,279 --> 00:24:19,390
+generally the primary key so now here in
+this case the key is our composite key
+
+1014
+00:24:19,390 --> 00:24:19,400
+this case the key is our composite key
+ 
+
+1015
+00:24:19,400 --> 00:24:22,029
+this case the key is our composite key
+right and it's a separate class more
+
+1016
+00:24:22,029 --> 00:24:22,039
+right and it's a separate class more
+ 
+
+1017
+00:24:22,039 --> 00:24:26,310
+right and it's a separate class more
+than one field so how the equal and the
+
+1018
+00:24:26,310 --> 00:24:26,320
+than one field so how the equal and the
+ 
+
+1019
+00:24:26,320 --> 00:24:29,070
+than one field so how the equal and the
+hash code should work
+
+1020
+00:24:29,070 --> 00:24:29,080
+hash code should work
+ 
+
+1021
+00:24:29,080 --> 00:24:30,789
+hash code should work
+that you will guide
+
+1022
+00:24:30,789 --> 00:24:30,799
+that you will guide
+ 
+
+1023
+00:24:30,799 --> 00:24:34,350
+that you will guide
+right for your scenario okay only if
+
+1024
+00:24:34,350 --> 00:24:34,360
+right for your scenario okay only if
+ 
+
+1025
+00:24:34,360 --> 00:24:36,470
+right for your scenario okay only if
+name is equal I I can consider that yes
+
+1026
+00:24:36,470 --> 00:24:36,480
+name is equal I I can consider that yes
+ 
+
+1027
+00:24:36,480 --> 00:24:38,990
+name is equal I I can consider that yes
+two objects are equal but in some
+
+1028
+00:24:38,990 --> 00:24:39,000
+two objects are equal but in some
+ 
+
+1029
+00:24:39,000 --> 00:24:41,070
+two objects are equal but in some
+scenario no all the field exactly should
+
+1030
+00:24:41,070 --> 00:24:41,080
+scenario no all the field exactly should
+ 
+
+1031
+00:24:41,080 --> 00:24:42,870
+scenario no all the field exactly should
+match then I would say it is equal it
+
+1032
+00:24:42,870 --> 00:24:42,880
+match then I would say it is equal it
+ 
+
+1033
+00:24:42,880 --> 00:24:46,269
+match then I would say it is equal it
+determines like your business uh
+
+1034
+00:24:46,269 --> 00:24:46,279
+determines like your business uh
+ 
+
+1035
+00:24:46,279 --> 00:24:48,909
+determines like your business uh
+functionality okay so that is one of the
+
+1036
+00:24:48,909 --> 00:24:48,919
+functionality okay so that is one of the
+ 
+
+1037
+00:24:48,919 --> 00:24:51,549
+functionality okay so that is one of the
+reason because internally we use uh
+
+1038
+00:24:51,549 --> 00:24:51,559
+reason because internally we use uh
+ 
+
+1039
+00:24:51,559 --> 00:24:53,909
+reason because internally we use uh
+hashmap for lot of features jpa like for
+
+1040
+00:24:53,909 --> 00:24:53,919
+hashmap for lot of features jpa like for
+ 
+
+1041
+00:24:53,919 --> 00:24:57,430
+hashmap for lot of features jpa like for
+first level caching so it relies on this
+
+1042
+00:24:57,430 --> 00:24:57,440
+first level caching so it relies on this
+ 
+
+1043
+00:24:57,440 --> 00:25:00,430
+first level caching so it relies on this
+key which is nothing but a primary key
+
+1044
+00:25:00,430 --> 00:25:00,440
+key which is nothing but a primary key
+ 
+
+1045
+00:25:00,440 --> 00:25:02,669
+key which is nothing but a primary key
+so for that hash map it required equal
+
+1046
+00:25:02,669 --> 00:25:02,679
+so for that hash map it required equal
+ 
+
+1047
+00:25:02,679 --> 00:25:04,029
+so for that hash map it required equal
+and hash
+
+1048
+00:25:04,029 --> 00:25:04,039
+and hash
+ 
+
+1049
+00:25:04,039 --> 00:25:07,830
+and hash
+code okay another you can say that then
+
+1050
+00:25:07,830 --> 00:25:07,840
+code okay another you can say that then
+ 
+
+1051
+00:25:07,840 --> 00:25:11,470
+code okay another you can say that then
+why we need to implement
+
+1052
+00:25:11,470 --> 00:25:11,480
+
+ 
+
+1053
+00:25:11,480 --> 00:25:14,110
+
+serializable and why we when when we
+
+1054
+00:25:14,110 --> 00:25:14,120
+serializable and why we when when we
+ 
+
+1055
+00:25:14,120 --> 00:25:16,909
+serializable and why we when when we
+were using primary key like at theate
+
+1056
+00:25:16,909 --> 00:25:16,919
+were using primary key like at theate
+ 
+
+1057
+00:25:16,919 --> 00:25:20,269
+were using primary key like at theate
+only entity and let's say at theate ID
+
+1058
+00:25:20,269 --> 00:25:20,279
+only entity and let's say at theate ID
+ 
+
+1059
+00:25:20,279 --> 00:25:22,389
+only entity and let's say at theate ID
+primary key let's say long
+
+1060
+00:25:22,389 --> 00:25:22,399
+primary key let's say long
+ 
+
+1061
+00:25:22,399 --> 00:25:25,830
+primary key let's say long
+ID we were not implementing this class
+
+1062
+00:25:25,830 --> 00:25:25,840
+ID we were not implementing this class
+ 
+
+1063
+00:25:25,840 --> 00:25:28,430
+ID we were not implementing this class
+uh Implement serializable right why then
+
+1064
+00:25:28,430 --> 00:25:28,440
+uh Implement serializable right why then
+ 
+
+1065
+00:25:28,440 --> 00:25:31,630
+uh Implement serializable right why then
+for composite key I need to uh Implement
+
+1066
+00:25:31,630 --> 00:25:31,640
+for composite key I need to uh Implement
+ 
+
+1067
+00:25:31,640 --> 00:25:35,070
+for composite key I need to uh Implement
+serializable that question can also come
+
+1068
+00:25:35,070 --> 00:25:35,080
+serializable that question can also come
+ 
+
+1069
+00:25:35,080 --> 00:25:38,029
+serializable that question can also come
+so the my understanding is unlike single
+
+1070
+00:25:38,029 --> 00:25:38,039
+so the my understanding is unlike single
+ 
+
+1071
+00:25:38,039 --> 00:25:40,990
+so the my understanding is unlike single
+primary key like a string long composite
+
+1072
+00:25:40,990 --> 00:25:41,000
+primary key like a string long composite
+ 
+
+1073
+00:25:41,000 --> 00:25:44,750
+primary key like a string long composite
+key are custom classes
+
+1074
+00:25:44,750 --> 00:25:44,760
+key are custom classes
+ 
+
+1075
+00:25:44,760 --> 00:25:47,630
+key are custom classes
+okay you are not just putting atate ID
+
+1076
+00:25:47,630 --> 00:25:47,640
+okay you are not just putting atate ID
+ 
+
+1077
+00:25:47,640 --> 00:25:51,350
+okay you are not just putting atate ID
+over here not like one field a string or
+
+1078
+00:25:51,350 --> 00:25:51,360
+over here not like one field a string or
+ 
+
+1079
+00:25:51,360 --> 00:25:53,590
+over here not like one field a string or
+long or something in the composite key
+
+1080
+00:25:53,590 --> 00:25:53,600
+long or something in the composite key
+ 
+
+1081
+00:25:53,600 --> 00:25:55,750
+long or something in the composite key
+we are creating a separate
+
+1082
+00:25:55,750 --> 00:25:55,760
+we are creating a separate
+ 
+
+1083
+00:25:55,760 --> 00:25:59,149
+we are creating a separate
+class okay that considered as a
+
+1084
+00:25:59,149 --> 00:25:59,159
+class okay that considered as a
+ 
+
+1085
+00:25:59,159 --> 00:26:01,750
+class okay that considered as a
+composite key now we need to make sure
+
+1086
+00:26:01,750 --> 00:26:01,760
+composite key now we need to make sure
+ 
+
+1087
+00:26:01,760 --> 00:26:05,430
+composite key now we need to make sure
+that this class should be like Ser in a
+
+1088
+00:26:05,430 --> 00:26:05,440
+that this class should be like Ser in a
+ 
+
+1089
+00:26:05,440 --> 00:26:08,510
+that this class should be like Ser in a
+serializable format like in future if
+
+1090
+00:26:08,510 --> 00:26:08,520
+serializable format like in future if
+ 
+
+1091
+00:26:08,520 --> 00:26:11,070
+serializable format like in future if
+required I should be able to serialize
+
+1092
+00:26:11,070 --> 00:26:11,080
+required I should be able to serialize
+ 
+
+1093
+00:26:11,080 --> 00:26:14,630
+required I should be able to serialize
+this class okay so jpa need to make sure
+
+1094
+00:26:14,630 --> 00:26:14,640
+this class okay so jpa need to make sure
+ 
+
+1095
+00:26:14,640 --> 00:26:17,750
+this class okay so jpa need to make sure
+that those classes should be properly
+
+1096
+00:26:17,750 --> 00:26:17,760
+that those classes should be properly
+ 
+
+1097
+00:26:17,760 --> 00:26:20,190
+that those classes should be properly
+serializable and if you implement that
+
+1098
+00:26:20,190 --> 00:26:20,200
+serializable and if you implement that
+ 
+
+1099
+00:26:20,200 --> 00:26:23,510
+serializable and if you implement that
+class uh class serializable that will
+
+1100
+00:26:23,510 --> 00:26:23,520
+class uh class serializable that will
+ 
+
+1101
+00:26:23,520 --> 00:26:25,789
+class uh class serializable that will
+make sure that yes in future let's say
+
+1102
+00:26:25,789 --> 00:26:25,799
+make sure that yes in future let's say
+ 
+
+1103
+00:26:25,799 --> 00:26:29,070
+make sure that yes in future let's say
+that uh during distributed caching
+
+1104
+00:26:29,070 --> 00:26:29,080
+that uh during distributed caching
+ 
+
+1105
+00:26:29,080 --> 00:26:31,110
+that uh during distributed caching
+and over the network we have to pass
+
+1106
+00:26:31,110 --> 00:26:31,120
+and over the network we have to pass
+ 
+
+1107
+00:26:31,120 --> 00:26:33,950
+and over the network we have to pass
+this object jpa should be able to
+
+1108
+00:26:33,950 --> 00:26:33,960
+this object jpa should be able to
+ 
+
+1109
+00:26:33,960 --> 00:26:38,070
+this object jpa should be able to
+serialize this class
+
+1110
+00:26:38,070 --> 00:26:38,080
+
+ 
+
+1111
+00:26:38,080 --> 00:26:40,269
+
+properly so this is the second approach
+
+1112
+00:26:40,269 --> 00:26:40,279
+properly so this is the second approach
+ 
+
+1113
+00:26:40,279 --> 00:26:42,430
+properly so this is the second approach
+using embeddable and embedded ID
+
+1114
+00:26:42,430 --> 00:26:42,440
+using embeddable and embedded ID
+ 
+
+1115
+00:26:42,440 --> 00:26:44,950
+using embeddable and embedded ID
+annotation the composite key so again I
+
+1116
+00:26:44,950 --> 00:26:44,960
+annotation the composite key so again I
+ 
+
+1117
+00:26:44,960 --> 00:26:46,389
+annotation the composite key so again I
+am creating a new
+
+1118
+00:26:46,389 --> 00:26:46,399
+am creating a new
+ 
+
+1119
+00:26:46,399 --> 00:26:49,269
+am creating a new
+class public class first rule second
+
+1120
+00:26:49,269 --> 00:26:49,279
+class public class first rule second
+ 
+
+1121
+00:26:49,279 --> 00:26:51,710
+class public class first rule second
+rule implement the serializable third
+
+1122
+00:26:51,710 --> 00:26:51,720
+rule implement the serializable third
+ 
+
+1123
+00:26:51,720 --> 00:26:55,110
+rule implement the serializable third
+rule have one no our Constructor fourth
+
+1124
+00:26:55,110 --> 00:26:55,120
+rule have one no our Constructor fourth
+ 
+
+1125
+00:26:55,120 --> 00:26:57,549
+rule have one no our Constructor fourth
+rule uh I have equal and hash code
+
+1126
+00:26:57,549 --> 00:26:57,559
+rule uh I have equal and hash code
+ 
+
+1127
+00:26:57,559 --> 00:26:59,669
+rule uh I have equal and hash code
+defined same everything same but only
+
+1128
+00:26:59,669 --> 00:26:59,679
+defined same everything same but only
+ 
+
+1129
+00:26:59,679 --> 00:27:02,590
+defined same everything same but only
+thing is I have put atate edible here
+
+1130
+00:27:02,590 --> 00:27:02,600
+thing is I have put atate edible here
+ 
+
+1131
+00:27:02,600 --> 00:27:05,990
+thing is I have put atate edible here
+one annotation here and in the entity
+
+1132
+00:27:05,990 --> 00:27:06,000
+one annotation here and in the entity
+ 
+
+1133
+00:27:06,000 --> 00:27:08,149
+one annotation here and in the entity
+now I don't need adate ID class
+
+1134
+00:27:08,149 --> 00:27:08,159
+now I don't need adate ID class
+ 
+
+1135
+00:27:08,159 --> 00:27:11,590
+now I don't need adate ID class
+something right no now in the entity I
+
+1136
+00:27:11,590 --> 00:27:11,600
+something right no now in the entity I
+ 
+
+1137
+00:27:11,600 --> 00:27:15,789
+something right no now in the entity I
+can use adate embedded ID and provide
+
+1138
+00:27:15,789 --> 00:27:15,799
+can use adate embedded ID and provide
+ 
+
+1139
+00:27:15,799 --> 00:27:18,909
+can use adate embedded ID and provide
+the class this this
+
+1140
+00:27:18,909 --> 00:27:18,919
+the class this this
+ 
+
+1141
+00:27:18,919 --> 00:27:21,350
+the class this this
+class okay so I can provide the
+
+1142
+00:27:21,350 --> 00:27:21,360
+class okay so I can provide the
+ 
+
+1143
+00:27:21,360 --> 00:27:24,310
+class okay so I can provide the
+reference of this class now this will
+
+1144
+00:27:24,310 --> 00:27:24,320
+reference of this class now this will
+ 
+
+1145
+00:27:24,320 --> 00:27:27,549
+reference of this class now this will
+make sure that this would be added as a
+
+1146
+00:27:27,549 --> 00:27:27,559
+make sure that this would be added as a
+ 
+
+1147
+00:27:27,559 --> 00:27:30,630
+make sure that this would be added as a
+primary key uh composite key so now when
+
+1148
+00:27:30,630 --> 00:27:30,640
+primary key uh composite key so now when
+ 
+
+1149
+00:27:30,640 --> 00:27:32,630
+primary key uh composite key so now when
+the table get created for this entity
+
+1150
+00:27:32,630 --> 00:27:32,640
+the table get created for this entity
+ 
+
+1151
+00:27:32,640 --> 00:27:36,590
+the table get created for this entity
+right here address name phone all comes
+
+1152
+00:27:36,590 --> 00:27:36,600
+right here address name phone all comes
+ 
+
+1153
+00:27:36,600 --> 00:27:39,310
+right here address name phone all comes
+properly address name phone all comes
+
+1154
+00:27:39,310 --> 00:27:39,320
+properly address name phone all comes
+ 
+
+1155
+00:27:39,320 --> 00:27:43,710
+properly address name phone all comes
+properly and even the address and
+
+1156
+00:27:43,710 --> 00:27:43,720
+properly and even the address and
+ 
+
+1157
+00:27:43,720 --> 00:27:49,149
+properly and even the address and
+name address and name are indexed both
+
+1158
+00:27:49,149 --> 00:27:49,159
+name address and name are indexed both
+ 
+
+1159
+00:27:49,159 --> 00:27:51,870
+name address and name are indexed both
+together okay so this is the second
+
+1160
+00:27:51,870 --> 00:27:51,880
+together okay so this is the second
+ 
+
+1161
+00:27:51,880 --> 00:27:54,350
+together okay so this is the second
+approach using at theate embeddable and
+
+1162
+00:27:54,350 --> 00:27:54,360
+approach using at theate embeddable and
+ 
+
+1163
+00:27:54,360 --> 00:27:57,630
+approach using at theate embeddable and
+at theate embedded ID for the composite
+
+1164
+00:27:57,630 --> 00:27:57,640
+at theate embedded ID for the composite
+ 
+
+1165
+00:27:57,640 --> 00:28:02,630
+at theate embedded ID for the composite
+key how we can create
+
+1166
+00:28:02,630 --> 00:28:02,640
+
+ 
+
+1167
+00:28:02,640 --> 00:28:05,630
+
+it and we have one more like a very
+
+1168
+00:28:05,630 --> 00:28:05,640
+it and we have one more like a very
+ 
+
+1169
+00:28:05,640 --> 00:28:07,630
+it and we have one more like a very
+important part is at theate generated
+
+1170
+00:28:07,630 --> 00:28:07,640
+important part is at theate generated
+ 
+
+1171
+00:28:07,640 --> 00:28:10,909
+important part is at theate generated
+value annotation so now we know how to
+
+1172
+00:28:10,909 --> 00:28:10,919
+value annotation so now we know how to
+ 
+
+1173
+00:28:10,919 --> 00:28:12,789
+value annotation so now we know how to
+define primary
+
+1174
+00:28:12,789 --> 00:28:12,799
+define primary
+ 
+
+1175
+00:28:12,799 --> 00:28:17,029
+define primary
+key yeah at the rate ID
+
+1176
+00:28:17,029 --> 00:28:17,039
+
+ 
+
+1177
+00:28:17,039 --> 00:28:19,630
+
+annotation but we can also Define its
+
+1178
+00:28:19,630 --> 00:28:19,640
+annotation but we can also Define its
+ 
+
+1179
+00:28:19,640 --> 00:28:21,710
+annotation but we can also Define its
+generation strategy too by default
+
+1180
+00:28:21,710 --> 00:28:21,720
+generation strategy too by default
+ 
+
+1181
+00:28:21,720 --> 00:28:23,590
+generation strategy too by default
+primary key columns are not autofill
+
+1182
+00:28:23,590 --> 00:28:23,600
+primary key columns are not autofill
+ 
+
+1183
+00:28:23,600 --> 00:28:24,549
+primary key columns are not autofill
+remember
+
+1184
+00:28:24,549 --> 00:28:24,559
+remember
+ 
+
+1185
+00:28:24,559 --> 00:28:27,830
+remember
+that so let's say that I have put at the
+
+1186
+00:28:27,830 --> 00:28:27,840
+that so let's say that I have put at the
+ 
+
+1187
+00:28:27,840 --> 00:28:30,269
+that so let's say that I have put at the
+rate ID long
+
+1188
+00:28:30,269 --> 00:28:30,279
+rate ID long
+ 
+
+1189
+00:28:30,279 --> 00:28:33,389
+rate ID long
+ID now whenever you are trying to do
+
+1190
+00:28:33,389 --> 00:28:33,399
+ID now whenever you are trying to do
+ 
+
+1191
+00:28:33,399 --> 00:28:36,750
+ID now whenever you are trying to do
+insert you have to provide like what id
+
+1192
+00:28:36,750 --> 00:28:36,760
+insert you have to provide like what id
+ 
+
+1193
+00:28:36,760 --> 00:28:38,710
+insert you have to provide like what id
+because even though it's a primary key
+
+1194
+00:28:38,710 --> 00:28:38,720
+because even though it's a primary key
+ 
+
+1195
+00:28:38,720 --> 00:28:41,710
+because even though it's a primary key
+right but it will not be like autofill
+
+1196
+00:28:41,710 --> 00:28:41,720
+right but it will not be like autofill
+ 
+
+1197
+00:28:41,720 --> 00:28:44,149
+right but it will not be like autofill
+you have to provide like what id unique
+
+1198
+00:28:44,149 --> 00:28:44,159
+you have to provide like what id unique
+ 
+
+1199
+00:28:44,159 --> 00:28:46,710
+you have to provide like what id unique
+value some unique value you have to
+
+1200
+00:28:46,710 --> 00:28:46,720
+value some unique value you have to
+ 
+
+1201
+00:28:46,720 --> 00:28:49,950
+value some unique value you have to
+provide but with the help of atate
+
+1202
+00:28:49,950 --> 00:28:49,960
+provide but with the help of atate
+ 
+
+1203
+00:28:49,960 --> 00:28:51,590
+provide but with the help of atate
+generated value
+
+1204
+00:28:51,590 --> 00:28:51,600
+generated value
+ 
+
+1205
+00:28:51,600 --> 00:28:54,310
+generated value
+annotation you can transfer this
+
+1206
+00:28:54,310 --> 00:28:54,320
+annotation you can transfer this
+ 
+
+1207
+00:28:54,320 --> 00:28:56,830
+annotation you can transfer this
+responsibility to hibernate
+
+1208
+00:28:56,830 --> 00:28:56,840
+responsibility to hibernate
+ 
+
+1209
+00:28:56,840 --> 00:29:00,230
+responsibility to hibernate
+also okay so at theate generated value
+
+1210
+00:29:00,230 --> 00:29:00,240
+also okay so at theate generated value
+ 
+
+1211
+00:29:00,240 --> 00:29:03,269
+also okay so at theate generated value
+only works with at theate ID annotation
+
+1212
+00:29:03,269 --> 00:29:03,279
+only works with at theate ID annotation
+ 
+
+1213
+00:29:03,279 --> 00:29:05,350
+only works with at theate ID annotation
+only for single primary key not for the
+
+1214
+00:29:05,350 --> 00:29:05,360
+only for single primary key not for the
+ 
+
+1215
+00:29:05,360 --> 00:29:08,310
+only for single primary key not for the
+composite one you remember like atate ID
+
+1216
+00:29:08,310 --> 00:29:08,320
+composite one you remember like atate ID
+ 
+
+1217
+00:29:08,320 --> 00:29:10,389
+composite one you remember like atate ID
+class and that we can also use at theate
+
+1218
+00:29:10,389 --> 00:29:10,399
+class and that we can also use at theate
+ 
+
+1219
+00:29:10,399 --> 00:29:12,710
+class and that we can also use at theate
+id id but those are different those are
+
+1220
+00:29:12,710 --> 00:29:12,720
+id id but those are different those are
+ 
+
+1221
+00:29:12,720 --> 00:29:14,789
+id id but those are different those are
+not the primary key one those are
+
+1222
+00:29:14,789 --> 00:29:14,799
+not the primary key one those are
+ 
+
+1223
+00:29:14,799 --> 00:29:17,430
+not the primary key one those are
+composite key ones so at theate
+
+1224
+00:29:17,430 --> 00:29:17,440
+composite key ones so at theate
+ 
+
+1225
+00:29:17,440 --> 00:29:19,669
+composite key ones so at theate
+generated value Works only with at
+
+1226
+00:29:19,669 --> 00:29:19,679
+generated value Works only with at
+ 
+
+1227
+00:29:19,679 --> 00:29:21,950
+generated value Works only with at
+theate ID annotation for single primary
+
+1228
+00:29:21,950 --> 00:29:21,960
+theate ID annotation for single primary
+ 
+
+1229
+00:29:21,960 --> 00:29:22,750
+theate ID annotation for single primary
+key
+
+1230
+00:29:22,750 --> 00:29:22,760
+key
+ 
+
+1231
+00:29:22,760 --> 00:29:25,630
+key
+one so what are the different types we
+
+1232
+00:29:25,630 --> 00:29:25,640
+one so what are the different types we
+ 
+
+1233
+00:29:25,640 --> 00:29:28,549
+one so what are the different types we
+can give the first type is
+
+1234
+00:29:28,549 --> 00:29:28,559
+can give the first type is
+ 
+
+1235
+00:29:28,559 --> 00:29:31,350
+can give the first type is
+identity so like this we can give so
+
+1236
+00:29:31,350 --> 00:29:31,360
+identity so like this we can give so
+ 
+
+1237
+00:29:31,360 --> 00:29:33,549
+identity so like this we can give so
+here I have created at theate entity
+
+1238
+00:29:33,549 --> 00:29:33,559
+here I have created at theate entity
+ 
+
+1239
+00:29:33,559 --> 00:29:37,190
+here I have created at theate entity
+class given a table name user undor
+
+1240
+00:29:37,190 --> 00:29:37,200
+class given a table name user undor
+ 
+
+1241
+00:29:37,200 --> 00:29:40,669
+class given a table name user undor
+details I have this three field for the
+
+1242
+00:29:40,669 --> 00:29:40,679
+details I have this three field for the
+ 
+
+1243
+00:29:40,679 --> 00:29:43,110
+details I have this three field for the
+long I have created atate ID it's a
+
+1244
+00:29:43,110 --> 00:29:43,120
+long I have created atate ID it's a
+ 
+
+1245
+00:29:43,120 --> 00:29:46,310
+long I have created atate ID it's a
+primary key but I have put an at theate
+
+1246
+00:29:46,310 --> 00:29:46,320
+primary key but I have put an at theate
+ 
+
+1247
+00:29:46,320 --> 00:29:49,950
+primary key but I have put an at theate
+generated value strategy I have given is
+
+1248
+00:29:49,950 --> 00:29:49,960
+generated value strategy I have given is
+ 
+
+1249
+00:29:49,960 --> 00:29:52,110
+generated value strategy I have given is
+Generation type.
+
+1250
+00:29:52,110 --> 00:29:52,120
+Generation type.
+ 
+
+1251
+00:29:52,120 --> 00:29:55,350
+Generation type.
+identity so this means that auto
+
+1252
+00:29:55,350 --> 00:29:55,360
+identity so this means that auto
+ 
+
+1253
+00:29:55,360 --> 00:29:59,029
+identity so this means that auto
+increment it's an autoincrement field
+
+1254
+00:29:59,029 --> 00:29:59,039
+increment it's an autoincrement field
+ 
+
+1255
+00:29:59,039 --> 00:30:02,789
+increment it's an autoincrement field
+so each insert will generate a new
+
+1256
+00:30:02,789 --> 00:30:02,799
+so each insert will generate a new
+ 
+
+1257
+00:30:02,799 --> 00:30:05,269
+so each insert will generate a new
+value so here if you see that first time
+
+1258
+00:30:05,269 --> 00:30:05,279
+value so here if you see that first time
+ 
+
+1259
+00:30:05,279 --> 00:30:08,549
+value so here if you see that first time
+I did an insert with this object this is
+
+1260
+00:30:08,549 --> 00:30:08,559
+I did an insert with this object this is
+ 
+
+1261
+00:30:08,559 --> 00:30:11,710
+I did an insert with this object this is
+the response I got ID is created one
+
+1262
+00:30:11,710 --> 00:30:11,720
+the response I got ID is created one
+ 
+
+1263
+00:30:11,720 --> 00:30:13,830
+the response I got ID is created one
+even though I haven't passed anything ID
+
+1264
+00:30:13,830 --> 00:30:13,840
+even though I haven't passed anything ID
+ 
+
+1265
+00:30:13,840 --> 00:30:17,830
+even though I haven't passed anything ID
+one second time I hit it with some value
+
+1266
+00:30:17,830 --> 00:30:17,840
+one second time I hit it with some value
+ 
+
+1267
+00:30:17,840 --> 00:30:20,870
+one second time I hit it with some value
+I got id2 even though I haven't passed
+
+1268
+00:30:20,870 --> 00:30:20,880
+I got id2 even though I haven't passed
+ 
+
+1269
+00:30:20,880 --> 00:30:23,710
+I got id2 even though I haven't passed
+ID anything here okay internally it auto
+
+1270
+00:30:23,710 --> 00:30:23,720
+ID anything here okay internally it auto
+ 
+
+1271
+00:30:23,720 --> 00:30:27,590
+ID anything here okay internally it auto
+increments id2 and if you check the DB
+
+1272
+00:30:27,590 --> 00:30:27,600
+increments id2 and if you check the DB
+ 
+
+1273
+00:30:27,600 --> 00:30:30,509
+increments id2 and if you check the DB
+it will like this 1 2 3 4 like it will
+
+1274
+00:30:30,509 --> 00:30:30,519
+it will like this 1 2 3 4 like it will
+ 
+
+1275
+00:30:30,519 --> 00:30:32,230
+it will like this 1 2 3 4 like it will
+goes
+
+1276
+00:30:32,230 --> 00:30:32,240
+goes
+ 
+
+1277
+00:30:32,240 --> 00:30:36,190
+goes
+on okay and this is very very specific
+
+1278
+00:30:36,190 --> 00:30:36,200
+on okay and this is very very specific
+ 
+
+1279
+00:30:36,200 --> 00:30:38,830
+on okay and this is very very specific
+to table
+
+1280
+00:30:38,830 --> 00:30:38,840
+to table
+ 
+
+1281
+00:30:38,840 --> 00:30:42,310
+to table
+okay this is very important and many big
+
+1282
+00:30:42,310 --> 00:30:42,320
+okay this is very important and many big
+ 
+
+1283
+00:30:42,320 --> 00:30:45,110
+okay this is very important and many big
+Industries also uses this generation
+
+1284
+00:30:45,110 --> 00:30:45,120
+Industries also uses this generation
+ 
+
+1285
+00:30:45,120 --> 00:30:46,269
+Industries also uses this generation
+type do
+
+1286
+00:30:46,269 --> 00:30:46,279
+type do
+ 
+
+1287
+00:30:46,279 --> 00:30:50,310
+type do
+sequence okay big companies use it in a
+
+1288
+00:30:50,310 --> 00:30:50,320
+sequence okay big companies use it in a
+ 
+
+1289
+00:30:50,320 --> 00:30:52,230
+sequence okay big companies use it in a
+little bit different flavor I can tell
+
+1290
+00:30:52,230 --> 00:30:52,240
+little bit different flavor I can tell
+ 
+
+1291
+00:30:52,240 --> 00:30:54,990
+little bit different flavor I can tell
+you but first understand this
+
+1292
+00:30:54,990 --> 00:30:55,000
+you but first understand this
+ 
+
+1293
+00:30:55,000 --> 00:30:58,789
+you but first understand this
+one used to generate unique numbers
+
+1294
+00:30:58,789 --> 00:30:58,799
+one used to generate unique numbers
+ 
+
+1295
+00:30:58,799 --> 00:31:01,750
+one used to generate unique numbers
+okay speed of the efficiency when we
+
+1296
+00:31:01,750 --> 00:31:01,760
+okay speed of the efficiency when we
+ 
+
+1297
+00:31:01,760 --> 00:31:05,470
+okay speed of the efficiency when we
+catch sequence value more control than
+
+1298
+00:31:05,470 --> 00:31:05,480
+catch sequence value more control than
+ 
+
+1299
+00:31:05,480 --> 00:31:07,590
+catch sequence value more control than
+identity we'll understand this three
+
+1300
+00:31:07,590 --> 00:31:07,600
+identity we'll understand this three
+ 
+
+1301
+00:31:07,600 --> 00:31:10,509
+identity we'll understand this three
+points uh more better let's first see
+
+1302
+00:31:10,509 --> 00:31:10,519
+points uh more better let's first see
+ 
+
+1303
+00:31:10,519 --> 00:31:11,629
+points uh more better let's first see
+this
+
+1304
+00:31:11,629 --> 00:31:11,639
+this
+ 
+
+1305
+00:31:11,639 --> 00:31:13,870
+this
+query now let's say that if I am writing
+
+1306
+00:31:13,870 --> 00:31:13,880
+query now let's say that if I am writing
+ 
+
+1307
+00:31:13,880 --> 00:31:15,909
+query now let's say that if I am writing
+a DB query you can create a sequence
+
+1308
+00:31:15,909 --> 00:31:15,919
+a DB query you can create a sequence
+ 
+
+1309
+00:31:15,919 --> 00:31:17,870
+a DB query you can create a sequence
+like this hey create
+
+1310
+00:31:17,870 --> 00:31:17,880
+like this hey create
+ 
+
+1311
+00:31:17,880 --> 00:31:21,149
+like this hey create
+sequence you can give some name whatever
+
+1312
+00:31:21,149 --> 00:31:21,159
+sequence you can give some name whatever
+ 
+
+1313
+00:31:21,159 --> 00:31:21,870
+sequence you can give some name whatever
+you
+
+1314
+00:31:21,870 --> 00:31:21,880
+you
+ 
+
+1315
+00:31:21,880 --> 00:31:26,750
+you
+want increment by 25 start with 100
+
+1316
+00:31:26,750 --> 00:31:26,760
+want increment by 25 start with 100
+ 
+
+1317
+00:31:26,760 --> 00:31:28,430
+want increment by 25 start with 100
+maximum value is 9
+
+1318
+00:31:28,430 --> 00:31:28,440
+maximum value is 9
+ 
+
+1319
+00:31:28,440 --> 00:31:30,950
+maximum value is 9
+999 so you can create a sequence let's
+
+1320
+00:31:30,950 --> 00:31:30,960
+999 so you can create a sequence let's
+ 
+
+1321
+00:31:30,960 --> 00:31:33,389
+999 so you can create a sequence let's
+say that uh I have one sequence which is
+
+1322
+00:31:33,389 --> 00:31:33,399
+say that uh I have one sequence which is
+ 
+
+1323
+00:31:33,399 --> 00:31:36,629
+say that uh I have one sequence which is
+named user scq this is the
+
+1324
+00:31:36,629 --> 00:31:36,639
+named user scq this is the
+ 
+
+1325
+00:31:36,639 --> 00:31:40,310
+named user scq this is the
+name start value is let's say
+
+1326
+00:31:40,310 --> 00:31:40,320
+name start value is let's say
+ 
+
+1327
+00:31:40,320 --> 00:31:44,430
+name start value is let's say
+100 increment I have tell is 25 and max
+
+1328
+00:31:44,430 --> 00:31:44,440
+100 increment I have tell is 25 and max
+ 
+
+1329
+00:31:44,440 --> 00:31:46,070
+100 increment I have tell is 25 and max
+value of have tell is
+
+1330
+00:31:46,070 --> 00:31:46,080
+value of have tell is
+ 
+
+1331
+00:31:46,080 --> 00:31:49,470
+value of have tell is
+9999 so now when anybody asks this that
+
+1332
+00:31:49,470 --> 00:31:49,480
+9999 so now when anybody asks this that
+ 
+
+1333
+00:31:49,480 --> 00:31:53,110
+9999 so now when anybody asks this that
+hey give me the value let's say next 12
+
+1334
+00:31:53,110 --> 00:31:53,120
+hey give me the value let's say next 12
+ 
+
+1335
+00:31:53,120 --> 00:31:55,149
+hey give me the value let's say next 12
+give me the next 12 so it will start
+
+1336
+00:31:55,149 --> 00:31:55,159
+give me the next 12 so it will start
+ 
+
+1337
+00:31:55,159 --> 00:31:58,350
+give me the next 12 so it will start
+with 100 not with some one 2 three
+
+1338
+00:31:58,350 --> 00:31:58,360
+with 100 not with some one 2 three
+ 
+
+1339
+00:31:58,360 --> 00:32:00,549
+with 100 not with some one 2 three
+whatever the start you have pointed then
+
+1340
+00:32:00,549 --> 00:32:00,559
+whatever the start you have pointed then
+ 
+
+1341
+00:32:00,559 --> 00:32:02,549
+whatever the start you have pointed then
+again it say that hey give me next 12
+
+1342
+00:32:02,549 --> 00:32:02,559
+again it say that hey give me next 12
+ 
+
+1343
+00:32:02,559 --> 00:32:09,190
+again it say that hey give me next 12
+then increment by 25 125 150 175 200
+
+1344
+00:32:09,190 --> 00:32:09,200
+then increment by 25 125 150 175 200
+ 
+
+1345
+00:32:09,200 --> 00:32:13,509
+then increment by 25 125 150 175 200
+like this it will go till it reach Max
+
+1346
+00:32:13,509 --> 00:32:13,519
+like this it will go till it reach Max
+ 
+
+1347
+00:32:13,519 --> 00:32:17,350
+like this it will go till it reach Max
+9999 after that we can tell what to do
+
+1348
+00:32:17,350 --> 00:32:17,360
+9999 after that we can tell what to do
+ 
+
+1349
+00:32:17,360 --> 00:32:21,389
+9999 after that we can tell what to do
+okay whether we want I think a cycle or
+
+1350
+00:32:21,389 --> 00:32:21,399
+okay whether we want I think a cycle or
+ 
+
+1351
+00:32:21,399 --> 00:32:25,430
+okay whether we want I think a cycle or
+no cycle means after that don't again go
+
+1352
+00:32:25,430 --> 00:32:25,440
+no cycle means after that don't again go
+ 
+
+1353
+00:32:25,440 --> 00:32:29,789
+no cycle means after that don't again go
+to 100 okay or after that to stop it
+
+1354
+00:32:29,789 --> 00:32:29,799
+to 100 okay or after that to stop it
+ 
+
+1355
+00:32:29,799 --> 00:32:34,310
+to 100 okay or after that to stop it
+okay so we can provide this also it has
+
+1356
+00:32:34,310 --> 00:32:34,320
+okay so we can provide this also it has
+ 
+
+1357
+00:32:34,320 --> 00:32:37,230
+okay so we can provide this also it has
+feature that we can cache it can
+
+1358
+00:32:37,230 --> 00:32:37,240
+feature that we can cache it can
+ 
+
+1359
+00:32:37,240 --> 00:32:38,750
+feature that we can cache it can
+generate
+
+1360
+00:32:38,750 --> 00:32:38,760
+generate
+ 
+
+1361
+00:32:38,760 --> 00:32:43,310
+generate
+uh hiet can generate let's say 50 values
+
+1362
+00:32:43,310 --> 00:32:43,320
+uh hiet can generate let's say 50 values
+ 
+
+1363
+00:32:43,320 --> 00:32:45,629
+uh hiet can generate let's say 50 values
+only in the one time itself it can ask
+
+1364
+00:32:45,629 --> 00:32:45,639
+only in the one time itself it can ask
+ 
+
+1365
+00:32:45,639 --> 00:32:47,389
+only in the one time itself it can ask
+the sequence that hey generate 50 values
+
+1366
+00:32:47,389 --> 00:32:47,399
+the sequence that hey generate 50 values
+ 
+
+1367
+00:32:47,399 --> 00:32:50,430
+the sequence that hey generate 50 values
+and give it to me and hbanet can cash it
+
+1368
+00:32:50,430 --> 00:32:50,440
+and give it to me and hbanet can cash it
+ 
+
+1369
+00:32:50,440 --> 00:32:53,310
+and give it to me and hbanet can cash it
+in its memory so that every time it need
+
+1370
+00:32:53,310 --> 00:32:53,320
+in its memory so that every time it need
+ 
+
+1371
+00:32:53,320 --> 00:32:55,190
+in its memory so that every time it need
+one unique value it don't have to ask
+
+1372
+00:32:55,190 --> 00:32:55,200
+one unique value it don't have to ask
+ 
+
+1373
+00:32:55,200 --> 00:32:56,789
+one unique value it don't have to ask
+the sequence that hey give me give me
+
+1374
+00:32:56,789 --> 00:32:56,799
+the sequence that hey give me give me
+ 
+
+1375
+00:32:56,799 --> 00:32:58,470
+the sequence that hey give me give me
+give me next Val
+
+1376
+00:32:58,470 --> 00:32:58,480
+give me next Val
+ 
+
+1377
+00:32:58,480 --> 00:33:00,549
+give me next Val
+so you can save some DB
+
+1378
+00:33:00,549 --> 00:33:00,559
+so you can save some DB
+ 
+
+1379
+00:33:00,559 --> 00:33:03,029
+so you can save some DB
+hit you can simply directly ask hey give
+
+1380
+00:33:03,029 --> 00:33:03,039
+hit you can simply directly ask hey give
+ 
+
+1381
+00:33:03,039 --> 00:33:04,909
+hit you can simply directly ask hey give
+me 50 value give me 100 values it will
+
+1382
+00:33:04,909 --> 00:33:04,919
+me 50 value give me 100 values it will
+ 
+
+1383
+00:33:04,919 --> 00:33:08,029
+me 50 value give me 100 values it will
+generate it and send it to you and hnet
+
+1384
+00:33:08,029 --> 00:33:08,039
+generate it and send it to you and hnet
+ 
+
+1385
+00:33:08,039 --> 00:33:10,669
+generate it and send it to you and hnet
+can store it so it also has that
+
+1386
+00:33:10,669 --> 00:33:10,679
+can store it so it also has that
+ 
+
+1387
+00:33:10,679 --> 00:33:13,310
+can store it so it also has that
+capability so how to define it into the
+
+1388
+00:33:13,310 --> 00:33:13,320
+capability so how to define it into the
+ 
+
+1389
+00:33:13,320 --> 00:33:16,190
+capability so how to define it into the
+entity let's see that how to do that I
+
+1390
+00:33:16,190 --> 00:33:16,200
+entity let's see that how to do that I
+ 
+
+1391
+00:33:16,200 --> 00:33:18,269
+entity let's see that how to do that I
+am creating a new entity
+
+1392
+00:33:18,269 --> 00:33:18,279
+am creating a new entity
+ 
+
+1393
+00:33:18,279 --> 00:33:21,110
+am creating a new entity
+class at theate ID so I have this three
+
+1394
+00:33:21,110 --> 00:33:21,120
+class at theate ID so I have this three
+ 
+
+1395
+00:33:21,120 --> 00:33:23,990
+class at theate ID so I have this three
+field and for this ID I want a sequence
+
+1396
+00:33:23,990 --> 00:33:24,000
+field and for this ID I want a sequence
+ 
+
+1397
+00:33:24,000 --> 00:33:27,470
+field and for this ID I want a sequence
+generator like how we do it so how to do
+
+1398
+00:33:27,470 --> 00:33:27,480
+generator like how we do it so how to do
+ 
+
+1399
+00:33:27,480 --> 00:33:28,990
+generator like how we do it so how to do
+that first let's create a sequence
+
+1400
+00:33:28,990 --> 00:33:29,000
+that first let's create a sequence
+ 
+
+1401
+00:33:29,000 --> 00:33:30,950
+that first let's create a sequence
+generator so at theate sequence
+
+1402
+00:33:30,950 --> 00:33:30,960
+generator so at theate sequence
+ 
+
+1403
+00:33:30,960 --> 00:33:32,509
+generator so at theate sequence
+generator is The annotation which we
+
+1404
+00:33:32,509 --> 00:33:32,519
+generator is The annotation which we
+ 
+
+1405
+00:33:32,519 --> 00:33:33,710
+generator is The annotation which we
+have to
+
+1406
+00:33:33,710 --> 00:33:33,720
+have to
+ 
+
+1407
+00:33:33,720 --> 00:33:39,310
+have to
+use this is the name first field name
+
+1408
+00:33:39,310 --> 00:33:39,320
+use this is the name first field name
+ 
+
+1409
+00:33:39,320 --> 00:33:43,750
+use this is the name first field name
+is the unique name but for the jpa which
+
+1410
+00:33:43,750 --> 00:33:43,760
+is the unique name but for the jpa which
+ 
+
+1411
+00:33:43,760 --> 00:33:45,669
+is the unique name but for the jpa which
+in the Java classes you can use
+
+1412
+00:33:45,669 --> 00:33:45,679
+in the Java classes you can use
+ 
+
+1413
+00:33:45,679 --> 00:33:48,629
+in the Java classes you can use
+different entity you can use okay the
+
+1414
+00:33:48,629 --> 00:33:48,639
+different entity you can use okay the
+ 
+
+1415
+00:33:48,639 --> 00:33:51,389
+different entity you can use okay the
+first is the name unique any name you
+
+1416
+00:33:51,389 --> 00:33:51,399
+first is the name unique any name you
+ 
+
+1417
+00:33:51,399 --> 00:33:55,990
+first is the name unique any name you
+can provide and it can be used uh within
+
+1418
+00:33:55,990 --> 00:33:56,000
+can provide and it can be used uh within
+ 
+
+1419
+00:33:56,000 --> 00:33:58,230
+can provide and it can be used uh within
+the classes itself
+
+1420
+00:33:58,230 --> 00:33:58,240
+the classes itself
+ 
+
+1421
+00:33:58,240 --> 00:34:00,590
+the classes itself
+then second field is sequence name this
+
+1422
+00:34:00,590 --> 00:34:00,600
+then second field is sequence name this
+ 
+
+1423
+00:34:00,600 --> 00:34:02,470
+then second field is sequence name this
+is the name which ultimately goes to the
+
+1424
+00:34:02,470 --> 00:34:02,480
+is the name which ultimately goes to the
+ 
+
+1425
+00:34:02,480 --> 00:34:06,110
+is the name which ultimately goes to the
+DB in the DB what name you want for this
+
+1426
+00:34:06,110 --> 00:34:06,120
+DB in the DB what name you want for this
+ 
+
+1427
+00:34:06,120 --> 00:34:09,069
+DB in the DB what name you want for this
+sequence so that will go or let's say
+
+1428
+00:34:09,069 --> 00:34:09,079
+sequence so that will go or let's say
+ 
+
+1429
+00:34:09,079 --> 00:34:10,990
+sequence so that will go or let's say
+that in DB you have already created the
+
+1430
+00:34:10,990 --> 00:34:11,000
+that in DB you have already created the
+ 
+
+1431
+00:34:11,000 --> 00:34:14,349
+that in DB you have already created the
+sequence yourself and now you want it to
+
+1432
+00:34:14,349 --> 00:34:14,359
+sequence yourself and now you want it to
+ 
+
+1433
+00:34:14,359 --> 00:34:16,230
+sequence yourself and now you want it to
+attach to this sequence generator then
+
+1434
+00:34:16,230 --> 00:34:16,240
+attach to this sequence generator then
+ 
+
+1435
+00:34:16,240 --> 00:34:17,990
+attach to this sequence generator then
+you can provide the sequence name so
+
+1436
+00:34:17,990 --> 00:34:18,000
+you can provide the sequence name so
+ 
+
+1437
+00:34:18,000 --> 00:34:20,149
+you can provide the sequence name so
+from DB it will not create new it will
+
+1438
+00:34:20,149 --> 00:34:20,159
+from DB it will not create new it will
+ 
+
+1439
+00:34:20,159 --> 00:34:23,470
+from DB it will not create new it will
+use that DB name one if it already has
+
+1440
+00:34:23,470 --> 00:34:23,480
+use that DB name one if it already has
+ 
+
+1441
+00:34:23,480 --> 00:34:25,869
+use that DB name one if it already has
+if it don't have it will create
+
+1442
+00:34:25,869 --> 00:34:25,879
+if it don't have it will create
+ 
+
+1443
+00:34:25,879 --> 00:34:28,310
+if it don't have it will create
+new initial value
+
+1444
+00:34:28,310 --> 00:34:28,320
+new initial value
+ 
+
+1445
+00:34:28,320 --> 00:34:30,109
+new initial value
+from where it will
+
+1446
+00:34:30,109 --> 00:34:30,119
+from where it will
+ 
+
+1447
+00:34:30,119 --> 00:34:33,190
+from where it will
+start allocation size this is like
+
+1448
+00:34:33,190 --> 00:34:33,200
+start allocation size this is like
+ 
+
+1449
+00:34:33,200 --> 00:34:36,790
+start allocation size this is like
+hibernate is asking that hey uh generate
+
+1450
+00:34:36,790 --> 00:34:36,800
+hibernate is asking that hey uh generate
+ 
+
+1451
+00:34:36,800 --> 00:34:39,430
+hibernate is asking that hey uh generate
+five values five unique values and give
+
+1452
+00:34:39,430 --> 00:34:39,440
+five values five unique values and give
+ 
+
+1453
+00:34:39,440 --> 00:34:43,869
+five values five unique values and give
+it to me so now you can say that when
+
+1454
+00:34:43,869 --> 00:34:43,879
+it to me so now you can say that when
+ 
+
+1455
+00:34:43,879 --> 00:34:46,470
+it to me so now you can say that when
+you have writing a direct SQL query you
+
+1456
+00:34:46,470 --> 00:34:46,480
+you have writing a direct SQL query you
+ 
+
+1457
+00:34:46,480 --> 00:34:49,389
+you have writing a direct SQL query you
+have more control over max value you
+
+1458
+00:34:49,389 --> 00:34:49,399
+have more control over max value you
+ 
+
+1459
+00:34:49,399 --> 00:34:52,310
+have more control over max value you
+have more control over like uh what is
+
+1460
+00:34:52,310 --> 00:34:52,320
+have more control over like uh what is
+ 
+
+1461
+00:34:52,320 --> 00:34:55,790
+have more control over like uh what is
+the increment by 2550 or on so here at
+
+1462
+00:34:55,790 --> 00:34:55,800
+the increment by 2550 or on so here at
+ 
+
+1463
+00:34:55,800 --> 00:34:57,349
+the increment by 2550 or on so here at
+theate sequence generator there are not
+
+1464
+00:34:57,349 --> 00:34:57,359
+theate sequence generator there are not
+ 
+
+1465
+00:34:57,359 --> 00:35:01,990
+theate sequence generator there are not
+much field only this so 100 after that
+
+1466
+00:35:01,990 --> 00:35:02,000
+much field only this so 100 after that
+ 
+
+1467
+00:35:02,000 --> 00:35:06,150
+much field only this so 100 after that
+it will increment by one 100 1 1002 1003
+
+1468
+00:35:06,150 --> 00:35:06,160
+it will increment by one 100 1 1002 1003
+ 
+
+1469
+00:35:06,160 --> 00:35:09,230
+it will increment by one 100 1 1002 1003
+like this it will go okay but it provide
+
+1470
+00:35:09,230 --> 00:35:09,240
+like this it will go okay but it provide
+ 
+
+1471
+00:35:09,240 --> 00:35:11,750
+like this it will go okay but it provide
+us the capability that you uh hiet can
+
+1472
+00:35:11,750 --> 00:35:11,760
+us the capability that you uh hiet can
+ 
+
+1473
+00:35:11,760 --> 00:35:14,990
+us the capability that you uh hiet can
+tell in a single shot generate this five
+
+1474
+00:35:14,990 --> 00:35:15,000
+tell in a single shot generate this five
+ 
+
+1475
+00:35:15,000 --> 00:35:16,910
+tell in a single shot generate this five
+unique values give it to me and it will
+
+1476
+00:35:16,910 --> 00:35:16,920
+unique values give it to me and it will
+ 
+
+1477
+00:35:16,920 --> 00:35:19,230
+unique values give it to me and it will
+cash
+
+1478
+00:35:19,230 --> 00:35:19,240
+
+ 
+
+1479
+00:35:19,240 --> 00:35:22,710
+
+it okay so this is first sequence
+
+1480
+00:35:22,710 --> 00:35:22,720
+it okay so this is first sequence
+ 
+
+1481
+00:35:22,720 --> 00:35:24,510
+it okay so this is first sequence
+generator now we put at the rate
+
+1482
+00:35:24,510 --> 00:35:24,520
+generator now we put at the rate
+ 
+
+1483
+00:35:24,520 --> 00:35:27,109
+generator now we put at the rate
+generated value now the strategy which
+
+1484
+00:35:27,109 --> 00:35:27,119
+generated value now the strategy which
+ 
+
+1485
+00:35:27,119 --> 00:35:29,829
+generated value now the strategy which
+we are using is sequence and Generator
+
+1486
+00:35:29,829 --> 00:35:29,839
+we are using is sequence and Generator
+ 
+
+1487
+00:35:29,839 --> 00:35:33,030
+we are using is sequence and Generator
+which we are using is this one
+
+1488
+00:35:33,030 --> 00:35:33,040
+which we are using is this one
+ 
+
+1489
+00:35:33,040 --> 00:35:36,230
+which we are using is this one
+this okay so now the they both got
+
+1490
+00:35:36,230 --> 00:35:36,240
+this okay so now the they both got
+ 
+
+1491
+00:35:36,240 --> 00:35:38,109
+this okay so now the they both got
+linked with
+
+1492
+00:35:38,109 --> 00:35:38,119
+linked with
+ 
+
+1493
+00:35:38,119 --> 00:35:42,030
+linked with
+this so now when you start an
+
+1494
+00:35:42,030 --> 00:35:42,040
+this so now when you start an
+ 
+
+1495
+00:35:42,040 --> 00:35:46,230
+this so now when you start an
+application right uh so
+
+1496
+00:35:46,230 --> 00:35:46,240
+
+ 
+
+1497
+00:35:46,240 --> 00:35:49,309
+
+here first time I
+
+1498
+00:35:49,309 --> 00:35:49,319
+here first time I
+ 
+
+1499
+00:35:49,319 --> 00:35:53,309
+here first time I
+hit what idea I got 100 not one because
+
+1500
+00:35:53,309 --> 00:35:53,319
+hit what idea I got 100 not one because
+ 
+
+1501
+00:35:53,319 --> 00:35:55,309
+hit what idea I got 100 not one because
+I have told like what is the initial
+
+1502
+00:35:55,309 --> 00:35:55,319
+I have told like what is the initial
+ 
+
+1503
+00:35:55,319 --> 00:35:58,990
+I have told like what is the initial
+value second time I hit I got one1
+
+1504
+00:35:58,990 --> 00:35:59,000
+value second time I hit I got one1
+ 
+
+1505
+00:35:59,000 --> 00:36:00,870
+value second time I hit I got one1
+because here in the sequence generator
+
+1506
+00:36:00,870 --> 00:36:00,880
+because here in the sequence generator
+ 
+
+1507
+00:36:00,880 --> 00:36:02,829
+because here in the sequence generator
+we don't have a capability to tell
+
+1508
+00:36:02,829 --> 00:36:02,839
+we don't have a capability to tell
+ 
+
+1509
+00:36:02,839 --> 00:36:05,030
+we don't have a capability to tell
+increment so it's always increment by
+
+1510
+00:36:05,030 --> 00:36:05,040
+increment so it's always increment by
+ 
+
+1511
+00:36:05,040 --> 00:36:09,190
+increment so it's always increment by
+one only and in DB it will go like
+
+1512
+00:36:09,190 --> 00:36:09,200
+one only and in DB it will go like
+ 
+
+1513
+00:36:09,200 --> 00:36:11,390
+one only and in DB it will go like
+this okay so these I have already
+
+1514
+00:36:11,390 --> 00:36:11,400
+this okay so these I have already
+ 
+
+1515
+00:36:11,400 --> 00:36:13,109
+this okay so these I have already
+explained you what is name sequence name
+
+1516
+00:36:13,109 --> 00:36:13,119
+explained you what is name sequence name
+ 
+
+1517
+00:36:13,119 --> 00:36:14,950
+explained you what is name sequence name
+initial value allocation
+
+1518
+00:36:14,950 --> 00:36:14,960
+initial value allocation
+ 
+
+1519
+00:36:14,960 --> 00:36:18,230
+initial value allocation
+size so here if you see allocation size
+
+1520
+00:36:18,230 --> 00:36:18,240
+size so here if you see allocation size
+ 
+
+1521
+00:36:18,240 --> 00:36:21,710
+size so here if you see allocation size
+I have given five right here in this
+
+1522
+00:36:21,710 --> 00:36:21,720
+I have given five right here in this
+ 
+
+1523
+00:36:21,720 --> 00:36:26,230
+I have given five right here in this
+one so now see this so I am hitting five
+
+1524
+00:36:26,230 --> 00:36:26,240
+one so now see this so I am hitting five
+ 
+
+1525
+00:36:26,240 --> 00:36:30,670
+one so now see this so I am hitting five
+time insert so first time it did insert
+
+1526
+00:36:30,670 --> 00:36:30,680
+time insert so first time it did insert
+ 
+
+1527
+00:36:30,680 --> 00:36:36,790
+time insert so first time it did insert
+100 second time 101 1002 103
+
+1528
+00:36:36,790 --> 00:36:36,800
+100 second time 101 1002 103
+ 
+
+1529
+00:36:36,800 --> 00:36:42,109
+100 second time 101 1002 103
+104 right so 3 4 five insert happen no
+
+1530
+00:36:42,109 --> 00:36:42,119
+104 right so 3 4 five insert happen no
+ 
+
+1531
+00:36:42,119 --> 00:36:45,270
+104 right so 3 4 five insert happen no
+DB call has been made okay after that
+
+1532
+00:36:45,270 --> 00:36:45,280
+DB call has been made okay after that
+ 
+
+1533
+00:36:45,280 --> 00:36:47,710
+DB call has been made okay after that
+when sixth time I am doing
+
+1534
+00:36:47,710 --> 00:36:47,720
+when sixth time I am doing
+ 
+
+1535
+00:36:47,720 --> 00:36:54,710
+when sixth time I am doing
+insert okay before that it make
+
+1536
+00:36:54,710 --> 00:36:54,720
+
+ 
+
+1537
+00:36:54,720 --> 00:36:58,230
+
+one next value with the quence DB
+
+1538
+00:36:58,230 --> 00:36:58,240
+one next value with the quence DB
+ 
+
+1539
+00:36:58,240 --> 00:37:01,589
+one next value with the quence DB
+sequence name okay hibernate will fetch
+
+1540
+00:37:01,589 --> 00:37:01,599
+sequence name okay hibernate will fetch
+ 
+
+1541
+00:37:01,599 --> 00:37:03,790
+sequence name okay hibernate will fetch
+another five
+
+1542
+00:37:03,790 --> 00:37:03,800
+another five
+ 
+
+1543
+00:37:03,800 --> 00:37:08,030
+another five
+values okay so that's where it says that
+
+1544
+00:37:08,030 --> 00:37:08,040
+values okay so that's where it says that
+ 
+
+1545
+00:37:08,040 --> 00:37:12,990
+values okay so that's where it says that
+sequence helps in caching so that we can
+
+1546
+00:37:12,990 --> 00:37:13,000
+sequence helps in caching so that we can
+ 
+
+1547
+00:37:13,000 --> 00:37:13,870
+sequence helps in caching so that we can
+cash
+
+1548
+00:37:13,870 --> 00:37:13,880
+cash
+ 
+
+1549
+00:37:13,880 --> 00:37:17,550
+cash
+certain prefetch values unique values
+
+1550
+00:37:17,550 --> 00:37:17,560
+certain prefetch values unique values
+ 
+
+1551
+00:37:17,560 --> 00:37:20,790
+certain prefetch values unique values
+and you can use it okay uh from the
+
+1552
+00:37:20,790 --> 00:37:20,800
+and you can use it okay uh from the
+ 
+
+1553
+00:37:20,800 --> 00:37:22,790
+and you can use it okay uh from the
+cache you don't have to every time go
+
+1554
+00:37:22,790 --> 00:37:22,800
+cache you don't have to every time go
+ 
+
+1555
+00:37:22,800 --> 00:37:24,589
+cache you don't have to every time go
+and check with the DB that he give me
+
+1556
+00:37:24,589 --> 00:37:24,599
+and check with the DB that he give me
+ 
+
+1557
+00:37:24,599 --> 00:37:26,230
+and check with the DB that he give me
+one unique
+
+1558
+00:37:26,230 --> 00:37:26,240
+one unique
+ 
+
+1559
+00:37:26,240 --> 00:37:29,349
+one unique
+value okay so that is also one of the
+
+1560
+00:37:29,349 --> 00:37:29,359
+value okay so that is also one of the
+ 
+
+1561
+00:37:29,359 --> 00:37:31,630
+value okay so that is also one of the
+advantage of the sequence so here I can
+
+1562
+00:37:31,630 --> 00:37:31,640
+advantage of the sequence so here I can
+ 
+
+1563
+00:37:31,640 --> 00:37:35,630
+advantage of the sequence so here I can
+show you here in the this one so let's
+
+1564
+00:37:35,630 --> 00:37:35,640
+show you here in the this one so let's
+ 
+
+1565
+00:37:35,640 --> 00:37:36,550
+show you here in the this one so let's
+see
+
+1566
+00:37:36,550 --> 00:37:36,560
+see
+ 
+
+1567
+00:37:36,560 --> 00:37:41,470
+see
+that generated value sequence let's
+
+1568
+00:37:41,470 --> 00:37:41,480
+
+ 
+
+1569
+00:37:41,480 --> 00:37:45,390
+
+say So currently application is not uh
+
+1570
+00:37:45,390 --> 00:37:45,400
+say So currently application is not uh
+ 
+
+1571
+00:37:45,400 --> 00:37:49,589
+say So currently application is not uh
+running so I am creating a sequence
+
+1572
+00:37:49,589 --> 00:37:49,599
+running so I am creating a sequence
+ 
+
+1573
+00:37:49,599 --> 00:37:54,030
+running so I am creating a sequence
+generator name I am giving some
+
+1574
+00:37:54,030 --> 00:37:54,040
+generator name I am giving some
+ 
+
+1575
+00:37:54,040 --> 00:37:55,710
+generator name I am giving some
+unique
+
+1576
+00:37:55,710 --> 00:37:55,720
+unique
+ 
+
+1577
+00:37:55,720 --> 00:37:59,349
+unique
+unique um us user details anything this
+
+1578
+00:37:59,349 --> 00:37:59,359
+unique um us user details anything this
+ 
+
+1579
+00:37:59,359 --> 00:38:00,470
+unique um us user details anything this
+is for
+
+1580
+00:38:00,470 --> 00:38:00,480
+is for
+ 
+
+1581
+00:38:00,480 --> 00:38:04,710
+is for
+entity but in the DB I want name like
+
+1582
+00:38:04,710 --> 00:38:04,720
+entity but in the DB I want name like
+ 
+
+1583
+00:38:04,720 --> 00:38:08,670
+entity but in the DB I want name like
+user undor SQ I want this name in the DB
+
+1584
+00:38:08,670 --> 00:38:08,680
+user undor SQ I want this name in the DB
+ 
+
+1585
+00:38:08,680 --> 00:38:09,829
+user undor SQ I want this name in the DB
+for this
+
+1586
+00:38:09,829 --> 00:38:09,839
+for this
+ 
+
+1587
+00:38:09,839 --> 00:38:13,309
+for this
+sequence okay and initial value I want
+
+1588
+00:38:13,309 --> 00:38:13,319
+sequence okay and initial value I want
+ 
+
+1589
+00:38:13,319 --> 00:38:16,950
+sequence okay and initial value I want
+it to start with 200 and allocation size
+
+1590
+00:38:16,950 --> 00:38:16,960
+it to start with 200 and allocation size
+ 
+
+1591
+00:38:16,960 --> 00:38:21,950
+it to start with 200 and allocation size
+I want three so in in one time it makes
+
+1592
+00:38:21,950 --> 00:38:21,960
+I want three so in in one time it makes
+ 
+
+1593
+00:38:21,960 --> 00:38:24,030
+I want three so in in one time it makes
+a DB query three queries it will
+
+1594
+00:38:24,030 --> 00:38:24,040
+a DB query three queries it will
+ 
+
+1595
+00:38:24,040 --> 00:38:28,470
+a DB query three queries it will
+generate okay and this and this ID I
+
+1596
+00:38:28,470 --> 00:38:28,480
+generate okay and this and this ID I
+ 
+
+1597
+00:38:28,480 --> 00:38:31,109
+generate okay and this and this ID I
+will link it with this generator equals
+
+1598
+00:38:31,109 --> 00:38:31,119
+will link it with this generator equals
+ 
+
+1599
+00:38:31,119 --> 00:38:33,270
+will link it with this generator equals
+to this
+
+1600
+00:38:33,270 --> 00:38:33,280
+to this
+ 
+
+1601
+00:38:33,280 --> 00:38:36,550
+to this
+name okay so now they are link now I am
+
+1602
+00:38:36,550 --> 00:38:36,560
+name okay so now they are link now I am
+ 
+
+1603
+00:38:36,560 --> 00:38:40,630
+name okay so now they are link now I am
+starting my
+
+1604
+00:38:40,630 --> 00:38:40,640
+
+ 
+
+1605
+00:38:40,640 --> 00:38:43,069
+
+application so now my application got
+
+1606
+00:38:43,069 --> 00:38:43,079
+application so now my application got
+ 
+
+1607
+00:38:43,079 --> 00:38:45,910
+application so now my application got
+started now let's
+
+1608
+00:38:45,910 --> 00:38:45,920
+started now let's
+ 
+
+1609
+00:38:45,920 --> 00:38:48,510
+started now let's
+see so here if you see the one sequence
+
+1610
+00:38:48,510 --> 00:38:48,520
+see so here if you see the one sequence
+ 
+
+1611
+00:38:48,520 --> 00:38:49,309
+see so here if you see the one sequence
+is
+
+1612
+00:38:49,309 --> 00:38:49,319
+is
+ 
+
+1613
+00:38:49,319 --> 00:38:51,710
+is
+created what is the sequence name user
+
+1614
+00:38:51,710 --> 00:38:51,720
+created what is the sequence name user
+ 
+
+1615
+00:38:51,720 --> 00:38:54,790
+created what is the sequence name user
+undor SQ right this is the name right
+
+1616
+00:38:54,790 --> 00:38:54,800
+undor SQ right this is the name right
+ 
+
+1617
+00:38:54,800 --> 00:38:56,990
+undor SQ right this is the name right
+user unor SQ I have given this is the
+
+1618
+00:38:56,990 --> 00:38:57,000
+user unor SQ I have given this is the
+ 
+
+1619
+00:38:57,000 --> 00:39:00,790
+user unor SQ I have given this is the
+name DB name initial value
+
+1620
+00:39:00,790 --> 00:39:00,800
+name DB name initial value
+ 
+
+1621
+00:39:00,800 --> 00:39:06,030
+name DB name initial value
+is 200 and increment by three so
+
+1622
+00:39:06,030 --> 00:39:06,040
+is 200 and increment by three so
+ 
+
+1623
+00:39:06,040 --> 00:39:08,390
+is 200 and increment by three so
+generally here this is wrong like
+
+1624
+00:39:08,390 --> 00:39:08,400
+generally here this is wrong like
+ 
+
+1625
+00:39:08,400 --> 00:39:09,750
+generally here this is wrong like
+incremented is
+
+1626
+00:39:09,750 --> 00:39:09,760
+incremented is
+ 
+
+1627
+00:39:09,760 --> 00:39:12,190
+incremented is
+one allocation size I have provided
+
+1628
+00:39:12,190 --> 00:39:12,200
+one allocation size I have provided
+ 
+
+1629
+00:39:12,200 --> 00:39:14,750
+one allocation size I have provided
+three here in hnet allocation size means
+
+1630
+00:39:14,750 --> 00:39:14,760
+three here in hnet allocation size means
+ 
+
+1631
+00:39:14,760 --> 00:39:17,750
+three here in hnet allocation size means
+in the three three chunk whenever any it
+
+1632
+00:39:17,750 --> 00:39:17,760
+in the three three chunk whenever any it
+ 
+
+1633
+00:39:17,760 --> 00:39:19,910
+in the three three chunk whenever any it
+it will make a query for the
+
+1634
+00:39:19,910 --> 00:39:19,920
+it will make a query for the
+ 
+
+1635
+00:39:19,920 --> 00:39:22,870
+it will make a query for the
+sequence it will get three IDs in return
+
+1636
+00:39:22,870 --> 00:39:22,880
+sequence it will get three IDs in return
+ 
+
+1637
+00:39:22,880 --> 00:39:24,030
+sequence it will get three IDs in return
+and store
+
+1638
+00:39:24,030 --> 00:39:24,040
+and store
+ 
+
+1639
+00:39:24,040 --> 00:39:26,790
+and store
+it okay now let's say that the first
+
+1640
+00:39:26,790 --> 00:39:26,800
+it okay now let's say that the first
+ 
+
+1641
+00:39:26,800 --> 00:39:31,390
+it okay now let's say that the first
+time I am making a post call let's say
+
+1642
+00:39:31,390 --> 00:39:31,400
+time I am making a post call let's say
+ 
+
+1643
+00:39:31,400 --> 00:39:34,150
+time I am making a post call let's say
+a so when I am hitting it it is started
+
+1644
+00:39:34,150 --> 00:39:34,160
+a so when I am hitting it it is started
+ 
+
+1645
+00:39:34,160 --> 00:39:36,069
+a so when I am hitting it it is started
+with ID 200
+
+1646
+00:39:36,069 --> 00:39:36,079
+with ID 200
+ 
+
+1647
+00:39:36,079 --> 00:39:41,309
+with ID 200
+100 okay so if we see the
+
+1648
+00:39:41,309 --> 00:39:41,319
+
+ 
+
+1649
+00:39:41,319 --> 00:39:44,589
+
+log so first time it make a
+
+1650
+00:39:44,589 --> 00:39:44,599
+log so first time it make a
+ 
+
+1651
+00:39:44,599 --> 00:39:47,870
+log so first time it make a
+query hey give me the because the insert
+
+1652
+00:39:47,870 --> 00:39:47,880
+query hey give me the because the insert
+ 
+
+1653
+00:39:47,880 --> 00:39:49,150
+query hey give me the because the insert
+we are doing the insert for the first
+
+1654
+00:39:49,150 --> 00:39:49,160
+we are doing the insert for the first
+ 
+
+1655
+00:39:49,160 --> 00:39:52,829
+we are doing the insert for the first
+time right so it will make One DB query
+
+1656
+00:39:52,829 --> 00:39:52,839
+time right so it will make One DB query
+ 
+
+1657
+00:39:52,839 --> 00:39:55,390
+time right so it will make One DB query
+to take out the sequence from the DB
+
+1658
+00:39:55,390 --> 00:39:55,400
+to take out the sequence from the DB
+ 
+
+1659
+00:39:55,400 --> 00:39:57,710
+to take out the sequence from the DB
+unique sequence and the allocation size
+
+1660
+00:39:57,710 --> 00:39:57,720
+unique sequence and the allocation size
+ 
+
+1661
+00:39:57,720 --> 00:39:59,990
+unique sequence and the allocation size
+I have given three so means three IDs it
+
+1662
+00:39:59,990 --> 00:40:00,000
+I have given three so means three IDs it
+ 
+
+1663
+00:40:00,000 --> 00:40:03,230
+I have given three so means three IDs it
+has got and stored it so then it
+
+1664
+00:40:03,230 --> 00:40:03,240
+has got and stored it so then it
+ 
+
+1665
+00:40:03,240 --> 00:40:06,030
+has got and stored it so then it
+inserted it then I hit another two times
+
+1666
+00:40:06,030 --> 00:40:06,040
+inserted it then I hit another two times
+ 
+
+1667
+00:40:06,040 --> 00:40:09,390
+inserted it then I hit another two times
+1 2 so now here if you see it does
+
+1668
+00:40:09,390 --> 00:40:09,400
+1 2 so now here if you see it does
+ 
+
+1669
+00:40:09,400 --> 00:40:15,150
+1 2 so now here if you see it does
+insert does insert but it do not make
+
+1670
+00:40:15,150 --> 00:40:15,160
+insert does insert but it do not make
+ 
+
+1671
+00:40:15,160 --> 00:40:18,109
+insert does insert but it do not make
+any query for the sequence to give any
+
+1672
+00:40:18,109 --> 00:40:18,119
+any query for the sequence to give any
+ 
+
+1673
+00:40:18,119 --> 00:40:20,670
+any query for the sequence to give any
+value because it already has now the
+
+1674
+00:40:20,670 --> 00:40:20,680
+value because it already has now the
+ 
+
+1675
+00:40:20,680 --> 00:40:23,750
+value because it already has now the
+fourth time I do here if you
+
+1676
+00:40:23,750 --> 00:40:23,760
+fourth time I do here if you
+ 
+
+1677
+00:40:23,760 --> 00:40:28,069
+fourth time I do here if you
+see it makes one query select next value
+
+1678
+00:40:28,069 --> 00:40:28,079
+see it makes one query select next value
+ 
+
+1679
+00:40:28,079 --> 00:40:32,910
+see it makes one query select next value
+from user _ sequence okay and then it do
+
+1680
+00:40:32,910 --> 00:40:32,920
+from user _ sequence okay and then it do
+ 
+
+1681
+00:40:32,920 --> 00:40:36,430
+from user _ sequence okay and then it do
+does insert now again another two times
+
+1682
+00:40:36,430 --> 00:40:36,440
+does insert now again another two times
+ 
+
+1683
+00:40:36,440 --> 00:40:39,430
+does insert now again another two times
+you won't see anything right so here if
+
+1684
+00:40:39,430 --> 00:40:39,440
+you won't see anything right so here if
+ 
+
+1685
+00:40:39,440 --> 00:40:42,510
+you won't see anything right so here if
+you see another two times you don't see
+
+1686
+00:40:42,510 --> 00:40:42,520
+you see another two times you don't see
+ 
+
+1687
+00:40:42,520 --> 00:40:44,870
+you see another two times you don't see
+anything and if you make now again you
+
+1688
+00:40:44,870 --> 00:40:44,880
+anything and if you make now again you
+ 
+
+1689
+00:40:44,880 --> 00:40:46,190
+anything and if you make now again you
+will
+
+1690
+00:40:46,190 --> 00:40:46,200
+will
+ 
+
+1691
+00:40:46,200 --> 00:40:49,150
+will
+see uh select query for the user
+
+1692
+00:40:49,150 --> 00:40:49,160
+see uh select query for the user
+ 
+
+1693
+00:40:49,160 --> 00:40:52,710
+see uh select query for the user
+sequence okay
+
+1694
+00:40:52,710 --> 00:40:52,720
+sequence okay
+ 
+
+1695
+00:40:52,720 --> 00:40:55,910
+sequence okay
+and you can ask me like hey sh what is
+
+1696
+00:40:55,910 --> 00:40:55,920
+and you can ask me like hey sh what is
+ 
+
+1697
+00:40:55,920 --> 00:40:58,069
+and you can ask me like hey sh what is
+the advantage of sequence over identity
+
+1698
+00:40:58,069 --> 00:40:58,079
+the advantage of sequence over identity
+ 
+
+1699
+00:40:58,079 --> 00:40:59,750
+the advantage of sequence over identity
+first thing I'll tell you that sequence
+
+1700
+00:40:59,750 --> 00:40:59,760
+first thing I'll tell you that sequence
+ 
+
+1701
+00:40:59,760 --> 00:41:02,270
+first thing I'll tell you that sequence
+is very important what many companies
+
+1702
+00:41:02,270 --> 00:41:02,280
+is very important what many companies
+ 
+
+1703
+00:41:02,280 --> 00:41:05,910
+is very important what many companies
+does is they have a separate very small
+
+1704
+00:41:05,910 --> 00:41:05,920
+does is they have a separate very small
+ 
+
+1705
+00:41:05,920 --> 00:41:10,270
+does is they have a separate very small
+microservice which expose some API and
+
+1706
+00:41:10,270 --> 00:41:10,280
+microservice which expose some API and
+ 
+
+1707
+00:41:10,280 --> 00:41:13,630
+microservice which expose some API and
+which many microservices are using it to
+
+1708
+00:41:13,630 --> 00:41:13,640
+which many microservices are using it to
+ 
+
+1709
+00:41:13,640 --> 00:41:17,270
+which many microservices are using it to
+generate sequence generate sequence
+
+1710
+00:41:17,270 --> 00:41:17,280
+generate sequence generate sequence
+ 
+
+1711
+00:41:17,280 --> 00:41:20,750
+generate sequence generate sequence
+generate sequence so one advantage we
+
+1712
+00:41:20,750 --> 00:41:20,760
+generate sequence so one advantage we
+ 
+
+1713
+00:41:20,760 --> 00:41:23,230
+generate sequence so one advantage we
+already see that this sequence right it
+
+1714
+00:41:23,230 --> 00:41:23,240
+already see that this sequence right it
+ 
+
+1715
+00:41:23,240 --> 00:41:26,230
+already see that this sequence right it
+is not tied up with very specific to a
+
+1716
+00:41:26,230 --> 00:41:26,240
+is not tied up with very specific to a
+ 
+
+1717
+00:41:26,240 --> 00:41:28,870
+is not tied up with very specific to a
+table it is a total separate logic and
+
+1718
+00:41:28,870 --> 00:41:28,880
+table it is a total separate logic and
+ 
+
+1719
+00:41:28,880 --> 00:41:30,990
+table it is a total separate logic and
+that's why it can be considered as a uh
+
+1720
+00:41:30,990 --> 00:41:31,000
+that's why it can be considered as a uh
+ 
+
+1721
+00:41:31,000 --> 00:41:34,589
+that's why it can be considered as a uh
+separate microservice and it takes a
+
+1722
+00:41:34,589 --> 00:41:34,599
+separate microservice and it takes a
+ 
+
+1723
+00:41:34,599 --> 00:41:36,829
+separate microservice and it takes a
+control and you can say that a
+
+1724
+00:41:36,829 --> 00:41:36,839
+control and you can say that a
+ 
+
+1725
+00:41:36,839 --> 00:41:40,630
+control and you can say that a
+centralized we can have all the logic
+
+1726
+00:41:40,630 --> 00:41:40,640
+centralized we can have all the logic
+ 
+
+1727
+00:41:40,640 --> 00:41:43,589
+centralized we can have all the logic
+which takes care of all the unique value
+
+1728
+00:41:43,589 --> 00:41:43,599
+which takes care of all the unique value
+ 
+
+1729
+00:41:43,599 --> 00:41:45,829
+which takes care of all the unique value
+uh key generation and it helps or
+
+1730
+00:41:45,829 --> 00:41:45,839
+uh key generation and it helps or
+ 
+
+1731
+00:41:45,839 --> 00:41:48,030
+uh key generation and it helps or
+fulfill all the different
+
+1732
+00:41:48,030 --> 00:41:48,040
+fulfill all the different
+ 
+
+1733
+00:41:48,040 --> 00:41:50,190
+fulfill all the different
+microservices so we can have custom
+
+1734
+00:41:50,190 --> 00:41:50,200
+microservices so we can have custom
+ 
+
+1735
+00:41:50,200 --> 00:41:51,950
+microservices so we can have custom
+logic one advantage of sequence over
+
+1736
+00:41:51,950 --> 00:41:51,960
+logic one advantage of sequence over
+ 
+
+1737
+00:41:51,960 --> 00:41:54,270
+logic one advantage of sequence over
+identities we can have custom logic
+
+1738
+00:41:54,270 --> 00:41:54,280
+identities we can have custom logic
+ 
+
+1739
+00:41:54,280 --> 00:41:56,870
+identities we can have custom logic
+sequence generation logic is independent
+
+1740
+00:41:56,870 --> 00:41:56,880
+sequence generation logic is independent
+ 
+
+1741
+00:41:56,880 --> 00:42:00,829
+sequence generation logic is independent
+of table so multiple table can use it
+
+1742
+00:42:00,829 --> 00:42:00,839
+of table so multiple table can use it
+ 
+
+1743
+00:42:00,839 --> 00:42:03,190
+of table so multiple table can use it
+right so even if you have 10
+
+1744
+00:42:03,190 --> 00:42:03,200
+right so even if you have 10
+ 
+
+1745
+00:42:03,200 --> 00:42:07,030
+right so even if you have 10
+tables those can use it like so it can
+
+1746
+00:42:07,030 --> 00:42:07,040
+tables those can use it like so it can
+ 
+
+1747
+00:42:07,040 --> 00:42:08,870
+tables those can use it like so it can
+helps to generate a unique number for
+
+1748
+00:42:08,870 --> 00:42:08,880
+helps to generate a unique number for
+ 
+
+1749
+00:42:08,880 --> 00:42:11,270
+helps to generate a unique number for
+those 10 it's not very specific tied up
+
+1750
+00:42:11,270 --> 00:42:11,280
+those 10 it's not very specific tied up
+ 
+
+1751
+00:42:11,280 --> 00:42:13,790
+those 10 it's not very specific tied up
+to a specific table in identity it is
+
+1752
+00:42:13,790 --> 00:42:13,800
+to a specific table in identity it is
+ 
+
+1753
+00:42:13,800 --> 00:42:15,670
+to a specific table in identity it is
+very tied up like Auto increment of a
+
+1754
+00:42:15,670 --> 00:42:15,680
+very tied up like Auto increment of a
+ 
+
+1755
+00:42:15,680 --> 00:42:17,309
+very tied up like Auto increment of a
+table so very tied
+
+1756
+00:42:17,309 --> 00:42:17,319
+table so very tied
+ 
+
+1757
+00:42:17,319 --> 00:42:20,829
+table so very tied
+up range of IDs can be cached so we can
+
+1758
+00:42:20,829 --> 00:42:20,839
+up range of IDs can be cached so we can
+ 
+
+1759
+00:42:20,839 --> 00:42:23,349
+up range of IDs can be cached so we can
+avoid hitting database each time a new
+
+1760
+00:42:23,349 --> 00:42:23,359
+avoid hitting database each time a new
+ 
+
+1761
+00:42:23,359 --> 00:42:25,230
+avoid hitting database each time a new
+ID is required another is better
+
+1762
+00:42:25,230 --> 00:42:25,240
+ID is required another is better
+ 
+
+1763
+00:42:25,240 --> 00:42:30,190
+ID is required another is better
+portability means identity is very DB
+
+1764
+00:42:30,190 --> 00:42:30,200
+portability means identity is very DB
+ 
+
+1765
+00:42:30,200 --> 00:42:33,549
+portability means identity is very DB
+specific some DB Auto increment is
+
+1766
+00:42:33,549 --> 00:42:33,559
+specific some DB Auto increment is
+ 
+
+1767
+00:42:33,559 --> 00:42:35,829
+specific some DB Auto increment is
+different maybe Oracle is different my
+
+1768
+00:42:35,829 --> 00:42:35,839
+different maybe Oracle is different my
+ 
+
+1769
+00:42:35,839 --> 00:42:38,069
+different maybe Oracle is different my
+SQL is different postgress is different
+
+1770
+00:42:38,069 --> 00:42:38,079
+SQL is different postgress is different
+ 
+
+1771
+00:42:38,079 --> 00:42:40,030
+SQL is different postgress is different
+how the auto auto increment
+
+1772
+00:42:40,030 --> 00:42:40,040
+how the auto auto increment
+ 
+
+1773
+00:42:40,040 --> 00:42:42,349
+how the auto auto increment
+works and let's say that today you are
+
+1774
+00:42:42,349 --> 00:42:42,359
+works and let's say that today you are
+ 
+
+1775
+00:42:42,359 --> 00:42:44,750
+works and let's say that today you are
+in Oracle and you wanted to move to my
+
+1776
+00:42:44,750 --> 00:42:44,760
+in Oracle and you wanted to move to my
+ 
+
+1777
+00:42:44,760 --> 00:42:47,390
+in Oracle and you wanted to move to my
+SQL their Auto auto increment Works
+
+1778
+00:42:47,390 --> 00:42:47,400
+SQL their Auto auto increment Works
+ 
+
+1779
+00:42:47,400 --> 00:42:51,349
+SQL their Auto auto increment Works
+totally different so portability brings
+
+1780
+00:42:51,349 --> 00:42:51,359
+totally different so portability brings
+ 
+
+1781
+00:42:51,359 --> 00:42:54,190
+totally different so portability brings
+an issue but if you're using sequence
+
+1782
+00:42:54,190 --> 00:42:54,200
+an issue but if you're using sequence
+ 
+
+1783
+00:42:54,200 --> 00:42:56,349
+an issue but if you're using sequence
+since you are taking the responsibility
+
+1784
+00:42:56,349 --> 00:42:56,359
+since you are taking the responsibility
+ 
+
+1785
+00:42:56,359 --> 00:42:57,829
+since you are taking the responsibility
+what should be the start how much should
+
+1786
+00:42:57,829 --> 00:42:57,839
+what should be the start how much should
+ 
+
+1787
+00:42:57,839 --> 00:42:59,910
+what should be the start how much should
+be increment what should be the end so
+
+1788
+00:42:59,910 --> 00:42:59,920
+be increment what should be the end so
+ 
+
+1789
+00:42:59,920 --> 00:43:01,950
+be increment what should be the end so
+portability is like easy better
+
+1790
+00:43:01,950 --> 00:43:01,960
+portability is like easy better
+ 
+
+1791
+00:43:01,960 --> 00:43:03,510
+portability is like easy better
+portability you can move from different
+
+1792
+00:43:03,510 --> 00:43:03,520
+portability you can move from different
+ 
+
+1793
+00:43:03,520 --> 00:43:07,710
+portability you can move from different
+DB as the consistent Behavior you can
+
+1794
+00:43:07,710 --> 00:43:07,720
+DB as the consistent Behavior you can
+ 
+
+1795
+00:43:07,720 --> 00:43:09,870
+DB as the consistent Behavior you can
+have into multiple
+
+1796
+00:43:09,870 --> 00:43:09,880
+have into multiple
+ 
+
+1797
+00:43:09,880 --> 00:43:16,510
+have into multiple
+DBS okay because you have more
+
+1798
+00:43:16,510 --> 00:43:16,520
+
+ 
+
+1799
+00:43:16,520 --> 00:43:19,109
+
+control so there is one more like
+
+1800
+00:43:19,109 --> 00:43:19,119
+control so there is one more like
+ 
+
+1801
+00:43:19,119 --> 00:43:21,630
+control so there is one more like
+Generation type. table I will not
+
+1802
+00:43:21,630 --> 00:43:21,640
+Generation type. table I will not
+ 
+
+1803
+00:43:21,640 --> 00:43:24,950
+Generation type. table I will not
+explain that because it hardly used in
+
+1804
+00:43:24,950 --> 00:43:24,960
+explain that because it hardly used in
+ 
+
+1805
+00:43:24,960 --> 00:43:27,309
+explain that because it hardly used in
+the industry so there is like how how we
+
+1806
+00:43:27,309 --> 00:43:27,319
+the industry so there is like how how we
+ 
+
+1807
+00:43:27,319 --> 00:43:29,470
+the industry so there is like how how we
+are using here at theate sequence
+
+1808
+00:43:29,470 --> 00:43:29,480
+are using here at theate sequence
+ 
+
+1809
+00:43:29,480 --> 00:43:30,750
+are using here at theate sequence
+generator
+
+1810
+00:43:30,750 --> 00:43:30,760
+generator
+ 
+
+1811
+00:43:30,760 --> 00:43:33,190
+generator
+right similarly there is something
+
+1812
+00:43:33,190 --> 00:43:33,200
+right similarly there is something
+ 
+
+1813
+00:43:33,200 --> 00:43:35,910
+right similarly there is something
+called atate table
+
+1814
+00:43:35,910 --> 00:43:35,920
+called atate table
+ 
+
+1815
+00:43:35,920 --> 00:43:38,190
+called atate table
+generator this annotation is used but
+
+1816
+00:43:38,190 --> 00:43:38,200
+generator this annotation is used but
+ 
+
+1817
+00:43:38,200 --> 00:43:40,829
+generator this annotation is used but
+it's very Le less efficient why because
+
+1818
+00:43:40,829 --> 00:43:40,839
+it's very Le less efficient why because
+ 
+
+1819
+00:43:40,839 --> 00:43:43,710
+it's very Le less efficient why because
+here a new table is created just for
+
+1820
+00:43:43,710 --> 00:43:43,720
+here a new table is created just for
+ 
+
+1821
+00:43:43,720 --> 00:43:45,990
+here a new table is created just for
+let's say maintaining the
+
+1822
+00:43:45,990 --> 00:43:46,000
+let's say maintaining the
+ 
+
+1823
+00:43:46,000 --> 00:43:48,950
+let's say maintaining the
+sequence okay it has one column let's
+
+1824
+00:43:48,950 --> 00:43:48,960
+sequence okay it has one column let's
+ 
+
+1825
+00:43:48,960 --> 00:43:52,270
+sequence okay it has one column let's
+say sequence and it it keep on adding
+
+1826
+00:43:52,270 --> 00:43:52,280
+say sequence and it it keep on adding
+ 
+
+1827
+00:43:52,280 --> 00:43:54,430
+say sequence and it it keep on adding
+you can say that let's say one column
+
+1828
+00:43:54,430 --> 00:43:54,440
+you can say that let's say one column
+ 
+
+1829
+00:43:54,440 --> 00:43:57,270
+you can say that let's say one column
+one value it keep on incrementing and it
+
+1830
+00:43:57,270 --> 00:43:57,280
+one value it keep on incrementing and it
+ 
+
+1831
+00:43:57,280 --> 00:44:00,069
+one value it keep on incrementing and it
+gives the value but a new table is
+
+1832
+00:44:00,069 --> 00:44:00,079
+gives the value but a new table is
+ 
+
+1833
+00:44:00,079 --> 00:44:02,470
+gives the value but a new table is
+created and it's very less efficient you
+
+1834
+00:44:02,470 --> 00:44:02,480
+created and it's very less efficient you
+ 
+
+1835
+00:44:02,480 --> 00:44:05,190
+created and it's very less efficient you
+know right why separate table is created
+
+1836
+00:44:05,190 --> 00:44:05,200
+know right why separate table is created
+ 
+
+1837
+00:44:05,200 --> 00:44:09,390
+know right why separate table is created
+just for maintaining unique ID each time
+
+1838
+00:44:09,390 --> 00:44:09,400
+just for maintaining unique ID each time
+ 
+
+1839
+00:44:09,400 --> 00:44:12,109
+just for maintaining unique ID each time
+ID is required select and update query
+
+1840
+00:44:12,109 --> 00:44:12,119
+ID is required select and update query
+ 
+
+1841
+00:44:12,119 --> 00:44:14,349
+ID is required select and update query
+is executed first you make a select
+
+1842
+00:44:14,349 --> 00:44:14,359
+is executed first you make a select
+ 
+
+1843
+00:44:14,359 --> 00:44:17,150
+is executed first you make a select
+query hey give me the well it will
+
+1844
+00:44:17,150 --> 00:44:17,160
+query hey give me the well it will
+ 
+
+1845
+00:44:17,160 --> 00:44:18,950
+query hey give me the well it will
+return let's say this is the well and
+
+1846
+00:44:18,950 --> 00:44:18,960
+return let's say this is the well and
+ 
+
+1847
+00:44:18,960 --> 00:44:20,589
+return let's say this is the well and
+second time you update it change from 1
+
+1848
+00:44:20,589 --> 00:44:20,599
+second time you update it change from 1
+ 
+
+1849
+00:44:20,599 --> 00:44:23,549
+second time you update it change from 1
+to two now this is should be the next
+
+1850
+00:44:23,549 --> 00:44:23,559
+to two now this is should be the next
+ 
+
+1851
+00:44:23,559 --> 00:44:26,109
+to two now this is should be the next
+value now you know that when a table is
+
+1852
+00:44:26,109 --> 00:44:26,119
+value now you know that when a table is
+ 
+
+1853
+00:44:26,119 --> 00:44:28,230
+value now you know that when a table is
+involved a complexity comes when the
+
+1854
+00:44:28,230 --> 00:44:28,240
+involved a complexity comes when the
+ 
+
+1855
+00:44:28,240 --> 00:44:30,309
+involved a complexity comes when the
+concurrency handling when multiple
+
+1856
+00:44:30,309 --> 00:44:30,319
+concurrency handling when multiple
+ 
+
+1857
+00:44:30,319 --> 00:44:31,950
+concurrency handling when multiple
+operation is happening in parallel it
+
+1858
+00:44:31,950 --> 00:44:31,960
+operation is happening in parallel it
+ 
+
+1859
+00:44:31,960 --> 00:44:33,990
+operation is happening in parallel it
+require lock unlock feature also which
+
+1860
+00:44:33,990 --> 00:44:34,000
+require lock unlock feature also which
+ 
+
+1861
+00:44:34,000 --> 00:44:36,150
+require lock unlock feature also which
+can lead to Performance bottleneck now
+
+1862
+00:44:36,150 --> 00:44:36,160
+can lead to Performance bottleneck now
+ 
+
+1863
+00:44:36,160 --> 00:44:39,390
+can lead to Performance bottleneck now
+let's say current value is for this
+
+1864
+00:44:39,390 --> 00:44:39,400
+let's say current value is for this
+ 
+
+1865
+00:44:39,400 --> 00:44:43,349
+let's say current value is for this
+table scq is one now
+
+1866
+00:44:43,349 --> 00:44:43,359
+table scq is one now
+ 
+
+1867
+00:44:43,359 --> 00:44:46,349
+table scq is one now
+two uh insert operation comes and they
+
+1868
+00:44:46,349 --> 00:44:46,359
+two uh insert operation comes and they
+ 
+
+1869
+00:44:46,359 --> 00:44:49,630
+two uh insert operation comes and they
+both want what should be the next value
+
+1870
+00:44:49,630 --> 00:44:49,640
+both want what should be the next value
+ 
+
+1871
+00:44:49,640 --> 00:44:52,430
+both want what should be the next value
+I can use for the primary key now they
+
+1872
+00:44:52,430 --> 00:44:52,440
+I can use for the primary key now they
+ 
+
+1873
+00:44:52,440 --> 00:44:55,549
+I can use for the primary key now they
+goes to this table and since this table
+
+1874
+00:44:55,549 --> 00:44:55,559
+goes to this table and since this table
+ 
+
+1875
+00:44:55,559 --> 00:44:59,430
+goes to this table and since this table
+we they have to put a lock right so one
+
+1876
+00:44:59,430 --> 00:44:59,440
+we they have to put a lock right so one
+ 
+
+1877
+00:44:59,440 --> 00:45:01,390
+we they have to put a lock right so one
+have to put a lock consume it okay I
+
+1878
+00:45:01,390 --> 00:45:01,400
+have to put a lock consume it okay I
+ 
+
+1879
+00:45:01,400 --> 00:45:03,710
+have to put a lock consume it okay I
+will use one and increment it to two so
+
+1880
+00:45:03,710 --> 00:45:03,720
+will use one and increment it to two so
+ 
+
+1881
+00:45:03,720 --> 00:45:06,390
+will use one and increment it to two so
+that second one it can use
+
+1882
+00:45:06,390 --> 00:45:06,400
+that second one it can use
+ 
+
+1883
+00:45:06,400 --> 00:45:10,430
+that second one it can use
+two okay but remember that in
+
+1884
+00:45:10,430 --> 00:45:10,440
+two okay but remember that in
+ 
+
+1885
+00:45:10,440 --> 00:45:13,990
+two okay but remember that in
+sequence it's an atomic counter there is
+
+1886
+00:45:13,990 --> 00:45:14,000
+sequence it's an atomic counter there is
+ 
+
+1887
+00:45:14,000 --> 00:45:16,750
+sequence it's an atomic counter there is
+no table there is no table involved it's
+
+1888
+00:45:16,750 --> 00:45:16,760
+no table there is no table involved it's
+ 
+
+1889
+00:45:16,760 --> 00:45:18,870
+no table there is no table involved it's
+just a counter so it's much more
+
+1890
+00:45:18,870 --> 00:45:18,880
+just a counter so it's much more
+ 
+
+1891
+00:45:18,880 --> 00:45:22,630
+just a counter so it's much more
+efficient and faster okay and DB is only
+
+1892
+00:45:22,630 --> 00:45:22,640
+efficient and faster okay and DB is only
+ 
+
+1893
+00:45:22,640 --> 00:45:24,710
+efficient and faster okay and DB is only
+handling it that
+
+1894
+00:45:24,710 --> 00:45:24,720
+handling it that
+ 
+
+1895
+00:45:24,720 --> 00:45:27,470
+handling it that
+counter okay so here now this Logics
+
+1896
+00:45:27,470 --> 00:45:27,480
+counter okay so here now this Logics
+ 
+
+1897
+00:45:27,480 --> 00:45:30,109
+counter okay so here now this Logics
+comes to you in the table you as soon as
+
+1898
+00:45:30,109 --> 00:45:30,119
+comes to you in the table you as soon as
+ 
+
+1899
+00:45:30,119 --> 00:45:32,589
+comes to you in the table you as soon as
+table comes you have to maintain it but
+
+1900
+00:45:32,589 --> 00:45:32,599
+table comes you have to maintain it but
+ 
+
+1901
+00:45:32,599 --> 00:45:35,950
+table comes you have to maintain it but
+that DB internally handles sequence like
+
+1902
+00:45:35,950 --> 00:45:35,960
+that DB internally handles sequence like
+ 
+
+1903
+00:45:35,960 --> 00:45:37,390
+that DB internally handles sequence like
+whatever the counter it has Atomic
+
+1904
+00:45:37,390 --> 00:45:37,400
+whatever the counter it has Atomic
+ 
+
+1905
+00:45:37,400 --> 00:45:40,109
+whatever the counter it has Atomic
+counter it will handle like what one to
+
+1906
+00:45:40,109 --> 00:45:40,119
+counter it will handle like what one to
+ 
+
+1907
+00:45:40,119 --> 00:45:41,910
+counter it will handle like what one to
+two like so even though concurrency
+
+1908
+00:45:41,910 --> 00:45:41,920
+two like so even though concurrency
+ 
+
+1909
+00:45:41,920 --> 00:45:43,710
+two like so even though concurrency
+happen it makes sure that only one of
+
+1910
+00:45:43,710 --> 00:45:43,720
+happen it makes sure that only one of
+ 
+
+1911
+00:45:43,720 --> 00:45:46,549
+happen it makes sure that only one of
+them uh all of them get the unique
+
+1912
+00:45:46,549 --> 00:45:46,559
+them uh all of them get the unique
+ 
+
+1913
+00:45:46,559 --> 00:45:48,510
+them uh all of them get the unique
+value
+
+1914
+00:45:48,510 --> 00:45:48,520
+value
+ 
+
+1915
+00:45:48,520 --> 00:45:53,190
+value
+okay so that's why I in 9 years I have
+
+1916
+00:45:53,190 --> 00:45:53,200
+okay so that's why I in 9 years I have
+ 
+
+1917
+00:45:53,200 --> 00:45:54,870
+okay so that's why I in 9 years I have
+never seen that at theate table
+
+1918
+00:45:54,870 --> 00:45:54,880
+never seen that at theate table
+ 
+
+1919
+00:45:54,880 --> 00:45:56,670
+never seen that at theate table
+generator is used but I can tell you
+
+1920
+00:45:56,670 --> 00:45:56,680
+generator is used but I can tell you
+ 
+
+1921
+00:45:56,680 --> 00:46:01,990
+generator is used but I can tell you
+that this sequence is very very
+
+1922
+00:46:01,990 --> 00:46:02,000
+
+ 
+
+1923
+00:46:02,000 --> 00:46:06,190
+
+used okay so in next part I will cover
+
+1924
+00:46:06,190 --> 00:46:06,200
+used okay so in next part I will cover
+ 
+
+1925
+00:46:06,200 --> 00:46:08,470
+used okay so in next part I will cover
+all this relationship Association one to
+
+1926
+00:46:08,470 --> 00:46:08,480
+all this relationship Association one to
+ 
+
+1927
+00:46:08,480 --> 00:46:11,270
+all this relationship Association one to
+one one to many and in then part seven
+
+1928
+00:46:11,270 --> 00:46:11,280
+one one to many and in then part seven
+ 
+
+1929
+00:46:11,280 --> 00:46:12,589
+one one to many and in then part seven
+last part I will cover the custom
+
+1930
+00:46:12,589 --> 00:46:12,599
+last part I will cover the custom
+ 
+
+1931
+00:46:12,599 --> 00:46:14,309
+last part I will cover the custom
+queries criteria queries pag generation
+
+1932
+00:46:14,309 --> 00:46:14,319
+queries criteria queries pag generation
+ 
+
+1933
+00:46:14,319 --> 00:46:16,950
+queries criteria queries pag generation
+and sortings so only these two left and
+
+1934
+00:46:16,950 --> 00:46:16,960
+and sortings so only these two left and
+ 
+
+1935
+00:46:16,960 --> 00:46:19,670
+and sortings so only these two left and
+hopefully I'll complete it as soon as
+
+1936
+00:46:19,670 --> 00:46:19,680
+hopefully I'll complete it as soon as
+ 
+
+1937
+00:46:19,680 --> 00:46:22,680
+hopefully I'll complete it as soon as
+possible
+
