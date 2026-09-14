@@ -1,0 +1,6505 @@
+1
+00:00:00,000 --> 00:00:02,310
+
+Welcome back and today in distributed
+
+2
+00:00:02,310 --> 00:00:02,320
+Welcome back and today in distributed
+ 
+
+3
+00:00:02,320 --> 00:00:05,269
+Welcome back and today in distributed
+microservices we are going to start the
+
+4
+00:00:05,269 --> 00:00:05,279
+microservices we are going to start the
+ 
+
+5
+00:00:05,279 --> 00:00:07,990
+microservices we are going to start the
+asynchronous communication. So till now
+
+6
+00:00:07,990 --> 00:00:08,000
+asynchronous communication. So till now
+ 
+
+7
+00:00:08,000 --> 00:00:09,750
+asynchronous communication. So till now
+whatever we have done in distributed
+
+8
+00:00:09,750 --> 00:00:09,760
+whatever we have done in distributed
+ 
+
+9
+00:00:09,760 --> 00:00:11,270
+whatever we have done in distributed
+microservices where we have more than
+
+10
+00:00:11,270 --> 00:00:11,280
+microservices where we have more than
+ 
+
+11
+00:00:11,280 --> 00:00:13,270
+microservices where we have more than
+one microservices and they're talking to
+
+12
+00:00:13,270 --> 00:00:13,280
+one microservices and they're talking to
+ 
+
+13
+00:00:13,280 --> 00:00:15,669
+one microservices and they're talking to
+each other it's mostly happen in a
+
+14
+00:00:15,669 --> 00:00:15,679
+each other it's mostly happen in a
+ 
+
+15
+00:00:15,679 --> 00:00:19,670
+each other it's mostly happen in a
+synchronous manner. But when we are
+
+16
+00:00:19,670 --> 00:00:19,680
+synchronous manner. But when we are
+ 
+
+17
+00:00:19,680 --> 00:00:22,150
+synchronous manner. But when we are
+dealing with microservices the very
+
+18
+00:00:22,150 --> 00:00:22,160
+dealing with microservices the very
+ 
+
+19
+00:00:22,160 --> 00:00:25,990
+dealing with microservices the very
+important aspect is your eventdriven
+
+20
+00:00:25,990 --> 00:00:26,000
+important aspect is your eventdriven
+ 
+
+21
+00:00:26,000 --> 00:00:27,670
+important aspect is your eventdriven
+architecture the asynchronous
+
+22
+00:00:27,670 --> 00:00:27,680
+architecture the asynchronous
+ 
+
+23
+00:00:27,680 --> 00:00:31,349
+architecture the asynchronous
+communication. Okay. So in this
+
+24
+00:00:31,349 --> 00:00:31,359
+communication. Okay. So in this
+ 
+
+25
+00:00:31,359 --> 00:00:33,910
+communication. Okay. So in this
+topic I will first cover the
+
+26
+00:00:33,910 --> 00:00:33,920
+topic I will first cover the
+ 
+
+27
+00:00:33,920 --> 00:00:35,510
+topic I will first cover the
+introduction of event- driven
+
+28
+00:00:35,510 --> 00:00:35,520
+introduction of event- driven
+ 
+
+29
+00:00:35,520 --> 00:00:37,750
+introduction of event- driven
+architecture. I will not go deep into
+
+30
+00:00:37,750 --> 00:00:37,760
+architecture. I will not go deep into
+ 
+
+31
+00:00:37,760 --> 00:00:40,470
+architecture. I will not go deep into
+okay let's go into this specific
+
+32
+00:00:40,470 --> 00:00:40,480
+okay let's go into this specific
+ 
+
+33
+00:00:40,480 --> 00:00:42,630
+okay let's go into this specific
+event-driven uh you can say that event
+
+34
+00:00:42,630 --> 00:00:42,640
+event-driven uh you can say that event
+ 
+
+35
+00:00:42,640 --> 00:00:44,950
+event-driven uh you can say that event
+router either Kafka Rabbit MQ or
+
+36
+00:00:44,950 --> 00:00:44,960
+router either Kafka Rabbit MQ or
+ 
+
+37
+00:00:44,960 --> 00:00:48,229
+router either Kafka Rabbit MQ or
+something. So in this topic my agenda
+
+38
+00:00:48,229 --> 00:00:48,239
+something. So in this topic my agenda
+ 
+
+39
+00:00:48,239 --> 00:00:51,190
+something. So in this topic my agenda
+would be to have a introduction
+
+40
+00:00:51,190 --> 00:00:51,200
+would be to have a introduction
+ 
+
+41
+00:00:51,200 --> 00:00:57,430
+would be to have a introduction
+introduction of EDA. Okay. So yes in
+
+42
+00:00:57,430 --> 00:00:57,440
+introduction of EDA. Okay. So yes in
+ 
+
+43
+00:00:57,440 --> 00:01:00,549
+introduction of EDA. Okay. So yes in
+depth explanation of a specific event
+
+44
+00:01:00,549 --> 00:01:00,559
+depth explanation of a specific event
+ 
+
+45
+00:01:00,559 --> 00:01:03,110
+depth explanation of a specific event
+router we might go into the next topic
+
+46
+00:01:03,110 --> 00:01:03,120
+router we might go into the next topic
+ 
+
+47
+00:01:03,120 --> 00:01:05,590
+router we might go into the next topic
+itself. So let's start without wasting
+
+48
+00:01:05,590 --> 00:01:05,600
+itself. So let's start without wasting
+ 
+
+49
+00:01:05,600 --> 00:01:08,630
+itself. So let's start without wasting
+any further time. What is EDA? What is
+
+50
+00:01:08,630 --> 00:01:08,640
+any further time. What is EDA? What is
+ 
+
+51
+00:01:08,640 --> 00:01:10,950
+any further time. What is EDA? What is
+eventdriven architecture.
+
+52
+00:01:10,950 --> 00:01:10,960
+eventdriven architecture.
+ 
+
+53
+00:01:10,960 --> 00:01:13,190
+eventdriven architecture.
+So considered it as a system design
+
+54
+00:01:13,190 --> 00:01:13,200
+So considered it as a system design
+ 
+
+55
+00:01:13,200 --> 00:01:17,590
+So considered it as a system design
+style where services do not call each
+
+56
+00:01:17,590 --> 00:01:17,600
+style where services do not call each
+ 
+
+57
+00:01:17,600 --> 00:01:19,429
+style where services do not call each
+other directly
+
+58
+00:01:19,429 --> 00:01:19,439
+other directly
+ 
+
+59
+00:01:19,439 --> 00:01:22,469
+other directly
+instead service emit an event and other
+
+60
+00:01:22,469 --> 00:01:22,479
+instead service emit an event and other
+ 
+
+61
+00:01:22,479 --> 00:01:25,990
+instead service emit an event and other
+service react to those event. Okay. So
+
+62
+00:01:25,990 --> 00:01:26,000
+service react to those event. Okay. So
+ 
+
+63
+00:01:26,000 --> 00:01:28,310
+service react to those event. Okay. So
+you have one service you have multiple
+
+64
+00:01:28,310 --> 00:01:28,320
+you have one service you have multiple
+ 
+
+65
+00:01:28,320 --> 00:01:30,870
+you have one service you have multiple
+services you can say that they never
+
+66
+00:01:30,870 --> 00:01:30,880
+services you can say that they never
+ 
+
+67
+00:01:30,880 --> 00:01:33,109
+services you can say that they never
+call directly to each other. They just
+
+68
+00:01:33,109 --> 00:01:33,119
+call directly to each other. They just
+ 
+
+69
+00:01:33,119 --> 00:01:35,590
+call directly to each other. They just
+publish an event. Hey,
+
+70
+00:01:35,590 --> 00:01:35,600
+publish an event. Hey,
+ 
+
+71
+00:01:35,600 --> 00:01:38,550
+publish an event. Hey,
+now you might say what is an event? When
+
+72
+00:01:38,550 --> 00:01:38,560
+now you might say what is an event? When
+ 
+
+73
+00:01:38,560 --> 00:01:41,190
+now you might say what is an event? When
+we are saying hey they emit an event you
+
+74
+00:01:41,190 --> 00:01:41,200
+we are saying hey they emit an event you
+ 
+
+75
+00:01:41,200 --> 00:01:43,910
+we are saying hey they emit an event you
+might say what is an event then event I
+
+76
+00:01:43,910 --> 00:01:43,920
+might say what is an event then event I
+ 
+
+77
+00:01:43,920 --> 00:01:47,429
+might say what is an event then event I
+would say in a simple way that something
+
+78
+00:01:47,429 --> 00:01:47,439
+would say in a simple way that something
+ 
+
+79
+00:01:47,439 --> 00:01:49,670
+would say in a simple way that something
+a fact that something happened in the
+
+80
+00:01:49,670 --> 00:01:49,680
+a fact that something happened in the
+ 
+
+81
+00:01:49,680 --> 00:01:53,429
+a fact that something happened in the
+past. Okay. So see there are one major
+
+82
+00:01:53,429 --> 00:01:53,439
+past. Okay. So see there are one major
+ 
+
+83
+00:01:53,439 --> 00:01:56,469
+past. Okay. So see there are one major
+difference between event
+
+84
+00:01:56,469 --> 00:01:56,479
+difference between event
+ 
+
+85
+00:01:56,479 --> 00:02:02,310
+difference between event
+order and not order say command.
+
+86
+00:02:02,310 --> 00:02:02,320
+order and not order say command.
+ 
+
+87
+00:02:02,320 --> 00:02:05,670
+order and not order say command.
+Event order command and query.
+
+88
+00:02:05,670 --> 00:02:05,680
+Event order command and query.
+ 
+
+89
+00:02:05,680 --> 00:02:08,710
+Event order command and query.
+Event means something happened in the
+
+90
+00:02:08,710 --> 00:02:08,720
+Event means something happened in the
+ 
+
+91
+00:02:08,720 --> 00:02:13,589
+Event means something happened in the
+past like order created right? Command
+
+92
+00:02:13,589 --> 00:02:13,599
+past like order created right? Command
+ 
+
+93
+00:02:13,599 --> 00:02:15,510
+past like order created right? Command
+is like you are giving the command. Hey
+
+94
+00:02:15,510 --> 00:02:15,520
+is like you are giving the command. Hey
+ 
+
+95
+00:02:15,520 --> 00:02:18,630
+is like you are giving the command. Hey
+place an order. Place an order is a
+
+96
+00:02:18,630 --> 00:02:18,640
+place an order. Place an order is a
+ 
+
+97
+00:02:18,640 --> 00:02:21,589
+place an order. Place an order is a
+command but order created is an event
+
+98
+00:02:21,589 --> 00:02:21,599
+command but order created is an event
+ 
+
+99
+00:02:21,599 --> 00:02:24,229
+command but order created is an event
+which happened. Okay. Query is means
+
+100
+00:02:24,229 --> 00:02:24,239
+which happened. Okay. Query is means
+ 
+
+101
+00:02:24,239 --> 00:02:26,229
+which happened. Okay. Query is means
+that you are fetching something like hey
+
+102
+00:02:26,229 --> 00:02:26,239
+that you are fetching something like hey
+ 
+
+103
+00:02:26,239 --> 00:02:28,550
+that you are fetching something like hey
+fetch me the details of the order which
+
+104
+00:02:28,550 --> 00:02:28,560
+fetch me the details of the order which
+ 
+
+105
+00:02:28,560 --> 00:02:31,350
+fetch me the details of the order which
+are placed. So these three are different
+
+106
+00:02:31,350 --> 00:02:31,360
+are placed. So these three are different
+ 
+
+107
+00:02:31,360 --> 00:02:33,750
+are placed. So these three are different
+things. So when we are saying that
+
+108
+00:02:33,750 --> 00:02:33,760
+things. So when we are saying that
+ 
+
+109
+00:02:33,760 --> 00:02:37,110
+things. So when we are saying that
+service emit event so event are
+
+110
+00:02:37,110 --> 00:02:37,120
+service emit event so event are
+ 
+
+111
+00:02:37,120 --> 00:02:38,630
+service emit event so event are
+immutable.
+
+112
+00:02:38,630 --> 00:02:38,640
+immutable.
+ 
+
+113
+00:02:38,640 --> 00:02:41,190
+immutable.
+They cannot be changed once created.
+
+114
+00:02:41,190 --> 00:02:41,200
+They cannot be changed once created.
+ 
+
+115
+00:02:41,200 --> 00:02:43,030
+They cannot be changed once created.
+Okay. So it because they are already
+
+116
+00:02:43,030 --> 00:02:43,040
+Okay. So it because they are already
+ 
+
+117
+00:02:43,040 --> 00:02:44,470
+Okay. So it because they are already
+created in the past. You can't change
+
+118
+00:02:44,470 --> 00:02:44,480
+created in the past. You can't change
+ 
+
+119
+00:02:44,480 --> 00:02:47,670
+created in the past. You can't change
+it. What h exactly happened and it's a
+
+120
+00:02:47,670 --> 00:02:47,680
+it. What h exactly happened and it's a
+ 
+
+121
+00:02:47,680 --> 00:02:51,350
+it. What h exactly happened and it's a
+past tense like order created. Okay, we
+
+122
+00:02:51,350 --> 00:02:51,360
+past tense like order created. Okay, we
+ 
+
+123
+00:02:51,360 --> 00:02:53,509
+past tense like order created. Okay, we
+are not saying place order. Place order
+
+124
+00:02:53,509 --> 00:02:53,519
+are not saying place order. Place order
+ 
+
+125
+00:02:53,519 --> 00:02:55,110
+are not saying place order. Place order
+means you are giving a command but we
+
+126
+00:02:55,110 --> 00:02:55,120
+means you are giving a command but we
+ 
+
+127
+00:02:55,120 --> 00:02:57,350
+means you are giving a command but we
+are not giving a command. We just
+
+128
+00:02:57,350 --> 00:02:57,360
+are not giving a command. We just
+ 
+
+129
+00:02:57,360 --> 00:02:59,589
+are not giving a command. We just
+telling the fact what has happened in
+
+130
+00:02:59,589 --> 00:02:59,599
+telling the fact what has happened in
+ 
+
+131
+00:02:59,599 --> 00:03:01,830
+telling the fact what has happened in
+the past. Okay, so past tense is
+
+132
+00:03:01,830 --> 00:03:01,840
+the past. Okay, so past tense is
+ 
+
+133
+00:03:01,840 --> 00:03:04,229
+the past. Okay, so past tense is
+describe what happened not what to do
+
+134
+00:03:04,229 --> 00:03:04,239
+describe what happened not what to do
+ 
+
+135
+00:03:04,239 --> 00:03:08,149
+describe what happened not what to do
+and self-contain. So every event has all
+
+136
+00:03:08,149 --> 00:03:08,159
+and self-contain. So every event has all
+ 
+
+137
+00:03:08,159 --> 00:03:10,470
+and self-contain. So every event has all
+the information needed to understand it
+
+138
+00:03:10,470 --> 00:03:10,480
+the information needed to understand it
+ 
+
+139
+00:03:10,480 --> 00:03:15,110
+the information needed to understand it
+better. So once so now
+
+140
+00:03:15,110 --> 00:03:15,120
+better. So once so now
+ 
+
+141
+00:03:15,120 --> 00:03:18,070
+better. So once so now
+service emits event. So it emits an
+
+142
+00:03:18,070 --> 00:03:18,080
+service emits event. So it emits an
+ 
+
+143
+00:03:18,080 --> 00:03:22,309
+service emits event. So it emits an
+event and this event is listened by some
+
+144
+00:03:22,309 --> 00:03:22,319
+event and this event is listened by some
+ 
+
+145
+00:03:22,319 --> 00:03:24,630
+event and this event is listened by some
+other services.
+
+146
+00:03:24,630 --> 00:03:24,640
+other services.
+ 
+
+147
+00:03:24,640 --> 00:03:27,509
+other services.
+Okay. And this event contain all the
+
+148
+00:03:27,509 --> 00:03:27,519
+Okay. And this event contain all the
+ 
+
+149
+00:03:27,519 --> 00:03:29,270
+Okay. And this event contain all the
+information
+
+150
+00:03:29,270 --> 00:03:29,280
+information
+ 
+
+151
+00:03:29,280 --> 00:03:33,589
+information
+okay and based on that these services
+
+152
+00:03:33,589 --> 00:03:33,599
+okay and based on that these services
+ 
+
+153
+00:03:33,599 --> 00:03:36,309
+okay and based on that these services
+react on top of it. Don't worry about
+
+154
+00:03:36,309 --> 00:03:36,319
+react on top of it. Don't worry about
+ 
+
+155
+00:03:36,319 --> 00:03:40,390
+react on top of it. Don't worry about
+it. uh but only thing I uh I want you to
+
+156
+00:03:40,390 --> 00:03:40,400
+it. uh but only thing I uh I want you to
+ 
+
+157
+00:03:40,400 --> 00:03:42,789
+it. uh but only thing I uh I want you to
+understand at this point of time is that
+
+158
+00:03:42,789 --> 00:03:42,799
+understand at this point of time is that
+ 
+
+159
+00:03:42,799 --> 00:03:45,030
+understand at this point of time is that
+no two services are communicate directly
+
+160
+00:03:45,030 --> 00:03:45,040
+no two services are communicate directly
+ 
+
+161
+00:03:45,040 --> 00:03:47,670
+no two services are communicate directly
+with each other. They are now
+
+162
+00:03:47,670 --> 00:03:47,680
+with each other. They are now
+ 
+
+163
+00:03:47,680 --> 00:03:51,030
+with each other. They are now
+interacting based on events.
+
+164
+00:03:51,030 --> 00:03:51,040
+interacting based on events.
+ 
+
+165
+00:03:51,040 --> 00:03:54,070
+interacting based on events.
+One emit an event others consume those
+
+166
+00:03:54,070 --> 00:03:54,080
+One emit an event others consume those
+ 
+
+167
+00:03:54,080 --> 00:03:56,869
+One emit an event others consume those
+event. Okay. And this event is something
+
+168
+00:03:56,869 --> 00:03:56,879
+event. Okay. And this event is something
+ 
+
+169
+00:03:56,879 --> 00:03:59,270
+event. Okay. And this event is something
+which is immutable like you can't change
+
+170
+00:03:59,270 --> 00:03:59,280
+which is immutable like you can't change
+ 
+
+171
+00:03:59,280 --> 00:04:01,110
+which is immutable like you can't change
+it. Order has been created. It's created
+
+172
+00:04:01,110 --> 00:04:01,120
+it. Order has been created. It's created
+ 
+
+173
+00:04:01,120 --> 00:04:03,190
+it. Order has been created. It's created
+now. You can't undo the order creation
+
+174
+00:04:03,190 --> 00:04:03,200
+now. You can't undo the order creation
+ 
+
+175
+00:04:03,200 --> 00:04:05,830
+now. You can't undo the order creation
+part. It's order is created. Now you
+
+176
+00:04:05,830 --> 00:04:05,840
+part. It's order is created. Now you
+ 
+
+177
+00:04:05,840 --> 00:04:07,589
+part. It's order is created. Now you
+listen to that event. Okay, order
+
+178
+00:04:07,589 --> 00:04:07,599
+listen to that event. Okay, order
+ 
+
+179
+00:04:07,599 --> 00:04:10,630
+listen to that event. Okay, order
+created. Now you decide what you want to
+
+180
+00:04:10,630 --> 00:04:10,640
+created. Now you decide what you want to
+ 
+
+181
+00:04:10,640 --> 00:04:15,270
+created. Now you decide what you want to
+do. Okay, but you can't change it.
+
+182
+00:04:15,270 --> 00:04:15,280
+do. Okay, but you can't change it.
+ 
+
+183
+00:04:15,280 --> 00:04:17,909
+do. Okay, but you can't change it.
+So in rest distributed microservices,
+
+184
+00:04:17,909 --> 00:04:17,919
+So in rest distributed microservices,
+ 
+
+185
+00:04:17,919 --> 00:04:20,310
+So in rest distributed microservices,
+the same example I would take for an
+
+186
+00:04:20,310 --> 00:04:20,320
+the same example I would take for an
+ 
+
+187
+00:04:20,320 --> 00:04:21,749
+the same example I would take for an
+order creation. Let's say you have a
+
+188
+00:04:21,749 --> 00:04:21,759
+order creation. Let's say you have a
+ 
+
+189
+00:04:21,759 --> 00:04:24,150
+order creation. Let's say you have a
+user service, you have an order service,
+
+190
+00:04:24,150 --> 00:04:24,160
+user service, you have an order service,
+ 
+
+191
+00:04:24,160 --> 00:04:25,830
+user service, you have an order service,
+you have payment service, inventory
+
+192
+00:04:25,830 --> 00:04:25,840
+you have payment service, inventory
+ 
+
+193
+00:04:25,840 --> 00:04:28,070
+you have payment service, inventory
+service, notification service. So I have
+
+194
+00:04:28,070 --> 00:04:28,080
+service, notification service. So I have
+ 
+
+195
+00:04:28,080 --> 00:04:31,830
+service, notification service. So I have
+taken an example of four five services.
+
+196
+00:04:31,830 --> 00:04:31,840
+taken an example of four five services.
+ 
+
+197
+00:04:31,840 --> 00:04:34,070
+taken an example of four five services.
+Now in the rest distributed
+
+198
+00:04:34,070 --> 00:04:34,080
+Now in the rest distributed
+ 
+
+199
+00:04:34,080 --> 00:04:35,830
+Now in the rest distributed
+microservices what used to happen is
+
+200
+00:04:35,830 --> 00:04:35,840
+microservices what used to happen is
+ 
+
+201
+00:04:35,840 --> 00:04:39,510
+microservices what used to happen is
+user place an order. Okay. Now in the
+
+202
+00:04:39,510 --> 00:04:39,520
+user place an order. Okay. Now in the
+ 
+
+203
+00:04:39,520 --> 00:04:41,270
+user place an order. Okay. Now in the
+order first it will do it will check the
+
+204
+00:04:41,270 --> 00:04:41,280
+order first it will do it will check the
+ 
+
+205
+00:04:41,280 --> 00:04:43,110
+order first it will do it will check the
+inventory real time whether inventory is
+
+206
+00:04:43,110 --> 00:04:43,120
+inventory real time whether inventory is
+ 
+
+207
+00:04:43,120 --> 00:04:45,990
+inventory real time whether inventory is
+there or not. Okay. Then it will try to
+
+208
+00:04:45,990 --> 00:04:46,000
+there or not. Okay. Then it will try to
+ 
+
+209
+00:04:46,000 --> 00:04:48,790
+there or not. Okay. Then it will try to
+process the payment. Once the payment is
+
+210
+00:04:48,790 --> 00:04:48,800
+process the payment. Once the payment is
+ 
+
+211
+00:04:48,800 --> 00:04:51,590
+process the payment. Once the payment is
+done it will reserve the inventory and
+
+212
+00:04:51,590 --> 00:04:51,600
+done it will reserve the inventory and
+ 
+
+213
+00:04:51,600 --> 00:04:53,430
+done it will reserve the inventory and
+after the inventory is done it will send
+
+214
+00:04:53,430 --> 00:04:53,440
+after the inventory is done it will send
+ 
+
+215
+00:04:53,440 --> 00:04:55,670
+after the inventory is done it will send
+the notification. So these are all
+
+216
+00:04:55,670 --> 00:04:55,680
+the notification. So these are all
+ 
+
+217
+00:04:55,680 --> 00:04:58,710
+the notification. So these are all
+different services and this order
+
+218
+00:04:58,710 --> 00:04:58,720
+different services and this order
+ 
+
+219
+00:04:58,720 --> 00:05:01,990
+different services and this order
+services is now talking with each of the
+
+220
+00:05:01,990 --> 00:05:02,000
+services is now talking with each of the
+ 
+
+221
+00:05:02,000 --> 00:05:04,390
+services is now talking with each of the
+different services to complete the flow
+
+222
+00:05:04,390 --> 00:05:04,400
+different services to complete the flow
+ 
+
+223
+00:05:04,400 --> 00:05:07,350
+different services to complete the flow
+and after that it returns that order has
+
+224
+00:05:07,350 --> 00:05:07,360
+and after that it returns that order has
+ 
+
+225
+00:05:07,360 --> 00:05:09,990
+and after that it returns that order has
+been placed successful.
+
+226
+00:05:09,990 --> 00:05:10,000
+been placed successful.
+ 
+
+227
+00:05:10,000 --> 00:05:13,590
+been placed successful.
+Now in this part if you see here there
+
+228
+00:05:13,590 --> 00:05:13,600
+Now in this part if you see here there
+ 
+
+229
+00:05:13,600 --> 00:05:15,909
+Now in this part if you see here there
+are many disadvantages we can easily
+
+230
+00:05:15,909 --> 00:05:15,919
+are many disadvantages we can easily
+ 
+
+231
+00:05:15,919 --> 00:05:19,270
+are many disadvantages we can easily
+see. So problems
+
+232
+00:05:19,270 --> 00:05:19,280
+see. So problems
+ 
+
+233
+00:05:19,280 --> 00:05:22,390
+see. So problems
+the first problem is availability.
+
+234
+00:05:22,390 --> 00:05:22,400
+the first problem is availability.
+ 
+
+235
+00:05:22,400 --> 00:05:25,110
+the first problem is availability.
+All service must be available at the
+
+236
+00:05:25,110 --> 00:05:25,120
+All service must be available at the
+ 
+
+237
+00:05:25,120 --> 00:05:28,390
+All service must be available at the
+same time any service down request will
+
+238
+00:05:28,390 --> 00:05:28,400
+same time any service down request will
+ 
+
+239
+00:05:28,400 --> 00:05:31,749
+same time any service down request will
+fail. So in this part let's say
+
+240
+00:05:31,749 --> 00:05:31,759
+fail. So in this part let's say
+ 
+
+241
+00:05:31,759 --> 00:05:34,629
+fail. So in this part let's say
+to complete this flow
+
+242
+00:05:34,629 --> 00:05:34,639
+to complete this flow
+ 
+
+243
+00:05:34,639 --> 00:05:36,230
+to complete this flow
+this should be available this should be
+
+244
+00:05:36,230 --> 00:05:36,240
+this should be available this should be
+ 
+
+245
+00:05:36,240 --> 00:05:37,749
+this should be available this should be
+available this should be available this
+
+246
+00:05:37,749 --> 00:05:37,759
+available this should be available this
+ 
+
+247
+00:05:37,759 --> 00:05:39,510
+available this should be available this
+should be available. Let's say even if
+
+248
+00:05:39,510 --> 00:05:39,520
+should be available. Let's say even if
+ 
+
+249
+00:05:39,520 --> 00:05:42,950
+should be available. Let's say even if
+inventory goes down this flow cannot be
+
+250
+00:05:42,950 --> 00:05:42,960
+inventory goes down this flow cannot be
+ 
+
+251
+00:05:42,960 --> 00:05:45,670
+inventory goes down this flow cannot be
+success. Okay. So the first thing is
+
+252
+00:05:45,670 --> 00:05:45,680
+success. Okay. So the first thing is
+ 
+
+253
+00:05:45,680 --> 00:05:48,230
+success. Okay. So the first thing is
+availability. Second thing is latency
+
+254
+00:05:48,230 --> 00:05:48,240
+availability. Second thing is latency
+ 
+
+255
+00:05:48,240 --> 00:05:50,230
+availability. Second thing is latency
+accumulation.
+
+256
+00:05:50,230 --> 00:05:50,240
+accumulation.
+ 
+
+257
+00:05:50,240 --> 00:05:52,150
+accumulation.
+Your total latency is that sum of all
+
+258
+00:05:52,150 --> 00:05:52,160
+Your total latency is that sum of all
+ 
+
+259
+00:05:52,160 --> 00:05:56,550
+Your total latency is that sum of all
+the service latency like how much time
+
+260
+00:05:56,550 --> 00:05:56,560
+the service latency like how much time
+ 
+
+261
+00:05:56,560 --> 00:06:00,550
+the service latency like how much time
+this place order request takes then this
+
+262
+00:06:00,550 --> 00:06:00,560
+this place order request takes then this
+ 
+
+263
+00:06:00,560 --> 00:06:03,749
+this place order request takes then this
+plus this plus this plus this. You got
+
+264
+00:06:03,749 --> 00:06:03,759
+plus this plus this plus this. You got
+ 
+
+265
+00:06:03,759 --> 00:06:06,390
+plus this plus this plus this. You got
+it right? So your latency is now
+
+266
+00:06:06,390 --> 00:06:06,400
+it right? So your latency is now
+ 
+
+267
+00:06:06,400 --> 00:06:07,909
+it right? So your latency is now
+accumulated
+
+268
+00:06:07,909 --> 00:06:07,919
+accumulated
+ 
+
+269
+00:06:07,919 --> 00:06:13,590
+accumulated
+t1 + ts2 + t3 + t4 like this
+
+270
+00:06:13,590 --> 00:06:13,600
+t1 + ts2 + t3 + t4 like this
+ 
+
+271
+00:06:13,600 --> 00:06:16,230
+t1 + ts2 + t3 + t4 like this
+cascading failure. One slow service can
+
+272
+00:06:16,230 --> 00:06:16,240
+cascading failure. One slow service can
+ 
+
+273
+00:06:16,240 --> 00:06:18,309
+cascading failure. One slow service can
+bring down the other service and entire
+
+274
+00:06:18,309 --> 00:06:18,319
+bring down the other service and entire
+ 
+
+275
+00:06:18,319 --> 00:06:20,230
+bring down the other service and entire
+flow itself.
+
+276
+00:06:20,230 --> 00:06:20,240
+flow itself.
+ 
+
+277
+00:06:20,240 --> 00:06:23,590
+flow itself.
+If for example your order service is
+
+278
+00:06:23,590 --> 00:06:23,600
+If for example your order service is
+ 
+
+279
+00:06:23,600 --> 00:06:25,830
+If for example your order service is
+fast, your payment service is fast but
+
+280
+00:06:25,830 --> 00:06:25,840
+fast, your payment service is fast but
+ 
+
+281
+00:06:25,840 --> 00:06:28,790
+fast, your payment service is fast but
+your inventory service is too slow then
+
+282
+00:06:28,790 --> 00:06:28,800
+your inventory service is too slow then
+ 
+
+283
+00:06:28,800 --> 00:06:31,189
+your inventory service is too slow then
+there are is a casket failure because
+
+284
+00:06:31,189 --> 00:06:31,199
+there are is a casket failure because
+ 
+
+285
+00:06:31,199 --> 00:06:33,590
+there are is a casket failure because
+let's say you are sending it 10 requests
+
+286
+00:06:33,590 --> 00:06:33,600
+let's say you are sending it 10 requests
+ 
+
+287
+00:06:33,600 --> 00:06:35,590
+let's say you are sending it 10 requests
+but it only able to handle five requests
+
+288
+00:06:35,590 --> 00:06:35,600
+but it only able to handle five requests
+ 
+
+289
+00:06:35,600 --> 00:06:38,309
+but it only able to handle five requests
+for five requests it is denying. So
+
+290
+00:06:38,309 --> 00:06:38,319
+for five requests it is denying. So
+ 
+
+291
+00:06:38,319 --> 00:06:40,790
+for five requests it is denying. So
+those five failure will cascade to the
+
+292
+00:06:40,790 --> 00:06:40,800
+those five failure will cascade to the
+ 
+
+293
+00:06:40,800 --> 00:06:43,430
+those five failure will cascade to the
+payment service and cascade service will
+
+294
+00:06:43,430 --> 00:06:43,440
+payment service and cascade service will
+ 
+
+295
+00:06:43,440 --> 00:06:45,670
+payment service and cascade service will
+uh you can say that uh the payment
+
+296
+00:06:45,670 --> 00:06:45,680
+uh you can say that uh the payment
+ 
+
+297
+00:06:45,680 --> 00:06:47,350
+uh you can say that uh the payment
+service will cascade it to the order
+
+298
+00:06:47,350 --> 00:06:47,360
+service will cascade it to the order
+ 
+
+299
+00:06:47,360 --> 00:06:49,029
+service will cascade it to the order
+service. So there is a cascading
+
+300
+00:06:49,029 --> 00:06:49,039
+service. So there is a cascading
+ 
+
+301
+00:06:49,039 --> 00:06:52,390
+service. So there is a cascading
+failure. Okay.
+
+302
+00:06:52,390 --> 00:06:52,400
+failure. Okay.
+ 
+
+303
+00:06:52,400 --> 00:06:54,230
+failure. Okay.
+The tight coupling. The tight coupling
+
+304
+00:06:54,230 --> 00:06:54,240
+The tight coupling. The tight coupling
+ 
+
+305
+00:06:54,240 --> 00:06:56,469
+The tight coupling. The tight coupling
+in that in the sense if you see the
+
+306
+00:06:56,469 --> 00:06:56,479
+in that in the sense if you see the
+ 
+
+307
+00:06:56,479 --> 00:06:59,830
+in that in the sense if you see the
+order is talking with payment. Order is
+
+308
+00:06:59,830 --> 00:06:59,840
+order is talking with payment. Order is
+ 
+
+309
+00:06:59,840 --> 00:07:01,909
+order is talking with payment. Order is
+talking with inventory. Order is talking
+
+310
+00:07:01,909 --> 00:07:01,919
+talking with inventory. Order is talking
+ 
+
+311
+00:07:01,919 --> 00:07:04,629
+talking with inventory. Order is talking
+with notification. So order has the
+
+312
+00:07:04,629 --> 00:07:04,639
+with notification. So order has the
+ 
+
+313
+00:07:04,639 --> 00:07:07,430
+with notification. So order has the
+knowledge of all three services. How to
+
+314
+00:07:07,430 --> 00:07:07,440
+knowledge of all three services. How to
+ 
+
+315
+00:07:07,440 --> 00:07:10,710
+knowledge of all three services. How to
+interact? What response I will get and
+
+316
+00:07:10,710 --> 00:07:10,720
+interact? What response I will get and
+ 
+
+317
+00:07:10,720 --> 00:07:13,029
+interact? What response I will get and
+many other things. So there is a very
+
+318
+00:07:13,029 --> 00:07:13,039
+many other things. So there is a very
+ 
+
+319
+00:07:13,039 --> 00:07:16,469
+many other things. So there is a very
+tight coupling in this rest distributed
+
+320
+00:07:16,469 --> 00:07:16,479
+tight coupling in this rest distributed
+ 
+
+321
+00:07:16,479 --> 00:07:17,830
+tight coupling in this rest distributed
+system.
+
+322
+00:07:17,830 --> 00:07:17,840
+system.
+ 
+
+323
+00:07:17,840 --> 00:07:19,749
+system.
+And another thing is scaling issue. We
+
+324
+00:07:19,749 --> 00:07:19,759
+And another thing is scaling issue. We
+ 
+
+325
+00:07:19,759 --> 00:07:21,350
+And another thing is scaling issue. We
+cannot scale just one service
+
+326
+00:07:21,350 --> 00:07:21,360
+cannot scale just one service
+ 
+
+327
+00:07:21,360 --> 00:07:23,749
+cannot scale just one service
+independent independently. You can't
+
+328
+00:07:23,749 --> 00:07:23,759
+independent independently. You can't
+ 
+
+329
+00:07:23,759 --> 00:07:26,469
+independent independently. You can't
+just scale payment service and your
+
+330
+00:07:26,469 --> 00:07:26,479
+just scale payment service and your
+ 
+
+331
+00:07:26,479 --> 00:07:27,830
+just scale payment service and your
+order service, inventory service,
+
+332
+00:07:27,830 --> 00:07:27,840
+order service, inventory service,
+ 
+
+333
+00:07:27,840 --> 00:07:30,469
+order service, inventory service,
+notification service. Uh let's say it's
+
+334
+00:07:30,469 --> 00:07:30,479
+notification service. Uh let's say it's
+ 
+
+335
+00:07:30,479 --> 00:07:32,710
+notification service. Uh let's say it's
+not scale that much. So what I mean to
+
+336
+00:07:32,710 --> 00:07:32,720
+not scale that much. So what I mean to
+ 
+
+337
+00:07:32,720 --> 00:07:35,270
+not scale that much. So what I mean to
+say you scale based on load. So you just
+
+338
+00:07:35,270 --> 00:07:35,280
+say you scale based on load. So you just
+ 
+
+339
+00:07:35,280 --> 00:07:37,510
+say you scale based on load. So you just
+can't scale payment service that okay
+
+340
+00:07:37,510 --> 00:07:37,520
+can't scale payment service that okay
+ 
+
+341
+00:07:37,520 --> 00:07:39,350
+can't scale payment service that okay
+earlier it was taking 100 requests per
+
+342
+00:07:39,350 --> 00:07:39,360
+earlier it was taking 100 requests per
+ 
+
+343
+00:07:39,360 --> 00:07:41,510
+earlier it was taking 100 requests per
+minute. Now you
+
+344
+00:07:41,510 --> 00:07:41,520
+minute. Now you
+ 
+
+345
+00:07:41,520 --> 00:07:43,589
+minute. Now you
+increase the scalability and it now it
+
+346
+00:07:43,589 --> 00:07:43,599
+increase the scalability and it now it
+ 
+
+347
+00:07:43,599 --> 00:07:46,150
+increase the scalability and it now it
+accept accepting 1,000 requests per
+
+348
+00:07:46,150 --> 00:07:46,160
+accept accepting 1,000 requests per
+ 
+
+349
+00:07:46,160 --> 00:07:47,909
+accept accepting 1,000 requests per
+minute. Even though it is accepting
+
+350
+00:07:47,909 --> 00:07:47,919
+minute. Even though it is accepting
+ 
+
+351
+00:07:47,919 --> 00:07:49,350
+minute. Even though it is accepting
+thousand requests but what about
+
+352
+00:07:49,350 --> 00:07:49,360
+thousand requests but what about
+ 
+
+353
+00:07:49,360 --> 00:07:52,550
+thousand requests but what about
+inventory it is not scaled right? So it
+
+354
+00:07:52,550 --> 00:07:52,560
+inventory it is not scaled right? So it
+ 
+
+355
+00:07:52,560 --> 00:07:54,710
+inventory it is not scaled right? So it
+will only have the capability to handle
+
+356
+00:07:54,710 --> 00:07:54,720
+will only have the capability to handle
+ 
+
+357
+00:07:54,720 --> 00:07:57,189
+will only have the capability to handle
+100 requests rest 900 will fail. So
+
+358
+00:07:57,189 --> 00:07:57,199
+100 requests rest 900 will fail. So
+ 
+
+359
+00:07:57,199 --> 00:07:58,869
+100 requests rest 900 will fail. So
+cascading failure impact will come on
+
+360
+00:07:58,869 --> 00:07:58,879
+cascading failure impact will come on
+ 
+
+361
+00:07:58,879 --> 00:08:02,950
+cascading failure impact will come on
+this only. So scaling issue is there. So
+
+362
+00:08:02,950 --> 00:08:02,960
+this only. So scaling issue is there. So
+ 
+
+363
+00:08:02,960 --> 00:08:05,510
+this only. So scaling issue is there. So
+now here if you see that there are so
+
+364
+00:08:05,510 --> 00:08:05,520
+now here if you see that there are so
+ 
+
+365
+00:08:05,520 --> 00:08:07,430
+now here if you see that there are so
+this is just you can say the top five I
+
+366
+00:08:07,430 --> 00:08:07,440
+this is just you can say the top five I
+ 
+
+367
+00:08:07,440 --> 00:08:09,670
+this is just you can say the top five I
+have listed down
+
+368
+00:08:09,670 --> 00:08:09,680
+have listed down
+ 
+
+369
+00:08:09,680 --> 00:08:13,189
+have listed down
+when you have a flow like this when I
+
+370
+00:08:13,189 --> 00:08:13,199
+when you have a flow like this when I
+ 
+
+371
+00:08:13,199 --> 00:08:16,550
+when you have a flow like this when I
+say that flow like this means long
+
+372
+00:08:16,550 --> 00:08:16,560
+say that flow like this means long
+ 
+
+373
+00:08:16,560 --> 00:08:20,469
+say that flow like this means long
+running flow. So consider this as a
+
+374
+00:08:20,469 --> 00:08:20,479
+running flow. So consider this as a
+ 
+
+375
+00:08:20,479 --> 00:08:23,110
+running flow. So consider this as a
+wrong long running flow order placed
+
+376
+00:08:23,110 --> 00:08:23,120
+wrong long running flow order placed
+ 
+
+377
+00:08:23,120 --> 00:08:24,710
+wrong long running flow order placed
+then you check the inventory then you
+
+378
+00:08:24,710 --> 00:08:24,720
+then you check the inventory then you
+ 
+
+379
+00:08:24,720 --> 00:08:26,869
+then you check the inventory then you
+process the payment then you reserve the
+
+380
+00:08:26,869 --> 00:08:26,879
+process the payment then you reserve the
+ 
+
+381
+00:08:26,879 --> 00:08:28,629
+process the payment then you reserve the
+inventory then you send the
+
+382
+00:08:28,629 --> 00:08:28,639
+inventory then you send the
+ 
+
+383
+00:08:28,639 --> 00:08:30,469
+inventory then you send the
+notification. So this in the long
+
+384
+00:08:30,469 --> 00:08:30,479
+notification. So this in the long
+ 
+
+385
+00:08:30,479 --> 00:08:32,790
+notification. So this in the long
+running flow means multiple services are
+
+386
+00:08:32,790 --> 00:08:32,800
+running flow means multiple services are
+ 
+
+387
+00:08:32,800 --> 00:08:37,350
+running flow means multiple services are
+included. Okay. So in that the rest
+
+388
+00:08:37,350 --> 00:08:37,360
+included. Okay. So in that the rest
+ 
+
+389
+00:08:37,360 --> 00:08:39,990
+included. Okay. So in that the rest
+distributed microservices has various
+
+390
+00:08:39,990 --> 00:08:40,000
+distributed microservices has various
+ 
+
+391
+00:08:40,000 --> 00:08:44,230
+distributed microservices has various
+challenges and these are just top five.
+
+392
+00:08:44,230 --> 00:08:44,240
+challenges and these are just top five.
+ 
+
+393
+00:08:44,240 --> 00:08:46,310
+challenges and these are just top five.
+So generally in those scenario
+
+394
+00:08:46,310 --> 00:08:46,320
+So generally in those scenario
+ 
+
+395
+00:08:46,320 --> 00:08:48,870
+So generally in those scenario
+eventdriven architecture is highly used
+
+396
+00:08:48,870 --> 00:08:48,880
+eventdriven architecture is highly used
+ 
+
+397
+00:08:48,880 --> 00:08:51,750
+eventdriven architecture is highly used
+in the industry. Okay. And again this is
+
+398
+00:08:51,750 --> 00:08:51,760
+in the industry. Okay. And again this is
+ 
+
+399
+00:08:51,760 --> 00:08:53,110
+in the industry. Okay. And again this is
+just an example I am showing you
+
+400
+00:08:53,110 --> 00:08:53,120
+just an example I am showing you
+ 
+
+401
+00:08:53,120 --> 00:08:54,949
+just an example I am showing you
+whatever this order service inventory
+
+402
+00:08:54,949 --> 00:08:54,959
+whatever this order service inventory
+ 
+
+403
+00:08:54,959 --> 00:08:57,190
+whatever this order service inventory
+service. It's not like this is the exact
+
+404
+00:08:57,190 --> 00:08:57,200
+service. It's not like this is the exact
+ 
+
+405
+00:08:57,200 --> 00:08:59,590
+service. It's not like this is the exact
+flow for an order. So consider this just
+
+406
+00:08:59,590 --> 00:08:59,600
+flow for an order. So consider this just
+ 
+
+407
+00:08:59,600 --> 00:09:02,310
+flow for an order. So consider this just
+an example for differentiating what
+
+408
+00:09:02,310 --> 00:09:02,320
+an example for differentiating what
+ 
+
+409
+00:09:02,320 --> 00:09:05,030
+an example for differentiating what
+between rest and the EDA event driven
+
+410
+00:09:05,030 --> 00:09:05,040
+between rest and the EDA event driven
+ 
+
+411
+00:09:05,040 --> 00:09:06,790
+between rest and the EDA event driven
+architecture.
+
+412
+00:09:06,790 --> 00:09:06,800
+architecture.
+ 
+
+413
+00:09:06,800 --> 00:09:08,630
+architecture.
+So now in the event-driven architecture
+
+414
+00:09:08,630 --> 00:09:08,640
+So now in the event-driven architecture
+ 
+
+415
+00:09:08,640 --> 00:09:10,550
+So now in the event-driven architecture
+if you have to just design the same
+
+416
+00:09:10,550 --> 00:09:10,560
+if you have to just design the same
+ 
+
+417
+00:09:10,560 --> 00:09:14,150
+if you have to just design the same
+thing into this part. So we still have a
+
+418
+00:09:14,150 --> 00:09:14,160
+thing into this part. So we still have a
+ 
+
+419
+00:09:14,160 --> 00:09:16,949
+thing into this part. So we still have a
+user order service. Now here we have an
+
+420
+00:09:16,949 --> 00:09:16,959
+user order service. Now here we have an
+ 
+
+421
+00:09:16,959 --> 00:09:20,310
+user order service. Now here we have an
+event router. So see at this since this
+
+422
+00:09:20,310 --> 00:09:20,320
+event router. So see at this since this
+ 
+
+423
+00:09:20,320 --> 00:09:22,710
+event router. So see at this since this
+is the first part of this event-driven
+
+424
+00:09:22,710 --> 00:09:22,720
+is the first part of this event-driven
+ 
+
+425
+00:09:22,720 --> 00:09:24,470
+is the first part of this event-driven
+architecture
+
+426
+00:09:24,470 --> 00:09:24,480
+architecture
+ 
+
+427
+00:09:24,480 --> 00:09:26,470
+architecture
+either it could be either Kafka, Rabbit
+
+428
+00:09:26,470 --> 00:09:26,480
+either it could be either Kafka, Rabbit
+ 
+
+429
+00:09:26,480 --> 00:09:29,030
+either it could be either Kafka, Rabbit
+MQ or any different router you can say
+
+430
+00:09:29,030 --> 00:09:29,040
+MQ or any different router you can say
+ 
+
+431
+00:09:29,040 --> 00:09:32,150
+MQ or any different router you can say
+that but here currently you can say that
+
+432
+00:09:32,150 --> 00:09:32,160
+that but here currently you can say that
+ 
+
+433
+00:09:32,160 --> 00:09:34,389
+that but here currently you can say that
+it's a generic term I have I have used
+
+434
+00:09:34,389 --> 00:09:34,399
+it's a generic term I have I have used
+ 
+
+435
+00:09:34,399 --> 00:09:36,630
+it's a generic term I have I have used
+event router
+
+436
+00:09:36,630 --> 00:09:36,640
+event router
+ 
+
+437
+00:09:36,640 --> 00:09:38,230
+event router
+okay and then you have a let's say
+
+438
+00:09:38,230 --> 00:09:38,240
+okay and then you have a let's say
+ 
+
+439
+00:09:38,240 --> 00:09:39,829
+okay and then you have a let's say
+payment service, inventory service,
+
+440
+00:09:39,829 --> 00:09:39,839
+payment service, inventory service,
+ 
+
+441
+00:09:39,839 --> 00:09:42,630
+payment service, inventory service,
+notification service. Now we have
+
+442
+00:09:42,630 --> 00:09:42,640
+notification service. Now we have
+ 
+
+443
+00:09:42,640 --> 00:09:44,389
+notification service. Now we have
+everything same but apart from that we
+
+444
+00:09:44,389 --> 00:09:44,399
+everything same but apart from that we
+ 
+
+445
+00:09:44,399 --> 00:09:49,030
+everything same but apart from that we
+have another uh you can say that kind of
+
+446
+00:09:49,030 --> 00:09:49,040
+have another uh you can say that kind of
+ 
+
+447
+00:09:49,040 --> 00:09:53,430
+have another uh you can say that kind of
+uh platform like a event router.
+
+448
+00:09:53,430 --> 00:09:53,440
+uh platform like a event router.
+ 
+
+449
+00:09:53,440 --> 00:09:55,990
+uh platform like a event router.
+Now what happened the first is user
+
+450
+00:09:55,990 --> 00:09:56,000
+Now what happened the first is user
+ 
+
+451
+00:09:56,000 --> 00:09:58,389
+Now what happened the first is user
+place an order. Now here if you see that
+
+452
+00:09:58,389 --> 00:09:58,399
+place an order. Now here if you see that
+ 
+
+453
+00:09:58,399 --> 00:10:00,870
+place an order. Now here if you see that
+I am doing a realtime processing still
+
+454
+00:10:00,870 --> 00:10:00,880
+I am doing a realtime processing still
+ 
+
+455
+00:10:00,880 --> 00:10:03,110
+I am doing a realtime processing still
+check the realtime inventory. Yes, if
+
+456
+00:10:03,110 --> 00:10:03,120
+check the realtime inventory. Yes, if
+ 
+
+457
+00:10:03,120 --> 00:10:06,470
+check the realtime inventory. Yes, if
+inventory is present save order status
+
+458
+00:10:06,470 --> 00:10:06,480
+inventory is present save order status
+ 
+
+459
+00:10:06,480 --> 00:10:08,550
+inventory is present save order status
+equals to pending
+
+460
+00:10:08,550 --> 00:10:08,560
+equals to pending
+ 
+
+461
+00:10:08,560 --> 00:10:12,470
+equals to pending
+and it will publish an event to this
+
+462
+00:10:12,470 --> 00:10:12,480
+and it will publish an event to this
+ 
+
+463
+00:10:12,480 --> 00:10:15,990
+and it will publish an event to this
+event router that order created. So one
+
+464
+00:10:15,990 --> 00:10:16,000
+event router that order created. So one
+ 
+
+465
+00:10:16,000 --> 00:10:19,110
+event router that order created. So one
+event is published. So this is an event
+
+466
+00:10:19,110 --> 00:10:19,120
+event is published. So this is an event
+ 
+
+467
+00:10:19,120 --> 00:10:21,590
+event is published. So this is an event
+event publish order created and it send
+
+468
+00:10:21,590 --> 00:10:21,600
+event publish order created and it send
+ 
+
+469
+00:10:21,600 --> 00:10:24,230
+event publish order created and it send
+the response to the user order is
+
+470
+00:10:24,230 --> 00:10:24,240
+the response to the user order is
+ 
+
+471
+00:10:24,240 --> 00:10:27,590
+the response to the user order is
+accepted. Okay. So your first part is
+
+472
+00:10:27,590 --> 00:10:27,600
+accepted. Okay. So your first part is
+ 
+
+473
+00:10:27,600 --> 00:10:29,829
+accepted. Okay. So your first part is
+completed. So now here if you see user
+
+474
+00:10:29,829 --> 00:10:29,839
+completed. So now here if you see user
+ 
+
+475
+00:10:29,839 --> 00:10:33,269
+completed. So now here if you see user
+got the response very early
+
+476
+00:10:33,269 --> 00:10:33,279
+got the response very early
+ 
+
+477
+00:10:33,279 --> 00:10:35,269
+got the response very early
+and till now what we have done is we
+
+478
+00:10:35,269 --> 00:10:35,279
+and till now what we have done is we
+ 
+
+479
+00:10:35,279 --> 00:10:38,230
+and till now what we have done is we
+have just stored the order in the
+
+480
+00:10:38,230 --> 00:10:38,240
+have just stored the order in the
+ 
+
+481
+00:10:38,240 --> 00:10:40,550
+have just stored the order in the
+pending state and we have just publish
+
+482
+00:10:40,550 --> 00:10:40,560
+pending state and we have just publish
+ 
+
+483
+00:10:40,560 --> 00:10:44,069
+pending state and we have just publish
+an event that order created event uh to
+
+484
+00:10:44,069 --> 00:10:44,079
+an event that order created event uh to
+ 
+
+485
+00:10:44,079 --> 00:10:46,710
+an event that order created event uh to
+this event router. Okay. And the
+
+486
+00:10:46,710 --> 00:10:46,720
+this event router. Okay. And the
+ 
+
+487
+00:10:46,720 --> 00:10:49,110
+this event router. Okay. And the
+response has been gone to the user that
+
+488
+00:10:49,110 --> 00:10:49,120
+response has been gone to the user that
+ 
+
+489
+00:10:49,120 --> 00:10:52,790
+response has been gone to the user that
+order accepted. Now the second lag which
+
+490
+00:10:52,790 --> 00:10:52,800
+order accepted. Now the second lag which
+ 
+
+491
+00:10:52,800 --> 00:10:55,829
+order accepted. Now the second lag which
+is a sync now it's doesn't have to be in
+
+492
+00:10:55,829 --> 00:10:55,839
+is a sync now it's doesn't have to be in
+ 
+
+493
+00:10:55,839 --> 00:10:59,030
+is a sync now it's doesn't have to be in
+real time. Okay. So now as sync and
+
+494
+00:10:59,030 --> 00:10:59,040
+real time. Okay. So now as sync and
+ 
+
+495
+00:10:59,040 --> 00:11:02,230
+real time. Okay. So now as sync and
+parallel processing here in this box.
+
+496
+00:11:02,230 --> 00:11:02,240
+parallel processing here in this box.
+ 
+
+497
+00:11:02,240 --> 00:11:03,990
+parallel processing here in this box.
+So now the event has been published
+
+498
+00:11:03,990 --> 00:11:04,000
+So now the event has been published
+ 
+
+499
+00:11:04,000 --> 00:11:06,470
+So now the event has been published
+right to this event router what order
+
+500
+00:11:06,470 --> 00:11:06,480
+right to this event router what order
+ 
+
+501
+00:11:06,480 --> 00:11:09,350
+right to this event router what order
+created. So what it will do this event
+
+502
+00:11:09,350 --> 00:11:09,360
+created. So what it will do this event
+ 
+
+503
+00:11:09,360 --> 00:11:12,470
+created. So what it will do this event
+router it will push the order created
+
+504
+00:11:12,470 --> 00:11:12,480
+router it will push the order created
+ 
+
+505
+00:11:12,480 --> 00:11:15,829
+router it will push the order created
+event to all those who are interested.
+
+506
+00:11:15,829 --> 00:11:15,839
+event to all those who are interested.
+ 
+
+507
+00:11:15,839 --> 00:11:17,990
+event to all those who are interested.
+Okay. So now let's say that payment
+
+508
+00:11:17,990 --> 00:11:18,000
+Okay. So now let's say that payment
+ 
+
+509
+00:11:18,000 --> 00:11:21,269
+Okay. So now let's say that payment
+service is interested in this event and
+
+510
+00:11:21,269 --> 00:11:21,279
+service is interested in this event and
+ 
+
+511
+00:11:21,279 --> 00:11:23,910
+service is interested in this event and
+inventory service is also interested in
+
+512
+00:11:23,910 --> 00:11:23,920
+inventory service is also interested in
+ 
+
+513
+00:11:23,920 --> 00:11:27,350
+inventory service is also interested in
+this event order created event. Okay. So
+
+514
+00:11:27,350 --> 00:11:27,360
+this event order created event. Okay. So
+ 
+
+515
+00:11:27,360 --> 00:11:29,990
+this event order created event. Okay. So
+now here if you see that it just push
+
+516
+00:11:29,990 --> 00:11:30,000
+now here if you see that it just push
+ 
+
+517
+00:11:30,000 --> 00:11:32,870
+now here if you see that it just push
+the event it don't tell anything what
+
+518
+00:11:32,870 --> 00:11:32,880
+the event it don't tell anything what
+ 
+
+519
+00:11:32,880 --> 00:11:34,949
+the event it don't tell anything what
+you have to do it just tell that hey
+
+520
+00:11:34,949 --> 00:11:34,959
+you have to do it just tell that hey
+ 
+
+521
+00:11:34,959 --> 00:11:37,110
+you have to do it just tell that hey
+order is created now whatever you have
+
+522
+00:11:37,110 --> 00:11:37,120
+order is created now whatever you have
+ 
+
+523
+00:11:37,120 --> 00:11:39,509
+order is created now whatever you have
+to do do it
+
+524
+00:11:39,509 --> 00:11:39,519
+to do do it
+ 
+
+525
+00:11:39,519 --> 00:11:41,670
+to do do it
+now payment service what it will do is
+
+526
+00:11:41,670 --> 00:11:41,680
+now payment service what it will do is
+ 
+
+527
+00:11:41,680 --> 00:11:45,110
+now payment service what it will do is
+it will try to process the payment
+
+528
+00:11:45,110 --> 00:11:45,120
+it will try to process the payment
+ 
+
+529
+00:11:45,120 --> 00:11:47,190
+it will try to process the payment
+inventory service try to reserve the
+
+530
+00:11:47,190 --> 00:11:47,200
+inventory service try to reserve the
+ 
+
+531
+00:11:47,200 --> 00:11:50,550
+inventory service try to reserve the
+inventory and once done they will also
+
+532
+00:11:50,550 --> 00:11:50,560
+inventory and once done they will also
+ 
+
+533
+00:11:50,560 --> 00:11:54,230
+inventory and once done they will also
+publish their event hey my payment
+
+534
+00:11:54,230 --> 00:11:54,240
+publish their event hey my payment
+ 
+
+535
+00:11:54,240 --> 00:11:57,110
+publish their event hey my payment
+success is done okay and reserve
+
+536
+00:11:57,110 --> 00:11:57,120
+success is done okay and reserve
+ 
+
+537
+00:11:57,120 --> 00:11:59,030
+success is done okay and reserve
+inventory. Hey, I am able to reserve the
+
+538
+00:11:59,030 --> 00:11:59,040
+inventory. Hey, I am able to reserve the
+ 
+
+539
+00:11:59,040 --> 00:12:01,829
+inventory. Hey, I am able to reserve the
+inventory properly. It just publish an
+
+540
+00:12:01,829 --> 00:12:01,839
+inventory properly. It just publish an
+ 
+
+541
+00:12:01,839 --> 00:12:04,870
+inventory properly. It just publish an
+event. So these are also an event.
+
+542
+00:12:04,870 --> 00:12:04,880
+event. So these are also an event.
+ 
+
+543
+00:12:04,880 --> 00:12:06,629
+event. So these are also an event.
+Now
+
+544
+00:12:06,629 --> 00:12:06,639
+Now
+ 
+
+545
+00:12:06,639 --> 00:12:10,629
+Now
+event router in the third line
+
+546
+00:12:10,629 --> 00:12:10,639
+event router in the third line
+ 
+
+547
+00:12:10,639 --> 00:12:12,470
+event router in the third line
+whoever is interested into payment
+
+548
+00:12:12,470 --> 00:12:12,480
+whoever is interested into payment
+ 
+
+549
+00:12:12,480 --> 00:12:15,750
+whoever is interested into payment
+success event it will push the event to
+
+550
+00:12:15,750 --> 00:12:15,760
+success event it will push the event to
+ 
+
+551
+00:12:15,760 --> 00:12:17,829
+success event it will push the event to
+that. Now let's say notification service
+
+552
+00:12:17,829 --> 00:12:17,839
+that. Now let's say notification service
+ 
+
+553
+00:12:17,839 --> 00:12:21,269
+that. Now let's say notification service
+is interested in payment success event.
+
+554
+00:12:21,269 --> 00:12:21,279
+is interested in payment success event.
+ 
+
+555
+00:12:21,279 --> 00:12:23,990
+is interested in payment success event.
+So it just push the event. So now here
+
+556
+00:12:23,990 --> 00:12:24,000
+So it just push the event. So now here
+ 
+
+557
+00:12:24,000 --> 00:12:27,430
+So it just push the event. So now here
+if you see what event router is doing is
+
+558
+00:12:27,430 --> 00:12:27,440
+if you see what event router is doing is
+ 
+
+559
+00:12:27,440 --> 00:12:29,670
+if you see what event router is doing is
+services
+
+560
+00:12:29,670 --> 00:12:29,680
+services
+ 
+
+561
+00:12:29,680 --> 00:12:32,150
+services
+publish an event and what event router
+
+562
+00:12:32,150 --> 00:12:32,160
+publish an event and what event router
+ 
+
+563
+00:12:32,160 --> 00:12:35,750
+publish an event and what event router
+is doing is pass the event to the other
+
+564
+00:12:35,750 --> 00:12:35,760
+is doing is pass the event to the other
+ 
+
+565
+00:12:35,760 --> 00:12:38,069
+is doing is pass the event to the other
+services which are interested. So it act
+
+566
+00:12:38,069 --> 00:12:38,079
+services which are interested. So it act
+ 
+
+567
+00:12:38,079 --> 00:12:40,949
+services which are interested. So it act
+as a mediator or a broker.
+
+568
+00:12:40,949 --> 00:12:40,959
+as a mediator or a broker.
+ 
+
+569
+00:12:40,959 --> 00:12:42,629
+as a mediator or a broker.
+Okay.
+
+570
+00:12:42,629 --> 00:12:42,639
+Okay.
+ 
+
+571
+00:12:42,639 --> 00:12:45,030
+Okay.
+So now let's say in this one uh when
+
+572
+00:12:45,030 --> 00:12:45,040
+So now let's say in this one uh when
+ 
+
+573
+00:12:45,040 --> 00:12:46,870
+So now let's say in this one uh when
+payment service publish an event that
+
+574
+00:12:46,870 --> 00:12:46,880
+payment service publish an event that
+ 
+
+575
+00:12:46,880 --> 00:12:49,590
+payment service publish an event that
+hey payment has been success this broker
+
+576
+00:12:49,590 --> 00:12:49,600
+hey payment has been success this broker
+ 
+
+577
+00:12:49,600 --> 00:12:51,269
+hey payment has been success this broker
+this event router what it does is it
+
+578
+00:12:51,269 --> 00:12:51,279
+this event router what it does is it
+ 
+
+579
+00:12:51,279 --> 00:12:53,829
+this event router what it does is it
+just pass this event to whichever other
+
+580
+00:12:53,829 --> 00:12:53,839
+just pass this event to whichever other
+ 
+
+581
+00:12:53,839 --> 00:12:55,350
+just pass this event to whichever other
+service are interested in. So
+
+582
+00:12:55,350 --> 00:12:55,360
+service are interested in. So
+ 
+
+583
+00:12:55,360 --> 00:12:57,030
+service are interested in. So
+notification service is interested in
+
+584
+00:12:57,030 --> 00:12:57,040
+notification service is interested in
+ 
+
+585
+00:12:57,040 --> 00:12:59,829
+notification service is interested in
+this event and it now got the payment
+
+586
+00:12:59,829 --> 00:12:59,839
+this event and it now got the payment
+ 
+
+587
+00:12:59,839 --> 00:13:03,110
+this event and it now got the payment
+success event. So it send the mail okay
+
+588
+00:13:03,110 --> 00:13:03,120
+success event. So it send the mail okay
+ 
+
+589
+00:13:03,120 --> 00:13:05,990
+success event. So it send the mail okay
+and it also send this payment success
+
+590
+00:13:05,990 --> 00:13:06,000
+and it also send this payment success
+ 
+
+591
+00:13:06,000 --> 00:13:08,310
+and it also send this payment success
+event to order service and it will
+
+592
+00:13:08,310 --> 00:13:08,320
+event to order service and it will
+ 
+
+593
+00:13:08,320 --> 00:13:11,190
+event to order service and it will
+update its status to completed.
+
+594
+00:13:11,190 --> 00:13:11,200
+update its status to completed.
+ 
+
+595
+00:13:11,200 --> 00:13:15,590
+update its status to completed.
+This is just an example to show that in
+
+596
+00:13:15,590 --> 00:13:15,600
+This is just an example to show that in
+ 
+
+597
+00:13:15,600 --> 00:13:18,790
+This is just an example to show that in
+case of event-driven architecture
+
+598
+00:13:18,790 --> 00:13:18,800
+case of event-driven architecture
+ 
+
+599
+00:13:18,800 --> 00:13:21,590
+case of event-driven architecture
+different microservices are talking with
+
+600
+00:13:21,590 --> 00:13:21,600
+different microservices are talking with
+ 
+
+601
+00:13:21,600 --> 00:13:25,350
+different microservices are talking with
+each other based on events.
+
+602
+00:13:25,350 --> 00:13:25,360
+each other based on events.
+ 
+
+603
+00:13:25,360 --> 00:13:29,590
+each other based on events.
+Okay. So the same flow we are dividing
+
+604
+00:13:29,590 --> 00:13:29,600
+Okay. So the same flow we are dividing
+ 
+
+605
+00:13:29,600 --> 00:13:31,910
+Okay. So the same flow we are dividing
+or you can say that modifying into this
+
+606
+00:13:31,910 --> 00:13:31,920
+or you can say that modifying into this
+ 
+
+607
+00:13:31,920 --> 00:13:35,190
+or you can say that modifying into this
+EDA and this is one perfect use case
+
+608
+00:13:35,190 --> 00:13:35,200
+EDA and this is one perfect use case
+ 
+
+609
+00:13:35,200 --> 00:13:39,269
+EDA and this is one perfect use case
+where EDA can be used.
+
+610
+00:13:39,269 --> 00:13:39,279
+where EDA can be used.
+ 
+
+611
+00:13:39,279 --> 00:13:41,430
+where EDA can be used.
+Okay.
+
+612
+00:13:41,430 --> 00:13:41,440
+Okay.
+ 
+
+613
+00:13:41,440 --> 00:13:43,350
+Okay.
+So what are the advantages of
+
+614
+00:13:43,350 --> 00:13:43,360
+So what are the advantages of
+ 
+
+615
+00:13:43,360 --> 00:13:45,430
+So what are the advantages of
+eventdriven architecture from the above
+
+616
+00:13:45,430 --> 00:13:45,440
+eventdriven architecture from the above
+ 
+
+617
+00:13:45,440 --> 00:13:48,150
+eventdriven architecture from the above
+flow we can see
+
+618
+00:13:48,150 --> 00:13:48,160
+flow we can see
+ 
+
+619
+00:13:48,160 --> 00:13:49,829
+flow we can see
+very simple like whatever the
+
+620
+00:13:49,829 --> 00:13:49,839
+very simple like whatever the
+ 
+
+621
+00:13:49,839 --> 00:13:52,790
+very simple like whatever the
+disadvantages of synchronous chain we
+
+622
+00:13:52,790 --> 00:13:52,800
+disadvantages of synchronous chain we
+ 
+
+623
+00:13:52,800 --> 00:13:55,110
+disadvantages of synchronous chain we
+have seen generally are the advantages
+
+624
+00:13:55,110 --> 00:13:55,120
+have seen generally are the advantages
+ 
+
+625
+00:13:55,120 --> 00:13:56,790
+have seen generally are the advantages
+of event-driven architecture. One thing
+
+626
+00:13:56,790 --> 00:13:56,800
+of event-driven architecture. One thing
+ 
+
+627
+00:13:56,800 --> 00:14:00,470
+of event-driven architecture. One thing
+is loose coupling no direct dependency
+
+628
+00:14:00,470 --> 00:14:00,480
+is loose coupling no direct dependency
+ 
+
+629
+00:14:00,480 --> 00:14:02,949
+is loose coupling no direct dependency
+on one another.
+
+630
+00:14:02,949 --> 00:14:02,959
+on one another.
+ 
+
+631
+00:14:02,959 --> 00:14:04,389
+on one another.
+Scalability service can scale
+
+632
+00:14:04,389 --> 00:14:04,399
+Scalability service can scale
+ 
+
+633
+00:14:04,399 --> 00:14:07,670
+Scalability service can scale
+independently like now you can scale
+
+634
+00:14:07,670 --> 00:14:07,680
+independently like now you can scale
+ 
+
+635
+00:14:07,680 --> 00:14:10,550
+independently like now you can scale
+payment service as much as you want. Uh
+
+636
+00:14:10,550 --> 00:14:10,560
+payment service as much as you want. Uh
+ 
+
+637
+00:14:10,560 --> 00:14:13,110
+payment service as much as you want. Uh
+it can process payment like depending
+
+638
+00:14:13,110 --> 00:14:13,120
+it can process payment like depending
+ 
+
+639
+00:14:13,120 --> 00:14:14,790
+it can process payment like depending
+upon the event it can accept so many
+
+640
+00:14:14,790 --> 00:14:14,800
+upon the event it can accept so many
+ 
+
+641
+00:14:14,800 --> 00:14:16,949
+upon the event it can accept so many
+events. It can process the events. So
+
+642
+00:14:16,949 --> 00:14:16,959
+events. It can process the events. So
+ 
+
+643
+00:14:16,959 --> 00:14:21,110
+events. It can process the events. So
+now it can scale independently. Okay.
+
+644
+00:14:21,110 --> 00:14:21,120
+now it can scale independently. Okay.
+ 
+
+645
+00:14:21,120 --> 00:14:23,430
+now it can scale independently. Okay.
+Better resilience temporary issue do not
+
+646
+00:14:23,430 --> 00:14:23,440
+Better resilience temporary issue do not
+ 
+
+647
+00:14:23,440 --> 00:14:25,350
+Better resilience temporary issue do not
+break the whole system. Now let's say
+
+648
+00:14:25,350 --> 00:14:25,360
+break the whole system. Now let's say
+ 
+
+649
+00:14:25,360 --> 00:14:29,030
+break the whole system. Now let's say
+that reserve inventory is failing but
+
+650
+00:14:29,030 --> 00:14:29,040
+that reserve inventory is failing but
+ 
+
+651
+00:14:29,040 --> 00:14:31,829
+that reserve inventory is failing but
+the whole system is not down.
+
+652
+00:14:31,829 --> 00:14:31,839
+the whole system is not down.
+ 
+
+653
+00:14:31,839 --> 00:14:34,790
+the whole system is not down.
+order is still getting accepted. Okay,
+
+654
+00:14:34,790 --> 00:14:34,800
+order is still getting accepted. Okay,
+ 
+
+655
+00:14:34,800 --> 00:14:36,629
+order is still getting accepted. Okay,
+maybe for temporary purpose it is
+
+656
+00:14:36,629 --> 00:14:36,639
+maybe for temporary purpose it is
+ 
+
+657
+00:14:36,639 --> 00:14:38,949
+maybe for temporary purpose it is
+failing but once it is get up all the
+
+658
+00:14:38,949 --> 00:14:38,959
+failing but once it is get up all the
+ 
+
+659
+00:14:38,959 --> 00:14:41,910
+failing but once it is get up all the
+pending events it can go and start
+
+660
+00:14:41,910 --> 00:14:41,920
+pending events it can go and start
+ 
+
+661
+00:14:41,920 --> 00:14:44,230
+pending events it can go and start
+working on it. So your system is not
+
+662
+00:14:44,230 --> 00:14:44,240
+working on it. So your system is not
+ 
+
+663
+00:14:44,240 --> 00:14:47,350
+working on it. So your system is not
+completely failed. Okay,
+
+664
+00:14:47,350 --> 00:14:47,360
+completely failed. Okay,
+ 
+
+665
+00:14:47,360 --> 00:14:49,590
+completely failed. Okay,
+replay we can reprocess the old event
+
+666
+00:14:49,590 --> 00:14:49,600
+replay we can reprocess the old event
+ 
+
+667
+00:14:49,600 --> 00:14:53,030
+replay we can reprocess the old event
+that capability is there. Improvement in
+
+668
+00:14:53,030 --> 00:14:53,040
+that capability is there. Improvement in
+ 
+
+669
+00:14:53,040 --> 00:14:56,629
+that capability is there. Improvement in
+latency. Yes, for sure. Uh because you
+
+670
+00:14:56,629 --> 00:14:56,639
+latency. Yes, for sure. Uh because you
+ 
+
+671
+00:14:56,639 --> 00:14:58,310
+latency. Yes, for sure. Uh because you
+are doing ing processing, parallel
+
+672
+00:14:58,310 --> 00:14:58,320
+are doing ing processing, parallel
+ 
+
+673
+00:14:58,320 --> 00:15:01,509
+are doing ing processing, parallel
+processing and even the response time to
+
+674
+00:15:01,509 --> 00:15:01,519
+processing and even the response time to
+ 
+
+675
+00:15:01,519 --> 00:15:04,150
+processing and even the response time to
+the user is
+
+676
+00:15:04,150 --> 00:15:04,160
+the user is
+ 
+
+677
+00:15:04,160 --> 00:15:06,710
+the user is
+improved a lot. Now user don't have to
+
+678
+00:15:06,710 --> 00:15:06,720
+improved a lot. Now user don't have to
+ 
+
+679
+00:15:06,720 --> 00:15:10,550
+improved a lot. Now user don't have to
+wait till this whole let's say 5 second.
+
+680
+00:15:10,550 --> 00:15:10,560
+wait till this whole let's say 5 second.
+ 
+
+681
+00:15:10,560 --> 00:15:13,110
+wait till this whole let's say 5 second.
+Now user has to wait only let's say 1
+
+682
+00:15:13,110 --> 00:15:13,120
+Now user has to wait only let's say 1
+ 
+
+683
+00:15:13,120 --> 00:15:15,990
+Now user has to wait only let's say 1
+second. Here it got the response. But
+
+684
+00:15:15,990 --> 00:15:16,000
+second. Here it got the response. But
+ 
+
+685
+00:15:16,000 --> 00:15:18,310
+second. Here it got the response. But
+now because of using parallel processing
+
+686
+00:15:18,310 --> 00:15:18,320
+now because of using parallel processing
+ 
+
+687
+00:15:18,320 --> 00:15:21,509
+now because of using parallel processing
+and all uh everything will get complete
+
+688
+00:15:21,509 --> 00:15:21,519
+and all uh everything will get complete
+ 
+
+689
+00:15:21,519 --> 00:15:23,030
+and all uh everything will get complete
+sooner.
+
+690
+00:15:23,030 --> 00:15:23,040
+sooner.
+ 
+
+691
+00:15:23,040 --> 00:15:28,069
+sooner.
+Okay. So latency get improved.
+
+692
+00:15:28,069 --> 00:15:28,079
+Okay. So latency get improved.
+ 
+
+693
+00:15:28,079 --> 00:15:30,949
+Okay. So latency get improved.
+So from the above understanding
+
+694
+00:15:30,949 --> 00:15:30,959
+So from the above understanding
+ 
+
+695
+00:15:30,959 --> 00:15:33,590
+So from the above understanding
+can we take out the key components? The
+
+696
+00:15:33,590 --> 00:15:33,600
+can we take out the key components? The
+ 
+
+697
+00:15:33,600 --> 00:15:36,470
+can we take out the key components? The
+key component is we have a producer
+
+698
+00:15:36,470 --> 00:15:36,480
+key component is we have a producer
+ 
+
+699
+00:15:36,480 --> 00:15:39,829
+key component is we have a producer
+the service which publish an event. The
+
+700
+00:15:39,829 --> 00:15:39,839
+the service which publish an event. The
+ 
+
+701
+00:15:39,839 --> 00:15:43,430
+the service which publish an event. The
+service which publish an event.
+
+702
+00:15:43,430 --> 00:15:43,440
+service which publish an event.
+ 
+
+703
+00:15:43,440 --> 00:15:46,870
+service which publish an event.
+Then we have a broker the router. So it
+
+704
+00:15:46,870 --> 00:15:46,880
+Then we have a broker the router. So it
+ 
+
+705
+00:15:46,880 --> 00:15:49,670
+Then we have a broker the router. So it
+accept the event and what it will do is
+
+706
+00:15:49,670 --> 00:15:49,680
+accept the event and what it will do is
+ 
+
+707
+00:15:49,680 --> 00:15:52,470
+accept the event and what it will do is
+it will pass the event to consumer. So
+
+708
+00:15:52,470 --> 00:15:52,480
+it will pass the event to consumer. So
+ 
+
+709
+00:15:52,480 --> 00:15:55,269
+it will pass the event to consumer. So
+what is consumer service
+
+710
+00:15:55,269 --> 00:15:55,279
+what is consumer service
+ 
+
+711
+00:15:55,279 --> 00:15:57,189
+what is consumer service
+which
+
+712
+00:15:57,189 --> 00:15:57,199
+which
+ 
+
+713
+00:15:57,199 --> 00:16:02,389
+which
+act on the events you can say that which
+
+714
+00:16:02,389 --> 00:16:02,399
+act on the events you can say that which
+ 
+
+715
+00:16:02,399 --> 00:16:05,829
+act on the events you can say that which
+act on the events or which consume the
+
+716
+00:16:05,829 --> 00:16:05,839
+act on the events or which consume the
+ 
+
+717
+00:16:05,839 --> 00:16:08,790
+act on the events or which consume the
+events. Okay. So producer publish an
+
+718
+00:16:08,790 --> 00:16:08,800
+events. Okay. So producer publish an
+ 
+
+719
+00:16:08,800 --> 00:16:12,470
+events. Okay. So producer publish an
+event and event broker or router pass
+
+720
+00:16:12,470 --> 00:16:12,480
+event and event broker or router pass
+ 
+
+721
+00:16:12,480 --> 00:16:15,590
+event and event broker or router pass
+the event to a specific
+
+722
+00:16:15,590 --> 00:16:15,600
+the event to a specific
+ 
+
+723
+00:16:15,600 --> 00:16:18,790
+the event to a specific
+services which are interested in it.
+
+724
+00:16:18,790 --> 00:16:18,800
+services which are interested in it.
+ 
+
+725
+00:16:18,800 --> 00:16:21,189
+services which are interested in it.
+So these these are the major components
+
+726
+00:16:21,189 --> 00:16:21,199
+So these these are the major components
+ 
+
+727
+00:16:21,199 --> 00:16:23,350
+So these these are the major components
+of event-driven architecture very high
+
+728
+00:16:23,350 --> 00:16:23,360
+of event-driven architecture very high
+ 
+
+729
+00:16:23,360 --> 00:16:25,430
+of event-driven architecture very high
+level.
+
+730
+00:16:25,430 --> 00:16:25,440
+level.
+ 
+
+731
+00:16:25,440 --> 00:16:28,310
+level.
+Now the next thing uh introductory part
+
+732
+00:16:28,310 --> 00:16:28,320
+Now the next thing uh introductory part
+ 
+
+733
+00:16:28,320 --> 00:16:30,550
+Now the next thing uh introductory part
+I would just say that how do events move
+
+734
+00:16:30,550 --> 00:16:30,560
+I would just say that how do events move
+ 
+
+735
+00:16:30,560 --> 00:16:33,430
+I would just say that how do events move
+through this. Okay. So how the events
+
+736
+00:16:33,430 --> 00:16:33,440
+through this. Okay. So how the events
+ 
+
+737
+00:16:33,440 --> 00:16:35,030
+through this. Okay. So how the events
+move through event-driven architecture.
+
+738
+00:16:35,030 --> 00:16:35,040
+move through event-driven architecture.
+ 
+
+739
+00:16:35,040 --> 00:16:37,990
+move through event-driven architecture.
+Now let's say events are published. Now
+
+740
+00:16:37,990 --> 00:16:38,000
+Now let's say events are published. Now
+ 
+
+741
+00:16:38,000 --> 00:16:41,590
+Now let's say events are published. Now
+from here how it got passed to this.
+
+742
+00:16:41,590 --> 00:16:41,600
+from here how it got passed to this.
+ 
+
+743
+00:16:41,600 --> 00:16:44,710
+from here how it got passed to this.
+Okay. So one is push model. In the push
+
+744
+00:16:44,710 --> 00:16:44,720
+Okay. So one is push model. In the push
+ 
+
+745
+00:16:44,720 --> 00:16:46,949
+Okay. So one is push model. In the push
+model what happen is producer publish an
+
+746
+00:16:46,949 --> 00:16:46,959
+model what happen is producer publish an
+ 
+
+747
+00:16:46,959 --> 00:16:50,629
+model what happen is producer publish an
+event to the broker and the broker push
+
+748
+00:16:50,629 --> 00:16:50,639
+event to the broker and the broker push
+ 
+
+749
+00:16:50,639 --> 00:16:53,910
+event to the broker and the broker push
+the message immediately to the consumer
+
+750
+00:16:53,910 --> 00:16:53,920
+the message immediately to the consumer
+ 
+
+751
+00:16:53,920 --> 00:16:56,870
+the message immediately to the consumer
+which are interested in these events.
+
+752
+00:16:56,870 --> 00:16:56,880
+which are interested in these events.
+ 
+
+753
+00:16:56,880 --> 00:16:59,269
+which are interested in these events.
+Now consumer must handle whatever rate
+
+754
+00:16:59,269 --> 00:16:59,279
+Now consumer must handle whatever rate
+ 
+
+755
+00:16:59,279 --> 00:17:02,230
+Now consumer must handle whatever rate
+broker send and sometime it is possible
+
+756
+00:17:02,230 --> 00:17:02,240
+broker send and sometime it is possible
+ 
+
+757
+00:17:02,240 --> 00:17:04,470
+broker send and sometime it is possible
+that consumer can get overwhelmed with
+
+758
+00:17:04,470 --> 00:17:04,480
+that consumer can get overwhelmed with
+ 
+
+759
+00:17:04,480 --> 00:17:08,630
+that consumer can get overwhelmed with
+it. Okay. Another is pull model. In the
+
+760
+00:17:08,630 --> 00:17:08,640
+it. Okay. Another is pull model. In the
+ 
+
+761
+00:17:08,640 --> 00:17:11,110
+it. Okay. Another is pull model. In the
+pull model producer publishes an event
+
+762
+00:17:11,110 --> 00:17:11,120
+pull model producer publishes an event
+ 
+
+763
+00:17:11,120 --> 00:17:13,750
+pull model producer publishes an event
+to a broker. Now broker store the
+
+764
+00:17:13,750 --> 00:17:13,760
+to a broker. Now broker store the
+ 
+
+765
+00:17:13,760 --> 00:17:15,429
+to a broker. Now broker store the
+messages.
+
+766
+00:17:15,429 --> 00:17:15,439
+messages.
+ 
+
+767
+00:17:15,439 --> 00:17:18,069
+messages.
+Consumer can ask from the broker that
+
+768
+00:17:18,069 --> 00:17:18,079
+Consumer can ask from the broker that
+ 
+
+769
+00:17:18,079 --> 00:17:21,750
+Consumer can ask from the broker that
+hey give me this many messages. Broker
+
+770
+00:17:21,750 --> 00:17:21,760
+hey give me this many messages. Broker
+ 
+
+771
+00:17:21,760 --> 00:17:25,029
+hey give me this many messages. Broker
+will send that. consumer process at its
+
+772
+00:17:25,029 --> 00:17:25,039
+will send that. consumer process at its
+ 
+
+773
+00:17:25,039 --> 00:17:27,750
+will send that. consumer process at its
+own pace and then ask more messages
+
+774
+00:17:27,750 --> 00:17:27,760
+own pace and then ask more messages
+ 
+
+775
+00:17:27,760 --> 00:17:30,549
+own pace and then ask more messages
+again and continue the process. So this
+
+776
+00:17:30,549 --> 00:17:30,559
+again and continue the process. So this
+ 
+
+777
+00:17:30,559 --> 00:17:32,870
+again and continue the process. So this
+is known as pull model.
+
+778
+00:17:32,870 --> 00:17:32,880
+is known as pull model.
+ 
+
+779
+00:17:32,880 --> 00:17:35,029
+is known as pull model.
+So there are many uh you can say that
+
+780
+00:17:35,029 --> 00:17:35,039
+So there are many uh you can say that
+ 
+
+781
+00:17:35,039 --> 00:17:37,110
+So there are many uh you can say that
+broker which works on pull model, push
+
+782
+00:17:37,110 --> 00:17:37,120
+broker which works on pull model, push
+ 
+
+783
+00:17:37,120 --> 00:17:39,190
+broker which works on pull model, push
+model or both. We will see that. But
+
+784
+00:17:39,190 --> 00:17:39,200
+model or both. We will see that. But
+ 
+
+785
+00:17:39,200 --> 00:17:42,230
+model or both. We will see that. But
+this is just a very uh high level
+
+786
+00:17:42,230 --> 00:17:42,240
+this is just a very uh high level
+ 
+
+787
+00:17:42,240 --> 00:17:45,110
+this is just a very uh high level
+understanding that we can have here push
+
+788
+00:17:45,110 --> 00:17:45,120
+understanding that we can have here push
+ 
+
+789
+00:17:45,120 --> 00:17:47,750
+understanding that we can have here push
+and pull model also.
+
+790
+00:17:47,750 --> 00:17:47,760
+and pull model also.
+ 
+
+791
+00:17:47,760 --> 00:17:51,029
+and pull model also.
+So that when we so this is consider that
+
+792
+00:17:51,029 --> 00:17:51,039
+So that when we so this is consider that
+ 
+
+793
+00:17:51,039 --> 00:17:54,150
+So that when we so this is consider that
+that we are not going in depth how push
+
+794
+00:17:54,150 --> 00:17:54,160
+that we are not going in depth how push
+ 
+
+795
+00:17:54,160 --> 00:17:56,630
+that we are not going in depth how push
+model works that is depending upon like
+
+796
+00:17:56,630 --> 00:17:56,640
+model works that is depending upon like
+ 
+
+797
+00:17:56,640 --> 00:17:58,070
+model works that is depending upon like
+which framework we are using let's say
+
+798
+00:17:58,070 --> 00:17:58,080
+which framework we are using let's say
+ 
+
+799
+00:17:58,080 --> 00:18:00,950
+which framework we are using let's say
+if you go with Kafka then how the
+
+800
+00:18:00,950 --> 00:18:00,960
+if you go with Kafka then how the
+ 
+
+801
+00:18:00,960 --> 00:18:03,590
+if you go with Kafka then how the
+pushpull works in Kafka then we have to
+
+802
+00:18:03,590 --> 00:18:03,600
+pushpull works in Kafka then we have to
+ 
+
+803
+00:18:03,600 --> 00:18:06,470
+pushpull works in Kafka then we have to
+go independently into that framework
+
+804
+00:18:06,470 --> 00:18:06,480
+go independently into that framework
+ 
+
+805
+00:18:06,480 --> 00:18:09,190
+go independently into that framework
+flow okay if you're going with rabbit mq
+
+806
+00:18:09,190 --> 00:18:09,200
+flow okay if you're going with rabbit mq
+ 
+
+807
+00:18:09,200 --> 00:18:11,669
+flow okay if you're going with rabbit mq
+how push pull model we have to enable
+
+808
+00:18:11,669 --> 00:18:11,679
+how push pull model we have to enable
+ 
+
+809
+00:18:11,679 --> 00:18:14,230
+how push pull model we have to enable
+how it works we have to go into that but
+
+810
+00:18:14,230 --> 00:18:14,240
+how it works we have to go into that but
+ 
+
+811
+00:18:14,240 --> 00:18:17,590
+how it works we have to go into that but
+here today the intention is that We know
+
+812
+00:18:17,590 --> 00:18:17,600
+here today the intention is that We know
+ 
+
+813
+00:18:17,600 --> 00:18:21,510
+here today the intention is that We know
+the term that's all. Okay.
+
+814
+00:18:21,510 --> 00:18:21,520
+the term that's all. Okay.
+ 
+
+815
+00:18:21,520 --> 00:18:23,029
+the term that's all. Okay.
+Then there is something called EDM
+
+816
+00:18:23,029 --> 00:18:23,039
+Then there is something called EDM
+ 
+
+817
+00:18:23,039 --> 00:18:24,870
+Then there is something called EDM
+model. So there are two types of EDM
+
+818
+00:18:24,870 --> 00:18:24,880
+model. So there are two types of EDM
+ 
+
+819
+00:18:24,880 --> 00:18:27,190
+model. So there are two types of EDM
+model. One is pubsub and another is
+
+820
+00:18:27,190 --> 00:18:27,200
+model. One is pubsub and another is
+ 
+
+821
+00:18:27,200 --> 00:18:30,230
+model. One is pubsub and another is
+streaming. So whenever somebody say that
+
+822
+00:18:30,230 --> 00:18:30,240
+streaming. So whenever somebody say that
+ 
+
+823
+00:18:30,240 --> 00:18:33,990
+streaming. So whenever somebody say that
+pub uh pops up Google pops up you you
+
+824
+00:18:33,990 --> 00:18:34,000
+pub uh pops up Google pops up you you
+ 
+
+825
+00:18:34,000 --> 00:18:37,190
+pub uh pops up Google pops up you you
+might have heard of right uh publisher
+
+826
+00:18:37,190 --> 00:18:37,200
+might have heard of right uh publisher
+ 
+
+827
+00:18:37,200 --> 00:18:40,070
+might have heard of right uh publisher
+subscriber model generally
+
+828
+00:18:40,070 --> 00:18:40,080
+subscriber model generally
+ 
+
+829
+00:18:40,080 --> 00:18:44,390
+subscriber model generally
+events are published to active consumers
+
+830
+00:18:44,390 --> 00:18:44,400
+events are published to active consumers
+ 
+
+831
+00:18:44,400 --> 00:18:47,029
+events are published to active consumers
+and then forgotten
+
+832
+00:18:47,029 --> 00:18:47,039
+and then forgotten
+ 
+
+833
+00:18:47,039 --> 00:18:49,510
+and then forgotten
+if new consumer joined let's say
+
+834
+00:18:49,510 --> 00:18:49,520
+if new consumer joined let's say
+ 
+
+835
+00:18:49,520 --> 00:18:52,230
+if new consumer joined let's say
+tomorrow it won't get yesterday messages
+
+836
+00:18:52,230 --> 00:18:52,240
+tomorrow it won't get yesterday messages
+ 
+
+837
+00:18:52,240 --> 00:18:56,549
+tomorrow it won't get yesterday messages
+because messages are not stored
+
+838
+00:18:56,549 --> 00:18:56,559
+because messages are not stored
+ 
+
+839
+00:18:56,559 --> 00:18:58,789
+because messages are not stored
+and whatever Whatever the active
+
+840
+00:18:58,789 --> 00:18:58,799
+and whatever Whatever the active
+ 
+
+841
+00:18:58,799 --> 00:19:01,110
+and whatever Whatever the active
+consumers are there only they will get
+
+842
+00:19:01,110 --> 00:19:01,120
+consumers are there only they will get
+ 
+
+843
+00:19:01,120 --> 00:19:05,110
+consumers are there only they will get
+the events. Okay. So they the pops sub
+
+844
+00:19:05,110 --> 00:19:05,120
+the events. Okay. So they the pops sub
+ 
+
+845
+00:19:05,120 --> 00:19:07,990
+the events. Okay. So they the pops sub
+model do not have capability to replay
+
+846
+00:19:07,990 --> 00:19:08,000
+model do not have capability to replay
+ 
+
+847
+00:19:08,000 --> 00:19:10,710
+model do not have capability to replay
+the events or to store the events or
+
+848
+00:19:10,710 --> 00:19:10,720
+the events or to store the events or
+ 
+
+849
+00:19:10,720 --> 00:19:13,270
+the events or to store the events or
+maintain the history. You can say that
+
+850
+00:19:13,270 --> 00:19:13,280
+maintain the history. You can say that
+ 
+
+851
+00:19:13,280 --> 00:19:16,310
+maintain the history. You can say that
+like rabbit MQ exchange.
+
+852
+00:19:16,310 --> 00:19:16,320
+like rabbit MQ exchange.
+ 
+
+853
+00:19:16,320 --> 00:19:19,190
+like rabbit MQ exchange.
+Then another model is streaming model.
+
+854
+00:19:19,190 --> 00:19:19,200
+Then another model is streaming model.
+ 
+
+855
+00:19:19,200 --> 00:19:22,070
+Then another model is streaming model.
+Events are appended in logs forever or
+
+856
+00:19:22,070 --> 00:19:22,080
+Events are appended in logs forever or
+ 
+
+857
+00:19:22,080 --> 00:19:23,830
+Events are appended in logs forever or
+retain based. So you can decide whether
+
+858
+00:19:23,830 --> 00:19:23,840
+retain based. So you can decide whether
+ 
+
+859
+00:19:23,840 --> 00:19:25,990
+retain based. So you can decide whether
+you want to retain for 7 days, 3 days, 4
+
+860
+00:19:25,990 --> 00:19:26,000
+you want to retain for 7 days, 3 days, 4
+ 
+
+861
+00:19:26,000 --> 00:19:28,630
+you want to retain for 7 days, 3 days, 4
+days or you don't want to delete at all.
+
+862
+00:19:28,630 --> 00:19:28,640
+days or you don't want to delete at all.
+ 
+
+863
+00:19:28,640 --> 00:19:33,110
+days or you don't want to delete at all.
+So events are stored in logs and we can
+
+864
+00:19:33,110 --> 00:19:33,120
+So events are stored in logs and we can
+ 
+
+865
+00:19:33,120 --> 00:19:34,950
+So events are stored in logs and we can
+replay
+
+866
+00:19:34,950 --> 00:19:34,960
+replay
+ 
+
+867
+00:19:34,960 --> 00:19:37,669
+replay
+right. So that
+
+868
+00:19:37,669 --> 00:19:37,679
+right. So that
+ 
+
+869
+00:19:37,679 --> 00:19:41,029
+right. So that
+is possible with the streaming. So now
+
+870
+00:19:41,029 --> 00:19:41,039
+is possible with the streaming. So now
+ 
+
+871
+00:19:41,039 --> 00:19:42,950
+is possible with the streaming. So now
+let's say that if new consumer joined
+
+872
+00:19:42,950 --> 00:19:42,960
+let's say that if new consumer joined
+ 
+
+873
+00:19:42,960 --> 00:19:44,789
+let's say that if new consumer joined
+say tomorrow, new consumer joined
+
+874
+00:19:44,789 --> 00:19:44,799
+say tomorrow, new consumer joined
+ 
+
+875
+00:19:44,799 --> 00:19:47,990
+say tomorrow, new consumer joined
+tomorrow and it can read it can decide
+
+876
+00:19:47,990 --> 00:19:48,000
+tomorrow and it can read it can decide
+ 
+
+877
+00:19:48,000 --> 00:19:50,070
+tomorrow and it can read it can decide
+that it can read from the latest offset
+
+878
+00:19:50,070 --> 00:19:50,080
+that it can read from the latest offset
+ 
+
+879
+00:19:50,080 --> 00:19:52,789
+that it can read from the latest offset
+or read from the day one. This is
+
+880
+00:19:52,789 --> 00:19:52,799
+or read from the day one. This is
+ 
+
+881
+00:19:52,799 --> 00:19:55,590
+or read from the day one. This is
+possible because we are retaining the
+
+882
+00:19:55,590 --> 00:19:55,600
+possible because we are retaining the
+ 
+
+883
+00:19:55,600 --> 00:19:58,789
+possible because we are retaining the
+data like from the day you have written
+
+884
+00:19:58,789 --> 00:19:58,799
+data like from the day you have written
+ 
+
+885
+00:19:58,799 --> 00:20:03,510
+data like from the day you have written
+you can start from that day also.
+
+886
+00:20:03,510 --> 00:20:03,520
+you can start from that day also.
+ 
+
+887
+00:20:03,520 --> 00:20:06,630
+you can start from that day also.
+Okay. Example is our Kafka. So a Kafka
+
+888
+00:20:06,630 --> 00:20:06,640
+Okay. Example is our Kafka. So a Kafka
+ 
+
+889
+00:20:06,640 --> 00:20:09,830
+Okay. Example is our Kafka. So a Kafka
+is a streaming model there logs are
+
+890
+00:20:09,830 --> 00:20:09,840
+is a streaming model there logs are
+ 
+
+891
+00:20:09,840 --> 00:20:13,669
+is a streaming model there logs are
+stored. Rabbit MQ is your popsup where
+
+892
+00:20:13,669 --> 00:20:13,679
+stored. Rabbit MQ is your popsup where
+ 
+
+893
+00:20:13,679 --> 00:20:15,270
+stored. Rabbit MQ is your popsup where
+uh you can say that events are not
+
+894
+00:20:15,270 --> 00:20:15,280
+uh you can say that events are not
+ 
+
+895
+00:20:15,280 --> 00:20:16,993
+uh you can say that events are not
+restored.
+
+896
+00:20:16,993 --> 00:20:17,003
+restored.
+ 
+
+897
+00:20:17,003 --> 00:20:19,830
+restored.
+[snorts]
+
+898
+00:20:19,830 --> 00:20:19,840
+
+ 
+
+899
+00:20:19,840 --> 00:20:21,590
+
+But what are the challenges of
+
+900
+00:20:21,590 --> 00:20:21,600
+But what are the challenges of
+ 
+
+901
+00:20:21,600 --> 00:20:23,350
+But what are the challenges of
+event-driven architecture? Currently
+
+902
+00:20:23,350 --> 00:20:23,360
+event-driven architecture? Currently
+ 
+
+903
+00:20:23,360 --> 00:20:25,190
+event-driven architecture? Currently
+everything looks good, right? We have so
+
+904
+00:20:25,190 --> 00:20:25,200
+everything looks good, right? We have so
+ 
+
+905
+00:20:25,200 --> 00:20:27,350
+everything looks good, right? We have so
+many advantages that there are so many
+
+906
+00:20:27,350 --> 00:20:27,360
+many advantages that there are so many
+ 
+
+907
+00:20:27,360 --> 00:20:31,110
+many advantages that there are so many
+challenges and these are critical
+
+908
+00:20:31,110 --> 00:20:31,120
+challenges and these are critical
+ 
+
+909
+00:20:31,120 --> 00:20:34,470
+challenges and these are critical
+like you can say that whenever you are
+
+910
+00:20:34,470 --> 00:20:34,480
+like you can say that whenever you are
+ 
+
+911
+00:20:34,480 --> 00:20:39,750
+like you can say that whenever you are
+working in the highle design part of u
+
+912
+00:20:39,750 --> 00:20:39,760
+working in the highle design part of u
+ 
+
+913
+00:20:39,760 --> 00:20:43,190
+working in the highle design part of u
+any any uh question where you have to
+
+914
+00:20:43,190 --> 00:20:43,200
+any any uh question where you have to
+ 
+
+915
+00:20:43,200 --> 00:20:46,310
+any any uh question where you have to
+use eventdriven architecture mostly the
+
+916
+00:20:46,310 --> 00:20:46,320
+use eventdriven architecture mostly the
+ 
+
+917
+00:20:46,320 --> 00:20:49,190
+use eventdriven architecture mostly the
+questions or challenges comes into this
+
+918
+00:20:49,190 --> 00:20:49,200
+questions or challenges comes into this
+ 
+
+919
+00:20:49,200 --> 00:20:51,750
+questions or challenges comes into this
+part. The first challenge is its
+
+920
+00:20:51,750 --> 00:20:51,760
+part. The first challenge is its
+ 
+
+921
+00:20:51,760 --> 00:20:53,909
+part. The first challenge is its
+eventual consistence. Eventual
+
+922
+00:20:53,909 --> 00:20:53,919
+eventual consistence. Eventual
+ 
+
+923
+00:20:53,919 --> 00:20:56,789
+eventual consistence. Eventual
+consistency means let's say
+
+924
+00:20:56,789 --> 00:20:56,799
+consistency means let's say
+ 
+
+925
+00:20:56,799 --> 00:20:58,630
+consistency means let's say
+it is processing something in a sing
+
+926
+00:20:58,630 --> 00:20:58,640
+it is processing something in a sing
+ 
+
+927
+00:20:58,640 --> 00:21:01,909
+it is processing something in a sing
+manner. Now when you hit it let's say
+
+928
+00:21:01,909 --> 00:21:01,919
+manner. Now when you hit it let's say
+ 
+
+929
+00:21:01,919 --> 00:21:05,190
+manner. Now when you hit it let's say
+get call you might get a stale data a
+
+930
+00:21:05,190 --> 00:21:05,200
+get call you might get a stale data a
+ 
+
+931
+00:21:05,200 --> 00:21:09,990
+get call you might get a stale data a
+stale or old data but eventually when
+
+932
+00:21:09,990 --> 00:21:10,000
+stale or old data but eventually when
+ 
+
+933
+00:21:10,000 --> 00:21:12,070
+stale or old data but eventually when
+you hit another after some time you
+
+934
+00:21:12,070 --> 00:21:12,080
+you hit another after some time you
+ 
+
+935
+00:21:12,080 --> 00:21:14,630
+you hit another after some time you
+might get latest updated data. So it's
+
+936
+00:21:14,630 --> 00:21:14,640
+might get latest updated data. So it's
+ 
+
+937
+00:21:14,640 --> 00:21:16,950
+might get latest updated data. So it's
+an eventual consistence. You might get a
+
+938
+00:21:16,950 --> 00:21:16,960
+an eventual consistence. You might get a
+ 
+
+939
+00:21:16,960 --> 00:21:20,310
+an eventual consistence. You might get a
+stale data if you try quickly but
+
+940
+00:21:20,310 --> 00:21:20,320
+stale data if you try quickly but
+ 
+
+941
+00:21:20,320 --> 00:21:21,990
+stale data if you try quickly but
+eventually if you try after some time
+
+942
+00:21:21,990 --> 00:21:22,000
+eventually if you try after some time
+ 
+
+943
+00:21:22,000 --> 00:21:25,669
+eventually if you try after some time
+you might get latest up-to-date data
+
+944
+00:21:25,669 --> 00:21:25,679
+you might get latest up-to-date data
+ 
+
+945
+00:21:25,679 --> 00:21:28,950
+you might get latest up-to-date data
+duplicate events. See the event routers
+
+946
+00:21:28,950 --> 00:21:28,960
+duplicate events. See the event routers
+ 
+
+947
+00:21:28,960 --> 00:21:31,909
+duplicate events. See the event routers
+guarantee at least once delivery. So it
+
+948
+00:21:31,909 --> 00:21:31,919
+guarantee at least once delivery. So it
+ 
+
+949
+00:21:31,919 --> 00:21:34,710
+guarantee at least once delivery. So it
+can deliver events more than once. So
+
+950
+00:21:34,710 --> 00:21:34,720
+can deliver events more than once. So
+ 
+
+951
+00:21:34,720 --> 00:21:36,630
+can deliver events more than once. So
+duplicates are normal. So we have to
+
+952
+00:21:36,630 --> 00:21:36,640
+duplicates are normal. So we have to
+ 
+
+953
+00:21:36,640 --> 00:21:38,789
+duplicates are normal. So we have to
+handle it properly.
+
+954
+00:21:38,789 --> 00:21:38,799
+handle it properly.
+ 
+
+955
+00:21:38,799 --> 00:21:40,870
+handle it properly.
+Ordering problems. Now let's say that
+
+956
+00:21:40,870 --> 00:21:40,880
+Ordering problems. Now let's say that
+ 
+
+957
+00:21:40,880 --> 00:21:44,470
+Ordering problems. Now let's say that
+your publisher has published
+
+958
+00:21:44,470 --> 00:21:44,480
+your publisher has published
+ 
+
+959
+00:21:44,480 --> 00:21:48,149
+your publisher has published
+two events but the consumer got first
+
+960
+00:21:48,149 --> 00:21:48,159
+two events but the consumer got first
+ 
+
+961
+00:21:48,159 --> 00:21:51,110
+two events but the consumer got first
+event two and then event one. This is
+
+962
+00:21:51,110 --> 00:21:51,120
+event two and then event one. This is
+ 
+
+963
+00:21:51,120 --> 00:21:54,390
+event two and then event one. This is
+very very important problem. Okay. So
+
+964
+00:21:54,390 --> 00:21:54,400
+very very important problem. Okay. So
+ 
+
+965
+00:21:54,400 --> 00:21:57,990
+very very important problem. Okay. So
+this need to be handled very well.
+
+966
+00:21:57,990 --> 00:21:58,000
+this need to be handled very well.
+ 
+
+967
+00:21:58,000 --> 00:22:00,870
+this need to be handled very well.
+Okay. So we'll see that we will share
+
+968
+00:22:00,870 --> 00:22:00,880
+Okay. So we'll see that we will share
+ 
+
+969
+00:22:00,880 --> 00:22:04,230
+Okay. So we'll see that we will share
+real world problems how we will pick one
+
+970
+00:22:04,230 --> 00:22:04,240
+real world problems how we will pick one
+ 
+
+971
+00:22:04,240 --> 00:22:06,950
+real world problems how we will pick one
+topic and we'll try to build out all
+
+972
+00:22:06,950 --> 00:22:06,960
+topic and we'll try to build out all
+ 
+
+973
+00:22:06,960 --> 00:22:10,390
+topic and we'll try to build out all
+these things. Okay. But today we just
+
+974
+00:22:10,390 --> 00:22:10,400
+these things. Okay. But today we just
+ 
+
+975
+00:22:10,400 --> 00:22:12,149
+these things. Okay. But today we just
+highlighting the challenges and each
+
+976
+00:22:12,149 --> 00:22:12,159
+highlighting the challenges and each
+ 
+
+977
+00:22:12,159 --> 00:22:14,789
+highlighting the challenges and each
+challenge we have to solve. Okay. So
+
+978
+00:22:14,789 --> 00:22:14,799
+challenge we have to solve. Okay. So
+ 
+
+979
+00:22:14,799 --> 00:22:17,909
+challenge we have to solve. Okay. So
+when we will go with let's say Kafka
+
+980
+00:22:17,909 --> 00:22:17,919
+when we will go with let's say Kafka
+ 
+
+981
+00:22:17,919 --> 00:22:21,190
+when we will go with let's say Kafka
+and when we will build Kafka then after
+
+982
+00:22:21,190 --> 00:22:21,200
+and when we will build Kafka then after
+ 
+
+983
+00:22:21,200 --> 00:22:23,669
+and when we will build Kafka then after
+that we have to go one by one all the
+
+984
+00:22:23,669 --> 00:22:23,679
+that we have to go one by one all the
+ 
+
+985
+00:22:23,679 --> 00:22:25,590
+that we have to go one by one all the
+challenges there would be more. So here
+
+986
+00:22:25,590 --> 00:22:25,600
+challenges there would be more. So here
+ 
+
+987
+00:22:25,600 --> 00:22:27,590
+challenges there would be more. So here
+I have just listed around six seven but
+
+988
+00:22:27,590 --> 00:22:27,600
+I have just listed around six seven but
+ 
+
+989
+00:22:27,600 --> 00:22:29,909
+I have just listed around six seven but
+there are so many so we have to take one
+
+990
+00:22:29,909 --> 00:22:29,919
+there are so many so we have to take one
+ 
+
+991
+00:22:29,919 --> 00:22:32,070
+there are so many so we have to take one
+challenges and see how it has to be
+
+992
+00:22:32,070 --> 00:22:32,080
+challenges and see how it has to be
+ 
+
+993
+00:22:32,080 --> 00:22:33,669
+challenges and see how it has to be
+industry standard to solve those
+
+994
+00:22:33,669 --> 00:22:33,679
+industry standard to solve those
+ 
+
+995
+00:22:33,679 --> 00:22:37,110
+industry standard to solve those
+challenges. But I wanted to just mention
+
+996
+00:22:37,110 --> 00:22:37,120
+challenges. But I wanted to just mention
+ 
+
+997
+00:22:37,120 --> 00:22:39,830
+challenges. But I wanted to just mention
+here that there are so many challenges.
+
+998
+00:22:39,830 --> 00:22:39,840
+here that there are so many challenges.
+ 
+
+999
+00:22:39,840 --> 00:22:43,110
+here that there are so many challenges.
+It's not like EDA is perfect. Another is
+
+1000
+00:22:43,110 --> 00:22:43,120
+It's not like EDA is perfect. Another is
+ 
+
+1001
+00:22:43,120 --> 00:22:45,190
+It's not like EDA is perfect. Another is
+schema evolution. If you break the
+
+1002
+00:22:45,190 --> 00:22:45,200
+schema evolution. If you break the
+ 
+
+1003
+00:22:45,200 --> 00:22:48,070
+schema evolution. If you break the
+schema, all consumer will crash. Right?
+
+1004
+00:22:48,070 --> 00:22:48,080
+schema, all consumer will crash. Right?
+ 
+
+1005
+00:22:48,080 --> 00:22:51,110
+schema, all consumer will crash. Right?
+Because I told you event has a specific
+
+1006
+00:22:51,110 --> 00:22:51,120
+Because I told you event has a specific
+ 
+
+1007
+00:22:51,120 --> 00:22:54,070
+Because I told you event has a specific
+schema which has all the information and
+
+1008
+00:22:54,070 --> 00:22:54,080
+schema which has all the information and
+ 
+
+1009
+00:22:54,080 --> 00:22:57,110
+schema which has all the information and
+consumers consume this events. So if you
+
+1010
+00:22:57,110 --> 00:22:57,120
+consumers consume this events. So if you
+ 
+
+1011
+00:22:57,120 --> 00:22:59,750
+consumers consume this events. So if you
+change something in this schema,
+
+1012
+00:22:59,750 --> 00:22:59,760
+change something in this schema,
+ 
+
+1013
+00:22:59,760 --> 00:23:01,350
+change something in this schema,
+you remove something or you updated
+
+1014
+00:23:01,350 --> 00:23:01,360
+you remove something or you updated
+ 
+
+1015
+00:23:01,360 --> 00:23:04,390
+you remove something or you updated
+something. So consumers might need to be
+
+1016
+00:23:04,390 --> 00:23:04,400
+something. So consumers might need to be
+ 
+
+1017
+00:23:04,400 --> 00:23:07,750
+something. So consumers might need to be
+updated also otherwise they will crash.
+
+1018
+00:23:07,750 --> 00:23:07,760
+updated also otherwise they will crash.
+ 
+
+1019
+00:23:07,760 --> 00:23:09,510
+updated also otherwise they will crash.
+So you need to maintain the versioning
+
+1020
+00:23:09,510 --> 00:23:09,520
+So you need to maintain the versioning
+ 
+
+1021
+00:23:09,520 --> 00:23:12,149
+So you need to maintain the versioning
+properly
+
+1022
+00:23:12,149 --> 00:23:12,159
+properly
+ 
+
+1023
+00:23:12,159 --> 00:23:14,390
+properly
+debugging complexity. Distributed
+
+1024
+00:23:14,390 --> 00:23:14,400
+debugging complexity. Distributed
+ 
+
+1025
+00:23:14,400 --> 00:23:16,390
+debugging complexity. Distributed
+tracing across a syncing hops are little
+
+1026
+00:23:16,390 --> 00:23:16,400
+tracing across a syncing hops are little
+ 
+
+1027
+00:23:16,400 --> 00:23:17,750
+tracing across a syncing hops are little
+difficult because now everything is
+
+1028
+00:23:17,750 --> 00:23:17,760
+difficult because now everything is
+ 
+
+1029
+00:23:17,760 --> 00:23:20,710
+difficult because now everything is
+happening inc manner. So see this is
+
+1030
+00:23:20,710 --> 00:23:20,720
+happening inc manner. So see this is
+ 
+
+1031
+00:23:20,720 --> 00:23:22,710
+happening inc manner. So see this is
+happening in a singing manner. This is
+
+1032
+00:23:22,710 --> 00:23:22,720
+happening in a singing manner. This is
+ 
+
+1033
+00:23:22,720 --> 00:23:24,070
+happening in a singing manner. This is
+happening in a singing manner. This is
+
+1034
+00:23:24,070 --> 00:23:24,080
+happening in a singing manner. This is
+ 
+
+1035
+00:23:24,080 --> 00:23:26,390
+happening in a singing manner. This is
+happening in parallel. So when parallel
+
+1036
+00:23:26,390 --> 00:23:26,400
+happening in parallel. So when parallel
+ 
+
+1037
+00:23:26,400 --> 00:23:29,350
+happening in parallel. So when parallel
+and comes into the picture debugging is
+
+1038
+00:23:29,350 --> 00:23:29,360
+and comes into the picture debugging is
+ 
+
+1039
+00:23:29,360 --> 00:23:34,230
+and comes into the picture debugging is
+not that easy. Okay. So yes, debugging
+
+1040
+00:23:34,230 --> 00:23:34,240
+not that easy. Okay. So yes, debugging
+ 
+
+1041
+00:23:34,240 --> 00:23:37,510
+not that easy. Okay. So yes, debugging
+got a little bit complex or here poison
+
+1042
+00:23:37,510 --> 00:23:37,520
+got a little bit complex or here poison
+ 
+
+1043
+00:23:37,520 --> 00:23:39,750
+got a little bit complex or here poison
+message generally one bad message can
+
+1044
+00:23:39,750 --> 00:23:39,760
+message generally one bad message can
+ 
+
+1045
+00:23:39,760 --> 00:23:43,990
+message generally one bad message can
+block the event router itself. So
+
+1046
+00:23:43,990 --> 00:23:44,000
+block the event router itself. So
+ 
+
+1047
+00:23:44,000 --> 00:23:47,350
+block the event router itself. So
+I don't I won't go into this deep what
+
+1048
+00:23:47,350 --> 00:23:47,360
+I don't I won't go into this deep what
+ 
+
+1049
+00:23:47,360 --> 00:23:49,270
+I don't I won't go into this deep what
+is poison message here now because it
+
+1050
+00:23:49,270 --> 00:23:49,280
+is poison message here now because it
+ 
+
+1051
+00:23:49,280 --> 00:23:51,110
+is poison message here now because it
+will complicate the things and to
+
+1052
+00:23:51,110 --> 00:23:51,120
+will complicate the things and to
+ 
+
+1053
+00:23:51,120 --> 00:23:53,510
+will complicate the things and to
+understand the poison message like I
+
+1054
+00:23:53,510 --> 00:23:53,520
+understand the poison message like I
+ 
+
+1055
+00:23:53,520 --> 00:23:55,750
+understand the poison message like I
+need to tell the framework first like
+
+1056
+00:23:55,750 --> 00:23:55,760
+need to tell the framework first like
+ 
+
+1057
+00:23:55,760 --> 00:23:57,590
+need to tell the framework first like
+whichever we are discussing but
+
+1058
+00:23:57,590 --> 00:23:57,600
+whichever we are discussing but
+ 
+
+1059
+00:23:57,600 --> 00:24:01,029
+whichever we are discussing but
+understand that there are
+
+1060
+00:24:01,029 --> 00:24:01,039
+understand that there are
+ 
+
+1061
+00:24:01,039 --> 00:24:03,909
+understand that there are
+because events are published to this
+
+1062
+00:24:03,909 --> 00:24:03,919
+because events are published to this
+ 
+
+1063
+00:24:03,919 --> 00:24:08,310
+because events are published to this
+event router let's say if one event is
+
+1064
+00:24:08,310 --> 00:24:08,320
+event router let's say if one event is
+ 
+
+1065
+00:24:08,320 --> 00:24:11,830
+event router let's say if one event is
+bad okay and nobody is able to consume
+
+1066
+00:24:11,830 --> 00:24:11,840
+bad okay and nobody is able to consume
+ 
+
+1067
+00:24:11,840 --> 00:24:15,269
+bad okay and nobody is able to consume
+it and what if that event is is still
+
+1068
+00:24:15,269 --> 00:24:15,279
+it and what if that event is is still
+ 
+
+1069
+00:24:15,279 --> 00:24:19,269
+it and what if that event is is still
+kept into the event router. Okay, so
+
+1070
+00:24:19,269 --> 00:24:19,279
+kept into the event router. Okay, so
+ 
+
+1071
+00:24:19,279 --> 00:24:21,190
+kept into the event router. Okay, so
+very high level you can say that there
+
+1072
+00:24:21,190 --> 00:24:21,200
+very high level you can say that there
+ 
+
+1073
+00:24:21,200 --> 00:24:24,630
+very high level you can say that there
+are possibilities that one bad message
+
+1074
+00:24:24,630 --> 00:24:24,640
+are possibilities that one bad message
+ 
+
+1075
+00:24:24,640 --> 00:24:27,830
+are possibilities that one bad message
+also can block the event router too that
+
+1076
+00:24:27,830 --> 00:24:27,840
+also can block the event router too that
+ 
+
+1077
+00:24:27,840 --> 00:24:29,909
+also can block the event router too that
+generally known as poison message. So
+
+1078
+00:24:29,909 --> 00:24:29,919
+generally known as poison message. So
+ 
+
+1079
+00:24:29,919 --> 00:24:32,789
+generally known as poison message. So
+that challenge is also present.
+
+1080
+00:24:32,789 --> 00:24:32,799
+that challenge is also present.
+ 
+
+1081
+00:24:32,799 --> 00:24:34,710
+that challenge is also present.
+Then again another challenge we have is
+
+1082
+00:24:34,710 --> 00:24:34,720
+Then again another challenge we have is
+ 
+
+1083
+00:24:34,720 --> 00:24:36,789
+Then again another challenge we have is
+operational overhead. You have to
+
+1084
+00:24:36,789 --> 00:24:36,799
+operational overhead. You have to
+ 
+
+1085
+00:24:36,799 --> 00:24:39,830
+operational overhead. You have to
+monitor the consumer lag. Okay. Hey, you
+
+1086
+00:24:39,830 --> 00:24:39,840
+monitor the consumer lag. Okay. Hey, you
+ 
+
+1087
+00:24:39,840 --> 00:24:43,510
+monitor the consumer lag. Okay. Hey, you
+are publishing an event five per minute
+
+1088
+00:24:43,510 --> 00:24:43,520
+are publishing an event five per minute
+ 
+
+1089
+00:24:43,520 --> 00:24:45,750
+are publishing an event five per minute
+but consumer is able to consume or
+
+1090
+00:24:45,750 --> 00:24:45,760
+but consumer is able to consume or
+ 
+
+1091
+00:24:45,760 --> 00:24:49,350
+but consumer is able to consume or
+process only one per minute. So how much
+
+1092
+00:24:49,350 --> 00:24:49,360
+process only one per minute. So how much
+ 
+
+1093
+00:24:49,360 --> 00:24:51,430
+process only one per minute. So how much
+delay [snorts] is lagging? Monitor the
+
+1094
+00:24:51,430 --> 00:24:51,440
+delay [snorts] is lagging? Monitor the
+ 
+
+1095
+00:24:51,440 --> 00:24:55,909
+delay [snorts] is lagging? Monitor the
+que is Q is able to maintain the
+
+1096
+00:24:55,909 --> 00:24:55,919
+que is Q is able to maintain the
+ 
+
+1097
+00:24:55,919 --> 00:24:57,590
+que is Q is able to maintain the
+events which are getting published or
+
+1098
+00:24:57,590 --> 00:24:57,600
+events which are getting published or
+ 
+
+1099
+00:24:57,600 --> 00:25:00,870
+events which are getting published or
+not. Okay. What is the throughput
+
+1100
+00:25:00,870 --> 00:25:00,880
+not. Okay. What is the throughput
+ 
+
+1101
+00:25:00,880 --> 00:25:02,950
+not. Okay. What is the throughput
+partitions and all? So you need to
+
+1102
+00:25:02,950 --> 00:25:02,960
+partitions and all? So you need to
+ 
+
+1103
+00:25:02,960 --> 00:25:05,510
+partitions and all? So you need to
+maintain everything size and all. So
+
+1104
+00:25:05,510 --> 00:25:05,520
+maintain everything size and all. So
+ 
+
+1105
+00:25:05,520 --> 00:25:09,190
+maintain everything size and all. So
+there is an operational overhead also.
+
+1106
+00:25:09,190 --> 00:25:09,200
+there is an operational overhead also.
+ 
+
+1107
+00:25:09,200 --> 00:25:12,149
+there is an operational overhead also.
+So it is not like you just use EDA and
+
+1108
+00:25:12,149 --> 00:25:12,159
+So it is not like you just use EDA and
+ 
+
+1109
+00:25:12,159 --> 00:25:14,710
+So it is not like you just use EDA and
+everything works out of the box. It is
+
+1110
+00:25:14,710 --> 00:25:14,720
+everything works out of the box. It is
+ 
+
+1111
+00:25:14,720 --> 00:25:16,630
+everything works out of the box. It is
+little
+
+1112
+00:25:16,630 --> 00:25:16,640
+little
+ 
+
+1113
+00:25:16,640 --> 00:25:20,549
+little
+you can say that uh proper understanding
+
+1114
+00:25:20,549 --> 00:25:20,559
+you can say that uh proper understanding
+ 
+
+1115
+00:25:20,559 --> 00:25:23,510
+you can say that uh proper understanding
+proper knowledge is required otherwise
+
+1116
+00:25:23,510 --> 00:25:23,520
+proper knowledge is required otherwise
+ 
+
+1117
+00:25:23,520 --> 00:25:27,590
+proper knowledge is required otherwise
+these challenges are so critical that
+
+1118
+00:25:27,590 --> 00:25:27,600
+these challenges are so critical that
+ 
+
+1119
+00:25:27,600 --> 00:25:31,750
+these challenges are so critical that
+instead of getting advantage we might uh
+
+1120
+00:25:31,750 --> 00:25:31,760
+instead of getting advantage we might uh
+ 
+
+1121
+00:25:31,760 --> 00:25:35,269
+instead of getting advantage we might uh
+get into more trouble. Okay, our DB
+
+1122
+00:25:35,269 --> 00:25:35,279
+get into more trouble. Okay, our DB
+ 
+
+1123
+00:25:35,279 --> 00:25:38,710
+get into more trouble. Okay, our DB
+could get easily corrupted very easily.
+
+1124
+00:25:38,710 --> 00:25:38,720
+could get easily corrupted very easily.
+ 
+
+1125
+00:25:38,720 --> 00:25:41,269
+could get easily corrupted very easily.
+Okay, this order problem itself if not
+
+1126
+00:25:41,269 --> 00:25:41,279
+Okay, this order problem itself if not
+ 
+
+1127
+00:25:41,279 --> 00:25:42,870
+Okay, this order problem itself if not
+handled properly it could easily corrupt
+
+1128
+00:25:42,870 --> 00:25:42,880
+handled properly it could easily corrupt
+ 
+
+1129
+00:25:42,880 --> 00:25:46,310
+handled properly it could easily corrupt
+the DB itself.
+
+1130
+00:25:46,310 --> 00:25:46,320
+
+ 
+
+1131
+00:25:46,320 --> 00:25:47,669
+
+Now what are the use cases of
+
+1132
+00:25:47,669 --> 00:25:47,679
+Now what are the use cases of
+ 
+
+1133
+00:25:47,679 --> 00:25:49,430
+Now what are the use cases of
+event-driven architecture? Like sometime
+
+1134
+00:25:49,430 --> 00:25:49,440
+event-driven architecture? Like sometime
+ 
+
+1135
+00:25:49,440 --> 00:25:51,669
+event-driven architecture? Like sometime
+what happen is we need to have a mindset
+
+1136
+00:25:51,669 --> 00:25:51,679
+what happen is we need to have a mindset
+ 
+
+1137
+00:25:51,679 --> 00:25:54,710
+what happen is we need to have a mindset
+like okay when I should go for rest when
+
+1138
+00:25:54,710 --> 00:25:54,720
+like okay when I should go for rest when
+ 
+
+1139
+00:25:54,720 --> 00:25:55,909
+like okay when I should go for rest when
+I should go for event- driven
+
+1140
+00:25:55,909 --> 00:25:55,919
+I should go for event- driven
+ 
+
+1141
+00:25:55,919 --> 00:25:57,909
+I should go for event- driven
+architecture. So there are see many
+
+1142
+00:25:57,909 --> 00:25:57,919
+architecture. So there are see many
+ 
+
+1143
+00:25:57,919 --> 00:25:59,990
+architecture. So there are see many
+scenarios but high level I will give you
+
+1144
+00:25:59,990 --> 00:26:00,000
+scenarios but high level I will give you
+ 
+
+1145
+00:26:00,000 --> 00:26:04,149
+scenarios but high level I will give you
+four. One is that one event and there
+
+1146
+00:26:04,149 --> 00:26:04,159
+four. One is that one event and there
+ 
+
+1147
+00:26:04,159 --> 00:26:06,789
+four. One is that one event and there
+are multiple consumers for that event.
+
+1148
+00:26:06,789 --> 00:26:06,799
+are multiple consumers for that event.
+ 
+
+1149
+00:26:06,799 --> 00:26:09,590
+are multiple consumers for that event.
+Then it's a very clear indication that
+
+1150
+00:26:09,590 --> 00:26:09,600
+Then it's a very clear indication that
+ 
+
+1151
+00:26:09,600 --> 00:26:10,870
+Then it's a very clear indication that
+we have to use event-driven
+
+1152
+00:26:10,870 --> 00:26:10,880
+we have to use event-driven
+ 
+
+1153
+00:26:10,880 --> 00:26:13,029
+we have to use event-driven
+architecture. Let's say for example
+
+1154
+00:26:13,029 --> 00:26:13,039
+architecture. Let's say for example
+ 
+
+1155
+00:26:13,039 --> 00:26:15,669
+architecture. Let's say for example
+order is placed then inventory has to do
+
+1156
+00:26:15,669 --> 00:26:15,679
+order is placed then inventory has to do
+ 
+
+1157
+00:26:15,679 --> 00:26:17,350
+order is placed then inventory has to do
+something payment has to do something
+
+1158
+00:26:17,350 --> 00:26:17,360
+something payment has to do something
+ 
+
+1159
+00:26:17,360 --> 00:26:19,590
+something payment has to do something
+email notification service has to do
+
+1160
+00:26:19,590 --> 00:26:19,600
+email notification service has to do
+ 
+
+1161
+00:26:19,600 --> 00:26:21,990
+email notification service has to do
+something the analytics team has to do
+
+1162
+00:26:21,990 --> 00:26:22,000
+something the analytics team has to do
+ 
+
+1163
+00:26:22,000 --> 00:26:25,590
+something the analytics team has to do
+something. So you can't order can't talk
+
+1164
+00:26:25,590 --> 00:26:25,600
+something. So you can't order can't talk
+ 
+
+1165
+00:26:25,600 --> 00:26:27,669
+something. So you can't order can't talk
+with all of them. Okay. So it can
+
+1166
+00:26:27,669 --> 00:26:27,679
+with all of them. Okay. So it can
+ 
+
+1167
+00:26:27,679 --> 00:26:29,830
+with all of them. Okay. So it can
+publish an event and you can do whatever
+
+1168
+00:26:29,830 --> 00:26:29,840
+publish an event and you can do whatever
+ 
+
+1169
+00:26:29,840 --> 00:26:32,710
+publish an event and you can do whatever
+you want to do. Okay. So it's a very
+
+1170
+00:26:32,710 --> 00:26:32,720
+you want to do. Okay. So it's a very
+ 
+
+1171
+00:26:32,720 --> 00:26:34,710
+you want to do. Okay. So it's a very
+good use case for the event-driven
+
+1172
+00:26:34,710 --> 00:26:34,720
+good use case for the event-driven
+ 
+
+1173
+00:26:34,720 --> 00:26:36,070
+good use case for the event-driven
+architecture and that's why I have used
+
+1174
+00:26:36,070 --> 00:26:36,080
+architecture and that's why I have used
+ 
+
+1175
+00:26:36,080 --> 00:26:39,350
+architecture and that's why I have used
+that for an example
+
+1176
+00:26:39,350 --> 00:26:39,360
+that for an example
+ 
+
+1177
+00:26:39,360 --> 00:26:42,390
+that for an example
+longunning business workflow. That's the
+
+1178
+00:26:42,390 --> 00:26:42,400
+longunning business workflow. That's the
+ 
+
+1179
+00:26:42,400 --> 00:26:45,350
+longunning business workflow. That's the
+same thing that here if you see when
+
+1180
+00:26:45,350 --> 00:26:45,360
+same thing that here if you see when
+ 
+
+1181
+00:26:45,360 --> 00:26:47,190
+same thing that here if you see when
+transaction is started and when your
+
+1182
+00:26:47,190 --> 00:26:47,200
+transaction is started and when your
+ 
+
+1183
+00:26:47,200 --> 00:26:49,669
+transaction is started and when your
+transaction got end you can say that.
+
+1184
+00:26:49,669 --> 00:26:49,679
+transaction got end you can say that.
+ 
+
+1185
+00:26:49,679 --> 00:26:53,269
+transaction got end you can say that.
+Okay. So order, payment, shipment,
+
+1186
+00:26:53,269 --> 00:26:53,279
+Okay. So order, payment, shipment,
+ 
+
+1187
+00:26:53,279 --> 00:26:56,789
+Okay. So order, payment, shipment,
+delivery like everything
+
+1188
+00:26:56,789 --> 00:26:56,799
+delivery like everything
+ 
+
+1189
+00:26:56,799 --> 00:27:01,110
+delivery like everything
+should be up successful and then only
+
+1190
+00:27:01,110 --> 00:27:01,120
+should be up successful and then only
+ 
+
+1191
+00:27:01,120 --> 00:27:03,110
+should be up successful and then only
+your
+
+1192
+00:27:03,110 --> 00:27:03,120
+your
+ 
+
+1193
+00:27:03,120 --> 00:27:05,190
+your
+order placement is done. So it's a very
+
+1194
+00:27:05,190 --> 00:27:05,200
+order placement is done. So it's a very
+ 
+
+1195
+00:27:05,200 --> 00:27:07,830
+order placement is done. So it's a very
+long running business flow. Okay. And
+
+1196
+00:27:07,830 --> 00:27:07,840
+long running business flow. Okay. And
+ 
+
+1197
+00:27:07,840 --> 00:27:11,510
+long running business flow. Okay. And
+it's a failure prone. Okay. It can be
+
+1198
+00:27:11,510 --> 00:27:11,520
+it's a failure prone. Okay. It can be
+ 
+
+1199
+00:27:11,520 --> 00:27:13,909
+it's a failure prone. Okay. It can be
+you can say that something can be failed
+
+1200
+00:27:13,909 --> 00:27:13,919
+you can say that something can be failed
+ 
+
+1201
+00:27:13,919 --> 00:27:15,669
+you can say that something can be failed
+in the midway.
+
+1202
+00:27:15,669 --> 00:27:15,679
+in the midway.
+ 
+
+1203
+00:27:15,679 --> 00:27:19,909
+in the midway.
+Okay. And this flow takes a lot of time.
+
+1204
+00:27:19,909 --> 00:27:19,919
+Okay. And this flow takes a lot of time.
+ 
+
+1205
+00:27:19,919 --> 00:27:21,990
+Okay. And this flow takes a lot of time.
+So if the flow is not in the critical
+
+1206
+00:27:21,990 --> 00:27:22,000
+So if the flow is not in the critical
+ 
+
+1207
+00:27:22,000 --> 00:27:24,470
+So if the flow is not in the critical
+path then we can say that it can be
+
+1208
+00:27:24,470 --> 00:27:24,480
+path then we can say that it can be
+ 
+
+1209
+00:27:24,480 --> 00:27:26,070
+path then we can say that it can be
+broken into multi-step which is a
+
+1210
+00:27:26,070 --> 00:27:26,080
+broken into multi-step which is a
+ 
+
+1211
+00:27:26,080 --> 00:27:27,669
+broken into multi-step which is a
+failureprone.
+
+1212
+00:27:27,669 --> 00:27:27,679
+failureprone.
+ 
+
+1213
+00:27:27,679 --> 00:27:32,789
+failureprone.
+Okay. So you can always think critical
+
+1214
+00:27:32,789 --> 00:27:32,799
+Okay. So you can always think critical
+ 
+
+1215
+00:27:32,799 --> 00:27:35,350
+Okay. So you can always think critical
+part
+
+1216
+00:27:35,350 --> 00:27:35,360
+part
+ 
+
+1217
+00:27:35,360 --> 00:27:37,269
+part
+non-critical
+
+1218
+00:27:37,269 --> 00:27:37,279
+non-critical
+ 
+
+1219
+00:27:37,279 --> 00:27:40,630
+non-critical
+part. So critical part should be always
+
+1220
+00:27:40,630 --> 00:27:40,640
+part. So critical part should be always
+ 
+
+1221
+00:27:40,640 --> 00:27:44,390
+part. So critical part should be always
+real time. Okay. Like here I am doing
+
+1222
+00:27:44,390 --> 00:27:44,400
+real time. Okay. Like here I am doing
+ 
+
+1223
+00:27:44,400 --> 00:27:47,190
+real time. Okay. Like here I am doing
+that.
+
+1224
+00:27:47,190 --> 00:27:47,200
+that.
+ 
+
+1225
+00:27:47,200 --> 00:27:49,110
+that.
+This is my critical part.
+
+1226
+00:27:49,110 --> 00:27:49,120
+This is my critical part.
+ 
+
+1227
+00:27:49,120 --> 00:27:51,110
+This is my critical part.
+Check the real time inventory. I don't
+
+1228
+00:27:51,110 --> 00:27:51,120
+Check the real time inventory. I don't
+ 
+
+1229
+00:27:51,120 --> 00:27:52,630
+Check the real time inventory. I don't
+want to do it in a singing. When I get
+
+1230
+00:27:52,630 --> 00:27:52,640
+want to do it in a singing. When I get
+ 
+
+1231
+00:27:52,640 --> 00:27:55,430
+want to do it in a singing. When I get
+the place order request, I check real
+
+1232
+00:27:55,430 --> 00:27:55,440
+the place order request, I check real
+ 
+
+1233
+00:27:55,440 --> 00:27:58,630
+the place order request, I check real
+time stored into the DB status request
+
+1234
+00:27:58,630 --> 00:27:58,640
+time stored into the DB status request
+ 
+
+1235
+00:27:58,640 --> 00:28:01,350
+time stored into the DB status request
+to pending publish an event. This is all
+
+1236
+00:28:01,350 --> 00:28:01,360
+to pending publish an event. This is all
+ 
+
+1237
+00:28:01,360 --> 00:28:03,590
+to pending publish an event. This is all
+my critical. Okay, that's why I'm doing
+
+1238
+00:28:03,590 --> 00:28:03,600
+my critical. Okay, that's why I'm doing
+ 
+
+1239
+00:28:03,600 --> 00:28:07,190
+my critical. Okay, that's why I'm doing
+in a real time not in a sing.
+
+1240
+00:28:07,190 --> 00:28:07,200
+in a real time not in a sing.
+ 
+
+1241
+00:28:07,200 --> 00:28:09,510
+in a real time not in a sing.
+So once this is done then my
+
+1242
+00:28:09,510 --> 00:28:09,520
+So once this is done then my
+ 
+
+1243
+00:28:09,520 --> 00:28:12,630
+So once this is done then my
+non-critical part starts which I can go
+
+1244
+00:28:12,630 --> 00:28:12,640
+non-critical part starts which I can go
+ 
+
+1245
+00:28:12,640 --> 00:28:16,470
+non-critical part starts which I can go
+for eventdriven architecture that okay
+
+1246
+00:28:16,470 --> 00:28:16,480
+for eventdriven architecture that okay
+ 
+
+1247
+00:28:16,480 --> 00:28:19,750
+for eventdriven architecture that okay
+even if it takes some time even let's
+
+1248
+00:28:19,750 --> 00:28:19,760
+even if it takes some time even let's
+ 
+
+1249
+00:28:19,760 --> 00:28:22,789
+even if it takes some time even let's
+say it can take 2 seconds more or let's
+
+1250
+00:28:22,789 --> 00:28:22,799
+say it can take 2 seconds more or let's
+ 
+
+1251
+00:28:22,799 --> 00:28:25,190
+say it can take 2 seconds more or let's
+say 4 seconds more it's not like
+
+1252
+00:28:25,190 --> 00:28:25,200
+say 4 seconds more it's not like
+ 
+
+1253
+00:28:25,200 --> 00:28:29,029
+say 4 seconds more it's not like
+something is very urgently waiting so
+
+1254
+00:28:29,029 --> 00:28:29,039
+something is very urgently waiting so
+ 
+
+1255
+00:28:29,039 --> 00:28:31,669
+something is very urgently waiting so
+consider that as a non-critical part
+
+1256
+00:28:31,669 --> 00:28:31,679
+consider that as a non-critical part
+ 
+
+1257
+00:28:31,679 --> 00:28:34,149
+consider that as a non-critical part
+okay so we can think of that it's a good
+
+1258
+00:28:34,149 --> 00:28:34,159
+okay so we can think of that it's a good
+ 
+
+1259
+00:28:34,159 --> 00:28:36,789
+okay so we can think of that it's a good
+use case for EDA
+
+1260
+00:28:36,789 --> 00:28:36,799
+use case for EDA
+ 
+
+1261
+00:28:36,799 --> 00:28:38,710
+use case for EDA
+Another is eventual consistency is
+
+1262
+00:28:38,710 --> 00:28:38,720
+Another is eventual consistency is
+ 
+
+1263
+00:28:38,720 --> 00:28:41,430
+Another is eventual consistency is
+acceptable. If you are have a use case
+
+1264
+00:28:41,430 --> 00:28:41,440
+acceptable. If you are have a use case
+ 
+
+1265
+00:28:41,440 --> 00:28:43,750
+acceptable. If you are have a use case
+where eventual consistency is okay, then
+
+1266
+00:28:43,750 --> 00:28:43,760
+where eventual consistency is okay, then
+ 
+
+1267
+00:28:43,760 --> 00:28:46,310
+where eventual consistency is okay, then
+it's a very good hint that EDA might be
+
+1268
+00:28:46,310 --> 00:28:46,320
+it's a very good hint that EDA might be
+ 
+
+1269
+00:28:46,320 --> 00:28:48,230
+it's a very good hint that EDA might be
+used.
+
+1270
+00:28:48,230 --> 00:28:48,240
+used.
+ 
+
+1271
+00:28:48,240 --> 00:28:51,430
+used.
+realtime analytics like data is
+
+1272
+00:28:51,430 --> 00:28:51,440
+realtime analytics like data is
+ 
+
+1273
+00:28:51,440 --> 00:28:53,750
+realtime analytics like data is
+continuously coming and you have to work
+
+1274
+00:28:53,750 --> 00:28:53,760
+continuously coming and you have to work
+ 
+
+1275
+00:28:53,760 --> 00:28:56,710
+continuously coming and you have to work
+on that data then definitely it's an EDA
+
+1276
+00:28:56,710 --> 00:28:56,720
+on that data then definitely it's an EDA
+ 
+
+1277
+00:28:56,720 --> 00:28:58,950
+on that data then definitely it's an EDA
+use case like multiple events are
+
+1278
+00:28:58,950 --> 00:28:58,960
+use case like multiple events are
+ 
+
+1279
+00:28:58,960 --> 00:29:01,430
+use case like multiple events are
+continuously coming coming and you have
+
+1280
+00:29:01,430 --> 00:29:01,440
+continuously coming coming and you have
+ 
+
+1281
+00:29:01,440 --> 00:29:03,350
+continuously coming coming and you have
+a consumer which continuously consuming
+
+1282
+00:29:03,350 --> 00:29:03,360
+a consumer which continuously consuming
+ 
+
+1283
+00:29:03,360 --> 00:29:05,909
+a consumer which continuously consuming
+those events and doing some realtime
+
+1284
+00:29:05,909 --> 00:29:05,919
+those events and doing some realtime
+ 
+
+1285
+00:29:05,919 --> 00:29:08,470
+those events and doing some realtime
+analytics okay data need to be
+
+1286
+00:29:08,470 --> 00:29:08,480
+analytics okay data need to be
+ 
+
+1287
+00:29:08,480 --> 00:29:10,710
+analytics okay data need to be
+continuously processed then is also a
+
+1288
+00:29:10,710 --> 00:29:10,720
+continuously processed then is also a
+ 
+
+1289
+00:29:10,720 --> 00:29:12,789
+continuously processed then is also a
+use case of EDA so this is very high
+
+1290
+00:29:12,789 --> 00:29:12,799
+use case of EDA so this is very high
+ 
+
+1291
+00:29:12,799 --> 00:29:15,830
+use case of EDA so this is very high
+level four use cases of EDA but we can
+
+1292
+00:29:15,830 --> 00:29:15,840
+level four use cases of EDA but we can
+ 
+
+1293
+00:29:15,840 --> 00:29:19,669
+level four use cases of EDA but we can
+have more and this is Just one
+
+1294
+00:29:19,669 --> 00:29:19,679
+have more and this is Just one
+ 
+
+1295
+00:29:19,679 --> 00:29:22,710
+have more and this is Just one
+introductory video of what is EDA before
+
+1296
+00:29:22,710 --> 00:29:22,720
+introductory video of what is EDA before
+ 
+
+1297
+00:29:22,720 --> 00:29:27,430
+introductory video of what is EDA before
+we jump into a specific event router and
+
+1298
+00:29:27,430 --> 00:29:27,440
+we jump into a specific event router and
+ 
+
+1299
+00:29:27,440 --> 00:29:30,870
+we jump into a specific event router and
+most probably I will pick Kafka for it.
+
+1300
+00:29:30,870 --> 00:29:30,880
+most probably I will pick Kafka for it.
+ 
+
+1301
+00:29:30,880 --> 00:29:35,919
+most probably I will pick Kafka for it.
+Okay. Okay guys, see you soon. Bye.
+

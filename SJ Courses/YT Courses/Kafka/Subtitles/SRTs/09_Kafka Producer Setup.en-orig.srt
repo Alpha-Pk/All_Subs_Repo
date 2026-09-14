@@ -1,0 +1,10385 @@
+1
+00:00:00,000 --> 00:00:02,870
+
+So, in the previous topic, we have seen
+
+2
+00:00:02,870 --> 00:00:02,880
+So, in the previous topic, we have seen
+ 
+
+3
+00:00:02,880 --> 00:00:04,630
+So, in the previous topic, we have seen
+the internal
+
+4
+00:00:04,630 --> 00:00:04,640
+the internal
+ 
+
+5
+00:00:04,640 --> 00:00:07,070
+the internal
+of Kafka producer.
+
+6
+00:00:07,070 --> 00:00:07,080
+of Kafka producer.
+ 
+
+7
+00:00:07,080 --> 00:00:08,790
+of Kafka producer.
+Now, let's today
+
+8
+00:00:08,790 --> 00:00:08,800
+Now, let's today
+ 
+
+9
+00:00:08,800 --> 00:00:11,470
+Now, let's today
+start with the setup. We will set up the
+
+10
+00:00:11,470 --> 00:00:11,480
+start with the setup. We will set up the
+ 
+
+11
+00:00:11,480 --> 00:00:13,270
+start with the setup. We will set up the
+producer.
+
+12
+00:00:13,270 --> 00:00:13,280
+producer.
+ 
+
+13
+00:00:13,280 --> 00:00:15,710
+producer.
+Okay. So, let's start without wasting
+
+14
+00:00:15,710 --> 00:00:15,720
+Okay. So, let's start without wasting
+ 
+
+15
+00:00:15,720 --> 00:00:17,790
+Okay. So, let's start without wasting
+any time. The first and the foremost is
+
+16
+00:00:17,790 --> 00:00:17,800
+any time. The first and the foremost is
+ 
+
+17
+00:00:17,800 --> 00:00:21,670
+any time. The first and the foremost is
+the dependency. What dependency we need?
+
+18
+00:00:21,670 --> 00:00:21,680
+the dependency. What dependency we need?
+ 
+
+19
+00:00:21,680 --> 00:00:23,990
+the dependency. What dependency we need?
+So, this is the only dependency we have
+
+20
+00:00:23,990 --> 00:00:24,000
+So, this is the only dependency we have
+ 
+
+21
+00:00:24,000 --> 00:00:25,190
+So, this is the only dependency we have
+to add that is
+
+22
+00:00:25,190 --> 00:00:25,200
+to add that is
+ 
+
+23
+00:00:25,200 --> 00:00:30,070
+to add that is
+org.springframework.kafka.spring-kafka.
+
+24
+00:00:30,070 --> 00:00:30,080
+
+ 
+
+25
+00:00:30,080 --> 00:00:32,150
+
+This is the only dependency.
+
+26
+00:00:32,150 --> 00:00:32,160
+This is the only dependency.
+ 
+
+27
+00:00:32,160 --> 00:00:34,830
+This is the only dependency.
+So, this dependency pulls
+
+28
+00:00:34,830 --> 00:00:34,840
+So, this dependency pulls
+ 
+
+29
+00:00:34,840 --> 00:00:37,390
+So, this dependency pulls
+all the spring wrapper layer, which are
+
+30
+00:00:37,390 --> 00:00:37,400
+all the spring wrapper layer, which are
+ 
+
+31
+00:00:37,400 --> 00:00:40,910
+all the spring wrapper layer, which are
+built on top of Kafka client dependency.
+
+32
+00:00:40,910 --> 00:00:40,920
+built on top of Kafka client dependency.
+ 
+
+33
+00:00:40,920 --> 00:00:43,630
+built on top of Kafka client dependency.
+So, you get Kafka client dependency. You
+
+34
+00:00:43,630 --> 00:00:43,640
+So, you get Kafka client dependency. You
+ 
+
+35
+00:00:43,640 --> 00:00:45,950
+So, you get Kafka client dependency. You
+can say that the implementation. And
+
+36
+00:00:45,950 --> 00:00:45,960
+can say that the implementation. And
+ 
+
+37
+00:00:45,960 --> 00:00:48,150
+can say that the implementation. And
+this is the abstraction layer.
+
+38
+00:00:48,150 --> 00:00:48,160
+this is the abstraction layer.
+ 
+
+39
+00:00:48,160 --> 00:00:49,770
+this is the abstraction layer.
+Okay?
+
+40
+00:00:49,770 --> 00:00:49,780
+Okay?
+ 
+
+41
+00:00:49,780 --> 00:00:51,550
+Okay?
+>> [clears throat]
+
+42
+00:00:51,550 --> 00:00:51,560
+>> [clears throat]
+ 
+
+43
+00:00:51,560 --> 00:00:52,990
+>> [clears throat]
+>> So,
+
+44
+00:00:52,990 --> 00:00:53,000
+>> So,
+ 
+
+45
+00:00:53,000 --> 00:00:55,270
+>> So,
+spring wrapper layer
+
+46
+00:00:55,270 --> 00:00:55,280
+spring wrapper layer
+ 
+
+47
+00:00:55,280 --> 00:00:56,670
+spring wrapper layer
+is you can say that mostly an
+
+48
+00:00:56,670 --> 00:00:56,680
+is you can say that mostly an
+ 
+
+49
+00:00:56,680 --> 00:00:58,150
+is you can say that mostly an
+abstraction.
+
+50
+00:00:58,150 --> 00:00:58,160
+abstraction.
+ 
+
+51
+00:00:58,160 --> 00:00:59,950
+abstraction.
+So, like Kafka template, which is
+
+52
+00:00:59,950 --> 00:00:59,960
+So, like Kafka template, which is
+ 
+
+53
+00:00:59,960 --> 00:01:03,550
+So, like Kafka template, which is
+required to send message. So, you or any
+
+54
+00:01:03,550 --> 00:01:03,560
+required to send message. So, you or any
+ 
+
+55
+00:01:03,560 --> 00:01:06,110
+required to send message. So, you or any
+developer who is working with Kafka,
+
+56
+00:01:06,110 --> 00:01:06,120
+developer who is working with Kafka,
+ 
+
+57
+00:01:06,120 --> 00:01:07,990
+developer who is working with Kafka,
+right, producer, they will deal with
+
+58
+00:01:07,990 --> 00:01:08,000
+right, producer, they will deal with
+ 
+
+59
+00:01:08,000 --> 00:01:09,670
+right, producer, they will deal with
+mostly this layer.
+
+60
+00:01:09,670 --> 00:01:09,680
+mostly this layer.
+ 
+
+61
+00:01:09,680 --> 00:01:11,510
+mostly this layer.
+And internally, this spring wrapper
+
+62
+00:01:11,510 --> 00:01:11,520
+And internally, this spring wrapper
+ 
+
+63
+00:01:11,520 --> 00:01:13,070
+And internally, this spring wrapper
+layer make use of Kafka client
+
+64
+00:01:13,070 --> 00:01:13,080
+layer make use of Kafka client
+ 
+
+65
+00:01:13,080 --> 00:01:15,190
+layer make use of Kafka client
+dependency. So, like Kafka template, we
+
+66
+00:01:15,190 --> 00:01:15,200
+dependency. So, like Kafka template, we
+ 
+
+67
+00:01:15,200 --> 00:01:17,870
+dependency. So, like Kafka template, we
+will going to use it to send message.
+
+68
+00:01:17,870 --> 00:01:17,880
+will going to use it to send message.
+ 
+
+69
+00:01:17,880 --> 00:01:20,550
+will going to use it to send message.
+Kafka admin, like it is it is required
+
+70
+00:01:20,550 --> 00:01:20,560
+Kafka admin, like it is it is required
+ 
+
+71
+00:01:20,560 --> 00:01:25,710
+Kafka admin, like it is it is required
+to manage the topic.
+
+72
+00:01:25,710 --> 00:01:25,720
+
+ 
+
+73
+00:01:25,720 --> 00:01:27,030
+
+So,
+
+74
+00:01:27,030 --> 00:01:27,040
+So,
+ 
+
+75
+00:01:27,040 --> 00:01:29,390
+So,
+once dependency added,
+
+76
+00:01:29,390 --> 00:01:29,400
+once dependency added,
+ 
+
+77
+00:01:29,400 --> 00:01:31,190
+once dependency added,
+in a step two, what we will do is add
+
+78
+00:01:31,190 --> 00:01:31,200
+in a step two, what we will do is add
+ 
+
+79
+00:01:31,200 --> 00:01:34,590
+in a step two, what we will do is add
+the bootstrap brokers. If you remember
+
+80
+00:01:34,590 --> 00:01:34,600
+the bootstrap brokers. If you remember
+ 
+
+81
+00:01:34,600 --> 00:01:39,710
+the bootstrap brokers. If you remember
+from the previous topic, I told you that
+
+82
+00:01:39,710 --> 00:01:39,720
+
+ 
+
+83
+00:01:39,720 --> 00:01:41,870
+
+setting up the producer is just like a
+
+84
+00:01:41,870 --> 00:01:41,880
+setting up the producer is just like a
+ 
+
+85
+00:01:41,880 --> 00:01:43,870
+setting up the producer is just like a
+one line of code. If you have to send a
+
+86
+00:01:43,870 --> 00:01:43,880
+one line of code. If you have to send a
+ 
+
+87
+00:01:43,880 --> 00:01:46,030
+one line of code. If you have to send a
+message from producer
+
+88
+00:01:46,030 --> 00:01:46,040
+message from producer
+ 
+
+89
+00:01:46,040 --> 00:01:47,630
+message from producer
+to broker,
+
+90
+00:01:47,630 --> 00:01:47,640
+to broker,
+ 
+
+91
+00:01:47,640 --> 00:01:49,190
+to broker,
+all you have to just do is Kafka
+
+92
+00:01:49,190 --> 00:01:49,200
+all you have to just do is Kafka
+ 
+
+93
+00:01:49,200 --> 00:01:51,790
+all you have to just do is Kafka
+template. dot send.
+
+94
+00:01:51,790 --> 00:01:51,800
+template. dot send.
+ 
+
+95
+00:01:51,800 --> 00:01:54,150
+template. dot send.
+And provide the topic name, key, and the
+
+96
+00:01:54,150 --> 00:01:54,160
+And provide the topic name, key, and the
+ 
+
+97
+00:01:54,160 --> 00:01:56,270
+And provide the topic name, key, and the
+your message object.
+
+98
+00:01:56,270 --> 00:01:56,280
+your message object.
+ 
+
+99
+00:01:56,280 --> 00:01:58,110
+your message object.
+All we have to do in the configuration,
+
+100
+00:01:58,110 --> 00:01:58,120
+All we have to do in the configuration,
+ 
+
+101
+00:01:58,120 --> 00:02:01,390
+All we have to do in the configuration,
+all we have to provide is this.
+
+102
+00:02:01,390 --> 00:02:01,400
+all we have to provide is this.
+ 
+
+103
+00:02:01,400 --> 00:02:04,110
+all we have to provide is this.
+Kafka bootstrap servers. Okay, so these
+
+104
+00:02:04,110 --> 00:02:04,120
+Kafka bootstrap servers. Okay, so these
+ 
+
+105
+00:02:04,120 --> 00:02:05,870
+Kafka bootstrap servers. Okay, so these
+are both the brokers.
+
+106
+00:02:05,870 --> 00:02:05,880
+are both the brokers.
+ 
+
+107
+00:02:05,880 --> 00:02:08,870
+are both the brokers.
+So, you remember from our cluster setup,
+
+108
+00:02:08,870 --> 00:02:08,880
+So, you remember from our cluster setup,
+ 
+
+109
+00:02:08,880 --> 00:02:10,870
+So, you remember from our cluster setup,
+we have two brokers, broker one and
+
+110
+00:02:10,870 --> 00:02:10,880
+we have two brokers, broker one and
+ 
+
+111
+00:02:10,880 --> 00:02:12,510
+we have two brokers, broker one and
+broker two.
+
+112
+00:02:12,510 --> 00:02:12,520
+broker two.
+ 
+
+113
+00:02:12,520 --> 00:02:15,230
+broker two.
+Okay, so both the
+
+114
+00:02:15,230 --> 00:02:15,240
+Okay, so both the
+ 
+
+115
+00:02:15,240 --> 00:02:18,390
+Okay, so both the
+broker address I have added here.
+
+116
+00:02:18,390 --> 00:02:18,400
+broker address I have added here.
+ 
+
+117
+00:02:18,400 --> 00:02:20,430
+broker address I have added here.
+So, this is required. So, why it's
+
+118
+00:02:20,430 --> 00:02:20,440
+So, this is required. So, why it's
+ 
+
+119
+00:02:20,440 --> 00:02:22,830
+So, this is required. So, why it's
+called bootstrap server is
+
+120
+00:02:22,830 --> 00:02:22,840
+called bootstrap server is
+ 
+
+121
+00:02:22,840 --> 00:02:25,550
+called bootstrap server is
+say initially when the first time you
+
+122
+00:02:25,550 --> 00:02:25,560
+say initially when the first time you
+ 
+
+123
+00:02:25,560 --> 00:02:28,790
+say initially when the first time you
+are starting the producer.
+
+124
+00:02:28,790 --> 00:02:28,800
+are starting the producer.
+ 
+
+125
+00:02:28,800 --> 00:02:31,270
+are starting the producer.
+Producer do does not know
+
+126
+00:02:31,270 --> 00:02:31,280
+Producer do does not know
+ 
+
+127
+00:02:31,280 --> 00:02:34,390
+Producer do does not know
+like, okay, for this topic A partition
+
+128
+00:02:34,390 --> 00:02:34,400
+like, okay, for this topic A partition
+ 
+
+129
+00:02:34,400 --> 00:02:37,110
+like, okay, for this topic A partition
+zero, which one is the leader? Which
+
+130
+00:02:37,110 --> 00:02:37,120
+zero, which one is the leader? Which
+ 
+
+131
+00:02:37,120 --> 00:02:38,910
+zero, which one is the leader? Which
+broker is leader?
+
+132
+00:02:38,910 --> 00:02:38,920
+broker is leader?
+ 
+
+133
+00:02:38,920 --> 00:02:41,870
+broker is leader?
+For topic A partition one, which broker
+
+134
+00:02:41,870 --> 00:02:41,880
+For topic A partition one, which broker
+ 
+
+135
+00:02:41,880 --> 00:02:44,070
+For topic A partition one, which broker
+is leader? I don't know. Producer don't
+
+136
+00:02:44,070 --> 00:02:44,080
+is leader? I don't know. Producer don't
+ 
+
+137
+00:02:44,080 --> 00:02:48,270
+is leader? I don't know. Producer don't
+know. Okay. So, the bootstrap server
+
+138
+00:02:48,270 --> 00:02:48,280
+know. Okay. So, the bootstrap server
+ 
+
+139
+00:02:48,280 --> 00:02:50,670
+know. Okay. So, the bootstrap server
+major is that
+
+140
+00:02:50,670 --> 00:02:50,680
+major is that
+ 
+
+141
+00:02:50,680 --> 00:02:53,390
+major is that
+you can say that and the first time we
+
+142
+00:02:53,390 --> 00:02:53,400
+you can say that and the first time we
+ 
+
+143
+00:02:53,400 --> 00:02:54,310
+you can say that and the first time we
+are
+
+144
+00:02:54,310 --> 00:02:54,320
+are
+ 
+
+145
+00:02:54,320 --> 00:02:57,590
+are
+starting the producer, it will invoke
+
+146
+00:02:57,590 --> 00:02:57,600
+starting the producer, it will invoke
+ 
+
+147
+00:02:57,600 --> 00:02:58,949
+starting the producer, it will invoke
+any one of it.
+
+148
+00:02:58,949 --> 00:02:58,959
+any one of it.
+ 
+
+149
+00:02:58,959 --> 00:03:01,750
+any one of it.
+It will invoke any one of the broker and
+
+150
+00:03:01,750 --> 00:03:01,760
+It will invoke any one of the broker and
+ 
+
+151
+00:03:01,760 --> 00:03:03,790
+It will invoke any one of the broker and
+ask that, "Hey, can you provide me the
+
+152
+00:03:03,790 --> 00:03:03,800
+ask that, "Hey, can you provide me the
+ 
+
+153
+00:03:03,800 --> 00:03:06,550
+ask that, "Hey, can you provide me the
+metadata information?"
+
+154
+00:03:06,550 --> 00:03:06,560
+metadata information?"
+ 
+
+155
+00:03:06,560 --> 00:03:08,630
+metadata information?"
+Now, broker
+
+156
+00:03:08,630 --> 00:03:08,640
+Now, broker
+ 
+
+157
+00:03:08,640 --> 00:03:10,990
+Now, broker
+generally broker also have metadata
+
+158
+00:03:10,990 --> 00:03:11,000
+generally broker also have metadata
+ 
+
+159
+00:03:11,000 --> 00:03:13,270
+generally broker also have metadata
+information cache, but let's say if they
+
+160
+00:03:13,270 --> 00:03:13,280
+information cache, but let's say if they
+ 
+
+161
+00:03:13,280 --> 00:03:15,670
+information cache, but let's say if they
+don't have, it will goes to the active
+
+162
+00:03:15,670 --> 00:03:15,680
+don't have, it will goes to the active
+ 
+
+163
+00:03:15,680 --> 00:03:16,910
+don't have, it will goes to the active
+controller,
+
+164
+00:03:16,910 --> 00:03:16,920
+controller,
+ 
+
+165
+00:03:16,920 --> 00:03:18,430
+controller,
+fetch the metadata,
+
+166
+00:03:18,430 --> 00:03:18,440
+fetch the metadata,
+ 
+
+167
+00:03:18,440 --> 00:03:21,750
+fetch the metadata,
+and then return to the producer.
+
+168
+00:03:21,750 --> 00:03:21,760
+and then return to the producer.
+ 
+
+169
+00:03:21,760 --> 00:03:25,270
+and then return to the producer.
+And producer also cached it.
+
+170
+00:03:25,270 --> 00:03:25,280
+And producer also cached it.
+ 
+
+171
+00:03:25,280 --> 00:03:27,590
+And producer also cached it.
+Now, from the next call, it doesn't need
+
+172
+00:03:27,590 --> 00:03:27,600
+Now, from the next call, it doesn't need
+ 
+
+173
+00:03:27,600 --> 00:03:29,790
+Now, from the next call, it doesn't need
+this bootstrap server. It just check the
+
+174
+00:03:29,790 --> 00:03:29,800
+this bootstrap server. It just check the
+ 
+
+175
+00:03:29,800 --> 00:03:31,949
+this bootstrap server. It just check the
+metadata information which this producer
+
+176
+00:03:31,949 --> 00:03:31,959
+metadata information which this producer
+ 
+
+177
+00:03:31,959 --> 00:03:33,870
+metadata information which this producer
+has. Okay.
+
+178
+00:03:33,870 --> 00:03:33,880
+has. Okay.
+ 
+
+179
+00:03:33,880 --> 00:03:36,430
+has. Okay.
+For topic A partition zero, it will
+
+180
+00:03:36,430 --> 00:03:36,440
+For topic A partition zero, it will
+ 
+
+181
+00:03:36,440 --> 00:03:38,350
+For topic A partition zero, it will
+check its metadata, who is the broker,
+
+182
+00:03:38,350 --> 00:03:38,360
+check its metadata, who is the broker,
+ 
+
+183
+00:03:38,360 --> 00:03:40,390
+check its metadata, who is the broker,
+it will directly invoke it. The address
+
+184
+00:03:40,390 --> 00:03:40,400
+it will directly invoke it. The address
+ 
+
+185
+00:03:40,400 --> 00:03:42,670
+it will directly invoke it. The address
+information would be present into that
+
+186
+00:03:42,670 --> 00:03:42,680
+information would be present into that
+ 
+
+187
+00:03:42,680 --> 00:03:44,670
+information would be present into that
+metadata information.
+
+188
+00:03:44,670 --> 00:03:44,680
+metadata information.
+ 
+
+189
+00:03:44,680 --> 00:03:47,030
+metadata information.
+So, that's why it's named bootstrap.
+
+190
+00:03:47,030 --> 00:03:47,040
+So, that's why it's named bootstrap.
+ 
+
+191
+00:03:47,040 --> 00:03:49,897
+So, that's why it's named bootstrap.
+Only the first time.
+
+192
+00:03:49,897 --> 00:03:49,907
+Only the first time.
+ 
+
+193
+00:03:49,907 --> 00:03:50,750
+Only the first time.
+>> [clears throat]
+
+194
+00:03:50,750 --> 00:03:50,760
+>> [clears throat]
+ 
+
+195
+00:03:50,760 --> 00:03:52,590
+>> [clears throat]
+>> Uh only the first time producer needs
+
+196
+00:03:52,590 --> 00:03:52,600
+>> Uh only the first time producer needs
+ 
+
+197
+00:03:52,600 --> 00:03:55,390
+>> Uh only the first time producer needs
+it. After that, it maintain the
+
+198
+00:03:55,390 --> 00:03:55,400
+it. After that, it maintain the
+ 
+
+199
+00:03:55,400 --> 00:03:58,110
+it. After that, it maintain the
+this metadata information cache.
+
+200
+00:03:58,110 --> 00:03:58,120
+this metadata information cache.
+ 
+
+201
+00:03:58,120 --> 00:03:59,670
+this metadata information cache.
+Now, the question might come is that,
+
+202
+00:03:59,670 --> 00:03:59,680
+Now, the question might come is that,
+ 
+
+203
+00:03:59,680 --> 00:04:00,830
+Now, the question might come is that,
+"Okay,
+
+204
+00:04:00,830 --> 00:04:00,840
+"Okay,
+ 
+
+205
+00:04:00,840 --> 00:04:02,990
+"Okay,
+this metadata information which producer
+
+206
+00:04:02,990 --> 00:04:03,000
+this metadata information which producer
+ 
+
+207
+00:04:03,000 --> 00:04:08,070
+this metadata information which producer
+stores, how frequently does it refresh?"
+
+208
+00:04:08,070 --> 00:04:08,080
+stores, how frequently does it refresh?"
+ 
+
+209
+00:04:08,080 --> 00:04:09,830
+stores, how frequently does it refresh?"
+So, see this one.
+
+210
+00:04:09,830 --> 00:04:09,840
+So, see this one.
+ 
+
+211
+00:04:09,840 --> 00:04:11,512
+So, see this one.
+So, we can configure that.
+
+212
+00:04:11,512 --> 00:04:11,522
+So, we can configure that.
+ 
+
+213
+00:04:11,522 --> 00:04:11,790
+So, we can configure that.
+>> [clears throat and cough]
+
+214
+00:04:11,790 --> 00:04:11,800
+>> [clears throat and cough]
+ 
+
+215
+00:04:11,800 --> 00:04:12,949
+>> [clears throat and cough]
+>> Sorry.
+
+216
+00:04:12,949 --> 00:04:12,959
+>> Sorry.
+ 
+
+217
+00:04:12,959 --> 00:04:14,949
+>> Sorry.
+Sorry for this. So, we can configure
+
+218
+00:04:14,949 --> 00:04:14,959
+Sorry for this. So, we can configure
+ 
+
+219
+00:04:14,959 --> 00:04:19,390
+Sorry for this. So, we can configure
+this. spring.kafka.producer.properties
+
+220
+00:04:19,390 --> 00:04:19,400
+
+ 
+
+221
+00:04:19,400 --> 00:04:22,710
+
+metadata.max.age.milliseconds.
+
+222
+00:04:22,710 --> 00:04:22,720
+
+ 
+
+223
+00:04:22,720 --> 00:04:24,950
+
+Okay, so currently I have configured 5
+
+224
+00:04:24,950 --> 00:04:24,960
+Okay, so currently I have configured 5
+ 
+
+225
+00:04:24,960 --> 00:04:28,670
+Okay, so currently I have configured 5
+minutes. So, after 5 minutes,
+
+226
+00:04:28,670 --> 00:04:28,680
+minutes. So, after 5 minutes,
+ 
+
+227
+00:04:28,680 --> 00:04:31,310
+minutes. So, after 5 minutes,
+this producer will update this metadata
+
+228
+00:04:31,310 --> 00:04:31,320
+this producer will update this metadata
+ 
+
+229
+00:04:31,320 --> 00:04:34,230
+this producer will update this metadata
+information. It will ask broker again,
+
+230
+00:04:34,230 --> 00:04:34,240
+information. It will ask broker again,
+ 
+
+231
+00:04:34,240 --> 00:04:35,350
+information. It will ask broker again,
+"Give me the latest metadata
+
+232
+00:04:35,350 --> 00:04:35,360
+"Give me the latest metadata
+ 
+
+233
+00:04:35,360 --> 00:04:36,590
+"Give me the latest metadata
+information."
+
+234
+00:04:36,590 --> 00:04:36,600
+information."
+ 
+
+235
+00:04:36,600 --> 00:04:39,230
+information."
+Okay? So, you can change it you want,
+
+236
+00:04:39,230 --> 00:04:39,240
+Okay? So, you can change it you want,
+ 
+
+237
+00:04:39,240 --> 00:04:41,750
+Okay? So, you can change it you want,
+and even if you don't write it,
+
+238
+00:04:41,750 --> 00:04:41,760
+and even if you don't write it,
+ 
+
+239
+00:04:41,760 --> 00:04:44,110
+and even if you don't write it,
+default is 5 minutes only.
+
+240
+00:04:44,110 --> 00:04:44,120
+default is 5 minutes only.
+ 
+
+241
+00:04:44,120 --> 00:04:45,030
+default is 5 minutes only.
+Okay?
+
+242
+00:04:45,030 --> 00:04:45,040
+Okay?
+ 
+
+243
+00:04:45,040 --> 00:04:47,510
+Okay?
+So, that's why I mentioned specifically
+
+244
+00:04:47,510 --> 00:04:47,520
+So, that's why I mentioned specifically
+ 
+
+245
+00:04:47,520 --> 00:04:49,150
+So, that's why I mentioned specifically
+for producer
+
+246
+00:04:49,150 --> 00:04:49,160
+for producer
+ 
+
+247
+00:04:49,160 --> 00:04:50,270
+for producer
+to run.
+
+248
+00:04:50,270 --> 00:04:50,280
+to run.
+ 
+
+249
+00:04:50,280 --> 00:04:53,750
+to run.
+All you need is this one
+
+250
+00:04:53,750 --> 00:04:53,760
+All you need is this one
+ 
+
+251
+00:04:53,760 --> 00:04:55,550
+All you need is this one
+application.properties.
+
+252
+00:04:55,550 --> 00:04:55,560
+application.properties.
+ 
+
+253
+00:04:55,560 --> 00:04:57,630
+application.properties.
+Bootstrap server.
+
+254
+00:04:57,630 --> 00:04:57,640
+Bootstrap server.
+ 
+
+255
+00:04:57,640 --> 00:05:00,630
+Bootstrap server.
+After that, you can just simply do
+
+256
+00:05:00,630 --> 00:05:00,640
+After that, you can just simply do
+ 
+
+257
+00:05:00,640 --> 00:05:02,630
+After that, you can just simply do
+kafkaTemplate.send,
+
+258
+00:05:02,630 --> 00:05:02,640
+kafkaTemplate.send,
+ 
+
+259
+00:05:02,640 --> 00:05:04,790
+kafkaTemplate.send,
+and you are able to send a
+
+260
+00:05:04,790 --> 00:05:04,800
+and you are able to send a
+ 
+
+261
+00:05:04,800 --> 00:05:11,310
+and you are able to send a
+message to the broker.
+
+262
+00:05:11,310 --> 00:05:11,320
+
+ 
+
+263
+00:05:11,320 --> 00:05:13,110
+
+Okay. Now, step three, what we are
+
+264
+00:05:13,110 --> 00:05:13,120
+Okay. Now, step three, what we are
+ 
+
+265
+00:05:13,120 --> 00:05:15,909
+Okay. Now, step three, what we are
+doing? We are going to add a topic. So,
+
+266
+00:05:15,909 --> 00:05:15,919
+doing? We are going to add a topic. So,
+ 
+
+267
+00:05:15,919 --> 00:05:18,630
+doing? We are going to add a topic. So,
+if you remember from the cluster setup,
+
+268
+00:05:18,630 --> 00:05:18,640
+if you remember from the cluster setup,
+ 
+
+269
+00:05:18,640 --> 00:05:21,510
+if you remember from the cluster setup,
+we created a topic using the shell
+
+270
+00:05:21,510 --> 00:05:21,520
+we created a topic using the shell
+ 
+
+271
+00:05:21,520 --> 00:05:22,750
+we created a topic using the shell
+script.
+
+272
+00:05:22,750 --> 00:05:22,760
+script.
+ 
+
+273
+00:05:22,760 --> 00:05:24,750
+script.
+But, we can also create through our
+
+274
+00:05:24,750 --> 00:05:24,760
+But, we can also create through our
+ 
+
+275
+00:05:24,760 --> 00:05:26,710
+But, we can also create through our
+producer. So, whenever producer
+
+276
+00:05:26,710 --> 00:05:26,720
+producer. So, whenever producer
+ 
+
+277
+00:05:26,720 --> 00:05:29,230
+producer. So, whenever producer
+application will start up,
+
+278
+00:05:29,230 --> 00:05:29,240
+application will start up,
+ 
+
+279
+00:05:29,240 --> 00:05:31,070
+application will start up,
+we can have
+
+280
+00:05:31,070 --> 00:05:31,080
+we can have
+ 
+
+281
+00:05:31,080 --> 00:05:32,990
+we can have
+we can create a bean
+
+282
+00:05:32,990 --> 00:05:33,000
+we can create a bean
+ 
+
+283
+00:05:33,000 --> 00:05:34,710
+we can create a bean
+where during a startup it will check,
+
+284
+00:05:34,710 --> 00:05:34,720
+where during a startup it will check,
+ 
+
+285
+00:05:34,720 --> 00:05:36,470
+where during a startup it will check,
+"Hey, this
+
+286
+00:05:36,470 --> 00:05:36,480
+"Hey, this
+ 
+
+287
+00:05:36,480 --> 00:05:39,390
+"Hey, this
+topic exist or not?" If not, it will
+
+288
+00:05:39,390 --> 00:05:39,400
+topic exist or not?" If not, it will
+ 
+
+289
+00:05:39,400 --> 00:05:42,870
+topic exist or not?" If not, it will
+create a new topic for us.
+
+290
+00:05:42,870 --> 00:05:42,880
+create a new topic for us.
+ 
+
+291
+00:05:42,880 --> 00:05:45,270
+create a new topic for us.
+So, I have created
+
+292
+00:05:45,270 --> 00:05:45,280
+So, I have created
+ 
+
+293
+00:05:45,280 --> 00:05:48,190
+So, I have created
+one class, Kafka producer config and
+
+294
+00:05:48,190 --> 00:05:48,200
+one class, Kafka producer config and
+ 
+
+295
+00:05:48,200 --> 00:05:50,870
+one class, Kafka producer config and
+annotated with @configuration
+
+296
+00:05:50,870 --> 00:05:50,880
+annotated with @configuration
+ 
+
+297
+00:05:50,880 --> 00:05:54,190
+annotated with @configuration
+and this I'm adding one bean.
+
+298
+00:05:54,190 --> 00:05:54,200
+and this I'm adding one bean.
+ 
+
+299
+00:05:54,200 --> 00:05:56,230
+and this I'm adding one bean.
+Okay? So, the name you can give
+
+300
+00:05:56,230 --> 00:05:56,240
+Okay? So, the name you can give
+ 
+
+301
+00:05:56,240 --> 00:05:58,110
+Okay? So, the name you can give
+anything. Order events topic. I have
+
+302
+00:05:58,110 --> 00:05:58,120
+anything. Order events topic. I have
+ 
+
+303
+00:05:58,120 --> 00:06:02,190
+anything. Order events topic. I have
+given order events topic. And what
+
+304
+00:06:02,190 --> 00:06:02,200
+given order events topic. And what
+ 
+
+305
+00:06:02,200 --> 00:06:04,590
+given order events topic. And what
+type of bean it return new topic. This
+
+306
+00:06:04,590 --> 00:06:04,600
+type of bean it return new topic. This
+ 
+
+307
+00:06:04,600 --> 00:06:07,350
+type of bean it return new topic. This
+is we have to return.
+
+308
+00:06:07,350 --> 00:06:07,360
+is we have to return.
+ 
+
+309
+00:06:07,360 --> 00:06:10,910
+is we have to return.
+And there is a builder topic builder
+
+310
+00:06:10,910 --> 00:06:10,920
+And there is a builder topic builder
+ 
+
+311
+00:06:10,920 --> 00:06:13,150
+And there is a builder topic builder
+which is present. We can use it to
+
+312
+00:06:13,150 --> 00:06:13,160
+which is present. We can use it to
+ 
+
+313
+00:06:13,160 --> 00:06:15,270
+which is present. We can use it to
+create a topic. Topic builder
+
+314
+00:06:15,270 --> 00:06:15,280
+create a topic. Topic builder
+ 
+
+315
+00:06:15,280 --> 00:06:18,790
+create a topic. Topic builder
+.name What is the name of the topic you
+
+316
+00:06:18,790 --> 00:06:18,800
+.name What is the name of the topic you
+ 
+
+317
+00:06:18,800 --> 00:06:21,950
+.name What is the name of the topic you
+want to give? Topic builder .name
+
+318
+00:06:21,950 --> 00:06:21,960
+want to give? Topic builder .name
+ 
+
+319
+00:06:21,960 --> 00:06:24,590
+want to give? Topic builder .name
+topic name .build.
+
+320
+00:06:24,590 --> 00:06:24,600
+topic name .build.
+ 
+
+321
+00:06:24,600 --> 00:06:27,070
+topic name .build.
+So, when your application will start, it
+
+322
+00:06:27,070 --> 00:06:27,080
+So, when your application will start, it
+ 
+
+323
+00:06:27,080 --> 00:06:29,030
+So, when your application will start, it
+will check, "Hey, does
+
+324
+00:06:29,030 --> 00:06:29,040
+will check, "Hey, does
+ 
+
+325
+00:06:29,040 --> 00:06:31,670
+will check, "Hey, does
+in the cluster order events topic is
+
+326
+00:06:31,670 --> 00:06:31,680
+in the cluster order events topic is
+ 
+
+327
+00:06:31,680 --> 00:06:34,470
+in the cluster order events topic is
+present or not?" If not, this topic will
+
+328
+00:06:34,470 --> 00:06:34,480
+present or not?" If not, this topic will
+ 
+
+329
+00:06:34,480 --> 00:06:36,269
+present or not?" If not, this topic will
+get created.
+
+330
+00:06:36,269 --> 00:06:36,279
+get created.
+ 
+
+331
+00:06:36,279 --> 00:06:37,950
+get created.
+>> [snorts]
+
+332
+00:06:37,950 --> 00:06:37,960
+>> [snorts]
+ 
+
+333
+00:06:37,960 --> 00:06:40,310
+>> [snorts]
+>> Now, you might be thinking that, "Hey,
+
+334
+00:06:40,310 --> 00:06:40,320
+>> Now, you might be thinking that, "Hey,
+ 
+
+335
+00:06:40,320 --> 00:06:42,590
+>> Now, you might be thinking that, "Hey,
+this is very very simple, right? Only
+
+336
+00:06:42,590 --> 00:06:42,600
+this is very very simple, right? Only
+ 
+
+337
+00:06:42,600 --> 00:06:45,390
+this is very very simple, right? Only
+like we have to give the
+
+338
+00:06:45,390 --> 00:06:45,400
+like we have to give the
+ 
+
+339
+00:06:45,400 --> 00:06:47,350
+like we have to give the
+topic name."
+
+340
+00:06:47,350 --> 00:06:47,360
+topic name."
+ 
+
+341
+00:06:47,360 --> 00:06:48,430
+topic name."
+So,
+
+342
+00:06:48,430 --> 00:06:48,440
+So,
+ 
+
+343
+00:06:48,440 --> 00:06:50,150
+So,
+just recall it.
+
+344
+00:06:50,150 --> 00:06:50,160
+just recall it.
+ 
+
+345
+00:06:50,160 --> 00:06:52,990
+just recall it.
+When we set up a controller
+
+346
+00:06:52,990 --> 00:06:53,000
+When we set up a controller
+ 
+
+347
+00:06:53,000 --> 00:06:55,870
+When we set up a controller
+and broker
+
+348
+00:06:55,870 --> 00:06:55,880
+
+ 
+
+349
+00:06:55,880 --> 00:06:57,510
+
+we in there
+
+350
+00:06:57,510 --> 00:06:57,520
+we in there
+ 
+
+351
+00:06:57,520 --> 00:07:00,270
+we in there
+.property files, we have
+
+352
+00:07:00,270 --> 00:07:00,280
+.property files, we have
+ 
+
+353
+00:07:00,280 --> 00:07:02,590
+.property files, we have
+added so many
+
+354
+00:07:02,590 --> 00:07:02,600
+added so many
+ 
+
+355
+00:07:02,600 --> 00:07:03,750
+added so many
+default.
+
+356
+00:07:03,750 --> 00:07:03,760
+default.
+ 
+
+357
+00:07:03,760 --> 00:07:06,030
+default.
+Like in controller properties, if you
+
+358
+00:07:06,030 --> 00:07:06,040
+Like in controller properties, if you
+ 
+
+359
+00:07:06,040 --> 00:07:08,670
+Like in controller properties, if you
+remember the config properties, we set
+
+360
+00:07:08,670 --> 00:07:08,680
+remember the config properties, we set
+ 
+
+361
+00:07:08,680 --> 00:07:11,630
+remember the config properties, we set
+up how many partition.
+
+362
+00:07:11,630 --> 00:07:11,640
+up how many partition.
+ 
+
+363
+00:07:11,640 --> 00:07:14,510
+up how many partition.
+Okay? And uh how what is the replication
+
+364
+00:07:14,510 --> 00:07:14,520
+Okay? And uh how what is the replication
+ 
+
+365
+00:07:14,520 --> 00:07:17,950
+Okay? And uh how what is the replication
+factor?
+
+366
+00:07:17,950 --> 00:07:17,960
+
+ 
+
+367
+00:07:17,960 --> 00:07:21,110
+
+What is the replication factor? We have
+
+368
+00:07:21,110 --> 00:07:21,120
+What is the replication factor? We have
+ 
+
+369
+00:07:21,120 --> 00:07:22,950
+What is the replication factor? We have
+already provided there in the
+
+370
+00:07:22,950 --> 00:07:22,960
+already provided there in the
+ 
+
+371
+00:07:22,960 --> 00:07:25,670
+already provided there in the
+controller.properties.
+
+372
+00:07:25,670 --> 00:07:25,680
+controller.properties.
+ 
+
+373
+00:07:25,680 --> 00:07:27,430
+controller.properties.
+And in the broker
+
+374
+00:07:27,430 --> 00:07:27,440
+And in the broker
+ 
+
+375
+00:07:27,440 --> 00:07:29,070
+And in the broker
+we have
+
+376
+00:07:29,070 --> 00:07:29,080
+we have
+ 
+
+377
+00:07:29,080 --> 00:07:30,909
+we have
+defined the
+
+378
+00:07:30,909 --> 00:07:30,919
+defined the
+ 
+
+379
+00:07:30,919 --> 00:07:36,110
+defined the
+default like segment size.
+
+380
+00:07:36,110 --> 00:07:36,120
+
+ 
+
+381
+00:07:36,120 --> 00:07:37,750
+
+Segment size.
+
+382
+00:07:37,750 --> 00:07:37,760
+Segment size.
+ 
+
+383
+00:07:37,760 --> 00:07:40,909
+Segment size.
+And also the cleanup strategy.
+
+384
+00:07:40,909 --> 00:07:40,919
+And also the cleanup strategy.
+ 
+
+385
+00:07:40,919 --> 00:07:44,030
+And also the cleanup strategy.
+So, that's why if you just only provide
+
+386
+00:07:44,030 --> 00:07:44,040
+So, that's why if you just only provide
+ 
+
+387
+00:07:44,040 --> 00:07:46,310
+So, that's why if you just only provide
+the name
+
+388
+00:07:46,310 --> 00:07:46,320
+the name
+ 
+
+389
+00:07:46,320 --> 00:07:48,350
+the name
+all these default would be picked from
+
+390
+00:07:48,350 --> 00:07:48,360
+all these default would be picked from
+ 
+
+391
+00:07:48,360 --> 00:07:50,030
+all these default would be picked from
+the respective
+
+392
+00:07:50,030 --> 00:07:50,040
+the respective
+ 
+
+393
+00:07:50,040 --> 00:07:52,250
+the respective
+property files.
+
+394
+00:07:52,250 --> 00:07:52,260
+property files.
+ 
+
+395
+00:07:52,260 --> 00:07:53,230
+property files.
+>> [snorts]
+
+396
+00:07:53,230 --> 00:07:53,240
+>> [snorts]
+ 
+
+397
+00:07:53,240 --> 00:07:55,790
+>> [snorts]
+>> But
+
+398
+00:07:55,790 --> 00:07:55,800
+>> But
+ 
+
+399
+00:07:55,800 --> 00:07:58,350
+>> But
+Spring Boot also provide us a way to
+
+400
+00:07:58,350 --> 00:07:58,360
+Spring Boot also provide us a way to
+ 
+
+401
+00:07:58,360 --> 00:08:01,390
+Spring Boot also provide us a way to
+override these defaults.
+
+402
+00:08:01,390 --> 00:08:01,400
+override these defaults.
+ 
+
+403
+00:08:01,400 --> 00:08:04,510
+override these defaults.
+Okay. So, here the same way
+
+404
+00:08:04,510 --> 00:08:04,520
+Okay. So, here the same way
+ 
+
+405
+00:08:04,520 --> 00:08:05,910
+Okay. So, here the same way
+this is just another example, same
+
+406
+00:08:05,910 --> 00:08:05,920
+this is just another example, same
+ 
+
+407
+00:08:05,920 --> 00:08:07,550
+this is just another example, same
+example but with the
+
+408
+00:08:07,550 --> 00:08:07,560
+example but with the
+ 
+
+409
+00:08:07,560 --> 00:08:09,590
+example but with the
+configuration I am showing you
+
+410
+00:08:09,590 --> 00:08:09,600
+configuration I am showing you
+ 
+
+411
+00:08:09,600 --> 00:08:10,630
+configuration I am showing you
+that
+
+412
+00:08:10,630 --> 00:08:10,640
+that
+ 
+
+413
+00:08:10,640 --> 00:08:12,270
+that
+Sorry.
+
+414
+00:08:12,270 --> 00:08:12,280
+Sorry.
+ 
+
+415
+00:08:12,280 --> 00:08:14,190
+Sorry.
+topicbuilder.name
+
+416
+00:08:14,190 --> 00:08:14,200
+topicbuilder.name
+ 
+
+417
+00:08:14,200 --> 00:08:15,909
+topicbuilder.name
+the topic name here you can provide any
+
+418
+00:08:15,909 --> 00:08:15,919
+the topic name here you can provide any
+ 
+
+419
+00:08:15,919 --> 00:08:18,909
+the topic name here you can provide any
+topic name.
+
+420
+00:08:18,909 --> 00:08:18,919
+
+ 
+
+421
+00:08:18,919 --> 00:08:21,430
+
+Now, dot partition. So, it's a builder.
+
+422
+00:08:21,430 --> 00:08:21,440
+Now, dot partition. So, it's a builder.
+ 
+
+423
+00:08:21,440 --> 00:08:23,150
+Now, dot partition. So, it's a builder.
+You can builder in low-level design you
+
+424
+00:08:23,150 --> 00:08:23,160
+You can builder in low-level design you
+ 
+
+425
+00:08:23,160 --> 00:08:24,909
+You can builder in low-level design you
+might have seen the builder design
+
+426
+00:08:24,909 --> 00:08:24,919
+might have seen the builder design
+ 
+
+427
+00:08:24,919 --> 00:08:25,990
+might have seen the builder design
+pattern. So, it's just following the
+
+428
+00:08:25,990 --> 00:08:26,000
+pattern. So, it's just following the
+ 
+
+429
+00:08:26,000 --> 00:08:27,710
+pattern. So, it's just following the
+builder design pattern at last it will
+
+430
+00:08:27,710 --> 00:08:27,720
+builder design pattern at last it will
+ 
+
+431
+00:08:27,720 --> 00:08:29,470
+builder design pattern at last it will
+doing build.
+
+432
+00:08:29,470 --> 00:08:29,480
+doing build.
+ 
+
+433
+00:08:29,480 --> 00:08:31,550
+doing build.
+So, dot partition. So, here we will give
+
+434
+00:08:31,550 --> 00:08:31,560
+So, dot partition. So, here we will give
+ 
+
+435
+00:08:31,560 --> 00:08:33,350
+So, dot partition. So, here we will give
+the partition number. Now, here if you
+
+436
+00:08:33,350 --> 00:08:33,360
+the partition number. Now, here if you
+ 
+
+437
+00:08:33,360 --> 00:08:36,190
+the partition number. Now, here if you
+see that controller.properties
+
+438
+00:08:36,190 --> 00:08:36,200
+see that controller.properties
+ 
+
+439
+00:08:36,200 --> 00:08:39,070
+see that controller.properties
+Okay. So, there we have already defined
+
+440
+00:08:39,070 --> 00:08:39,080
+Okay. So, there we have already defined
+ 
+
+441
+00:08:39,080 --> 00:08:42,670
+Okay. So, there we have already defined
+the default. If you don't add it here
+
+442
+00:08:42,670 --> 00:08:42,680
+the default. If you don't add it here
+ 
+
+443
+00:08:42,680 --> 00:08:45,150
+the default. If you don't add it here
+it will be picked from here. Controller
+
+444
+00:08:45,150 --> 00:08:45,160
+it will be picked from here. Controller
+ 
+
+445
+00:08:45,160 --> 00:08:47,630
+it will be picked from here. Controller
+1.properties, controller2.properties we
+
+446
+00:08:47,630 --> 00:08:47,640
+1.properties, controller2.properties we
+ 
+
+447
+00:08:47,640 --> 00:08:50,230
+1.properties, controller2.properties we
+have already provided the default.
+
+448
+00:08:50,230 --> 00:08:50,240
+have already provided the default.
+ 
+
+449
+00:08:50,240 --> 00:08:52,510
+have already provided the default.
+Replicas we have already provided, but
+
+450
+00:08:52,510 --> 00:08:52,520
+Replicas we have already provided, but
+ 
+
+451
+00:08:52,520 --> 00:08:54,190
+Replicas we have already provided, but
+we can override it.
+
+452
+00:08:54,190 --> 00:08:54,200
+we can override it.
+ 
+
+453
+00:08:54,200 --> 00:08:57,190
+we can override it.
+Similarly, the config
+
+454
+00:08:57,190 --> 00:08:57,200
+Similarly, the config
+ 
+
+455
+00:08:57,200 --> 00:09:00,910
+Similarly, the config
+topicconfig.retention.milliseconds.config.
+
+456
+00:09:00,910 --> 00:09:00,920
+
+ 
+
+457
+00:09:00,920 --> 00:09:03,070
+
+So, if you don't provide it it will be
+
+458
+00:09:03,070 --> 00:09:03,080
+So, if you don't provide it it will be
+ 
+
+459
+00:09:03,080 --> 00:09:04,790
+So, if you don't provide it it will be
+picked from the broker. So, if you see
+
+460
+00:09:04,790 --> 00:09:04,800
+picked from the broker. So, if you see
+ 
+
+461
+00:09:04,800 --> 00:09:07,670
+picked from the broker. So, if you see
+remember from the broker
+
+462
+00:09:07,670 --> 00:09:07,680
+remember from the broker
+ 
+
+463
+00:09:07,680 --> 00:09:08,910
+remember from the broker
+we have
+
+464
+00:09:08,910 --> 00:09:08,920
+we have
+ 
+
+465
+00:09:08,920 --> 00:09:11,750
+we have
+we can have like log.retention.hours
+
+466
+00:09:11,750 --> 00:09:11,760
+we can have like log.retention.hours
+ 
+
+467
+00:09:11,760 --> 00:09:15,070
+we can have like log.retention.hours
+168 7 7 days, right? So, here
+
+468
+00:09:15,070 --> 00:09:15,080
+168 7 7 days, right? So, here
+ 
+
+469
+00:09:15,080 --> 00:09:17,270
+168 7 7 days, right? So, here
+in the millisecond I've just provided
+
+470
+00:09:17,270 --> 00:09:17,280
+in the millisecond I've just provided
+ 
+
+471
+00:09:17,280 --> 00:09:18,750
+in the millisecond I've just provided
+the same
+
+472
+00:09:18,750 --> 00:09:18,760
+the same
+ 
+
+473
+00:09:18,760 --> 00:09:20,829
+the same
+7 days.
+
+474
+00:09:20,829 --> 00:09:20,839
+7 days.
+ 
+
+475
+00:09:20,839 --> 00:09:22,070
+7 days.
+For how long
+
+476
+00:09:22,070 --> 00:09:22,080
+For how long
+ 
+
+477
+00:09:22,080 --> 00:09:23,951
+For how long
+the logs would be retained.
+
+478
+00:09:23,951 --> 00:09:23,961
+the logs would be retained.
+ 
+
+479
+00:09:23,961 --> 00:09:25,670
+the logs would be retained.
+>> [snorts]
+
+480
+00:09:25,670 --> 00:09:25,680
+>> [snorts]
+ 
+
+481
+00:09:25,680 --> 00:09:28,190
+>> [snorts]
+>> topicconfig.cleanup.policy.config
+
+482
+00:09:28,190 --> 00:09:28,200
+>> topicconfig.cleanup.policy.config
+ 
+
+483
+00:09:28,200 --> 00:09:29,829
+>> topicconfig.cleanup.policy.config
+whether you want
+
+484
+00:09:29,829 --> 00:09:29,839
+whether you want
+ 
+
+485
+00:09:29,839 --> 00:09:32,510
+whether you want
+uh delete or compress
+
+486
+00:09:32,510 --> 00:09:32,520
+uh delete or compress
+ 
+
+487
+00:09:32,520 --> 00:09:35,790
+uh delete or compress
+minimum in-sync replica how many uh ISR
+
+488
+00:09:35,790 --> 00:09:35,800
+minimum in-sync replica how many uh ISR
+ 
+
+489
+00:09:35,800 --> 00:09:36,950
+minimum in-sync replica how many uh ISR
+minimum
+
+490
+00:09:36,950 --> 00:09:36,960
+minimum
+ 
+
+491
+00:09:36,960 --> 00:09:38,990
+minimum
+in-sync replica we have already uh seen
+
+492
+00:09:38,990 --> 00:09:39,000
+in-sync replica we have already uh seen
+ 
+
+493
+00:09:39,000 --> 00:09:41,350
+in-sync replica we have already uh seen
+in the cluster like
+
+494
+00:09:41,350 --> 00:09:41,360
+in the cluster like
+ 
+
+495
+00:09:41,360 --> 00:09:44,270
+in the cluster like
+so that we can divide provide into the
+
+496
+00:09:44,270 --> 00:09:44,280
+so that we can divide provide into the
+ 
+
+497
+00:09:44,280 --> 00:09:47,150
+so that we can divide provide into the
+broker dot properties file but we can
+
+498
+00:09:47,150 --> 00:09:47,160
+broker dot properties file but we can
+ 
+
+499
+00:09:47,160 --> 00:09:49,270
+broker dot properties file but we can
+also override here similarly segment
+
+500
+00:09:49,270 --> 00:09:49,280
+also override here similarly segment
+ 
+
+501
+00:09:49,280 --> 00:09:50,630
+also override here similarly segment
+byte size
+
+502
+00:09:50,630 --> 00:09:50,640
+byte size
+ 
+
+503
+00:09:50,640 --> 00:09:52,550
+byte size
+like here we have given right log dot
+
+504
+00:09:52,550 --> 00:09:52,560
+like here we have given right log dot
+ 
+
+505
+00:09:52,560 --> 00:09:55,950
+like here we have given right log dot
+segment dot bytes 1GB the similarly you
+
+506
+00:09:55,950 --> 00:09:55,960
+segment dot bytes 1GB the similarly you
+ 
+
+507
+00:09:55,960 --> 00:09:58,110
+segment dot bytes 1GB the similarly you
+can provide it here also override it
+
+508
+00:09:58,110 --> 00:09:58,120
+can provide it here also override it
+ 
+
+509
+00:09:58,120 --> 00:09:59,976
+can provide it here also override it
+here.
+
+510
+00:09:59,976 --> 00:09:59,986
+here.
+ 
+
+511
+00:09:59,986 --> 00:10:01,910
+here.
+>> [snorts]
+
+512
+00:10:01,910 --> 00:10:01,920
+>> [snorts]
+ 
+
+513
+00:10:01,920 --> 00:10:04,030
+>> [snorts]
+>> So the
+
+514
+00:10:04,030 --> 00:10:04,040
+>> So the
+ 
+
+515
+00:10:04,040 --> 00:10:06,030
+>> So the
+whether you just provide a name topic
+
+516
+00:10:06,030 --> 00:10:06,040
+whether you just provide a name topic
+ 
+
+517
+00:10:06,040 --> 00:10:08,790
+whether you just provide a name topic
+name or you can provide all the default
+
+518
+00:10:08,790 --> 00:10:08,800
+name or you can provide all the default
+ 
+
+519
+00:10:08,800 --> 00:10:11,150
+name or you can provide all the default
+set in the config properties
+
+520
+00:10:11,150 --> 00:10:11,160
+set in the config properties
+ 
+
+521
+00:10:11,160 --> 00:10:13,310
+set in the config properties
+or you can even during the topic
+
+522
+00:10:13,310 --> 00:10:13,320
+or you can even during the topic
+ 
+
+523
+00:10:13,320 --> 00:10:15,030
+or you can even during the topic
+creation you can provide all the
+
+524
+00:10:15,030 --> 00:10:15,040
+creation you can provide all the
+ 
+
+525
+00:10:15,040 --> 00:10:17,710
+creation you can provide all the
+configuration like this too both are
+
+526
+00:10:17,710 --> 00:10:17,720
+configuration like this too both are
+ 
+
+527
+00:10:17,720 --> 00:10:19,990
+configuration like this too both are
+fine.
+
+528
+00:10:19,990 --> 00:10:20,000
+fine.
+ 
+
+529
+00:10:20,000 --> 00:10:21,470
+fine.
+Okay
+
+530
+00:10:21,470 --> 00:10:21,480
+Okay
+ 
+
+531
+00:10:21,480 --> 00:10:23,470
+Okay
+now during application startup it will
+
+532
+00:10:23,470 --> 00:10:23,480
+now during application startup it will
+ 
+
+533
+00:10:23,480 --> 00:10:25,990
+now during application startup it will
+check if a specific topic exist or not
+
+534
+00:10:25,990 --> 00:10:26,000
+check if a specific topic exist or not
+ 
+
+535
+00:10:26,000 --> 00:10:29,150
+check if a specific topic exist or not
+if not it will create the topic request.
+
+536
+00:10:29,150 --> 00:10:29,160
+if not it will create the topic request.
+ 
+
+537
+00:10:29,160 --> 00:10:31,350
+if not it will create the topic request.
+Okay let's see that.
+
+538
+00:10:31,350 --> 00:10:31,360
+Okay let's see that.
+ 
+
+539
+00:10:31,360 --> 00:10:39,932
+Okay let's see that.
+Let's see that so here
+
+540
+00:10:39,932 --> 00:10:39,942
+
+ 
+
+541
+00:10:39,942 --> 00:10:40,829
+
+>> [clears throat]
+
+542
+00:10:40,829 --> 00:10:40,839
+>> [clears throat]
+ 
+
+543
+00:10:40,839 --> 00:10:42,950
+>> [clears throat]
+>> So
+
+544
+00:10:42,950 --> 00:10:42,960
+>> So
+ 
+
+545
+00:10:42,960 --> 00:10:46,110
+>> So
+I have in the configuration
+
+546
+00:10:46,110 --> 00:10:46,120
+I have in the configuration
+ 
+
+547
+00:10:46,120 --> 00:10:47,430
+I have in the configuration
+class
+
+548
+00:10:47,430 --> 00:10:47,440
+class
+ 
+
+549
+00:10:47,440 --> 00:10:49,190
+class
+order events this is the topic name
+
+550
+00:10:49,190 --> 00:10:49,200
+order events this is the topic name
+ 
+
+551
+00:10:49,200 --> 00:10:51,230
+order events this is the topic name
+which I have to create partition I am
+
+552
+00:10:51,230 --> 00:10:51,240
+which I have to create partition I am
+ 
+
+553
+00:10:51,240 --> 00:10:53,670
+which I have to create partition I am
+creating for replica two
+
+554
+00:10:53,670 --> 00:10:53,680
+creating for replica two
+ 
+
+555
+00:10:53,680 --> 00:10:55,350
+creating for replica two
+and all other information I have kept
+
+556
+00:10:55,350 --> 00:10:55,360
+and all other information I have kept
+ 
+
+557
+00:10:55,360 --> 00:10:56,750
+and all other information I have kept
+the same
+
+558
+00:10:56,750 --> 00:10:56,760
+the same
+ 
+
+559
+00:10:56,760 --> 00:10:59,430
+the same
+but let's set up the cluster one and let
+
+560
+00:10:59,430 --> 00:10:59,440
+but let's set up the cluster one and let
+ 
+
+561
+00:10:59,440 --> 00:11:02,350
+but let's set up the cluster one and let
+me first remove everything like first
+
+562
+00:11:02,350 --> 00:11:02,360
+me first remove everything like first
+ 
+
+563
+00:11:02,360 --> 00:11:04,430
+me first remove everything like first
+remove everything like broker one dot
+
+564
+00:11:04,430 --> 00:11:04,440
+remove everything like broker one dot
+ 
+
+565
+00:11:04,440 --> 00:11:06,710
+remove everything like broker one dot
+logs gone
+
+566
+00:11:06,710 --> 00:11:06,720
+logs gone
+ 
+
+567
+00:11:06,720 --> 00:11:10,950
+logs gone
+broker two dot logs gone.
+
+568
+00:11:10,950 --> 00:11:10,960
+
+ 
+
+569
+00:11:10,960 --> 00:11:14,750
+
+Similarly controller one
+
+570
+00:11:14,750 --> 00:11:14,760
+
+ 
+
+571
+00:11:14,760 --> 00:11:17,270
+
+one dot logs gone
+
+572
+00:11:17,270 --> 00:11:17,280
+one dot logs gone
+ 
+
+573
+00:11:17,280 --> 00:11:20,510
+one dot logs gone
+controller two dot logs gone so all four
+
+574
+00:11:20,510 --> 00:11:20,520
+controller two dot logs gone so all four
+ 
+
+575
+00:11:20,520 --> 00:11:22,070
+controller two dot logs gone so all four
+you can say that our servers in a
+
+576
+00:11:22,070 --> 00:11:22,080
+you can say that our servers in a
+ 
+
+577
+00:11:22,080 --> 00:11:23,870
+you can say that our servers in a
+cluster is gone
+
+578
+00:11:23,870 --> 00:11:23,880
+cluster is gone
+ 
+
+579
+00:11:23,880 --> 00:11:26,829
+cluster is gone
+now what we have to do is that
+
+580
+00:11:26,829 --> 00:11:26,839
+now what we have to do is that
+ 
+
+581
+00:11:26,839 --> 00:11:31,070
+now what we have to do is that
+first create a cluster ID.
+
+582
+00:11:31,070 --> 00:11:31,080
+
+ 
+
+583
+00:11:31,080 --> 00:11:35,670
+
+We first need a cluster ID.
+
+584
+00:11:35,670 --> 00:11:35,680
+
+ 
+
+585
+00:11:35,680 --> 00:11:37,510
+
+So, this is our new cluster ID. And now
+
+586
+00:11:37,510 --> 00:11:37,520
+So, this is our new cluster ID. And now
+ 
+
+587
+00:11:37,520 --> 00:11:40,870
+So, this is our new cluster ID. And now
+we will create controller and broker and
+
+588
+00:11:40,870 --> 00:11:40,880
+we will create controller and broker and
+ 
+
+589
+00:11:40,880 --> 00:11:48,053
+we will create controller and broker and
+attach it with this cluster.
+
+590
+00:11:48,053 --> 00:11:48,063
+
+ 
+
+591
+00:11:48,063 --> 00:11:51,110
+
+>> [snorts]
+
+592
+00:11:51,110 --> 00:11:51,120
+
+ 
+
+593
+00:11:51,120 --> 00:11:53,270
+
+>> So, just copied it.
+
+594
+00:11:53,270 --> 00:11:53,280
+>> So, just copied it.
+ 
+
+595
+00:11:53,280 --> 00:11:56,270
+>> So, just copied it.
+And just replacing
+
+596
+00:11:56,270 --> 00:11:56,280
+And just replacing
+ 
+
+597
+00:11:56,280 --> 00:11:59,990
+And just replacing
+this new cluster ID. First I'm creating
+
+598
+00:11:59,990 --> 00:12:00,000
+this new cluster ID. First I'm creating
+ 
+
+599
+00:12:00,000 --> 00:12:05,750
+this new cluster ID. First I'm creating
+controller one.
+
+600
+00:12:05,750 --> 00:12:05,760
+
+ 
+
+601
+00:12:05,760 --> 00:12:08,550
+
+Then controller two
+
+602
+00:12:08,550 --> 00:12:08,560
+Then controller two
+ 
+
+603
+00:12:08,560 --> 00:12:11,870
+Then controller two
+with the same cluster ID.
+
+604
+00:12:11,870 --> 00:12:11,880
+
+ 
+
+605
+00:12:11,880 --> 00:12:18,390
+
+Then broker one.
+
+606
+00:12:18,390 --> 00:12:18,400
+
+ 
+
+607
+00:12:18,400 --> 00:12:22,270
+
+And then broker two.
+
+608
+00:12:22,270 --> 00:12:22,280
+
+ 
+
+609
+00:12:22,280 --> 00:12:25,710
+
+So, now in a one cluster, I have now two
+
+610
+00:12:25,710 --> 00:12:25,720
+So, now in a one cluster, I have now two
+ 
+
+611
+00:12:25,720 --> 00:12:27,950
+So, now in a one cluster, I have now two
+controller and two broker.
+
+612
+00:12:27,950 --> 00:12:27,960
+controller and two broker.
+ 
+
+613
+00:12:27,960 --> 00:12:30,070
+controller and two broker.
+Okay? Now, let's just start the
+
+614
+00:12:30,070 --> 00:12:30,080
+Okay? Now, let's just start the
+ 
+
+615
+00:12:30,080 --> 00:12:34,350
+Okay? Now, let's just start the
+controller one first.
+
+616
+00:12:34,350 --> 00:12:34,360
+
+ 
+
+617
+00:12:34,360 --> 00:12:37,550
+
+So, yeah, controller one.
+
+618
+00:12:37,550 --> 00:12:37,560
+So, yeah, controller one.
+ 
+
+619
+00:12:37,560 --> 00:12:39,910
+So, yeah, controller one.
+And here I will start the controller
+
+620
+00:12:39,910 --> 00:12:39,920
+And here I will start the controller
+ 
+
+621
+00:12:39,920 --> 00:12:41,390
+And here I will start the controller
+two.
+
+622
+00:12:41,390 --> 00:12:41,400
+two.
+ 
+
+623
+00:12:41,400 --> 00:12:46,270
+two.
+Okay?
+
+624
+00:12:46,270 --> 00:12:46,280
+
+ 
+
+625
+00:12:46,280 --> 00:12:49,190
+
+So, both controller started.
+
+626
+00:12:49,190 --> 00:12:49,200
+So, both controller started.
+ 
+
+627
+00:12:49,200 --> 00:12:51,790
+So, both controller started.
+Both controller started? Yes.
+
+628
+00:12:51,790 --> 00:12:51,800
+Both controller started? Yes.
+ 
+
+629
+00:12:51,800 --> 00:12:57,110
+Both controller started? Yes.
+Now, let me start the broker.
+
+630
+00:12:57,110 --> 00:12:57,120
+
+ 
+
+631
+00:12:57,120 --> 00:13:02,630
+
+Broker one.
+
+632
+00:13:02,630 --> 00:13:02,640
+
+ 
+
+633
+00:13:02,640 --> 00:13:05,670
+
+We'll start broker two.
+
+634
+00:13:05,670 --> 00:13:05,680
+We'll start broker two.
+ 
+
+635
+00:13:05,680 --> 00:13:08,510
+We'll start broker two.
+So, both broker are also started.
+
+636
+00:13:08,510 --> 00:13:08,520
+So, both broker are also started.
+ 
+
+637
+00:13:08,520 --> 00:13:11,070
+So, both broker are also started.
+Let's see the status
+
+638
+00:13:11,070 --> 00:13:11,080
+Let's see the status
+ 
+
+639
+00:13:11,080 --> 00:13:14,470
+Let's see the status
+for order \{{}hyphen} events topic.
+
+640
+00:13:14,470 --> 00:13:14,480
+for order \{{}hyphen} events topic.
+ 
+
+641
+00:13:14,480 --> 00:13:17,470
+for order \{{}hyphen} events topic.
+Currently this event this topic does not
+
+642
+00:13:17,470 --> 00:13:17,480
+Currently this event this topic does not
+ 
+
+643
+00:13:17,480 --> 00:13:19,710
+Currently this event this topic does not
+exist at all. Now, let me start the
+
+644
+00:13:19,710 --> 00:13:19,720
+exist at all. Now, let me start the
+ 
+
+645
+00:13:19,720 --> 00:13:23,270
+exist at all. Now, let me start the
+server. So, here if you see, I have this
+
+646
+00:13:23,270 --> 00:13:23,280
+server. So, here if you see, I have this
+ 
+
+647
+00:13:23,280 --> 00:13:25,470
+server. So, here if you see, I have this
+bean only bean at the rate configuration
+
+648
+00:13:25,470 --> 00:13:25,480
+bean only bean at the rate configuration
+ 
+
+649
+00:13:25,480 --> 00:13:28,150
+bean only bean at the rate configuration
+to create an order \{{}hyphen} events.
+
+650
+00:13:28,150 --> 00:13:28,160
+to create an order \{{}hyphen} events.
+ 
+
+651
+00:13:28,160 --> 00:13:31,110
+to create an order \{{}hyphen} events.
+So now let's start the server.
+
+652
+00:13:31,110 --> 00:13:31,120
+So now let's start the server.
+ 
+
+653
+00:13:31,120 --> 00:13:33,830
+So now let's start the server.
+Server is started. Now let's again
+
+654
+00:13:33,830 --> 00:13:33,840
+Server is started. Now let's again
+ 
+
+655
+00:13:33,840 --> 00:13:35,710
+Server is started. Now let's again
+check describe
+
+656
+00:13:35,710 --> 00:13:35,720
+check describe
+ 
+
+657
+00:13:35,720 --> 00:13:39,110
+check describe
+topic order hyphen events.
+
+658
+00:13:39,110 --> 00:13:39,120
+topic order hyphen events.
+ 
+
+659
+00:13:39,120 --> 00:13:41,790
+topic order hyphen events.
+Partition 0 1 2 3. So total four
+
+660
+00:13:41,790 --> 00:13:41,800
+Partition 0 1 2 3. So total four
+ 
+
+661
+00:13:41,800 --> 00:13:44,510
+Partition 0 1 2 3. So total four
+partition and two replicas.
+
+662
+00:13:44,510 --> 00:13:44,520
+partition and two replicas.
+ 
+
+663
+00:13:44,520 --> 00:13:46,510
+partition and two replicas.
+That's what we have defined here.
+
+664
+00:13:46,510 --> 00:13:46,520
+That's what we have defined here.
+ 
+
+665
+00:13:46,520 --> 00:13:50,630
+That's what we have defined here.
+Four partition, two replicas.
+
+666
+00:13:50,630 --> 00:13:50,640
+
+ 
+
+667
+00:13:50,640 --> 00:13:52,230
+
+So
+
+668
+00:13:52,230 --> 00:13:52,240
+So
+ 
+
+669
+00:13:52,240 --> 00:13:54,110
+So
+we have set up we have created the topic
+
+670
+00:13:54,110 --> 00:13:54,120
+we have set up we have created the topic
+ 
+
+671
+00:13:54,120 --> 00:13:56,750
+we have set up we have created the topic
+through a Spring Boot itself. Okay? And
+
+672
+00:13:56,750 --> 00:13:56,760
+through a Spring Boot itself. Okay? And
+ 
+
+673
+00:13:56,760 --> 00:13:58,870
+through a Spring Boot itself. Okay? And
+all the library which we required is
+
+674
+00:13:58,870 --> 00:13:58,880
+all the library which we required is
+ 
+
+675
+00:13:58,880 --> 00:13:59,950
+all the library which we required is
+this.
+
+676
+00:13:59,950 --> 00:13:59,960
+this.
+ 
+
+677
+00:13:59,960 --> 00:14:02,030
+this.
+Because this internally brings the Kafka
+
+678
+00:14:02,030 --> 00:14:02,040
+Because this internally brings the Kafka
+ 
+
+679
+00:14:02,040 --> 00:14:03,150
+Because this internally brings the Kafka
+admin
+
+680
+00:14:03,150 --> 00:14:03,160
+admin
+ 
+
+681
+00:14:03,160 --> 00:14:04,750
+admin
+which is
+
+682
+00:14:04,750 --> 00:14:04,760
+which is
+ 
+
+683
+00:14:04,760 --> 00:14:07,830
+which is
+used to manage the topic.
+
+684
+00:14:07,830 --> 00:14:07,840
+used to manage the topic.
+ 
+
+685
+00:14:07,840 --> 00:14:09,590
+used to manage the topic.
+Now once the topic is created, we have
+
+686
+00:14:09,590 --> 00:14:09,600
+Now once the topic is created, we have
+ 
+
+687
+00:14:09,600 --> 00:14:11,430
+Now once the topic is created, we have
+to send the event. Now there is a work
+
+688
+00:14:11,430 --> 00:14:11,440
+to send the event. Now there is a work
+ 
+
+689
+00:14:11,440 --> 00:14:14,774
+to send the event. Now there is a work
+of Kafka template.
+
+690
+00:14:14,774 --> 00:14:14,784
+
+ 
+
+691
+00:14:14,784 --> 00:14:15,950
+
+>> [snorts]
+
+692
+00:14:15,950 --> 00:14:15,960
+>> [snorts]
+ 
+
+693
+00:14:15,960 --> 00:14:18,150
+>> [snorts]
+>> Send events.
+
+694
+00:14:18,150 --> 00:14:18,160
+>> Send events.
+ 
+
+695
+00:14:18,160 --> 00:14:20,950
+>> Send events.
+So let's see the use case one. So if you
+
+696
+00:14:20,950 --> 00:14:20,960
+So let's see the use case one. So if you
+ 
+
+697
+00:14:20,960 --> 00:14:23,550
+So let's see the use case one. So if you
+have followed the previous video,
+
+698
+00:14:23,550 --> 00:14:23,560
+have followed the previous video,
+ 
+
+699
+00:14:23,560 --> 00:14:25,110
+have followed the previous video,
+you know that when we
+
+700
+00:14:25,110 --> 00:14:25,120
+you know that when we
+ 
+
+701
+00:14:25,120 --> 00:14:26,790
+you know that when we
+do send,
+
+702
+00:14:26,790 --> 00:14:26,800
+do send,
+ 
+
+703
+00:14:26,800 --> 00:14:28,670
+do send,
+what are the stages? First is
+
+704
+00:14:28,670 --> 00:14:28,680
+what are the stages? First is
+ 
+
+705
+00:14:28,680 --> 00:14:31,190
+what are the stages? First is
+serializer.
+
+706
+00:14:31,190 --> 00:14:31,200
+serializer.
+ 
+
+707
+00:14:31,200 --> 00:14:35,310
+serializer.
+Second is partitioner.
+
+708
+00:14:35,310 --> 00:14:35,320
+
+ 
+
+709
+00:14:35,320 --> 00:14:36,910
+
+Third is
+
+710
+00:14:36,910 --> 00:14:36,920
+Third is
+ 
+
+711
+00:14:36,920 --> 00:14:40,710
+Third is
+record accumulator.
+
+712
+00:14:40,710 --> 00:14:40,720
+record accumulator.
+ 
+
+713
+00:14:40,720 --> 00:14:44,430
+record accumulator.
+Then compression.
+
+714
+00:14:44,430 --> 00:14:44,440
+
+ 
+
+715
+00:14:44,440 --> 00:14:47,270
+
+Then sender thread.
+
+716
+00:14:47,270 --> 00:14:47,280
+Then sender thread.
+ 
+
+717
+00:14:47,280 --> 00:14:48,510
+Then sender thread.
+Okay?
+
+718
+00:14:48,510 --> 00:14:48,520
+Okay?
+ 
+
+719
+00:14:48,520 --> 00:14:50,950
+Okay?
+Generally, we don't need any
+
+720
+00:14:50,950 --> 00:14:50,960
+Generally, we don't need any
+ 
+
+721
+00:14:50,960 --> 00:14:53,230
+Generally, we don't need any
+configuration. Like all the
+
+722
+00:14:53,230 --> 00:14:53,240
+configuration. Like all the
+ 
+
+723
+00:14:53,240 --> 00:14:55,910
+configuration. Like all the
+configuration we want is this.
+
+724
+00:14:55,910 --> 00:14:55,920
+configuration we want is this.
+ 
+
+725
+00:14:55,920 --> 00:14:57,910
+configuration we want is this.
+The bootstrap server. That's the only
+
+726
+00:14:57,910 --> 00:14:57,920
+The bootstrap server. That's the only
+ 
+
+727
+00:14:57,920 --> 00:14:58,990
+The bootstrap server. That's the only
+one.
+
+728
+00:14:58,990 --> 00:14:59,000
+one.
+ 
+
+729
+00:14:59,000 --> 00:14:59,910
+one.
+Okay?
+
+730
+00:14:59,910 --> 00:14:59,920
+Okay?
+ 
+
+731
+00:14:59,920 --> 00:15:03,590
+Okay?
+But since we have already know the
+
+732
+00:15:03,590 --> 00:15:03,600
+But since we have already know the
+ 
+
+733
+00:15:03,600 --> 00:15:05,750
+But since we have already know the
+internals of producer,
+
+734
+00:15:05,750 --> 00:15:05,760
+internals of producer,
+ 
+
+735
+00:15:05,760 --> 00:15:08,470
+internals of producer,
+we can configure this all five steps
+
+736
+00:15:08,470 --> 00:15:08,480
+we can configure this all five steps
+ 
+
+737
+00:15:08,480 --> 00:15:09,630
+we can configure this all five steps
+also.
+
+738
+00:15:09,630 --> 00:15:09,640
+also.
+ 
+
+739
+00:15:09,640 --> 00:15:10,990
+also.
+So this is the use case one. This is
+
+740
+00:15:10,990 --> 00:15:11,000
+So this is the use case one. This is
+ 
+
+741
+00:15:11,000 --> 00:15:15,550
+So this is the use case one. This is
+what we wanted.
+
+742
+00:15:15,550 --> 00:15:15,560
+
+ 
+
+743
+00:15:15,560 --> 00:15:17,510
+
+Sorry. [snorts]
+
+744
+00:15:17,510 --> 00:15:17,520
+Sorry. [snorts]
+ 
+
+745
+00:15:17,520 --> 00:15:19,829
+Sorry. [snorts]
+So in the serializer step,
+
+746
+00:15:19,829 --> 00:15:19,839
+So in the serializer step,
+ 
+
+747
+00:15:19,839 --> 00:15:21,270
+So in the serializer step,
+we know that
+
+748
+00:15:21,270 --> 00:15:21,280
+we know that
+ 
+
+749
+00:15:21,280 --> 00:15:24,190
+we know that
+it serialize two thing, key and value.
+
+750
+00:15:24,190 --> 00:15:24,200
+it serialize two thing, key and value.
+ 
+
+751
+00:15:24,200 --> 00:15:26,070
+it serialize two thing, key and value.
+So, the key I wanted to serialize as a
+
+752
+00:15:26,070 --> 00:15:26,080
+So, the key I wanted to serialize as a
+ 
+
+753
+00:15:26,080 --> 00:15:27,150
+So, the key I wanted to serialize as a
+string
+
+754
+00:15:27,150 --> 00:15:27,160
+string
+ 
+
+755
+00:15:27,160 --> 00:15:29,790
+string
+and value JSON.
+
+756
+00:15:29,790 --> 00:15:29,800
+and value JSON.
+ 
+
+757
+00:15:29,800 --> 00:15:33,590
+and value JSON.
+Okay? So, means uh my value or the
+
+758
+00:15:33,590 --> 00:15:33,600
+Okay? So, means uh my value or the
+ 
+
+759
+00:15:33,600 --> 00:15:36,430
+Okay? So, means uh my value or the
+object which ultimately go as a event is
+
+760
+00:15:36,430 --> 00:15:36,440
+object which ultimately go as a event is
+ 
+
+761
+00:15:36,440 --> 00:15:38,950
+object which ultimately go as a event is
+the POJO class. So,
+
+762
+00:15:38,950 --> 00:15:38,960
+the POJO class. So,
+ 
+
+763
+00:15:38,960 --> 00:15:41,070
+the POJO class. So,
+it gets serialized with JSON. JSON
+
+764
+00:15:41,070 --> 00:15:41,080
+it gets serialized with JSON. JSON
+ 
+
+765
+00:15:41,080 --> 00:15:43,230
+it gets serialized with JSON. JSON
+serializer.
+
+766
+00:15:43,230 --> 00:15:43,240
+serializer.
+ 
+
+767
+00:15:43,240 --> 00:15:45,910
+serializer.
+Then in the partition,
+
+768
+00:15:45,910 --> 00:15:45,920
+Then in the partition,
+ 
+
+769
+00:15:45,920 --> 00:15:48,270
+Then in the partition,
+we have to use send with key. So, I'm
+
+770
+00:15:48,270 --> 00:15:48,280
+we have to use send with key. So, I'm
+ 
+
+771
+00:15:48,280 --> 00:15:50,070
+we have to use send with key. So, I'm
+just telling you the use case which we
+
+772
+00:15:50,070 --> 00:15:50,080
+just telling you the use case which we
+ 
+
+773
+00:15:50,080 --> 00:15:52,750
+just telling you the use case which we
+have to implement. So, we have to test
+
+774
+00:15:52,750 --> 00:15:52,760
+have to implement. So, we have to test
+ 
+
+775
+00:15:52,760 --> 00:15:54,590
+have to implement. So, we have to test
+with send with key
+
+776
+00:15:54,590 --> 00:15:54,600
+with send with key
+ 
+
+777
+00:15:54,600 --> 00:15:56,350
+with send with key
+so that the related event goes to the
+
+778
+00:15:56,350 --> 00:15:56,360
+so that the related event goes to the
+ 
+
+779
+00:15:56,360 --> 00:15:57,910
+so that the related event goes to the
+same partition.
+
+780
+00:15:57,910 --> 00:15:57,920
+same partition.
+ 
+
+781
+00:15:57,920 --> 00:16:00,190
+same partition.
+If the key is same, it should always
+
+782
+00:16:00,190 --> 00:16:00,200
+If the key is same, it should always
+ 
+
+783
+00:16:00,200 --> 00:16:03,470
+If the key is same, it should always
+pick the same partition.
+
+784
+00:16:03,470 --> 00:16:03,480
+pick the same partition.
+ 
+
+785
+00:16:03,480 --> 00:16:05,310
+pick the same partition.
+Then in the record accumulator, what we
+
+786
+00:16:05,310 --> 00:16:05,320
+Then in the record accumulator, what we
+ 
+
+787
+00:16:05,320 --> 00:16:07,950
+Then in the record accumulator, what we
+can configure is the batch size, the
+
+788
+00:16:07,950 --> 00:16:07,960
+can configure is the batch size, the
+ 
+
+789
+00:16:07,960 --> 00:16:09,430
+can configure is the batch size, the
+linger,
+
+790
+00:16:09,430 --> 00:16:09,440
+linger,
+ 
+
+791
+00:16:09,440 --> 00:16:11,350
+linger,
+overall buffer. Overall buffer for the
+
+792
+00:16:11,350 --> 00:16:11,360
+overall buffer. Overall buffer for the
+ 
+
+793
+00:16:11,360 --> 00:16:13,190
+overall buffer. Overall buffer for the
+batches. So, you know that we can create
+
+794
+00:16:13,190 --> 00:16:13,200
+batches. So, you know that we can create
+ 
+
+795
+00:16:13,200 --> 00:16:15,710
+batches. So, you know that we can create
+many batches. Now, each batch size we
+
+796
+00:16:15,710 --> 00:16:15,720
+many batches. Now, each batch size we
+ 
+
+797
+00:16:15,720 --> 00:16:16,630
+many batches. Now, each batch size we
+have
+
+798
+00:16:16,630 --> 00:16:16,640
+have
+ 
+
+799
+00:16:16,640 --> 00:16:18,830
+have
+uh specify, maximum they can have is 32
+
+800
+00:16:18,830 --> 00:16:18,840
+uh specify, maximum they can have is 32
+ 
+
+801
+00:16:18,840 --> 00:16:21,030
+uh specify, maximum they can have is 32
+KB.
+
+802
+00:16:21,030 --> 00:16:21,040
+KB.
+ 
+
+803
+00:16:21,040 --> 00:16:23,910
+KB.
+But, overall size we also have to limit,
+
+804
+00:16:23,910 --> 00:16:23,920
+But, overall size we also have to limit,
+ 
+
+805
+00:16:23,920 --> 00:16:25,829
+But, overall size we also have to limit,
+right? We can't have like so many
+
+806
+00:16:25,829 --> 00:16:25,839
+right? We can't have like so many
+ 
+
+807
+00:16:25,839 --> 00:16:29,630
+right? We can't have like so many
+batches. Okay? So, the maximum size is
+
+808
+00:16:29,630 --> 00:16:29,640
+batches. Okay? So, the maximum size is
+ 
+
+809
+00:16:29,640 --> 00:16:31,590
+batches. Okay? So, the maximum size is
+32 MB.
+
+810
+00:16:31,590 --> 00:16:31,600
+32 MB.
+ 
+
+811
+00:16:31,600 --> 00:16:34,910
+32 MB.
+Okay? So, what does it mean? When the 32
+
+812
+00:16:34,910 --> 00:16:34,920
+Okay? So, what does it mean? When the 32
+ 
+
+813
+00:16:34,920 --> 00:16:38,590
+Okay? So, what does it mean? When the 32
+MB is reached, the means you have
+
+814
+00:16:38,590 --> 00:16:38,600
+MB is reached, the means you have
+ 
+
+815
+00:16:38,600 --> 00:16:40,670
+MB is reached, the means you have
+created so many batches
+
+816
+00:16:40,670 --> 00:16:40,680
+created so many batches
+ 
+
+817
+00:16:40,680 --> 00:16:44,150
+created so many batches
+that over the whole buffer which is kept
+
+818
+00:16:44,150 --> 00:16:44,160
+that over the whole buffer which is kept
+ 
+
+819
+00:16:44,160 --> 00:16:45,870
+that over the whole buffer which is kept
+for the batches,
+
+820
+00:16:45,870 --> 00:16:45,880
+for the batches,
+ 
+
+821
+00:16:45,880 --> 00:16:48,350
+for the batches,
+32 MB is full.
+
+822
+00:16:48,350 --> 00:16:48,360
+32 MB is full.
+ 
+
+823
+00:16:48,360 --> 00:16:50,230
+32 MB is full.
+Now, what would happen is if you try to
+
+824
+00:16:50,230 --> 00:16:50,240
+Now, what would happen is if you try to
+ 
+
+825
+00:16:50,240 --> 00:16:52,230
+Now, what would happen is if you try to
+do send,
+
+826
+00:16:52,230 --> 00:16:52,240
+do send,
+ 
+
+827
+00:16:52,240 --> 00:16:54,630
+do send,
+you won't be able to do further.
+
+828
+00:16:54,630 --> 00:16:54,640
+you won't be able to do further.
+ 
+
+829
+00:16:54,640 --> 00:16:56,510
+you won't be able to do further.
+Because when you try to do send more,
+
+830
+00:16:56,510 --> 00:16:56,520
+Because when you try to do send more,
+ 
+
+831
+00:16:56,520 --> 00:16:58,190
+Because when you try to do send more,
+means you are trying to add more
+
+832
+00:16:58,190 --> 00:16:58,200
+means you are trying to add more
+ 
+
+833
+00:16:58,200 --> 00:17:00,190
+means you are trying to add more
+information into existing batch or you
+
+834
+00:17:00,190 --> 00:17:00,200
+information into existing batch or you
+ 
+
+835
+00:17:00,200 --> 00:17:01,750
+information into existing batch or you
+are trying to create a new batch. So,
+
+836
+00:17:01,750 --> 00:17:01,760
+are trying to create a new batch. So,
+ 
+
+837
+00:17:01,760 --> 00:17:04,470
+are trying to create a new batch. So,
+this send will get blocked.
+
+838
+00:17:04,470 --> 00:17:04,480
+this send will get blocked.
+ 
+
+839
+00:17:04,480 --> 00:17:05,829
+this send will get blocked.
+Hey, wait.
+
+840
+00:17:05,829 --> 00:17:05,839
+Hey, wait.
+ 
+
+841
+00:17:05,839 --> 00:17:07,590
+Hey, wait.
+Memory is full.
+
+842
+00:17:07,590 --> 00:17:07,600
+Memory is full.
+ 
+
+843
+00:17:07,600 --> 00:17:10,590
+Memory is full.
+And how much time it should wait?
+
+844
+00:17:10,590 --> 00:17:10,600
+And how much time it should wait?
+ 
+
+845
+00:17:10,600 --> 00:17:12,270
+And how much time it should wait?
+We should also configure that. Let's say
+
+846
+00:17:12,270 --> 00:17:12,280
+We should also configure that. Let's say
+ 
+
+847
+00:17:12,280 --> 00:17:13,949
+We should also configure that. Let's say
+60 second is the time we are telling
+
+848
+00:17:13,949 --> 00:17:13,959
+60 second is the time we are telling
+ 
+
+849
+00:17:13,959 --> 00:17:16,710
+60 second is the time we are telling
+that wait for 60 second.
+
+850
+00:17:16,710 --> 00:17:16,720
+that wait for 60 second.
+ 
+
+851
+00:17:16,720 --> 00:17:19,390
+that wait for 60 second.
+If after 60 second also this there is no
+
+852
+00:17:19,390 --> 00:17:19,400
+If after 60 second also this there is no
+ 
+
+853
+00:17:19,400 --> 00:17:22,990
+If after 60 second also this there is no
+space freedom then
+
+854
+00:17:22,990 --> 00:17:23,000
+space freedom then
+ 
+
+855
+00:17:23,000 --> 00:17:24,510
+space freedom then
+fail.
+
+856
+00:17:24,510 --> 00:17:24,520
+fail.
+ 
+
+857
+00:17:24,520 --> 00:17:26,150
+fail.
+Okay?
+
+858
+00:17:26,150 --> 00:17:26,160
+Okay?
+ 
+
+859
+00:17:26,160 --> 00:17:27,870
+Okay?
+So, this is the record accumulator we
+
+860
+00:17:27,870 --> 00:17:27,880
+So, this is the record accumulator we
+ 
+
+861
+00:17:27,880 --> 00:17:29,390
+So, this is the record accumulator we
+have to set up.
+
+862
+00:17:29,390 --> 00:17:29,400
+have to set up.
+ 
+
+863
+00:17:29,400 --> 00:17:31,430
+have to set up.
+Compression we will use any one of them
+
+864
+00:17:31,430 --> 00:17:31,440
+Compression we will use any one of them
+ 
+
+865
+00:17:31,440 --> 00:17:34,750
+Compression we will use any one of them
+snappy gzip or there are so many. So,
+
+866
+00:17:34,750 --> 00:17:34,760
+snappy gzip or there are so many. So,
+ 
+
+867
+00:17:34,760 --> 00:17:36,590
+snappy gzip or there are so many. So,
+yes we will not just go with
+
+868
+00:17:36,590 --> 00:17:36,600
+yes we will not just go with
+ 
+
+869
+00:17:36,600 --> 00:17:38,030
+yes we will not just go with
+uncompressed.
+
+870
+00:17:38,030 --> 00:17:38,040
+uncompressed.
+ 
+
+871
+00:17:38,040 --> 00:17:39,590
+uncompressed.
+We will compress it.
+
+872
+00:17:39,590 --> 00:17:39,600
+We will compress it.
+ 
+
+873
+00:17:39,600 --> 00:17:41,950
+We will compress it.
+And in the center thread
+
+874
+00:17:41,950 --> 00:17:41,960
+And in the center thread
+ 
+
+875
+00:17:41,960 --> 00:17:44,350
+And in the center thread
+in flight we have to use five and the
+
+876
+00:17:44,350 --> 00:17:44,360
+in flight we have to use five and the
+ 
+
+877
+00:17:44,360 --> 00:17:46,030
+in flight we have to use five and the
+retry three.
+
+878
+00:17:46,030 --> 00:17:46,040
+retry three.
+ 
+
+879
+00:17:46,040 --> 00:17:47,870
+retry three.
+So,
+
+880
+00:17:47,870 --> 00:17:47,880
+So,
+ 
+
+881
+00:17:47,880 --> 00:17:50,430
+So,
+this is our requirement.
+
+882
+00:17:50,430 --> 00:17:50,440
+this is our requirement.
+ 
+
+883
+00:17:50,440 --> 00:17:52,270
+this is our requirement.
+Now, if you see that it's very very
+
+884
+00:17:52,270 --> 00:17:52,280
+Now, if you see that it's very very
+ 
+
+885
+00:17:52,280 --> 00:17:54,390
+Now, if you see that it's very very
+simple. First is I have just set up a
+
+886
+00:17:54,390 --> 00:17:54,400
+simple. First is I have just set up a
+ 
+
+887
+00:17:54,400 --> 00:17:55,710
+simple. First is I have just set up a
+controller.
+
+888
+00:17:55,710 --> 00:17:55,720
+controller.
+ 
+
+889
+00:17:55,720 --> 00:17:58,550
+controller.
+Just exposed an end end point so that
+
+890
+00:17:58,550 --> 00:17:58,560
+Just exposed an end end point so that
+ 
+
+891
+00:17:58,560 --> 00:18:01,430
+Just exposed an end end point so that
+the control reaches to our application.
+
+892
+00:18:01,430 --> 00:18:01,440
+the control reaches to our application.
+ 
+
+893
+00:18:01,440 --> 00:18:04,230
+the control reaches to our application.
+So, \{{}slash} API \{{}slash} order \{{}slash}
+
+894
+00:18:04,230 --> 00:18:04,240
+So, \{{}slash} API \{{}slash} order \{{}slash}
+ 
+
+895
+00:18:04,240 --> 00:18:06,590
+So, \{{}slash} API \{{}slash} order \{{}slash}
+with key. So, this method will get
+
+896
+00:18:06,590 --> 00:18:06,600
+with key. So, this method will get
+ 
+
+897
+00:18:06,600 --> 00:18:08,070
+with key. So, this method will get
+invoked.
+
+898
+00:18:08,070 --> 00:18:08,080
+invoked.
+ 
+
+899
+00:18:08,080 --> 00:18:10,350
+invoked.
+What this is doing is simply invoking
+
+900
+00:18:10,350 --> 00:18:10,360
+What this is doing is simply invoking
+ 
+
+901
+00:18:10,360 --> 00:18:12,550
+What this is doing is simply invoking
+the producer service send with key.
+
+902
+00:18:12,550 --> 00:18:12,560
+the producer service send with key.
+ 
+
+903
+00:18:12,560 --> 00:18:14,710
+the producer service send with key.
+Nothing much. Okay, it's just invoking
+
+904
+00:18:14,710 --> 00:18:14,720
+Nothing much. Okay, it's just invoking
+ 
+
+905
+00:18:14,720 --> 00:18:15,870
+Nothing much. Okay, it's just invoking
+the service.
+
+906
+00:18:15,870 --> 00:18:15,880
+the service.
+ 
+
+907
+00:18:15,880 --> 00:18:19,747
+the service.
+So, this controller no nothing special.
+
+908
+00:18:19,747 --> 00:18:19,757
+So, this controller no nothing special.
+ 
+
+909
+00:18:19,757 --> 00:18:20,070
+So, this controller no nothing special.
+>> [snorts]
+
+910
+00:18:20,070 --> 00:18:20,080
+>> [snorts]
+ 
+
+911
+00:18:20,080 --> 00:18:22,230
+>> [snorts]
+>> Now, in this service
+
+912
+00:18:22,230 --> 00:18:22,240
+>> Now, in this service
+ 
+
+913
+00:18:22,240 --> 00:18:24,950
+>> Now, in this service
+the first thing is auto wiring.
+
+914
+00:18:24,950 --> 00:18:24,960
+the first thing is auto wiring.
+ 
+
+915
+00:18:24,960 --> 00:18:28,150
+the first thing is auto wiring.
+Kafka template the key and the value
+
+916
+00:18:28,150 --> 00:18:28,160
+Kafka template the key and the value
+ 
+
+917
+00:18:28,160 --> 00:18:29,350
+Kafka template the key and the value
+data type.
+
+918
+00:18:29,350 --> 00:18:29,360
+data type.
+ 
+
+919
+00:18:29,360 --> 00:18:31,310
+data type.
+So, key is a string.
+
+920
+00:18:31,310 --> 00:18:31,320
+So, key is a string.
+ 
+
+921
+00:18:31,320 --> 00:18:34,510
+So, key is a string.
+And the value I have a order pojo. So,
+
+922
+00:18:34,510 --> 00:18:34,520
+And the value I have a order pojo. So,
+ 
+
+923
+00:18:34,520 --> 00:18:37,110
+And the value I have a order pojo. So,
+this is a pojo class I have created.
+
+924
+00:18:37,110 --> 00:18:37,120
+this is a pojo class I have created.
+ 
+
+925
+00:18:37,120 --> 00:18:38,590
+this is a pojo class I have created.
+Getter and setter.
+
+926
+00:18:38,590 --> 00:18:38,600
+Getter and setter.
+ 
+
+927
+00:18:38,600 --> 00:18:40,750
+Getter and setter.
+So, that I have added.
+
+928
+00:18:40,750 --> 00:18:40,760
+So, that I have added.
+ 
+
+929
+00:18:40,760 --> 00:18:41,590
+So, that I have added.
+Okay?
+
+930
+00:18:41,590 --> 00:18:41,600
+Okay?
+ 
+
+931
+00:18:41,600 --> 00:18:43,870
+Okay?
+And for
+
+932
+00:18:43,870 --> 00:18:43,880
+And for
+ 
+
+933
+00:18:43,880 --> 00:18:45,910
+And for
+you know that
+
+934
+00:18:45,910 --> 00:18:45,920
+you know that
+ 
+
+935
+00:18:45,920 --> 00:18:48,790
+you know that
+for key I have this is our requirement,
+
+936
+00:18:48,790 --> 00:18:48,800
+for key I have this is our requirement,
+ 
+
+937
+00:18:48,800 --> 00:18:51,310
+for key I have this is our requirement,
+right? For key is a string.
+
+938
+00:18:51,310 --> 00:18:51,320
+right? For key is a string.
+ 
+
+939
+00:18:51,320 --> 00:18:54,030
+right? For key is a string.
+And the value is JSON. So, we for the
+
+940
+00:18:54,030 --> 00:18:54,040
+And the value is JSON. So, we for the
+ 
+
+941
+00:18:54,040 --> 00:18:57,070
+And the value is JSON. So, we for the
+JSON you know that we need an object.
+
+942
+00:18:57,070 --> 00:18:57,080
+JSON you know that we need an object.
+ 
+
+943
+00:18:57,080 --> 00:18:58,630
+JSON you know that we need an object.
+So, that's why value I have taken as an
+
+944
+00:18:58,630 --> 00:18:58,640
+So, that's why value I have taken as an
+ 
+
+945
+00:18:58,640 --> 00:19:02,190
+So, that's why value I have taken as an
+object. Order object pojo.
+
+946
+00:19:02,190 --> 00:19:02,200
+object. Order object pojo.
+ 
+
+947
+00:19:02,200 --> 00:19:05,590
+object. Order object pojo.
+And just provide the name.
+
+948
+00:19:05,590 --> 00:19:05,600
+And just provide the name.
+ 
+
+949
+00:19:05,600 --> 00:19:08,870
+And just provide the name.
+And who will do this auto wiring?
+
+950
+00:19:08,870 --> 00:19:08,880
+And who will do this auto wiring?
+ 
+
+951
+00:19:08,880 --> 00:19:11,990
+And who will do this auto wiring?
+A spring boot will automatically resolve
+
+952
+00:19:11,990 --> 00:19:12,000
+A spring boot will automatically resolve
+ 
+
+953
+00:19:12,000 --> 00:19:13,790
+A spring boot will automatically resolve
+this dependency.
+
+954
+00:19:13,790 --> 00:19:13,800
+this dependency.
+ 
+
+955
+00:19:13,800 --> 00:19:17,470
+this dependency.
+Okay? Uh when it find this, right?
+
+956
+00:19:17,470 --> 00:19:17,480
+Okay? Uh when it find this, right?
+ 
+
+957
+00:19:17,480 --> 00:19:21,670
+Okay? Uh when it find this, right?
+When you add this dependency.
+
+958
+00:19:21,670 --> 00:19:21,680
+When you add this dependency.
+ 
+
+959
+00:19:21,680 --> 00:19:24,110
+When you add this dependency.
+It will automatically add Kafka template
+
+960
+00:19:24,110 --> 00:19:24,120
+It will automatically add Kafka template
+ 
+
+961
+00:19:24,120 --> 00:19:28,790
+It will automatically add Kafka template
+dependency and it automatically
+
+962
+00:19:28,790 --> 00:19:28,800
+dependency and it automatically
+ 
+
+963
+00:19:28,800 --> 00:19:32,190
+dependency and it automatically
+auto wire it.
+
+964
+00:19:32,190 --> 00:19:32,200
+
+ 
+
+965
+00:19:32,200 --> 00:19:33,763
+
+Okay?
+
+966
+00:19:33,763 --> 00:19:33,773
+Okay?
+ 
+
+967
+00:19:33,773 --> 00:19:34,790
+Okay?
+>> [snorts]
+
+968
+00:19:34,790 --> 00:19:34,800
+>> [snorts]
+ 
+
+969
+00:19:34,800 --> 00:19:36,830
+>> [snorts]
+>> Now, this is the method which ultimately
+
+970
+00:19:36,830 --> 00:19:36,840
+>> Now, this is the method which ultimately
+ 
+
+971
+00:19:36,840 --> 00:19:38,670
+>> Now, this is the method which ultimately
+our controller is calling, send with
+
+972
+00:19:38,670 --> 00:19:38,680
+our controller is calling, send with
+ 
+
+973
+00:19:38,680 --> 00:19:39,950
+our controller is calling, send with
+key.
+
+974
+00:19:39,950 --> 00:19:39,960
+key.
+ 
+
+975
+00:19:39,960 --> 00:19:41,590
+key.
+And this is the
+
+976
+00:19:41,590 --> 00:19:41,600
+And this is the
+ 
+
+977
+00:19:41,600 --> 00:19:44,270
+And this is the
+you can say that uh the object which we
+
+978
+00:19:44,270 --> 00:19:44,280
+you can say that uh the object which we
+ 
+
+979
+00:19:44,280 --> 00:19:45,710
+you can say that uh the object which we
+have.
+
+980
+00:19:45,710 --> 00:19:45,720
+have.
+ 
+
+981
+00:19:45,720 --> 00:19:47,630
+have.
+So, I'm taking out the key. With key we
+
+982
+00:19:47,630 --> 00:19:47,640
+So, I'm taking out the key. With key we
+ 
+
+983
+00:19:47,640 --> 00:19:49,310
+So, I'm taking out the key. With key we
+have to send, right? So, order ID I'm
+
+984
+00:19:49,310 --> 00:19:49,320
+have to send, right? So, order ID I'm
+ 
+
+985
+00:19:49,320 --> 00:19:51,470
+have to send, right? So, order ID I'm
+taking as a key.
+
+986
+00:19:51,470 --> 00:19:51,480
+taking as a key.
+ 
+
+987
+00:19:51,480 --> 00:19:53,790
+taking as a key.
+Now, this is the only line which is
+
+988
+00:19:53,790 --> 00:19:53,800
+Now, this is the only line which is
+ 
+
+989
+00:19:53,800 --> 00:19:56,790
+Now, this is the only line which is
+required to send an event to a broker.
+
+990
+00:19:56,790 --> 00:19:56,800
+required to send an event to a broker.
+ 
+
+991
+00:19:56,800 --> 00:19:58,750
+required to send an event to a broker.
+Kafka template
+
+992
+00:19:58,750 --> 00:19:58,760
+Kafka template
+ 
+
+993
+00:19:58,760 --> 00:20:00,990
+Kafka template
+\{{}dot} send
+
+994
+00:20:00,990 --> 00:20:01,000
+\{{}dot} send
+ 
+
+995
+00:20:01,000 --> 00:20:03,790
+\{{}dot} send
+the topic we can Currently, I have
+
+996
+00:20:03,790 --> 00:20:03,800
+the topic we can Currently, I have
+ 
+
+997
+00:20:03,800 --> 00:20:05,590
+the topic we can Currently, I have
+hardcoded it here. We can also put into
+
+998
+00:20:05,590 --> 00:20:05,600
+hardcoded it here. We can also put into
+ 
+
+999
+00:20:05,600 --> 00:20:07,110
+hardcoded it here. We can also put into
+application.properties and read from
+
+1000
+00:20:07,110 --> 00:20:07,120
+application.properties and read from
+ 
+
+1001
+00:20:07,120 --> 00:20:09,390
+application.properties and read from
+there.
+
+1002
+00:20:09,390 --> 00:20:09,400
+there.
+ 
+
+1003
+00:20:09,400 --> 00:20:11,470
+there.
+So, topic name
+
+1004
+00:20:11,470 --> 00:20:11,480
+So, topic name
+ 
+
+1005
+00:20:11,480 --> 00:20:12,470
+So, topic name
+key
+
+1006
+00:20:12,470 --> 00:20:12,480
+key
+ 
+
+1007
+00:20:12,480 --> 00:20:14,373
+key
+and the value.
+
+1008
+00:20:14,373 --> 00:20:14,383
+and the value.
+ 
+
+1009
+00:20:14,383 --> 00:20:15,510
+and the value.
+>> [snorts]
+
+1010
+00:20:15,510 --> 00:20:15,520
+>> [snorts]
+ 
+
+1011
+00:20:15,520 --> 00:20:16,630
+>> [snorts]
+>> That's all.
+
+1012
+00:20:16,630 --> 00:20:16,640
+>> That's all.
+ 
+
+1013
+00:20:16,640 --> 00:20:18,350
+>> That's all.
+And you remember
+
+1014
+00:20:18,350 --> 00:20:18,360
+And you remember
+ 
+
+1015
+00:20:18,360 --> 00:20:20,990
+And you remember
+that your application thread
+
+1016
+00:20:20,990 --> 00:20:21,000
+that your application thread
+ 
+
+1017
+00:20:21,000 --> 00:20:22,510
+that your application thread
+work is still
+
+1018
+00:20:22,510 --> 00:20:22,520
+work is still
+ 
+
+1019
+00:20:22,520 --> 00:20:25,310
+work is still
+when you do send, work is still
+
+1020
+00:20:25,310 --> 00:20:25,320
+when you do send, work is still
+ 
+
+1021
+00:20:25,320 --> 00:20:28,590
+when you do send, work is still
+record accumulator only.
+
+1022
+00:20:28,590 --> 00:20:28,600
+record accumulator only.
+ 
+
+1023
+00:20:28,600 --> 00:20:31,230
+record accumulator only.
+Once uh so it what it will do
+
+1024
+00:20:31,230 --> 00:20:31,240
+Once uh so it what it will do
+ 
+
+1025
+00:20:31,240 --> 00:20:33,310
+Once uh so it what it will do
+uh
+
+1026
+00:20:33,310 --> 00:20:33,320
+
+ 
+
+1027
+00:20:33,320 --> 00:20:36,110
+
+So, here it will do serializer, then
+
+1028
+00:20:36,110 --> 00:20:36,120
+So, here it will do serializer, then
+ 
+
+1029
+00:20:36,120 --> 00:20:37,750
+So, here it will do serializer, then
+partitioner, and after that record
+
+1030
+00:20:37,750 --> 00:20:37,760
+partitioner, and after that record
+ 
+
+1031
+00:20:37,760 --> 00:20:39,910
+partitioner, and after that record
+accumulator. After that your application
+
+1032
+00:20:39,910 --> 00:20:39,920
+accumulator. After that your application
+ 
+
+1033
+00:20:39,920 --> 00:20:41,070
+accumulator. After that your application
+thread
+
+1034
+00:20:41,070 --> 00:20:41,080
+thread
+ 
+
+1035
+00:20:41,080 --> 00:20:43,310
+thread
+just return.
+
+1036
+00:20:43,310 --> 00:20:43,320
+just return.
+ 
+
+1037
+00:20:43,320 --> 00:20:47,350
+just return.
+Okay? So, we This returns the future
+
+1038
+00:20:47,350 --> 00:20:47,360
+Okay? So, we This returns the future
+ 
+
+1039
+00:20:47,360 --> 00:20:48,950
+Okay? So, we This returns the future
+object.
+
+1040
+00:20:48,950 --> 00:20:48,960
+object.
+ 
+
+1041
+00:20:48,960 --> 00:20:51,070
+object.
+Record metadata, if you remember. From
+
+1042
+00:20:51,070 --> 00:20:51,080
+Record metadata, if you remember. From
+ 
+
+1043
+00:20:51,080 --> 00:20:53,030
+Record metadata, if you remember. From
+the previous video.
+
+1044
+00:20:53,030 --> 00:20:53,040
+the previous video.
+ 
+
+1045
+00:20:53,040 --> 00:20:56,310
+the previous video.
+Okay? All we have to do is that handle
+
+1046
+00:20:56,310 --> 00:20:56,320
+Okay? All we have to do is that handle
+ 
+
+1047
+00:20:56,320 --> 00:20:58,270
+Okay? All we have to do is that handle
+the callback.
+
+1048
+00:20:58,270 --> 00:20:58,280
+the callback.
+ 
+
+1049
+00:20:58,280 --> 00:21:01,310
+the callback.
+So, now here I'm just handling the
+
+1050
+00:21:01,310 --> 00:21:01,320
+So, now here I'm just handling the
+ 
+
+1051
+00:21:01,320 --> 00:21:02,990
+So, now here I'm just handling the
+callback.
+
+1052
+00:21:02,990 --> 00:21:03,000
+callback.
+ 
+
+1053
+00:21:03,000 --> 00:21:04,390
+callback.
+Whatever the future object it will
+
+1054
+00:21:04,390 --> 00:21:04,400
+Whatever the future object it will
+ 
+
+1055
+00:21:04,400 --> 00:21:08,590
+Whatever the future object it will
+return future \{{}dot} when complete
+
+1056
+00:21:08,590 --> 00:21:08,600
+return future \{{}dot} when complete
+ 
+
+1057
+00:21:08,600 --> 00:21:10,950
+return future \{{}dot} when complete
+Now, when
+
+1058
+00:21:10,950 --> 00:21:10,960
+Now, when
+ 
+
+1059
+00:21:10,960 --> 00:21:14,510
+Now, when
+whenever the sender thread
+
+1060
+00:21:14,510 --> 00:21:14,520
+
+ 
+
+1061
+00:21:14,520 --> 00:21:16,550
+
+send the response
+
+1062
+00:21:16,550 --> 00:21:16,560
+send the response
+ 
+
+1063
+00:21:16,560 --> 00:21:18,270
+send the response
+right?
+
+1064
+00:21:18,270 --> 00:21:18,280
+right?
+ 
+
+1065
+00:21:18,280 --> 00:21:20,830
+right?
+This will get complete when complete.
+
+1066
+00:21:20,830 --> 00:21:20,840
+This will get complete when complete.
+ 
+
+1067
+00:21:20,840 --> 00:21:22,950
+This will get complete when complete.
+And I'm just checking here. So, here we
+
+1068
+00:21:22,950 --> 00:21:22,960
+And I'm just checking here. So, here we
+ 
+
+1069
+00:21:22,960 --> 00:21:25,310
+And I'm just checking here. So, here we
+have a result or exception. If exception
+
+1070
+00:21:25,310 --> 00:21:25,320
+have a result or exception. If exception
+ 
+
+1071
+00:21:25,320 --> 00:21:27,510
+have a result or exception. If exception
+equals to null, means it is success. And
+
+1072
+00:21:27,510 --> 00:21:27,520
+equals to null, means it is success. And
+ 
+
+1073
+00:21:27,520 --> 00:21:28,870
+equals to null, means it is success. And
+if you remember
+
+1074
+00:21:28,870 --> 00:21:28,880
+if you remember
+ 
+
+1075
+00:21:28,880 --> 00:21:30,270
+if you remember
+that if you go inside this Kafka
+
+1076
+00:21:30,270 --> 00:21:30,280
+that if you go inside this Kafka
+ 
+
+1077
+00:21:30,280 --> 00:21:33,710
+that if you go inside this Kafka
+template.send
+
+1078
+00:21:33,710 --> 00:21:33,720
+
+ 
+
+1079
+00:21:33,720 --> 00:21:35,510
+
+What is the future? It will send off
+
+1080
+00:21:35,510 --> 00:21:35,520
+What is the future? It will send off
+ 
+
+1081
+00:21:35,520 --> 00:21:37,790
+What is the future? It will send off
+record metadata. And in record metadata
+
+1082
+00:21:37,790 --> 00:21:37,800
+record metadata. And in record metadata
+ 
+
+1083
+00:21:37,800 --> 00:21:41,110
+record metadata. And in record metadata
+has information about partition. This
+
+1084
+00:21:41,110 --> 00:21:41,120
+has information about partition. This
+ 
+
+1085
+00:21:41,120 --> 00:21:43,870
+has information about partition. This
+event is stored in which partition?
+
+1086
+00:21:43,870 --> 00:21:43,880
+event is stored in which partition?
+ 
+
+1087
+00:21:43,880 --> 00:21:45,710
+event is stored in which partition?
+And what's the offset number? So, I'm
+
+1088
+00:21:45,710 --> 00:21:45,720
+And what's the offset number? So, I'm
+ 
+
+1089
+00:21:45,720 --> 00:21:47,910
+And what's the offset number? So, I'm
+just printing it here.
+
+1090
+00:21:47,910 --> 00:21:47,920
+just printing it here.
+ 
+
+1091
+00:21:47,920 --> 00:21:49,110
+just printing it here.
+But if there is an exception, what
+
+1092
+00:21:49,110 --> 00:21:49,120
+But if there is an exception, what
+ 
+
+1093
+00:21:49,120 --> 00:21:51,830
+But if there is an exception, what
+exception I got? This is normal Java. We
+
+1094
+00:21:51,830 --> 00:21:51,840
+exception I got? This is normal Java. We
+ 
+
+1095
+00:21:51,840 --> 00:21:53,750
+exception I got? This is normal Java. We
+have already seen in the Java series
+
+1096
+00:21:53,750 --> 00:21:53,760
+have already seen in the Java series
+ 
+
+1097
+00:21:53,760 --> 00:21:56,790
+have already seen in the Java series
+completable future part.
+
+1098
+00:21:56,790 --> 00:21:56,800
+completable future part.
+ 
+
+1099
+00:21:56,800 --> 00:22:00,190
+completable future part.
+Okay? How to handle the callbacks?
+
+1100
+00:22:00,190 --> 00:22:00,200
+Okay? How to handle the callbacks?
+ 
+
+1101
+00:22:00,200 --> 00:22:04,950
+Okay? How to handle the callbacks?
+But only the point here is that
+
+1102
+00:22:04,950 --> 00:22:04,960
+
+ 
+
+1103
+00:22:04,960 --> 00:22:06,590
+
+I have added a controller. Controller
+
+1104
+00:22:06,590 --> 00:22:06,600
+I have added a controller. Controller
+ 
+
+1105
+00:22:06,600 --> 00:22:08,150
+I have added a controller. Controller
+does nothing, just pass the request to
+
+1106
+00:22:08,150 --> 00:22:08,160
+does nothing, just pass the request to
+ 
+
+1107
+00:22:08,160 --> 00:22:10,110
+does nothing, just pass the request to
+the service. In service, I have
+
+1108
+00:22:10,110 --> 00:22:10,120
+the service. In service, I have
+ 
+
+1109
+00:22:10,120 --> 00:22:12,310
+the service. In service, I have
+autowired the Kafka template. Whatever
+
+1110
+00:22:12,310 --> 00:22:12,320
+autowired the Kafka template. Whatever
+ 
+
+1111
+00:22:12,320 --> 00:22:13,830
+autowired the Kafka template. Whatever
+the key and the value, I have just
+
+1112
+00:22:13,830 --> 00:22:13,840
+the key and the value, I have just
+ 
+
+1113
+00:22:13,840 --> 00:22:15,350
+the key and the value, I have just
+provided here.
+
+1114
+00:22:15,350 --> 00:22:15,360
+provided here.
+ 
+
+1115
+00:22:15,360 --> 00:22:17,390
+provided here.
+Now, using this Kafka template object,
+
+1116
+00:22:17,390 --> 00:22:17,400
+Now, using this Kafka template object,
+ 
+
+1117
+00:22:17,400 --> 00:22:19,310
+Now, using this Kafka template object,
+I'm invoking the send. Provide the topic
+
+1118
+00:22:19,310 --> 00:22:19,320
+I'm invoking the send. Provide the topic
+ 
+
+1119
+00:22:19,320 --> 00:22:21,790
+I'm invoking the send. Provide the topic
+name, the key, and the value. And I got
+
+1120
+00:22:21,790 --> 00:22:21,800
+name, the key, and the value. And I got
+ 
+
+1121
+00:22:21,800 --> 00:22:23,870
+name, the key, and the value. And I got
+a future object.
+
+1122
+00:22:23,870 --> 00:22:23,880
+a future object.
+ 
+
+1123
+00:22:23,880 --> 00:22:25,350
+a future object.
+If you have to handle the callback, you
+
+1124
+00:22:25,350 --> 00:22:25,360
+If you have to handle the callback, you
+ 
+
+1125
+00:22:25,360 --> 00:22:27,910
+If you have to handle the callback, you
+can handle it. Like it's depend upon
+
+1126
+00:22:27,910 --> 00:22:27,920
+can handle it. Like it's depend upon
+ 
+
+1127
+00:22:27,920 --> 00:22:29,870
+can handle it. Like it's depend upon
+company to company, their application to
+
+1128
+00:22:29,870 --> 00:22:29,880
+company to company, their application to
+ 
+
+1129
+00:22:29,880 --> 00:22:31,270
+company to company, their application to
+application, how you want to handle the
+
+1130
+00:22:31,270 --> 00:22:31,280
+application, how you want to handle the
+ 
+
+1131
+00:22:31,280 --> 00:22:33,270
+application, how you want to handle the
+callback.
+
+1132
+00:22:33,270 --> 00:22:33,280
+callback.
+ 
+
+1133
+00:22:33,280 --> 00:22:35,470
+callback.
+Okay, this is just a POJO class.
+
+1134
+00:22:35,470 --> 00:22:35,480
+Okay, this is just a POJO class.
+ 
+
+1135
+00:22:35,480 --> 00:22:36,750
+Okay, this is just a POJO class.
+And now
+
+1136
+00:22:36,750 --> 00:22:36,760
+And now
+ 
+
+1137
+00:22:36,760 --> 00:22:38,150
+And now
+all the work is there in two
+
+1138
+00:22:38,150 --> 00:22:38,160
+all the work is there in two
+ 
+
+1139
+00:22:38,160 --> 00:22:41,150
+all the work is there in two
+application.properties.
+
+1140
+00:22:41,150 --> 00:22:41,160
+application.properties.
+ 
+
+1141
+00:22:41,160 --> 00:22:42,710
+application.properties.
+So, this producer is running on this
+
+1142
+00:22:42,710 --> 00:22:42,720
+So, this producer is running on this
+ 
+
+1143
+00:22:42,720 --> 00:22:44,510
+So, this producer is running on this
+port. This is the name of my producer
+
+1144
+00:22:44,510 --> 00:22:44,520
+port. This is the name of my producer
+ 
+
+1145
+00:22:44,520 --> 00:22:45,990
+port. This is the name of my producer
+application.
+
+1146
+00:22:45,990 --> 00:22:46,000
+application.
+ 
+
+1147
+00:22:46,000 --> 00:22:48,670
+application.
+This is the only required config
+
+1148
+00:22:48,670 --> 00:22:48,680
+This is the only required config
+ 
+
+1149
+00:22:48,680 --> 00:22:50,510
+This is the only required config
+bootstrap server. I have already told
+
+1150
+00:22:50,510 --> 00:22:50,520
+bootstrap server. I have already told
+ 
+
+1151
+00:22:50,520 --> 00:22:52,350
+bootstrap server. I have already told
+you initially.
+
+1152
+00:22:52,350 --> 00:22:52,360
+you initially.
+ 
+
+1153
+00:22:52,360 --> 00:22:53,870
+you initially.
+So, all the both the brokers which are
+
+1154
+00:22:53,870 --> 00:22:53,880
+So, all the both the brokers which are
+ 
+
+1155
+00:22:53,880 --> 00:22:57,110
+So, all the both the brokers which are
+running on this port I have added here.
+
+1156
+00:22:57,110 --> 00:22:57,120
+running on this port I have added here.
+ 
+
+1157
+00:22:57,120 --> 00:22:59,590
+running on this port I have added here.
+Now
+
+1158
+00:22:59,590 --> 00:22:59,600
+
+ 
+
+1159
+00:22:59,600 --> 00:23:02,750
+
+Also, I have discussed there that okay,
+
+1160
+00:23:02,750 --> 00:23:02,760
+Also, I have discussed there that okay,
+ 
+
+1161
+00:23:02,760 --> 00:23:04,630
+Also, I have discussed there that okay,
+it load the metadata
+
+1162
+00:23:04,630 --> 00:23:04,640
+it load the metadata
+ 
+
+1163
+00:23:04,640 --> 00:23:06,470
+it load the metadata
+and how
+
+1164
+00:23:06,470 --> 00:23:06,480
+and how
+ 
+
+1165
+00:23:06,480 --> 00:23:08,950
+and how
+frequently we have to refresh it. So, by
+
+1166
+00:23:08,950 --> 00:23:08,960
+frequently we have to refresh it. So, by
+ 
+
+1167
+00:23:08,960 --> 00:23:10,310
+frequently we have to refresh it. So, by
+default is 5 minutes, so I don't have to
+
+1168
+00:23:10,310 --> 00:23:10,320
+default is 5 minutes, so I don't have to
+ 
+
+1169
+00:23:10,320 --> 00:23:12,150
+default is 5 minutes, so I don't have to
+write it, but just for clarity that yes,
+
+1170
+00:23:12,150 --> 00:23:12,160
+write it, but just for clarity that yes,
+ 
+
+1171
+00:23:12,160 --> 00:23:13,630
+write it, but just for clarity that yes,
+this thing exist.
+
+1172
+00:23:13,630 --> 00:23:13,640
+this thing exist.
+ 
+
+1173
+00:23:13,640 --> 00:23:15,830
+this thing exist.
+I have added that refresh it the
+
+1174
+00:23:15,830 --> 00:23:15,840
+I have added that refresh it the
+ 
+
+1175
+00:23:15,840 --> 00:23:18,550
+I have added that refresh it the
+metadata after 5 minutes.
+
+1176
+00:23:18,550 --> 00:23:18,560
+metadata after 5 minutes.
+ 
+
+1177
+00:23:18,560 --> 00:23:20,230
+metadata after 5 minutes.
+And if you remember from the
+
+1178
+00:23:20,230 --> 00:23:20,240
+And if you remember from the
+ 
+
+1179
+00:23:20,240 --> 00:23:24,030
+And if you remember from the
+architecture video, in-sync replicas,
+
+1180
+00:23:24,030 --> 00:23:24,040
+architecture video, in-sync replicas,
+ 
+
+1181
+00:23:24,040 --> 00:23:26,910
+architecture video, in-sync replicas,
+you can provide all
+
+1182
+00:23:26,910 --> 00:23:26,920
+you can provide all
+ 
+
+1183
+00:23:26,920 --> 00:23:30,590
+you can provide all
+0 1 and all like
+
+1184
+00:23:30,590 --> 00:23:30,600
+0 1 and all like
+ 
+
+1185
+00:23:30,600 --> 00:23:33,070
+0 1 and all like
+0 means only leader.
+
+1186
+00:23:33,070 --> 00:23:33,080
+0 means only leader.
+ 
+
+1187
+00:23:33,080 --> 00:23:35,310
+0 means only leader.
+Like 0 means like don't even wait, fire
+
+1188
+00:23:35,310 --> 00:23:35,320
+Like 0 means like don't even wait, fire
+ 
+
+1189
+00:23:35,320 --> 00:23:36,470
+Like 0 means like don't even wait, fire
+and forget.
+
+1190
+00:23:36,470 --> 00:23:36,480
+and forget.
+ 
+
+1191
+00:23:36,480 --> 00:23:38,070
+and forget.
+Fire and forget.
+
+1192
+00:23:38,070 --> 00:23:38,080
+Fire and forget.
+ 
+
+1193
+00:23:38,080 --> 00:23:40,310
+Fire and forget.
+One is like only leader should be able
+
+1194
+00:23:40,310 --> 00:23:40,320
+One is like only leader should be able
+ 
+
+1195
+00:23:40,320 --> 00:23:42,830
+One is like only leader should be able
+to successfully receive the event.
+
+1196
+00:23:42,830 --> 00:23:42,840
+to successfully receive the event.
+ 
+
+1197
+00:23:42,840 --> 00:23:44,990
+to successfully receive the event.
+And all means that So, we are giving
+
+1198
+00:23:44,990 --> 00:23:45,000
+And all means that So, we are giving
+ 
+
+1199
+00:23:45,000 --> 00:23:46,710
+And all means that So, we are giving
+instruction
+
+1200
+00:23:46,710 --> 00:23:46,720
+instruction
+ 
+
+1201
+00:23:46,720 --> 00:23:48,950
+instruction
+to the broker that
+
+1202
+00:23:48,950 --> 00:23:48,960
+to the broker that
+ 
+
+1203
+00:23:48,960 --> 00:23:50,950
+to the broker that
+once the event is published, make sure
+
+1204
+00:23:50,950 --> 00:23:50,960
+once the event is published, make sure
+ 
+
+1205
+00:23:50,960 --> 00:23:53,430
+once the event is published, make sure
+that all if if it is all, all the
+
+1206
+00:23:53,430 --> 00:23:53,440
+that all if if it is all, all the
+ 
+
+1207
+00:23:53,440 --> 00:23:55,910
+that all if if it is all, all the
+replicas which are present into ISR list
+
+1208
+00:23:55,910 --> 00:23:55,920
+replicas which are present into ISR list
+ 
+
+1209
+00:23:55,920 --> 00:23:57,390
+replicas which are present into ISR list
+also
+
+1210
+00:23:57,390 --> 00:23:57,400
+also
+ 
+
+1211
+00:23:57,400 --> 00:23:58,870
+also
+get the update.
+
+1212
+00:23:58,870 --> 00:23:58,880
+get the update.
+ 
+
+1213
+00:23:58,880 --> 00:24:00,310
+get the update.
+Only after that
+
+1214
+00:24:00,310 --> 00:24:00,320
+Only after that
+ 
+
+1215
+00:24:00,320 --> 00:24:02,310
+Only after that
+send me the acknowledge that yes, done.
+
+1216
+00:24:02,310 --> 00:24:02,320
+send me the acknowledge that yes, done.
+ 
+
+1217
+00:24:02,320 --> 00:24:04,510
+send me the acknowledge that yes, done.
+Broker work is done.
+
+1218
+00:24:04,510 --> 00:24:04,520
+Broker work is done.
+ 
+
+1219
+00:24:04,520 --> 00:24:06,830
+Broker work is done.
+We have already seen that.
+
+1220
+00:24:06,830 --> 00:24:06,840
+We have already seen that.
+ 
+
+1221
+00:24:06,840 --> 00:24:09,110
+We have already seen that.
+Now, let's comes to our
+
+1222
+00:24:09,110 --> 00:24:09,120
+Now, let's comes to our
+ 
+
+1223
+00:24:09,120 --> 00:24:11,270
+Now, let's comes to our
+requirement serializer.
+
+1224
+00:24:11,270 --> 00:24:11,280
+requirement serializer.
+ 
+
+1225
+00:24:11,280 --> 00:24:12,790
+requirement serializer.
+You know that the step one is
+
+1226
+00:24:12,790 --> 00:24:12,800
+You know that the step one is
+ 
+
+1227
+00:24:12,800 --> 00:24:14,950
+You know that the step one is
+serializing in which we have to
+
+1228
+00:24:14,950 --> 00:24:14,960
+serializing in which we have to
+ 
+
+1229
+00:24:14,960 --> 00:24:17,590
+serializing in which we have to
+serialize the key and the value.
+
+1230
+00:24:17,590 --> 00:24:17,600
+serialize the key and the value.
+ 
+
+1231
+00:24:17,600 --> 00:24:20,070
+serialize the key and the value.
+So, spring.kafk.producer
+
+1232
+00:24:20,070 --> 00:24:20,080
+So, spring.kafk.producer
+ 
+
+1233
+00:24:20,080 --> 00:24:21,550
+So, spring.kafk.producer
+key serializer.
+
+1234
+00:24:21,550 --> 00:24:21,560
+key serializer.
+ 
+
+1235
+00:24:21,560 --> 00:24:23,390
+key serializer.
+I already told you in the previous that
+
+1236
+00:24:23,390 --> 00:24:23,400
+I already told you in the previous that
+ 
+
+1237
+00:24:23,400 --> 00:24:25,590
+I already told you in the previous that
+we have so many inbuilt serializer. We
+
+1238
+00:24:25,590 --> 00:24:25,600
+we have so many inbuilt serializer. We
+ 
+
+1239
+00:24:25,600 --> 00:24:27,270
+we have so many inbuilt serializer. We
+don't have to write.
+
+1240
+00:24:27,270 --> 00:24:27,280
+don't have to write.
+ 
+
+1241
+00:24:27,280 --> 00:24:28,310
+don't have to write.
+So,
+
+1242
+00:24:28,310 --> 00:24:28,320
+So,
+ 
+
+1243
+00:24:28,320 --> 00:24:31,590
+So,
+a string serializer I'm using.
+
+1244
+00:24:31,590 --> 00:24:31,600
+a string serializer I'm using.
+ 
+
+1245
+00:24:31,600 --> 00:24:33,510
+a string serializer I'm using.
+For value,
+
+1246
+00:24:33,510 --> 00:24:33,520
+For value,
+ 
+
+1247
+00:24:33,520 --> 00:24:35,830
+For value,
+value hyphen serializer, I'm using JSON
+
+1248
+00:24:35,830 --> 00:24:35,840
+value hyphen serializer, I'm using JSON
+ 
+
+1249
+00:24:35,840 --> 00:24:38,590
+value hyphen serializer, I'm using JSON
+serializer because our
+
+1250
+00:24:38,590 --> 00:24:38,600
+serializer because our
+ 
+
+1251
+00:24:38,600 --> 00:24:41,630
+serializer because our
+object is POJO and JSON serializer can
+
+1252
+00:24:41,630 --> 00:24:41,640
+object is POJO and JSON serializer can
+ 
+
+1253
+00:24:41,640 --> 00:24:45,070
+object is POJO and JSON serializer can
+work with the POJOs objects.
+
+1254
+00:24:45,070 --> 00:24:45,080
+work with the POJOs objects.
+ 
+
+1255
+00:24:45,080 --> 00:24:47,230
+work with the POJOs objects.
+Okay, so serializer done.
+
+1256
+00:24:47,230 --> 00:24:47,240
+Okay, so serializer done.
+ 
+
+1257
+00:24:47,240 --> 00:24:48,830
+Okay, so serializer done.
+In the record,
+
+1258
+00:24:48,830 --> 00:24:48,840
+In the record,
+ 
+
+1259
+00:24:48,840 --> 00:24:50,350
+In the record,
+partitioner,
+
+1260
+00:24:50,350 --> 00:24:50,360
+partitioner,
+ 
+
+1261
+00:24:50,360 --> 00:24:53,950
+partitioner,
+what we have the requirement is that
+
+1262
+00:24:53,950 --> 00:24:53,960
+what we have the requirement is that
+ 
+
+1263
+00:24:53,960 --> 00:24:55,590
+what we have the requirement is that
+send with key. That's what we are doing
+
+1264
+00:24:55,590 --> 00:24:55,600
+send with key. That's what we are doing
+ 
+
+1265
+00:24:55,600 --> 00:24:58,790
+send with key. That's what we are doing
+it. We are sending it with the key.
+
+1266
+00:24:58,790 --> 00:24:58,800
+it. We are sending it with the key.
+ 
+
+1267
+00:24:58,800 --> 00:25:00,550
+it. We are sending it with the key.
+Okay?
+
+1268
+00:25:00,550 --> 00:25:00,560
+Okay?
+ 
+
+1269
+00:25:00,560 --> 00:25:02,550
+Okay?
+Now, record accumulator
+
+1270
+00:25:02,550 --> 00:25:02,560
+Now, record accumulator
+ 
+
+1271
+00:25:02,560 --> 00:25:05,430
+Now, record accumulator
+the first is that the linger. Linger
+
+1272
+00:25:05,430 --> 00:25:05,440
+the first is that the linger. Linger
+ 
+
+1273
+00:25:05,440 --> 00:25:07,470
+the first is that the linger. Linger
+should be 20 ms, so we have defined
+
+1274
+00:25:07,470 --> 00:25:07,480
+should be 20 ms, so we have defined
+ 
+
+1275
+00:25:07,480 --> 00:25:08,710
+should be 20 ms, so we have defined
+here.
+
+1276
+00:25:08,710 --> 00:25:08,720
+here.
+ 
+
+1277
+00:25:08,720 --> 00:25:13,110
+here.
+spring.kafka.producer.properties.linger.ms
+
+1278
+00:25:13,110 --> 00:25:13,120
+
+ 
+
+1279
+00:25:13,120 --> 00:25:15,230
+
+Okay? So, maximum producer will wait for
+
+1280
+00:25:15,230 --> 00:25:15,240
+Okay? So, maximum producer will wait for
+ 
+
+1281
+00:25:15,240 --> 00:25:17,750
+Okay? So, maximum producer will wait for
+20 ms to fill up the batch. After that,
+
+1282
+00:25:17,750 --> 00:25:17,760
+20 ms to fill up the batch. After that,
+ 
+
+1283
+00:25:17,760 --> 00:25:18,750
+20 ms to fill up the batch. After that,
+it will
+
+1284
+00:25:18,750 --> 00:25:18,760
+it will
+ 
+
+1285
+00:25:18,760 --> 00:25:20,150
+it will
+close the batch
+
+1286
+00:25:20,150 --> 00:25:20,160
+close the batch
+ 
+
+1287
+00:25:20,160 --> 00:25:24,510
+close the batch
+and make it ready to send to the broker.
+
+1288
+00:25:24,510 --> 00:25:24,520
+
+ 
+
+1289
+00:25:24,520 --> 00:25:26,430
+
+Each batch size. So, this is I'm setting
+
+1290
+00:25:26,430 --> 00:25:26,440
+Each batch size. So, this is I'm setting
+ 
+
+1291
+00:25:26,440 --> 00:25:28,670
+Each batch size. So, this is I'm setting
+the batch size that 32 KB.
+
+1292
+00:25:28,670 --> 00:25:28,680
+the batch size that 32 KB.
+ 
+
+1293
+00:25:28,680 --> 00:25:31,310
+the batch size that 32 KB.
+Okay? And overall buffer for the
+
+1294
+00:25:31,310 --> 00:25:31,320
+Okay? And overall buffer for the
+ 
+
+1295
+00:25:31,320 --> 00:25:33,150
+Okay? And overall buffer for the
+batches, overall. Okay? So,
+
+1296
+00:25:33,150 --> 00:25:33,160
+batches, overall. Okay? So,
+ 
+
+1297
+00:25:33,160 --> 00:25:37,030
+batches, overall. Okay? So,
+spring.kafka.producer.properties.buffer.memory.
+
+1298
+00:25:37,030 --> 00:25:37,040
+
+ 
+
+1299
+00:25:37,040 --> 00:25:39,590
+
+buffer.memory. So, I have provided 32
+
+1300
+00:25:39,590 --> 00:25:39,600
+buffer.memory. So, I have provided 32
+ 
+
+1301
+00:25:39,600 --> 00:25:41,230
+buffer.memory. So, I have provided 32
+MB.
+
+1302
+00:25:41,230 --> 00:25:41,240
+MB.
+ 
+
+1303
+00:25:41,240 --> 00:25:42,590
+MB.
+Okay?
+
+1304
+00:25:42,590 --> 00:25:42,600
+Okay?
+ 
+
+1305
+00:25:42,600 --> 00:25:45,270
+Okay?
+So, once this is full
+
+1306
+00:25:45,270 --> 00:25:45,280
+So, once this is full
+ 
+
+1307
+00:25:45,280 --> 00:25:47,510
+So, once this is full
+if you any further invoke the send, it
+
+1308
+00:25:47,510 --> 00:25:47,520
+if you any further invoke the send, it
+ 
+
+1309
+00:25:47,520 --> 00:25:49,550
+if you any further invoke the send, it
+will get blocked.
+
+1310
+00:25:49,550 --> 00:25:49,560
+will get blocked.
+ 
+
+1311
+00:25:49,560 --> 00:25:50,830
+will get blocked.
+Okay?
+
+1312
+00:25:50,830 --> 00:25:50,840
+Okay?
+ 
+
+1313
+00:25:50,840 --> 00:25:52,990
+Okay?
+So, till what time it will get blocked?
+
+1314
+00:25:52,990 --> 00:25:53,000
+So, till what time it will get blocked?
+ 
+
+1315
+00:25:53,000 --> 00:25:53,830
+So, till what time it will get blocked?
+This.
+
+1316
+00:25:53,830 --> 00:25:53,840
+This.
+ 
+
+1317
+00:25:53,840 --> 00:25:58,110
+This.
+spring.kafka.producer.properties.max.block.ms.
+
+1318
+00:25:58,110 --> 00:25:58,120
+
+ 
+
+1319
+00:25:58,120 --> 00:25:59,550
+
+Just initial.
+
+1320
+00:25:59,550 --> 00:25:59,560
+Just initial.
+ 
+
+1321
+00:25:59,560 --> 00:26:00,710
+Just initial.
+Then the This is the config.
+
+1322
+00:26:00,710 --> 00:26:00,720
+Then the This is the config.
+ 
+
+1323
+00:26:00,720 --> 00:26:02,790
+Then the This is the config.
+max.block.ms.
+
+1324
+00:26:02,790 --> 00:26:02,800
+max.block.ms.
+ 
+
+1325
+00:26:02,800 --> 00:26:05,670
+max.block.ms.
+60 second, it will get blocked.
+
+1326
+00:26:05,670 --> 00:26:05,680
+60 second, it will get blocked.
+ 
+
+1327
+00:26:05,680 --> 00:26:07,550
+60 second, it will get blocked.
+If in 60 second
+
+1328
+00:26:07,550 --> 00:26:07,560
+If in 60 second
+ 
+
+1329
+00:26:07,560 --> 00:26:09,670
+If in 60 second
+there is no space in the buffer
+
+1330
+00:26:09,670 --> 00:26:09,680
+there is no space in the buffer
+ 
+
+1331
+00:26:09,680 --> 00:26:10,630
+there is no space in the buffer
+Okay?
+
+1332
+00:26:10,630 --> 00:26:10,640
+Okay?
+ 
+
+1333
+00:26:10,640 --> 00:26:13,030
+Okay?
+After 60 second, the request will
+
+1334
+00:26:13,030 --> 00:26:13,040
+After 60 second, the request will
+ 
+
+1335
+00:26:13,040 --> 00:26:15,230
+After 60 second, the request will
+immediately fail.
+
+1336
+00:26:15,230 --> 00:26:15,240
+immediately fail.
+ 
+
+1337
+00:26:15,240 --> 00:26:18,950
+immediately fail.
+No space.
+
+1338
+00:26:18,950 --> 00:26:18,960
+
+ 
+
+1339
+00:26:18,960 --> 00:26:19,910
+
+Okay?
+
+1340
+00:26:19,910 --> 00:26:19,920
+Okay?
+ 
+
+1341
+00:26:19,920 --> 00:26:22,310
+Okay?
+So, see all configuration we have set
+
+1342
+00:26:22,310 --> 00:26:22,320
+So, see all configuration we have set
+ 
+
+1343
+00:26:22,320 --> 00:26:24,470
+So, see all configuration we have set
+for the record accumulator.
+
+1344
+00:26:24,470 --> 00:26:24,480
+for the record accumulator.
+ 
+
+1345
+00:26:24,480 --> 00:26:25,990
+for the record accumulator.
+Compression and we have to use one of
+
+1346
+00:26:25,990 --> 00:26:26,000
+Compression and we have to use one of
+ 
+
+1347
+00:26:26,000 --> 00:26:29,310
+Compression and we have to use one of
+it. So, yeah, compression.
+
+1348
+00:26:29,310 --> 00:26:29,320
+it. So, yeah, compression.
+ 
+
+1349
+00:26:29,320 --> 00:26:31,550
+it. So, yeah, compression.
+So, this is just an initial. This is the
+
+1350
+00:26:31,550 --> 00:26:31,560
+So, this is just an initial. This is the
+ 
+
+1351
+00:26:31,560 --> 00:26:33,710
+So, this is just an initial. This is the
+config.compression.type.
+
+1352
+00:26:33,710 --> 00:26:33,720
+config.compression.type.
+ 
+
+1353
+00:26:33,720 --> 00:26:36,190
+config.compression.type.
+I am using Snappy.
+
+1354
+00:26:36,190 --> 00:26:36,200
+I am using Snappy.
+ 
+
+1355
+00:26:36,200 --> 00:26:38,230
+I am using Snappy.
+Sender thread retry.
+
+1356
+00:26:38,230 --> 00:26:38,240
+Sender thread retry.
+ 
+
+1357
+00:26:38,240 --> 00:26:40,830
+Sender thread retry.
+spring.kafka.producer.retries.
+
+1358
+00:26:40,830 --> 00:26:40,840
+spring.kafka.producer.retries.
+ 
+
+1359
+00:26:40,840 --> 00:26:43,310
+spring.kafka.producer.retries.
+We have to do three. So, internally
+
+1360
+00:26:43,310 --> 00:26:43,320
+We have to do three. So, internally
+ 
+
+1361
+00:26:43,320 --> 00:26:46,070
+We have to do three. So, internally
+whenever the sender thread find any
+
+1362
+00:26:46,070 --> 00:26:46,080
+whenever the sender thread find any
+ 
+
+1363
+00:26:46,080 --> 00:26:48,750
+whenever the sender thread find any
+transient failure, like network, leader
+
+1364
+00:26:48,750 --> 00:26:48,760
+transient failure, like network, leader
+ 
+
+1365
+00:26:48,760 --> 00:26:51,350
+transient failure, like network, leader
+change, etc. Okay? It will automatically
+
+1366
+00:26:51,350 --> 00:26:51,360
+change, etc. Okay? It will automatically
+ 
+
+1367
+00:26:51,360 --> 00:26:53,550
+change, etc. Okay? It will automatically
+retry three times.
+
+1368
+00:26:53,550 --> 00:26:53,560
+retry three times.
+ 
+
+1369
+00:26:53,560 --> 00:26:55,590
+retry three times.
+And the maximum in-flight request is
+
+1370
+00:26:55,590 --> 00:26:55,600
+And the maximum in-flight request is
+ 
+
+1371
+00:26:55,600 --> 00:26:56,830
+And the maximum in-flight request is
+five.
+
+1372
+00:26:56,830 --> 00:26:56,840
+five.
+ 
+
+1373
+00:26:56,840 --> 00:26:59,350
+five.
+This configuration we can add.
+
+1374
+00:26:59,350 --> 00:26:59,360
+This configuration we can add.
+ 
+
+1375
+00:26:59,360 --> 00:27:01,150
+This configuration we can add.
+So, see.
+
+1376
+00:27:01,150 --> 00:27:01,160
+So, see.
+ 
+
+1377
+00:27:01,160 --> 00:27:03,190
+So, see.
+If we don't know the internals of
+
+1378
+00:27:03,190 --> 00:27:03,200
+If we don't know the internals of
+ 
+
+1379
+00:27:03,200 --> 00:27:05,870
+If we don't know the internals of
+producer, like this configuration is
+
+1380
+00:27:05,870 --> 00:27:05,880
+producer, like this configuration is
+ 
+
+1381
+00:27:05,880 --> 00:27:08,950
+producer, like this configuration is
+like mugging up. Why we are setting it?
+
+1382
+00:27:08,950 --> 00:27:08,960
+like mugging up. Why we are setting it?
+ 
+
+1383
+00:27:08,960 --> 00:27:10,630
+like mugging up. Why we are setting it?
+We don't know.
+
+1384
+00:27:10,630 --> 00:27:10,640
+We don't know.
+ 
+
+1385
+00:27:10,640 --> 00:27:12,350
+We don't know.
+But if we know the internal of producer
+
+1386
+00:27:12,350 --> 00:27:12,360
+But if we know the internal of producer
+ 
+
+1387
+00:27:12,360 --> 00:27:15,150
+But if we know the internal of producer
+that there are five, six steps, and for
+
+1388
+00:27:15,150 --> 00:27:15,160
+that there are five, six steps, and for
+ 
+
+1389
+00:27:15,160 --> 00:27:17,870
+that there are five, six steps, and for
+each step there are already default
+
+1390
+00:27:17,870 --> 00:27:17,880
+each step there are already default
+ 
+
+1391
+00:27:17,880 --> 00:27:21,750
+each step there are already default
+setup. But if you have to play according
+
+1392
+00:27:21,750 --> 00:27:21,760
+setup. But if you have to play according
+ 
+
+1393
+00:27:21,760 --> 00:27:24,950
+setup. But if you have to play according
+to your component need,
+
+1394
+00:27:24,950 --> 00:27:24,960
+to your component need,
+ 
+
+1395
+00:27:24,960 --> 00:27:26,350
+to your component need,
+then
+
+1396
+00:27:26,350 --> 00:27:26,360
+then
+ 
+
+1397
+00:27:26,360 --> 00:27:29,710
+then
+you have to deal with all of this.
+
+1398
+00:27:29,710 --> 00:27:29,720
+you have to deal with all of this.
+ 
+
+1399
+00:27:29,720 --> 00:27:31,870
+you have to deal with all of this.
+Okay, because this brings reliability,
+
+1400
+00:27:31,870 --> 00:27:31,880
+Okay, because this brings reliability,
+ 
+
+1401
+00:27:31,880 --> 00:27:33,350
+Okay, because this brings reliability,
+resilience.
+
+1402
+00:27:33,350 --> 00:27:33,360
+resilience.
+ 
+
+1403
+00:27:33,360 --> 00:27:37,350
+resilience.
+Okay? Whether you want all or one, like
+
+1404
+00:27:37,350 --> 00:27:37,360
+Okay? Whether you want all or one, like
+ 
+
+1405
+00:27:37,360 --> 00:27:39,470
+Okay? Whether you want all or one, like
+what you want? Like again, I'm saying
+
+1406
+00:27:39,470 --> 00:27:39,480
+what you want? Like again, I'm saying
+ 
+
+1407
+00:27:39,480 --> 00:27:40,870
+what you want? Like again, I'm saying
+only you would be able to use
+
+1408
+00:27:40,870 --> 00:27:40,880
+only you would be able to use
+ 
+
+1409
+00:27:40,880 --> 00:27:42,750
+only you would be able to use
+application.properties properly if you
+
+1410
+00:27:42,750 --> 00:27:42,760
+application.properties properly if you
+ 
+
+1411
+00:27:42,760 --> 00:27:44,630
+application.properties properly if you
+know the internal working, otherwise
+
+1412
+00:27:44,630 --> 00:27:44,640
+know the internal working, otherwise
+ 
+
+1413
+00:27:44,640 --> 00:27:46,670
+know the internal working, otherwise
+your application.properties would only
+
+1414
+00:27:46,670 --> 00:27:46,680
+your application.properties would only
+ 
+
+1415
+00:27:46,680 --> 00:27:49,590
+your application.properties would only
+have this one, bootstrap server.
+
+1416
+00:27:49,590 --> 00:27:49,600
+have this one, bootstrap server.
+ 
+
+1417
+00:27:49,600 --> 00:27:51,830
+have this one, bootstrap server.
+And you might be thinking it works fine
+
+1418
+00:27:51,830 --> 00:27:51,840
+And you might be thinking it works fine
+ 
+
+1419
+00:27:51,840 --> 00:27:53,790
+And you might be thinking it works fine
+out of the box, but there are a lot of
+
+1420
+00:27:53,790 --> 00:27:53,800
+out of the box, but there are a lot of
+ 
+
+1421
+00:27:53,800 --> 00:27:55,470
+out of the box, but there are a lot of
+default happen in the
+
+1422
+00:27:55,470 --> 00:27:55,480
+default happen in the
+ 
+
+1423
+00:27:55,480 --> 00:27:59,430
+default happen in the
+back.
+
+1424
+00:27:59,430 --> 00:27:59,440
+
+ 
+
+1425
+00:27:59,440 --> 00:28:00,950
+
+Okay?
+
+1426
+00:28:00,950 --> 00:28:00,960
+Okay?
+ 
+
+1427
+00:28:00,960 --> 00:28:02,830
+Okay?
+Now, let's see the use case two. Use
+
+1428
+00:28:02,830 --> 00:28:02,840
+Now, let's see the use case two. Use
+ 
+
+1429
+00:28:02,840 --> 00:28:04,470
+Now, let's see the use case two. Use
+case two also we will keep everything
+
+1430
+00:28:04,470 --> 00:28:04,480
+case two also we will keep everything
+ 
+
+1431
+00:28:04,480 --> 00:28:06,390
+case two also we will keep everything
+same. All I have to show you the custom
+
+1432
+00:28:06,390 --> 00:28:06,400
+same. All I have to show you the custom
+ 
+
+1433
+00:28:06,400 --> 00:28:08,070
+same. All I have to show you the custom
+serializer.
+
+1434
+00:28:08,070 --> 00:28:08,080
+serializer.
+ 
+
+1435
+00:28:08,080 --> 00:28:09,470
+serializer.
+Okay?
+
+1436
+00:28:09,470 --> 00:28:09,480
+Okay?
+ 
+
+1437
+00:28:09,480 --> 00:28:11,670
+Okay?
+So,
+
+1438
+00:28:11,670 --> 00:28:11,680
+So,
+ 
+
+1439
+00:28:11,680 --> 00:28:14,870
+So,
+serializer, the key is still I am a
+
+1440
+00:28:14,870 --> 00:28:14,880
+serializer, the key is still I am a
+ 
+
+1441
+00:28:14,880 --> 00:28:17,270
+serializer, the key is still I am a
+string, and the value custom. We will
+
+1442
+00:28:17,270 --> 00:28:17,280
+string, and the value custom. We will
+ 
+
+1443
+00:28:17,280 --> 00:28:21,830
+string, and the value custom. We will
+write a custom serializer. Okay?
+
+1444
+00:28:21,830 --> 00:28:21,840
+
+ 
+
+1445
+00:28:21,840 --> 00:28:23,790
+
+Partitioner, now this time let's say we
+
+1446
+00:28:23,790 --> 00:28:23,800
+Partitioner, now this time let's say we
+ 
+
+1447
+00:28:23,800 --> 00:28:25,630
+Partitioner, now this time let's say we
+have to send without key, so that a
+
+1448
+00:28:25,630 --> 00:28:25,640
+have to send without key, so that a
+ 
+
+1449
+00:28:25,640 --> 00:28:27,990
+have to send without key, so that a
+sticky partition should be used. Rest
+
+1450
+00:28:27,990 --> 00:28:28,000
+sticky partition should be used. Rest
+ 
+
+1451
+00:28:28,000 --> 00:28:30,750
+sticky partition should be used. Rest
+all same like previous.
+
+1452
+00:28:30,750 --> 00:28:30,760
+all same like previous.
+ 
+
+1453
+00:28:30,760 --> 00:28:33,150
+all same like previous.
+So, no change in controller. I've just
+
+1454
+00:28:33,150 --> 00:28:33,160
+So, no change in controller. I've just
+ 
+
+1455
+00:28:33,160 --> 00:28:35,910
+So, no change in controller. I've just
+exposed new endpoint with no key, and it
+
+1456
+00:28:35,910 --> 00:28:35,920
+exposed new endpoint with no key, and it
+ 
+
+1457
+00:28:35,920 --> 00:28:38,270
+exposed new endpoint with no key, and it
+will just invoke the service layer. No
+
+1458
+00:28:38,270 --> 00:28:38,280
+will just invoke the service layer. No
+ 
+
+1459
+00:28:38,280 --> 00:28:41,910
+will just invoke the service layer. No
+change in the controller.
+
+1460
+00:28:41,910 --> 00:28:41,920
+
+ 
+
+1461
+00:28:41,920 --> 00:28:44,430
+
+Auto wiring is done properly. Okay, the
+
+1462
+00:28:44,430 --> 00:28:44,440
+Auto wiring is done properly. Okay, the
+ 
+
+1463
+00:28:44,440 --> 00:28:46,430
+Auto wiring is done properly. Okay, the
+Kafka template. But you might be
+
+1464
+00:28:46,430 --> 00:28:46,440
+Kafka template. But you might be
+ 
+
+1465
+00:28:46,440 --> 00:28:48,110
+Kafka template. But you might be
+thinking that
+
+1466
+00:28:48,110 --> 00:28:48,120
+thinking that
+ 
+
+1467
+00:28:48,120 --> 00:28:50,030
+thinking that
+Okay.
+
+1468
+00:28:50,030 --> 00:28:50,040
+Okay.
+ 
+
+1469
+00:28:50,040 --> 00:28:53,630
+Okay.
+This will like since we are using this
+
+1470
+00:28:53,630 --> 00:28:53,640
+This will like since we are using this
+ 
+
+1471
+00:28:53,640 --> 00:28:54,950
+This will like since we are using this
+default
+
+1472
+00:28:54,950 --> 00:28:54,960
+default
+ 
+
+1473
+00:28:54,960 --> 00:28:56,950
+default
+its properties will come from dot
+
+1474
+00:28:56,950 --> 00:28:56,960
+its properties will come from dot
+ 
+
+1475
+00:28:56,960 --> 00:28:58,630
+its properties will come from dot
+properties file.
+
+1476
+00:28:58,630 --> 00:28:58,640
+properties file.
+ 
+
+1477
+00:28:58,640 --> 00:29:00,630
+properties file.
+Because for serialization phase,
+
+1478
+00:29:00,630 --> 00:29:00,640
+Because for serialization phase,
+ 
+
+1479
+00:29:00,640 --> 00:29:03,430
+Because for serialization phase,
+partitioner phase, record accumulator
+
+1480
+00:29:03,430 --> 00:29:03,440
+partitioner phase, record accumulator
+ 
+
+1481
+00:29:03,440 --> 00:29:04,910
+partitioner phase, record accumulator
+all the properties for the Kafka
+
+1482
+00:29:04,910 --> 00:29:04,920
+all the properties for the Kafka
+ 
+
+1483
+00:29:04,920 --> 00:29:06,110
+all the properties for the Kafka
+template will be built from
+
+1484
+00:29:06,110 --> 00:29:06,120
+template will be built from
+ 
+
+1485
+00:29:06,120 --> 00:29:10,870
+template will be built from
+application.properties. Correct? So
+
+1486
+00:29:10,870 --> 00:29:10,880
+application.properties. Correct? So
+ 
+
+1487
+00:29:10,880 --> 00:29:13,670
+application.properties. Correct? So
+for serializer key and value
+
+1488
+00:29:13,670 --> 00:29:13,680
+for serializer key and value
+ 
+
+1489
+00:29:13,680 --> 00:29:16,470
+for serializer key and value
+I have currently defined here itself.
+
+1490
+00:29:16,470 --> 00:29:16,480
+I have currently defined here itself.
+ 
+
+1491
+00:29:16,480 --> 00:29:19,150
+I have currently defined here itself.
+Key is a string serializer
+
+1492
+00:29:19,150 --> 00:29:19,160
+Key is a string serializer
+ 
+
+1493
+00:29:19,160 --> 00:29:22,390
+Key is a string serializer
+and the value is this. Now
+
+1494
+00:29:22,390 --> 00:29:22,400
+and the value is this. Now
+ 
+
+1495
+00:29:22,400 --> 00:29:24,310
+and the value is this. Now
+com.eda.producer.
+
+1496
+00:29:24,310 --> 00:29:24,320
+com.eda.producer.
+ 
+
+1497
+00:29:24,320 --> 00:29:25,750
+com.eda.producer.
+So I've created a new class order
+
+1498
+00:29:25,750 --> 00:29:25,760
+So I've created a new class order
+ 
+
+1499
+00:29:25,760 --> 00:29:27,390
+So I've created a new class order
+summary serializer. So I've provided its
+
+1500
+00:29:27,390 --> 00:29:27,400
+summary serializer. So I've provided its
+ 
+
+1501
+00:29:27,400 --> 00:29:29,870
+summary serializer. So I've provided its
+path. This is my new class order summary
+
+1502
+00:29:29,870 --> 00:29:29,880
+path. This is my new class order summary
+ 
+
+1503
+00:29:29,880 --> 00:29:31,350
+path. This is my new class order summary
+serializer.
+
+1504
+00:29:31,350 --> 00:29:31,360
+serializer.
+ 
+
+1505
+00:29:31,360 --> 00:29:33,830
+serializer.
+And if you remember from the previous
+
+1506
+00:29:33,830 --> 00:29:33,840
+And if you remember from the previous
+ 
+
+1507
+00:29:33,840 --> 00:29:34,510
+And if you remember from the previous
+uh
+
+1508
+00:29:34,510 --> 00:29:34,520
+uh
+ 
+
+1509
+00:29:34,520 --> 00:29:36,190
+uh
+I have told you that all serialization
+
+1510
+00:29:36,190 --> 00:29:36,200
+I have told you that all serialization
+ 
+
+1511
+00:29:36,200 --> 00:29:38,310
+I have told you that all serialization
+need to implement this serializer
+
+1512
+00:29:38,310 --> 00:29:38,320
+need to implement this serializer
+ 
+
+1513
+00:29:38,320 --> 00:29:40,350
+need to implement this serializer
+interface.
+
+1514
+00:29:40,350 --> 00:29:40,360
+interface.
+ 
+
+1515
+00:29:40,360 --> 00:29:42,270
+interface.
+Once you implement this interface, you
+
+1516
+00:29:42,270 --> 00:29:42,280
+Once you implement this interface, you
+ 
+
+1517
+00:29:42,280 --> 00:29:43,710
+Once you implement this interface, you
+have to provide the override of this
+
+1518
+00:29:43,710 --> 00:29:43,720
+have to provide the override of this
+ 
+
+1519
+00:29:43,720 --> 00:29:46,310
+have to provide the override of this
+method. That's all.
+
+1520
+00:29:46,310 --> 00:29:46,320
+method. That's all.
+ 
+
+1521
+00:29:46,320 --> 00:29:48,990
+method. That's all.
+So the topic and the order like order in
+
+1522
+00:29:48,990 --> 00:29:49,000
+So the topic and the order like order in
+ 
+
+1523
+00:29:49,000 --> 00:29:51,830
+So the topic and the order like order in
+the senses your object. So it's here it
+
+1524
+00:29:51,830 --> 00:29:51,840
+the senses your object. So it's here it
+ 
+
+1525
+00:29:51,840 --> 00:29:53,510
+the senses your object. So it's here it
+is just nothing but a T.
+
+1526
+00:29:53,510 --> 00:29:53,520
+is just nothing but a T.
+ 
+
+1527
+00:29:53,520 --> 00:29:56,550
+is just nothing but a T.
+So if it is an order type, you have to
+
+1528
+00:29:56,550 --> 00:29:56,560
+So if it is an order type, you have to
+ 
+
+1529
+00:29:56,560 --> 00:29:58,550
+So if it is an order type, you have to
+just use that here.
+
+1530
+00:29:58,550 --> 00:29:58,560
+just use that here.
+ 
+
+1531
+00:29:58,560 --> 00:30:01,260
+just use that here.
+Now I am doing nothing special here.
+
+1532
+00:30:01,260 --> 00:30:01,270
+Now I am doing nothing special here.
+ 
+
+1533
+00:30:01,270 --> 00:30:01,750
+Now I am doing nothing special here.
+>> [snorts]
+
+1534
+00:30:01,750 --> 00:30:01,760
+>> [snorts]
+ 
+
+1535
+00:30:01,760 --> 00:30:04,270
+>> [snorts]
+>> All I have done is that my requirement
+
+1536
+00:30:04,270 --> 00:30:04,280
+>> All I have done is that my requirement
+ 
+
+1537
+00:30:04,280 --> 00:30:06,510
+>> All I have done is that my requirement
+is that hide the sensitive field.
+
+1538
+00:30:06,510 --> 00:30:06,520
+is that hide the sensitive field.
+ 
+
+1539
+00:30:06,520 --> 00:30:07,790
+is that hide the sensitive field.
+So
+
+1540
+00:30:07,790 --> 00:30:07,800
+So
+ 
+
+1541
+00:30:07,800 --> 00:30:11,150
+So
+see order have so many information pojo
+
+1542
+00:30:11,150 --> 00:30:11,160
+see order have so many information pojo
+ 
+
+1543
+00:30:11,160 --> 00:30:13,030
+see order have so many information pojo
+order ID, customer ID, product ID,
+
+1544
+00:30:13,030 --> 00:30:13,040
+order ID, customer ID, product ID,
+ 
+
+1545
+00:30:13,040 --> 00:30:15,390
+order ID, customer ID, product ID,
+quantity, amount, status.
+
+1546
+00:30:15,390 --> 00:30:15,400
+quantity, amount, status.
+ 
+
+1547
+00:30:15,400 --> 00:30:19,070
+quantity, amount, status.
+In the byte when the byte is converted
+
+1548
+00:30:19,070 --> 00:30:19,080
+In the byte when the byte is converted
+ 
+
+1549
+00:30:19,080 --> 00:30:21,230
+In the byte when the byte is converted
+Okay, I don't want all these fields to
+
+1550
+00:30:21,230 --> 00:30:21,240
+Okay, I don't want all these fields to
+ 
+
+1551
+00:30:21,240 --> 00:30:22,670
+Okay, I don't want all these fields to
+go.
+
+1552
+00:30:22,670 --> 00:30:22,680
+go.
+ 
+
+1553
+00:30:22,680 --> 00:30:24,870
+go.
+So that's what I am doing that I am
+
+1554
+00:30:24,870 --> 00:30:24,880
+So that's what I am doing that I am
+ 
+
+1555
+00:30:24,880 --> 00:30:27,630
+So that's what I am doing that I am
+creating a map.
+
+1556
+00:30:27,630 --> 00:30:27,640
+creating a map.
+ 
+
+1557
+00:30:27,640 --> 00:30:29,750
+creating a map.
+So key value
+
+1558
+00:30:29,750 --> 00:30:29,760
+So key value
+ 
+
+1559
+00:30:29,760 --> 00:30:31,790
+So key value
+Okay.
+
+1560
+00:30:31,790 --> 00:30:31,800
+Okay.
+ 
+
+1561
+00:30:31,800 --> 00:30:34,750
+Okay.
+So summary.output order ID
+
+1562
+00:30:34,750 --> 00:30:34,760
+So summary.output order ID
+ 
+
+1563
+00:30:34,760 --> 00:30:36,470
+So summary.output order ID
+whatever I have put like this is the
+
+1564
+00:30:36,470 --> 00:30:36,480
+whatever I have put like this is the
+ 
+
+1565
+00:30:36,480 --> 00:30:40,350
+whatever I have put like this is the
+order ID. Summary.output product ID
+
+1566
+00:30:40,350 --> 00:30:40,360
+order ID. Summary.output product ID
+ 
+
+1567
+00:30:40,360 --> 00:30:41,910
+order ID. Summary.output product ID
+from the order I take out the product
+
+1568
+00:30:41,910 --> 00:30:41,920
+from the order I take out the product
+ 
+
+1569
+00:30:41,920 --> 00:30:43,550
+from the order I take out the product
+ID. That's all.
+
+1570
+00:30:43,550 --> 00:30:43,560
+ID. That's all.
+ 
+
+1571
+00:30:43,560 --> 00:30:45,990
+ID. That's all.
+So, I'm creating a map. This information
+
+1572
+00:30:45,990 --> 00:30:46,000
+So, I'm creating a map. This information
+ 
+
+1573
+00:30:46,000 --> 00:30:48,510
+So, I'm creating a map. This information
+I need to send.
+
+1574
+00:30:48,510 --> 00:30:48,520
+I need to send.
+ 
+
+1575
+00:30:48,520 --> 00:30:51,590
+I need to send.
+Okay, to the broker.
+
+1576
+00:30:51,590 --> 00:30:51,600
+
+ 
+
+1577
+00:30:51,600 --> 00:30:53,750
+
+Only these two, order ID, product ID.
+
+1578
+00:30:53,750 --> 00:30:53,760
+Only these two, order ID, product ID.
+ 
+
+1579
+00:30:53,760 --> 00:30:55,390
+Only these two, order ID, product ID.
+That's all. I don't want to send
+
+1580
+00:30:55,390 --> 00:30:55,400
+That's all. I don't want to send
+ 
+
+1581
+00:30:55,400 --> 00:30:57,270
+That's all. I don't want to send
+customer ID, amount, the status,
+
+1582
+00:30:57,270 --> 00:30:57,280
+customer ID, amount, the status,
+ 
+
+1583
+00:30:57,280 --> 00:30:58,550
+customer ID, amount, the status,
+everything.
+
+1584
+00:30:58,550 --> 00:30:58,560
+everything.
+ 
+
+1585
+00:30:58,560 --> 00:31:00,830
+everything.
+And after that, I just do
+
+1586
+00:31:00,830 --> 00:31:00,840
+And after that, I just do
+ 
+
+1587
+00:31:00,840 --> 00:31:02,630
+And after that, I just do
+object mapper
+
+1588
+00:31:02,630 --> 00:31:02,640
+object mapper
+ 
+
+1589
+00:31:02,640 --> 00:31:04,830
+object mapper
+\{{}dot} write value as bytes. So, normal
+
+1590
+00:31:04,830 --> 00:31:04,840
+\{{}dot} write value as bytes. So, normal
+ 
+
+1591
+00:31:04,840 --> 00:31:06,030
+\{{}dot} write value as bytes. So, normal
+Java.
+
+1592
+00:31:06,030 --> 00:31:06,040
+Java.
+ 
+
+1593
+00:31:06,040 --> 00:31:07,910
+Java.
+We can convert an object to a byte like
+
+1594
+00:31:07,910 --> 00:31:07,920
+We can convert an object to a byte like
+ 
+
+1595
+00:31:07,920 --> 00:31:10,430
+We can convert an object to a byte like
+this.
+
+1596
+00:31:10,430 --> 00:31:10,440
+this.
+ 
+
+1597
+00:31:10,440 --> 00:31:15,550
+this.
+Okay. So, this is my custom serializer.
+
+1598
+00:31:15,550 --> 00:31:15,560
+
+ 
+
+1599
+00:31:15,560 --> 00:31:17,350
+
+So, in application.properties, value
+
+1600
+00:31:17,350 --> 00:31:17,360
+So, in application.properties, value
+ 
+
+1601
+00:31:17,360 --> 00:31:19,110
+So, in application.properties, value
+serializer, I just provided this my
+
+1602
+00:31:19,110 --> 00:31:19,120
+serializer, I just provided this my
+ 
+
+1603
+00:31:19,120 --> 00:31:22,550
+serializer, I just provided this my
+custom serializer.
+
+1604
+00:31:22,550 --> 00:31:22,560
+
+ 
+
+1605
+00:31:22,560 --> 00:31:23,870
+
+Only this change. Rest all
+
+1606
+00:31:23,870 --> 00:31:23,880
+Only this change. Rest all
+ 
+
+1607
+00:31:23,880 --> 00:31:28,910
+Only this change. Rest all
+application.property, I kept the same.
+
+1608
+00:31:28,910 --> 00:31:28,920
+
+ 
+
+1609
+00:31:28,920 --> 00:31:31,870
+
+Okay. Internally, if you remember from
+
+1610
+00:31:31,870 --> 00:31:31,880
+Okay. Internally, if you remember from
+ 
+
+1611
+00:31:31,880 --> 00:31:34,150
+Okay. Internally, if you remember from
+the Kafka
+
+1612
+00:31:34,150 --> 00:31:34,160
+the Kafka
+ 
+
+1613
+00:31:34,160 --> 00:31:36,390
+the Kafka
+producer.java class,
+
+1614
+00:31:36,390 --> 00:31:36,400
+producer.java class,
+ 
+
+1615
+00:31:36,400 --> 00:31:38,630
+producer.java class,
+it has serializer phase, right? So, when
+
+1616
+00:31:38,630 --> 00:31:38,640
+it has serializer phase, right? So, when
+ 
+
+1617
+00:31:38,640 --> 00:31:40,310
+it has serializer phase, right? So, when
+it invoke the serializer, it will invoke
+
+1618
+00:31:40,310 --> 00:31:40,320
+it invoke the serializer, it will invoke
+ 
+
+1619
+00:31:40,320 --> 00:31:42,070
+it invoke the serializer, it will invoke
+this now.
+
+1620
+00:31:42,070 --> 00:31:42,080
+this now.
+ 
+
+1621
+00:31:42,080 --> 00:31:43,390
+this now.
+For the value.
+
+1622
+00:31:43,390 --> 00:31:43,400
+For the value.
+ 
+
+1623
+00:31:43,400 --> 00:31:44,790
+For the value.
+Because for the value, I have provided
+
+1624
+00:31:44,790 --> 00:31:44,800
+Because for the value, I have provided
+ 
+
+1625
+00:31:44,800 --> 00:31:48,030
+Because for the value, I have provided
+this one.
+
+1626
+00:31:48,030 --> 00:31:48,040
+
+ 
+
+1627
+00:31:48,040 --> 00:31:49,750
+
+And that's all. The everything rest is
+
+1628
+00:31:49,750 --> 00:31:49,760
+And that's all. The everything rest is
+ 
+
+1629
+00:31:49,760 --> 00:31:52,590
+And that's all. The everything rest is
+same. Kafka template \{{}dot} send, your
+
+1630
+00:31:52,590 --> 00:31:52,600
+same. Kafka template \{{}dot} send, your
+ 
+
+1631
+00:31:52,600 --> 00:31:55,070
+same. Kafka template \{{}dot} send, your
+topic, and without key, right? We wanted
+
+1632
+00:31:55,070 --> 00:31:55,080
+topic, and without key, right? We wanted
+ 
+
+1633
+00:31:55,080 --> 00:31:56,990
+topic, and without key, right? We wanted
+That's why I went So, the override
+
+1634
+00:31:56,990 --> 00:31:57,000
+That's why I went So, the override
+ 
+
+1635
+00:31:57,000 --> 00:31:58,430
+That's why I went So, the override
+method which I'm using for the send is
+
+1636
+00:31:58,430 --> 00:31:58,440
+method which I'm using for the send is
+ 
+
+1637
+00:31:58,440 --> 00:32:01,150
+method which I'm using for the send is
+doesn't have a key. So, topic
+
+1638
+00:32:01,150 --> 00:32:01,160
+doesn't have a key. So, topic
+ 
+
+1639
+00:32:01,160 --> 00:32:03,150
+doesn't have a key. So, topic
+and the value. That's all.
+
+1640
+00:32:03,150 --> 00:32:03,160
+and the value. That's all.
+ 
+
+1641
+00:32:03,160 --> 00:32:05,712
+and the value. That's all.
+And here I am handling the callback.
+
+1642
+00:32:05,712 --> 00:32:05,722
+And here I am handling the callback.
+ 
+
+1643
+00:32:05,722 --> 00:32:07,670
+And here I am handling the callback.
+>> [snorts]
+
+1644
+00:32:07,670 --> 00:32:07,680
+>> [snorts]
+ 
+
+1645
+00:32:07,680 --> 00:32:10,470
+>> [snorts]
+>> Done.
+
+1646
+00:32:10,470 --> 00:32:10,480
+
+ 
+
+1647
+00:32:10,480 --> 00:32:12,310
+
+Now, the question might have comes to
+
+1648
+00:32:12,310 --> 00:32:12,320
+Now, the question might have comes to
+ 
+
+1649
+00:32:12,320 --> 00:32:15,630
+Now, the question might have comes to
+you that, okay, what if my producer has
+
+1650
+00:32:15,630 --> 00:32:15,640
+you that, okay, what if my producer has
+ 
+
+1651
+00:32:15,640 --> 00:32:18,390
+you that, okay, what if my producer has
+like so many like
+
+1652
+00:32:18,390 --> 00:32:18,400
+like so many like
+ 
+
+1653
+00:32:18,400 --> 00:32:20,710
+like so many like
+you can say that a publisher,
+
+1654
+00:32:20,710 --> 00:32:20,720
+you can say that a publisher,
+ 
+
+1655
+00:32:20,720 --> 00:32:22,630
+you can say that a publisher,
+some is publishing order, some is
+
+1656
+00:32:22,630 --> 00:32:22,640
+some is publishing order, some is
+ 
+
+1657
+00:32:22,640 --> 00:32:24,710
+some is publishing order, some is
+publishing something else.
+
+1658
+00:32:24,710 --> 00:32:24,720
+publishing something else.
+ 
+
+1659
+00:32:24,720 --> 00:32:25,670
+publishing something else.
+Okay.
+
+1660
+00:32:25,670 --> 00:32:25,680
+Okay.
+ 
+
+1661
+00:32:25,680 --> 00:32:27,070
+Okay.
+So, like here in the
+
+1662
+00:32:27,070 --> 00:32:27,080
+So, like here in the
+ 
+
+1663
+00:32:27,080 --> 00:32:29,830
+So, like here in the
+application.properties, if you have put
+
+1664
+00:32:29,830 --> 00:32:29,840
+application.properties, if you have put
+ 
+
+1665
+00:32:29,840 --> 00:32:30,830
+application.properties, if you have put
+order,
+
+1666
+00:32:30,830 --> 00:32:30,840
+order,
+ 
+
+1667
+00:32:30,840 --> 00:32:35,190
+order,
+means my value should always be
+
+1668
+00:32:35,190 --> 00:32:35,200
+means my value should always be
+ 
+
+1669
+00:32:35,200 --> 00:32:37,870
+means my value should always be
+use this serializer only.
+
+1670
+00:32:37,870 --> 00:32:37,880
+use this serializer only.
+ 
+
+1671
+00:32:37,880 --> 00:32:40,030
+use this serializer only.
+Can't we have more than one serializer?
+
+1672
+00:32:40,030 --> 00:32:40,040
+Can't we have more than one serializer?
+ 
+
+1673
+00:32:40,040 --> 00:32:42,470
+Can't we have more than one serializer?
+For example, like I have a controller
+
+1674
+00:32:42,470 --> 00:32:42,480
+For example, like I have a controller
+ 
+
+1675
+00:32:42,480 --> 00:32:45,270
+For example, like I have a controller
+class one, controller class two here.
+
+1676
+00:32:45,270 --> 00:32:45,280
+class one, controller class two here.
+ 
+
+1677
+00:32:45,280 --> 00:32:48,150
+class one, controller class two here.
+Order summary controller.
+
+1678
+00:32:48,150 --> 00:32:48,160
+Order summary controller.
+ 
+
+1679
+00:32:48,160 --> 00:32:49,990
+Order summary controller.
+So, we have order controller. Let's say
+
+1680
+00:32:49,990 --> 00:32:50,000
+So, we have order controller. Let's say
+ 
+
+1681
+00:32:50,000 --> 00:32:51,030
+So, we have order controller. Let's say
+you have some other different
+
+1682
+00:32:51,030 --> 00:32:51,040
+you have some other different
+ 
+
+1683
+00:32:51,040 --> 00:32:53,510
+you have some other different
+controller. Sales controller, something
+
+1684
+00:32:53,510 --> 00:32:53,520
+controller. Sales controller, something
+ 
+
+1685
+00:32:53,520 --> 00:32:55,310
+controller. Sales controller, something
+something something.
+
+1686
+00:32:55,310 --> 00:32:55,320
+something something.
+ 
+
+1687
+00:32:55,320 --> 00:32:57,750
+something something.
+So, we can't we have
+
+1688
+00:32:57,750 --> 00:32:57,760
+So, we can't we have
+ 
+
+1689
+00:32:57,760 --> 00:33:00,070
+So, we can't we have
+application.properties only one. Either
+
+1690
+00:33:00,070 --> 00:33:00,080
+application.properties only one. Either
+ 
+
+1691
+00:33:00,080 --> 00:33:03,270
+application.properties only one. Either
+you can have a serializer for order or
+
+1692
+00:33:03,270 --> 00:33:03,280
+you can have a serializer for order or
+ 
+
+1693
+00:33:03,280 --> 00:33:05,750
+you can have a serializer for order or
+for sales. You can't have like comma
+
+1694
+00:33:05,750 --> 00:33:05,760
+for sales. You can't have like comma
+ 
+
+1695
+00:33:05,760 --> 00:33:07,710
+for sales. You can't have like comma
+separated right here.
+
+1696
+00:33:07,710 --> 00:33:07,720
+separated right here.
+ 
+
+1697
+00:33:07,720 --> 00:33:09,670
+separated right here.
+What to do
+
+1698
+00:33:09,670 --> 00:33:09,680
+What to do
+ 
+
+1699
+00:33:09,680 --> 00:33:12,790
+What to do
+when you have more than one you can say
+
+1700
+00:33:12,790 --> 00:33:12,800
+when you have more than one you can say
+ 
+
+1701
+00:33:12,800 --> 00:33:17,190
+when you have more than one you can say
+that need a serializer for the value.
+
+1702
+00:33:17,190 --> 00:33:17,200
+
+ 
+
+1703
+00:33:17,200 --> 00:33:18,310
+
+Okay?
+
+1704
+00:33:18,310 --> 00:33:18,320
+Okay?
+ 
+
+1705
+00:33:18,320 --> 00:33:21,950
+Okay?
+We can use at the rate bean.
+
+1706
+00:33:21,950 --> 00:33:21,960
+
+ 
+
+1707
+00:33:21,960 --> 00:33:24,510
+
+Very very simple. The same thing like in
+
+1708
+00:33:24,510 --> 00:33:24,520
+Very very simple. The same thing like in
+ 
+
+1709
+00:33:24,520 --> 00:33:27,190
+Very very simple. The same thing like in
+the at the rate configuration class
+
+1710
+00:33:27,190 --> 00:33:27,200
+the at the rate configuration class
+ 
+
+1711
+00:33:27,200 --> 00:33:29,670
+the at the rate configuration class
+in at the rate configuration class I
+
+1712
+00:33:29,670 --> 00:33:29,680
+in at the rate configuration class I
+ 
+
+1713
+00:33:29,680 --> 00:33:31,870
+in at the rate configuration class I
+have just added one more bean. So, here
+
+1714
+00:33:31,870 --> 00:33:31,880
+have just added one more bean. So, here
+ 
+
+1715
+00:33:31,880 --> 00:33:33,710
+have just added one more bean. So, here
+if you see
+
+1716
+00:33:33,710 --> 00:33:33,720
+if you see
+ 
+
+1717
+00:33:33,720 --> 00:33:37,230
+if you see
+in at the rate configuration class
+
+1718
+00:33:37,230 --> 00:33:37,240
+in at the rate configuration class
+ 
+
+1719
+00:33:37,240 --> 00:33:39,310
+in at the rate configuration class
+I have added one more bean here, this
+
+1720
+00:33:39,310 --> 00:33:39,320
+I have added one more bean here, this
+ 
+
+1721
+00:33:39,320 --> 00:33:41,990
+I have added one more bean here, this
+one.
+
+1722
+00:33:41,990 --> 00:33:42,000
+
+ 
+
+1723
+00:33:42,000 --> 00:33:44,710
+
+So, I am creating a map of properties
+
+1724
+00:33:44,710 --> 00:33:44,720
+So, I am creating a map of properties
+ 
+
+1725
+00:33:44,720 --> 00:33:46,630
+So, I am creating a map of properties
+first.
+
+1726
+00:33:46,630 --> 00:33:46,640
+first.
+ 
+
+1727
+00:33:46,640 --> 00:33:48,870
+first.
+Kafka properties. build producer
+
+1728
+00:33:48,870 --> 00:33:48,880
+Kafka properties. build producer
+ 
+
+1729
+00:33:48,880 --> 00:33:51,310
+Kafka properties. build producer
+properties. So, what it will do is from
+
+1730
+00:33:51,310 --> 00:33:51,320
+properties. So, what it will do is from
+ 
+
+1731
+00:33:51,320 --> 00:33:53,230
+properties. So, what it will do is from
+application.properties
+
+1732
+00:33:53,230 --> 00:33:53,240
+application.properties
+ 
+
+1733
+00:33:53,240 --> 00:33:55,350
+application.properties
+all the Kafka producer related
+
+1734
+00:33:55,350 --> 00:33:55,360
+all the Kafka producer related
+ 
+
+1735
+00:33:55,360 --> 00:33:57,950
+all the Kafka producer related
+properties it will load it first.
+
+1736
+00:33:57,950 --> 00:33:57,960
+properties it will load it first.
+ 
+
+1737
+00:33:57,960 --> 00:33:59,870
+properties it will load it first.
+Start with all the producer properties
+
+1738
+00:33:59,870 --> 00:33:59,880
+Start with all the producer properties
+ 
+
+1739
+00:33:59,880 --> 00:34:01,710
+Start with all the producer properties
+from application.properties.
+
+1740
+00:34:01,710 --> 00:34:01,720
+from application.properties.
+ 
+
+1741
+00:34:01,720 --> 00:34:04,110
+from application.properties.
+It will load it. Now, we will only
+
+1742
+00:34:04,110 --> 00:34:04,120
+It will load it. Now, we will only
+ 
+
+1743
+00:34:04,120 --> 00:34:06,430
+It will load it. Now, we will only
+override value.
+
+1744
+00:34:06,430 --> 00:34:06,440
+override value.
+ 
+
+1745
+00:34:06,440 --> 00:34:07,470
+override value.
+Okay?
+
+1746
+00:34:07,470 --> 00:34:07,480
+Okay?
+ 
+
+1747
+00:34:07,480 --> 00:34:10,510
+Okay?
+So, props So, this is the props.put
+
+1748
+00:34:10,510 --> 00:34:10,520
+So, props So, this is the props.put
+ 
+
+1749
+00:34:10,520 --> 00:34:12,869
+So, props So, this is the props.put
+producer config.value serializer class
+
+1750
+00:34:12,869 --> 00:34:12,879
+producer config.value serializer class
+ 
+
+1751
+00:34:12,879 --> 00:34:16,990
+producer config.value serializer class
+config. So, this enum has so many uh if
+
+1752
+00:34:16,990 --> 00:34:17,000
+config. So, this enum has so many uh if
+ 
+
+1753
+00:34:17,000 --> 00:34:18,629
+config. So, this enum has so many uh if
+you open this class enum class, you have
+
+1754
+00:34:18,629 --> 00:34:18,639
+you open this class enum class, you have
+ 
+
+1755
+00:34:18,639 --> 00:34:21,270
+you open this class enum class, you have
+so many values. You can just select one
+
+1756
+00:34:21,270 --> 00:34:21,280
+so many values. You can just select one
+ 
+
+1757
+00:34:21,280 --> 00:34:24,190
+so many values. You can just select one
+whichever config you want to override.
+
+1758
+00:34:24,190 --> 00:34:24,200
+whichever config you want to override.
+ 
+
+1759
+00:34:24,200 --> 00:34:26,550
+whichever config you want to override.
+So, I want to override value serializer.
+
+1760
+00:34:26,550 --> 00:34:26,560
+So, I want to override value serializer.
+ 
+
+1761
+00:34:26,560 --> 00:34:29,710
+So, I want to override value serializer.
+Okay? And what is the value I need to uh
+
+1762
+00:34:29,710 --> 00:34:29,720
+Okay? And what is the value I need to uh
+ 
+
+1763
+00:34:29,720 --> 00:34:32,270
+Okay? And what is the value I need to uh
+for for this serializer? This class,
+
+1764
+00:34:32,270 --> 00:34:32,280
+for for this serializer? This class,
+ 
+
+1765
+00:34:32,280 --> 00:34:35,550
+for for this serializer? This class,
+order summary serializer.class.
+
+1766
+00:34:35,550 --> 00:34:35,560
+order summary serializer.class.
+ 
+
+1767
+00:34:35,560 --> 00:34:38,030
+order summary serializer.class.
+That's all. Okay? Now, we have just
+
+1768
+00:34:38,030 --> 00:34:38,040
+That's all. Okay? Now, we have just
+ 
+
+1769
+00:34:38,040 --> 00:34:40,950
+That's all. Okay? Now, we have just
+created a default Kafka producer factory
+
+1770
+00:34:40,950 --> 00:34:40,960
+created a default Kafka producer factory
+ 
+
+1771
+00:34:40,960 --> 00:34:44,310
+created a default Kafka producer factory
+and put this props here.
+
+1772
+00:34:44,310 --> 00:34:44,320
+and put this props here.
+ 
+
+1773
+00:34:44,320 --> 00:34:46,710
+and put this props here.
+Okay? Because Kafka template, we have to
+
+1774
+00:34:46,710 --> 00:34:46,720
+Okay? Because Kafka template, we have to
+ 
+
+1775
+00:34:46,720 --> 00:34:48,149
+Okay? Because Kafka template, we have to
+return this object, right? Kafka
+
+1776
+00:34:48,149 --> 00:34:48,159
+return this object, right? Kafka
+ 
+
+1777
+00:34:48,159 --> 00:34:49,790
+return this object, right? Kafka
+template object. So, we have to create
+
+1778
+00:34:49,790 --> 00:34:49,800
+template object. So, we have to create
+ 
+
+1779
+00:34:49,800 --> 00:34:52,710
+template object. So, we have to create
+right new Kafka template.
+
+1780
+00:34:52,710 --> 00:34:52,720
+right new Kafka template.
+ 
+
+1781
+00:34:52,720 --> 00:34:55,389
+right new Kafka template.
+This. We have to provide
+
+1782
+00:34:55,389 --> 00:34:55,399
+This. We have to provide
+ 
+
+1783
+00:34:55,399 --> 00:34:57,750
+This. We have to provide
+So, open this one.
+
+1784
+00:34:57,750 --> 00:34:57,760
+So, open this one.
+ 
+
+1785
+00:34:57,760 --> 00:34:59,870
+So, open this one.
+New Kafka template, if you open this, it
+
+1786
+00:34:59,870 --> 00:34:59,880
+New Kafka template, if you open this, it
+ 
+
+1787
+00:34:59,880 --> 00:35:02,350
+New Kafka template, if you open this, it
+need producer factory.
+
+1788
+00:35:02,350 --> 00:35:02,360
+need producer factory.
+ 
+
+1789
+00:35:02,360 --> 00:35:04,590
+need producer factory.
+Okay? So, producer factory is nothing
+
+1790
+00:35:04,590 --> 00:35:04,600
+Okay? So, producer factory is nothing
+ 
+
+1791
+00:35:04,600 --> 00:35:05,550
+Okay? So, producer factory is nothing
+but
+
+1792
+00:35:05,550 --> 00:35:05,560
+but
+ 
+
+1793
+00:35:05,560 --> 00:35:07,270
+but
+interface and default factory producer
+
+1794
+00:35:07,270 --> 00:35:07,280
+interface and default factory producer
+ 
+
+1795
+00:35:07,280 --> 00:35:09,910
+interface and default factory producer
+factory is not the implementation of it.
+
+1796
+00:35:09,910 --> 00:35:09,920
+factory is not the implementation of it.
+ 
+
+1797
+00:35:09,920 --> 00:35:12,550
+factory is not the implementation of it.
+So, that's what I'm just doing.
+
+1798
+00:35:12,550 --> 00:35:12,560
+So, that's what I'm just doing.
+ 
+
+1799
+00:35:12,560 --> 00:35:13,830
+So, that's what I'm just doing.
+So, this is an implementation of
+
+1800
+00:35:13,830 --> 00:35:13,840
+So, this is an implementation of
+ 
+
+1801
+00:35:13,840 --> 00:35:15,470
+So, this is an implementation of
+producer factory.
+
+1802
+00:35:15,470 --> 00:35:15,480
+producer factory.
+ 
+
+1803
+00:35:15,480 --> 00:35:17,070
+producer factory.
+So, in that one, I have provided this
+
+1804
+00:35:17,070 --> 00:35:17,080
+So, in that one, I have provided this
+ 
+
+1805
+00:35:17,080 --> 00:35:18,910
+So, in that one, I have provided this
+property, props.
+
+1806
+00:35:18,910 --> 00:35:18,920
+property, props.
+ 
+
+1807
+00:35:18,920 --> 00:35:21,470
+property, props.
+Where I have overridden this value and
+
+1808
+00:35:21,470 --> 00:35:21,480
+Where I have overridden this value and
+ 
+
+1809
+00:35:21,480 --> 00:35:25,630
+Where I have overridden this value and
+just feed it here. Return.
+
+1810
+00:35:25,630 --> 00:35:25,640
+
+ 
+
+1811
+00:35:25,640 --> 00:35:27,390
+
+Now,
+
+1812
+00:35:27,390 --> 00:35:27,400
+Now,
+ 
+
+1813
+00:35:27,400 --> 00:35:30,150
+Now,
+this [snorts] bean we have to use.
+
+1814
+00:35:30,150 --> 00:35:30,160
+this [snorts] bean we have to use.
+ 
+
+1815
+00:35:30,160 --> 00:35:32,870
+this [snorts] bean we have to use.
+Okay? Now, wherever you have to use, for
+
+1816
+00:35:32,870 --> 00:35:32,880
+Okay? Now, wherever you have to use, for
+ 
+
+1817
+00:35:32,880 --> 00:35:34,310
+Okay? Now, wherever you have to use, for
+example, in
+
+1818
+00:35:34,310 --> 00:35:34,320
+example, in
+ 
+
+1819
+00:35:34,320 --> 00:35:37,270
+example, in
+order service, order producer service, I
+
+1820
+00:35:37,270 --> 00:35:37,280
+order service, order producer service, I
+ 
+
+1821
+00:35:37,280 --> 00:35:40,710
+order service, order producer service, I
+have to use a specific bean, this bean.
+
+1822
+00:35:40,710 --> 00:35:40,720
+have to use a specific bean, this bean.
+ 
+
+1823
+00:35:40,720 --> 00:35:43,070
+have to use a specific bean, this bean.
+You can do auto wired.
+
+1824
+00:35:43,070 --> 00:35:43,080
+You can do auto wired.
+ 
+
+1825
+00:35:43,080 --> 00:35:45,550
+You can do auto wired.
+Okay? And put a qualifier, custom
+
+1826
+00:35:45,550 --> 00:35:45,560
+Okay? And put a qualifier, custom
+ 
+
+1827
+00:35:45,560 --> 00:35:48,070
+Okay? And put a qualifier, custom
+serializer Kafka template like I put
+
+1828
+00:35:48,070 --> 00:35:48,080
+serializer Kafka template like I put
+ 
+
+1829
+00:35:48,080 --> 00:35:50,630
+serializer Kafka template like I put
+custom serializer Kafka template.
+
+1830
+00:35:50,630 --> 00:35:50,640
+custom serializer Kafka template.
+ 
+
+1831
+00:35:50,640 --> 00:35:53,190
+custom serializer Kafka template.
+Okay? I have put it here.
+
+1832
+00:35:53,190 --> 00:35:53,200
+Okay? I have put it here.
+ 
+
+1833
+00:35:53,200 --> 00:35:55,590
+Okay? I have put it here.
+And this one, custom serializer Kafka
+
+1834
+00:35:55,590 --> 00:35:55,600
+And this one, custom serializer Kafka
+ 
+
+1835
+00:35:55,600 --> 00:35:56,929
+And this one, custom serializer Kafka
+template.
+
+1836
+00:35:56,929 --> 00:35:56,939
+template.
+ 
+
+1837
+00:35:56,939 --> 00:35:57,750
+template.
+>> [snorts]
+
+1838
+00:35:57,750 --> 00:35:57,760
+>> [snorts]
+ 
+
+1839
+00:35:57,760 --> 00:35:59,950
+>> [snorts]
+>> So, the Kafka So, now, whenever you
+
+1840
+00:35:59,950 --> 00:35:59,960
+>> So, the Kafka So, now, whenever you
+ 
+
+1841
+00:35:59,960 --> 00:36:02,230
+>> So, the Kafka So, now, whenever you
+want,
+
+1842
+00:36:02,230 --> 00:36:02,240
+want,
+ 
+
+1843
+00:36:02,240 --> 00:36:04,150
+want,
+okay? When you have more than one Kafka
+
+1844
+00:36:04,150 --> 00:36:04,160
+okay? When you have more than one Kafka
+ 
+
+1845
+00:36:04,160 --> 00:36:06,710
+okay? When you have more than one Kafka
+template exist, you can use like this.
+
+1846
+00:36:06,710 --> 00:36:06,720
+template exist, you can use like this.
+ 
+
+1847
+00:36:06,720 --> 00:36:09,070
+template exist, you can use like this.
+So, here, I have also Kafka template.
+
+1848
+00:36:09,070 --> 00:36:09,080
+So, here, I have also Kafka template.
+ 
+
+1849
+00:36:09,080 --> 00:36:10,670
+So, here, I have also Kafka template.
+So, this will read the properties from
+
+1850
+00:36:10,670 --> 00:36:10,680
+So, this will read the properties from
+ 
+
+1851
+00:36:10,680 --> 00:36:12,910
+So, this will read the properties from
+application.properties.
+
+1852
+00:36:12,910 --> 00:36:12,920
+application.properties.
+ 
+
+1853
+00:36:12,920 --> 00:36:14,590
+application.properties.
+Okay?
+
+1854
+00:36:14,590 --> 00:36:14,600
+Okay?
+ 
+
+1855
+00:36:14,600 --> 00:36:16,510
+Okay?
+And another I have is custom serializer
+
+1856
+00:36:16,510 --> 00:36:16,520
+And another I have is custom serializer
+ 
+
+1857
+00:36:16,520 --> 00:36:18,870
+And another I have is custom serializer
+Kafka template, which I have provided
+
+1858
+00:36:18,870 --> 00:36:18,880
+Kafka template, which I have provided
+ 
+
+1859
+00:36:18,880 --> 00:36:20,590
+Kafka template, which I have provided
+here.
+
+1860
+00:36:20,590 --> 00:36:20,600
+here.
+ 
+
+1861
+00:36:20,600 --> 00:36:21,550
+here.
+It will read from the
+
+1862
+00:36:21,550 --> 00:36:21,560
+It will read from the
+ 
+
+1863
+00:36:21,560 --> 00:36:23,150
+It will read from the
+application.properties. After that, it
+
+1864
+00:36:23,150 --> 00:36:23,160
+application.properties. After that, it
+ 
+
+1865
+00:36:23,160 --> 00:36:25,990
+application.properties. After that, it
+has overridden some values.
+
+1866
+00:36:25,990 --> 00:36:26,000
+has overridden some values.
+ 
+
+1867
+00:36:26,000 --> 00:36:28,790
+has overridden some values.
+The value serializer. And
+
+1868
+00:36:28,790 --> 00:36:28,800
+The value serializer. And
+ 
+
+1869
+00:36:28,800 --> 00:36:31,270
+The value serializer. And
+this object is created.
+
+1870
+00:36:31,270 --> 00:36:31,280
+this object is created.
+ 
+
+1871
+00:36:31,280 --> 00:36:34,270
+this object is created.
+I have just auto wired that object here.
+
+1872
+00:36:34,270 --> 00:36:34,280
+I have just auto wired that object here.
+ 
+
+1873
+00:36:34,280 --> 00:36:36,830
+I have just auto wired that object here.
+Now send without key, I am using custom
+
+1874
+00:36:36,830 --> 00:36:36,840
+Now send without key, I am using custom
+ 
+
+1875
+00:36:36,840 --> 00:36:40,160
+Now send without key, I am using custom
+serializer Kafka template.
+
+1876
+00:36:40,160 --> 00:36:40,170
+serializer Kafka template.
+ 
+
+1877
+00:36:40,170 --> 00:36:40,750
+
+>> [snorts]
+
+1878
+00:36:40,750 --> 00:36:40,760
+>> [snorts]
+ 
+
+1879
+00:36:40,760 --> 00:36:43,150
+>> [snorts]
+>> Okay? And in application.properties you
+
+1880
+00:36:43,150 --> 00:36:43,160
+>> Okay? And in application.properties you
+ 
+
+1881
+00:36:43,160 --> 00:36:44,590
+>> Okay? And in application.properties you
+can put some default one. Let's say
+
+1882
+00:36:44,590 --> 00:36:44,600
+can put some default one. Let's say
+ 
+
+1883
+00:36:44,600 --> 00:36:46,510
+can put some default one. Let's say
+JSON. In application.properties I'm
+
+1884
+00:36:46,510 --> 00:36:46,520
+JSON. In application.properties I'm
+ 
+
+1885
+00:36:46,520 --> 00:36:50,070
+JSON. In application.properties I'm
+putting JSON serializer.
+
+1886
+00:36:50,070 --> 00:36:50,080
+
+ 
+
+1887
+00:36:50,080 --> 00:36:52,950
+
+Okay? The same thing if you see
+
+1888
+00:36:52,950 --> 00:36:52,960
+Okay? The same thing if you see
+ 
+
+1889
+00:36:52,960 --> 00:36:55,710
+Okay? The same thing if you see
+in application.properties
+
+1890
+00:36:55,710 --> 00:36:55,720
+in application.properties
+ 
+
+1891
+00:36:55,720 --> 00:36:59,190
+in application.properties
+I have put JSON serializer
+
+1892
+00:36:59,190 --> 00:36:59,200
+I have put JSON serializer
+ 
+
+1893
+00:36:59,200 --> 00:37:01,550
+I have put JSON serializer
+and Kafka producer config I am using
+
+1894
+00:37:01,550 --> 00:37:01,560
+and Kafka producer config I am using
+ 
+
+1895
+00:37:01,560 --> 00:37:03,830
+and Kafka producer config I am using
+custom serializer Kafka template where I
+
+1896
+00:37:03,830 --> 00:37:03,840
+custom serializer Kafka template where I
+ 
+
+1897
+00:37:03,840 --> 00:37:05,830
+custom serializer Kafka template where I
+have overridden the value serializer
+
+1898
+00:37:05,830 --> 00:37:05,840
+have overridden the value serializer
+ 
+
+1899
+00:37:05,840 --> 00:37:06,870
+have overridden the value serializer
+part.
+
+1900
+00:37:06,870 --> 00:37:06,880
+part.
+ 
+
+1901
+00:37:06,880 --> 00:37:09,150
+part.
+Order summary. So, let me put a breaker
+
+1902
+00:37:09,150 --> 00:37:09,160
+Order summary. So, let me put a breaker
+ 
+
+1903
+00:37:09,160 --> 00:37:10,945
+Order summary. So, let me put a breaker
+point on this
+
+1904
+00:37:10,945 --> 00:37:10,955
+point on this
+ 
+
+1905
+00:37:10,955 --> 00:37:12,230
+point on this
+>> [snorts]
+
+1906
+00:37:12,230 --> 00:37:12,240
+>> [snorts]
+ 
+
+1907
+00:37:12,240 --> 00:37:14,350
+>> [snorts]
+>> serializer part. So, I put a
+
+1908
+00:37:14,350 --> 00:37:14,360
+>> serializer part. So, I put a
+ 
+
+1909
+00:37:14,360 --> 00:37:17,390
+>> serializer part. So, I put a
+I will start into the debugging mode.
+
+1910
+00:37:17,390 --> 00:37:17,400
+I will start into the debugging mode.
+ 
+
+1911
+00:37:17,400 --> 00:37:18,990
+I will start into the debugging mode.
+Okay? So, control should reach here to
+
+1912
+00:37:18,990 --> 00:37:19,000
+Okay? So, control should reach here to
+ 
+
+1913
+00:37:19,000 --> 00:37:22,470
+Okay? So, control should reach here to
+our custom serializer.
+
+1914
+00:37:22,470 --> 00:37:22,480
+our custom serializer.
+ 
+
+1915
+00:37:22,480 --> 00:37:26,990
+our custom serializer.
+And let's see that send with no key.
+
+1916
+00:37:26,990 --> 00:37:27,000
+And let's see that send with no key.
+ 
+
+1917
+00:37:27,000 --> 00:37:30,110
+And let's see that send with no key.
+So, we have to invoke this endpoint.
+
+1918
+00:37:30,110 --> 00:37:30,120
+So, we have to invoke this endpoint.
+ 
+
+1919
+00:37:30,120 --> 00:37:32,190
+So, we have to invoke this endpoint.
+Okay? And what it will do is that it is
+
+1920
+00:37:32,190 --> 00:37:32,200
+Okay? And what it will do is that it is
+ 
+
+1921
+00:37:32,200 --> 00:37:34,270
+Okay? And what it will do is that it is
+using our custom serializer.
+
+1922
+00:37:34,270 --> 00:37:34,280
+using our custom serializer.
+ 
+
+1923
+00:37:34,280 --> 00:37:39,030
+using our custom serializer.
+Yes, it is using our custom serializer.
+
+1924
+00:37:39,030 --> 00:37:39,040
+
+ 
+
+1925
+00:37:39,040 --> 00:37:41,830
+
+dot send
+
+1926
+00:37:41,830 --> 00:37:41,840
+dot send
+ 
+
+1927
+00:37:41,840 --> 00:37:42,830
+dot send
+Cool.
+
+1928
+00:37:42,830 --> 00:37:42,840
+Cool.
+ 
+
+1929
+00:37:42,840 --> 00:37:46,710
+Cool.
+So,
+
+1930
+00:37:46,710 --> 00:37:46,720
+
+ 
+
+1931
+00:37:46,720 --> 00:37:52,830
+
+let me start in a debug mode.
+
+1932
+00:37:52,830 --> 00:37:52,840
+
+ 
+
+1933
+00:37:52,840 --> 00:37:55,430
+
+Now, let's hit the endpoint with
+
+1934
+00:37:55,430 --> 00:37:55,440
+Now, let's hit the endpoint with
+ 
+
+1935
+00:37:55,440 --> 00:37:57,510
+Now, let's hit the endpoint with
+\{{}hyphen} no \{{}hyphen} key.
+
+1936
+00:37:57,510 --> 00:37:57,520
+\{{}hyphen} no \{{}hyphen} key.
+ 
+
+1937
+00:37:57,520 --> 00:37:59,670
+\{{}hyphen} no \{{}hyphen} key.
+With \{{}hyphen} no \{{}hyphen} key, let's say
+
+1938
+00:37:59,670 --> 00:37:59,680
+With \{{}hyphen} no \{{}hyphen} key, let's say
+ 
+
+1939
+00:37:59,680 --> 00:38:04,870
+With \{{}hyphen} no \{{}hyphen} key, let's say
+order ID is something O
+
+1940
+00:38:04,870 --> 00:38:04,880
+
+ 
+
+1941
+00:38:04,880 --> 00:38:06,150
+
+\{{}hyphen}
+
+1942
+00:38:06,150 --> 00:38:06,160
+\{{}hyphen}
+ 
+
+1943
+00:38:06,160 --> 00:38:07,790
+\{{}hyphen}
+let's say
+
+1944
+00:38:07,790 --> 00:38:07,800
+let's say
+ 
+
+1945
+00:38:07,800 --> 00:38:09,790
+let's say
+1 1 1 1.
+
+1946
+00:38:09,790 --> 00:38:09,800
+1 1 1 1.
+ 
+
+1947
+00:38:09,800 --> 00:38:14,070
+1 1 1 1.
+Okay?
+
+1948
+00:38:14,070 --> 00:38:14,080
+
+ 
+
+1949
+00:38:14,080 --> 00:38:17,310
+
+Product ID is PID 3, let's say.
+
+1950
+00:38:17,310 --> 00:38:17,320
+Product ID is PID 3, let's say.
+ 
+
+1951
+00:38:17,320 --> 00:38:19,150
+Product ID is PID 3, let's say.
+And something something. Now, let's hit
+
+1952
+00:38:19,150 --> 00:38:19,160
+And something something. Now, let's hit
+ 
+
+1953
+00:38:19,160 --> 00:38:21,070
+And something something. Now, let's hit
+it.
+
+1954
+00:38:21,070 --> 00:38:21,080
+it.
+ 
+
+1955
+00:38:21,080 --> 00:38:24,550
+it.
+See, the control comes to our
+
+1956
+00:38:24,550 --> 00:38:24,560
+See, the control comes to our
+ 
+
+1957
+00:38:24,560 --> 00:38:26,910
+See, the control comes to our
+serializer.
+
+1958
+00:38:26,910 --> 00:38:26,920
+serializer.
+ 
+
+1959
+00:38:26,920 --> 00:38:28,390
+serializer.
+Custom serializer. From where it has
+
+1960
+00:38:28,390 --> 00:38:28,400
+Custom serializer. From where it has
+ 
+
+1961
+00:38:28,400 --> 00:38:29,270
+Custom serializer. From where it has
+come?
+
+1962
+00:38:29,270 --> 00:38:29,280
+come?
+ 
+
+1963
+00:38:29,280 --> 00:38:31,910
+come?
+Kafka producer.
+
+1964
+00:38:31,910 --> 00:38:31,920
+Kafka producer.
+ 
+
+1965
+00:38:31,920 --> 00:38:34,750
+Kafka producer.
+Value serializer. \{{}dot} serialize.
+
+1966
+00:38:34,750 --> 00:38:34,760
+Value serializer. \{{}dot} serialize.
+ 
+
+1967
+00:38:34,760 --> 00:38:37,070
+Value serializer. \{{}dot} serialize.
+Okay? Instead of JSON serializer, it has
+
+1968
+00:38:37,070 --> 00:38:37,080
+Okay? Instead of JSON serializer, it has
+ 
+
+1969
+00:38:37,080 --> 00:38:39,390
+Okay? Instead of JSON serializer, it has
+invoked our
+
+1970
+00:38:39,390 --> 00:38:39,400
+invoked our
+ 
+
+1971
+00:38:39,400 --> 00:38:41,870
+invoked our
+Why? Because
+
+1972
+00:38:41,870 --> 00:38:41,880
+Why? Because
+ 
+
+1973
+00:38:41,880 --> 00:38:44,230
+Why? Because
+it has used our
+
+1974
+00:38:44,230 --> 00:38:44,240
+it has used our
+ 
+
+1975
+00:38:44,240 --> 00:38:46,310
+it has used our
+It has used uh
+
+1976
+00:38:46,310 --> 00:38:46,320
+It has used uh
+ 
+
+1977
+00:38:46,320 --> 00:38:48,870
+It has used uh
+See, our Kafka template here. Custom
+
+1978
+00:38:48,870 --> 00:38:48,880
+See, our Kafka template here. Custom
+ 
+
+1979
+00:38:48,880 --> 00:38:50,710
+See, our Kafka template here. Custom
+serializer Kafka template.
+
+1980
+00:38:50,710 --> 00:38:50,720
+serializer Kafka template.
+ 
+
+1981
+00:38:50,720 --> 00:38:52,310
+serializer Kafka template.
+And in that configuration, we have
+
+1982
+00:38:52,310 --> 00:38:52,320
+And in that configuration, we have
+ 
+
+1983
+00:38:52,320 --> 00:38:58,110
+And in that configuration, we have
+overridden the value serializer.
+
+1984
+00:38:58,110 --> 00:38:58,120
+
+ 
+
+1985
+00:38:58,120 --> 00:38:59,470
+
+Okay?
+
+1986
+00:38:59,470 --> 00:38:59,480
+Okay?
+ 
+
+1987
+00:38:59,480 --> 00:39:01,990
+Okay?
+Just finish it up.
+
+1988
+00:39:01,990 --> 00:39:02,000
+Just finish it up.
+ 
+
+1989
+00:39:02,000 --> 00:39:04,510
+Just finish it up.
+See the console. Order events
+
+1990
+00:39:04,510 --> 00:39:04,520
+See the console. Order events
+ 
+
+1991
+00:39:04,520 --> 00:39:11,830
+See the console. Order events
+successful. Partition two, offset zero.
+
+1992
+00:39:11,830 --> 00:39:11,840
+
+ 
+
+1993
+00:39:11,840 --> 00:39:14,470
+
+Partition two. Who is the leader? Four.
+
+1994
+00:39:14,470 --> 00:39:14,480
+Partition two. Who is the leader? Four.
+ 
+
+1995
+00:39:14,480 --> 00:39:17,950
+Partition two. Who is the leader? Four.
+Four is uh leader matlab broker two.
+
+1996
+00:39:17,950 --> 00:39:17,960
+Four is uh leader matlab broker two.
+ 
+
+1997
+00:39:17,960 --> 00:39:20,510
+Four is uh leader matlab broker two.
+Controller one is ID one. Controller two
+
+1998
+00:39:20,510 --> 00:39:20,520
+Controller one is ID one. Controller two
+ 
+
+1999
+00:39:20,520 --> 00:39:23,990
+Controller one is ID one. Controller two
+is ID two. Uh broker one is ID three.
+
+2000
+00:39:23,990 --> 00:39:24,000
+is ID two. Uh broker one is ID three.
+ 
+
+2001
+00:39:24,000 --> 00:39:26,670
+is ID two. Uh broker one is ID three.
+And broker two is ID four.
+
+2002
+00:39:26,670 --> 00:39:26,680
+And broker two is ID four.
+ 
+
+2003
+00:39:26,680 --> 00:39:30,110
+And broker two is ID four.
+So, partition two leader is broker two.
+
+2004
+00:39:30,110 --> 00:39:30,120
+So, partition two leader is broker two.
+ 
+
+2005
+00:39:30,120 --> 00:39:31,790
+So, partition two leader is broker two.
+This is our broker two now. We are
+
+2006
+00:39:31,790 --> 00:39:31,800
+This is our broker two now. We are
+ 
+
+2007
+00:39:31,800 --> 00:39:33,910
+This is our broker two now. We are
+inside broker two logs.
+
+2008
+00:39:33,910 --> 00:39:33,920
+inside broker two logs.
+ 
+
+2009
+00:39:33,920 --> 00:39:36,990
+inside broker two logs.
+It is written inside partition two.
+
+2010
+00:39:36,990 --> 00:39:37,000
+It is written inside partition two.
+ 
+
+2011
+00:39:37,000 --> 00:39:39,630
+It is written inside partition two.
+So, this is order event. Partition two
+
+2012
+00:39:39,630 --> 00:39:39,640
+So, this is order event. Partition two
+ 
+
+2013
+00:39:39,640 --> 00:39:42,710
+So, this is order event. Partition two
+is like this one. \{{}hyphen} two.
+
+2014
+00:39:42,710 --> 00:39:42,720
+is like this one. \{{}hyphen} two.
+ 
+
+2015
+00:39:42,720 --> 00:39:49,350
+is like this one. \{{}hyphen} two.
+We need to check its log \{{}dot} log.
+
+2016
+00:39:49,350 --> 00:39:49,360
+
+ 
+
+2017
+00:39:49,360 --> 00:39:51,510
+
+So, it looks empty, but generally it
+
+2018
+00:39:51,510 --> 00:39:51,520
+So, it looks empty, but generally it
+ 
+
+2019
+00:39:51,520 --> 00:39:54,710
+So, it looks empty, but generally it
+not. Like it's uh hide it generally. So,
+
+2020
+00:39:54,710 --> 00:39:54,720
+not. Like it's uh hide it generally. So,
+ 
+
+2021
+00:39:54,720 --> 00:39:57,230
+not. Like it's uh hide it generally. So,
+generally what I do is control A, uh
+
+2022
+00:39:57,230 --> 00:39:57,240
+generally what I do is control A, uh
+ 
+
+2023
+00:39:57,240 --> 00:40:01,310
+generally what I do is control A, uh
+control C. If I paste it somewhere
+
+2024
+00:40:01,310 --> 00:40:01,320
+control C. If I paste it somewhere
+ 
+
+2025
+00:40:01,320 --> 00:40:02,110
+control C. If I paste it somewhere
+See,
+
+2026
+00:40:02,110 --> 00:40:02,120
+See,
+ 
+
+2027
+00:40:02,120 --> 00:40:05,270
+See,
+it has certain data, but somehow it uh
+
+2028
+00:40:05,270 --> 00:40:05,280
+it has certain data, but somehow it uh
+ 
+
+2029
+00:40:05,280 --> 00:40:06,670
+it has certain data, but somehow it uh
+hide it.
+
+2030
+00:40:06,670 --> 00:40:06,680
+hide it.
+ 
+
+2031
+00:40:06,680 --> 00:40:08,230
+hide it.
+So,
+
+2032
+00:40:08,230 --> 00:40:08,240
+So,
+ 
+
+2033
+00:40:08,240 --> 00:40:10,870
+So,
+order ID is 01111. That's what we have
+
+2034
+00:40:10,870 --> 00:40:10,880
+order ID is 01111. That's what we have
+ 
+
+2035
+00:40:10,880 --> 00:40:12,070
+order ID is 01111. That's what we have
+given, right?
+
+2036
+00:40:12,070 --> 00:40:12,080
+given, right?
+ 
+
+2037
+00:40:12,080 --> 00:40:16,070
+given, right?
+01111. Customer and we are just
+
+2038
+00:40:16,070 --> 00:40:16,080
+01111. Customer and we are just
+ 
+
+2039
+00:40:16,080 --> 00:40:17,590
+01111. Customer and we are just
+uh putting product ID. That's all. We
+
+2040
+00:40:17,590 --> 00:40:17,600
+uh putting product ID. That's all. We
+ 
+
+2041
+00:40:17,600 --> 00:40:19,470
+uh putting product ID. That's all. We
+are not adding customer ID, quantity, or
+
+2042
+00:40:19,470 --> 00:40:19,480
+are not adding customer ID, quantity, or
+ 
+
+2043
+00:40:19,480 --> 00:40:21,910
+are not adding customer ID, quantity, or
+everything. Product ID PID 3. That's
+
+2044
+00:40:21,910 --> 00:40:21,920
+everything. Product ID PID 3. That's
+ 
+
+2045
+00:40:21,920 --> 00:40:26,030
+everything. Product ID PID 3. That's
+all. Rest is all null null null.
+
+2046
+00:40:26,030 --> 00:40:26,040
+
+ 
+
+2047
+00:40:26,040 --> 00:40:29,670
+
+So, data is going into the logs
+
+2048
+00:40:29,670 --> 00:40:29,680
+So, data is going into the logs
+ 
+
+2049
+00:40:29,680 --> 00:40:33,430
+So, data is going into the logs
+properly.
+
+2050
+00:40:33,430 --> 00:40:33,440
+
+ 
+
+2051
+00:40:33,440 --> 00:40:36,870
+
+Okay?
+
+2052
+00:40:36,870 --> 00:40:36,880
+
+ 
+
+2053
+00:40:36,880 --> 00:40:39,470
+
+Now, only last part is in the producer
+
+2054
+00:40:39,470 --> 00:40:39,480
+Now, only last part is in the producer
+ 
+
+2055
+00:40:39,480 --> 00:40:43,070
+Now, only last part is in the producer
+is, if you remember from the previous,
+
+2056
+00:40:43,070 --> 00:40:43,080
+is, if you remember from the previous,
+ 
+
+2057
+00:40:43,080 --> 00:40:44,670
+is, if you remember from the previous,
+I told you there is a chance of
+
+2058
+00:40:44,670 --> 00:40:44,680
+I told you there is a chance of
+ 
+
+2059
+00:40:44,680 --> 00:40:47,390
+I told you there is a chance of
+reordering, message reordering, when we
+
+2060
+00:40:47,390 --> 00:40:47,400
+reordering, message reordering, when we
+ 
+
+2061
+00:40:47,400 --> 00:40:50,350
+reordering, message reordering, when we
+set this to config max in-flight request
+
+2062
+00:40:50,350 --> 00:40:50,360
+set this to config max in-flight request
+ 
+
+2063
+00:40:50,360 --> 00:40:52,230
+set this to config max in-flight request
+per connection greater than one. Yes, we
+
+2064
+00:40:52,230 --> 00:40:52,240
+per connection greater than one. Yes, we
+ 
+
+2065
+00:40:52,240 --> 00:40:54,990
+per connection greater than one. Yes, we
+have already set five greater than one.
+
+2066
+00:40:54,990 --> 00:40:55,000
+have already set five greater than one.
+ 
+
+2067
+00:40:55,000 --> 00:40:58,110
+have already set five greater than one.
+Retry is also greater than zero. Yes.
+
+2068
+00:40:58,110 --> 00:40:58,120
+Retry is also greater than zero. Yes.
+ 
+
+2069
+00:40:58,120 --> 00:41:00,230
+Retry is also greater than zero. Yes.
+Then, there is chance of message
+
+2070
+00:41:00,230 --> 00:41:00,240
+Then, there is chance of message
+ 
+
+2071
+00:41:00,240 --> 00:41:02,790
+Then, there is chance of message
+reordering. How to solve this?
+
+2072
+00:41:02,790 --> 00:41:02,800
+reordering. How to solve this?
+ 
+
+2073
+00:41:02,800 --> 00:41:04,990
+reordering. How to solve this?
+I will show you in the next part.
+
+2074
+00:41:04,990 --> 00:41:05,000
+I will show you in the next part.
+ 
+
+2075
+00:41:05,000 --> 00:41:06,950
+I will show you in the next part.
+Any doubt, let me know. We can discuss
+
+2076
+00:41:06,950 --> 00:41:06,960
+Any doubt, let me know. We can discuss
+ 
+
+2077
+00:41:06,960 --> 00:41:10,880
+Any doubt, let me know. We can discuss
+into the comment section. Bye.
+

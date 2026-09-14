@@ -1,0 +1,11755 @@
+1
+00:00:00,000 --> 00:00:02,670
+
+Welcome back and today in even driven
+
+2
+00:00:02,670 --> 00:00:02,680
+Welcome back and today in even driven
+ 
+
+3
+00:00:02,680 --> 00:00:04,670
+Welcome back and today in even driven
+programming we are going to set up
+
+4
+00:00:04,670 --> 00:00:04,680
+programming we are going to set up
+ 
+
+5
+00:00:04,680 --> 00:00:06,310
+programming we are going to set up
+producer. We have already done the
+
+6
+00:00:06,310 --> 00:00:06,320
+producer. We have already done the
+ 
+
+7
+00:00:06,320 --> 00:00:08,350
+producer. We have already done the
+cluster setup. Today we will see
+
+8
+00:00:08,350 --> 00:00:08,360
+cluster setup. Today we will see
+ 
+
+9
+00:00:08,360 --> 00:00:09,750
+cluster setup. Today we will see
+producer setup.
+
+10
+00:00:09,750 --> 00:00:09,760
+producer setup.
+ 
+
+11
+00:00:09,760 --> 00:00:11,710
+producer setup.
+But before we start
+
+12
+00:00:11,710 --> 00:00:11,720
+But before we start
+ 
+
+13
+00:00:11,720 --> 00:00:14,070
+But before we start
+if I show you that
+
+14
+00:00:14,070 --> 00:00:14,080
+if I show you that
+ 
+
+15
+00:00:14,080 --> 00:00:16,510
+if I show you that
+if we are trying to set up producer, it
+
+16
+00:00:16,510 --> 00:00:16,520
+if we are trying to set up producer, it
+ 
+
+17
+00:00:16,520 --> 00:00:19,070
+if we are trying to set up producer, it
+is just a one line of code.
+
+18
+00:00:19,070 --> 00:00:19,080
+is just a one line of code.
+ 
+
+19
+00:00:19,080 --> 00:00:21,590
+is just a one line of code.
+All you need is this auto wiring which
+
+20
+00:00:21,590 --> 00:00:21,600
+All you need is this auto wiring which
+ 
+
+21
+00:00:21,600 --> 00:00:23,630
+All you need is this auto wiring which
+is provided by a spring framework itself
+
+22
+00:00:23,630 --> 00:00:23,640
+is provided by a spring framework itself
+ 
+
+23
+00:00:23,640 --> 00:00:25,270
+is provided by a spring framework itself
+a spring boot.
+
+24
+00:00:25,270 --> 00:00:25,280
+a spring boot.
+ 
+
+25
+00:00:25,280 --> 00:00:27,110
+a spring boot.
+Kafka template and using this you just
+
+26
+00:00:27,110 --> 00:00:27,120
+Kafka template and using this you just
+ 
+
+27
+00:00:27,120 --> 00:00:28,670
+Kafka template and using this you just
+need to do send.
+
+28
+00:00:28,670 --> 00:00:28,680
+need to do send.
+ 
+
+29
+00:00:28,680 --> 00:00:30,510
+need to do send.
+topic
+
+30
+00:00:30,510 --> 00:00:30,520
+topic
+ 
+
+31
+00:00:30,520 --> 00:00:32,030
+topic
+the key
+
+32
+00:00:32,030 --> 00:00:32,040
+the key
+ 
+
+33
+00:00:32,040 --> 00:00:34,590
+the key
+and the value. That's all.
+
+34
+00:00:34,590 --> 00:00:34,600
+and the value. That's all.
+ 
+
+35
+00:00:34,600 --> 00:00:36,430
+and the value. That's all.
+You are able
+
+36
+00:00:36,430 --> 00:00:36,440
+You are able
+ 
+
+37
+00:00:36,440 --> 00:00:40,030
+You are able
+to publish an event to a cluster.
+
+38
+00:00:40,030 --> 00:00:40,040
+to publish an event to a cluster.
+ 
+
+39
+00:00:40,040 --> 00:00:42,110
+to publish an event to a cluster.
+But
+
+40
+00:00:42,110 --> 00:00:42,120
+But
+ 
+
+41
+00:00:42,120 --> 00:00:45,430
+But
+there are lot of things happen behind.
+
+42
+00:00:45,430 --> 00:00:45,440
+there are lot of things happen behind.
+ 
+
+43
+00:00:45,440 --> 00:00:47,790
+there are lot of things happen behind.
+Okay? And if you see
+
+44
+00:00:47,790 --> 00:00:47,800
+Okay? And if you see
+ 
+
+45
+00:00:47,800 --> 00:00:50,030
+Okay? And if you see
+the configurations, there are so many
+
+46
+00:00:50,030 --> 00:00:50,040
+the configurations, there are so many
+ 
+
+47
+00:00:50,040 --> 00:00:51,750
+the configurations, there are so many
+configurations. See, these are all
+
+48
+00:00:51,750 --> 00:00:51,760
+configurations. See, these are all
+ 
+
+49
+00:00:51,760 --> 00:00:53,630
+configurations. See, these are all
+optional configuration.
+
+50
+00:00:53,630 --> 00:00:53,640
+optional configuration.
+ 
+
+51
+00:00:53,640 --> 00:00:56,270
+optional configuration.
+All you need is this.
+
+52
+00:00:56,270 --> 00:00:56,280
+All you need is this.
+ 
+
+53
+00:00:56,280 --> 00:00:58,230
+All you need is this.
+Like which
+
+54
+00:00:58,230 --> 00:00:58,240
+Like which
+ 
+
+55
+00:00:58,240 --> 00:00:59,830
+Like which
+broker
+
+56
+00:00:59,830 --> 00:00:59,840
+broker
+ 
+
+57
+00:00:59,840 --> 00:01:02,430
+broker
+this producer need to talk to. You only
+
+58
+00:01:02,430 --> 00:01:02,440
+this producer need to talk to. You only
+ 
+
+59
+00:01:02,440 --> 00:01:03,950
+this producer need to talk to. You only
+need
+
+60
+00:01:03,950 --> 00:01:03,960
+need
+ 
+
+61
+00:01:03,960 --> 00:01:06,510
+need
+one configuration that is the broker.
+
+62
+00:01:06,510 --> 00:01:06,520
+one configuration that is the broker.
+ 
+
+63
+00:01:06,520 --> 00:01:09,190
+one configuration that is the broker.
+Like which broker this my producer need
+
+64
+00:01:09,190 --> 00:01:09,200
+Like which broker this my producer need
+ 
+
+65
+00:01:09,200 --> 00:01:10,550
+Like which broker this my producer need
+to talk to.
+
+66
+00:01:10,550 --> 00:01:10,560
+to talk to.
+ 
+
+67
+00:01:10,560 --> 00:01:11,550
+to talk to.
+Okay?
+
+68
+00:01:11,550 --> 00:01:11,560
+Okay?
+ 
+
+69
+00:01:11,560 --> 00:01:13,550
+Okay?
+Apart from this all this configuration
+
+70
+00:01:13,550 --> 00:01:13,560
+Apart from this all this configuration
+ 
+
+71
+00:01:13,560 --> 00:01:16,510
+Apart from this all this configuration
+are optional. All you have is one line
+
+72
+00:01:16,510 --> 00:01:16,520
+are optional. All you have is one line
+ 
+
+73
+00:01:16,520 --> 00:01:17,750
+are optional. All you have is one line
+of code
+
+74
+00:01:17,750 --> 00:01:17,760
+of code
+ 
+
+75
+00:01:17,760 --> 00:01:20,030
+of code
+and producer is done.
+
+76
+00:01:20,030 --> 00:01:20,040
+and producer is done.
+ 
+
+77
+00:01:20,040 --> 00:01:21,790
+and producer is done.
+But
+
+78
+00:01:21,790 --> 00:01:21,800
+But
+ 
+
+79
+00:01:21,800 --> 00:01:24,110
+But
+we will not touch very high level.
+
+80
+00:01:24,110 --> 00:01:24,120
+we will not touch very high level.
+ 
+
+81
+00:01:24,120 --> 00:01:27,390
+we will not touch very high level.
+We will try to go in depth. What happen
+
+82
+00:01:27,390 --> 00:01:27,400
+We will try to go in depth. What happen
+ 
+
+83
+00:01:27,400 --> 00:01:29,430
+We will try to go in depth. What happen
+when you do
+
+84
+00:01:29,430 --> 00:01:29,440
+when you do
+ 
+
+85
+00:01:29,440 --> 00:01:32,630
+when you do
+.send? What happen after that? Okay? So
+
+86
+00:01:32,630 --> 00:01:32,640
+.send? What happen after that? Okay? So
+ 
+
+87
+00:01:32,640 --> 00:01:35,310
+.send? What happen after that? Okay? So
+let's start without wasting any more
+
+88
+00:01:35,310 --> 00:01:35,320
+let's start without wasting any more
+ 
+
+89
+00:01:35,320 --> 00:01:36,510
+let's start without wasting any more
+time.
+
+90
+00:01:36,510 --> 00:01:36,520
+time.
+ 
+
+91
+00:01:36,520 --> 00:01:38,630
+time.
+So cluster setup is already done. Now we
+
+92
+00:01:38,630 --> 00:01:38,640
+So cluster setup is already done. Now we
+ 
+
+93
+00:01:38,640 --> 00:01:42,550
+So cluster setup is already done. Now we
+are proceeding toward producer.
+
+94
+00:01:42,550 --> 00:01:42,560
+
+ 
+
+95
+00:01:42,560 --> 00:01:44,230
+
+So before we proceed with producer
+
+96
+00:01:44,230 --> 00:01:44,240
+So before we proceed with producer
+ 
+
+97
+00:01:44,240 --> 00:01:46,110
+So before we proceed with producer
+setup, let's understand the producer
+
+98
+00:01:46,110 --> 00:01:46,120
+setup, let's understand the producer
+ 
+
+99
+00:01:46,120 --> 00:01:48,150
+setup, let's understand the producer
+workflow itself.
+
+100
+00:01:48,150 --> 00:01:48,160
+workflow itself.
+ 
+
+101
+00:01:48,160 --> 00:01:51,590
+workflow itself.
+So when producer do send
+
+102
+00:01:51,590 --> 00:01:51,600
+So when producer do send
+ 
+
+103
+00:01:51,600 --> 00:01:53,510
+So when producer do send
+what happens?
+
+104
+00:01:53,510 --> 00:01:53,520
+what happens?
+ 
+
+105
+00:01:53,520 --> 00:01:56,270
+what happens?
+When producer try to send a message, it
+
+106
+00:01:56,270 --> 00:01:56,280
+When producer try to send a message, it
+ 
+
+107
+00:01:56,280 --> 00:01:58,830
+When producer try to send a message, it
+does not immediately send it to the
+
+108
+00:01:58,830 --> 00:01:58,840
+does not immediately send it to the
+ 
+
+109
+00:01:58,840 --> 00:02:00,270
+does not immediately send it to the
+broker.
+
+110
+00:02:00,270 --> 00:02:00,280
+broker.
+ 
+
+111
+00:02:00,280 --> 00:02:02,030
+broker.
+Okay? Instead,
+
+112
+00:02:02,030 --> 00:02:02,040
+Okay? Instead,
+ 
+
+113
+00:02:02,040 --> 00:02:05,830
+Okay? Instead,
+message goes through multiple stages.
+
+114
+00:02:05,830 --> 00:02:05,840
+message goes through multiple stages.
+ 
+
+115
+00:02:05,840 --> 00:02:08,790
+message goes through multiple stages.
+Okay? Inside the producer itself before
+
+116
+00:02:08,790 --> 00:02:08,800
+Okay? Inside the producer itself before
+ 
+
+117
+00:02:08,800 --> 00:02:11,070
+Okay? Inside the producer itself before
+any network call happens. So, there are
+
+118
+00:02:11,070 --> 00:02:11,080
+any network call happens. So, there are
+ 
+
+119
+00:02:11,080 --> 00:02:14,190
+any network call happens. So, there are
+multiple stages which
+
+120
+00:02:14,190 --> 00:02:14,200
+multiple stages which
+ 
+
+121
+00:02:14,200 --> 00:02:19,070
+multiple stages which
+your event or your message pass through.
+
+122
+00:02:19,070 --> 00:02:19,080
+
+ 
+
+123
+00:02:19,080 --> 00:02:21,670
+
+Let's understand each stage one by one,
+
+124
+00:02:21,670 --> 00:02:21,680
+Let's understand each stage one by one,
+ 
+
+125
+00:02:21,680 --> 00:02:25,670
+Let's understand each stage one by one,
+which is very, very important. Okay?
+
+126
+00:02:25,670 --> 00:02:25,680
+which is very, very important. Okay?
+ 
+
+127
+00:02:25,680 --> 00:02:26,710
+which is very, very important. Okay?
+Say,
+
+128
+00:02:26,710 --> 00:02:26,720
+Say,
+ 
+
+129
+00:02:26,720 --> 00:02:29,630
+Say,
+this is the
+
+130
+00:02:29,630 --> 00:02:29,640
+this is the
+ 
+
+131
+00:02:29,640 --> 00:02:31,630
+this is the
+Kafka template dot send message we have
+
+132
+00:02:31,630 --> 00:02:31,640
+Kafka template dot send message we have
+ 
+
+133
+00:02:31,640 --> 00:02:33,190
+Kafka template dot send message we have
+to send. We have provided the topic
+
+134
+00:02:33,190 --> 00:02:33,200
+to send. We have provided the topic
+ 
+
+135
+00:02:33,200 --> 00:02:34,310
+to send. We have provided the topic
+name,
+
+136
+00:02:34,310 --> 00:02:34,320
+name,
+ 
+
+137
+00:02:34,320 --> 00:02:37,070
+name,
+the key, and the value, the message
+
+138
+00:02:37,070 --> 00:02:37,080
+the key, and the value, the message
+ 
+
+139
+00:02:37,080 --> 00:02:39,750
+the key, and the value, the message
+which you want to publish.
+
+140
+00:02:39,750 --> 00:02:39,760
+which you want to publish.
+ 
+
+141
+00:02:39,760 --> 00:02:42,270
+which you want to publish.
+After you done that, inside this send,
+
+142
+00:02:42,270 --> 00:02:42,280
+After you done that, inside this send,
+ 
+
+143
+00:02:42,280 --> 00:02:44,190
+After you done that, inside this send,
+what happen is
+
+144
+00:02:44,190 --> 00:02:44,200
+what happen is
+ 
+
+145
+00:02:44,200 --> 00:02:45,790
+what happen is
+the first stage is
+
+146
+00:02:45,790 --> 00:02:45,800
+the first stage is
+ 
+
+147
+00:02:45,800 --> 00:02:49,710
+the first stage is
+serializer.
+
+148
+00:02:49,710 --> 00:02:49,720
+
+ 
+
+149
+00:02:49,720 --> 00:02:52,430
+
+So, our message or our event, whatever
+
+150
+00:02:52,430 --> 00:02:52,440
+So, our message or our event, whatever
+ 
+
+151
+00:02:52,440 --> 00:02:54,990
+So, our message or our event, whatever
+this, okay?
+
+152
+00:02:54,990 --> 00:02:55,000
+this, okay?
+ 
+
+153
+00:02:55,000 --> 00:02:57,670
+this, okay?
+Is generally a Java object.
+
+154
+00:02:57,670 --> 00:02:57,680
+Is generally a Java object.
+ 
+
+155
+00:02:57,680 --> 00:03:01,150
+Is generally a Java object.
+But, Kafka understand only bytes. Kafka
+
+156
+00:03:01,150 --> 00:03:01,160
+But, Kafka understand only bytes. Kafka
+ 
+
+157
+00:03:01,160 --> 00:03:04,190
+But, Kafka understand only bytes. Kafka
+do not understand a string, custom POJO,
+
+158
+00:03:04,190 --> 00:03:04,200
+do not understand a string, custom POJO,
+ 
+
+159
+00:03:04,200 --> 00:03:07,150
+do not understand a string, custom POJO,
+JSON, nothing. All it understand it
+
+160
+00:03:07,150 --> 00:03:07,160
+JSON, nothing. All it understand it
+ 
+
+161
+00:03:07,160 --> 00:03:08,830
+JSON, nothing. All it understand it
+bytes.
+
+162
+00:03:08,830 --> 00:03:08,840
+bytes.
+ 
+
+163
+00:03:08,840 --> 00:03:11,229
+bytes.
+And that's where your serialization is
+
+164
+00:03:11,229 --> 00:03:11,239
+And that's where your serialization is
+ 
+
+165
+00:03:11,239 --> 00:03:14,070
+And that's where your serialization is
+required. Kafka does not know what is
+
+166
+00:03:14,070 --> 00:03:14,080
+required. Kafka does not know what is
+ 
+
+167
+00:03:14,080 --> 00:03:16,509
+required. Kafka does not know what is
+the data type of our message,
+
+168
+00:03:16,509 --> 00:03:16,519
+the data type of our message,
+ 
+
+169
+00:03:16,519 --> 00:03:17,630
+the data type of our message,
+whether it's a
+
+170
+00:03:17,630 --> 00:03:17,640
+whether it's a
+ 
+
+171
+00:03:17,640 --> 00:03:21,630
+whether it's a
+integer, string, custom POJO, JSON, etc.
+
+172
+00:03:21,630 --> 00:03:21,640
+integer, string, custom POJO, JSON, etc.
+ 
+
+173
+00:03:21,640 --> 00:03:25,430
+integer, string, custom POJO, JSON, etc.
+And for that itself this stage exist.
+
+174
+00:03:25,430 --> 00:03:25,440
+And for that itself this stage exist.
+ 
+
+175
+00:03:25,440 --> 00:03:27,830
+And for that itself this stage exist.
+And if serialization stage fails,
+
+176
+00:03:27,830 --> 00:03:27,840
+And if serialization stage fails,
+ 
+
+177
+00:03:27,840 --> 00:03:30,590
+And if serialization stage fails,
+message will not move to the next stage.
+
+178
+00:03:30,590 --> 00:03:30,600
+message will not move to the next stage.
+ 
+
+179
+00:03:30,600 --> 00:03:33,190
+message will not move to the next stage.
+Okay? So, in serialization stage, what
+
+180
+00:03:33,190 --> 00:03:33,200
+Okay? So, in serialization stage, what
+ 
+
+181
+00:03:33,200 --> 00:03:35,590
+Okay? So, in serialization stage, what
+happen is two things happen.
+
+182
+00:03:35,590 --> 00:03:35,600
+happen is two things happen.
+ 
+
+183
+00:03:35,600 --> 00:03:38,110
+happen is two things happen.
+So, key is serialized and value is
+
+184
+00:03:38,110 --> 00:03:38,120
+So, key is serialized and value is
+ 
+
+185
+00:03:38,120 --> 00:03:40,390
+So, key is serialized and value is
+serialized. So, this two,
+
+186
+00:03:40,390 --> 00:03:40,400
+serialized. So, this two,
+ 
+
+187
+00:03:40,400 --> 00:03:42,710
+serialized. So, this two,
+key and value, because these two things
+
+188
+00:03:42,710 --> 00:03:42,720
+key and value, because these two things
+ 
+
+189
+00:03:42,720 --> 00:03:45,430
+key and value, because these two things
+ultimately is stored
+
+190
+00:03:45,430 --> 00:03:45,440
+ultimately is stored
+ 
+
+191
+00:03:45,440 --> 00:03:47,550
+ultimately is stored
+in Kafka.
+
+192
+00:03:47,550 --> 00:03:47,560
+in Kafka.
+ 
+
+193
+00:03:47,560 --> 00:03:50,350
+in Kafka.
+Okay? So, you can say that these two are
+
+194
+00:03:50,350 --> 00:03:50,360
+Okay? So, you can say that these two are
+ 
+
+195
+00:03:50,360 --> 00:03:56,590
+Okay? So, you can say that these two are
+actually serialized.
+
+196
+00:03:56,590 --> 00:03:56,600
+
+ 
+
+197
+00:03:56,600 --> 00:03:59,190
+
+Every serializer implement this
+
+198
+00:03:59,190 --> 00:03:59,200
+Every serializer implement this
+ 
+
+199
+00:03:59,200 --> 00:04:00,830
+Every serializer implement this
+interface. So, there is an interface
+
+200
+00:04:00,830 --> 00:04:00,840
+interface. So, there is an interface
+ 
+
+201
+00:04:00,840 --> 00:04:03,990
+interface. So, there is an interface
+public interface serializer. Okay?
+
+202
+00:04:03,990 --> 00:04:04,000
+public interface serializer. Okay?
+ 
+
+203
+00:04:04,000 --> 00:04:06,230
+public interface serializer. Okay?
+Every serializer there are already so
+
+204
+00:04:06,230 --> 00:04:06,240
+Every serializer there are already so
+ 
+
+205
+00:04:06,240 --> 00:04:08,790
+Every serializer there are already so
+many built-in serializer present.
+
+206
+00:04:08,790 --> 00:04:08,800
+many built-in serializer present.
+ 
+
+207
+00:04:08,800 --> 00:04:09,670
+many built-in serializer present.
+String
+
+208
+00:04:09,670 --> 00:04:09,680
+String
+ 
+
+209
+00:04:09,680 --> 00:04:11,830
+String
+serializer, integer serializer, long,
+
+210
+00:04:11,830 --> 00:04:11,840
+serializer, integer serializer, long,
+ 
+
+211
+00:04:11,840 --> 00:04:15,190
+serializer, integer serializer, long,
+double, float, short, JSON serializer.
+
+212
+00:04:15,190 --> 00:04:15,200
+double, float, short, JSON serializer.
+ 
+
+213
+00:04:15,200 --> 00:04:16,509
+double, float, short, JSON serializer.
+All this
+
+214
+00:04:16,509 --> 00:04:16,519
+All this
+ 
+
+215
+00:04:16,519 --> 00:04:18,670
+All this
+implement this
+
+216
+00:04:18,670 --> 00:04:18,680
+implement this
+ 
+
+217
+00:04:18,680 --> 00:04:21,030
+implement this
+serializer interface.
+
+218
+00:04:21,030 --> 00:04:21,040
+serializer interface.
+ 
+
+219
+00:04:21,040 --> 00:04:23,150
+serializer interface.
+We don't have to write any of this.
+
+220
+00:04:23,150 --> 00:04:23,160
+We don't have to write any of this.
+ 
+
+221
+00:04:23,160 --> 00:04:25,190
+We don't have to write any of this.
+These are all exist. Okay? JSON
+
+222
+00:04:25,190 --> 00:04:25,200
+These are all exist. Okay? JSON
+ 
+
+223
+00:04:25,200 --> 00:04:28,390
+These are all exist. Okay? JSON
+serializer is used when you have
+
+224
+00:04:28,390 --> 00:04:28,400
+serializer is used when you have
+ 
+
+225
+00:04:28,400 --> 00:04:30,550
+serializer is used when you have
+to convert any POJO.
+
+226
+00:04:30,550 --> 00:04:30,560
+to convert any POJO.
+ 
+
+227
+00:04:30,560 --> 00:04:33,510
+to convert any POJO.
+Okay? Plain old Java objects.
+
+228
+00:04:33,510 --> 00:04:33,520
+Okay? Plain old Java objects.
+ 
+
+229
+00:04:33,520 --> 00:04:34,950
+Okay? Plain old Java objects.
+So, that
+
+230
+00:04:34,950 --> 00:04:34,960
+So, that
+ 
+
+231
+00:04:34,960 --> 00:04:37,150
+So, that
+JSON serializer can be used.
+
+232
+00:04:37,150 --> 00:04:37,160
+JSON serializer can be used.
+ 
+
+233
+00:04:37,160 --> 00:04:39,590
+JSON serializer can be used.
+But yes, we can also write our own
+
+234
+00:04:39,590 --> 00:04:39,600
+But yes, we can also write our own
+ 
+
+235
+00:04:39,600 --> 00:04:41,430
+But yes, we can also write our own
+custom serializer.
+
+236
+00:04:41,430 --> 00:04:41,440
+custom serializer.
+ 
+
+237
+00:04:41,440 --> 00:04:42,990
+custom serializer.
+Sometime what we have to do is we have
+
+238
+00:04:42,990 --> 00:04:43,000
+Sometime what we have to do is we have
+ 
+
+239
+00:04:43,000 --> 00:04:45,430
+Sometime what we have to do is we have
+to remove sensitive fields before even
+
+240
+00:04:45,430 --> 00:04:45,440
+to remove sensitive fields before even
+ 
+
+241
+00:04:45,440 --> 00:04:46,790
+to remove sensitive fields before even
+sending.
+
+242
+00:04:46,790 --> 00:04:46,800
+sending.
+ 
+
+243
+00:04:46,800 --> 00:04:49,750
+sending.
+Okay? We have to encrypt the data before
+
+244
+00:04:49,750 --> 00:04:49,760
+Okay? We have to encrypt the data before
+ 
+
+245
+00:04:49,760 --> 00:04:52,150
+Okay? We have to encrypt the data before
+it converted to bytes. Okay?
+
+246
+00:04:52,150 --> 00:04:52,160
+it converted to bytes. Okay?
+ 
+
+247
+00:04:52,160 --> 00:04:54,470
+it converted to bytes. Okay?
+So, in that case we can write our own
+
+248
+00:04:54,470 --> 00:04:54,480
+So, in that case we can write our own
+ 
+
+249
+00:04:54,480 --> 00:04:59,110
+So, in that case we can write our own
+custom serializer.
+
+250
+00:04:59,110 --> 00:04:59,120
+
+ 
+
+251
+00:04:59,120 --> 00:05:02,590
+
+So, stage one is clear?
+
+252
+00:05:02,590 --> 00:05:02,600
+So, stage one is clear?
+ 
+
+253
+00:05:02,600 --> 00:05:05,270
+So, stage one is clear?
+While we will do the implement, the
+
+254
+00:05:05,270 --> 00:05:05,280
+While we will do the implement, the
+ 
+
+255
+00:05:05,280 --> 00:05:08,390
+While we will do the implement, the
+setup, in that way in that part I will
+
+256
+00:05:08,390 --> 00:05:08,400
+setup, in that way in that part I will
+ 
+
+257
+00:05:08,400 --> 00:05:10,110
+setup, in that way in that part I will
+tell you how to
+
+258
+00:05:10,110 --> 00:05:10,120
+tell you how to
+ 
+
+259
+00:05:10,120 --> 00:05:13,070
+tell you how to
+add serializer. But first step is to
+
+260
+00:05:13,070 --> 00:05:13,080
+add serializer. But first step is to
+ 
+
+261
+00:05:13,080 --> 00:05:14,909
+add serializer. But first step is to
+understand it.
+
+262
+00:05:14,909 --> 00:05:14,919
+understand it.
+ 
+
+263
+00:05:14,919 --> 00:05:16,990
+understand it.
+Okay? So,
+
+264
+00:05:16,990 --> 00:05:17,000
+Okay? So,
+ 
+
+265
+00:05:17,000 --> 00:05:19,230
+Okay? So,
+have you understood the first part why
+
+266
+00:05:19,230 --> 00:05:19,240
+have you understood the first part why
+ 
+
+267
+00:05:19,240 --> 00:05:23,030
+have you understood the first part why
+serializer is required?
+
+268
+00:05:23,030 --> 00:05:23,040
+
+ 
+
+269
+00:05:23,040 --> 00:05:26,150
+
+The second stage is partitioner.
+
+270
+00:05:26,150 --> 00:05:26,160
+The second stage is partitioner.
+ 
+
+271
+00:05:26,160 --> 00:05:28,790
+The second stage is partitioner.
+Okay? So, now let's say your key and
+
+272
+00:05:28,790 --> 00:05:28,800
+Okay? So, now let's say your key and
+ 
+
+273
+00:05:28,800 --> 00:05:33,030
+Okay? So, now let's say your key and
+value both are converted to bytes. Okay?
+
+274
+00:05:33,030 --> 00:05:33,040
+value both are converted to bytes. Okay?
+ 
+
+275
+00:05:33,040 --> 00:05:34,630
+value both are converted to bytes. Okay?
+Now this
+
+276
+00:05:34,630 --> 00:05:34,640
+Now this
+ 
+
+277
+00:05:34,640 --> 00:05:37,070
+Now this
+pass to the partitioner.
+
+278
+00:05:37,070 --> 00:05:37,080
+pass to the partitioner.
+ 
+
+279
+00:05:37,080 --> 00:05:39,470
+pass to the partitioner.
+And also, if you open this, there is
+
+280
+00:05:39,470 --> 00:05:39,480
+And also, if you open this, there is
+ 
+
+281
+00:05:39,480 --> 00:05:42,350
+And also, if you open this, there is
+some class called I think Kafka producer
+
+282
+00:05:42,350 --> 00:05:42,360
+some class called I think Kafka producer
+ 
+
+283
+00:05:42,360 --> 00:05:43,950
+some class called I think Kafka producer
+class.
+
+284
+00:05:43,950 --> 00:05:43,960
+class.
+ 
+
+285
+00:05:43,960 --> 00:05:45,990
+class.
+So, if you see this Uh, Kafka producer
+
+286
+00:05:45,990 --> 00:05:46,000
+So, if you see this Uh, Kafka producer
+ 
+
+287
+00:05:46,000 --> 00:05:49,550
+So, if you see this Uh, Kafka producer
+class, they have do send method.
+
+288
+00:05:49,550 --> 00:05:49,560
+class, they have do send method.
+ 
+
+289
+00:05:49,560 --> 00:05:52,110
+class, they have do send method.
+In that, you can so uh see this stages
+
+290
+00:05:52,110 --> 00:05:52,120
+In that, you can so uh see this stages
+ 
+
+291
+00:05:52,120 --> 00:05:53,870
+In that, you can so uh see this stages
+itself. So, let's see.
+
+292
+00:05:53,870 --> 00:05:53,880
+itself. So, let's see.
+ 
+
+293
+00:05:53,880 --> 00:05:55,790
+itself. So, let's see.
+First is serialize.
+
+294
+00:05:55,790 --> 00:05:55,800
+First is serialize.
+ 
+
+295
+00:05:55,800 --> 00:05:57,510
+First is serialize.
+After serialize, they might have to a
+
+296
+00:05:57,510 --> 00:05:57,520
+After serialize, they might have to a
+ 
+
+297
+00:05:57,520 --> 00:05:59,070
+After serialize, they might have to a
+partition.
+
+298
+00:05:59,070 --> 00:05:59,080
+partition.
+ 
+
+299
+00:05:59,080 --> 00:06:00,710
+partition.
+Okay? So,
+
+300
+00:06:00,710 --> 00:06:00,720
+Okay? So,
+ 
+
+301
+00:06:00,720 --> 00:06:02,670
+Okay? So,
+we can you can also put a debugger point
+
+302
+00:06:02,670 --> 00:06:02,680
+we can you can also put a debugger point
+ 
+
+303
+00:06:02,680 --> 00:06:04,710
+we can you can also put a debugger point
+in this class, and you can also check
+
+304
+00:06:04,710 --> 00:06:04,720
+in this class, and you can also check
+ 
+
+305
+00:06:04,720 --> 00:06:07,590
+in this class, and you can also check
+this stages.
+
+306
+00:06:07,590 --> 00:06:07,600
+
+ 
+
+307
+00:06:07,600 --> 00:06:09,990
+
+Uh, second is partitioner. So, at this
+
+308
+00:06:09,990 --> 00:06:10,000
+Uh, second is partitioner. So, at this
+ 
+
+309
+00:06:10,000 --> 00:06:11,950
+Uh, second is partitioner. So, at this
+uh stage,
+
+310
+00:06:11,950 --> 00:06:11,960
+uh stage,
+ 
+
+311
+00:06:11,960 --> 00:06:14,630
+uh stage,
+your event, your message goes to which
+
+312
+00:06:14,630 --> 00:06:14,640
+your event, your message goes to which
+ 
+
+313
+00:06:14,640 --> 00:06:17,350
+your event, your message goes to which
+partition, that is decided.
+
+314
+00:06:17,350 --> 00:06:17,360
+partition, that is decided.
+ 
+
+315
+00:06:17,360 --> 00:06:19,990
+partition, that is decided.
+Okay? So, what input it takes here, if
+
+316
+00:06:19,990 --> 00:06:20,000
+Okay? So, what input it takes here, if
+ 
+
+317
+00:06:20,000 --> 00:06:23,909
+Okay? So, what input it takes here, if
+you see, the partition
+
+318
+00:06:23,909 --> 00:06:23,919
+
+ 
+
+319
+00:06:23,919 --> 00:06:25,430
+
+partition.dot
+
+320
+00:06:25,430 --> 00:06:25,440
+partition.dot
+ 
+
+321
+00:06:25,440 --> 00:06:27,350
+partition.dot
+So, partitioner.partition, it calls
+
+322
+00:06:27,350 --> 00:06:27,360
+So, partitioner.partition, it calls
+ 
+
+323
+00:06:27,360 --> 00:06:30,070
+So, partitioner.partition, it calls
+this. It calls this interface, this
+
+324
+00:06:30,070 --> 00:06:30,080
+this. It calls this interface, this
+ 
+
+325
+00:06:30,080 --> 00:06:31,909
+this. It calls this interface, this
+method.
+
+326
+00:06:31,909 --> 00:06:31,919
+method.
+ 
+
+327
+00:06:31,919 --> 00:06:34,390
+method.
+So, it takes your topic, key, key bytes,
+
+328
+00:06:34,390 --> 00:06:34,400
+So, it takes your topic, key, key bytes,
+ 
+
+329
+00:06:34,400 --> 00:06:36,710
+So, it takes your topic, key, key bytes,
+value, value bytes, cluster. So, this is
+
+330
+00:06:36,710 --> 00:06:36,720
+value, value bytes, cluster. So, this is
+ 
+
+331
+00:06:36,720 --> 00:06:38,470
+value, value bytes, cluster. So, this is
+the input.
+
+332
+00:06:38,470 --> 00:06:38,480
+the input.
+ 
+
+333
+00:06:38,480 --> 00:06:40,310
+the input.
+See, we have already So, you have a key,
+
+334
+00:06:40,310 --> 00:06:40,320
+See, we have already So, you have a key,
+ 
+
+335
+00:06:40,320 --> 00:06:41,990
+See, we have already So, you have a key,
+you have a value. You have already
+
+336
+00:06:41,990 --> 00:06:42,000
+you have a value. You have already
+ 
+
+337
+00:06:42,000 --> 00:06:44,190
+you have a value. You have already
+converted them to the bytes.
+
+338
+00:06:44,190 --> 00:06:44,200
+converted them to the bytes.
+ 
+
+339
+00:06:44,200 --> 00:06:46,710
+converted them to the bytes.
+So, you have your topic, key, key bytes,
+
+340
+00:06:46,710 --> 00:06:46,720
+So, you have your topic, key, key bytes,
+ 
+
+341
+00:06:46,720 --> 00:06:49,310
+So, you have your topic, key, key bytes,
+value, value bytes, and the cluster.
+
+342
+00:06:49,310 --> 00:06:49,320
+value, value bytes, and the cluster.
+ 
+
+343
+00:06:49,320 --> 00:06:51,870
+value, value bytes, and the cluster.
+You pass it to the partitioner. What it
+
+344
+00:06:51,870 --> 00:06:51,880
+You pass it to the partitioner. What it
+ 
+
+345
+00:06:51,880 --> 00:06:53,870
+You pass it to the partitioner. What it
+return? Partition number.
+
+346
+00:06:53,870 --> 00:06:53,880
+return? Partition number.
+ 
+
+347
+00:06:53,880 --> 00:06:55,870
+return? Partition number.
+For this topic,
+
+348
+00:06:55,870 --> 00:06:55,880
+For this topic,
+ 
+
+349
+00:06:55,880 --> 00:06:57,670
+For this topic,
+what's the partition number this event
+
+350
+00:06:57,670 --> 00:06:57,680
+what's the partition number this event
+ 
+
+351
+00:06:57,680 --> 00:07:00,390
+what's the partition number this event
+should go?
+
+352
+00:07:00,390 --> 00:07:00,400
+
+ 
+
+353
+00:07:00,400 --> 00:07:03,470
+
+Okay? So,
+
+354
+00:07:03,470 --> 00:07:03,480
+Okay? So,
+ 
+
+355
+00:07:03,480 --> 00:07:07,310
+Okay? So,
+this is the work of the partitioner.
+
+356
+00:07:07,310 --> 00:07:07,320
+this is the work of the partitioner.
+ 
+
+357
+00:07:07,320 --> 00:07:10,070
+this is the work of the partitioner.
+So, there are multiple cases.
+
+358
+00:07:10,070 --> 00:07:10,080
+So, there are multiple cases.
+ 
+
+359
+00:07:10,080 --> 00:07:13,390
+So, there are multiple cases.
+The case one is the partition explicitly
+
+360
+00:07:13,390 --> 00:07:13,400
+The case one is the partition explicitly
+ 
+
+361
+00:07:13,400 --> 00:07:15,070
+The case one is the partition explicitly
+provided.
+
+362
+00:07:15,070 --> 00:07:15,080
+provided.
+ 
+
+363
+00:07:15,080 --> 00:07:17,110
+provided.
+So, when we do send,
+
+364
+00:07:17,110 --> 00:07:17,120
+So, when we do send,
+ 
+
+365
+00:07:17,120 --> 00:07:19,350
+So, when we do send,
+right? In that, it has multiple
+
+366
+00:07:19,350 --> 00:07:19,360
+right? In that, it has multiple
+ 
+
+367
+00:07:19,360 --> 00:07:21,710
+right? In that, it has multiple
+overloaded methods.
+
+368
+00:07:21,710 --> 00:07:21,720
+overloaded methods.
+ 
+
+369
+00:07:21,720 --> 00:07:24,390
+overloaded methods.
+So, we can make use of one method that
+
+370
+00:07:24,390 --> 00:07:24,400
+So, we can make use of one method that
+ 
+
+371
+00:07:24,400 --> 00:07:26,630
+So, we can make use of one method that
+topic, we can also provide a partition
+
+372
+00:07:26,630 --> 00:07:26,640
+topic, we can also provide a partition
+ 
+
+373
+00:07:26,640 --> 00:07:28,390
+topic, we can also provide a partition
+number directly itself.
+
+374
+00:07:28,390 --> 00:07:28,400
+number directly itself.
+ 
+
+375
+00:07:28,400 --> 00:07:30,030
+number directly itself.
+So, in that case, you can say that this
+
+376
+00:07:30,030 --> 00:07:30,040
+So, in that case, you can say that this
+ 
+
+377
+00:07:30,040 --> 00:07:32,150
+So, in that case, you can say that this
+is like does nothing. You have already
+
+378
+00:07:32,150 --> 00:07:32,160
+is like does nothing. You have already
+ 
+
+379
+00:07:32,160 --> 00:07:34,270
+is like does nothing. You have already
+provided with partition
+
+380
+00:07:34,270 --> 00:07:34,280
+provided with partition
+ 
+
+381
+00:07:34,280 --> 00:07:37,230
+provided with partition
+your message has to go.
+
+382
+00:07:37,230 --> 00:07:37,240
+your message has to go.
+ 
+
+383
+00:07:37,240 --> 00:07:41,909
+your message has to go.
+The second case is if key is provided.
+
+384
+00:07:41,909 --> 00:07:41,919
+The second case is if key is provided.
+ 
+
+385
+00:07:41,919 --> 00:07:44,630
+The second case is if key is provided.
+So, this ensure the same key always goes
+
+386
+00:07:44,630 --> 00:07:44,640
+So, this ensure the same key always goes
+ 
+
+387
+00:07:44,640 --> 00:07:46,310
+So, this ensure the same key always goes
+to the same partition.
+
+388
+00:07:46,310 --> 00:07:46,320
+to the same partition.
+ 
+
+389
+00:07:46,320 --> 00:07:47,990
+to the same partition.
+Like in the cluster I have showed you,
+
+390
+00:07:47,990 --> 00:07:48,000
+Like in the cluster I have showed you,
+ 
+
+391
+00:07:48,000 --> 00:07:49,830
+Like in the cluster I have showed you,
+right? Cluster setup also or
+
+392
+00:07:49,830 --> 00:07:49,840
+right? Cluster setup also or
+ 
+
+393
+00:07:49,840 --> 00:07:51,990
+right? Cluster setup also or
+architecture itself.
+
+394
+00:07:51,990 --> 00:07:52,000
+architecture itself.
+ 
+
+395
+00:07:52,000 --> 00:07:54,830
+architecture itself.
+That whatever the key you have provided
+
+396
+00:07:54,830 --> 00:07:54,840
+That whatever the key you have provided
+ 
+
+397
+00:07:54,840 --> 00:07:58,830
+That whatever the key you have provided
+it will make use of like, okay, hash
+
+398
+00:07:58,830 --> 00:07:58,840
+it will make use of like, okay, hash
+ 
+
+399
+00:07:58,840 --> 00:08:00,110
+it will make use of like, okay, hash
+like mod
+
+400
+00:08:00,110 --> 00:08:00,120
+like mod
+ 
+
+401
+00:08:00,120 --> 00:08:02,270
+like mod
+partition number.
+
+402
+00:08:02,270 --> 00:08:02,280
+partition number.
+ 
+
+403
+00:08:02,280 --> 00:08:04,790
+partition number.
+So, some formula it will do
+
+404
+00:08:04,790 --> 00:08:04,800
+So, some formula it will do
+ 
+
+405
+00:08:04,800 --> 00:08:07,710
+So, some formula it will do
+and it will come up with the
+
+406
+00:08:07,710 --> 00:08:07,720
+and it will come up with the
+ 
+
+407
+00:08:07,720 --> 00:08:09,390
+and it will come up with the
+partition number.
+
+408
+00:08:09,390 --> 00:08:09,400
+partition number.
+ 
+
+409
+00:08:09,400 --> 00:08:11,550
+partition number.
+Like this.
+
+410
+00:08:11,550 --> 00:08:11,560
+Like this.
+ 
+
+411
+00:08:11,560 --> 00:08:13,310
+Like this.
+Okay?
+
+412
+00:08:13,310 --> 00:08:13,320
+Okay?
+ 
+
+413
+00:08:13,320 --> 00:08:14,790
+Okay?
+So,
+
+414
+00:08:14,790 --> 00:08:14,800
+So,
+ 
+
+415
+00:08:14,800 --> 00:08:16,790
+So,
+you are using this overloaded method
+
+416
+00:08:16,790 --> 00:08:16,800
+you are using this overloaded method
+ 
+
+417
+00:08:16,800 --> 00:08:18,790
+you are using this overloaded method
+where you provide a topic, key, and the
+
+418
+00:08:18,790 --> 00:08:18,800
+where you provide a topic, key, and the
+ 
+
+419
+00:08:18,800 --> 00:08:20,350
+where you provide a topic, key, and the
+data.
+
+420
+00:08:20,350 --> 00:08:20,360
+data.
+ 
+
+421
+00:08:20,360 --> 00:08:22,710
+data.
+Okay, and on this key the partition run
+
+422
+00:08:22,710 --> 00:08:22,720
+Okay, and on this key the partition run
+ 
+
+423
+00:08:22,720 --> 00:08:24,110
+Okay, and on this key the partition run
+this formula.
+
+424
+00:08:24,110 --> 00:08:24,120
+this formula.
+ 
+
+425
+00:08:24,120 --> 00:08:25,870
+this formula.
+Like hash of whatever the key bytes you
+
+426
+00:08:25,870 --> 00:08:25,880
+Like hash of whatever the key bytes you
+ 
+
+427
+00:08:25,880 --> 00:08:27,750
+Like hash of whatever the key bytes you
+have provided mod number of partitions
+
+428
+00:08:27,750 --> 00:08:27,760
+have provided mod number of partitions
+ 
+
+429
+00:08:27,760 --> 00:08:29,790
+have provided mod number of partitions
+available. And it come up with the
+
+430
+00:08:29,790 --> 00:08:29,800
+available. And it come up with the
+ 
+
+431
+00:08:29,800 --> 00:08:33,469
+available. And it come up with the
+partition number.
+
+432
+00:08:33,469 --> 00:08:33,479
+
+ 
+
+433
+00:08:33,479 --> 00:08:36,510
+
+Case three is no key is provided.
+
+434
+00:08:36,510 --> 00:08:36,520
+Case three is no key is provided.
+ 
+
+435
+00:08:36,520 --> 00:08:38,270
+Case three is no key is provided.
+Now, this is also very important. So,
+
+436
+00:08:38,270 --> 00:08:38,280
+Now, this is also very important. So,
+ 
+
+437
+00:08:38,280 --> 00:08:40,070
+Now, this is also very important. So,
+there is also one more overloaded method
+
+438
+00:08:40,070 --> 00:08:40,080
+there is also one more overloaded method
+ 
+
+439
+00:08:40,080 --> 00:08:42,430
+there is also one more overloaded method
+send where you have only topic and the
+
+440
+00:08:42,430 --> 00:08:42,440
+send where you have only topic and the
+ 
+
+441
+00:08:42,440 --> 00:08:45,829
+send where you have only topic and the
+value. There is no key.
+
+442
+00:08:45,829 --> 00:08:45,839
+value. There is no key.
+ 
+
+443
+00:08:45,839 --> 00:08:48,470
+value. There is no key.
+Okay, no key, no partition. So, now in
+
+444
+00:08:48,470 --> 00:08:48,480
+Okay, no key, no partition. So, now in
+ 
+
+445
+00:08:48,480 --> 00:08:51,110
+Okay, no key, no partition. So, now in
+which partition it should go?
+
+446
+00:08:51,110 --> 00:08:51,120
+which partition it should go?
+ 
+
+447
+00:08:51,120 --> 00:08:53,270
+which partition it should go?
+So, generally
+
+448
+00:08:53,270 --> 00:08:53,280
+So, generally
+ 
+
+449
+00:08:53,280 --> 00:08:56,310
+So, generally
+we say that it's round robin strategy.
+
+450
+00:08:56,310 --> 00:08:56,320
+we say that it's round robin strategy.
+ 
+
+451
+00:08:56,320 --> 00:08:59,710
+we say that it's round robin strategy.
+Okay, let's say for this topic you have
+
+452
+00:08:59,710 --> 00:08:59,720
+Okay, let's say for this topic you have
+ 
+
+453
+00:08:59,720 --> 00:09:01,390
+Okay, let's say for this topic you have
+three partition, partition zero,
+
+454
+00:09:01,390 --> 00:09:01,400
+three partition, partition zero,
+ 
+
+455
+00:09:01,400 --> 00:09:03,550
+three partition, partition zero,
+partition one, partition two for topic
+
+456
+00:09:03,550 --> 00:09:03,560
+partition one, partition two for topic
+ 
+
+457
+00:09:03,560 --> 00:09:04,910
+partition one, partition two for topic
+A.
+
+458
+00:09:04,910 --> 00:09:04,920
+A.
+ 
+
+459
+00:09:04,920 --> 00:09:07,550
+A.
+Generally when we say that
+
+460
+00:09:07,550 --> 00:09:07,560
+Generally when we say that
+ 
+
+461
+00:09:07,560 --> 00:09:10,829
+Generally when we say that
+if you don't provide key
+
+462
+00:09:10,829 --> 00:09:10,839
+if you don't provide key
+ 
+
+463
+00:09:10,839 --> 00:09:13,270
+if you don't provide key
+what it will do producer will do round
+
+464
+00:09:13,270 --> 00:09:13,280
+what it will do producer will do round
+ 
+
+465
+00:09:13,280 --> 00:09:16,390
+what it will do producer will do round
+robin. First it will pick P0, then P1,
+
+466
+00:09:16,390 --> 00:09:16,400
+robin. First it will pick P0, then P1,
+ 
+
+467
+00:09:16,400 --> 00:09:19,390
+robin. First it will pick P0, then P1,
+then P2. After that P0, P1, P2.
+
+468
+00:09:19,390 --> 00:09:19,400
+then P2. After that P0, P1, P2.
+ 
+
+469
+00:09:19,400 --> 00:09:22,150
+then P2. After that P0, P1, P2.
+This is generally you can say that
+
+470
+00:09:22,150 --> 00:09:22,160
+This is generally you can say that
+ 
+
+471
+00:09:22,160 --> 00:09:25,030
+This is generally you can say that
+a pre-Kafka strategy, pre-Kafka 2.4
+
+472
+00:09:25,030 --> 00:09:25,040
+a pre-Kafka strategy, pre-Kafka 2.4
+ 
+
+473
+00:09:25,040 --> 00:09:26,710
+a pre-Kafka strategy, pre-Kafka 2.4
+strategy.
+
+474
+00:09:26,710 --> 00:09:26,720
+strategy.
+ 
+
+475
+00:09:26,720 --> 00:09:30,350
+strategy.
+From Kafka 2.4 and onwards
+
+476
+00:09:30,350 --> 00:09:30,360
+From Kafka 2.4 and onwards
+ 
+
+477
+00:09:30,360 --> 00:09:35,950
+From Kafka 2.4 and onwards
+a sticky partitioning strategy is used.
+
+478
+00:09:35,950 --> 00:09:35,960
+
+ 
+
+479
+00:09:35,960 --> 00:09:37,870
+
+I will explain you this
+
+480
+00:09:37,870 --> 00:09:37,880
+I will explain you this
+ 
+
+481
+00:09:37,880 --> 00:09:40,190
+I will explain you this
+but after the next stage because there
+
+482
+00:09:40,190 --> 00:09:40,200
+but after the next stage because there
+ 
+
+483
+00:09:40,200 --> 00:09:42,110
+but after the next stage because there
+is one more twist.
+
+484
+00:09:42,110 --> 00:09:42,120
+is one more twist.
+ 
+
+485
+00:09:42,120 --> 00:09:43,910
+is one more twist.
+Okay?
+
+486
+00:09:43,910 --> 00:09:43,920
+Okay?
+ 
+
+487
+00:09:43,920 --> 00:09:47,350
+Okay?
+So, let's keep this in our backlog now.
+
+488
+00:09:47,350 --> 00:09:47,360
+So, let's keep this in our backlog now.
+ 
+
+489
+00:09:47,360 --> 00:09:49,790
+So, let's keep this in our backlog now.
+Okay, after the next stage I will cover
+
+490
+00:09:49,790 --> 00:09:49,800
+Okay, after the next stage I will cover
+ 
+
+491
+00:09:49,800 --> 00:09:51,470
+Okay, after the next stage I will cover
+record accumulator,
+
+492
+00:09:51,470 --> 00:09:51,480
+record accumulator,
+ 
+
+493
+00:09:51,480 --> 00:09:54,030
+record accumulator,
+then I will come back to this again.
+
+494
+00:09:54,030 --> 00:09:54,040
+then I will come back to this again.
+ 
+
+495
+00:09:54,040 --> 00:09:56,790
+then I will come back to this again.
+Like what is round robin strategy,
+
+496
+00:09:56,790 --> 00:09:56,800
+Like what is round robin strategy,
+ 
+
+497
+00:09:56,800 --> 00:09:59,630
+Like what is round robin strategy,
+which is like pre-Kafka 2.4 version, and
+
+498
+00:09:59,630 --> 00:09:59,640
+which is like pre-Kafka 2.4 version, and
+ 
+
+499
+00:09:59,640 --> 00:10:05,470
+which is like pre-Kafka 2.4 version, and
+what is a sticky partitioning strategy.
+
+500
+00:10:05,470 --> 00:10:05,480
+
+ 
+
+501
+00:10:05,480 --> 00:10:09,070
+
+Sorry. [snorts and clears throat]
+
+502
+00:10:09,070 --> 00:10:09,080
+
+ 
+
+503
+00:10:09,080 --> 00:10:10,270
+
+Okay.
+
+504
+00:10:10,270 --> 00:10:10,280
+Okay.
+ 
+
+505
+00:10:10,280 --> 00:10:11,750
+Okay.
+So, now let's say that in the
+
+506
+00:10:11,750 --> 00:10:11,760
+So, now let's say that in the
+ 
+
+507
+00:10:11,760 --> 00:10:14,270
+So, now let's say that in the
+partitioner we able to know the
+
+508
+00:10:14,270 --> 00:10:14,280
+partitioner we able to know the
+ 
+
+509
+00:10:14,280 --> 00:10:16,352
+partitioner we able to know the
+partition number.
+
+510
+00:10:16,352 --> 00:10:16,362
+partition number.
+ 
+
+511
+00:10:16,362 --> 00:10:17,910
+partition number.
+>> [snorts]
+
+512
+00:10:17,910 --> 00:10:17,920
+>> [snorts]
+ 
+
+513
+00:10:17,920 --> 00:10:19,950
+>> [snorts]
+>> The now next stage is record
+
+514
+00:10:19,950 --> 00:10:19,960
+>> The now next stage is record
+ 
+
+515
+00:10:19,960 --> 00:10:22,950
+>> The now next stage is record
+accumulator, very very important stage.
+
+516
+00:10:22,950 --> 00:10:22,960
+accumulator, very very important stage.
+ 
+
+517
+00:10:22,960 --> 00:10:27,310
+accumulator, very very important stage.
+So, here if you see,
+
+518
+00:10:27,310 --> 00:10:27,320
+
+ 
+
+519
+00:10:27,320 --> 00:10:29,830
+
+so serialization done,
+
+520
+00:10:29,830 --> 00:10:29,840
+so serialization done,
+ 
+
+521
+00:10:29,840 --> 00:10:32,150
+so serialization done,
+partition done.
+
+522
+00:10:32,150 --> 00:10:32,160
+partition done.
+ 
+
+523
+00:10:32,160 --> 00:10:36,870
+partition done.
+After that it does accumulator. append.
+
+524
+00:10:36,870 --> 00:10:36,880
+After that it does accumulator. append.
+ 
+
+525
+00:10:36,880 --> 00:10:39,350
+After that it does accumulator. append.
+Append the record to the accumulator.
+
+526
+00:10:39,350 --> 00:10:39,360
+Append the record to the accumulator.
+ 
+
+527
+00:10:39,360 --> 00:10:40,910
+Append the record to the accumulator.
+What is this?
+
+528
+00:10:40,910 --> 00:10:40,920
+What is this?
+ 
+
+529
+00:10:40,920 --> 00:10:43,190
+What is this?
+What is this record and I tell you this
+
+530
+00:10:43,190 --> 00:10:43,200
+What is this record and I tell you this
+ 
+
+531
+00:10:43,200 --> 00:10:46,550
+What is this record and I tell you this
+is very very important.
+
+532
+00:10:46,550 --> 00:10:46,560
+
+ 
+
+533
+00:10:46,560 --> 00:10:49,390
+
+So, it's an in-memory buffer inside
+
+534
+00:10:49,390 --> 00:10:49,400
+So, it's an in-memory buffer inside
+ 
+
+535
+00:10:49,400 --> 00:10:51,750
+So, it's an in-memory buffer inside
+Kafka producer
+
+536
+00:10:51,750 --> 00:10:51,760
+Kafka producer
+ 
+
+537
+00:10:51,760 --> 00:10:55,150
+Kafka producer
+that collects event per topic partition
+
+538
+00:10:55,150 --> 00:10:55,160
+that collects event per topic partition
+ 
+
+539
+00:10:55,160 --> 00:10:56,270
+that collects event per topic partition
+wise
+
+540
+00:10:56,270 --> 00:10:56,280
+wise
+ 
+
+541
+00:10:56,280 --> 00:10:58,470
+wise
+and group them into batches, very
+
+542
+00:10:58,470 --> 00:10:58,480
+and group them into batches, very
+ 
+
+543
+00:10:58,480 --> 00:11:01,390
+and group them into batches, very
+important. So, understand with this.
+
+544
+00:11:01,390 --> 00:11:01,400
+important. So, understand with this.
+ 
+
+545
+00:11:01,400 --> 00:11:03,829
+important. So, understand with this.
+Let's say you have a topic order events
+
+546
+00:11:03,829 --> 00:11:03,839
+Let's say you have a topic order events
+ 
+
+547
+00:11:03,839 --> 00:11:06,350
+Let's say you have a topic order events
+and you have three uh let's say multiple
+
+548
+00:11:06,350 --> 00:11:06,360
+and you have three uh let's say multiple
+ 
+
+549
+00:11:06,360 --> 00:11:08,310
+and you have three uh let's say multiple
+partition. So, it
+
+550
+00:11:08,310 --> 00:11:08,320
+partition. So, it
+ 
+
+551
+00:11:08,320 --> 00:11:10,150
+partition. So, it
+collect the event
+
+552
+00:11:10,150 --> 00:11:10,160
+collect the event
+ 
+
+553
+00:11:10,160 --> 00:11:12,470
+collect the event
+topic partition wise. Topic is order
+
+554
+00:11:12,470 --> 00:11:12,480
+topic partition wise. Topic is order
+ 
+
+555
+00:11:12,480 --> 00:11:14,550
+topic partition wise. Topic is order
+events, partition zero.
+
+556
+00:11:14,550 --> 00:11:14,560
+events, partition zero.
+ 
+
+557
+00:11:14,560 --> 00:11:17,510
+events, partition zero.
+All the events would be stored here. It
+
+558
+00:11:17,510 --> 00:11:17,520
+All the events would be stored here. It
+ 
+
+559
+00:11:17,520 --> 00:11:18,990
+All the events would be stored here. It
+group them.
+
+560
+00:11:18,990 --> 00:11:19,000
+group them.
+ 
+
+561
+00:11:19,000 --> 00:11:20,230
+group them.
+Okay?
+
+562
+00:11:20,230 --> 00:11:20,240
+Okay?
+ 
+
+563
+00:11:20,240 --> 00:11:22,310
+Okay?
+Similarly, topic is order event but
+
+564
+00:11:22,310 --> 00:11:22,320
+Similarly, topic is order event but
+ 
+
+565
+00:11:22,320 --> 00:11:25,910
+Similarly, topic is order event but
+partition is P1. So, any like partition
+
+566
+00:11:25,910 --> 00:11:25,920
+partition is P1. So, any like partition
+ 
+
+567
+00:11:25,920 --> 00:11:27,230
+partition is P1. So, any like partition
+will decide, right? Partitioner will
+
+568
+00:11:27,230 --> 00:11:27,240
+will decide, right? Partitioner will
+ 
+
+569
+00:11:27,240 --> 00:11:28,470
+will decide, right? Partitioner will
+decide
+
+570
+00:11:28,470 --> 00:11:28,480
+decide
+ 
+
+571
+00:11:28,480 --> 00:11:31,470
+decide
+that for this topic partition for this
+
+572
+00:11:31,470 --> 00:11:31,480
+that for this topic partition for this
+ 
+
+573
+00:11:31,480 --> 00:11:33,990
+that for this topic partition for this
+event
+
+574
+00:11:33,990 --> 00:11:34,000
+event
+ 
+
+575
+00:11:34,000 --> 00:11:35,910
+event
+need to go into this topic and this
+
+576
+00:11:35,910 --> 00:11:35,920
+need to go into this topic and this
+ 
+
+577
+00:11:35,920 --> 00:11:38,110
+need to go into this topic and this
+partition. So, what record accumulator
+
+578
+00:11:38,110 --> 00:11:38,120
+partition. So, what record accumulator
+ 
+
+579
+00:11:38,120 --> 00:11:39,510
+partition. So, what record accumulator
+will do?
+
+580
+00:11:39,510 --> 00:11:39,520
+will do?
+ 
+
+581
+00:11:39,520 --> 00:11:41,670
+will do?
+It will just collect them.
+
+582
+00:11:41,670 --> 00:11:41,680
+It will just collect them.
+ 
+
+583
+00:11:41,680 --> 00:11:43,710
+It will just collect them.
+Topic and partition wise. Okay, for this
+
+584
+00:11:43,710 --> 00:11:43,720
+Topic and partition wise. Okay, for this
+ 
+
+585
+00:11:43,720 --> 00:11:46,790
+Topic and partition wise. Okay, for this
+topic, this partition, let me collect
+
+586
+00:11:46,790 --> 00:11:46,800
+topic, this partition, let me collect
+ 
+
+587
+00:11:46,800 --> 00:11:48,230
+topic, this partition, let me collect
+all the events.
+
+588
+00:11:48,230 --> 00:11:48,240
+all the events.
+ 
+
+589
+00:11:48,240 --> 00:11:50,150
+all the events.
+Similarly, whatever the partition
+
+590
+00:11:50,150 --> 00:11:50,160
+Similarly, whatever the partition
+ 
+
+591
+00:11:50,160 --> 00:11:52,310
+Similarly, whatever the partition
+partitioner will say that, "Okay,
+
+592
+00:11:52,310 --> 00:11:52,320
+partitioner will say that, "Okay,
+ 
+
+593
+00:11:52,320 --> 00:11:54,510
+partitioner will say that, "Okay,
+any event for this topic and this
+
+594
+00:11:54,510 --> 00:11:54,520
+any event for this topic and this
+ 
+
+595
+00:11:54,520 --> 00:11:56,990
+any event for this topic and this
+partition, it will just collect it."
+
+596
+00:11:56,990 --> 00:11:57,000
+partition, it will just collect it."
+ 
+
+597
+00:11:57,000 --> 00:11:59,350
+partition, it will just collect it."
+So, it will create a batch.
+
+598
+00:11:59,350 --> 00:11:59,360
+So, it will create a batch.
+ 
+
+599
+00:11:59,360 --> 00:12:01,270
+So, it will create a batch.
+So,
+
+600
+00:12:01,270 --> 00:12:01,280
+So,
+ 
+
+601
+00:12:01,280 --> 00:12:03,190
+So,
+from producer
+
+602
+00:12:03,190 --> 00:12:03,200
+from producer
+ 
+
+603
+00:12:03,200 --> 00:12:04,790
+from producer
+to your
+
+604
+00:12:04,790 --> 00:12:04,800
+to your
+ 
+
+605
+00:12:04,800 --> 00:12:07,030
+to your
+Kafka, you can say that your broker.
+
+606
+00:12:07,030 --> 00:12:07,040
+Kafka, you can say that your broker.
+ 
+
+607
+00:12:07,040 --> 00:12:09,390
+Kafka, you can say that your broker.
+It's not like one one event it will go.
+
+608
+00:12:09,390 --> 00:12:09,400
+It's not like one one event it will go.
+ 
+
+609
+00:12:09,400 --> 00:12:13,590
+It's not like one one event it will go.
+Event one, event two, event three, no.
+
+610
+00:12:13,590 --> 00:12:13,600
+Event one, event two, event three, no.
+ 
+
+611
+00:12:13,600 --> 00:12:16,550
+Event one, event two, event three, no.
+It always goes into batches. And your
+
+612
+00:12:16,550 --> 00:12:16,560
+It always goes into batches. And your
+ 
+
+613
+00:12:16,560 --> 00:12:19,870
+It always goes into batches. And your
+one batch can have multiple events,
+
+614
+00:12:19,870 --> 00:12:19,880
+one batch can have multiple events,
+ 
+
+615
+00:12:19,880 --> 00:12:22,430
+one batch can have multiple events,
+which is grouped by topic and partition,
+
+616
+00:12:22,430 --> 00:12:22,440
+which is grouped by topic and partition,
+ 
+
+617
+00:12:22,440 --> 00:12:24,990
+which is grouped by topic and partition,
+which is very important. Because you
+
+618
+00:12:24,990 --> 00:12:25,000
+which is very important. Because you
+ 
+
+619
+00:12:25,000 --> 00:12:26,710
+which is very important. Because you
+know that a topic can have many
+
+620
+00:12:26,710 --> 00:12:26,720
+know that a topic can have many
+ 
+
+621
+00:12:26,720 --> 00:12:28,950
+know that a topic can have many
+partition. And the partition can reside
+
+622
+00:12:28,950 --> 00:12:28,960
+partition. And the partition can reside
+ 
+
+623
+00:12:28,960 --> 00:12:30,470
+partition. And the partition can reside
+in multiple broker.
+
+624
+00:12:30,470 --> 00:12:30,480
+in multiple broker.
+ 
+
+625
+00:12:30,480 --> 00:12:32,110
+in multiple broker.
+Broker one,
+
+626
+00:12:32,110 --> 00:12:32,120
+Broker one,
+ 
+
+627
+00:12:32,120 --> 00:12:33,830
+Broker one,
+broker two.
+
+628
+00:12:33,830 --> 00:12:33,840
+broker two.
+ 
+
+629
+00:12:33,840 --> 00:12:35,550
+broker two.
+So, it has
+
+630
+00:12:35,550 --> 00:12:35,560
+So, it has
+ 
+
+631
+00:12:35,560 --> 00:12:38,910
+So, it has
+topic A, partition zero. It has same
+
+632
+00:12:38,910 --> 00:12:38,920
+topic A, partition zero. It has same
+ 
+
+633
+00:12:38,920 --> 00:12:41,590
+topic A, partition zero. It has same
+topic A but partition one.
+
+634
+00:12:41,590 --> 00:12:41,600
+topic A but partition one.
+ 
+
+635
+00:12:41,600 --> 00:12:44,030
+topic A but partition one.
+So, you can't mix topic partitions,
+
+636
+00:12:44,030 --> 00:12:44,040
+So, you can't mix topic partitions,
+ 
+
+637
+00:12:44,040 --> 00:12:45,790
+So, you can't mix topic partitions,
+right? So, that's why it group based on
+
+638
+00:12:45,790 --> 00:12:45,800
+right? So, that's why it group based on
+ 
+
+639
+00:12:45,800 --> 00:12:49,510
+right? So, that's why it group based on
+topic and partition, so that
+
+640
+00:12:49,510 --> 00:12:49,520
+
+ 
+
+641
+00:12:49,520 --> 00:12:52,390
+
+it club all the events
+
+642
+00:12:52,390 --> 00:12:52,400
+it club all the events
+ 
+
+643
+00:12:52,400 --> 00:12:55,670
+it club all the events
+which need to goes to one broker.
+
+644
+00:12:55,670 --> 00:12:55,680
+which need to goes to one broker.
+ 
+
+645
+00:12:55,680 --> 00:12:57,910
+which need to goes to one broker.
+Okay? So, that it don't have to open
+
+646
+00:12:57,910 --> 00:12:57,920
+Okay? So, that it don't have to open
+ 
+
+647
+00:12:57,920 --> 00:13:00,510
+Okay? So, that it don't have to open
+multiple or send multiple network
+
+648
+00:13:00,510 --> 00:13:00,520
+multiple or send multiple network
+ 
+
+649
+00:13:00,520 --> 00:13:05,343
+multiple or send multiple network
+requests.
+
+650
+00:13:05,343 --> 00:13:05,353
+
+ 
+
+651
+00:13:05,353 --> 00:13:05,590
+
+>> [cough and clears throat]
+
+652
+00:13:05,590 --> 00:13:05,600
+>> [cough and clears throat]
+ 
+
+653
+00:13:05,600 --> 00:13:07,110
+>> [cough and clears throat]
+>> Sorry.
+
+654
+00:13:07,110 --> 00:13:07,120
+>> Sorry.
+ 
+
+655
+00:13:07,120 --> 00:13:09,270
+>> Sorry.
+So, now we know that
+
+656
+00:13:09,270 --> 00:13:09,280
+So, now we know that
+ 
+
+657
+00:13:09,280 --> 00:13:11,870
+So, now we know that
+producer always maintain topic partition
+
+658
+00:13:11,870 --> 00:13:11,880
+producer always maintain topic partition
+ 
+
+659
+00:13:11,880 --> 00:13:13,829
+producer always maintain topic partition
+wise batch.
+
+660
+00:13:13,829 --> 00:13:13,839
+wise batch.
+ 
+
+661
+00:13:13,839 --> 00:13:16,510
+wise batch.
+It send batch to the broker, not
+
+662
+00:13:16,510 --> 00:13:16,520
+It send batch to the broker, not
+ 
+
+663
+00:13:16,520 --> 00:13:19,510
+It send batch to the broker, not
+individual events.
+
+664
+00:13:19,510 --> 00:13:19,520
+individual events.
+ 
+
+665
+00:13:19,520 --> 00:13:22,670
+individual events.
+Now, I will come back to the point where
+
+666
+00:13:22,670 --> 00:13:22,680
+Now, I will come back to the point where
+ 
+
+667
+00:13:22,680 --> 00:13:24,390
+Now, I will come back to the point where
+I showed you
+
+668
+00:13:24,390 --> 00:13:24,400
+I showed you
+ 
+
+669
+00:13:24,400 --> 00:13:25,710
+I showed you
+that
+
+670
+00:13:25,710 --> 00:13:25,720
+that
+ 
+
+671
+00:13:25,720 --> 00:13:28,110
+that
+when you don't provide a key,
+
+672
+00:13:28,110 --> 00:13:28,120
+when you don't provide a key,
+ 
+
+673
+00:13:28,120 --> 00:13:31,310
+when you don't provide a key,
+when you don't provide a key,
+
+674
+00:13:31,310 --> 00:13:31,320
+when you don't provide a key,
+ 
+
+675
+00:13:31,320 --> 00:13:33,830
+when you don't provide a key,
+pre-Kafka 2.4 version, it's round robin
+
+676
+00:13:33,830 --> 00:13:33,840
+pre-Kafka 2.4 version, it's round robin
+ 
+
+677
+00:13:33,840 --> 00:13:36,750
+pre-Kafka 2.4 version, it's round robin
+strategy. And from Kafka 2.4 onwards,
+
+678
+00:13:36,750 --> 00:13:36,760
+strategy. And from Kafka 2.4 onwards,
+ 
+
+679
+00:13:36,760 --> 00:13:39,230
+strategy. And from Kafka 2.4 onwards,
+it's sticky partitioning strategy. What
+
+680
+00:13:39,230 --> 00:13:39,240
+it's sticky partitioning strategy. What
+ 
+
+681
+00:13:39,240 --> 00:13:40,870
+it's sticky partitioning strategy. What
+does it mean now?
+
+682
+00:13:40,870 --> 00:13:40,880
+does it mean now?
+ 
+
+683
+00:13:40,880 --> 00:13:44,070
+does it mean now?
+Now, it will make more sense.
+
+684
+00:13:44,070 --> 00:13:44,080
+Now, it will make more sense.
+ 
+
+685
+00:13:44,080 --> 00:13:45,150
+Now, it will make more sense.
+So,
+
+686
+00:13:45,150 --> 00:13:45,160
+So,
+ 
+
+687
+00:13:45,160 --> 00:13:48,670
+So,
+consider this example that
+
+688
+00:13:48,670 --> 00:13:48,680
+consider this example that
+ 
+
+689
+00:13:48,680 --> 00:13:50,910
+consider this example that
+you have like topic order event, you
+
+690
+00:13:50,910 --> 00:13:50,920
+you have like topic order event, you
+ 
+
+691
+00:13:50,920 --> 00:13:52,750
+you have like topic order event, you
+haven't provided any key, and this is
+
+692
+00:13:52,750 --> 00:13:52,760
+haven't provided any key, and this is
+ 
+
+693
+00:13:52,760 --> 00:13:54,470
+haven't provided any key, and this is
+the event one.
+
+694
+00:13:54,470 --> 00:13:54,480
+the event one.
+ 
+
+695
+00:13:54,480 --> 00:13:56,830
+the event one.
+Like your message.
+
+696
+00:13:56,830 --> 00:13:56,840
+Like your message.
+ 
+
+697
+00:13:56,840 --> 00:13:58,790
+Like your message.
+You want to put into topic order event,
+
+698
+00:13:58,790 --> 00:13:58,800
+You want to put into topic order event,
+ 
+
+699
+00:13:58,800 --> 00:14:01,110
+You want to put into topic order event,
+but key you have not provided.
+
+700
+00:14:01,110 --> 00:14:01,120
+but key you have not provided.
+ 
+
+701
+00:14:01,120 --> 00:14:02,790
+but key you have not provided.
+Event two, event three, event four,
+
+702
+00:14:02,790 --> 00:14:02,800
+Event two, event three, event four,
+ 
+
+703
+00:14:02,800 --> 00:14:04,670
+Event two, event three, event four,
+event five, like this. And for this
+
+704
+00:14:04,670 --> 00:14:04,680
+event five, like this. And for this
+ 
+
+705
+00:14:04,680 --> 00:14:06,350
+event five, like this. And for this
+order events, we have, let's say, three
+
+706
+00:14:06,350 --> 00:14:06,360
+order events, we have, let's say, three
+ 
+
+707
+00:14:06,360 --> 00:14:07,750
+order events, we have, let's say, three
+partition.
+
+708
+00:14:07,750 --> 00:14:07,760
+partition.
+ 
+
+709
+00:14:07,760 --> 00:14:10,310
+partition.
+This is our setup, and this is the way
+
+710
+00:14:10,310 --> 00:14:10,320
+This is our setup, and this is the way
+ 
+
+711
+00:14:10,320 --> 00:14:13,550
+This is our setup, and this is the way
+we are sending the message with no key.
+
+712
+00:14:13,550 --> 00:14:13,560
+we are sending the message with no key.
+ 
+
+713
+00:14:13,560 --> 00:14:15,070
+we are sending the message with no key.
+Now, what would happen?
+
+714
+00:14:15,070 --> 00:14:15,080
+Now, what would happen?
+ 
+
+715
+00:14:15,080 --> 00:14:19,790
+Now, what would happen?
+So, pre-Kafka 2.4, less than Kafka 2.4,
+
+716
+00:14:19,790 --> 00:14:19,800
+So, pre-Kafka 2.4, less than Kafka 2.4,
+ 
+
+717
+00:14:19,800 --> 00:14:21,670
+So, pre-Kafka 2.4, less than Kafka 2.4,
+it follow round robin partitioning
+
+718
+00:14:21,670 --> 00:14:21,680
+it follow round robin partitioning
+ 
+
+719
+00:14:21,680 --> 00:14:23,190
+it follow round robin partitioning
+strategy.
+
+720
+00:14:23,190 --> 00:14:23,200
+strategy.
+ 
+
+721
+00:14:23,200 --> 00:14:25,110
+strategy.
+So, partition, what it will do, it has
+
+722
+00:14:25,110 --> 00:14:25,120
+So, partition, what it will do, it has
+ 
+
+723
+00:14:25,120 --> 00:14:27,950
+So, partition, what it will do, it has
+the knowledge of this. Okay. For
+
+724
+00:14:27,950 --> 00:14:27,960
+the knowledge of this. Okay. For
+ 
+
+725
+00:14:27,960 --> 00:14:30,190
+the knowledge of this. Okay. For
+order-events
+
+726
+00:14:30,190 --> 00:14:30,200
+order-events
+ 
+
+727
+00:14:30,200 --> 00:14:31,430
+order-events
+topic,
+
+728
+00:14:31,430 --> 00:14:31,440
+topic,
+ 
+
+729
+00:14:31,440 --> 00:14:35,190
+topic,
+I have three partition, P0, P1, P2.
+
+730
+00:14:35,190 --> 00:14:35,200
+I have three partition, P0, P1, P2.
+ 
+
+731
+00:14:35,200 --> 00:14:37,230
+I have three partition, P0, P1, P2.
+So, what it will do, when event one will
+
+732
+00:14:37,230 --> 00:14:37,240
+So, what it will do, when event one will
+ 
+
+733
+00:14:37,240 --> 00:14:39,910
+So, what it will do, when event one will
+come, it will assign P0.
+
+734
+00:14:39,910 --> 00:14:39,920
+come, it will assign P0.
+ 
+
+735
+00:14:39,920 --> 00:14:42,550
+come, it will assign P0.
+Event two will come, it will assign P1.
+
+736
+00:14:42,550 --> 00:14:42,560
+Event two will come, it will assign P1.
+ 
+
+737
+00:14:42,560 --> 00:14:43,950
+Event two will come, it will assign P1.
+Event three will come, it will assign
+
+738
+00:14:43,950 --> 00:14:43,960
+Event three will come, it will assign
+ 
+
+739
+00:14:43,960 --> 00:14:46,870
+Event three will come, it will assign
+P2. And now, round round robin.
+
+740
+00:14:46,870 --> 00:14:46,880
+P2. And now, round round robin.
+ 
+
+741
+00:14:46,880 --> 00:14:50,550
+P2. And now, round round robin.
+Event four, again, P0. Event five, P1.
+
+742
+00:14:50,550 --> 00:14:50,560
+Event four, again, P0. Event five, P1.
+ 
+
+743
+00:14:50,560 --> 00:14:53,110
+Event four, again, P0. Event five, P1.
+Now, the partition
+
+744
+00:14:53,110 --> 00:14:53,120
+Now, the partition
+ 
+
+745
+00:14:53,120 --> 00:14:54,470
+Now, the partition
+partitioner send the request to the
+
+746
+00:14:54,470 --> 00:14:54,480
+partitioner send the request to the
+ 
+
+747
+00:14:54,480 --> 00:14:56,110
+partitioner send the request to the
+record accumulator. Record accumulator
+
+748
+00:14:56,110 --> 00:14:56,120
+record accumulator. Record accumulator
+ 
+
+749
+00:14:56,120 --> 00:14:57,030
+record accumulator. Record accumulator
+will
+
+750
+00:14:57,030 --> 00:14:57,040
+will
+ 
+
+751
+00:14:57,040 --> 00:14:59,230
+will
+batch it, group it.
+
+752
+00:14:59,230 --> 00:14:59,240
+batch it, group it.
+ 
+
+753
+00:14:59,240 --> 00:15:01,829
+batch it, group it.
+Order event partition zero. So, E1 will
+
+754
+00:15:01,829 --> 00:15:01,839
+Order event partition zero. So, E1 will
+ 
+
+755
+00:15:01,839 --> 00:15:04,590
+Order event partition zero. So, E1 will
+go, and E4 will go. So, they are batched
+
+756
+00:15:04,590 --> 00:15:04,600
+go, and E4 will go. So, they are batched
+ 
+
+757
+00:15:04,600 --> 00:15:06,030
+go, and E4 will go. So, they are batched
+together.
+
+758
+00:15:06,030 --> 00:15:06,040
+together.
+ 
+
+759
+00:15:06,040 --> 00:15:09,630
+together.
+Order event partition P1, E2 and E5,
+
+760
+00:15:09,630 --> 00:15:09,640
+Order event partition P1, E2 and E5,
+ 
+
+761
+00:15:09,640 --> 00:15:12,190
+Order event partition P1, E2 and E5,
+they are batched together.
+
+762
+00:15:12,190 --> 00:15:12,200
+they are batched together.
+ 
+
+763
+00:15:12,200 --> 00:15:15,110
+they are batched together.
+And similarly, order event P2,
+
+764
+00:15:15,110 --> 00:15:15,120
+And similarly, order event P2,
+ 
+
+765
+00:15:15,120 --> 00:15:17,670
+And similarly, order event P2,
+uh only one, E3 are
+
+766
+00:15:17,670 --> 00:15:17,680
+uh only one, E3 are
+ 
+
+767
+00:15:17,680 --> 00:15:19,190
+uh only one, E3 are
+in a batch.
+
+768
+00:15:19,190 --> 00:15:19,200
+in a batch.
+ 
+
+769
+00:15:19,200 --> 00:15:22,430
+in a batch.
+So, now here, if If see,
+
+770
+00:15:22,430 --> 00:15:22,440
+So, now here, if If see,
+ 
+
+771
+00:15:22,440 --> 00:15:25,310
+So, now here, if If see,
+we are creating multiple batches
+
+772
+00:15:25,310 --> 00:15:25,320
+we are creating multiple batches
+ 
+
+773
+00:15:25,320 --> 00:15:26,790
+we are creating multiple batches
+which are in a small small size. Let's
+
+774
+00:15:26,790 --> 00:15:26,800
+which are in a small small size. Let's
+ 
+
+775
+00:15:26,800 --> 00:15:29,870
+which are in a small small size. Let's
+say this batch capacity to keep 100
+
+776
+00:15:29,870 --> 00:15:29,880
+say this batch capacity to keep 100
+ 
+
+777
+00:15:29,880 --> 00:15:31,430
+say this batch capacity to keep 100
+events, let's say.
+
+778
+00:15:31,430 --> 00:15:31,440
+events, let's say.
+ 
+
+779
+00:15:31,440 --> 00:15:33,910
+events, let's say.
+But now it has only two. It has only
+
+780
+00:15:33,910 --> 00:15:33,920
+But now it has only two. It has only
+ 
+
+781
+00:15:33,920 --> 00:15:34,750
+But now it has only two. It has only
+two.
+
+782
+00:15:34,750 --> 00:15:34,760
+two.
+ 
+
+783
+00:15:34,760 --> 00:15:36,870
+two.
+It has one. So, three batch we are
+
+784
+00:15:36,870 --> 00:15:36,880
+It has one. So, three batch we are
+ 
+
+785
+00:15:36,880 --> 00:15:38,950
+It has one. So, three batch we are
+creating.
+
+786
+00:15:38,950 --> 00:15:38,960
+creating.
+ 
+
+787
+00:15:38,960 --> 00:15:41,350
+creating.
+So, problem with this approach is that
+
+788
+00:15:41,350 --> 00:15:41,360
+So, problem with this approach is that
+ 
+
+789
+00:15:41,360 --> 00:15:43,830
+So, problem with this approach is that
+batch size is very small and therefore
+
+790
+00:15:43,830 --> 00:15:43,840
+batch size is very small and therefore
+ 
+
+791
+00:15:43,840 --> 00:15:46,670
+batch size is very small and therefore
+multiple network call required
+
+792
+00:15:46,670 --> 00:15:46,680
+multiple network call required
+ 
+
+793
+00:15:46,680 --> 00:15:50,470
+multiple network call required
+from producer to Kafka broker.
+
+794
+00:15:50,470 --> 00:15:50,480
+from producer to Kafka broker.
+ 
+
+795
+00:15:50,480 --> 00:15:52,790
+from producer to Kafka broker.
+Which can be improved further with the
+
+796
+00:15:52,790 --> 00:15:52,800
+Which can be improved further with the
+ 
+
+797
+00:15:52,800 --> 00:15:55,310
+Which can be improved further with the
+sticky partition strategy when the key
+
+798
+00:15:55,310 --> 00:15:55,320
+sticky partition strategy when the key
+ 
+
+799
+00:15:55,320 --> 00:15:57,550
+sticky partition strategy when the key
+is missing. Which is like you can say
+
+800
+00:15:57,550 --> 00:15:57,560
+is missing. Which is like you can say
+ 
+
+801
+00:15:57,560 --> 00:16:00,910
+is missing. Which is like you can say
+that in Kafka greater than equals to
+
+802
+00:16:00,910 --> 00:16:00,920
+that in Kafka greater than equals to
+ 
+
+803
+00:16:00,920 --> 00:16:03,870
+that in Kafka greater than equals to
+2.4, a sticky partition strategy is
+
+804
+00:16:03,870 --> 00:16:03,880
+2.4, a sticky partition strategy is
+ 
+
+805
+00:16:03,880 --> 00:16:06,630
+2.4, a sticky partition strategy is
+used.
+
+806
+00:16:06,630 --> 00:16:06,640
+
+ 
+
+807
+00:16:06,640 --> 00:16:07,990
+
+What it does?
+
+808
+00:16:07,990 --> 00:16:08,000
+What it does?
+ 
+
+809
+00:16:08,000 --> 00:16:09,750
+What it does?
+How it is different from the round robin
+
+810
+00:16:09,750 --> 00:16:09,760
+How it is different from the round robin
+ 
+
+811
+00:16:09,760 --> 00:16:11,390
+How it is different from the round robin
+partition strategy?
+
+812
+00:16:11,390 --> 00:16:11,400
+partition strategy?
+ 
+
+813
+00:16:11,400 --> 00:16:13,510
+partition strategy?
+So, in this one, let's say event one
+
+814
+00:16:13,510 --> 00:16:13,520
+So, in this one, let's say event one
+ 
+
+815
+00:16:13,520 --> 00:16:14,470
+So, in this one, let's say event one
+come.
+
+816
+00:16:14,470 --> 00:16:14,480
+come.
+ 
+
+817
+00:16:14,480 --> 00:16:15,390
+come.
+Okay?
+
+818
+00:16:15,390 --> 00:16:15,400
+Okay?
+ 
+
+819
+00:16:15,400 --> 00:16:16,830
+Okay?
+There is no key.
+
+820
+00:16:16,830 --> 00:16:16,840
+There is no key.
+ 
+
+821
+00:16:16,840 --> 00:16:20,150
+There is no key.
+So, what it will do this partition? No.
+
+822
+00:16:20,150 --> 00:16:20,160
+So, what it will do this partition? No.
+ 
+
+823
+00:16:20,160 --> 00:16:23,510
+So, what it will do this partition? No.
+That for order events, I have three
+
+824
+00:16:23,510 --> 00:16:23,520
+That for order events, I have three
+ 
+
+825
+00:16:23,520 --> 00:16:27,150
+That for order events, I have three
+partition P0, P1, P2. What it will do is
+
+826
+00:16:27,150 --> 00:16:27,160
+partition P0, P1, P2. What it will do is
+ 
+
+827
+00:16:27,160 --> 00:16:31,150
+partition P0, P1, P2. What it will do is
+it randomly randomly pick one partition.
+
+828
+00:16:31,150 --> 00:16:31,160
+it randomly randomly pick one partition.
+ 
+
+829
+00:16:31,160 --> 00:16:34,550
+it randomly randomly pick one partition.
+Okay? And it will stick to it for this
+
+830
+00:16:34,550 --> 00:16:34,560
+Okay? And it will stick to it for this
+ 
+
+831
+00:16:34,560 --> 00:16:35,630
+Okay? And it will stick to it for this
+topic.
+
+832
+00:16:35,630 --> 00:16:35,640
+topic.
+ 
+
+833
+00:16:35,640 --> 00:16:40,270
+topic.
+So, what you got is that order events
+
+834
+00:16:40,270 --> 00:16:40,280
+So, what you got is that order events
+ 
+
+835
+00:16:40,280 --> 00:16:43,350
+So, what you got is that order events
+uh value is your event one, but key is
+
+836
+00:16:43,350 --> 00:16:43,360
+uh value is your event one, but key is
+ 
+
+837
+00:16:43,360 --> 00:16:45,430
+uh value is your event one, but key is
+null. So, what it will do is for this
+
+838
+00:16:45,430 --> 00:16:45,440
+null. So, what it will do is for this
+ 
+
+839
+00:16:45,440 --> 00:16:47,990
+null. So, what it will do is for this
+topic order event, out of this three
+
+840
+00:16:47,990 --> 00:16:48,000
+topic order event, out of this three
+ 
+
+841
+00:16:48,000 --> 00:16:49,750
+topic order event, out of this three
+partition, it will pick randomly one.
+
+842
+00:16:49,750 --> 00:16:49,760
+partition, it will pick randomly one.
+ 
+
+843
+00:16:49,760 --> 00:16:52,230
+partition, it will pick randomly one.
+Let's say it picked P1.
+
+844
+00:16:52,230 --> 00:16:52,240
+Let's say it picked P1.
+ 
+
+845
+00:16:52,240 --> 00:16:55,910
+Let's say it picked P1.
+Now it stored this into in memory.
+
+846
+00:16:55,910 --> 00:16:55,920
+Now it stored this into in memory.
+ 
+
+847
+00:16:55,920 --> 00:16:58,430
+Now it stored this into in memory.
+It will say that, "Hey, order event,
+
+848
+00:16:58,430 --> 00:16:58,440
+It will say that, "Hey, order event,
+ 
+
+849
+00:16:58,440 --> 00:17:01,950
+It will say that, "Hey, order event,
+I need to stick to P1."
+
+850
+00:17:01,950 --> 00:17:01,960
+I need to stick to P1."
+ 
+
+851
+00:17:01,960 --> 00:17:03,270
+I need to stick to P1."
+Now,
+
+852
+00:17:03,270 --> 00:17:03,280
+Now,
+ 
+
+853
+00:17:03,280 --> 00:17:05,510
+Now,
+this event one,
+
+854
+00:17:05,510 --> 00:17:05,520
+this event one,
+ 
+
+855
+00:17:05,520 --> 00:17:07,750
+this event one,
+it will just check its memory and say
+
+856
+00:17:07,750 --> 00:17:07,760
+it will just check its memory and say
+ 
+
+857
+00:17:07,760 --> 00:17:09,750
+it will just check its memory and say
+that, "Okay, P1."
+
+858
+00:17:09,750 --> 00:17:09,760
+that, "Okay, P1."
+ 
+
+859
+00:17:09,760 --> 00:17:12,030
+that, "Okay, P1."
+It will pass to the accumulator.
+
+860
+00:17:12,030 --> 00:17:12,040
+It will pass to the accumulator.
+ 
+
+861
+00:17:12,040 --> 00:17:14,429
+It will pass to the accumulator.
+This event one need to goes into the P1
+
+862
+00:17:14,429 --> 00:17:14,439
+This event one need to goes into the P1
+ 
+
+863
+00:17:14,439 --> 00:17:17,710
+This event one need to goes into the P1
+of order event, so that is done.
+
+864
+00:17:17,710 --> 00:17:17,720
+of order event, so that is done.
+ 
+
+865
+00:17:17,720 --> 00:17:20,270
+of order event, so that is done.
+Now, next time when E2 comes,
+
+866
+00:17:20,270 --> 00:17:20,280
+Now, next time when E2 comes,
+ 
+
+867
+00:17:20,280 --> 00:17:22,150
+Now, next time when E2 comes,
+it will check its uh sticky memory. You
+
+868
+00:17:22,150 --> 00:17:22,160
+it will check its uh sticky memory. You
+ 
+
+869
+00:17:22,160 --> 00:17:24,309
+it will check its uh sticky memory. You
+can say that uh this
+
+870
+00:17:24,309 --> 00:17:24,319
+can say that uh this
+ 
+
+871
+00:17:24,319 --> 00:17:26,390
+can say that uh this
+has partition stored in its memory
+
+872
+00:17:26,390 --> 00:17:26,400
+has partition stored in its memory
+ 
+
+873
+00:17:26,400 --> 00:17:28,750
+has partition stored in its memory
+itself that, "Okay, for this topic,
+
+874
+00:17:28,750 --> 00:17:28,760
+itself that, "Okay, for this topic,
+ 
+
+875
+00:17:28,760 --> 00:17:30,790
+itself that, "Okay, for this topic,
+order event,
+
+876
+00:17:30,790 --> 00:17:30,800
+order event,
+ 
+
+877
+00:17:30,800 --> 00:17:32,790
+order event,
+uh key is null.
+
+878
+00:17:32,790 --> 00:17:32,800
+uh key is null.
+ 
+
+879
+00:17:32,800 --> 00:17:34,470
+uh key is null.
+For this event, which partition I need
+
+880
+00:17:34,470 --> 00:17:34,480
+For this event, which partition I need
+ 
+
+881
+00:17:34,480 --> 00:17:36,030
+For this event, which partition I need
+to go? Do I have any sticky memory?"
+
+882
+00:17:36,030 --> 00:17:36,040
+to go? Do I have any sticky memory?"
+ 
+
+883
+00:17:36,040 --> 00:17:39,470
+to go? Do I have any sticky memory?"
+Yes, order event is P1. So, it will
+
+884
+00:17:39,470 --> 00:17:39,480
+Yes, order event is P1. So, it will
+ 
+
+885
+00:17:39,480 --> 00:17:40,510
+Yes, order event is P1. So, it will
+again
+
+886
+00:17:40,510 --> 00:17:40,520
+again
+ 
+
+887
+00:17:40,520 --> 00:17:42,750
+again
+say that, "Okay, for this event two,
+
+888
+00:17:42,750 --> 00:17:42,760
+say that, "Okay, for this event two,
+ 
+
+889
+00:17:42,760 --> 00:17:44,670
+say that, "Okay, for this event two,
+put it into P1."
+
+890
+00:17:44,670 --> 00:17:44,680
+put it into P1."
+ 
+
+891
+00:17:44,680 --> 00:17:45,910
+put it into P1."
+So,
+
+892
+00:17:45,910 --> 00:17:45,920
+So,
+ 
+
+893
+00:17:45,920 --> 00:17:47,630
+So,
+event two also goes there, event three,
+
+894
+00:17:47,630 --> 00:17:47,640
+event two also goes there, event three,
+ 
+
+895
+00:17:47,640 --> 00:17:51,710
+event two also goes there, event three,
+event four, event five. So, all the
+
+896
+00:17:51,710 --> 00:17:51,720
+event four, event five. So, all the
+ 
+
+897
+00:17:51,720 --> 00:17:53,310
+event four, event five. So, all the
+events
+
+898
+00:17:53,310 --> 00:17:53,320
+events
+ 
+
+899
+00:17:53,320 --> 00:17:56,310
+events
+of this topic
+
+900
+00:17:56,310 --> 00:17:56,320
+of this topic
+ 
+
+901
+00:17:56,320 --> 00:17:58,110
+of this topic
+for which this has created a sticky
+
+902
+00:17:58,110 --> 00:17:58,120
+for which this has created a sticky
+ 
+
+903
+00:17:58,120 --> 00:18:00,710
+for which this has created a sticky
+memory, you can say,
+
+904
+00:18:00,710 --> 00:18:00,720
+memory, you can say,
+ 
+
+905
+00:18:00,720 --> 00:18:02,030
+memory, you can say,
+it will
+
+906
+00:18:02,030 --> 00:18:02,040
+it will
+ 
+
+907
+00:18:02,040 --> 00:18:05,030
+it will
+only return the same partition number,
+
+908
+00:18:05,030 --> 00:18:05,040
+only return the same partition number,
+ 
+
+909
+00:18:05,040 --> 00:18:06,670
+only return the same partition number,
+and record accumulator will keep on
+
+910
+00:18:06,670 --> 00:18:06,680
+and record accumulator will keep on
+ 
+
+911
+00:18:06,680 --> 00:18:08,830
+and record accumulator will keep on
+adding it.
+
+912
+00:18:08,830 --> 00:18:08,840
+adding it.
+ 
+
+913
+00:18:08,840 --> 00:18:10,710
+adding it.
+So, now here in this case, you will see
+
+914
+00:18:10,710 --> 00:18:10,720
+So, now here in this case, you will see
+ 
+
+915
+00:18:10,720 --> 00:18:13,470
+So, now here in this case, you will see
+that instead of three batch, we have
+
+916
+00:18:13,470 --> 00:18:13,480
+that instead of three batch, we have
+ 
+
+917
+00:18:13,480 --> 00:18:16,190
+that instead of three batch, we have
+only one batch created.
+
+918
+00:18:16,190 --> 00:18:16,200
+only one batch created.
+ 
+
+919
+00:18:16,200 --> 00:18:18,670
+only one batch created.
+And that will ultimately one network
+
+920
+00:18:18,670 --> 00:18:18,680
+And that will ultimately one network
+ 
+
+921
+00:18:18,680 --> 00:18:22,750
+And that will ultimately one network
+call to the broker.
+
+922
+00:18:22,750 --> 00:18:22,760
+
+ 
+
+923
+00:18:22,760 --> 00:18:25,470
+
+Now, why it is not round robin? You can
+
+924
+00:18:25,470 --> 00:18:25,480
+Now, why it is not round robin? You can
+ 
+
+925
+00:18:25,480 --> 00:18:27,790
+Now, why it is not round robin? You can
+say that, "Okay, now next time, let's
+
+926
+00:18:27,790 --> 00:18:27,800
+say that, "Okay, now next time, let's
+ 
+
+927
+00:18:27,800 --> 00:18:29,510
+say that, "Okay, now next time, let's
+say Let's say
+
+928
+00:18:29,510 --> 00:18:29,520
+say Let's say
+ 
+
+929
+00:18:29,520 --> 00:18:31,230
+say Let's say
+uh batch
+
+930
+00:18:31,230 --> 00:18:31,240
+uh batch
+ 
+
+931
+00:18:31,240 --> 00:18:33,030
+uh batch
+capacity is
+
+932
+00:18:33,030 --> 00:18:33,040
+capacity is
+ 
+
+933
+00:18:33,040 --> 00:18:34,750
+capacity is
+five itself.
+
+934
+00:18:34,750 --> 00:18:34,760
+five itself.
+ 
+
+935
+00:18:34,760 --> 00:18:37,030
+five itself.
+Okay, it can't hold more, and five is
+
+936
+00:18:37,030 --> 00:18:37,040
+Okay, it can't hold more, and five is
+ 
+
+937
+00:18:37,040 --> 00:18:38,590
+Okay, it can't hold more, and five is
+already done.
+
+938
+00:18:38,590 --> 00:18:38,600
+already done.
+ 
+
+939
+00:18:38,600 --> 00:18:41,750
+already done.
+Now, let's say event six is coming.
+
+940
+00:18:41,750 --> 00:18:41,760
+Now, let's say event six is coming.
+ 
+
+941
+00:18:41,760 --> 00:18:44,030
+Now, let's say event six is coming.
+Okay, when event six is coming, it will
+
+942
+00:18:44,030 --> 00:18:44,040
+Okay, when event six is coming, it will
+ 
+
+943
+00:18:44,040 --> 00:18:45,390
+Okay, when event six is coming, it will
+again say,
+
+944
+00:18:45,390 --> 00:18:45,400
+again say,
+ 
+
+945
+00:18:45,400 --> 00:18:46,910
+again say,
+"Partition again will say that, 'Okay,
+
+946
+00:18:46,910 --> 00:18:46,920
+"Partition again will say that, 'Okay,
+ 
+
+947
+00:18:46,920 --> 00:18:50,230
+"Partition again will say that, 'Okay,
+because in its memory for this topic,
+
+948
+00:18:50,230 --> 00:18:50,240
+because in its memory for this topic,
+ 
+
+949
+00:18:50,240 --> 00:18:54,870
+because in its memory for this topic,
+this P1 is sticky.' Okay? So, now event
+
+950
+00:18:54,870 --> 00:18:54,880
+this P1 is sticky.' Okay? So, now event
+ 
+
+951
+00:18:54,880 --> 00:18:56,470
+this P1 is sticky.' Okay? So, now event
+six comes, it will say that, 'Okay,
+
+952
+00:18:56,470 --> 00:18:56,480
+six comes, it will say that, 'Okay,
+ 
+
+953
+00:18:56,480 --> 00:18:59,070
+six comes, it will say that, 'Okay,
+store into the P1.'
+
+954
+00:18:59,070 --> 00:18:59,080
+store into the P1.'
+ 
+
+955
+00:18:59,080 --> 00:19:01,150
+store into the P1.'
+Now, record accumulator
+
+956
+00:19:01,150 --> 00:19:01,160
+Now, record accumulator
+ 
+
+957
+00:19:01,160 --> 00:19:03,390
+Now, record accumulator
+has to create a new batch.
+
+958
+00:19:03,390 --> 00:19:03,400
+has to create a new batch.
+ 
+
+959
+00:19:03,400 --> 00:19:05,030
+has to create a new batch.
+Okay, this batch is already closed, you
+
+960
+00:19:05,030 --> 00:19:05,040
+Okay, this batch is already closed, you
+ 
+
+961
+00:19:05,040 --> 00:19:06,870
+Okay, this batch is already closed, you
+can say that. This is closed and ready
+
+962
+00:19:06,870 --> 00:19:06,880
+can say that. This is closed and ready
+ 
+
+963
+00:19:06,880 --> 00:19:08,990
+can say that. This is closed and ready
+to be dispatched to the broker.
+
+964
+00:19:08,990 --> 00:19:09,000
+to be dispatched to the broker.
+ 
+
+965
+00:19:09,000 --> 00:19:11,030
+to be dispatched to the broker.
+So, it will create a new batch for
+
+966
+00:19:11,030 --> 00:19:11,040
+So, it will create a new batch for
+ 
+
+967
+00:19:11,040 --> 00:19:13,710
+So, it will create a new batch for
+order-events
+
+968
+00:19:13,710 --> 00:19:13,720
+order-events
+ 
+
+969
+00:19:13,720 --> 00:19:16,310
+order-events
+partition P1.
+
+970
+00:19:16,310 --> 00:19:16,320
+partition P1.
+ 
+
+971
+00:19:16,320 --> 00:19:18,990
+partition P1.
+So, even six would be stored here.
+
+972
+00:19:18,990 --> 00:19:19,000
+So, even six would be stored here.
+ 
+
+973
+00:19:19,000 --> 00:19:20,510
+So, even six would be stored here.
+But,
+
+974
+00:19:20,510 --> 00:19:20,520
+But,
+ 
+
+975
+00:19:20,520 --> 00:19:22,750
+But,
+this record accumulator will also send
+
+976
+00:19:22,750 --> 00:19:22,760
+this record accumulator will also send
+ 
+
+977
+00:19:22,760 --> 00:19:25,030
+this record accumulator will also send
+one more information that this is a new
+
+978
+00:19:25,030 --> 00:19:25,040
+one more information that this is a new
+ 
+
+979
+00:19:25,040 --> 00:19:27,430
+one more information that this is a new
+batch.
+
+980
+00:19:27,430 --> 00:19:27,440
+batch.
+ 
+
+981
+00:19:27,440 --> 00:19:30,950
+batch.
+Okay? It It opened a new batch.
+
+982
+00:19:30,950 --> 00:19:30,960
+Okay? It It opened a new batch.
+ 
+
+983
+00:19:30,960 --> 00:19:33,990
+Okay? It It opened a new batch.
+So, now partition know that a new batch
+
+984
+00:19:33,990 --> 00:19:34,000
+So, now partition know that a new batch
+ 
+
+985
+00:19:34,000 --> 00:19:37,230
+So, now partition know that a new batch
+is created, so it will also update its a
+
+986
+00:19:37,230 --> 00:19:37,240
+is created, so it will also update its a
+ 
+
+987
+00:19:37,240 --> 00:19:39,070
+is created, so it will also update its a
+sticky memory that hey, what it will do
+
+988
+00:19:39,070 --> 00:19:39,080
+sticky memory that hey, what it will do
+ 
+
+989
+00:19:39,080 --> 00:19:41,550
+sticky memory that hey, what it will do
+is randomly pick a game
+
+990
+00:19:41,550 --> 00:19:41,560
+is randomly pick a game
+ 
+
+991
+00:19:41,560 --> 00:19:43,670
+is randomly pick a game
+from out of this. So, randomly
+
+992
+00:19:43,670 --> 00:19:43,680
+from out of this. So, randomly
+ 
+
+993
+00:19:43,680 --> 00:19:46,310
+from out of this. So, randomly
+it could be again P1, it could be P0, it
+
+994
+00:19:46,310 --> 00:19:46,320
+it could be again P1, it could be P0, it
+ 
+
+995
+00:19:46,320 --> 00:19:48,670
+it could be again P1, it could be P0, it
+could be P2, anything. But, it will
+
+996
+00:19:48,670 --> 00:19:48,680
+could be P2, anything. But, it will
+ 
+
+997
+00:19:48,680 --> 00:19:52,350
+could be P2, anything. But, it will
+update its that okay, order-events
+
+998
+00:19:52,350 --> 00:19:52,360
+update its that okay, order-events
+ 
+
+999
+00:19:52,360 --> 00:19:54,230
+update its that okay, order-events
+now randomly it will pick. Now, let's
+
+1000
+00:19:54,230 --> 00:19:54,240
+now randomly it will pick. Now, let's
+ 
+
+1001
+00:19:54,240 --> 00:19:55,790
+now randomly it will pick. Now, let's
+say it's P2.
+
+1002
+00:19:55,790 --> 00:19:55,800
+say it's P2.
+ 
+
+1003
+00:19:55,800 --> 00:19:58,390
+say it's P2.
+Now, this is its a sticky.
+
+1004
+00:19:58,390 --> 00:19:58,400
+Now, this is its a sticky.
+ 
+
+1005
+00:19:58,400 --> 00:19:59,390
+Now, this is its a sticky.
+Okay?
+
+1006
+00:19:59,390 --> 00:19:59,400
+Okay?
+ 
+
+1007
+00:19:59,400 --> 00:20:01,910
+Okay?
+So, that's what it follows.
+
+1008
+00:20:01,910 --> 00:20:01,920
+So, that's what it follows.
+ 
+
+1009
+00:20:01,920 --> 00:20:03,870
+So, that's what it follows.
+Until and unless your batch is not
+
+1010
+00:20:03,870 --> 00:20:03,880
+Until and unless your batch is not
+ 
+
+1011
+00:20:03,880 --> 00:20:06,750
+Until and unless your batch is not
+closed, you can say that your batch is
+
+1012
+00:20:06,750 --> 00:20:06,760
+closed, you can say that your batch is
+ 
+
+1013
+00:20:06,760 --> 00:20:10,430
+closed, you can say that your batch is
+not closed.
+
+1014
+00:20:10,430 --> 00:20:10,440
+
+ 
+
+1015
+00:20:10,440 --> 00:20:13,790
+
+Your partitioner keep
+
+1016
+00:20:13,790 --> 00:20:13,800
+Your partitioner keep
+ 
+
+1017
+00:20:13,800 --> 00:20:15,110
+Your partitioner keep
+a map.
+
+1018
+00:20:15,110 --> 00:20:15,120
+a map.
+ 
+
+1019
+00:20:15,120 --> 00:20:16,830
+a map.
+Like for this topic, this is the
+
+1020
+00:20:16,830 --> 00:20:16,840
+Like for this topic, this is the
+ 
+
+1021
+00:20:16,840 --> 00:20:18,430
+Like for this topic, this is the
+partition. It is stored this
+
+1022
+00:20:18,430 --> 00:20:18,440
+partition. It is stored this
+ 
+
+1023
+00:20:18,440 --> 00:20:20,510
+partition. It is stored this
+information, and it will always whatever
+
+1024
+00:20:20,510 --> 00:20:20,520
+information, and it will always whatever
+ 
+
+1025
+00:20:20,520 --> 00:20:23,990
+information, and it will always whatever
+the event come for this topic, it will
+
+1026
+00:20:23,990 --> 00:20:24,000
+the event come for this topic, it will
+ 
+
+1027
+00:20:24,000 --> 00:20:27,070
+the event come for this topic, it will
+always return the same partition, and
+
+1028
+00:20:27,070 --> 00:20:27,080
+always return the same partition, and
+ 
+
+1029
+00:20:27,080 --> 00:20:29,470
+always return the same partition, and
+your record accumulator will keep on
+
+1030
+00:20:29,470 --> 00:20:29,480
+your record accumulator will keep on
+ 
+
+1031
+00:20:29,480 --> 00:20:31,030
+your record accumulator will keep on
+filling that
+
+1032
+00:20:31,030 --> 00:20:31,040
+filling that
+ 
+
+1033
+00:20:31,040 --> 00:20:34,310
+filling that
+batch for that topic, for that
+
+1034
+00:20:34,310 --> 00:20:34,320
+batch for that topic, for that
+ 
+
+1035
+00:20:34,320 --> 00:20:35,870
+batch for that topic, for that
+partition.
+
+1036
+00:20:35,870 --> 00:20:35,880
+partition.
+ 
+
+1037
+00:20:35,880 --> 00:20:37,750
+partition.
+And once it is full,
+
+1038
+00:20:37,750 --> 00:20:37,760
+And once it is full,
+ 
+
+1039
+00:20:37,760 --> 00:20:38,710
+And once it is full,
+okay?
+
+1040
+00:20:38,710 --> 00:20:38,720
+okay?
+ 
+
+1041
+00:20:38,720 --> 00:20:40,030
+okay?
+It
+
+1042
+00:20:40,030 --> 00:20:40,040
+It
+ 
+
+1043
+00:20:40,040 --> 00:20:42,070
+It
+for the new event, it tells the
+
+1044
+00:20:42,070 --> 00:20:42,080
+for the new event, it tells the
+ 
+
+1045
+00:20:42,080 --> 00:20:43,870
+for the new event, it tells the
+partition that hey,
+
+1046
+00:20:43,870 --> 00:20:43,880
+partition that hey,
+ 
+
+1047
+00:20:43,880 --> 00:20:46,230
+partition that hey,
+this is a new batch I have created. So,
+
+1048
+00:20:46,230 --> 00:20:46,240
+this is a new batch I have created. So,
+ 
+
+1049
+00:20:46,240 --> 00:20:49,310
+this is a new batch I have created. So,
+from the next event, your partition
+
+1050
+00:20:49,310 --> 00:20:49,320
+from the next event, your partition
+ 
+
+1051
+00:20:49,320 --> 00:20:51,870
+from the next event, your partition
+might
+
+1052
+00:20:51,870 --> 00:20:51,880
+might
+ 
+
+1053
+00:20:51,880 --> 00:20:54,390
+might
+send the partition to the same batch,
+
+1054
+00:20:54,390 --> 00:20:54,400
+send the partition to the same batch,
+ 
+
+1055
+00:20:54,400 --> 00:20:55,510
+send the partition to the same batch,
+the same partition, or different
+
+1056
+00:20:55,510 --> 00:20:55,520
+the same partition, or different
+ 
+
+1057
+00:20:55,520 --> 00:20:57,350
+the same partition, or different
+partition.
+
+1058
+00:20:57,350 --> 00:20:57,360
+partition.
+ 
+
+1059
+00:20:57,360 --> 00:20:58,190
+partition.
+Okay?
+
+1060
+00:20:58,190 --> 00:20:58,200
+Okay?
+ 
+
+1061
+00:20:58,200 --> 00:21:00,710
+Okay?
+Because it has updated its now a sticky
+
+1062
+00:21:00,710 --> 00:21:00,720
+Because it has updated its now a sticky
+ 
+
+1063
+00:21:00,720 --> 00:21:03,790
+Because it has updated its now a sticky
+memory.
+
+1064
+00:21:03,790 --> 00:21:03,800
+
+ 
+
+1065
+00:21:03,800 --> 00:21:05,670
+
+So, this is clear.
+
+1066
+00:21:05,670 --> 00:21:05,680
+So, this is clear.
+ 
+
+1067
+00:21:05,680 --> 00:21:07,430
+So, this is clear.
+Why I
+
+1068
+00:21:07,430 --> 00:21:07,440
+Why I
+ 
+
+1069
+00:21:07,440 --> 00:21:08,150
+Why I
+uh
+
+1070
+00:21:08,150 --> 00:21:08,160
+uh
+ 
+
+1071
+00:21:08,160 --> 00:21:12,630
+uh
+told you this round robin and sticky
+
+1072
+00:21:12,630 --> 00:21:12,640
+told you this round robin and sticky
+ 
+
+1073
+00:21:12,640 --> 00:21:15,750
+told you this round robin and sticky
+for this record accumulator because
+
+1074
+00:21:15,750 --> 00:21:15,760
+for this record accumulator because
+ 
+
+1075
+00:21:15,760 --> 00:21:17,670
+for this record accumulator because
+it's not just round robin. After round
+
+1076
+00:21:17,670 --> 00:21:17,680
+it's not just round robin. After round
+ 
+
+1077
+00:21:17,680 --> 00:21:21,030
+it's not just round robin. After round
+robin, it there is a batch concept also,
+
+1078
+00:21:21,030 --> 00:21:21,040
+robin, it there is a batch concept also,
+ 
+
+1079
+00:21:21,040 --> 00:21:24,430
+robin, it there is a batch concept also,
+which is very important.
+
+1080
+00:21:24,430 --> 00:21:24,440
+
+ 
+
+1081
+00:21:24,440 --> 00:21:28,230
+
+Okay? Because ultimately batches goes
+
+1082
+00:21:28,230 --> 00:21:28,240
+Okay? Because ultimately batches goes
+ 
+
+1083
+00:21:28,240 --> 00:21:33,190
+Okay? Because ultimately batches goes
+to the broker.
+
+1084
+00:21:33,190 --> 00:21:33,200
+
+ 
+
+1085
+00:21:33,200 --> 00:21:37,950
+
+Sorry.
+
+1086
+00:21:37,950 --> 00:21:37,960
+
+ 
+
+1087
+00:21:37,960 --> 00:21:40,190
+
+Okay.
+
+1088
+00:21:40,190 --> 00:21:40,200
+Okay.
+ 
+
+1089
+00:21:40,200 --> 00:21:43,390
+Okay.
+Now, let's move ahead.
+
+1090
+00:21:43,390 --> 00:21:43,400
+Now, let's move ahead.
+ 
+
+1091
+00:21:43,400 --> 00:21:45,590
+Now, let's move ahead.
+Now, question one thing which you might
+
+1092
+00:21:45,590 --> 00:21:45,600
+Now, question one thing which you might
+ 
+
+1093
+00:21:45,600 --> 00:21:48,630
+Now, question one thing which you might
+get is how to control this batch.
+
+1094
+00:21:48,630 --> 00:21:48,640
+get is how to control this batch.
+ 
+
+1095
+00:21:48,640 --> 00:21:51,270
+get is how to control this batch.
+What should be the batch size?
+
+1096
+00:21:51,270 --> 00:21:51,280
+What should be the batch size?
+ 
+
+1097
+00:21:51,280 --> 00:21:54,790
+What should be the batch size?
+How much time I should wait before I
+
+1098
+00:21:54,790 --> 00:21:54,800
+How much time I should wait before I
+ 
+
+1099
+00:21:54,800 --> 00:21:57,070
+How much time I should wait before I
+I can say that this batch is now is
+
+1100
+00:21:57,070 --> 00:21:57,080
+I can say that this batch is now is
+ 
+
+1101
+00:21:57,080 --> 00:21:58,670
+I can say that this batch is now is
+ready.
+
+1102
+00:21:58,670 --> 00:21:58,680
+ready.
+ 
+
+1103
+00:21:58,680 --> 00:22:01,190
+ready.
+So, there are two ways.
+
+1104
+00:22:01,190 --> 00:22:01,200
+So, there are two ways.
+ 
+
+1105
+00:22:01,200 --> 00:22:03,550
+So, there are two ways.
+One is batch.size. So, these are all
+
+1106
+00:22:03,550 --> 00:22:03,560
+One is batch.size. So, these are all
+ 
+
+1107
+00:22:03,560 --> 00:22:04,950
+One is batch.size. So, these are all
+configuration.
+
+1108
+00:22:04,950 --> 00:22:04,960
+configuration.
+ 
+
+1109
+00:22:04,960 --> 00:22:07,310
+configuration.
+Okay? If you don't provide this, there
+
+1110
+00:22:07,310 --> 00:22:07,320
+Okay? If you don't provide this, there
+ 
+
+1111
+00:22:07,320 --> 00:22:09,750
+Okay? If you don't provide this, there
+would be a default values.
+
+1112
+00:22:09,750 --> 00:22:09,760
+would be a default values.
+ 
+
+1113
+00:22:09,760 --> 00:22:13,470
+would be a default values.
+So, batch.size default is 16 KB.
+
+1114
+00:22:13,470 --> 00:22:13,480
+So, batch.size default is 16 KB.
+ 
+
+1115
+00:22:13,480 --> 00:22:16,350
+So, batch.size default is 16 KB.
+So, means maximum memory allocated per
+
+1116
+00:22:16,350 --> 00:22:16,360
+So, means maximum memory allocated per
+ 
+
+1117
+00:22:16,360 --> 00:22:18,230
+So, means maximum memory allocated per
+partition batch.
+
+1118
+00:22:18,230 --> 00:22:18,240
+partition batch.
+ 
+
+1119
+00:22:18,240 --> 00:22:21,550
+partition batch.
+Okay? Per batch, this is the 16 KB is
+
+1120
+00:22:21,550 --> 00:22:21,560
+Okay? Per batch, this is the 16 KB is
+ 
+
+1121
+00:22:21,560 --> 00:22:24,310
+Okay? Per batch, this is the 16 KB is
+the maximum default.
+
+1122
+00:22:24,310 --> 00:22:24,320
+the maximum default.
+ 
+
+1123
+00:22:24,320 --> 00:22:25,310
+the maximum default.
+Okay?
+
+1124
+00:22:25,310 --> 00:22:25,320
+Okay?
+ 
+
+1125
+00:22:25,320 --> 00:22:28,030
+Okay?
+Maximum size it can have. Once this size
+
+1126
+00:22:28,030 --> 00:22:28,040
+Maximum size it can have. Once this size
+ 
+
+1127
+00:22:28,040 --> 00:22:30,510
+Maximum size it can have. Once this size
+is reached, the batch is closed and it
+
+1128
+00:22:30,510 --> 00:22:30,520
+is reached, the batch is closed and it
+ 
+
+1129
+00:22:30,520 --> 00:22:34,990
+is reached, the batch is closed and it
+is ready to be dispatched to the broker.
+
+1130
+00:22:34,990 --> 00:22:35,000
+is ready to be dispatched to the broker.
+ 
+
+1131
+00:22:35,000 --> 00:22:37,230
+is ready to be dispatched to the broker.
+Okay? For example, you are one event
+
+1132
+00:22:37,230 --> 00:22:37,240
+Okay? For example, you are one event
+ 
+
+1133
+00:22:37,240 --> 00:22:39,630
+Okay? For example, you are one event
+size is 1 KB. So, means this batch can
+
+1134
+00:22:39,630 --> 00:22:39,640
+size is 1 KB. So, means this batch can
+ 
+
+1135
+00:22:39,640 --> 00:22:42,630
+size is 1 KB. So, means this batch can
+hold around 16 messages.
+
+1136
+00:22:42,630 --> 00:22:42,640
+hold around 16 messages.
+ 
+
+1137
+00:22:42,640 --> 00:22:45,430
+hold around 16 messages.
+And when batch size is reached,
+
+1138
+00:22:45,430 --> 00:22:45,440
+And when batch size is reached,
+ 
+
+1139
+00:22:45,440 --> 00:22:47,990
+And when batch size is reached,
+batch is closed and it is
+
+1140
+00:22:47,990 --> 00:22:48,000
+batch is closed and it is
+ 
+
+1141
+00:22:48,000 --> 00:22:50,030
+batch is closed and it is
+ready for sending.
+
+1142
+00:22:50,030 --> 00:22:50,040
+ready for sending.
+ 
+
+1143
+00:22:50,040 --> 00:22:52,510
+ready for sending.
+Ready for sending.
+
+1144
+00:22:52,510 --> 00:22:52,520
+Ready for sending.
+ 
+
+1145
+00:22:52,520 --> 00:22:54,190
+Ready for sending.
+Now, you can say that okay, what if
+
+1146
+00:22:54,190 --> 00:22:54,200
+Now, you can say that okay, what if
+ 
+
+1147
+00:22:54,200 --> 00:22:57,030
+Now, you can say that okay, what if
+traffic is less and even I have put 16
+
+1148
+00:22:57,030 --> 00:22:57,040
+traffic is less and even I have put 16
+ 
+
+1149
+00:22:57,040 --> 00:22:59,670
+traffic is less and even I have put 16
+KB, which can hold 16 message,
+
+1150
+00:22:59,670 --> 00:22:59,680
+KB, which can hold 16 message,
+ 
+
+1151
+00:22:59,680 --> 00:23:01,510
+KB, which can hold 16 message,
+what if there is only five message, but
+
+1152
+00:23:01,510 --> 00:23:01,520
+what if there is only five message, but
+ 
+
+1153
+00:23:01,520 --> 00:23:03,950
+what if there is only five message, but
+traffic is less. Like I am not getting
+
+1154
+00:23:03,950 --> 00:23:03,960
+traffic is less. Like I am not getting
+ 
+
+1155
+00:23:03,960 --> 00:23:07,150
+traffic is less. Like I am not getting
+more events. What to do? Will it keep on
+
+1156
+00:23:07,150 --> 00:23:07,160
+more events. What to do? Will it keep on
+ 
+
+1157
+00:23:07,160 --> 00:23:08,470
+more events. What to do? Will it keep on
+waiting forever?
+
+1158
+00:23:08,470 --> 00:23:08,480
+waiting forever?
+ 
+
+1159
+00:23:08,480 --> 00:23:10,190
+waiting forever?
+No.
+
+1160
+00:23:10,190 --> 00:23:10,200
+No.
+ 
+
+1161
+00:23:10,200 --> 00:23:12,430
+No.
+There is another control
+
+1162
+00:23:12,430 --> 00:23:12,440
+There is another control
+ 
+
+1163
+00:23:12,440 --> 00:23:14,590
+There is another control
+linger.milliseconds.
+
+1164
+00:23:14,590 --> 00:23:14,600
+linger.milliseconds.
+ 
+
+1165
+00:23:14,600 --> 00:23:17,150
+linger.milliseconds.
+linger.ms equals to 10 milliseconds.
+
+1166
+00:23:17,150 --> 00:23:17,160
+linger.ms equals to 10 milliseconds.
+ 
+
+1167
+00:23:17,160 --> 00:23:18,270
+linger.ms equals to 10 milliseconds.
+Okay?
+
+1168
+00:23:18,270 --> 00:23:18,280
+Okay?
+ 
+
+1169
+00:23:18,280 --> 00:23:20,590
+Okay?
+This is the maximum time producer will
+
+1170
+00:23:20,590 --> 00:23:20,600
+This is the maximum time producer will
+ 
+
+1171
+00:23:20,600 --> 00:23:23,670
+This is the maximum time producer will
+wait for more records to fill the batch.
+
+1172
+00:23:23,670 --> 00:23:23,680
+wait for more records to fill the batch.
+ 
+
+1173
+00:23:23,680 --> 00:23:26,990
+wait for more records to fill the batch.
+Once this time is over
+
+1174
+00:23:26,990 --> 00:23:27,000
+Once this time is over
+ 
+
+1175
+00:23:27,000 --> 00:23:29,430
+Once this time is over
+whatever the batch
+
+1176
+00:23:29,430 --> 00:23:29,440
+whatever the batch
+ 
+
+1177
+00:23:29,440 --> 00:23:31,990
+whatever the batch
+you have been created with events, it
+
+1178
+00:23:31,990 --> 00:23:32,000
+you have been created with events, it
+ 
+
+1179
+00:23:32,000 --> 00:23:34,870
+you have been created with events, it
+will close the batch and send it.
+
+1180
+00:23:34,870 --> 00:23:34,880
+will close the batch and send it.
+ 
+
+1181
+00:23:34,880 --> 00:23:36,790
+will close the batch and send it.
+So this makes sure that producer do not
+
+1182
+00:23:36,790 --> 00:23:36,800
+So this makes sure that producer do not
+ 
+
+1183
+00:23:36,800 --> 00:23:38,910
+So this makes sure that producer do not
+wait indefinitely for a batch to fill
+
+1184
+00:23:38,910 --> 00:23:38,920
+wait indefinitely for a batch to fill
+ 
+
+1185
+00:23:38,920 --> 00:23:40,310
+wait indefinitely for a batch to fill
+when the traffic is slow. You can say
+
+1186
+00:23:40,310 --> 00:23:40,320
+when the traffic is slow. You can say
+ 
+
+1187
+00:23:40,320 --> 00:23:43,470
+when the traffic is slow. You can say
+that.
+
+1188
+00:23:43,470 --> 00:23:43,480
+
+ 
+
+1189
+00:23:43,480 --> 00:23:44,350
+
+Okay?
+
+1190
+00:23:44,350 --> 00:23:44,360
+Okay?
+ 
+
+1191
+00:23:44,360 --> 00:23:47,030
+Okay?
+So in this example
+
+1192
+00:23:47,030 --> 00:23:47,040
+So in this example
+ 
+
+1193
+00:23:47,040 --> 00:23:49,790
+So in this example
+whether your batch is full or not
+
+1194
+00:23:49,790 --> 00:23:49,800
+whether your batch is full or not
+ 
+
+1195
+00:23:49,800 --> 00:23:51,710
+whether your batch is full or not
+producer maximum wait only for 10
+
+1196
+00:23:51,710 --> 00:23:51,720
+producer maximum wait only for 10
+ 
+
+1197
+00:23:51,720 --> 00:23:54,030
+producer maximum wait only for 10
+milliseconds. After 10 milliseconds, it
+
+1198
+00:23:54,030 --> 00:23:54,040
+milliseconds. After 10 milliseconds, it
+ 
+
+1199
+00:23:54,040 --> 00:23:55,950
+milliseconds. After 10 milliseconds, it
+will close the batch and it will mark it
+
+1200
+00:23:55,950 --> 00:23:55,960
+will close the batch and it will mark it
+ 
+
+1201
+00:23:55,960 --> 00:23:59,990
+will close the batch and it will mark it
+as ready to be sent to the broker.
+
+1202
+00:23:59,990 --> 00:24:00,000
+
+ 
+
+1203
+00:24:00,000 --> 00:24:01,230
+
+So this is the two ways through we we
+
+1204
+00:24:01,230 --> 00:24:01,240
+So this is the two ways through we we
+ 
+
+1205
+00:24:01,240 --> 00:24:04,510
+So this is the two ways through we we
+can control the batch.
+
+1206
+00:24:04,510 --> 00:24:04,520
+
+ 
+
+1207
+00:24:04,520 --> 00:24:06,350
+
+Again, these are optional. Default
+
+1208
+00:24:06,350 --> 00:24:06,360
+Again, these are optional. Default
+ 
+
+1209
+00:24:06,360 --> 00:24:08,270
+Again, these are optional. Default
+values are already there. Even if you
+
+1210
+00:24:08,270 --> 00:24:08,280
+values are already there. Even if you
+ 
+
+1211
+00:24:08,280 --> 00:24:12,796
+values are already there. Even if you
+don't set, default would be used.
+
+1212
+00:24:12,796 --> 00:24:12,806
+
+ 
+
+1213
+00:24:12,806 --> 00:24:15,390
+
+>> [snorts]
+
+1214
+00:24:15,390 --> 00:24:15,400
+
+ 
+
+1215
+00:24:15,400 --> 00:24:17,350
+
+>> Now let's move to the next stage. We
+
+1216
+00:24:17,350 --> 00:24:17,360
+>> Now let's move to the next stage. We
+ 
+
+1217
+00:24:17,360 --> 00:24:19,630
+>> Now let's move to the next stage. We
+have done serializer.
+
+1218
+00:24:19,630 --> 00:24:19,640
+have done serializer.
+ 
+
+1219
+00:24:19,640 --> 00:24:21,310
+have done serializer.
+In this we have converted object to the
+
+1220
+00:24:21,310 --> 00:24:21,320
+In this we have converted object to the
+ 
+
+1221
+00:24:21,320 --> 00:24:24,350
+In this we have converted object to the
+bytes. Partition, here we got that okay
+
+1222
+00:24:24,350 --> 00:24:24,360
+bytes. Partition, here we got that okay
+ 
+
+1223
+00:24:24,360 --> 00:24:27,390
+bytes. Partition, here we got that okay
+we which partition this event should go.
+
+1224
+00:24:27,390 --> 00:24:27,400
+we which partition this event should go.
+ 
+
+1225
+00:24:27,400 --> 00:24:29,790
+we which partition this event should go.
+Record accumulator, here we have
+
+1226
+00:24:29,790 --> 00:24:29,800
+Record accumulator, here we have
+ 
+
+1227
+00:24:29,800 --> 00:24:32,790
+Record accumulator, here we have
+created batches. Batch one, batch two,
+
+1228
+00:24:32,790 --> 00:24:32,800
+created batches. Batch one, batch two,
+ 
+
+1229
+00:24:32,800 --> 00:24:35,110
+created batches. Batch one, batch two,
+batch three.
+
+1230
+00:24:35,110 --> 00:24:35,120
+batch three.
+ 
+
+1231
+00:24:35,120 --> 00:24:37,190
+batch three.
+Topic partition wise, topic partition
+
+1232
+00:24:37,190 --> 00:24:37,200
+Topic partition wise, topic partition
+ 
+
+1233
+00:24:37,200 --> 00:24:38,270
+Topic partition wise, topic partition
+wise.
+
+1234
+00:24:38,270 --> 00:24:38,280
+wise.
+ 
+
+1235
+00:24:38,280 --> 00:24:39,190
+wise.
+Okay?
+
+1236
+00:24:39,190 --> 00:24:39,200
+Okay?
+ 
+
+1237
+00:24:39,200 --> 00:24:41,590
+Okay?
+Now once that done, it passed to the
+
+1238
+00:24:41,590 --> 00:24:41,600
+Now once that done, it passed to the
+ 
+
+1239
+00:24:41,600 --> 00:24:43,910
+Now once that done, it passed to the
+compression.
+
+1240
+00:24:43,910 --> 00:24:43,920
+compression.
+ 
+
+1241
+00:24:43,920 --> 00:24:46,590
+compression.
+So batches which are ready to send
+
+1242
+00:24:46,590 --> 00:24:46,600
+So batches which are ready to send
+ 
+
+1243
+00:24:46,600 --> 00:24:49,790
+So batches which are ready to send
+are compressed to reduce network usage.
+
+1244
+00:24:49,790 --> 00:24:49,800
+are compressed to reduce network usage.
+ 
+
+1245
+00:24:49,800 --> 00:24:52,030
+are compressed to reduce network usage.
+Okay? So there are various compression
+
+1246
+00:24:52,030 --> 00:24:52,040
+Okay? So there are various compression
+ 
+
+1247
+00:24:52,040 --> 00:24:54,470
+Okay? So there are various compression
+you can say that algorithms
+
+1248
+00:24:54,470 --> 00:24:54,480
+you can say that algorithms
+ 
+
+1249
+00:24:54,480 --> 00:24:57,750
+you can say that algorithms
+like gzip
+
+1250
+00:24:57,750 --> 00:24:57,760
+
+ 
+
+1251
+00:24:57,760 --> 00:25:00,670
+
+Okay? Snappy.
+
+1252
+00:25:00,670 --> 00:25:00,680
+Okay? Snappy.
+ 
+
+1253
+00:25:00,680 --> 00:25:03,790
+Okay? Snappy.
+So, we can use one
+
+1254
+00:25:03,790 --> 00:25:03,800
+So, we can use one
+ 
+
+1255
+00:25:03,800 --> 00:25:07,350
+So, we can use one
+algorithm, you can say that.
+
+1256
+00:25:07,350 --> 00:25:07,360
+
+ 
+
+1257
+00:25:07,360 --> 00:25:09,870
+
+And what it will do is it will reduce
+
+1258
+00:25:09,870 --> 00:25:09,880
+And what it will do is it will reduce
+ 
+
+1259
+00:25:09,880 --> 00:25:12,350
+And what it will do is it will reduce
+the size of our batch. Earlier, let's
+
+1260
+00:25:12,350 --> 00:25:12,360
+the size of our batch. Earlier, let's
+ 
+
+1261
+00:25:12,360 --> 00:25:15,470
+the size of our batch. Earlier, let's
+say our batch size is 64 KB.
+
+1262
+00:25:15,470 --> 00:25:15,480
+say our batch size is 64 KB.
+ 
+
+1263
+00:25:15,480 --> 00:25:17,630
+say our batch size is 64 KB.
+After compression,
+
+1264
+00:25:17,630 --> 00:25:17,640
+After compression,
+ 
+
+1265
+00:25:17,640 --> 00:25:19,870
+After compression,
+it become 18 KB.
+
+1266
+00:25:19,870 --> 00:25:19,880
+it become 18 KB.
+ 
+
+1267
+00:25:19,880 --> 00:25:21,230
+it become 18 KB.
+Okay?
+
+1268
+00:25:21,230 --> 00:25:21,240
+Okay?
+ 
+
+1269
+00:25:21,240 --> 00:25:22,870
+Okay?
+So,
+
+1270
+00:25:22,870 --> 00:25:22,880
+So,
+ 
+
+1271
+00:25:22,880 --> 00:25:24,670
+So,
+and also one more advantage is that
+
+1272
+00:25:24,670 --> 00:25:24,680
+and also one more advantage is that
+ 
+
+1273
+00:25:24,680 --> 00:25:26,310
+and also one more advantage is that
+Kafka will store this compressed
+
+1274
+00:25:26,310 --> 00:25:26,320
+Kafka will store this compressed
+ 
+
+1275
+00:25:26,320 --> 00:25:27,910
+Kafka will store this compressed
+batches.
+
+1276
+00:25:27,910 --> 00:25:27,920
+batches.
+ 
+
+1277
+00:25:27,920 --> 00:25:31,550
+batches.
+So, it will also save disk space, too.
+
+1278
+00:25:31,550 --> 00:25:31,560
+So, it will also save disk space, too.
+ 
+
+1279
+00:25:31,560 --> 00:25:33,790
+So, it will also save disk space, too.
+Very important part.
+
+1280
+00:25:33,790 --> 00:25:33,800
+Very important part.
+ 
+
+1281
+00:25:33,800 --> 00:25:35,670
+Very important part.
+And compression is
+
+1282
+00:25:35,670 --> 00:25:35,680
+And compression is
+ 
+
+1283
+00:25:35,680 --> 00:25:37,310
+And compression is
+like I would say that very important
+
+1284
+00:25:37,310 --> 00:25:37,320
+like I would say that very important
+ 
+
+1285
+00:25:37,320 --> 00:25:38,550
+like I would say that very important
+because you know that, right? How
+
+1286
+00:25:38,550 --> 00:25:38,560
+because you know that, right? How
+ 
+
+1287
+00:25:38,560 --> 00:25:40,550
+because you know that, right? How
+compression works? Like
+
+1288
+00:25:40,550 --> 00:25:40,560
+compression works? Like
+ 
+
+1289
+00:25:40,560 --> 00:25:43,630
+compression works? Like
+it do certain enhancement in the like
+
+1290
+00:25:43,630 --> 00:25:43,640
+it do certain enhancement in the like
+ 
+
+1291
+00:25:43,640 --> 00:25:46,150
+it do certain enhancement in the like
+how you are representing the data. Okay,
+
+1292
+00:25:46,150 --> 00:25:46,160
+how you are representing the data. Okay,
+ 
+
+1293
+00:25:46,160 --> 00:25:48,390
+how you are representing the data. Okay,
+repetitive like if you have many
+
+1294
+00:25:48,390 --> 00:25:48,400
+repetitive like if you have many
+ 
+
+1295
+00:25:48,400 --> 00:25:50,830
+repetitive like if you have many
+repetitive words, it will just replace
+
+1296
+00:25:50,830 --> 00:25:50,840
+repetitive words, it will just replace
+ 
+
+1297
+00:25:50,840 --> 00:25:53,070
+repetitive words, it will just replace
+it with like some
+
+1298
+00:25:53,070 --> 00:25:53,080
+it with like some
+ 
+
+1299
+00:25:53,080 --> 00:25:54,710
+it with like some
+let's say two.
+
+1300
+00:25:54,710 --> 00:25:54,720
+let's say two.
+ 
+
+1301
+00:25:54,720 --> 00:25:56,830
+let's say two.
+So, that it it do some internal
+
+1302
+00:25:56,830 --> 00:25:56,840
+So, that it it do some internal
+ 
+
+1303
+00:25:56,840 --> 00:25:58,950
+So, that it it do some internal
+efficiency. It brings some internal
+
+1304
+00:25:58,950 --> 00:25:58,960
+efficiency. It brings some internal
+ 
+
+1305
+00:25:58,960 --> 00:26:02,350
+efficiency. It brings some internal
+efficiency to represent the same data
+
+1306
+00:26:02,350 --> 00:26:02,360
+efficiency to represent the same data
+ 
+
+1307
+00:26:02,360 --> 00:26:05,350
+efficiency to represent the same data
+which later can be again converted back
+
+1308
+00:26:05,350 --> 00:26:05,360
+which later can be again converted back
+ 
+
+1309
+00:26:05,360 --> 00:26:07,630
+which later can be again converted back
+to original form.
+
+1310
+00:26:07,630 --> 00:26:07,640
+to original form.
+ 
+
+1311
+00:26:07,640 --> 00:26:10,430
+to original form.
+Okay?
+
+1312
+00:26:10,430 --> 00:26:10,440
+
+ 
+
+1313
+00:26:10,440 --> 00:26:13,110
+
+So, compression I would say that
+
+1314
+00:26:13,110 --> 00:26:13,120
+So, compression I would say that
+ 
+
+1315
+00:26:13,120 --> 00:26:17,150
+So, compression I would say that
+it's not See, we have multiple Gzip,
+
+1316
+00:26:17,150 --> 00:26:17,160
+it's not See, we have multiple Gzip,
+ 
+
+1317
+00:26:17,160 --> 00:26:18,430
+it's not See, we have multiple Gzip,
+Snappy.
+
+1318
+00:26:18,430 --> 00:26:18,440
+Snappy.
+ 
+
+1319
+00:26:18,440 --> 00:26:20,390
+Snappy.
+There was always
+
+1320
+00:26:20,390 --> 00:26:20,400
+There was always
+ 
+
+1321
+00:26:20,400 --> 00:26:21,870
+There was always
+also that you can say that hey,
+
+1322
+00:26:21,870 --> 00:26:21,880
+also that you can say that hey,
+ 
+
+1323
+00:26:21,880 --> 00:26:23,470
+also that you can say that hey,
+uncompressed. You don't want to
+
+1324
+00:26:23,470 --> 00:26:23,480
+uncompressed. You don't want to
+ 
+
+1325
+00:26:23,480 --> 00:26:25,550
+uncompressed. You don't want to
+compress, also.
+
+1326
+00:26:25,550 --> 00:26:25,560
+compress, also.
+ 
+
+1327
+00:26:25,560 --> 00:26:27,790
+compress, also.
+But I always say that
+
+1328
+00:26:27,790 --> 00:26:27,800
+But I always say that
+ 
+
+1329
+00:26:27,800 --> 00:26:30,310
+But I always say that
+use compression.
+
+1330
+00:26:30,310 --> 00:26:30,320
+use compression.
+ 
+
+1331
+00:26:30,320 --> 00:26:32,630
+use compression.
+This will save memory because you know
+
+1332
+00:26:32,630 --> 00:26:32,640
+This will save memory because you know
+ 
+
+1333
+00:26:32,640 --> 00:26:33,710
+This will save memory because you know
+that
+
+1334
+00:26:33,710 --> 00:26:33,720
+that
+ 
+
+1335
+00:26:33,720 --> 00:26:36,790
+that
+the Kafka is store
+
+1336
+00:26:36,790 --> 00:26:36,800
+the Kafka is store
+ 
+
+1337
+00:26:36,800 --> 00:26:39,390
+the Kafka is store
+the event into disk.
+
+1338
+00:26:39,390 --> 00:26:39,400
+the event into disk.
+ 
+
+1339
+00:26:39,400 --> 00:26:41,030
+the event into disk.
+So, that
+
+1340
+00:26:41,030 --> 00:26:41,040
+So, that
+ 
+
+1341
+00:26:41,040 --> 00:26:43,030
+So, that
+is one advantage where you will save the
+
+1342
+00:26:43,030 --> 00:26:43,040
+is one advantage where you will save the
+ 
+
+1343
+00:26:43,040 --> 00:26:44,390
+is one advantage where you will save the
+disk space.
+
+1344
+00:26:44,390 --> 00:26:44,400
+disk space.
+ 
+
+1345
+00:26:44,400 --> 00:26:45,470
+disk space.
+Another,
+
+1346
+00:26:45,470 --> 00:26:45,480
+Another,
+ 
+
+1347
+00:26:45,480 --> 00:26:47,590
+Another,
+you you will reduce your network usage.
+
+1348
+00:26:47,590 --> 00:26:47,600
+you you will reduce your network usage.
+ 
+
+1349
+00:26:47,600 --> 00:26:51,150
+you you will reduce your network usage.
+So, from producer to broker when the
+
+1350
+00:26:51,150 --> 00:26:51,160
+So, from producer to broker when the
+ 
+
+1351
+00:26:51,160 --> 00:26:53,830
+So, from producer to broker when the
+payload size is less,
+
+1352
+00:26:53,830 --> 00:26:53,840
+payload size is less,
+ 
+
+1353
+00:26:53,840 --> 00:26:56,910
+payload size is less,
+your throughput will increase.
+
+1354
+00:26:56,910 --> 00:26:56,920
+your throughput will increase.
+ 
+
+1355
+00:26:56,920 --> 00:26:58,190
+your throughput will increase.
+Okay?
+
+1356
+00:26:58,190 --> 00:26:58,200
+Okay?
+ 
+
+1357
+00:26:58,200 --> 00:27:00,670
+Okay?
+So, if you are using uncompressed, I
+
+1358
+00:27:00,670 --> 00:27:00,680
+So, if you are using uncompressed, I
+ 
+
+1359
+00:27:00,680 --> 00:27:02,470
+So, if you are using uncompressed, I
+would say that uh
+
+1360
+00:27:02,470 --> 00:27:02,480
+would say that uh
+ 
+
+1361
+00:27:02,480 --> 00:27:05,350
+would say that uh
+revisit it again and make use of one of
+
+1362
+00:27:05,350 --> 00:27:05,360
+revisit it again and make use of one of
+ 
+
+1363
+00:27:05,360 --> 00:27:06,910
+revisit it again and make use of one of
+the algorithm.
+
+1364
+00:27:06,910 --> 00:27:06,920
+the algorithm.
+ 
+
+1365
+00:27:06,920 --> 00:27:08,710
+the algorithm.
+How to use it? I will show you when we
+
+1366
+00:27:08,710 --> 00:27:08,720
+How to use it? I will show you when we
+ 
+
+1367
+00:27:08,720 --> 00:27:11,190
+How to use it? I will show you when we
+will set up. Again,
+
+1368
+00:27:11,190 --> 00:27:11,200
+will set up. Again,
+ 
+
+1369
+00:27:11,200 --> 00:27:12,990
+will set up. Again,
+if you don't set it, there's already a
+
+1370
+00:27:12,990 --> 00:27:13,000
+if you don't set it, there's already a
+ 
+
+1371
+00:27:13,000 --> 00:27:14,310
+if you don't set it, there's already a
+default.
+
+1372
+00:27:14,310 --> 00:27:14,320
+default.
+ 
+
+1373
+00:27:14,320 --> 00:27:18,190
+default.
+Okay? Uh but yes, I will show you that
+
+1374
+00:27:18,190 --> 00:27:18,200
+Okay? Uh but yes, I will show you that
+ 
+
+1375
+00:27:18,200 --> 00:27:20,150
+Okay? Uh but yes, I will show you that
+how we will set up when we will
+
+1376
+00:27:20,150 --> 00:27:20,160
+how we will set up when we will
+ 
+
+1377
+00:27:20,160 --> 00:27:21,230
+how we will set up when we will
+uh
+
+1378
+00:27:21,230 --> 00:27:21,240
+uh
+ 
+
+1379
+00:27:21,240 --> 00:27:24,790
+uh
+move to the setup stage.
+
+1380
+00:27:24,790 --> 00:27:24,800
+move to the setup stage.
+ 
+
+1381
+00:27:24,800 --> 00:27:26,750
+move to the setup stage.
+So, serialization is done, partition is
+
+1382
+00:27:26,750 --> 00:27:26,760
+So, serialization is done, partition is
+ 
+
+1383
+00:27:26,760 --> 00:27:28,790
+So, serialization is done, partition is
+done, record accumulator is done,
+
+1384
+00:27:28,790 --> 00:27:28,800
+done, record accumulator is done,
+ 
+
+1385
+00:27:28,800 --> 00:27:31,470
+done, record accumulator is done,
+compression is done. Now what?
+
+1386
+00:27:31,470 --> 00:27:31,480
+compression is done. Now what?
+ 
+
+1387
+00:27:31,480 --> 00:27:33,710
+compression is done. Now what?
+Now after that, it will goes to the
+
+1388
+00:27:33,710 --> 00:27:33,720
+Now after that, it will goes to the
+ 
+
+1389
+00:27:33,720 --> 00:27:35,150
+Now after that, it will goes to the
+sender thread.
+
+1390
+00:27:35,150 --> 00:27:35,160
+sender thread.
+ 
+
+1391
+00:27:35,160 --> 00:27:39,390
+sender thread.
+Last stage, you can say that.
+
+1392
+00:27:39,390 --> 00:27:39,400
+
+ 
+
+1393
+00:27:39,400 --> 00:27:42,750
+
+Your application thread never send data
+
+1394
+00:27:42,750 --> 00:27:42,760
+Your application thread never send data
+ 
+
+1395
+00:27:42,760 --> 00:27:45,110
+Your application thread never send data
+to the Kafka broker.
+
+1396
+00:27:45,110 --> 00:27:45,120
+to the Kafka broker.
+ 
+
+1397
+00:27:45,120 --> 00:27:46,990
+to the Kafka broker.
+So, let's say this is your application
+
+1398
+00:27:46,990 --> 00:27:47,000
+So, let's say this is your application
+ 
+
+1399
+00:27:47,000 --> 00:27:48,630
+So, let's say this is your application
+thread, right? This is your application
+
+1400
+00:27:48,630 --> 00:27:48,640
+thread, right? This is your application
+ 
+
+1401
+00:27:48,640 --> 00:27:49,670
+thread, right? This is your application
+thread.
+
+1402
+00:27:49,670 --> 00:27:49,680
+thread.
+ 
+
+1403
+00:27:49,680 --> 00:27:51,790
+thread.
+So, your application thread, if you see,
+
+1404
+00:27:51,790 --> 00:27:51,800
+So, your application thread, if you see,
+ 
+
+1405
+00:27:51,800 --> 00:27:54,310
+So, your application thread, if you see,
+if you open the code,
+
+1406
+00:27:54,310 --> 00:27:54,320
+if you open the code,
+ 
+
+1407
+00:27:54,320 --> 00:27:56,270
+if you open the code,
+so it has your application thread what
+
+1408
+00:27:56,270 --> 00:27:56,280
+so it has your application thread what
+ 
+
+1409
+00:27:56,280 --> 00:27:59,470
+so it has your application thread what
+it has done is it has serialized it.
+
+1410
+00:27:59,470 --> 00:27:59,480
+it has done is it has serialized it.
+ 
+
+1411
+00:27:59,480 --> 00:28:01,710
+it has done is it has serialized it.
+It has partitioned it.
+
+1412
+00:28:01,710 --> 00:28:01,720
+It has partitioned it.
+ 
+
+1413
+00:28:01,720 --> 00:28:03,790
+It has partitioned it.
+After then, it has
+
+1414
+00:28:03,790 --> 00:28:03,800
+After then, it has
+ 
+
+1415
+00:28:03,800 --> 00:28:06,030
+After then, it has
+record accumulator. It has invoked this.
+
+1416
+00:28:06,030 --> 00:28:06,040
+record accumulator. It has invoked this.
+ 
+
+1417
+00:28:06,040 --> 00:28:07,030
+record accumulator. It has invoked this.
+It has
+
+1418
+00:28:07,030 --> 00:28:07,040
+It has
+ 
+
+1419
+00:28:07,040 --> 00:28:09,190
+It has
+done this. Your application thread done
+
+1420
+00:28:09,190 --> 00:28:09,200
+done this. Your application thread done
+ 
+
+1421
+00:28:09,200 --> 00:28:11,830
+done this. Your application thread done
+this. Your application thread done this.
+
+1422
+00:28:11,830 --> 00:28:11,840
+this. Your application thread done this.
+ 
+
+1423
+00:28:11,840 --> 00:28:14,310
+this. Your application thread done this.
+Your application thread
+
+1424
+00:28:14,310 --> 00:28:14,320
+Your application thread
+ 
+
+1425
+00:28:14,320 --> 00:28:16,270
+Your application thread
+put your event into the record
+
+1426
+00:28:16,270 --> 00:28:16,280
+put your event into the record
+ 
+
+1427
+00:28:16,280 --> 00:28:18,590
+put your event into the record
+accumulator buffer memory.
+
+1428
+00:28:18,590 --> 00:28:18,600
+accumulator buffer memory.
+ 
+
+1429
+00:28:18,600 --> 00:28:21,910
+accumulator buffer memory.
+Now it will create batch. Okay? It will
+
+1430
+00:28:21,910 --> 00:28:21,920
+Now it will create batch. Okay? It will
+ 
+
+1431
+00:28:21,920 --> 00:28:24,870
+Now it will create batch. Okay? It will
+compress it. Okay?
+
+1432
+00:28:24,870 --> 00:28:24,880
+compress it. Okay?
+ 
+
+1433
+00:28:24,880 --> 00:28:26,470
+compress it. Okay?
+After that,
+
+1434
+00:28:26,470 --> 00:28:26,480
+After that,
+ 
+
+1435
+00:28:26,480 --> 00:28:28,630
+After that,
+what
+
+1436
+00:28:28,630 --> 00:28:28,640
+what
+ 
+
+1437
+00:28:28,640 --> 00:28:31,590
+what
+is your application thread does further
+
+1438
+00:28:31,590 --> 00:28:31,600
+is your application thread does further
+ 
+
+1439
+00:28:31,600 --> 00:28:33,310
+is your application thread does further
+task? No.
+
+1440
+00:28:33,310 --> 00:28:33,320
+task? No.
+ 
+
+1441
+00:28:33,320 --> 00:28:35,190
+task? No.
+See, after that,
+
+1442
+00:28:35,190 --> 00:28:35,200
+See, after that,
+ 
+
+1443
+00:28:35,200 --> 00:28:38,150
+See, after that,
+once you have submitted your task to the
+
+1444
+00:28:38,150 --> 00:28:38,160
+once you have submitted your task to the
+ 
+
+1445
+00:28:38,160 --> 00:28:40,230
+once you have submitted your task to the
+record accumulator,
+
+1446
+00:28:40,230 --> 00:28:40,240
+record accumulator,
+ 
+
+1447
+00:28:40,240 --> 00:28:41,670
+record accumulator,
+your application thread work is
+
+1448
+00:28:41,670 --> 00:28:41,680
+your application thread work is
+ 
+
+1449
+00:28:41,680 --> 00:28:44,670
+your application thread work is
+finished. It just return future.
+
+1450
+00:28:44,670 --> 00:28:44,680
+finished. It just return future.
+ 
+
+1451
+00:28:44,680 --> 00:28:48,470
+finished. It just return future.
+Okay? So, it just get free.
+
+1452
+00:28:48,470 --> 00:28:48,480
+Okay? So, it just get free.
+ 
+
+1453
+00:28:48,480 --> 00:28:50,070
+Okay? So, it just get free.
+Okay?
+
+1454
+00:28:50,070 --> 00:28:50,080
+Okay?
+ 
+
+1455
+00:28:50,080 --> 00:28:51,670
+Okay?
+Now, it will
+
+1456
+00:28:51,670 --> 00:28:51,680
+Now, it will
+ 
+
+1457
+00:28:51,680 --> 00:28:53,950
+Now, it will
+just this application thread is now
+
+1458
+00:28:53,950 --> 00:28:53,960
+just this application thread is now
+ 
+
+1459
+00:28:53,960 --> 00:28:55,310
+just this application thread is now
+free.
+
+1460
+00:28:55,310 --> 00:28:55,320
+free.
+ 
+
+1461
+00:28:55,320 --> 00:28:56,990
+free.
+You can say that. It is free. It can
+
+1462
+00:28:56,990 --> 00:28:57,000
+You can say that. It is free. It can
+ 
+
+1463
+00:28:57,000 --> 00:29:00,190
+You can say that. It is free. It can
+perform some other task.
+
+1464
+00:29:00,190 --> 00:29:00,200
+
+ 
+
+1465
+00:29:00,200 --> 00:29:04,150
+
+Now, there is a entry of sender thread.
+
+1466
+00:29:04,150 --> 00:29:04,160
+Now, there is a entry of sender thread.
+ 
+
+1467
+00:29:04,160 --> 00:29:05,990
+Now, there is a entry of sender thread.
+So, Kafka has
+
+1468
+00:29:05,990 --> 00:29:06,000
+So, Kafka has
+ 
+
+1469
+00:29:06,000 --> 00:29:07,870
+So, Kafka has
+one thread.
+
+1470
+00:29:07,870 --> 00:29:07,880
+one thread.
+ 
+
+1471
+00:29:07,880 --> 00:29:10,070
+one thread.
+What it will do is
+
+1472
+00:29:10,070 --> 00:29:10,080
+What it will do is
+ 
+
+1473
+00:29:10,080 --> 00:29:12,710
+What it will do is
+it will look for the batch which are
+
+1474
+00:29:12,710 --> 00:29:12,720
+it will look for the batch which are
+ 
+
+1475
+00:29:12,720 --> 00:29:15,590
+it will look for the batch which are
+ready to be sent.
+
+1476
+00:29:15,590 --> 00:29:15,600
+ready to be sent.
+ 
+
+1477
+00:29:15,600 --> 00:29:17,710
+ready to be sent.
+Okay? So, sender thread responsibility
+
+1478
+00:29:17,710 --> 00:29:17,720
+Okay? So, sender thread responsibility
+ 
+
+1479
+00:29:17,720 --> 00:29:20,070
+Okay? So, sender thread responsibility
+is that check record accumulator for
+
+1480
+00:29:20,070 --> 00:29:20,080
+is that check record accumulator for
+ 
+
+1481
+00:29:20,080 --> 00:29:21,470
+is that check record accumulator for
+ready batches.
+
+1482
+00:29:21,470 --> 00:29:21,480
+ready batches.
+ 
+
+1483
+00:29:21,480 --> 00:29:23,150
+ready batches.
+Okay? So, you can say that stage three
+
+1484
+00:29:23,150 --> 00:29:23,160
+Okay? So, you can say that stage three
+ 
+
+1485
+00:29:23,160 --> 00:29:24,470
+Okay? So, you can say that stage three
+stage four
+
+1486
+00:29:24,470 --> 00:29:24,480
+stage four
+ 
+
+1487
+00:29:24,480 --> 00:29:28,670
+stage four
+these are all record accumulator part.
+
+1488
+00:29:28,670 --> 00:29:28,680
+these are all record accumulator part.
+ 
+
+1489
+00:29:28,680 --> 00:29:30,510
+these are all record accumulator part.
+Compression is also a
+
+1490
+00:29:30,510 --> 00:29:30,520
+Compression is also a
+ 
+
+1491
+00:29:30,520 --> 00:29:32,630
+Compression is also a
+part of record accumulator. Record
+
+1492
+00:29:32,630 --> 00:29:32,640
+part of record accumulator. Record
+ 
+
+1493
+00:29:32,640 --> 00:29:34,790
+part of record accumulator. Record
+accumulator create batch.
+
+1494
+00:29:34,790 --> 00:29:34,800
+accumulator create batch.
+ 
+
+1495
+00:29:34,800 --> 00:29:37,230
+accumulator create batch.
+The batch which are ready
+
+1496
+00:29:37,230 --> 00:29:37,240
+The batch which are ready
+ 
+
+1497
+00:29:37,240 --> 00:29:39,950
+The batch which are ready
+and closed, it will compress it.
+
+1498
+00:29:39,950 --> 00:29:39,960
+and closed, it will compress it.
+ 
+
+1499
+00:29:39,960 --> 00:29:41,070
+and closed, it will compress it.
+Okay?
+
+1500
+00:29:41,070 --> 00:29:41,080
+Okay?
+ 
+
+1501
+00:29:41,080 --> 00:29:43,430
+Okay?
+And keep it ready to send.
+
+1502
+00:29:43,430 --> 00:29:43,440
+And keep it ready to send.
+ 
+
+1503
+00:29:43,440 --> 00:29:46,030
+And keep it ready to send.
+Now, who will send? Sender thread.
+
+1504
+00:29:46,030 --> 00:29:46,040
+Now, who will send? Sender thread.
+ 
+
+1505
+00:29:46,040 --> 00:29:47,590
+Now, who will send? Sender thread.
+So, what sender thread will do? Sender
+
+1506
+00:29:47,590 --> 00:29:47,600
+So, what sender thread will do? Sender
+ 
+
+1507
+00:29:47,600 --> 00:29:49,310
+So, what sender thread will do? Sender
+thread check the record accumulator for
+
+1508
+00:29:49,310 --> 00:29:49,320
+thread check the record accumulator for
+ 
+
+1509
+00:29:49,320 --> 00:29:51,430
+thread check the record accumulator for
+ready batches.
+
+1510
+00:29:51,430 --> 00:29:51,440
+ready batches.
+ 
+
+1511
+00:29:51,440 --> 00:29:52,390
+ready batches.
+Okay?
+
+1512
+00:29:52,390 --> 00:29:52,400
+Okay?
+ 
+
+1513
+00:29:52,400 --> 00:29:54,190
+Okay?
+There is now one another level of
+
+1514
+00:29:54,190 --> 00:29:54,200
+There is now one another level of
+ 
+
+1515
+00:29:54,200 --> 00:29:55,750
+There is now one another level of
+efficiency.
+
+1516
+00:29:55,750 --> 00:29:55,760
+efficiency.
+ 
+
+1517
+00:29:55,760 --> 00:29:59,030
+efficiency.
+Now, let's say that I have
+
+1518
+00:29:59,030 --> 00:29:59,040
+Now, let's say that I have
+ 
+
+1519
+00:29:59,040 --> 00:30:00,710
+Now, let's say that I have
+batch one
+
+1520
+00:30:00,710 --> 00:30:00,720
+batch one
+ 
+
+1521
+00:30:00,720 --> 00:30:03,190
+batch one
+batch two
+
+1522
+00:30:03,190 --> 00:30:03,200
+batch two
+ 
+
+1523
+00:30:03,200 --> 00:30:04,990
+batch two
+batch three.
+
+1524
+00:30:04,990 --> 00:30:05,000
+batch three.
+ 
+
+1525
+00:30:05,000 --> 00:30:08,270
+batch three.
+Now, let's say this is broker.
+
+1526
+00:30:08,270 --> 00:30:08,280
+Now, let's say this is broker.
+ 
+
+1527
+00:30:08,280 --> 00:30:11,230
+Now, let's say this is broker.
+Broker one
+
+1528
+00:30:11,230 --> 00:30:11,240
+
+ 
+
+1529
+00:30:11,240 --> 00:30:14,350
+
+partition zero, this is a leader.
+
+1530
+00:30:14,350 --> 00:30:14,360
+partition zero, this is a leader.
+ 
+
+1531
+00:30:14,360 --> 00:30:16,270
+partition zero, this is a leader.
+For partition, let's say five also, this
+
+1532
+00:30:16,270 --> 00:30:16,280
+For partition, let's say five also, this
+ 
+
+1533
+00:30:16,280 --> 00:30:18,230
+For partition, let's say five also, this
+is a leader.
+
+1534
+00:30:18,230 --> 00:30:18,240
+is a leader.
+ 
+
+1535
+00:30:18,240 --> 00:30:20,590
+is a leader.
+Similarly, broker
+
+1536
+00:30:20,590 --> 00:30:20,600
+Similarly, broker
+ 
+
+1537
+00:30:20,600 --> 00:30:22,270
+Similarly, broker
+two
+
+1538
+00:30:22,270 --> 00:30:22,280
+two
+ 
+
+1539
+00:30:22,280 --> 00:30:24,790
+two
+partition one, for partition one, this
+
+1540
+00:30:24,790 --> 00:30:24,800
+partition one, for partition one, this
+ 
+
+1541
+00:30:24,800 --> 00:30:26,150
+partition one, for partition one, this
+is a leader.
+
+1542
+00:30:26,150 --> 00:30:26,160
+is a leader.
+ 
+
+1543
+00:30:26,160 --> 00:30:28,830
+is a leader.
+Like this. Okay?
+
+1544
+00:30:28,830 --> 00:30:28,840
+Like this. Okay?
+ 
+
+1545
+00:30:28,840 --> 00:30:30,470
+Like this. Okay?
+Let's say we have three partition, two
+
+1546
+00:30:30,470 --> 00:30:30,480
+Let's say we have three partition, two
+ 
+
+1547
+00:30:30,480 --> 00:30:32,470
+Let's say we have three partition, two
+brokers. So, let's say broker one is
+
+1548
+00:30:32,470 --> 00:30:32,480
+brokers. So, let's say broker one is
+ 
+
+1549
+00:30:32,480 --> 00:30:34,910
+brokers. So, let's say broker one is
+leader for partition zero and partition
+
+1550
+00:30:34,910 --> 00:30:34,920
+leader for partition zero and partition
+ 
+
+1551
+00:30:34,920 --> 00:30:37,310
+leader for partition zero and partition
+two.
+
+1552
+00:30:37,310 --> 00:30:37,320
+two.
+ 
+
+1553
+00:30:37,320 --> 00:30:39,630
+two.
+Partition two, and for partition one,
+
+1554
+00:30:39,630 --> 00:30:39,640
+Partition two, and for partition one,
+ 
+
+1555
+00:30:39,640 --> 00:30:42,350
+Partition two, and for partition one,
+broker two is the leader. Let's say, P0,
+
+1556
+00:30:42,350 --> 00:30:42,360
+broker two is the leader. Let's say, P0,
+ 
+
+1557
+00:30:42,360 --> 00:30:44,150
+broker two is the leader. Let's say, P0,
+P1, P2.
+
+1558
+00:30:44,150 --> 00:30:44,160
+P1, P2.
+ 
+
+1559
+00:30:44,160 --> 00:30:48,870
+P1, P2.
+P0 leader is broker one.
+
+1560
+00:30:48,870 --> 00:30:48,880
+
+ 
+
+1561
+00:30:48,880 --> 00:30:52,910
+
+For P1, leader is your broker
+
+1562
+00:30:52,910 --> 00:30:52,920
+For P1, leader is your broker
+ 
+
+1563
+00:30:52,920 --> 00:30:53,990
+For P1, leader is your broker
+two.
+
+1564
+00:30:53,990 --> 00:30:54,000
+two.
+ 
+
+1565
+00:30:54,000 --> 00:30:56,430
+two.
+And for partition two, the leader is
+
+1566
+00:30:56,430 --> 00:30:56,440
+And for partition two, the leader is
+ 
+
+1567
+00:30:56,440 --> 00:30:58,750
+And for partition two, the leader is
+your broker one. So, broker one is a
+
+1568
+00:30:58,750 --> 00:30:58,760
+your broker one. So, broker one is a
+ 
+
+1569
+00:30:58,760 --> 00:31:01,590
+your broker one. So, broker one is a
+leader for two partition.
+
+1570
+00:31:01,590 --> 00:31:01,600
+leader for two partition.
+ 
+
+1571
+00:31:01,600 --> 00:31:04,630
+leader for two partition.
+Now, let's say that the
+
+1572
+00:31:04,630 --> 00:31:04,640
+Now, let's say that the
+ 
+
+1573
+00:31:04,640 --> 00:31:06,590
+Now, let's say that the
+batches which are ready to send. Let's
+
+1574
+00:31:06,590 --> 00:31:06,600
+batches which are ready to send. Let's
+ 
+
+1575
+00:31:06,600 --> 00:31:09,470
+batches which are ready to send. Let's
+say this is for
+
+1576
+00:31:09,470 --> 00:31:09,480
+say this is for
+ 
+
+1577
+00:31:09,480 --> 00:31:12,070
+say this is for
+topic A partition zero. This is for
+
+1578
+00:31:12,070 --> 00:31:12,080
+topic A partition zero. This is for
+ 
+
+1579
+00:31:12,080 --> 00:31:15,510
+topic A partition zero. This is for
+topic A partition two. This is for topic
+
+1580
+00:31:15,510 --> 00:31:15,520
+topic A partition two. This is for topic
+ 
+
+1581
+00:31:15,520 --> 00:31:18,430
+topic A partition two. This is for topic
+A partition one. Let's say these are and
+
+1582
+00:31:18,430 --> 00:31:18,440
+A partition one. Let's say these are and
+ 
+
+1583
+00:31:18,440 --> 00:31:19,550
+A partition one. Let's say these are and
+these are
+
+1584
+00:31:19,550 --> 00:31:19,560
+these are
+ 
+
+1585
+00:31:19,560 --> 00:31:22,550
+these are
+This is for topic A partition zero.
+
+1586
+00:31:22,550 --> 00:31:22,560
+This is for topic A partition zero.
+ 
+
+1587
+00:31:22,560 --> 00:31:24,990
+This is for topic A partition zero.
+Topic A partition two.
+
+1588
+00:31:24,990 --> 00:31:25,000
+Topic A partition two.
+ 
+
+1589
+00:31:25,000 --> 00:31:27,190
+Topic A partition two.
+Topic A partition one. Okay, this is the
+
+1590
+00:31:27,190 --> 00:31:27,200
+Topic A partition one. Okay, this is the
+ 
+
+1591
+00:31:27,200 --> 00:31:28,430
+Topic A partition one. Okay, this is the
+setup.
+
+1592
+00:31:28,430 --> 00:31:28,440
+setup.
+ 
+
+1593
+00:31:28,440 --> 00:31:30,710
+setup.
+Now,
+
+1594
+00:31:30,710 --> 00:31:30,720
+Now,
+ 
+
+1595
+00:31:30,720 --> 00:31:32,710
+Now,
+at this record accumulator, what it has
+
+1596
+00:31:32,710 --> 00:31:32,720
+at this record accumulator, what it has
+ 
+
+1597
+00:31:32,720 --> 00:31:35,390
+at this record accumulator, what it has
+done is it has created batches. Like all
+
+1598
+00:31:35,390 --> 00:31:35,400
+done is it has created batches. Like all
+ 
+
+1599
+00:31:35,400 --> 00:31:38,030
+done is it has created batches. Like all
+the events which are for topic A
+
+1600
+00:31:38,030 --> 00:31:38,040
+the events which are for topic A
+ 
+
+1601
+00:31:38,040 --> 00:31:39,750
+the events which are for topic A
+partition zero,
+
+1602
+00:31:39,750 --> 00:31:39,760
+partition zero,
+ 
+
+1603
+00:31:39,760 --> 00:31:43,230
+partition zero,
+it has accumulated it. All the events
+
+1604
+00:31:43,230 --> 00:31:43,240
+it has accumulated it. All the events
+ 
+
+1605
+00:31:43,240 --> 00:31:47,230
+it has accumulated it. All the events
+which are for topic A partition two,
+
+1606
+00:31:47,230 --> 00:31:47,240
+which are for topic A partition two,
+ 
+
+1607
+00:31:47,240 --> 00:31:49,550
+which are for topic A partition two,
+accumulated together.
+
+1608
+00:31:49,550 --> 00:31:49,560
+accumulated together.
+ 
+
+1609
+00:31:49,560 --> 00:31:51,390
+accumulated together.
+Similarly, in the batch three, all the
+
+1610
+00:31:51,390 --> 00:31:51,400
+Similarly, in the batch three, all the
+ 
+
+1611
+00:31:51,400 --> 00:31:53,310
+Similarly, in the batch three, all the
+events which are for topic A partition
+
+1612
+00:31:53,310 --> 00:31:53,320
+events which are for topic A partition
+ 
+
+1613
+00:31:53,320 --> 00:31:55,630
+events which are for topic A partition
+one are grouped together. Now, sender
+
+1614
+00:31:55,630 --> 00:31:55,640
+one are grouped together. Now, sender
+ 
+
+1615
+00:31:55,640 --> 00:31:57,870
+one are grouped together. Now, sender
+thread need to send it to the
+
+1616
+00:31:57,870 --> 00:31:57,880
+thread need to send it to the
+ 
+
+1617
+00:31:57,880 --> 00:32:00,910
+thread need to send it to the
+leader broker for this partition.
+
+1618
+00:32:00,910 --> 00:32:00,920
+leader broker for this partition.
+ 
+
+1619
+00:32:00,920 --> 00:32:02,350
+leader broker for this partition.
+So, who is the leader for topic A
+
+1620
+00:32:02,350 --> 00:32:02,360
+So, who is the leader for topic A
+ 
+
+1621
+00:32:02,360 --> 00:32:03,830
+So, who is the leader for topic A
+partition zero?
+
+1622
+00:32:03,830 --> 00:32:03,840
+partition zero?
+ 
+
+1623
+00:32:03,840 --> 00:32:05,750
+partition zero?
+Broker one. So, this need to be sent to
+
+1624
+00:32:05,750 --> 00:32:05,760
+Broker one. So, this need to be sent to
+ 
+
+1625
+00:32:05,760 --> 00:32:08,630
+Broker one. So, this need to be sent to
+the broker one.
+
+1626
+00:32:08,630 --> 00:32:08,640
+the broker one.
+ 
+
+1627
+00:32:08,640 --> 00:32:10,630
+the broker one.
+Who is the leader for topic A partition
+
+1628
+00:32:10,630 --> 00:32:10,640
+Who is the leader for topic A partition
+ 
+
+1629
+00:32:10,640 --> 00:32:12,910
+Who is the leader for topic A partition
+P2? Topic A partition P2 leader is
+
+1630
+00:32:12,910 --> 00:32:12,920
+P2? Topic A partition P2 leader is
+ 
+
+1631
+00:32:12,920 --> 00:32:14,310
+P2? Topic A partition P2 leader is
+broker one. So, this also need to be
+
+1632
+00:32:14,310 --> 00:32:14,320
+broker one. So, this also need to be
+ 
+
+1633
+00:32:14,320 --> 00:32:17,510
+broker one. So, this also need to be
+sent to the broker one.
+
+1634
+00:32:17,510 --> 00:32:17,520
+
+ 
+
+1635
+00:32:17,520 --> 00:32:20,390
+
+Who is the leader for topic A partition
+
+1636
+00:32:20,390 --> 00:32:20,400
+Who is the leader for topic A partition
+ 
+
+1637
+00:32:20,400 --> 00:32:21,550
+Who is the leader for topic A partition
+uh one?
+
+1638
+00:32:21,550 --> 00:32:21,560
+uh one?
+ 
+
+1639
+00:32:21,560 --> 00:32:23,590
+uh one?
+Topic A partition one, broker two. So,
+
+1640
+00:32:23,590 --> 00:32:23,600
+Topic A partition one, broker two. So,
+ 
+
+1641
+00:32:23,600 --> 00:32:26,910
+Topic A partition one, broker two. So,
+this need to be sent to the broker two.
+
+1642
+00:32:26,910 --> 00:32:26,920
+this need to be sent to the broker two.
+ 
+
+1643
+00:32:26,920 --> 00:32:29,030
+this need to be sent to the broker two.
+Now, sender thread do one level of
+
+1644
+00:32:29,030 --> 00:32:29,040
+Now, sender thread do one level of
+ 
+
+1645
+00:32:29,040 --> 00:32:31,910
+Now, sender thread do one level of
+another thing that okay, this batch need
+
+1646
+00:32:31,910 --> 00:32:31,920
+another thing that okay, this batch need
+ 
+
+1647
+00:32:31,920 --> 00:32:33,630
+another thing that okay, this batch need
+to be sent to the broker one. This batch
+
+1648
+00:32:33,630 --> 00:32:33,640
+to be sent to the broker one. This batch
+ 
+
+1649
+00:32:33,640 --> 00:32:35,710
+to be sent to the broker one. This batch
+need to be sent to the broker one. Why I
+
+1650
+00:32:35,710 --> 00:32:35,720
+need to be sent to the broker one. Why I
+ 
+
+1651
+00:32:35,720 --> 00:32:37,950
+need to be sent to the broker one. Why I
+will send two requests?
+
+1652
+00:32:37,950 --> 00:32:37,960
+will send two requests?
+ 
+
+1653
+00:32:37,960 --> 00:32:39,910
+will send two requests?
+So it will further
+
+1654
+00:32:39,910 --> 00:32:39,920
+So it will further
+ 
+
+1655
+00:32:39,920 --> 00:32:42,790
+So it will further
+wrap it up in one request and make only
+
+1656
+00:32:42,790 --> 00:32:42,800
+wrap it up in one request and make only
+ 
+
+1657
+00:32:42,800 --> 00:32:44,990
+wrap it up in one request and make only
+one call to the broker one.
+
+1658
+00:32:44,990 --> 00:32:45,000
+one call to the broker one.
+ 
+
+1659
+00:32:45,000 --> 00:32:46,830
+one call to the broker one.
+That's what I have mentioned here.
+
+1660
+00:32:46,830 --> 00:32:46,840
+That's what I have mentioned here.
+ 
+
+1661
+00:32:46,840 --> 00:32:50,510
+That's what I have mentioned here.
+It group batches by broker leader.
+
+1662
+00:32:50,510 --> 00:32:50,520
+It group batches by broker leader.
+ 
+
+1663
+00:32:50,520 --> 00:32:53,630
+It group batches by broker leader.
+Okay, batch for topic A partition zero
+
+1664
+00:32:53,630 --> 00:32:53,640
+Okay, batch for topic A partition zero
+ 
+
+1665
+00:32:53,640 --> 00:32:55,310
+Okay, batch for topic A partition zero
+leader is broker one.
+
+1666
+00:32:55,310 --> 00:32:55,320
+leader is broker one.
+ 
+
+1667
+00:32:55,320 --> 00:32:56,670
+leader is broker one.
+The same thing which I have explained
+
+1668
+00:32:56,670 --> 00:32:56,680
+The same thing which I have explained
+ 
+
+1669
+00:32:56,680 --> 00:32:58,070
+The same thing which I have explained
+here the
+
+1670
+00:32:58,070 --> 00:32:58,080
+here the
+ 
+
+1671
+00:32:58,080 --> 00:33:01,230
+here the
+same I have just written it here.
+
+1672
+00:33:01,230 --> 00:33:01,240
+same I have just written it here.
+ 
+
+1673
+00:33:01,240 --> 00:33:03,590
+same I have just written it here.
+So if there are multiple batches which
+
+1674
+00:33:03,590 --> 00:33:03,600
+So if there are multiple batches which
+ 
+
+1675
+00:33:03,600 --> 00:33:06,430
+So if there are multiple batches which
+need to goes to the same broker instead
+
+1676
+00:33:06,430 --> 00:33:06,440
+need to goes to the same broker instead
+ 
+
+1677
+00:33:06,440 --> 00:33:07,990
+need to goes to the same broker instead
+of sending multiple requests send a
+
+1678
+00:33:07,990 --> 00:33:08,000
+of sending multiple requests send a
+ 
+
+1679
+00:33:08,000 --> 00:33:11,150
+of sending multiple requests send a
+request further enhance the throughput
+
+1680
+00:33:11,150 --> 00:33:11,160
+request further enhance the throughput
+ 
+
+1681
+00:33:11,160 --> 00:33:13,270
+request further enhance the throughput
+by further grouping or you can say that
+
+1682
+00:33:13,270 --> 00:33:13,280
+by further grouping or you can say that
+ 
+
+1683
+00:33:13,280 --> 00:33:15,790
+by further grouping or you can say that
+it just wrap in one more request it just
+
+1684
+00:33:15,790 --> 00:33:15,800
+it just wrap in one more request it just
+ 
+
+1685
+00:33:15,800 --> 00:33:18,510
+it just wrap in one more request it just
+wrap that batch one batch two pass it to
+
+1686
+00:33:18,510 --> 00:33:18,520
+wrap that batch one batch two pass it to
+ 
+
+1687
+00:33:18,520 --> 00:33:19,310
+wrap that batch one batch two pass it to
+the
+
+1688
+00:33:19,310 --> 00:33:19,320
+the
+ 
+
+1689
+00:33:19,320 --> 00:33:20,630
+the
+broker one.
+
+1690
+00:33:20,630 --> 00:33:20,640
+broker one.
+ 
+
+1691
+00:33:20,640 --> 00:33:23,990
+broker one.
+Okay, in just one call itself.
+
+1692
+00:33:23,990 --> 00:33:24,000
+Okay, in just one call itself.
+ 
+
+1693
+00:33:24,000 --> 00:33:27,070
+Okay, in just one call itself.
+So now another responsibility
+
+1694
+00:33:27,070 --> 00:33:27,080
+So now another responsibility
+ 
+
+1695
+00:33:27,080 --> 00:33:29,870
+So now another responsibility
+of this sender request is when you got
+
+1696
+00:33:29,870 --> 00:33:29,880
+of this sender request is when you got
+ 
+
+1697
+00:33:29,880 --> 00:33:33,030
+of this sender request is when you got
+it that it first identify who is the
+
+1698
+00:33:33,030 --> 00:33:33,040
+it that it first identify who is the
+ 
+
+1699
+00:33:33,040 --> 00:33:35,990
+it that it first identify who is the
+leader broker for the partition.
+
+1700
+00:33:35,990 --> 00:33:36,000
+leader broker for the partition.
+ 
+
+1701
+00:33:36,000 --> 00:33:38,870
+leader broker for the partition.
+Then it group the batches based on the
+
+1702
+00:33:38,870 --> 00:33:38,880
+Then it group the batches based on the
+ 
+
+1703
+00:33:38,880 --> 00:33:40,710
+Then it group the batches based on the
+broker leader.
+
+1704
+00:33:40,710 --> 00:33:40,720
+broker leader.
+ 
+
+1705
+00:33:40,720 --> 00:33:42,310
+broker leader.
+Then it will send the request to the
+
+1706
+00:33:42,310 --> 00:33:42,320
+Then it will send the request to the
+ 
+
+1707
+00:33:42,320 --> 00:33:44,230
+Then it will send the request to the
+network client.
+
+1708
+00:33:44,230 --> 00:33:44,240
+network client.
+ 
+
+1709
+00:33:44,240 --> 00:33:45,670
+network client.
+Okay.
+
+1710
+00:33:45,670 --> 00:33:45,680
+Okay.
+ 
+
+1711
+00:33:45,680 --> 00:33:48,430
+Okay.
+Based on the response from the broker.
+
+1712
+00:33:48,430 --> 00:33:48,440
+Based on the response from the broker.
+ 
+
+1713
+00:33:48,440 --> 00:33:50,590
+Based on the response from the broker.
+Okay, let's say if there is a failure.
+
+1714
+00:33:50,590 --> 00:33:50,600
+Okay, let's say if there is a failure.
+ 
+
+1715
+00:33:50,600 --> 00:33:52,910
+Okay, let's say if there is a failure.
+Okay, it will also handle the retries
+
+1716
+00:33:52,910 --> 00:33:52,920
+Okay, it will also handle the retries
+ 
+
+1717
+00:33:52,920 --> 00:33:54,430
+Okay, it will also handle the retries
+also.
+
+1718
+00:33:54,430 --> 00:33:54,440
+also.
+ 
+
+1719
+00:33:54,440 --> 00:33:57,870
+also.
+And ultimately it invoke the callback.
+
+1720
+00:33:57,870 --> 00:33:57,880
+And ultimately it invoke the callback.
+ 
+
+1721
+00:33:57,880 --> 00:34:00,910
+And ultimately it invoke the callback.
+So I had told you that the application
+
+1722
+00:34:00,910 --> 00:34:00,920
+So I had told you that the application
+ 
+
+1723
+00:34:00,920 --> 00:34:02,030
+So I had told you that the application
+thread
+
+1724
+00:34:02,030 --> 00:34:02,040
+thread
+ 
+
+1725
+00:34:02,040 --> 00:34:03,590
+thread
+submit the request to the record
+
+1726
+00:34:03,590 --> 00:34:03,600
+submit the request to the record
+ 
+
+1727
+00:34:03,600 --> 00:34:08,230
+submit the request to the record
+accumulator and just get free.
+
+1728
+00:34:08,230 --> 00:34:08,240
+
+ 
+
+1729
+00:34:08,240 --> 00:34:10,310
+
+They can just so it return a future
+
+1730
+00:34:10,310 --> 00:34:10,320
+They can just so it return a future
+ 
+
+1731
+00:34:10,320 --> 00:34:11,869
+They can just so it return a future
+object. So here if you see it return a
+
+1732
+00:34:11,869 --> 00:34:11,879
+object. So here if you see it return a
+ 
+
+1733
+00:34:11,879 --> 00:34:15,909
+object. So here if you see it return a
+future object. This is the
+
+1734
+00:34:15,909 --> 00:34:15,919
+future object. This is the
+ 
+
+1735
+00:34:15,919 --> 00:34:18,669
+future object. This is the
+future record metadata.
+
+1736
+00:34:18,669 --> 00:34:18,679
+future record metadata.
+ 
+
+1737
+00:34:18,679 --> 00:34:21,790
+future record metadata.
+Now application thread just do like when
+
+1738
+00:34:21,790 --> 00:34:21,800
+Now application thread just do like when
+ 
+
+1739
+00:34:21,800 --> 00:34:23,190
+Now application thread just do like when
+complete.
+
+1740
+00:34:23,190 --> 00:34:23,200
+complete.
+ 
+
+1741
+00:34:23,200 --> 00:34:24,869
+complete.
+In Java I have already discussed
+
+1742
+00:34:24,869 --> 00:34:24,879
+In Java I have already discussed
+ 
+
+1743
+00:34:24,879 --> 00:34:26,950
+In Java I have already discussed
+completable future. It just say that
+
+1744
+00:34:26,950 --> 00:34:26,960
+completable future. It just say that
+ 
+
+1745
+00:34:26,960 --> 00:34:28,830
+completable future. It just say that
+when complete.
+
+1746
+00:34:28,830 --> 00:34:28,840
+when complete.
+ 
+
+1747
+00:34:28,840 --> 00:34:30,629
+when complete.
+So now what would happen is your
+
+1748
+00:34:30,629 --> 00:34:30,639
+So now what would happen is your
+ 
+
+1749
+00:34:30,639 --> 00:34:33,270
+So now what would happen is your
+application thread is like busy doing
+
+1750
+00:34:33,270 --> 00:34:33,280
+application thread is like busy doing
+ 
+
+1751
+00:34:33,280 --> 00:34:35,750
+application thread is like busy doing
+some other task.
+
+1752
+00:34:35,750 --> 00:34:35,760
+some other task.
+ 
+
+1753
+00:34:35,760 --> 00:34:37,710
+some other task.
+Now when the sender thread invoke the
+
+1754
+00:34:37,710 --> 00:34:37,720
+Now when the sender thread invoke the
+ 
+
+1755
+00:34:37,720 --> 00:34:40,070
+Now when the sender thread invoke the
+callback,
+
+1756
+00:34:40,070 --> 00:34:40,080
+callback,
+ 
+
+1757
+00:34:40,080 --> 00:34:42,110
+callback,
+okay, let's say it say that hey, mark it
+
+1758
+00:34:42,110 --> 00:34:42,120
+okay, let's say it say that hey, mark it
+ 
+
+1759
+00:34:42,120 --> 00:34:43,750
+okay, let's say it say that hey, mark it
+as complete.
+
+1760
+00:34:43,750 --> 00:34:43,760
+as complete.
+ 
+
+1761
+00:34:43,760 --> 00:34:44,590
+as complete.
+So it
+
+1762
+00:34:44,590 --> 00:34:44,600
+So it
+ 
+
+1763
+00:34:44,600 --> 00:34:46,070
+So it
+invoke
+
+1764
+00:34:46,070 --> 00:34:46,080
+invoke
+ 
+
+1765
+00:34:46,080 --> 00:34:48,869
+invoke
+this piece of code.
+
+1766
+00:34:48,869 --> 00:34:48,879
+this piece of code.
+ 
+
+1767
+00:34:48,879 --> 00:34:49,750
+this piece of code.
+Okay?
+
+1768
+00:34:49,750 --> 00:34:49,760
+Okay?
+ 
+
+1769
+00:34:49,760 --> 00:34:52,270
+Okay?
+Now based on your event publishing
+
+1770
+00:34:52,270 --> 00:34:52,280
+Now based on your event publishing
+ 
+
+1771
+00:34:52,280 --> 00:34:54,790
+Now based on your event publishing
+success, failure,
+
+1772
+00:34:54,790 --> 00:34:54,800
+success, failure,
+ 
+
+1773
+00:34:54,800 --> 00:34:56,909
+success, failure,
+your application, how you want to handle
+
+1774
+00:34:56,909 --> 00:34:56,919
+your application, how you want to handle
+ 
+
+1775
+00:34:56,919 --> 00:35:02,564
+your application, how you want to handle
+it, you can do that.
+
+1776
+00:35:02,564 --> 00:35:02,574
+
+ 
+
+1777
+00:35:02,574 --> 00:35:02,950
+
+>> [clears throat]
+
+1778
+00:35:02,950 --> 00:35:02,960
+>> [clears throat]
+ 
+
+1779
+00:35:02,960 --> 00:35:04,750
+>> [clears throat]
+>> Now one question might comes to you that
+
+1780
+00:35:04,750 --> 00:35:04,760
+>> Now one question might comes to you that
+ 
+
+1781
+00:35:04,760 --> 00:35:05,590
+>> Now one question might comes to you that
+hey,
+
+1782
+00:35:05,590 --> 00:35:05,600
+hey,
+ 
+
+1783
+00:35:05,600 --> 00:35:09,230
+hey,
+can we control the sender thread like
+
+1784
+00:35:09,230 --> 00:35:09,240
+can we control the sender thread like
+ 
+
+1785
+00:35:09,240 --> 00:35:11,910
+can we control the sender thread like
+how many threads I want? No, you cannot
+
+1786
+00:35:11,910 --> 00:35:11,920
+how many threads I want? No, you cannot
+ 
+
+1787
+00:35:11,920 --> 00:35:15,110
+how many threads I want? No, you cannot
+control it. Kafka manage it internally.
+
+1788
+00:35:15,110 --> 00:35:15,120
+control it. Kafka manage it internally.
+ 
+
+1789
+00:35:15,120 --> 00:35:16,870
+control it. Kafka manage it internally.
+There is no way
+
+1790
+00:35:16,870 --> 00:35:16,880
+There is no way
+ 
+
+1791
+00:35:16,880 --> 00:35:19,510
+There is no way
+in my knowledge that we can't control
+
+1792
+00:35:19,510 --> 00:35:19,520
+in my knowledge that we can't control
+ 
+
+1793
+00:35:19,520 --> 00:35:21,350
+in my knowledge that we can't control
+this sender thread.
+
+1794
+00:35:21,350 --> 00:35:21,360
+this sender thread.
+ 
+
+1795
+00:35:21,360 --> 00:35:22,870
+this sender thread.
+But yes,
+
+1796
+00:35:22,870 --> 00:35:22,880
+But yes,
+ 
+
+1797
+00:35:22,880 --> 00:35:24,710
+But yes,
+the one thing we can control
+
+1798
+00:35:24,710 --> 00:35:24,720
+the one thing we can control
+ 
+
+1799
+00:35:24,720 --> 00:35:25,630
+the one thing we can control
+Sorry.
+
+1800
+00:35:25,630 --> 00:35:25,640
+Sorry.
+ 
+
+1801
+00:35:25,640 --> 00:35:28,109
+Sorry.
+The one thing which we can control is
+
+1802
+00:35:28,109 --> 00:35:28,119
+The one thing which we can control is
+ 
+
+1803
+00:35:28,119 --> 00:35:28,670
+The one thing which we can control is
+>> [snorts]
+
+1804
+00:35:28,670 --> 00:35:28,680
+>> [snorts]
+ 
+
+1805
+00:35:28,680 --> 00:35:29,990
+>> [snorts]
+>> see this one.
+
+1806
+00:35:29,990 --> 00:35:30,000
+>> see this one.
+ 
+
+1807
+00:35:30,000 --> 00:35:32,230
+>> see this one.
+Let's say you have your This is your
+
+1808
+00:35:32,230 --> 00:35:32,240
+Let's say you have your This is your
+ 
+
+1809
+00:35:32,240 --> 00:35:35,470
+Let's say you have your This is your
+cluster, Kafka cluster.
+
+1810
+00:35:35,470 --> 00:35:35,480
+cluster, Kafka cluster.
+ 
+
+1811
+00:35:35,480 --> 00:35:39,590
+cluster, Kafka cluster.
+This is your broker one,
+
+1812
+00:35:39,590 --> 00:35:39,600
+
+ 
+
+1813
+00:35:39,600 --> 00:35:41,630
+
+broker two.
+
+1814
+00:35:41,630 --> 00:35:41,640
+broker two.
+ 
+
+1815
+00:35:41,640 --> 00:35:45,030
+broker two.
+Now let's say this is your producer.
+
+1816
+00:35:45,030 --> 00:35:45,040
+Now let's say this is your producer.
+ 
+
+1817
+00:35:45,040 --> 00:35:47,070
+Now let's say this is your producer.
+What your producer will do, your
+
+1818
+00:35:47,070 --> 00:35:47,080
+What your producer will do, your
+ 
+
+1819
+00:35:47,080 --> 00:35:48,990
+What your producer will do, your
+producer here in this case the sender
+
+1820
+00:35:48,990 --> 00:35:49,000
+producer here in this case the sender
+ 
+
+1821
+00:35:49,000 --> 00:35:50,870
+producer here in this case the sender
+thread.
+
+1822
+00:35:50,870 --> 00:35:50,880
+thread.
+ 
+
+1823
+00:35:50,880 --> 00:35:53,790
+thread.
+So sender thread has
+
+1824
+00:35:53,790 --> 00:35:53,800
+So sender thread has
+ 
+
+1825
+00:35:53,800 --> 00:35:55,430
+So sender thread has
+create one TCP connection with the
+
+1826
+00:35:55,430 --> 00:35:55,440
+create one TCP connection with the
+ 
+
+1827
+00:35:55,440 --> 00:35:57,950
+create one TCP connection with the
+broker one, create one TCP connection
+
+1828
+00:35:57,950 --> 00:35:57,960
+broker one, create one TCP connection
+ 
+
+1829
+00:35:57,960 --> 00:35:59,950
+broker one, create one TCP connection
+with the broker two. Because it need to
+
+1830
+00:35:59,950 --> 00:35:59,960
+with the broker two. Because it need to
+ 
+
+1831
+00:35:59,960 --> 00:36:01,590
+with the broker two. Because it need to
+send the batches.
+
+1832
+00:36:01,590 --> 00:36:01,600
+send the batches.
+ 
+
+1833
+00:36:01,600 --> 00:36:05,150
+send the batches.
+Right? It need to send the batch.
+
+1834
+00:36:05,150 --> 00:36:05,160
+
+ 
+
+1835
+00:36:05,160 --> 00:36:07,710
+
+The one thing which we can have, you can
+
+1836
+00:36:07,710 --> 00:36:07,720
+The one thing which we can have, you can
+ 
+
+1837
+00:36:07,720 --> 00:36:11,510
+The one thing which we can have, you can
+say that the control is that
+
+1838
+00:36:11,510 --> 00:36:11,520
+say that the control is that
+ 
+
+1839
+00:36:11,520 --> 00:36:14,310
+say that the control is that
+max in flight request per connection we
+
+1840
+00:36:14,310 --> 00:36:14,320
+max in flight request per connection we
+ 
+
+1841
+00:36:14,320 --> 00:36:16,550
+max in flight request per connection we
+can set.
+
+1842
+00:36:16,550 --> 00:36:16,560
+can set.
+ 
+
+1843
+00:36:16,560 --> 00:36:17,550
+can set.
+So see,
+
+1844
+00:36:17,550 --> 00:36:17,560
+So see,
+ 
+
+1845
+00:36:17,560 --> 00:36:19,830
+So see,
+now the sender thread send the request.
+
+1846
+00:36:19,830 --> 00:36:19,840
+now the sender thread send the request.
+ 
+
+1847
+00:36:19,840 --> 00:36:21,510
+now the sender thread send the request.
+Let's say this is the message it sent.
+
+1848
+00:36:21,510 --> 00:36:21,520
+Let's say this is the message it sent.
+ 
+
+1849
+00:36:21,520 --> 00:36:24,110
+Let's say this is the message it sent.
+This message is nothing but a batch.
+
+1850
+00:36:24,110 --> 00:36:24,120
+This message is nothing but a batch.
+ 
+
+1851
+00:36:24,120 --> 00:36:25,310
+This message is nothing but a batch.
+Okay?
+
+1852
+00:36:25,310 --> 00:36:25,320
+Okay?
+ 
+
+1853
+00:36:25,320 --> 00:36:27,470
+Okay?
+This batch
+
+1854
+00:36:27,470 --> 00:36:27,480
+This batch
+ 
+
+1855
+00:36:27,480 --> 00:36:29,390
+This batch
+can have, you can say that multiple
+
+1856
+00:36:29,390 --> 00:36:29,400
+can have, you can say that multiple
+ 
+
+1857
+00:36:29,400 --> 00:36:31,030
+can have, you can say that multiple
+event.
+
+1858
+00:36:31,030 --> 00:36:31,040
+event.
+ 
+
+1859
+00:36:31,040 --> 00:36:33,550
+event.
+Okay, or you can say that this batch or
+
+1860
+00:36:33,550 --> 00:36:33,560
+Okay, or you can say that this batch or
+ 
+
+1861
+00:36:33,560 --> 00:36:35,750
+Okay, or you can say that this batch or
+this request you can say
+
+1862
+00:36:35,750 --> 00:36:35,760
+this request you can say
+ 
+
+1863
+00:36:35,760 --> 00:36:38,630
+this request you can say
+can have like multiple batches itself.
+
+1864
+00:36:38,630 --> 00:36:38,640
+can have like multiple batches itself.
+ 
+
+1865
+00:36:38,640 --> 00:36:40,950
+can have like multiple batches itself.
+I told you right it further group the
+
+1866
+00:36:40,950 --> 00:36:40,960
+I told you right it further group the
+ 
+
+1867
+00:36:40,960 --> 00:36:41,990
+I told you right it further group the
+batches.
+
+1868
+00:36:41,990 --> 00:36:42,000
+batches.
+ 
+
+1869
+00:36:42,000 --> 00:36:44,390
+batches.
+And those batch have further like
+
+1870
+00:36:44,390 --> 00:36:44,400
+And those batch have further like
+ 
+
+1871
+00:36:44,400 --> 00:36:45,870
+And those batch have further like
+multiple events.
+
+1872
+00:36:45,870 --> 00:36:45,880
+multiple events.
+ 
+
+1873
+00:36:45,880 --> 00:36:47,550
+multiple events.
+For now I'm just saying
+
+1874
+00:36:47,550 --> 00:36:47,560
+For now I'm just saying
+ 
+
+1875
+00:36:47,560 --> 00:36:50,150
+For now I'm just saying
+message.
+
+1876
+00:36:50,150 --> 00:36:50,160
+message.
+ 
+
+1877
+00:36:50,160 --> 00:36:52,030
+message.
+Now when the sender
+
+1878
+00:36:52,030 --> 00:36:52,040
+Now when the sender
+ 
+
+1879
+00:36:52,040 --> 00:36:53,070
+Now when the sender
+thread
+
+1880
+00:36:53,070 --> 00:36:53,080
+thread
+ 
+
+1881
+00:36:53,080 --> 00:36:56,590
+thread
+send one message now this broker has to
+
+1882
+00:36:56,590 --> 00:36:56,600
+send one message now this broker has to
+ 
+
+1883
+00:36:56,600 --> 00:36:58,710
+send one message now this broker has to
+process it. So it might take certain
+
+1884
+00:36:58,710 --> 00:36:58,720
+process it. So it might take certain
+ 
+
+1885
+00:36:58,720 --> 00:36:59,790
+process it. So it might take certain
+time.
+
+1886
+00:36:59,790 --> 00:36:59,800
+time.
+ 
+
+1887
+00:36:59,800 --> 00:37:01,550
+time.
+Okay.
+
+1888
+00:37:01,550 --> 00:37:01,560
+Okay.
+ 
+
+1889
+00:37:01,560 --> 00:37:03,150
+Okay.
+So
+
+1890
+00:37:03,150 --> 00:37:03,160
+So
+ 
+
+1891
+00:37:03,160 --> 00:37:06,150
+So
+one thing which we can control is that
+
+1892
+00:37:06,150 --> 00:37:06,160
+one thing which we can control is that
+ 
+
+1893
+00:37:06,160 --> 00:37:09,390
+one thing which we can control is that
+this number max in flight request. In
+
+1894
+00:37:09,390 --> 00:37:09,400
+this number max in flight request. In
+ 
+
+1895
+00:37:09,400 --> 00:37:11,190
+this number max in flight request. In
+flight means that
+
+1896
+00:37:11,190 --> 00:37:11,200
+flight means that
+ 
+
+1897
+00:37:11,200 --> 00:37:13,390
+flight means that
+sender thread has sent the request to
+
+1898
+00:37:13,390 --> 00:37:13,400
+sender thread has sent the request to
+ 
+
+1899
+00:37:13,400 --> 00:37:15,270
+sender thread has sent the request to
+the broker.
+
+1900
+00:37:15,270 --> 00:37:15,280
+the broker.
+ 
+
+1901
+00:37:15,280 --> 00:37:18,310
+the broker.
+But broker is currently processing has
+
+1902
+00:37:18,310 --> 00:37:18,320
+But broker is currently processing has
+ 
+
+1903
+00:37:18,320 --> 00:37:21,270
+But broker is currently processing has
+not sent the response back to the
+
+1904
+00:37:21,270 --> 00:37:21,280
+not sent the response back to the
+ 
+
+1905
+00:37:21,280 --> 00:37:23,790
+not sent the response back to the
+sender thread.
+
+1906
+00:37:23,790 --> 00:37:23,800
+sender thread.
+ 
+
+1907
+00:37:23,800 --> 00:37:26,750
+sender thread.
+So sender thread will just simply wait
+
+1908
+00:37:26,750 --> 00:37:26,760
+So sender thread will just simply wait
+ 
+
+1909
+00:37:26,760 --> 00:37:29,310
+So sender thread will just simply wait
+or you can say that what it will do.
+
+1910
+00:37:29,310 --> 00:37:29,320
+or you can say that what it will do.
+ 
+
+1911
+00:37:29,320 --> 00:37:31,350
+or you can say that what it will do.
+So with this
+
+1912
+00:37:31,350 --> 00:37:31,360
+So with this
+ 
+
+1913
+00:37:31,360 --> 00:37:34,270
+So with this
+max in flight connection
+
+1914
+00:37:34,270 --> 00:37:34,280
+max in flight connection
+ 
+
+1915
+00:37:34,280 --> 00:37:36,590
+max in flight connection
+what it say that okay you can send
+
+1916
+00:37:36,590 --> 00:37:36,600
+what it say that okay you can send
+ 
+
+1917
+00:37:36,600 --> 00:37:38,950
+what it say that okay you can send
+maximum up to five messages which are in
+
+1918
+00:37:38,950 --> 00:37:38,960
+maximum up to five messages which are in
+ 
+
+1919
+00:37:38,960 --> 00:37:40,830
+maximum up to five messages which are in
+flight.
+
+1920
+00:37:40,830 --> 00:37:40,840
+flight.
+ 
+
+1921
+00:37:40,840 --> 00:37:42,910
+flight.
+Okay, so what it will do is the sender
+
+1922
+00:37:42,910 --> 00:37:42,920
+Okay, so what it will do is the sender
+ 
+
+1923
+00:37:42,920 --> 00:37:46,710
+Okay, so what it will do is the sender
+message uses the same TCP connection.
+
+1924
+00:37:46,710 --> 00:37:46,720
+message uses the same TCP connection.
+ 
+
+1925
+00:37:46,720 --> 00:37:48,910
+message uses the same TCP connection.
+And on the same TCP connection it can
+
+1926
+00:37:48,910 --> 00:37:48,920
+And on the same TCP connection it can
+ 
+
+1927
+00:37:48,920 --> 00:37:52,070
+And on the same TCP connection it can
+send five messages.
+
+1928
+00:37:52,070 --> 00:37:52,080
+send five messages.
+ 
+
+1929
+00:37:52,080 --> 00:37:53,470
+send five messages.
+Which are in flight. So this is in
+
+1930
+00:37:53,470 --> 00:37:53,480
+Which are in flight. So this is in
+ 
+
+1931
+00:37:53,480 --> 00:37:55,030
+Which are in flight. So this is in
+flight, this is in flight, this is in
+
+1932
+00:37:55,030 --> 00:37:55,040
+flight, this is in flight, this is in
+ 
+
+1933
+00:37:55,040 --> 00:37:58,550
+flight, this is in flight, this is in
+flight broker one will work okay when
+
+1934
+00:37:58,550 --> 00:37:58,560
+flight broker one will work okay when
+ 
+
+1935
+00:37:58,560 --> 00:38:01,110
+flight broker one will work okay when
+the broker one will finish processing it
+
+1936
+00:38:01,110 --> 00:38:01,120
+the broker one will finish processing it
+ 
+
+1937
+00:38:01,120 --> 00:38:04,030
+the broker one will finish processing it
+will keep on sending the response back.
+
+1938
+00:38:04,030 --> 00:38:04,040
+will keep on sending the response back.
+ 
+
+1939
+00:38:04,040 --> 00:38:07,830
+will keep on sending the response back.
+Okay, that for this message this is the
+
+1940
+00:38:07,830 --> 00:38:07,840
+Okay, that for this message this is the
+ 
+
+1941
+00:38:07,840 --> 00:38:10,910
+Okay, that for this message this is the
+result failures acknowledge or retry you
+
+1942
+00:38:10,910 --> 00:38:10,920
+result failures acknowledge or retry you
+ 
+
+1943
+00:38:10,920 --> 00:38:11,990
+result failures acknowledge or retry you
+have to do
+
+1944
+00:38:11,990 --> 00:38:12,000
+have to do
+ 
+
+1945
+00:38:12,000 --> 00:38:14,870
+have to do
+certain transient failure something.
+
+1946
+00:38:14,870 --> 00:38:14,880
+certain transient failure something.
+ 
+
+1947
+00:38:14,880 --> 00:38:17,910
+certain transient failure something.
+So but this is one more you can say that
+
+1948
+00:38:17,910 --> 00:38:17,920
+So but this is one more you can say that
+ 
+
+1949
+00:38:17,920 --> 00:38:19,670
+So but this is one more you can say that
+uh
+
+1950
+00:38:19,670 --> 00:38:19,680
+uh
+ 
+
+1951
+00:38:19,680 --> 00:38:23,070
+uh
+control which we can do maximum in
+
+1952
+00:38:23,070 --> 00:38:23,080
+control which we can do maximum in
+ 
+
+1953
+00:38:23,080 --> 00:38:24,390
+control which we can do maximum in
+flight request.
+
+1954
+00:38:24,390 --> 00:38:24,400
+flight request.
+ 
+
+1955
+00:38:24,400 --> 00:38:26,630
+flight request.
+So, now you can see that
+
+1956
+00:38:26,630 --> 00:38:26,640
+So, now you can see that
+ 
+
+1957
+00:38:26,640 --> 00:38:29,350
+So, now you can see that
+why producer has so much high throughput
+
+1958
+00:38:29,350 --> 00:38:29,360
+why producer has so much high throughput
+ 
+
+1959
+00:38:29,360 --> 00:38:30,950
+why producer has so much high throughput
+is that
+
+1960
+00:38:30,950 --> 00:38:30,960
+is that
+ 
+
+1961
+00:38:30,960 --> 00:38:33,310
+is that
+sender thread already does one thing.
+
+1962
+00:38:33,310 --> 00:38:33,320
+sender thread already does one thing.
+ 
+
+1963
+00:38:33,320 --> 00:38:36,070
+sender thread already does one thing.
+In one message, it can have like one
+
+1964
+00:38:36,070 --> 00:38:36,080
+In one message, it can have like one
+ 
+
+1965
+00:38:36,080 --> 00:38:37,430
+In one message, it can have like one
+message generally you can say that it
+
+1966
+00:38:37,430 --> 00:38:37,440
+message generally you can say that it
+ 
+
+1967
+00:38:37,440 --> 00:38:39,030
+message generally you can say that it
+can have a batch. A batch can have
+
+1968
+00:38:39,030 --> 00:38:39,040
+can have a batch. A batch can have
+ 
+
+1969
+00:38:39,040 --> 00:38:41,590
+can have a batch. A batch can have
+multiple event. Or it can further in the
+
+1970
+00:38:41,590 --> 00:38:41,600
+multiple event. Or it can further in the
+ 
+
+1971
+00:38:41,600 --> 00:38:43,350
+multiple event. Or it can further in the
+message itself can further group the
+
+1972
+00:38:43,350 --> 00:38:43,360
+message itself can further group the
+ 
+
+1973
+00:38:43,360 --> 00:38:45,590
+message itself can further group the
+batches itself which ultimately pass
+
+1974
+00:38:45,590 --> 00:38:45,600
+batches itself which ultimately pass
+ 
+
+1975
+00:38:45,600 --> 00:38:48,270
+batches itself which ultimately pass
+through the one broker.
+
+1976
+00:38:48,270 --> 00:38:48,280
+through the one broker.
+ 
+
+1977
+00:38:48,280 --> 00:38:49,870
+through the one broker.
+Okay.
+
+1978
+00:38:49,870 --> 00:38:49,880
+Okay.
+ 
+
+1979
+00:38:49,880 --> 00:38:52,630
+Okay.
+So, your one message itself can have so
+
+1980
+00:38:52,630 --> 00:38:52,640
+So, your one message itself can have so
+ 
+
+1981
+00:38:52,640 --> 00:38:54,030
+So, your one message itself can have so
+many events.
+
+1982
+00:38:54,030 --> 00:38:54,040
+many events.
+ 
+
+1983
+00:38:54,040 --> 00:38:55,590
+many events.
+And also
+
+1984
+00:38:55,590 --> 00:38:55,600
+And also
+ 
+
+1985
+00:38:55,600 --> 00:38:57,790
+And also
+in one connection itself we can set max
+
+1986
+00:38:57,790 --> 00:38:57,800
+in one connection itself we can set max
+ 
+
+1987
+00:38:57,800 --> 00:38:59,310
+in one connection itself we can set max
+in flight let's say five which is the
+
+1988
+00:38:59,310 --> 00:38:59,320
+in flight let's say five which is the
+ 
+
+1989
+00:38:59,320 --> 00:39:02,070
+in flight let's say five which is the
+default. So, you can send like this five
+
+1990
+00:39:02,070 --> 00:39:02,080
+default. So, you can send like this five
+ 
+
+1991
+00:39:02,080 --> 00:39:04,270
+default. So, you can send like this five
+messages at
+
+1992
+00:39:04,270 --> 00:39:04,280
+messages at
+ 
+
+1993
+00:39:04,280 --> 00:39:05,910
+messages at
+once.
+
+1994
+00:39:05,910 --> 00:39:05,920
+once.
+ 
+
+1995
+00:39:05,920 --> 00:39:06,870
+once.
+Okay.
+
+1996
+00:39:06,870 --> 00:39:06,880
+Okay.
+ 
+
+1997
+00:39:06,880 --> 00:39:08,190
+Okay.
+So,
+
+1998
+00:39:08,190 --> 00:39:08,200
+So,
+ 
+
+1999
+00:39:08,200 --> 00:39:09,950
+So,
+message two, message three, message
+
+2000
+00:39:09,950 --> 00:39:09,960
+message two, message three, message
+ 
+
+2001
+00:39:09,960 --> 00:39:11,270
+message two, message three, message
+four, message five. Like this you can
+
+2002
+00:39:11,270 --> 00:39:11,280
+four, message five. Like this you can
+ 
+
+2003
+00:39:11,280 --> 00:39:12,790
+four, message five. Like this you can
+send five messages.
+
+2004
+00:39:12,790 --> 00:39:12,800
+send five messages.
+ 
+
+2005
+00:39:12,800 --> 00:39:15,710
+send five messages.
+Okay. Now, this five messages broker one
+
+2006
+00:39:15,710 --> 00:39:15,720
+Okay. Now, this five messages broker one
+ 
+
+2007
+00:39:15,720 --> 00:39:17,590
+Okay. Now, this five messages broker one
+can continue working and on it on it.
+
+2008
+00:39:17,590 --> 00:39:17,600
+can continue working and on it on it.
+ 
+
+2009
+00:39:17,600 --> 00:39:19,030
+can continue working and on it on it.
+It's an in flight. That's why the name
+
+2010
+00:39:19,030 --> 00:39:19,040
+It's an in flight. That's why the name
+ 
+
+2011
+00:39:19,040 --> 00:39:21,310
+It's an in flight. That's why the name
+in flight. Okay. And when the broker one
+
+2012
+00:39:21,310 --> 00:39:21,320
+in flight. Okay. And when the broker one
+ 
+
+2013
+00:39:21,320 --> 00:39:22,830
+in flight. Okay. And when the broker one
+complete, let's say it complete message
+
+2014
+00:39:22,830 --> 00:39:22,840
+complete, let's say it complete message
+ 
+
+2015
+00:39:22,840 --> 00:39:23,750
+complete, let's say it complete message
+two
+
+2016
+00:39:23,750 --> 00:39:23,760
+two
+ 
+
+2017
+00:39:23,760 --> 00:39:25,830
+two
+it will send the response.
+
+2018
+00:39:25,830 --> 00:39:25,840
+it will send the response.
+ 
+
+2019
+00:39:25,840 --> 00:39:27,390
+it will send the response.
+Completed message four, it will send the
+
+2020
+00:39:27,390 --> 00:39:27,400
+Completed message four, it will send the
+ 
+
+2021
+00:39:27,400 --> 00:39:30,590
+Completed message four, it will send the
+response to the sender thread. Okay.
+
+2022
+00:39:30,590 --> 00:39:30,600
+response to the sender thread. Okay.
+ 
+
+2023
+00:39:30,600 --> 00:39:32,430
+response to the sender thread. Okay.
+So, now
+
+2024
+00:39:32,430 --> 00:39:32,440
+So, now
+ 
+
+2025
+00:39:32,440 --> 00:39:36,030
+So, now
+here if you see in one connection
+
+2026
+00:39:36,030 --> 00:39:36,040
+here if you see in one connection
+ 
+
+2027
+00:39:36,040 --> 00:39:38,110
+here if you see in one connection
+we can send let's say five message. So,
+
+2028
+00:39:38,110 --> 00:39:38,120
+we can send let's say five message. So,
+ 
+
+2029
+00:39:38,120 --> 00:39:39,910
+we can send let's say five message. So,
+we have two connection. So, in the
+
+2030
+00:39:39,910 --> 00:39:39,920
+we have two connection. So, in the
+ 
+
+2031
+00:39:39,920 --> 00:39:41,430
+we have two connection. So, in the
+second connection also the maximum it
+
+2032
+00:39:41,430 --> 00:39:41,440
+second connection also the maximum it
+ 
+
+2033
+00:39:41,440 --> 00:39:44,470
+second connection also the maximum it
+can send is five messages.
+
+2034
+00:39:44,470 --> 00:39:44,480
+can send is five messages.
+ 
+
+2035
+00:39:44,480 --> 00:39:48,350
+can send is five messages.
+So, 5 + 5 10. 10 messages it can send in
+
+2036
+00:39:48,350 --> 00:39:48,360
+So, 5 + 5 10. 10 messages it can send in
+ 
+
+2037
+00:39:48,360 --> 00:39:50,150
+So, 5 + 5 10. 10 messages it can send in
+parallel you can say that.
+
+2038
+00:39:50,150 --> 00:39:50,160
+parallel you can say that.
+ 
+
+2039
+00:39:50,160 --> 00:39:52,470
+parallel you can say that.
+On two connection
+
+2040
+00:39:52,470 --> 00:39:52,480
+On two connection
+ 
+
+2041
+00:39:52,480 --> 00:39:55,350
+On two connection
+10 messages it can send.
+
+2042
+00:39:55,350 --> 00:39:55,360
+10 messages it can send.
+ 
+
+2043
+00:39:55,360 --> 00:39:57,510
+10 messages it can send.
+While those are in flight. Messages are
+
+2044
+00:39:57,510 --> 00:39:57,520
+While those are in flight. Messages are
+ 
+
+2045
+00:39:57,520 --> 00:39:59,310
+While those are in flight. Messages are
+in flight.
+
+2046
+00:39:59,310 --> 00:39:59,320
+in flight.
+ 
+
+2047
+00:39:59,320 --> 00:40:01,590
+in flight.
+And each message is not like 10 message
+
+2048
+00:40:01,590 --> 00:40:01,600
+And each message is not like 10 message
+ 
+
+2049
+00:40:01,600 --> 00:40:04,230
+And each message is not like 10 message
+means 10 event. No. Again, I'm saying
+
+2050
+00:40:04,230 --> 00:40:04,240
+means 10 event. No. Again, I'm saying
+ 
+
+2051
+00:40:04,240 --> 00:40:06,990
+means 10 event. No. Again, I'm saying
+one message can have like okay one batch
+
+2052
+00:40:06,990 --> 00:40:07,000
+one message can have like okay one batch
+ 
+
+2053
+00:40:07,000 --> 00:40:08,350
+one message can have like okay one batch
+which one batch can have multiple
+
+2054
+00:40:08,350 --> 00:40:08,360
+which one batch can have multiple
+ 
+
+2055
+00:40:08,360 --> 00:40:09,910
+which one batch can have multiple
+events.
+
+2056
+00:40:09,910 --> 00:40:09,920
+events.
+ 
+
+2057
+00:40:09,920 --> 00:40:11,910
+events.
+Even that one message can have like
+
+2058
+00:40:11,910 --> 00:40:11,920
+Even that one message can have like
+ 
+
+2059
+00:40:11,920 --> 00:40:13,430
+Even that one message can have like
+group
+
+2060
+00:40:13,430 --> 00:40:13,440
+group
+ 
+
+2061
+00:40:13,440 --> 00:40:15,350
+group
+of multiple batches which ultimately
+
+2062
+00:40:15,350 --> 00:40:15,360
+of multiple batches which ultimately
+ 
+
+2063
+00:40:15,360 --> 00:40:17,990
+of multiple batches which ultimately
+goes to the same broker.
+
+2064
+00:40:17,990 --> 00:40:18,000
+goes to the same broker.
+ 
+
+2065
+00:40:18,000 --> 00:40:19,910
+goes to the same broker.
+So, one message can have multiple
+
+2066
+00:40:19,910 --> 00:40:19,920
+So, one message can have multiple
+ 
+
+2067
+00:40:19,920 --> 00:40:21,790
+So, one message can have multiple
+events.
+
+2068
+00:40:21,790 --> 00:40:21,800
+events.
+ 
+
+2069
+00:40:21,800 --> 00:40:26,138
+events.
+So, that's what I just mentioned here.
+
+2070
+00:40:26,138 --> 00:40:26,148
+
+ 
+
+2071
+00:40:26,148 --> 00:40:27,390
+
+>> [snorts]
+
+2072
+00:40:27,390 --> 00:40:27,400
+>> [snorts]
+ 
+
+2073
+00:40:27,400 --> 00:40:29,830
+>> [snorts]
+>> This parameter max in flight request
+
+2074
+00:40:29,830 --> 00:40:29,840
+>> This parameter max in flight request
+ 
+
+2075
+00:40:29,840 --> 00:40:31,750
+>> This parameter max in flight request
+controls the maximum number of
+
+2076
+00:40:31,750 --> 00:40:31,760
+controls the maximum number of
+ 
+
+2077
+00:40:31,760 --> 00:40:34,430
+controls the maximum number of
+unacknowledged request unacknowledged
+
+2078
+00:40:34,430 --> 00:40:34,440
+unacknowledged request unacknowledged
+ 
+
+2079
+00:40:34,440 --> 00:40:35,630
+unacknowledged request unacknowledged
+request
+
+2080
+00:40:35,630 --> 00:40:35,640
+request
+ 
+
+2081
+00:40:35,640 --> 00:40:37,510
+request
+the client will send on single
+
+2082
+00:40:37,510 --> 00:40:37,520
+the client will send on single
+ 
+
+2083
+00:40:37,520 --> 00:40:42,350
+the client will send on single
+connection before blocking.
+
+2084
+00:40:42,350 --> 00:40:42,360
+
+ 
+
+2085
+00:40:42,360 --> 00:40:44,310
+
+So, we have three TCP connection. Let's
+
+2086
+00:40:44,310 --> 00:40:44,320
+So, we have three TCP connection. Let's
+ 
+
+2087
+00:40:44,320 --> 00:40:45,870
+So, we have three TCP connection. Let's
+say three broker. Let's say three
+
+2088
+00:40:45,870 --> 00:40:45,880
+say three broker. Let's say three
+ 
+
+2089
+00:40:45,880 --> 00:40:48,190
+say three broker. Let's say three
+broker. So, means three TCP connection.
+
+2090
+00:40:48,190 --> 00:40:48,200
+broker. So, means three TCP connection.
+ 
+
+2091
+00:40:48,200 --> 00:40:50,910
+broker. So, means three TCP connection.
+So, means maximum 15 request can be in
+
+2092
+00:40:50,910 --> 00:40:50,920
+So, means maximum 15 request can be in
+ 
+
+2093
+00:40:50,920 --> 00:40:54,190
+So, means maximum 15 request can be in
+flight across the cluster at once.
+
+2094
+00:40:54,190 --> 00:40:54,200
+flight across the cluster at once.
+ 
+
+2095
+00:40:54,200 --> 00:40:55,470
+flight across the cluster at once.
+Across the cluster, let's say this
+
+2096
+00:40:55,470 --> 00:40:55,480
+Across the cluster, let's say this
+ 
+
+2097
+00:40:55,480 --> 00:40:57,310
+Across the cluster, let's say this
+broker one five five if you have broker
+
+2098
+00:40:57,310 --> 00:40:57,320
+broker one five five if you have broker
+ 
+
+2099
+00:40:57,320 --> 00:41:00,550
+broker one five five if you have broker
+three five here. So, 15
+
+2100
+00:41:00,550 --> 00:41:00,560
+three five here. So, 15
+ 
+
+2101
+00:41:00,560 --> 00:41:03,350
+three five here. So, 15
+messages 15 requests in flight at once
+
+2102
+00:41:03,350 --> 00:41:03,360
+messages 15 requests in flight at once
+ 
+
+2103
+00:41:03,360 --> 00:41:07,790
+messages 15 requests in flight at once
+in a cluster.
+
+2104
+00:41:07,790 --> 00:41:07,800
+
+ 
+
+2105
+00:41:07,800 --> 00:41:09,368
+
+Sorry.
+
+2106
+00:41:09,368 --> 00:41:09,378
+Sorry.
+ 
+
+2107
+00:41:09,378 --> 00:41:10,350
+Sorry.
+>> [snorts]
+
+2108
+00:41:10,350 --> 00:41:10,360
+>> [snorts]
+ 
+
+2109
+00:41:10,360 --> 00:41:13,910
+>> [snorts]
+>> Now, here comes a very important part.
+
+2110
+00:41:13,910 --> 00:41:13,920
+>> Now, here comes a very important part.
+ 
+
+2111
+00:41:13,920 --> 00:41:16,310
+>> Now, here comes a very important part.
+An interviewer or might be if you're
+
+2112
+00:41:16,310 --> 00:41:16,320
+An interviewer or might be if you're
+ 
+
+2113
+00:41:16,320 --> 00:41:19,070
+An interviewer or might be if you're
+working your architect might ask you
+
+2114
+00:41:19,070 --> 00:41:19,080
+working your architect might ask you
+ 
+
+2115
+00:41:19,080 --> 00:41:21,310
+working your architect might ask you
+this.
+
+2116
+00:41:21,310 --> 00:41:21,320
+this.
+ 
+
+2117
+00:41:21,320 --> 00:41:23,710
+this.
+Whenever you use max in flight request
+
+2118
+00:41:23,710 --> 00:41:23,720
+Whenever you use max in flight request
+ 
+
+2119
+00:41:23,720 --> 00:41:26,590
+Whenever you use max in flight request
+greater than one
+
+2120
+00:41:26,590 --> 00:41:26,600
+greater than one
+ 
+
+2121
+00:41:26,600 --> 00:41:28,910
+greater than one
+and your retry is also greater than
+
+2122
+00:41:28,910 --> 00:41:28,920
+and your retry is also greater than
+ 
+
+2123
+00:41:28,920 --> 00:41:30,750
+and your retry is also greater than
+zero, let's say.
+
+2124
+00:41:30,750 --> 00:41:30,760
+zero, let's say.
+ 
+
+2125
+00:41:30,760 --> 00:41:32,950
+zero, let's say.
+What if
+
+2126
+00:41:32,950 --> 00:41:32,960
+What if
+ 
+
+2127
+00:41:32,960 --> 00:41:35,310
+What if
+what if the
+
+2128
+00:41:35,310 --> 00:41:35,320
+what if the
+ 
+
+2129
+00:41:35,320 --> 00:41:37,270
+what if the
+broker one
+
+2130
+00:41:37,270 --> 00:41:37,280
+broker one
+ 
+
+2131
+00:41:37,280 --> 00:41:39,790
+broker one
+like so broker one got this five request
+
+2132
+00:41:39,790 --> 00:41:39,800
+like so broker one got this five request
+ 
+
+2133
+00:41:39,800 --> 00:41:40,990
+like so broker one got this five request
+message one
+
+2134
+00:41:40,990 --> 00:41:41,000
+message one
+ 
+
+2135
+00:41:41,000 --> 00:41:42,270
+message one
+message two
+
+2136
+00:41:42,270 --> 00:41:42,280
+message two
+ 
+
+2137
+00:41:42,280 --> 00:41:43,550
+message two
+message three
+
+2138
+00:41:43,550 --> 00:41:43,560
+message three
+ 
+
+2139
+00:41:43,560 --> 00:41:46,030
+message three
+message four message five. All are
+
+2140
+00:41:46,030 --> 00:41:46,040
+message four message five. All are
+ 
+
+2141
+00:41:46,040 --> 00:41:48,470
+message four message five. All are
+currently in flight in flight in flight
+
+2142
+00:41:48,470 --> 00:41:48,480
+currently in flight in flight in flight
+ 
+
+2143
+00:41:48,480 --> 00:41:51,110
+currently in flight in flight in flight
+in flight and it is processing.
+
+2144
+00:41:51,110 --> 00:41:51,120
+in flight and it is processing.
+ 
+
+2145
+00:41:51,120 --> 00:41:53,550
+in flight and it is processing.
+What if message one got let's say some
+
+2146
+00:41:53,550 --> 00:41:53,560
+What if message one got let's say some
+ 
+
+2147
+00:41:53,560 --> 00:41:55,790
+What if message one got let's say some
+error transient error
+
+2148
+00:41:55,790 --> 00:41:55,800
+error transient error
+ 
+
+2149
+00:41:55,800 --> 00:41:58,310
+error transient error
+and it return the transient error.
+
+2150
+00:41:58,310 --> 00:41:58,320
+and it return the transient error.
+ 
+
+2151
+00:41:58,320 --> 00:42:00,350
+and it return the transient error.
+Now, the sender
+
+2152
+00:42:00,350 --> 00:42:00,360
+Now, the sender
+ 
+
+2153
+00:42:00,360 --> 00:42:02,910
+Now, the sender
+thread need to retry it.
+
+2154
+00:42:02,910 --> 00:42:02,920
+thread need to retry it.
+ 
+
+2155
+00:42:02,920 --> 00:42:04,750
+thread need to retry it.
+Okay, we have set the retry. Let's say
+
+2156
+00:42:04,750 --> 00:42:04,760
+Okay, we have set the retry. Let's say
+ 
+
+2157
+00:42:04,760 --> 00:42:07,390
+Okay, we have set the retry. Let's say
+it need to retry.
+
+2158
+00:42:07,390 --> 00:42:07,400
+it need to retry.
+ 
+
+2159
+00:42:07,400 --> 00:42:10,310
+it need to retry.
+So, the problem is
+
+2160
+00:42:10,310 --> 00:42:10,320
+So, the problem is
+ 
+
+2161
+00:42:10,320 --> 00:42:12,470
+So, the problem is
+when the max in flight request per
+
+2162
+00:42:12,470 --> 00:42:12,480
+when the max in flight request per
+ 
+
+2163
+00:42:12,480 --> 00:42:14,630
+when the max in flight request per
+connection is greater than one, means
+
+2164
+00:42:14,630 --> 00:42:14,640
+connection is greater than one, means
+ 
+
+2165
+00:42:14,640 --> 00:42:18,710
+connection is greater than one, means
+you have multiple messages
+
+2166
+00:42:18,710 --> 00:42:18,720
+
+ 
+
+2167
+00:42:18,720 --> 00:42:20,950
+
+and retry is also greater than zero,
+
+2168
+00:42:20,950 --> 00:42:20,960
+and retry is also greater than zero,
+ 
+
+2169
+00:42:20,960 --> 00:42:22,630
+and retry is also greater than zero,
+then there is a risk of message
+
+2170
+00:42:22,630 --> 00:42:22,640
+then there is a risk of message
+ 
+
+2171
+00:42:22,640 --> 00:42:24,030
+then there is a risk of message
+reordering.
+
+2172
+00:42:24,030 --> 00:42:24,040
+reordering.
+ 
+
+2173
+00:42:24,040 --> 00:42:25,230
+reordering.
+How?
+
+2174
+00:42:25,230 --> 00:42:25,240
+How?
+ 
+
+2175
+00:42:25,240 --> 00:42:27,630
+How?
+Let's say request A,
+
+2176
+00:42:27,630 --> 00:42:27,640
+Let's say request A,
+ 
+
+2177
+00:42:27,640 --> 00:42:30,270
+Let's say request A,
+request B, only two requests. Request A,
+
+2178
+00:42:30,270 --> 00:42:30,280
+request B, only two requests. Request A,
+ 
+
+2179
+00:42:30,280 --> 00:42:34,830
+request B, only two requests. Request A,
+request B, both are in flight.
+
+2180
+00:42:34,830 --> 00:42:34,840
+
+ 
+
+2181
+00:42:34,840 --> 00:42:37,030
+
+Request A fails with some transient
+
+2182
+00:42:37,030 --> 00:42:37,040
+Request A fails with some transient
+ 
+
+2183
+00:42:37,040 --> 00:42:38,750
+Request A fails with some transient
+error. So, this got failed with
+
+2184
+00:42:38,750 --> 00:42:38,760
+error. So, this got failed with
+ 
+
+2185
+00:42:38,760 --> 00:42:40,390
+error. So, this got failed with
+transient error and it's sent to the
+
+2186
+00:42:40,390 --> 00:42:40,400
+transient error and it's sent to the
+ 
+
+2187
+00:42:40,400 --> 00:42:42,910
+transient error and it's sent to the
+sender thread some transient error.
+
+2188
+00:42:42,910 --> 00:42:42,920
+sender thread some transient error.
+ 
+
+2189
+00:42:42,920 --> 00:42:44,110
+sender thread some transient error.
+Okay?
+
+2190
+00:42:44,110 --> 00:42:44,120
+Okay?
+ 
+
+2191
+00:42:44,120 --> 00:42:46,190
+Okay?
+While your broker start working on this
+
+2192
+00:42:46,190 --> 00:42:46,200
+While your broker start working on this
+ 
+
+2193
+00:42:46,200 --> 00:42:48,030
+While your broker start working on this
+message two and this is persisted
+
+2194
+00:42:48,030 --> 00:42:48,040
+message two and this is persisted
+ 
+
+2195
+00:42:48,040 --> 00:42:54,190
+message two and this is persisted
+successfully on the disk on logs.
+
+2196
+00:42:54,190 --> 00:42:54,200
+
+ 
+
+2197
+00:42:54,200 --> 00:42:56,134
+
+Now, the sender thread
+
+2198
+00:42:56,134 --> 00:42:56,144
+Now, the sender thread
+ 
+
+2199
+00:42:56,144 --> 00:42:57,390
+Now, the sender thread
+>> [snorts]
+
+2200
+00:42:57,390 --> 00:42:57,400
+>> [snorts]
+ 
+
+2201
+00:42:57,400 --> 00:43:00,750
+>> [snorts]
+>> does retry for this request A.
+
+2202
+00:43:00,750 --> 00:43:00,760
+>> does retry for this request A.
+ 
+
+2203
+00:43:00,760 --> 00:43:02,510
+>> does retry for this request A.
+And after that it got success also,
+
+2204
+00:43:02,510 --> 00:43:02,520
+And after that it got success also,
+ 
+
+2205
+00:43:02,520 --> 00:43:03,710
+And after that it got success also,
+because it's a transient error.
+
+2206
+00:43:03,710 --> 00:43:03,720
+because it's a transient error.
+ 
+
+2207
+00:43:03,720 --> 00:43:05,950
+because it's a transient error.
+Transient error means that if you retry,
+
+2208
+00:43:05,950 --> 00:43:05,960
+Transient error means that if you retry,
+ 
+
+2209
+00:43:05,960 --> 00:43:09,790
+Transient error means that if you retry,
+temporary error, you can say that.
+
+2210
+00:43:09,790 --> 00:43:09,800
+
+ 
+
+2211
+00:43:09,800 --> 00:43:11,830
+
+Now, after retry
+
+2212
+00:43:11,830 --> 00:43:11,840
+Now, after retry
+ 
+
+2213
+00:43:11,840 --> 00:43:14,790
+Now, after retry
+from the sender thread, let's say
+
+2214
+00:43:14,790 --> 00:43:14,800
+from the sender thread, let's say
+ 
+
+2215
+00:43:14,800 --> 00:43:17,110
+from the sender thread, let's say
+this is also gets succeeded. Now, it
+
+2216
+00:43:17,110 --> 00:43:17,120
+this is also gets succeeded. Now, it
+ 
+
+2217
+00:43:17,120 --> 00:43:19,030
+this is also gets succeeded. Now, it
+will also stored in the log.
+
+2218
+00:43:19,030 --> 00:43:19,040
+will also stored in the log.
+ 
+
+2219
+00:43:19,040 --> 00:43:21,790
+will also stored in the log.
+But now there is a mismatch in the
+
+2220
+00:43:21,790 --> 00:43:21,800
+But now there is a mismatch in the
+ 
+
+2221
+00:43:21,800 --> 00:43:24,990
+But now there is a mismatch in the
+ordering. You wanted request A and then
+
+2222
+00:43:24,990 --> 00:43:25,000
+ordering. You wanted request A and then
+ 
+
+2223
+00:43:25,000 --> 00:43:26,390
+ordering. You wanted request A and then
+request B.
+
+2224
+00:43:26,390 --> 00:43:26,400
+request B.
+ 
+
+2225
+00:43:26,400 --> 00:43:30,030
+request B.
+But what ultimately stored on Kafka logs
+
+2226
+00:43:30,030 --> 00:43:30,040
+But what ultimately stored on Kafka logs
+ 
+
+2227
+00:43:30,040 --> 00:43:32,390
+But what ultimately stored on Kafka logs
+for this partition is that first B is
+
+2228
+00:43:32,390 --> 00:43:32,400
+for this partition is that first B is
+ 
+
+2229
+00:43:32,400 --> 00:43:33,670
+for this partition is that first B is
+stored.
+
+2230
+00:43:33,670 --> 00:43:33,680
+stored.
+ 
+
+2231
+00:43:33,680 --> 00:43:35,630
+stored.
+So, this events, whatever the events are
+
+2232
+00:43:35,630 --> 00:43:35,640
+So, this events, whatever the events are
+ 
+
+2233
+00:43:35,640 --> 00:43:37,150
+So, this events, whatever the events are
+present here,
+
+2234
+00:43:37,150 --> 00:43:37,160
+present here,
+ 
+
+2235
+00:43:37,160 --> 00:43:38,990
+present here,
+those will get stored first. They will
+
+2236
+00:43:38,990 --> 00:43:39,000
+those will get stored first. They will
+ 
+
+2237
+00:43:39,000 --> 00:43:40,710
+those will get stored first. They will
+get all like offset
+
+2238
+00:43:40,710 --> 00:43:40,720
+get all like offset
+ 
+
+2239
+00:43:40,720 --> 00:43:42,390
+get all like offset
+one, offset two, offset three, like
+
+2240
+00:43:42,390 --> 00:43:42,400
+one, offset two, offset three, like
+ 
+
+2241
+00:43:42,400 --> 00:43:45,070
+one, offset two, offset three, like
+this. After that request A events will
+
+2242
+00:43:45,070 --> 00:43:45,080
+this. After that request A events will
+ 
+
+2243
+00:43:45,080 --> 00:43:47,950
+this. After that request A events will
+get and further offset, let's say 100,
+
+2244
+00:43:47,950 --> 00:43:47,960
+get and further offset, let's say 100,
+ 
+
+2245
+00:43:47,960 --> 00:43:50,470
+get and further offset, let's say 100,
+101, like this it will go.
+
+2246
+00:43:50,470 --> 00:43:50,480
+101, like this it will go.
+ 
+
+2247
+00:43:50,480 --> 00:43:53,030
+101, like this it will go.
+So, now ordering is changed. Like this
+
+2248
+00:43:53,030 --> 00:43:53,040
+So, now ordering is changed. Like this
+ 
+
+2249
+00:43:53,040 --> 00:43:56,710
+So, now ordering is changed. Like this
+events for the request A should be
+
+2250
+00:43:56,710 --> 00:43:56,720
+events for the request A should be
+ 
+
+2251
+00:43:56,720 --> 00:44:00,710
+events for the request A should be
+before the B request.
+
+2252
+00:44:00,710 --> 00:44:00,720
+before the B request.
+ 
+
+2253
+00:44:00,720 --> 00:44:02,710
+before the B request.
+So, how you will handle this when you
+
+2254
+00:44:02,710 --> 00:44:02,720
+So, how you will handle this when you
+ 
+
+2255
+00:44:02,720 --> 00:44:04,990
+So, how you will handle this when you
+set this property?
+
+2256
+00:44:04,990 --> 00:44:05,000
+set this property?
+ 
+
+2257
+00:44:05,000 --> 00:44:07,470
+set this property?
+Max in flight request,
+
+2258
+00:44:07,470 --> 00:44:07,480
+Max in flight request,
+ 
+
+2259
+00:44:07,480 --> 00:44:08,990
+Max in flight request,
+you can't set one
+
+2260
+00:44:08,990 --> 00:44:09,000
+you can't set one
+ 
+
+2261
+00:44:09,000 --> 00:44:11,830
+you can't set one
+because then you like your throughput
+
+2262
+00:44:11,830 --> 00:44:11,840
+because then you like your throughput
+ 
+
+2263
+00:44:11,840 --> 00:44:13,390
+because then you like your throughput
+will decrease.
+
+2264
+00:44:13,390 --> 00:44:13,400
+will decrease.
+ 
+
+2265
+00:44:13,400 --> 00:44:15,070
+will decrease.
+This is important to increase the
+
+2266
+00:44:15,070 --> 00:44:15,080
+This is important to increase the
+ 
+
+2267
+00:44:15,080 --> 00:44:16,590
+This is important to increase the
+throughput.
+
+2268
+00:44:16,590 --> 00:44:16,600
+throughput.
+ 
+
+2269
+00:44:16,600 --> 00:44:18,070
+throughput.
+Okay?
+
+2270
+00:44:18,070 --> 00:44:18,080
+Okay?
+ 
+
+2271
+00:44:18,080 --> 00:44:20,630
+Okay?
+Retry is also important. Sometimes there
+
+2272
+00:44:20,630 --> 00:44:20,640
+Retry is also important. Sometimes there
+ 
+
+2273
+00:44:20,640 --> 00:44:22,870
+Retry is also important. Sometimes there
+is a transient failure, so
+
+2274
+00:44:22,870 --> 00:44:22,880
+is a transient failure, so
+ 
+
+2275
+00:44:22,880 --> 00:44:25,550
+is a transient failure, so
+it should retry. So, both are important.
+
+2276
+00:44:25,550 --> 00:44:25,560
+it should retry. So, both are important.
+ 
+
+2277
+00:44:25,560 --> 00:44:27,750
+it should retry. So, both are important.
+We can't just set it one.
+
+2278
+00:44:27,750 --> 00:44:27,760
+We can't just set it one.
+ 
+
+2279
+00:44:27,760 --> 00:44:29,750
+We can't just set it one.
+Okay?
+
+2280
+00:44:29,750 --> 00:44:29,760
+Okay?
+ 
+
+2281
+00:44:29,760 --> 00:44:31,550
+Okay?
+You will solve the issue, reordering
+
+2282
+00:44:31,550 --> 00:44:31,560
+You will solve the issue, reordering
+ 
+
+2283
+00:44:31,560 --> 00:44:33,110
+You will solve the issue, reordering
+issue, but
+
+2284
+00:44:33,110 --> 00:44:33,120
+issue, but
+ 
+
+2285
+00:44:33,120 --> 00:44:36,270
+issue, but
+on the cost of throughput.
+
+2286
+00:44:36,270 --> 00:44:36,280
+on the cost of throughput.
+ 
+
+2287
+00:44:36,280 --> 00:44:39,470
+on the cost of throughput.
+So, generally default is five here.
+
+2288
+00:44:39,470 --> 00:44:39,480
+So, generally default is five here.
+ 
+
+2289
+00:44:39,480 --> 00:44:41,870
+So, generally default is five here.
+Okay? Generally default is five. Max
+
+2290
+00:44:41,870 --> 00:44:41,880
+Okay? Generally default is five. Max
+ 
+
+2291
+00:44:41,880 --> 00:44:43,350
+Okay? Generally default is five. Max
+in-flight request per connection is
+
+2292
+00:44:43,350 --> 00:44:43,360
+in-flight request per connection is
+ 
+
+2293
+00:44:43,360 --> 00:44:45,750
+in-flight request per connection is
+five. Retry is also like let's say two
+
+2294
+00:44:45,750 --> 00:44:45,760
+five. Retry is also like let's say two
+ 
+
+2295
+00:44:45,760 --> 00:44:47,790
+five. Retry is also like let's say two
+or three times.
+
+2296
+00:44:47,790 --> 00:44:47,800
+or three times.
+ 
+
+2297
+00:44:47,800 --> 00:44:51,350
+or three times.
+So, reordering issue
+
+2298
+00:44:51,350 --> 00:44:51,360
+So, reordering issue
+ 
+
+2299
+00:44:51,360 --> 00:44:54,030
+So, reordering issue
+can come. So, to solve this,
+
+2300
+00:44:54,030 --> 00:44:54,040
+can come. So, to solve this,
+ 
+
+2301
+00:44:54,040 --> 00:44:55,710
+can come. So, to solve this,
+there is something called idempotency.
+
+2302
+00:44:55,710 --> 00:44:55,720
+there is something called idempotency.
+ 
+
+2303
+00:44:55,720 --> 00:44:58,790
+there is something called idempotency.
+We need to set it true. I will cover it
+
+2304
+00:44:58,790 --> 00:44:58,800
+We need to set it true. I will cover it
+ 
+
+2305
+00:44:58,800 --> 00:45:01,350
+We need to set it true. I will cover it
+separately because it is important.
+
+2306
+00:45:01,350 --> 00:45:01,360
+separately because it is important.
+ 
+
+2307
+00:45:01,360 --> 00:45:03,790
+separately because it is important.
+Okay? So, I will cover it as separate
+
+2308
+00:45:03,790 --> 00:45:03,800
+Okay? So, I will cover it as separate
+ 
+
+2309
+00:45:03,800 --> 00:45:06,550
+Okay? So, I will cover it as separate
+part.
+
+2310
+00:45:06,550 --> 00:45:06,560
+
+ 
+
+2311
+00:45:06,560 --> 00:45:08,150
+
+But,
+
+2312
+00:45:08,150 --> 00:45:08,160
+But,
+ 
+
+2313
+00:45:08,160 --> 00:45:10,270
+But,
+remember that
+
+2314
+00:45:10,270 --> 00:45:10,280
+remember that
+ 
+
+2315
+00:45:10,280 --> 00:45:12,790
+remember that
+we need to like this is very important
+
+2316
+00:45:12,790 --> 00:45:12,800
+we need to like this is very important
+ 
+
+2317
+00:45:12,800 --> 00:45:18,510
+we need to like this is very important
+part and we need to cover this.
+
+2318
+00:45:18,510 --> 00:45:18,520
+
+ 
+
+2319
+00:45:18,520 --> 00:45:20,870
+
+Now we know a bit about producer. Now we
+
+2320
+00:45:20,870 --> 00:45:20,880
+Now we know a bit about producer. Now we
+ 
+
+2321
+00:45:20,880 --> 00:45:26,590
+Now we know a bit about producer. Now we
+can move to the setup part, setup phase.
+
+2322
+00:45:26,590 --> 00:45:26,600
+
+ 
+
+2323
+00:45:26,600 --> 00:45:28,150
+
+So,
+
+2324
+00:45:28,150 --> 00:45:28,160
+So,
+ 
+
+2325
+00:45:28,160 --> 00:45:30,070
+So,
+I will I will cover setup phase in the
+
+2326
+00:45:30,070 --> 00:45:30,080
+I will I will cover setup phase in the
+ 
+
+2327
+00:45:30,080 --> 00:45:32,830
+I will I will cover setup phase in the
+next part, but I hope in this part you
+
+2328
+00:45:32,830 --> 00:45:32,840
+next part, but I hope in this part you
+ 
+
+2329
+00:45:32,840 --> 00:45:36,750
+next part, but I hope in this part you
+got that when you do dot send,
+
+2330
+00:45:36,750 --> 00:45:36,760
+got that when you do dot send,
+ 
+
+2331
+00:45:36,760 --> 00:45:39,750
+got that when you do dot send,
+there are so many things happen.
+
+2332
+00:45:39,750 --> 00:45:39,760
+there are so many things happen.
+ 
+
+2333
+00:45:39,760 --> 00:45:40,710
+there are so many things happen.
+Okay?
+
+2334
+00:45:40,710 --> 00:45:40,720
+Okay?
+ 
+
+2335
+00:45:40,720 --> 00:45:43,470
+Okay?
+And uh
+
+2336
+00:45:43,470 --> 00:45:43,480
+And uh
+ 
+
+2337
+00:45:43,480 --> 00:45:45,430
+And uh
+for each stage,
+
+2338
+00:45:45,430 --> 00:45:45,440
+for each stage,
+ 
+
+2339
+00:45:45,440 --> 00:45:47,630
+for each stage,
+how to do a setup, we will see in this
+
+2340
+00:45:47,630 --> 00:45:47,640
+how to do a setup, we will see in this
+ 
+
+2341
+00:45:47,640 --> 00:45:51,190
+how to do a setup, we will see in this
+next part, but I hope this stages are
+
+2342
+00:45:51,190 --> 00:45:51,200
+next part, but I hope this stages are
+ 
+
+2343
+00:45:51,200 --> 00:45:53,070
+next part, but I hope this stages are
+clear.
+
+2344
+00:45:53,070 --> 00:45:53,080
+clear.
+ 
+
+2345
+00:45:53,080 --> 00:45:58,030
+clear.
+Like what each stage internally does.
+
+2346
+00:45:58,030 --> 00:45:58,040
+
+ 
+
+2347
+00:45:58,040 --> 00:45:59,950
+
+Okay? Any doubt, let me know. We can
+
+2348
+00:45:59,950 --> 00:45:59,960
+Okay? Any doubt, let me know. We can
+ 
+
+2349
+00:45:59,960 --> 00:46:01,150
+Okay? Any doubt, let me know. We can
+discuss further into the comment
+
+2350
+00:46:01,150 --> 00:46:01,160
+discuss further into the comment
+ 
+
+2351
+00:46:01,160 --> 00:46:04,240
+discuss further into the comment
+section. Bye.
+

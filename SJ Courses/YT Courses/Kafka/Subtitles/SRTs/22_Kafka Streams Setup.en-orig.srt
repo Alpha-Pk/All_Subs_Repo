@@ -1,0 +1,7875 @@
+1
+00:00:00,000 --> 00:00:02,230
+
+the side, welcome back. So, in the
+
+2
+00:00:02,230 --> 00:00:02,240
+the side, welcome back. So, in the
+ 
+
+3
+00:00:02,240 --> 00:00:03,750
+the side, welcome back. So, in the
+previous part, we have already
+
+4
+00:00:03,750 --> 00:00:03,760
+previous part, we have already
+ 
+
+5
+00:00:03,760 --> 00:00:06,990
+previous part, we have already
+understood the stream
+
+6
+00:00:06,990 --> 00:00:07,000
+understood the stream
+ 
+
+7
+00:00:07,000 --> 00:00:09,710
+understood the stream
+Kafka stream architecture.
+
+8
+00:00:09,710 --> 00:00:09,720
+Kafka stream architecture.
+ 
+
+9
+00:00:09,720 --> 00:00:12,630
+Kafka stream architecture.
+Very, very important. Okay?
+
+10
+00:00:12,630 --> 00:00:12,640
+Very, very important. Okay?
+ 
+
+11
+00:00:12,640 --> 00:00:14,150
+Very, very important. Okay?
+Now, what we will do today is that we
+
+12
+00:00:14,150 --> 00:00:14,160
+Now, what we will do today is that we
+ 
+
+13
+00:00:14,160 --> 00:00:17,110
+Now, what we will do today is that we
+will do setup of the Kafka stream and
+
+14
+00:00:17,110 --> 00:00:17,120
+will do setup of the Kafka stream and
+ 
+
+15
+00:00:17,120 --> 00:00:19,230
+will do setup of the Kafka stream and
+also double-check our understanding that
+
+16
+00:00:19,230 --> 00:00:19,240
+also double-check our understanding that
+ 
+
+17
+00:00:19,240 --> 00:00:21,230
+also double-check our understanding that
+it matches what we understood as an
+
+18
+00:00:21,230 --> 00:00:21,240
+it matches what we understood as an
+ 
+
+19
+00:00:21,240 --> 00:00:22,630
+it matches what we understood as an
+architecture.
+
+20
+00:00:22,630 --> 00:00:22,640
+architecture.
+ 
+
+21
+00:00:22,640 --> 00:00:24,590
+architecture.
+So, in architecture, we understood about
+
+22
+00:00:24,590 --> 00:00:24,600
+So, in architecture, we understood about
+ 
+
+23
+00:00:24,600 --> 00:00:26,790
+So, in architecture, we understood about
+topology,
+
+24
+00:00:26,790 --> 00:00:26,800
+topology,
+ 
+
+25
+00:00:26,800 --> 00:00:29,350
+topology,
+sub-topology,
+
+26
+00:00:29,350 --> 00:00:29,360
+sub-topology,
+ 
+
+27
+00:00:29,360 --> 00:00:30,950
+sub-topology,
+task,
+
+28
+00:00:30,950 --> 00:00:30,960
+task,
+ 
+
+29
+00:00:30,960 --> 00:00:32,990
+task,
+repartition,
+
+30
+00:00:32,990 --> 00:00:33,000
+repartition,
+ 
+
+31
+00:00:33,000 --> 00:00:35,510
+repartition,
+and change log, right? So, we will
+
+32
+00:00:35,510 --> 00:00:35,520
+and change log, right? So, we will
+ 
+
+33
+00:00:35,520 --> 00:00:38,670
+and change log, right? So, we will
+double-check with our setup.
+
+34
+00:00:38,670 --> 00:00:38,680
+double-check with our setup.
+ 
+
+35
+00:00:38,680 --> 00:00:40,510
+double-check with our setup.
+So, the first thing is dependency. We
+
+36
+00:00:40,510 --> 00:00:40,520
+So, the first thing is dependency. We
+ 
+
+37
+00:00:40,520 --> 00:00:42,230
+So, the first thing is dependency. We
+will have to add a dependency. So, I
+
+38
+00:00:42,230 --> 00:00:42,240
+will have to add a dependency. So, I
+ 
+
+39
+00:00:42,240 --> 00:00:44,110
+will have to add a dependency. So, I
+told you that Kafka stream is nothing
+
+40
+00:00:44,110 --> 00:00:44,120
+told you that Kafka stream is nothing
+ 
+
+41
+00:00:44,120 --> 00:00:45,590
+told you that Kafka stream is nothing
+but a jar.
+
+42
+00:00:45,590 --> 00:00:45,600
+but a jar.
+ 
+
+43
+00:00:45,600 --> 00:00:47,910
+but a jar.
+So, apart from Kafka,
+
+44
+00:00:47,910 --> 00:00:47,920
+So, apart from Kafka,
+ 
+
+45
+00:00:47,920 --> 00:00:50,510
+So, apart from Kafka,
+we just need to add a Kafka stream jar.
+
+46
+00:00:50,510 --> 00:00:50,520
+we just need to add a Kafka stream jar.
+ 
+
+47
+00:00:50,520 --> 00:00:55,790
+we just need to add a Kafka stream jar.
+Kafka \{{}hyphen} streams. That's all.
+
+48
+00:00:55,790 --> 00:00:55,800
+
+ 
+
+49
+00:00:55,800 --> 00:00:58,390
+
+Second thing is application.properties.
+
+50
+00:00:58,390 --> 00:00:58,400
+Second thing is application.properties.
+ 
+
+51
+00:00:58,400 --> 00:00:59,870
+Second thing is application.properties.
+So, here if you see,
+
+52
+00:00:59,870 --> 00:00:59,880
+So, here if you see,
+ 
+
+53
+00:00:59,880 --> 00:01:02,310
+So, here if you see,
+I told you that Kafka stream is built on
+
+54
+00:01:02,310 --> 00:01:02,320
+I told you that Kafka stream is built on
+ 
+
+55
+00:01:02,320 --> 00:01:04,590
+I told you that Kafka stream is built on
+top of Kafka consumer architecture or
+
+56
+00:01:04,590 --> 00:01:04,600
+top of Kafka consumer architecture or
+ 
+
+57
+00:01:04,600 --> 00:01:07,150
+top of Kafka consumer architecture or
+framework. So, very similar to Kafka
+
+58
+00:01:07,150 --> 00:01:07,160
+framework. So, very similar to Kafka
+ 
+
+59
+00:01:07,160 --> 00:01:10,510
+framework. So, very similar to Kafka
+consumer itself. Define a port,
+
+60
+00:01:10,510 --> 00:01:10,520
+consumer itself. Define a port,
+ 
+
+61
+00:01:10,520 --> 00:01:13,030
+consumer itself. Define a port,
+name, and you have to define a streams
+
+62
+00:01:13,030 --> 00:01:13,040
+name, and you have to define a streams
+ 
+
+63
+00:01:13,040 --> 00:01:15,350
+name, and you have to define a streams
+application ID. So, consider that as a
+
+64
+00:01:15,350 --> 00:01:15,360
+application ID. So, consider that as a
+ 
+
+65
+00:01:15,360 --> 00:01:17,990
+application ID. So, consider that as a
+like a group ID.
+
+66
+00:01:17,990 --> 00:01:18,000
+like a group ID.
+ 
+
+67
+00:01:18,000 --> 00:01:19,670
+like a group ID.
+Like in consumer, we define a group ID,
+
+68
+00:01:19,670 --> 00:01:19,680
+Like in consumer, we define a group ID,
+ 
+
+69
+00:01:19,680 --> 00:01:22,670
+Like in consumer, we define a group ID,
+right? Similarly, consider that as a
+
+70
+00:01:22,670 --> 00:01:22,680
+right? Similarly, consider that as a
+ 
+
+71
+00:01:22,680 --> 00:01:25,190
+right? Similarly, consider that as a
+group ID, application ID.
+
+72
+00:01:25,190 --> 00:01:25,200
+group ID, application ID.
+ 
+
+73
+00:01:25,200 --> 00:01:28,230
+group ID, application ID.
+I have given order \{{}hyphen} analytics.
+
+74
+00:01:28,230 --> 00:01:28,240
+I have given order \{{}hyphen} analytics.
+ 
+
+75
+00:01:28,240 --> 00:01:30,190
+I have given order \{{}hyphen} analytics.
+Then the bootstrap server, because it
+
+76
+00:01:30,190 --> 00:01:30,200
+Then the bootstrap server, because it
+ 
+
+77
+00:01:30,200 --> 00:01:31,790
+Then the bootstrap server, because it
+has to fetch the metadata, so it needs
+
+78
+00:01:31,790 --> 00:01:31,800
+has to fetch the metadata, so it needs
+ 
+
+79
+00:01:31,800 --> 00:01:34,470
+has to fetch the metadata, so it needs
+somebody to connect to.
+
+80
+00:01:34,470 --> 00:01:34,480
+somebody to connect to.
+ 
+
+81
+00:01:34,480 --> 00:01:36,510
+somebody to connect to.
+Then, how many number of stream
+
+82
+00:01:36,510 --> 00:01:36,520
+Then, how many number of stream
+ 
+
+83
+00:01:36,520 --> 00:01:39,870
+Then, how many number of stream
+properties, stream threads? So, how many
+
+84
+00:01:39,870 --> 00:01:39,880
+properties, stream threads? So, how many
+ 
+
+85
+00:01:39,880 --> 00:01:42,310
+properties, stream threads? So, how many
+number of stream processing instances
+
+86
+00:01:42,310 --> 00:01:42,320
+number of stream processing instances
+ 
+
+87
+00:01:42,320 --> 00:01:45,110
+number of stream processing instances
+you need to create in this application.
+
+88
+00:01:45,110 --> 00:01:45,120
+you need to create in this application.
+ 
+
+89
+00:01:45,120 --> 00:01:46,950
+you need to create in this application.
+I created two, so two instances will get
+
+90
+00:01:46,950 --> 00:01:46,960
+I created two, so two instances will get
+ 
+
+91
+00:01:46,960 --> 00:01:47,990
+I created two, so two instances will get
+created.
+
+92
+00:01:47,990 --> 00:01:48,000
+created.
+ 
+
+93
+00:01:48,000 --> 00:01:50,430
+created.
+Okay? So, tasks will be divided among
+
+94
+00:01:50,430 --> 00:01:50,440
+Okay? So, tasks will be divided among
+ 
+
+95
+00:01:50,440 --> 00:01:53,350
+Okay? So, tasks will be divided among
+these two instances.
+
+96
+00:01:53,350 --> 00:01:53,360
+these two instances.
+ 
+
+97
+00:01:53,360 --> 00:01:56,550
+these two instances.
+So, each task creates a RocksDB file,
+
+98
+00:01:56,550 --> 00:01:56,560
+So, each task creates a RocksDB file,
+ 
+
+99
+00:01:56,560 --> 00:01:58,190
+So, each task creates a RocksDB file,
+right? So, where that file will get
+
+100
+00:01:58,190 --> 00:01:58,200
+right? So, where that file will get
+ 
+
+101
+00:01:58,200 --> 00:01:59,110
+right? So, where that file will get
+stored?
+
+102
+00:01:59,110 --> 00:01:59,120
+stored?
+ 
+
+103
+00:01:59,120 --> 00:02:03,070
+stored?
+Streams properties state.directory dir
+
+104
+00:02:03,070 --> 00:02:03,080
+Streams properties state.directory dir
+ 
+
+105
+00:02:03,080 --> 00:02:05,230
+Streams properties state.directory dir
+/temp/kafka-streams.
+
+106
+00:02:05,230 --> 00:02:05,240
+/temp/kafka-streams.
+ 
+
+107
+00:02:05,240 --> 00:02:07,390
+/temp/kafka-streams.
+You can give any name. So,
+
+108
+00:02:07,390 --> 00:02:07,400
+You can give any name. So,
+ 
+
+109
+00:02:07,400 --> 00:02:09,910
+You can give any name. So,
+the at this path, the file of the Rocks
+
+110
+00:02:09,910 --> 00:02:09,920
+the at this path, the file of the Rocks
+ 
+
+111
+00:02:09,920 --> 00:02:13,030
+the at this path, the file of the Rocks
+DB would get stored on local disk.
+
+112
+00:02:13,030 --> 00:02:13,040
+DB would get stored on local disk.
+ 
+
+113
+00:02:13,040 --> 00:02:15,670
+DB would get stored on local disk.
+Very minimal application.properties I
+
+114
+00:02:15,670 --> 00:02:15,680
+Very minimal application.properties I
+ 
+
+115
+00:02:15,680 --> 00:02:18,190
+Very minimal application.properties I
+have written.
+
+116
+00:02:18,190 --> 00:02:18,200
+have written.
+ 
+
+117
+00:02:18,200 --> 00:02:20,190
+have written.
+The third is like in your application,
+
+118
+00:02:20,190 --> 00:02:20,200
+The third is like in your application,
+ 
+
+119
+00:02:20,200 --> 00:02:23,670
+The third is like in your application,
+you have to just set @EnableKafkaStreams
+
+120
+00:02:23,670 --> 00:02:23,680
+you have to just set @EnableKafkaStreams
+ 
+
+121
+00:02:23,680 --> 00:02:26,510
+you have to just set @EnableKafkaStreams
+annotation, so that it will uh enable
+
+122
+00:02:26,510 --> 00:02:26,520
+annotation, so that it will uh enable
+ 
+
+123
+00:02:26,520 --> 00:02:29,190
+annotation, so that it will uh enable
+all the beans or it will load all the
+
+124
+00:02:29,190 --> 00:02:29,200
+all the beans or it will load all the
+ 
+
+125
+00:02:29,200 --> 00:02:31,550
+all the beans or it will load all the
+streams Kafka streams related beans for
+
+126
+00:02:31,550 --> 00:02:31,560
+streams Kafka streams related beans for
+ 
+
+127
+00:02:31,560 --> 00:02:33,630
+streams Kafka streams related beans for
+us.
+
+128
+00:02:33,630 --> 00:02:33,640
+us.
+ 
+
+129
+00:02:33,640 --> 00:02:34,949
+us.
+And the fourth,
+
+130
+00:02:34,949 --> 00:02:34,959
+And the fourth,
+ 
+
+131
+00:02:34,959 --> 00:02:36,670
+And the fourth,
+we have to define the topology. I told
+
+132
+00:02:36,670 --> 00:02:36,680
+we have to define the topology. I told
+ 
+
+133
+00:02:36,680 --> 00:02:39,150
+we have to define the topology. I told
+you that all we have to is tell the
+
+134
+00:02:39,150 --> 00:02:39,160
+you that all we have to is tell the
+ 
+
+135
+00:02:39,160 --> 00:02:40,710
+you that all we have to is tell the
+topology.
+
+136
+00:02:40,710 --> 00:02:40,720
+topology.
+ 
+
+137
+00:02:40,720 --> 00:02:41,710
+topology.
+Okay?
+
+138
+00:02:41,710 --> 00:02:41,720
+Okay?
+ 
+
+139
+00:02:41,720 --> 00:02:44,350
+Okay?
+After that, everything is handled by the
+
+140
+00:02:44,350 --> 00:02:44,360
+After that, everything is handled by the
+ 
+
+141
+00:02:44,360 --> 00:02:46,070
+After that, everything is handled by the
+framework.
+
+142
+00:02:46,070 --> 00:02:46,080
+framework.
+ 
+
+143
+00:02:46,080 --> 00:02:47,910
+framework.
+Okay, we don't have to deal with change
+
+144
+00:02:47,910 --> 00:02:47,920
+Okay, we don't have to deal with change
+ 
+
+145
+00:02:47,920 --> 00:02:49,630
+Okay, we don't have to deal with change
+log. We don't have to deal with
+
+146
+00:02:49,630 --> 00:02:49,640
+log. We don't have to deal with
+ 
+
+147
+00:02:49,640 --> 00:02:51,430
+log. We don't have to deal with
+repartition. We don't have to deal with
+
+148
+00:02:51,430 --> 00:02:51,440
+repartition. We don't have to deal with
+ 
+
+149
+00:02:51,440 --> 00:02:53,910
+repartition. We don't have to deal with
+sub topologies. All we have to write is
+
+150
+00:02:53,910 --> 00:02:53,920
+sub topologies. All we have to write is
+ 
+
+151
+00:02:53,920 --> 00:02:55,630
+sub topologies. All we have to write is
+topology.
+
+152
+00:02:55,630 --> 00:02:55,640
+topology.
+ 
+
+153
+00:02:55,640 --> 00:02:57,910
+topology.
+Okay? So, now let's say here I have
+
+154
+00:02:57,910 --> 00:02:57,920
+Okay? So, now let's say here I have
+ 
+
+155
+00:02:57,920 --> 00:03:00,590
+Okay? So, now let's say here I have
+created one topology. Again,
+
+156
+00:03:00,590 --> 00:03:00,600
+created one topology. Again,
+ 
+
+157
+00:03:00,600 --> 00:03:02,870
+created one topology. Again,
+don't worry about the syntax at all
+
+158
+00:03:02,870 --> 00:03:02,880
+don't worry about the syntax at all
+ 
+
+159
+00:03:02,880 --> 00:03:06,430
+don't worry about the syntax at all
+because syntax we will go later.
+
+160
+00:03:06,430 --> 00:03:06,440
+because syntax we will go later.
+ 
+
+161
+00:03:06,440 --> 00:03:08,710
+because syntax we will go later.
+How to create a stream, different
+
+162
+00:03:08,710 --> 00:03:08,720
+How to create a stream, different
+ 
+
+163
+00:03:08,720 --> 00:03:10,910
+How to create a stream, different
+processors, we will see that.
+
+164
+00:03:10,910 --> 00:03:10,920
+processors, we will see that.
+ 
+
+165
+00:03:10,920 --> 00:03:13,390
+processors, we will see that.
+At this point of time, we are just
+
+166
+00:03:13,390 --> 00:03:13,400
+At this point of time, we are just
+ 
+
+167
+00:03:13,400 --> 00:03:15,670
+At this point of time, we are just
+setting up and double-check our
+
+168
+00:03:15,670 --> 00:03:15,680
+setting up and double-check our
+ 
+
+169
+00:03:15,680 --> 00:03:18,550
+setting up and double-check our
+understanding with the architecture. So,
+
+170
+00:03:18,550 --> 00:03:18,560
+understanding with the architecture. So,
+ 
+
+171
+00:03:18,560 --> 00:03:20,550
+understanding with the architecture. So,
+topology I have created.
+
+172
+00:03:20,550 --> 00:03:20,560
+topology I have created.
+ 
+
+173
+00:03:20,560 --> 00:03:22,150
+topology I have created.
+So, the source
+
+174
+00:03:22,150 --> 00:03:22,160
+So, the source
+ 
+
+175
+00:03:22,160 --> 00:03:23,630
+So, the source
+So, you remember, right? Topology we
+
+176
+00:03:23,630 --> 00:03:23,640
+So, you remember, right? Topology we
+ 
+
+177
+00:03:23,640 --> 00:03:26,350
+So, you remember, right? Topology we
+will have is like
+
+178
+00:03:26,350 --> 00:03:26,360
+will have is like
+ 
+
+179
+00:03:26,360 --> 00:03:27,670
+will have is like
+source
+
+180
+00:03:27,670 --> 00:03:27,680
+source
+ 
+
+181
+00:03:27,680 --> 00:03:29,949
+source
+source topic
+
+182
+00:03:29,949 --> 00:03:29,959
+source topic
+ 
+
+183
+00:03:29,959 --> 00:03:32,110
+source topic
+Then after that, you have processors,
+
+184
+00:03:32,110 --> 00:03:32,120
+Then after that, you have processors,
+ 
+
+185
+00:03:32,120 --> 00:03:33,710
+Then after that, you have processors,
+different processors which can have
+
+186
+00:03:33,710 --> 00:03:33,720
+different processors which can have
+ 
+
+187
+00:03:33,720 --> 00:03:35,390
+different processors which can have
+let's say step one, step two, step
+
+188
+00:03:35,390 --> 00:03:35,400
+let's say step one, step two, step
+ 
+
+189
+00:03:35,400 --> 00:03:36,350
+let's say step one, step two, step
+three.
+
+190
+00:03:36,350 --> 00:03:36,360
+three.
+ 
+
+191
+00:03:36,360 --> 00:03:37,870
+three.
+And after that, you can have a sink
+
+192
+00:03:37,870 --> 00:03:37,880
+And after that, you can have a sink
+ 
+
+193
+00:03:37,880 --> 00:03:39,790
+And after that, you can have a sink
+topic.
+
+194
+00:03:39,790 --> 00:03:39,800
+topic.
+ 
+
+195
+00:03:39,800 --> 00:03:41,310
+topic.
+Okay?
+
+196
+00:03:41,310 --> 00:03:41,320
+Okay?
+ 
+
+197
+00:03:41,320 --> 00:03:44,150
+Okay?
+So, this is my source. So, read from
+
+198
+00:03:44,150 --> 00:03:44,160
+So, this is my source. So, read from
+ 
+
+199
+00:03:44,160 --> 00:03:47,350
+So, this is my source. So, read from
+order-events. So, this is our
+
+200
+00:03:47,350 --> 00:03:47,360
+order-events. So, this is our
+ 
+
+201
+00:03:47,360 --> 00:03:50,390
+order-events. So, this is our
+source topic.
+
+202
+00:03:50,390 --> 00:03:50,400
+
+ 
+
+203
+00:03:50,400 --> 00:03:52,310
+
+Source
+
+204
+00:03:52,310 --> 00:03:52,320
+Source
+ 
+
+205
+00:03:52,320 --> 00:03:54,110
+Source
+topic.
+
+206
+00:03:54,110 --> 00:03:54,120
+topic.
+ 
+
+207
+00:03:54,120 --> 00:03:55,630
+topic.
+Now, these are the processor. One is
+
+208
+00:03:55,630 --> 00:03:55,640
+Now, these are the processor. One is
+ 
+
+209
+00:03:55,640 --> 00:03:57,390
+Now, these are the processor. One is
+filter.
+
+210
+00:03:57,390 --> 00:03:57,400
+filter.
+ 
+
+211
+00:03:57,400 --> 00:03:58,830
+filter.
+Filter
+
+212
+00:03:58,830 --> 00:03:58,840
+Filter
+ 
+
+213
+00:03:58,840 --> 00:04:02,390
+Filter
+greater than 100. So, this is filter.
+
+214
+00:04:02,390 --> 00:04:02,400
+greater than 100. So, this is filter.
+ 
+
+215
+00:04:02,400 --> 00:04:04,470
+greater than 100. So, this is filter.
+Greater than 100.
+
+216
+00:04:04,470 --> 00:04:04,480
+Greater than 100.
+ 
+
+217
+00:04:04,480 --> 00:04:07,949
+Greater than 100.
+Okay? It has to filter the orders.
+
+218
+00:04:07,949 --> 00:04:07,959
+Okay? It has to filter the orders.
+ 
+
+219
+00:04:07,959 --> 00:04:10,350
+Okay? It has to filter the orders.
+Now, here our repartition. So, we are
+
+220
+00:04:10,350 --> 00:04:10,360
+Now, here our repartition. So, we are
+ 
+
+221
+00:04:10,360 --> 00:04:13,910
+Now, here our repartition. So, we are
+repartition based on product ID.
+
+222
+00:04:13,910 --> 00:04:13,920
+repartition based on product ID.
+ 
+
+223
+00:04:13,920 --> 00:04:16,390
+repartition based on product ID.
+Okay? So, this is we are doing
+
+224
+00:04:16,390 --> 00:04:16,400
+Okay? So, this is we are doing
+ 
+
+225
+00:04:16,400 --> 00:04:17,990
+Okay? So, this is we are doing
+repartition
+
+226
+00:04:17,990 --> 00:04:18,000
+repartition
+ 
+
+227
+00:04:18,000 --> 00:04:21,310
+repartition
+based on
+
+228
+00:04:21,310 --> 00:04:21,320
+
+ 
+
+229
+00:04:21,320 --> 00:04:23,630
+
+product ID.
+
+230
+00:04:23,630 --> 00:04:23,640
+product ID.
+ 
+
+231
+00:04:23,640 --> 00:04:24,630
+product ID.
+Okay?
+
+232
+00:04:24,630 --> 00:04:24,640
+Okay?
+ 
+
+233
+00:04:24,640 --> 00:04:27,110
+Okay?
+After that, we are storing some info
+
+234
+00:04:27,110 --> 00:04:27,120
+After that, we are storing some info
+ 
+
+235
+00:04:27,120 --> 00:04:28,510
+After that, we are storing some info
+into the
+
+236
+00:04:28,510 --> 00:04:28,520
+into the
+ 
+
+237
+00:04:28,520 --> 00:04:30,710
+into the
+So, we are doing group by key.
+
+238
+00:04:30,710 --> 00:04:30,720
+So, we are doing group by key.
+ 
+
+239
+00:04:30,720 --> 00:04:34,230
+So, we are doing group by key.
+So, next task we are doing is group
+
+240
+00:04:34,230 --> 00:04:34,240
+So, next task we are doing is group
+ 
+
+241
+00:04:34,240 --> 00:04:36,150
+So, next task we are doing is group
+by key
+
+242
+00:04:36,150 --> 00:04:36,160
+by key
+ 
+
+243
+00:04:36,160 --> 00:04:38,710
+by key
+and also count. So, we are storing into
+
+244
+00:04:38,710 --> 00:04:38,720
+and also count. So, we are storing into
+ 
+
+245
+00:04:38,720 --> 00:04:40,630
+and also count. So, we are storing into
+the RocksDB also.
+
+246
+00:04:40,630 --> 00:04:40,640
+the RocksDB also.
+ 
+
+247
+00:04:40,640 --> 00:04:42,310
+the RocksDB also.
+So, count.
+
+248
+00:04:42,310 --> 00:04:42,320
+So, count.
+ 
+
+249
+00:04:42,320 --> 00:04:45,150
+So, count.
+So, count it stores into the
+
+250
+00:04:45,150 --> 00:04:45,160
+So, count it stores into the
+ 
+
+251
+00:04:45,160 --> 00:04:47,590
+So, count it stores into the
+RocksDB. The RocksDB name we have given
+
+252
+00:04:47,590 --> 00:04:47,600
+RocksDB. The RocksDB name we have given
+ 
+
+253
+00:04:47,600 --> 00:04:51,590
+RocksDB. The RocksDB name we have given
+is product-count-store.
+
+254
+00:04:51,590 --> 00:04:51,600
+
+ 
+
+255
+00:04:51,600 --> 00:04:55,790
+
+Product-count-store.
+
+256
+00:04:55,790 --> 00:04:55,800
+
+ 
+
+257
+00:04:55,800 --> 00:04:58,710
+
+This is our RocksDB file name.
+
+258
+00:04:58,710 --> 00:04:58,720
+This is our RocksDB file name.
+ 
+
+259
+00:04:58,720 --> 00:05:00,630
+This is our RocksDB file name.
+Okay?
+
+260
+00:05:00,630 --> 00:05:00,640
+Okay?
+ 
+
+261
+00:05:00,640 --> 00:05:03,830
+Okay?
+And ultimately, the output topic is
+
+262
+00:05:03,830 --> 00:05:03,840
+And ultimately, the output topic is
+ 
+
+263
+00:05:03,840 --> 00:05:07,470
+And ultimately, the output topic is
+this, product-counts. This is our
+
+264
+00:05:07,470 --> 00:05:07,480
+this, product-counts. This is our
+ 
+
+265
+00:05:07,480 --> 00:05:10,110
+this, product-counts. This is our
+output topic.
+
+266
+00:05:10,110 --> 00:05:10,120
+output topic.
+ 
+
+267
+00:05:10,120 --> 00:05:11,870
+output topic.
+Okay? So, our topology which we have
+
+268
+00:05:11,870 --> 00:05:11,880
+Okay? So, our topology which we have
+ 
+
+269
+00:05:11,880 --> 00:05:13,110
+Okay? So, our topology which we have
+created is
+
+270
+00:05:13,110 --> 00:05:13,120
+created is
+ 
+
+271
+00:05:13,120 --> 00:05:14,390
+created is
+if you uh
+
+272
+00:05:14,390 --> 00:05:14,400
+if you uh
+ 
+
+273
+00:05:14,400 --> 00:05:16,070
+if you uh
+just write it.
+
+274
+00:05:16,070 --> 00:05:16,080
+just write it.
+ 
+
+275
+00:05:16,080 --> 00:05:18,390
+just write it.
+So, here I have created the topology.
+
+276
+00:05:18,390 --> 00:05:18,400
+So, here I have created the topology.
+ 
+
+277
+00:05:18,400 --> 00:05:21,550
+So, here I have created the topology.
+The topology is order- events. Source is
+
+278
+00:05:21,550 --> 00:05:21,560
+The topology is order- events. Source is
+ 
+
+279
+00:05:21,560 --> 00:05:23,510
+The topology is order- events. Source is
+order-events.
+
+280
+00:05:23,510 --> 00:05:23,520
+order-events.
+ 
+
+281
+00:05:23,520 --> 00:05:26,430
+order-events.
+Do a filter greater than 100.
+
+282
+00:05:26,430 --> 00:05:26,440
+Do a filter greater than 100.
+ 
+
+283
+00:05:26,440 --> 00:05:29,670
+Do a filter greater than 100.
+Repartition based on product ID.
+
+284
+00:05:29,670 --> 00:05:29,680
+Repartition based on product ID.
+ 
+
+285
+00:05:29,680 --> 00:05:31,990
+Repartition based on product ID.
+Group by the key.
+
+286
+00:05:31,990 --> 00:05:32,000
+Group by the key.
+ 
+
+287
+00:05:32,000 --> 00:05:34,150
+Group by the key.
+Then count. So, in the count, we have to
+
+288
+00:05:34,150 --> 00:05:34,160
+Then count. So, in the count, we have to
+ 
+
+289
+00:05:34,160 --> 00:05:35,390
+Then count. So, in the count, we have to
+store
+
+290
+00:05:35,390 --> 00:05:35,400
+store
+ 
+
+291
+00:05:35,400 --> 00:05:37,230
+store
+maintain a state. So, we will maintain a
+
+292
+00:05:37,230 --> 00:05:37,240
+maintain a state. So, we will maintain a
+ 
+
+293
+00:05:37,240 --> 00:05:39,510
+maintain a state. So, we will maintain a
+state in the RocksDB. RocksDB name we
+
+294
+00:05:39,510 --> 00:05:39,520
+state in the RocksDB. RocksDB name we
+ 
+
+295
+00:05:39,520 --> 00:05:42,550
+state in the RocksDB. RocksDB name we
+have given is product-count-store.
+
+296
+00:05:42,550 --> 00:05:42,560
+have given is product-count-store.
+ 
+
+297
+00:05:42,560 --> 00:05:44,430
+have given is product-count-store.
+And ultimately, we have to put into the
+
+298
+00:05:44,430 --> 00:05:44,440
+And ultimately, we have to put into the
+ 
+
+299
+00:05:44,440 --> 00:05:47,630
+And ultimately, we have to put into the
+output topic, which is product-counts.
+
+300
+00:05:47,630 --> 00:05:47,640
+output topic, which is product-counts.
+ 
+
+301
+00:05:47,640 --> 00:05:49,110
+output topic, which is product-counts.
+Okay? So, this is the topology which we
+
+302
+00:05:49,110 --> 00:05:49,120
+Okay? So, this is the topology which we
+ 
+
+303
+00:05:49,120 --> 00:05:50,350
+Okay? So, this is the topology which we
+have created.
+
+304
+00:05:50,350 --> 00:05:50,360
+have created.
+ 
+
+305
+00:05:50,360 --> 00:05:54,310
+have created.
+And this is the Kafka cluster which has
+
+306
+00:05:54,310 --> 00:05:54,320
+And this is the Kafka cluster which has
+ 
+
+307
+00:05:54,320 --> 00:05:56,550
+And this is the Kafka cluster which has
+topic order events
+
+308
+00:05:56,550 --> 00:05:56,560
+topic order events
+ 
+
+309
+00:05:56,560 --> 00:05:57,950
+topic order events
+which is three partition. Partition
+
+310
+00:05:57,950 --> 00:05:57,960
+which is three partition. Partition
+ 
+
+311
+00:05:57,960 --> 00:06:00,230
+which is three partition. Partition
+zero, partition one, partition
+
+312
+00:06:00,230 --> 00:06:00,240
+zero, partition one, partition
+ 
+
+313
+00:06:00,240 --> 00:06:02,350
+zero, partition one, partition
+P2, three partition.
+
+314
+00:06:02,350 --> 00:06:02,360
+P2, three partition.
+ 
+
+315
+00:06:02,360 --> 00:06:04,870
+P2, three partition.
+Okay, so producer produce into this
+
+316
+00:06:04,870 --> 00:06:04,880
+Okay, so producer produce into this
+ 
+
+317
+00:06:04,880 --> 00:06:06,950
+Okay, so producer produce into this
+order events.
+
+318
+00:06:06,950 --> 00:06:06,960
+order events.
+ 
+
+319
+00:06:06,960 --> 00:06:08,590
+order events.
+Okay, and this is the topology which we
+
+320
+00:06:08,590 --> 00:06:08,600
+Okay, and this is the topology which we
+ 
+
+321
+00:06:08,600 --> 00:06:09,750
+Okay, and this is the topology which we
+have created.
+
+322
+00:06:09,750 --> 00:06:09,760
+have created.
+ 
+
+323
+00:06:09,760 --> 00:06:10,830
+have created.
+Now,
+
+324
+00:06:10,830 --> 00:06:10,840
+Now,
+ 
+
+325
+00:06:10,840 --> 00:06:13,870
+Now,
+stop at this point of time.
+
+326
+00:06:13,870 --> 00:06:13,880
+stop at this point of time.
+ 
+
+327
+00:06:13,880 --> 00:06:15,990
+stop at this point of time.
+And from this topology,
+
+328
+00:06:15,990 --> 00:06:16,000
+And from this topology,
+ 
+
+329
+00:06:16,000 --> 00:06:18,310
+And from this topology,
+I want you to create
+
+330
+00:06:18,310 --> 00:06:18,320
+I want you to create
+ 
+
+331
+00:06:18,320 --> 00:06:20,310
+I want you to create
+all the sub topology
+
+332
+00:06:20,310 --> 00:06:20,320
+all the sub topology
+ 
+
+333
+00:06:20,320 --> 00:06:22,590
+all the sub topology
+plus all the different topics which will
+
+334
+00:06:22,590 --> 00:06:22,600
+plus all the different topics which will
+ 
+
+335
+00:06:22,600 --> 00:06:26,270
+plus all the different topics which will
+get created into the Kafka cluster.
+
+336
+00:06:26,270 --> 00:06:26,280
+get created into the Kafka cluster.
+ 
+
+337
+00:06:26,280 --> 00:06:29,230
+get created into the Kafka cluster.
+So now let's go ahead.
+
+338
+00:06:29,230 --> 00:06:29,240
+So now let's go ahead.
+ 
+
+339
+00:06:29,240 --> 00:06:31,990
+So now let's go ahead.
+So, let's see what all sub topology it
+
+340
+00:06:31,990 --> 00:06:32,000
+So, let's see what all sub topology it
+ 
+
+341
+00:06:32,000 --> 00:06:33,750
+So, let's see what all sub topology it
+will create.
+
+342
+00:06:33,750 --> 00:06:33,760
+will create.
+ 
+
+343
+00:06:33,760 --> 00:06:36,830
+will create.
+So, sub topology zero, source is order
+
+344
+00:06:36,830 --> 00:06:36,840
+So, sub topology zero, source is order
+ 
+
+345
+00:06:36,840 --> 00:06:39,990
+So, sub topology zero, source is order
+events. Filter greater than 100. Now at
+
+346
+00:06:39,990 --> 00:06:40,000
+events. Filter greater than 100. Now at
+ 
+
+347
+00:06:40,000 --> 00:06:42,110
+events. Filter greater than 100. Now at
+this point of time repartition happen.
+
+348
+00:06:42,110 --> 00:06:42,120
+this point of time repartition happen.
+ 
+
+349
+00:06:42,120 --> 00:06:44,230
+this point of time repartition happen.
+Repartition based on product ID. So,
+
+350
+00:06:44,230 --> 00:06:44,240
+Repartition based on product ID. So,
+ 
+
+351
+00:06:44,240 --> 00:06:46,950
+Repartition based on product ID. So,
+it's what it will do, it will sink into
+
+352
+00:06:46,950 --> 00:06:46,960
+it's what it will do, it will sink into
+ 
+
+353
+00:06:46,960 --> 00:06:48,670
+it's what it will do, it will sink into
+repartition topic.
+
+354
+00:06:48,670 --> 00:06:48,680
+repartition topic.
+ 
+
+355
+00:06:48,680 --> 00:06:51,150
+repartition topic.
+So, it will create a
+
+356
+00:06:51,150 --> 00:06:51,160
+So, it will create a
+ 
+
+357
+00:06:51,160 --> 00:06:54,750
+So, it will create a
+repartition topic.
+
+358
+00:06:54,750 --> 00:06:54,760
+repartition topic.
+ 
+
+359
+00:06:54,760 --> 00:06:56,510
+repartition topic.
+And the same number of partition which
+
+360
+00:06:56,510 --> 00:06:56,520
+And the same number of partition which
+ 
+
+361
+00:06:56,520 --> 00:06:58,390
+And the same number of partition which
+source has. Order event has three
+
+362
+00:06:58,390 --> 00:06:58,400
+source has. Order event has three
+ 
+
+363
+00:06:58,400 --> 00:07:00,190
+source has. Order event has three
+partition, so it will also have three
+
+364
+00:07:00,190 --> 00:07:00,200
+partition, so it will also have three
+ 
+
+365
+00:07:00,200 --> 00:07:02,990
+partition, so it will also have three
+partitions.
+
+366
+00:07:02,990 --> 00:07:03,000
+
+ 
+
+367
+00:07:03,000 --> 00:07:05,070
+
+Then sub topology one, it will read from
+
+368
+00:07:05,070 --> 00:07:05,080
+Then sub topology one, it will read from
+ 
+
+369
+00:07:05,080 --> 00:07:07,390
+Then sub topology one, it will read from
+this repartition topic.
+
+370
+00:07:07,390 --> 00:07:07,400
+this repartition topic.
+ 
+
+371
+00:07:07,400 --> 00:07:08,909
+this repartition topic.
+Then after that,
+
+372
+00:07:08,909 --> 00:07:08,919
+Then after that,
+ 
+
+373
+00:07:08,919 --> 00:07:10,990
+Then after that,
+group by key,
+
+374
+00:07:10,990 --> 00:07:11,000
+group by key,
+ 
+
+375
+00:07:11,000 --> 00:07:12,270
+group by key,
+count,
+
+376
+00:07:12,270 --> 00:07:12,280
+count,
+ 
+
+377
+00:07:12,280 --> 00:07:16,190
+count,
+the RockDB has this
+
+378
+00:07:16,190 --> 00:07:16,200
+the RockDB has this
+ 
+
+379
+00:07:16,200 --> 00:07:18,590
+the RockDB has this
+product counter store. Okay, and
+
+380
+00:07:18,590 --> 00:07:18,600
+product counter store. Okay, and
+ 
+
+381
+00:07:18,600 --> 00:07:20,230
+product counter store. Okay, and
+ultimately output topic is product
+
+382
+00:07:20,230 --> 00:07:20,240
+ultimately output topic is product
+ 
+
+383
+00:07:20,240 --> 00:07:21,390
+ultimately output topic is product
+counts.
+
+384
+00:07:21,390 --> 00:07:21,400
+counts.
+ 
+
+385
+00:07:21,400 --> 00:07:23,510
+counts.
+So, RockDB also maintain a change log
+
+386
+00:07:23,510 --> 00:07:23,520
+So, RockDB also maintain a change log
+ 
+
+387
+00:07:23,520 --> 00:07:26,350
+So, RockDB also maintain a change log
+topic. So, there would be product count
+
+388
+00:07:26,350 --> 00:07:26,360
+topic. So, there would be product count
+ 
+
+389
+00:07:26,360 --> 00:07:28,830
+topic. So, there would be product count
+store change log
+
+390
+00:07:28,830 --> 00:07:28,840
+store change log
+ 
+
+391
+00:07:28,840 --> 00:07:30,830
+store change log
+topic.
+
+392
+00:07:30,830 --> 00:07:30,840
+topic.
+ 
+
+393
+00:07:30,840 --> 00:07:34,150
+topic.
+This is a change log topic.
+
+394
+00:07:34,150 --> 00:07:34,160
+
+ 
+
+395
+00:07:34,160 --> 00:07:36,230
+
+How many partition it will have?
+
+396
+00:07:36,230 --> 00:07:36,240
+How many partition it will have?
+ 
+
+397
+00:07:36,240 --> 00:07:37,470
+How many partition it will have?
+This will have the same number of
+
+398
+00:07:37,470 --> 00:07:37,480
+This will have the same number of
+ 
+
+399
+00:07:37,480 --> 00:07:40,190
+This will have the same number of
+partition which this source partition
+
+400
+00:07:40,190 --> 00:07:40,200
+partition which this source partition
+ 
+
+401
+00:07:40,200 --> 00:07:44,030
+partition which this source partition
+have. So, its source topic has
+
+402
+00:07:44,030 --> 00:07:44,040
+have. So, its source topic has
+ 
+
+403
+00:07:44,040 --> 00:07:45,710
+have. So, its source topic has
+three.
+
+404
+00:07:45,710 --> 00:07:45,720
+three.
+ 
+
+405
+00:07:45,720 --> 00:07:46,870
+three.
+That's why it will also have three
+
+406
+00:07:46,870 --> 00:07:46,880
+That's why it will also have three
+ 
+
+407
+00:07:46,880 --> 00:07:51,390
+That's why it will also have three
+partition.
+
+408
+00:07:51,390 --> 00:07:51,400
+
+ 
+
+409
+00:07:51,400 --> 00:07:53,670
+
+Okay? So, everything depend upon the
+
+410
+00:07:53,670 --> 00:07:53,680
+Okay? So, everything depend upon the
+ 
+
+411
+00:07:53,680 --> 00:07:57,230
+Okay? So, everything depend upon the
+source partition.
+
+412
+00:07:57,230 --> 00:07:57,240
+
+ 
+
+413
+00:07:57,240 --> 00:07:59,790
+
+Now, output topic is product count. So,
+
+414
+00:07:59,790 --> 00:07:59,800
+Now, output topic is product count. So,
+ 
+
+415
+00:07:59,800 --> 00:08:01,590
+Now, output topic is product count. So,
+let's say this topic which we have
+
+416
+00:08:01,590 --> 00:08:01,600
+let's say this topic which we have
+ 
+
+417
+00:08:01,600 --> 00:08:03,830
+let's say this topic which we have
+already created, it can have more number
+
+418
+00:08:03,830 --> 00:08:03,840
+already created, it can have more number
+ 
+
+419
+00:08:03,840 --> 00:08:05,430
+already created, it can have more number
+of partition, it can have less number of
+
+420
+00:08:05,430 --> 00:08:05,440
+of partition, it can have less number of
+ 
+
+421
+00:08:05,440 --> 00:08:08,390
+of partition, it can have less number of
+partitions. Okay, depends. So, let's say
+
+422
+00:08:08,390 --> 00:08:08,400
+partitions. Okay, depends. So, let's say
+ 
+
+423
+00:08:08,400 --> 00:08:11,510
+partitions. Okay, depends. So, let's say
+output topic product hyphen count. So,
+
+424
+00:08:11,510 --> 00:08:11,520
+output topic product hyphen count. So,
+ 
+
+425
+00:08:11,520 --> 00:08:13,150
+output topic product hyphen count. So,
+our producer or some other application
+
+426
+00:08:13,150 --> 00:08:13,160
+our producer or some other application
+ 
+
+427
+00:08:13,160 --> 00:08:13,990
+our producer or some other application
+or
+
+428
+00:08:13,990 --> 00:08:14,000
+or
+ 
+
+429
+00:08:14,000 --> 00:08:16,270
+or
+external, we this topic is already
+
+430
+00:08:16,270 --> 00:08:16,280
+external, we this topic is already
+ 
+
+431
+00:08:16,280 --> 00:08:19,230
+external, we this topic is already
+created. All we are doing is we are just
+
+432
+00:08:19,230 --> 00:08:19,240
+created. All we are doing is we are just
+ 
+
+433
+00:08:19,240 --> 00:08:22,590
+created. All we are doing is we are just
+dumping the event into this topic. So,
+
+434
+00:08:22,590 --> 00:08:22,600
+dumping the event into this topic. So,
+ 
+
+435
+00:08:22,600 --> 00:08:24,110
+dumping the event into this topic. So,
+it can have
+
+436
+00:08:24,110 --> 00:08:24,120
+it can have
+ 
+
+437
+00:08:24,120 --> 00:08:27,070
+it can have
+partition P0, P1, P2, P3, P4, P5 or P0,
+
+438
+00:08:27,070 --> 00:08:27,080
+partition P0, P1, P2, P3, P4, P5 or P0,
+ 
+
+439
+00:08:27,080 --> 00:08:28,710
+partition P0, P1, P2, P3, P4, P5 or P0,
+P1 only. Different number of partition I
+
+440
+00:08:28,710 --> 00:08:28,720
+P1 only. Different number of partition I
+ 
+
+441
+00:08:28,720 --> 00:08:30,390
+P1 only. Different number of partition I
+wanted to say.
+
+442
+00:08:30,390 --> 00:08:30,400
+wanted to say.
+ 
+
+443
+00:08:30,400 --> 00:08:33,230
+wanted to say.
+Okay? So, we have created
+
+444
+00:08:33,230 --> 00:08:33,240
+Okay? So, we have created
+ 
+
+445
+00:08:33,240 --> 00:08:35,270
+Okay? So, we have created
+two sub topology.
+
+446
+00:08:35,270 --> 00:08:35,280
+two sub topology.
+ 
+
+447
+00:08:35,280 --> 00:08:37,390
+two sub topology.
+Okay? And uh
+
+448
+00:08:37,390 --> 00:08:37,400
+Okay? And uh
+ 
+
+449
+00:08:37,400 --> 00:08:41,270
+Okay? And uh
+repartition change log will get created.
+
+450
+00:08:41,270 --> 00:08:41,280
+repartition change log will get created.
+ 
+
+451
+00:08:41,280 --> 00:08:43,430
+repartition change log will get created.
+Now, task. How many task would get
+
+452
+00:08:43,430 --> 00:08:43,440
+Now, task. How many task would get
+ 
+
+453
+00:08:43,440 --> 00:08:47,750
+Now, task. How many task would get
+created? So, for this sub topology,
+
+454
+00:08:47,750 --> 00:08:47,760
+created? So, for this sub topology,
+ 
+
+455
+00:08:47,760 --> 00:08:50,630
+created? So, for this sub topology,
+it sources order events. So, order event
+
+456
+00:08:50,630 --> 00:08:50,640
+it sources order events. So, order event
+ 
+
+457
+00:08:50,640 --> 00:08:53,950
+it sources order events. So, order event
+has three partitions, so three task.
+
+458
+00:08:53,950 --> 00:08:53,960
+has three partitions, so three task.
+ 
+
+459
+00:08:53,960 --> 00:08:56,310
+has three partitions, so three task.
+So, 0 underscore 0. 0 is like sub
+
+460
+00:08:56,310 --> 00:08:56,320
+So, 0 underscore 0. 0 is like sub
+ 
+
+461
+00:08:56,320 --> 00:08:59,670
+So, 0 underscore 0. 0 is like sub
+topology 0.
+
+462
+00:08:59,670 --> 00:08:59,680
+
+ 
+
+463
+00:08:59,680 --> 00:09:01,870
+
+Order event partition P0.
+
+464
+00:09:01,870 --> 00:09:01,880
+Order event partition P0.
+ 
+
+465
+00:09:01,880 --> 00:09:04,070
+Order event partition P0.
+Order event partition P1. Order event
+
+466
+00:09:04,070 --> 00:09:04,080
+Order event partition P1. Order event
+ 
+
+467
+00:09:04,080 --> 00:09:07,430
+Order event partition P1. Order event
+partition P0 for this sub topology.
+
+468
+00:09:07,430 --> 00:09:07,440
+partition P0 for this sub topology.
+ 
+
+469
+00:09:07,440 --> 00:09:09,390
+partition P0 for this sub topology.
+Similarly, for this sub topology, it
+
+470
+00:09:09,390 --> 00:09:09,400
+Similarly, for this sub topology, it
+ 
+
+471
+00:09:09,400 --> 00:09:11,390
+Similarly, for this sub topology, it
+sources repartition. So, it's
+
+472
+00:09:11,390 --> 00:09:11,400
+sources repartition. So, it's
+ 
+
+473
+00:09:11,400 --> 00:09:13,630
+sources repartition. So, it's
+repartition has three partition.
+
+474
+00:09:13,630 --> 00:09:13,640
+repartition has three partition.
+ 
+
+475
+00:09:13,640 --> 00:09:16,150
+repartition has three partition.
+So, three task is required.
+
+476
+00:09:16,150 --> 00:09:16,160
+So, three task is required.
+ 
+
+477
+00:09:16,160 --> 00:09:19,550
+So, three task is required.
+Sub topology one, one one.
+
+478
+00:09:19,550 --> 00:09:19,560
+Sub topology one, one one.
+ 
+
+479
+00:09:19,560 --> 00:09:22,270
+Sub topology one, one one.
+Sources repartition topic, partition P0,
+
+480
+00:09:22,270 --> 00:09:22,280
+Sources repartition topic, partition P0,
+ 
+
+481
+00:09:22,280 --> 00:09:26,070
+Sources repartition topic, partition P0,
+partition P1, partition P2. P2.
+
+482
+00:09:26,070 --> 00:09:26,080
+partition P1, partition P2. P2.
+ 
+
+483
+00:09:26,080 --> 00:09:29,790
+partition P1, partition P2. P2.
+So, total six task is created.
+
+484
+00:09:29,790 --> 00:09:29,800
+So, total six task is created.
+ 
+
+485
+00:09:29,800 --> 00:09:31,190
+So, total six task is created.
+And
+
+486
+00:09:31,190 --> 00:09:31,200
+And
+ 
+
+487
+00:09:31,200 --> 00:09:33,510
+And
+we have in the application.properties,
+
+488
+00:09:33,510 --> 00:09:33,520
+we have in the application.properties,
+ 
+
+489
+00:09:33,520 --> 00:09:35,910
+we have in the application.properties,
+we have defined two instances, right?
+
+490
+00:09:35,910 --> 00:09:35,920
+we have defined two instances, right?
+ 
+
+491
+00:09:35,920 --> 00:09:39,070
+we have defined two instances, right?
+So, this six task
+
+492
+00:09:39,070 --> 00:09:39,080
+So, this six task
+ 
+
+493
+00:09:39,080 --> 00:09:42,150
+So, this six task
+this six task will get assigned to two
+
+494
+00:09:42,150 --> 00:09:42,160
+this six task will get assigned to two
+ 
+
+495
+00:09:42,160 --> 00:09:43,870
+this six task will get assigned to two
+instances
+
+496
+00:09:43,870 --> 00:09:43,880
+instances
+ 
+
+497
+00:09:43,880 --> 00:09:47,190
+instances
+or two thread. Thread one, thread two.
+
+498
+00:09:47,190 --> 00:09:47,200
+or two thread. Thread one, thread two.
+ 
+
+499
+00:09:47,200 --> 00:09:48,990
+or two thread. Thread one, thread two.
+Or our instance is only one but two
+
+500
+00:09:48,990 --> 00:09:49,000
+Or our instance is only one but two
+ 
+
+501
+00:09:49,000 --> 00:09:52,150
+Or our instance is only one but two
+threads. So this task
+
+502
+00:09:52,150 --> 00:09:52,160
+threads. So this task
+ 
+
+503
+00:09:52,160 --> 00:09:54,430
+threads. So this task
+will get assigned. Let's say task one,
+
+504
+00:09:54,430 --> 00:09:54,440
+will get assigned. Let's say task one,
+ 
+
+505
+00:09:54,440 --> 00:09:56,790
+will get assigned. Let's say task one,
+task two, task three, task four, task
+
+506
+00:09:56,790 --> 00:09:56,800
+task two, task three, task four, task
+ 
+
+507
+00:09:56,800 --> 00:09:58,790
+task two, task three, task four, task
+five, task six to thread two. Like this.
+
+508
+00:09:58,790 --> 00:09:58,800
+five, task six to thread two. Like this.
+ 
+
+509
+00:09:58,800 --> 00:10:00,670
+five, task six to thread two. Like this.
+So this three task will get divided to
+
+510
+00:10:00,670 --> 00:10:00,680
+So this three task will get divided to
+ 
+
+511
+00:10:00,680 --> 00:10:02,510
+So this three task will get divided to
+these two threads.
+
+512
+00:10:02,510 --> 00:10:02,520
+these two threads.
+ 
+
+513
+00:10:02,520 --> 00:10:05,230
+these two threads.
+So this is the ultimately
+
+514
+00:10:05,230 --> 00:10:05,240
+So this is the ultimately
+ 
+
+515
+00:10:05,240 --> 00:10:07,510
+So this is the ultimately
+expectation which we have to double
+
+516
+00:10:07,510 --> 00:10:07,520
+expectation which we have to double
+ 
+
+517
+00:10:07,520 --> 00:10:11,070
+expectation which we have to double
+check. So let's test.
+
+518
+00:10:11,070 --> 00:10:11,080
+check. So let's test.
+ 
+
+519
+00:10:11,080 --> 00:10:13,790
+check. So let's test.
+Okay, so same thing I so
+
+520
+00:10:13,790 --> 00:10:13,800
+Okay, so same thing I so
+ 
+
+521
+00:10:13,800 --> 00:10:15,510
+Okay, so same thing I so
+in the Kafka stream application I have
+
+522
+00:10:15,510 --> 00:10:15,520
+in the Kafka stream application I have
+ 
+
+523
+00:10:15,520 --> 00:10:16,990
+in the Kafka stream application I have
+just added this dependency
+
+524
+00:10:16,990 --> 00:10:17,000
+just added this dependency
+ 
+
+525
+00:10:17,000 --> 00:10:19,230
+just added this dependency
+application.properties
+
+526
+00:10:19,230 --> 00:10:19,240
+application.properties
+ 
+
+527
+00:10:19,240 --> 00:10:22,470
+application.properties
+a Kafka enable Kafka streams annotation
+
+528
+00:10:22,470 --> 00:10:22,480
+a Kafka enable Kafka streams annotation
+ 
+
+529
+00:10:22,480 --> 00:10:25,390
+a Kafka enable Kafka streams annotation
+and I have defined this topology.
+
+530
+00:10:25,390 --> 00:10:25,400
+and I have defined this topology.
+ 
+
+531
+00:10:25,400 --> 00:10:26,270
+and I have defined this topology.
+Okay.
+
+532
+00:10:26,270 --> 00:10:26,280
+Okay.
+ 
+
+533
+00:10:26,280 --> 00:10:28,750
+Okay.
+Now we have to do the testing.
+
+534
+00:10:28,750 --> 00:10:28,760
+Now we have to do the testing.
+ 
+
+535
+00:10:28,760 --> 00:10:31,150
+Now we have to do the testing.
+Now let's see that.
+
+536
+00:10:31,150 --> 00:10:31,160
+Now let's see that.
+ 
+
+537
+00:10:31,160 --> 00:10:33,310
+Now let's see that.
+Okay, so here
+
+538
+00:10:33,310 --> 00:10:33,320
+Okay, so here
+ 
+
+539
+00:10:33,320 --> 00:10:36,110
+Okay, so here
+just showing you the Kafka stream demo.
+
+540
+00:10:36,110 --> 00:10:36,120
+just showing you the Kafka stream demo.
+ 
+
+541
+00:10:36,120 --> 00:10:38,510
+just showing you the Kafka stream demo.
+So this is my topology. The same thing.
+
+542
+00:10:38,510 --> 00:10:38,520
+So this is my topology. The same thing.
+ 
+
+543
+00:10:38,520 --> 00:10:40,710
+So this is my topology. The same thing.
+Exactly the same thing. I have added the
+
+544
+00:10:40,710 --> 00:10:40,720
+Exactly the same thing. I have added the
+ 
+
+545
+00:10:40,720 --> 00:10:42,190
+Exactly the same thing. I have added the
+annotation
+
+546
+00:10:42,190 --> 00:10:42,200
+annotation
+ 
+
+547
+00:10:42,200 --> 00:10:44,910
+annotation
+and here application.properties.
+
+548
+00:10:44,910 --> 00:10:44,920
+and here application.properties.
+ 
+
+549
+00:10:44,920 --> 00:10:47,310
+and here application.properties.
+Okay, nothing differs.
+
+550
+00:10:47,310 --> 00:10:47,320
+Okay, nothing differs.
+ 
+
+551
+00:10:47,320 --> 00:10:49,470
+Okay, nothing differs.
+Now first thing we have to do is we have
+
+552
+00:10:49,470 --> 00:10:49,480
+Now first thing we have to do is we have
+ 
+
+553
+00:10:49,480 --> 00:10:50,510
+Now first thing we have to do is we have
+to
+
+554
+00:10:50,510 --> 00:10:50,520
+to
+ 
+
+555
+00:10:50,520 --> 00:10:52,950
+to
+start the Kafka cluster
+
+556
+00:10:52,950 --> 00:10:52,960
+start the Kafka cluster
+ 
+
+557
+00:10:52,960 --> 00:10:55,110
+start the Kafka cluster
+and also start the Kafka producer app.
+
+558
+00:10:55,110 --> 00:10:55,120
+and also start the Kafka producer app.
+ 
+
+559
+00:10:55,120 --> 00:10:57,870
+and also start the Kafka producer app.
+So now let me first start it and also I
+
+560
+00:10:57,870 --> 00:10:57,880
+So now let me first start it and also I
+ 
+
+561
+00:10:57,880 --> 00:11:00,110
+So now let me first start it and also I
+will just properly clean everything so
+
+562
+00:11:00,110 --> 00:11:00,120
+will just properly clean everything so
+ 
+
+563
+00:11:00,120 --> 00:11:02,270
+will just properly clean everything so
+that it don't have any old data. So
+
+564
+00:11:02,270 --> 00:11:02,280
+that it don't have any old data. So
+ 
+
+565
+00:11:02,280 --> 00:11:06,190
+that it don't have any old data. So
+remove all the logs like we used to do
+
+566
+00:11:06,190 --> 00:11:06,200
+remove all the logs like we used to do
+ 
+
+567
+00:11:06,200 --> 00:11:11,550
+remove all the logs like we used to do
+before.
+
+568
+00:11:11,550 --> 00:11:11,560
+
+ 
+
+569
+00:11:11,560 --> 00:11:13,270
+
+Okay, the second thing is we will create
+
+570
+00:11:13,270 --> 00:11:13,280
+Okay, the second thing is we will create
+ 
+
+571
+00:11:13,280 --> 00:11:17,390
+Okay, the second thing is we will create
+a new unique ID UUID.
+
+572
+00:11:17,390 --> 00:11:17,400
+a new unique ID UUID.
+ 
+
+573
+00:11:17,400 --> 00:11:22,030
+a new unique ID UUID.
+Okay, and all the clusters
+
+574
+00:11:22,030 --> 00:11:22,040
+Okay, and all the clusters
+ 
+
+575
+00:11:22,040 --> 00:11:32,630
+Okay, and all the clusters
+brokers, controller brokers we will
+
+576
+00:11:32,630 --> 00:11:32,640
+
+ 
+
+577
+00:11:32,640 --> 00:11:35,790
+
+assign with this, attach with this ID
+
+578
+00:11:35,790 --> 00:11:35,800
+assign with this, attach with this ID
+ 
+
+579
+00:11:35,800 --> 00:11:37,590
+assign with this, attach with this ID
+now.
+
+580
+00:11:37,590 --> 00:11:37,600
+now.
+ 
+
+581
+00:11:37,600 --> 00:11:42,070
+now.
+Controller one.
+
+582
+00:11:42,070 --> 00:11:42,080
+
+ 
+
+583
+00:11:42,080 --> 00:11:48,910
+
+Controller two.
+
+584
+00:11:48,910 --> 00:11:48,920
+
+ 
+
+585
+00:11:48,920 --> 00:11:51,983
+
+Broker one.
+
+586
+00:11:51,983 --> 00:11:51,993
+
+ 
+
+587
+00:11:51,993 --> 00:12:03,150
+
+>> [clears throat]
+
+588
+00:12:03,150 --> 00:12:03,160
+
+ 
+
+589
+00:12:03,160 --> 00:12:21,510
+
+>> Just a sec.
+
+590
+00:12:21,510 --> 00:12:21,520
+
+ 
+
+591
+00:12:21,520 --> 00:12:24,190
+
+Invalid cluster ID. Cluster ID is this
+
+592
+00:12:24,190 --> 00:12:24,200
+Invalid cluster ID. Cluster ID is this
+ 
+
+593
+00:12:24,200 --> 00:12:42,990
+Invalid cluster ID. Cluster ID is this
+only, right?
+
+594
+00:12:42,990 --> 00:12:43,000
+
+ 
+
+595
+00:12:43,000 --> 00:12:46,430
+
+Mhm. I think it's not removed yet.
+
+596
+00:12:46,430 --> 00:12:46,440
+Mhm. I think it's not removed yet.
+ 
+
+597
+00:12:46,440 --> 00:12:48,350
+Mhm. I think it's not removed yet.
+Let's remove.
+
+598
+00:12:48,350 --> 00:12:48,360
+Let's remove.
+ 
+
+599
+00:12:48,360 --> 00:12:50,390
+Let's remove.
+Okay, broker one has to be removed,
+
+600
+00:12:50,390 --> 00:12:50,400
+Okay, broker one has to be removed,
+ 
+
+601
+00:12:50,400 --> 00:12:53,030
+Okay, broker one has to be removed,
+right? So, let's remove broker one.
+
+602
+00:12:53,030 --> 00:12:53,040
+right? So, let's remove broker one.
+ 
+
+603
+00:12:53,040 --> 00:12:54,750
+right? So, let's remove broker one.
+Similarly, broker two need to be
+
+604
+00:12:54,750 --> 00:12:54,760
+Similarly, broker two need to be
+ 
+
+605
+00:12:54,760 --> 00:12:58,910
+Similarly, broker two need to be
+removed. Okay. Now, let's
+
+606
+00:12:58,910 --> 00:12:58,920
+removed. Okay. Now, let's
+ 
+
+607
+00:12:58,920 --> 00:13:03,710
+removed. Okay. Now, let's
+add broker one dot properties.
+
+608
+00:13:03,710 --> 00:13:03,720
+
+ 
+
+609
+00:13:03,720 --> 00:13:05,790
+
+Broker two dot properties.
+
+610
+00:13:05,790 --> 00:13:05,800
+Broker two dot properties.
+ 
+
+611
+00:13:05,800 --> 00:13:07,390
+Broker two dot properties.
+So, in our we have created a new
+
+612
+00:13:07,390 --> 00:13:07,400
+So, in our we have created a new
+ 
+
+613
+00:13:07,400 --> 00:13:09,110
+So, in our we have created a new
+cluster. In that two cluster, we have
+
+614
+00:13:09,110 --> 00:13:09,120
+cluster. In that two cluster, we have
+ 
+
+615
+00:13:09,120 --> 00:13:11,710
+cluster. In that two cluster, we have
+added two controllers, two brokers.
+
+616
+00:13:11,710 --> 00:13:11,720
+added two controllers, two brokers.
+ 
+
+617
+00:13:11,720 --> 00:13:14,710
+added two controllers, two brokers.
+Now, we have to start those.
+
+618
+00:13:14,710 --> 00:13:14,720
+Now, we have to start those.
+ 
+
+619
+00:13:14,720 --> 00:13:17,829
+Now, we have to start those.
+So, we have to start those clusters and
+
+620
+00:13:17,829 --> 00:13:17,839
+So, we have to start those clusters and
+ 
+
+621
+00:13:17,839 --> 00:13:20,910
+So, we have to start those clusters and
+brokers.
+
+622
+00:13:20,910 --> 00:13:20,920
+
+ 
+
+623
+00:13:20,920 --> 00:13:22,030
+
+So,
+
+624
+00:13:22,030 --> 00:13:22,040
+So,
+ 
+
+625
+00:13:22,040 --> 00:13:25,510
+So,
+the command to start them is
+
+626
+00:13:25,510 --> 00:13:25,520
+the command to start them is
+ 
+
+627
+00:13:25,520 --> 00:13:32,830
+the command to start them is
+Yeah.
+
+628
+00:13:32,830 --> 00:13:32,840
+
+ 
+
+629
+00:13:32,840 --> 00:13:35,110
+
+This is controller one for this is for
+
+630
+00:13:35,110 --> 00:13:35,120
+This is controller one for this is for
+ 
+
+631
+00:13:35,120 --> 00:13:36,670
+This is controller one for this is for
+controller
+
+632
+00:13:36,670 --> 00:13:36,680
+controller
+ 
+
+633
+00:13:36,680 --> 00:13:38,950
+controller
+two.
+
+634
+00:13:38,950 --> 00:13:38,960
+two.
+ 
+
+635
+00:13:38,960 --> 00:13:40,870
+two.
+So, let's just start this. Let's just
+
+636
+00:13:40,870 --> 00:13:40,880
+So, let's just start this. Let's just
+ 
+
+637
+00:13:40,880 --> 00:13:42,910
+So, let's just start this. Let's just
+start this.
+
+638
+00:13:42,910 --> 00:13:42,920
+start this.
+ 
+
+639
+00:13:42,920 --> 00:13:47,430
+start this.
+Similarly, let's just start
+
+640
+00:13:47,430 --> 00:13:47,440
+
+ 
+
+641
+00:13:47,440 --> 00:13:54,030
+
+broker one.
+
+642
+00:13:54,030 --> 00:13:54,040
+
+ 
+
+643
+00:13:54,040 --> 00:13:56,390
+
+Let's just start broker
+
+644
+00:13:56,390 --> 00:13:56,400
+Let's just start broker
+ 
+
+645
+00:13:56,400 --> 00:13:59,670
+Let's just start broker
+two.
+
+646
+00:13:59,670 --> 00:13:59,680
+
+ 
+
+647
+00:13:59,680 --> 00:14:02,070
+
+So, broker two started, broker one
+
+648
+00:14:02,070 --> 00:14:02,080
+So, broker two started, broker one
+ 
+
+649
+00:14:02,080 --> 00:14:04,510
+So, broker two started, broker one
+started, controller started, both the
+
+650
+00:14:04,510 --> 00:14:04,520
+started, controller started, both the
+ 
+
+651
+00:14:04,520 --> 00:14:06,150
+started, controller started, both the
+controller are started.
+
+652
+00:14:06,150 --> 00:14:06,160
+controller are started.
+ 
+
+653
+00:14:06,160 --> 00:14:07,150
+controller are started.
+Okay?
+
+654
+00:14:07,150 --> 00:14:07,160
+Okay?
+ 
+
+655
+00:14:07,160 --> 00:14:09,990
+Okay?
+So, everything is started here.
+
+656
+00:14:09,990 --> 00:14:10,000
+So, everything is started here.
+ 
+
+657
+00:14:10,000 --> 00:14:12,110
+So, everything is started here.
+So, now let's just start producer. So,
+
+658
+00:14:12,110 --> 00:14:12,120
+So, now let's just start producer. So,
+ 
+
+659
+00:14:12,120 --> 00:14:13,870
+So, now let's just start producer. So,
+we already have this producer
+
+660
+00:14:13,870 --> 00:14:13,880
+we already have this producer
+ 
+
+661
+00:14:13,880 --> 00:14:15,790
+we already have this producer
+application. I have already shared the
+
+662
+00:14:15,790 --> 00:14:15,800
+application. I have already shared the
+ 
+
+663
+00:14:15,800 --> 00:14:17,310
+application. I have already shared the
+Git also.
+
+664
+00:14:17,310 --> 00:14:17,320
+Git also.
+ 
+
+665
+00:14:17,320 --> 00:14:21,110
+Git also.
+So, I am just
+
+666
+00:14:21,110 --> 00:14:21,120
+
+ 
+
+667
+00:14:21,120 --> 00:14:23,830
+
+running it up.
+
+668
+00:14:23,830 --> 00:14:23,840
+running it up.
+ 
+
+669
+00:14:23,840 --> 00:14:26,630
+running it up.
+So, our producer is also started. And
+
+670
+00:14:26,630 --> 00:14:26,640
+So, our producer is also started. And
+ 
+
+671
+00:14:26,640 --> 00:14:28,550
+So, our producer is also started. And
+when our producer is started, it should
+
+672
+00:14:28,550 --> 00:14:28,560
+when our producer is started, it should
+ 
+
+673
+00:14:28,560 --> 00:14:32,270
+when our producer is started, it should
+have created
+
+674
+00:14:32,270 --> 00:14:32,280
+
+ 
+
+675
+00:14:32,280 --> 00:14:33,990
+
+order \{{}hyphen} events with three
+
+676
+00:14:33,990 --> 00:14:34,000
+order \{{}hyphen} events with three
+ 
+
+677
+00:14:34,000 --> 00:14:35,470
+order \{{}hyphen} events with three
+partitions.
+
+678
+00:14:35,470 --> 00:14:35,480
+partitions.
+ 
+
+679
+00:14:35,480 --> 00:14:39,230
+partitions.
+So, we can check that. So, till now
+
+680
+00:14:39,230 --> 00:14:39,240
+So, we can check that. So, till now
+ 
+
+681
+00:14:39,240 --> 00:14:41,390
+So, we can check that. So, till now
+we have started the Kafka cluster, we
+
+682
+00:14:41,390 --> 00:14:41,400
+we have started the Kafka cluster, we
+ 
+
+683
+00:14:41,400 --> 00:14:43,750
+we have started the Kafka cluster, we
+have started the Kafka producer app.
+
+684
+00:14:43,750 --> 00:14:43,760
+have started the Kafka producer app.
+ 
+
+685
+00:14:43,760 --> 00:14:46,670
+have started the Kafka producer app.
+Okay? So, here
+
+686
+00:14:46,670 --> 00:14:46,680
+Okay? So, here
+ 
+
+687
+00:14:46,680 --> 00:14:48,870
+Okay? So, here
+started Kafka producer application is
+
+688
+00:14:48,870 --> 00:14:48,880
+started Kafka producer application is
+ 
+
+689
+00:14:48,880 --> 00:14:51,550
+started Kafka producer application is
+done. So, at this point of time is done.
+
+690
+00:14:51,550 --> 00:14:51,560
+done. So, at this point of time is done.
+ 
+
+691
+00:14:51,560 --> 00:14:54,350
+done. So, at this point of time is done.
+So, now we can use this command
+
+692
+00:14:54,350 --> 00:14:54,360
+So, now we can use this command
+ 
+
+693
+00:14:54,360 --> 00:14:58,430
+So, now we can use this command
+to know.
+
+694
+00:14:58,430 --> 00:14:58,440
+
+ 
+
+695
+00:14:58,440 --> 00:15:03,829
+
+We can describe the events. Let's see.
+
+696
+00:15:03,829 --> 00:15:03,839
+
+ 
+
+697
+00:15:03,839 --> 00:15:05,750
+
+So, we can describe this topic order
+
+698
+00:15:05,750 --> 00:15:05,760
+So, we can describe this topic order
+ 
+
+699
+00:15:05,760 --> 00:15:13,710
+So, we can describe this topic order
+\{{}hyphen} events. So, here if you see
+
+700
+00:15:13,710 --> 00:15:13,720
+
+ 
+
+701
+00:15:13,720 --> 00:15:16,070
+
+Let me zoom it a bit.
+
+702
+00:15:16,070 --> 00:15:16,080
+Let me zoom it a bit.
+ 
+
+703
+00:15:16,080 --> 00:15:18,670
+Let me zoom it a bit.
+I hope it's clearly visible.
+
+704
+00:15:18,670 --> 00:15:18,680
+I hope it's clearly visible.
+ 
+
+705
+00:15:18,680 --> 00:15:20,030
+I hope it's clearly visible.
+So, here
+
+706
+00:15:20,030 --> 00:15:20,040
+So, here
+ 
+
+707
+00:15:20,040 --> 00:15:21,870
+So, here
+order \{{}hyphen} events topic is created
+
+708
+00:15:21,870 --> 00:15:21,880
+order \{{}hyphen} events topic is created
+ 
+
+709
+00:15:21,880 --> 00:15:23,990
+order \{{}hyphen} events topic is created
+which has three partition.
+
+710
+00:15:23,990 --> 00:15:24,000
+which has three partition.
+ 
+
+711
+00:15:24,000 --> 00:15:27,110
+which has three partition.
+Partition zero is
+
+712
+00:15:27,110 --> 00:15:27,120
+Partition zero is
+ 
+
+713
+00:15:27,120 --> 00:15:29,590
+Partition zero is
+leader is four.
+
+714
+00:15:29,590 --> 00:15:29,600
+leader is four.
+ 
+
+715
+00:15:29,600 --> 00:15:32,070
+leader is four.
+Partition one leader is three. Partition
+
+716
+00:15:32,070 --> 00:15:32,080
+Partition one leader is three. Partition
+ 
+
+717
+00:15:32,080 --> 00:15:33,670
+Partition one leader is three. Partition
+two leader is four.
+
+718
+00:15:33,670 --> 00:15:33,680
+two leader is four.
+ 
+
+719
+00:15:33,680 --> 00:15:34,990
+two leader is four.
+So,
+
+720
+00:15:34,990 --> 00:15:35,000
+So,
+ 
+
+721
+00:15:35,000 --> 00:15:38,190
+So,
+here if you see
+
+722
+00:15:38,190 --> 00:15:38,200
+
+ 
+
+723
+00:15:38,200 --> 00:15:39,910
+
+so we have
+
+724
+00:15:39,910 --> 00:15:39,920
+so we have
+ 
+
+725
+00:15:39,920 --> 00:15:41,750
+so we have
+broker
+
+726
+00:15:41,750 --> 00:15:41,760
+broker
+ 
+
+727
+00:15:41,760 --> 00:15:43,950
+broker
+one broker two brokers, right? Broker
+
+728
+00:15:43,950 --> 00:15:43,960
+one broker two brokers, right? Broker
+ 
+
+729
+00:15:43,960 --> 00:15:44,830
+one broker two brokers, right? Broker
+two.
+
+730
+00:15:44,830 --> 00:15:44,840
+two.
+ 
+
+731
+00:15:44,840 --> 00:15:48,190
+two.
+So, broker one has ID three
+
+732
+00:15:48,190 --> 00:15:48,200
+So, broker one has ID three
+ 
+
+733
+00:15:48,200 --> 00:15:50,910
+So, broker one has ID three
+and broker two has ID four.
+
+734
+00:15:50,910 --> 00:15:50,920
+and broker two has ID four.
+ 
+
+735
+00:15:50,920 --> 00:15:52,470
+and broker two has ID four.
+Because we also have controller one
+
+736
+00:15:52,470 --> 00:15:52,480
+Because we also have controller one
+ 
+
+737
+00:15:52,480 --> 00:15:54,750
+Because we also have controller one
+controller two, it has given ID one, it
+
+738
+00:15:54,750 --> 00:15:54,760
+controller two, it has given ID one, it
+ 
+
+739
+00:15:54,760 --> 00:15:57,470
+controller two, it has given ID one, it
+has given ID two, broker one ID three,
+
+740
+00:15:57,470 --> 00:15:57,480
+has given ID two, broker one ID three,
+ 
+
+741
+00:15:57,480 --> 00:16:00,230
+has given ID two, broker one ID three,
+broker two ID four. Okay? So, now two
+
+742
+00:16:00,230 --> 00:16:00,240
+broker two ID four. Okay? So, now two
+ 
+
+743
+00:16:00,240 --> 00:16:04,430
+broker two ID four. Okay? So, now two
+broker three partition. So, broker one
+
+744
+00:16:04,430 --> 00:16:04,440
+broker three partition. So, broker one
+ 
+
+745
+00:16:04,440 --> 00:16:09,470
+broker three partition. So, broker one
+broker one has here
+
+746
+00:16:09,470 --> 00:16:09,480
+
+ 
+
+747
+00:16:09,480 --> 00:16:11,070
+
+partition one. It's a leader of
+
+748
+00:16:11,070 --> 00:16:11,080
+partition one. It's a leader of
+ 
+
+749
+00:16:11,080 --> 00:16:14,670
+partition one. It's a leader of
+partition one and ID four. Broker two is
+
+750
+00:16:14,670 --> 00:16:14,680
+partition one and ID four. Broker two is
+ 
+
+751
+00:16:14,680 --> 00:16:18,590
+partition one and ID four. Broker two is
+leader of partition zero and two.
+
+752
+00:16:18,590 --> 00:16:18,600
+
+ 
+
+753
+00:16:18,600 --> 00:16:22,110
+
+So, currently this is working fine.
+
+754
+00:16:22,110 --> 00:16:22,120
+So, currently this is working fine.
+ 
+
+755
+00:16:22,120 --> 00:16:24,430
+So, currently this is working fine.
+Okay? So, let me also return here so
+
+756
+00:16:24,430 --> 00:16:24,440
+Okay? So, let me also return here so
+ 
+
+757
+00:16:24,440 --> 00:16:28,310
+Okay? So, let me also return here so
+that uh
+
+758
+00:16:28,310 --> 00:16:28,320
+
+ 
+
+759
+00:16:28,320 --> 00:16:31,750
+
+broker one has leader of partition one,
+
+760
+00:16:31,750 --> 00:16:31,760
+broker one has leader of partition one,
+ 
+
+761
+00:16:31,760 --> 00:16:33,910
+broker one has leader of partition one,
+partition zero, and partition two.
+
+762
+00:16:33,910 --> 00:16:33,920
+partition zero, and partition two.
+ 
+
+763
+00:16:33,920 --> 00:16:35,870
+partition zero, and partition two.
+Okay?
+
+764
+00:16:35,870 --> 00:16:35,880
+Okay?
+ 
+
+765
+00:16:35,880 --> 00:16:37,470
+Okay?
+Now,
+
+766
+00:16:37,470 --> 00:16:37,480
+Now,
+ 
+
+767
+00:16:37,480 --> 00:16:40,070
+Now,
+we will see that what all
+
+768
+00:16:40,070 --> 00:16:40,080
+we will see that what all
+ 
+
+769
+00:16:40,080 --> 00:16:42,390
+we will see that what all
+topics present at this point of time.
+
+770
+00:16:42,390 --> 00:16:42,400
+topics present at this point of time.
+ 
+
+771
+00:16:42,400 --> 00:16:43,630
+topics present at this point of time.
+Okay, I'm just running the command
+
+772
+00:16:43,630 --> 00:16:43,640
+Okay, I'm just running the command
+ 
+
+773
+00:16:43,640 --> 00:16:46,030
+Okay, I'm just running the command
+hyphen hyphen list. Here if you see only
+
+774
+00:16:46,030 --> 00:16:46,040
+hyphen hyphen list. Here if you see only
+ 
+
+775
+00:16:46,040 --> 00:16:49,150
+hyphen hyphen list. Here if you see only
+one order hyphen events, that's all.
+
+776
+00:16:49,150 --> 00:16:49,160
+one order hyphen events, that's all.
+ 
+
+777
+00:16:49,160 --> 00:16:50,790
+one order hyphen events, that's all.
+Nothing much.
+
+778
+00:16:50,790 --> 00:16:50,800
+Nothing much.
+ 
+
+779
+00:16:50,800 --> 00:16:53,750
+Nothing much.
+Okay? So, here
+
+780
+00:16:53,750 --> 00:16:53,760
+Okay? So, here
+ 
+
+781
+00:16:53,760 --> 00:17:07,429
+Okay? So, here
+just a sec.
+
+782
+00:17:07,429 --> 00:17:07,439
+
+ 
+
+783
+00:17:07,439 --> 00:17:09,630
+
+Okay. So, this is uh currently the
+
+784
+00:17:09,630 --> 00:17:09,640
+Okay. So, this is uh currently the
+ 
+
+785
+00:17:09,640 --> 00:17:11,710
+Okay. So, this is uh currently the
+producer, right? So, currently order
+
+786
+00:17:11,710 --> 00:17:11,720
+producer, right? So, currently order
+ 
+
+787
+00:17:11,720 --> 00:17:13,630
+producer, right? So, currently order
+hyphen event is present.
+
+788
+00:17:13,630 --> 00:17:13,640
+hyphen event is present.
+ 
+
+789
+00:17:13,640 --> 00:17:15,870
+hyphen event is present.
+So, at this point of time this should
+
+790
+00:17:15,870 --> 00:17:15,880
+So, at this point of time this should
+ 
+
+791
+00:17:15,880 --> 00:17:18,390
+So, at this point of time this should
+not get internally created.
+
+792
+00:17:18,390 --> 00:17:18,400
+not get internally created.
+ 
+
+793
+00:17:18,400 --> 00:17:21,350
+not get internally created.
+Okay? So, let me check that once we
+
+794
+00:17:21,350 --> 00:17:21,360
+Okay? So, let me check that once we
+ 
+
+795
+00:17:21,360 --> 00:17:23,309
+Okay? So, let me check that once we
+start the stream,
+
+796
+00:17:23,309 --> 00:17:23,319
+start the stream,
+ 
+
+797
+00:17:23,319 --> 00:17:26,030
+start the stream,
+because a stream also has your Kafka
+
+798
+00:17:26,030 --> 00:17:26,040
+because a stream also has your Kafka
+ 
+
+799
+00:17:26,040 --> 00:17:28,230
+because a stream also has your Kafka
+consumer also, then it should have
+
+800
+00:17:28,230 --> 00:17:28,240
+consumer also, then it should have
+ 
+
+801
+00:17:28,240 --> 00:17:30,510
+consumer also, then it should have
+created it. Now, let's see that.
+
+802
+00:17:30,510 --> 00:17:30,520
+created it. Now, let's see that.
+ 
+
+803
+00:17:30,520 --> 00:17:32,430
+created it. Now, let's see that.
+So, currently
+
+804
+00:17:32,430 --> 00:17:32,440
+So, currently
+ 
+
+805
+00:17:32,440 --> 00:17:34,870
+So, currently
+now I'm starting the Kafka stream
+
+806
+00:17:34,870 --> 00:17:34,880
+now I'm starting the Kafka stream
+ 
+
+807
+00:17:34,880 --> 00:17:40,030
+now I'm starting the Kafka stream
+here.
+
+808
+00:17:40,030 --> 00:17:40,040
+
+ 
+
+809
+00:17:40,040 --> 00:17:42,150
+
+So, now let's start a Kafka stream
+
+810
+00:17:42,150 --> 00:17:42,160
+So, now let's start a Kafka stream
+ 
+
+811
+00:17:42,160 --> 00:17:44,790
+So, now let's start a Kafka stream
+application. Run.
+
+812
+00:17:44,790 --> 00:17:44,800
+application. Run.
+ 
+
+813
+00:17:44,800 --> 00:17:47,990
+application. Run.
+Let's see. Does it created?
+
+814
+00:17:47,990 --> 00:17:48,000
+Let's see. Does it created?
+ 
+
+815
+00:17:48,000 --> 00:17:52,390
+Let's see. Does it created?
+See, it now created this all.
+
+816
+00:17:52,390 --> 00:17:52,400
+
+ 
+
+817
+00:17:52,400 --> 00:17:54,110
+
+So,
+
+818
+00:17:54,110 --> 00:17:54,120
+So,
+ 
+
+819
+00:17:54,120 --> 00:17:56,310
+So,
+after I run the Kafka stream
+
+820
+00:17:56,310 --> 00:17:56,320
+after I run the Kafka stream
+ 
+
+821
+00:17:56,320 --> 00:17:58,030
+after I run the Kafka stream
+application,
+
+822
+00:17:58,030 --> 00:17:58,040
+application,
+ 
+
+823
+00:17:58,040 --> 00:18:01,030
+application,
+what it does is
+
+824
+00:18:01,030 --> 00:18:01,040
+what it does is
+ 
+
+825
+00:18:01,040 --> 00:18:03,710
+what it does is
+we have Kafka consumer offset.
+
+826
+00:18:03,710 --> 00:18:03,720
+we have Kafka consumer offset.
+ 
+
+827
+00:18:03,720 --> 00:18:07,110
+we have Kafka consumer offset.
+Okay? Kafka consumer offset.
+
+828
+00:18:07,110 --> 00:18:07,120
+Okay? Kafka consumer offset.
+ 
+
+829
+00:18:07,120 --> 00:18:09,910
+Okay? Kafka consumer offset.
+Order even was already there before.
+
+830
+00:18:09,910 --> 00:18:09,920
+Order even was already there before.
+ 
+
+831
+00:18:09,920 --> 00:18:12,270
+Order even was already there before.
+Now, it has created repartition and
+
+832
+00:18:12,270 --> 00:18:12,280
+Now, it has created repartition and
+ 
+
+833
+00:18:12,280 --> 00:18:13,870
+Now, it has created repartition and
+change log.
+
+834
+00:18:13,870 --> 00:18:13,880
+change log.
+ 
+
+835
+00:18:13,880 --> 00:18:16,110
+change log.
+Okay? Why? Because based on our
+
+836
+00:18:16,110 --> 00:18:16,120
+Okay? Why? Because based on our
+ 
+
+837
+00:18:16,120 --> 00:18:18,310
+Okay? Why? Because based on our
+topology,
+
+838
+00:18:18,310 --> 00:18:18,320
+topology,
+ 
+
+839
+00:18:18,320 --> 00:18:20,350
+topology,
+based on our topology,
+
+840
+00:18:20,350 --> 00:18:20,360
+based on our topology,
+ 
+
+841
+00:18:20,360 --> 00:18:22,790
+based on our topology,
+it has created a repartition.
+
+842
+00:18:22,790 --> 00:18:22,800
+it has created a repartition.
+ 
+
+843
+00:18:22,800 --> 00:18:25,030
+it has created a repartition.
+Okay? So, repartition
+
+844
+00:18:25,030 --> 00:18:25,040
+Okay? So, repartition
+ 
+
+845
+00:18:25,040 --> 00:18:28,190
+Okay? So, repartition
+it has created, and it also have uh
+
+846
+00:18:28,190 --> 00:18:28,200
+it has created, and it also have uh
+ 
+
+847
+00:18:28,200 --> 00:18:30,510
+it has created, and it also have uh
+change log for our
+
+848
+00:18:30,510 --> 00:18:30,520
+change log for our
+ 
+
+849
+00:18:30,520 --> 00:18:32,710
+change log for our
+RocksDB.
+
+850
+00:18:32,710 --> 00:18:32,720
+RocksDB.
+ 
+
+851
+00:18:32,720 --> 00:18:33,430
+RocksDB.
+Okay?
+
+852
+00:18:33,430 --> 00:18:33,440
+Okay?
+ 
+
+853
+00:18:33,440 --> 00:18:35,670
+Okay?
+So, the name it has given is uh the
+
+854
+00:18:35,670 --> 00:18:35,680
+So, the name it has given is uh the
+ 
+
+855
+00:18:35,680 --> 00:18:38,230
+So, the name it has given is uh the
+group name, order \{{}hyphen} analytics.
+
+856
+00:18:38,230 --> 00:18:38,240
+group name, order \{{}hyphen} analytics.
+ 
+
+857
+00:18:38,240 --> 00:18:40,430
+group name, order \{{}hyphen} analytics.
+And then product \{{}hyphen} count \{{}hyphen}
+
+858
+00:18:40,430 --> 00:18:40,440
+And then product \{{}hyphen} count \{{}hyphen}
+ 
+
+859
+00:18:40,440 --> 00:18:42,750
+And then product \{{}hyphen} count \{{}hyphen}
+store repartition. Like product \{{}hyphen}
+
+860
+00:18:42,750 --> 00:18:42,760
+store repartition. Like product \{{}hyphen}
+ 
+
+861
+00:18:42,760 --> 00:18:44,390
+store repartition. Like product \{{}hyphen}
+count \{{}hyphen} store
+
+862
+00:18:44,390 --> 00:18:44,400
+count \{{}hyphen} store
+ 
+
+863
+00:18:44,400 --> 00:18:46,390
+count \{{}hyphen} store
+uh \{{}hyphen} change log will also be
+
+864
+00:18:46,390 --> 00:18:46,400
+uh \{{}hyphen} change log will also be
+ 
+
+865
+00:18:46,400 --> 00:18:47,310
+uh \{{}hyphen} change log will also be
+there.
+
+866
+00:18:47,310 --> 00:18:47,320
+there.
+ 
+
+867
+00:18:47,320 --> 00:18:49,310
+there.
+And the name repartition topic name also
+
+868
+00:18:49,310 --> 00:18:49,320
+And the name repartition topic name also
+ 
+
+869
+00:18:49,320 --> 00:18:52,190
+And the name repartition topic name also
+it has choose this one. The group name,
+
+870
+00:18:52,190 --> 00:18:52,200
+it has choose this one. The group name,
+ 
+
+871
+00:18:52,200 --> 00:18:54,550
+it has choose this one. The group name,
+and the same name it has used.
+
+872
+00:18:54,550 --> 00:18:54,560
+and the same name it has used.
+ 
+
+873
+00:18:54,560 --> 00:18:57,150
+and the same name it has used.
+And after that, it has put repartition.
+
+874
+00:18:57,150 --> 00:18:57,160
+And after that, it has put repartition.
+ 
+
+875
+00:18:57,160 --> 00:19:00,950
+And after that, it has put repartition.
+So, it also has created a repartition
+
+876
+00:19:00,950 --> 00:19:00,960
+So, it also has created a repartition
+ 
+
+877
+00:19:00,960 --> 00:19:02,670
+So, it also has created a repartition
+topic also.
+
+878
+00:19:02,670 --> 00:19:02,680
+topic also.
+ 
+
+879
+00:19:02,680 --> 00:19:05,670
+topic also.
+So, this is all done.
+
+880
+00:19:05,670 --> 00:19:05,680
+So, this is all done.
+ 
+
+881
+00:19:05,680 --> 00:19:12,030
+So, this is all done.
+Now,
+
+882
+00:19:12,030 --> 00:19:12,040
+
+ 
+
+883
+00:19:12,040 --> 00:19:14,350
+
+so till here we are done.
+
+884
+00:19:14,350 --> 00:19:14,360
+so till here we are done.
+ 
+
+885
+00:19:14,360 --> 00:19:17,710
+so till here we are done.
+So, all these four topics now present.
+
+886
+00:19:17,710 --> 00:19:17,720
+So, all these four topics now present.
+ 
+
+887
+00:19:17,720 --> 00:19:20,430
+So, all these four topics now present.
+Now, we need to see
+
+888
+00:19:20,430 --> 00:19:20,440
+Now, we need to see
+ 
+
+889
+00:19:20,440 --> 00:19:22,630
+Now, we need to see
+which task assigned to which instance.
+
+890
+00:19:22,630 --> 00:19:22,640
+which task assigned to which instance.
+ 
+
+891
+00:19:22,640 --> 00:19:25,950
+which task assigned to which instance.
+So, we have two instances two thread
+
+892
+00:19:25,950 --> 00:19:25,960
+So, we have two instances two thread
+ 
+
+893
+00:19:25,960 --> 00:19:28,350
+So, we have two instances two thread
+created, right? So, two thread means
+
+894
+00:19:28,350 --> 00:19:28,360
+created, right? So, two thread means
+ 
+
+895
+00:19:28,360 --> 00:19:30,230
+created, right? So, two thread means
+two stream
+
+896
+00:19:30,230 --> 00:19:30,240
+two stream
+ 
+
+897
+00:19:30,240 --> 00:19:31,750
+two stream
+processing
+
+898
+00:19:31,750 --> 00:19:31,760
+processing
+ 
+
+899
+00:19:31,760 --> 00:19:34,590
+processing
+instance are running. So, the total six
+
+900
+00:19:34,590 --> 00:19:34,600
+instance are running. So, the total six
+ 
+
+901
+00:19:34,600 --> 00:19:36,550
+instance are running. So, the total six
+task should have created.
+
+902
+00:19:36,550 --> 00:19:36,560
+task should have created.
+ 
+
+903
+00:19:36,560 --> 00:19:38,550
+task should have created.
+Total six task should have created based
+
+904
+00:19:38,550 --> 00:19:38,560
+Total six task should have created based
+ 
+
+905
+00:19:38,560 --> 00:19:40,590
+Total six task should have created based
+on our understanding.
+
+906
+00:19:40,590 --> 00:19:40,600
+on our understanding.
+ 
+
+907
+00:19:40,600 --> 00:19:42,350
+on our understanding.
+So, for this sub topology three task,
+
+908
+00:19:42,350 --> 00:19:42,360
+So, for this sub topology three task,
+ 
+
+909
+00:19:42,360 --> 00:19:44,230
+So, for this sub topology three task,
+for this sub topology three task, total
+
+910
+00:19:44,230 --> 00:19:44,240
+for this sub topology three task, total
+ 
+
+911
+00:19:44,240 --> 00:19:47,710
+for this sub topology three task, total
+six. And this six task should be divided
+
+912
+00:19:47,710 --> 00:19:47,720
+six. And this six task should be divided
+ 
+
+913
+00:19:47,720 --> 00:19:50,630
+six. And this six task should be divided
+among our
+
+914
+00:19:50,630 --> 00:19:50,640
+among our
+ 
+
+915
+00:19:50,640 --> 00:19:52,230
+among our
+two instances.
+
+916
+00:19:52,230 --> 00:19:52,240
+two instances.
+ 
+
+917
+00:19:52,240 --> 00:19:55,030
+two instances.
+Okay? So, now let's see run and see this
+
+918
+00:19:55,030 --> 00:19:55,040
+Okay? So, now let's see run and see this
+ 
+
+919
+00:19:55,040 --> 00:19:58,790
+Okay? So, now let's see run and see this
+one.
+
+920
+00:19:58,790 --> 00:19:58,800
+
+ 
+
+921
+00:19:58,800 --> 00:20:05,070
+
+So, what I'm just doing is that
+
+922
+00:20:05,070 --> 00:20:05,080
+
+ 
+
+923
+00:20:05,080 --> 00:20:06,230
+
+here
+
+924
+00:20:06,230 --> 00:20:06,240
+here
+ 
+
+925
+00:20:06,240 --> 00:20:10,430
+here
+if you see
+
+926
+00:20:10,430 --> 00:20:10,440
+
+ 
+
+927
+00:20:10,440 --> 00:20:13,110
+
+group is order analytics. So, I'm just
+
+928
+00:20:13,110 --> 00:20:13,120
+group is order analytics. So, I'm just
+ 
+
+929
+00:20:13,120 --> 00:20:15,910
+group is order analytics. So, I'm just
+describing the group. Okay? Group is
+
+930
+00:20:15,910 --> 00:20:15,920
+describing the group. Okay? Group is
+ 
+
+931
+00:20:15,920 --> 00:20:19,750
+describing the group. Okay? Group is
+order analytics. Now, here if you see
+
+932
+00:20:19,750 --> 00:20:19,760
+order analytics. Now, here if you see
+ 
+
+933
+00:20:19,760 --> 00:20:22,670
+order analytics. Now, here if you see
+order analytics product count and store
+
+934
+00:20:22,670 --> 00:20:22,680
+order analytics product count and store
+ 
+
+935
+00:20:22,680 --> 00:20:24,790
+order analytics product count and store
+repartition.
+
+936
+00:20:24,790 --> 00:20:24,800
+repartition.
+ 
+
+937
+00:20:24,800 --> 00:20:26,150
+repartition.
+Okay? So,
+
+938
+00:20:26,150 --> 00:20:26,160
+Okay? So,
+ 
+
+939
+00:20:26,160 --> 00:20:30,350
+Okay? So,
+this is repartition partition one.
+
+940
+00:20:30,350 --> 00:20:30,360
+
+ 
+
+941
+00:20:30,360 --> 00:20:32,310
+
+So, I think it's difficult to read it
+
+942
+00:20:32,310 --> 00:20:32,320
+So, I think it's difficult to read it
+ 
+
+943
+00:20:32,320 --> 00:20:34,550
+So, I think it's difficult to read it
+from here, but I will show you like from
+
+944
+00:20:34,550 --> 00:20:34,560
+from here, but I will show you like from
+ 
+
+945
+00:20:34,560 --> 00:20:37,510
+from here, but I will show you like from
+here when I just uh
+
+946
+00:20:37,510 --> 00:20:37,520
+here when I just uh
+ 
+
+947
+00:20:37,520 --> 00:20:39,230
+here when I just uh
+minimize it a bit
+
+948
+00:20:39,230 --> 00:20:39,240
+minimize it a bit
+ 
+
+949
+00:20:39,240 --> 00:20:41,590
+minimize it a bit
+and just increase it, it will all come
+
+950
+00:20:41,590 --> 00:20:41,600
+and just increase it, it will all come
+ 
+
+951
+00:20:41,600 --> 00:20:43,390
+and just increase it, it will all come
+into one single line. Then it would be
+
+952
+00:20:43,390 --> 00:20:43,400
+into one single line. Then it would be
+ 
+
+953
+00:20:43,400 --> 00:20:44,910
+into one single line. Then it would be
+easier to read. So, you read it from
+
+954
+00:20:44,910 --> 00:20:44,920
+easier to read. So, you read it from
+ 
+
+955
+00:20:44,920 --> 00:20:46,190
+easier to read. So, you read it from
+here like this. It would be easy to
+
+956
+00:20:46,190 --> 00:20:46,200
+here like this. It would be easy to
+ 
+
+957
+00:20:46,200 --> 00:20:47,910
+here like this. It would be easy to
+understand.
+
+958
+00:20:47,910 --> 00:20:47,920
+understand.
+ 
+
+959
+00:20:47,920 --> 00:20:50,470
+understand.
+So, group is order analytics.
+
+960
+00:20:50,470 --> 00:20:50,480
+So, group is order analytics.
+ 
+
+961
+00:20:50,480 --> 00:20:51,830
+So, group is order analytics.
+The topics.
+
+962
+00:20:51,830 --> 00:20:51,840
+The topics.
+ 
+
+963
+00:20:51,840 --> 00:20:55,590
+The topics.
+Okay? So, now we have six tasks, right?
+
+964
+00:20:55,590 --> 00:20:55,600
+Okay? So, now we have six tasks, right?
+ 
+
+965
+00:20:55,600 --> 00:20:58,030
+Okay? So, now we have six tasks, right?
+So, task one
+
+966
+00:20:58,030 --> 00:20:58,040
+So, task one
+ 
+
+967
+00:20:58,040 --> 00:21:01,670
+So, task one
+here if you see
+
+968
+00:21:01,670 --> 00:21:01,680
+
+ 
+
+969
+00:21:01,680 --> 00:21:03,510
+
+your task one
+
+970
+00:21:03,510 --> 00:21:03,520
+your task one
+ 
+
+971
+00:21:03,520 --> 00:21:05,590
+your task one
+is reading
+
+972
+00:21:05,590 --> 00:21:05,600
+is reading
+ 
+
+973
+00:21:05,600 --> 00:21:09,590
+is reading
+source order events partition P0.
+
+974
+00:21:09,590 --> 00:21:09,600
+source order events partition P0.
+ 
+
+975
+00:21:09,600 --> 00:21:10,510
+source order events partition P0.
+Okay?
+
+976
+00:21:10,510 --> 00:21:10,520
+Okay?
+ 
+
+977
+00:21:10,520 --> 00:21:12,910
+Okay?
+Similarly, some other task would be like
+
+978
+00:21:12,910 --> 00:21:12,920
+Similarly, some other task would be like
+ 
+
+979
+00:21:12,920 --> 00:21:16,310
+Similarly, some other task would be like
+source is repartition partition P0.
+
+980
+00:21:16,310 --> 00:21:16,320
+source is repartition partition P0.
+ 
+
+981
+00:21:16,320 --> 00:21:18,630
+source is repartition partition P0.
+Like this it will happens.
+
+982
+00:21:18,630 --> 00:21:18,640
+Like this it will happens.
+ 
+
+983
+00:21:18,640 --> 00:21:21,030
+Like this it will happens.
+The same thing is there only.
+
+984
+00:21:21,030 --> 00:21:21,040
+The same thing is there only.
+ 
+
+985
+00:21:21,040 --> 00:21:23,270
+The same thing is there only.
+So, here if you see
+
+986
+00:21:23,270 --> 00:21:23,280
+So, here if you see
+ 
+
+987
+00:21:23,280 --> 00:21:25,750
+So, here if you see
+So, total three partitions, right? So,
+
+988
+00:21:25,750 --> 00:21:25,760
+So, total three partitions, right? So,
+ 
+
+989
+00:21:25,760 --> 00:21:28,030
+So, total three partitions, right? So,
+one let's say for repartition partition
+
+990
+00:21:28,030 --> 00:21:28,040
+one let's say for repartition partition
+ 
+
+991
+00:21:28,040 --> 00:21:29,350
+one let's say for repartition partition
+one
+
+992
+00:21:29,350 --> 00:21:29,360
+one
+ 
+
+993
+00:21:29,360 --> 00:21:30,870
+one
+partition two
+
+994
+00:21:30,870 --> 00:21:30,880
+partition two
+ 
+
+995
+00:21:30,880 --> 00:21:32,390
+partition two
+partition zero. So, zero one two three
+
+996
+00:21:32,390 --> 00:21:32,400
+partition zero. So, zero one two three
+ 
+
+997
+00:21:32,400 --> 00:21:33,950
+partition zero. So, zero one two three
+partition
+
+998
+00:21:33,950 --> 00:21:33,960
+partition
+ 
+
+999
+00:21:33,960 --> 00:21:35,350
+partition
+uh
+
+1000
+00:21:35,350 --> 00:21:35,360
+uh
+ 
+
+1001
+00:21:35,360 --> 00:21:37,710
+uh
+is getting read by three task.
+
+1002
+00:21:37,710 --> 00:21:37,720
+is getting read by three task.
+ 
+
+1003
+00:21:37,720 --> 00:21:41,150
+is getting read by three task.
+Okay? Similarly, order hyphen events
+
+1004
+00:21:41,150 --> 00:21:41,160
+Okay? Similarly, order hyphen events
+ 
+
+1005
+00:21:41,160 --> 00:21:43,150
+Okay? Similarly, order hyphen events
+partition one
+
+1006
+00:21:43,150 --> 00:21:43,160
+partition one
+ 
+
+1007
+00:21:43,160 --> 00:21:45,150
+partition one
+partition zero
+
+1008
+00:21:45,150 --> 00:21:45,160
+partition zero
+ 
+
+1009
+00:21:45,160 --> 00:21:46,430
+partition zero
+partition two.
+
+1010
+00:21:46,430 --> 00:21:46,440
+partition two.
+ 
+
+1011
+00:21:46,440 --> 00:21:49,230
+partition two.
+So, three task are reading these three
+
+1012
+00:21:49,230 --> 00:21:49,240
+So, three task are reading these three
+ 
+
+1013
+00:21:49,240 --> 00:21:50,510
+So, three task are reading these three
+partitions.
+
+1014
+00:21:50,510 --> 00:21:50,520
+partitions.
+ 
+
+1015
+00:21:50,520 --> 00:21:53,110
+partitions.
+Okay? And now here if you see
+
+1016
+00:21:53,110 --> 00:21:53,120
+Okay? And now here if you see
+ 
+
+1017
+00:21:53,120 --> 00:21:55,190
+Okay? And now here if you see
+instances
+
+1018
+00:21:55,190 --> 00:21:55,200
+instances
+ 
+
+1019
+00:21:55,200 --> 00:21:58,670
+instances
+So, stream thread two stream thread two
+
+1020
+00:21:58,670 --> 00:21:58,680
+So, stream thread two stream thread two
+ 
+
+1021
+00:21:58,680 --> 00:22:00,790
+So, stream thread two stream thread two
+stream thread two. So, this
+
+1022
+00:22:00,790 --> 00:22:00,800
+stream thread two. So, this
+ 
+
+1023
+00:22:00,800 --> 00:22:03,390
+stream thread two. So, this
+first three
+
+1024
+00:22:03,390 --> 00:22:03,400
+first three
+ 
+
+1025
+00:22:03,400 --> 00:22:06,510
+first three
+first three are read by
+
+1026
+00:22:06,510 --> 00:22:06,520
+first three are read by
+ 
+
+1027
+00:22:06,520 --> 00:22:08,350
+first three are read by
+thread
+
+1028
+00:22:08,350 --> 00:22:08,360
+thread
+ 
+
+1029
+00:22:08,360 --> 00:22:09,550
+thread
+two.
+
+1030
+00:22:09,550 --> 00:22:09,560
+two.
+ 
+
+1031
+00:22:09,560 --> 00:22:12,110
+two.
+And the last three are read by
+
+1032
+00:22:12,110 --> 00:22:12,120
+And the last three are read by
+ 
+
+1033
+00:22:12,120 --> 00:22:14,550
+And the last three are read by
+thread one.
+
+1034
+00:22:14,550 --> 00:22:14,560
+thread one.
+ 
+
+1035
+00:22:14,560 --> 00:22:17,070
+thread one.
+Thread one thread one thread one.
+
+1036
+00:22:17,070 --> 00:22:17,080
+Thread one thread one thread one.
+ 
+
+1037
+00:22:17,080 --> 00:22:18,030
+Thread one thread one thread one.
+Okay?
+
+1038
+00:22:18,030 --> 00:22:18,040
+Okay?
+ 
+
+1039
+00:22:18,040 --> 00:22:21,230
+Okay?
+So, repartition zero
+
+1040
+00:22:21,230 --> 00:22:21,240
+So, repartition zero
+ 
+
+1041
+00:22:21,240 --> 00:22:22,830
+So, repartition zero
+repartition
+
+1042
+00:22:22,830 --> 00:22:22,840
+repartition
+ 
+
+1043
+00:22:22,840 --> 00:22:24,950
+repartition
+partition number zero is read by thread
+
+1044
+00:22:24,950 --> 00:22:24,960
+partition number zero is read by thread
+ 
+
+1045
+00:22:24,960 --> 00:22:28,070
+partition number zero is read by thread
+one. Similarly, order event
+
+1046
+00:22:28,070 --> 00:22:28,080
+one. Similarly, order event
+ 
+
+1047
+00:22:28,080 --> 00:22:29,790
+one. Similarly, order event
+partition zero
+
+1048
+00:22:29,790 --> 00:22:29,800
+partition zero
+ 
+
+1049
+00:22:29,800 --> 00:22:31,830
+partition zero
+reads by thread one. Order event
+
+1050
+00:22:31,830 --> 00:22:31,840
+reads by thread one. Order event
+ 
+
+1051
+00:22:31,840 --> 00:22:35,270
+reads by thread one. Order event
+partition P2 read by thread one. So
+
+1052
+00:22:35,270 --> 00:22:35,280
+partition P2 read by thread one. So
+ 
+
+1053
+00:22:35,280 --> 00:22:37,230
+partition P2 read by thread one. So
+total six task
+
+1054
+00:22:37,230 --> 00:22:37,240
+total six task
+ 
+
+1055
+00:22:37,240 --> 00:22:40,190
+total six task
+thread one has owned these three task
+
+1056
+00:22:40,190 --> 00:22:40,200
+thread one has owned these three task
+ 
+
+1057
+00:22:40,200 --> 00:22:44,750
+thread one has owned these three task
+thread two owns these three task.
+
+1058
+00:22:44,750 --> 00:22:44,760
+
+ 
+
+1059
+00:22:44,760 --> 00:22:47,150
+
+So, clear? That's our expectation also.
+
+1060
+00:22:47,150 --> 00:22:47,160
+So, clear? That's our expectation also.
+ 
+
+1061
+00:22:47,160 --> 00:22:49,230
+So, clear? That's our expectation also.
+Our expectation also we have said this
+
+1062
+00:22:49,230 --> 00:22:49,240
+Our expectation also we have said this
+ 
+
+1063
+00:22:49,240 --> 00:22:51,230
+Our expectation also we have said this
+thing only.
+
+1064
+00:22:51,230 --> 00:22:51,240
+thing only.
+ 
+
+1065
+00:22:51,240 --> 00:22:53,430
+thing only.
+So, here if you see in our expectation
+
+1066
+00:22:53,430 --> 00:22:53,440
+So, here if you see in our expectation
+ 
+
+1067
+00:22:53,440 --> 00:22:56,190
+So, here if you see in our expectation
+we also said that three task.
+
+1068
+00:22:56,190 --> 00:22:56,200
+we also said that three task.
+ 
+
+1069
+00:22:56,200 --> 00:22:58,470
+we also said that three task.
+For repartition partition zero partition
+
+1070
+00:22:58,470 --> 00:22:58,480
+For repartition partition zero partition
+ 
+
+1071
+00:22:58,480 --> 00:23:00,750
+For repartition partition zero partition
+one partition two. Similarly, for order
+
+1072
+00:23:00,750 --> 00:23:00,760
+one partition two. Similarly, for order
+ 
+
+1073
+00:23:00,760 --> 00:23:02,230
+one partition two. Similarly, for order
+event partition zero partition one,
+
+1074
+00:23:02,230 --> 00:23:02,240
+event partition zero partition one,
+ 
+
+1075
+00:23:02,240 --> 00:23:04,030
+event partition zero partition one,
+partition two. The same thing it's
+
+1076
+00:23:04,030 --> 00:23:04,040
+partition two. The same thing it's
+ 
+
+1077
+00:23:04,040 --> 00:23:10,030
+partition two. The same thing it's
+there.
+
+1078
+00:23:10,030 --> 00:23:10,040
+
+ 
+
+1079
+00:23:10,040 --> 00:23:12,230
+
+Okay? So, six tasks
+
+1080
+00:23:12,230 --> 00:23:12,240
+Okay? So, six tasks
+ 
+
+1081
+00:23:12,240 --> 00:23:15,470
+Okay? So, six tasks
+three for each thread.
+
+1082
+00:23:15,470 --> 00:23:15,480
+three for each thread.
+ 
+
+1083
+00:23:15,480 --> 00:23:17,670
+three for each thread.
+So, now let's publish an event.
+
+1084
+00:23:17,670 --> 00:23:17,680
+So, now let's publish an event.
+ 
+
+1085
+00:23:17,680 --> 00:23:19,270
+So, now let's publish an event.
+So, now let's say I'm publishing an
+
+1086
+00:23:19,270 --> 00:23:19,280
+So, now let's say I'm publishing an
+ 
+
+1087
+00:23:19,280 --> 00:23:23,470
+So, now let's say I'm publishing an
+event.
+
+1088
+00:23:23,470 --> 00:23:23,480
+
+ 
+
+1089
+00:23:23,480 --> 00:23:24,350
+
+Okay?
+
+1090
+00:23:24,350 --> 00:23:24,360
+Okay?
+ 
+
+1091
+00:23:24,360 --> 00:23:26,190
+Okay?
+Let's publish an event. Order created
+
+1092
+00:23:26,190 --> 00:23:26,200
+Let's publish an event. Order created
+ 
+
+1093
+00:23:26,200 --> 00:23:27,910
+Let's publish an event. Order created
+event published. So, here if you see
+
+1094
+00:23:27,910 --> 00:23:27,920
+event published. So, here if you see
+ 
+
+1095
+00:23:27,920 --> 00:23:29,870
+event published. So, here if you see
+producer application
+
+1096
+00:23:29,870 --> 00:23:29,880
+producer application
+ 
+
+1097
+00:23:29,880 --> 00:23:32,630
+producer application
+uh
+
+1098
+00:23:32,630 --> 00:23:32,640
+
+ 
+
+1099
+00:23:32,640 --> 00:23:34,430
+
+order event sent successfully partition
+
+1100
+00:23:34,430 --> 00:23:34,440
+order event sent successfully partition
+ 
+
+1101
+00:23:34,440 --> 00:23:36,870
+order event sent successfully partition
+zero and partition two this event got
+
+1102
+00:23:36,870 --> 00:23:36,880
+zero and partition two this event got
+ 
+
+1103
+00:23:36,880 --> 00:23:38,590
+zero and partition two this event got
+ultimately published.
+
+1104
+00:23:38,590 --> 00:23:38,600
+ultimately published.
+ 
+
+1105
+00:23:38,600 --> 00:23:41,110
+ultimately published.
+So,
+
+1106
+00:23:41,110 --> 00:23:41,120
+So,
+ 
+
+1107
+00:23:41,120 --> 00:23:45,870
+So,
+we can check that again.
+
+1108
+00:23:45,870 --> 00:23:45,880
+
+ 
+
+1109
+00:23:45,880 --> 00:23:48,470
+
+So, partition P0
+
+1110
+00:23:48,470 --> 00:23:48,480
+So, partition P0
+ 
+
+1111
+00:23:48,480 --> 00:23:55,230
+So, partition P0
+So, here if you see
+
+1112
+00:23:55,230 --> 00:23:55,240
+
+ 
+
+1113
+00:23:55,240 --> 00:23:58,030
+
+hm
+
+1114
+00:23:58,030 --> 00:23:58,040
+
+ 
+
+1115
+00:23:58,040 --> 00:24:00,230
+
+let's
+
+1116
+00:24:00,230 --> 00:24:00,240
+let's
+ 
+
+1117
+00:24:00,240 --> 00:24:02,790
+let's
+check that.
+
+1118
+00:24:02,790 --> 00:24:02,800
+check that.
+ 
+
+1119
+00:24:02,800 --> 00:24:05,230
+check that.
+So, [snorts] temporary broker one. So,
+
+1120
+00:24:05,230 --> 00:24:05,240
+So, [snorts] temporary broker one. So,
+ 
+
+1121
+00:24:05,240 --> 00:24:10,270
+So, [snorts] temporary broker one. So,
+here if you see
+
+1122
+00:24:10,270 --> 00:24:10,280
+
+ 
+
+1123
+00:24:10,280 --> 00:24:12,310
+
+partition P0. Who is the leader for
+
+1124
+00:24:12,310 --> 00:24:12,320
+partition P0. Who is the leader for
+ 
+
+1125
+00:24:12,320 --> 00:24:15,670
+partition P0. Who is the leader for
+partition P0 for order events?
+
+1126
+00:24:15,670 --> 00:24:15,680
+partition P0 for order events?
+ 
+
+1127
+00:24:15,680 --> 00:24:17,510
+partition P0 for order events?
+So, we have written that one, right? So,
+
+1128
+00:24:17,510 --> 00:24:17,520
+So, we have written that one, right? So,
+ 
+
+1129
+00:24:17,520 --> 00:24:19,790
+So, we have written that one, right? So,
+during the start
+
+1130
+00:24:19,790 --> 00:24:19,800
+during the start
+ 
+
+1131
+00:24:19,800 --> 00:24:21,350
+during the start
+P0
+
+1132
+00:24:21,350 --> 00:24:21,360
+P0
+ 
+
+1133
+00:24:21,360 --> 00:24:23,750
+P0
+is broker two.
+
+1134
+00:24:23,750 --> 00:24:23,760
+is broker two.
+ 
+
+1135
+00:24:23,760 --> 00:24:25,750
+is broker two.
+So,
+
+1136
+00:24:25,750 --> 00:24:25,760
+So,
+ 
+
+1137
+00:24:25,760 --> 00:24:29,790
+So,
+let's run it.
+
+1138
+00:24:29,790 --> 00:24:29,800
+
+ 
+
+1139
+00:24:29,800 --> 00:24:33,430
+
+Broker two.
+
+1140
+00:24:33,430 --> 00:24:33,440
+
+ 
+
+1141
+00:24:33,440 --> 00:24:35,910
+
+So, all we this is broker two \{{}hyphen}
+
+1142
+00:24:35,910 --> 00:24:35,920
+So, all we this is broker two \{{}hyphen}
+ 
+
+1143
+00:24:35,920 --> 00:24:37,031
+So, all we this is broker two \{{}hyphen}
+logs
+
+1144
+00:24:37,031 --> 00:24:37,041
+logs
+ 
+
+1145
+00:24:37,041 --> 00:24:37,270
+logs
+>> [snorts]
+
+1146
+00:24:37,270 --> 00:24:37,280
+>> [snorts]
+ 
+
+1147
+00:24:37,280 --> 00:24:38,910
+>> [snorts]
+>> \{{}slash} order \{{}hyphen} events \{{}slash}
+
+1148
+00:24:38,910 --> 00:24:38,920
+>> \{{}slash} order \{{}hyphen} events \{{}slash}
+ 
+
+1149
+00:24:38,920 --> 00:24:42,030
+>> \{{}slash} order \{{}hyphen} events \{{}slash}
+zero partition zero. Let's check it.
+
+1150
+00:24:42,030 --> 00:24:42,040
+zero partition zero. Let's check it.
+ 
+
+1151
+00:24:42,040 --> 00:24:44,190
+zero partition zero. Let's check it.
+So, here
+
+1152
+00:24:44,190 --> 00:24:44,200
+So, here
+ 
+
+1153
+00:24:44,200 --> 00:24:46,830
+So, here
+we have this event.
+
+1154
+00:24:46,830 --> 00:24:46,840
+we have this event.
+ 
+
+1155
+00:24:46,840 --> 00:24:49,630
+we have this event.
+Right? Key is order \{{}hyphen} one. This
+
+1156
+00:24:49,630 --> 00:24:49,640
+Right? Key is order \{{}hyphen} one. This
+ 
+
+1157
+00:24:49,640 --> 00:24:51,150
+Right? Key is order \{{}hyphen} one. This
+is the key.
+
+1158
+00:24:51,150 --> 00:24:51,160
+is the key.
+ 
+
+1159
+00:24:51,160 --> 00:24:54,310
+is the key.
+Okay? So, this got published.
+
+1160
+00:24:54,310 --> 00:24:54,320
+Okay? So, this got published.
+ 
+
+1161
+00:24:54,320 --> 00:24:55,910
+Okay? So, this got published.
+So, one thing is clear that our
+
+1162
+00:24:55,910 --> 00:24:55,920
+So, one thing is clear that our
+ 
+
+1163
+00:24:55,920 --> 00:24:58,070
+So, one thing is clear that our
+publishing is works.
+
+1164
+00:24:58,070 --> 00:24:58,080
+publishing is works.
+ 
+
+1165
+00:24:58,080 --> 00:25:00,310
+publishing is works.
+So, till now we are done at this point
+
+1166
+00:25:00,310 --> 00:25:00,320
+So, till now we are done at this point
+ 
+
+1167
+00:25:00,320 --> 00:25:02,750
+So, till now we are done at this point
+of time.
+
+1168
+00:25:02,750 --> 00:25:02,760
+of time.
+ 
+
+1169
+00:25:02,760 --> 00:25:04,590
+of time.
+Producer application log is done and
+
+1170
+00:25:04,590 --> 00:25:04,600
+Producer application log is done and
+ 
+
+1171
+00:25:04,600 --> 00:25:07,190
+Producer application log is done and
+also we have seen the logs of order
+
+1172
+00:25:07,190 --> 00:25:07,200
+also we have seen the logs of order
+ 
+
+1173
+00:25:07,200 --> 00:25:09,150
+also we have seen the logs of order
+hyphen zero.
+
+1174
+00:25:09,150 --> 00:25:09,160
+hyphen zero.
+ 
+
+1175
+00:25:09,160 --> 00:25:10,270
+hyphen zero.
+This one.
+
+1176
+00:25:10,270 --> 00:25:10,280
+This one.
+ 
+
+1177
+00:25:10,280 --> 00:25:12,550
+This one.
+Partition P0 it goes, right? So, this
+
+1178
+00:25:12,550 --> 00:25:12,560
+Partition P0 it goes, right? So, this
+ 
+
+1179
+00:25:12,560 --> 00:25:16,470
+Partition P0 it goes, right? So, this
+thing is coming.
+
+1180
+00:25:16,470 --> 00:25:16,480
+
+ 
+
+1181
+00:25:16,480 --> 00:25:18,070
+
+So, now
+
+1182
+00:25:18,070 --> 00:25:18,080
+So, now
+ 
+
+1183
+00:25:18,080 --> 00:25:21,670
+So, now
+once the data
+
+1184
+00:25:21,670 --> 00:25:21,680
+once the data
+ 
+
+1185
+00:25:21,680 --> 00:25:24,150
+once the data
+has been published to order events,
+
+1186
+00:25:24,150 --> 00:25:24,160
+has been published to order events,
+ 
+
+1187
+00:25:24,160 --> 00:25:26,750
+has been published to order events,
+we know that what would have happened.
+
+1188
+00:25:26,750 --> 00:25:26,760
+we know that what would have happened.
+ 
+
+1189
+00:25:26,760 --> 00:25:30,750
+we know that what would have happened.
+So, our stream sub topology zero.
+
+1190
+00:25:30,750 --> 00:25:30,760
+So, our stream sub topology zero.
+ 
+
+1191
+00:25:30,760 --> 00:25:33,670
+So, our stream sub topology zero.
+So, our task, right?
+
+1192
+00:25:33,670 --> 00:25:33,680
+So, our task, right?
+ 
+
+1193
+00:25:33,680 --> 00:25:36,470
+So, our task, right?
+Which is reading the partition P0.
+
+1194
+00:25:36,470 --> 00:25:36,480
+Which is reading the partition P0.
+ 
+
+1195
+00:25:36,480 --> 00:25:39,230
+Which is reading the partition P0.
+Might have picked. Okay? And it will run
+
+1196
+00:25:39,230 --> 00:25:39,240
+Might have picked. Okay? And it will run
+ 
+
+1197
+00:25:39,240 --> 00:25:41,630
+Might have picked. Okay? And it will run
+the task. So, it will do just filter and
+
+1198
+00:25:41,630 --> 00:25:41,640
+the task. So, it will do just filter and
+ 
+
+1199
+00:25:41,640 --> 00:25:43,950
+the task. So, it will do just filter and
+then repartition and it will output into
+
+1200
+00:25:43,950 --> 00:25:43,960
+then repartition and it will output into
+ 
+
+1201
+00:25:43,960 --> 00:25:46,030
+then repartition and it will output into
+the repartition topic.
+
+1202
+00:25:46,030 --> 00:25:46,040
+the repartition topic.
+ 
+
+1203
+00:25:46,040 --> 00:25:48,190
+the repartition topic.
+Okay? So, now data might have gone into
+
+1204
+00:25:48,190 --> 00:25:48,200
+Okay? So, now data might have gone into
+ 
+
+1205
+00:25:48,200 --> 00:25:50,350
+Okay? So, now data might have gone into
+the repartition. So, repartition also
+
+1206
+00:25:50,350 --> 00:25:50,360
+the repartition. So, repartition also
+ 
+
+1207
+00:25:50,360 --> 00:25:51,990
+the repartition. So, repartition also
+has three partitions. So, in which
+
+1208
+00:25:51,990 --> 00:25:52,000
+has three partitions. So, in which
+ 
+
+1209
+00:25:52,000 --> 00:25:53,790
+has three partitions. So, in which
+partition it goes, we don't know.
+
+1210
+00:25:53,790 --> 00:25:53,800
+partition it goes, we don't know.
+ 
+
+1211
+00:25:53,800 --> 00:25:56,110
+partition it goes, we don't know.
+Depending upon the key, the data will
+
+1212
+00:25:56,110 --> 00:25:56,120
+Depending upon the key, the data will
+ 
+
+1213
+00:25:56,120 --> 00:25:58,590
+Depending upon the key, the data will
+go. So, we have to check.
+
+1214
+00:25:58,590 --> 00:25:58,600
+go. So, we have to check.
+ 
+
+1215
+00:25:58,600 --> 00:26:02,790
+go. So, we have to check.
+So, we are just dumping
+
+1216
+00:26:02,790 --> 00:26:02,800
+
+ 
+
+1217
+00:26:02,800 --> 00:26:05,030
+
+order hyphen analytics hyphen product
+
+1218
+00:26:05,030 --> 00:26:05,040
+order hyphen analytics hyphen product
+ 
+
+1219
+00:26:05,040 --> 00:26:07,670
+order hyphen analytics hyphen product
+count to store repartition zero.
+
+1220
+00:26:07,670 --> 00:26:07,680
+count to store repartition zero.
+ 
+
+1221
+00:26:07,680 --> 00:26:11,230
+count to store repartition zero.
+We don't know that repartition Earlier,
+
+1222
+00:26:11,230 --> 00:26:11,240
+We don't know that repartition Earlier,
+ 
+
+1223
+00:26:11,240 --> 00:26:12,950
+We don't know that repartition Earlier,
+we know that when the event is
+
+1224
+00:26:12,950 --> 00:26:12,960
+we know that when the event is
+ 
+
+1225
+00:26:12,960 --> 00:26:14,310
+we know that when the event is
+published,
+
+1226
+00:26:14,310 --> 00:26:14,320
+published,
+ 
+
+1227
+00:26:14,320 --> 00:26:16,310
+published,
+when the event was published, it goes
+
+1228
+00:26:16,310 --> 00:26:16,320
+when the event was published, it goes
+ 
+
+1229
+00:26:16,320 --> 00:26:19,390
+when the event was published, it goes
+into partition P0 of the order hyphen
+
+1230
+00:26:19,390 --> 00:26:19,400
+into partition P0 of the order hyphen
+ 
+
+1231
+00:26:19,400 --> 00:26:22,030
+into partition P0 of the order hyphen
+event. But after repartition based on
+
+1232
+00:26:22,030 --> 00:26:22,040
+event. But after repartition based on
+ 
+
+1233
+00:26:22,040 --> 00:26:24,030
+event. But after repartition based on
+the product ID, whether it goes to the
+
+1234
+00:26:24,030 --> 00:26:24,040
+the product ID, whether it goes to the
+ 
+
+1235
+00:26:24,040 --> 00:26:25,910
+the product ID, whether it goes to the
+partition P0 or partition P1 or
+
+1236
+00:26:25,910 --> 00:26:25,920
+partition P0 or partition P1 or
+ 
+
+1237
+00:26:25,920 --> 00:26:28,190
+partition P0 or partition P1 or
+partition P2, we don't know.
+
+1238
+00:26:28,190 --> 00:26:28,200
+partition P2, we don't know.
+ 
+
+1239
+00:26:28,200 --> 00:26:29,950
+partition P2, we don't know.
+Okay? So, that's why
+
+1240
+00:26:29,950 --> 00:26:29,960
+Okay? So, that's why
+ 
+
+1241
+00:26:29,960 --> 00:26:31,870
+Okay? So, that's why
+we can check all three. So, I'm just
+
+1242
+00:26:31,870 --> 00:26:31,880
+we can check all three. So, I'm just
+ 
+
+1243
+00:26:31,880 --> 00:26:35,230
+we can check all three. So, I'm just
+checking partition P0 first.
+
+1244
+00:26:35,230 --> 00:26:35,240
+checking partition P0 first.
+ 
+
+1245
+00:26:35,240 --> 00:26:37,270
+checking partition P0 first.
+So, yeah. Seems data is present here.
+
+1246
+00:26:37,270 --> 00:26:37,280
+So, yeah. Seems data is present here.
+ 
+
+1247
+00:26:37,280 --> 00:26:40,470
+So, yeah. Seems data is present here.
+So, if you check partition one, it there
+
+1248
+00:26:40,470 --> 00:26:40,480
+So, if you check partition one, it there
+ 
+
+1249
+00:26:40,480 --> 00:26:42,070
+So, if you check partition one, it there
+would be no data.
+
+1250
+00:26:42,070 --> 00:26:42,080
+would be no data.
+ 
+
+1251
+00:26:42,080 --> 00:26:43,710
+would be no data.
+There would be no data.
+
+1252
+00:26:43,710 --> 00:26:43,720
+There would be no data.
+ 
+
+1253
+00:26:43,720 --> 00:26:51,230
+There would be no data.
+Okay? So, it goes into P0 itself.
+
+1254
+00:26:51,230 --> 00:26:51,240
+
+ 
+
+1255
+00:26:51,240 --> 00:26:52,190
+
+Here.
+
+1256
+00:26:52,190 --> 00:26:52,200
+Here.
+ 
+
+1257
+00:26:52,200 --> 00:26:54,470
+Here.
+So, data goes into the P0 itself and
+
+1258
+00:26:54,470 --> 00:26:54,480
+So, data goes into the P0 itself and
+ 
+
+1259
+00:26:54,480 --> 00:26:56,950
+So, data goes into the P0 itself and
+here we can check the key.
+
+1260
+00:26:56,950 --> 00:26:56,960
+here we can check the key.
+ 
+
+1261
+00:26:56,960 --> 00:26:59,870
+here we can check the key.
+What So, the key is now product ID.
+
+1262
+00:26:59,870 --> 00:26:59,880
+What So, the key is now product ID.
+ 
+
+1263
+00:26:59,880 --> 00:27:03,110
+What So, the key is now product ID.
+Okay? And the when when the data was
+
+1264
+00:27:03,110 --> 00:27:03,120
+Okay? And the when when the data was
+ 
+
+1265
+00:27:03,120 --> 00:27:05,830
+Okay? And the when when the data was
+here in the
+
+1266
+00:27:05,830 --> 00:27:05,840
+here in the
+ 
+
+1267
+00:27:05,840 --> 00:27:07,870
+here in the
+order-events
+
+1268
+00:27:07,870 --> 00:27:07,880
+order-events
+ 
+
+1269
+00:27:07,880 --> 00:27:10,230
+order-events
+when it was there in the order-event key
+
+1270
+00:27:10,230 --> 00:27:10,240
+when it was there in the order-event key
+ 
+
+1271
+00:27:10,240 --> 00:27:12,830
+when it was there in the order-event key
+was
+
+1272
+00:27:12,830 --> 00:27:12,840
+
+ 
+
+1273
+00:27:12,840 --> 00:27:14,750
+
+key was order ID.
+
+1274
+00:27:14,750 --> 00:27:14,760
+key was order ID.
+ 
+
+1275
+00:27:14,760 --> 00:27:16,870
+key was order ID.
+Okay? So, check this. These are small
+
+1276
+00:27:16,870 --> 00:27:16,880
+Okay? So, check this. These are small
+ 
+
+1277
+00:27:16,880 --> 00:27:18,830
+Okay? So, check this. These are small
+small things, but these things helps to
+
+1278
+00:27:18,830 --> 00:27:18,840
+small things, but these things helps to
+ 
+
+1279
+00:27:18,840 --> 00:27:22,150
+small things, but these things helps to
+like clarify our things. So, when the
+
+1280
+00:27:22,150 --> 00:27:22,160
+like clarify our things. So, when the
+ 
+
+1281
+00:27:22,160 --> 00:27:24,470
+like clarify our things. So, when the
+event was published
+
+1282
+00:27:24,470 --> 00:27:24,480
+event was published
+ 
+
+1283
+00:27:24,480 --> 00:27:25,870
+event was published
+here
+
+1284
+00:27:25,870 --> 00:27:25,880
+here
+ 
+
+1285
+00:27:25,880 --> 00:27:27,590
+here
+the key was
+
+1286
+00:27:27,590 --> 00:27:27,600
+the key was
+ 
+
+1287
+00:27:27,600 --> 00:27:29,950
+the key was
+order ID, O-1.
+
+1288
+00:27:29,950 --> 00:27:29,960
+order ID, O-1.
+ 
+
+1289
+00:27:29,960 --> 00:27:33,470
+order ID, O-1.
+Okay? After repartition in
+
+1290
+00:27:33,470 --> 00:27:33,480
+Okay? After repartition in
+ 
+
+1291
+00:27:33,480 --> 00:27:36,190
+Okay? After repartition in
+the same payload but the key is now
+
+1292
+00:27:36,190 --> 00:27:36,200
+the same payload but the key is now
+ 
+
+1293
+00:27:36,200 --> 00:27:40,070
+the same payload but the key is now
+product ID.
+
+1294
+00:27:40,070 --> 00:27:40,080
+
+ 
+
+1295
+00:27:40,080 --> 00:27:43,030
+
+Okay? So, we got to know that the
+
+1296
+00:27:43,030 --> 00:27:43,040
+Okay? So, we got to know that the
+ 
+
+1297
+00:27:43,040 --> 00:27:44,710
+Okay? So, we got to know that the
+repartition topic also is getting the
+
+1298
+00:27:44,710 --> 00:27:44,720
+repartition topic also is getting the
+ 
+
+1299
+00:27:44,720 --> 00:27:45,670
+repartition topic also is getting the
+data.
+
+1300
+00:27:45,670 --> 00:27:45,680
+data.
+ 
+
+1301
+00:27:45,680 --> 00:27:47,790
+data.
+Now, let's check the RockDB local. So,
+
+1302
+00:27:47,790 --> 00:27:47,800
+Now, let's check the RockDB local. So,
+ 
+
+1303
+00:27:47,800 --> 00:27:50,870
+Now, let's check the RockDB local. So,
+here if you see
+
+1304
+00:27:50,870 --> 00:27:50,880
+
+ 
+
+1305
+00:27:50,880 --> 00:27:52,070
+
+that
+
+1306
+00:27:52,070 --> 00:27:52,080
+that
+ 
+
+1307
+00:27:52,080 --> 00:27:53,230
+that
+path which we have given in
+
+1308
+00:27:53,230 --> 00:27:53,240
+path which we have given in
+ 
+
+1309
+00:27:53,240 --> 00:27:54,710
+path which we have given in
+application.properties like
+
+1310
+00:27:54,710 --> 00:27:54,720
+application.properties like
+ 
+
+1311
+00:27:54,720 --> 00:27:57,990
+application.properties like
+/temp/kafka-streams.
+
+1312
+00:27:57,990 --> 00:27:58,000
+
+ 
+
+1313
+00:27:58,000 --> 00:27:58,950
+
+So,
+
+1314
+00:27:58,950 --> 00:27:58,960
+So,
+ 
+
+1315
+00:27:58,960 --> 00:27:59,990
+So,
+temp
+
+1316
+00:27:59,990 --> 00:28:00,000
+temp
+ 
+
+1317
+00:28:00,000 --> 00:28:01,830
+temp
+kafka-streams
+
+1318
+00:28:01,830 --> 00:28:01,840
+kafka-streams
+ 
+
+1319
+00:28:01,840 --> 00:28:04,150
+kafka-streams
+here if you see order analytics, your
+
+1320
+00:28:04,150 --> 00:28:04,160
+here if you see order analytics, your
+ 
+
+1321
+00:28:04,160 --> 00:28:05,790
+here if you see order analytics, your
+application name.
+
+1322
+00:28:05,790 --> 00:28:05,800
+application name.
+ 
+
+1323
+00:28:05,800 --> 00:28:06,750
+application name.
+Now,
+
+1324
+00:28:06,750 --> 00:28:06,760
+Now,
+ 
+
+1325
+00:28:06,760 --> 00:28:09,150
+Now,
+for all six
+
+1326
+00:28:09,150 --> 00:28:09,160
+for all six
+ 
+
+1327
+00:28:09,160 --> 00:28:11,430
+for all six
+for all the task, each task means
+
+1328
+00:28:11,430 --> 00:28:11,440
+for all the task, each task means
+ 
+
+1329
+00:28:11,440 --> 00:28:13,670
+for all the task, each task means
+maintain its own
+
+1330
+00:28:13,670 --> 00:28:13,680
+maintain its own
+ 
+
+1331
+00:28:13,680 --> 00:28:15,270
+maintain its own
+RockDB file.
+
+1332
+00:28:15,270 --> 00:28:15,280
+RockDB file.
+ 
+
+1333
+00:28:15,280 --> 00:28:16,190
+RockDB file.
+So,
+
+1334
+00:28:16,190 --> 00:28:16,200
+So,
+ 
+
+1335
+00:28:16,200 --> 00:28:18,790
+So,
+00, can you read it?
+
+1336
+00:28:18,790 --> 00:28:18,800
+00, can you read it?
+ 
+
+1337
+00:28:18,800 --> 00:28:21,510
+00, can you read it?
+Sub-topology zero, partition P0.
+
+1338
+00:28:21,510 --> 00:28:21,520
+Sub-topology zero, partition P0.
+ 
+
+1339
+00:28:21,520 --> 00:28:23,830
+Sub-topology zero, partition P0.
+Sub-topology zero, partition P1.
+
+1340
+00:28:23,830 --> 00:28:23,840
+Sub-topology zero, partition P1.
+ 
+
+1341
+00:28:23,840 --> 00:28:26,630
+Sub-topology zero, partition P1.
+Sub-topology zero, partition P2.
+
+1342
+00:28:26,630 --> 00:28:26,640
+Sub-topology zero, partition P2.
+ 
+
+1343
+00:28:26,640 --> 00:28:28,630
+Sub-topology zero, partition P2.
+Sub-topology one, partition P0.
+
+1344
+00:28:28,630 --> 00:28:28,640
+Sub-topology one, partition P0.
+ 
+
+1345
+00:28:28,640 --> 00:28:30,990
+Sub-topology one, partition P0.
+Sub-topology one, partition P1.
+
+1346
+00:28:30,990 --> 00:28:31,000
+Sub-topology one, partition P1.
+ 
+
+1347
+00:28:31,000 --> 00:28:34,190
+Sub-topology one, partition P1.
+Sub-topology one, partition P2. Now,
+
+1348
+00:28:34,190 --> 00:28:34,200
+Sub-topology one, partition P2. Now,
+ 
+
+1349
+00:28:34,200 --> 00:28:36,150
+Sub-topology one, partition P2. Now,
+which topic from the sub-topology we
+
+1350
+00:28:36,150 --> 00:28:36,160
+which topic from the sub-topology we
+ 
+
+1351
+00:28:36,160 --> 00:28:38,990
+which topic from the sub-topology we
+know that it's order-events.
+
+1352
+00:28:38,990 --> 00:28:39,000
+know that it's order-events.
+ 
+
+1353
+00:28:39,000 --> 00:28:40,590
+know that it's order-events.
+From sub-topology one, we know that it's
+
+1354
+00:28:40,590 --> 00:28:40,600
+From sub-topology one, we know that it's
+ 
+
+1355
+00:28:40,600 --> 00:28:43,230
+From sub-topology one, we know that it's
+a repartition topic.
+
+1356
+00:28:43,230 --> 00:28:43,240
+a repartition topic.
+ 
+
+1357
+00:28:43,240 --> 00:28:46,590
+a repartition topic.
+So, order-events P0, order-events P1,
+
+1358
+00:28:46,590 --> 00:28:46,600
+So, order-events P0, order-events P1,
+ 
+
+1359
+00:28:46,600 --> 00:28:49,230
+So, order-events P0, order-events P1,
+P2. Similarly, repartition topic P0,
+
+1360
+00:28:49,230 --> 00:28:49,240
+P2. Similarly, repartition topic P0,
+ 
+
+1361
+00:28:49,240 --> 00:28:53,110
+P2. Similarly, repartition topic P0,
+repartition topic P1, similar P2.
+
+1362
+00:28:53,110 --> 00:28:53,120
+repartition topic P1, similar P2.
+ 
+
+1363
+00:28:53,120 --> 00:28:55,190
+repartition topic P1, similar P2.
+Okay, so each task is maintained the
+
+1364
+00:28:55,190 --> 00:28:55,200
+Okay, so each task is maintained the
+ 
+
+1365
+00:28:55,200 --> 00:28:57,550
+Okay, so each task is maintained the
+Rock DB slash whatever the name which we
+
+1366
+00:28:57,550 --> 00:28:57,560
+Rock DB slash whatever the name which we
+ 
+
+1367
+00:28:57,560 --> 00:28:59,110
+Rock DB slash whatever the name which we
+have given
+
+1368
+00:28:59,110 --> 00:28:59,120
+have given
+ 
+
+1369
+00:28:59,120 --> 00:29:01,510
+have given
+and the file it maintain.
+
+1370
+00:29:01,510 --> 00:29:01,520
+and the file it maintain.
+ 
+
+1371
+00:29:01,520 --> 00:29:03,790
+and the file it maintain.
+You can't open and read it because it's
+
+1372
+00:29:03,790 --> 00:29:03,800
+You can't open and read it because it's
+ 
+
+1373
+00:29:03,800 --> 00:29:07,710
+You can't open and read it because it's
+in binary, but it's a key value.
+
+1374
+00:29:07,710 --> 00:29:07,720
+in binary, but it's a key value.
+ 
+
+1375
+00:29:07,720 --> 00:29:09,190
+in binary, but it's a key value.
+Key is let's say
+
+1376
+00:29:09,190 --> 00:29:09,200
+Key is let's say
+ 
+
+1377
+00:29:09,200 --> 00:29:10,950
+Key is let's say
+process ID
+
+1378
+00:29:10,950 --> 00:29:10,960
+process ID
+ 
+
+1379
+00:29:10,960 --> 00:29:12,830
+process ID
+one
+
+1380
+00:29:12,830 --> 00:29:12,840
+one
+ 
+
+1381
+00:29:12,840 --> 00:29:15,190
+one
+value is let's say
+
+1382
+00:29:15,190 --> 00:29:15,200
+value is let's say
+ 
+
+1383
+00:29:15,200 --> 00:29:17,150
+value is let's say
+order you might have got is like 50
+
+1384
+00:29:17,150 --> 00:29:17,160
+order you might have got is like 50
+ 
+
+1385
+00:29:17,160 --> 00:29:19,230
+order you might have got is like 50
+orders till now for this one.
+
+1386
+00:29:19,230 --> 00:29:19,240
+orders till now for this one.
+ 
+
+1387
+00:29:19,240 --> 00:29:20,230
+orders till now for this one.
+Okay.
+
+1388
+00:29:20,230 --> 00:29:20,240
+Okay.
+ 
+
+1389
+00:29:20,240 --> 00:29:22,750
+Okay.
+One more event comes for this process ID
+
+1390
+00:29:22,750 --> 00:29:22,760
+One more event comes for this process ID
+ 
+
+1391
+00:29:22,760 --> 00:29:24,910
+One more event comes for this process ID
+one, it will get incremented
+
+1392
+00:29:24,910 --> 00:29:24,920
+one, it will get incremented
+ 
+
+1393
+00:29:24,920 --> 00:29:27,070
+one, it will get incremented
+like this.
+
+1394
+00:29:27,070 --> 00:29:27,080
+like this.
+ 
+
+1395
+00:29:27,080 --> 00:29:29,550
+like this.
+Okay. So, you can easily check it. Like
+
+1396
+00:29:29,550 --> 00:29:29,560
+Okay. So, you can easily check it. Like
+ 
+
+1397
+00:29:29,560 --> 00:29:31,990
+Okay. So, you can easily check it. Like
+you can go to the temp Kafka streams
+
+1398
+00:29:31,990 --> 00:29:32,000
+you can go to the temp Kafka streams
+ 
+
+1399
+00:29:32,000 --> 00:29:34,230
+you can go to the temp Kafka streams
+order analytics.
+
+1400
+00:29:34,230 --> 00:29:34,240
+order analytics.
+ 
+
+1401
+00:29:34,240 --> 00:29:36,310
+order analytics.
+Now here if you see six events, for each
+
+1402
+00:29:36,310 --> 00:29:36,320
+Now here if you see six events, for each
+ 
+
+1403
+00:29:36,320 --> 00:29:38,470
+Now here if you see six events, for each
+events goes to Rocks DB
+
+1404
+00:29:38,470 --> 00:29:38,480
+events goes to Rocks DB
+ 
+
+1405
+00:29:38,480 --> 00:29:42,310
+events goes to Rocks DB
+particular store and then check it.
+
+1406
+00:29:42,310 --> 00:29:42,320
+particular store and then check it.
+ 
+
+1407
+00:29:42,320 --> 00:29:44,270
+particular store and then check it.
+Okay.
+
+1408
+00:29:44,270 --> 00:29:44,280
+Okay.
+ 
+
+1409
+00:29:44,280 --> 00:29:47,550
+Okay.
+I told you that for each like Rock DB is
+
+1410
+00:29:47,550 --> 00:29:47,560
+I told you that for each like Rock DB is
+ 
+
+1411
+00:29:47,560 --> 00:29:50,430
+I told you that for each like Rock DB is
+backed up by the change log topic. So,
+
+1412
+00:29:50,430 --> 00:29:50,440
+backed up by the change log topic. So,
+ 
+
+1413
+00:29:50,440 --> 00:29:52,550
+backed up by the change log topic. So,
+change log topic is already there. We
+
+1414
+00:29:52,550 --> 00:29:52,560
+change log topic is already there. We
+ 
+
+1415
+00:29:52,560 --> 00:29:54,830
+change log topic is already there. We
+can also see that one.
+
+1416
+00:29:54,830 --> 00:29:54,840
+can also see that one.
+ 
+
+1417
+00:29:54,840 --> 00:29:57,630
+can also see that one.
+So.
+
+1418
+00:29:57,630 --> 00:29:57,640
+
+ 
+
+1419
+00:29:57,640 --> 00:30:02,830
+
+Instead of repartition, we have
+
+1420
+00:30:02,830 --> 00:30:02,840
+
+ 
+
+1421
+00:30:02,840 --> 00:30:06,670
+
+change log. So, repartition zero data
+
+1422
+00:30:06,670 --> 00:30:06,680
+change log. So, repartition zero data
+ 
+
+1423
+00:30:06,680 --> 00:30:09,950
+change log. So, repartition zero data
+goes into change log zero only.
+
+1424
+00:30:09,950 --> 00:30:09,960
+goes into change log zero only.
+ 
+
+1425
+00:30:09,960 --> 00:30:16,710
+goes into change log zero only.
+Okay, the same thing.
+
+1426
+00:30:16,710 --> 00:30:16,720
+
+ 
+
+1427
+00:30:16,720 --> 00:30:20,670
+
+So, change log data is also coming.
+
+1428
+00:30:20,670 --> 00:30:20,680
+
+ 
+
+1429
+00:30:20,680 --> 00:30:23,070
+
+Okay. Similarly, the output you can also
+
+1430
+00:30:23,070 --> 00:30:23,080
+Okay. Similarly, the output you can also
+ 
+
+1431
+00:30:23,080 --> 00:30:27,190
+Okay. Similarly, the output you can also
+check like the same thing.
+
+1432
+00:30:27,190 --> 00:30:27,200
+
+ 
+
+1433
+00:30:27,200 --> 00:30:29,350
+
+I hope everything is now clear, right?
+
+1434
+00:30:29,350 --> 00:30:29,360
+I hope everything is now clear, right?
+ 
+
+1435
+00:30:29,360 --> 00:30:31,910
+I hope everything is now clear, right?
+No such file or exception product hyphen
+
+1436
+00:30:31,910 --> 00:30:31,920
+No such file or exception product hyphen
+ 
+
+1437
+00:30:31,920 --> 00:30:33,870
+No such file or exception product hyphen
+counts. So, it might have gone through
+
+1438
+00:30:33,870 --> 00:30:33,880
+counts. So, it might have gone through
+ 
+
+1439
+00:30:33,880 --> 00:30:35,150
+counts. So, it might have gone through
+the broker one.
+
+1440
+00:30:35,150 --> 00:30:35,160
+the broker one.
+ 
+
+1441
+00:30:35,160 --> 00:30:37,150
+the broker one.
+Which is in broker two.
+
+1442
+00:30:37,150 --> 00:30:37,160
+Which is in broker two.
+ 
+
+1443
+00:30:37,160 --> 00:30:39,630
+Which is in broker two.
+Let's check broker one has got this.
+
+1444
+00:30:39,630 --> 00:30:39,640
+Let's check broker one has got this.
+ 
+
+1445
+00:30:39,640 --> 00:30:40,630
+Let's check broker one has got this.
+Yep.
+
+1446
+00:30:40,630 --> 00:30:40,640
+Yep.
+ 
+
+1447
+00:30:40,640 --> 00:30:42,710
+Yep.
+So, output is also going.
+
+1448
+00:30:42,710 --> 00:30:42,720
+So, output is also going.
+ 
+
+1449
+00:30:42,720 --> 00:30:46,390
+So, output is also going.
+Okay? So, I hope this is clear like
+
+1450
+00:30:46,390 --> 00:30:46,400
+Okay? So, I hope this is clear like
+ 
+
+1451
+00:30:46,400 --> 00:30:48,430
+Okay? So, I hope this is clear like
+we are able to set up properly.
+
+1452
+00:30:48,430 --> 00:30:48,440
+we are able to set up properly.
+ 
+
+1453
+00:30:48,440 --> 00:30:50,030
+we are able to set up properly.
+We have checked the output topic. We
+
+1454
+00:30:50,030 --> 00:30:50,040
+We have checked the output topic. We
+ 
+
+1455
+00:30:50,040 --> 00:30:51,710
+We have checked the output topic. We
+have checked the change log topic. We
+
+1456
+00:30:51,710 --> 00:30:51,720
+have checked the change log topic. We
+ 
+
+1457
+00:30:51,720 --> 00:30:54,070
+have checked the change log topic. We
+have checked the raw DB. The file is
+
+1458
+00:30:54,070 --> 00:30:54,080
+have checked the raw DB. The file is
+ 
+
+1459
+00:30:54,080 --> 00:30:55,190
+have checked the raw DB. The file is
+present.
+
+1460
+00:30:55,190 --> 00:30:55,200
+present.
+ 
+
+1461
+00:30:55,200 --> 00:30:58,310
+present.
+Okay? The repartition
+
+1462
+00:30:58,310 --> 00:30:58,320
+Okay? The repartition
+ 
+
+1463
+00:30:58,320 --> 00:30:59,310
+Okay? The repartition
+uh
+
+1464
+00:30:59,310 --> 00:30:59,320
+uh
+ 
+
+1465
+00:30:59,320 --> 00:31:03,190
+uh
+like we have seen the normal like uh
+
+1466
+00:31:03,190 --> 00:31:03,200
+like we have seen the normal like uh
+ 
+
+1467
+00:31:03,200 --> 00:31:05,390
+like we have seen the normal like uh
+earlier what we have seen producer and
+
+1468
+00:31:05,390 --> 00:31:05,400
+earlier what we have seen producer and
+ 
+
+1469
+00:31:05,400 --> 00:31:08,070
+earlier what we have seen producer and
+everything we have set up.
+
+1470
+00:31:08,070 --> 00:31:08,080
+everything we have set up.
+ 
+
+1471
+00:31:08,080 --> 00:31:10,550
+everything we have set up.
+Task distribution among the threads.
+
+1472
+00:31:10,550 --> 00:31:10,560
+Task distribution among the threads.
+ 
+
+1473
+00:31:10,560 --> 00:31:12,990
+Task distribution among the threads.
+Okay? So, this is I want to cover as a
+
+1474
+00:31:12,990 --> 00:31:13,000
+Okay? So, this is I want to cover as a
+ 
+
+1475
+00:31:13,000 --> 00:31:16,190
+Okay? So, this is I want to cover as a
+part of setup.
+
+1476
+00:31:16,190 --> 00:31:16,200
+part of setup.
+ 
+
+1477
+00:31:16,200 --> 00:31:17,910
+part of setup.
+So, this is important, right? So, I
+
+1478
+00:31:17,910 --> 00:31:17,920
+So, this is important, right? So, I
+ 
+
+1479
+00:31:17,920 --> 00:31:19,950
+So, this is important, right? So, I
+think
+
+1480
+00:31:19,950 --> 00:31:19,960
+think
+ 
+
+1481
+00:31:19,960 --> 00:31:21,590
+think
+our architecture Kafka stream
+
+1482
+00:31:21,590 --> 00:31:21,600
+our architecture Kafka stream
+ 
+
+1483
+00:31:21,600 --> 00:31:23,670
+our architecture Kafka stream
+architecture should be clear.
+
+1484
+00:31:23,670 --> 00:31:23,680
+architecture should be clear.
+ 
+
+1485
+00:31:23,680 --> 00:31:26,150
+architecture should be clear.
+And using that architecture
+
+1486
+00:31:26,150 --> 00:31:26,160
+And using that architecture
+ 
+
+1487
+00:31:26,160 --> 00:31:27,790
+And using that architecture
+understanding
+
+1488
+00:31:27,790 --> 00:31:27,800
+understanding
+ 
+
+1489
+00:31:27,800 --> 00:31:29,630
+understanding
+the setup which we have done very simple
+
+1490
+00:31:29,630 --> 00:31:29,640
+the setup which we have done very simple
+ 
+
+1491
+00:31:29,640 --> 00:31:30,750
+the setup which we have done very simple
+setup
+
+1492
+00:31:30,750 --> 00:31:30,760
+setup
+ 
+
+1493
+00:31:30,760 --> 00:31:32,870
+setup
+of this topology. Yeah. So, I would say
+
+1494
+00:31:32,870 --> 00:31:32,880
+of this topology. Yeah. So, I would say
+ 
+
+1495
+00:31:32,880 --> 00:31:35,190
+of this topology. Yeah. So, I would say
+that for this topology, we have done the
+
+1496
+00:31:35,190 --> 00:31:35,200
+that for this topology, we have done the
+ 
+
+1497
+00:31:35,200 --> 00:31:36,270
+that for this topology, we have done the
+setup.
+
+1498
+00:31:36,270 --> 00:31:36,280
+setup.
+ 
+
+1499
+00:31:36,280 --> 00:31:38,790
+setup.
+All we have written is this topology.
+
+1500
+00:31:38,790 --> 00:31:38,800
+All we have written is this topology.
+ 
+
+1501
+00:31:38,800 --> 00:31:40,790
+All we have written is this topology.
+Internally, this is all internal
+
+1502
+00:31:40,790 --> 00:31:40,800
+Internally, this is all internal
+ 
+
+1503
+00:31:40,800 --> 00:31:42,630
+Internally, this is all internal
+internal internal. This is all happen
+
+1504
+00:31:42,630 --> 00:31:42,640
+internal internal. This is all happen
+ 
+
+1505
+00:31:42,640 --> 00:31:44,590
+internal internal. This is all happen
+internal. All it is visible is this
+
+1506
+00:31:44,590 --> 00:31:44,600
+internal. All it is visible is this
+ 
+
+1507
+00:31:44,600 --> 00:31:46,590
+internal. All it is visible is this
+topology. All we have to write is
+
+1508
+00:31:46,590 --> 00:31:46,600
+topology. All we have to write is
+ 
+
+1509
+00:31:46,600 --> 00:31:49,990
+topology. All we have to write is
+source, filter, this all this thing.
+
+1510
+00:31:49,990 --> 00:31:50,000
+source, filter, this all this thing.
+ 
+
+1511
+00:31:50,000 --> 00:31:53,470
+source, filter, this all this thing.
+But after that what happened
+
+1512
+00:31:53,470 --> 00:31:53,480
+But after that what happened
+ 
+
+1513
+00:31:53,480 --> 00:31:56,150
+But after that what happened
+that is something which need to be clear
+
+1514
+00:31:56,150 --> 00:31:56,160
+that is something which need to be clear
+ 
+
+1515
+00:31:56,160 --> 00:31:57,390
+that is something which need to be clear
+to us.
+
+1516
+00:31:57,390 --> 00:31:57,400
+to us.
+ 
+
+1517
+00:31:57,400 --> 00:31:59,910
+to us.
+And if we have to be very efficient in
+
+1518
+00:31:59,910 --> 00:31:59,920
+And if we have to be very efficient in
+ 
+
+1519
+00:31:59,920 --> 00:32:01,510
+And if we have to be very efficient in
+the streams.
+
+1520
+00:32:01,510 --> 00:32:01,520
+the streams.
+ 
+
+1521
+00:32:01,520 --> 00:32:02,710
+the streams.
+Okay?
+
+1522
+00:32:02,710 --> 00:32:02,720
+Okay?
+ 
+
+1523
+00:32:02,720 --> 00:32:04,430
+Okay?
+So, if you understand sub topology,
+
+1524
+00:32:04,430 --> 00:32:04,440
+So, if you understand sub topology,
+ 
+
+1525
+00:32:04,440 --> 00:32:08,430
+So, if you understand sub topology,
+right? Then the naming convention task 0
+
+1526
+00:32:08,430 --> 00:32:08,440
+right? Then the naming convention task 0
+ 
+
+1527
+00:32:08,440 --> 00:32:11,470
+right? Then the naming convention task 0
+_ 0. You don't have to be like confused
+
+1528
+00:32:11,470 --> 00:32:11,480
+_ 0. You don't have to be like confused
+ 
+
+1529
+00:32:11,480 --> 00:32:13,190
+_ 0. You don't have to be like confused
+like what 0 is 0. You know that it's 0
+
+1530
+00:32:13,190 --> 00:32:13,200
+like what 0 is 0. You know that it's 0
+ 
+
+1531
+00:32:13,200 --> 00:32:15,870
+like what 0 is 0. You know that it's 0
+first 0 is like for the sub topology.
+
+1532
+00:32:15,870 --> 00:32:15,880
+first 0 is like for the sub topology.
+ 
+
+1533
+00:32:15,880 --> 00:32:18,230
+first 0 is like for the sub topology.
+Task 1 _ 0 is like sub topology. There
+
+1534
+00:32:18,230 --> 00:32:18,240
+Task 1 _ 0 is like sub topology. There
+ 
+
+1535
+00:32:18,240 --> 00:32:20,950
+Task 1 _ 0 is like sub topology. There
+could be sub sub topology one.
+
+1536
+00:32:20,950 --> 00:32:20,960
+could be sub sub topology one.
+ 
+
+1537
+00:32:20,960 --> 00:32:23,710
+could be sub sub topology one.
+Okay? Then you can check your topology
+
+1538
+00:32:23,710 --> 00:32:23,720
+Okay? Then you can check your topology
+ 
+
+1539
+00:32:23,720 --> 00:32:26,510
+Okay? Then you can check your topology
+that okay, how it have created a
+
+1540
+00:32:26,510 --> 00:32:26,520
+that okay, how it have created a
+ 
+
+1541
+00:32:26,520 --> 00:32:28,230
+that okay, how it have created a
+different sub topologies.
+
+1542
+00:32:28,230 --> 00:32:28,240
+different sub topologies.
+ 
+
+1543
+00:32:28,240 --> 00:32:32,030
+different sub topologies.
+Okay?
+
+1544
+00:32:32,030 --> 00:32:32,040
+
+ 
+
+1545
+00:32:32,040 --> 00:32:33,070
+
+Cool.
+
+1546
+00:32:33,070 --> 00:32:33,080
+Cool.
+ 
+
+1547
+00:32:33,080 --> 00:32:36,070
+Cool.
+Okay? Any doubt in this setup?
+
+1548
+00:32:36,070 --> 00:32:36,080
+Okay? Any doubt in this setup?
+ 
+
+1549
+00:32:36,080 --> 00:32:37,430
+Okay? Any doubt in this setup?
+Again
+
+1550
+00:32:37,430 --> 00:32:37,440
+Again
+ 
+
+1551
+00:32:37,440 --> 00:32:39,910
+Again
+agenda is not that we are clear with the
+
+1552
+00:32:39,910 --> 00:32:39,920
+agenda is not that we are clear with the
+ 
+
+1553
+00:32:39,920 --> 00:32:43,190
+agenda is not that we are clear with the
+syntax. Agenda is not like what the
+
+1554
+00:32:43,190 --> 00:32:43,200
+syntax. Agenda is not like what the
+ 
+
+1555
+00:32:43,200 --> 00:32:45,870
+syntax. Agenda is not like what the
+syntax does. Dot group by key, what it
+
+1556
+00:32:45,870 --> 00:32:45,880
+syntax does. Dot group by key, what it
+ 
+
+1557
+00:32:45,880 --> 00:32:47,070
+syntax does. Dot group by key, what it
+does. No.
+
+1558
+00:32:47,070 --> 00:32:47,080
+does. No.
+ 
+
+1559
+00:32:47,080 --> 00:32:49,270
+does. No.
+Agenda here is that whatever the
+
+1560
+00:32:49,270 --> 00:32:49,280
+Agenda here is that whatever the
+ 
+
+1561
+00:32:49,280 --> 00:32:51,950
+Agenda here is that whatever the
+architecture understanding we had,
+
+1562
+00:32:51,950 --> 00:32:51,960
+architecture understanding we had,
+ 
+
+1563
+00:32:51,960 --> 00:32:53,790
+architecture understanding we had,
+we do a setup
+
+1564
+00:32:53,790 --> 00:32:53,800
+we do a setup
+ 
+
+1565
+00:32:53,800 --> 00:32:56,670
+we do a setup
+and we validate the same thing.
+
+1566
+00:32:56,670 --> 00:32:56,680
+and we validate the same thing.
+ 
+
+1567
+00:32:56,680 --> 00:32:58,670
+and we validate the same thing.
+Okay?
+
+1568
+00:32:58,670 --> 00:32:58,680
+Okay?
+ 
+
+1569
+00:32:58,680 --> 00:33:00,910
+Okay?
+Okay, guys. Thank you. Bye.
+
+1570
+00:33:00,910 --> 00:33:00,920
+Okay, guys. Thank you. Bye.
+ 
+
+1571
+00:33:00,920 --> 00:33:02,150
+Okay, guys. Thank you. Bye.
+Any doubt, let me know in the comment
+
+1572
+00:33:02,150 --> 00:33:02,160
+Any doubt, let me know in the comment
+ 
+
+1573
+00:33:02,160 --> 00:33:03,590
+Any doubt, let me know in the comment
+section.
+
+1574
+00:33:03,590 --> 00:33:03,600
+section.
+ 
+
+1575
+00:33:03,600 --> 00:33:06,080
+section.
+Thank you.
+

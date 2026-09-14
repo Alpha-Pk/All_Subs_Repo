@@ -1,0 +1,7165 @@
+1
+00:00:00,000 --> 00:00:02,470
+
+So in the previous video of Kafka
+
+2
+00:00:02,470 --> 00:00:02,480
+So in the previous video of Kafka
+ 
+
+3
+00:00:02,480 --> 00:00:05,270
+So in the previous video of Kafka
+stream, I have told you about different
+
+4
+00:00:05,270 --> 00:00:05,280
+stream, I have told you about different
+ 
+
+5
+00:00:05,280 --> 00:00:08,390
+stream, I have told you about different
+sources. KStream like how you can do
+
+6
+00:00:08,390 --> 00:00:08,400
+sources. KStream like how you can do
+ 
+
+7
+00:00:08,400 --> 00:00:10,350
+sources. KStream like how you can do
+that builder.stream
+
+8
+00:00:10,350 --> 00:00:10,360
+that builder.stream
+ 
+
+9
+00:00:10,360 --> 00:00:11,630
+that builder.stream
+the topic name
+
+10
+00:00:11,630 --> 00:00:11,640
+the topic name
+ 
+
+11
+00:00:11,640 --> 00:00:13,790
+the topic name
+and the serializer deserializer.
+
+12
+00:00:13,790 --> 00:00:13,800
+and the serializer deserializer.
+ 
+
+13
+00:00:13,800 --> 00:00:15,790
+and the serializer deserializer.
+Similarly, KTable
+
+14
+00:00:15,790 --> 00:00:15,800
+Similarly, KTable
+ 
+
+15
+00:00:15,800 --> 00:00:17,710
+Similarly, KTable
+global KTable. We have already seen that
+
+16
+00:00:17,710 --> 00:00:17,720
+global KTable. We have already seen that
+ 
+
+17
+00:00:17,720 --> 00:00:19,950
+global KTable. We have already seen that
+and their purposes. Okay.
+
+18
+00:00:19,950 --> 00:00:19,960
+and their purposes. Okay.
+ 
+
+19
+00:00:19,960 --> 00:00:20,910
+and their purposes. Okay.
+Now
+
+20
+00:00:20,910 --> 00:00:20,920
+Now
+ 
+
+21
+00:00:20,920 --> 00:00:23,390
+Now
+today in this part, I would go one level
+
+22
+00:00:23,390 --> 00:00:23,400
+today in this part, I would go one level
+ 
+
+23
+00:00:23,400 --> 00:00:25,470
+today in this part, I would go one level
+deeper into this
+
+24
+00:00:25,470 --> 00:00:25,480
+deeper into this
+ 
+
+25
+00:00:25,480 --> 00:00:28,230
+deeper into this
+Serdes S E R D E S.
+
+26
+00:00:28,230 --> 00:00:28,240
+Serdes S E R D E S.
+ 
+
+27
+00:00:28,240 --> 00:00:31,030
+Serdes S E R D E S.
+So this is nothing but
+
+28
+00:00:31,030 --> 00:00:31,040
+So this is nothing but
+ 
+
+29
+00:00:31,040 --> 00:00:33,270
+So this is nothing but
+a combination of serializer plus
+
+30
+00:00:33,270 --> 00:00:33,280
+a combination of serializer plus
+ 
+
+31
+00:00:33,280 --> 00:00:36,990
+a combination of serializer plus
+deserializer. So S E R D E S.
+
+32
+00:00:36,990 --> 00:00:37,000
+deserializer. So S E R D E S.
+ 
+
+33
+00:00:37,000 --> 00:00:39,350
+deserializer. So S E R D E S.
+Okay. So serializer and deserializer
+
+34
+00:00:39,350 --> 00:00:39,360
+Okay. So serializer and deserializer
+ 
+
+35
+00:00:39,360 --> 00:00:42,670
+Okay. So serializer and deserializer
+combined into one object. That object is
+
+36
+00:00:42,670 --> 00:00:42,680
+combined into one object. That object is
+ 
+
+37
+00:00:42,680 --> 00:00:46,230
+combined into one object. That object is
+you can say called as Serdes.
+
+38
+00:00:46,230 --> 00:00:46,240
+you can say called as Serdes.
+ 
+
+39
+00:00:46,240 --> 00:00:47,430
+you can say called as Serdes.
+So
+
+40
+00:00:47,430 --> 00:00:47,440
+So
+ 
+
+41
+00:00:47,440 --> 00:00:49,070
+So
+we have already covered serialization
+
+42
+00:00:49,070 --> 00:00:49,080
+we have already covered serialization
+ 
+
+43
+00:00:49,080 --> 00:00:51,470
+we have already covered serialization
+deserialization as part of normal
+
+44
+00:00:51,470 --> 00:00:51,480
+deserialization as part of normal
+ 
+
+45
+00:00:51,480 --> 00:00:53,710
+deserialization as part of normal
+Kafka producer consumer. We have seen
+
+46
+00:00:53,710 --> 00:00:53,720
+Kafka producer consumer. We have seen
+ 
+
+47
+00:00:53,720 --> 00:00:56,310
+Kafka producer consumer. We have seen
+that. So serializer is that
+
+48
+00:00:56,310 --> 00:00:56,320
+that. So serializer is that
+ 
+
+49
+00:00:56,320 --> 00:00:57,990
+that. So serializer is that
+serializer is that which convert Java
+
+50
+00:00:57,990 --> 00:00:58,000
+serializer is that which convert Java
+ 
+
+51
+00:00:58,000 --> 00:01:00,110
+serializer is that which convert Java
+object to bytes. Deserializer is that
+
+52
+00:01:00,110 --> 00:01:00,120
+object to bytes. Deserializer is that
+ 
+
+53
+00:01:00,120 --> 00:01:03,030
+object to bytes. Deserializer is that
+which convert bytes to Java object.
+
+54
+00:01:03,030 --> 00:01:03,040
+which convert bytes to Java object.
+ 
+
+55
+00:01:03,040 --> 00:01:05,509
+which convert bytes to Java object.
+So Serdes like combine both into one
+
+56
+00:01:05,509 --> 00:01:05,519
+So Serdes like combine both into one
+ 
+
+57
+00:01:05,519 --> 00:01:07,630
+So Serdes like combine both into one
+package.
+
+58
+00:01:07,630 --> 00:01:07,640
+package.
+ 
+
+59
+00:01:07,640 --> 00:01:09,430
+package.
+Now you can ask like what's the need
+
+60
+00:01:09,430 --> 00:01:09,440
+Now you can ask like what's the need
+ 
+
+61
+00:01:09,440 --> 00:01:11,630
+Now you can ask like what's the need
+into the Kafka stream?
+
+62
+00:01:11,630 --> 00:01:11,640
+into the Kafka stream?
+ 
+
+63
+00:01:11,640 --> 00:01:13,550
+into the Kafka stream?
+So see
+
+64
+00:01:13,550 --> 00:01:13,560
+So see
+ 
+
+65
+00:01:13,560 --> 00:01:17,030
+So see
+the Kafka topic it stores the data in
+
+66
+00:01:17,030 --> 00:01:17,040
+the Kafka topic it stores the data in
+ 
+
+67
+00:01:17,040 --> 00:01:20,430
+the Kafka topic it stores the data in
+bytes. The RocksDB it stores the data in
+
+68
+00:01:20,430 --> 00:01:20,440
+bytes. The RocksDB it stores the data in
+ 
+
+69
+00:01:20,440 --> 00:01:21,710
+bytes. The RocksDB it stores the data in
+bytes.
+
+70
+00:01:21,710 --> 00:01:21,720
+bytes.
+ 
+
+71
+00:01:21,720 --> 00:01:23,790
+bytes.
+So whenever we need to read from the
+
+72
+00:01:23,790 --> 00:01:23,800
+So whenever we need to read from the
+ 
+
+73
+00:01:23,800 --> 00:01:26,870
+So whenever we need to read from the
+Kafka topic or RocksDB, we need
+
+74
+00:01:26,870 --> 00:01:26,880
+Kafka topic or RocksDB, we need
+ 
+
+75
+00:01:26,880 --> 00:01:29,510
+Kafka topic or RocksDB, we need
+deserialization, convert bytes to Java
+
+76
+00:01:29,510 --> 00:01:29,520
+deserialization, convert bytes to Java
+ 
+
+77
+00:01:29,520 --> 00:01:31,830
+deserialization, convert bytes to Java
+object. And whenever we have to write
+
+78
+00:01:31,830 --> 00:01:31,840
+object. And whenever we have to write
+ 
+
+79
+00:01:31,840 --> 00:01:36,350
+object. And whenever we have to write
+data to Kafka topic or RocksDB we need
+
+80
+00:01:36,350 --> 00:01:36,360
+data to Kafka topic or RocksDB we need
+ 
+
+81
+00:01:36,360 --> 00:01:38,310
+data to Kafka topic or RocksDB we need
+serialization, convert Java object to
+
+82
+00:01:38,310 --> 00:01:38,320
+serialization, convert Java object to
+ 
+
+83
+00:01:38,320 --> 00:01:41,030
+serialization, convert Java object to
+bytes. You know that right? Topology has
+
+84
+00:01:41,030 --> 00:01:41,040
+bytes. You know that right? Topology has
+ 
+
+85
+00:01:41,040 --> 00:01:42,710
+bytes. You know that right? Topology has
+source
+
+86
+00:01:42,710 --> 00:01:42,720
+source
+ 
+
+87
+00:01:42,720 --> 00:01:44,390
+source
+processor nodes
+
+88
+00:01:44,390 --> 00:01:44,400
+processor nodes
+ 
+
+89
+00:01:44,400 --> 00:01:47,150
+processor nodes
+sink. So source is like reading from
+
+90
+00:01:47,150 --> 00:01:47,160
+sink. So source is like reading from
+ 
+
+91
+00:01:47,160 --> 00:01:48,990
+sink. So source is like reading from
+topic. So you have you need
+
+92
+00:01:48,990 --> 00:01:49,000
+topic. So you have you need
+ 
+
+93
+00:01:49,000 --> 00:01:51,630
+topic. So you have you need
+deserialization capability. Sink is like
+
+94
+00:01:51,630 --> 00:01:51,640
+deserialization capability. Sink is like
+ 
+
+95
+00:01:51,640 --> 00:01:53,430
+deserialization capability. Sink is like
+writing to Kafka topic. So you need
+
+96
+00:01:53,430 --> 00:01:53,440
+writing to Kafka topic. So you need
+ 
+
+97
+00:01:53,440 --> 00:01:55,070
+writing to Kafka topic. So you need
+serialization, convert Java object to
+
+98
+00:01:55,070 --> 00:01:55,080
+serialization, convert Java object to
+ 
+
+99
+00:01:55,080 --> 00:01:56,630
+serialization, convert Java object to
+bytes.
+
+100
+00:01:56,630 --> 00:01:56,640
+bytes.
+ 
+
+101
+00:01:56,640 --> 00:02:00,510
+bytes.
+Similarly, apply for the RocksDB also.
+
+102
+00:02:00,510 --> 00:02:00,520
+Similarly, apply for the RocksDB also.
+ 
+
+103
+00:02:00,520 --> 00:02:02,830
+Similarly, apply for the RocksDB also.
+So, these are the five places in
+
+104
+00:02:02,830 --> 00:02:02,840
+So, these are the five places in
+ 
+
+105
+00:02:02,840 --> 00:02:06,350
+So, these are the five places in
+topology where we need serdes. Serdes.
+
+106
+00:02:06,350 --> 00:02:06,360
+topology where we need serdes. Serdes.
+ 
+
+107
+00:02:06,360 --> 00:02:08,070
+topology where we need serdes. Serdes.
+We need to read from Kafka topic, we
+
+108
+00:02:08,070 --> 00:02:08,080
+We need to read from Kafka topic, we
+ 
+
+109
+00:02:08,080 --> 00:02:09,710
+We need to read from Kafka topic, we
+need deserialization.
+
+110
+00:02:09,710 --> 00:02:09,720
+need deserialization.
+ 
+
+111
+00:02:09,720 --> 00:02:11,830
+need deserialization.
+Sink, we need to write to Kafka topic,
+
+112
+00:02:11,830 --> 00:02:11,840
+Sink, we need to write to Kafka topic,
+ 
+
+113
+00:02:11,840 --> 00:02:14,070
+Sink, we need to write to Kafka topic,
+we need serialization.
+
+114
+00:02:14,070 --> 00:02:14,080
+we need serialization.
+ 
+
+115
+00:02:14,080 --> 00:02:17,350
+we need serialization.
+Repartition, we will see that. So, if
+
+116
+00:02:17,350 --> 00:02:17,360
+Repartition, we will see that. So, if
+ 
+
+117
+00:02:17,360 --> 00:02:18,750
+Repartition, we will see that. So, if
+you remember from the architecture
+
+118
+00:02:18,750 --> 00:02:18,760
+you remember from the architecture
+ 
+
+119
+00:02:18,760 --> 00:02:19,990
+you remember from the architecture
+video, I told you about the
+
+120
+00:02:19,990 --> 00:02:20,000
+video, I told you about the
+ 
+
+121
+00:02:20,000 --> 00:02:21,270
+video, I told you about the
+sub-topology, which is like a
+
+122
+00:02:21,270 --> 00:02:21,280
+sub-topology, which is like a
+ 
+
+123
+00:02:21,280 --> 00:02:24,670
+sub-topology, which is like a
+repartition. We need to write to Kafka
+
+124
+00:02:24,670 --> 00:02:24,680
+repartition. We need to write to Kafka
+ 
+
+125
+00:02:24,680 --> 00:02:27,350
+repartition. We need to write to Kafka
+topic, so we need serialization.
+
+126
+00:02:27,350 --> 00:02:27,360
+topic, so we need serialization.
+ 
+
+127
+00:02:27,360 --> 00:02:29,150
+topic, so we need serialization.
+Okay, internally it create a Kafka
+
+128
+00:02:29,150 --> 00:02:29,160
+Okay, internally it create a Kafka
+ 
+
+129
+00:02:29,160 --> 00:02:30,230
+Okay, internally it create a Kafka
+topic,
+
+130
+00:02:30,230 --> 00:02:30,240
+topic,
+ 
+
+131
+00:02:30,240 --> 00:02:32,150
+topic,
+so we need a serialization.
+
+132
+00:02:32,150 --> 00:02:32,160
+so we need a serialization.
+ 
+
+133
+00:02:32,160 --> 00:02:34,630
+so we need a serialization.
+Similarly, RocksDB write, so when do you
+
+134
+00:02:34,630 --> 00:02:34,640
+Similarly, RocksDB write, so when do you
+ 
+
+135
+00:02:34,640 --> 00:02:37,390
+Similarly, RocksDB write, so when do you
+write into the RocksDB? Like KTable,
+
+136
+00:02:37,390 --> 00:02:37,400
+write into the RocksDB? Like KTable,
+ 
+
+137
+00:02:37,400 --> 00:02:39,870
+write into the RocksDB? Like KTable,
+global KTable. So, when we write it, we
+
+138
+00:02:39,870 --> 00:02:39,880
+global KTable. So, when we write it, we
+ 
+
+139
+00:02:39,880 --> 00:02:41,670
+global KTable. So, when we write it, we
+need serialization, convert Java object
+
+140
+00:02:41,670 --> 00:02:41,680
+need serialization, convert Java object
+ 
+
+141
+00:02:41,680 --> 00:02:42,790
+need serialization, convert Java object
+to bytes.
+
+142
+00:02:42,790 --> 00:02:42,800
+to bytes.
+ 
+
+143
+00:02:42,800 --> 00:02:44,030
+to bytes.
+Okay?
+
+144
+00:02:44,030 --> 00:02:44,040
+Okay?
+ 
+
+145
+00:02:44,040 --> 00:02:47,190
+Okay?
+Another uh processor nodes also has many
+
+146
+00:02:47,190 --> 00:02:47,200
+Another uh processor nodes also has many
+ 
+
+147
+00:02:47,200 --> 00:02:49,230
+Another uh processor nodes also has many
+uh methods which writes into the RocksDB
+
+148
+00:02:49,230 --> 00:02:49,240
+uh methods which writes into the RocksDB
+ 
+
+149
+00:02:49,240 --> 00:02:50,910
+uh methods which writes into the RocksDB
+like count, which we will see that later
+
+150
+00:02:50,910 --> 00:02:50,920
+like count, which we will see that later
+ 
+
+151
+00:02:50,920 --> 00:02:52,110
+like count, which we will see that later
+also.
+
+152
+00:02:52,110 --> 00:02:52,120
+also.
+ 
+
+153
+00:02:52,120 --> 00:02:54,790
+also.
+Similarly, RocksDB read, when do we read
+
+154
+00:02:54,790 --> 00:02:54,800
+Similarly, RocksDB read, when do we read
+ 
+
+155
+00:02:54,800 --> 00:02:57,150
+Similarly, RocksDB read, when do we read
+from the RocksDB like join, which is
+
+156
+00:02:57,150 --> 00:02:57,160
+from the RocksDB like join, which is
+ 
+
+157
+00:02:57,160 --> 00:02:58,590
+from the RocksDB like join, which is
+within a one of the method into the
+
+158
+00:02:58,590 --> 00:02:58,600
+within a one of the method into the
+ 
+
+159
+00:02:58,600 --> 00:03:01,110
+within a one of the method into the
+processor. So, it read from the RocksDB.
+
+160
+00:03:01,110 --> 00:03:01,120
+processor. So, it read from the RocksDB.
+ 
+
+161
+00:03:01,120 --> 00:03:03,750
+processor. So, it read from the RocksDB.
+So, we need deserialization capability.
+
+162
+00:03:03,750 --> 00:03:03,760
+So, we need deserialization capability.
+ 
+
+163
+00:03:03,760 --> 00:03:07,070
+So, we need deserialization capability.
+So, in short, whenever you have to read
+
+164
+00:03:07,070 --> 00:03:07,080
+So, in short, whenever you have to read
+ 
+
+165
+00:03:07,080 --> 00:03:09,790
+So, in short, whenever you have to read
+or write from Kafka topic or RocksDB,
+
+166
+00:03:09,790 --> 00:03:09,800
+or write from Kafka topic or RocksDB,
+ 
+
+167
+00:03:09,800 --> 00:03:11,190
+or write from Kafka topic or RocksDB,
+you need
+
+168
+00:03:11,190 --> 00:03:11,200
+you need
+ 
+
+169
+00:03:11,200 --> 00:03:14,750
+you need
+serializer and deserializer.
+
+170
+00:03:14,750 --> 00:03:14,760
+serializer and deserializer.
+ 
+
+171
+00:03:14,760 --> 00:03:16,150
+serializer and deserializer.
+Okay?
+
+172
+00:03:16,150 --> 00:03:16,160
+Okay?
+ 
+
+173
+00:03:16,160 --> 00:03:18,430
+Okay?
+So, these are built-in serdes.
+
+174
+00:03:18,430 --> 00:03:18,440
+So, these are built-in serdes.
+ 
+
+175
+00:03:18,440 --> 00:03:21,990
+So, these are built-in serdes.
+So, serdes.string, serdes.long,
+
+176
+00:03:21,990 --> 00:03:22,000
+So, serdes.string, serdes.long,
+ 
+
+177
+00:03:22,000 --> 00:03:25,190
+So, serdes.string, serdes.long,
+serdes.integer, double, byte array,
+
+178
+00:03:25,190 --> 00:03:25,200
+serdes.integer, double, byte array,
+ 
+
+179
+00:03:25,200 --> 00:03:27,710
+serdes.integer, double, byte array,
+float, short, boolean. So, these are
+
+180
+00:03:27,710 --> 00:03:27,720
+float, short, boolean. So, these are
+ 
+
+181
+00:03:27,720 --> 00:03:29,070
+float, short, boolean. So, these are
+inbuilt.
+
+182
+00:03:29,070 --> 00:03:29,080
+inbuilt.
+ 
+
+183
+00:03:29,080 --> 00:03:31,310
+inbuilt.
+Okay, so it can automatically cover like
+
+184
+00:03:31,310 --> 00:03:31,320
+Okay, so it can automatically cover like
+ 
+
+185
+00:03:31,320 --> 00:03:33,390
+Okay, so it can automatically cover like
+string to bytes, bytes to string. So,
+
+186
+00:03:33,390 --> 00:03:33,400
+string to bytes, bytes to string. So,
+ 
+
+187
+00:03:33,400 --> 00:03:35,270
+string to bytes, bytes to string. So,
+serdes is like combination of your
+
+188
+00:03:35,270 --> 00:03:35,280
+serdes is like combination of your
+ 
+
+189
+00:03:35,280 --> 00:03:38,790
+serdes is like combination of your
+serializer plus deserializer. So, it has
+
+190
+00:03:38,790 --> 00:03:38,800
+serializer plus deserializer. So, it has
+ 
+
+191
+00:03:38,800 --> 00:03:41,150
+serializer plus deserializer. So, it has
+So, you can say that serdes is an object
+
+192
+00:03:41,150 --> 00:03:41,160
+So, you can say that serdes is an object
+ 
+
+193
+00:03:41,160 --> 00:03:42,430
+So, you can say that serdes is an object
+which has
+
+194
+00:03:42,430 --> 00:03:42,440
+which has
+ 
+
+195
+00:03:42,440 --> 00:03:44,390
+which has
+serializer object,
+
+196
+00:03:44,390 --> 00:03:44,400
+serializer object,
+ 
+
+197
+00:03:44,400 --> 00:03:47,910
+serializer object,
+deserializer object. Okay? So, whenever
+
+198
+00:03:47,910 --> 00:03:47,920
+deserializer object. Okay? So, whenever
+ 
+
+199
+00:03:47,920 --> 00:03:49,710
+deserializer object. Okay? So, whenever
+it has to write,
+
+200
+00:03:49,710 --> 00:03:49,720
+it has to write,
+ 
+
+201
+00:03:49,720 --> 00:03:51,830
+it has to write,
+it make use of serializer object,
+
+202
+00:03:51,830 --> 00:03:51,840
+it make use of serializer object,
+ 
+
+203
+00:03:51,840 --> 00:03:54,630
+it make use of serializer object,
+whenever it has to read, it make use of
+
+204
+00:03:54,630 --> 00:03:54,640
+whenever it has to read, it make use of
+ 
+
+205
+00:03:54,640 --> 00:03:56,590
+whenever it has to read, it make use of
+deserializer object. Okay, that's why I
+
+206
+00:03:56,590 --> 00:03:56,600
+deserializer object. Okay, that's why I
+ 
+
+207
+00:03:56,600 --> 00:03:58,190
+deserializer object. Okay, that's why I
+have used both the array. With the
+
+208
+00:03:58,190 --> 00:03:58,200
+have used both the array. With the
+ 
+
+209
+00:03:58,200 --> 00:04:00,470
+have used both the array. With the
+serdes, you can do both.
+
+210
+00:04:00,470 --> 00:04:00,480
+serdes, you can do both.
+ 
+
+211
+00:04:00,480 --> 00:04:02,470
+serdes, you can do both.
+String to bytes, bytes to string.
+
+212
+00:04:02,470 --> 00:04:02,480
+String to bytes, bytes to string.
+ 
+
+213
+00:04:02,480 --> 00:04:04,310
+String to bytes, bytes to string.
+Similarly, serdes.long, long to bytes,
+
+214
+00:04:04,310 --> 00:04:04,320
+Similarly, serdes.long, long to bytes,
+ 
+
+215
+00:04:04,320 --> 00:04:06,949
+Similarly, serdes.long, long to bytes,
+bytes to long, like this.
+
+216
+00:04:06,949 --> 00:04:06,959
+bytes to long, like this.
+ 
+
+217
+00:04:06,959 --> 00:04:09,070
+bytes to long, like this.
+So, these are the inbuilt serdes which
+
+218
+00:04:09,070 --> 00:04:09,080
+So, these are the inbuilt serdes which
+ 
+
+219
+00:04:09,080 --> 00:04:11,790
+So, these are the inbuilt serdes which
+Kafka Streams provides.
+
+220
+00:04:11,790 --> 00:04:11,800
+Kafka Streams provides.
+ 
+
+221
+00:04:11,800 --> 00:04:13,830
+Kafka Streams provides.
+Now,
+
+222
+00:04:13,830 --> 00:04:13,840
+Now,
+ 
+
+223
+00:04:13,840 --> 00:04:16,270
+Now,
+serdes priority.
+
+224
+00:04:16,270 --> 00:04:16,280
+serdes priority.
+ 
+
+225
+00:04:16,280 --> 00:04:18,229
+serdes priority.
+So, there are two priority. You can say
+
+226
+00:04:18,229 --> 00:04:18,239
+So, there are two priority. You can say
+ 
+
+227
+00:04:18,239 --> 00:04:19,670
+So, there are two priority. You can say
+that low priority and high priority.
+
+228
+00:04:19,670 --> 00:04:19,680
+that low priority and high priority.
+ 
+
+229
+00:04:19,680 --> 00:04:21,470
+that low priority and high priority.
+Then the low priority, what comes is the
+
+230
+00:04:21,470 --> 00:04:21,480
+Then the low priority, what comes is the
+ 
+
+231
+00:04:21,480 --> 00:04:23,470
+Then the low priority, what comes is the
+default serdes.
+
+232
+00:04:23,470 --> 00:04:23,480
+default serdes.
+ 
+
+233
+00:04:23,480 --> 00:04:25,710
+default serdes.
+So, in application.property,
+
+234
+00:04:25,710 --> 00:04:25,720
+So, in application.property,
+ 
+
+235
+00:04:25,720 --> 00:04:27,750
+So, in application.property,
+if you give like kaf-
+
+236
+00:04:27,750 --> 00:04:27,760
+if you give like kaf-
+ 
+
+237
+00:04:27,760 --> 00:04:34,230
+if you give like kaf-
+spring.kafka.streams.properties.default.key.serde.
+
+238
+00:04:34,230 --> 00:04:34,240
+
+ 
+
+239
+00:04:34,240 --> 00:04:35,110
+
+So,
+
+240
+00:04:35,110 --> 00:04:35,120
+So,
+ 
+
+241
+00:04:35,120 --> 00:04:37,870
+So,
+see, everything is a key-value. So, we
+
+242
+00:04:37,870 --> 00:04:37,880
+see, everything is a key-value. So, we
+ 
+
+243
+00:04:37,880 --> 00:04:40,230
+see, everything is a key-value. So, we
+need serializer-deserializer for key, we
+
+244
+00:04:40,230 --> 00:04:40,240
+need serializer-deserializer for key, we
+ 
+
+245
+00:04:40,240 --> 00:04:42,630
+need serializer-deserializer for key, we
+need serializer-deserializer for value.
+
+246
+00:04:42,630 --> 00:04:42,640
+need serializer-deserializer for value.
+ 
+
+247
+00:04:42,640 --> 00:04:45,350
+need serializer-deserializer for value.
+So, one is for key, one is for value.
+
+248
+00:04:45,350 --> 00:04:45,360
+So, one is for key, one is for value.
+ 
+
+249
+00:04:45,360 --> 00:04:47,710
+So, one is for key, one is for value.
+So, in application.properties,
+
+250
+00:04:47,710 --> 00:04:47,720
+So, in application.properties,
+ 
+
+251
+00:04:47,720 --> 00:04:50,030
+So, in application.properties,
+so for key, we have provided that
+
+252
+00:04:50,030 --> 00:04:50,040
+so for key, we have provided that
+ 
+
+253
+00:04:50,040 --> 00:04:52,870
+so for key, we have provided that
+default key serdes like
+
+254
+00:04:52,870 --> 00:04:52,880
+default key serdes like
+ 
+
+255
+00:04:52,880 --> 00:04:55,230
+default key serdes like
+serde is string serde.
+
+256
+00:04:55,230 --> 00:04:55,240
+serde is string serde.
+ 
+
+257
+00:04:55,240 --> 00:04:56,630
+serde is string serde.
+Like you have provided this a string
+
+258
+00:04:56,630 --> 00:04:56,640
+Like you have provided this a string
+ 
+
+259
+00:04:56,640 --> 00:04:58,790
+Like you have provided this a string
+serde. Similarly, value serde you have
+
+260
+00:04:58,790 --> 00:04:58,800
+serde. Similarly, value serde you have
+ 
+
+261
+00:04:58,800 --> 00:05:00,909
+serde. Similarly, value serde you have
+provided whatever the serde you want to
+
+262
+00:05:00,909 --> 00:05:00,919
+provided whatever the serde you want to
+ 
+
+263
+00:05:00,919 --> 00:05:03,230
+provided whatever the serde you want to
+use out of this. Whichever you want to
+
+264
+00:05:03,230 --> 00:05:03,240
+use out of this. Whichever you want to
+ 
+
+265
+00:05:03,240 --> 00:05:05,590
+use out of this. Whichever you want to
+use, let's say I'm using a string serde.
+
+266
+00:05:05,590 --> 00:05:05,600
+use, let's say I'm using a string serde.
+ 
+
+267
+00:05:05,600 --> 00:05:07,350
+use, let's say I'm using a string serde.
+So, now we have provided here in the
+
+268
+00:05:07,350 --> 00:05:07,360
+So, now we have provided here in the
+ 
+
+269
+00:05:07,360 --> 00:05:10,230
+So, now we have provided here in the
+application.properties.
+
+270
+00:05:10,230 --> 00:05:10,240
+application.properties.
+ 
+
+271
+00:05:10,240 --> 00:05:12,110
+application.properties.
+So, what would happen? What's the
+
+272
+00:05:12,110 --> 00:05:12,120
+So, what would happen? What's the
+ 
+
+273
+00:05:12,120 --> 00:05:14,030
+So, what would happen? What's the
+advantage we will get
+
+274
+00:05:14,030 --> 00:05:14,040
+advantage we will get
+ 
+
+275
+00:05:14,040 --> 00:05:16,990
+advantage we will get
+by applying to the default serde?
+
+276
+00:05:16,990 --> 00:05:17,000
+by applying to the default serde?
+ 
+
+277
+00:05:17,000 --> 00:05:18,870
+by applying to the default serde?
+Without default serde, what we have
+
+278
+00:05:18,870 --> 00:05:18,880
+Without default serde, what we have
+ 
+
+279
+00:05:18,880 --> 00:05:21,070
+Without default serde, what we have
+seen, I have see if you have watched the
+
+280
+00:05:21,070 --> 00:05:21,080
+seen, I have see if you have watched the
+ 
+
+281
+00:05:21,080 --> 00:05:23,990
+seen, I have see if you have watched the
+previous video where in the source,
+
+282
+00:05:23,990 --> 00:05:24,000
+previous video where in the source,
+ 
+
+283
+00:05:24,000 --> 00:05:25,830
+previous video where in the source,
+KStream, KTable.
+
+284
+00:05:25,830 --> 00:05:25,840
+KStream, KTable.
+ 
+
+285
+00:05:25,840 --> 00:05:27,430
+KStream, KTable.
+So, in the KStream is like
+
+286
+00:05:27,430 --> 00:05:27,440
+So, in the KStream is like
+ 
+
+287
+00:05:27,440 --> 00:05:29,230
+So, in the KStream is like
+builder.stream topic name. So, we have
+
+288
+00:05:29,230 --> 00:05:29,240
+builder.stream topic name. So, we have
+ 
+
+289
+00:05:29,240 --> 00:05:31,550
+builder.stream topic name. So, we have
+to read it from here. From read this
+
+290
+00:05:31,550 --> 00:05:31,560
+to read it from here. From read this
+ 
+
+291
+00:05:31,560 --> 00:05:34,470
+to read it from here. From read this
+topic. So, we have to provide the
+
+292
+00:05:34,470 --> 00:05:34,480
+topic. So, we have to provide the
+ 
+
+293
+00:05:34,480 --> 00:05:36,510
+topic. So, we have to provide the
+serdes like you have to provide the
+
+294
+00:05:36,510 --> 00:05:36,520
+serdes like you have to provide the
+ 
+
+295
+00:05:36,520 --> 00:05:38,430
+serdes like you have to provide the
+serializer-deserializer.
+
+296
+00:05:38,430 --> 00:05:38,440
+serializer-deserializer.
+ 
+
+297
+00:05:38,440 --> 00:05:40,830
+serializer-deserializer.
+From KTable, we have to provide the
+
+298
+00:05:40,830 --> 00:05:40,840
+From KTable, we have to provide the
+ 
+
+299
+00:05:40,840 --> 00:05:42,790
+From KTable, we have to provide the
+serializer-deserializer
+
+300
+00:05:42,790 --> 00:05:42,800
+serializer-deserializer
+ 
+
+301
+00:05:42,800 --> 00:05:45,030
+serializer-deserializer
+because we are reading this topic.
+
+302
+00:05:45,030 --> 00:05:45,040
+because we are reading this topic.
+ 
+
+303
+00:05:45,040 --> 00:05:46,990
+because we are reading this topic.
+Similarly, in the KTable, we also
+
+304
+00:05:46,990 --> 00:05:47,000
+Similarly, in the KTable, we also
+ 
+
+305
+00:05:47,000 --> 00:05:48,910
+Similarly, in the KTable, we also
+maintain a RocksDB, and for RocksDB
+
+306
+00:05:48,910 --> 00:05:48,920
+maintain a RocksDB, and for RocksDB
+ 
+
+307
+00:05:48,920 --> 00:05:51,670
+maintain a RocksDB, and for RocksDB
+also, we have to provide key and value
+
+308
+00:05:51,670 --> 00:05:51,680
+also, we have to provide key and value
+ 
+
+309
+00:05:51,680 --> 00:05:53,550
+also, we have to provide key and value
+serializer deserializer.
+
+310
+00:05:53,550 --> 00:05:53,560
+serializer deserializer.
+ 
+
+311
+00:05:53,560 --> 00:05:55,750
+serializer deserializer.
+Similarly, global K table. So, the thing
+
+312
+00:05:55,750 --> 00:05:55,760
+Similarly, global K table. So, the thing
+ 
+
+313
+00:05:55,760 --> 00:05:59,030
+Similarly, global K table. So, the thing
+is, without default serdes, we have to
+
+314
+00:05:59,030 --> 00:05:59,040
+is, without default serdes, we have to
+ 
+
+315
+00:05:59,040 --> 00:06:02,430
+is, without default serdes, we have to
+specifically mention the key serializer
+
+316
+00:06:02,430 --> 00:06:02,440
+specifically mention the key serializer
+ 
+
+317
+00:06:02,440 --> 00:06:04,390
+specifically mention the key serializer
+or deserializer or value serializer or
+
+318
+00:06:04,390 --> 00:06:04,400
+or deserializer or value serializer or
+ 
+
+319
+00:06:04,400 --> 00:06:05,910
+or deserializer or value serializer or
+deserializer
+
+320
+00:06:05,910 --> 00:06:05,920
+deserializer
+ 
+
+321
+00:06:05,920 --> 00:06:08,350
+deserializer
+every time we cross the boundary, like
+
+322
+00:06:08,350 --> 00:06:08,360
+every time we cross the boundary, like
+ 
+
+323
+00:06:08,360 --> 00:06:10,630
+every time we cross the boundary, like
+we have to read from topic, read from
+
+324
+00:06:10,630 --> 00:06:10,640
+we have to read from topic, read from
+ 
+
+325
+00:06:10,640 --> 00:06:12,750
+we have to read from topic, read from
+RocksDB, likewise.
+
+326
+00:06:12,750 --> 00:06:12,760
+RocksDB, likewise.
+ 
+
+327
+00:06:12,760 --> 00:06:14,430
+RocksDB, likewise.
+But,
+
+328
+00:06:14,430 --> 00:06:14,440
+But,
+ 
+
+329
+00:06:14,440 --> 00:06:17,830
+But,
+when we do, when we use default, like we
+
+330
+00:06:17,830 --> 00:06:17,840
+when we do, when we use default, like we
+ 
+
+331
+00:06:17,840 --> 00:06:18,710
+when we do, when we use default, like we
+have applied into
+
+332
+00:06:18,710 --> 00:06:18,720
+have applied into
+ 
+
+333
+00:06:18,720 --> 00:06:21,230
+have applied into
+application.properties,
+
+334
+00:06:21,230 --> 00:06:21,240
+application.properties,
+ 
+
+335
+00:06:21,240 --> 00:06:23,550
+application.properties,
+this can be your minimal code.
+
+336
+00:06:23,550 --> 00:06:23,560
+this can be your minimal code.
+ 
+
+337
+00:06:23,560 --> 00:06:25,830
+this can be your minimal code.
+builder.stream, this, that's all. You
+
+338
+00:06:25,830 --> 00:06:25,840
+builder.stream, this, that's all. You
+ 
+
+339
+00:06:25,840 --> 00:06:30,350
+builder.stream, this, that's all. You
+don't have to provide this
+
+340
+00:06:30,350 --> 00:06:30,360
+don't have to provide this
+ 
+
+341
+00:06:30,360 --> 00:06:32,150
+don't have to provide this
+serializer deserializer.
+
+342
+00:06:32,150 --> 00:06:32,160
+serializer deserializer.
+ 
+
+343
+00:06:32,160 --> 00:06:34,350
+serializer deserializer.
+Similarly, this will go here, this all
+
+344
+00:06:34,350 --> 00:06:34,360
+Similarly, this will go here, this all
+ 
+
+345
+00:06:34,360 --> 00:06:37,110
+Similarly, this will go here, this all
+things will go here. Okay? So, this will
+
+346
+00:06:37,110 --> 00:06:37,120
+things will go here. Okay? So, this will
+ 
+
+347
+00:06:37,120 --> 00:06:38,790
+things will go here. Okay? So, this will
+become your minimal. You don't have to
+
+348
+00:06:38,790 --> 00:06:38,800
+become your minimal. You don't have to
+ 
+
+349
+00:06:38,800 --> 00:06:41,950
+become your minimal. You don't have to
+provide explicitly every time.
+
+350
+00:06:41,950 --> 00:06:41,960
+provide explicitly every time.
+ 
+
+351
+00:06:41,960 --> 00:06:43,630
+provide explicitly every time.
+But,
+
+352
+00:06:43,630 --> 00:06:43,640
+But,
+ 
+
+353
+00:06:43,640 --> 00:06:46,830
+But,
+this in Kafka stream, this default
+
+354
+00:06:46,830 --> 00:06:46,840
+this in Kafka stream, this default
+ 
+
+355
+00:06:46,840 --> 00:06:50,070
+this in Kafka stream, this default
+serdes is very less frequently used.
+
+356
+00:06:50,070 --> 00:06:50,080
+serdes is very less frequently used.
+ 
+
+357
+00:06:50,080 --> 00:06:52,950
+serdes is very less frequently used.
+Why? Because see, in the Kafka stream,
+
+358
+00:06:52,950 --> 00:06:52,960
+Why? Because see, in the Kafka stream,
+ 
+
+359
+00:06:52,960 --> 00:06:56,670
+Why? Because see, in the Kafka stream,
+we have pipeline. You read from source,
+
+360
+00:06:56,670 --> 00:06:56,680
+we have pipeline. You read from source,
+ 
+
+361
+00:06:56,680 --> 00:06:59,750
+we have pipeline. You read from source,
+then it goes to a processor pipeline,
+
+362
+00:06:59,750 --> 00:06:59,760
+then it goes to a processor pipeline,
+ 
+
+363
+00:06:59,760 --> 00:07:02,190
+then it goes to a processor pipeline,
+which does lot of thing, lot of changes.
+
+364
+00:07:02,190 --> 00:07:02,200
+which does lot of thing, lot of changes.
+ 
+
+365
+00:07:02,200 --> 00:07:04,950
+which does lot of thing, lot of changes.
+Ultimately, it goes to the sink.
+
+366
+00:07:04,950 --> 00:07:04,960
+Ultimately, it goes to the sink.
+ 
+
+367
+00:07:04,960 --> 00:07:08,310
+Ultimately, it goes to the sink.
+So, it is possible that the topic
+
+368
+00:07:08,310 --> 00:07:08,320
+So, it is possible that the topic
+ 
+
+369
+00:07:08,320 --> 00:07:12,510
+So, it is possible that the topic
+earlier you key was a string, let's say,
+
+370
+00:07:12,510 --> 00:07:12,520
+earlier you key was a string, let's say,
+ 
+
+371
+00:07:12,520 --> 00:07:14,470
+earlier you key was a string, let's say,
+value was a string.
+
+372
+00:07:14,470 --> 00:07:14,480
+value was a string.
+ 
+
+373
+00:07:14,480 --> 00:07:15,710
+value was a string.
+But,
+
+374
+00:07:15,710 --> 00:07:15,720
+But,
+ 
+
+375
+00:07:15,720 --> 00:07:18,230
+But,
+so, it's okay for the source. The string
+
+376
+00:07:18,230 --> 00:07:18,240
+so, it's okay for the source. The string
+ 
+
+377
+00:07:18,240 --> 00:07:20,790
+so, it's okay for the source. The string
+serdes, the string serdes, key value.
+
+378
+00:07:20,790 --> 00:07:20,800
+serdes, the string serdes, key value.
+ 
+
+379
+00:07:20,800 --> 00:07:22,670
+serdes, the string serdes, key value.
+But, during processing,
+
+380
+00:07:22,670 --> 00:07:22,680
+But, during processing,
+ 
+
+381
+00:07:22,680 --> 00:07:25,270
+But, during processing,
+my stream now become like key is a
+
+382
+00:07:25,270 --> 00:07:25,280
+my stream now become like key is a
+ 
+
+383
+00:07:25,280 --> 00:07:26,630
+my stream now become like key is a
+string,
+
+384
+00:07:26,630 --> 00:07:26,640
+string,
+ 
+
+385
+00:07:26,640 --> 00:07:28,870
+string,
+but value become long.
+
+386
+00:07:28,870 --> 00:07:28,880
+but value become long.
+ 
+
+387
+00:07:28,880 --> 00:07:31,950
+but value become long.
+Like, my agenda would be like
+
+388
+00:07:31,950 --> 00:07:31,960
+Like, my agenda would be like
+ 
+
+389
+00:07:31,960 --> 00:07:34,430
+Like, my agenda would be like
+total count
+
+390
+00:07:34,430 --> 00:07:34,440
+total count
+ 
+
+391
+00:07:34,440 --> 00:07:35,870
+total count
+of
+
+392
+00:07:35,870 --> 00:07:35,880
+of
+ 
+
+393
+00:07:35,880 --> 00:07:37,030
+of
+orders.
+
+394
+00:07:37,030 --> 00:07:37,040
+orders.
+ 
+
+395
+00:07:37,040 --> 00:07:39,990
+orders.
+So, now I just change it to the long.
+
+396
+00:07:39,990 --> 00:07:40,000
+So, now I just change it to the long.
+ 
+
+397
+00:07:40,000 --> 00:07:41,950
+So, now I just change it to the long.
+So, now here if you see, if you use
+
+398
+00:07:41,950 --> 00:07:41,960
+So, now here if you see, if you use
+ 
+
+399
+00:07:41,960 --> 00:07:43,470
+So, now here if you see, if you use
+default sort,
+
+400
+00:07:43,470 --> 00:07:43,480
+default sort,
+ 
+
+401
+00:07:43,480 --> 00:07:46,790
+default sort,
+it won't work for all scenarios now.
+
+402
+00:07:46,790 --> 00:07:46,800
+it won't work for all scenarios now.
+ 
+
+403
+00:07:46,800 --> 00:07:49,150
+it won't work for all scenarios now.
+So, only in scenarios where like
+
+404
+00:07:49,150 --> 00:07:49,160
+So, only in scenarios where like
+ 
+
+405
+00:07:49,160 --> 00:07:51,070
+So, only in scenarios where like
+whenever any particular boundary does
+
+406
+00:07:51,070 --> 00:07:51,080
+whenever any particular boundary does
+ 
+
+407
+00:07:51,080 --> 00:07:52,510
+whenever any particular boundary does
+like in source, we are reading from
+
+408
+00:07:52,510 --> 00:07:52,520
+like in source, we are reading from
+ 
+
+409
+00:07:52,520 --> 00:07:54,630
+like in source, we are reading from
+topic. In processor, you are reading in
+
+410
+00:07:54,630 --> 00:07:54,640
+topic. In processor, you are reading in
+ 
+
+411
+00:07:54,640 --> 00:07:57,070
+topic. In processor, you are reading in
+RocksDB. In sync, you are reading in
+
+412
+00:07:57,070 --> 00:07:57,080
+RocksDB. In sync, you are reading in
+ 
+
+413
+00:07:57,080 --> 00:08:00,230
+RocksDB. In sync, you are reading in
+output topic. Everywhere, you have like
+
+414
+00:08:00,230 --> 00:08:00,240
+output topic. Everywhere, you have like
+ 
+
+415
+00:08:00,240 --> 00:08:02,950
+output topic. Everywhere, you have like
+same key value, then you can go for
+
+416
+00:08:02,950 --> 00:08:02,960
+same key value, then you can go for
+ 
+
+417
+00:08:02,960 --> 00:08:04,470
+same key value, then you can go for
+application.properties.
+
+418
+00:08:04,470 --> 00:08:04,480
+application.properties.
+ 
+
+419
+00:08:04,480 --> 00:08:06,950
+application.properties.
+Otherwise, I would say that never use
+
+420
+00:08:06,950 --> 00:08:06,960
+Otherwise, I would say that never use
+ 
+
+421
+00:08:06,960 --> 00:08:09,470
+Otherwise, I would say that never use
+default sort in case of a stream because
+
+422
+00:08:09,470 --> 00:08:09,480
+default sort in case of a stream because
+ 
+
+423
+00:08:09,480 --> 00:08:12,150
+default sort in case of a stream because
+as part of a stream, it change your data
+
+424
+00:08:12,150 --> 00:08:12,160
+as part of a stream, it change your data
+ 
+
+425
+00:08:12,160 --> 00:08:13,670
+as part of a stream, it change your data
+change a lot.
+
+426
+00:08:13,670 --> 00:08:13,680
+change a lot.
+ 
+
+427
+00:08:13,680 --> 00:08:17,430
+change a lot.
+Okay? So, always use explicit one.
+
+428
+00:08:17,430 --> 00:08:17,440
+Okay? So, always use explicit one.
+ 
+
+429
+00:08:17,440 --> 00:08:19,990
+Okay? So, always use explicit one.
+That's what explicit one has the highest
+
+430
+00:08:19,990 --> 00:08:20,000
+That's what explicit one has the highest
+ 
+
+431
+00:08:20,000 --> 00:08:22,030
+That's what explicit one has the highest
+priority. So, if you're reading it
+
+432
+00:08:22,030 --> 00:08:22,040
+priority. So, if you're reading it
+ 
+
+433
+00:08:22,040 --> 00:08:25,070
+priority. So, if you're reading it
+explicitly tell that yes, treat key as a
+
+434
+00:08:25,070 --> 00:08:25,080
+explicitly tell that yes, treat key as a
+ 
+
+435
+00:08:25,080 --> 00:08:26,950
+explicitly tell that yes, treat key as a
+string, value as a string.
+
+436
+00:08:26,950 --> 00:08:26,960
+string, value as a string.
+ 
+
+437
+00:08:26,960 --> 00:08:28,430
+string, value as a string.
+KTable,
+
+438
+00:08:28,430 --> 00:08:28,440
+KTable,
+ 
+
+439
+00:08:28,440 --> 00:08:29,950
+KTable,
+treat key as a string, value as a
+
+440
+00:08:29,950 --> 00:08:29,960
+treat key as a string, value as a
+ 
+
+441
+00:08:29,960 --> 00:08:33,790
+treat key as a string, value as a
+string. When you're writing into the DB,
+
+442
+00:08:33,790 --> 00:08:33,800
+string. When you're writing into the DB,
+ 
+
+443
+00:08:33,800 --> 00:08:35,870
+string. When you're writing into the DB,
+your serializer would be a key as a
+
+444
+00:08:35,870 --> 00:08:35,880
+your serializer would be a key as a
+ 
+
+445
+00:08:35,880 --> 00:08:38,630
+your serializer would be a key as a
+string, value serializer would be a
+
+446
+00:08:38,630 --> 00:08:38,640
+string, value serializer would be a
+ 
+
+447
+00:08:38,640 --> 00:08:41,310
+string, value serializer would be a
+string. Likewise, explicitly we have to
+
+448
+00:08:41,310 --> 00:08:41,320
+string. Likewise, explicitly we have to
+ 
+
+449
+00:08:41,320 --> 00:08:43,469
+string. Likewise, explicitly we have to
+tell. And that set is the highest
+
+450
+00:08:43,469 --> 00:08:43,479
+tell. And that set is the highest
+ 
+
+451
+00:08:43,479 --> 00:08:45,350
+tell. And that set is the highest
+priority.
+
+452
+00:08:45,350 --> 00:08:45,360
+priority.
+ 
+
+453
+00:08:45,360 --> 00:08:47,910
+priority.
+Clear?
+
+454
+00:08:47,910 --> 00:08:47,920
+
+ 
+
+455
+00:08:47,920 --> 00:08:50,750
+
+Okay? So, the same thing. Explicitly we
+
+456
+00:08:50,750 --> 00:08:50,760
+Okay? So, the same thing. Explicitly we
+ 
+
+457
+00:08:50,760 --> 00:08:53,670
+Okay? So, the same thing. Explicitly we
+are writing during source, during sync
+
+458
+00:08:53,670 --> 00:08:53,680
+are writing during source, during sync
+ 
+
+459
+00:08:53,680 --> 00:08:56,390
+are writing during source, during sync
+also. So, like we are writing into the
+
+460
+00:08:56,390 --> 00:08:56,400
+also. So, like we are writing into the
+ 
+
+461
+00:08:56,400 --> 00:08:59,670
+also. So, like we are writing into the
+topic order.dot2. We are
+
+462
+00:08:59,670 --> 00:08:59,680
+topic order.dot2. We are
+ 
+
+463
+00:08:59,680 --> 00:09:02,910
+topic order.dot2. We are
+explicitly telling that produced with
+
+464
+00:09:02,910 --> 00:09:02,920
+explicitly telling that produced with
+ 
+
+465
+00:09:02,920 --> 00:09:05,670
+explicitly telling that produced with
+your key serializer and the value
+
+466
+00:09:05,670 --> 00:09:05,680
+your key serializer and the value
+ 
+
+467
+00:09:05,680 --> 00:09:07,630
+your key serializer and the value
+serializer. Use a string a string
+
+468
+00:09:07,630 --> 00:09:07,640
+serializer. Use a string a string
+ 
+
+469
+00:09:07,640 --> 00:09:09,310
+serializer. Use a string a string
+serializer.
+
+470
+00:09:09,310 --> 00:09:09,320
+serializer.
+ 
+
+471
+00:09:09,320 --> 00:09:10,790
+serializer.
+Okay?
+
+472
+00:09:10,790 --> 00:09:10,800
+Okay?
+ 
+
+473
+00:09:10,800 --> 00:09:13,710
+Okay?
+So, RocksDB file. So, explicitly we have
+
+474
+00:09:13,710 --> 00:09:13,720
+So, RocksDB file. So, explicitly we have
+ 
+
+475
+00:09:13,720 --> 00:09:16,070
+So, RocksDB file. So, explicitly we have
+to tell everywhere.
+
+476
+00:09:16,070 --> 00:09:16,080
+to tell everywhere.
+ 
+
+477
+00:09:16,080 --> 00:09:17,790
+to tell everywhere.
+Now, one question might have come. Hey
+
+478
+00:09:17,790 --> 00:09:17,800
+Now, one question might have come. Hey
+ 
+
+479
+00:09:17,800 --> 00:09:19,310
+Now, one question might have come. Hey
+Shayansh,
+
+480
+00:09:19,310 --> 00:09:19,320
+Shayansh,
+ 
+
+481
+00:09:19,320 --> 00:09:20,990
+Shayansh,
+got it.
+
+482
+00:09:20,990 --> 00:09:21,000
+got it.
+ 
+
+483
+00:09:21,000 --> 00:09:24,590
+got it.
+But, the list you have see shown, the
+
+484
+00:09:24,590 --> 00:09:24,600
+But, the list you have see shown, the
+ 
+
+485
+00:09:24,600 --> 00:09:27,350
+But, the list you have see shown, the
+built-in sorts, we have a string, long,
+
+486
+00:09:27,350 --> 00:09:27,360
+built-in sorts, we have a string, long,
+ 
+
+487
+00:09:27,360 --> 00:09:29,829
+built-in sorts, we have a string, long,
+integer, double, bytes, float, short,
+
+488
+00:09:29,829 --> 00:09:29,839
+integer, double, bytes, float, short,
+ 
+
+489
+00:09:29,839 --> 00:09:32,150
+integer, double, bytes, float, short,
+boolean. But, what about custom Java
+
+490
+00:09:32,150 --> 00:09:32,160
+boolean. But, what about custom Java
+ 
+
+491
+00:09:32,160 --> 00:09:35,910
+boolean. But, what about custom Java
+objects? Like, what about I have order,
+
+492
+00:09:35,910 --> 00:09:35,920
+objects? Like, what about I have order,
+ 
+
+493
+00:09:35,920 --> 00:09:38,670
+objects? Like, what about I have order,
+customer object, countries object. How
+
+494
+00:09:38,670 --> 00:09:38,680
+customer object, countries object. How
+ 
+
+495
+00:09:38,680 --> 00:09:40,510
+customer object, countries object. How
+to handle those?
+
+496
+00:09:40,510 --> 00:09:40,520
+to handle those?
+ 
+
+497
+00:09:40,520 --> 00:09:43,910
+to handle those?
+So, there is already inbuilt cert, which
+
+498
+00:09:43,910 --> 00:09:43,920
+So, there is already inbuilt cert, which
+ 
+
+499
+00:09:43,920 --> 00:09:45,830
+So, there is already inbuilt cert, which
+is JSON cert.
+
+500
+00:09:45,830 --> 00:09:45,840
+is JSON cert.
+ 
+
+501
+00:09:45,840 --> 00:09:47,550
+is JSON cert.
+We can use that.
+
+502
+00:09:47,550 --> 00:09:47,560
+We can use that.
+ 
+
+503
+00:09:47,560 --> 00:09:49,430
+We can use that.
+Now, let's say for example, at this
+
+504
+00:09:49,430 --> 00:09:49,440
+Now, let's say for example, at this
+ 
+
+505
+00:09:49,440 --> 00:09:50,670
+Now, let's say for example, at this
+point of time
+
+506
+00:09:50,670 --> 00:09:50,680
+point of time
+ 
+
+507
+00:09:50,680 --> 00:09:53,390
+point of time
+I will just show you that what if we
+
+508
+00:09:53,390 --> 00:09:53,400
+I will just show you that what if we
+ 
+
+509
+00:09:53,400 --> 00:09:57,070
+I will just show you that what if we
+have to write our own this JSON cert.
+
+510
+00:09:57,070 --> 00:09:57,080
+have to write our own this JSON cert.
+ 
+
+511
+00:09:57,080 --> 00:09:58,950
+have to write our own this JSON cert.
+It's already inbuilt. It's already built
+
+512
+00:09:58,950 --> 00:09:58,960
+It's already inbuilt. It's already built
+ 
+
+513
+00:09:58,960 --> 00:10:00,430
+It's already inbuilt. It's already built
+in into the framework. We don't have to
+
+514
+00:10:00,430 --> 00:10:00,440
+in into the framework. We don't have to
+ 
+
+515
+00:10:00,440 --> 00:10:02,390
+in into the framework. We don't have to
+write. But, I will just show you that if
+
+516
+00:10:02,390 --> 00:10:02,400
+write. But, I will just show you that if
+ 
+
+517
+00:10:02,400 --> 00:10:05,070
+write. But, I will just show you that if
+we have to build our own, how to build
+
+518
+00:10:05,070 --> 00:10:05,080
+we have to build our own, how to build
+ 
+
+519
+00:10:05,080 --> 00:10:06,550
+we have to build our own, how to build
+that.
+
+520
+00:10:06,550 --> 00:10:06,560
+that.
+ 
+
+521
+00:10:06,560 --> 00:10:08,630
+that.
+So, first step is we have to write a
+
+522
+00:10:08,630 --> 00:10:08,640
+So, first step is we have to write a
+ 
+
+523
+00:10:08,640 --> 00:10:10,150
+So, first step is we have to write a
+serializer.
+
+524
+00:10:10,150 --> 00:10:10,160
+serializer.
+ 
+
+525
+00:10:10,160 --> 00:10:11,710
+serializer.
+Now, let's say I'm writing a serializer
+
+526
+00:10:11,710 --> 00:10:11,720
+Now, let's say I'm writing a serializer
+ 
+
+527
+00:10:11,720 --> 00:10:15,070
+Now, let's say I'm writing a serializer
+that JSON serializer
+
+528
+00:10:15,070 --> 00:10:15,080
+that JSON serializer
+ 
+
+529
+00:10:15,080 --> 00:10:17,070
+that JSON serializer
+implements serializer class. So, this
+
+530
+00:10:17,070 --> 00:10:17,080
+implements serializer class. So, this
+ 
+
+531
+00:10:17,080 --> 00:10:19,270
+implements serializer class. So, this
+serializer belongs to this Kafka common
+
+532
+00:10:19,270 --> 00:10:19,280
+serializer belongs to this Kafka common
+ 
+
+533
+00:10:19,280 --> 00:10:21,430
+serializer belongs to this Kafka common
+serialization. serializer. So, we have
+
+534
+00:10:21,430 --> 00:10:21,440
+serialization. serializer. So, we have
+ 
+
+535
+00:10:21,440 --> 00:10:22,910
+serialization. serializer. So, we have
+to implement this.
+
+536
+00:10:22,910 --> 00:10:22,920
+to implement this.
+ 
+
+537
+00:10:22,920 --> 00:10:24,830
+to implement this.
+Okay? And we have to provide an
+
+538
+00:10:24,830 --> 00:10:24,840
+Okay? And we have to provide an
+ 
+
+539
+00:10:24,840 --> 00:10:27,310
+Okay? And we have to provide an
+implementation for this override method
+
+540
+00:10:27,310 --> 00:10:27,320
+implementation for this override method
+ 
+
+541
+00:10:27,320 --> 00:10:28,870
+implementation for this override method
+serialize.
+
+542
+00:10:28,870 --> 00:10:28,880
+serialize.
+ 
+
+543
+00:10:28,880 --> 00:10:31,030
+serialize.
+Now, how you want to serialize? That's
+
+544
+00:10:31,030 --> 00:10:31,040
+Now, how you want to serialize? That's
+ 
+
+545
+00:10:31,040 --> 00:10:33,190
+Now, how you want to serialize? That's
+the logic here. You have to do that. So,
+
+546
+00:10:33,190 --> 00:10:33,200
+the logic here. You have to do that. So,
+ 
+
+547
+00:10:33,200 --> 00:10:35,790
+the logic here. You have to do that. So,
+currently I'm just using simple Jackson.
+
+548
+00:10:35,790 --> 00:10:35,800
+currently I'm just using simple Jackson.
+ 
+
+549
+00:10:35,800 --> 00:10:38,550
+currently I'm just using simple Jackson.
+So, object mapper write value as byte.
+
+550
+00:10:38,550 --> 00:10:38,560
+So, object mapper write value as byte.
+ 
+
+551
+00:10:38,560 --> 00:10:39,710
+So, object mapper write value as byte.
+That's all.
+
+552
+00:10:39,710 --> 00:10:39,720
+That's all.
+ 
+
+553
+00:10:39,720 --> 00:10:42,270
+That's all.
+Whatever the data So, see the my data is
+
+554
+00:10:42,270 --> 00:10:42,280
+Whatever the data So, see the my data is
+ 
+
+555
+00:10:42,280 --> 00:10:44,230
+Whatever the data So, see the my data is
+T is of generic type. Here in this
+
+556
+00:10:44,230 --> 00:10:44,240
+T is of generic type. Here in this
+ 
+
+557
+00:10:44,240 --> 00:10:45,630
+T is of generic type. Here in this
+serialize method
+
+558
+00:10:45,630 --> 00:10:45,640
+serialize method
+ 
+
+559
+00:10:45,640 --> 00:10:48,870
+serialize method
+this data is of generic type. Okay?
+
+560
+00:10:48,870 --> 00:10:48,880
+this data is of generic type. Okay?
+ 
+
+561
+00:10:48,880 --> 00:10:51,750
+this data is of generic type. Okay?
+Now, whether you have got a object uh
+
+562
+00:10:51,750 --> 00:10:51,760
+Now, whether you have got a object uh
+ 
+
+563
+00:10:51,760 --> 00:10:54,070
+Now, whether you have got a object uh
+let's say order
+
+564
+00:10:54,070 --> 00:10:54,080
+let's say order
+ 
+
+565
+00:10:54,080 --> 00:10:56,670
+let's say order
+payment, customer, whatever the object,
+
+566
+00:10:56,670 --> 00:10:56,680
+payment, customer, whatever the object,
+ 
+
+567
+00:10:56,680 --> 00:10:58,110
+payment, customer, whatever the object,
+you can pass it.
+
+568
+00:10:58,110 --> 00:10:58,120
+you can pass it.
+ 
+
+569
+00:10:58,120 --> 00:11:00,510
+you can pass it.
+That I can just write value as a byte.
+
+570
+00:11:00,510 --> 00:11:00,520
+That I can just write value as a byte.
+ 
+
+571
+00:11:00,520 --> 00:11:02,550
+That I can just write value as a byte.
+So, I can serialize it. Convert the
+
+572
+00:11:02,550 --> 00:11:02,560
+So, I can serialize it. Convert the
+ 
+
+573
+00:11:02,560 --> 00:11:05,990
+So, I can serialize it. Convert the
+object to bytes using Jackson.
+
+574
+00:11:05,990 --> 00:11:06,000
+object to bytes using Jackson.
+ 
+
+575
+00:11:06,000 --> 00:11:09,470
+object to bytes using Jackson.
+Okay? I am just returning bytes array.
+
+576
+00:11:09,470 --> 00:11:09,480
+Okay? I am just returning bytes array.
+ 
+
+577
+00:11:09,480 --> 00:11:11,070
+Okay? I am just returning bytes array.
+Now, the second is you have to write
+
+578
+00:11:11,070 --> 00:11:11,080
+Now, the second is you have to write
+ 
+
+579
+00:11:11,080 --> 00:11:13,910
+Now, the second is you have to write
+deserializer. So, for deserializer
+
+580
+00:11:13,910 --> 00:11:13,920
+deserializer. So, for deserializer
+ 
+
+581
+00:11:13,920 --> 00:11:15,190
+deserializer. So, for deserializer
+whatever the class name you have to
+
+582
+00:11:15,190 --> 00:11:15,200
+whatever the class name you have to
+ 
+
+583
+00:11:15,200 --> 00:11:18,190
+whatever the class name you have to
+give, implement this deserializer class.
+
+584
+00:11:18,190 --> 00:11:18,200
+give, implement this deserializer class.
+ 
+
+585
+00:11:18,200 --> 00:11:18,550
+give, implement this deserializer class.
+Okay?
+
+586
+00:11:18,550 --> 00:11:18,560
+Okay?
+ 
+
+587
+00:11:18,560 --> 00:11:22,790
+Okay?
+Kafka.common.serialization.deserializer.
+
+588
+00:11:22,790 --> 00:11:22,800
+
+ 
+
+589
+00:11:22,800 --> 00:11:25,190
+
+Now, when you have to deserialize means
+
+590
+00:11:25,190 --> 00:11:25,200
+Now, when you have to deserialize means
+ 
+
+591
+00:11:25,200 --> 00:11:28,230
+Now, when you have to deserialize means
+from bytes bytes array
+
+592
+00:11:28,230 --> 00:11:28,240
+from bytes bytes array
+ 
+
+593
+00:11:28,240 --> 00:11:32,590
+from bytes bytes array
+to Java object. Now, only thing is
+
+594
+00:11:32,590 --> 00:11:32,600
+to Java object. Now, only thing is
+ 
+
+595
+00:11:32,600 --> 00:11:34,510
+to Java object. Now, only thing is
+we have to tell that whatever the bytes
+
+596
+00:11:34,510 --> 00:11:34,520
+we have to tell that whatever the bytes
+ 
+
+597
+00:11:34,520 --> 00:11:36,950
+we have to tell that whatever the bytes
+we are getting in which object type we
+
+598
+00:11:36,950 --> 00:11:36,960
+we are getting in which object type we
+ 
+
+599
+00:11:36,960 --> 00:11:38,670
+we are getting in which object type we
+have to convert. That's the only thing
+
+600
+00:11:38,670 --> 00:11:38,680
+have to convert. That's the only thing
+ 
+
+601
+00:11:38,680 --> 00:11:40,310
+have to convert. That's the only thing
+extra in the deserialization. We also
+
+602
+00:11:40,310 --> 00:11:40,320
+extra in the deserialization. We also
+ 
+
+603
+00:11:40,320 --> 00:11:42,190
+extra in the deserialization. We also
+have to explicitly tell which object
+
+604
+00:11:42,190 --> 00:11:42,200
+have to explicitly tell which object
+ 
+
+605
+00:11:42,200 --> 00:11:45,550
+have to explicitly tell which object
+type. See, in during case of serializer,
+
+606
+00:11:45,550 --> 00:11:45,560
+type. See, in during case of serializer,
+ 
+
+607
+00:11:45,560 --> 00:11:47,150
+type. See, in during case of serializer,
+we don't have to tell object type
+
+608
+00:11:47,150 --> 00:11:47,160
+we don't have to tell object type
+ 
+
+609
+00:11:47,160 --> 00:11:49,230
+we don't have to tell object type
+because we are already getting the data.
+
+610
+00:11:49,230 --> 00:11:49,240
+because we are already getting the data.
+ 
+
+611
+00:11:49,240 --> 00:11:51,430
+because we are already getting the data.
+Whether order object, payment object,
+
+612
+00:11:51,430 --> 00:11:51,440
+Whether order object, payment object,
+ 
+
+613
+00:11:51,440 --> 00:11:53,070
+Whether order object, payment object,
+whatever the object, we just have to
+
+614
+00:11:53,070 --> 00:11:53,080
+whatever the object, we just have to
+ 
+
+615
+00:11:53,080 --> 00:11:54,790
+whatever the object, we just have to
+convert it to byte.
+
+616
+00:11:54,790 --> 00:11:54,800
+convert it to byte.
+ 
+
+617
+00:11:54,800 --> 00:11:57,030
+convert it to byte.
+But when we convert from bytes to
+
+618
+00:11:57,030 --> 00:11:57,040
+But when we convert from bytes to
+ 
+
+619
+00:11:57,040 --> 00:11:59,270
+But when we convert from bytes to
+object, we have to tell which object,
+
+620
+00:11:59,270 --> 00:11:59,280
+object, we have to tell which object,
+ 
+
+621
+00:11:59,280 --> 00:12:02,070
+object, we have to tell which object,
+okay? So, that's where the target class.
+
+622
+00:12:02,070 --> 00:12:02,080
+okay? So, that's where the target class.
+ 
+
+623
+00:12:02,080 --> 00:12:05,310
+okay? So, that's where the target class.
+Let's say order.class or payments.class,
+
+624
+00:12:05,310 --> 00:12:05,320
+Let's say order.class or payments.class,
+ 
+
+625
+00:12:05,320 --> 00:12:07,070
+Let's say order.class or payments.class,
+which object type you have to convert.
+
+626
+00:12:07,070 --> 00:12:07,080
+which object type you have to convert.
+ 
+
+627
+00:12:07,080 --> 00:12:09,550
+which object type you have to convert.
+That's the only extra information it
+
+628
+00:12:09,550 --> 00:12:09,560
+That's the only extra information it
+ 
+
+629
+00:12:09,560 --> 00:12:10,950
+That's the only extra information it
+required.
+
+630
+00:12:10,950 --> 00:12:10,960
+required.
+ 
+
+631
+00:12:10,960 --> 00:12:13,430
+required.
+So, we have to provide an implementation
+
+632
+00:12:13,430 --> 00:12:13,440
+So, we have to provide an implementation
+ 
+
+633
+00:12:13,440 --> 00:12:15,870
+So, we have to provide an implementation
+of this override method.
+
+634
+00:12:15,870 --> 00:12:15,880
+of this override method.
+ 
+
+635
+00:12:15,880 --> 00:12:18,110
+of this override method.
+objectmapper.readValue,
+
+636
+00:12:18,110 --> 00:12:18,120
+objectmapper.readValue,
+ 
+
+637
+00:12:18,120 --> 00:12:20,510
+objectmapper.readValue,
+whatever the data bytes array, convert
+
+638
+00:12:20,510 --> 00:12:20,520
+whatever the data bytes array, convert
+ 
+
+639
+00:12:20,520 --> 00:12:23,510
+whatever the data bytes array, convert
+to this target type. Okay? So, target
+
+640
+00:12:23,510 --> 00:12:23,520
+to this target type. Okay? So, target
+ 
+
+641
+00:12:23,520 --> 00:12:26,310
+to this target type. Okay? So, target
+type is like we will pass it.
+
+642
+00:12:26,310 --> 00:12:26,320
+type is like we will pass it.
+ 
+
+643
+00:12:26,320 --> 00:12:28,990
+type is like we will pass it.
+order.class, payments.class. So, convert
+
+644
+00:12:28,990 --> 00:12:29,000
+order.class, payments.class. So, convert
+ 
+
+645
+00:12:29,000 --> 00:12:31,190
+order.class, payments.class. So, convert
+the bytes array to this one.
+
+646
+00:12:31,190 --> 00:12:31,200
+the bytes array to this one.
+ 
+
+647
+00:12:31,200 --> 00:12:33,630
+the bytes array to this one.
+Very, very generic. Nothing if you are
+
+648
+00:12:33,630 --> 00:12:33,640
+Very, very generic. Nothing if you are
+ 
+
+649
+00:12:33,640 --> 00:12:34,910
+Very, very generic. Nothing if you are
+working with
+
+650
+00:12:34,910 --> 00:12:34,920
+working with
+ 
+
+651
+00:12:34,920 --> 00:12:36,750
+working with
+day-to-day work with Java, you might
+
+652
+00:12:36,750 --> 00:12:36,760
+day-to-day work with Java, you might
+ 
+
+653
+00:12:36,760 --> 00:12:38,230
+day-to-day work with Java, you might
+have already written this serializer
+
+654
+00:12:38,230 --> 00:12:38,240
+have already written this serializer
+ 
+
+655
+00:12:38,240 --> 00:12:40,710
+have already written this serializer
+deserializer. Like I'm using just normal
+
+656
+00:12:40,710 --> 00:12:40,720
+deserializer. Like I'm using just normal
+ 
+
+657
+00:12:40,720 --> 00:12:44,350
+deserializer. Like I'm using just normal
+Jackson. Okay? So, it has done that. So,
+
+658
+00:12:44,350 --> 00:12:44,360
+Jackson. Okay? So, it has done that. So,
+ 
+
+659
+00:12:44,360 --> 00:12:46,710
+Jackson. Okay? So, it has done that. So,
+I have written the deserializer also.
+
+660
+00:12:46,710 --> 00:12:46,720
+I have written the deserializer also.
+ 
+
+661
+00:12:46,720 --> 00:12:49,310
+I have written the deserializer also.
+Now, I have written the third serde,
+
+662
+00:12:49,310 --> 00:12:49,320
+Now, I have written the third serde,
+ 
+
+663
+00:12:49,320 --> 00:12:51,110
+Now, I have written the third serde,
+combination of serializer plus
+
+664
+00:12:51,110 --> 00:12:51,120
+combination of serializer plus
+ 
+
+665
+00:12:51,120 --> 00:12:52,310
+combination of serializer plus
+deserializer.
+
+666
+00:12:52,310 --> 00:12:52,320
+deserializer.
+ 
+
+667
+00:12:52,320 --> 00:12:53,750
+deserializer.
+So, I've given the name class JSON
+
+668
+00:12:53,750 --> 00:12:53,760
+So, I've given the name class JSON
+ 
+
+669
+00:12:53,760 --> 00:12:54,790
+So, I've given the name class JSON
+serde.
+
+670
+00:12:54,790 --> 00:12:54,800
+serde.
+ 
+
+671
+00:12:54,800 --> 00:12:58,110
+serde.
+implements this SCRD serde.
+
+672
+00:12:58,110 --> 00:12:58,120
+implements this SCRD serde.
+ 
+
+673
+00:12:58,120 --> 00:13:01,230
+implements this SCRD serde.
+kafka.common.serialization.serdes.
+
+674
+00:13:01,230 --> 00:13:01,240
+
+ 
+
+675
+00:13:01,240 --> 00:13:04,030
+
+Okay? So, we have to just implement
+
+676
+00:13:04,030 --> 00:13:04,040
+Okay? So, we have to just implement
+ 
+
+677
+00:13:04,040 --> 00:13:04,910
+Okay? So, we have to just implement
+this.
+
+678
+00:13:04,910 --> 00:13:04,920
+this.
+ 
+
+679
+00:13:04,920 --> 00:13:07,470
+this.
+Okay? Now, in this we have
+
+680
+00:13:07,470 --> 00:13:07,480
+Okay? Now, in this we have
+ 
+
+681
+00:13:07,480 --> 00:13:09,670
+Okay? Now, in this we have
+combination of both, serializer, the
+
+682
+00:13:09,670 --> 00:13:09,680
+combination of both, serializer, the
+ 
+
+683
+00:13:09,680 --> 00:13:11,510
+combination of both, serializer, the
+JSON serializer we have written.
+
+684
+00:13:11,510 --> 00:13:11,520
+JSON serializer we have written.
+ 
+
+685
+00:13:11,520 --> 00:13:13,270
+JSON serializer we have written.
+Deserializer, the JSON deserializer we
+
+686
+00:13:13,270 --> 00:13:13,280
+Deserializer, the JSON deserializer we
+ 
+
+687
+00:13:13,280 --> 00:13:14,470
+Deserializer, the JSON deserializer we
+have written.
+
+688
+00:13:14,470 --> 00:13:14,480
+have written.
+ 
+
+689
+00:13:14,480 --> 00:13:16,550
+have written.
+Okay? And when you implement this, you
+
+690
+00:13:16,550 --> 00:13:16,560
+Okay? And when you implement this, you
+ 
+
+691
+00:13:16,560 --> 00:13:18,750
+Okay? And when you implement this, you
+have to override this two methods.
+
+692
+00:13:18,750 --> 00:13:18,760
+have to override this two methods.
+ 
+
+693
+00:13:18,760 --> 00:13:21,190
+have to override this two methods.
+Serializer method, deserializer method,
+
+694
+00:13:21,190 --> 00:13:21,200
+Serializer method, deserializer method,
+ 
+
+695
+00:13:21,200 --> 00:13:22,950
+Serializer method, deserializer method,
+where we have to return this objects.
+
+696
+00:13:22,950 --> 00:13:22,960
+where we have to return this objects.
+ 
+
+697
+00:13:22,960 --> 00:13:25,310
+where we have to return this objects.
+That's all. Nothing else.
+
+698
+00:13:25,310 --> 00:13:25,320
+That's all. Nothing else.
+ 
+
+699
+00:13:25,320 --> 00:13:28,550
+That's all. Nothing else.
+All the work is done by this only.
+
+700
+00:13:28,550 --> 00:13:28,560
+All the work is done by this only.
+ 
+
+701
+00:13:28,560 --> 00:13:30,630
+All the work is done by this only.
+Only thing is this third with the class
+
+702
+00:13:30,630 --> 00:13:30,640
+Only thing is this third with the class
+ 
+
+703
+00:13:30,640 --> 00:13:32,110
+Only thing is this third with the class
+which we have created. It's just a
+
+704
+00:13:32,110 --> 00:13:32,120
+which we have created. It's just a
+ 
+
+705
+00:13:32,120 --> 00:13:33,350
+which we have created. It's just a
+combination of the serializer
+
+706
+00:13:33,350 --> 00:13:33,360
+combination of the serializer
+ 
+
+707
+00:13:33,360 --> 00:13:35,510
+combination of the serializer
+deserializer which we have created.
+
+708
+00:13:35,510 --> 00:13:35,520
+deserializer which we have created.
+ 
+
+709
+00:13:35,520 --> 00:13:37,870
+deserializer which we have created.
+That's all.
+
+710
+00:13:37,870 --> 00:13:37,880
+That's all.
+ 
+
+711
+00:13:37,880 --> 00:13:39,910
+That's all.
+And the good thing is we don't have to
+
+712
+00:13:39,910 --> 00:13:39,920
+And the good thing is we don't have to
+ 
+
+713
+00:13:39,920 --> 00:13:41,670
+And the good thing is we don't have to
+write this. It's already present into
+
+714
+00:13:41,670 --> 00:13:41,680
+write this. It's already present into
+ 
+
+715
+00:13:41,680 --> 00:13:44,710
+write this. It's already present into
+the framework. I just wanted to show you
+
+716
+00:13:44,710 --> 00:13:44,720
+the framework. I just wanted to show you
+ 
+
+717
+00:13:44,720 --> 00:13:47,230
+the framework. I just wanted to show you
+that we can write you can write your own
+
+718
+00:13:47,230 --> 00:13:47,240
+that we can write you can write your own
+ 
+
+719
+00:13:47,240 --> 00:13:48,830
+that we can write you can write your own
+serializer deserializer if you have some
+
+720
+00:13:48,830 --> 00:13:48,840
+serializer deserializer if you have some
+ 
+
+721
+00:13:48,840 --> 00:13:50,910
+serializer deserializer if you have some
+different logic.
+
+722
+00:13:50,910 --> 00:13:50,920
+different logic.
+ 
+
+723
+00:13:50,920 --> 00:13:54,510
+different logic.
+Okay?
+
+724
+00:13:54,510 --> 00:13:54,520
+
+ 
+
+725
+00:13:54,520 --> 00:13:57,190
+
+So now we have to just use this.
+
+726
+00:13:57,190 --> 00:13:57,200
+So now we have to just use this.
+ 
+
+727
+00:13:57,200 --> 00:13:59,070
+So now we have to just use this.
+Now let's say we have created this our
+
+728
+00:13:59,070 --> 00:13:59,080
+Now let's say we have created this our
+ 
+
+729
+00:13:59,080 --> 00:14:02,030
+Now let's say we have created this our
+own custom third. We can use it.
+
+730
+00:14:02,030 --> 00:14:02,040
+own custom third. We can use it.
+ 
+
+731
+00:14:02,040 --> 00:14:03,950
+own custom third. We can use it.
+How we can use it? Let's say a stream
+
+732
+00:14:03,950 --> 00:14:03,960
+How we can use it? Let's say a stream
+ 
+
+733
+00:14:03,960 --> 00:14:06,310
+How we can use it? Let's say a stream
+builder. Okay? Now in the builder, you
+
+734
+00:14:06,310 --> 00:14:06,320
+builder. Okay? Now in the builder, you
+ 
+
+735
+00:14:06,320 --> 00:14:08,790
+builder. Okay? Now in the builder, you
+know that let's say builder.stream. So
+
+736
+00:14:08,790 --> 00:14:08,800
+know that let's say builder.stream. So
+ 
+
+737
+00:14:08,800 --> 00:14:11,750
+know that let's say builder.stream. So
+I'm using I'm creating a KStream.
+
+738
+00:14:11,750 --> 00:14:11,760
+I'm using I'm creating a KStream.
+ 
+
+739
+00:14:11,760 --> 00:14:14,590
+I'm using I'm creating a KStream.
+Builder.stream, the topic from which I
+
+740
+00:14:14,590 --> 00:14:14,600
+Builder.stream, the topic from which I
+ 
+
+741
+00:14:14,600 --> 00:14:17,590
+Builder.stream, the topic from which I
+have to read. Now I have to provide like
+
+742
+00:14:17,590 --> 00:14:17,600
+have to read. Now I have to provide like
+ 
+
+743
+00:14:17,600 --> 00:14:19,230
+have to read. Now I have to provide like
+read write topic. We have to read from
+
+744
+00:14:19,230 --> 00:14:19,240
+read write topic. We have to read from
+ 
+
+745
+00:14:19,240 --> 00:14:21,550
+read write topic. We have to read from
+topic means we have to provide the key
+
+746
+00:14:21,550 --> 00:14:21,560
+topic means we have to provide the key
+ 
+
+747
+00:14:21,560 --> 00:14:23,790
+topic means we have to provide the key
+and value serializer deserializer.
+
+748
+00:14:23,790 --> 00:14:23,800
+and value serializer deserializer.
+ 
+
+749
+00:14:23,800 --> 00:14:26,430
+and value serializer deserializer.
+So consume with because we are consuming
+
+750
+00:14:26,430 --> 00:14:26,440
+So consume with because we are consuming
+ 
+
+751
+00:14:26,440 --> 00:14:31,230
+So consume with because we are consuming
+the data from the topic. Consume with.
+
+752
+00:14:31,230 --> 00:14:31,240
+the data from the topic. Consume with.
+ 
+
+753
+00:14:31,240 --> 00:14:34,310
+the data from the topic. Consume with.
+What should be the key? Thirds.string.
+
+754
+00:14:34,310 --> 00:14:34,320
+What should be the key? Thirds.string.
+ 
+
+755
+00:14:34,320 --> 00:14:36,710
+What should be the key? Thirds.string.
+And the value I am using is order third.
+
+756
+00:14:36,710 --> 00:14:36,720
+And the value I am using is order third.
+ 
+
+757
+00:14:36,720 --> 00:14:40,670
+And the value I am using is order third.
+So here I am creating our order third
+
+758
+00:14:40,670 --> 00:14:40,680
+So here I am creating our order third
+ 
+
+759
+00:14:40,680 --> 00:14:42,070
+So here I am creating our order third
+object.
+
+760
+00:14:42,070 --> 00:14:42,080
+object.
+ 
+
+761
+00:14:42,080 --> 00:14:45,350
+object.
+Okay? New JSON third over class
+
+762
+00:14:45,350 --> 00:14:45,360
+Okay? New JSON third over class
+ 
+
+763
+00:14:45,360 --> 00:14:48,470
+Okay? New JSON third over class
+order.class, the type. So this one.
+
+764
+00:14:48,470 --> 00:14:48,480
+order.class, the type. So this one.
+ 
+
+765
+00:14:48,480 --> 00:14:49,390
+order.class, the type. So this one.
+Okay?
+
+766
+00:14:49,390 --> 00:14:49,400
+Okay?
+ 
+
+767
+00:14:49,400 --> 00:14:51,030
+Okay?
+So this is a constructor. We have just
+
+768
+00:14:51,030 --> 00:14:51,040
+So this is a constructor. We have just
+ 
+
+769
+00:14:51,040 --> 00:14:53,910
+So this is a constructor. We have just
+passed the type and this type ultimately
+
+770
+00:14:53,910 --> 00:14:53,920
+passed the type and this type ultimately
+ 
+
+771
+00:14:53,920 --> 00:14:55,670
+passed the type and this type ultimately
+goes to the deserializer.
+
+772
+00:14:55,670 --> 00:14:55,680
+goes to the deserializer.
+ 
+
+773
+00:14:55,680 --> 00:14:56,470
+goes to the deserializer.
+Yeah.
+
+774
+00:14:56,470 --> 00:14:56,480
+Yeah.
+ 
+
+775
+00:14:56,480 --> 00:14:58,150
+Yeah.
+And ultimately we have this method
+
+776
+00:14:58,150 --> 00:14:58,160
+And ultimately we have this method
+ 
+
+777
+00:14:58,160 --> 00:15:00,590
+And ultimately we have this method
+internally now framework depend. I am
+
+778
+00:15:00,590 --> 00:15:00,600
+internally now framework depend. I am
+ 
+
+779
+00:15:00,600 --> 00:15:02,150
+internally now framework depend. I am
+using consume with.
+
+780
+00:15:02,150 --> 00:15:02,160
+using consume with.
+ 
+
+781
+00:15:02,160 --> 00:15:04,630
+using consume with.
+Okay? So it will make use of that okay,
+
+782
+00:15:04,630 --> 00:15:04,640
+Okay? So it will make use of that okay,
+ 
+
+783
+00:15:04,640 --> 00:15:06,870
+Okay? So it will make use of that okay,
+I have to this use deserializer method
+
+784
+00:15:06,870 --> 00:15:06,880
+I have to this use deserializer method
+ 
+
+785
+00:15:06,880 --> 00:15:09,829
+I have to this use deserializer method
+and it will use ultimately invoke this
+
+786
+00:15:09,829 --> 00:15:09,839
+and it will use ultimately invoke this
+ 
+
+787
+00:15:09,839 --> 00:15:13,030
+and it will use ultimately invoke this
+deserializer method.
+
+788
+00:15:13,030 --> 00:15:13,040
+
+ 
+
+789
+00:15:13,040 --> 00:15:15,310
+
+Okay? So usage is very simple. Now once
+
+790
+00:15:15,310 --> 00:15:15,320
+Okay? So usage is very simple. Now once
+ 
+
+791
+00:15:15,320 --> 00:15:16,950
+Okay? So usage is very simple. Now once
+you have created the third, create this
+
+792
+00:15:16,950 --> 00:15:16,960
+you have created the third, create this
+ 
+
+793
+00:15:16,960 --> 00:15:19,470
+you have created the third, create this
+object and pass that
+
+794
+00:15:19,470 --> 00:15:19,480
+object and pass that
+ 
+
+795
+00:15:19,480 --> 00:15:22,030
+object and pass that
+third itself.
+
+796
+00:15:22,030 --> 00:15:22,040
+third itself.
+ 
+
+797
+00:15:22,040 --> 00:15:24,310
+third itself.
+Okay? Similarly, when I am producing it
+
+798
+00:15:24,310 --> 00:15:24,320
+Okay? Similarly, when I am producing it
+ 
+
+799
+00:15:24,320 --> 00:15:25,630
+Okay? Similarly, when I am producing it
+to the output.
+
+800
+00:15:25,630 --> 00:15:25,640
+to the output.
+ 
+
+801
+00:15:25,640 --> 00:15:27,990
+to the output.
+Two, we are producing it to this output
+
+802
+00:15:27,990 --> 00:15:28,000
+Two, we are producing it to this output
+ 
+
+803
+00:15:28,000 --> 00:15:30,390
+Two, we are producing it to this output
+topic. Produced with
+
+804
+00:15:30,390 --> 00:15:30,400
+topic. Produced with
+ 
+
+805
+00:15:30,400 --> 00:15:33,110
+topic. Produced with
+my key I am using cert. string, but
+
+806
+00:15:33,110 --> 00:15:33,120
+my key I am using cert. string, but
+ 
+
+807
+00:15:33,120 --> 00:15:36,230
+my key I am using cert. string, but
+value I am using as order cert.
+
+808
+00:15:36,230 --> 00:15:36,240
+value I am using as order cert.
+ 
+
+809
+00:15:36,240 --> 00:15:37,630
+value I am using as order cert.
+Okay, this one.
+
+810
+00:15:37,630 --> 00:15:37,640
+Okay, this one.
+ 
+
+811
+00:15:37,640 --> 00:15:40,070
+Okay, this one.
+My custom.
+
+812
+00:15:40,070 --> 00:15:40,080
+My custom.
+ 
+
+813
+00:15:40,080 --> 00:15:42,430
+My custom.
+Okay. So, internally it is producing
+
+814
+00:15:42,430 --> 00:15:42,440
+Okay. So, internally it is producing
+ 
+
+815
+00:15:42,440 --> 00:15:44,710
+Okay. So, internally it is producing
+mean it has to write. So, it will
+
+816
+00:15:44,710 --> 00:15:44,720
+mean it has to write. So, it will
+ 
+
+817
+00:15:44,720 --> 00:15:46,630
+mean it has to write. So, it will
+internally make use of serializer. It
+
+818
+00:15:46,630 --> 00:15:46,640
+internally make use of serializer. It
+ 
+
+819
+00:15:46,640 --> 00:15:47,990
+internally make use of serializer. It
+will return serializer object.
+
+820
+00:15:47,990 --> 00:15:48,000
+will return serializer object.
+ 
+
+821
+00:15:48,000 --> 00:15:49,550
+will return serializer object.
+Ultimately, it will invoke the
+
+822
+00:15:49,550 --> 00:15:49,560
+Ultimately, it will invoke the
+ 
+
+823
+00:15:49,560 --> 00:15:53,430
+Ultimately, it will invoke the
+serializer method.
+
+824
+00:15:53,430 --> 00:15:53,440
+
+ 
+
+825
+00:15:53,440 --> 00:15:55,830
+
+Okay. So, you can write your own
+
+826
+00:15:55,830 --> 00:15:55,840
+Okay. So, you can write your own
+ 
+
+827
+00:15:55,840 --> 00:15:59,030
+Okay. So, you can write your own
+serializer deserializer also.
+
+828
+00:15:59,030 --> 00:15:59,040
+serializer deserializer also.
+ 
+
+829
+00:15:59,040 --> 00:16:00,790
+serializer deserializer also.
+Now, one more doubt doubt might have
+
+830
+00:16:00,790 --> 00:16:00,800
+Now, one more doubt doubt might have
+ 
+
+831
+00:16:00,800 --> 00:16:02,550
+Now, one more doubt doubt might have
+come. Hey, what would happen if
+
+832
+00:16:02,550 --> 00:16:02,560
+come. Hey, what would happen if
+ 
+
+833
+00:16:02,560 --> 00:16:04,710
+come. Hey, what would happen if
+serialization and deserialization fails
+
+834
+00:16:04,710 --> 00:16:04,720
+serialization and deserialization fails
+ 
+
+835
+00:16:04,720 --> 00:16:06,350
+serialization and deserialization fails
+in Kafka stream?
+
+836
+00:16:06,350 --> 00:16:06,360
+in Kafka stream?
+ 
+
+837
+00:16:06,360 --> 00:16:08,430
+in Kafka stream?
+So, this is very interesting also. So,
+
+838
+00:16:08,430 --> 00:16:08,440
+So, this is very interesting also. So,
+ 
+
+839
+00:16:08,440 --> 00:16:10,270
+So, this is very interesting also. So,
+see.
+
+840
+00:16:10,270 --> 00:16:10,280
+see.
+ 
+
+841
+00:16:10,280 --> 00:16:11,430
+see.
+What are the use case when
+
+842
+00:16:11,430 --> 00:16:11,440
+What are the use case when
+ 
+
+843
+00:16:11,440 --> 00:16:13,790
+What are the use case when
+deserialization can get failed?
+
+844
+00:16:13,790 --> 00:16:13,800
+deserialization can get failed?
+ 
+
+845
+00:16:13,800 --> 00:16:15,390
+deserialization can get failed?
+So, deserialization means you are
+
+846
+00:16:15,390 --> 00:16:15,400
+So, deserialization means you are
+ 
+
+847
+00:16:15,400 --> 00:16:17,110
+So, deserialization means you are
+reading from the topic, let's say. You
+
+848
+00:16:17,110 --> 00:16:17,120
+reading from the topic, let's say. You
+ 
+
+849
+00:16:17,120 --> 00:16:18,870
+reading from the topic, let's say. You
+are reading from the topic.
+
+850
+00:16:18,870 --> 00:16:18,880
+are reading from the topic.
+ 
+
+851
+00:16:18,880 --> 00:16:21,070
+are reading from the topic.
+So, now let's say topic has value this.
+
+852
+00:16:21,070 --> 00:16:21,080
+So, now let's say topic has value this.
+ 
+
+853
+00:16:21,080 --> 00:16:22,870
+So, now let's say topic has value this.
+Order ID this.
+
+854
+00:16:22,870 --> 00:16:22,880
+Order ID this.
+ 
+
+855
+00:16:22,880 --> 00:16:25,190
+Order ID this.
+So, this is a JSON string.
+
+856
+00:16:25,190 --> 00:16:25,200
+So, this is a JSON string.
+ 
+
+857
+00:16:25,200 --> 00:16:26,910
+So, this is a JSON string.
+But you are reading is at let's say
+
+858
+00:16:26,910 --> 00:16:26,920
+But you are reading is at let's say
+ 
+
+859
+00:16:26,920 --> 00:16:28,630
+But you are reading is at let's say
+long.
+
+860
+00:16:28,630 --> 00:16:28,640
+long.
+ 
+
+861
+00:16:28,640 --> 00:16:30,910
+long.
+That will definitely fail.
+
+862
+00:16:30,910 --> 00:16:30,920
+That will definitely fail.
+ 
+
+863
+00:16:30,920 --> 00:16:33,750
+That will definitely fail.
+It won't be able to uh properly
+
+864
+00:16:33,750 --> 00:16:33,760
+It won't be able to uh properly
+ 
+
+865
+00:16:33,760 --> 00:16:35,350
+It won't be able to uh properly
+deserialize it.
+
+866
+00:16:35,350 --> 00:16:35,360
+deserialize it.
+ 
+
+867
+00:16:35,360 --> 00:16:37,150
+deserialize it.
+It tried to read the JSON byte as a
+
+868
+00:16:37,150 --> 00:16:37,160
+It tried to read the JSON byte as a
+ 
+
+869
+00:16:37,160 --> 00:16:39,230
+It tried to read the JSON byte as a
+8-byte long. So, it you will get an
+
+870
+00:16:39,230 --> 00:16:39,240
+8-byte long. So, it you will get an
+ 
+
+871
+00:16:39,240 --> 00:16:40,990
+8-byte long. So, it you will get an
+exception.
+
+872
+00:16:40,990 --> 00:16:41,000
+exception.
+ 
+
+873
+00:16:41,000 --> 00:16:42,990
+exception.
+Or corrupted data. Let's say some
+
+874
+00:16:42,990 --> 00:16:43,000
+Or corrupted data. Let's say some
+ 
+
+875
+00:16:43,000 --> 00:16:45,590
+Or corrupted data. Let's say some
+garbage bytes that are not a valid JSON.
+
+876
+00:16:45,590 --> 00:16:45,600
+garbage bytes that are not a valid JSON.
+ 
+
+877
+00:16:45,600 --> 00:16:48,030
+garbage bytes that are not a valid JSON.
+So, you are trying to read a proper JSON
+
+878
+00:16:48,030 --> 00:16:48,040
+So, you are trying to read a proper JSON
+ 
+
+879
+00:16:48,040 --> 00:16:49,030
+So, you are trying to read a proper JSON
+only.
+
+880
+00:16:49,030 --> 00:16:49,040
+only.
+ 
+
+881
+00:16:49,040 --> 00:16:51,350
+only.
+But the JSON is not correct itself. In
+
+882
+00:16:51,350 --> 00:16:51,360
+But the JSON is not correct itself. In
+ 
+
+883
+00:16:51,360 --> 00:16:52,790
+But the JSON is not correct itself. In
+that case also, it won't be able to
+
+884
+00:16:52,790 --> 00:16:52,800
+that case also, it won't be able to
+ 
+
+885
+00:16:52,800 --> 00:16:55,670
+that case also, it won't be able to
+parse and exception will come.
+
+886
+00:16:55,670 --> 00:16:55,680
+parse and exception will come.
+ 
+
+887
+00:16:55,680 --> 00:16:57,430
+parse and exception will come.
+So, now the question is what would
+
+888
+00:16:57,430 --> 00:16:57,440
+So, now the question is what would
+ 
+
+889
+00:16:57,440 --> 00:16:58,910
+So, now the question is what would
+happen if deserialization fails?
+
+890
+00:16:58,910 --> 00:16:58,920
+happen if deserialization fails?
+ 
+
+891
+00:16:58,920 --> 00:17:01,390
+happen if deserialization fails?
+Serialization also we will see.
+
+892
+00:17:01,390 --> 00:17:01,400
+Serialization also we will see.
+ 
+
+893
+00:17:01,400 --> 00:17:03,910
+Serialization also we will see.
+So, there are three ways to handle it.
+
+894
+00:17:03,910 --> 00:17:03,920
+So, there are three ways to handle it.
+ 
+
+895
+00:17:03,920 --> 00:17:06,510
+So, there are three ways to handle it.
+The first is already inbuilt log and
+
+896
+00:17:06,510 --> 00:17:06,520
+The first is already inbuilt log and
+ 
+
+897
+00:17:06,520 --> 00:17:08,710
+The first is already inbuilt log and
+fail exception handler.
+
+898
+00:17:08,710 --> 00:17:08,720
+fail exception handler.
+ 
+
+899
+00:17:08,720 --> 00:17:09,670
+fail exception handler.
+So,
+
+900
+00:17:09,670 --> 00:17:09,680
+So,
+ 
+
+901
+00:17:09,680 --> 00:17:13,630
+So,
+see here in this one, there is a class
+
+902
+00:17:13,630 --> 00:17:13,640
+see here in this one, there is a class
+ 
+
+903
+00:17:13,640 --> 00:17:15,949
+see here in this one, there is a class
+uh record deserializer.
+
+904
+00:17:15,949 --> 00:17:15,959
+uh record deserializer.
+ 
+
+905
+00:17:15,959 --> 00:17:16,829
+uh record deserializer.
+Okay.
+
+906
+00:17:16,829 --> 00:17:16,839
+Okay.
+ 
+
+907
+00:17:16,839 --> 00:17:19,110
+Okay.
+Now, in the record deserializer, here if
+
+908
+00:17:19,110 --> 00:17:19,120
+Now, in the record deserializer, here if
+ 
+
+909
+00:17:19,120 --> 00:17:21,670
+Now, in the record deserializer, here if
+you see
+
+910
+00:17:21,670 --> 00:17:21,680
+you see
+ 
+
+911
+00:17:21,680 --> 00:17:23,630
+you see
+deserialize. For each record when you
+
+912
+00:17:23,630 --> 00:17:23,640
+deserialize. For each record when you
+ 
+
+913
+00:17:23,640 --> 00:17:26,030
+deserialize. For each record when you
+are deserializing, if any exception
+
+914
+00:17:26,030 --> 00:17:26,040
+are deserializing, if any exception
+ 
+
+915
+00:17:26,040 --> 00:17:28,110
+are deserializing, if any exception
+comes, it catch.
+
+916
+00:17:28,110 --> 00:17:28,120
+comes, it catch.
+ 
+
+917
+00:17:28,120 --> 00:17:30,350
+comes, it catch.
+Okay? Now, when it catch, handle the
+
+918
+00:17:30,350 --> 00:17:30,360
+Okay? Now, when it catch, handle the
+ 
+
+919
+00:17:30,360 --> 00:17:32,470
+Okay? Now, when it catch, handle the
+deserialization failure.
+
+920
+00:17:32,470 --> 00:17:32,480
+deserialization failure.
+ 
+
+921
+00:17:32,480 --> 00:17:34,790
+deserialization failure.
+Now, it will see.
+
+922
+00:17:34,790 --> 00:17:34,800
+Now, it will see.
+ 
+
+923
+00:17:34,800 --> 00:17:36,310
+Now, it will see.
+It is handling.
+
+924
+00:17:36,310 --> 00:17:36,320
+It is handling.
+ 
+
+925
+00:17:36,320 --> 00:17:37,510
+It is handling.
+Now,
+
+926
+00:17:37,510 --> 00:17:37,520
+Now,
+ 
+
+927
+00:17:37,520 --> 00:17:39,190
+Now,
+there are three ways.
+
+928
+00:17:39,190 --> 00:17:39,200
+there are three ways.
+ 
+
+929
+00:17:39,200 --> 00:17:41,670
+there are three ways.
+Okay? So, now I will show you first
+
+930
+00:17:41,670 --> 00:17:41,680
+Okay? So, now I will show you first
+ 
+
+931
+00:17:41,680 --> 00:17:44,070
+Okay? So, now I will show you first
+this, then we'll come back to that one.
+
+932
+00:17:44,070 --> 00:17:44,080
+this, then we'll come back to that one.
+ 
+
+933
+00:17:44,080 --> 00:17:46,710
+this, then we'll come back to that one.
+The first way is log and fail exception
+
+934
+00:17:46,710 --> 00:17:46,720
+The first way is log and fail exception
+ 
+
+935
+00:17:46,720 --> 00:17:47,990
+The first way is log and fail exception
+handler.
+
+936
+00:17:47,990 --> 00:17:48,000
+handler.
+ 
+
+937
+00:17:48,000 --> 00:17:50,150
+handler.
+This is the default.
+
+938
+00:17:50,150 --> 00:17:50,160
+This is the default.
+ 
+
+939
+00:17:50,160 --> 00:17:51,830
+This is the default.
+So, in application.properties, even if
+
+940
+00:17:51,830 --> 00:17:51,840
+So, in application.properties, even if
+ 
+
+941
+00:17:51,840 --> 00:17:54,390
+So, in application.properties, even if
+you don't write it, it would be using
+
+942
+00:17:54,390 --> 00:17:54,400
+you don't write it, it would be using
+ 
+
+943
+00:17:54,400 --> 00:17:56,190
+you don't write it, it would be using
+this. Otherwise, explicitly just for
+
+944
+00:17:56,190 --> 00:17:56,200
+this. Otherwise, explicitly just for
+ 
+
+945
+00:17:56,200 --> 00:17:57,590
+this. Otherwise, explicitly just for
+learning purpose,
+
+946
+00:17:57,590 --> 00:17:57,600
+learning purpose,
+ 
+
+947
+00:17:57,600 --> 00:17:58,790
+learning purpose,
+you can add this like
+
+948
+00:17:58,790 --> 00:17:58,800
+you can add this like
+ 
+
+949
+00:17:58,800 --> 00:18:01,910
+you can add this like
+spring.kafka.streams.properties
+
+950
+00:18:01,910 --> 00:18:01,920
+
+ 
+
+951
+00:18:01,920 --> 00:18:05,550
+
+default.deserialization.exception.handler
+
+952
+00:18:05,550 --> 00:18:05,560
+
+ 
+
+953
+00:18:05,560 --> 00:18:06,030
+
+this one.
+
+954
+00:18:06,030 --> 00:18:06,040
+this one.
+ 
+
+955
+00:18:06,040 --> 00:18:09,550
+this one.
+org.apache.kafka.streams.errors.log
+
+956
+00:18:09,550 --> 00:18:09,560
+
+ 
+
+957
+00:18:09,560 --> 00:18:12,310
+
+and fail exception handler. This one.
+
+958
+00:18:12,310 --> 00:18:12,320
+and fail exception handler. This one.
+ 
+
+959
+00:18:12,320 --> 00:18:14,590
+and fail exception handler. This one.
+What it do? It will log the error,
+
+960
+00:18:14,590 --> 00:18:14,600
+What it do? It will log the error,
+ 
+
+961
+00:18:14,600 --> 00:18:17,350
+What it do? It will log the error,
+throws the exception, your stream thread
+
+962
+00:18:17,350 --> 00:18:17,360
+throws the exception, your stream thread
+ 
+
+963
+00:18:17,360 --> 00:18:18,830
+throws the exception, your stream thread
+dies.
+
+964
+00:18:18,830 --> 00:18:18,840
+dies.
+ 
+
+965
+00:18:18,840 --> 00:18:20,670
+dies.
+And if all thread dies, your application
+
+966
+00:18:20,670 --> 00:18:20,680
+And if all thread dies, your application
+ 
+
+967
+00:18:20,680 --> 00:18:22,270
+And if all thread dies, your application
+dies.
+
+968
+00:18:22,270 --> 00:18:22,280
+dies.
+ 
+
+969
+00:18:22,280 --> 00:18:23,790
+dies.
+Okay?
+
+970
+00:18:23,790 --> 00:18:23,800
+Okay?
+ 
+
+971
+00:18:23,800 --> 00:18:25,310
+Okay?
+So, it will not proceed further. So,
+
+972
+00:18:25,310 --> 00:18:25,320
+So, it will not proceed further. So,
+ 
+
+973
+00:18:25,320 --> 00:18:26,830
+So, it will not proceed further. So,
+let's say your application has
+
+974
+00:18:26,830 --> 00:18:26,840
+let's say your application has
+ 
+
+975
+00:18:26,840 --> 00:18:28,470
+let's say your application has
+currently, let's say
+
+976
+00:18:28,470 --> 00:18:28,480
+currently, let's say
+ 
+
+977
+00:18:28,480 --> 00:18:30,190
+currently, let's say
+thread equals to two. So, means two
+
+978
+00:18:30,190 --> 00:18:30,200
+thread equals to two. So, means two
+ 
+
+979
+00:18:30,200 --> 00:18:32,030
+thread equals to two. So, means two
+threads are running. So, if any except
+
+980
+00:18:32,030 --> 00:18:32,040
+threads are running. So, if any except
+ 
+
+981
+00:18:32,040 --> 00:18:33,710
+threads are running. So, if any except
+any this thread is running multiple
+
+982
+00:18:33,710 --> 00:18:33,720
+any this thread is running multiple
+ 
+
+983
+00:18:33,720 --> 00:18:34,710
+any this thread is running multiple
+task,
+
+984
+00:18:34,710 --> 00:18:34,720
+task,
+ 
+
+985
+00:18:34,720 --> 00:18:36,550
+task,
+so if exception comes into this, this
+
+986
+00:18:36,550 --> 00:18:36,560
+so if exception comes into this, this
+ 
+
+987
+00:18:36,560 --> 00:18:38,110
+so if exception comes into this, this
+thread gone. If this thread is also
+
+988
+00:18:38,110 --> 00:18:38,120
+thread gone. If this thread is also
+ 
+
+989
+00:18:38,120 --> 00:18:41,150
+thread gone. If this thread is also
+gone, your application dies.
+
+990
+00:18:41,150 --> 00:18:41,160
+gone, your application dies.
+ 
+
+991
+00:18:41,160 --> 00:18:43,150
+gone, your application dies.
+The second one is log and continue
+
+992
+00:18:43,150 --> 00:18:43,160
+The second one is log and continue
+ 
+
+993
+00:18:43,160 --> 00:18:46,230
+The second one is log and continue
+exception handler. Log and continue.
+
+994
+00:18:46,230 --> 00:18:46,240
+exception handler. Log and continue.
+ 
+
+995
+00:18:46,240 --> 00:18:47,470
+exception handler. Log and continue.
+Log the error,
+
+996
+00:18:47,470 --> 00:18:47,480
+Log the error,
+ 
+
+997
+00:18:47,480 --> 00:18:49,750
+Log the error,
+skip the bad record, continue proceeding
+
+998
+00:18:49,750 --> 00:18:49,760
+skip the bad record, continue proceeding
+ 
+
+999
+00:18:49,760 --> 00:18:51,230
+skip the bad record, continue proceeding
+the next record.
+
+1000
+00:18:51,230 --> 00:18:51,240
+the next record.
+ 
+
+1001
+00:18:51,240 --> 00:18:53,550
+the next record.
+The bad record is lost forever. So, in
+
+1002
+00:18:53,550 --> 00:18:53,560
+The bad record is lost forever. So, in
+ 
+
+1003
+00:18:53,560 --> 00:18:55,510
+The bad record is lost forever. So, in
+application.properties, you have to just
+
+1004
+00:18:55,510 --> 00:18:55,520
+application.properties, you have to just
+ 
+
+1005
+00:18:55,520 --> 00:18:59,310
+application.properties, you have to just
+put log and continue exception handler.
+
+1006
+00:18:59,310 --> 00:18:59,320
+put log and continue exception handler.
+ 
+
+1007
+00:18:59,320 --> 00:19:02,150
+put log and continue exception handler.
+But, I won't uh suggest you that you use
+
+1008
+00:19:02,150 --> 00:19:02,160
+But, I won't uh suggest you that you use
+ 
+
+1009
+00:19:02,160 --> 00:19:03,670
+But, I won't uh suggest you that you use
+this because you will miss the bad
+
+1010
+00:19:03,670 --> 00:19:03,680
+this because you will miss the bad
+ 
+
+1011
+00:19:03,680 --> 00:19:05,510
+this because you will miss the bad
+record
+
+1012
+00:19:05,510 --> 00:19:05,520
+record
+ 
+
+1013
+00:19:05,520 --> 00:19:07,550
+record
+forever.
+
+1014
+00:19:07,550 --> 00:19:07,560
+forever.
+ 
+
+1015
+00:19:07,560 --> 00:19:10,190
+forever.
+The third is custom. Like you write your
+
+1016
+00:19:10,190 --> 00:19:10,200
+The third is custom. Like you write your
+ 
+
+1017
+00:19:10,200 --> 00:19:13,110
+The third is custom. Like you write your
+own exception handler. Now, you decide
+
+1018
+00:19:13,110 --> 00:19:13,120
+own exception handler. Now, you decide
+ 
+
+1019
+00:19:13,120 --> 00:19:14,470
+own exception handler. Now, you decide
+what you want, whether you want to
+
+1020
+00:19:14,470 --> 00:19:14,480
+what you want, whether you want to
+ 
+
+1021
+00:19:14,480 --> 00:19:16,430
+what you want, whether you want to
+continue, whether you want to fail, or
+
+1022
+00:19:16,430 --> 00:19:16,440
+continue, whether you want to fail, or
+ 
+
+1023
+00:19:16,440 --> 00:19:18,230
+continue, whether you want to fail, or
+whether you want to put into dead letter
+
+1024
+00:19:18,230 --> 00:19:18,240
+whether you want to put into dead letter
+ 
+
+1025
+00:19:18,240 --> 00:19:20,390
+whether you want to put into dead letter
+queue first and then continue.
+
+1026
+00:19:20,390 --> 00:19:20,400
+queue first and then continue.
+ 
+
+1027
+00:19:20,400 --> 00:19:22,670
+queue first and then continue.
+Now, it's in our hand.
+
+1028
+00:19:22,670 --> 00:19:22,680
+Now, it's in our hand.
+ 
+
+1029
+00:19:22,680 --> 00:19:25,630
+Now, it's in our hand.
+Okay? So, very simple to write it.
+
+1030
+00:19:25,630 --> 00:19:25,640
+Okay? So, very simple to write it.
+ 
+
+1031
+00:19:25,640 --> 00:19:27,430
+Okay? So, very simple to write it.
+So, whatever the class name you have to
+
+1032
+00:19:27,430 --> 00:19:27,440
+So, whatever the class name you have to
+ 
+
+1033
+00:19:27,440 --> 00:19:28,910
+So, whatever the class name you have to
+give, let's say I've given custom
+
+1034
+00:19:28,910 --> 00:19:28,920
+give, let's say I've given custom
+ 
+
+1035
+00:19:28,920 --> 00:19:30,750
+give, let's say I've given custom
+deserialization handle. You have all you
+
+1036
+00:19:30,750 --> 00:19:30,760
+deserialization handle. You have all you
+ 
+
+1037
+00:19:30,760 --> 00:19:32,830
+deserialization handle. You have all you
+have to do is you have to implement this
+
+1038
+00:19:32,830 --> 00:19:32,840
+have to do is you have to implement this
+ 
+
+1039
+00:19:32,840 --> 00:19:35,910
+have to do is you have to implement this
+deserialization exception handler class.
+
+1040
+00:19:35,910 --> 00:19:35,920
+deserialization exception handler class.
+ 
+
+1041
+00:19:35,920 --> 00:19:39,950
+deserialization exception handler class.
+Okay? Now, you have to
+
+1042
+00:19:39,950 --> 00:19:39,960
+
+ 
+
+1043
+00:19:39,960 --> 00:19:41,790
+
+provide an implementation of this handle
+
+1044
+00:19:41,790 --> 00:19:41,800
+provide an implementation of this handle
+ 
+
+1045
+00:19:41,800 --> 00:19:44,430
+provide an implementation of this handle
+method. Now, whatever you want to do.
+
+1046
+00:19:44,430 --> 00:19:44,440
+method. Now, whatever you want to do.
+ 
+
+1047
+00:19:44,440 --> 00:19:45,910
+method. Now, whatever you want to do.
+So, see, you have a
+
+1048
+00:19:45,910 --> 00:19:45,920
+So, see, you have a
+ 
+
+1049
+00:19:45,920 --> 00:19:48,310
+So, see, you have a
+consumer record, like your record, and
+
+1050
+00:19:48,310 --> 00:19:48,320
+consumer record, like your record, and
+ 
+
+1051
+00:19:48,320 --> 00:19:49,950
+consumer record, like your record, and
+the exception you got.
+
+1052
+00:19:49,950 --> 00:19:49,960
+the exception you got.
+ 
+
+1053
+00:19:49,960 --> 00:19:52,150
+the exception you got.
+Processor context is like the same
+
+1054
+00:19:52,150 --> 00:19:52,160
+Processor context is like the same
+ 
+
+1055
+00:19:52,160 --> 00:19:53,710
+Processor context is like the same
+consumer record information plus
+
+1056
+00:19:53,710 --> 00:19:53,720
+consumer record information plus
+ 
+
+1057
+00:19:53,720 --> 00:19:55,150
+consumer record information plus
+additional information like which thread
+
+1058
+00:19:55,150 --> 00:19:55,160
+additional information like which thread
+ 
+
+1059
+00:19:55,160 --> 00:19:56,270
+additional information like which thread
+is running, which application is
+
+1060
+00:19:56,270 --> 00:19:56,280
+is running, which application is
+ 
+
+1061
+00:19:56,280 --> 00:19:59,270
+is running, which application is
+running, some more information.
+
+1062
+00:19:59,270 --> 00:19:59,280
+running, some more information.
+ 
+
+1063
+00:19:59,280 --> 00:20:01,470
+running, some more information.
+So, now you can handle like what you
+
+1064
+00:20:01,470 --> 00:20:01,480
+So, now you can handle like what you
+ 
+
+1065
+00:20:01,480 --> 00:20:03,950
+So, now you can handle like what you
+want. So, like I just here
+
+1066
+00:20:03,950 --> 00:20:03,960
+want. So, like I just here
+ 
+
+1067
+00:20:03,960 --> 00:20:06,750
+want. So, like I just here
+just a demo purpose, I have shown that
+
+1068
+00:20:06,750 --> 00:20:06,760
+just a demo purpose, I have shown that
+ 
+
+1069
+00:20:06,760 --> 00:20:08,990
+just a demo purpose, I have shown that
+I have put an atomic long that error
+
+1070
+00:20:08,990 --> 00:20:09,000
+I have put an atomic long that error
+ 
+
+1071
+00:20:09,000 --> 00:20:11,030
+I have put an atomic long that error
+count. Whenever any error comes, it just
+
+1072
+00:20:11,030 --> 00:20:11,040
+count. Whenever any error comes, it just
+ 
+
+1073
+00:20:11,040 --> 00:20:12,950
+count. Whenever any error comes, it just
+keep on incrementing it.
+
+1074
+00:20:12,950 --> 00:20:12,960
+keep on incrementing it.
+ 
+
+1075
+00:20:12,960 --> 00:20:15,230
+keep on incrementing it.
+Okay? When it reach to a particular
+
+1076
+00:20:15,230 --> 00:20:15,240
+Okay? When it reach to a particular
+ 
+
+1077
+00:20:15,240 --> 00:20:17,110
+Okay? When it reach to a particular
+limit, max error,
+
+1078
+00:20:17,110 --> 00:20:17,120
+limit, max error,
+ 
+
+1079
+00:20:17,120 --> 00:20:20,830
+limit, max error,
+then it will fail, otherwise continue.
+
+1080
+00:20:20,830 --> 00:20:20,840
+then it will fail, otherwise continue.
+ 
+
+1081
+00:20:20,840 --> 00:20:23,550
+then it will fail, otherwise continue.
+Okay? If limit is not crossed, okay, it
+
+1082
+00:20:23,550 --> 00:20:23,560
+Okay? If limit is not crossed, okay, it
+ 
+
+1083
+00:20:23,560 --> 00:20:26,150
+Okay? If limit is not crossed, okay, it
+continue. It is skip the bad record. But
+
+1084
+00:20:26,150 --> 00:20:26,160
+continue. It is skip the bad record. But
+ 
+
+1085
+00:20:26,160 --> 00:20:28,310
+continue. It is skip the bad record. But
+as soon as limit crossed,
+
+1086
+00:20:28,310 --> 00:20:28,320
+as soon as limit crossed,
+ 
+
+1087
+00:20:28,320 --> 00:20:30,310
+as soon as limit crossed,
+I have to fail it.
+
+1088
+00:20:30,310 --> 00:20:30,320
+I have to fail it.
+ 
+
+1089
+00:20:30,320 --> 00:20:32,110
+I have to fail it.
+Okay? So, deserialization handler
+
+1090
+00:20:32,110 --> 00:20:32,120
+Okay? So, deserialization handler
+ 
+
+1091
+00:20:32,120 --> 00:20:34,750
+Okay? So, deserialization handler
+response \{{}dot} fail or \{{}dot} continue.
+
+1092
+00:20:34,750 --> 00:20:34,760
+response \{{}dot} fail or \{{}dot} continue.
+ 
+
+1093
+00:20:34,760 --> 00:20:37,150
+response \{{}dot} fail or \{{}dot} continue.
+Now, here if you see
+
+1094
+00:20:37,150 --> 00:20:37,160
+Now, here if you see
+ 
+
+1095
+00:20:37,160 --> 00:20:40,310
+Now, here if you see
+in the code, record deserializer,
+
+1096
+00:20:40,310 --> 00:20:40,320
+in the code, record deserializer,
+ 
+
+1097
+00:20:40,320 --> 00:20:42,590
+in the code, record deserializer,
+you got the response.
+
+1098
+00:20:42,590 --> 00:20:42,600
+you got the response.
+ 
+
+1099
+00:20:42,600 --> 00:20:44,190
+you got the response.
+Okay? Now, it will check. If the
+
+1100
+00:20:44,190 --> 00:20:44,200
+Okay? Now, it will check. If the
+ 
+
+1101
+00:20:44,200 --> 00:20:46,270
+Okay? Now, it will check. If the
+response is
+
+1102
+00:20:46,270 --> 00:20:46,280
+response is
+ 
+
+1103
+00:20:46,280 --> 00:20:48,150
+response is
+deserialization handler response \{{}dot}
+
+1104
+00:20:48,150 --> 00:20:48,160
+deserialization handler response \{{}dot}
+ 
+
+1105
+00:20:48,160 --> 00:20:50,070
+deserialization handler response \{{}dot}
+fail, it will throw exception, stream
+
+1106
+00:20:50,070 --> 00:20:50,080
+fail, it will throw exception, stream
+ 
+
+1107
+00:20:50,080 --> 00:20:51,190
+fail, it will throw exception, stream
+exception.
+
+1108
+00:20:51,190 --> 00:20:51,200
+exception.
+ 
+
+1109
+00:20:51,200 --> 00:20:54,670
+exception.
+If not, it just drop the record. That's
+
+1110
+00:20:54,670 --> 00:20:54,680
+If not, it just drop the record. That's
+ 
+
+1111
+00:20:54,680 --> 00:20:57,150
+If not, it just drop the record. That's
+all. Just continue.
+
+1112
+00:20:57,150 --> 00:20:57,160
+all. Just continue.
+ 
+
+1113
+00:20:57,160 --> 00:20:58,710
+all. Just continue.
+Okay? So, whenever you have to fail
+
+1114
+00:20:58,710 --> 00:20:58,720
+Okay? So, whenever you have to fail
+ 
+
+1115
+00:20:58,720 --> 00:21:01,070
+Okay? So, whenever you have to fail
+fast, use this \{{}dot} fail. If not, do
+
+1116
+00:21:01,070 --> 00:21:01,080
+fast, use this \{{}dot} fail. If not, do
+ 
+
+1117
+00:21:01,080 --> 00:21:02,510
+fast, use this \{{}dot} fail. If not, do
+continue.
+
+1118
+00:21:02,510 --> 00:21:02,520
+continue.
+ 
+
+1119
+00:21:02,520 --> 00:21:06,310
+continue.
+But you can write your own custom logic.
+
+1120
+00:21:06,310 --> 00:21:06,320
+But you can write your own custom logic.
+ 
+
+1121
+00:21:06,320 --> 00:21:08,910
+But you can write your own custom logic.
+Okay? And there is also one more method
+
+1122
+00:21:08,910 --> 00:21:08,920
+Okay? And there is also one more method
+ 
+
+1123
+00:21:08,920 --> 00:21:10,910
+Okay? And there is also one more method
+which you can uh you have to provide you
+
+1124
+00:21:10,910 --> 00:21:10,920
+which you can uh you have to provide you
+ 
+
+1125
+00:21:10,920 --> 00:21:13,750
+which you can uh you have to provide you
+can it can be empty or what generally
+
+1126
+00:21:13,750 --> 00:21:13,760
+can it can be empty or what generally
+ 
+
+1127
+00:21:13,760 --> 00:21:16,110
+can it can be empty or what generally
+this method is like you can read so this
+
+1128
+00:21:16,110 --> 00:21:16,120
+this method is like you can read so this
+ 
+
+1129
+00:21:16,120 --> 00:21:18,070
+this method is like you can read so this
+config is like you can read the
+
+1130
+00:21:18,070 --> 00:21:18,080
+config is like you can read the
+ 
+
+1131
+00:21:18,080 --> 00:21:20,750
+config is like you can read the
+configuration and you can update it.
+
+1132
+00:21:20,750 --> 00:21:20,760
+configuration and you can update it.
+ 
+
+1133
+00:21:20,760 --> 00:21:22,350
+configuration and you can update it.
+Now let's say I have put it into the
+
+1134
+00:21:22,350 --> 00:21:22,360
+Now let's say I have put it into the
+ 
+
+1135
+00:21:22,360 --> 00:21:23,350
+Now let's say I have put it into the
+configuration that
+
+1136
+00:21:23,350 --> 00:21:23,360
+configuration that
+ 
+
+1137
+00:21:23,360 --> 00:21:27,110
+configuration that
+stream.max.deserialization.error.
+
+1138
+00:21:27,110 --> 00:21:27,120
+
+ 
+
+1139
+00:21:27,120 --> 00:21:29,830
+
+If this is empty
+
+1140
+00:21:29,830 --> 00:21:29,840
+If this is empty
+ 
+
+1141
+00:21:29,840 --> 00:21:32,110
+If this is empty
+put default 100. Otherwise, whatever the
+
+1142
+00:21:32,110 --> 00:21:32,120
+put default 100. Otherwise, whatever the
+ 
+
+1143
+00:21:32,120 --> 00:21:33,310
+put default 100. Otherwise, whatever the
+configuration I have given in
+
+1144
+00:21:33,310 --> 00:21:33,320
+configuration I have given in
+ 
+
+1145
+00:21:33,320 --> 00:21:35,390
+configuration I have given in
+application.property, use that as a max
+
+1146
+00:21:35,390 --> 00:21:35,400
+application.property, use that as a max
+ 
+
+1147
+00:21:35,400 --> 00:21:37,830
+application.property, use that as a max
+error and that will I will use it. So
+
+1148
+00:21:37,830 --> 00:21:37,840
+error and that will I will use it. So
+ 
+
+1149
+00:21:37,840 --> 00:21:39,510
+error and that will I will use it. So
+it's just like if you want to read
+
+1150
+00:21:39,510 --> 00:21:39,520
+it's just like if you want to read
+ 
+
+1151
+00:21:39,520 --> 00:21:41,030
+it's just like if you want to read
+certain value from the configuration or
+
+1152
+00:21:41,030 --> 00:21:41,040
+certain value from the configuration or
+ 
+
+1153
+00:21:41,040 --> 00:21:42,750
+certain value from the configuration or
+you want to change the value.
+
+1154
+00:21:42,750 --> 00:21:42,760
+you want to change the value.
+ 
+
+1155
+00:21:42,760 --> 00:21:44,390
+you want to change the value.
+You can use that. It has all the
+
+1156
+00:21:44,390 --> 00:21:44,400
+You can use that. It has all the
+ 
+
+1157
+00:21:44,400 --> 00:21:47,390
+You can use that. It has all the
+configuration value data.
+
+1158
+00:21:47,390 --> 00:21:47,400
+configuration value data.
+ 
+
+1159
+00:21:47,400 --> 00:21:49,870
+configuration value data.
+Okay. Generally, it is currently this
+
+1160
+00:21:49,870 --> 00:21:49,880
+Okay. Generally, it is currently this
+ 
+
+1161
+00:21:49,880 --> 00:21:51,950
+Okay. Generally, it is currently this
+method is empty generally. You don't
+
+1162
+00:21:51,950 --> 00:21:51,960
+method is empty generally. You don't
+ 
+
+1163
+00:21:51,960 --> 00:21:53,870
+method is empty generally. You don't
+generally change
+
+1164
+00:21:53,870 --> 00:21:53,880
+generally change
+ 
+
+1165
+00:21:53,880 --> 00:21:55,390
+generally change
+but let's say if you want to have
+
+1166
+00:21:55,390 --> 00:21:55,400
+but let's say if you want to have
+ 
+
+1167
+00:21:55,400 --> 00:21:57,350
+but let's say if you want to have
+certain like if it is null, have some
+
+1168
+00:21:57,350 --> 00:21:57,360
+certain like if it is null, have some
+ 
+
+1169
+00:21:57,360 --> 00:22:00,270
+certain like if it is null, have some
+default value.
+
+1170
+00:22:00,270 --> 00:22:00,280
+
+ 
+
+1171
+00:22:00,280 --> 00:22:01,430
+
+Clear?
+
+1172
+00:22:01,430 --> 00:22:01,440
+Clear?
+ 
+
+1173
+00:22:01,440 --> 00:22:03,590
+Clear?
+Custom is clear, right? And once you
+
+1174
+00:22:03,590 --> 00:22:03,600
+Custom is clear, right? And once you
+ 
+
+1175
+00:22:03,600 --> 00:22:06,070
+Custom is clear, right? And once you
+have written your custom class, custom
+
+1176
+00:22:06,070 --> 00:22:06,080
+have written your custom class, custom
+ 
+
+1177
+00:22:06,080 --> 00:22:07,870
+have written your custom class, custom
+handler, then all you have to do is
+
+1178
+00:22:07,870 --> 00:22:07,880
+handler, then all you have to do is
+ 
+
+1179
+00:22:07,880 --> 00:22:09,630
+handler, then all you have to do is
+application.properties, you have to just
+
+1180
+00:22:09,630 --> 00:22:09,640
+application.properties, you have to just
+ 
+
+1181
+00:22:09,640 --> 00:22:11,870
+application.properties, you have to just
+register it. Like your class path
+
+1182
+00:22:11,870 --> 00:22:11,880
+register it. Like your class path
+ 
+
+1183
+00:22:11,880 --> 00:22:13,150
+register it. Like your class path
+proper.
+
+1184
+00:22:13,150 --> 00:22:13,160
+proper.
+ 
+
+1185
+00:22:13,160 --> 00:22:18,030
+proper.
+Now it will you can use it.
+
+1186
+00:22:18,030 --> 00:22:18,040
+
+ 
+
+1187
+00:22:18,040 --> 00:22:20,510
+
+Now in serialization, what does it
+
+1188
+00:22:20,510 --> 00:22:20,520
+Now in serialization, what does it
+ 
+
+1189
+00:22:20,520 --> 00:22:22,710
+Now in serialization, what does it
+means? We are writing.
+
+1190
+00:22:22,710 --> 00:22:22,720
+means? We are writing.
+ 
+
+1191
+00:22:22,720 --> 00:22:24,790
+means? We are writing.
+We have a Java object.
+
+1192
+00:22:24,790 --> 00:22:24,800
+We have a Java object.
+ 
+
+1193
+00:22:24,800 --> 00:22:27,550
+We have a Java object.
+Now we have to write into a bytes form.
+
+1194
+00:22:27,550 --> 00:22:27,560
+Now we have to write into a bytes form.
+ 
+
+1195
+00:22:27,560 --> 00:22:29,870
+Now we have to write into a bytes form.
+So what are the ways it can goes?
+
+1196
+00:22:29,870 --> 00:22:29,880
+So what are the ways it can goes?
+ 
+
+1197
+00:22:29,880 --> 00:22:31,630
+So what are the ways it can goes?
+Wrong output sort.
+
+1198
+00:22:31,630 --> 00:22:31,640
+Wrong output sort.
+ 
+
+1199
+00:22:31,640 --> 00:22:34,110
+Wrong output sort.
+So we have long value. Let's say we have
+
+1200
+00:22:34,110 --> 00:22:34,120
+So we have long value. Let's say we have
+ 
+
+1201
+00:22:34,120 --> 00:22:35,510
+So we have long value. Let's say we have
+value two
+
+1202
+00:22:35,510 --> 00:22:35,520
+value two
+ 
+
+1203
+00:22:35,520 --> 00:22:37,110
+value two
+but we are trying to produce with like a
+
+1204
+00:22:37,110 --> 00:22:37,120
+but we are trying to produce with like a
+ 
+
+1205
+00:22:37,120 --> 00:22:38,150
+but we are trying to produce with like a
+string.
+
+1206
+00:22:38,150 --> 00:22:38,160
+string.
+ 
+
+1207
+00:22:38,160 --> 00:22:41,390
+string.
+So class cast exception will come.
+
+1208
+00:22:41,390 --> 00:22:41,400
+So class cast exception will come.
+ 
+
+1209
+00:22:41,400 --> 00:22:43,350
+So class cast exception will come.
+Order object can't be serialized. So
+
+1210
+00:22:43,350 --> 00:22:43,360
+Order object can't be serialized. So
+ 
+
+1211
+00:22:43,360 --> 00:22:45,030
+Order object can't be serialized. So
+sometimes what happen is circular
+
+1212
+00:22:45,030 --> 00:22:45,040
+sometimes what happen is circular
+ 
+
+1213
+00:22:45,040 --> 00:22:47,310
+sometimes what happen is circular
+reference. You have an object
+
+1214
+00:22:47,310 --> 00:22:47,320
+reference. You have an object
+ 
+
+1215
+00:22:47,320 --> 00:22:48,190
+reference. You have an object
+uh
+
+1216
+00:22:48,190 --> 00:22:48,200
+uh
+ 
+
+1217
+00:22:48,200 --> 00:22:50,070
+uh
+reference one points to reference two,
+
+1218
+00:22:50,070 --> 00:22:50,080
+reference one points to reference two,
+ 
+
+1219
+00:22:50,080 --> 00:22:51,590
+reference one points to reference two,
+reference two again points to reference
+
+1220
+00:22:51,590 --> 00:22:51,600
+reference two again points to reference
+ 
+
+1221
+00:22:51,600 --> 00:22:53,510
+reference two again points to reference
+one, so it has a circular reference, so
+
+1222
+00:22:53,510 --> 00:22:53,520
+one, so it has a circular reference, so
+ 
+
+1223
+00:22:53,520 --> 00:22:54,870
+one, so it has a circular reference, so
+it won't be able to serialize it
+
+1224
+00:22:54,870 --> 00:22:54,880
+it won't be able to serialize it
+ 
+
+1225
+00:22:54,880 --> 00:22:57,110
+it won't be able to serialize it
+properly. So you will get a mapping
+
+1226
+00:22:57,110 --> 00:22:57,120
+properly. So you will get a mapping
+ 
+
+1227
+00:22:57,120 --> 00:22:58,470
+properly. So you will get a mapping
+exception. So there are different ways
+
+1228
+00:22:58,470 --> 00:22:58,480
+exception. So there are different ways
+ 
+
+1229
+00:22:58,480 --> 00:23:01,630
+exception. So there are different ways
+serialization failure can also happen.
+
+1230
+00:23:01,630 --> 00:23:01,640
+serialization failure can also happen.
+ 
+
+1231
+00:23:01,640 --> 00:23:04,110
+serialization failure can also happen.
+Now there are two ways to handle it.
+
+1232
+00:23:04,110 --> 00:23:04,120
+Now there are two ways to handle it.
+ 
+
+1233
+00:23:04,120 --> 00:23:06,430
+Now there are two ways to handle it.
+One is the default one, which is default
+
+1234
+00:23:06,430 --> 00:23:06,440
+One is the default one, which is default
+ 
+
+1235
+00:23:06,440 --> 00:23:09,110
+One is the default one, which is default
+production exception handler.
+
+1236
+00:23:09,110 --> 00:23:09,120
+production exception handler.
+ 
+
+1237
+00:23:09,120 --> 00:23:11,390
+production exception handler.
+So, it In the default, it always fail.
+
+1238
+00:23:11,390 --> 00:23:11,400
+So, it In the default, it always fail.
+ 
+
+1239
+00:23:11,400 --> 00:23:13,630
+So, it In the default, it always fail.
+Your stream thread dies, and if all
+
+1240
+00:23:13,630 --> 00:23:13,640
+Your stream thread dies, and if all
+ 
+
+1241
+00:23:13,640 --> 00:23:16,790
+Your stream thread dies, and if all
+thread dies, application dies.
+
+1242
+00:23:16,790 --> 00:23:16,800
+thread dies, application dies.
+ 
+
+1243
+00:23:16,800 --> 00:23:18,190
+thread dies, application dies.
+So, in application.properties, if you
+
+1244
+00:23:18,190 --> 00:23:18,200
+So, in application.properties, if you
+ 
+
+1245
+00:23:18,200 --> 00:23:19,870
+So, in application.properties, if you
+don't write it, this will be used.
+
+1246
+00:23:19,870 --> 00:23:19,880
+don't write it, this will be used.
+ 
+
+1247
+00:23:19,880 --> 00:23:22,910
+don't write it, this will be used.
+Otherwise, explicitly also you can write
+
+1248
+00:23:22,910 --> 00:23:22,920
+Otherwise, explicitly also you can write
+ 
+
+1249
+00:23:22,920 --> 00:23:25,670
+Otherwise, explicitly also you can write
+is
+
+1250
+00:23:25,670 --> 00:23:25,680
+is
+ 
+
+1251
+00:23:25,680 --> 00:23:26,550
+is
+that
+
+1252
+00:23:26,550 --> 00:23:26,560
+that
+ 
+
+1253
+00:23:26,560 --> 00:23:30,190
+that
+org.apache.kafka.streams.errors
+
+1254
+00:23:30,190 --> 00:23:30,200
+
+ 
+
+1255
+00:23:30,200 --> 00:23:33,470
+
+default production exception handler.
+
+1256
+00:23:33,470 --> 00:23:33,480
+default production exception handler.
+ 
+
+1257
+00:23:33,480 --> 00:23:35,310
+default production exception handler.
+Okay, any fail
+
+1258
+00:23:35,310 --> 00:23:35,320
+Okay, any fail
+ 
+
+1259
+00:23:35,320 --> 00:23:37,950
+Okay, any fail
+your thread will die itself. If all
+
+1260
+00:23:37,950 --> 00:23:37,960
+your thread will die itself. If all
+ 
+
+1261
+00:23:37,960 --> 00:23:39,670
+your thread will die itself. If all
+thread dies, your like an application
+
+1262
+00:23:39,670 --> 00:23:39,680
+thread dies, your like an application
+ 
+
+1263
+00:23:39,680 --> 00:23:42,230
+thread dies, your like an application
+goes down.
+
+1264
+00:23:42,230 --> 00:23:42,240
+
+ 
+
+1265
+00:23:42,240 --> 00:23:43,510
+
+Okay?
+
+1266
+00:23:43,510 --> 00:23:43,520
+Okay?
+ 
+
+1267
+00:23:43,520 --> 00:23:46,310
+Okay?
+So, we don't have to write this default
+
+1268
+00:23:46,310 --> 00:23:46,320
+So, we don't have to write this default
+ 
+
+1269
+00:23:46,320 --> 00:23:47,710
+So, we don't have to write this default
+production exception handler. It would
+
+1270
+00:23:47,710 --> 00:23:47,720
+production exception handler. It would
+ 
+
+1271
+00:23:47,720 --> 00:23:50,470
+production exception handler. It would
+already be there. I'm just showing you
+
+1272
+00:23:50,470 --> 00:23:50,480
+already be there. I'm just showing you
+ 
+
+1273
+00:23:50,480 --> 00:23:53,030
+already be there. I'm just showing you
+what it might be doing it. So,
+
+1274
+00:23:53,030 --> 00:23:53,040
+what it might be doing it. So,
+ 
+
+1275
+00:23:53,040 --> 00:23:54,470
+what it might be doing it. So,
+it has a class default production
+
+1276
+00:23:54,470 --> 00:23:54,480
+it has a class default production
+ 
+
+1277
+00:23:54,480 --> 00:23:55,710
+it has a class default production
+exception handler. It might have
+
+1278
+00:23:55,710 --> 00:23:55,720
+exception handler. It might have
+ 
+
+1279
+00:23:55,720 --> 00:23:57,430
+exception handler. It might have
+implemented this production exception
+
+1280
+00:23:57,430 --> 00:23:57,440
+implemented this production exception
+ 
+
+1281
+00:23:57,440 --> 00:23:58,990
+implemented this production exception
+handler class.
+
+1282
+00:23:58,990 --> 00:23:59,000
+handler class.
+ 
+
+1283
+00:23:59,000 --> 00:24:00,510
+handler class.
+So, if we have to in future, we have to
+
+1284
+00:24:00,510 --> 00:24:00,520
+So, if we have to in future, we have to
+ 
+
+1285
+00:24:00,520 --> 00:24:02,790
+So, if we have to in future, we have to
+write our own custom handler, we have to
+
+1286
+00:24:02,790 --> 00:24:02,800
+write our own custom handler, we have to
+ 
+
+1287
+00:24:02,800 --> 00:24:04,230
+write our own custom handler, we have to
+implement this production exception
+
+1288
+00:24:04,230 --> 00:24:04,240
+implement this production exception
+ 
+
+1289
+00:24:04,240 --> 00:24:05,470
+implement this production exception
+handler.
+
+1290
+00:24:05,470 --> 00:24:05,480
+handler.
+ 
+
+1291
+00:24:05,480 --> 00:24:07,030
+handler.
+And it we have to provide an
+
+1292
+00:24:07,030 --> 00:24:07,040
+And it we have to provide an
+ 
+
+1293
+00:24:07,040 --> 00:24:09,510
+And it we have to provide an
+implementation of this method handle.
+
+1294
+00:24:09,510 --> 00:24:09,520
+implementation of this method handle.
+ 
+
+1295
+00:24:09,520 --> 00:24:10,710
+implementation of this method handle.
+That's all.
+
+1296
+00:24:10,710 --> 00:24:10,720
+That's all.
+ 
+
+1297
+00:24:10,720 --> 00:24:12,150
+That's all.
+We have a record which we have to
+
+1298
+00:24:12,150 --> 00:24:12,160
+We have a record which we have to
+ 
+
+1299
+00:24:12,160 --> 00:24:14,550
+We have a record which we have to
+produce, and also the exception.
+
+1300
+00:24:14,550 --> 00:24:14,560
+produce, and also the exception.
+ 
+
+1301
+00:24:14,560 --> 00:24:17,110
+produce, and also the exception.
+Now, in case of this default production
+
+1302
+00:24:17,110 --> 00:24:17,120
+Now, in case of this default production
+ 
+
+1303
+00:24:17,120 --> 00:24:19,190
+Now, in case of this default production
+exception handler, we know that it might
+
+1304
+00:24:19,190 --> 00:24:19,200
+exception handler, we know that it might
+ 
+
+1305
+00:24:19,200 --> 00:24:20,630
+exception handler, we know that it might
+be doing
+
+1306
+00:24:20,630 --> 00:24:20,640
+be doing
+ 
+
+1307
+00:24:20,640 --> 00:24:21,670
+be doing
+production exception handler
+
+1308
+00:24:21,670 --> 00:24:21,680
+production exception handler
+ 
+
+1309
+00:24:21,680 --> 00:24:23,790
+production exception handler
+response.fail.
+
+1310
+00:24:23,790 --> 00:24:23,800
+response.fail.
+ 
+
+1311
+00:24:23,800 --> 00:24:25,550
+response.fail.
+Okay? We don't have to write this just
+
+1312
+00:24:25,550 --> 00:24:25,560
+Okay? We don't have to write this just
+ 
+
+1313
+00:24:25,560 --> 00:24:27,430
+Okay? We don't have to write this just
+like what internally it's doing that it
+
+1314
+00:24:27,430 --> 00:24:27,440
+like what internally it's doing that it
+ 
+
+1315
+00:24:27,440 --> 00:24:29,830
+like what internally it's doing that it
+always fail.
+
+1316
+00:24:29,830 --> 00:24:29,840
+always fail.
+ 
+
+1317
+00:24:29,840 --> 00:24:30,750
+always fail.
+But,
+
+1318
+00:24:30,750 --> 00:24:30,760
+But,
+ 
+
+1319
+00:24:30,760 --> 00:24:32,270
+But,
+I always suggest that write your own
+
+1320
+00:24:32,270 --> 00:24:32,280
+I always suggest that write your own
+ 
+
+1321
+00:24:32,280 --> 00:24:34,030
+I always suggest that write your own
+custom handler. Like, if any failure
+
+1322
+00:24:34,030 --> 00:24:34,040
+custom handler. Like, if any failure
+ 
+
+1323
+00:24:34,040 --> 00:24:36,390
+custom handler. Like, if any failure
+happen, what you want to do. So, I'm
+
+1324
+00:24:36,390 --> 00:24:36,400
+happen, what you want to do. So, I'm
+ 
+
+1325
+00:24:36,400 --> 00:24:39,550
+happen, what you want to do. So, I'm
+just showing you some example that
+
+1326
+00:24:39,550 --> 00:24:39,560
+just showing you some example that
+ 
+
+1327
+00:24:39,560 --> 00:24:41,750
+just showing you some example that
+if there is any
+
+1328
+00:24:41,750 --> 00:24:41,760
+if there is any
+ 
+
+1329
+00:24:41,760 --> 00:24:43,910
+if there is any
+event or the record
+
+1330
+00:24:43,910 --> 00:24:43,920
+event or the record
+ 
+
+1331
+00:24:43,920 --> 00:24:46,830
+event or the record
+which is like you it's okay to continue
+
+1332
+00:24:46,830 --> 00:24:46,840
+which is like you it's okay to continue
+ 
+
+1333
+00:24:46,840 --> 00:24:48,870
+which is like you it's okay to continue
+it without it.
+
+1334
+00:24:48,870 --> 00:24:48,880
+it without it.
+ 
+
+1335
+00:24:48,880 --> 00:24:51,230
+it without it.
+Let's say it's record is too large. You
+
+1336
+00:24:51,230 --> 00:24:51,240
+Let's say it's record is too large. You
+ 
+
+1337
+00:24:51,240 --> 00:24:53,310
+Let's say it's record is too large. You
+have or let's say
+
+1338
+00:24:53,310 --> 00:24:53,320
+have or let's say
+ 
+
+1339
+00:24:53,320 --> 00:24:55,430
+have or let's say
+a particular size of a record. But, if
+
+1340
+00:24:55,430 --> 00:24:55,440
+a particular size of a record. But, if
+ 
+
+1341
+00:24:55,440 --> 00:24:56,990
+a particular size of a record. But, if
+it is too large,
+
+1342
+00:24:56,990 --> 00:24:57,000
+it is too large,
+ 
+
+1343
+00:24:57,000 --> 00:24:58,830
+it is too large,
+okay, you will say that continue. Don't
+
+1344
+00:24:58,830 --> 00:24:58,840
+okay, you will say that continue. Don't
+ 
+
+1345
+00:24:58,840 --> 00:25:01,190
+okay, you will say that continue. Don't
+stop the thread itself. But if record is
+
+1346
+00:25:01,190 --> 00:25:01,200
+stop the thread itself. But if record is
+ 
+
+1347
+00:25:01,200 --> 00:25:02,830
+stop the thread itself. But if record is
+proper valid,
+
+1348
+00:25:02,830 --> 00:25:02,840
+proper valid,
+ 
+
+1349
+00:25:02,840 --> 00:25:05,670
+proper valid,
+I am failing the thread itself. Don't
+
+1350
+00:25:05,670 --> 00:25:05,680
+I am failing the thread itself. Don't
+ 
+
+1351
+00:25:05,680 --> 00:25:07,950
+I am failing the thread itself. Don't
+proceed forward.
+
+1352
+00:25:07,950 --> 00:25:07,960
+proceed forward.
+ 
+
+1353
+00:25:07,960 --> 00:25:11,270
+proceed forward.
+Okay, so this is just an example. So
+
+1354
+00:25:11,270 --> 00:25:11,280
+Okay, so this is just an example. So
+ 
+
+1355
+00:25:11,280 --> 00:25:13,510
+Okay, so this is just an example. So
+custom production handler implements
+
+1356
+00:25:13,510 --> 00:25:13,520
+custom production handler implements
+ 
+
+1357
+00:25:13,520 --> 00:25:15,990
+custom production handler implements
+production exception handler. Okay, we
+
+1358
+00:25:15,990 --> 00:25:16,000
+production exception handler. Okay, we
+ 
+
+1359
+00:25:16,000 --> 00:25:17,390
+production exception handler. Okay, we
+have to provide an implementation of
+
+1360
+00:25:17,390 --> 00:25:17,400
+have to provide an implementation of
+ 
+
+1361
+00:25:17,400 --> 00:25:18,310
+have to provide an implementation of
+this.
+
+1362
+00:25:18,310 --> 00:25:18,320
+this.
+ 
+
+1363
+00:25:18,320 --> 00:25:20,630
+this.
+It has This method has both producer
+
+1364
+00:25:20,630 --> 00:25:20,640
+It has This method has both producer
+ 
+
+1365
+00:25:20,640 --> 00:25:22,630
+It has This method has both producer
+record and exception. Now you can do
+
+1366
+00:25:22,630 --> 00:25:22,640
+record and exception. Now you can do
+ 
+
+1367
+00:25:22,640 --> 00:25:25,110
+record and exception. Now you can do
+whatever you want. Whether you want to
+
+1368
+00:25:25,110 --> 00:25:25,120
+whatever you want. Whether you want to
+ 
+
+1369
+00:25:25,120 --> 00:25:26,950
+whatever you want. Whether you want to
+fail you, whether you want to continue,
+
+1370
+00:25:26,950 --> 00:25:26,960
+fail you, whether you want to continue,
+ 
+
+1371
+00:25:26,960 --> 00:25:28,390
+fail you, whether you want to continue,
+or whether you want to put into some
+
+1372
+00:25:28,390 --> 00:25:28,400
+or whether you want to put into some
+ 
+
+1373
+00:25:28,400 --> 00:25:30,750
+or whether you want to put into some
+queue and then continue or fail. Only
+
+1374
+00:25:30,750 --> 00:25:30,760
+queue and then continue or fail. Only
+ 
+
+1375
+00:25:30,760 --> 00:25:32,910
+queue and then continue or fail. Only
+these two options are available.
+
+1376
+00:25:32,910 --> 00:25:32,920
+these two options are available.
+ 
+
+1377
+00:25:32,920 --> 00:25:35,230
+these two options are available.
+Okay, and also configure like if you
+
+1378
+00:25:35,230 --> 00:25:35,240
+Okay, and also configure like if you
+ 
+
+1379
+00:25:35,240 --> 00:25:37,510
+Okay, and also configure like if you
+want to read certain property value and
+
+1380
+00:25:37,510 --> 00:25:37,520
+want to read certain property value and
+ 
+
+1381
+00:25:37,520 --> 00:25:39,030
+want to read certain property value and
+you want to change or not. Generally it
+
+1382
+00:25:39,030 --> 00:25:39,040
+you want to change or not. Generally it
+ 
+
+1383
+00:25:39,040 --> 00:25:40,790
+you want to change or not. Generally it
+is empty.
+
+1384
+00:25:40,790 --> 00:25:40,800
+is empty.
+ 
+
+1385
+00:25:40,800 --> 00:25:42,470
+is empty.
+So once you have written your custom
+
+1386
+00:25:42,470 --> 00:25:42,480
+So once you have written your custom
+ 
+
+1387
+00:25:42,480 --> 00:25:44,230
+So once you have written your custom
+handler production handler, all you have
+
+1388
+00:25:44,230 --> 00:25:44,240
+handler production handler, all you have
+ 
+
+1389
+00:25:44,240 --> 00:25:45,230
+handler production handler, all you have
+to do is update your
+
+1390
+00:25:45,230 --> 00:25:45,240
+to do is update your
+ 
+
+1391
+00:25:45,240 --> 00:25:46,870
+to do is update your
+application.properties.
+
+1392
+00:25:46,870 --> 00:25:46,880
+application.properties.
+ 
+
+1393
+00:25:46,880 --> 00:25:48,870
+application.properties.
+Default production exception handler is
+
+1394
+00:25:48,870 --> 00:25:48,880
+Default production exception handler is
+ 
+
+1395
+00:25:48,880 --> 00:25:52,390
+Default production exception handler is
+your custom production handler.
+
+1396
+00:25:52,390 --> 00:25:52,400
+
+ 
+
+1397
+00:25:52,400 --> 00:25:54,070
+
+Okay, so this will how your
+
+1398
+00:25:54,070 --> 00:25:54,080
+Okay, so this will how your
+ 
+
+1399
+00:25:54,080 --> 00:25:56,030
+Okay, so this will how your
+serialization exception would be taken
+
+1400
+00:25:56,030 --> 00:25:56,040
+serialization exception would be taken
+ 
+
+1401
+00:25:56,040 --> 00:25:57,910
+serialization exception would be taken
+care.
+
+1402
+00:25:57,910 --> 00:25:57,920
+care.
+ 
+
+1403
+00:25:57,920 --> 00:25:59,110
+care.
+Clear?
+
+1404
+00:25:59,110 --> 00:25:59,120
+Clear?
+ 
+
+1405
+00:25:59,120 --> 00:26:01,670
+Clear?
+So generally I have covered this topic
+
+1406
+00:26:01,670 --> 00:26:01,680
+So generally I have covered this topic
+ 
+
+1407
+00:26:01,680 --> 00:26:04,710
+So generally I have covered this topic
+just to make sure that we don't have any
+
+1408
+00:26:04,710 --> 00:26:04,720
+just to make sure that we don't have any
+ 
+
+1409
+00:26:04,720 --> 00:26:08,270
+just to make sure that we don't have any
+doubts with search. Like we are
+
+1410
+00:26:08,270 --> 00:26:08,280
+doubts with search. Like we are
+ 
+
+1411
+00:26:08,280 --> 00:26:10,430
+doubts with search. Like we are
+continuously taking name that consume
+
+1412
+00:26:10,430 --> 00:26:10,440
+continuously taking name that consume
+ 
+
+1413
+00:26:10,440 --> 00:26:12,310
+continuously taking name that consume
+with search. dot. string search. dot.
+
+1414
+00:26:12,310 --> 00:26:12,320
+with search. dot. string search. dot.
+ 
+
+1415
+00:26:12,320 --> 00:26:14,270
+with search. dot. string search. dot.
+string
+
+1416
+00:26:14,270 --> 00:26:14,280
+string
+ 
+
+1417
+00:26:14,280 --> 00:26:16,910
+string
+during RocksDB also. So there should not
+
+1418
+00:26:16,910 --> 00:26:16,920
+during RocksDB also. So there should not
+ 
+
+1419
+00:26:16,920 --> 00:26:20,510
+during RocksDB also. So there should not
+be any doubt like what is search. Okay.
+
+1420
+00:26:20,510 --> 00:26:20,520
+be any doubt like what is search. Okay.
+ 
+
+1421
+00:26:20,520 --> 00:26:21,790
+be any doubt like what is search. Okay.
+Any doubt, let me know in the comment
+
+1422
+00:26:21,790 --> 00:26:21,800
+Any doubt, let me know in the comment
+ 
+
+1423
+00:26:21,800 --> 00:26:24,070
+Any doubt, let me know in the comment
+section. Now in the next one we will see
+
+1424
+00:26:24,070 --> 00:26:24,080
+section. Now in the next one we will see
+ 
+
+1425
+00:26:24,080 --> 00:26:25,830
+section. Now in the next one we will see
+different
+
+1426
+00:26:25,830 --> 00:26:25,840
+different
+ 
+
+1427
+00:26:25,840 --> 00:26:28,750
+different
+You can say that our processor
+
+1428
+00:26:28,750 --> 00:26:28,760
+You can say that our processor
+ 
+
+1429
+00:26:28,760 --> 00:26:31,590
+You can say that our processor
+processor nodes like multiple functions
+
+1430
+00:26:31,590 --> 00:26:31,600
+processor nodes like multiple functions
+ 
+
+1431
+00:26:31,600 --> 00:26:33,470
+processor nodes like multiple functions
+we have, so we will see that.
+
+1432
+00:26:33,470 --> 00:26:33,480
+we have, so we will see that.
+ 
+
+1433
+00:26:33,480 --> 00:26:37,120
+we have, so we will see that.
+Okay guys, thank you. Bye.
+

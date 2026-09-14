@@ -1,0 +1,6495 @@
+1
+00:00:00,080 --> 00:00:01,670
+
+Welcome back. So now let's start with
+
+2
+00:00:01,670 --> 00:00:01,680
+Welcome back. So now let's start with
+ 
+
+3
+00:00:01,680 --> 00:00:05,829
+Welcome back. So now let's start with
+the stateful processing nodes.
+
+4
+00:00:05,829 --> 00:00:05,839
+the stateful processing nodes.
+ 
+
+5
+00:00:05,839 --> 00:00:09,110
+the stateful processing nodes.
+Okay. So stateless is done and let's
+
+6
+00:00:09,110 --> 00:00:09,120
+Okay. So stateless is done and let's
+ 
+
+7
+00:00:09,120 --> 00:00:11,589
+Okay. So stateless is done and let's
+start with the stateful.
+
+8
+00:00:11,589 --> 00:00:11,599
+start with the stateful.
+ 
+
+9
+00:00:11,599 --> 00:00:14,230
+start with the stateful.
+So stateful processing node is a node
+
+10
+00:00:14,230 --> 00:00:14,240
+So stateful processing node is a node
+ 
+
+11
+00:00:14,240 --> 00:00:16,230
+So stateful processing node is a node
+that must remember information from
+
+12
+00:00:16,230 --> 00:00:16,240
+that must remember information from
+ 
+
+13
+00:00:16,240 --> 00:00:18,150
+that must remember information from
+previous record to produce correct
+
+14
+00:00:18,150 --> 00:00:18,160
+previous record to produce correct
+ 
+
+15
+00:00:18,160 --> 00:00:20,070
+previous record to produce correct
+output.
+
+16
+00:00:20,070 --> 00:00:20,080
+output.
+ 
+
+17
+00:00:20,080 --> 00:00:22,950
+output.
+A stateful operation use ros DB to store
+
+18
+00:00:22,950 --> 00:00:22,960
+A stateful operation use ros DB to store
+ 
+
+19
+00:00:22,960 --> 00:00:25,429
+A stateful operation use ros DB to store
+intermediate state. Common example is
+
+20
+00:00:25,429 --> 00:00:25,439
+intermediate state. Common example is
+ 
+
+21
+00:00:25,439 --> 00:00:27,429
+intermediate state. Common example is
+count record per key sum amount per
+
+22
+00:00:27,429 --> 00:00:27,439
+count record per key sum amount per
+ 
+
+23
+00:00:27,439 --> 00:00:29,669
+count record per key sum amount per
+user. So
+
+24
+00:00:29,669 --> 00:00:29,679
+user. So
+ 
+
+25
+00:00:29,679 --> 00:00:31,990
+user. So
+I would say that the prerequisite for it
+
+26
+00:00:31,990 --> 00:00:32,000
+I would say that the prerequisite for it
+ 
+
+27
+00:00:32,000 --> 00:00:34,709
+I would say that the prerequisite for it
+is again a Kafka stream architecture.
+
+28
+00:00:34,709 --> 00:00:34,719
+is again a Kafka stream architecture.
+ 
+
+29
+00:00:34,719 --> 00:00:37,990
+is again a Kafka stream architecture.
+From there I have explained that that
+
+30
+00:00:37,990 --> 00:00:38,000
+From there I have explained that that
+ 
+
+31
+00:00:38,000 --> 00:00:43,110
+From there I have explained that that
+each task maintain their own ros DB.
+
+32
+00:00:43,110 --> 00:00:43,120
+each task maintain their own ros DB.
+ 
+
+33
+00:00:43,120 --> 00:00:46,229
+each task maintain their own ros DB.
+Okay. Each task maintain their own rox
+
+34
+00:00:46,229 --> 00:00:46,239
+Okay. Each task maintain their own rox
+ 
+
+35
+00:00:46,239 --> 00:00:50,709
+Okay. Each task maintain their own rox
+DB and they use this DB Rox DB to
+
+36
+00:00:50,709 --> 00:00:50,719
+DB and they use this DB Rox DB to
+ 
+
+37
+00:00:50,719 --> 00:00:53,830
+DB and they use this DB Rox DB to
+maintain the intermediate state. For
+
+38
+00:00:53,830 --> 00:00:53,840
+maintain the intermediate state. For
+ 
+
+39
+00:00:53,840 --> 00:00:56,150
+maintain the intermediate state. For
+example, you have record one, record
+
+40
+00:00:56,150 --> 00:00:56,160
+example, you have record one, record
+ 
+
+41
+00:00:56,160 --> 00:00:59,270
+example, you have record one, record
+two, record three, record four. Okay?
+
+42
+00:00:59,270 --> 00:00:59,280
+two, record three, record four. Okay?
+ 
+
+43
+00:00:59,280 --> 00:01:01,910
+two, record three, record four. Okay?
+And this is the topology
+
+44
+00:01:01,910 --> 00:01:01,920
+And this is the topology
+ 
+
+45
+00:01:01,920 --> 00:01:04,549
+And this is the topology
+we are writing.
+
+46
+00:01:04,549 --> 00:01:04,559
+we are writing.
+ 
+
+47
+00:01:04,559 --> 00:01:07,270
+we are writing.
+Now at any point of time, our task is to
+
+48
+00:01:07,270 --> 00:01:07,280
+Now at any point of time, our task is to
+ 
+
+49
+00:01:07,280 --> 00:01:10,390
+Now at any point of time, our task is to
+count record
+
+50
+00:01:10,390 --> 00:01:10,400
+count record
+ 
+
+51
+00:01:10,400 --> 00:01:13,030
+count record
+by user one. So this is user one, user
+
+52
+00:01:13,030 --> 00:01:13,040
+by user one. So this is user one, user
+ 
+
+53
+00:01:13,040 --> 00:01:16,149
+by user one. So this is user one, user
+two, user one, user three.
+
+54
+00:01:16,149 --> 00:01:16,159
+two, user one, user three.
+ 
+
+55
+00:01:16,159 --> 00:01:19,190
+two, user one, user three.
+Now if you have certain use case like
+
+56
+00:01:19,190 --> 00:01:19,200
+Now if you have certain use case like
+ 
+
+57
+00:01:19,200 --> 00:01:22,230
+Now if you have certain use case like
+count record by user one then definitely
+
+58
+00:01:22,230 --> 00:01:22,240
+count record by user one then definitely
+ 
+
+59
+00:01:22,240 --> 00:01:24,630
+count record by user one then definitely
+you have to store certain information
+
+60
+00:01:24,630 --> 00:01:24,640
+you have to store certain information
+ 
+
+61
+00:01:24,640 --> 00:01:26,390
+you have to store certain information
+right let's say record one comes
+
+62
+00:01:26,390 --> 00:01:26,400
+right let's say record one comes
+ 
+
+63
+00:01:26,400 --> 00:01:28,230
+right let's say record one comes
+somewhere you have to store so that's
+
+64
+00:01:28,230 --> 00:01:28,240
+somewhere you have to store so that's
+ 
+
+65
+00:01:28,240 --> 00:01:31,030
+somewhere you have to store so that's
+ros db
+
+66
+00:01:31,030 --> 00:01:31,040
+ros db
+ 
+
+67
+00:01:31,040 --> 00:01:34,550
+ros db
+so the key is let's say user one count
+
+68
+00:01:34,550 --> 00:01:34,560
+so the key is let's say user one count
+ 
+
+69
+00:01:34,560 --> 00:01:36,789
+so the key is let's say user one count
+let's say currently one then record two
+
+70
+00:01:36,789 --> 00:01:36,799
+let's say currently one then record two
+ 
+
+71
+00:01:36,799 --> 00:01:39,190
+let's say currently one then record two
+comes
+
+72
+00:01:39,190 --> 00:01:39,200
+comes
+ 
+
+73
+00:01:39,200 --> 00:01:42,310
+comes
+user two record one then again user one
+
+74
+00:01:42,310 --> 00:01:42,320
+user two record one then again user one
+ 
+
+75
+00:01:42,320 --> 00:01:45,030
+user two record one then again user one
+record come user one now record become
+
+76
+00:01:45,030 --> 00:01:45,040
+record come user one now record become
+ 
+
+77
+00:01:45,040 --> 00:01:47,990
+record come user one now record become
+two. So like this. So this is now a
+
+78
+00:01:47,990 --> 00:01:48,000
+two. So like this. So this is now a
+ 
+
+79
+00:01:48,000 --> 00:01:50,389
+two. So like this. So this is now a
+stateful operation.
+
+80
+00:01:50,389 --> 00:01:50,399
+stateful operation.
+ 
+
+81
+00:01:50,399 --> 00:01:53,670
+stateful operation.
+Why? Because it remembers information
+
+82
+00:01:53,670 --> 00:01:53,680
+Why? Because it remembers information
+ 
+
+83
+00:01:53,680 --> 00:01:56,230
+Why? Because it remembers information
+from the previous record to produce the
+
+84
+00:01:56,230 --> 00:01:56,240
+from the previous record to produce the
+ 
+
+85
+00:01:56,240 --> 00:01:59,990
+from the previous record to produce the
+correct output.
+
+86
+00:01:59,990 --> 00:02:00,000
+
+ 
+
+87
+00:02:00,000 --> 00:02:02,389
+
+So these are some of the important
+
+88
+00:02:02,389 --> 00:02:02,399
+So these are some of the important
+ 
+
+89
+00:02:02,399 --> 00:02:05,590
+So these are some of the important
+stateful operations. Okay. Yeah. group
+
+90
+00:02:05,590 --> 00:02:05,600
+stateful operations. Okay. Yeah. group
+ 
+
+91
+00:02:05,600 --> 00:02:09,270
+stateful operations. Okay. Yeah. group
+by key and group by is not a specific
+
+92
+00:02:09,270 --> 00:02:09,280
+by key and group by is not a specific
+ 
+
+93
+00:02:09,280 --> 00:02:10,869
+by key and group by is not a specific
+stateful operation but you can say that
+
+94
+00:02:10,869 --> 00:02:10,879
+stateful operation but you can say that
+ 
+
+95
+00:02:10,879 --> 00:02:15,270
+stateful operation but you can say that
+it's a uh it provide an entry point to
+
+96
+00:02:15,270 --> 00:02:15,280
+it's a uh it provide an entry point to
+ 
+
+97
+00:02:15,280 --> 00:02:16,949
+it's a uh it provide an entry point to
+stateful processing without this it
+
+98
+00:02:16,949 --> 00:02:16,959
+stateful processing without this it
+ 
+
+99
+00:02:16,959 --> 00:02:19,190
+stateful processing without this it
+would be difficult
+
+100
+00:02:19,190 --> 00:02:19,200
+would be difficult
+ 
+
+101
+00:02:19,200 --> 00:02:21,830
+would be difficult
+so let's start and things will get more
+
+102
+00:02:21,830 --> 00:02:21,840
+so let's start and things will get more
+ 
+
+103
+00:02:21,840 --> 00:02:23,589
+so let's start and things will get more
+clear
+
+104
+00:02:23,589 --> 00:02:23,599
+clear
+ 
+
+105
+00:02:23,599 --> 00:02:27,030
+clear
+the first thing the group by key and the
+
+106
+00:02:27,030 --> 00:02:27,040
+the first thing the group by key and the
+ 
+
+107
+00:02:27,040 --> 00:02:28,790
+the first thing the group by key and the
+group by it has two major
+
+108
+00:02:28,790 --> 00:02:28,800
+group by it has two major
+ 
+
+109
+00:02:28,800 --> 00:02:30,869
+group by it has two major
+responsibilities
+
+110
+00:02:30,869 --> 00:02:30,879
+responsibilities
+ 
+
+111
+00:02:30,879 --> 00:02:34,470
+responsibilities
+the first is convert your K stream into
+
+112
+00:02:34,470 --> 00:02:34,480
+the first is convert your K stream into
+ 
+
+113
+00:02:34,480 --> 00:02:40,630
+the first is convert your K stream into
+K grouped stream what does that mean?
+
+114
+00:02:40,630 --> 00:02:40,640
+K grouped stream what does that mean?
+ 
+
+115
+00:02:40,640 --> 00:02:44,390
+K grouped stream what does that mean?
+So now understand that when you have a K
+
+116
+00:02:44,390 --> 00:02:44,400
+So now understand that when you have a K
+ 
+
+117
+00:02:44,400 --> 00:02:46,550
+So now understand that when you have a K
+stream
+
+118
+00:02:46,550 --> 00:02:46,560
+stream
+ 
+
+119
+00:02:46,560 --> 00:02:50,790
+stream
+you have a key you have a value. Okay.
+
+120
+00:02:50,790 --> 00:02:50,800
+you have a key you have a value. Okay.
+ 
+
+121
+00:02:50,800 --> 00:02:53,990
+you have a key you have a value. Okay.
+Now I am saying that the first task or
+
+122
+00:02:53,990 --> 00:02:54,000
+Now I am saying that the first task or
+ 
+
+123
+00:02:54,000 --> 00:02:55,830
+Now I am saying that the first task or
+first responsibility of when we use
+
+124
+00:02:55,830 --> 00:02:55,840
+first responsibility of when we use
+ 
+
+125
+00:02:55,840 --> 00:02:57,990
+first responsibility of when we use
+group by key and group by is to convert
+
+126
+00:02:57,990 --> 00:02:58,000
+group by key and group by is to convert
+ 
+
+127
+00:02:58,000 --> 00:03:00,630
+group by key and group by is to convert
+this to K
+
+128
+00:03:00,630 --> 00:03:00,640
+this to K
+ 
+
+129
+00:03:00,640 --> 00:03:03,750
+this to K
+grouped stream.
+
+130
+00:03:03,750 --> 00:03:03,760
+grouped stream.
+ 
+
+131
+00:03:03,760 --> 00:03:07,270
+grouped stream.
+What does it mean? So the first thing it
+
+132
+00:03:07,270 --> 00:03:07,280
+What does it mean? So the first thing it
+ 
+
+133
+00:03:07,280 --> 00:03:11,030
+What does it mean? So the first thing it
+does is that when we have to do a group,
+
+134
+00:03:11,030 --> 00:03:11,040
+does is that when we have to do a group,
+ 
+
+135
+00:03:11,040 --> 00:03:16,390
+does is that when we have to do a group,
+when we do a group of records,
+
+136
+00:03:16,390 --> 00:03:16,400
+
+ 
+
+137
+00:03:16,400 --> 00:03:19,190
+
+what should
+
+138
+00:03:19,190 --> 00:03:19,200
+what should
+ 
+
+139
+00:03:19,200 --> 00:03:22,949
+what should
+be the key used?
+
+140
+00:03:22,949 --> 00:03:22,959
+be the key used?
+ 
+
+141
+00:03:22,959 --> 00:03:26,710
+be the key used?
+What should be the key key used?
+
+142
+00:03:26,710 --> 00:03:26,720
+What should be the key key used?
+ 
+
+143
+00:03:26,720 --> 00:03:29,430
+What should be the key key used?
+If the [snorts] same key whatever it is
+
+144
+00:03:29,430 --> 00:03:29,440
+If the [snorts] same key whatever it is
+ 
+
+145
+00:03:29,440 --> 00:03:32,949
+If the [snorts] same key whatever it is
+coming that can be used or a different
+
+146
+00:03:32,949 --> 00:03:32,959
+coming that can be used or a different
+ 
+
+147
+00:03:32,959 --> 00:03:35,990
+coming that can be used or a different
+key need to be used.
+
+148
+00:03:35,990 --> 00:03:36,000
+key need to be used.
+ 
+
+149
+00:03:36,000 --> 00:03:39,750
+key need to be used.
+Okay. So if the same key has to be used
+
+150
+00:03:39,750 --> 00:03:39,760
+Okay. So if the same key has to be used
+ 
+
+151
+00:03:39,760 --> 00:03:42,149
+Okay. So if the same key has to be used
+use group by key. If you have to use
+
+152
+00:03:42,149 --> 00:03:42,159
+use group by key. If you have to use
+ 
+
+153
+00:03:42,159 --> 00:03:45,910
+use group by key. If you have to use
+different key group by okay we'll see an
+
+154
+00:03:45,910 --> 00:03:45,920
+different key group by okay we'll see an
+ 
+
+155
+00:03:45,920 --> 00:03:47,990
+different key group by okay we'll see an
+example.
+
+156
+00:03:47,990 --> 00:03:48,000
+example.
+ 
+
+157
+00:03:48,000 --> 00:03:50,390
+example.
+The second thing it does is repartition
+
+158
+00:03:50,390 --> 00:03:50,400
+The second thing it does is repartition
+ 
+
+159
+00:03:50,400 --> 00:03:52,710
+The second thing it does is repartition
+if required.
+
+160
+00:03:52,710 --> 00:03:52,720
+if required.
+ 
+
+161
+00:03:52,720 --> 00:03:56,390
+if required.
+So I told you the first is it find out
+
+162
+00:03:56,390 --> 00:03:56,400
+So I told you the first is it find out
+ 
+
+163
+00:03:56,400 --> 00:03:58,710
+So I told you the first is it find out
+or you can say that it tells the
+
+164
+00:03:58,710 --> 00:03:58,720
+or you can say that it tells the
+ 
+
+165
+00:03:58,720 --> 00:04:01,990
+or you can say that it tells the
+downstream downstream
+
+166
+00:04:01,990 --> 00:04:02,000
+downstream downstream
+ 
+
+167
+00:04:02,000 --> 00:04:05,509
+downstream downstream
+nodes processing nodes in after below
+
+168
+00:04:05,509 --> 00:04:05,519
+nodes processing nodes in after below
+ 
+
+169
+00:04:05,519 --> 00:04:08,070
+nodes processing nodes in after below
+this group by whatever we will do below
+
+170
+00:04:08,070 --> 00:04:08,080
+this group by whatever we will do below
+ 
+
+171
+00:04:08,080 --> 00:04:11,429
+this group by whatever we will do below
+this processing nodes it tells that
+
+172
+00:04:11,429 --> 00:04:11,439
+this processing nodes it tells that
+ 
+
+173
+00:04:11,439 --> 00:04:13,830
+this processing nodes it tells that
+which key you should use for grouping
+
+174
+00:04:13,830 --> 00:04:13,840
+which key you should use for grouping
+ 
+
+175
+00:04:13,840 --> 00:04:16,870
+which key you should use for grouping
+for grouping the records. The second I
+
+176
+00:04:16,870 --> 00:04:16,880
+for grouping the records. The second I
+ 
+
+177
+00:04:16,880 --> 00:04:19,909
+for grouping the records. The second I
+told you that it loop repartition
+
+178
+00:04:19,909 --> 00:04:19,919
+told you that it loop repartition
+ 
+
+179
+00:04:19,919 --> 00:04:23,590
+told you that it loop repartition
+repartition in the sense that if the key
+
+180
+00:04:23,590 --> 00:04:23,600
+repartition in the sense that if the key
+ 
+
+181
+00:04:23,600 --> 00:04:26,950
+repartition in the sense that if the key
+is change earlier it was let's say order
+
+182
+00:04:26,950 --> 00:04:26,960
+is change earlier it was let's say order
+ 
+
+183
+00:04:26,960 --> 00:04:31,110
+is change earlier it was let's say order
+id and let's say using select key in the
+
+184
+00:04:31,110 --> 00:04:31,120
+id and let's say using select key in the
+ 
+
+185
+00:04:31,120 --> 00:04:33,110
+id and let's say using select key in the
+previous video I have told you about
+
+186
+00:04:33,110 --> 00:04:33,120
+previous video I have told you about
+ 
+
+187
+00:04:33,120 --> 00:04:35,510
+previous video I have told you about
+stateful processing right uh stateless
+
+188
+00:04:35,510 --> 00:04:35,520
+stateful processing right uh stateless
+ 
+
+189
+00:04:35,520 --> 00:04:38,790
+stateful processing right uh stateless
+processing in that we have discussed map
+
+190
+00:04:38,790 --> 00:04:38,800
+processing in that we have discussed map
+ 
+
+191
+00:04:38,800 --> 00:04:42,870
+processing in that we have discussed map
+value select key so using map and select
+
+192
+00:04:42,870 --> 00:04:42,880
+value select key so using map and select
+ 
+
+193
+00:04:42,880 --> 00:04:45,909
+value select key so using map and select
+key we can change the key so if you have
+
+194
+00:04:45,909 --> 00:04:45,919
+key we can change the key so if you have
+ 
+
+195
+00:04:45,919 --> 00:04:47,590
+key we can change the key so if you have
+changed the key means you are eligible
+
+196
+00:04:47,590 --> 00:04:47,600
+changed the key means you are eligible
+ 
+
+197
+00:04:47,600 --> 00:04:50,230
+changed the key means you are eligible
+for repartition. Now when you are doing
+
+198
+00:04:50,230 --> 00:04:50,240
+for repartition. Now when you are doing
+ 
+
+199
+00:04:50,240 --> 00:04:53,909
+for repartition. Now when you are doing
+group by or group by key or group by you
+
+200
+00:04:53,909 --> 00:04:53,919
+group by or group by key or group by you
+ 
+
+201
+00:04:53,919 --> 00:04:56,070
+group by or group by key or group by you
+are specifically saying that hey we have
+
+202
+00:04:56,070 --> 00:04:56,080
+are specifically saying that hey we have
+ 
+
+203
+00:04:56,080 --> 00:04:58,550
+are specifically saying that hey we have
+to do a repartition
+
+204
+00:04:58,550 --> 00:04:58,560
+to do a repartition
+ 
+
+205
+00:04:58,560 --> 00:05:01,990
+to do a repartition
+because earlier it was you if you have
+
+206
+00:05:01,990 --> 00:05:02,000
+because earlier it was you if you have
+ 
+
+207
+00:05:02,000 --> 00:05:03,990
+because earlier it was you if you have
+watched the architecture video you might
+
+208
+00:05:03,990 --> 00:05:04,000
+watched the architecture video you might
+ 
+
+209
+00:05:04,000 --> 00:05:06,070
+watched the architecture video you might
+already get cleared why a repartition is
+
+210
+00:05:06,070 --> 00:05:06,080
+already get cleared why a repartition is
+ 
+
+211
+00:05:06,080 --> 00:05:09,510
+already get cleared why a repartition is
+required because let's say earlier order
+
+212
+00:05:09,510 --> 00:05:09,520
+required because let's say earlier order
+ 
+
+213
+00:05:09,520 --> 00:05:11,029
+required because let's say earlier order
+ID
+
+214
+00:05:11,029 --> 00:05:11,039
+ID
+ 
+
+215
+00:05:11,039 --> 00:05:15,749
+ID
+and let's say this record has user ID
+
+216
+00:05:15,749 --> 00:05:15,759
+and let's say this record has user ID
+ 
+
+217
+00:05:15,759 --> 00:05:19,830
+and let's say this record has user ID
+1 and certain order
+
+218
+00:05:19,830 --> 00:05:19,840
+1 and certain order
+ 
+
+219
+00:05:19,840 --> 00:05:22,950
+1 and certain order
+just in let's say topic one similarly in
+
+220
+00:05:22,950 --> 00:05:22,960
+just in let's say topic one similarly in
+ 
+
+221
+00:05:22,960 --> 00:05:26,070
+just in let's say topic one similarly in
+topic two you have an order id but again
+
+222
+00:05:26,070 --> 00:05:26,080
+topic two you have an order id but again
+ 
+
+223
+00:05:26,080 --> 00:05:29,110
+topic two you have an order id but again
+it's a user ID one only but certain
+
+224
+00:05:29,110 --> 00:05:29,120
+it's a user ID one only but certain
+ 
+
+225
+00:05:29,120 --> 00:05:32,550
+it's a user ID one only but certain
+different order so earlier
+
+226
+00:05:32,550 --> 00:05:32,560
+different order so earlier
+ 
+
+227
+00:05:32,560 --> 00:05:35,830
+different order so earlier
+our key was order ID okay so this is
+
+228
+00:05:35,830 --> 00:05:35,840
+our key was order ID okay so this is
+ 
+
+229
+00:05:35,840 --> 00:05:37,990
+our key was order ID okay so this is
+order ID let's say one this is order ID
+
+230
+00:05:37,990 --> 00:05:38,000
+order ID let's say one this is order ID
+ 
+
+231
+00:05:38,000 --> 00:05:40,310
+order ID let's say one this is order ID
+let's say something 100
+
+232
+00:05:40,310 --> 00:05:40,320
+let's say something 100
+ 
+
+233
+00:05:40,320 --> 00:05:45,350
+let's say something 100
+so because of this order id topics they
+
+234
+00:05:45,350 --> 00:05:45,360
+so because of this order id topics they
+ 
+
+235
+00:05:45,360 --> 00:05:47,350
+so because of this order id topics they
+were grouped into a particular topic
+
+236
+00:05:47,350 --> 00:05:47,360
+were grouped into a particular topic
+ 
+
+237
+00:05:47,360 --> 00:05:49,590
+were grouped into a particular topic
+Let's say all same order id let's say
+
+238
+00:05:49,590 --> 00:05:49,600
+Let's say all same order id let's say
+ 
+
+239
+00:05:49,600 --> 00:05:51,990
+Let's say all same order id let's say
+key goes into the same partition we know
+
+240
+00:05:51,990 --> 00:05:52,000
+key goes into the same partition we know
+ 
+
+241
+00:05:52,000 --> 00:05:54,230
+key goes into the same partition we know
+that same partition you can say that
+
+242
+00:05:54,230 --> 00:05:54,240
+that same partition you can say that
+ 
+
+243
+00:05:54,240 --> 00:05:56,790
+that same partition you can say that
+partition partition partition one
+
+244
+00:05:56,790 --> 00:05:56,800
+partition partition partition one
+ 
+
+245
+00:05:56,800 --> 00:06:00,230
+partition partition partition one
+partition two but now we are changing
+
+246
+00:06:00,230 --> 00:06:00,240
+partition two but now we are changing
+ 
+
+247
+00:06:00,240 --> 00:06:03,029
+partition two but now we are changing
+that hey change the key from order ID
+
+248
+00:06:03,029 --> 00:06:03,039
+that hey change the key from order ID
+ 
+
+249
+00:06:03,039 --> 00:06:05,510
+that hey change the key from order ID
+change it to user ID
+
+250
+00:06:05,510 --> 00:06:05,520
+change it to user ID
+ 
+
+251
+00:06:05,520 --> 00:06:08,230
+change it to user ID
+so that's why repartition is required
+
+252
+00:06:08,230 --> 00:06:08,240
+so that's why repartition is required
+ 
+
+253
+00:06:08,240 --> 00:06:11,029
+so that's why repartition is required
+because now when you want this user ID
+
+254
+00:06:11,029 --> 00:06:11,039
+because now when you want this user ID
+ 
+
+255
+00:06:11,039 --> 00:06:13,830
+because now when you want this user ID
+you want all the user ID with particular
+
+256
+00:06:13,830 --> 00:06:13,840
+you want all the user ID with particular
+ 
+
+257
+00:06:13,840 --> 00:06:15,749
+you want all the user ID with particular
+ID which are currently scattered into
+
+258
+00:06:15,749 --> 00:06:15,759
+ID which are currently scattered into
+ 
+
+259
+00:06:15,759 --> 00:06:16,950
+ID which are currently scattered into
+different partition
+
+260
+00:06:16,950 --> 00:06:16,960
+different partition
+ 
+
+261
+00:06:16,960 --> 00:06:20,230
+different partition
+Now you have to regroup it so that they
+
+262
+00:06:20,230 --> 00:06:20,240
+Now you have to regroup it so that they
+ 
+
+263
+00:06:20,240 --> 00:06:23,590
+Now you have to regroup it so that they
+can be part of one partition and reason
+
+264
+00:06:23,590 --> 00:06:23,600
+can be part of one partition and reason
+ 
+
+265
+00:06:23,600 --> 00:06:26,550
+can be part of one partition and reason
+I have explained into this architecture
+
+266
+00:06:26,550 --> 00:06:26,560
+I have explained into this architecture
+ 
+
+267
+00:06:26,560 --> 00:06:30,150
+I have explained into this architecture
+also. Check this out.
+
+268
+00:06:30,150 --> 00:06:30,160
+also. Check this out.
+ 
+
+269
+00:06:30,160 --> 00:06:33,029
+also. Check this out.
+Okay. So first is group by key. Group by
+
+270
+00:06:33,029 --> 00:06:33,039
+Okay. So first is group by key. Group by
+ 
+
+271
+00:06:33,039 --> 00:06:34,950
+Okay. So first is group by key. Group by
+key tells the downstream stateful
+
+272
+00:06:34,950 --> 00:06:34,960
+key tells the downstream stateful
+ 
+
+273
+00:06:34,960 --> 00:06:36,950
+key tells the downstream stateful
+operation to use existing key for
+
+274
+00:06:36,950 --> 00:06:36,960
+operation to use existing key for
+ 
+
+275
+00:06:36,960 --> 00:06:40,629
+operation to use existing key for
+aggregation itself. So whatever let's
+
+276
+00:06:40,629 --> 00:06:40,639
+aggregation itself. So whatever let's
+ 
+
+277
+00:06:40,639 --> 00:06:44,390
+aggregation itself. So whatever let's
+say this is orders K stream.
+
+278
+00:06:44,390 --> 00:06:44,400
+say this is orders K stream.
+ 
+
+279
+00:06:44,400 --> 00:06:47,110
+say this is orders K stream.
+Now if you are using group by key here
+
+280
+00:06:47,110 --> 00:06:47,120
+Now if you are using group by key here
+ 
+
+281
+00:06:47,120 --> 00:06:49,029
+Now if you are using group by key here
+you are just telling downstream whatever
+
+282
+00:06:49,029 --> 00:06:49,039
+you are just telling downstream whatever
+ 
+
+283
+00:06:49,039 --> 00:06:51,110
+you are just telling downstream whatever
+the let's say count aggregate whatever
+
+284
+00:06:51,110 --> 00:06:51,120
+the let's say count aggregate whatever
+ 
+
+285
+00:06:51,120 --> 00:06:54,070
+the let's say count aggregate whatever
+the other stateful processing nodes you
+
+286
+00:06:54,070 --> 00:06:54,080
+the other stateful processing nodes you
+ 
+
+287
+00:06:54,080 --> 00:06:56,550
+the other stateful processing nodes you
+are just saying that whatever the case
+
+288
+00:06:56,550 --> 00:06:56,560
+are just saying that whatever the case
+ 
+
+289
+00:06:56,560 --> 00:06:59,990
+are just saying that whatever the case
+stream I have use this only don't change
+
+290
+00:06:59,990 --> 00:07:00,000
+stream I have use this only don't change
+ 
+
+291
+00:07:00,000 --> 00:07:03,029
+stream I have use this only don't change
+it so use it when the current key is
+
+292
+00:07:03,029 --> 00:07:03,039
+it so use it when the current key is
+ 
+
+293
+00:07:03,039 --> 00:07:05,830
+it so use it when the current key is
+already the key you want to aggregate
+
+294
+00:07:05,830 --> 00:07:05,840
+already the key you want to aggregate
+ 
+
+295
+00:07:05,840 --> 00:07:07,830
+already the key you want to aggregate
+for example we have already seen that
+
+296
+00:07:07,830 --> 00:07:07,840
+for example we have already seen that
+ 
+
+297
+00:07:07,840 --> 00:07:11,510
+for example we have already seen that
+during stateless processing nodes order
+
+298
+00:07:11,510 --> 00:07:11,520
+during stateless processing nodes order
+ 
+
+299
+00:07:11,520 --> 00:07:14,309
+during stateless processing nodes order
+dot select key if I have to change it.
+
+300
+00:07:14,309 --> 00:07:14,319
+dot select key if I have to change it.
+ 
+
+301
+00:07:14,319 --> 00:07:18,150
+dot select key if I have to change it.
+Let's say I have changed it. Okay,
+
+302
+00:07:18,150 --> 00:07:18,160
+Let's say I have changed it. Okay,
+ 
+
+303
+00:07:18,160 --> 00:07:20,790
+Let's say I have changed it. Okay,
+group by key doesn't know about it. I
+
+304
+00:07:20,790 --> 00:07:20,800
+group by key doesn't know about it. I
+ 
+
+305
+00:07:20,800 --> 00:07:25,029
+group by key doesn't know about it. I
+have changed it. Now on top of this
+
+306
+00:07:25,029 --> 00:07:25,039
+have changed it. Now on top of this
+ 
+
+307
+00:07:25,039 --> 00:07:28,950
+have changed it. Now on top of this
+I am doing group by key. Now what
+
+308
+00:07:28,950 --> 00:07:28,960
+I am doing group by key. Now what
+ 
+
+309
+00:07:28,960 --> 00:07:30,469
+I am doing group by key. Now what
+happened?
+
+310
+00:07:30,469 --> 00:07:30,479
+happened?
+ 
+
+311
+00:07:30,479 --> 00:07:32,950
+happened?
+I haven't provided which key to use. So
+
+312
+00:07:32,950 --> 00:07:32,960
+I haven't provided which key to use. So
+ 
+
+313
+00:07:32,960 --> 00:07:35,830
+I haven't provided which key to use. So
+this group by key does two things. First
+
+314
+00:07:35,830 --> 00:07:35,840
+this group by key does two things. First
+ 
+
+315
+00:07:35,840 --> 00:07:38,950
+this group by key does two things. First
+tells the downstream that what key to be
+
+316
+00:07:38,950 --> 00:07:38,960
+tells the downstream that what key to be
+ 
+
+317
+00:07:38,960 --> 00:07:41,990
+tells the downstream that what key to be
+used. Now it is saying that I am using
+
+318
+00:07:41,990 --> 00:07:42,000
+used. Now it is saying that I am using
+ 
+
+319
+00:07:42,000 --> 00:07:44,870
+used. Now it is saying that I am using
+order by use user this case stream
+
+320
+00:07:44,870 --> 00:07:44,880
+order by use user this case stream
+ 
+
+321
+00:07:44,880 --> 00:07:46,950
+order by use user this case stream
+reference right so whatever the key is
+
+322
+00:07:46,950 --> 00:07:46,960
+reference right so whatever the key is
+ 
+
+323
+00:07:46,960 --> 00:07:49,430
+reference right so whatever the key is
+use that so whatever the key is coming
+
+324
+00:07:49,430 --> 00:07:49,440
+use that so whatever the key is coming
+ 
+
+325
+00:07:49,440 --> 00:07:53,350
+use that so whatever the key is coming
+use that second is
+
+326
+00:07:53,350 --> 00:07:53,360
+use that second is
+ 
+
+327
+00:07:53,360 --> 00:07:55,830
+use that second is
+does repartition required
+
+328
+00:07:55,830 --> 00:07:55,840
+does repartition required
+ 
+
+329
+00:07:55,840 --> 00:07:59,189
+does repartition required
+so here in this case earlier your orders
+
+330
+00:07:59,189 --> 00:07:59,199
+so here in this case earlier your orders
+ 
+
+331
+00:07:59,199 --> 00:08:03,350
+so here in this case earlier your orders
+orders were based on order id so we have
+
+332
+00:08:03,350 --> 00:08:03,360
+orders were based on order id so we have
+ 
+
+333
+00:08:03,360 --> 00:08:05,189
+orders were based on order id so we have
+using select key we have changed it and
+
+334
+00:08:05,189 --> 00:08:05,199
+using select key we have changed it and
+ 
+
+335
+00:08:05,199 --> 00:08:06,869
+using select key we have changed it and
+if you remember from the stateless
+
+336
+00:08:06,869 --> 00:08:06,879
+if you remember from the stateless
+ 
+
+337
+00:08:06,879 --> 00:08:09,670
+if you remember from the stateless
+processing video I told that whenever
+
+338
+00:08:09,670 --> 00:08:09,680
+processing video I told that whenever
+ 
+
+339
+00:08:09,680 --> 00:08:11,589
+processing video I told that whenever
+key is changed it is eligible for
+
+340
+00:08:11,589 --> 00:08:11,599
+key is changed it is eligible for
+ 
+
+341
+00:08:11,599 --> 00:08:14,790
+key is changed it is eligible for
+repartition but not happened. So but
+
+342
+00:08:14,790 --> 00:08:14,800
+repartition but not happened. So but
+ 
+
+343
+00:08:14,800 --> 00:08:17,909
+repartition but not happened. So but
+when group by key is called it check
+
+344
+00:08:17,909 --> 00:08:17,919
+when group by key is called it check
+ 
+
+345
+00:08:17,919 --> 00:08:20,790
+when group by key is called it check
+does key change. Yes earlier it was
+
+346
+00:08:20,790 --> 00:08:20,800
+does key change. Yes earlier it was
+ 
+
+347
+00:08:20,800 --> 00:08:23,270
+does key change. Yes earlier it was
+order ID now it's user ID. So key is
+
+348
+00:08:23,270 --> 00:08:23,280
+order ID now it's user ID. So key is
+ 
+
+349
+00:08:23,280 --> 00:08:27,990
+order ID now it's user ID. So key is
+change. So it initiate the repartition.
+
+350
+00:08:27,990 --> 00:08:28,000
+change. So it initiate the repartition.
+ 
+
+351
+00:08:28,000 --> 00:08:30,070
+change. So it initiate the repartition.
+Okay. So it initiate the repartition
+
+352
+00:08:30,070 --> 00:08:30,080
+Okay. So it initiate the repartition
+ 
+
+353
+00:08:30,080 --> 00:08:33,509
+Okay. So it initiate the repartition
+first and then
+
+354
+00:08:33,509 --> 00:08:33,519
+first and then
+ 
+
+355
+00:08:33,519 --> 00:08:35,269
+first and then
+the future
+
+356
+00:08:35,269 --> 00:08:35,279
+the future
+ 
+
+357
+00:08:35,279 --> 00:08:37,509
+the future
+whatever the downstream processing nodes
+
+358
+00:08:37,509 --> 00:08:37,519
+whatever the downstream processing nodes
+ 
+
+359
+00:08:37,519 --> 00:08:42,389
+whatever the downstream processing nodes
+like count aggregate they know that
+
+360
+00:08:42,389 --> 00:08:42,399
+like count aggregate they know that
+ 
+
+361
+00:08:42,399 --> 00:08:44,630
+like count aggregate they know that
+which key to be used the same key
+
+362
+00:08:44,630 --> 00:08:44,640
+which key to be used the same key
+ 
+
+363
+00:08:44,640 --> 00:08:47,509
+which key to be used the same key
+whatever it is present
+
+364
+00:08:47,509 --> 00:08:47,519
+whatever it is present
+ 
+
+365
+00:08:47,519 --> 00:08:49,910
+whatever it is present
+okay
+
+366
+00:08:49,910 --> 00:08:49,920
+okay
+ 
+
+367
+00:08:49,920 --> 00:08:52,070
+okay
+the second is group by so group by say
+
+368
+00:08:52,070 --> 00:08:52,080
+the second is group by so group by say
+ 
+
+369
+00:08:52,080 --> 00:08:53,750
+the second is group by so group by say
+that hey I don't want to use the current
+
+370
+00:08:53,750 --> 00:08:53,760
+that hey I don't want to use the current
+ 
+
+371
+00:08:53,760 --> 00:08:56,150
+that hey I don't want to use the current
+key I will tell you new key which could
+
+372
+00:08:56,150 --> 00:08:56,160
+key I will tell you new key which could
+ 
+
+373
+00:08:56,160 --> 00:08:58,949
+key I will tell you new key which could
+be different type two So now let's say I
+
+374
+00:08:58,949 --> 00:08:58,959
+be different type two So now let's say I
+ 
+
+375
+00:08:58,959 --> 00:09:01,430
+be different type two So now let's say I
+haven't used select key before. Okay, I
+
+376
+00:09:01,430 --> 00:09:01,440
+haven't used select key before. Okay, I
+ 
+
+377
+00:09:01,440 --> 00:09:03,990
+haven't used select key before. Okay, I
+you have only have orders.
+
+378
+00:09:03,990 --> 00:09:04,000
+you have only have orders.
+ 
+
+379
+00:09:04,000 --> 00:09:08,150
+you have only have orders.
+Now you can do orders.g group by this is
+
+380
+00:09:08,150 --> 00:09:08,160
+Now you can do orders.g group by this is
+ 
+
+381
+00:09:08,160 --> 00:09:11,190
+Now you can do orders.g group by this is
+now your key. This is now value. Now you
+
+382
+00:09:11,190 --> 00:09:11,200
+now your key. This is now value. Now you
+ 
+
+383
+00:09:11,200 --> 00:09:15,829
+now your key. This is now value. Now you
+can say which key you want to use.
+
+384
+00:09:15,829 --> 00:09:15,839
+
+ 
+
+385
+00:09:15,839 --> 00:09:17,350
+
+Okay.
+
+386
+00:09:17,350 --> 00:09:17,360
+Okay.
+ 
+
+387
+00:09:17,360 --> 00:09:21,030
+Okay.
+So you got a k grouped stream output
+
+388
+00:09:21,030 --> 00:09:21,040
+So you got a k grouped stream output
+ 
+
+389
+00:09:21,040 --> 00:09:22,790
+So you got a k grouped stream output
+this type
+
+390
+00:09:22,790 --> 00:09:22,800
+this type
+ 
+
+391
+00:09:22,800 --> 00:09:26,389
+this type
+your new key and the value.
+
+392
+00:09:26,389 --> 00:09:26,399
+your new key and the value.
+ 
+
+393
+00:09:26,399 --> 00:09:28,630
+your new key and the value.
+So it's like
+
+394
+00:09:28,630 --> 00:09:28,640
+So it's like
+ 
+
+395
+00:09:28,640 --> 00:09:30,070
+So it's like
+you understood right when we are using
+
+396
+00:09:30,070 --> 00:09:30,080
+you understood right when we are using
+ 
+
+397
+00:09:30,080 --> 00:09:32,630
+you understood right when we are using
+group by key we don't have an way to
+
+398
+00:09:32,630 --> 00:09:32,640
+group by key we don't have an way to
+ 
+
+399
+00:09:32,640 --> 00:09:35,750
+group by key we don't have an way to
+change the key you can say that when we
+
+400
+00:09:35,750 --> 00:09:35,760
+change the key you can say that when we
+ 
+
+401
+00:09:35,760 --> 00:09:37,350
+change the key you can say that when we
+are using group by we can change the
+
+402
+00:09:37,350 --> 00:09:37,360
+are using group by we can change the
+ 
+
+403
+00:09:37,360 --> 00:09:40,070
+are using group by we can change the
+key. So if you have to use a group by
+
+404
+00:09:40,070 --> 00:09:40,080
+key. So if you have to use a group by
+ 
+
+405
+00:09:40,080 --> 00:09:41,829
+key. So if you have to use a group by
+key and you have to change the key then
+
+406
+00:09:41,829 --> 00:09:41,839
+key and you have to change the key then
+ 
+
+407
+00:09:41,839 --> 00:09:43,750
+key and you have to change the key then
+you have before that you have to make
+
+408
+00:09:43,750 --> 00:09:43,760
+you have before that you have to make
+ 
+
+409
+00:09:43,760 --> 00:09:47,110
+you have before that you have to make
+make use of select key or map. Okay. But
+
+410
+00:09:47,110 --> 00:09:47,120
+make use of select key or map. Okay. But
+ 
+
+411
+00:09:47,120 --> 00:09:48,470
+make use of select key or map. Okay. But
+if you don't want to use that, you can
+
+412
+00:09:48,470 --> 00:09:48,480
+if you don't want to use that, you can
+ 
+
+413
+00:09:48,480 --> 00:09:50,310
+if you don't want to use that, you can
+directly use group by and change the
+
+414
+00:09:50,310 --> 00:09:50,320
+directly use group by and change the
+ 
+
+415
+00:09:50,320 --> 00:09:53,750
+directly use group by and change the
+key. And let's say you don't have to
+
+416
+00:09:53,750 --> 00:09:53,760
+key. And let's say you don't have to
+ 
+
+417
+00:09:53,760 --> 00:09:55,910
+key. And let's say you don't have to
+change the key itself. Whatever it is
+
+418
+00:09:55,910 --> 00:09:55,920
+change the key itself. Whatever it is
+ 
+
+419
+00:09:55,920 --> 00:09:58,310
+change the key itself. Whatever it is
+present in orders orders, you have to
+
+420
+00:09:58,310 --> 00:09:58,320
+present in orders orders, you have to
+ 
+
+421
+00:09:58,320 --> 00:09:59,590
+present in orders orders, you have to
+use that itself. You don't have to
+
+422
+00:09:59,590 --> 00:09:59,600
+use that itself. You don't have to
+ 
+
+423
+00:09:59,600 --> 00:10:01,269
+use that itself. You don't have to
+change the key itself. Then go back
+
+424
+00:10:01,269 --> 00:10:01,279
+change the key itself. Then go back
+ 
+
+425
+00:10:01,279 --> 00:10:02,790
+change the key itself. Then go back
+group by key itself. Direct orders
+
+426
+00:10:02,790 --> 00:10:02,800
+group by key itself. Direct orders
+ 
+
+427
+00:10:02,800 --> 00:10:06,550
+group by key itself. Direct orders
+do.group by key. Okay. So in that case
+
+428
+00:10:06,550 --> 00:10:06,560
+do.group by key. Okay. So in that case
+ 
+
+429
+00:10:06,560 --> 00:10:08,470
+do.group by key. Okay. So in that case
+key is not changed. So no repartition
+
+430
+00:10:08,470 --> 00:10:08,480
+key is not changed. So no repartition
+ 
+
+431
+00:10:08,480 --> 00:10:10,870
+key is not changed. So no repartition
+will happen. And we have already tell
+
+432
+00:10:10,870 --> 00:10:10,880
+will happen. And we have already tell
+ 
+
+433
+00:10:10,880 --> 00:10:12,949
+will happen. And we have already tell
+the downstream stateful processing node
+
+434
+00:10:12,949 --> 00:10:12,959
+the downstream stateful processing node
+ 
+
+435
+00:10:12,959 --> 00:10:15,269
+the downstream stateful processing node
+that use the existing key. So it will
+
+436
+00:10:15,269 --> 00:10:15,279
+that use the existing key. So it will
+ 
+
+437
+00:10:15,279 --> 00:10:17,509
+that use the existing key. So it will
+use whatever the orders
+
+438
+00:10:17,509 --> 00:10:17,519
+use whatever the orders
+ 
+
+439
+00:10:17,519 --> 00:10:20,069
+use whatever the orders
+have the key.
+
+440
+00:10:20,069 --> 00:10:20,079
+have the key.
+ 
+
+441
+00:10:20,079 --> 00:10:22,150
+have the key.
+Okay. But with the group by we are
+
+442
+00:10:22,150 --> 00:10:22,160
+Okay. But with the group by we are
+ 
+
+443
+00:10:22,160 --> 00:10:24,550
+Okay. But with the group by we are
+specifically telling what key need to be
+
+444
+00:10:24,550 --> 00:10:24,560
+specifically telling what key need to be
+ 
+
+445
+00:10:24,560 --> 00:10:29,030
+specifically telling what key need to be
+used. So this become our
+
+446
+00:10:29,030 --> 00:10:29,040
+used. So this become our
+ 
+
+447
+00:10:29,040 --> 00:10:31,910
+used. So this become our
+new key.
+
+448
+00:10:31,910 --> 00:10:31,920
+new key.
+ 
+
+449
+00:10:31,920 --> 00:10:34,389
+new key.
+Okay.
+
+450
+00:10:34,389 --> 00:10:34,399
+Okay.
+ 
+
+451
+00:10:34,399 --> 00:10:36,710
+Okay.
+So for both group by key and group by if
+
+452
+00:10:36,710 --> 00:10:36,720
+So for both group by key and group by if
+ 
+
+453
+00:10:36,720 --> 00:10:38,870
+So for both group by key and group by if
+there is any change in key Kafka stream
+
+454
+00:10:38,870 --> 00:10:38,880
+there is any change in key Kafka stream
+ 
+
+455
+00:10:38,880 --> 00:10:41,269
+there is any change in key Kafka stream
+need to redistribute records which is a
+
+456
+00:10:41,269 --> 00:10:41,279
+need to redistribute records which is a
+ 
+
+457
+00:10:41,279 --> 00:10:43,509
+need to redistribute records which is a
+repartition according to the new key.
+
+458
+00:10:43,509 --> 00:10:43,519
+repartition according to the new key.
+ 
+
+459
+00:10:43,519 --> 00:10:46,389
+repartition according to the new key.
+Got it?
+
+460
+00:10:46,389 --> 00:10:46,399
+
+ 
+
+461
+00:10:46,399 --> 00:10:48,470
+
+Count
+
+462
+00:10:48,470 --> 00:10:48,480
+Count
+ 
+
+463
+00:10:48,480 --> 00:10:51,190
+Count
+counts counts the number of record for
+
+464
+00:10:51,190 --> 00:10:51,200
+counts counts the number of record for
+ 
+
+465
+00:10:51,200 --> 00:10:54,949
+counts counts the number of record for
+each key. That's you can say that when
+
+466
+00:10:54,949 --> 00:10:54,959
+each key. That's you can say that when
+ 
+
+467
+00:10:54,959 --> 00:11:00,150
+each key. That's you can say that when
+we do group by key or group by when we
+
+468
+00:11:00,150 --> 00:11:00,160
+we do group by key or group by when we
+ 
+
+469
+00:11:00,160 --> 00:11:04,069
+we do group by key or group by when we
+use that many times we confuse that they
+
+470
+00:11:04,069 --> 00:11:04,079
+use that many times we confuse that they
+ 
+
+471
+00:11:04,079 --> 00:11:06,470
+use that many times we confuse that they
+are the one actually doing the grouping
+
+472
+00:11:06,470 --> 00:11:06,480
+are the one actually doing the grouping
+ 
+
+473
+00:11:06,480 --> 00:11:09,509
+are the one actually doing the grouping
+but I never told this one in my
+
+474
+00:11:09,509 --> 00:11:09,519
+but I never told this one in my
+ 
+
+475
+00:11:09,519 --> 00:11:12,310
+but I never told this one in my
+understanding group by and group by key
+
+476
+00:11:12,310 --> 00:11:12,320
+understanding group by and group by key
+ 
+
+477
+00:11:12,320 --> 00:11:14,870
+understanding group by and group by key
+only does two thing. I told you it guide
+
+478
+00:11:14,870 --> 00:11:14,880
+only does two thing. I told you it guide
+ 
+
+479
+00:11:14,880 --> 00:11:16,949
+only does two thing. I told you it guide
+the downstream
+
+480
+00:11:16,949 --> 00:11:16,959
+the downstream
+ 
+
+481
+00:11:16,959 --> 00:11:19,590
+the downstream
+which key to use for grouping. So
+
+482
+00:11:19,590 --> 00:11:19,600
+which key to use for grouping. So
+ 
+
+483
+00:11:19,600 --> 00:11:23,509
+which key to use for grouping. So
+downstream does the grouping part. Don't
+
+484
+00:11:23,509 --> 00:11:23,519
+downstream does the grouping part. Don't
+ 
+
+485
+00:11:23,519 --> 00:11:25,430
+downstream does the grouping part. Don't
+get confused by this name group by that
+
+486
+00:11:25,430 --> 00:11:25,440
+get confused by this name group by that
+ 
+
+487
+00:11:25,440 --> 00:11:28,630
+get confused by this name group by that
+they are doing a grouping like in SQL
+
+488
+00:11:28,630 --> 00:11:28,640
+they are doing a grouping like in SQL
+ 
+
+489
+00:11:28,640 --> 00:11:30,150
+they are doing a grouping like in SQL
+they are not doing the grouping. They
+
+490
+00:11:30,150 --> 00:11:30,160
+they are not doing the grouping. They
+ 
+
+491
+00:11:30,160 --> 00:11:31,990
+they are not doing the grouping. They
+are just guiding you can say that it's a
+
+492
+00:11:31,990 --> 00:11:32,000
+are just guiding you can say that it's a
+ 
+
+493
+00:11:32,000 --> 00:11:35,269
+are just guiding you can say that it's a
+meta data it has the metadata which
+
+494
+00:11:35,269 --> 00:11:35,279
+meta data it has the metadata which
+ 
+
+495
+00:11:35,279 --> 00:11:36,949
+meta data it has the metadata which
+downstream processing node will use that
+
+496
+00:11:36,949 --> 00:11:36,959
+downstream processing node will use that
+ 
+
+497
+00:11:36,959 --> 00:11:40,550
+downstream processing node will use that
+which key to do use for grouping. So
+
+498
+00:11:40,550 --> 00:11:40,560
+which key to do use for grouping. So
+ 
+
+499
+00:11:40,560 --> 00:11:42,470
+which key to do use for grouping. So
+count is the one which actually does
+
+500
+00:11:42,470 --> 00:11:42,480
+count is the one which actually does
+ 
+
+501
+00:11:42,480 --> 00:11:45,430
+count is the one which actually does
+doing the grouping.
+
+502
+00:11:45,430 --> 00:11:45,440
+doing the grouping.
+ 
+
+503
+00:11:45,440 --> 00:11:47,430
+doing the grouping.
+So it counts the number of record for
+
+504
+00:11:47,430 --> 00:11:47,440
+So it counts the number of record for
+ 
+
+505
+00:11:47,440 --> 00:11:50,870
+So it counts the number of record for
+each key. So that's where it K table
+
+506
+00:11:50,870 --> 00:11:50,880
+each key. So that's where it K table
+ 
+
+507
+00:11:50,880 --> 00:11:52,550
+each key. So that's where it K table
+comes into the picture. So in the K
+
+508
+00:11:52,550 --> 00:11:52,560
+comes into the picture. So in the K
+ 
+
+509
+00:11:52,560 --> 00:11:56,470
+comes into the picture. So in the K
+table you know that it maintains a Rox
+
+510
+00:11:56,470 --> 00:11:56,480
+table you know that it maintains a Rox
+ 
+
+511
+00:11:56,480 --> 00:12:00,710
+table you know that it maintains a Rox
+DB. Now the counts
+
+512
+00:12:00,710 --> 00:12:00,720
+DB. Now the counts
+ 
+
+513
+00:12:00,720 --> 00:12:03,350
+DB. Now the counts
+this will get invoked on top of this
+
+514
+00:12:03,350 --> 00:12:03,360
+this will get invoked on top of this
+ 
+
+515
+00:12:03,360 --> 00:12:05,670
+this will get invoked on top of this
+your K group.
+
+516
+00:12:05,670 --> 00:12:05,680
+your K group.
+ 
+
+517
+00:12:05,680 --> 00:12:08,949
+your K group.
+Let's say group doers dot count. So now
+
+518
+00:12:08,949 --> 00:12:08,959
+Let's say group doers dot count. So now
+ 
+
+519
+00:12:08,959 --> 00:12:11,829
+Let's say group doers dot count. So now
+it knows which key to use.
+
+520
+00:12:11,829 --> 00:12:11,839
+it knows which key to use.
+ 
+
+521
+00:12:11,839 --> 00:12:15,030
+it knows which key to use.
+Okay. So based on that key
+
+522
+00:12:15,030 --> 00:12:15,040
+Okay. So based on that key
+ 
+
+523
+00:12:15,040 --> 00:12:18,629
+Okay. So based on that key
+it it maintain the K table. So it key
+
+524
+00:12:18,629 --> 00:12:18,639
+it it maintain the K table. So it key
+ 
+
+525
+00:12:18,639 --> 00:12:22,310
+it it maintain the K table. So it key
+and let's say value 1 2 3. So long. So
+
+526
+00:12:22,310 --> 00:12:22,320
+and let's say value 1 2 3. So long. So
+ 
+
+527
+00:12:22,320 --> 00:12:26,230
+and let's say value 1 2 3. So long. So
+count we do count. Okay.
+
+528
+00:12:26,230 --> 00:12:26,240
+count we do count. Okay.
+ 
+
+529
+00:12:26,240 --> 00:12:29,990
+count we do count. Okay.
+So orders dot group by key. What does it
+
+530
+00:12:29,990 --> 00:12:30,000
+So orders dot group by key. What does it
+ 
+
+531
+00:12:30,000 --> 00:12:33,190
+So orders dot group by key. What does it
+mean? Orders. So group by key I am using
+
+532
+00:12:33,190 --> 00:12:33,200
+mean? Orders. So group by key I am using
+ 
+
+533
+00:12:33,200 --> 00:12:35,670
+mean? Orders. So group by key I am using
+means I don't want to change the key.
+
+534
+00:12:35,670 --> 00:12:35,680
+means I don't want to change the key.
+ 
+
+535
+00:12:35,680 --> 00:12:37,990
+means I don't want to change the key.
+Whatever the key is present into this
+
+536
+00:12:37,990 --> 00:12:38,000
+Whatever the key is present into this
+ 
+
+537
+00:12:38,000 --> 00:12:43,509
+Whatever the key is present into this
+order K stream use that itself. Okay.
+
+538
+00:12:43,509 --> 00:12:43,519
+order K stream use that itself. Okay.
+ 
+
+539
+00:12:43,519 --> 00:12:45,590
+order K stream use that itself. Okay.
+Dot count
+
+540
+00:12:45,590 --> 00:12:45,600
+Dot count
+ 
+
+541
+00:12:45,600 --> 00:12:50,150
+Dot count
+and you know that dot count
+
+542
+00:12:50,150 --> 00:12:50,160
+and you know that dot count
+ 
+
+543
+00:12:50,160 --> 00:12:53,590
+and you know that dot count
+make use of Rox DB. Okay. So that's
+
+544
+00:12:53,590 --> 00:12:53,600
+make use of Rox DB. Okay. So that's
+ 
+
+545
+00:12:53,600 --> 00:12:55,509
+make use of Rox DB. Okay. So that's
+where
+
+546
+00:12:55,509 --> 00:12:55,519
+where
+ 
+
+547
+00:12:55,519 --> 00:12:58,069
+where
+this is another
+
+548
+00:12:58,069 --> 00:12:58,079
+this is another
+ 
+
+549
+00:12:58,079 --> 00:13:00,230
+this is another
+method. So either you simply use dot
+
+550
+00:13:00,230 --> 00:13:00,240
+method. So either you simply use dot
+ 
+
+551
+00:13:00,240 --> 00:13:03,509
+method. So either you simply use dot
+count or if you want to give a specific
+
+552
+00:13:03,509 --> 00:13:03,519
+count or if you want to give a specific
+ 
+
+553
+00:13:03,519 --> 00:13:05,750
+count or if you want to give a specific
+names to your Rox DB you can do that. I
+
+554
+00:13:05,750 --> 00:13:05,760
+names to your Rox DB you can do that. I
+ 
+
+555
+00:13:05,760 --> 00:13:08,550
+names to your Rox DB you can do that. I
+have already shared that also. So I'm
+
+556
+00:13:08,550 --> 00:13:08,560
+have already shared that also. So I'm
+ 
+
+557
+00:13:08,560 --> 00:13:10,949
+have already shared that also. So I'm
+just telling that materialized
+
+558
+00:13:10,949 --> 00:13:10,959
+just telling that materialized
+ 
+
+559
+00:13:10,959 --> 00:13:13,269
+just telling that materialized
+this is optional. By default key value
+
+560
+00:13:13,269 --> 00:13:13,279
+this is optional. By default key value
+ 
+
+561
+00:13:13,279 --> 00:13:17,110
+this is optional. By default key value
+store is used only for the Rox DB
+
+562
+00:13:17,110 --> 00:13:17,120
+store is used only for the Rox DB
+ 
+
+563
+00:13:17,120 --> 00:13:18,710
+store is used only for the Rox DB
+what should be the name of your ROG DB.
+
+564
+00:13:18,710 --> 00:13:18,720
+what should be the name of your ROG DB.
+ 
+
+565
+00:13:18,720 --> 00:13:21,110
+what should be the name of your ROG DB.
+Order counter store I have given. And
+
+566
+00:13:21,110 --> 00:13:21,120
+Order counter store I have given. And
+ 
+
+567
+00:13:21,120 --> 00:13:23,509
+Order counter store I have given. And
+you know that when we write into the rog
+
+568
+00:13:23,509 --> 00:13:23,519
+you know that when we write into the rog
+ 
+
+569
+00:13:23,519 --> 00:13:27,350
+you know that when we write into the rog
+DB the data is stored as bytes. So what
+
+570
+00:13:27,350 --> 00:13:27,360
+DB the data is stored as bytes. So what
+ 
+
+571
+00:13:27,360 --> 00:13:31,509
+DB the data is stored as bytes. So what
+should be the key and the value?
+
+572
+00:13:31,509 --> 00:13:31,519
+should be the key and the value?
+ 
+
+573
+00:13:31,519 --> 00:13:33,910
+should be the key and the value?
+Okay. Uh you can say that serializer in
+
+574
+00:13:33,910 --> 00:13:33,920
+Okay. Uh you can say that serializer in
+ 
+
+575
+00:13:33,920 --> 00:13:36,389
+Okay. Uh you can say that serializer in
+that we have already covered the
+
+576
+00:13:36,389 --> 00:13:36,399
+that we have already covered the
+ 
+
+577
+00:13:36,399 --> 00:13:38,230
+that we have already covered the
+serializer derializer also. So I think
+
+578
+00:13:38,230 --> 00:13:38,240
+serializer derializer also. So I think
+ 
+
+579
+00:13:38,240 --> 00:13:41,670
+serializer derializer also. So I think
+this should be properly clear. So here
+
+580
+00:13:41,670 --> 00:13:41,680
+this should be properly clear. So here
+ 
+
+581
+00:13:41,680 --> 00:13:43,990
+this should be properly clear. So here
+if you see that we have already covered
+
+582
+00:13:43,990 --> 00:13:44,000
+if you see that we have already covered
+ 
+
+583
+00:13:44,000 --> 00:13:48,069
+if you see that we have already covered
+serializers d serializers already.
+
+584
+00:13:48,069 --> 00:13:48,079
+serializers d serializers already.
+ 
+
+585
+00:13:48,079 --> 00:13:51,030
+serializers d serializers already.
+So dot count and this is what your rod
+
+586
+00:13:51,030 --> 00:13:51,040
+So dot count and this is what your rod
+ 
+
+587
+00:13:51,040 --> 00:13:53,590
+So dot count and this is what your rod
+db properties you can say that it's rog
+
+588
+00:13:53,590 --> 00:13:53,600
+db properties you can say that it's rog
+ 
+
+589
+00:13:53,600 --> 00:13:56,069
+db properties you can say that it's rog
+db name and the key and the value
+
+590
+00:13:56,069 --> 00:13:56,079
+db name and the key and the value
+ 
+
+591
+00:13:56,079 --> 00:13:59,350
+db name and the key and the value
+serializer
+
+592
+00:13:59,350 --> 00:13:59,360
+
+ 
+
+593
+00:13:59,360 --> 00:14:01,509
+
+clear
+
+594
+00:14:01,509 --> 00:14:01,519
+clear
+ 
+
+595
+00:14:01,519 --> 00:14:03,829
+clear
+now what would happen so I'm just taking
+
+596
+00:14:03,829 --> 00:14:03,839
+now what would happen so I'm just taking
+ 
+
+597
+00:14:03,839 --> 00:14:07,670
+now what would happen so I'm just taking
+a use case when we do a count now our
+
+598
+00:14:07,670 --> 00:14:07,680
+a use case when we do a count now our
+ 
+
+599
+00:14:07,680 --> 00:14:12,389
+a use case when we do a count now our
+topology is let's say this source topic
+
+600
+00:14:12,389 --> 00:14:12,399
+topology is let's say this source topic
+ 
+
+601
+00:14:12,399 --> 00:14:15,750
+topology is let's say this source topic
+from this we got a orders this is our k
+
+602
+00:14:15,750 --> 00:14:15,760
+from this we got a orders this is our k
+ 
+
+603
+00:14:15,760 --> 00:14:19,350
+from this we got a orders this is our k
+stream Okay. Then on top of it itself we
+
+604
+00:14:19,350 --> 00:14:19,360
+stream Okay. Then on top of it itself we
+ 
+
+605
+00:14:19,360 --> 00:14:22,470
+stream Okay. Then on top of it itself we
+do group by key. When we do a group by
+
+606
+00:14:22,470 --> 00:14:22,480
+do group by key. When we do a group by
+ 
+
+607
+00:14:22,480 --> 00:14:25,110
+do group by key. When we do a group by
+key on this seam mean no repartition
+
+608
+00:14:25,110 --> 00:14:25,120
+key on this seam mean no repartition
+ 
+
+609
+00:14:25,120 --> 00:14:27,430
+key on this seam mean no repartition
+happen. The same key I am using but I
+
+610
+00:14:27,430 --> 00:14:27,440
+happen. The same key I am using but I
+ 
+
+611
+00:14:27,440 --> 00:14:30,069
+happen. The same key I am using but I
+get this object K group.
+
+612
+00:14:30,069 --> 00:14:30,079
+get this object K group.
+ 
+
+613
+00:14:30,079 --> 00:14:33,670
+get this object K group.
+Now on top of it I called count.
+
+614
+00:14:33,670 --> 00:14:33,680
+Now on top of it I called count.
+ 
+
+615
+00:14:33,680 --> 00:14:35,750
+Now on top of it I called count.
+So count will do it will rock read the
+
+616
+00:14:35,750 --> 00:14:35,760
+So count will do it will rock read the
+ 
+
+617
+00:14:35,760 --> 00:14:39,430
+So count will do it will rock read the
+ros DB update the count and write it
+
+618
+00:14:39,430 --> 00:14:39,440
+ros DB update the count and write it
+ 
+
+619
+00:14:39,440 --> 00:14:41,509
+ros DB update the count and write it
+value also.
+
+620
+00:14:41,509 --> 00:14:41,519
+value also.
+ 
+
+621
+00:14:41,519 --> 00:14:44,069
+value also.
+So because it handles the ROD DB let's
+
+622
+00:14:44,069 --> 00:14:44,079
+So because it handles the ROD DB let's
+ 
+
+623
+00:14:44,079 --> 00:14:46,470
+So because it handles the ROD DB let's
+say user one
+
+624
+00:14:46,470 --> 00:14:46,480
+say user one
+ 
+
+625
+00:14:46,480 --> 00:14:49,590
+say user one
+it will read it whatever the value it is
+
+626
+00:14:49,590 --> 00:14:49,600
+it will read it whatever the value it is
+ 
+
+627
+00:14:49,600 --> 00:14:52,629
+it will read it whatever the value it is
+it will update and write it also it keep
+
+628
+00:14:52,629 --> 00:14:52,639
+it will update and write it also it keep
+ 
+
+629
+00:14:52,639 --> 00:14:58,069
+it will update and write it also it keep
+on updating this
+
+630
+00:14:58,069 --> 00:14:58,079
+
+ 
+
+631
+00:14:58,079 --> 00:15:00,150
+
+okay similarly if there is a repartition
+
+632
+00:15:00,150 --> 00:15:00,160
+okay similarly if there is a repartition
+ 
+
+633
+00:15:00,160 --> 00:15:01,910
+okay similarly if there is a repartition
+let's say source topic you have done a
+
+634
+00:15:01,910 --> 00:15:01,920
+let's say source topic you have done a
+ 
+
+635
+00:15:01,920 --> 00:15:05,750
+let's say source topic you have done a
+select key okay and when you do a group
+
+636
+00:15:05,750 --> 00:15:05,760
+select key okay and when you do a group
+ 
+
+637
+00:15:05,760 --> 00:15:09,509
+select key okay and when you do a group
+by key it will initiate a repartition
+
+638
+00:15:09,509 --> 00:15:09,519
+by key it will initiate a repartition
+ 
+
+639
+00:15:09,519 --> 00:15:13,670
+by key it will initiate a repartition
+and uh then you do a count same flow
+
+640
+00:15:13,670 --> 00:15:13,680
+and uh then you do a count same flow
+ 
+
+641
+00:15:13,680 --> 00:15:15,990
+and uh then you do a count same flow
+nothing different I just tell you that
+
+642
+00:15:15,990 --> 00:15:16,000
+nothing different I just tell you that
+ 
+
+643
+00:15:16,000 --> 00:15:20,069
+nothing different I just tell you that
+uh the same the count which we are doing
+
+644
+00:15:20,069 --> 00:15:20,079
+uh the same the count which we are doing
+ 
+
+645
+00:15:20,079 --> 00:15:22,710
+uh the same the count which we are doing
+can either be a this scenario or this
+
+646
+00:15:22,710 --> 00:15:22,720
+can either be a this scenario or this
+ 
+
+647
+00:15:22,720 --> 00:15:25,189
+can either be a this scenario or this
+scenario repartition scenario no
+
+648
+00:15:25,189 --> 00:15:25,199
+scenario repartition scenario no
+ 
+
+649
+00:15:25,199 --> 00:15:27,670
+scenario repartition scenario no
+repartition scenario but only thing is
+
+650
+00:15:27,670 --> 00:15:27,680
+repartition scenario but only thing is
+ 
+
+651
+00:15:27,680 --> 00:15:29,189
+repartition scenario but only thing is
+you don't have to worry about that
+
+652
+00:15:29,189 --> 00:15:29,199
+you don't have to worry about that
+ 
+
+653
+00:15:29,199 --> 00:15:31,350
+you don't have to worry about that
+repartition is handled internally which
+
+654
+00:15:31,350 --> 00:15:31,360
+repartition is handled internally which
+ 
+
+655
+00:15:31,360 --> 00:15:37,509
+repartition is handled internally which
+we have discussed in architecture video
+
+656
+00:15:37,509 --> 00:15:37,519
+
+ 
+
+657
+00:15:37,519 --> 00:15:39,590
+
+okay so this is just an example I have
+
+658
+00:15:39,590 --> 00:15:39,600
+okay so this is just an example I have
+ 
+
+659
+00:15:39,600 --> 00:15:42,790
+okay so this is just an example I have
+shown you let's say orders
+
+660
+00:15:42,790 --> 00:15:42,800
+shown you let's say orders
+ 
+
+661
+00:15:42,800 --> 00:15:45,030
+shown you let's say orders
+dot group by
+
+662
+00:15:45,030 --> 00:15:45,040
+dot group by
+ 
+
+663
+00:15:45,040 --> 00:15:47,590
+dot group by
+now I have changed the key order dot get
+
+664
+00:15:47,590 --> 00:15:47,600
+now I have changed the key order dot get
+ 
+
+665
+00:15:47,600 --> 00:15:50,710
+now I have changed the key order dot get
+user id dot count
+
+666
+00:15:50,710 --> 00:15:50,720
+user id dot count
+ 
+
+667
+00:15:50,720 --> 00:15:54,150
+user id dot count
+so earlier input record was this let's
+
+668
+00:15:54,150 --> 00:15:54,160
+so earlier input record was this let's
+ 
+
+669
+00:15:54,160 --> 00:15:56,550
+so earlier input record was this let's
+say this is the input record now in this
+
+670
+00:15:56,550 --> 00:15:56,560
+say this is the input record now in this
+ 
+
+671
+00:15:56,560 --> 00:16:00,470
+say this is the input record now in this
+ros db which count will maintain so it
+
+672
+00:16:00,470 --> 00:16:00,480
+ros db which count will maintain so it
+ 
+
+673
+00:16:00,480 --> 00:16:03,189
+ros db which count will maintain so it
+would be user id based the key would be
+
+674
+00:16:03,189 --> 00:16:03,199
+would be user id based the key would be
+ 
+
+675
+00:16:03,199 --> 00:16:06,310
+would be user id based the key would be
+your user ID so count
+
+676
+00:16:06,310 --> 00:16:06,320
+your user ID so count
+ 
+
+677
+00:16:06,320 --> 00:16:08,790
+your user ID so count
+will use the information which group by
+
+678
+00:16:08,790 --> 00:16:08,800
+will use the information which group by
+ 
+
+679
+00:16:08,800 --> 00:16:11,030
+will use the information which group by
+metadata provides
+
+680
+00:16:11,030 --> 00:16:11,040
+metadata provides
+ 
+
+681
+00:16:11,040 --> 00:16:14,710
+metadata provides
+Which key to use this key? User ID.
+
+682
+00:16:14,710 --> 00:16:14,720
+Which key to use this key? User ID.
+ 
+
+683
+00:16:14,720 --> 00:16:17,030
+Which key to use this key? User ID.
+Okay. So, user one, user one, user one.
+
+684
+00:16:17,030 --> 00:16:17,040
+Okay. So, user one, user one, user one.
+ 
+
+685
+00:16:17,040 --> 00:16:18,870
+Okay. So, user one, user one, user one.
+So, three and user two has only one
+
+686
+00:16:18,870 --> 00:16:18,880
+So, three and user two has only one
+ 
+
+687
+00:16:18,880 --> 00:16:20,470
+So, three and user two has only one
+record
+
+688
+00:16:20,470 --> 00:16:20,480
+record
+ 
+
+689
+00:16:20,480 --> 00:16:22,629
+record
+long output is this. Generally, this is
+
+690
+00:16:22,629 --> 00:16:22,639
+long output is this. Generally, this is
+ 
+
+691
+00:16:22,639 --> 00:16:25,509
+long output is this. Generally, this is
+your key. This is your value.
+
+692
+00:16:25,509 --> 00:16:25,519
+your key. This is your value.
+ 
+
+693
+00:16:25,519 --> 00:16:28,470
+your key. This is your value.
+Clear? Very very simple. Similarly, we
+
+694
+00:16:28,470 --> 00:16:28,480
+Clear? Very very simple. Similarly, we
+ 
+
+695
+00:16:28,480 --> 00:16:30,870
+Clear? Very very simple. Similarly, we
+have aggregate. So, sometimes you have
+
+696
+00:16:30,870 --> 00:16:30,880
+have aggregate. So, sometimes you have
+ 
+
+697
+00:16:30,880 --> 00:16:32,790
+have aggregate. So, sometimes you have
+to decide how the aggregation should
+
+698
+00:16:32,790 --> 00:16:32,800
+to decide how the aggregation should
+ 
+
+699
+00:16:32,800 --> 00:16:35,749
+to decide how the aggregation should
+work. So, that's where you can use it
+
+700
+00:16:35,749 --> 00:16:35,759
+work. So, that's where you can use it
+ 
+
+701
+00:16:35,759 --> 00:16:37,829
+work. So, that's where you can use it
+too. That means you want to write your
+
+702
+00:16:37,829 --> 00:16:37,839
+too. That means you want to write your
+ 
+
+703
+00:16:37,839 --> 00:16:41,110
+too. That means you want to write your
+own logic. So just see this understand
+
+704
+00:16:41,110 --> 00:16:41,120
+own logic. So just see this understand
+ 
+
+705
+00:16:41,120 --> 00:16:42,870
+own logic. So just see this understand
+this aggregate method then you can use
+
+706
+00:16:42,870 --> 00:16:42,880
+this aggregate method then you can use
+ 
+
+707
+00:16:42,880 --> 00:16:45,590
+this aggregate method then you can use
+it very easily. So if you see this
+
+708
+00:16:45,590 --> 00:16:45,600
+it very easily. So if you see this
+ 
+
+709
+00:16:45,600 --> 00:16:47,269
+it very easily. So if you see this
+aggregate
+
+710
+00:16:47,269 --> 00:16:47,279
+aggregate
+ 
+
+711
+00:16:47,279 --> 00:16:48,790
+aggregate
+the first parameter it has is
+
+712
+00:16:48,790 --> 00:16:48,800
+the first parameter it has is
+ 
+
+713
+00:16:48,800 --> 00:16:50,790
+the first parameter it has is
+initializer. This is the first
+
+714
+00:16:50,790 --> 00:16:50,800
+initializer. This is the first
+ 
+
+715
+00:16:50,800 --> 00:16:54,550
+initializer. This is the first
+parameter. Initializer means when you
+
+716
+00:16:54,550 --> 00:16:54,560
+parameter. Initializer means when you
+ 
+
+717
+00:16:54,560 --> 00:16:56,710
+parameter. Initializer means when you
+see the key for the first time how do
+
+718
+00:16:56,710 --> 00:16:56,720
+see the key for the first time how do
+ 
+
+719
+00:16:56,720 --> 00:16:58,230
+see the key for the first time how do
+you want to initialize it? Whether you
+
+720
+00:16:58,230 --> 00:16:58,240
+you want to initialize it? Whether you
+ 
+
+721
+00:16:58,240 --> 00:17:00,389
+you want to initialize it? Whether you
+want to initialize with zero or if let's
+
+722
+00:17:00,389 --> 00:17:00,399
+want to initialize with zero or if let's
+ 
+
+723
+00:17:00,399 --> 00:17:04,230
+want to initialize with zero or if let's
+say if you're using a string then with
+
+724
+00:17:04,230 --> 00:17:04,240
+say if you're using a string then with
+ 
+
+725
+00:17:04,240 --> 00:17:08,150
+say if you're using a string then with
+empty or null whatever when you identify
+
+726
+00:17:08,150 --> 00:17:08,160
+empty or null whatever when you identify
+ 
+
+727
+00:17:08,160 --> 00:17:10,470
+empty or null whatever when you identify
+a key for the first time how you want to
+
+728
+00:17:10,470 --> 00:17:10,480
+a key for the first time how you want to
+ 
+
+729
+00:17:10,480 --> 00:17:11,990
+a key for the first time how you want to
+initialize
+
+730
+00:17:11,990 --> 00:17:12,000
+initialize
+ 
+
+731
+00:17:12,000 --> 00:17:14,230
+initialize
+and the second is aggregator if you go
+
+732
+00:17:14,230 --> 00:17:14,240
+and the second is aggregator if you go
+ 
+
+733
+00:17:14,240 --> 00:17:16,069
+and the second is aggregator if you go
+inside an aggregator function interface
+
+734
+00:17:16,069 --> 00:17:16,079
+inside an aggregator function interface
+ 
+
+735
+00:17:16,079 --> 00:17:20,230
+inside an aggregator function interface
+what it has k v and this three parameter
+
+736
+00:17:20,230 --> 00:17:20,240
+what it has k v and this three parameter
+ 
+
+737
+00:17:20,240 --> 00:17:21,909
+what it has k v and this three parameter
+it has
+
+738
+00:17:21,909 --> 00:17:21,919
+it has
+ 
+
+739
+00:17:21,919 --> 00:17:24,150
+it has
+what does this three parameter is key
+
+740
+00:17:24,150 --> 00:17:24,160
+what does this three parameter is key
+ 
+
+741
+00:17:24,160 --> 00:17:27,590
+what does this three parameter is key
+this is key this is value what is this
+
+742
+00:17:27,590 --> 00:17:27,600
+this is key this is value what is this
+ 
+
+743
+00:17:27,600 --> 00:17:30,789
+this is key this is value what is this
+third one. So third one here if you see
+
+744
+00:17:30,789 --> 00:17:30,799
+third one. So third one here if you see
+ 
+
+745
+00:17:30,799 --> 00:17:35,110
+third one. So third one here if you see
+so this is your key this is your value
+
+746
+00:17:35,110 --> 00:17:35,120
+so this is your key this is your value
+ 
+
+747
+00:17:35,120 --> 00:17:39,909
+so this is your key this is your value
+and this third one is your ultimately
+
+748
+00:17:39,909 --> 00:17:39,919
+and this third one is your ultimately
+ 
+
+749
+00:17:39,919 --> 00:17:42,470
+and this third one is your ultimately
+your return type what actually you going
+
+750
+00:17:42,470 --> 00:17:42,480
+your return type what actually you going
+ 
+
+751
+00:17:42,480 --> 00:17:44,470
+your return type what actually you going
+to return
+
+752
+00:17:44,470 --> 00:17:44,480
+to return
+ 
+
+753
+00:17:44,480 --> 00:17:47,029
+to return
+okay the same thing it going to come and
+
+754
+00:17:47,029 --> 00:17:47,039
+okay the same thing it going to come and
+ 
+
+755
+00:17:47,039 --> 00:17:50,150
+okay the same thing it going to come and
+now here if you see
+
+756
+00:17:50,150 --> 00:17:50,160
+now here if you see
+ 
+
+757
+00:17:50,160 --> 00:17:52,870
+now here if you see
+the output k table
+
+758
+00:17:52,870 --> 00:17:52,880
+the output k table
+ 
+
+759
+00:17:52,880 --> 00:17:56,390
+the output k table
+ka vr so this is your key this is
+
+760
+00:17:56,390 --> 00:17:56,400
+ka vr so this is your key this is
+ 
+
+761
+00:17:56,400 --> 00:17:59,909
+ka vr so this is your key this is
+actually your new value.
+
+762
+00:17:59,909 --> 00:17:59,919
+actually your new value.
+ 
+
+763
+00:17:59,919 --> 00:18:04,549
+actually your new value.
+This is VR is actually your new value.
+
+764
+00:18:04,549 --> 00:18:04,559
+This is VR is actually your new value.
+ 
+
+765
+00:18:04,559 --> 00:18:09,669
+This is VR is actually your new value.
+So now read this fully again. Initialize
+
+766
+00:18:09,669 --> 00:18:09,679
+So now read this fully again. Initialize
+ 
+
+767
+00:18:09,679 --> 00:18:13,909
+So now read this fully again. Initialize
+what is the type generate type V R.
+
+768
+00:18:13,909 --> 00:18:13,919
+what is the type generate type V R.
+ 
+
+769
+00:18:13,919 --> 00:18:17,270
+what is the type generate type V R.
+Okay. So means now just connect the dots
+
+770
+00:18:17,270 --> 00:18:17,280
+Okay. So means now just connect the dots
+ 
+
+771
+00:18:17,280 --> 00:18:19,430
+Okay. So means now just connect the dots
+here. I know at one time it would be
+
+772
+00:18:19,430 --> 00:18:19,440
+here. I know at one time it would be
+ 
+
+773
+00:18:19,440 --> 00:18:21,029
+here. I know at one time it would be
+look difficult like we are using
+
+774
+00:18:21,029 --> 00:18:21,039
+look difficult like we are using
+ 
+
+775
+00:18:21,039 --> 00:18:23,669
+look difficult like we are using
+function interface plus generics. So
+
+776
+00:18:23,669 --> 00:18:23,679
+function interface plus generics. So
+ 
+
+777
+00:18:23,679 --> 00:18:26,310
+function interface plus generics. So
+it's difficult but connect the dots here
+
+778
+00:18:26,310 --> 00:18:26,320
+it's difficult but connect the dots here
+ 
+
+779
+00:18:26,320 --> 00:18:28,630
+it's difficult but connect the dots here
+in the initialized plus this it will get
+
+780
+00:18:28,630 --> 00:18:28,640
+in the initialized plus this it will get
+ 
+
+781
+00:18:28,640 --> 00:18:34,070
+in the initialized plus this it will get
+clear. Let me
+
+782
+00:18:34,070 --> 00:18:34,080
+
+ 
+
+783
+00:18:34,080 --> 00:18:38,230
+
+yeah read it again.
+
+784
+00:18:38,230 --> 00:18:38,240
+yeah read it again.
+ 
+
+785
+00:18:38,240 --> 00:18:40,870
+yeah read it again.
+The first is initializer. Now here if
+
+786
+00:18:40,870 --> 00:18:40,880
+The first is initializer. Now here if
+ 
+
+787
+00:18:40,880 --> 00:18:42,549
+The first is initializer. Now here if
+you see initializer the generic type we
+
+788
+00:18:42,549 --> 00:18:42,559
+you see initializer the generic type we
+ 
+
+789
+00:18:42,559 --> 00:18:46,070
+you see initializer the generic type we
+are passing is VR. Now here if you see
+
+790
+00:18:46,070 --> 00:18:46,080
+are passing is VR. Now here if you see
+ 
+
+791
+00:18:46,080 --> 00:18:48,870
+are passing is VR. Now here if you see
+the VR is nothing but a return type. So
+
+792
+00:18:48,870 --> 00:18:48,880
+the VR is nothing but a return type. So
+ 
+
+793
+00:18:48,880 --> 00:18:51,270
+the VR is nothing but a return type. So
+this is your Rox DB. what is present
+
+794
+00:18:51,270 --> 00:18:51,280
+this is your Rox DB. what is present
+ 
+
+795
+00:18:51,280 --> 00:18:54,870
+this is your Rox DB. what is present
+inside a ros db that will go okay now
+
+796
+00:18:54,870 --> 00:18:54,880
+inside a ros db that will go okay now
+ 
+
+797
+00:18:54,880 --> 00:18:57,830
+inside a ros db that will go okay now
+this vr is getting passed here so this
+
+798
+00:18:57,830 --> 00:18:57,840
+this vr is getting passed here so this
+ 
+
+799
+00:18:57,840 --> 00:19:02,630
+this vr is getting passed here so this
+is your ros db value
+
+800
+00:19:02,630 --> 00:19:02,640
+is your ros db value
+ 
+
+801
+00:19:02,640 --> 00:19:05,350
+is your ros db value
+so now in the aggregator we have three
+
+802
+00:19:05,350 --> 00:19:05,360
+so now in the aggregator we have three
+ 
+
+803
+00:19:05,360 --> 00:19:07,350
+so now in the aggregator we have three
+key
+
+804
+00:19:07,350 --> 00:19:07,360
+key
+ 
+
+805
+00:19:07,360 --> 00:19:11,830
+key
+value and your rocks db value
+
+806
+00:19:11,830 --> 00:19:11,840
+value and your rocks db value
+ 
+
+807
+00:19:11,840 --> 00:19:13,190
+value and your rocks db value
+now whatever you have to do the
+
+808
+00:19:13,190 --> 00:19:13,200
+now whatever you have to do the
+ 
+
+809
+00:19:13,200 --> 00:19:16,630
+now whatever you have to do the
+operation do it and ultimately what you
+
+810
+00:19:16,630 --> 00:19:16,640
+operation do it and ultimately what you
+ 
+
+811
+00:19:16,640 --> 00:19:19,029
+operation do it and ultimately what you
+are returning is the third one itself
+
+812
+00:19:19,029 --> 00:19:19,039
+are returning is the third one itself
+ 
+
+813
+00:19:19,039 --> 00:19:20,870
+are returning is the third one itself
+the your rocks
+
+814
+00:19:20,870 --> 00:19:20,880
+the your rocks
+ 
+
+815
+00:19:20,880 --> 00:19:25,110
+the your rocks
+DB value you are returning and the same
+
+816
+00:19:25,110 --> 00:19:25,120
+DB value you are returning and the same
+ 
+
+817
+00:19:25,120 --> 00:19:28,630
+DB value you are returning and the same
+this VR the same is getting updated into
+
+818
+00:19:28,630 --> 00:19:28,640
+this VR the same is getting updated into
+ 
+
+819
+00:19:28,640 --> 00:19:34,070
+this VR the same is getting updated into
+your K table your ROS DB value
+
+820
+00:19:34,070 --> 00:19:34,080
+your K table your ROS DB value
+ 
+
+821
+00:19:34,080 --> 00:19:36,549
+your K table your ROS DB value
+see this example it will get clear let's
+
+822
+00:19:36,549 --> 00:19:36,559
+see this example it will get clear let's
+ 
+
+823
+00:19:36,559 --> 00:19:38,230
+see this example it will get clear let's
+say this is the value this is the
+
+824
+00:19:38,230 --> 00:19:38,240
+say this is the value this is the
+ 
+
+825
+00:19:38,240 --> 00:19:42,310
+say this is the value this is the
+records output we want is allies 300 Bob
+
+826
+00:19:42,310 --> 00:19:42,320
+records output we want is allies 300 Bob
+ 
+
+827
+00:19:42,320 --> 00:19:46,390
+records output we want is allies 300 Bob
+500 so allies has let's say order 100
+
+828
+00:19:46,390 --> 00:19:46,400
+500 so allies has let's say order 100
+ 
+
+829
+00:19:46,400 --> 00:19:51,270
+500 so allies has let's say order 100
+150 50 so combine 300 and for Bob 200
+
+830
+00:19:51,270 --> 00:19:51,280
+150 50 so combine 300 and for Bob 200
+ 
+
+831
+00:19:51,280 --> 00:19:54,789
+150 50 so combine 300 and for Bob 200
+and 300 total 500 this should come.
+
+832
+00:19:54,789 --> 00:19:54,799
+and 300 total 500 this should come.
+ 
+
+833
+00:19:54,799 --> 00:19:57,350
+and 300 total 500 this should come.
+So first is this orders dotg group by
+
+834
+00:19:57,350 --> 00:19:57,360
+So first is this orders dotg group by
+ 
+
+835
+00:19:57,360 --> 00:20:00,390
+So first is this orders dotg group by
+key. Yes this is my let's say earlier
+
+836
+00:20:00,390 --> 00:20:00,400
+key. Yes this is my let's say earlier
+ 
+
+837
+00:20:00,400 --> 00:20:02,789
+key. Yes this is my let's say earlier
+Kstream orders
+
+838
+00:20:02,789 --> 00:20:02,799
+Kstream orders
+ 
+
+839
+00:20:02,799 --> 00:20:06,710
+Kstream orders
+key value. So key is this value is this
+
+840
+00:20:06,710 --> 00:20:06,720
+key value. So key is this value is this
+ 
+
+841
+00:20:06,720 --> 00:20:09,510
+key value. So key is this value is this
+I want this is a metadata all the
+
+842
+00:20:09,510 --> 00:20:09,520
+I want this is a metadata all the
+ 
+
+843
+00:20:09,520 --> 00:20:12,710
+I want this is a metadata all the
+downstream use the same key. So use this
+
+844
+00:20:12,710 --> 00:20:12,720
+downstream use the same key. So use this
+ 
+
+845
+00:20:12,720 --> 00:20:16,630
+downstream use the same key. So use this
+name as a your key itself. Okay. So I
+
+846
+00:20:16,630 --> 00:20:16,640
+name as a your key itself. Okay. So I
+ 
+
+847
+00:20:16,640 --> 00:20:19,669
+name as a your key itself. Okay. So I
+got this object k grouped stream key
+
+848
+00:20:19,669 --> 00:20:19,679
+got this object k grouped stream key
+ 
+
+849
+00:20:19,679 --> 00:20:21,190
+got this object k grouped stream key
+value.
+
+850
+00:20:21,190 --> 00:20:21,200
+value.
+ 
+
+851
+00:20:21,200 --> 00:20:25,590
+value.
+Now on this I am calling dotaggregate.
+
+852
+00:20:25,590 --> 00:20:25,600
+Now on this I am calling dotaggregate.
+ 
+
+853
+00:20:25,600 --> 00:20:27,830
+Now on this I am calling dotaggregate.
+Now parameters
+
+854
+00:20:27,830 --> 00:20:27,840
+Now parameters
+ 
+
+855
+00:20:27,840 --> 00:20:30,789
+Now parameters
+the first is initializer. We have to
+
+856
+00:20:30,789 --> 00:20:30,799
+the first is initializer. We have to
+ 
+
+857
+00:20:30,799 --> 00:20:32,310
+the first is initializer. We have to
+provide an implementation for this
+
+858
+00:20:32,310 --> 00:20:32,320
+provide an implementation for this
+ 
+
+859
+00:20:32,320 --> 00:20:36,230
+provide an implementation for this
+method. It takes zero parameter. So zero
+
+860
+00:20:36,230 --> 00:20:36,240
+method. It takes zero parameter. So zero
+ 
+
+861
+00:20:36,240 --> 00:20:38,230
+method. It takes zero parameter. So zero
+parameter
+
+862
+00:20:38,230 --> 00:20:38,240
+parameter
+ 
+
+863
+00:20:38,240 --> 00:20:39,830
+parameter
+and what should be the output. So
+
+864
+00:20:39,830 --> 00:20:39,840
+and what should be the output. So
+ 
+
+865
+00:20:39,840 --> 00:20:41,830
+and what should be the output. So
+initializer in the sense is when you see
+
+866
+00:20:41,830 --> 00:20:41,840
+initializer in the sense is when you see
+ 
+
+867
+00:20:41,840 --> 00:20:43,430
+initializer in the sense is when you see
+the key for the first time how you want
+
+868
+00:20:43,430 --> 00:20:43,440
+the key for the first time how you want
+ 
+
+869
+00:20:43,440 --> 00:20:45,029
+the key for the first time how you want
+to initialize it. Let's say the allies
+
+870
+00:20:45,029 --> 00:20:45,039
+to initialize it. Let's say the allies
+ 
+
+871
+00:20:45,039 --> 00:20:46,789
+to initialize it. Let's say the allies
+has come for the first time. How you
+
+872
+00:20:46,789 --> 00:20:46,799
+has come for the first time. How you
+ 
+
+873
+00:20:46,799 --> 00:20:49,990
+has come for the first time. How you
+want to initialize it in the Rox DB zero
+
+874
+00:20:49,990 --> 00:20:50,000
+want to initialize it in the Rox DB zero
+ 
+
+875
+00:20:50,000 --> 00:20:53,430
+want to initialize it in the Rox DB zero
+I and assign the value zero. So
+
+876
+00:20:53,430 --> 00:20:53,440
+I and assign the value zero. So
+ 
+
+877
+00:20:53,440 --> 00:20:55,510
+I and assign the value zero. So
+initially allies is zero in let's say in
+
+878
+00:20:55,510 --> 00:20:55,520
+initially allies is zero in let's say in
+ 
+
+879
+00:20:55,520 --> 00:20:57,990
+initially allies is zero in let's say in
+Rox DB.
+
+880
+00:20:57,990 --> 00:20:58,000
+Rox DB.
+ 
+
+881
+00:20:58,000 --> 00:20:59,590
+Rox DB.
+Okay.
+
+882
+00:20:59,590 --> 00:20:59,600
+Okay.
+ 
+
+883
+00:20:59,600 --> 00:21:03,510
+Okay.
+Now aggregator key value and what's the
+
+884
+00:21:03,510 --> 00:21:03,520
+Now aggregator key value and what's the
+ 
+
+885
+00:21:03,520 --> 00:21:06,310
+Now aggregator key value and what's the
+Rox DB value comes in let's say so key
+
+886
+00:21:06,310 --> 00:21:06,320
+Rox DB value comes in let's say so key
+ 
+
+887
+00:21:06,320 --> 00:21:08,710
+Rox DB value comes in let's say so key
+value and this value generally give it a
+
+888
+00:21:08,710 --> 00:21:08,720
+value and this value generally give it a
+ 
+
+889
+00:21:08,720 --> 00:21:11,830
+value and this value generally give it a
+name total from Rox DB till now do
+
+890
+00:21:11,830 --> 00:21:11,840
+name total from Rox DB till now do
+ 
+
+891
+00:21:11,840 --> 00:21:13,830
+name total from Rox DB till now do
+whatever your computation would be into
+
+892
+00:21:13,830 --> 00:21:13,840
+whatever your computation would be into
+ 
+
+893
+00:21:13,840 --> 00:21:16,549
+whatever your computation would be into
+for this one I am just doing whatever
+
+894
+00:21:16,549 --> 00:21:16,559
+for this one I am just doing whatever
+ 
+
+895
+00:21:16,559 --> 00:21:19,350
+for this one I am just doing whatever
+the value present in Rox DB plus the
+
+896
+00:21:19,350 --> 00:21:19,360
+the value present in Rox DB plus the
+ 
+
+897
+00:21:19,360 --> 00:21:23,750
+the value present in Rox DB plus the
+total order amount now okay and the same
+
+898
+00:21:23,750 --> 00:21:23,760
+total order amount now okay and the same
+ 
+
+899
+00:21:23,760 --> 00:21:27,350
+total order amount now okay and the same
+get return here
+
+900
+00:21:27,350 --> 00:21:27,360
+get return here
+ 
+
+901
+00:21:27,360 --> 00:21:32,549
+get return here
+okay inside this
+
+902
+00:21:32,549 --> 00:21:32,559
+
+ 
+
+903
+00:21:32,559 --> 00:21:34,630
+
+Now example is let's say first time
+
+904
+00:21:34,630 --> 00:21:34,640
+Now example is let's say first time
+ 
+
+905
+00:21:34,640 --> 00:21:38,230
+Now example is let's say first time
+allies came currently Rox DB has no data
+
+906
+00:21:38,230 --> 00:21:38,240
+allies came currently Rox DB has no data
+ 
+
+907
+00:21:38,240 --> 00:21:40,710
+allies came currently Rox DB has no data
+ros DB lookup not found so initializer
+
+908
+00:21:40,710 --> 00:21:40,720
+ros DB lookup not found so initializer
+ 
+
+909
+00:21:40,720 --> 00:21:43,270
+ros DB lookup not found so initializer
+would be zero and then your aggregator
+
+910
+00:21:43,270 --> 00:21:43,280
+would be zero and then your aggregator
+ 
+
+911
+00:21:43,280 --> 00:21:46,950
+would be zero and then your aggregator
+will run aggregator will do 0 plus the
+
+912
+00:21:46,950 --> 00:21:46,960
+will run aggregator will do 0 plus the
+ 
+
+913
+00:21:46,960 --> 00:21:50,630
+will run aggregator will do 0 plus the
+record this is coming right 0 + 100. So
+
+914
+00:21:50,630 --> 00:21:50,640
+record this is coming right 0 + 100. So
+ 
+
+915
+00:21:50,640 --> 00:21:53,590
+record this is coming right 0 + 100. So
+this aggregator will do this is your key
+
+916
+00:21:53,590 --> 00:21:53,600
+this aggregator will do this is your key
+ 
+
+917
+00:21:53,600 --> 00:21:55,430
+this aggregator will do this is your key
+this is your value and this is the
+
+918
+00:21:55,430 --> 00:21:55,440
+this is your value and this is the
+ 
+
+919
+00:21:55,440 --> 00:21:59,029
+this is your value and this is the
+currently Rox DB value. So it will do 0
+
+920
+00:21:59,029 --> 00:21:59,039
+currently Rox DB value. So it will do 0
+ 
+
+921
+00:21:59,039 --> 00:22:02,549
+currently Rox DB value. So it will do 0
++ 100. So ultimately it will return 100
+
+922
+00:22:02,549 --> 00:22:02,559
++ 100. So ultimately it will return 100
+ 
+
+923
+00:22:02,559 --> 00:22:04,149
++ 100. So ultimately it will return 100
+which will ultimately get stored into
+
+924
+00:22:04,149 --> 00:22:04,159
+which will ultimately get stored into
+ 
+
+925
+00:22:04,159 --> 00:22:08,070
+which will ultimately get stored into
+the Rox DB and also return here.
+
+926
+00:22:08,070 --> 00:22:08,080
+the Rox DB and also return here.
+ 
+
+927
+00:22:08,080 --> 00:22:12,230
+the Rox DB and also return here.
+Okay. Now second time record come it
+
+928
+00:22:12,230 --> 00:22:12,240
+Okay. Now second time record come it
+ 
+
+929
+00:22:12,240 --> 00:22:14,230
+Okay. Now second time record come it
+will do a DB lookup. Yes. Allies has a
+
+930
+00:22:14,230 --> 00:22:14,240
+will do a DB lookup. Yes. Allies has a
+ 
+
+931
+00:22:14,240 --> 00:22:17,110
+will do a DB lookup. Yes. Allies has a
+value. Yes it found 100. So will it run
+
+932
+00:22:17,110 --> 00:22:17,120
+value. Yes it found 100. So will it run
+ 
+
+933
+00:22:17,120 --> 00:22:20,390
+value. Yes it found 100. So will it run
+the initializer? No value is present. So
+
+934
+00:22:20,390 --> 00:22:20,400
+the initializer? No value is present. So
+ 
+
+935
+00:22:20,400 --> 00:22:23,110
+the initializer? No value is present. So
+directly it will go to the aggregator
+
+936
+00:22:23,110 --> 00:22:23,120
+directly it will go to the aggregator
+ 
+
+937
+00:22:23,120 --> 00:22:26,390
+directly it will go to the aggregator
+key value and the Rox DB value currently
+
+938
+00:22:26,390 --> 00:22:26,400
+key value and the Rox DB value currently
+ 
+
+939
+00:22:26,400 --> 00:22:29,590
+key value and the Rox DB value currently
+100. So it will do 100 plus order dot
+
+940
+00:22:29,590 --> 00:22:29,600
+100. So it will do 100 plus order dot
+ 
+
+941
+00:22:29,600 --> 00:22:33,029
+100. So it will do 100 plus order dot
+get amount 150. So it will return 250
+
+942
+00:22:33,029 --> 00:22:33,039
+get amount 150. So it will return 250
+ 
+
+943
+00:22:33,039 --> 00:22:36,470
+get amount 150. So it will return 250
+and 250 also you have here.
+
+944
+00:22:36,470 --> 00:22:36,480
+and 250 also you have here.
+ 
+
+945
+00:22:36,480 --> 00:22:38,950
+and 250 also you have here.
+So third record the same ultimately
+
+946
+00:22:38,950 --> 00:22:38,960
+So third record the same ultimately
+ 
+
+947
+00:22:38,960 --> 00:22:42,070
+So third record the same ultimately
+return 300. So
+
+948
+00:22:42,070 --> 00:22:42,080
+return 300. So
+ 
+
+949
+00:22:42,080 --> 00:22:46,310
+return 300. So
+allies has 300 into the rox DB also.
+
+950
+00:22:46,310 --> 00:22:46,320
+allies has 300 into the rox DB also.
+ 
+
+951
+00:22:46,320 --> 00:22:49,990
+allies has 300 into the rox DB also.
+Got it? So if you want a control over
+
+952
+00:22:49,990 --> 00:22:50,000
+Got it? So if you want a control over
+ 
+
+953
+00:22:50,000 --> 00:22:52,230
+Got it? So if you want a control over
+your aggregation logic you can do it
+
+954
+00:22:52,230 --> 00:22:52,240
+your aggregation logic you can do it
+ 
+
+955
+00:22:52,240 --> 00:22:54,950
+your aggregation logic you can do it
+yourself because if you use count it
+
+956
+00:22:54,950 --> 00:22:54,960
+yourself because if you use count it
+ 
+
+957
+00:22:54,960 --> 00:22:58,630
+yourself because if you use count it
+would be just like allies three but you
+
+958
+00:22:58,630 --> 00:22:58,640
+would be just like allies three but you
+ 
+
+959
+00:22:58,640 --> 00:23:02,470
+would be just like allies three but you
+want to count this amount so you can use
+
+960
+00:23:02,470 --> 00:23:02,480
+want to count this amount so you can use
+ 
+
+961
+00:23:02,480 --> 00:23:06,710
+want to count this amount so you can use
+aggregate your logic
+
+962
+00:23:06,710 --> 00:23:06,720
+
+ 
+
+963
+00:23:06,720 --> 00:23:09,590
+
+right and another is very important is
+
+964
+00:23:09,590 --> 00:23:09,600
+right and another is very important is
+ 
+
+965
+00:23:09,600 --> 00:23:12,310
+right and another is very important is
+join
+
+966
+00:23:12,310 --> 00:23:12,320
+join
+ 
+
+967
+00:23:12,320 --> 00:23:18,549
+join
+so k stream. So if you remember that
+
+968
+00:23:18,549 --> 00:23:18,559
+so k stream. So if you remember that
+ 
+
+969
+00:23:18,559 --> 00:23:20,870
+so k stream. So if you remember that
+we have different type of source you can
+
+970
+00:23:20,870 --> 00:23:20,880
+we have different type of source you can
+ 
+
+971
+00:23:20,880 --> 00:23:25,110
+we have different type of source you can
+say K stream K table okay now K stream U
+
+972
+00:23:25,110 --> 00:23:25,120
+say K stream K table okay now K stream U
+ 
+
+973
+00:23:25,120 --> 00:23:29,350
+say K stream K table okay now K stream U
+means infinite stream what's the start
+
+974
+00:23:29,350 --> 00:23:29,360
+means infinite stream what's the start
+ 
+
+975
+00:23:29,360 --> 00:23:31,190
+means infinite stream what's the start
+when the stream start when the stream
+
+976
+00:23:31,190 --> 00:23:31,200
+when the stream start when the stream
+ 
+
+977
+00:23:31,200 --> 00:23:33,430
+when the stream start when the stream
+finish you don't know data keep on
+
+978
+00:23:33,430 --> 00:23:33,440
+finish you don't know data keep on
+ 
+
+979
+00:23:33,440 --> 00:23:38,789
+finish you don't know data keep on
+coming data keep on flowing but K table
+
+980
+00:23:38,789 --> 00:23:38,799
+coming data keep on flowing but K table
+ 
+
+981
+00:23:38,799 --> 00:23:41,350
+coming data keep on flowing but K table
+K table maintains
+
+982
+00:23:41,350 --> 00:23:41,360
+K table maintains
+ 
+
+983
+00:23:41,360 --> 00:23:45,270
+K table maintains
+key value Okay, let's say user one its
+
+984
+00:23:45,270 --> 00:23:45,280
+key value Okay, let's say user one its
+ 
+
+985
+00:23:45,280 --> 00:23:47,909
+key value Okay, let's say user one its
+latest record,
+
+986
+00:23:47,909 --> 00:23:47,919
+latest record,
+ 
+
+987
+00:23:47,919 --> 00:23:50,310
+latest record,
+user two its latest record. It has
+
+988
+00:23:50,310 --> 00:23:50,320
+user two its latest record. It has
+ 
+
+989
+00:23:50,320 --> 00:23:51,669
+user two its latest record. It has
+maintained certain information. We have
+
+990
+00:23:51,669 --> 00:23:51,679
+maintained certain information. We have
+ 
+
+991
+00:23:51,679 --> 00:23:54,549
+maintained certain information. We have
+already seen that into the source also.
+
+992
+00:23:54,549 --> 00:23:54,559
+already seen that into the source also.
+ 
+
+993
+00:23:54,559 --> 00:23:58,310
+already seen that into the source also.
+Now let's say how you want to join it.
+
+994
+00:23:58,310 --> 00:23:58,320
+Now let's say how you want to join it.
+ 
+
+995
+00:23:58,320 --> 00:24:02,230
+Now let's say how you want to join it.
+A k stream cable join and reach each
+
+996
+00:24:02,230 --> 00:24:02,240
+A k stream cable join and reach each
+ 
+
+997
+00:24:02,240 --> 00:24:04,390
+A k stream cable join and reach each
+stream event with the latest value from
+
+998
+00:24:04,390 --> 00:24:04,400
+stream event with the latest value from
+ 
+
+999
+00:24:04,400 --> 00:24:08,070
+stream event with the latest value from
+a table. Okay. So I am saying from
+
+1000
+00:24:08,070 --> 00:24:08,080
+a table. Okay. So I am saying from
+ 
+
+1001
+00:24:08,080 --> 00:24:11,029
+a table. Okay. So I am saying from
+stream to join from stream to K table we
+
+1002
+00:24:11,029 --> 00:24:11,039
+stream to join from stream to K table we
+ 
+
+1003
+00:24:11,039 --> 00:24:13,110
+stream to join from stream to K table we
+are doing a joining. So K table let's
+
+1004
+00:24:13,110 --> 00:24:13,120
+are doing a joining. So K table let's
+ 
+
+1005
+00:24:13,120 --> 00:24:16,470
+are doing a joining. So K table let's
+say has user address information and now
+
+1006
+00:24:16,470 --> 00:24:16,480
+say has user address information and now
+ 
+
+1007
+00:24:16,480 --> 00:24:20,870
+say has user address information and now
+the order is coming let's say order ID 1
+
+1008
+00:24:20,870 --> 00:24:20,880
+the order is coming let's say order ID 1
+ 
+
+1009
+00:24:20,880 --> 00:24:23,190
+the order is coming let's say order ID 1
+user ID
+
+1010
+00:24:23,190 --> 00:24:23,200
+user ID
+ 
+
+1011
+00:24:23,200 --> 00:24:24,870
+user ID
+U00
+
+1012
+00:24:24,870 --> 00:24:24,880
+U00
+ 
+
+1013
+00:24:24,880 --> 00:24:27,430
+U00
+user ID is 100
+
+1014
+00:24:27,430 --> 00:24:27,440
+user ID is 100
+ 
+
+1015
+00:24:27,440 --> 00:24:30,230
+user ID is 100
+so you need the address detail of it so
+
+1016
+00:24:30,230 --> 00:24:30,240
+so you need the address detail of it so
+ 
+
+1017
+00:24:30,240 --> 00:24:33,269
+so you need the address detail of it so
+you are joining the K table finding from
+
+1018
+00:24:33,269 --> 00:24:33,279
+you are joining the K table finding from
+ 
+
+1019
+00:24:33,279 --> 00:24:35,669
+you are joining the K table finding from
+this user ID that hey what is the
+
+1020
+00:24:35,669 --> 00:24:35,679
+this user ID that hey what is the
+ 
+
+1021
+00:24:35,679 --> 00:24:38,789
+this user ID that hey what is the
+address detail now this address detail
+
+1022
+00:24:38,789 --> 00:24:38,799
+address detail now this address detail
+ 
+
+1023
+00:24:38,799 --> 00:24:41,110
+address detail now this address detail
+now you are enriching it here in this
+
+1024
+00:24:41,110 --> 00:24:41,120
+now you are enriching it here in this
+ 
+
+1025
+00:24:41,120 --> 00:24:43,190
+now you are enriching it here in this
+order itself So you have a new order
+
+1026
+00:24:43,190 --> 00:24:43,200
+order itself So you have a new order
+ 
+
+1027
+00:24:43,200 --> 00:24:45,590
+order itself So you have a new order
+object you can say that
+
+1028
+00:24:45,590 --> 00:24:45,600
+object you can say that
+ 
+
+1029
+00:24:45,600 --> 00:24:48,070
+object you can say that
+very simple just understand when we do a
+
+1030
+00:24:48,070 --> 00:24:48,080
+very simple just understand when we do a
+ 
+
+1031
+00:24:48,080 --> 00:24:50,390
+very simple just understand when we do a
+join method just under understand this
+
+1032
+00:24:50,390 --> 00:24:50,400
+join method just under understand this
+ 
+
+1033
+00:24:50,400 --> 00:24:53,269
+join method just under understand this
+parameter it would be very easy the
+
+1034
+00:24:53,269 --> 00:24:53,279
+parameter it would be very easy the
+ 
+
+1035
+00:24:53,279 --> 00:24:57,990
+parameter it would be very easy the
+first
+
+1036
+00:24:57,990 --> 00:24:58,000
+
+ 
+
+1037
+00:24:58,000 --> 00:25:00,870
+
+the K table which you want to join with.
+
+1038
+00:25:00,870 --> 00:25:00,880
+the K table which you want to join with.
+ 
+
+1039
+00:25:00,880 --> 00:25:03,669
+the K table which you want to join with.
+Okay the first parameter is simple. Now
+
+1040
+00:25:03,669 --> 00:25:03,679
+Okay the first parameter is simple. Now
+ 
+
+1041
+00:25:03,679 --> 00:25:05,669
+Okay the first parameter is simple. Now
+the second is value joiner. Go inside
+
+1042
+00:25:05,669 --> 00:25:05,679
+the second is value joiner. Go inside
+ 
+
+1043
+00:25:05,679 --> 00:25:08,149
+the second is value joiner. Go inside
+this and see what happen. So if you go
+
+1044
+00:25:08,149 --> 00:25:08,159
+this and see what happen. So if you go
+ 
+
+1045
+00:25:08,159 --> 00:25:10,310
+this and see what happen. So if you go
+inside this value joiner you will see
+
+1046
+00:25:10,310 --> 00:25:10,320
+inside this value joiner you will see
+ 
+
+1047
+00:25:10,320 --> 00:25:11,909
+inside this value joiner you will see
+this method which we have to provide an
+
+1048
+00:25:11,909 --> 00:25:11,919
+this method which we have to provide an
+ 
+
+1049
+00:25:11,919 --> 00:25:16,230
+this method which we have to provide an
+implementation. The first is your value
+
+1050
+00:25:16,230 --> 00:25:16,240
+implementation. The first is your value
+ 
+
+1051
+00:25:16,240 --> 00:25:18,950
+implementation. The first is your value
+one v_sub_1 which is nothing but a k
+
+1052
+00:25:18,950 --> 00:25:18,960
+one v_sub_1 which is nothing but a k
+ 
+
+1053
+00:25:18,960 --> 00:25:21,590
+one v_sub_1 which is nothing but a k
+stream value.
+
+1054
+00:25:21,590 --> 00:25:21,600
+stream value.
+ 
+
+1055
+00:25:21,600 --> 00:25:25,269
+stream value.
+So you are joining k stream versus k
+
+1056
+00:25:25,269 --> 00:25:25,279
+So you are joining k stream versus k
+ 
+
+1057
+00:25:25,279 --> 00:25:31,110
+So you are joining k stream versus k
+table right. So it is just like
+
+1058
+00:25:31,110 --> 00:25:31,120
+
+ 
+
+1059
+00:25:31,120 --> 00:25:34,549
+
+let's say user 100 the key you can say
+
+1060
+00:25:34,549 --> 00:25:34,559
+let's say user 100 the key you can say
+ 
+
+1061
+00:25:34,559 --> 00:25:38,549
+let's say user 100 the key you can say
+the k stream value
+
+1062
+00:25:38,549 --> 00:25:38,559
+
+ 
+
+1063
+00:25:38,559 --> 00:25:42,230
+
+and the second latest value for the key
+
+1064
+00:25:42,230 --> 00:25:42,240
+and the second latest value for the key
+ 
+
+1065
+00:25:42,240 --> 00:25:45,190
+and the second latest value for the key
+from the k table.
+
+1066
+00:25:45,190 --> 00:25:45,200
+from the k table.
+ 
+
+1067
+00:25:45,200 --> 00:25:49,430
+from the k table.
+Okay so for the exact key see join
+
+1068
+00:25:49,430 --> 00:25:49,440
+Okay so for the exact key see join
+ 
+
+1069
+00:25:49,440 --> 00:25:51,510
+Okay so for the exact key see join
+happens on the key basis. Understand
+
+1070
+00:25:51,510 --> 00:25:51,520
+happens on the key basis. Understand
+ 
+
+1071
+00:25:51,520 --> 00:25:54,870
+happens on the key basis. Understand
+that when we are doing join internally
+
+1072
+00:25:54,870 --> 00:25:54,880
+that when we are doing join internally
+ 
+
+1073
+00:25:54,880 --> 00:25:59,430
+that when we are doing join internally
+it make use of key here and key here to
+
+1074
+00:25:59,430 --> 00:25:59,440
+it make use of key here and key here to
+ 
+
+1075
+00:25:59,440 --> 00:26:02,149
+it make use of key here and key here to
+do the joining. Now after that it has
+
+1076
+00:26:02,149 --> 00:26:02,159
+do the joining. Now after that it has
+ 
+
+1077
+00:26:02,159 --> 00:26:05,029
+do the joining. Now after that it has
+done the joining it get the data
+
+1078
+00:26:05,029 --> 00:26:05,039
+done the joining it get the data
+ 
+
+1079
+00:26:05,039 --> 00:26:08,950
+done the joining it get the data
+correct. So this v_sub_1 value one is
+
+1080
+00:26:08,950 --> 00:26:08,960
+correct. So this v_sub_1 value one is
+ 
+
+1081
+00:26:08,960 --> 00:26:12,789
+correct. So this v_sub_1 value one is
+the value of this k stream this value
+
+1082
+00:26:12,789 --> 00:26:12,799
+the value of this k stream this value
+ 
+
+1083
+00:26:12,799 --> 00:26:16,149
+the value of this k stream this value
+let's say u00 whatever the value we got
+
+1084
+00:26:16,149 --> 00:26:16,159
+let's say u00 whatever the value we got
+ 
+
+1085
+00:26:16,159 --> 00:26:18,710
+let's say u00 whatever the value we got
+this represent this
+
+1086
+00:26:18,710 --> 00:26:18,720
+this represent this
+ 
+
+1087
+00:26:18,720 --> 00:26:20,390
+this represent this
+v2
+
+1088
+00:26:20,390 --> 00:26:20,400
+v2
+ 
+
+1089
+00:26:20,400 --> 00:26:22,549
+v2
+represent
+
+1090
+00:26:22,549 --> 00:26:22,559
+represent
+ 
+
+1091
+00:26:22,559 --> 00:26:25,350
+represent
+the data value
+
+1092
+00:26:25,350 --> 00:26:25,360
+the data value
+ 
+
+1093
+00:26:25,360 --> 00:26:28,310
+the data value
+for this u00 key
+
+1094
+00:26:28,310 --> 00:26:28,320
+for this u00 key
+ 
+
+1095
+00:26:28,320 --> 00:26:30,390
+for this u00 key
+okay whatever the value it represent the
+
+1096
+00:26:30,390 --> 00:26:30,400
+okay whatever the value it represent the
+ 
+
+1097
+00:26:30,400 --> 00:26:33,269
+okay whatever the value it represent the
+value from the k table
+
+1098
+00:26:33,269 --> 00:26:33,279
+value from the k table
+ 
+
+1099
+00:26:33,279 --> 00:26:37,029
+value from the k table
+join happens between the key of both.
+
+1100
+00:26:37,029 --> 00:26:37,039
+join happens between the key of both.
+ 
+
+1101
+00:26:37,039 --> 00:26:39,750
+join happens between the key of both.
+Okay. Once you have a join. So now let's
+
+1102
+00:26:39,750 --> 00:26:39,760
+Okay. Once you have a join. So now let's
+ 
+
+1103
+00:26:39,760 --> 00:26:42,390
+Okay. Once you have a join. So now let's
+say K stream
+
+1104
+00:26:42,390 --> 00:26:42,400
+say K stream
+ 
+
+1105
+00:26:42,400 --> 00:26:45,669
+say K stream
+user ID U00
+
+1106
+00:26:45,669 --> 00:26:45,679
+user ID U00
+ 
+
+1107
+00:26:45,679 --> 00:26:49,510
+user ID U00
+order id something K table
+
+1108
+00:26:49,510 --> 00:26:49,520
+order id something K table
+ 
+
+1109
+00:26:49,520 --> 00:26:53,669
+order id something K table
+U certain data. Now this order comes. So
+
+1110
+00:26:53,669 --> 00:26:53,679
+U certain data. Now this order comes. So
+ 
+
+1111
+00:26:53,679 --> 00:26:57,350
+U certain data. Now this order comes. So
+you do join. So it will use the key.
+
+1112
+00:26:57,350 --> 00:26:57,360
+you do join. So it will use the key.
+ 
+
+1113
+00:26:57,360 --> 00:27:00,630
+you do join. So it will use the key.
+So you make sure that whatever the K
+
+1114
+00:27:00,630 --> 00:27:00,640
+So you make sure that whatever the K
+ 
+
+1115
+00:27:00,640 --> 00:27:04,950
+So you make sure that whatever the K
+stream you have its key and this K table
+
+1116
+00:27:04,950 --> 00:27:04,960
+stream you have its key and this K table
+ 
+
+1117
+00:27:04,960 --> 00:27:06,870
+stream you have its key and this K table
+key should be same then only your join
+
+1118
+00:27:06,870 --> 00:27:06,880
+key should be same then only your join
+ 
+
+1119
+00:27:06,880 --> 00:27:09,990
+key should be same then only your join
+will work. Okay. So now let's say that
+
+1120
+00:27:09,990 --> 00:27:10,000
+will work. Okay. So now let's say that
+ 
+
+1121
+00:27:10,000 --> 00:27:13,430
+will work. Okay. So now let's say that
+its key key is user ID. It key should be
+
+1122
+00:27:13,430 --> 00:27:13,440
+its key key is user ID. It key should be
+ 
+
+1123
+00:27:13,440 --> 00:27:15,510
+its key key is user ID. It key should be
+user. If it is order ID change it change
+
+1124
+00:27:15,510 --> 00:27:15,520
+user. If it is order ID change it change
+ 
+
+1125
+00:27:15,520 --> 00:27:18,149
+user. If it is order ID change it change
+it to user ID then only it should work.
+
+1126
+00:27:18,149 --> 00:27:18,159
+it to user ID then only it should work.
+ 
+
+1127
+00:27:18,159 --> 00:27:21,430
+it to user ID then only it should work.
+Okay. So now let's say key is user ID. K
+
+1128
+00:27:21,430 --> 00:27:21,440
+Okay. So now let's say key is user ID. K
+ 
+
+1129
+00:27:21,440 --> 00:27:24,070
+Okay. So now let's say key is user ID. K
+table key is also this user ID which is
+
+1130
+00:27:24,070 --> 00:27:24,080
+table key is also this user ID which is
+ 
+
+1131
+00:27:24,080 --> 00:27:27,269
+table key is also this user ID which is
+U. So based on this U join will happen.
+
+1132
+00:27:27,269 --> 00:27:27,279
+U. So based on this U join will happen.
+ 
+
+1133
+00:27:27,279 --> 00:27:29,830
+U. So based on this U join will happen.
+So it has this complete information of
+
+1134
+00:27:29,830 --> 00:27:29,840
+So it has this complete information of
+ 
+
+1135
+00:27:29,840 --> 00:27:31,350
+So it has this complete information of
+this record. It has this complete
+
+1136
+00:27:31,350 --> 00:27:31,360
+this record. It has this complete
+ 
+
+1137
+00:27:31,360 --> 00:27:33,830
+this record. It has this complete
+information of this record. So this
+
+1138
+00:27:33,830 --> 00:27:33,840
+information of this record. So this
+ 
+
+1139
+00:27:33,840 --> 00:27:36,950
+information of this record. So this
+V_sub_1 represent a value
+
+1140
+00:27:36,950 --> 00:27:36,960
+V_sub_1 represent a value
+ 
+
+1141
+00:27:36,960 --> 00:27:39,590
+V_sub_1 represent a value
+for the K record of this K stream. This
+
+1142
+00:27:39,590 --> 00:27:39,600
+for the K record of this K stream. This
+ 
+
+1143
+00:27:39,600 --> 00:27:42,710
+for the K record of this K stream. This
+V_sub_2 represent a value
+
+1144
+00:27:42,710 --> 00:27:42,720
+V_sub_2 represent a value
+ 
+
+1145
+00:27:42,720 --> 00:27:46,070
+V_sub_2 represent a value
+from this K table for this key. Okay.
+
+1146
+00:27:46,070 --> 00:27:46,080
+from this K table for this key. Okay.
+ 
+
+1147
+00:27:46,080 --> 00:27:48,149
+from this K table for this key. Okay.
+Now whatever you want it how you want to
+
+1148
+00:27:48,149 --> 00:27:48,159
+Now whatever you want it how you want to
+ 
+
+1149
+00:27:48,159 --> 00:27:50,470
+Now whatever you want it how you want to
+append or how you want to enrich you
+
+1150
+00:27:50,470 --> 00:27:50,480
+append or how you want to enrich you
+ 
+
+1151
+00:27:50,480 --> 00:27:52,710
+append or how you want to enrich you
+want to create a new object do whatever
+
+1152
+00:27:52,710 --> 00:27:52,720
+want to create a new object do whatever
+ 
+
+1153
+00:27:52,720 --> 00:27:55,510
+want to create a new object do whatever
+and return the new object and this new
+
+1154
+00:27:55,510 --> 00:27:55,520
+and return the new object and this new
+ 
+
+1155
+00:27:55,520 --> 00:27:59,909
+and return the new object and this new
+object is ultimately become your so here
+
+1156
+00:27:59,909 --> 00:27:59,919
+object is ultimately become your so here
+ 
+
+1157
+00:27:59,919 --> 00:28:02,070
+object is ultimately become your so here
+if you see
+
+1158
+00:28:02,070 --> 00:28:02,080
+if you see
+ 
+
+1159
+00:28:02,080 --> 00:28:05,190
+if you see
+the key this new object ultimately this
+
+1160
+00:28:05,190 --> 00:28:05,200
+the key this new object ultimately this
+ 
+
+1161
+00:28:05,200 --> 00:28:08,870
+the key this new object ultimately this
+VR becomes your new value so you are
+
+1162
+00:28:08,870 --> 00:28:08,880
+VR becomes your new value so you are
+ 
+
+1163
+00:28:08,880 --> 00:28:10,870
+VR becomes your new value so you are
+enriching
+
+1164
+00:28:10,870 --> 00:28:10,880
+enriching
+ 
+
+1165
+00:28:10,880 --> 00:28:14,630
+enriching
+the Kstream data see this example it
+
+1166
+00:28:14,630 --> 00:28:14,640
+the Kstream data see this example it
+ 
+
+1167
+00:28:14,640 --> 00:28:18,630
+the Kstream data see this example it
+will get Here I have a case stream
+
+1168
+00:28:18,630 --> 00:28:18,640
+will get Here I have a case stream
+ 
+
+1169
+00:28:18,640 --> 00:28:20,950
+will get Here I have a case stream
+orders dot select key. So earlier order
+
+1170
+00:28:20,950 --> 00:28:20,960
+orders dot select key. So earlier order
+ 
+
+1171
+00:28:20,960 --> 00:28:23,350
+orders dot select key. So earlier order
+was on order id that's why I change it
+
+1172
+00:28:23,350 --> 00:28:23,360
+was on order id that's why I change it
+ 
+
+1173
+00:28:23,360 --> 00:28:27,029
+was on order id that's why I change it
+first to select key and I am using user
+
+1174
+00:28:27,029 --> 00:28:27,039
+first to select key and I am using user
+ 
+
+1175
+00:28:27,039 --> 00:28:28,870
+first to select key and I am using user
+id because my k table is based on user
+
+1176
+00:28:28,870 --> 00:28:28,880
+id because my k table is based on user
+ 
+
+1177
+00:28:28,880 --> 00:28:32,950
+id because my k table is based on user
+ID. So I have a k table I have a k
+
+1178
+00:28:32,950 --> 00:28:32,960
+ID. So I have a k table I have a k
+ 
+
+1179
+00:28:32,960 --> 00:28:36,389
+ID. So I have a k table I have a k
+stream now I'm doing a join order by
+
+1180
+00:28:36,389 --> 00:28:36,399
+stream now I'm doing a join order by
+ 
+
+1181
+00:28:36,399 --> 00:28:37,909
+stream now I'm doing a join order by
+users
+
+1182
+00:28:37,909 --> 00:28:37,919
+users
+ 
+
+1183
+00:28:37,919 --> 00:28:41,350
+users
+orders by user dot join on which k table
+
+1184
+00:28:41,350 --> 00:28:41,360
+orders by user dot join on which k table
+ 
+
+1185
+00:28:41,360 --> 00:28:44,070
+orders by user dot join on which k table
+users. So internally they will use the
+
+1186
+00:28:44,070 --> 00:28:44,080
+users. So internally they will use the
+ 
+
+1187
+00:28:44,080 --> 00:28:48,870
+users. So internally they will use the
+key of the both. Okay. Now this is the
+
+1188
+00:28:48,870 --> 00:28:48,880
+key of the both. Okay. Now this is the
+ 
+
+1189
+00:28:48,880 --> 00:28:51,430
+key of the both. Okay. Now this is the
+value from the K stream. This is the
+
+1190
+00:28:51,430 --> 00:28:51,440
+value from the K stream. This is the
+ 
+
+1191
+00:28:51,440 --> 00:28:53,830
+value from the K stream. This is the
+value from the K table. How you want to
+
+1192
+00:28:53,830 --> 00:28:53,840
+value from the K table. How you want to
+ 
+
+1193
+00:28:53,840 --> 00:28:55,590
+value from the K table. How you want to
+enrich you can create a total new
+
+1194
+00:28:55,590 --> 00:28:55,600
+enrich you can create a total new
+ 
+
+1195
+00:28:55,600 --> 00:28:58,549
+enrich you can create a total new
+object. How you wanted it totally your
+
+1196
+00:28:58,549 --> 00:28:58,559
+object. How you wanted it totally your
+ 
+
+1197
+00:28:58,559 --> 00:29:01,590
+object. How you wanted it totally your
+logic. But whatever you want to return
+
+1198
+00:29:01,590 --> 00:29:01,600
+logic. But whatever you want to return
+ 
+
+1199
+00:29:01,600 --> 00:29:04,789
+logic. But whatever you want to return
+new object or the same object order but
+
+1200
+00:29:04,789 --> 00:29:04,799
+new object or the same object order but
+ 
+
+1201
+00:29:04,799 --> 00:29:06,310
+new object or the same object order but
+with additional which has additional
+
+1202
+00:29:06,310 --> 00:29:06,320
+with additional which has additional
+ 
+
+1203
+00:29:06,320 --> 00:29:08,310
+with additional which has additional
+field you have earlier was null now you
+
+1204
+00:29:08,310 --> 00:29:08,320
+field you have earlier was null now you
+ 
+
+1205
+00:29:08,320 --> 00:29:11,350
+field you have earlier was null now you
+have filled it. Do whatever and return
+
+1206
+00:29:11,350 --> 00:29:11,360
+have filled it. Do whatever and return
+ 
+
+1207
+00:29:11,360 --> 00:29:14,630
+have filled it. Do whatever and return
+that one. So now your next
+
+1208
+00:29:14,630 --> 00:29:14,640
+that one. So now your next
+ 
+
+1209
+00:29:14,640 --> 00:29:16,710
+that one. So now your next
+K stream is ready with this key and this
+
+1210
+00:29:16,710 --> 00:29:16,720
+K stream is ready with this key and this
+ 
+
+1211
+00:29:16,720 --> 00:29:18,870
+K stream is ready with this key and this
+enrich order. Now you can build on top
+
+1212
+00:29:18,870 --> 00:29:18,880
+enrich order. Now you can build on top
+ 
+
+1213
+00:29:18,880 --> 00:29:22,389
+enrich order. Now you can build on top
+of this. Got it?
+
+1214
+00:29:22,389 --> 00:29:22,399
+of this. Got it?
+ 
+
+1215
+00:29:22,399 --> 00:29:24,710
+of this. Got it?
+So key for both K stream and K table
+
+1216
+00:29:24,710 --> 00:29:24,720
+So key for both K stream and K table
+ 
+
+1217
+00:29:24,720 --> 00:29:27,590
+So key for both K stream and K table
+should be same.
+
+1218
+00:29:27,590 --> 00:29:27,600
+should be same.
+ 
+
+1219
+00:29:27,600 --> 00:29:29,909
+should be same.
+Similarly you can do K table to K table
+
+1220
+00:29:29,909 --> 00:29:29,919
+Similarly you can do K table to K table
+ 
+
+1221
+00:29:29,919 --> 00:29:32,870
+Similarly you can do K table to K table
+very similar. So I have two K table.
+
+1222
+00:29:32,870 --> 00:29:32,880
+very similar. So I have two K table.
+ 
+
+1223
+00:29:32,880 --> 00:29:35,430
+very similar. So I have two K table.
+Okay. Now you can do profiles dot
+
+1224
+00:29:35,430 --> 00:29:35,440
+Okay. Now you can do profiles dot
+ 
+
+1225
+00:29:35,440 --> 00:29:37,590
+Okay. Now you can do profiles dot
+preferences. Profile dot join
+
+1226
+00:29:37,590 --> 00:29:37,600
+preferences. Profile dot join
+ 
+
+1227
+00:29:37,600 --> 00:29:40,389
+preferences. Profile dot join
+preferences. Now this is the value from
+
+1228
+00:29:40,389 --> 00:29:40,399
+preferences. Now this is the value from
+ 
+
+1229
+00:29:40,399 --> 00:29:42,630
+preferences. Now this is the value from
+the profile. This is the value from the
+
+1230
+00:29:42,630 --> 00:29:42,640
+the profile. This is the value from the
+ 
+
+1231
+00:29:42,640 --> 00:29:46,950
+the profile. This is the value from the
+preference your logic how you want to
+
+1232
+00:29:46,950 --> 00:29:46,960
+preference your logic how you want to
+ 
+
+1233
+00:29:46,960 --> 00:29:50,310
+preference your logic how you want to
+create a new object. Okay. And that
+
+1234
+00:29:50,310 --> 00:29:50,320
+create a new object. Okay. And that
+ 
+
+1235
+00:29:50,320 --> 00:29:54,870
+create a new object. Okay. And that
+ultimately would be your new
+
+1236
+00:29:54,870 --> 00:29:54,880
+
+ 
+
+1237
+00:29:54,880 --> 00:29:56,870
+
+K table because K table K table output
+
+1238
+00:29:56,870 --> 00:29:56,880
+K table because K table K table output
+ 
+
+1239
+00:29:56,880 --> 00:30:00,230
+K table because K table K table output
+is K table. And here we are doing a
+
+1240
+00:30:00,230 --> 00:30:00,240
+is K table. And here we are doing a
+ 
+
+1241
+00:30:00,240 --> 00:30:02,149
+is K table. And here we are doing a
+joining with K stream to K table. So
+
+1242
+00:30:02,149 --> 00:30:02,159
+joining with K stream to K table. So
+ 
+
+1243
+00:30:02,159 --> 00:30:05,190
+joining with K stream to K table. So
+means we are enriching K stream. Okay.
+
+1244
+00:30:05,190 --> 00:30:05,200
+means we are enriching K stream. Okay.
+ 
+
+1245
+00:30:05,200 --> 00:30:07,029
+means we are enriching K stream. Okay.
+We are just using K table as a source
+
+1246
+00:30:07,029 --> 00:30:07,039
+We are just using K table as a source
+ 
+
+1247
+00:30:07,039 --> 00:30:09,350
+We are just using K table as a source
+like whatever the object is coming using
+
+1248
+00:30:09,350 --> 00:30:09,360
+like whatever the object is coming using
+ 
+
+1249
+00:30:09,360 --> 00:30:12,710
+like whatever the object is coming using
+it key find out the data enriching it
+
+1250
+00:30:12,710 --> 00:30:12,720
+it key find out the data enriching it
+ 
+
+1251
+00:30:12,720 --> 00:30:17,990
+it key find out the data enriching it
+and now we have a more enriched object.
+
+1252
+00:30:17,990 --> 00:30:18,000
+and now we have a more enriched object.
+ 
+
+1253
+00:30:18,000 --> 00:30:20,549
+and now we have a more enriched object.
+Okay.
+
+1254
+00:30:20,549 --> 00:30:20,559
+Okay.
+ 
+
+1255
+00:30:20,559 --> 00:30:22,310
+Okay.
+But
+
+1256
+00:30:22,310 --> 00:30:22,320
+But
+ 
+
+1257
+00:30:22,320 --> 00:30:25,350
+But
+K table to K stream is not possible.
+
+1258
+00:30:25,350 --> 00:30:25,360
+K table to K stream is not possible.
+ 
+
+1259
+00:30:25,360 --> 00:30:27,269
+K table to K stream is not possible.
+Why? Because Kstream is an unbounded
+
+1260
+00:30:27,269 --> 00:30:27,279
+Why? Because Kstream is an unbounded
+ 
+
+1261
+00:30:27,279 --> 00:30:29,430
+Why? Because Kstream is an unbounded
+sequence of event.
+
+1262
+00:30:29,430 --> 00:30:29,440
+sequence of event.
+ 
+
+1263
+00:30:29,440 --> 00:30:31,990
+sequence of event.
+There is no start end. We can't just
+
+1264
+00:30:31,990 --> 00:30:32,000
+There is no start end. We can't just
+ 
+
+1265
+00:30:32,000 --> 00:30:33,830
+There is no start end. We can't just
+randomly look up. So this is not
+
+1266
+00:30:33,830 --> 00:30:33,840
+randomly look up. So this is not
+ 
+
+1267
+00:30:33,840 --> 00:30:36,149
+randomly look up. So this is not
+possible. I think it's clear right? K
+
+1268
+00:30:36,149 --> 00:30:36,159
+possible. I think it's clear right? K
+ 
+
+1269
+00:30:36,159 --> 00:30:37,830
+possible. I think it's clear right? K
+table you have a certain table right you
+
+1270
+00:30:37,830 --> 00:30:37,840
+table you have a certain table right you
+ 
+
+1271
+00:30:37,840 --> 00:30:39,510
+table you have a certain table right you
+are maintaining it but the stream is
+
+1272
+00:30:39,510 --> 00:30:39,520
+are maintaining it but the stream is
+ 
+
+1273
+00:30:39,520 --> 00:30:42,230
+are maintaining it but the stream is
+like no start no end how the join will
+
+1274
+00:30:42,230 --> 00:30:42,240
+like no start no end how the join will
+ 
+
+1275
+00:30:42,240 --> 00:30:44,149
+like no start no end how the join will
+work
+
+1276
+00:30:44,149 --> 00:30:44,159
+work
+ 
+
+1277
+00:30:44,159 --> 00:30:48,389
+work
+cool
+
+1278
+00:30:48,389 --> 00:30:48,399
+
+ 
+
+1279
+00:30:48,399 --> 00:30:51,990
+
+so clear stateful operations these are
+
+1280
+00:30:51,990 --> 00:30:52,000
+so clear stateful operations these are
+ 
+
+1281
+00:30:52,000 --> 00:30:55,590
+so clear stateful operations these are
+mostly used and there could be many but
+
+1282
+00:30:55,590 --> 00:30:55,600
+mostly used and there could be many but
+ 
+
+1283
+00:30:55,600 --> 00:30:57,990
+mostly used and there could be many but
+yeah the main main one I have covered it
+
+1284
+00:30:57,990 --> 00:30:58,000
+yeah the main main one I have covered it
+ 
+
+1285
+00:30:58,000 --> 00:31:00,870
+yeah the main main one I have covered it
+the last which left is
+
+1286
+00:31:00,870 --> 00:31:00,880
+the last which left is
+ 
+
+1287
+00:31:00,880 --> 00:31:03,269
+the last which left is
+window
+
+1288
+00:31:03,269 --> 00:31:03,279
+window
+ 
+
+1289
+00:31:03,279 --> 00:31:05,750
+window
+last 5 minutes last 10 minutes last one
+
+1290
+00:31:05,750 --> 00:31:05,760
+last 5 minutes last 10 minutes last one
+ 
+
+1291
+00:31:05,760 --> 00:31:09,190
+last 5 minutes last 10 minutes last one
+are counted count the order okay so
+
+1292
+00:31:09,190 --> 00:31:09,200
+are counted count the order okay so
+ 
+
+1293
+00:31:09,200 --> 00:31:11,350
+are counted count the order okay so
+that's is left after that our K stream
+
+1294
+00:31:11,350 --> 00:31:11,360
+that's is left after that our K stream
+ 
+
+1295
+00:31:11,360 --> 00:31:14,789
+that's is left after that our K stream
+is totally finished okay
+
+1296
+00:31:14,789 --> 00:31:14,799
+is totally finished okay
+ 
+
+1297
+00:31:14,799 --> 00:31:16,470
+is totally finished okay
+okay guys any doubt let me know we can
+
+1298
+00:31:16,470 --> 00:31:16,480
+okay guys any doubt let me know we can
+ 
+
+1299
+00:31:16,480 --> 00:31:21,679
+okay guys any doubt let me know we can
+disc sorry we can discuss further Bye.
+

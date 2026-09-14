@@ -1,0 +1,4048 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.000 --> 00:00:02.630 align:start position:0%
+ 
+come<00:00:00.160><c> back</c><00:00:00.560><c> and</c><00:00:01.000><c> today</c><00:00:01.400><c> I</c><00:00:01.520><c> will</c><00:00:01.800><c> show</c><00:00:02.120><c> you</c>
+
+00:00:02.630 --> 00:00:02.640 align:start position:0%
+come back and today I will show you
+ 
+
+00:00:02.640 --> 00:00:05.110 align:start position:0%
+come back and today I will show you
+outbox<00:00:03.280><c> pattern</c><00:00:04.120><c> in</c><00:00:04.280><c> the</c>
+
+00:00:05.110 --> 00:00:05.120 align:start position:0%
+outbox pattern in the
+ 
+
+00:00:05.120 --> 00:00:06.990 align:start position:0%
+outbox pattern in the
+event-driven<00:00:05.960><c> architecture.</c><00:00:06.560><c> Very,</c><00:00:06.800><c> very</c>
+
+00:00:06.990 --> 00:00:07.000 align:start position:0%
+event-driven architecture. Very, very
+ 
+
+00:00:07.000 --> 00:00:09.150 align:start position:0%
+event-driven architecture. Very, very
+important.<00:00:07.480><c> It</c><00:00:07.640><c> has</c><00:00:07.880><c> been</c><00:00:08.240><c> asked</c><00:00:08.640><c> a</c><00:00:08.720><c> lot</c><00:00:09.040><c> in</c>
+
+00:00:09.150 --> 00:00:09.160 align:start position:0%
+important. It has been asked a lot in
+ 
+
+00:00:09.160 --> 00:00:10.310 align:start position:0%
+important. It has been asked a lot in
+interviews.
+
+00:00:10.310 --> 00:00:10.320 align:start position:0%
+interviews.
+ 
+
+00:00:10.320 --> 00:00:13.350 align:start position:0%
+interviews.
+And<00:00:10.640><c> I</c><00:00:10.680><c> will</c><00:00:11.120><c> also</c><00:00:11.440><c> tell</c><00:00:11.680><c> you</c><00:00:11.840><c> what</c><00:00:12.200><c> generally</c>
+
+00:00:13.350 --> 00:00:13.360 align:start position:0%
+And I will also tell you what generally
+ 
+
+00:00:13.360 --> 00:00:14.590 align:start position:0%
+And I will also tell you what generally
+engineer
+
+00:00:14.590 --> 00:00:14.600 align:start position:0%
+engineer
+ 
+
+00:00:14.600 --> 00:00:17.950 align:start position:0%
+engineer
+tried<00:00:15.040><c> to</c><00:00:15.400><c> answer</c><00:00:15.920><c> first.</c><00:00:16.800><c> Okay?</c><00:00:17.280><c> But</c><00:00:17.600><c> those</c>
+
+00:00:17.950 --> 00:00:17.960 align:start position:0%
+tried to answer first. Okay? But those
+ 
+
+00:00:17.960 --> 00:00:21.070 align:start position:0%
+tried to answer first. Okay? But those
+answers<00:00:18.720><c> are</c><00:00:19.040><c> generally</c><00:00:19.520><c> overruled</c><00:00:20.160><c> because</c>
+
+00:00:21.070 --> 00:00:21.080 align:start position:0%
+answers are generally overruled because
+ 
+
+00:00:21.080 --> 00:00:23.350 align:start position:0%
+answers are generally overruled because
+there<00:00:21.400><c> are</c><00:00:21.600><c> some</c><00:00:21.960><c> gap</c><00:00:22.320><c> in</c><00:00:22.440><c> those.</c><00:00:23.000><c> And</c><00:00:23.160><c> what's</c>
+
+00:00:23.350 --> 00:00:23.360 align:start position:0%
+there are some gap in those. And what's
+ 
+
+00:00:23.360 --> 00:00:24.710 align:start position:0%
+there are some gap in those. And what's
+the<00:00:23.480><c> correct</c><00:00:23.760><c> answer?</c>
+
+00:00:24.710 --> 00:00:24.720 align:start position:0%
+the correct answer?
+ 
+
+00:00:24.720 --> 00:00:25.590 align:start position:0%
+the correct answer?
+Okay?
+
+00:00:25.590 --> 00:00:25.600 align:start position:0%
+Okay?
+ 
+
+00:00:25.600 --> 00:00:29.670 align:start position:0%
+Okay?
+So,<00:00:26.080><c> before</c><00:00:26.560><c> we</c><00:00:26.800><c> go</c><00:00:27.160><c> deep</c><00:00:28.160><c> into</c><00:00:28.520><c> this</c><00:00:29.120><c> outbox</c>
+
+00:00:29.670 --> 00:00:29.680 align:start position:0%
+So, before we go deep into this outbox
+ 
+
+00:00:29.680 --> 00:00:32.429 align:start position:0%
+So, before we go deep into this outbox
+pattern,<00:00:30.760><c> we</c><00:00:30.920><c> first</c><00:00:31.240><c> need</c><00:00:31.440><c> to</c><00:00:31.560><c> understand</c><00:00:32.320><c> the</c>
+
+00:00:32.429 --> 00:00:32.439 align:start position:0%
+pattern, we first need to understand the
+ 
+
+00:00:32.439 --> 00:00:36.510 align:start position:0%
+pattern, we first need to understand the
+problem<00:00:33.080><c> which</c><00:00:33.360><c> exist.</c><00:00:34.280><c> Okay?</c><00:00:35.000><c> So,</c>
+
+00:00:36.510 --> 00:00:36.520 align:start position:0%
+problem which exist. Okay? So,
+ 
+
+00:00:36.520 --> 00:00:38.190 align:start position:0%
+problem which exist. Okay? So,
+if<00:00:36.720><c> you</c><00:00:36.880><c> see</c><00:00:37.040><c> this,</c><00:00:37.320><c> this</c><00:00:37.560><c> is</c><00:00:37.680><c> the</c><00:00:37.760><c> problem</c>
+
+00:00:38.190 --> 00:00:38.200 align:start position:0%
+if you see this, this is the problem
+ 
+
+00:00:38.200 --> 00:00:40.630 align:start position:0%
+if you see this, this is the problem
+statement<00:00:38.760><c> which</c><00:00:39.200><c> interviewer</c><00:00:39.960><c> will</c><00:00:40.200><c> provide</c>
+
+00:00:40.630 --> 00:00:40.640 align:start position:0%
+statement which interviewer will provide
+ 
+
+00:00:40.640 --> 00:00:41.710 align:start position:0%
+statement which interviewer will provide
+you.
+
+00:00:41.710 --> 00:00:41.720 align:start position:0%
+you.
+ 
+
+00:00:41.720 --> 00:00:43.550 align:start position:0%
+you.
+Very,<00:00:42.120><c> very</c><00:00:42.320><c> simple</c>
+
+00:00:43.550 --> 00:00:43.560 align:start position:0%
+Very, very simple
+ 
+
+00:00:43.560 --> 00:00:46.190 align:start position:0%
+Very, very simple
+method<00:00:44.240><c> of</c><00:00:44.480><c> a</c><00:00:44.560><c> create</c><00:00:45.080><c> order</c><00:00:45.400><c> when</c><00:00:45.680><c> this</c>
+
+00:00:46.190 --> 00:00:46.200 align:start position:0%
+method of a create order when this
+ 
+
+00:00:46.200 --> 00:00:47.990 align:start position:0%
+method of a create order when this
+endpoint<00:00:46.680><c> got</c><00:00:47.000><c> hit.</c>
+
+00:00:47.990 --> 00:00:48.000 align:start position:0%
+endpoint got hit.
+ 
+
+00:00:48.000 --> 00:00:51.270 align:start position:0%
+endpoint got hit.
+What<00:00:48.280><c> it</c><00:00:48.440><c> does</c><00:00:48.640><c> it?</c><00:00:49.240><c> It</c><00:00:49.840><c> first</c><00:00:50.280><c> tried</c><00:00:50.760><c> to</c><00:00:50.960><c> save</c>
+
+00:00:51.270 --> 00:00:51.280 align:start position:0%
+What it does it? It first tried to save
+ 
+
+00:00:51.280 --> 00:00:52.710 align:start position:0%
+What it does it? It first tried to save
+in<00:00:51.400><c> the</c><00:00:51.560><c> DB.</c>
+
+00:00:52.710 --> 00:00:52.720 align:start position:0%
+in the DB.
+ 
+
+00:00:52.720 --> 00:00:54.830 align:start position:0%
+in the DB.
+Okay?<00:00:53.200><c> So,</c><00:00:53.440><c> the</c><00:00:53.640><c> order</c><00:00:53.960><c> which</c><00:00:54.200><c> has</c><00:00:54.480><c> been</c>
+
+00:00:54.830 --> 00:00:54.840 align:start position:0%
+Okay? So, the order which has been
+ 
+
+00:00:54.840 --> 00:00:57.510 align:start position:0%
+Okay? So, the order which has been
+received,<00:00:55.440><c> we</c><00:00:55.600><c> are</c><00:00:55.720><c> trying</c><00:00:56.120><c> to</c><00:00:56.280><c> store</c><00:00:56.560><c> in</c><00:00:56.680><c> DB.</c>
+
+00:00:57.510 --> 00:00:57.520 align:start position:0%
+received, we are trying to store in DB.
+ 
+
+00:00:57.520 --> 00:00:59.510 align:start position:0%
+received, we are trying to store in DB.
+And<00:00:57.720><c> in</c><00:00:57.840><c> the</c><00:00:57.960><c> step</c><00:00:58.400><c> two,</c><00:00:58.920><c> we</c><00:00:59.080><c> are</c><00:00:59.200><c> also</c>
+
+00:00:59.510 --> 00:00:59.520 align:start position:0%
+And in the step two, we are also
+ 
+
+00:00:59.520 --> 00:01:00.830 align:start position:0%
+And in the step two, we are also
+publishing<00:01:00.120><c> an</c>
+
+00:01:00.830 --> 00:01:00.840 align:start position:0%
+publishing an
+ 
+
+00:01:00.840 --> 00:01:01.790 align:start position:0%
+publishing an
+event.
+
+00:01:01.790 --> 00:01:01.800 align:start position:0%
+event.
+ 
+
+00:01:01.800 --> 00:01:05.470 align:start position:0%
+event.
+The<00:01:01.920><c> most</c><00:01:03.120><c> common</c><00:01:03.640><c> use</c><00:01:03.880><c> case</c><00:01:04.120><c> in</c><00:01:04.239><c> industry.</c>
+
+00:01:05.470 --> 00:01:05.480 align:start position:0%
+The most common use case in industry.
+ 
+
+00:01:05.480 --> 00:01:07.550 align:start position:0%
+The most common use case in industry.
+We<00:01:05.600><c> have</c><00:01:05.800><c> to</c><00:01:05.920><c> store</c><00:01:06.200><c> in</c><00:01:06.320><c> DB</c><00:01:06.880><c> and</c><00:01:07.040><c> also</c><00:01:07.280><c> we</c><00:01:07.400><c> have</c>
+
+00:01:07.550 --> 00:01:07.560 align:start position:0%
+We have to store in DB and also we have
+ 
+
+00:01:07.560 --> 00:01:09.910 align:start position:0%
+We have to store in DB and also we have
+to<00:01:07.680><c> publish</c><00:01:08.040><c> an</c><00:01:08.160><c> event.</c><00:01:08.960><c> Nothing</c><00:01:09.400><c> special</c><00:01:09.800><c> in</c>
+
+00:01:09.910 --> 00:01:09.920 align:start position:0%
+to publish an event. Nothing special in
+ 
+
+00:01:09.920 --> 00:01:12.430 align:start position:0%
+to publish an event. Nothing special in
+this.<00:01:10.720><c> Okay?</c><00:01:11.000><c> So,</c><00:01:11.160><c> these</c><00:01:11.480><c> two</c><00:01:11.760><c> tasks</c><00:01:12.120><c> we</c><00:01:12.200><c> have</c>
+
+00:01:12.430 --> 00:01:12.440 align:start position:0%
+this. Okay? So, these two tasks we have
+ 
+
+00:01:12.440 --> 00:01:14.950 align:start position:0%
+this. Okay? So, these two tasks we have
+to<00:01:12.560><c> do</c><00:01:12.760><c> in</c><00:01:12.920><c> this</c><00:01:13.120><c> method.</c>
+
+00:01:14.950 --> 00:01:14.960 align:start position:0%
+to do in this method.
+ 
+
+00:01:14.960 --> 00:01:16.150 align:start position:0%
+to do in this method.
+So,
+
+00:01:16.150 --> 00:01:16.160 align:start position:0%
+So,
+ 
+
+00:01:16.160 --> 00:01:17.590 align:start position:0%
+So,
+interviewer<00:01:16.600><c> will</c><00:01:16.760><c> say,</c><00:01:17.200><c> "What's</c><00:01:17.480><c> the</c>
+
+00:01:17.590 --> 00:01:17.600 align:start position:0%
+interviewer will say, "What's the
+ 
+
+00:01:17.600 --> 00:01:19.910 align:start position:0%
+interviewer will say, "What's the
+problem<00:01:18.040><c> in</c><00:01:18.240><c> this?"</c>
+
+00:01:19.910 --> 00:01:19.920 align:start position:0%
+problem in this?"
+ 
+
+00:01:19.920 --> 00:01:23.230 align:start position:0%
+problem in this?"
+So,<00:01:20.120><c> there</c><00:01:20.560><c> is</c><00:01:20.840><c> one</c><00:01:21.200><c> major</c><00:01:21.680><c> flaw</c><00:01:22.080><c> in</c><00:01:22.240><c> this</c><00:01:22.480><c> one.</c>
+
+00:01:23.230 --> 00:01:23.240 align:start position:0%
+So, there is one major flaw in this one.
+ 
+
+00:01:23.240 --> 00:01:25.390 align:start position:0%
+So, there is one major flaw in this one.
+So,<00:01:23.360><c> we</c><00:01:23.520><c> are</c><00:01:23.680><c> writing</c><00:01:24.240><c> two</c><00:01:24.560><c> separate</c>
+
+00:01:25.390 --> 00:01:25.400 align:start position:0%
+So, we are writing two separate
+ 
+
+00:01:25.400 --> 00:01:27.390 align:start position:0%
+So, we are writing two separate
+independent<00:01:26.240><c> system.</c><00:01:26.800><c> So,</c><00:01:26.920><c> this</c><00:01:27.080><c> is</c><00:01:27.240><c> one</c>
+
+00:01:27.390 --> 00:01:27.400 align:start position:0%
+independent system. So, this is one
+ 
+
+00:01:27.400 --> 00:01:29.310 align:start position:0%
+independent system. So, this is one
+independent<00:01:27.960><c> system,</c><00:01:28.320><c> DB.</c>
+
+00:01:29.310 --> 00:01:29.320 align:start position:0%
+independent system, DB.
+ 
+
+00:01:29.320 --> 00:01:30.870 align:start position:0%
+independent system, DB.
+And<00:01:29.520><c> this</c><00:01:29.680><c> is</c><00:01:29.880><c> another</c>
+
+00:01:30.870 --> 00:01:30.880 align:start position:0%
+And this is another
+ 
+
+00:01:30.880 --> 00:01:33.590 align:start position:0%
+And this is another
+independent<00:01:31.440><c> system</c><00:01:31.760><c> which</c><00:01:31.880><c> is</c><00:01:32.000><c> Kafka.</c>
+
+00:01:33.590 --> 00:01:33.600 align:start position:0%
+independent system which is Kafka.
+ 
+
+00:01:33.600 --> 00:01:36.550 align:start position:0%
+independent system which is Kafka.
+Okay?<00:01:34.080><c> So,</c><00:01:34.320><c> we</c><00:01:34.520><c> are</c><00:01:34.680><c> trying</c><00:01:35.120><c> to</c><00:01:35.320><c> write</c><00:01:36.120><c> into</c>
+
+00:01:36.550 --> 00:01:36.560 align:start position:0%
+Okay? So, we are trying to write into
+ 
+
+00:01:36.560 --> 00:01:40.710 align:start position:0%
+Okay? So, we are trying to write into
+two<00:01:37.120><c> independent</c><00:01:38.080><c> system.</c><00:01:39.200><c> Okay?</c><00:01:39.800><c> So,</c><00:01:40.240><c> we</c><00:01:40.400><c> can</c>
+
+00:01:40.710 --> 00:01:40.720 align:start position:0%
+two independent system. Okay? So, we can
+ 
+
+00:01:40.720 --> 00:01:43.390 align:start position:0%
+two independent system. Okay? So, we can
+get<00:01:41.000><c> problem</c><00:01:41.440><c> like</c><00:01:41.880><c> DB</c><00:01:42.240><c> get</c><00:01:42.480><c> succeeded,</c><00:01:43.160><c> but</c>
+
+00:01:43.390 --> 00:01:43.400 align:start position:0%
+get problem like DB get succeeded, but
+ 
+
+00:01:43.400 --> 00:01:47.950 align:start position:0%
+get problem like DB get succeeded, but
+Kafka<00:01:43.800><c> fails.</c><00:01:44.600><c> For</c><00:01:44.760><c> example,</c><00:01:45.800><c> your</c><00:01:46.680><c> DB</c>
+
+00:01:47.950 --> 00:01:47.960 align:start position:0%
+Kafka fails. For example, your DB
+ 
+
+00:01:47.960 --> 00:01:50.310 align:start position:0%
+Kafka fails. For example, your DB
+order<00:01:48.280><c> repository.save.</c>
+
+00:01:50.310 --> 00:01:50.320 align:start position:0%
+order repository.save.
+ 
+
+00:01:50.320 --> 00:01:52.630 align:start position:0%
+order repository.save.
+And<00:01:50.680><c> this</c><00:01:50.880><c> got</c><00:01:51.120><c> succeeded.</c><00:01:51.840><c> This</c><00:01:52.120><c> first</c><00:01:52.400><c> got</c>
+
+00:01:52.630 --> 00:01:52.640 align:start position:0%
+And this got succeeded. This first got
+ 
+
+00:01:52.640 --> 00:01:54.990 align:start position:0%
+And this got succeeded. This first got
+succeeded.<00:01:53.120><c> Your</c><00:01:53.760><c> It</c><00:01:53.920><c> is</c><00:01:54.120><c> stored</c><00:01:54.480><c> in</c><00:01:54.560><c> the</c><00:01:54.680><c> DB</c>
+
+00:01:54.990 --> 00:01:55.000 align:start position:0%
+succeeded. Your It is stored in the DB
+ 
+
+00:01:55.000 --> 00:01:56.630 align:start position:0%
+succeeded. Your It is stored in the DB
+successfully.
+
+00:01:56.630 --> 00:01:56.640 align:start position:0%
+successfully.
+ 
+
+00:01:56.640 --> 00:01:58.070 align:start position:0%
+successfully.
+But<00:01:56.800><c> when</c><00:01:56.960><c> you're</c><00:01:57.080><c> trying</c><00:01:57.400><c> to</c><00:01:57.520><c> publish</c><00:01:57.880><c> to</c><00:01:57.960><c> the</c>
+
+00:01:58.070 --> 00:01:58.080 align:start position:0%
+But when you're trying to publish to the
+ 
+
+00:01:58.080 --> 00:01:59.990 align:start position:0%
+But when you're trying to publish to the
+Kafka,<00:01:58.440><c> that</c><00:01:58.680><c> got</c><00:01:58.960><c> failed.</c>
+
+00:01:59.990 --> 00:02:00.000 align:start position:0%
+Kafka, that got failed.
+ 
+
+00:02:00.000 --> 00:02:02.030 align:start position:0%
+Kafka, that got failed.
+This<00:02:00.160><c> could</c><00:02:00.360><c> result</c><00:02:00.720><c> in</c><00:02:00.920><c> that</c>
+
+00:02:02.030 --> 00:02:02.040 align:start position:0%
+This could result in that
+ 
+
+00:02:02.040 --> 00:02:04.830 align:start position:0%
+This could result in that
+the<00:02:02.320><c> order</c><00:02:02.680><c> exists</c><00:02:03.080><c> in</c><00:02:03.200><c> DB,</c><00:02:03.480><c> yes,</c><00:02:04.200><c> but</c><00:02:04.440><c> no</c>
+
+00:02:04.830 --> 00:02:04.840 align:start position:0%
+the order exists in DB, yes, but no
+ 
+
+00:02:04.840 --> 00:02:06.830 align:start position:0%
+the order exists in DB, yes, but no
+event<00:02:05.120><c> published.</c><00:02:05.880><c> So,</c><00:02:06.360><c> maybe</c><00:02:06.720><c> the</c>
+
+00:02:06.830 --> 00:02:06.840 align:start position:0%
+event published. So, maybe the
+ 
+
+00:02:06.840 --> 00:02:08.590 align:start position:0%
+event published. So, maybe the
+downstream<00:02:07.440><c> components</c><00:02:07.960><c> like</c><00:02:08.200><c> payment</c>
+
+00:02:08.590 --> 00:02:08.600 align:start position:0%
+downstream components like payment
+ 
+
+00:02:08.600 --> 00:02:10.870 align:start position:0%
+downstream components like payment
+service,<00:02:09.039><c> inventory</c><00:02:09.560><c> service</c><00:02:09.920><c> which</c><00:02:10.160><c> rely</c><00:02:10.640><c> on</c>
+
+00:02:10.870 --> 00:02:10.880 align:start position:0%
+service, inventory service which rely on
+ 
+
+00:02:10.880 --> 00:02:12.270 align:start position:0%
+service, inventory service which rely on
+this<00:02:11.200><c> event,</c>
+
+00:02:12.270 --> 00:02:12.280 align:start position:0%
+this event,
+ 
+
+00:02:12.280 --> 00:02:13.950 align:start position:0%
+this event,
+they<00:02:12.400><c> will</c><00:02:12.560><c> not</c><00:02:12.840><c> be</c><00:02:12.960><c> able</c><00:02:13.200><c> to</c><00:02:13.320><c> update</c><00:02:13.760><c> their</c>
+
+00:02:13.950 --> 00:02:13.960 align:start position:0%
+they will not be able to update their
+ 
+
+00:02:13.960 --> 00:02:16.990 align:start position:0%
+they will not be able to update their
+system.<00:02:14.560><c> So,</c><00:02:14.800><c> it</c><00:02:15.080><c> could</c><00:02:15.320><c> result</c><00:02:15.680><c> into</c><00:02:15.920><c> data</c>
+
+00:02:16.990 --> 00:02:17.000 align:start position:0%
+system. So, it could result into data
+ 
+
+00:02:17.000 --> 00:02:19.030 align:start position:0%
+system. So, it could result into data
+inconsistency.
+
+00:02:19.030 --> 00:02:19.040 align:start position:0%
+inconsistency.
+ 
+
+00:02:19.040 --> 00:02:21.590 align:start position:0%
+inconsistency.
+Similarly,<00:02:19.840><c> what</c><00:02:20.040><c> we</c><00:02:20.160><c> can</c><00:02:20.320><c> have</c><00:02:20.560><c> is</c>
+
+00:02:21.590 --> 00:02:21.600 align:start position:0%
+Similarly, what we can have is
+ 
+
+00:02:21.600 --> 00:02:23.790 align:start position:0%
+Similarly, what we can have is
+Kafka<00:02:21.960><c> got</c><00:02:22.160><c> succeed,</c><00:02:22.720><c> but</c><00:02:22.920><c> DB</c><00:02:23.160><c> got</c><00:02:23.400><c> failed.</c>
+
+00:02:23.790 --> 00:02:23.800 align:start position:0%
+Kafka got succeed, but DB got failed.
+ 
+
+00:02:23.800 --> 00:02:26.070 align:start position:0%
+Kafka got succeed, but DB got failed.
+It's<00:02:24.040><c> possible,</c><00:02:24.440><c> right?</c><00:02:24.680><c> If</c><00:02:24.840><c> Kafka</c><00:02:25.480><c> is</c><00:02:25.720><c> able</c>
+
+00:02:26.070 --> 00:02:26.080 align:start position:0%
+It's possible, right? If Kafka is able
+ 
+
+00:02:26.080 --> 00:02:28.470 align:start position:0%
+It's possible, right? If Kafka is able
+to<00:02:26.320><c> publish</c><00:02:26.640><c> an</c><00:02:26.760><c> event,</c><00:02:27.080><c> but</c><00:02:27.560><c> DB</c><00:02:28.080><c> we</c><00:02:28.200><c> don't</c>
+
+00:02:28.470 --> 00:02:28.480 align:start position:0%
+to publish an event, but DB we don't
+ 
+
+00:02:28.480 --> 00:02:30.910 align:start position:0%
+to publish an event, but DB we don't
+have.<00:02:29.160><c> So,</c><00:02:29.240><c> what</c><00:02:29.440><c> would</c><00:02:29.600><c> happen</c><00:02:29.920><c> is</c><00:02:30.520><c> all</c><00:02:30.760><c> the</c>
+
+00:02:30.910 --> 00:02:30.920 align:start position:0%
+have. So, what would happen is all the
+ 
+
+00:02:30.920 --> 00:02:33.470 align:start position:0%
+have. So, what would happen is all the
+downstream<00:02:31.600><c> like</c><00:02:31.880><c> payment,</c><00:02:32.400><c> inventory,</c><00:02:33.320><c> they</c>
+
+00:02:33.470 --> 00:02:33.480 align:start position:0%
+downstream like payment, inventory, they
+ 
+
+00:02:33.480 --> 00:02:36.350 align:start position:0%
+downstream like payment, inventory, they
+will<00:02:34.160><c> update</c><00:02:34.600><c> their</c><00:02:34.760><c> system,</c><00:02:35.280><c> but</c><00:02:36.000><c> order</c>
+
+00:02:36.350 --> 00:02:36.360 align:start position:0%
+will update their system, but order
+ 
+
+00:02:36.360 --> 00:02:38.270 align:start position:0%
+will update their system, but order
+doesn't<00:02:36.760><c> even</c><00:02:36.920><c> exist</c><00:02:37.240><c> in</c><00:02:37.360><c> the</c><00:02:37.440><c> DB.</c><00:02:37.960><c> So,</c><00:02:38.080><c> this</c>
+
+00:02:38.270 --> 00:02:38.280 align:start position:0%
+doesn't even exist in the DB. So, this
+ 
+
+00:02:38.280 --> 00:02:42.150 align:start position:0%
+doesn't even exist in the DB. So, this
+is<00:02:38.440><c> like</c><00:02:38.680><c> more</c><00:02:38.960><c> impact</c><00:02:39.440><c> than</c><00:02:39.600><c> use</c><00:02:39.800><c> case</c><00:02:40.000><c> one.</c>
+
+00:02:42.150 --> 00:02:42.160 align:start position:0%
+is like more impact than use case one.
+ 
+
+00:02:42.160 --> 00:02:43.230 align:start position:0%
+is like more impact than use case one.
+So,
+
+00:02:43.230 --> 00:02:43.240 align:start position:0%
+So,
+ 
+
+00:02:43.240 --> 00:02:44.750 align:start position:0%
+So,
+this<00:02:43.440><c> is</c><00:02:43.560><c> the</c><00:02:43.680><c> problem</c><00:02:44.160><c> statement.</c><00:02:44.640><c> So,</c>
+
+00:02:44.750 --> 00:02:44.760 align:start position:0%
+this is the problem statement. So,
+ 
+
+00:02:44.760 --> 00:02:46.310 align:start position:0%
+this is the problem statement. So,
+problem<00:02:45.160><c> statement</c><00:02:45.520><c> would</c><00:02:45.640><c> be</c><00:02:45.760><c> given</c><00:02:46.040><c> to</c><00:02:46.200><c> you</c>
+
+00:02:46.310 --> 00:02:46.320 align:start position:0%
+problem statement would be given to you
+ 
+
+00:02:46.320 --> 00:02:47.990 align:start position:0%
+problem statement would be given to you
+only<00:02:46.560><c> this</c><00:02:46.880><c> that</c><00:02:47.120><c> what's</c><00:02:47.360><c> the</c><00:02:47.480><c> problem</c><00:02:47.880><c> in</c>
+
+00:02:47.990 --> 00:02:48.000 align:start position:0%
+only this that what's the problem in
+ 
+
+00:02:48.000 --> 00:02:49.990 align:start position:0%
+only this that what's the problem in
+this,<00:02:48.480><c> then</c><00:02:48.760><c> we</c><00:02:48.880><c> have</c><00:02:49.080><c> to</c><00:02:49.360><c> say</c><00:02:49.600><c> that,</c><00:02:49.800><c> "Okay,</c>
+
+00:02:49.990 --> 00:02:50.000 align:start position:0%
+this, then we have to say that, "Okay,
+ 
+
+00:02:50.000 --> 00:02:52.270 align:start position:0%
+this, then we have to say that, "Okay,
+this<00:02:50.280><c> two</c><00:02:50.480><c> issue</c><00:02:50.720><c> can</c><00:02:50.960><c> come."</c>
+
+00:02:52.270 --> 00:02:52.280 align:start position:0%
+this two issue can come."
+ 
+
+00:02:52.280 --> 00:02:54.310 align:start position:0%
+this two issue can come."
+And<00:02:52.640><c> then</c>
+
+00:02:54.310 --> 00:02:54.320 align:start position:0%
+And then
+ 
+
+00:02:54.320 --> 00:02:56.070 align:start position:0%
+And then
+actually,<00:02:54.680><c> the</c><00:02:54.800><c> name</c><00:02:55.240><c> of</c><00:02:55.360><c> this</c><00:02:55.560><c> problem</c><00:02:55.880><c> is</c>
+
+00:02:56.070 --> 00:02:56.080 align:start position:0%
+actually, the name of this problem is
+ 
+
+00:02:56.080 --> 00:02:58.430 align:start position:0%
+actually, the name of this problem is
+dual<00:02:56.480><c> write</c><00:02:56.720><c> problem.</c><00:02:57.720><c> So,</c><00:02:57.800><c> once</c><00:02:58.040><c> we</c><00:02:58.160><c> have</c>
+
+00:02:58.430 --> 00:02:58.440 align:start position:0%
+dual write problem. So, once we have
+ 
+
+00:02:58.440 --> 00:03:00.750 align:start position:0%
+dual write problem. So, once we have
+identified<00:02:59.160><c> this</c><00:02:59.360><c> problem,</c>
+
+00:03:00.750 --> 00:03:00.760 align:start position:0%
+identified this problem,
+ 
+
+00:03:00.760 --> 00:03:02.030 align:start position:0%
+identified this problem,
+the<00:03:00.920><c> interviewer</c><00:03:01.320><c> will</c><00:03:01.440><c> say</c><00:03:01.560><c> that,</c><00:03:01.720><c> "How</c><00:03:01.920><c> you</c>
+
+00:03:02.030 --> 00:03:02.040 align:start position:0%
+the interviewer will say that, "How you
+ 
+
+00:03:02.040 --> 00:03:03.350 align:start position:0%
+the interviewer will say that, "How you
+will<00:03:02.200><c> solve</c><00:03:02.480><c> it?"</c>
+
+00:03:03.350 --> 00:03:03.360 align:start position:0%
+will solve it?"
+ 
+
+00:03:03.360 --> 00:03:04.350 align:start position:0%
+will solve it?"
+Okay?
+
+00:03:04.350 --> 00:03:04.360 align:start position:0%
+Okay?
+ 
+
+00:03:04.360 --> 00:03:06.390 align:start position:0%
+Okay?
+So,<00:03:04.480><c> I</c><00:03:04.560><c> will</c><00:03:04.720><c> tell</c><00:03:04.920><c> you</c><00:03:05.120><c> one</c><00:03:05.760><c> two</c><00:03:06.040><c> common</c>
+
+00:03:06.390 --> 00:03:06.400 align:start position:0%
+So, I will tell you one two common
+ 
+
+00:03:06.400 --> 00:03:09.030 align:start position:0%
+So, I will tell you one two common
+answers<00:03:07.120><c> generally</c><00:03:07.520><c> given</c><00:03:07.880><c> by</c><00:03:08.280><c> engineers,</c>
+
+00:03:09.030 --> 00:03:09.040 align:start position:0%
+answers generally given by engineers,
+ 
+
+00:03:09.040 --> 00:03:12.590 align:start position:0%
+answers generally given by engineers,
+but<00:03:09.800><c> it</c><00:03:10.040><c> get</c><00:03:10.400><c> overruled</c><00:03:11.280><c> because</c><00:03:11.760><c> they</c><00:03:12.280><c> these</c>
+
+00:03:12.590 --> 00:03:12.600 align:start position:0%
+but it get overruled because they these
+ 
+
+00:03:12.600 --> 00:03:15.070 align:start position:0%
+but it get overruled because they these
+answers<00:03:13.000><c> generally</c><00:03:13.400><c> have</c><00:03:13.640><c> some</c><00:03:13.920><c> gap.</c>
+
+00:03:15.070 --> 00:03:15.080 align:start position:0%
+answers generally have some gap.
+ 
+
+00:03:15.080 --> 00:03:16.910 align:start position:0%
+answers generally have some gap.
+The<00:03:15.160><c> first</c><00:03:15.520><c> answer,</c>
+
+00:03:16.910 --> 00:03:16.920 align:start position:0%
+The first answer,
+ 
+
+00:03:16.920 --> 00:03:19.390 align:start position:0%
+The first answer,
+we<00:03:17.080><c> will</c><00:03:17.280><c> use</c><00:03:17.640><c> @transactional</c>
+
+00:03:19.390 --> 00:03:19.400 align:start position:0%
+we will use @transactional
+ 
+
+00:03:19.400 --> 00:03:21.950 align:start position:0%
+we will use @transactional
+plus<00:03:19.720><c> manual</c><00:03:20.400><c> exception</c><00:03:20.960><c> throw.</c>
+
+00:03:21.950 --> 00:03:21.960 align:start position:0%
+plus manual exception throw.
+ 
+
+00:03:21.960 --> 00:03:24.390 align:start position:0%
+plus manual exception throw.
+What<00:03:22.240><c> this</c><00:03:22.560><c> solution</c><00:03:23.040><c> does?</c><00:03:23.760><c> So,</c><00:03:23.880><c> we</c><00:03:24.000><c> have</c><00:03:24.160><c> put</c>
+
+00:03:24.390 --> 00:03:24.400 align:start position:0%
+What this solution does? So, we have put
+ 
+
+00:03:24.400 --> 00:03:26.870 align:start position:0%
+What this solution does? So, we have put
+@transactional<00:03:25.600><c> for</c><00:03:25.880><c> DB.</c>
+
+00:03:26.870 --> 00:03:26.880 align:start position:0%
+@transactional for DB.
+ 
+
+00:03:26.880 --> 00:03:28.990 align:start position:0%
+@transactional for DB.
+So,<00:03:27.000><c> what</c><00:03:27.240><c> would</c><00:03:27.360><c> happen</c><00:03:27.720><c> is</c><00:03:28.400><c> So,</c><00:03:28.520><c> in</c><00:03:28.640><c> a</c><00:03:28.680><c> step</c>
+
+00:03:28.990 --> 00:03:29.000 align:start position:0%
+So, what would happen is So, in a step
+ 
+
+00:03:29.000 --> 00:03:31.270 align:start position:0%
+So, what would happen is So, in a step
+one,<00:03:29.160><c> we</c><00:03:29.280><c> are</c><00:03:29.360><c> writing</c><00:03:29.720><c> into</c><00:03:29.960><c> the</c><00:03:30.120><c> DB.</c>
+
+00:03:31.270 --> 00:03:31.280 align:start position:0%
+one, we are writing into the DB.
+ 
+
+00:03:31.280 --> 00:03:33.150 align:start position:0%
+one, we are writing into the DB.
+If<00:03:31.480><c> this</c><00:03:31.680><c> succeeded,</c><00:03:32.320><c> we</c><00:03:32.520><c> are</c><00:03:32.640><c> moving</c><00:03:32.920><c> it</c><00:03:33.040><c> to</c>
+
+00:03:33.150 --> 00:03:33.160 align:start position:0%
+If this succeeded, we are moving it to
+ 
+
+00:03:33.160 --> 00:03:35.710 align:start position:0%
+If this succeeded, we are moving it to
+the<00:03:33.280><c> next</c><00:03:33.560><c> step.</c><00:03:34.480><c> Now,</c><00:03:34.640><c> the</c><00:03:34.840><c> Kafka</c><00:03:35.280><c> part</c><00:03:35.600><c> we</c>
+
+00:03:35.710 --> 00:03:35.720 align:start position:0%
+the next step. Now, the Kafka part we
+ 
+
+00:03:35.720 --> 00:03:38.110 align:start position:0%
+the next step. Now, the Kafka part we
+have<00:03:35.880><c> put</c><00:03:36.080><c> into</c><00:03:36.400><c> try</c><00:03:36.800><c> catch</c><00:03:37.080><c> block.</c>
+
+00:03:38.110 --> 00:03:38.120 align:start position:0%
+have put into try catch block.
+ 
+
+00:03:38.120 --> 00:03:41.030 align:start position:0%
+have put into try catch block.
+If<00:03:38.320><c> Kafka</c><00:03:38.760><c> got</c><00:03:39.040><c> succeeded,</c><00:03:40.040><c> well</c><00:03:40.320><c> and</c><00:03:40.480><c> good.</c>
+
+00:03:41.030 --> 00:03:41.040 align:start position:0%
+If Kafka got succeeded, well and good.
+ 
+
+00:03:41.040 --> 00:03:44.510 align:start position:0%
+If Kafka got succeeded, well and good.
+DB<00:03:41.360><c> succeeded,</c><00:03:41.920><c> Kafka</c><00:03:42.280><c> succeeded,</c><00:03:42.960><c> good.</c>
+
+00:03:44.510 --> 00:03:44.520 align:start position:0%
+DB succeeded, Kafka succeeded, good.
+ 
+
+00:03:44.520 --> 00:03:47.190 align:start position:0%
+DB succeeded, Kafka succeeded, good.
+But<00:03:45.320><c> if</c><00:03:45.520><c> there</c><00:03:45.720><c> any</c><00:03:46.080><c> exception</c><00:03:46.640><c> happens</c><00:03:47.040><c> in</c>
+
+00:03:47.190 --> 00:03:47.200 align:start position:0%
+But if there any exception happens in
+ 
+
+00:03:47.200 --> 00:03:50.190 align:start position:0%
+But if there any exception happens in
+Kafka,<00:03:48.280><c> it</c><00:03:48.440><c> will</c><00:03:48.640><c> catch</c><00:03:48.960><c> it</c><00:03:49.080><c> and</c><00:03:49.240><c> throw.</c>
+
+00:03:50.190 --> 00:03:50.200 align:start position:0%
+Kafka, it will catch it and throw.
+ 
+
+00:03:50.200 --> 00:03:52.950 align:start position:0%
+Kafka, it will catch it and throw.
+And<00:03:50.440><c> because</c><00:03:50.800><c> of</c><00:03:50.920><c> this</c><00:03:51.120><c> throw</c><00:03:51.400><c> exception,</c>
+
+00:03:52.950 --> 00:03:52.960 align:start position:0%
+And because of this throw exception,
+ 
+
+00:03:52.960 --> 00:03:55.110 align:start position:0%
+And because of this throw exception,
+since<00:03:53.200><c> it</c><00:03:53.360><c> is</c><00:03:53.520><c> put</c><00:03:53.720><c> under</c><00:03:54.000><c> @transactional,</c><00:03:54.960><c> it</c>
+
+00:03:55.110 --> 00:03:55.120 align:start position:0%
+since it is put under @transactional, it
+ 
+
+00:03:55.120 --> 00:03:57.350 align:start position:0%
+since it is put under @transactional, it
+will<00:03:55.320><c> roll</c><00:03:55.520><c> back</c><00:03:55.760><c> the</c><00:03:55.840><c> DB</c><00:03:56.200><c> also.</c>
+
+00:03:57.350 --> 00:03:57.360 align:start position:0%
+will roll back the DB also.
+ 
+
+00:03:57.360 --> 00:03:59.750 align:start position:0%
+will roll back the DB also.
+So,<00:03:57.680><c> very</c><00:03:58.040><c> high</c><00:03:58.240><c> level,</c><00:03:58.560><c> this</c><00:03:58.800><c> solution</c><00:03:59.320><c> looks</c>
+
+00:03:59.750 --> 00:03:59.760 align:start position:0%
+So, very high level, this solution looks
+ 
+
+00:03:59.760 --> 00:04:03.190 align:start position:0%
+So, very high level, this solution looks
+good,<00:04:00.240><c> right?</c><00:04:01.120><c> So,</c><00:04:01.920><c> DB</c><00:04:02.200><c> got</c><00:04:02.400><c> succeeded.</c><00:04:03.080><c> If</c>
+
+00:04:03.190 --> 00:04:03.200 align:start position:0%
+good, right? So, DB got succeeded. If
+ 
+
+00:04:03.200 --> 00:04:05.590 align:start position:0%
+good, right? So, DB got succeeded. If
+Kafka<00:04:03.560><c> got</c><00:04:03.840><c> succeeded,</c><00:04:04.320><c> well</c><00:04:04.480><c> and</c><00:04:04.640><c> good.</c>
+
+00:04:05.590 --> 00:04:05.600 align:start position:0%
+Kafka got succeeded, well and good.
+ 
+
+00:04:05.600 --> 00:04:07.110 align:start position:0%
+Kafka got succeeded, well and good.
+DB<00:04:05.920><c> fails,</c>
+
+00:04:07.110 --> 00:04:07.120 align:start position:0%
+DB fails,
+ 
+
+00:04:07.120 --> 00:04:08.830 align:start position:0%
+DB fails,
+ultimately,<00:04:07.800><c> it</c><00:04:08.000><c> would</c><00:04:08.120><c> be</c><00:04:08.240><c> rolled</c><00:04:08.480><c> back,</c><00:04:08.720><c> so</c>
+
+00:04:08.830 --> 00:04:08.840 align:start position:0%
+ultimately, it would be rolled back, so
+ 
+
+00:04:08.840 --> 00:04:11.990 align:start position:0%
+ultimately, it would be rolled back, so
+good.<00:04:09.680><c> DB</c><00:04:10.000><c> succeeded,</c><00:04:10.680><c> Kafka</c><00:04:11.040><c> failed,</c><00:04:11.720><c> so</c><00:04:11.880><c> it</c>
+
+00:04:11.990 --> 00:04:12.000 align:start position:0%
+good. DB succeeded, Kafka failed, so it
+ 
+
+00:04:12.000 --> 00:04:14.270 align:start position:0%
+good. DB succeeded, Kafka failed, so it
+will<00:04:12.120><c> throw</c><00:04:12.360><c> exception</c><00:04:13.480><c> and</c><00:04:13.680><c> DB</c><00:04:13.880><c> will</c><00:04:14.040><c> also</c>
+
+00:04:14.270 --> 00:04:14.280 align:start position:0%
+will throw exception and DB will also
+ 
+
+00:04:14.280 --> 00:04:15.950 align:start position:0%
+will throw exception and DB will also
+get<00:04:14.520><c> rolled</c><00:04:14.720><c> back.</c>
+
+00:04:15.950 --> 00:04:15.960 align:start position:0%
+get rolled back.
+ 
+
+00:04:15.960 --> 00:04:18.710 align:start position:0%
+get rolled back.
+So,<00:04:16.600><c> sounds</c><00:04:17.000><c> good,</c><00:04:17.239><c> right?</c><00:04:17.560><c> But</c><00:04:17.880><c> there</c><00:04:18.160><c> is</c><00:04:18.600><c> a</c>
+
+00:04:18.710 --> 00:04:18.720 align:start position:0%
+So, sounds good, right? But there is a
+ 
+
+00:04:18.720 --> 00:04:20.470 align:start position:0%
+So, sounds good, right? But there is a
+gap.
+
+00:04:20.470 --> 00:04:20.480 align:start position:0%
+gap.
+ 
+
+00:04:20.480 --> 00:04:22.310 align:start position:0%
+gap.
+See<00:04:20.640><c> this</c><00:04:20.920><c> one.</c>
+
+00:04:22.310 --> 00:04:22.320 align:start position:0%
+See this one.
+ 
+
+00:04:22.320 --> 00:04:23.590 align:start position:0%
+See this one.
+DB
+
+00:04:23.590 --> 00:04:23.600 align:start position:0%
+DB
+ 
+
+00:04:23.600 --> 00:04:26.310 align:start position:0%
+DB
+success,<00:04:24.520><c> well</c><00:04:24.760><c> and</c><00:04:24.880><c> good.</c>
+
+00:04:26.310 --> 00:04:26.320 align:start position:0%
+success, well and good.
+ 
+
+00:04:26.320 --> 00:04:28.710 align:start position:0%
+success, well and good.
+Kafka<00:04:26.720><c> template</c><00:04:27.240><c> send</c><00:04:27.640><c> message</c><00:04:28.080><c> sent</c><00:04:28.480><c> to</c><00:04:28.600><c> the</c>
+
+00:04:28.710 --> 00:04:28.720 align:start position:0%
+Kafka template send message sent to the
+ 
+
+00:04:28.720 --> 00:04:31.030 align:start position:0%
+Kafka template send message sent to the
+Kafka<00:04:29.080><c> broker.</c><00:04:29.400><c> Message</c><00:04:29.800><c> has</c><00:04:30.320><c> sent</c><00:04:30.800><c> to</c><00:04:30.920><c> the</c>
+
+00:04:31.030 --> 00:04:31.040 align:start position:0%
+Kafka broker. Message has sent to the
+ 
+
+00:04:31.040 --> 00:04:32.470 align:start position:0%
+Kafka broker. Message has sent to the
+Kafka<00:04:31.400><c> broker.</c>
+
+00:04:32.470 --> 00:04:32.480 align:start position:0%
+Kafka broker.
+ 
+
+00:04:32.480 --> 00:04:33.750 align:start position:0%
+Kafka broker.
+Okay?
+
+00:04:33.750 --> 00:04:33.760 align:start position:0%
+Okay?
+ 
+
+00:04:33.760 --> 00:04:36.430 align:start position:0%
+Okay?
+But<00:04:34.520><c> there</c><00:04:34.840><c> is</c><00:04:35.080><c> some</c><00:04:35.560><c> gap</c><00:04:36.080><c> in</c><00:04:36.240><c> the</c>
+
+00:04:36.430 --> 00:04:36.440 align:start position:0%
+But there is some gap in the
+ 
+
+00:04:36.440 --> 00:04:38.950 align:start position:0%
+But there is some gap in the
+acknowledgement<00:04:37.240><c> received</c><00:04:37.760><c> by</c><00:04:38.080><c> the</c>
+
+00:04:38.950 --> 00:04:38.960 align:start position:0%
+acknowledgement received by the
+ 
+
+00:04:38.960 --> 00:04:41.110 align:start position:0%
+acknowledgement received by the
+you<00:04:39.080><c> can</c><00:04:39.240><c> say</c><00:04:39.320><c> that</c><00:04:39.480><c> by</c><00:04:39.640><c> the</c><00:04:39.760><c> broker.</c><00:04:40.440><c> Or</c><00:04:40.960><c> the</c>
+
+00:04:41.110 --> 00:04:41.120 align:start position:0%
+you can say that by the broker. Or the
+ 
+
+00:04:41.120 --> 00:04:43.710 align:start position:0%
+you can say that by the broker. Or the
+acknowledgement<00:04:41.920><c> message</c><00:04:42.280><c> has</c><00:04:42.600><c> been</c><00:04:43.160><c> lost</c>
+
+00:04:43.710 --> 00:04:43.720 align:start position:0%
+acknowledgement message has been lost
+ 
+
+00:04:43.720 --> 00:04:45.750 align:start position:0%
+acknowledgement message has been lost
+because<00:04:44.040><c> of</c><00:04:44.160><c> network</c><00:04:44.560><c> issue.</c>
+
+00:04:45.750 --> 00:04:45.760 align:start position:0%
+because of network issue.
+ 
+
+00:04:45.760 --> 00:04:48.950 align:start position:0%
+because of network issue.
+Now,<00:04:46.000><c> what</c><00:04:46.400><c> you</c><00:04:46.600><c> will</c><00:04:46.960><c> what</c><00:04:47.320><c> your</c><00:04:47.720><c> application</c>
+
+00:04:48.950 --> 00:04:48.960 align:start position:0%
+Now, what you will what your application
+ 
+
+00:04:48.960 --> 00:04:50.510 align:start position:0%
+Now, what you will what your application
+as<00:04:49.160><c> a</c><00:04:49.240><c> producer</c><00:04:49.680><c> application</c><00:04:50.200><c> will</c><00:04:50.360><c> think</c>
+
+00:04:50.510 --> 00:04:50.520 align:start position:0%
+as a producer application will think
+ 
+
+00:04:50.520 --> 00:04:51.670 align:start position:0%
+as a producer application will think
+that,<00:04:50.680><c> "Hey,</c>
+
+00:04:51.670 --> 00:04:51.680 align:start position:0%
+that, "Hey,
+ 
+
+00:04:51.680 --> 00:04:53.790 align:start position:0%
+that, "Hey,
+the<00:04:51.800><c> message</c><00:04:52.160><c> has</c><00:04:52.400><c> not</c><00:04:52.640><c> been</c><00:04:52.840><c> published."</c><00:04:53.520><c> But</c>
+
+00:04:53.790 --> 00:04:53.800 align:start position:0%
+the message has not been published." But
+ 
+
+00:04:53.800 --> 00:04:56.270 align:start position:0%
+the message has not been published." But
+actually,<00:04:54.320><c> it</c><00:04:54.480><c> is</c><00:04:54.640><c> published.</c>
+
+00:04:56.270 --> 00:04:56.280 align:start position:0%
+actually, it is published.
+ 
+
+00:04:56.280 --> 00:04:58.150 align:start position:0%
+actually, it is published.
+But<00:04:56.480><c> the</c><00:04:56.640><c> acknowledge</c>
+
+00:04:58.150 --> 00:04:58.160 align:start position:0%
+But the acknowledge
+ 
+
+00:04:58.160 --> 00:04:59.910 align:start position:0%
+But the acknowledge
+packet<00:04:58.480><c> has</c><00:04:58.720><c> been</c><00:04:58.880><c> lost</c><00:04:59.240><c> in</c><00:04:59.320><c> the</c><00:04:59.400><c> network,</c><00:04:59.800><c> you</c>
+
+00:04:59.910 --> 00:04:59.920 align:start position:0%
+packet has been lost in the network, you
+ 
+
+00:04:59.920 --> 00:05:02.390 align:start position:0%
+packet has been lost in the network, you
+can<00:05:00.080><c> say</c><00:05:00.200><c> that</c><00:05:00.480><c> because</c><00:05:00.760><c> of</c><00:05:00.880><c> network</c><00:05:01.200><c> issue.</c>
+
+00:05:02.390 --> 00:05:02.400 align:start position:0%
+can say that because of network issue.
+ 
+
+00:05:02.400 --> 00:05:04.110 align:start position:0%
+can say that because of network issue.
+So,<00:05:02.600><c> you</c><00:05:02.720><c> will</c><00:05:02.840><c> say</c><00:05:02.960><c> that,</c><00:05:03.120><c> "Okay,</c><00:05:03.360><c> Kafka</c>
+
+00:05:04.110 --> 00:05:04.120 align:start position:0%
+So, you will say that, "Okay, Kafka
+ 
+
+00:05:04.120 --> 00:05:06.310 align:start position:0%
+So, you will say that, "Okay, Kafka
+publish<00:05:04.520><c> got</c><00:05:04.760><c> failed."</c><00:05:05.480><c> You</c><00:05:05.600><c> will</c><00:05:05.760><c> roll</c><00:05:06.000><c> back</c>
+
+00:05:06.310 --> 00:05:06.320 align:start position:0%
+publish got failed." You will roll back
+ 
+
+00:05:06.320 --> 00:05:09.590 align:start position:0%
+publish got failed." You will roll back
+it.<00:05:07.000><c> And</c><00:05:07.160><c> when</c><00:05:07.320><c> you</c><00:05:07.400><c> roll</c><00:05:07.600><c> back</c><00:05:07.840><c> it,</c>
+
+00:05:09.590 --> 00:05:09.600 align:start position:0%
+it. And when you roll back it,
+ 
+
+00:05:09.600 --> 00:05:10.910 align:start position:0%
+it. And when you roll back it,
+when<00:05:09.800><c> you</c><00:05:09.880><c> throw</c><00:05:10.080><c> exception,</c><00:05:10.520><c> you</c><00:05:10.600><c> will</c><00:05:10.720><c> roll</c>
+
+00:05:10.910 --> 00:05:10.920 align:start position:0%
+when you throw exception, you will roll
+ 
+
+00:05:10.920 --> 00:05:12.830 align:start position:0%
+when you throw exception, you will roll
+back<00:05:11.080><c> the</c><00:05:11.200><c> DB</c><00:05:11.520><c> also.</c>
+
+00:05:12.830 --> 00:05:12.840 align:start position:0%
+back the DB also.
+ 
+
+00:05:12.840 --> 00:05:14.070 align:start position:0%
+back the DB also.
+But
+
+00:05:14.070 --> 00:05:14.080 align:start position:0%
+But
+ 
+
+00:05:14.080 --> 00:05:17.670 align:start position:0%
+But
+your<00:05:14.320><c> Kafka</c><00:05:14.840><c> event</c><00:05:15.160><c> got</c><00:05:15.400><c> published.</c>
+
+00:05:17.670 --> 00:05:17.680 align:start position:0%
+your Kafka event got published.
+ 
+
+00:05:17.680 --> 00:05:20.230 align:start position:0%
+your Kafka event got published.
+Okay?<00:05:18.360><c> So,</c><00:05:18.800><c> the</c><00:05:18.960><c> issue</c><00:05:19.200><c> is</c><00:05:19.400><c> that</c><00:05:19.720><c> order</c><00:05:20.000><c> does</c>
+
+00:05:20.230 --> 00:05:20.240 align:start position:0%
+Okay? So, the issue is that order does
+ 
+
+00:05:20.240 --> 00:05:21.910 align:start position:0%
+Okay? So, the issue is that order does
+not<00:05:20.480><c> exist</c><00:05:20.800><c> in</c><00:05:20.920><c> DB,</c>
+
+00:05:21.910 --> 00:05:21.920 align:start position:0%
+not exist in DB,
+ 
+
+00:05:21.920 --> 00:05:25.270 align:start position:0%
+not exist in DB,
+but<00:05:22.120><c> Kafka</c><00:05:23.160><c> event</c><00:05:23.480><c> published.</c><00:05:24.320><c> You</c><00:05:24.400><c> got</c><00:05:24.640><c> it?</c>
+
+00:05:25.270 --> 00:05:25.280 align:start position:0%
+but Kafka event published. You got it?
+ 
+
+00:05:25.280 --> 00:05:26.990 align:start position:0%
+but Kafka event published. You got it?
+You<00:05:25.360><c> got</c><00:05:25.600><c> the</c><00:05:25.720><c> issue?</c>
+
+00:05:26.990 --> 00:05:27.000 align:start position:0%
+You got the issue?
+ 
+
+00:05:27.000 --> 00:05:28.430 align:start position:0%
+You got the issue?
+At<00:05:27.160><c> the</c><00:05:27.280><c> first</c><00:05:27.560><c> glance,</c><00:05:27.880><c> everything</c><00:05:28.240><c> looks</c>
+
+00:05:28.430 --> 00:05:28.440 align:start position:0%
+At the first glance, everything looks
+ 
+
+00:05:28.440 --> 00:05:31.230 align:start position:0%
+At the first glance, everything looks
+good,<00:05:29.280><c> but</c><00:05:29.600><c> there</c><00:05:29.760><c> is</c><00:05:29.920><c> still</c><00:05:30.120><c> a</c><00:05:30.200><c> gap.</c><00:05:31.040><c> So,</c>
+
+00:05:31.230 --> 00:05:31.240 align:start position:0%
+good, but there is still a gap. So,
+ 
+
+00:05:31.240 --> 00:05:32.990 align:start position:0%
+good, but there is still a gap. So,
+that's<00:05:31.560><c> why</c><00:05:31.680><c> this</c><00:05:31.960><c> solution</c><00:05:32.480><c> generally</c><00:05:32.800><c> get</c>
+
+00:05:32.990 --> 00:05:33.000 align:start position:0%
+that's why this solution generally get
+ 
+
+00:05:33.000 --> 00:05:34.710 align:start position:0%
+that's why this solution generally get
+overruled.
+
+00:05:34.710 --> 00:05:34.720 align:start position:0%
+overruled.
+ 
+
+00:05:34.720 --> 00:05:36.910 align:start position:0%
+overruled.
+The<00:05:34.840><c> second</c><00:05:35.160><c> solution</c><00:05:36.360><c> which</c><00:05:36.560><c> generally</c>
+
+00:05:36.910 --> 00:05:36.920 align:start position:0%
+The second solution which generally
+ 
+
+00:05:36.920 --> 00:05:38.870 align:start position:0%
+The second solution which generally
+proposes<00:05:37.560><c> two</c><00:05:37.760><c> phase</c><00:05:37.960><c> commit</c><00:05:38.280><c> that</c><00:05:38.520><c> we</c><00:05:38.680><c> will</c>
+
+00:05:38.870 --> 00:05:38.880 align:start position:0%
+proposes two phase commit that we will
+ 
+
+00:05:38.880 --> 00:05:40.830 align:start position:0%
+proposes two phase commit that we will
+have<00:05:39.080><c> a</c><00:05:39.160><c> coordinator.</c>
+
+00:05:40.830 --> 00:05:40.840 align:start position:0%
+have a coordinator.
+ 
+
+00:05:40.840 --> 00:05:43.310 align:start position:0%
+have a coordinator.
+We<00:05:40.960><c> will</c><00:05:41.120><c> have</c><00:05:41.360><c> a</c><00:05:41.440><c> one</c><00:05:41.760><c> prepare</c>
+
+00:05:43.310 --> 00:05:43.320 align:start position:0%
+We will have a one prepare
+ 
+
+00:05:43.320 --> 00:05:44.310 align:start position:0%
+We will have a one prepare
+phase.
+
+00:05:44.310 --> 00:05:44.320 align:start position:0%
+phase.
+ 
+
+00:05:44.320 --> 00:05:46.150 align:start position:0%
+phase.
+One<00:05:44.560><c> for</c><00:05:44.720><c> DB,</c><00:05:45.000><c> one</c><00:05:45.200><c> for</c><00:05:45.400><c> Kafka.</c><00:05:45.800><c> Both</c><00:05:46.040><c> will</c>
+
+00:05:46.150 --> 00:05:46.160 align:start position:0%
+One for DB, one for Kafka. Both will
+ 
+
+00:05:46.160 --> 00:05:47.550 align:start position:0%
+One for DB, one for Kafka. Both will
+participate.
+
+00:05:47.550 --> 00:05:47.560 align:start position:0%
+participate.
+ 
+
+00:05:47.560 --> 00:05:50.150 align:start position:0%
+participate.
+And<00:05:48.640><c> like</c><00:05:49.080><c> normal</c><00:05:49.520><c> two</c><00:05:49.680><c> phase</c><00:05:49.920><c> commit</c>
+
+00:05:50.150 --> 00:05:50.160 align:start position:0%
+And like normal two phase commit
+ 
+
+00:05:50.160 --> 00:05:51.790 align:start position:0%
+And like normal two phase commit
+protocol,<00:05:50.640><c> right?</c><00:05:51.040><c> So,</c><00:05:51.200><c> but</c><00:05:51.680><c> the</c>
+
+00:05:51.790 --> 00:05:51.800 align:start position:0%
+protocol, right? So, but the
+ 
+
+00:05:51.800 --> 00:05:54.350 align:start position:0%
+protocol, right? So, but the
+participants<00:05:52.440><c> are</c><00:05:52.560><c> DB</c><00:05:52.840><c> and</c><00:05:53.000><c> Kafka.</c>
+
+00:05:54.350 --> 00:05:54.360 align:start position:0%
+participants are DB and Kafka.
+ 
+
+00:05:54.360 --> 00:05:55.790 align:start position:0%
+participants are DB and Kafka.
+So,<00:05:54.520><c> they</c><00:05:54.680><c> will</c><00:05:54.840><c> first</c><00:05:55.080><c> say</c><00:05:55.160><c> that,</c><00:05:55.360><c> "Yes,</c><00:05:55.600><c> I'm</c>
+
+00:05:55.790 --> 00:05:55.800 align:start position:0%
+So, they will first say that, "Yes, I'm
+ 
+
+00:05:55.800 --> 00:05:57.710 align:start position:0%
+So, they will first say that, "Yes, I'm
+ready."<00:05:56.600><c> Now,</c><00:05:56.760><c> in</c><00:05:56.840><c> the</c><00:05:56.960><c> phase</c><00:05:57.240><c> two,</c><00:05:57.400><c> they</c><00:05:57.560><c> will</c>
+
+00:05:57.710 --> 00:05:57.720 align:start position:0%
+ready." Now, in the phase two, they will
+ 
+
+00:05:57.720 --> 00:05:59.230 align:start position:0%
+ready." Now, in the phase two, they will
+commit.<00:05:58.360><c> And</c><00:05:58.560><c> after</c><00:05:58.800><c> that,</c><00:05:58.960><c> they</c><00:05:59.080><c> will</c>
+
+00:05:59.230 --> 00:05:59.240 align:start position:0%
+commit. And after that, they will
+ 
+
+00:05:59.240 --> 00:06:02.830 align:start position:0%
+commit. And after that, they will
+commit.<00:06:00.040><c> But</c><00:06:00.240><c> the</c><00:06:00.360><c> problem</c><00:06:00.880><c> is</c><00:06:01.640><c> this</c><00:06:01.880><c> looks</c>
+
+00:06:02.830 --> 00:06:02.840 align:start position:0%
+commit. But the problem is this looks
+ 
+
+00:06:02.840 --> 00:06:04.950 align:start position:0%
+commit. But the problem is this looks
+working<00:06:03.200><c> solution.</c><00:06:04.120><c> But</c><00:06:04.280><c> the</c><00:06:04.440><c> problem</c><00:06:04.800><c> is</c>
+
+00:06:04.950 --> 00:06:04.960 align:start position:0%
+working solution. But the problem is
+ 
+
+00:06:04.960 --> 00:06:06.910 align:start position:0%
+working solution. But the problem is
+Kafka<00:06:05.360><c> do</c><00:06:05.560><c> not</c><00:06:05.800><c> even</c><00:06:06.040><c> support</c><00:06:06.520><c> two</c><00:06:06.680><c> phase</c>
+
+00:06:06.910 --> 00:06:06.920 align:start position:0%
+Kafka do not even support two phase
+ 
+
+00:06:06.920 --> 00:06:09.310 align:start position:0%
+Kafka do not even support two phase
+protocol,<00:06:07.640><c> two</c><00:06:07.760><c> phase</c><00:06:07.920><c> commit</c><00:06:08.160><c> protocol.</c>
+
+00:06:09.310 --> 00:06:09.320 align:start position:0%
+protocol, two phase commit protocol.
+ 
+
+00:06:09.320 --> 00:06:10.350 align:start position:0%
+protocol, two phase commit protocol.
+Okay?
+
+00:06:10.350 --> 00:06:10.360 align:start position:0%
+Okay?
+ 
+
+00:06:10.360 --> 00:06:13.630 align:start position:0%
+Okay?
+So,<00:06:10.520><c> two</c><00:06:10.920><c> phase</c><00:06:11.320><c> commit</c><00:06:11.800><c> to</c><00:06:11.960><c> work,</c>
+
+00:06:13.630 --> 00:06:13.640 align:start position:0%
+So, two phase commit to work,
+ 
+
+00:06:13.640 --> 00:06:15.510 align:start position:0%
+So, two phase commit to work,
+all<00:06:13.960><c> participants</c><00:06:14.480><c> need</c><00:06:14.680><c> to</c><00:06:14.800><c> understand</c><00:06:15.320><c> this</c>
+
+00:06:15.510 --> 00:06:15.520 align:start position:0%
+all participants need to understand this
+ 
+
+00:06:15.520 --> 00:06:17.550 align:start position:0%
+all participants need to understand this
+protocol.<00:06:16.240><c> And</c><00:06:16.440><c> Kafka</c><00:06:16.800><c> does</c><00:06:17.000><c> not</c><00:06:17.200><c> support</c>
+
+00:06:17.550 --> 00:06:17.560 align:start position:0%
+protocol. And Kafka does not support
+ 
+
+00:06:17.560 --> 00:06:19.030 align:start position:0%
+protocol. And Kafka does not support
+2PC.
+
+00:06:19.030 --> 00:06:19.040 align:start position:0%
+2PC.
+ 
+
+00:06:19.040 --> 00:06:20.070 align:start position:0%
+2PC.
+So,
+
+00:06:20.070 --> 00:06:20.080 align:start position:0%
+So,
+ 
+
+00:06:20.080 --> 00:06:22.670 align:start position:0%
+So,
+there<00:06:20.360><c> is</c><00:06:20.560><c> no</c><00:06:20.960><c> use</c><00:06:21.480><c> to</c><00:06:21.600><c> discuss</c><00:06:22.000><c> the</c><00:06:22.120><c> pros</c><00:06:22.480><c> and</c>
+
+00:06:22.670 --> 00:06:22.680 align:start position:0%
+there is no use to discuss the pros and
+ 
+
+00:06:22.680 --> 00:06:25.710 align:start position:0%
+there is no use to discuss the pros and
+cons<00:06:23.320><c> of</c><00:06:23.560><c> this</c><00:06:24.280><c> that,</c><00:06:24.560><c> "Okay,</c><00:06:25.360><c> what</c><00:06:25.560><c> would</c>
+
+00:06:25.710 --> 00:06:25.720 align:start position:0%
+cons of this that, "Okay, what would
+ 
+
+00:06:25.720 --> 00:06:27.070 align:start position:0%
+cons of this that, "Okay, what would
+happen<00:06:26.040><c> this?"</c>
+
+00:06:27.070 --> 00:06:27.080 align:start position:0%
+happen this?"
+ 
+
+00:06:27.080 --> 00:06:28.870 align:start position:0%
+happen this?"
+The<00:06:27.160><c> thing</c><00:06:27.360><c> is</c><00:06:27.520><c> Kafka</c><00:06:27.880><c> do</c><00:06:28.040><c> not</c><00:06:28.280><c> understand</c>
+
+00:06:28.870 --> 00:06:28.880 align:start position:0%
+The thing is Kafka do not understand
+ 
+
+00:06:28.880 --> 00:06:31.430 align:start position:0%
+The thing is Kafka do not understand
+this<00:06:29.080><c> prepare</c><00:06:29.760><c> commit</c><00:06:30.200><c> and</c><00:06:30.320><c> all.</c><00:06:30.800><c> So,</c><00:06:31.280><c> you</c>
+
+00:06:31.430 --> 00:06:31.440 align:start position:0%
+this prepare commit and all. So, you
+ 
+
+00:06:31.440 --> 00:06:34.030 align:start position:0%
+this prepare commit and all. So, you
+can't<00:06:32.000><c> add</c><00:06:32.520><c> Kafka</c><00:06:33.160><c> as</c><00:06:33.680><c> one</c><00:06:33.840><c> of</c><00:06:33.920><c> the</c>
+
+00:06:34.030 --> 00:06:34.040 align:start position:0%
+can't add Kafka as one of the
+ 
+
+00:06:34.040 --> 00:06:37.350 align:start position:0%
+can't add Kafka as one of the
+participant<00:06:35.240><c> itself.</c>
+
+00:06:37.350 --> 00:06:37.360 align:start position:0%
+participant itself.
+ 
+
+00:06:37.360 --> 00:06:38.150 align:start position:0%
+participant itself.
+So,
+
+00:06:38.150 --> 00:06:38.160 align:start position:0%
+So,
+ 
+
+00:06:38.160 --> 00:06:39.830 align:start position:0%
+So,
+this<00:06:38.520><c> two</c>
+
+00:06:39.830 --> 00:06:39.840 align:start position:0%
+this two
+ 
+
+00:06:39.840 --> 00:06:41.830 align:start position:0%
+this two
+things<00:06:40.200><c> are</c><00:06:40.480><c> overruled.</c>
+
+00:06:41.830 --> 00:06:41.840 align:start position:0%
+things are overruled.
+ 
+
+00:06:41.840 --> 00:06:43.750 align:start position:0%
+things are overruled.
+The<00:06:42.320><c> solution</c>
+
+00:06:43.750 --> 00:06:43.760 align:start position:0%
+The solution
+ 
+
+00:06:43.760 --> 00:06:46.270 align:start position:0%
+The solution
+which<00:06:44.000><c> currently</c><00:06:44.760><c> widely</c><00:06:45.320><c> used</c><00:06:45.600><c> in</c><00:06:45.720><c> industry</c>
+
+00:06:46.270 --> 00:06:46.280 align:start position:0%
+which currently widely used in industry
+ 
+
+00:06:46.280 --> 00:06:48.950 align:start position:0%
+which currently widely used in industry
+is<00:06:46.560><c> outbox</c><00:06:47.040><c> pattern.</c>
+
+00:06:48.950 --> 00:06:48.960 align:start position:0%
+is outbox pattern.
+ 
+
+00:06:48.960 --> 00:06:50.630 align:start position:0%
+is outbox pattern.
+So,<00:06:49.280><c> idea</c><00:06:49.680><c> is</c>
+
+00:06:50.630 --> 00:06:50.640 align:start position:0%
+So, idea is
+ 
+
+00:06:50.640 --> 00:06:53.550 align:start position:0%
+So, idea is
+don't<00:06:51.200><c> write</c><00:06:51.520><c> directly</c><00:06:51.960><c> to</c><00:06:52.080><c> Kafka.</c>
+
+00:06:53.550 --> 00:06:53.560 align:start position:0%
+don't write directly to Kafka.
+ 
+
+00:06:53.560 --> 00:06:56.430 align:start position:0%
+don't write directly to Kafka.
+Write<00:06:54.000><c> to</c><00:06:54.120><c> DB</c><00:06:54.480><c> first,</c><00:06:55.400><c> and</c><00:06:55.560><c> then</c><00:06:55.760><c> a</c><00:06:55.840><c> separate</c>
+
+00:06:56.430 --> 00:06:56.440 align:start position:0%
+Write to DB first, and then a separate
+ 
+
+00:06:56.440 --> 00:06:58.710 align:start position:0%
+Write to DB first, and then a separate
+process<00:06:57.000><c> read</c><00:06:57.240><c> the</c><00:06:57.360><c> DB</c><00:06:58.040><c> and</c><00:06:58.200><c> publish</c><00:06:58.600><c> to</c>
+
+00:06:58.710 --> 00:06:58.720 align:start position:0%
+process read the DB and publish to
+ 
+
+00:06:58.720 --> 00:07:00.030 align:start position:0%
+process read the DB and publish to
+Kafka.
+
+00:07:00.030 --> 00:07:00.040 align:start position:0%
+Kafka.
+ 
+
+00:07:00.040 --> 00:07:02.790 align:start position:0%
+Kafka.
+Okay?<00:07:00.480><c> So,</c><00:07:00.600><c> now</c><00:07:00.800><c> see</c><00:07:01.000><c> this.</c>
+
+00:07:02.790 --> 00:07:02.800 align:start position:0%
+Okay? So, now see this.
+ 
+
+00:07:02.800 --> 00:07:04.430 align:start position:0%
+Okay? So, now see this.
+In<00:07:03.000><c> this</c><00:07:03.240><c> one,</c>
+
+00:07:04.430 --> 00:07:04.440 align:start position:0%
+In this one,
+ 
+
+00:07:04.440 --> 00:07:06.270 align:start position:0%
+In this one,
+the<00:07:04.560><c> first</c><00:07:04.880><c> step</c><00:07:05.160><c> is</c><00:07:05.280><c> same.</c>
+
+00:07:06.270 --> 00:07:06.280 align:start position:0%
+the first step is same.
+ 
+
+00:07:06.280 --> 00:07:08.470 align:start position:0%
+the first step is same.
+I<00:07:06.400><c> am</c><00:07:06.560><c> writing</c><00:07:06.880><c> to</c><00:07:07.040><c> order.</c><00:07:07.920><c> I</c><00:07:08.000><c> have</c><00:07:08.160><c> got</c><00:07:08.400><c> the</c>
+
+00:07:08.470 --> 00:07:08.480 align:start position:0%
+I am writing to order. I have got the
+ 
+
+00:07:08.480 --> 00:07:10.990 align:start position:0%
+I am writing to order. I have got the
+order.<00:07:09.320><c> So,</c><00:07:09.520><c> order</c><00:07:09.760><c> repository</c><00:07:10.400><c> to</c><00:07:10.600><c> save</c>
+
+00:07:10.990 --> 00:07:11.000 align:start position:0%
+order. So, order repository to save
+ 
+
+00:07:11.000 --> 00:07:12.750 align:start position:0%
+order. So, order repository to save
+order,<00:07:11.400><c> same.</c><00:07:11.880><c> Whatever</c><00:07:12.240><c> we</c><00:07:12.360><c> were</c><00:07:12.480><c> doing</c>
+
+00:07:12.750 --> 00:07:12.760 align:start position:0%
+order, same. Whatever we were doing
+ 
+
+00:07:12.760 --> 00:07:16.110 align:start position:0%
+order, same. Whatever we were doing
+before<00:07:13.120><c> also,</c><00:07:13.840><c> the</c><00:07:13.960><c> same.</c><00:07:14.880><c> Okay?</c>
+
+00:07:16.110 --> 00:07:16.120 align:start position:0%
+before also, the same. Okay?
+ 
+
+00:07:16.120 --> 00:07:19.150 align:start position:0%
+before also, the same. Okay?
+Now,<00:07:17.000><c> in</c><00:07:17.120><c> the</c><00:07:17.280><c> second</c><00:07:17.800><c> one,</c><00:07:18.080><c> if</c><00:07:18.240><c> you</c><00:07:18.360><c> see,</c><00:07:18.760><c> I</c><00:07:18.880><c> am</c>
+
+00:07:19.150 --> 00:07:19.160 align:start position:0%
+Now, in the second one, if you see, I am
+ 
+
+00:07:19.160 --> 00:07:21.390 align:start position:0%
+Now, in the second one, if you see, I am
+not<00:07:19.640><c> publishing</c><00:07:20.120><c> to</c><00:07:20.240><c> Kafka.</c>
+
+00:07:21.390 --> 00:07:21.400 align:start position:0%
+not publishing to Kafka.
+ 
+
+00:07:21.400 --> 00:07:24.070 align:start position:0%
+not publishing to Kafka.
+I<00:07:21.600><c> have</c><00:07:21.800><c> created</c><00:07:22.240><c> a</c><00:07:22.360><c> new</c><00:07:22.720><c> table,</c><00:07:23.400><c> outbox</c>
+
+00:07:24.070 --> 00:07:24.080 align:start position:0%
+I have created a new table, outbox
+ 
+
+00:07:24.080 --> 00:07:27.350 align:start position:0%
+I have created a new table, outbox
+table.<00:07:25.200><c> Okay?</c><00:07:25.840><c> And</c><00:07:26.280><c> I</c><00:07:26.400><c> am</c><00:07:26.560><c> publishing</c><00:07:27.120><c> the</c>
+
+00:07:27.350 --> 00:07:27.360 align:start position:0%
+table. Okay? And I am publishing the
+ 
+
+00:07:27.360 --> 00:07:29.910 align:start position:0%
+table. Okay? And I am publishing the
+event<00:07:27.800><c> details</c><00:07:28.240><c> into</c><00:07:28.640><c> that</c><00:07:28.920><c> one.</c><00:07:29.440><c> So,</c><00:07:29.560><c> it's</c>
+
+00:07:29.910 --> 00:07:29.920 align:start position:0%
+event details into that one. So, it's
+ 
+
+00:07:29.920 --> 00:07:31.510 align:start position:0%
+event details into that one. So, it's
+still<00:07:30.120><c> the</c><00:07:30.320><c> DB</c>
+
+00:07:31.510 --> 00:07:31.520 align:start position:0%
+still the DB
+ 
+
+00:07:31.520 --> 00:07:33.390 align:start position:0%
+still the DB
+operation<00:07:31.960><c> only.</c><00:07:32.520><c> So,</c><00:07:32.640><c> now</c><00:07:33.040><c> they</c><00:07:33.240><c> can</c>
+
+00:07:33.390 --> 00:07:33.400 align:start position:0%
+operation only. So, now they can
+ 
+
+00:07:33.400 --> 00:07:35.950 align:start position:0%
+operation only. So, now they can
+participate<00:07:34.120><c> in</c><00:07:34.320><c> one</c><00:07:34.520><c> transaction.</c>
+
+00:07:35.950 --> 00:07:35.960 align:start position:0%
+participate in one transaction.
+ 
+
+00:07:35.960 --> 00:07:38.430 align:start position:0%
+participate in one transaction.
+If<00:07:36.200><c> any</c><00:07:36.440><c> of</c><00:07:36.560><c> this</c><00:07:36.800><c> fail,</c>
+
+00:07:38.430 --> 00:07:38.440 align:start position:0%
+If any of this fail,
+ 
+
+00:07:38.440 --> 00:07:40.630 align:start position:0%
+If any of this fail,
+we<00:07:38.600><c> can</c><00:07:38.800><c> roll</c><00:07:38.960><c> back</c><00:07:39.400><c> successfully.</c>
+
+00:07:40.630 --> 00:07:40.640 align:start position:0%
+we can roll back successfully.
+ 
+
+00:07:40.640 --> 00:07:43.310 align:start position:0%
+we can roll back successfully.
+Okay?<00:07:41.200><c> So,</c><00:07:41.560><c> at</c><00:07:41.800><c> this</c><00:07:42.080><c> point</c><00:07:42.440><c> of</c><00:07:42.600><c> time,</c><00:07:42.920><c> Kafka</c>
+
+00:07:43.310 --> 00:07:43.320 align:start position:0%
+Okay? So, at this point of time, Kafka
+ 
+
+00:07:43.320 --> 00:07:47.110 align:start position:0%
+Okay? So, at this point of time, Kafka
+is<00:07:43.480><c> not</c><00:07:43.720><c> involved.</c><00:07:44.200><c> Only</c><00:07:45.120><c> DB</c><00:07:45.480><c> operation.</c>
+
+00:07:47.110 --> 00:07:47.120 align:start position:0%
+is not involved. Only DB operation.
+ 
+
+00:07:47.120 --> 00:07:50.190 align:start position:0%
+is not involved. Only DB operation.
+So,<00:07:47.280><c> in</c><00:07:47.480><c> this</c><00:07:48.480><c> outbox</c><00:07:49.000><c> pattern,</c>
+
+00:07:50.190 --> 00:07:50.200 align:start position:0%
+So, in this outbox pattern,
+ 
+
+00:07:50.200 --> 00:07:52.830 align:start position:0%
+So, in this outbox pattern,
+a<00:07:50.280><c> new</c><00:07:50.640><c> table,</c><00:07:51.600><c> you</c><00:07:51.920><c> can</c><00:07:52.080><c> give</c><00:07:52.240><c> any</c><00:07:52.440><c> name,</c><00:07:52.640><c> but</c>
+
+00:07:52.830 --> 00:07:52.840 align:start position:0%
+a new table, you can give any name, but
+ 
+
+00:07:52.840 --> 00:07:54.550 align:start position:0%
+a new table, you can give any name, but
+generally<00:07:53.280><c> standard</c><00:07:53.680><c> is</c><00:07:54.080><c> you</c><00:07:54.200><c> can</c><00:07:54.360><c> give</c>
+
+00:07:54.550 --> 00:07:54.560 align:start position:0%
+generally standard is you can give
+ 
+
+00:07:54.560 --> 00:07:57.270 align:start position:0%
+generally standard is you can give
+outbox<00:07:55.040><c> table</c><00:07:55.800><c> outbox</c><00:07:56.320><c> name</c><00:07:56.760><c> or</c><00:07:56.920><c> whatever</c><00:07:57.200><c> the</c>
+
+00:07:57.270 --> 00:07:57.280 align:start position:0%
+outbox table outbox name or whatever the
+ 
+
+00:07:57.280 --> 00:07:58.990 align:start position:0%
+outbox table outbox name or whatever the
+name<00:07:57.480><c> you</c><00:07:57.560><c> want</c><00:07:57.760><c> to</c><00:07:57.840><c> give.</c>
+
+00:07:58.990 --> 00:07:59.000 align:start position:0%
+name you want to give.
+ 
+
+00:07:59.000 --> 00:08:01.470 align:start position:0%
+name you want to give.
+So,<00:07:59.120><c> a</c><00:07:59.200><c> new</c><00:07:59.520><c> table,</c><00:08:00.080><c> say</c><00:08:00.480><c> outbox</c><00:08:00.920><c> table,</c><00:08:01.240><c> is</c>
+
+00:08:01.470 --> 00:08:01.480 align:start position:0%
+So, a new table, say outbox table, is
+ 
+
+00:08:01.480 --> 00:08:04.950 align:start position:0%
+So, a new table, say outbox table, is
+introduced.<00:08:02.800><c> In</c><00:08:03.000><c> that</c><00:08:03.320><c> one,</c><00:08:03.840><c> what</c>
+
+00:08:04.950 --> 00:08:04.960 align:start position:0%
+introduced. In that one, what
+ 
+
+00:08:04.960 --> 00:08:07.070 align:start position:0%
+introduced. In that one, what
+we<00:08:05.200><c> need</c><00:08:05.520><c> to</c><00:08:05.640><c> store</c><00:08:06.000><c> the</c><00:08:06.280><c> event</c><00:08:06.640><c> details,</c>
+
+00:08:07.070 --> 00:08:07.080 align:start position:0%
+we need to store the event details,
+ 
+
+00:08:07.080 --> 00:08:08.790 align:start position:0%
+we need to store the event details,
+whatever<00:08:07.400><c> we</c><00:08:07.520><c> have</c><00:08:07.720><c> to</c><00:08:07.800><c> publish.</c>
+
+00:08:08.790 --> 00:08:08.800 align:start position:0%
+whatever we have to publish.
+ 
+
+00:08:08.800 --> 00:08:10.590 align:start position:0%
+whatever we have to publish.
+So,<00:08:08.880><c> that</c><00:08:09.360><c> we</c>
+
+00:08:10.590 --> 00:08:10.600 align:start position:0%
+So, that we
+ 
+
+00:08:10.600 --> 00:08:13.150 align:start position:0%
+So, that we
+store<00:08:10.960><c> into</c><00:08:11.200><c> this.</c><00:08:11.920><c> And</c><00:08:12.120><c> this</c><00:08:12.360><c> two</c><00:08:12.560><c> now</c><00:08:12.800><c> DB</c>
+
+00:08:13.150 --> 00:08:13.160 align:start position:0%
+store into this. And this two now DB
+ 
+
+00:08:13.160 --> 00:08:14.830 align:start position:0%
+store into this. And this two now DB
+operation<00:08:13.960><c> can</c><00:08:14.160><c> be</c><00:08:14.240><c> part</c><00:08:14.560><c> of</c><00:08:14.680><c> one</c>
+
+00:08:14.830 --> 00:08:14.840 align:start position:0%
+operation can be part of one
+ 
+
+00:08:14.840 --> 00:08:16.550 align:start position:0%
+operation can be part of one
+transaction.
+
+00:08:16.550 --> 00:08:16.560 align:start position:0%
+transaction.
+ 
+
+00:08:16.560 --> 00:08:18.430 align:start position:0%
+transaction.
+And<00:08:16.720><c> now</c><00:08:16.920><c> later</c><00:08:17.400><c> on,</c>
+
+00:08:18.430 --> 00:08:18.440 align:start position:0%
+And now later on,
+ 
+
+00:08:18.440 --> 00:08:20.750 align:start position:0%
+And now later on,
+a<00:08:18.520><c> separate</c><00:08:19.120><c> process</c>
+
+00:08:20.750 --> 00:08:20.760 align:start position:0%
+a separate process
+ 
+
+00:08:20.760 --> 00:08:23.750 align:start position:0%
+a separate process
+will<00:08:21.040><c> read</c><00:08:21.440><c> from</c><00:08:21.840><c> this</c><00:08:22.160><c> table</c><00:08:23.080><c> and</c><00:08:23.240><c> publish</c><00:08:23.600><c> to</c>
+
+00:08:23.750 --> 00:08:23.760 align:start position:0%
+will read from this table and publish to
+ 
+
+00:08:23.760 --> 00:08:25.910 align:start position:0%
+will read from this table and publish to
+Kafka.
+
+00:08:25.910 --> 00:08:25.920 align:start position:0%
+Kafka.
+ 
+
+00:08:25.920 --> 00:08:28.390 align:start position:0%
+Kafka.
+Again,<00:08:26.520><c> lot</c><00:08:26.880><c> of</c><00:08:27.040><c> interview</c><00:08:27.400><c> question</c><00:08:28.080><c> can</c><00:08:28.280><c> be</c>
+
+00:08:28.390 --> 00:08:28.400 align:start position:0%
+Again, lot of interview question can be
+ 
+
+00:08:28.400 --> 00:08:30.110 align:start position:0%
+Again, lot of interview question can be
+come<00:08:28.600><c> to</c><00:08:28.720><c> this</c><00:08:28.880><c> like</c><00:08:29.120><c> what</c><00:08:29.640><c> the</c><00:08:29.760><c> separate</c>
+
+00:08:30.110 --> 00:08:30.120 align:start position:0%
+come to this like what the separate
+ 
+
+00:08:30.120 --> 00:08:32.149 align:start position:0%
+come to this like what the separate
+process?<00:08:30.680><c> We</c><00:08:30.800><c> will</c><00:08:31.360><c> come</c><00:08:31.600><c> to</c><00:08:31.720><c> this</c><00:08:31.920><c> one.</c><00:08:32.039><c> So,</c>
+
+00:08:32.149 --> 00:08:32.159 align:start position:0%
+process? We will come to this one. So,
+ 
+
+00:08:32.159 --> 00:08:33.990 align:start position:0%
+process? We will come to this one. So,
+there<00:08:32.400><c> are</c><00:08:32.520><c> two.</c>
+
+00:08:33.990 --> 00:08:34.000 align:start position:0%
+there are two.
+ 
+
+00:08:34.000 --> 00:08:35.550 align:start position:0%
+there are two.
+Polar
+
+00:08:35.550 --> 00:08:35.560 align:start position:0%
+Polar
+ 
+
+00:08:35.560 --> 00:08:37.550 align:start position:0%
+Polar
+and<00:08:35.719><c> CDC.</c>
+
+00:08:37.550 --> 00:08:37.560 align:start position:0%
+and CDC.
+ 
+
+00:08:37.560 --> 00:08:39.870 align:start position:0%
+and CDC.
+Okay?<00:08:38.120><c> I</c><00:08:38.200><c> will</c><00:08:38.360><c> tell</c><00:08:38.520><c> you</c><00:08:38.640><c> both.</c>
+
+00:08:39.870 --> 00:08:39.880 align:start position:0%
+Okay? I will tell you both.
+ 
+
+00:08:39.880 --> 00:08:41.909 align:start position:0%
+Okay? I will tell you both.
+But<00:08:40.440><c> at</c><00:08:40.599><c> a</c><00:08:40.680><c> high</c><00:08:40.840><c> level,</c><00:08:41.080><c> you</c><00:08:41.159><c> got</c><00:08:41.360><c> it</c><00:08:41.479><c> what</c><00:08:41.719><c> the</c>
+
+00:08:41.909 --> 00:08:41.919 align:start position:0%
+But at a high level, you got it what the
+ 
+
+00:08:41.919 --> 00:08:43.909 align:start position:0%
+But at a high level, you got it what the
+outbox<00:08:42.400><c> pattern</c><00:08:42.760><c> idea</c><00:08:43.120><c> is</c><00:08:43.360><c> that</c><00:08:43.640><c> we</c><00:08:43.760><c> will</c>
+
+00:08:43.909 --> 00:08:43.919 align:start position:0%
+outbox pattern idea is that we will
+ 
+
+00:08:43.919 --> 00:08:45.470 align:start position:0%
+outbox pattern idea is that we will
+create<00:08:44.159><c> a</c><00:08:44.200><c> new</c><00:08:44.440><c> table,</c>
+
+00:08:45.470 --> 00:08:45.480 align:start position:0%
+create a new table,
+ 
+
+00:08:45.480 --> 00:08:48.550 align:start position:0%
+create a new table,
+new<00:08:45.920><c> DB</c><00:08:46.200><c> table,</c><00:08:46.680><c> and</c><00:08:46.880><c> that</c><00:08:47.120><c> DB</c><00:08:47.320><c> table</c><00:08:47.640><c> is</c><00:08:47.760><c> store</c>
+
+00:08:48.550 --> 00:08:48.560 align:start position:0%
+new DB table, and that DB table is store
+ 
+
+00:08:48.560 --> 00:08:50.310 align:start position:0%
+new DB table, and that DB table is store
+the<00:08:48.800><c> event</c><00:08:49.120><c> details,</c><00:08:49.680><c> and</c><00:08:49.880><c> a</c><00:08:49.920><c> separate</c>
+
+00:08:50.310 --> 00:08:50.320 align:start position:0%
+the event details, and a separate
+ 
+
+00:08:50.320 --> 00:08:52.510 align:start position:0%
+the event details, and a separate
+process<00:08:50.760><c> read</c><00:08:50.960><c> from</c><00:08:51.200><c> this</c><00:08:51.400><c> table,</c><00:08:52.200><c> and</c><00:08:52.360><c> then</c>
+
+00:08:52.510 --> 00:08:52.520 align:start position:0%
+process read from this table, and then
+ 
+
+00:08:52.520 --> 00:08:54.470 align:start position:0%
+process read from this table, and then
+publish<00:08:52.840><c> to</c><00:08:52.960><c> Kafka.</c>
+
+00:08:54.470 --> 00:08:54.480 align:start position:0%
+publish to Kafka.
+ 
+
+00:08:54.480 --> 00:08:56.750 align:start position:0%
+publish to Kafka.
+Okay?<00:08:54.920><c> So,</c><00:08:55.040><c> now</c><00:08:55.440><c> this</c><00:08:55.800><c> become</c><00:08:56.320><c> overall</c>
+
+00:08:56.750 --> 00:08:56.760 align:start position:0%
+Okay? So, now this become overall
+ 
+
+00:08:56.760 --> 00:09:01.550 align:start position:0%
+Okay? So, now this become overall
+compliant<00:08:57.320><c> with</c><00:08:57.480><c> what</c><00:08:57.760><c> we</c><00:08:57.880><c> wanted.</c>
+
+00:09:01.550 --> 00:09:01.560 align:start position:0%
+ 
+ 
+
+00:09:01.560 --> 00:09:04.150 align:start position:0%
+ 
+So,<00:09:02.240><c> what</c><00:09:02.480><c> is</c><00:09:02.640><c> the</c><00:09:02.760><c> schema</c><00:09:03.200><c> of</c><00:09:03.320><c> this</c><00:09:03.560><c> outbox</c>
+
+00:09:04.150 --> 00:09:04.160 align:start position:0%
+So, what is the schema of this outbox
+ 
+
+00:09:04.160 --> 00:09:06.750 align:start position:0%
+So, what is the schema of this outbox
+table?<00:09:04.880><c> It's</c><00:09:05.080><c> a</c><00:09:05.160><c> normal</c><00:09:05.680><c> regular</c><00:09:06.080><c> DB</c><00:09:06.360><c> table,</c>
+
+00:09:06.750 --> 00:09:06.760 align:start position:0%
+table? It's a normal regular DB table,
+ 
+
+00:09:06.760 --> 00:09:09.670 align:start position:0%
+table? It's a normal regular DB table,
+and<00:09:06.960><c> you</c><00:09:07.160><c> can</c><00:09:07.920><c> like</c><00:09:08.400><c> change</c><00:09:08.840><c> it</c><00:09:09.040><c> according</c><00:09:09.520><c> to</c>
+
+00:09:09.670 --> 00:09:09.680 align:start position:0%
+and you can like change it according to
+ 
+
+00:09:09.680 --> 00:09:11.350 align:start position:0%
+and you can like change it according to
+your<00:09:09.880><c> need.</c><00:09:10.120><c> You</c><00:09:10.240><c> can</c><00:09:10.360><c> give</c><00:09:10.680><c> any</c><00:09:10.960><c> name</c><00:09:11.240><c> you</c>
+
+00:09:11.350 --> 00:09:11.360 align:start position:0%
+your need. You can give any name you
+ 
+
+00:09:11.360 --> 00:09:14.670 align:start position:0%
+your need. You can give any name you
+want.<00:09:12.280><c> Okay?</c><00:09:13.040><c> So,</c><00:09:13.280><c> but</c><00:09:13.760><c> this</c><00:09:13.960><c> is</c><00:09:14.280><c> generally</c>
+
+00:09:14.670 --> 00:09:14.680 align:start position:0%
+want. Okay? So, but this is generally
+ 
+
+00:09:14.680 --> 00:09:16.070 align:start position:0%
+want. Okay? So, but this is generally
+high<00:09:14.880><c> level.</c>
+
+00:09:16.070 --> 00:09:16.080 align:start position:0%
+high level.
+ 
+
+00:09:16.080 --> 00:09:18.790 align:start position:0%
+high level.
+What<00:09:16.560><c> everyone</c><00:09:16.920><c> use?</c><00:09:17.280><c> A</c><00:09:17.400><c> unique</c><00:09:17.800><c> ID.</c>
+
+00:09:18.790 --> 00:09:18.800 align:start position:0%
+What everyone use? A unique ID.
+ 
+
+00:09:18.800 --> 00:09:19.710 align:start position:0%
+What everyone use? A unique ID.
+Okay?
+
+00:09:19.710 --> 00:09:19.720 align:start position:0%
+Okay?
+ 
+
+00:09:19.720 --> 00:09:22.070 align:start position:0%
+Okay?
+Aggregate<00:09:20.280><c> type.</c>
+
+00:09:22.070 --> 00:09:22.080 align:start position:0%
+Aggregate type.
+ 
+
+00:09:22.080 --> 00:09:24.750 align:start position:0%
+Aggregate type.
+Order.<00:09:22.800><c> Generally,</c><00:09:23.240><c> this</c><00:09:23.480><c> is</c><00:09:23.720><c> used</c><00:09:24.000><c> for</c>
+
+00:09:24.750 --> 00:09:24.760 align:start position:0%
+Order. Generally, this is used for
+ 
+
+00:09:24.760 --> 00:09:27.270 align:start position:0%
+Order. Generally, this is used for
+determining<00:09:25.280><c> the</c><00:09:25.400><c> topic.</c><00:09:26.400><c> Okay?</c><00:09:26.760><c> Which</c><00:09:26.960><c> topic</c>
+
+00:09:27.270 --> 00:09:27.280 align:start position:0%
+determining the topic. Okay? Which topic
+ 
+
+00:09:27.280 --> 00:09:28.510 align:start position:0%
+determining the topic. Okay? Which topic
+it<00:09:27.400><c> will</c><00:09:27.520><c> go.</c>
+
+00:09:28.510 --> 00:09:28.520 align:start position:0%
+it will go.
+ 
+
+00:09:28.520 --> 00:09:30.310 align:start position:0%
+it will go.
+Event<00:09:28.880><c> type</c><00:09:29.160><c> is</c><00:09:29.320><c> order</c><00:09:29.600><c> created,</c><00:09:30.080><c> order</c>
+
+00:09:30.310 --> 00:09:30.320 align:start position:0%
+Event type is order created, order
+ 
+
+00:09:30.320 --> 00:09:32.790 align:start position:0%
+Event type is order created, order
+deleted.<00:09:31.320><c> Generally,</c><00:09:31.720><c> we</c><00:09:31.880><c> don't</c><00:09:32.320><c> use</c><00:09:32.560><c> it</c>
+
+00:09:32.790 --> 00:09:32.800 align:start position:0%
+deleted. Generally, we don't use it
+ 
+
+00:09:32.800 --> 00:09:35.030 align:start position:0%
+deleted. Generally, we don't use it
+like,<00:09:33.120><c> but</c><00:09:33.400><c> still</c><00:09:33.720><c> if</c><00:09:33.840><c> your</c><00:09:33.960><c> business</c><00:09:34.400><c> logic</c>
+
+00:09:35.030 --> 00:09:35.040 align:start position:0%
+like, but still if your business logic
+ 
+
+00:09:35.040 --> 00:09:37.910 align:start position:0%
+like, but still if your business logic
+has<00:09:35.360><c> to</c><00:09:35.480><c> know</c><00:09:35.640><c> about</c><00:09:36.000><c> like,</c><00:09:36.600><c> "Okay,</c>
+
+00:09:37.910 --> 00:09:37.920 align:start position:0%
+has to know about like, "Okay,
+ 
+
+00:09:37.920 --> 00:09:39.870 align:start position:0%
+has to know about like, "Okay,
+the<00:09:38.400><c> order,</c><00:09:39.160><c> but</c><00:09:39.320><c> what</c><00:09:39.480><c> happened</c><00:09:39.760><c> to</c><00:09:39.800><c> the</c>
+
+00:09:39.870 --> 00:09:39.880 align:start position:0%
+the order, but what happened to the
+ 
+
+00:09:39.880 --> 00:09:41.670 align:start position:0%
+the order, but what happened to the
+order?<00:09:40.120><c> Order</c><00:09:40.400><c> created,</c><00:09:40.840><c> order</c><00:09:41.080><c> deleted."</c><00:09:41.560><c> Or</c>
+
+00:09:41.670 --> 00:09:41.680 align:start position:0%
+order? Order created, order deleted." Or
+ 
+
+00:09:41.680 --> 00:09:43.350 align:start position:0%
+order? Order created, order deleted." Or
+something<00:09:42.080><c> you</c><00:09:42.240><c> have</c><00:09:42.480><c> to</c><00:09:42.600><c> send</c><00:09:43.000><c> into</c><00:09:43.240><c> the</c>
+
+00:09:43.350 --> 00:09:43.360 align:start position:0%
+something you have to send into the
+ 
+
+00:09:43.360 --> 00:09:44.350 align:start position:0%
+something you have to send into the
+header.
+
+00:09:44.350 --> 00:09:44.360 align:start position:0%
+header.
+ 
+
+00:09:44.360 --> 00:09:46.190 align:start position:0%
+header.
+Or<00:09:44.680><c> you</c><00:09:44.840><c> have</c><00:09:45.040><c> some</c><00:09:45.200><c> business</c><00:09:45.560><c> logic</c><00:09:45.880><c> on</c><00:09:46.000><c> top</c>
+
+00:09:46.190 --> 00:09:46.200 align:start position:0%
+Or you have some business logic on top
+ 
+
+00:09:46.200 --> 00:09:47.950 align:start position:0%
+Or you have some business logic on top
+of<00:09:46.360><c> it.</c><00:09:46.920><c> So,</c><00:09:47.040><c> at</c><00:09:47.240><c> least</c><00:09:47.440><c> it</c><00:09:47.560><c> will</c><00:09:47.680><c> give</c><00:09:47.840><c> you</c>
+
+00:09:47.950 --> 00:09:47.960 align:start position:0%
+of it. So, at least it will give you
+ 
+
+00:09:47.960 --> 00:09:49.950 align:start position:0%
+of it. So, at least it will give you
+more<00:09:48.200><c> context</c><00:09:48.840><c> what</c><00:09:49.040><c> happened</c><00:09:49.280><c> to</c><00:09:49.360><c> the</c><00:09:49.440><c> order.</c>
+
+00:09:49.950 --> 00:09:49.960 align:start position:0%
+more context what happened to the order.
+ 
+
+00:09:49.960 --> 00:09:52.190 align:start position:0%
+more context what happened to the order.
+Event<00:09:50.360><c> type.</c><00:09:51.080><c> Okay?</c>
+
+00:09:52.190 --> 00:09:52.200 align:start position:0%
+Event type. Okay?
+ 
+
+00:09:52.200 --> 00:09:54.150 align:start position:0%
+Event type. Okay?
+And<00:09:52.520><c> then</c><00:09:52.880><c> aggregate</c><00:09:53.360><c> ID.</c><00:09:53.560><c> You</c><00:09:53.680><c> can</c><00:09:53.840><c> consider</c>
+
+00:09:54.150 --> 00:09:54.160 align:start position:0%
+And then aggregate ID. You can consider
+ 
+
+00:09:54.160 --> 00:09:56.990 align:start position:0%
+And then aggregate ID. You can consider
+that<00:09:54.440><c> this</c><00:09:54.640><c> is</c><00:09:54.800><c> act</c><00:09:55.040><c> as</c><00:09:55.160><c> a</c><00:09:55.240><c> key.</c><00:09:56.240><c> Okay?</c><00:09:56.480><c> This</c><00:09:56.800><c> so</c>
+
+00:09:56.990 --> 00:09:57.000 align:start position:0%
+that this is act as a key. Okay? This so
+ 
+
+00:09:57.000 --> 00:10:00.510 align:start position:0%
+that this is act as a key. Okay? This so
+that<00:09:57.760><c> this</c><00:09:57.960><c> is</c><00:09:58.040><c> very</c><00:09:58.240><c> important.</c><00:09:59.400><c> So</c><00:09:59.560><c> that</c><00:09:59.920><c> all</c>
+
+00:10:00.510 --> 00:10:00.520 align:start position:0%
+that this is very important. So that all
+ 
+
+00:10:00.520 --> 00:10:01.630 align:start position:0%
+that this is very important. So that all
+the<00:10:00.760><c> s-</c>
+
+00:10:01.630 --> 00:10:01.640 align:start position:0%
+the s-
+ 
+
+00:10:01.640 --> 00:10:03.230 align:start position:0%
+the s-
+orders
+
+00:10:03.230 --> 00:10:03.240 align:start position:0%
+orders
+ 
+
+00:10:03.240 --> 00:10:05.990 align:start position:0%
+orders
+Let's<00:10:03.480><c> say</c><00:10:03.640><c> all</c><00:10:03.880><c> the</c><00:10:04.000><c> order</c><00:10:04.880><c> which</c><00:10:05.120><c> belongs</c><00:10:05.600><c> to</c>
+
+00:10:05.990 --> 00:10:06.000 align:start position:0%
+Let's say all the order which belongs to
+ 
+
+00:10:06.000 --> 00:10:09.710 align:start position:0%
+Let's say all the order which belongs to
+customer<00:10:06.840><c> ID,</c><00:10:07.440><c> let's</c><00:10:07.640><c> say</c><00:10:07.760><c> key</c><00:10:08.080><c> is</c><00:10:08.280><c> K1.</c>
+
+00:10:09.710 --> 00:10:09.720 align:start position:0%
+customer ID, let's say key is K1.
+ 
+
+00:10:09.720 --> 00:10:12.710 align:start position:0%
+customer ID, let's say key is K1.
+So<00:10:09.920><c> all</c><00:10:10.200><c> the</c><00:10:10.400><c> order</c>
+
+00:10:12.710 --> 00:10:12.720 align:start position:0%
+So all the order
+ 
+
+00:10:12.720 --> 00:10:14.990 align:start position:0%
+So all the order
+for<00:10:12.960><c> this</c><00:10:13.360><c> key</c><00:10:14.160><c> should</c><00:10:14.400><c> goes</c><00:10:14.680><c> to</c><00:10:14.800><c> one</c>
+
+00:10:14.990 --> 00:10:15.000 align:start position:0%
+for this key should goes to one
+ 
+
+00:10:15.000 --> 00:10:17.950 align:start position:0%
+for this key should goes to one
+partition<00:10:15.800><c> so</c><00:10:15.960><c> that</c><00:10:16.200><c> order</c><00:10:16.480><c> get</c><00:10:16.720><c> maintained.</c>
+
+00:10:17.950 --> 00:10:17.960 align:start position:0%
+partition so that order get maintained.
+ 
+
+00:10:17.960 --> 00:10:20.230 align:start position:0%
+partition so that order get maintained.
+Let's<00:10:18.160><c> say</c><00:10:18.280><c> first</c><00:10:18.680><c> order</c><00:10:19.000><c> created,</c><00:10:19.840><c> then</c>
+
+00:10:20.230 --> 00:10:20.240 align:start position:0%
+Let's say first order created, then
+ 
+
+00:10:20.240 --> 00:10:22.230 align:start position:0%
+Let's say first order created, then
+order<00:10:20.680><c> cancelled.</c>
+
+00:10:22.230 --> 00:10:22.240 align:start position:0%
+order cancelled.
+ 
+
+00:10:22.240 --> 00:10:24.030 align:start position:0%
+order cancelled.
+Then<00:10:22.880><c> so</c><00:10:23.120><c> let's</c><00:10:23.360><c> say</c><00:10:23.440><c> this</c><00:10:23.680><c> two,</c><00:10:23.800><c> order</c>
+
+00:10:24.030 --> 00:10:24.040 align:start position:0%
+Then so let's say this two, order
+ 
+
+00:10:24.040 --> 00:10:25.790 align:start position:0%
+Then so let's say this two, order
+created,<00:10:24.360><c> order</c><00:10:24.560><c> cancelled.</c><00:10:24.960><c> So</c><00:10:25.280><c> there's</c><00:10:25.520><c> a</c>
+
+00:10:25.790 --> 00:10:25.800 align:start position:0%
+created, order cancelled. So there's a
+ 
+
+00:10:25.800 --> 00:10:27.270 align:start position:0%
+created, order cancelled. So there's a
+proper<00:10:26.200><c> ordering.</c>
+
+00:10:27.270 --> 00:10:27.280 align:start position:0%
+proper ordering.
+ 
+
+00:10:27.280 --> 00:10:29.070 align:start position:0%
+proper ordering.
+So<00:10:27.360><c> they</c><00:10:27.520><c> both</c><00:10:27.800><c> should</c><00:10:27.960><c> have</c><00:10:28.160><c> same</c><00:10:28.560><c> key,</c><00:10:28.840><c> key</c>
+
+00:10:29.070 --> 00:10:29.080 align:start position:0%
+So they both should have same key, key
+ 
+
+00:10:29.080 --> 00:10:30.670 align:start position:0%
+So they both should have same key, key
+one,<00:10:29.440><c> key</c><00:10:29.640><c> one.</c>
+
+00:10:30.670 --> 00:10:30.680 align:start position:0%
+one, key one.
+ 
+
+00:10:30.680 --> 00:10:32.350 align:start position:0%
+one, key one.
+When<00:10:30.920><c> they</c><00:10:31.040><c> have</c><00:10:31.160><c> a</c><00:10:31.240><c> same</c><00:10:31.520><c> key,</c><00:10:31.880><c> they</c><00:10:32.120><c> then</c>
+
+00:10:32.350 --> 00:10:32.360 align:start position:0%
+When they have a same key, they then
+ 
+
+00:10:32.360 --> 00:10:33.750 align:start position:0%
+When they have a same key, they then
+only<00:10:32.520><c> they</c><00:10:32.640><c> would</c><00:10:32.800><c> be</c><00:10:32.920><c> goes</c><00:10:33.200><c> to</c><00:10:33.280><c> the</c><00:10:33.440><c> same</c>
+
+00:10:33.750 --> 00:10:33.760 align:start position:0%
+only they would be goes to the same
+ 
+
+00:10:33.760 --> 00:10:35.510 align:start position:0%
+only they would be goes to the same
+partition<00:10:34.320><c> and</c><00:10:34.440><c> when</c><00:10:34.640><c> they</c><00:10:34.800><c> go</c><00:10:35.000><c> to</c><00:10:35.120><c> the</c><00:10:35.240><c> same</c>
+
+00:10:35.510 --> 00:10:35.520 align:start position:0%
+partition and when they go to the same
+ 
+
+00:10:35.520 --> 00:10:37.230 align:start position:0%
+partition and when they go to the same
+partition,<00:10:36.440><c> then</c><00:10:36.640><c> the</c><00:10:36.720><c> order</c><00:10:37.000><c> would</c><00:10:37.120><c> be</c>
+
+00:10:37.230 --> 00:10:37.240 align:start position:0%
+partition, then the order would be
+ 
+
+00:10:37.240 --> 00:10:38.790 align:start position:0%
+partition, then the order would be
+maintained.<00:10:37.680><c> First</c><00:10:37.960><c> order</c><00:10:38.200><c> created,</c><00:10:38.560><c> then</c>
+
+00:10:38.790 --> 00:10:38.800 align:start position:0%
+maintained. First order created, then
+ 
+
+00:10:38.800 --> 00:10:40.510 align:start position:0%
+maintained. First order created, then
+order<00:10:39.240><c> cancelled.</c>
+
+00:10:40.510 --> 00:10:40.520 align:start position:0%
+order cancelled.
+ 
+
+00:10:40.520 --> 00:10:42.670 align:start position:0%
+order cancelled.
+Got<00:10:40.720><c> it?</c><00:10:41.320><c> So</c><00:10:41.560><c> aggregate</c><00:10:42.000><c> ID,</c><00:10:42.280><c> you</c><00:10:42.400><c> can</c><00:10:42.600><c> say</c>
+
+00:10:42.670 --> 00:10:42.680 align:start position:0%
+Got it? So aggregate ID, you can say
+ 
+
+00:10:42.680 --> 00:10:43.830 align:start position:0%
+Got it? So aggregate ID, you can say
+that
+
+00:10:43.830 --> 00:10:43.840 align:start position:0%
+that
+ 
+
+00:10:43.840 --> 00:10:45.470 align:start position:0%
+that
+used<00:10:44.160><c> for</c><00:10:44.440><c> key.</c>
+
+00:10:45.470 --> 00:10:45.480 align:start position:0%
+used for key.
+ 
+
+00:10:45.480 --> 00:10:47.190 align:start position:0%
+used for key.
+Then<00:10:45.640><c> your</c><00:10:45.760><c> normal</c><00:10:46.120><c> payload</c><00:10:46.760><c> which</c><00:10:46.920><c> you</c><00:10:47.000><c> want</c>
+
+00:10:47.190 --> 00:10:47.200 align:start position:0%
+Then your normal payload which you want
+ 
+
+00:10:47.200 --> 00:10:49.870 align:start position:0%
+Then your normal payload which you want
+to<00:10:47.240><c> publish.</c><00:10:48.200><c> Created</c><00:10:48.600><c> at</c><00:10:49.040><c> is</c><00:10:49.280><c> published.</c><00:10:49.760><c> So</c>
+
+00:10:49.870 --> 00:10:49.880 align:start position:0%
+to publish. Created at is published. So
+ 
+
+00:10:49.880 --> 00:10:51.710 align:start position:0%
+to publish. Created at is published. So
+this<00:10:50.320><c> is</c><00:10:50.600><c> optional.</c>
+
+00:10:51.710 --> 00:10:51.720 align:start position:0%
+this is optional.
+ 
+
+00:10:51.720 --> 00:10:55.430 align:start position:0%
+this is optional.
+I<00:10:51.840><c> will</c><00:10:52.000><c> tell</c><00:10:52.200><c> you</c><00:10:52.360><c> its</c><00:10:52.640><c> use.</c>
+
+00:10:55.430 --> 00:10:55.440 align:start position:0%
+ 
+ 
+
+00:10:55.440 --> 00:10:59.270 align:start position:0%
+ 
+Okay?<00:10:56.240><c> So</c><00:10:56.400><c> but</c><00:10:56.880><c> this</c><00:10:57.560><c> is</c><00:10:57.840><c> something</c>
+
+00:10:59.270 --> 00:10:59.280 align:start position:0%
+Okay? So but this is something
+ 
+
+00:10:59.280 --> 00:11:01.630 align:start position:0%
+Okay? So but this is something
+is<00:10:59.839><c> customizable</c><00:11:00.880><c> depending</c><00:11:01.280><c> upon</c><00:11:01.520><c> your</c>
+
+00:11:01.630 --> 00:11:01.640 align:start position:0%
+is customizable depending upon your
+ 
+
+00:11:01.640 --> 00:11:03.030 align:start position:0%
+is customizable depending upon your
+business<00:11:02.080><c> need.</c><00:11:02.320><c> But</c><00:11:02.520><c> this</c><00:11:02.720><c> is</c><00:11:02.800><c> the</c><00:11:02.880><c> high</c>
+
+00:11:03.030 --> 00:11:03.040 align:start position:0%
+business need. But this is the high
+ 
+
+00:11:03.040 --> 00:11:05.630 align:start position:0%
+business need. But this is the high
+level.<00:11:03.320><c> We</c><00:11:03.440><c> can</c><00:11:03.800><c> determine</c><00:11:04.280><c> the</c><00:11:04.400><c> topic</c><00:11:04.880><c> name,</c>
+
+00:11:05.630 --> 00:11:05.640 align:start position:0%
+level. We can determine the topic name,
+ 
+
+00:11:05.640 --> 00:11:07.430 align:start position:0%
+level. We can determine the topic name,
+we<00:11:05.760><c> can</c><00:11:05.920><c> determine</c><00:11:06.400><c> the</c><00:11:06.520><c> key,</c><00:11:07.040><c> we</c><00:11:07.240><c> can</c>
+
+00:11:07.430 --> 00:11:07.440 align:start position:0%
+we can determine the key, we can
+ 
+
+00:11:07.440 --> 00:11:09.390 align:start position:0%
+we can determine the key, we can
+determine<00:11:07.839><c> the</c><00:11:07.960><c> payload.</c>
+
+00:11:09.390 --> 00:11:09.400 align:start position:0%
+determine the payload.
+ 
+
+00:11:09.400 --> 00:11:10.630 align:start position:0%
+determine the payload.
+Okay,<00:11:09.640><c> that's</c><00:11:09.839><c> the</c><00:11:09.960><c> same</c><00:11:10.200><c> thing</c><00:11:10.400><c> I</c><00:11:10.480><c> have</c>
+
+00:11:10.630 --> 00:11:10.640 align:start position:0%
+Okay, that's the same thing I have
+ 
+
+00:11:10.640 --> 00:11:12.470 align:start position:0%
+Okay, that's the same thing I have
+explained<00:11:11.000><c> it</c><00:11:11.080><c> here.</c>
+
+00:11:12.470 --> 00:11:12.480 align:start position:0%
+explained it here.
+ 
+
+00:11:12.480 --> 00:11:14.630 align:start position:0%
+explained it here.
+And<00:11:13.040><c> is</c><00:11:13.240><c> published</c><00:11:13.680><c> is</c><00:11:13.839><c> optional.</c><00:11:14.400><c> I</c><00:11:14.480><c> will</c>
+
+00:11:14.630 --> 00:11:14.640 align:start position:0%
+And is published is optional. I will
+ 
+
+00:11:14.640 --> 00:11:16.510 align:start position:0%
+And is published is optional. I will
+tell<00:11:14.839><c> you</c><00:11:14.960><c> when</c><00:11:15.240><c> it</c><00:11:15.400><c> is</c><00:11:15.560><c> used,</c><00:11:15.839><c> when</c><00:11:15.960><c> it</c><00:11:16.120><c> is</c><00:11:16.240><c> not</c>
+
+00:11:16.510 --> 00:11:16.520 align:start position:0%
+tell you when it is used, when it is not
+ 
+
+00:11:16.520 --> 00:11:18.910 align:start position:0%
+tell you when it is used, when it is not
+used.
+
+00:11:18.910 --> 00:11:18.920 align:start position:0%
+used.
+ 
+
+00:11:18.920 --> 00:11:21.350 align:start position:0%
+used.
+So<00:11:19.200><c> outbox</c><00:11:19.760><c> table</c><00:11:20.080><c> is</c><00:11:20.200><c> consumed</c><00:11:20.680><c> in</c><00:11:20.880><c> two</c><00:11:21.040><c> ways.</c>
+
+00:11:21.350 --> 00:11:21.360 align:start position:0%
+So outbox table is consumed in two ways.
+ 
+
+00:11:21.360 --> 00:11:24.150 align:start position:0%
+So outbox table is consumed in two ways.
+I<00:11:21.440><c> told</c><00:11:21.720><c> you</c><00:11:21.839><c> that</c><00:11:22.480><c> outbox</c><00:11:22.960><c> table,</c><00:11:23.600><c> a</c><00:11:23.680><c> separate</c>
+
+00:11:24.150 --> 00:11:24.160 align:start position:0%
+I told you that outbox table, a separate
+ 
+
+00:11:24.160 --> 00:11:26.790 align:start position:0%
+I told you that outbox table, a separate
+process<00:11:24.600><c> will</c><00:11:24.800><c> read</c><00:11:25.120><c> the</c><00:11:25.200><c> data.</c><00:11:25.760><c> Again,</c>
+
+00:11:26.790 --> 00:11:26.800 align:start position:0%
+process will read the data. Again,
+ 
+
+00:11:26.800 --> 00:11:29.310 align:start position:0%
+process will read the data. Again,
+there<00:11:27.000><c> are</c><00:11:27.120><c> two</c><00:11:27.360><c> ways</c><00:11:28.000><c> this</c><00:11:28.320><c> outbox</c><00:11:28.800><c> table</c>
+
+00:11:29.310 --> 00:11:29.320 align:start position:0%
+there are two ways this outbox table
+ 
+
+00:11:29.320 --> 00:11:30.910 align:start position:0%
+there are two ways this outbox table
+data<00:11:29.680><c> is</c><00:11:29.839><c> consumed.</c>
+
+00:11:30.910 --> 00:11:30.920 align:start position:0%
+data is consumed.
+ 
+
+00:11:30.920 --> 00:11:32.790 align:start position:0%
+data is consumed.
+One<00:11:31.160><c> is</c><00:11:31.360><c> polar</c>
+
+00:11:32.790 --> 00:11:32.800 align:start position:0%
+One is polar
+ 
+
+00:11:32.800 --> 00:11:35.470 align:start position:0%
+One is polar
+or<00:11:33.000><c> you</c><00:11:33.120><c> can</c><00:11:33.240><c> say</c><00:11:33.320><c> that</c><00:11:33.520><c> polling.</c>
+
+00:11:35.470 --> 00:11:35.480 align:start position:0%
+or you can say that polling.
+ 
+
+00:11:35.480 --> 00:11:37.750 align:start position:0%
+or you can say that polling.
+Another<00:11:35.839><c> is</c><00:11:36.000><c> CDC,</c><00:11:36.640><c> change</c><00:11:36.960><c> data</c><00:11:37.200><c> capture,</c>
+
+00:11:37.750 --> 00:11:37.760 align:start position:0%
+Another is CDC, change data capture,
+ 
+
+00:11:37.760 --> 00:11:39.710 align:start position:0%
+Another is CDC, change data capture,
+very<00:11:38.040><c> important.</c>
+
+00:11:39.710 --> 00:11:39.720 align:start position:0%
+very important.
+ 
+
+00:11:39.720 --> 00:11:42.310 align:start position:0%
+very important.
+Okay?
+
+00:11:42.310 --> 00:11:42.320 align:start position:0%
+ 
+ 
+
+00:11:42.320 --> 00:11:46.750 align:start position:0%
+ 
+So<00:11:43.040><c> is</c><00:11:43.280><c> published</c><00:11:44.240><c> is</c><00:11:44.520><c> used</c><00:11:45.560><c> in</c><00:11:45.839><c> polling,</c><00:11:46.560><c> but</c>
+
+00:11:46.750 --> 00:11:46.760 align:start position:0%
+So is published is used in polling, but
+ 
+
+00:11:46.760 --> 00:11:49.470 align:start position:0%
+So is published is used in polling, but
+in<00:11:46.920><c> CDC</c><00:11:47.360><c> does</c><00:11:47.640><c> not</c><00:11:48.000><c> used.</c><00:11:48.880><c> We'll</c><00:11:49.120><c> see</c><00:11:49.240><c> that</c>
+
+00:11:49.470 --> 00:11:49.480 align:start position:0%
+in CDC does not used. We'll see that
+ 
+
+00:11:49.480 --> 00:11:51.270 align:start position:0%
+in CDC does not used. We'll see that
+one.
+
+00:11:51.270 --> 00:11:51.280 align:start position:0%
+one.
+ 
+
+00:11:51.280 --> 00:11:53.870 align:start position:0%
+one.
+So<00:11:51.400><c> let's</c><00:11:51.720><c> start</c><00:11:52.160><c> first</c><00:11:52.640><c> polling</c><00:11:53.520><c> and</c><00:11:53.680><c> then</c>
+
+00:11:53.870 --> 00:11:53.880 align:start position:0%
+So let's start first polling and then
+ 
+
+00:11:53.880 --> 00:11:56.110 align:start position:0%
+So let's start first polling and then
+later<00:11:54.160><c> I</c><00:11:54.200><c> will</c><00:11:54.360><c> also</c><00:11:54.640><c> show</c><00:11:54.880><c> you</c><00:11:55.120><c> the</c>
+
+00:11:56.110 --> 00:11:56.120 align:start position:0%
+later I will also show you the
+ 
+
+00:11:56.120 --> 00:11:58.910 align:start position:0%
+later I will also show you the
+CDC<00:11:56.600><c> mechanism</c><00:11:57.160><c> also.</c><00:11:57.960><c> If</c><00:11:58.120><c> you</c><00:11:58.280><c> have</c><00:11:58.560><c> gone</c>
+
+00:11:58.910 --> 00:11:58.920 align:start position:0%
+CDC mechanism also. If you have gone
+ 
+
+00:11:58.920 --> 00:12:01.710 align:start position:0%
+CDC mechanism also. If you have gone
+through<00:11:59.200><c> the</c><00:11:59.480><c> Spring</c><00:11:59.880><c> Boot</c><00:12:00.280><c> playlist</c>
+
+00:12:01.710 --> 00:12:01.720 align:start position:0%
+through the Spring Boot playlist
+ 
+
+00:12:01.720 --> 00:12:04.150 align:start position:0%
+through the Spring Boot playlist
+and<00:12:01.880><c> in</c><00:12:02.000><c> that</c><00:12:02.280><c> one</c><00:12:02.480><c> I</c><00:12:02.560><c> have</c><00:12:02.760><c> covered</c><00:12:03.080><c> JPA.</c>
+
+00:12:04.150 --> 00:12:04.160 align:start position:0%
+and in that one I have covered JPA.
+ 
+
+00:12:04.160 --> 00:12:06.310 align:start position:0%
+and in that one I have covered JPA.
+So<00:12:04.360><c> in</c><00:12:04.720><c> in</c><00:12:04.920><c> that</c><00:12:05.280><c> one</c><00:12:05.560><c> you</c><00:12:05.640><c> will</c><00:12:05.800><c> get</c><00:12:06.040><c> to</c><00:12:06.120><c> know</c>
+
+00:12:06.310 --> 00:12:06.320 align:start position:0%
+So in in that one you will get to know
+ 
+
+00:12:06.320 --> 00:12:09.230 align:start position:0%
+So in in that one you will get to know
+how<00:12:06.560><c> to</c><00:12:07.160><c> create</c><00:12:07.560><c> entity</c><00:12:08.160><c> repository,</c><00:12:08.920><c> how</c><00:12:09.120><c> to</c>
+
+00:12:09.230 --> 00:12:09.240 align:start position:0%
+how to create entity repository, how to
+ 
+
+00:12:09.240 --> 00:12:10.950 align:start position:0%
+how to create entity repository, how to
+connect<00:12:09.560><c> with</c><00:12:09.680><c> the</c><00:12:09.760><c> DB.</c>
+
+00:12:10.950 --> 00:12:10.960 align:start position:0%
+connect with the DB.
+ 
+
+00:12:10.960 --> 00:12:13.350 align:start position:0%
+connect with the DB.
+So<00:12:11.160><c> this</c><00:12:11.600><c> is</c><00:12:12.040><c> the</c><00:12:12.160><c> same</c><00:12:12.440><c> thing</c><00:12:12.640><c> I</c><00:12:12.720><c> am</c><00:12:12.920><c> doing</c><00:12:13.200><c> it</c>
+
+00:12:13.350 --> 00:12:13.360 align:start position:0%
+So this is the same thing I am doing it
+ 
+
+00:12:13.360 --> 00:12:15.430 align:start position:0%
+So this is the same thing I am doing it
+here,<00:12:13.800><c> nothing</c><00:12:14.200><c> is</c><00:12:14.320><c> special.</c>
+
+00:12:15.430 --> 00:12:15.440 align:start position:0%
+here, nothing is special.
+ 
+
+00:12:15.440 --> 00:12:17.350 align:start position:0%
+here, nothing is special.
+So<00:12:15.560><c> this</c><00:12:15.760><c> is</c><00:12:15.839><c> just</c><00:12:16.040><c> one</c><00:12:16.200><c> controller.</c>
+
+00:12:17.350 --> 00:12:17.360 align:start position:0%
+So this is just one controller.
+ 
+
+00:12:17.360 --> 00:12:18.710 align:start position:0%
+So this is just one controller.
+The
+
+00:12:18.710 --> 00:12:18.720 align:start position:0%
+The
+ 
+
+00:12:18.720 --> 00:12:21.190 align:start position:0%
+The
+request<00:12:19.520><c> comes</c><00:12:19.800><c> to</c><00:12:19.920><c> this</c><00:12:20.120><c> one.</c>
+
+00:12:21.190 --> 00:12:21.200 align:start position:0%
+request comes to this one.
+ 
+
+00:12:21.200 --> 00:12:23.750 align:start position:0%
+request comes to this one.
+Then<00:12:21.440><c> I'm</c><00:12:21.600><c> calling</c><00:12:21.920><c> this</c><00:12:22.120><c> order</c><00:12:22.400><c> service.</c>
+
+00:12:23.750 --> 00:12:23.760 align:start position:0%
+Then I'm calling this order service.
+ 
+
+00:12:23.760 --> 00:12:25.430 align:start position:0%
+Then I'm calling this order service.
+Okay?<00:12:24.320><c> And</c><00:12:24.520><c> here</c><00:12:24.720><c> I</c><00:12:24.800><c> have</c><00:12:25.080><c> at</c><00:12:25.200><c> the</c><00:12:25.320><c> rate</c>
+
+00:12:25.430 --> 00:12:25.440 align:start position:0%
+Okay? And here I have at the rate
+ 
+
+00:12:25.440 --> 00:12:27.110 align:start position:0%
+Okay? And here I have at the rate
+transactional.
+
+00:12:27.110 --> 00:12:27.120 align:start position:0%
+transactional.
+ 
+
+00:12:27.120 --> 00:12:28.390 align:start position:0%
+transactional.
+Now<00:12:27.320><c> we</c><00:12:27.440><c> know</c><00:12:27.560><c> that</c><00:12:27.760><c> we</c><00:12:27.839><c> have</c><00:12:27.960><c> to</c><00:12:28.040><c> do</c><00:12:28.240><c> two</c>
+
+00:12:28.390 --> 00:12:28.400 align:start position:0%
+Now we know that we have to do two
+ 
+
+00:12:28.400 --> 00:12:30.070 align:start position:0%
+Now we know that we have to do two
+things.<00:12:28.760><c> First</c><00:12:29.000><c> thing</c><00:12:29.160><c> is</c><00:12:29.280><c> we</c><00:12:29.400><c> have</c><00:12:29.600><c> to</c><00:12:29.760><c> store</c>
+
+00:12:30.070 --> 00:12:30.080 align:start position:0%
+things. First thing is we have to store
+ 
+
+00:12:30.080 --> 00:12:32.670 align:start position:0%
+things. First thing is we have to store
+into<00:12:30.480><c> the</c><00:12:30.720><c> order</c><00:12:31.600><c> DB.</c>
+
+00:12:32.670 --> 00:12:32.680 align:start position:0%
+into the order DB.
+ 
+
+00:12:32.680 --> 00:12:34.350 align:start position:0%
+into the order DB.
+And<00:12:32.880><c> second</c><00:12:33.240><c> we</c><00:12:33.320><c> have</c><00:12:33.520><c> to</c><00:12:33.640><c> store</c><00:12:33.920><c> in</c><00:12:34.120><c> the</c>
+
+00:12:34.350 --> 00:12:34.360 align:start position:0%
+And second we have to store in the
+ 
+
+00:12:34.360 --> 00:12:35.829 align:start position:0%
+And second we have to store in the
+outbox
+
+00:12:35.829 --> 00:12:35.839 align:start position:0%
+outbox
+ 
+
+00:12:35.839 --> 00:12:37.070 align:start position:0%
+outbox
+DB.
+
+00:12:37.070 --> 00:12:37.080 align:start position:0%
+DB.
+ 
+
+00:12:37.080 --> 00:12:39.829 align:start position:0%
+DB.
+So<00:12:37.240><c> for</c><00:12:37.480><c> this</c><00:12:37.800><c> two</c><00:12:38.000><c> tables,</c><00:12:38.839><c> we</c><00:12:39.040><c> have</c><00:12:39.280><c> entity,</c>
+
+00:12:39.829 --> 00:12:39.839 align:start position:0%
+So for this two tables, we have entity,
+ 
+
+00:12:39.839 --> 00:12:41.310 align:start position:0%
+So for this two tables, we have entity,
+order<00:12:40.200><c> entity,</c>
+
+00:12:41.310 --> 00:12:41.320 align:start position:0%
+order entity,
+ 
+
+00:12:41.320 --> 00:12:43.710 align:start position:0%
+order entity,
+outbox<00:12:41.720><c> entity.</c><00:12:42.120><c> Again,</c><00:12:42.520><c> please</c><00:12:42.839><c> check</c><00:12:43.080><c> JPA</c>
+
+00:12:43.710 --> 00:12:43.720 align:start position:0%
+outbox entity. Again, please check JPA
+ 
+
+00:12:43.720 --> 00:12:45.190 align:start position:0%
+outbox entity. Again, please check JPA
+topics<00:12:44.200><c> if</c><00:12:44.320><c> you</c><00:12:44.400><c> have</c><00:12:44.520><c> any</c><00:12:44.680><c> doubt</c><00:12:44.920><c> what</c><00:12:45.080><c> is</c>
+
+00:12:45.190 --> 00:12:45.200 align:start position:0%
+topics if you have any doubt what is
+ 
+
+00:12:45.200 --> 00:12:47.710 align:start position:0%
+topics if you have any doubt what is
+entity<00:12:45.560><c> or</c><00:12:45.640><c> how</c><00:12:45.800><c> to</c><00:12:45.920><c> create</c><00:12:46.120><c> repository.</c>
+
+00:12:47.710 --> 00:12:47.720 align:start position:0%
+entity or how to create repository.
+ 
+
+00:12:47.720 --> 00:12:49.270 align:start position:0%
+entity or how to create repository.
+Then<00:12:47.880><c> for</c><00:12:48.040><c> this</c><00:12:48.280><c> two</c><00:12:48.440><c> entity</c><00:12:48.800><c> I</c><00:12:48.880><c> have</c><00:12:49.080><c> order</c>
+
+00:12:49.270 --> 00:12:49.280 align:start position:0%
+Then for this two entity I have order
+ 
+
+00:12:49.280 --> 00:12:52.270 align:start position:0%
+Then for this two entity I have order
+repository,<00:12:49.920><c> outbox</c><00:12:50.400><c> repository.</c>
+
+00:12:52.270 --> 00:12:52.280 align:start position:0%
+repository, outbox repository.
+ 
+
+00:12:52.280 --> 00:12:54.790 align:start position:0%
+repository, outbox repository.
+Now<00:12:52.560><c> the</c><00:12:52.839><c> I</c><00:12:52.960><c> have</c><00:12:53.240><c> dependency</c><00:12:53.839><c> here.</c>
+
+00:12:54.790 --> 00:12:54.800 align:start position:0%
+Now the I have dependency here.
+ 
+
+00:12:54.800 --> 00:12:56.470 align:start position:0%
+Now the I have dependency here.
+And<00:12:55.040><c> I'm</c><00:12:55.200><c> just</c><00:12:55.400><c> using</c><00:12:55.680><c> it.</c><00:12:56.200><c> Order</c>
+
+00:12:56.470 --> 00:12:56.480 align:start position:0%
+And I'm just using it. Order
+ 
+
+00:12:56.480 --> 00:12:59.030 align:start position:0%
+And I'm just using it. Order
+repository.save<00:12:57.680><c> order.</c>
+
+00:12:59.030 --> 00:12:59.040 align:start position:0%
+repository.save order.
+ 
+
+00:12:59.040 --> 00:13:02.630 align:start position:0%
+repository.save order.
+And<00:12:59.480><c> then</c><00:13:00.360><c> outbox</c><00:13:00.800><c> repository.save</c><00:13:02.200><c> outbox</c>
+
+00:13:02.630 --> 00:13:02.640 align:start position:0%
+And then outbox repository.save outbox
+ 
+
+00:13:02.640 --> 00:13:03.470 align:start position:0%
+And then outbox repository.save outbox
+event.
+
+00:13:03.470 --> 00:13:03.480 align:start position:0%
+event.
+ 
+
+00:13:03.480 --> 00:13:07.350 align:start position:0%
+event.
+Okay?<00:13:04.160><c> So</c><00:13:04.320><c> outbox</c><00:13:04.760><c> event</c><00:13:05.320><c> I</c><00:13:05.440><c> have</c><00:13:05.680><c> created</c>
+
+00:13:07.350 --> 00:13:07.360 align:start position:0%
+Okay? So outbox event I have created
+ 
+
+00:13:07.360 --> 00:13:09.790 align:start position:0%
+Okay? So outbox event I have created
+aggregate<00:13:07.839><c> type,</c><00:13:08.240><c> aggregate</c><00:13:08.800><c> ID,</c><00:13:09.400><c> event</c>
+
+00:13:09.790 --> 00:13:09.800 align:start position:0%
+aggregate type, aggregate ID, event
+ 
+
+00:13:09.800 --> 00:13:12.270 align:start position:0%
+aggregate type, aggregate ID, event
+type,<00:13:10.200><c> and</c><00:13:10.360><c> the</c><00:13:10.440><c> payload.</c>
+
+00:13:12.270 --> 00:13:12.280 align:start position:0%
+type, and the payload.
+ 
+
+00:13:12.280 --> 00:13:15.350 align:start position:0%
+type, and the payload.
+So<00:13:12.640><c> very</c><00:13:12.920><c> very</c><00:13:13.160><c> simple.</c><00:13:13.760><c> These</c><00:13:14.000><c> all</c><00:13:14.320><c> are</c><00:13:14.600><c> like</c>
+
+00:13:15.350 --> 00:13:15.360 align:start position:0%
+So very very simple. These all are like
+ 
+
+00:13:15.360 --> 00:13:18.150 align:start position:0%
+So very very simple. These all are like
+just<00:13:16.040><c> helps</c><00:13:16.520><c> in</c><00:13:16.640><c> creating</c><00:13:17.080><c> the</c><00:13:17.200><c> tables</c><00:13:17.960><c> and</c>
+
+00:13:18.150 --> 00:13:18.160 align:start position:0%
+just helps in creating the tables and
+ 
+
+00:13:18.160 --> 00:13:20.190 align:start position:0%
+just helps in creating the tables and
+connecting<00:13:18.520><c> with</c><00:13:18.640><c> the</c><00:13:18.720><c> DB.</c>
+
+00:13:20.190 --> 00:13:20.200 align:start position:0%
+connecting with the DB.
+ 
+
+00:13:20.200 --> 00:13:21.990 align:start position:0%
+connecting with the DB.
+And<00:13:20.360><c> this</c><00:13:20.480><c> is</c><00:13:20.560><c> the</c><00:13:20.640><c> application.properties.</c>
+
+00:13:21.990 --> 00:13:22.000 align:start position:0%
+And this is the application.properties.
+ 
+
+00:13:22.000 --> 00:13:23.750 align:start position:0%
+And this is the application.properties.
+If<00:13:22.160><c> you</c><00:13:22.280><c> have</c><00:13:22.480><c> gone</c><00:13:22.760><c> through</c><00:13:22.920><c> the</c><00:13:23.080><c> JPA</c><00:13:23.440><c> part,</c>
+
+00:13:23.750 --> 00:13:23.760 align:start position:0%
+If you have gone through the JPA part,
+ 
+
+00:13:23.760 --> 00:13:25.829 align:start position:0%
+If you have gone through the JPA part,
+you<00:13:23.880><c> know</c><00:13:24.160><c> that</c><00:13:25.040><c> uh</c>
+
+00:13:25.829 --> 00:13:25.839 align:start position:0%
+you know that uh
+ 
+
+00:13:25.839 --> 00:13:27.670 align:start position:0%
+you know that uh
+you<00:13:26.000><c> can</c><00:13:26.160><c> connect</c><00:13:26.480><c> with</c><00:13:26.680><c> So</c><00:13:26.839><c> in</c><00:13:27.000><c> the</c><00:13:27.120><c> JPA</c><00:13:27.400><c> part</c>
+
+00:13:27.670 --> 00:13:27.680 align:start position:0%
+you can connect with So in the JPA part
+ 
+
+00:13:27.680 --> 00:13:29.829 align:start position:0%
+you can connect with So in the JPA part
+I<00:13:27.720><c> have</c><00:13:27.839><c> connected</c><00:13:28.160><c> with</c><00:13:28.320><c> S2DB,</c><00:13:29.320><c> but</c><00:13:29.480><c> the</c><00:13:29.600><c> same</c>
+
+00:13:29.829 --> 00:13:29.839 align:start position:0%
+I have connected with S2DB, but the same
+ 
+
+00:13:29.839 --> 00:13:31.390 align:start position:0%
+I have connected with S2DB, but the same
+way<00:13:29.960><c> you</c><00:13:30.080><c> can</c><00:13:30.240><c> connect</c><00:13:30.520><c> with</c><00:13:30.680><c> MySQL,</c>
+
+00:13:31.390 --> 00:13:31.400 align:start position:0%
+way you can connect with MySQL,
+ 
+
+00:13:31.400 --> 00:13:33.510 align:start position:0%
+way you can connect with MySQL,
+Postgres,<00:13:32.000><c> anything.</c><00:13:32.960><c> So</c><00:13:33.080><c> you</c><00:13:33.240><c> need</c><00:13:33.440><c> to</c>
+
+00:13:33.510 --> 00:13:33.520 align:start position:0%
+Postgres, anything. So you need to
+ 
+
+00:13:33.520 --> 00:13:35.790 align:start position:0%
+Postgres, anything. So you need to
+provide<00:13:33.839><c> the</c><00:13:33.960><c> data</c><00:13:34.280><c> source,</c><00:13:35.280><c> username,</c>
+
+00:13:35.790 --> 00:13:35.800 align:start position:0%
+provide the data source, username,
+ 
+
+00:13:35.800 --> 00:13:39.510 align:start position:0%
+provide the data source, username,
+password,<00:13:36.640><c> and</c><00:13:36.760><c> the</c><00:13:36.880><c> driver</c><00:13:37.200><c> class.</c><00:13:37.960><c> Okay?</c>
+
+00:13:39.510 --> 00:13:39.520 align:start position:0%
+password, and the driver class. Okay?
+ 
+
+00:13:39.520 --> 00:13:41.630 align:start position:0%
+password, and the driver class. Okay?
+So<00:13:39.680><c> with</c><00:13:39.839><c> the</c><00:13:39.960><c> same</c><00:13:40.360><c> way</c>
+
+00:13:41.630 --> 00:13:41.640 align:start position:0%
+So with the same way
+ 
+
+00:13:41.640 --> 00:13:45.630 align:start position:0%
+So with the same way
+we<00:13:41.839><c> can</c><00:13:42.120><c> connect</c><00:13:43.200><c> to</c><00:13:43.360><c> a</c><00:13:43.640><c> Postgres,</c><00:13:44.320><c> MySQL,</c><00:13:45.240><c> and</c>
+
+00:13:45.630 --> 00:13:45.640 align:start position:0%
+we can connect to a Postgres, MySQL, and
+ 
+
+00:13:45.640 --> 00:13:47.430 align:start position:0%
+we can connect to a Postgres, MySQL, and
+any<00:13:45.839><c> DB</c><00:13:46.080><c> which</c><00:13:46.280><c> you</c><00:13:46.440><c> want.</c>
+
+00:13:47.430 --> 00:13:47.440 align:start position:0%
+any DB which you want.
+ 
+
+00:13:47.440 --> 00:13:49.270 align:start position:0%
+any DB which you want.
+But<00:13:47.680><c> this</c><00:13:47.880><c> is</c><00:13:48.160><c> the</c>
+
+00:13:49.270 --> 00:13:49.280 align:start position:0%
+But this is the
+ 
+
+00:13:49.280 --> 00:13:52.630 align:start position:0%
+But this is the
+very<00:13:49.640><c> basic</c><00:13:50.320><c> thing</c><00:13:50.560><c> we</c><00:13:50.680><c> have</c><00:13:50.920><c> to</c><00:13:51.040><c> write.</c>
+
+00:13:52.630 --> 00:13:52.640 align:start position:0%
+very basic thing we have to write.
+ 
+
+00:13:52.640 --> 00:13:54.950 align:start position:0%
+very basic thing we have to write.
+So<00:13:52.839><c> now</c><00:13:53.640><c> what</c><00:13:53.880><c> we</c><00:13:54.000><c> have</c><00:13:54.160><c> done</c><00:13:54.360><c> till</c><00:13:54.520><c> now</c><00:13:54.680><c> is</c><00:13:54.839><c> in</c>
+
+00:13:54.950 --> 00:13:54.960 align:start position:0%
+So now what we have done till now is in
+ 
+
+00:13:54.960 --> 00:13:57.430 align:start position:0%
+So now what we have done till now is in
+the<00:13:55.200><c> outbox</c><00:13:55.640><c> table</c><00:13:55.920><c> we</c><00:13:56.040><c> have</c><00:13:56.240><c> the</c><00:13:56.360><c> data.</c><00:13:57.240><c> Now</c>
+
+00:13:57.430 --> 00:13:57.440 align:start position:0%
+the outbox table we have the data. Now
+ 
+
+00:13:57.440 --> 00:13:59.710 align:start position:0%
+the outbox table we have the data. Now
+we<00:13:57.560><c> have</c><00:13:57.720><c> to</c><00:13:57.839><c> write</c><00:13:58.080><c> the</c><00:13:58.240><c> polar.</c>
+
+00:13:59.710 --> 00:13:59.720 align:start position:0%
+we have to write the polar.
+ 
+
+00:13:59.720 --> 00:14:03.270 align:start position:0%
+we have to write the polar.
+The<00:13:59.880><c> polar</c><00:14:00.320><c> should</c><00:14:00.720><c> poll</c><00:14:01.600><c> the</c><00:14:01.800><c> outbox</c><00:14:02.280><c> table.</c>
+
+00:14:03.270 --> 00:14:03.280 align:start position:0%
+The polar should poll the outbox table.
+ 
+
+00:14:03.280 --> 00:14:05.070 align:start position:0%
+The polar should poll the outbox table.
+So<00:14:03.400><c> very</c><00:14:03.680><c> simple</c><00:14:04.080><c> way</c>
+
+00:14:05.070 --> 00:14:05.080 align:start position:0%
+So very simple way
+ 
+
+00:14:05.080 --> 00:14:06.630 align:start position:0%
+So very simple way
+I<00:14:05.200><c> have</c><00:14:05.400><c> written</c><00:14:05.640><c> one</c><00:14:05.839><c> polar.</c><00:14:06.280><c> You</c><00:14:06.400><c> can</c><00:14:06.560><c> say</c>
+
+00:14:06.630 --> 00:14:06.640 align:start position:0%
+I have written one polar. You can say
+ 
+
+00:14:06.640 --> 00:14:09.390 align:start position:0%
+I have written one polar. You can say
+that<00:14:06.839><c> it</c><00:14:07.000><c> is</c><00:14:07.120><c> just</c><00:14:07.400><c> a</c><00:14:07.480><c> scheduler.</c>
+
+00:14:09.390 --> 00:14:09.400 align:start position:0%
+that it is just a scheduler.
+ 
+
+00:14:09.400 --> 00:14:11.310 align:start position:0%
+that it is just a scheduler.
+Okay?<00:14:09.960><c> I've</c><00:14:10.160><c> also</c><00:14:10.440><c> covered</c><00:14:10.720><c> the</c><00:14:10.800><c> scheduler,</c>
+
+00:14:11.310 --> 00:14:11.320 align:start position:0%
+Okay? I've also covered the scheduler,
+ 
+
+00:14:11.320 --> 00:14:12.990 align:start position:0%
+Okay? I've also covered the scheduler,
+how<00:14:11.560><c> you</c><00:14:11.720><c> can</c><00:14:11.880><c> write</c><00:14:12.120><c> it.</c>
+
+00:14:12.990 --> 00:14:13.000 align:start position:0%
+how you can write it.
+ 
+
+00:14:13.000 --> 00:14:15.710 align:start position:0%
+how you can write it.
+So<00:14:13.360><c> this</c><00:14:13.720><c> is</c><00:14:13.920><c> one</c><00:14:14.160><c> scheduler</c>
+
+00:14:15.710 --> 00:14:15.720 align:start position:0%
+So this is one scheduler
+ 
+
+00:14:15.720 --> 00:14:17.069 align:start position:0%
+So this is one scheduler
+I<00:14:15.800><c> have</c><00:14:15.959><c> annotated</c><00:14:16.480><c> with</c><00:14:16.680><c> at</c><00:14:16.839><c> the</c><00:14:16.920><c> rate</c>
+
+00:14:17.069 --> 00:14:17.079 align:start position:0%
+I have annotated with at the rate
+ 
+
+00:14:17.079 --> 00:14:18.190 align:start position:0%
+I have annotated with at the rate
+schedule.
+
+00:14:18.190 --> 00:14:18.200 align:start position:0%
+schedule.
+ 
+
+00:14:18.200 --> 00:14:21.230 align:start position:0%
+schedule.
+At<00:14:18.400><c> what</c><00:14:18.600><c> time</c><00:14:18.920><c> it</c><00:14:19.079><c> should</c><00:14:19.720><c> it</c><00:14:20.120><c> run</c><00:14:20.360><c> is</c><00:14:20.560><c> that</c><00:14:21.040><c> in</c>
+
+00:14:21.230 --> 00:14:21.240 align:start position:0%
+At what time it should it run is that in
+ 
+
+00:14:21.240 --> 00:14:22.829 align:start position:0%
+At what time it should it run is that in
+this<00:14:21.440><c> one</c><00:14:21.600><c> I'm</c><00:14:21.720><c> controlling.</c><00:14:22.240><c> Every</c><00:14:22.560><c> two</c>
+
+00:14:22.829 --> 00:14:22.839 align:start position:0%
+this one I'm controlling. Every two
+ 
+
+00:14:22.839 --> 00:14:25.230 align:start position:0%
+this one I'm controlling. Every two
+seconds<00:14:23.200><c> this</c><00:14:23.360><c> will</c><00:14:23.560><c> run.</c><00:14:24.280><c> Okay?</c>
+
+00:14:25.230 --> 00:14:25.240 align:start position:0%
+seconds this will run. Okay?
+ 
+
+00:14:25.240 --> 00:14:27.310 align:start position:0%
+seconds this will run. Okay?
+So<00:14:25.320><c> every</c><00:14:25.600><c> two</c><00:14:25.800><c> second</c><00:14:26.079><c> it</c><00:14:26.200><c> will</c><00:14:26.320><c> run.</c><00:14:27.079><c> What</c>
+
+00:14:27.310 --> 00:14:27.320 align:start position:0%
+So every two second it will run. What
+ 
+
+00:14:27.320 --> 00:14:29.949 align:start position:0%
+So every two second it will run. What
+I'm<00:14:27.480><c> doing</c><00:14:27.680><c> is</c><00:14:27.880><c> in</c><00:14:28.000><c> the</c><00:14:28.320><c> outbox</c><00:14:28.839><c> repository,</c><00:14:29.800><c> I</c>
+
+00:14:29.949 --> 00:14:29.959 align:start position:0%
+I'm doing is in the outbox repository, I
+ 
+
+00:14:29.959 --> 00:14:32.350 align:start position:0%
+I'm doing is in the outbox repository, I
+am<00:14:30.200><c> finding</c><00:14:30.600><c> the</c><00:14:30.839><c> unpublished</c><00:14:31.520><c> event</c><00:14:32.120><c> and</c><00:14:32.280><c> the</c>
+
+00:14:32.350 --> 00:14:32.360 align:start position:0%
+am finding the unpublished event and the
+ 
+
+00:14:32.360 --> 00:14:34.790 align:start position:0%
+am finding the unpublished event and the
+best<00:14:32.640><c> size</c><00:14:32.839><c> is</c><00:14:33.079><c> 10.</c><00:14:33.640><c> Here</c><00:14:33.920><c> I</c><00:14:34.000><c> have</c><00:14:34.160><c> defined</c><00:14:34.520><c> it</c>
+
+00:14:34.790 --> 00:14:34.800 align:start position:0%
+best size is 10. Here I have defined it
+ 
+
+00:14:34.800 --> 00:14:36.829 align:start position:0%
+best size is 10. Here I have defined it
+in<00:14:34.920><c> the</c><00:14:35.040><c> application.properties.</c>
+
+00:14:36.829 --> 00:14:36.839 align:start position:0%
+in the application.properties.
+ 
+
+00:14:36.839 --> 00:14:39.470 align:start position:0%
+in the application.properties.
+So<00:14:37.079><c> outbox</c><00:14:37.640><c> prop-</c><00:14:38.040><c> in</c><00:14:38.200><c> the</c><00:14:38.400><c> outbox</c><00:14:38.839><c> repository</c>
+
+00:14:39.470 --> 00:14:39.480 align:start position:0%
+So outbox prop- in the outbox repository
+ 
+
+00:14:39.480 --> 00:14:41.270 align:start position:0%
+So outbox prop- in the outbox repository
+I<00:14:39.600><c> have</c>
+
+00:14:41.270 --> 00:14:41.280 align:start position:0%
+I have
+ 
+
+00:14:41.280 --> 00:14:42.710 align:start position:0%
+I have
+this<00:14:41.560><c> method.</c>
+
+00:14:42.710 --> 00:14:42.720 align:start position:0%
+this method.
+ 
+
+00:14:42.720 --> 00:14:45.430 align:start position:0%
+this method.
+Select<00:14:43.120><c> asterisk</c><00:14:43.560><c> from</c><00:14:43.800><c> outbox</c><00:14:44.400><c> event</c><00:14:44.800><c> table,</c>
+
+00:14:45.430 --> 00:14:45.440 align:start position:0%
+Select asterisk from outbox event table,
+ 
+
+00:14:45.440 --> 00:14:47.590 align:start position:0%
+Select asterisk from outbox event table,
+okay,<00:14:45.680><c> outbox</c><00:14:46.079><c> event</c><00:14:46.320><c> in</c><00:14:46.440><c> the</c><00:14:46.600><c> entity,</c><00:14:47.360><c> this</c>
+
+00:14:47.590 --> 00:14:47.600 align:start position:0%
+okay, outbox event in the entity, this
+ 
+
+00:14:47.600 --> 00:14:50.230 align:start position:0%
+okay, outbox event in the entity, this
+is<00:14:47.760><c> the</c><00:14:48.240><c> table</c><00:14:48.520><c> name.</c>
+
+00:14:50.230 --> 00:14:50.240 align:start position:0%
+is the table name.
+ 
+
+00:14:50.240 --> 00:14:52.829 align:start position:0%
+is the table name.
+Where<00:14:50.720><c> published</c><00:14:51.320><c> equals</c><00:14:51.720><c> to</c><00:14:51.839><c> false</c><00:14:52.440><c> means</c><00:14:52.680><c> it</c>
+
+00:14:52.829 --> 00:14:52.839 align:start position:0%
+Where published equals to false means it
+ 
+
+00:14:52.839 --> 00:14:56.510 align:start position:0%
+Where published equals to false means it
+is<00:14:53.000><c> not</c><00:14:53.560><c> yet</c><00:14:53.880><c> published.</c><00:14:55.079><c> And</c><00:14:55.600><c> order</c><00:14:56.000><c> by</c>
+
+00:14:56.510 --> 00:14:56.520 align:start position:0%
+is not yet published. And order by
+ 
+
+00:14:56.520 --> 00:14:59.590 align:start position:0%
+is not yet published. And order by
+created<00:14:56.959><c> at</c><00:14:57.240><c> so</c><00:14:57.440><c> that</c><00:14:57.760><c> order</c><00:14:58.040><c> is</c><00:14:58.240><c> maintained.</c>
+
+00:14:59.590 --> 00:14:59.600 align:start position:0%
+created at so that order is maintained.
+ 
+
+00:14:59.600 --> 00:15:01.350 align:start position:0%
+created at so that order is maintained.
+Limit<00:15:00.000><c> batch</c><00:15:00.240><c> size.</c>
+
+00:15:01.350 --> 00:15:01.360 align:start position:0%
+Limit batch size.
+ 
+
+00:15:01.360 --> 00:15:04.069 align:start position:0%
+Limit batch size.
+So<00:15:01.560><c> I</c><00:15:01.680><c> am</c><00:15:01.920><c> getting</c><00:15:02.320><c> 10</c><00:15:02.600><c> record</c><00:15:03.040><c> at</c><00:15:03.200><c> a</c><00:15:03.280><c> time</c>
+
+00:15:04.069 --> 00:15:04.079 align:start position:0%
+So I am getting 10 record at a time
+ 
+
+00:15:04.079 --> 00:15:07.550 align:start position:0%
+So I am getting 10 record at a time
+ordered<00:15:04.560><c> by</c><00:15:05.040><c> created</c><00:15:05.480><c> at.</c><00:15:06.200><c> Okay?</c><00:15:07.040><c> If</c><00:15:07.200><c> there</c><00:15:07.400><c> is</c>
+
+00:15:07.550 --> 00:15:07.560 align:start position:0%
+ordered by created at. Okay? If there is
+ 
+
+00:15:07.560 --> 00:15:10.030 align:start position:0%
+ordered by created at. Okay? If there is
+none,<00:15:08.280><c> return</c><00:15:08.640><c> it.</c>
+
+00:15:10.030 --> 00:15:10.040 align:start position:0%
+none, return it.
+ 
+
+00:15:10.040 --> 00:15:13.470 align:start position:0%
+none, return it.
+But<00:15:10.240><c> once</c><00:15:10.480><c> you</c><00:15:10.600><c> get</c><00:15:10.880><c> it,</c><00:15:11.560><c> we</c><00:15:11.800><c> have</c><00:15:12.160><c> to</c>
+
+00:15:13.470 --> 00:15:13.480 align:start position:0%
+But once you get it, we have to
+ 
+
+00:15:13.480 --> 00:15:15.390 align:start position:0%
+But once you get it, we have to
+publish<00:15:13.920><c> it.</c><00:15:14.440><c> Okay?</c><00:15:14.680><c> So</c><00:15:14.800><c> that's</c><00:15:15.040><c> what</c><00:15:15.200><c> I'm</c>
+
+00:15:15.390 --> 00:15:15.400 align:start position:0%
+publish it. Okay? So that's what I'm
+ 
+
+00:15:15.400 --> 00:15:17.790 align:start position:0%
+publish it. Okay? So that's what I'm
+just<00:15:15.640><c> doing</c><00:15:15.880><c> Kafka</c><00:15:16.280><c> template.send.</c>
+
+00:15:17.790 --> 00:15:17.800 align:start position:0%
+just doing Kafka template.send.
+ 
+
+00:15:17.800 --> 00:15:19.550 align:start position:0%
+just doing Kafka template.send.
+You<00:15:17.959><c> have</c><00:15:18.160><c> a</c><00:15:18.240><c> topic,</c>
+
+00:15:19.550 --> 00:15:19.560 align:start position:0%
+You have a topic,
+ 
+
+00:15:19.560 --> 00:15:22.350 align:start position:0%
+You have a topic,
+aggregate<00:15:20.040><c> ID</c><00:15:20.320><c> key,</c><00:15:21.240><c> payload.</c>
+
+00:15:22.350 --> 00:15:22.360 align:start position:0%
+aggregate ID key, payload.
+ 
+
+00:15:22.360 --> 00:15:24.590 align:start position:0%
+aggregate ID key, payload.
+Okay?<00:15:22.920><c> Once</c><00:15:23.320><c> you</c><00:15:23.440><c> have</c><00:15:23.680><c> able</c><00:15:24.040><c> to</c><00:15:24.160><c> publish</c><00:15:24.520><c> to</c>
+
+00:15:24.590 --> 00:15:24.600 align:start position:0%
+Okay? Once you have able to publish to
+ 
+
+00:15:24.600 --> 00:15:26.590 align:start position:0%
+Okay? Once you have able to publish to
+the<00:15:24.680><c> Kafka,</c><00:15:25.240><c> set</c><00:15:25.560><c> published</c><00:15:25.959><c> to</c><00:15:26.079><c> true</c><00:15:26.400><c> that</c>
+
+00:15:26.590 --> 00:15:26.600 align:start position:0%
+the Kafka, set published to true that
+ 
+
+00:15:26.600 --> 00:15:28.390 align:start position:0%
+the Kafka, set published to true that
+yes,<00:15:26.880><c> now</c><00:15:27.120><c> you</c><00:15:27.200><c> are</c><00:15:27.320><c> published</c><00:15:27.760><c> so</c><00:15:27.920><c> that</c><00:15:28.120><c> next</c>
+
+00:15:28.390 --> 00:15:28.400 align:start position:0%
+yes, now you are published so that next
+ 
+
+00:15:28.400 --> 00:15:30.590 align:start position:0%
+yes, now you are published so that next
+run<00:15:29.000><c> this</c><00:15:29.360><c> same</c><00:15:29.720><c> record</c><00:15:30.079><c> should</c><00:15:30.280><c> not</c><00:15:30.480><c> be</c>
+
+00:15:30.590 --> 00:15:30.600 align:start position:0%
+run this same record should not be
+ 
+
+00:15:30.600 --> 00:15:31.630 align:start position:0%
+run this same record should not be
+picked.
+
+00:15:31.630 --> 00:15:31.640 align:start position:0%
+picked.
+ 
+
+00:15:31.640 --> 00:15:34.670 align:start position:0%
+picked.
+And<00:15:31.839><c> when</c><00:15:32.040><c> you</c><00:15:32.160><c> published</c><00:15:32.600><c> at</c><00:15:32.800><c> is</c><00:15:33.440><c> time,</c>
+
+00:15:34.670 --> 00:15:34.680 align:start position:0%
+And when you published at is time,
+ 
+
+00:15:34.680 --> 00:15:37.310 align:start position:0%
+And when you published at is time,
+just<00:15:35.000><c> save</c><00:15:35.240><c> it.</c><00:15:35.600><c> Outbox</c><00:15:36.000><c> repository.save</c>
+
+00:15:37.310 --> 00:15:37.320 align:start position:0%
+just save it. Outbox repository.save
+ 
+
+00:15:37.320 --> 00:15:39.110 align:start position:0%
+just save it. Outbox repository.save
+this<00:15:37.560><c> event.</c>
+
+00:15:39.110 --> 00:15:39.120 align:start position:0%
+this event.
+ 
+
+00:15:39.120 --> 00:15:41.150 align:start position:0%
+this event.
+In<00:15:39.320><c> catch,</c><00:15:39.839><c> why</c><00:15:40.040><c> I'm</c><00:15:40.240><c> breaking</c><00:15:40.640><c> is</c><00:15:40.839><c> let's</c><00:15:41.040><c> say</c>
+
+00:15:41.150 --> 00:15:41.160 align:start position:0%
+In catch, why I'm breaking is let's say
+ 
+
+00:15:41.160 --> 00:15:42.670 align:start position:0%
+In catch, why I'm breaking is let's say
+I<00:15:41.280><c> need</c><00:15:41.520><c> to</c><00:15:41.640><c> follow</c><00:15:41.880><c> an</c><00:15:42.000><c> order.</c><00:15:42.320><c> Let's</c><00:15:42.520><c> say</c>
+
+00:15:42.670 --> 00:15:42.680 align:start position:0%
+I need to follow an order. Let's say
+ 
+
+00:15:42.680 --> 00:15:45.270 align:start position:0%
+I need to follow an order. Let's say
+three<00:15:43.040><c> events</c><00:15:43.600><c> for</c><00:15:43.839><c> this</c><00:15:44.040><c> key.</c>
+
+00:15:45.270 --> 00:15:45.280 align:start position:0%
+three events for this key.
+ 
+
+00:15:45.280 --> 00:15:48.430 align:start position:0%
+three events for this key.
+Now<00:15:45.520><c> if</c><00:15:46.000><c> one</c><00:15:46.280><c> event</c><00:15:46.560><c> got</c><00:15:46.839><c> failed,</c><00:15:47.839><c> so</c><00:15:47.959><c> it</c><00:15:48.120><c> goes</c>
+
+00:15:48.430 --> 00:15:48.440 align:start position:0%
+Now if one event got failed, so it goes
+ 
+
+00:15:48.440 --> 00:15:50.030 align:start position:0%
+Now if one event got failed, so it goes
+to<00:15:48.520><c> the</c><00:15:48.640><c> catch.</c>
+
+00:15:50.030 --> 00:15:50.040 align:start position:0%
+to the catch.
+ 
+
+00:15:50.040 --> 00:15:52.350 align:start position:0%
+to the catch.
+If<00:15:50.400><c> I</c><00:15:50.520><c> do</c><00:15:50.720><c> not</c><00:15:51.000><c> break</c><00:15:51.280><c> it,</c><00:15:51.560><c> it</c><00:15:51.680><c> will</c><00:15:51.839><c> proceed</c>
+
+00:15:52.350 --> 00:15:52.360 align:start position:0%
+If I do not break it, it will proceed
+ 
+
+00:15:52.360 --> 00:15:54.270 align:start position:0%
+If I do not break it, it will proceed
+two<00:15:52.480><c> and</c><00:15:52.640><c> three.</c><00:15:52.880><c> Then</c><00:15:53.079><c> the</c><00:15:53.240><c> order</c><00:15:53.560><c> will</c>
+
+00:15:54.270 --> 00:15:54.280 align:start position:0%
+two and three. Then the order will
+ 
+
+00:15:54.280 --> 00:15:57.430 align:start position:0%
+two and three. Then the order will
+break.<00:15:55.079><c> So</c><00:15:55.560><c> if</c><00:15:55.800><c> one</c><00:15:56.240><c> fail,</c><00:15:56.880><c> then</c><00:15:57.120><c> you</c><00:15:57.280><c> should</c>
+
+00:15:57.430 --> 00:15:57.440 align:start position:0%
+break. So if one fail, then you should
+ 
+
+00:15:57.440 --> 00:15:59.110 align:start position:0%
+break. So if one fail, then you should
+not<00:15:57.640><c> proceed</c><00:15:57.959><c> with</c><00:15:58.120><c> two</c><00:15:58.280><c> and</c><00:15:58.440><c> three.</c><00:15:58.920><c> That's</c>
+
+00:15:59.110 --> 00:15:59.120 align:start position:0%
+not proceed with two and three. That's
+ 
+
+00:15:59.120 --> 00:16:00.990 align:start position:0%
+not proceed with two and three. That's
+why<00:15:59.240><c> I</c><00:15:59.280><c> have</c><00:15:59.520><c> put</c><00:15:59.839><c> break.</c>
+
+00:16:00.990 --> 00:16:01.000 align:start position:0%
+why I have put break.
+ 
+
+00:16:01.000 --> 00:16:02.630 align:start position:0%
+why I have put break.
+So<00:16:01.160><c> you</c><00:16:01.280><c> can</c><00:16:01.440><c> say</c><00:16:01.520><c> that</c><00:16:01.720><c> this</c><00:16:01.920><c> is</c><00:16:02.079><c> just</c><00:16:02.360><c> a</c><00:16:02.400><c> one</c>
+
+00:16:02.630 --> 00:16:02.640 align:start position:0%
+So you can say that this is just a one
+ 
+
+00:16:02.640 --> 00:16:04.150 align:start position:0%
+So you can say that this is just a one
+basic<00:16:03.079><c> polar.</c>
+
+00:16:04.150 --> 00:16:04.160 align:start position:0%
+basic polar.
+ 
+
+00:16:04.160 --> 00:16:07.270 align:start position:0%
+basic polar.
+And<00:16:04.360><c> it's</c><00:16:04.560><c> very</c><00:16:04.839><c> simple</c><00:16:05.280><c> to</c><00:16:05.440><c> write</c><00:16:05.680><c> it.</c>
+
+00:16:07.270 --> 00:16:07.280 align:start position:0%
+And it's very simple to write it.
+ 
+
+00:16:07.280 --> 00:16:10.350 align:start position:0%
+And it's very simple to write it.
+So<00:16:07.400><c> you</c><00:16:07.520><c> understood</c><00:16:08.280><c> the</c><00:16:08.440><c> polling</c><00:16:08.880><c> technique?</c>
+
+00:16:10.350 --> 00:16:10.360 align:start position:0%
+So you understood the polling technique?
+ 
+
+00:16:10.360 --> 00:16:13.270 align:start position:0%
+So you understood the polling technique?
+But<00:16:10.640><c> this</c><00:16:10.880><c> polling</c><00:16:11.400><c> has</c><00:16:12.640><c> so</c><00:16:12.959><c> many</c>
+
+00:16:13.270 --> 00:16:13.280 align:start position:0%
+But this polling has so many
+ 
+
+00:16:13.280 --> 00:16:14.870 align:start position:0%
+But this polling has so many
+disadvantages
+
+00:16:14.870 --> 00:16:14.880 align:start position:0%
+disadvantages
+ 
+
+00:16:14.880 --> 00:16:16.710 align:start position:0%
+disadvantages
+and<00:16:15.079><c> that's</c><00:16:15.360><c> where</c><00:16:15.800><c> interview</c><00:16:16.160><c> will</c><00:16:16.320><c> say</c><00:16:16.480><c> that</c>
+
+00:16:16.710 --> 00:16:16.720 align:start position:0%
+and that's where interview will say that
+ 
+
+00:16:16.720 --> 00:16:18.150 align:start position:0%
+and that's where interview will say that
+okay,
+
+00:16:18.150 --> 00:16:18.160 align:start position:0%
+okay,
+ 
+
+00:16:18.160 --> 00:16:20.230 align:start position:0%
+okay,
+why<00:16:18.600><c> s-</c><00:16:19.000><c> do</c><00:16:19.120><c> you</c><00:16:19.240><c> have</c><00:16:19.400><c> something</c><00:16:19.720><c> better</c><00:16:20.040><c> than</c>
+
+00:16:20.230 --> 00:16:20.240 align:start position:0%
+why s- do you have something better than
+ 
+
+00:16:20.240 --> 00:16:21.190 align:start position:0%
+why s- do you have something better than
+polling?
+
+00:16:21.190 --> 00:16:21.200 align:start position:0%
+polling?
+ 
+
+00:16:21.200 --> 00:16:22.990 align:start position:0%
+polling?
+But<00:16:21.360><c> first</c><00:16:21.640><c> we</c><00:16:22.200><c> need</c><00:16:22.440><c> to</c><00:16:22.520><c> understand</c><00:16:22.880><c> the</c>
+
+00:16:22.990 --> 00:16:23.000 align:start position:0%
+But first we need to understand the
+ 
+
+00:16:23.000 --> 00:16:24.670 align:start position:0%
+But first we need to understand the
+disadvantage<00:16:23.600><c> of</c><00:16:23.720><c> polling.</c><00:16:24.040><c> Disadvantage</c><00:16:24.600><c> of</c>
+
+00:16:24.670 --> 00:16:24.680 align:start position:0%
+disadvantage of polling. Disadvantage of
+ 
+
+00:16:24.680 --> 00:16:25.750 align:start position:0%
+disadvantage of polling. Disadvantage of
+polling<00:16:25.000><c> is</c>
+
+00:16:25.750 --> 00:16:25.760 align:start position:0%
+polling is
+ 
+
+00:16:25.760 --> 00:16:28.470 align:start position:0%
+polling is
+multi-instance<00:16:26.880><c> handling.</c>
+
+00:16:28.470 --> 00:16:28.480 align:start position:0%
+multi-instance handling.
+ 
+
+00:16:28.480 --> 00:16:31.350 align:start position:0%
+multi-instance handling.
+So<00:16:28.600><c> let's</c><00:16:28.800><c> say</c><00:16:28.920><c> you</c><00:16:29.079><c> have</c><00:16:29.839><c> three</c><00:16:30.120><c> application,</c>
+
+00:16:31.350 --> 00:16:31.360 align:start position:0%
+So let's say you have three application,
+ 
+
+00:16:31.360 --> 00:16:33.230 align:start position:0%
+So let's say you have three application,
+three<00:16:31.520><c> instances,</c><00:16:32.200><c> instance</c><00:16:32.640><c> one,</c><00:16:32.839><c> instance</c>
+
+00:16:33.230 --> 00:16:33.240 align:start position:0%
+three instances, instance one, instance
+ 
+
+00:16:33.240 --> 00:16:35.110 align:start position:0%
+three instances, instance one, instance
+two,<00:16:33.360><c> instance</c><00:16:33.760><c> three.</c><00:16:34.280><c> So</c><00:16:34.440><c> means</c><00:16:34.760><c> three</c>
+
+00:16:35.110 --> 00:16:35.120 align:start position:0%
+two, instance three. So means three
+ 
+
+00:16:35.120 --> 00:16:37.550 align:start position:0%
+two, instance three. So means three
+polar.<00:16:35.640><c> So</c><00:16:35.800><c> this</c><00:16:36.000><c> is</c><00:16:36.160><c> your</c><00:16:36.360><c> polar</c><00:16:36.680><c> one,</c><00:16:37.120><c> polar</c>
+
+00:16:37.550 --> 00:16:37.560 align:start position:0%
+polar. So this is your polar one, polar
+ 
+
+00:16:37.560 --> 00:16:40.430 align:start position:0%
+polar. So this is your polar one, polar
+two,<00:16:38.560><c> polar</c><00:16:38.880><c> three.</c><00:16:39.560><c> All</c><00:16:39.800><c> three</c><00:16:40.000><c> will</c><00:16:40.160><c> run</c>
+
+00:16:40.430 --> 00:16:40.440 align:start position:0%
+two, polar three. All three will run
+ 
+
+00:16:40.440 --> 00:16:41.470 align:start position:0%
+two, polar three. All three will run
+together.
+
+00:16:41.470 --> 00:16:41.480 align:start position:0%
+together.
+ 
+
+00:16:41.480 --> 00:16:44.710 align:start position:0%
+together.
+So<00:16:41.600><c> you</c><00:16:41.800><c> need</c><00:16:42.160><c> to</c><00:16:42.280><c> maintain</c><00:16:42.920><c> that</c><00:16:43.520><c> okay,</c><00:16:44.480><c> they</c>
+
+00:16:44.710 --> 00:16:44.720 align:start position:0%
+So you need to maintain that okay, they
+ 
+
+00:16:44.720 --> 00:16:47.190 align:start position:0%
+So you need to maintain that okay, they
+should<00:16:44.959><c> not</c><00:16:45.480><c> pick</c><00:16:45.720><c> the</c><00:16:45.839><c> same</c><00:16:46.280><c> row.</c>
+
+00:16:47.190 --> 00:16:47.200 align:start position:0%
+should not pick the same row.
+ 
+
+00:16:47.200 --> 00:16:49.470 align:start position:0%
+should not pick the same row.
+Okay?<00:16:47.839><c> And</c><00:16:48.360><c> if</c><00:16:48.560><c> they</c><00:16:48.720><c> pick</c><00:16:49.200><c> different</c>
+
+00:16:49.470 --> 00:16:49.480 align:start position:0%
+Okay? And if they pick different
+ 
+
+00:16:49.480 --> 00:16:51.470 align:start position:0%
+Okay? And if they pick different
+different<00:16:49.800><c> rows,</c><00:16:50.160><c> then</c><00:16:50.520><c> they</c><00:16:50.720><c> should</c><00:16:51.079><c> not</c>
+
+00:16:51.470 --> 00:16:51.480 align:start position:0%
+different rows, then they should not
+ 
+
+00:16:51.480 --> 00:16:53.949 align:start position:0%
+different rows, then they should not
+break<00:16:51.800><c> the</c><00:16:52.000><c> order.</c><00:16:52.520><c> Let's</c><00:16:52.760><c> say</c><00:16:52.959><c> order</c>
+
+00:16:53.949 --> 00:16:53.959 align:start position:0%
+break the order. Let's say order
+ 
+
+00:16:53.959 --> 00:16:56.949 align:start position:0%
+break the order. Let's say order
+all<00:16:54.240><c> belongs</c><00:16:54.600><c> to</c><00:16:54.720><c> one</c><00:16:55.000><c> key,</c><00:16:55.680><c> one,</c><00:16:56.040><c> two,</c><00:16:56.680><c> and</c>
+
+00:16:56.949 --> 00:16:56.959 align:start position:0%
+all belongs to one key, one, two, and
+ 
+
+00:16:56.959 --> 00:16:59.230 align:start position:0%
+all belongs to one key, one, two, and
+key<00:16:57.240><c> one</c><00:16:57.480><c> here</c><00:16:57.760><c> three.</c><00:16:58.600><c> This</c><00:16:58.760><c> can</c><00:16:58.959><c> break</c><00:16:59.160><c> the</c>
+
+00:16:59.230 --> 00:16:59.240 align:start position:0%
+key one here three. This can break the
+ 
+
+00:16:59.240 --> 00:17:00.110 align:start position:0%
+key one here three. This can break the
+order.
+
+00:17:00.110 --> 00:17:00.120 align:start position:0%
+order.
+ 
+
+00:17:00.120 --> 00:17:02.350 align:start position:0%
+order.
+So<00:17:00.360><c> if</c><00:17:00.480><c> it</c><00:17:00.600><c> pub-</c><00:17:01.320><c> process</c><00:17:01.760><c> three,</c><00:17:02.000><c> one,</c><00:17:02.200><c> and</c>
+
+00:17:02.350 --> 00:17:02.360 align:start position:0%
+So if it pub- process three, one, and
+ 
+
+00:17:02.360 --> 00:17:04.829 align:start position:0%
+So if it pub- process three, one, and
+then<00:17:02.920><c> one</c><00:17:03.120><c> and</c><00:17:03.240><c> two</c><00:17:03.360><c> later.</c>
+
+00:17:04.829 --> 00:17:04.839 align:start position:0%
+then one and two later.
+ 
+
+00:17:04.839 --> 00:17:07.069 align:start position:0%
+then one and two later.
+So<00:17:04.920><c> there</c><00:17:05.120><c> are</c><00:17:05.199><c> many</c><00:17:05.439><c> problems</c><00:17:05.920><c> comes.</c><00:17:06.600><c> So</c><00:17:06.880><c> we</c>
+
+00:17:07.069 --> 00:17:07.079 align:start position:0%
+So there are many problems comes. So we
+ 
+
+00:17:07.079 --> 00:17:09.510 align:start position:0%
+So there are many problems comes. So we
+have<00:17:07.520><c> to</c><00:17:07.959><c> have</c><00:17:08.400><c> like</c><00:17:08.640><c> shed</c><00:17:08.880><c> lock</c><00:17:09.160><c> technique</c>
+
+00:17:09.510 --> 00:17:09.520 align:start position:0%
+have to have like shed lock technique
+ 
+
+00:17:09.520 --> 00:17:11.949 align:start position:0%
+have to have like shed lock technique
+like<00:17:09.720><c> concept</c><00:17:10.240><c> we</c><00:17:10.360><c> have</c><00:17:10.520><c> to</c><00:17:10.640><c> build</c><00:17:10.920><c> out.</c><00:17:11.480><c> So</c><00:17:11.760><c> we</c>
+
+00:17:11.949 --> 00:17:11.959 align:start position:0%
+like concept we have to build out. So we
+ 
+
+00:17:11.959 --> 00:17:13.669 align:start position:0%
+like concept we have to build out. So we
+have<00:17:12.160><c> to</c><00:17:12.280><c> handle</c><00:17:12.600><c> the</c><00:17:12.720><c> multi-instance</c>
+
+00:17:13.669 --> 00:17:13.679 align:start position:0%
+have to handle the multi-instance
+ 
+
+00:17:13.679 --> 00:17:14.870 align:start position:0%
+have to handle the multi-instance
+handling.
+
+00:17:14.870 --> 00:17:14.880 align:start position:0%
+handling.
+ 
+
+00:17:14.880 --> 00:17:16.910 align:start position:0%
+handling.
+Then<00:17:15.120><c> a</c><00:17:15.199><c> polling</c><00:17:15.560><c> gap.</c><00:17:15.880><c> Like</c><00:17:16.199><c> here</c><00:17:16.640><c> I</c><00:17:16.720><c> am</c>
+
+00:17:16.910 --> 00:17:16.920 align:start position:0%
+Then a polling gap. Like here I am
+ 
+
+00:17:16.920 --> 00:17:18.550 align:start position:0%
+Then a polling gap. Like here I am
+running<00:17:17.199><c> the</c><00:17:17.320><c> scheduler</c><00:17:17.800><c> every</c><00:17:18.079><c> two</c><00:17:18.280><c> second</c>
+
+00:17:18.550 --> 00:17:18.560 align:start position:0%
+running the scheduler every two second
+ 
+
+00:17:18.560 --> 00:17:21.189 align:start position:0%
+running the scheduler every two second
+delay.<00:17:19.360><c> So</c><00:17:19.560><c> even</c><00:17:19.839><c> though</c><00:17:20.360><c> event</c><00:17:20.720><c> is</c><00:17:20.839><c> created</c>
+
+00:17:21.189 --> 00:17:21.199 align:start position:0%
+delay. So even though event is created
+ 
+
+00:17:21.199 --> 00:17:24.110 align:start position:0%
+delay. So even though event is created
+at<00:17:21.360><c> 10,</c><00:17:22.079><c> the</c><00:17:22.199><c> next</c><00:17:22.520><c> poll</c><00:17:22.720><c> will</c><00:17:22.920><c> run</c><00:17:23.120><c> at</c><00:17:23.400><c> 10:02</c>
+
+00:17:24.110 --> 00:17:24.120 align:start position:0%
+at 10, the next poll will run at 10:02
+ 
+
+00:17:24.120 --> 00:17:26.350 align:start position:0%
+at 10, the next poll will run at 10:02
+itself.<00:17:24.800><c> So</c><00:17:25.000><c> there</c><00:17:25.199><c> is</c><00:17:25.320><c> always</c><00:17:25.640><c> a</c><00:17:25.720><c> delay</c>
+
+00:17:26.350 --> 00:17:26.360 align:start position:0%
+itself. So there is always a delay
+ 
+
+00:17:26.360 --> 00:17:28.390 align:start position:0%
+itself. So there is always a delay
+depending<00:17:26.800><c> upon</c><00:17:27.160><c> your</c>
+
+00:17:28.390 --> 00:17:28.400 align:start position:0%
+depending upon your
+ 
+
+00:17:28.400 --> 00:17:30.350 align:start position:0%
+depending upon your
+what<00:17:28.800><c> time</c><00:17:29.120><c> you</c><00:17:29.240><c> are</c><00:17:29.400><c> polling.</c>
+
+00:17:30.350 --> 00:17:30.360 align:start position:0%
+what time you are polling.
+ 
+
+00:17:30.360 --> 00:17:31.310 align:start position:0%
+what time you are polling.
+Okay?
+
+00:17:31.310 --> 00:17:31.320 align:start position:0%
+Okay?
+ 
+
+00:17:31.320 --> 00:17:32.710 align:start position:0%
+Okay?
+Interval.
+
+00:17:32.710 --> 00:17:32.720 align:start position:0%
+Interval.
+ 
+
+00:17:32.720 --> 00:17:34.950 align:start position:0%
+Interval.
+Constant<00:17:33.200><c> DB</c><00:17:33.440><c> load.</c><00:17:33.720><c> Now</c><00:17:33.920><c> let's</c><00:17:34.160><c> say</c><00:17:34.280><c> that</c>
+
+00:17:34.950 --> 00:17:34.960 align:start position:0%
+Constant DB load. Now let's say that
+ 
+
+00:17:34.960 --> 00:17:36.790 align:start position:0%
+Constant DB load. Now let's say that
+there<00:17:35.160><c> is</c><00:17:35.280><c> no</c><00:17:35.520><c> event</c><00:17:35.880><c> at</c><00:17:36.040><c> all,</c><00:17:36.280><c> but</c><00:17:36.520><c> you</c><00:17:36.640><c> have</c>
+
+00:17:36.790 --> 00:17:36.800 align:start position:0%
+there is no event at all, but you have
+ 
+
+00:17:36.800 --> 00:17:39.590 align:start position:0%
+there is no event at all, but you have
+to<00:17:36.920><c> continuously</c><00:17:37.720><c> poll</c><00:17:38.360><c> your</c><00:17:38.600><c> DB.</c>
+
+00:17:39.590 --> 00:17:39.600 align:start position:0%
+to continuously poll your DB.
+ 
+
+00:17:39.600 --> 00:17:41.870 align:start position:0%
+to continuously poll your DB.
+Okay?<00:17:40.240><c> So</c><00:17:40.400><c> means</c><00:17:40.800><c> you're</c>
+
+00:17:41.870 --> 00:17:41.880 align:start position:0%
+Okay? So means you're
+ 
+
+00:17:41.880 --> 00:17:44.110 align:start position:0%
+Okay? So means you're
+consistently<00:17:42.880><c> putting</c><00:17:43.200><c> a</c><00:17:43.240><c> load</c><00:17:43.600><c> on</c><00:17:43.720><c> your</c><00:17:43.840><c> DB.</c>
+
+00:17:44.110 --> 00:17:44.120 align:start position:0%
+consistently putting a load on your DB.
+ 
+
+00:17:44.120 --> 00:17:46.070 align:start position:0%
+consistently putting a load on your DB.
+Is<00:17:44.480><c> there</c><00:17:44.760><c> any</c><00:17:44.960><c> event?</c><00:17:45.240><c> Is</c><00:17:45.400><c> there</c><00:17:45.560><c> any</c><00:17:45.760><c> event?</c>
+
+00:17:46.070 --> 00:17:46.080 align:start position:0%
+Is there any event? Is there any event?
+ 
+
+00:17:46.080 --> 00:17:47.870 align:start position:0%
+Is there any event? Is there any event?
+Is<00:17:46.200><c> there</c><00:17:46.360><c> any</c><00:17:46.560><c> event?</c><00:17:47.080><c> Even</c><00:17:47.360><c> though</c><00:17:47.480><c> there</c><00:17:47.679><c> is</c>
+
+00:17:47.870 --> 00:17:47.880 align:start position:0%
+Is there any event? Even though there is
+ 
+
+00:17:47.880 --> 00:17:49.950 align:start position:0%
+Is there any event? Even though there is
+no<00:17:48.040><c> event</c><00:17:48.320><c> at</c><00:17:48.480><c> all.</c>
+
+00:17:49.950 --> 00:17:49.960 align:start position:0%
+no event at all.
+ 
+
+00:17:49.960 --> 00:17:51.430 align:start position:0%
+no event at all.
+You<00:17:50.120><c> have</c><00:17:50.320><c> also</c><00:17:50.600><c> need</c><00:17:50.840><c> to</c><00:17:50.960><c> take</c><00:17:51.120><c> care</c><00:17:51.280><c> of</c><00:17:51.320><c> the</c>
+
+00:17:51.430 --> 00:17:51.440 align:start position:0%
+You have also need to take care of the
+ 
+
+00:17:51.440 --> 00:17:53.150 align:start position:0%
+You have also need to take care of the
+DB<00:17:51.800><c> clean</c><00:17:52.080><c> up.</c><00:17:52.600><c> So</c><00:17:52.720><c> since</c><00:17:53.000><c> you</c><00:17:53.040><c> are</c>
+
+00:17:53.150 --> 00:17:53.160 align:start position:0%
+DB clean up. So since you are
+ 
+
+00:17:53.160 --> 00:17:56.230 align:start position:0%
+DB clean up. So since you are
+maintaining<00:17:53.640><c> a</c><00:17:53.720><c> table,</c><00:17:54.120><c> outbox</c><00:17:54.600><c> event</c><00:17:54.840><c> table,</c>
+
+00:17:56.230 --> 00:17:56.240 align:start position:0%
+maintaining a table, outbox event table,
+ 
+
+00:17:56.240 --> 00:17:58.390 align:start position:0%
+maintaining a table, outbox event table,
+it<00:17:56.440><c> need</c><00:17:56.600><c> to</c><00:17:56.679><c> be</c><00:17:56.800><c> clean</c><00:17:57.040><c> up</c><00:17:57.200><c> regularly</c><00:17:58.000><c> as</c><00:17:58.200><c> its</c>
+
+00:17:58.390 --> 00:17:58.400 align:start position:0%
+it need to be clean up regularly as its
+ 
+
+00:17:58.400 --> 00:18:00.669 align:start position:0%
+it need to be clean up regularly as its
+size<00:17:58.679><c> will</c><00:17:58.840><c> grow</c><00:17:59.080><c> rapidly.</c>
+
+00:18:00.669 --> 00:18:00.679 align:start position:0%
+size will grow rapidly.
+ 
+
+00:18:00.679 --> 00:18:02.350 align:start position:0%
+size will grow rapidly.
+Duplicate<00:18:01.280><c> processing.</c>
+
+00:18:02.350 --> 00:18:02.360 align:start position:0%
+Duplicate processing.
+ 
+
+00:18:02.360 --> 00:18:04.870 align:start position:0%
+Duplicate processing.
+What<00:18:02.679><c> happened</c><00:18:03.040><c> is</c><00:18:03.240><c> sometime</c><00:18:03.840><c> let's</c><00:18:04.080><c> say</c><00:18:04.679><c> you</c>
+
+00:18:04.870 --> 00:18:04.880 align:start position:0%
+What happened is sometime let's say you
+ 
+
+00:18:04.880 --> 00:18:07.669 align:start position:0%
+What happened is sometime let's say you
+have<00:18:05.320><c> a</c><00:18:05.800><c> you</c><00:18:05.960><c> have</c><00:18:06.160><c> read</c><00:18:06.400><c> one</c><00:18:06.600><c> row,</c><00:18:07.400><c> you</c><00:18:07.520><c> have</c>
+
+00:18:07.669 --> 00:18:07.679 align:start position:0%
+have a you have read one row, you have
+ 
+
+00:18:07.679 --> 00:18:09.310 align:start position:0%
+have a you have read one row, you have
+published<00:18:08.080><c> also,</c>
+
+00:18:09.310 --> 00:18:09.320 align:start position:0%
+published also,
+ 
+
+00:18:09.320 --> 00:18:12.310 align:start position:0%
+published also,
+but<00:18:09.520><c> you</c><00:18:09.840><c> failed</c><00:18:10.320><c> to</c><00:18:10.480><c> update</c><00:18:10.960><c> to</c><00:18:11.120><c> published</c>
+
+00:18:12.310 --> 00:18:12.320 align:start position:0%
+but you failed to update to published
+ 
+
+00:18:12.320 --> 00:18:15.110 align:start position:0%
+but you failed to update to published
+published<00:18:12.800><c> to</c><00:18:12.960><c> true.</c><00:18:13.640><c> That</c><00:18:13.880><c> got</c><00:18:14.120><c> failed.</c>
+
+00:18:15.110 --> 00:18:15.120 align:start position:0%
+published to true. That got failed.
+ 
+
+00:18:15.120 --> 00:18:17.630 align:start position:0%
+published to true. That got failed.
+So<00:18:15.240><c> in</c><00:18:15.320><c> the</c><00:18:15.400><c> next</c><00:18:15.720><c> run</c><00:18:16.120><c> again</c><00:18:16.600><c> this</c><00:18:17.080><c> row</c><00:18:17.400><c> would</c>
+
+00:18:17.630 --> 00:18:17.640 align:start position:0%
+So in the next run again this row would
+ 
+
+00:18:17.640 --> 00:18:20.070 align:start position:0%
+So in the next run again this row would
+be<00:18:17.760><c> picked</c><00:18:18.080><c> up</c><00:18:18.600><c> and</c><00:18:18.920><c> you</c><00:18:19.040><c> will</c><00:18:19.600><c> publish</c><00:18:19.960><c> it</c>
+
+00:18:20.070 --> 00:18:20.080 align:start position:0%
+be picked up and you will publish it
+ 
+
+00:18:20.080 --> 00:18:21.110 align:start position:0%
+be picked up and you will publish it
+again.
+
+00:18:21.110 --> 00:18:21.120 align:start position:0%
+again.
+ 
+
+00:18:21.120 --> 00:18:23.150 align:start position:0%
+again.
+So<00:18:21.240><c> there</c><00:18:21.520><c> are</c><00:18:21.679><c> this</c><00:18:21.840><c> is</c><00:18:21.960><c> very</c><00:18:22.200><c> common</c><00:18:22.679><c> that</c>
+
+00:18:23.150 --> 00:18:23.160 align:start position:0%
+So there are this is very common that
+ 
+
+00:18:23.160 --> 00:18:25.350 align:start position:0%
+So there are this is very common that
+you<00:18:23.280><c> will</c><00:18:23.520><c> publish</c><00:18:23.880><c> the</c><00:18:24.000><c> same</c><00:18:24.440><c> event</c><00:18:24.760><c> multiple</c>
+
+00:18:25.350 --> 00:18:25.360 align:start position:0%
+you will publish the same event multiple
+ 
+
+00:18:25.360 --> 00:18:28.270 align:start position:0%
+you will publish the same event multiple
+times<00:18:25.800><c> so</c><00:18:25.920><c> your</c><00:18:26.160><c> consumer</c><00:18:27.159><c> need</c><00:18:27.640><c> to</c><00:18:27.800><c> properly</c>
+
+00:18:28.270 --> 00:18:28.280 align:start position:0%
+times so your consumer need to properly
+ 
+
+00:18:28.280 --> 00:18:30.590 align:start position:0%
+times so your consumer need to properly
+handle<00:18:28.560><c> the</c><00:18:28.679><c> idempotency.</c>
+
+00:18:30.590 --> 00:18:30.600 align:start position:0%
+handle the idempotency.
+ 
+
+00:18:30.600 --> 00:18:32.750 align:start position:0%
+handle the idempotency.
+So<00:18:30.720><c> there</c><00:18:30.919><c> are</c><00:18:31.040><c> many</c><00:18:31.480><c> challenges</c><00:18:32.400><c> with</c><00:18:32.600><c> the</c>
+
+00:18:32.750 --> 00:18:32.760 align:start position:0%
+So there are many challenges with the
+ 
+
+00:18:32.760 --> 00:18:33.950 align:start position:0%
+So there are many challenges with the
+polling.
+
+00:18:33.950 --> 00:18:33.960 align:start position:0%
+polling.
+ 
+
+00:18:33.960 --> 00:18:36.149 align:start position:0%
+polling.
+And<00:18:34.280><c> that's</c><00:18:34.640><c> where</c><00:18:34.960><c> the</c><00:18:35.120><c> change</c><00:18:35.480><c> data</c><00:18:35.720><c> capture</c>
+
+00:18:36.149 --> 00:18:36.159 align:start position:0%
+And that's where the change data capture
+ 
+
+00:18:36.159 --> 00:18:38.190 align:start position:0%
+And that's where the change data capture
+comes<00:18:36.440><c> into</c><00:18:36.560><c> the</c><00:18:36.679><c> picture.</c>
+
+00:18:38.190 --> 00:18:38.200 align:start position:0%
+comes into the picture.
+ 
+
+00:18:38.200 --> 00:18:40.669 align:start position:0%
+comes into the picture.
+Very<00:18:38.560><c> very</c><00:18:38.840><c> important.</c><00:18:39.960><c> So</c><00:18:40.040><c> in</c><00:18:40.120><c> the</c><00:18:40.200><c> next</c><00:18:40.440><c> part</c>
+
+00:18:40.669 --> 00:18:40.679 align:start position:0%
+Very very important. So in the next part
+ 
+
+00:18:40.679 --> 00:18:43.679 align:start position:0%
+Very very important. So in the next part
+I<00:18:40.760><c> will</c><00:18:40.919><c> tell</c><00:18:41.120><c> you</c><00:18:41.200><c> this</c><00:18:41.440><c> one.</c>
+

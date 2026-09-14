@@ -1,0 +1,8675 @@
+1
+00:00:00,000 --> 00:00:01,670
+
+said, "Welcome back." And in the
+
+2
+00:00:01,670 --> 00:00:01,680
+said, "Welcome back." And in the
+ 
+
+3
+00:00:01,680 --> 00:00:04,390
+said, "Welcome back." And in the
+previous producer setup video, I ended
+
+4
+00:00:04,390 --> 00:00:04,400
+previous producer setup video, I ended
+ 
+
+5
+00:00:04,400 --> 00:00:07,030
+previous producer setup video, I ended
+up with telling you one problem
+
+6
+00:00:07,030 --> 00:00:07,040
+up with telling you one problem
+ 
+
+7
+00:00:07,040 --> 00:00:09,950
+up with telling you one problem
+uh when we choose max in-flight requests
+
+8
+00:00:09,950 --> 00:00:09,960
+uh when we choose max in-flight requests
+ 
+
+9
+00:00:09,960 --> 00:00:11,670
+uh when we choose max in-flight requests
+per connection greater than one and
+
+10
+00:00:11,670 --> 00:00:11,680
+per connection greater than one and
+ 
+
+11
+00:00:11,680 --> 00:00:14,070
+per connection greater than one and
+retry greater than zero.
+
+12
+00:00:14,070 --> 00:00:14,080
+retry greater than zero.
+ 
+
+13
+00:00:14,080 --> 00:00:15,870
+retry greater than zero.
+So, the issue which I mentioned was
+
+14
+00:00:15,870 --> 00:00:15,880
+So, the issue which I mentioned was
+ 
+
+15
+00:00:15,880 --> 00:00:18,750
+So, the issue which I mentioned was
+message reordering problem.
+
+16
+00:00:18,750 --> 00:00:18,760
+message reordering problem.
+ 
+
+17
+00:00:18,760 --> 00:00:20,510
+message reordering problem.
+So, today we will go one level more
+
+18
+00:00:20,510 --> 00:00:20,520
+So, today we will go one level more
+ 
+
+19
+00:00:20,520 --> 00:00:23,950
+So, today we will go one level more
+deeper into it and see the solution.
+
+20
+00:00:23,950 --> 00:00:23,960
+deeper into it and see the solution.
+ 
+
+21
+00:00:23,960 --> 00:00:25,470
+deeper into it and see the solution.
+So, the problem one.
+
+22
+00:00:25,470 --> 00:00:25,480
+So, the problem one.
+ 
+
+23
+00:00:25,480 --> 00:00:27,590
+So, the problem one.
+Let's understand with this flow of the
+
+24
+00:00:27,590 --> 00:00:27,600
+Let's understand with this flow of the
+ 
+
+25
+00:00:27,600 --> 00:00:29,790
+Let's understand with this flow of the
+duplicate message problem.
+
+26
+00:00:29,790 --> 00:00:29,800
+duplicate message problem.
+ 
+
+27
+00:00:29,800 --> 00:00:32,550
+duplicate message problem.
+Now, let's say producer send one batch
+
+28
+00:00:32,550 --> 00:00:32,560
+Now, let's say producer send one batch
+ 
+
+29
+00:00:32,560 --> 00:00:33,990
+Now, let's say producer send one batch
+which has let's say for example, this
+
+30
+00:00:33,990 --> 00:00:34,000
+which has let's say for example, this
+ 
+
+31
+00:00:34,000 --> 00:00:37,070
+which has let's say for example, this
+batch has only one event in it. Okay?
+
+32
+00:00:37,070 --> 00:00:37,080
+batch has only one event in it. Okay?
+ 
+
+33
+00:00:37,080 --> 00:00:39,710
+batch has only one event in it. Okay?
+Now, broker receive this batch and in
+
+34
+00:00:39,710 --> 00:00:39,720
+Now, broker receive this batch and in
+ 
+
+35
+00:00:39,720 --> 00:00:41,550
+Now, broker receive this batch and in
+the log it will write
+
+36
+00:00:41,550 --> 00:00:41,560
+the log it will write
+ 
+
+37
+00:00:41,560 --> 00:00:42,910
+the log it will write
+event one
+
+38
+00:00:42,910 --> 00:00:42,920
+event one
+ 
+
+39
+00:00:42,920 --> 00:00:45,070
+event one
+written at offset one. Okay? Let's say
+
+40
+00:00:45,070 --> 00:00:45,080
+written at offset one. Okay? Let's say
+ 
+
+41
+00:00:45,080 --> 00:00:48,110
+written at offset one. Okay? Let's say
+this batch has only one event in it.
+
+42
+00:00:48,110 --> 00:00:48,120
+this batch has only one event in it.
+ 
+
+43
+00:00:48,120 --> 00:00:49,750
+this batch has only one event in it.
+And it send the acknowledgement which
+
+44
+00:00:49,750 --> 00:00:49,760
+And it send the acknowledgement which
+ 
+
+45
+00:00:49,760 --> 00:00:53,510
+And it send the acknowledgement which
+get lost because of some network issue.
+
+46
+00:00:53,510 --> 00:00:53,520
+get lost because of some network issue.
+ 
+
+47
+00:00:53,520 --> 00:00:55,270
+get lost because of some network issue.
+Now, producer will wait for some time
+
+48
+00:00:55,270 --> 00:00:55,280
+Now, producer will wait for some time
+ 
+
+49
+00:00:55,280 --> 00:00:57,470
+Now, producer will wait for some time
+and since retry is greater than zero,
+
+50
+00:00:57,470 --> 00:00:57,480
+and since retry is greater than zero,
+ 
+
+51
+00:00:57,480 --> 00:01:00,710
+and since retry is greater than zero,
+after some time it will retry it. Okay?
+
+52
+00:01:00,710 --> 00:01:00,720
+after some time it will retry it. Okay?
+ 
+
+53
+00:01:00,720 --> 00:01:04,070
+after some time it will retry it. Okay?
+The same batch is sent again.
+
+54
+00:01:04,070 --> 00:01:04,080
+The same batch is sent again.
+ 
+
+55
+00:01:04,080 --> 00:01:06,390
+The same batch is sent again.
+Now, the broker receive it again and it
+
+56
+00:01:06,390 --> 00:01:06,400
+Now, the broker receive it again and it
+ 
+
+57
+00:01:06,400 --> 00:01:08,910
+Now, the broker receive it again and it
+will write the same event at let's say
+
+58
+00:01:08,910 --> 00:01:08,920
+will write the same event at let's say
+ 
+
+59
+00:01:08,920 --> 00:01:11,670
+will write the same event at let's say
+offset two. Now, at this point of time
+
+60
+00:01:11,670 --> 00:01:11,680
+offset two. Now, at this point of time
+ 
+
+61
+00:01:11,680 --> 00:01:13,150
+offset two. Now, at this point of time
+in a log
+
+62
+00:01:13,150 --> 00:01:13,160
+in a log
+ 
+
+63
+00:01:13,160 --> 00:01:15,630
+in a log
+there is a duplicate. Same event appear
+
+64
+00:01:15,630 --> 00:01:15,640
+there is a duplicate. Same event appear
+ 
+
+65
+00:01:15,640 --> 00:01:17,710
+there is a duplicate. Same event appear
+multiple times.
+
+66
+00:01:17,710 --> 00:01:17,720
+multiple times.
+ 
+
+67
+00:01:17,720 --> 00:01:20,790
+multiple times.
+Okay? Because today broker has no way to
+
+68
+00:01:20,790 --> 00:01:20,800
+Okay? Because today broker has no way to
+ 
+
+69
+00:01:20,800 --> 00:01:24,390
+Okay? Because today broker has no way to
+determine it has already written
+
+70
+00:01:24,390 --> 00:01:24,400
+determine it has already written
+ 
+
+71
+00:01:24,400 --> 00:01:25,790
+determine it has already written
+the same
+
+72
+00:01:25,790 --> 00:01:25,800
+the same
+ 
+
+73
+00:01:25,800 --> 00:01:28,030
+the same
+event before or not. So, that is the
+
+74
+00:01:28,030 --> 00:01:28,040
+event before or not. So, that is the
+ 
+
+75
+00:01:28,040 --> 00:01:31,430
+event before or not. So, that is the
+problem one when we have a retry.
+
+76
+00:01:31,430 --> 00:01:31,440
+problem one when we have a retry.
+ 
+
+77
+00:01:31,440 --> 00:01:32,950
+problem one when we have a retry.
+There is a chance that duplicate
+
+78
+00:01:32,950 --> 00:01:32,960
+There is a chance that duplicate
+ 
+
+79
+00:01:32,960 --> 00:01:37,310
+There is a chance that duplicate
+messages get recorded into the logs.
+
+80
+00:01:37,310 --> 00:01:37,320
+messages get recorded into the logs.
+ 
+
+81
+00:01:37,320 --> 00:01:40,590
+messages get recorded into the logs.
+Another is message reordering issue.
+
+82
+00:01:40,590 --> 00:01:40,600
+Another is message reordering issue.
+ 
+
+83
+00:01:40,600 --> 00:01:43,230
+Another is message reordering issue.
+So, when we have
+
+84
+00:01:43,230 --> 00:01:43,240
+So, when we have
+ 
+
+85
+00:01:43,240 --> 00:01:45,550
+So, when we have
+max in-flight requests per connection
+
+86
+00:01:45,550 --> 00:01:45,560
+max in-flight requests per connection
+ 
+
+87
+00:01:45,560 --> 00:01:47,910
+max in-flight requests per connection
+greater than one, means more than one
+
+88
+00:01:47,910 --> 00:01:47,920
+greater than one, means more than one
+ 
+
+89
+00:01:47,920 --> 00:01:51,550
+greater than one, means more than one
+packets we can send over the connection.
+
+90
+00:01:51,550 --> 00:01:51,560
+packets we can send over the connection.
+ 
+
+91
+00:01:51,560 --> 00:01:52,990
+packets we can send over the connection.
+Even though they are in-flight, means
+
+92
+00:01:52,990 --> 00:01:53,000
+Even though they are in-flight, means
+ 
+
+93
+00:01:53,000 --> 00:01:54,830
+Even though they are in-flight, means
+broker is still working on it, means
+
+94
+00:01:54,830 --> 00:01:54,840
+broker is still working on it, means
+ 
+
+95
+00:01:54,840 --> 00:01:57,070
+broker is still working on it, means
+there There no acknowledgement sent.
+
+96
+00:01:57,070 --> 00:01:57,080
+there There no acknowledgement sent.
+ 
+
+97
+00:01:57,080 --> 00:01:59,550
+there There no acknowledgement sent.
+Okay? So now in that scenario what uh
+
+98
+00:01:59,550 --> 00:01:59,560
+Okay? So now in that scenario what uh
+ 
+
+99
+00:01:59,560 --> 00:02:01,670
+Okay? So now in that scenario what uh
+problem can come? Let's say producer
+
+100
+00:02:01,670 --> 00:02:01,680
+problem can come? Let's say producer
+ 
+
+101
+00:02:01,680 --> 00:02:03,590
+problem can come? Let's say producer
+sent two batches.
+
+102
+00:02:03,590 --> 00:02:03,600
+sent two batches.
+ 
+
+103
+00:02:03,600 --> 00:02:05,750
+sent two batches.
+Batch one, batch two.
+
+104
+00:02:05,750 --> 00:02:05,760
+Batch one, batch two.
+ 
+
+105
+00:02:05,760 --> 00:02:08,350
+Batch one, batch two.
+Both are in flight. Okay?
+
+106
+00:02:08,350 --> 00:02:08,360
+Both are in flight. Okay?
+ 
+
+107
+00:02:08,360 --> 00:02:10,350
+Both are in flight. Okay?
+Now for now assume that these two
+
+108
+00:02:10,350 --> 00:02:10,360
+Now for now assume that these two
+ 
+
+109
+00:02:10,360 --> 00:02:12,710
+Now for now assume that these two
+batches has only one one event. Event
+
+110
+00:02:12,710 --> 00:02:12,720
+batches has only one one event. Event
+ 
+
+111
+00:02:12,720 --> 00:02:15,510
+batches has only one one event. Event
+one here in the batch one, event two
+
+112
+00:02:15,510 --> 00:02:15,520
+one here in the batch one, event two
+ 
+
+113
+00:02:15,520 --> 00:02:17,790
+one here in the batch one, event two
+there in the batch two.
+
+114
+00:02:17,790 --> 00:02:17,800
+there in the batch two.
+ 
+
+115
+00:02:17,800 --> 00:02:19,830
+there in the batch two.
+Now because of some issue, network
+
+116
+00:02:19,830 --> 00:02:19,840
+Now because of some issue, network
+ 
+
+117
+00:02:19,840 --> 00:02:22,990
+Now because of some issue, network
+issue, this batch one never reached till
+
+118
+00:02:22,990 --> 00:02:23,000
+issue, this batch one never reached till
+ 
+
+119
+00:02:23,000 --> 00:02:24,310
+issue, this batch one never reached till
+broker.
+
+120
+00:02:24,310 --> 00:02:24,320
+broker.
+ 
+
+121
+00:02:24,320 --> 00:02:25,830
+broker.
+And
+
+122
+00:02:25,830 --> 00:02:25,840
+And
+ 
+
+123
+00:02:25,840 --> 00:02:26,990
+And
+this
+
+124
+00:02:26,990 --> 00:02:27,000
+this
+ 
+
+125
+00:02:27,000 --> 00:02:29,910
+this
+batch two is now reaching first at the
+
+126
+00:02:29,910 --> 00:02:29,920
+batch two is now reaching first at the
+ 
+
+127
+00:02:29,920 --> 00:02:31,150
+batch two is now reaching first at the
+broker.
+
+128
+00:02:31,150 --> 00:02:31,160
+broker.
+ 
+
+129
+00:02:31,160 --> 00:02:32,630
+broker.
+So what would happen in the log file? It
+
+130
+00:02:32,630 --> 00:02:32,640
+So what would happen in the log file? It
+ 
+
+131
+00:02:32,640 --> 00:02:35,430
+So what would happen in the log file? It
+will write event two written at offset
+
+132
+00:02:35,430 --> 00:02:35,440
+will write event two written at offset
+ 
+
+133
+00:02:35,440 --> 00:02:36,390
+will write event two written at offset
+one.
+
+134
+00:02:36,390 --> 00:02:36,400
+one.
+ 
+
+135
+00:02:36,400 --> 00:02:39,190
+one.
+Event two written at offset one.
+
+136
+00:02:39,190 --> 00:02:39,200
+Event two written at offset one.
+ 
+
+137
+00:02:39,200 --> 00:02:41,230
+Event two written at offset one.
+It will send an acknowledgement for the
+
+138
+00:02:41,230 --> 00:02:41,240
+It will send an acknowledgement for the
+ 
+
+139
+00:02:41,240 --> 00:02:42,670
+It will send an acknowledgement for the
+batch two.
+
+140
+00:02:42,670 --> 00:02:42,680
+batch two.
+ 
+
+141
+00:02:42,680 --> 00:02:44,190
+batch two.
+Now producer will wait for the
+
+142
+00:02:44,190 --> 00:02:44,200
+Now producer will wait for the
+ 
+
+143
+00:02:44,200 --> 00:02:46,830
+Now producer will wait for the
+acknowledgement for the batch one.
+
+144
+00:02:46,830 --> 00:02:46,840
+acknowledgement for the batch one.
+ 
+
+145
+00:02:46,840 --> 00:02:49,310
+acknowledgement for the batch one.
+But it will wait for some time. After
+
+146
+00:02:49,310 --> 00:02:49,320
+But it will wait for some time. After
+ 
+
+147
+00:02:49,320 --> 00:02:52,310
+But it will wait for some time. After
+that it didn't come, so it will retry it
+
+148
+00:02:52,310 --> 00:02:52,320
+that it didn't come, so it will retry it
+ 
+
+149
+00:02:52,320 --> 00:02:55,230
+that it didn't come, so it will retry it
+and it will send the batch one again.
+
+150
+00:02:55,230 --> 00:02:55,240
+and it will send the batch one again.
+ 
+
+151
+00:02:55,240 --> 00:02:57,390
+and it will send the batch one again.
+Now the broker will write
+
+152
+00:02:57,390 --> 00:02:57,400
+Now the broker will write
+ 
+
+153
+00:02:57,400 --> 00:02:59,390
+Now the broker will write
+event one.
+
+154
+00:02:59,390 --> 00:02:59,400
+event one.
+ 
+
+155
+00:02:59,400 --> 00:03:02,790
+event one.
+Event one at offset two.
+
+156
+00:03:02,790 --> 00:03:02,800
+Event one at offset two.
+ 
+
+157
+00:03:02,800 --> 00:03:05,630
+Event one at offset two.
+Now here if you see that
+
+158
+00:03:05,630 --> 00:03:05,640
+Now here if you see that
+ 
+
+159
+00:03:05,640 --> 00:03:07,550
+Now here if you see that
+See, in the batch one let's say event
+
+160
+00:03:07,550 --> 00:03:07,560
+See, in the batch one let's say event
+ 
+
+161
+00:03:07,560 --> 00:03:10,670
+See, in the batch one let's say event
+one, batch two, event two. Event one
+
+162
+00:03:10,670 --> 00:03:10,680
+one, batch two, event two. Event one
+ 
+
+163
+00:03:10,680 --> 00:03:13,350
+one, batch two, event two. Event one
+let's say order created, event two is
+
+164
+00:03:13,350 --> 00:03:13,360
+let's say order created, event two is
+ 
+
+165
+00:03:13,360 --> 00:03:14,949
+let's say order created, event two is
+like payment made.
+
+166
+00:03:14,949 --> 00:03:14,959
+like payment made.
+ 
+
+167
+00:03:14,959 --> 00:03:17,310
+like payment made.
+But what in the logs got stored? Event
+
+168
+00:03:17,310 --> 00:03:17,320
+But what in the logs got stored? Event
+ 
+
+169
+00:03:17,320 --> 00:03:19,630
+But what in the logs got stored? Event
+two at offset one. Means this happened
+
+170
+00:03:19,630 --> 00:03:19,640
+two at offset one. Means this happened
+ 
+
+171
+00:03:19,640 --> 00:03:22,990
+two at offset one. Means this happened
+before. Means you made a payment
+
+172
+00:03:22,990 --> 00:03:23,000
+before. Means you made a payment
+ 
+
+173
+00:03:23,000 --> 00:03:24,150
+before. Means you made a payment
+earlier.
+
+174
+00:03:24,150 --> 00:03:24,160
+earlier.
+ 
+
+175
+00:03:24,160 --> 00:03:26,070
+earlier.
+Event one which is order created, that
+
+176
+00:03:26,070 --> 00:03:26,080
+Event one which is order created, that
+ 
+
+177
+00:03:26,080 --> 00:03:27,550
+Event one which is order created, that
+happened after.
+
+178
+00:03:27,550 --> 00:03:27,560
+happened after.
+ 
+
+179
+00:03:27,560 --> 00:03:29,430
+happened after.
+That is wrong.
+
+180
+00:03:29,430 --> 00:03:29,440
+That is wrong.
+ 
+
+181
+00:03:29,440 --> 00:03:30,390
+That is wrong.
+Okay?
+
+182
+00:03:30,390 --> 00:03:30,400
+Okay?
+ 
+
+183
+00:03:30,400 --> 00:03:32,830
+Okay?
+So it's like order is paid before even
+
+184
+00:03:32,830 --> 00:03:32,840
+So it's like order is paid before even
+ 
+
+185
+00:03:32,840 --> 00:03:34,750
+So it's like order is paid before even
+it is created.
+
+186
+00:03:34,750 --> 00:03:34,760
+it is created.
+ 
+
+187
+00:03:34,760 --> 00:03:36,670
+it is created.
+So there is a message reordering issue
+
+188
+00:03:36,670 --> 00:03:36,680
+So there is a message reordering issue
+ 
+
+189
+00:03:36,680 --> 00:03:39,830
+So there is a message reordering issue
+comes. Because broker today do not have
+
+190
+00:03:39,830 --> 00:03:39,840
+comes. Because broker today do not have
+ 
+
+191
+00:03:39,840 --> 00:03:41,150
+comes. Because broker today do not have
+a way
+
+192
+00:03:41,150 --> 00:03:41,160
+a way
+ 
+
+193
+00:03:41,160 --> 00:03:43,270
+a way
+to know that hey, whatever the events I
+
+194
+00:03:43,270 --> 00:03:43,280
+to know that hey, whatever the events I
+ 
+
+195
+00:03:43,280 --> 00:03:45,190
+to know that hey, whatever the events I
+am getting
+
+196
+00:03:45,190 --> 00:03:45,200
+am getting
+ 
+
+197
+00:03:45,200 --> 00:03:46,870
+am getting
+or whatever the batch I am getting, you
+
+198
+00:03:46,870 --> 00:03:46,880
+or whatever the batch I am getting, you
+ 
+
+199
+00:03:46,880 --> 00:03:48,710
+or whatever the batch I am getting, you
+can say that that is a more proper way.
+
+200
+00:03:48,710 --> 00:03:48,720
+can say that that is a more proper way.
+ 
+
+201
+00:03:48,720 --> 00:03:51,350
+can say that that is a more proper way.
+Whatever the batches I am getting
+
+202
+00:03:51,350 --> 00:03:51,360
+Whatever the batches I am getting
+ 
+
+203
+00:03:51,360 --> 00:03:53,030
+Whatever the batches I am getting
+am I getting in the sequence order or
+
+204
+00:03:53,030 --> 00:03:53,040
+am I getting in the sequence order or
+ 
+
+205
+00:03:53,040 --> 00:03:54,110
+am I getting in the sequence order or
+not?
+
+206
+00:03:54,110 --> 00:03:54,120
+not?
+ 
+
+207
+00:03:54,120 --> 00:03:56,430
+not?
+There is no way
+
+208
+00:03:56,430 --> 00:03:56,440
+There is no way
+ 
+
+209
+00:03:56,440 --> 00:03:59,230
+There is no way
+broker can identify it today.
+
+210
+00:03:59,230 --> 00:03:59,240
+broker can identify it today.
+ 
+
+211
+00:03:59,240 --> 00:04:01,230
+broker can identify it today.
+So, what is the solution for it? Both
+
+212
+00:04:01,230 --> 00:04:01,240
+So, what is the solution for it? Both
+ 
+
+213
+00:04:01,240 --> 00:04:02,390
+So, what is the solution for it? Both
+the problem.
+
+214
+00:04:02,390 --> 00:04:02,400
+the problem.
+ 
+
+215
+00:04:02,400 --> 00:04:04,510
+the problem.
+The solution is
+
+216
+00:04:04,510 --> 00:04:04,520
+The solution is
+ 
+
+217
+00:04:04,520 --> 00:04:07,830
+The solution is
+setting the idempotency equals to true.
+
+218
+00:04:07,830 --> 00:04:07,840
+setting the idempotency equals to true.
+ 
+
+219
+00:04:07,840 --> 00:04:10,910
+setting the idempotency equals to true.
+In the producer application.properties,
+
+220
+00:04:10,910 --> 00:04:10,920
+In the producer application.properties,
+ 
+
+221
+00:04:10,920 --> 00:04:12,310
+In the producer application.properties,
+we need to set
+
+222
+00:04:12,310 --> 00:04:12,320
+we need to set
+ 
+
+223
+00:04:12,320 --> 00:04:16,789
+we need to set
+spring.kafka.producer.properties.enable
+
+224
+00:04:16,789 --> 00:04:16,799
+
+ 
+
+225
+00:04:16,799 --> 00:04:19,110
+
+idempotency equals to true.
+
+226
+00:04:19,110 --> 00:04:19,120
+idempotency equals to true.
+ 
+
+227
+00:04:19,120 --> 00:04:21,069
+idempotency equals to true.
+So, if you are using Kafka version less
+
+228
+00:04:21,069 --> 00:04:21,079
+So, if you are using Kafka version less
+ 
+
+229
+00:04:21,079 --> 00:04:22,350
+So, if you are using Kafka version less
+than three,
+
+230
+00:04:22,350 --> 00:04:22,360
+than three,
+ 
+
+231
+00:04:22,360 --> 00:04:24,550
+than three,
+then by default it is false and we have
+
+232
+00:04:24,550 --> 00:04:24,560
+then by default it is false and we have
+ 
+
+233
+00:04:24,560 --> 00:04:26,470
+then by default it is false and we have
+to make it true.
+
+234
+00:04:26,470 --> 00:04:26,480
+to make it true.
+ 
+
+235
+00:04:26,480 --> 00:04:27,830
+to make it true.
+But, if you are using Kafka version
+
+236
+00:04:27,830 --> 00:04:27,840
+But, if you are using Kafka version
+ 
+
+237
+00:04:27,840 --> 00:04:30,110
+But, if you are using Kafka version
+greater than equals to three, it is by
+
+238
+00:04:30,110 --> 00:04:30,120
+greater than equals to three, it is by
+ 
+
+239
+00:04:30,120 --> 00:04:31,950
+greater than equals to three, it is by
+default true. So, we don't have to worry
+
+240
+00:04:31,950 --> 00:04:31,960
+default true. So, we don't have to worry
+ 
+
+241
+00:04:31,960 --> 00:04:33,670
+default true. So, we don't have to worry
+about it.
+
+242
+00:04:33,670 --> 00:04:33,680
+about it.
+ 
+
+243
+00:04:33,680 --> 00:04:37,030
+about it.
+So, what happened internally? We can say
+
+244
+00:04:37,030 --> 00:04:37,040
+So, what happened internally? We can say
+ 
+
+245
+00:04:37,040 --> 00:04:39,270
+So, what happened internally? We can say
+that, okay, if you use idempotency
+
+246
+00:04:39,270 --> 00:04:39,280
+that, okay, if you use idempotency
+ 
+
+247
+00:04:39,280 --> 00:04:40,550
+that, okay, if you use idempotency
+equals to true,
+
+248
+00:04:40,550 --> 00:04:40,560
+equals to true,
+ 
+
+249
+00:04:40,560 --> 00:04:42,870
+equals to true,
+these two problems will get resolved.
+
+250
+00:04:42,870 --> 00:04:42,880
+these two problems will get resolved.
+ 
+
+251
+00:04:42,880 --> 00:04:45,310
+these two problems will get resolved.
+But, how? That is the interesting thing,
+
+252
+00:04:45,310 --> 00:04:45,320
+But, how? That is the interesting thing,
+ 
+
+253
+00:04:45,320 --> 00:04:46,590
+But, how? That is the interesting thing,
+right?
+
+254
+00:04:46,590 --> 00:04:46,600
+right?
+ 
+
+255
+00:04:46,600 --> 00:04:47,830
+right?
+So,
+
+256
+00:04:47,830 --> 00:04:47,840
+So,
+ 
+
+257
+00:04:47,840 --> 00:04:49,630
+So,
+step one.
+
+258
+00:04:49,630 --> 00:04:49,640
+step one.
+ 
+
+259
+00:04:49,640 --> 00:04:51,909
+step one.
+We have uh starting the producer
+
+260
+00:04:51,909 --> 00:04:51,919
+We have uh starting the producer
+ 
+
+261
+00:04:51,919 --> 00:04:53,270
+We have uh starting the producer
+application.
+
+262
+00:04:53,270 --> 00:04:53,280
+application.
+ 
+
+263
+00:04:53,280 --> 00:04:54,909
+application.
+First time we are starting the producer
+
+264
+00:04:54,909 --> 00:04:54,919
+First time we are starting the producer
+ 
+
+265
+00:04:54,919 --> 00:04:56,150
+First time we are starting the producer
+application.
+
+266
+00:04:56,150 --> 00:04:56,160
+application.
+ 
+
+267
+00:04:56,160 --> 00:04:57,670
+application.
+What would happen?
+
+268
+00:04:57,670 --> 00:04:57,680
+What would happen?
+ 
+
+269
+00:04:57,680 --> 00:05:00,110
+What would happen?
+Producer will go to any broker,
+
+270
+00:05:00,110 --> 00:05:00,120
+Producer will go to any broker,
+ 
+
+271
+00:05:00,120 --> 00:05:02,830
+Producer will go to any broker,
+bootstrap server, any broker, "Hey, give
+
+272
+00:05:02,830 --> 00:05:02,840
+bootstrap server, any broker, "Hey, give
+ 
+
+273
+00:05:02,840 --> 00:05:05,190
+bootstrap server, any broker, "Hey, give
+me some unique ID."
+
+274
+00:05:05,190 --> 00:05:05,200
+me some unique ID."
+ 
+
+275
+00:05:05,200 --> 00:05:07,310
+me some unique ID."
+Now, broker will go to the controller,
+
+276
+00:05:07,310 --> 00:05:07,320
+Now, broker will go to the controller,
+ 
+
+277
+00:05:07,320 --> 00:05:09,590
+Now, broker will go to the controller,
+pass the same request that producer is
+
+278
+00:05:09,590 --> 00:05:09,600
+pass the same request that producer is
+ 
+
+279
+00:05:09,600 --> 00:05:11,670
+pass the same request that producer is
+asking for unique ID.
+
+280
+00:05:11,670 --> 00:05:11,680
+asking for unique ID.
+ 
+
+281
+00:05:11,680 --> 00:05:15,270
+asking for unique ID.
+Controller will generate one
+
+282
+00:05:15,270 --> 00:05:15,280
+Controller will generate one
+ 
+
+283
+00:05:15,280 --> 00:05:17,990
+Controller will generate one
+PID, producer ID. Okay.
+
+284
+00:05:17,990 --> 00:05:18,000
+PID, producer ID. Okay.
+ 
+
+285
+00:05:18,000 --> 00:05:19,750
+PID, producer ID. Okay.
+Whatever the next So, it just maintain a
+
+286
+00:05:19,750 --> 00:05:19,760
+Whatever the next So, it just maintain a
+ 
+
+287
+00:05:19,760 --> 00:05:21,710
+Whatever the next So, it just maintain a
+sequence number. In the next sequence
+
+288
+00:05:21,710 --> 00:05:21,720
+sequence number. In the next sequence
+ 
+
+289
+00:05:21,720 --> 00:05:24,150
+sequence number. In the next sequence
+number, let's say till 1,000 is used, it
+
+290
+00:05:24,150 --> 00:05:24,160
+number, let's say till 1,000 is used, it
+ 
+
+291
+00:05:24,160 --> 00:05:26,390
+number, let's say till 1,000 is used, it
+will just increment one, 1,001. So, it
+
+292
+00:05:26,390 --> 00:05:26,400
+will just increment one, 1,001. So, it
+ 
+
+293
+00:05:26,400 --> 00:05:28,070
+will just increment one, 1,001. So, it
+will return that, "Hey,
+
+294
+00:05:28,070 --> 00:05:28,080
+will return that, "Hey,
+ 
+
+295
+00:05:28,080 --> 00:05:30,470
+will return that, "Hey,
+this is the new unique ID."
+
+296
+00:05:30,470 --> 00:05:30,480
+this is the new unique ID."
+ 
+
+297
+00:05:30,480 --> 00:05:33,150
+this is the new unique ID."
+But, this unique ID is nowhere stored at
+
+298
+00:05:33,150 --> 00:05:33,160
+But, this unique ID is nowhere stored at
+ 
+
+299
+00:05:33,160 --> 00:05:34,550
+But, this unique ID is nowhere stored at
+this point of time.
+
+300
+00:05:34,550 --> 00:05:34,560
+this point of time.
+ 
+
+301
+00:05:34,560 --> 00:05:37,190
+this point of time.
+It just computed and returned it. And
+
+302
+00:05:37,190 --> 00:05:37,200
+It just computed and returned it. And
+ 
+
+303
+00:05:37,200 --> 00:05:39,190
+It just computed and returned it. And
+the broker returned this unique ID to
+
+304
+00:05:39,190 --> 00:05:39,200
+the broker returned this unique ID to
+ 
+
+305
+00:05:39,200 --> 00:05:40,430
+the broker returned this unique ID to
+producer.
+
+306
+00:05:40,430 --> 00:05:40,440
+producer.
+ 
+
+307
+00:05:40,440 --> 00:05:43,710
+producer.
+So, in a step one, when we start the
+
+308
+00:05:43,710 --> 00:05:43,720
+So, in a step one, when we start the
+ 
+
+309
+00:05:43,720 --> 00:05:45,590
+So, in a step one, when we start the
+producer application,
+
+310
+00:05:45,590 --> 00:05:45,600
+producer application,
+ 
+
+311
+00:05:45,600 --> 00:05:48,510
+producer application,
+producer now has one PID.
+
+312
+00:05:48,510 --> 00:05:48,520
+producer now has one PID.
+ 
+
+313
+00:05:48,520 --> 00:05:51,150
+producer now has one PID.
+Let's say 1001.
+
+314
+00:05:51,150 --> 00:05:51,160
+Let's say 1001.
+ 
+
+315
+00:05:51,160 --> 00:05:52,110
+Let's say 1001.
+Okay?
+
+316
+00:05:52,110 --> 00:05:52,120
+Okay?
+ 
+
+317
+00:05:52,120 --> 00:05:54,830
+Okay?
+Step two, producer send the request to
+
+318
+00:05:54,830 --> 00:05:54,840
+Step two, producer send the request to
+ 
+
+319
+00:05:54,840 --> 00:05:56,630
+Step two, producer send the request to
+the broker. What would happen? So, in
+
+320
+00:05:56,630 --> 00:05:56,640
+the broker. What would happen? So, in
+ 
+
+321
+00:05:56,640 --> 00:05:58,950
+the broker. What would happen? So, in
+the producer setup, I told you already.
+
+322
+00:05:58,950 --> 00:05:58,960
+the producer setup, I told you already.
+ 
+
+323
+00:05:58,960 --> 00:06:00,550
+the producer setup, I told you already.
+There are multiple stages, right? We
+
+324
+00:06:00,550 --> 00:06:00,560
+There are multiple stages, right? We
+ 
+
+325
+00:06:00,560 --> 00:06:02,550
+There are multiple stages, right? We
+have serializer, we have partitioner, we
+
+326
+00:06:02,550 --> 00:06:02,560
+have serializer, we have partitioner, we
+ 
+
+327
+00:06:02,560 --> 00:06:04,790
+have serializer, we have partitioner, we
+have record accumulator.
+
+328
+00:06:04,790 --> 00:06:04,800
+have record accumulator.
+ 
+
+329
+00:06:04,800 --> 00:06:07,470
+have record accumulator.
+Now, in record accumulator, I told that
+
+330
+00:06:07,470 --> 00:06:07,480
+Now, in record accumulator, I told that
+ 
+
+331
+00:06:07,480 --> 00:06:09,630
+Now, in record accumulator, I told that
+batches are created
+
+332
+00:06:09,630 --> 00:06:09,640
+batches are created
+ 
+
+333
+00:06:09,640 --> 00:06:12,550
+batches are created
+topic and partition wise. Okay? So,
+
+334
+00:06:12,550 --> 00:06:12,560
+topic and partition wise. Okay? So,
+ 
+
+335
+00:06:12,560 --> 00:06:14,150
+topic and partition wise. Okay? So,
+multiple batch, let's say topic A
+
+336
+00:06:14,150 --> 00:06:14,160
+multiple batch, let's say topic A
+ 
+
+337
+00:06:14,160 --> 00:06:16,830
+multiple batch, let's say topic A
+partition zero, topic A partition one,
+
+338
+00:06:16,830 --> 00:06:16,840
+partition zero, topic A partition one,
+ 
+
+339
+00:06:16,840 --> 00:06:19,670
+partition zero, topic A partition one,
+topic B partition zero. So, for each
+
+340
+00:06:19,670 --> 00:06:19,680
+topic B partition zero. So, for each
+ 
+
+341
+00:06:19,680 --> 00:06:22,670
+topic B partition zero. So, for each
+topic partition wise, batch is created.
+
+342
+00:06:22,670 --> 00:06:22,680
+topic partition wise, batch is created.
+ 
+
+343
+00:06:22,680 --> 00:06:25,710
+topic partition wise, batch is created.
+Okay? And events are accumulated within
+
+344
+00:06:25,710 --> 00:06:25,720
+Okay? And events are accumulated within
+ 
+
+345
+00:06:25,720 --> 00:06:27,790
+Okay? And events are accumulated within
+it.
+
+346
+00:06:27,790 --> 00:06:27,800
+it.
+ 
+
+347
+00:06:27,800 --> 00:06:28,990
+it.
+Now,
+
+348
+00:06:28,990 --> 00:06:29,000
+Now,
+ 
+
+349
+00:06:29,000 --> 00:06:32,670
+Now,
+when idempotency is set to true,
+
+350
+00:06:32,670 --> 00:06:32,680
+when idempotency is set to true,
+ 
+
+351
+00:06:32,680 --> 00:06:36,390
+when idempotency is set to true,
+this three information is more added.
+
+352
+00:06:36,390 --> 00:06:36,400
+this three information is more added.
+ 
+
+353
+00:06:36,400 --> 00:06:37,590
+this three information is more added.
+What is that?
+
+354
+00:06:37,590 --> 00:06:37,600
+What is that?
+ 
+
+355
+00:06:37,600 --> 00:06:40,550
+What is that?
+One is PID, whatever we have got into
+
+356
+00:06:40,550 --> 00:06:40,560
+One is PID, whatever we have got into
+ 
+
+357
+00:06:40,560 --> 00:06:42,190
+One is PID, whatever we have got into
+the step one.
+
+358
+00:06:42,190 --> 00:06:42,200
+the step one.
+ 
+
+359
+00:06:42,200 --> 00:06:45,550
+the step one.
+The producer ID, that is added.
+
+360
+00:06:45,550 --> 00:06:45,560
+The producer ID, that is added.
+ 
+
+361
+00:06:45,560 --> 00:06:49,470
+The producer ID, that is added.
+The base sequence, okay? For each topic
+
+362
+00:06:49,470 --> 00:06:49,480
+The base sequence, okay? For each topic
+ 
+
+363
+00:06:49,480 --> 00:06:51,870
+The base sequence, okay? For each topic
+and partition, a sequence is maintained,
+
+364
+00:06:51,870 --> 00:06:51,880
+and partition, a sequence is maintained,
+ 
+
+365
+00:06:51,880 --> 00:06:53,030
+and partition, a sequence is maintained,
+you can say.
+
+366
+00:06:53,030 --> 00:06:53,040
+you can say.
+ 
+
+367
+00:06:53,040 --> 00:06:55,070
+you can say.
+Okay? Let's say
+
+368
+00:06:55,070 --> 00:06:55,080
+Okay? Let's say
+ 
+
+369
+00:06:55,080 --> 00:06:58,510
+Okay? Let's say
+topic A partition zero, some sequence is
+
+370
+00:06:58,510 --> 00:06:58,520
+topic A partition zero, some sequence is
+ 
+
+371
+00:06:58,520 --> 00:06:59,990
+topic A partition zero, some sequence is
+maintained.
+
+372
+00:06:59,990 --> 00:07:00,000
+maintained.
+ 
+
+373
+00:07:00,000 --> 00:07:03,150
+maintained.
+Okay? Similarly, topic A partition one,
+
+374
+00:07:03,150 --> 00:07:03,160
+Okay? Similarly, topic A partition one,
+ 
+
+375
+00:07:03,160 --> 00:07:04,630
+Okay? Similarly, topic A partition one,
+sequence is maintained. Individual
+
+376
+00:07:04,630 --> 00:07:04,640
+sequence is maintained. Individual
+ 
+
+377
+00:07:04,640 --> 00:07:06,190
+sequence is maintained. Individual
+sequence is maintained.
+
+378
+00:07:06,190 --> 00:07:06,200
+sequence is maintained.
+ 
+
+379
+00:07:06,200 --> 00:07:08,310
+sequence is maintained.
+Let's say 0 1 2 3 4, it is maintaining
+
+380
+00:07:08,310 --> 00:07:08,320
+Let's say 0 1 2 3 4, it is maintaining
+ 
+
+381
+00:07:08,320 --> 00:07:09,790
+Let's say 0 1 2 3 4, it is maintaining
+its own sequence.
+
+382
+00:07:09,790 --> 00:07:09,800
+its own sequence.
+ 
+
+383
+00:07:09,800 --> 00:07:11,830
+its own sequence.
+For topic A partition one, its own
+
+384
+00:07:11,830 --> 00:07:11,840
+For topic A partition one, its own
+ 
+
+385
+00:07:11,840 --> 00:07:13,710
+For topic A partition one, its own
+maintained sequence. Okay?
+
+386
+00:07:13,710 --> 00:07:13,720
+maintained sequence. Okay?
+ 
+
+387
+00:07:13,720 --> 00:07:15,590
+maintained sequence. Okay?
+So, sequence is maintained topic
+
+388
+00:07:15,590 --> 00:07:15,600
+So, sequence is maintained topic
+ 
+
+389
+00:07:15,600 --> 00:07:17,350
+So, sequence is maintained topic
+partition wise.
+
+390
+00:07:17,350 --> 00:07:17,360
+partition wise.
+ 
+
+391
+00:07:17,360 --> 00:07:19,430
+partition wise.
+So, now this let's say this is the first
+
+392
+00:07:19,430 --> 00:07:19,440
+So, now this let's say this is the first
+ 
+
+393
+00:07:19,440 --> 00:07:21,670
+So, now this let's say this is the first
+time batches are created,
+
+394
+00:07:21,670 --> 00:07:21,680
+time batches are created,
+ 
+
+395
+00:07:21,680 --> 00:07:24,390
+time batches are created,
+so base sequence is zero.
+
+396
+00:07:24,390 --> 00:07:24,400
+so base sequence is zero.
+ 
+
+397
+00:07:24,400 --> 00:07:26,430
+so base sequence is zero.
+And last sequence is two.
+
+398
+00:07:26,430 --> 00:07:26,440
+And last sequence is two.
+ 
+
+399
+00:07:26,440 --> 00:07:27,350
+And last sequence is two.
+So,
+
+400
+00:07:27,350 --> 00:07:27,360
+So,
+ 
+
+401
+00:07:27,360 --> 00:07:30,950
+So,
+with each event which are stored in this
+
+402
+00:07:30,950 --> 00:07:30,960
+with each event which are stored in this
+ 
+
+403
+00:07:30,960 --> 00:07:34,190
+with each event which are stored in this
+batch, is assigned a sequence number.
+
+404
+00:07:34,190 --> 00:07:34,200
+batch, is assigned a sequence number.
+ 
+
+405
+00:07:34,200 --> 00:07:35,470
+batch, is assigned a sequence number.
+Event one,
+
+406
+00:07:35,470 --> 00:07:35,480
+Event one,
+ 
+
+407
+00:07:35,480 --> 00:07:38,550
+Event one,
+sequence zero. Event two, sequence one.
+
+408
+00:07:38,550 --> 00:07:38,560
+sequence zero. Event two, sequence one.
+ 
+
+409
+00:07:38,560 --> 00:07:40,990
+sequence zero. Event two, sequence one.
+Event three, sequence two.
+
+410
+00:07:40,990 --> 00:07:41,000
+Event three, sequence two.
+ 
+
+411
+00:07:41,000 --> 00:07:43,670
+Event three, sequence two.
+Okay? So,
+
+412
+00:07:43,670 --> 00:07:43,680
+Okay? So,
+ 
+
+413
+00:07:43,680 --> 00:07:45,750
+Okay? So,
+if I repeat it again,
+
+414
+00:07:45,750 --> 00:07:45,760
+if I repeat it again,
+ 
+
+415
+00:07:45,760 --> 00:07:48,790
+if I repeat it again,
+record accumulator, create a batch topic
+
+416
+00:07:48,790 --> 00:07:48,800
+record accumulator, create a batch topic
+ 
+
+417
+00:07:48,800 --> 00:07:50,670
+record accumulator, create a batch topic
+partition wise.
+
+418
+00:07:50,670 --> 00:07:50,680
+partition wise.
+ 
+
+419
+00:07:50,680 --> 00:07:51,830
+partition wise.
+Okay?
+
+420
+00:07:51,830 --> 00:07:51,840
+Okay?
+ 
+
+421
+00:07:51,840 --> 00:07:54,870
+Okay?
+And it also, for each event it add, it
+
+422
+00:07:54,870 --> 00:07:54,880
+And it also, for each event it add, it
+ 
+
+423
+00:07:54,880 --> 00:07:57,870
+And it also, for each event it add, it
+also append a sequence number.
+
+424
+00:07:57,870 --> 00:07:57,880
+also append a sequence number.
+ 
+
+425
+00:07:57,880 --> 00:07:59,630
+also append a sequence number.
+Okay? And
+
+426
+00:07:59,630 --> 00:07:59,640
+Okay? And
+ 
+
+427
+00:07:59,640 --> 00:08:01,710
+Okay? And
+once the batch is created, it also add
+
+428
+00:08:01,710 --> 00:08:01,720
+once the batch is created, it also add
+ 
+
+429
+00:08:01,720 --> 00:08:03,630
+once the batch is created, it also add
+that what is the base sequence number?
+
+430
+00:08:03,630 --> 00:08:03,640
+that what is the base sequence number?
+ 
+
+431
+00:08:03,640 --> 00:08:05,270
+that what is the base sequence number?
+Means the starting
+
+432
+00:08:05,270 --> 00:08:05,280
+Means the starting
+ 
+
+433
+00:08:05,280 --> 00:08:07,230
+Means the starting
+sequence zero. And what is the last
+
+434
+00:08:07,230 --> 00:08:07,240
+sequence zero. And what is the last
+ 
+
+435
+00:08:07,240 --> 00:08:09,270
+sequence zero. And what is the last
+sequence? Two.
+
+436
+00:08:09,270 --> 00:08:09,280
+sequence? Two.
+ 
+
+437
+00:08:09,280 --> 00:08:11,030
+sequence? Two.
+Okay? Sequence two is the last.
+
+438
+00:08:11,030 --> 00:08:11,040
+Okay? Sequence two is the last.
+ 
+
+439
+00:08:11,040 --> 00:08:12,430
+Okay? Sequence two is the last.
+Similarly,
+
+440
+00:08:12,430 --> 00:08:12,440
+Similarly,
+ 
+
+441
+00:08:12,440 --> 00:08:16,030
+Similarly,
+for batch two, topic A partition one,
+
+442
+00:08:16,030 --> 00:08:16,040
+for batch two, topic A partition one,
+ 
+
+443
+00:08:16,040 --> 00:08:18,190
+for batch two, topic A partition one,
+it has only two events. So, when event
+
+444
+00:08:18,190 --> 00:08:18,200
+it has only two events. So, when event
+ 
+
+445
+00:08:18,200 --> 00:08:19,750
+it has only two events. So, when event
+eight is stored here,
+
+446
+00:08:19,750 --> 00:08:19,760
+eight is stored here,
+ 
+
+447
+00:08:19,760 --> 00:08:22,110
+eight is stored here,
+it is assigned let's say sequence zero.
+
+448
+00:08:22,110 --> 00:08:22,120
+it is assigned let's say sequence zero.
+ 
+
+449
+00:08:22,120 --> 00:08:24,230
+it is assigned let's say sequence zero.
+Event nine, sequence one.
+
+450
+00:08:24,230 --> 00:08:24,240
+Event nine, sequence one.
+ 
+
+451
+00:08:24,240 --> 00:08:26,990
+Event nine, sequence one.
+So, pros uh producer ID,
+
+452
+00:08:26,990 --> 00:08:27,000
+So, pros uh producer ID,
+ 
+
+453
+00:08:27,000 --> 00:08:28,830
+So, pros uh producer ID,
+base sequence zero,
+
+454
+00:08:28,830 --> 00:08:28,840
+base sequence zero,
+ 
+
+455
+00:08:28,840 --> 00:08:30,830
+base sequence zero,
+and the last sequence is one.
+
+456
+00:08:30,830 --> 00:08:30,840
+and the last sequence is one.
+ 
+
+457
+00:08:30,840 --> 00:08:33,070
+and the last sequence is one.
+Similarly, batch three for topic B
+
+458
+00:08:33,070 --> 00:08:33,080
+Similarly, batch three for topic B
+ 
+
+459
+00:08:33,080 --> 00:08:34,990
+Similarly, batch three for topic B
+partition zero, it will maintain its own
+
+460
+00:08:34,990 --> 00:08:35,000
+partition zero, it will maintain its own
+ 
+
+461
+00:08:35,000 --> 00:08:36,270
+partition zero, it will maintain its own
+sequence.
+
+462
+00:08:36,270 --> 00:08:36,280
+sequence.
+ 
+
+463
+00:08:36,280 --> 00:08:38,310
+sequence.
+So, it has currently four events.
+
+464
+00:08:38,310 --> 00:08:38,320
+So, it has currently four events.
+ 
+
+465
+00:08:38,320 --> 00:08:39,830
+So, it has currently four events.
+Each event is assigned a sequence
+
+466
+00:08:39,830 --> 00:08:39,840
+Each event is assigned a sequence
+ 
+
+467
+00:08:39,840 --> 00:08:42,430
+Each event is assigned a sequence
+number. Event one, sequence zero. Event
+
+468
+00:08:42,430 --> 00:08:42,440
+number. Event one, sequence zero. Event
+ 
+
+469
+00:08:42,440 --> 00:08:44,510
+number. Event one, sequence zero. Event
+two, sequence one. Event three, sequence
+
+470
+00:08:44,510 --> 00:08:44,520
+two, sequence one. Event three, sequence
+ 
+
+471
+00:08:44,520 --> 00:08:46,990
+two, sequence one. Event three, sequence
+two. Event four, sequence three.
+
+472
+00:08:46,990 --> 00:08:47,000
+two. Event four, sequence three.
+ 
+
+473
+00:08:47,000 --> 00:08:49,070
+two. Event four, sequence three.
+So, this is the producer ID.
+
+474
+00:08:49,070 --> 00:08:49,080
+So, this is the producer ID.
+ 
+
+475
+00:08:49,080 --> 00:08:51,510
+So, this is the producer ID.
+Base sequence is zero, and the last
+
+476
+00:08:51,510 --> 00:08:51,520
+Base sequence is zero, and the last
+ 
+
+477
+00:08:51,520 --> 00:08:53,070
+Base sequence is zero, and the last
+sequence is three.
+
+478
+00:08:53,070 --> 00:08:53,080
+sequence is three.
+ 
+
+479
+00:08:53,080 --> 00:08:55,110
+sequence is three.
+So, this three additional information is
+
+480
+00:08:55,110 --> 00:08:55,120
+So, this three additional information is
+ 
+
+481
+00:08:55,120 --> 00:08:57,670
+So, this three additional information is
+added with each batch. You can say that
+
+482
+00:08:57,670 --> 00:08:57,680
+added with each batch. You can say that
+ 
+
+483
+00:08:57,680 --> 00:08:59,110
+added with each batch. You can say that
+this is a header information of the
+
+484
+00:08:59,110 --> 00:08:59,120
+this is a header information of the
+ 
+
+485
+00:08:59,120 --> 00:09:00,950
+this is a header information of the
+batch.
+
+486
+00:09:00,950 --> 00:09:00,960
+batch.
+ 
+
+487
+00:09:00,960 --> 00:09:02,790
+batch.
+And now this is compressed and
+
+488
+00:09:02,790 --> 00:09:02,800
+And now this is compressed and
+ 
+
+489
+00:09:02,800 --> 00:09:05,150
+And now this is compressed and
+ultimately sent to the broker.
+
+490
+00:09:05,150 --> 00:09:05,160
+ultimately sent to the broker.
+ 
+
+491
+00:09:05,160 --> 00:09:06,950
+ultimately sent to the broker.
+Okay?
+
+492
+00:09:06,950 --> 00:09:06,960
+Okay?
+ 
+
+493
+00:09:06,960 --> 00:09:07,910
+Okay?
+So,
+
+494
+00:09:07,910 --> 00:09:07,920
+So,
+ 
+
+495
+00:09:07,920 --> 00:09:10,110
+So,
+step two is clear? Producer send the
+
+496
+00:09:10,110 --> 00:09:10,120
+step two is clear? Producer send the
+ 
+
+497
+00:09:10,120 --> 00:09:11,630
+step two is clear? Producer send the
+request.
+
+498
+00:09:11,630 --> 00:09:11,640
+request.
+ 
+
+499
+00:09:11,640 --> 00:09:14,310
+request.
+Now, with this batch,
+
+500
+00:09:14,310 --> 00:09:14,320
+Now, with this batch,
+ 
+
+501
+00:09:14,320 --> 00:09:16,230
+Now, with this batch,
+producer ID, PID,
+
+502
+00:09:16,230 --> 00:09:16,240
+producer ID, PID,
+ 
+
+503
+00:09:16,240 --> 00:09:18,310
+producer ID, PID,
+base sequence,
+
+504
+00:09:18,310 --> 00:09:18,320
+base sequence,
+ 
+
+505
+00:09:18,320 --> 00:09:20,590
+base sequence,
+means event
+
+506
+00:09:20,590 --> 00:09:20,600
+means event
+ 
+
+507
+00:09:20,600 --> 00:09:21,790
+means event
+with the
+
+508
+00:09:21,790 --> 00:09:21,800
+with the
+ 
+
+509
+00:09:21,800 --> 00:09:23,790
+with the
+starting sequence number, and the last
+
+510
+00:09:23,790 --> 00:09:23,800
+starting sequence number, and the last
+ 
+
+511
+00:09:23,800 --> 00:09:25,670
+starting sequence number, and the last
+sequence means last event what is its
+
+512
+00:09:25,670 --> 00:09:25,680
+sequence means last event what is its
+ 
+
+513
+00:09:25,680 --> 00:09:27,150
+sequence means last event what is its
+sequence number.
+
+514
+00:09:27,150 --> 00:09:27,160
+sequence number.
+ 
+
+515
+00:09:27,160 --> 00:09:30,350
+sequence number.
+That is added and sent.
+
+516
+00:09:30,350 --> 00:09:30,360
+That is added and sent.
+ 
+
+517
+00:09:30,360 --> 00:09:32,910
+That is added and sent.
+Now, step three, the batch received by
+
+518
+00:09:32,910 --> 00:09:32,920
+Now, step three, the batch received by
+ 
+
+519
+00:09:32,920 --> 00:09:34,950
+Now, step three, the batch received by
+the broker, what would happen?
+
+520
+00:09:34,950 --> 00:09:34,960
+the broker, what would happen?
+ 
+
+521
+00:09:34,960 --> 00:09:36,550
+the broker, what would happen?
+Now, let's say the first time the
+
+522
+00:09:36,550 --> 00:09:36,560
+Now, let's say the first time the
+ 
+
+523
+00:09:36,560 --> 00:09:38,870
+Now, let's say the first time the
+request received from producer to
+
+524
+00:09:38,870 --> 00:09:38,880
+request received from producer to
+ 
+
+525
+00:09:38,880 --> 00:09:40,150
+request received from producer to
+broker.
+
+526
+00:09:40,150 --> 00:09:40,160
+broker.
+ 
+
+527
+00:09:40,160 --> 00:09:41,910
+broker.
+Now, producer is sending the batch to
+
+528
+00:09:41,910 --> 00:09:41,920
+Now, producer is sending the batch to
+ 
+
+529
+00:09:41,920 --> 00:09:43,230
+Now, producer is sending the batch to
+the broker.
+
+530
+00:09:43,230 --> 00:09:43,240
+the broker.
+ 
+
+531
+00:09:43,240 --> 00:09:45,990
+the broker.
+Okay? Now, this batch has
+
+532
+00:09:45,990 --> 00:09:46,000
+Okay? Now, this batch has
+ 
+
+533
+00:09:46,000 --> 00:09:48,310
+Okay? Now, this batch has
+let's say batch one. This is for topic
+
+534
+00:09:48,310 --> 00:09:48,320
+let's say batch one. This is for topic
+ 
+
+535
+00:09:48,320 --> 00:09:49,310
+let's say batch one. This is for topic
+A,
+
+536
+00:09:49,310 --> 00:09:49,320
+A,
+ 
+
+537
+00:09:49,320 --> 00:09:51,310
+A,
+partition P0.
+
+538
+00:09:51,310 --> 00:09:51,320
+partition P0.
+ 
+
+539
+00:09:51,320 --> 00:09:53,550
+partition P0.
+I have this process ID. This is the
+
+540
+00:09:53,550 --> 00:09:53,560
+I have this process ID. This is the
+ 
+
+541
+00:09:53,560 --> 00:09:56,150
+I have this process ID. This is the
+process ID which is at has this. And
+
+542
+00:09:56,150 --> 00:09:56,160
+process ID which is at has this. And
+ 
+
+543
+00:09:56,160 --> 00:09:59,870
+process ID which is at has this. And
+this batch has base sequence zero. Means
+
+544
+00:09:59,870 --> 00:09:59,880
+this batch has base sequence zero. Means
+ 
+
+545
+00:09:59,880 --> 00:10:01,670
+this batch has base sequence zero. Means
+this event one is
+
+546
+00:10:01,670 --> 00:10:01,680
+this event one is
+ 
+
+547
+00:10:01,680 --> 00:10:03,830
+this event one is
+sequence zero. And the last sequence is
+
+548
+00:10:03,830 --> 00:10:03,840
+sequence zero. And the last sequence is
+ 
+
+549
+00:10:03,840 --> 00:10:05,990
+sequence zero. And the last sequence is
+two. So, in this batch, there could be
+
+550
+00:10:05,990 --> 00:10:06,000
+two. So, in this batch, there could be
+ 
+
+551
+00:10:06,000 --> 00:10:07,830
+two. So, in this batch, there could be
+multiple events. So, the last event has
+
+552
+00:10:07,830 --> 00:10:07,840
+multiple events. So, the last event has
+ 
+
+553
+00:10:07,840 --> 00:10:09,910
+multiple events. So, the last event has
+this sequence.
+
+554
+00:10:09,910 --> 00:10:09,920
+this sequence.
+ 
+
+555
+00:10:09,920 --> 00:10:12,270
+this sequence.
+This information is sent to the broker.
+
+556
+00:10:12,270 --> 00:10:12,280
+This information is sent to the broker.
+ 
+
+557
+00:10:12,280 --> 00:10:14,670
+This information is sent to the broker.
+Now, broker, what it will do?
+
+558
+00:10:14,670 --> 00:10:14,680
+Now, broker, what it will do?
+ 
+
+559
+00:10:14,680 --> 00:10:18,310
+Now, broker, what it will do?
+Broker maintain in memory map
+
+560
+00:10:18,310 --> 00:10:18,320
+Broker maintain in memory map
+ 
+
+561
+00:10:18,320 --> 00:10:20,190
+Broker maintain in memory map
+for
+
+562
+00:10:20,190 --> 00:10:20,200
+for
+ 
+
+563
+00:10:20,200 --> 00:10:23,230
+for
+topic
+
+564
+00:10:23,230 --> 00:10:23,240
+
+ 
+
+565
+00:10:23,240 --> 00:10:24,870
+
+partition-wise.
+
+566
+00:10:24,870 --> 00:10:24,880
+partition-wise.
+ 
+
+567
+00:10:24,880 --> 00:10:25,950
+partition-wise.
+Okay?
+
+568
+00:10:25,950 --> 00:10:25,960
+Okay?
+ 
+
+569
+00:10:25,960 --> 00:10:28,710
+Okay?
+So, now it will check
+
+570
+00:10:28,710 --> 00:10:28,720
+So, now it will check
+ 
+
+571
+00:10:28,720 --> 00:10:31,150
+So, now it will check
+in memory map. Hey, for this process ID,
+
+572
+00:10:31,150 --> 00:10:31,160
+in memory map. Hey, for this process ID,
+ 
+
+573
+00:10:31,160 --> 00:10:33,070
+in memory map. Hey, for this process ID,
+PID
+
+574
+00:10:33,070 --> 00:10:33,080
+PID
+ 
+
+575
+00:10:33,080 --> 00:10:38,070
+PID
+1001. So, for this process ID
+
+576
+00:10:38,070 --> 00:10:38,080
+1001. So, for this process ID
+ 
+
+577
+00:10:38,080 --> 00:10:39,870
+1001. So, for this process ID
+for this
+
+578
+00:10:39,870 --> 00:10:39,880
+for this
+ 
+
+579
+00:10:39,880 --> 00:10:42,910
+for this
+for this producer ID, for this topic and
+
+580
+00:10:42,910 --> 00:10:42,920
+for this producer ID, for this topic and
+ 
+
+581
+00:10:42,920 --> 00:10:44,630
+for this producer ID, for this topic and
+this partition,
+
+582
+00:10:44,630 --> 00:10:44,640
+this partition,
+ 
+
+583
+00:10:44,640 --> 00:10:47,310
+this partition,
+what is the next sequence number I am
+
+584
+00:10:47,310 --> 00:10:47,320
+what is the next sequence number I am
+ 
+
+585
+00:10:47,320 --> 00:10:49,070
+what is the next sequence number I am
+expecting?
+
+586
+00:10:49,070 --> 00:10:49,080
+expecting?
+ 
+
+587
+00:10:49,080 --> 00:10:51,510
+expecting?
+So, see, this is the first time producer
+
+588
+00:10:51,510 --> 00:10:51,520
+So, see, this is the first time producer
+ 
+
+589
+00:10:51,520 --> 00:10:52,630
+So, see, this is the first time producer
+is sending the request. So, we are
+
+590
+00:10:52,630 --> 00:10:52,640
+is sending the request. So, we are
+ 
+
+591
+00:10:52,640 --> 00:10:54,310
+is sending the request. So, we are
+seeing the flow first request. So,
+
+592
+00:10:54,310 --> 00:10:54,320
+seeing the flow first request. So,
+ 
+
+593
+00:10:54,320 --> 00:10:56,750
+seeing the flow first request. So,
+definitely broker doesn't have any batch
+
+594
+00:10:56,750 --> 00:10:56,760
+definitely broker doesn't have any batch
+ 
+
+595
+00:10:56,760 --> 00:10:59,350
+definitely broker doesn't have any batch
+doesn't have any in memory information.
+
+596
+00:10:59,350 --> 00:10:59,360
+doesn't have any in memory information.
+ 
+
+597
+00:10:59,360 --> 00:11:03,510
+doesn't have any in memory information.
+So, no map found at this point of time.
+
+598
+00:11:03,510 --> 00:11:03,520
+So, no map found at this point of time.
+ 
+
+599
+00:11:03,520 --> 00:11:06,510
+So, no map found at this point of time.
+So, when no map found means for this
+
+600
+00:11:06,510 --> 00:11:06,520
+So, when no map found means for this
+ 
+
+601
+00:11:06,520 --> 00:11:09,750
+So, when no map found means for this
+process ID, for this
+
+602
+00:11:09,750 --> 00:11:09,760
+process ID, for this
+ 
+
+603
+00:11:09,760 --> 00:11:12,310
+process ID, for this
+for this producer ID, for this producer
+
+604
+00:11:12,310 --> 00:11:12,320
+for this producer ID, for this producer
+ 
+
+605
+00:11:12,320 --> 00:11:13,230
+for this producer ID, for this producer
+ID,
+
+606
+00:11:13,230 --> 00:11:13,240
+ID,
+ 
+
+607
+00:11:13,240 --> 00:11:15,190
+ID,
+for whatever the topic, whatever the
+
+608
+00:11:15,190 --> 00:11:15,200
+for whatever the topic, whatever the
+ 
+
+609
+00:11:15,200 --> 00:11:16,990
+for whatever the topic, whatever the
+partition,
+
+610
+00:11:16,990 --> 00:11:17,000
+partition,
+ 
+
+611
+00:11:17,000 --> 00:11:18,030
+partition,
+okay?
+
+612
+00:11:18,030 --> 00:11:18,040
+okay?
+ 
+
+613
+00:11:18,040 --> 00:11:20,350
+okay?
+This is the first request I am getting.
+
+614
+00:11:20,350 --> 00:11:20,360
+This is the first request I am getting.
+ 
+
+615
+00:11:20,360 --> 00:11:23,990
+This is the first request I am getting.
+Okay? So, my expected is that this batch
+
+616
+00:11:23,990 --> 00:11:24,000
+Okay? So, my expected is that this batch
+ 
+
+617
+00:11:24,000 --> 00:11:26,350
+Okay? So, my expected is that this batch
+should have a base sequence zero.
+
+618
+00:11:26,350 --> 00:11:26,360
+should have a base sequence zero.
+ 
+
+619
+00:11:26,360 --> 00:11:28,750
+should have a base sequence zero.
+Okay? This is my expectation. It should
+
+620
+00:11:28,750 --> 00:11:28,760
+Okay? This is my expectation. It should
+ 
+
+621
+00:11:28,760 --> 00:11:30,910
+Okay? This is my expectation. It should
+sequence should be from zero. See
+
+622
+00:11:30,910 --> 00:11:30,920
+sequence should be from zero. See
+ 
+
+623
+00:11:30,920 --> 00:11:33,470
+sequence should be from zero. See
+See, order should be maintained 0 1 2 3
+
+624
+00:11:33,470 --> 00:11:33,480
+See, order should be maintained 0 1 2 3
+ 
+
+625
+00:11:33,480 --> 00:11:34,790
+See, order should be maintained 0 1 2 3
+4 like this.
+
+626
+00:11:34,790 --> 00:11:34,800
+4 like this.
+ 
+
+627
+00:11:34,800 --> 00:11:36,390
+4 like this.
+So, when the first request come, the
+
+628
+00:11:36,390 --> 00:11:36,400
+So, when the first request come, the
+ 
+
+629
+00:11:36,400 --> 00:11:38,430
+So, when the first request come, the
+sequence should be zero.
+
+630
+00:11:38,430 --> 00:11:38,440
+sequence should be zero.
+ 
+
+631
+00:11:38,440 --> 00:11:40,830
+sequence should be zero.
+Okay? Now, it will check. Okay, this
+
+632
+00:11:40,830 --> 00:11:40,840
+Okay? Now, it will check. Okay, this
+ 
+
+633
+00:11:40,840 --> 00:11:43,910
+Okay? Now, it will check. Okay, this
+batch has base sequence zero? Yes.
+
+634
+00:11:43,910 --> 00:11:43,920
+batch has base sequence zero? Yes.
+ 
+
+635
+00:11:43,920 --> 00:11:46,590
+batch has base sequence zero? Yes.
+It is accepted. And it will create a map
+
+636
+00:11:46,590 --> 00:11:46,600
+It is accepted. And it will create a map
+ 
+
+637
+00:11:46,600 --> 00:11:51,110
+It is accepted. And it will create a map
+in memory map. Hey, process ID is 1001.
+
+638
+00:11:51,110 --> 00:11:51,120
+in memory map. Hey, process ID is 1001.
+ 
+
+639
+00:11:51,120 --> 00:11:52,870
+in memory map. Hey, process ID is 1001.
+Topic is A.
+
+640
+00:11:52,870 --> 00:11:52,880
+Topic is A.
+ 
+
+641
+00:11:52,880 --> 00:11:56,150
+Topic is A.
+Topic is A. Partition is P0.
+
+642
+00:11:56,150 --> 00:11:56,160
+Topic is A. Partition is P0.
+ 
+
+643
+00:11:56,160 --> 00:11:58,110
+Topic is A. Partition is P0.
+What is the last sequence I have read?
+
+644
+00:11:58,110 --> 00:11:58,120
+What is the last sequence I have read?
+ 
+
+645
+00:11:58,120 --> 00:11:59,910
+What is the last sequence I have read?
+Till two.
+
+646
+00:11:59,910 --> 00:11:59,920
+Till two.
+ 
+
+647
+00:11:59,920 --> 00:12:03,630
+Till two.
+Okay, till two, I am done.
+
+648
+00:12:03,630 --> 00:12:03,640
+
+ 
+
+649
+00:12:03,640 --> 00:12:05,790
+
+Now, let's say the next batch is sending
+
+650
+00:12:05,790 --> 00:12:05,800
+Now, let's say the next batch is sending
+ 
+
+651
+00:12:05,800 --> 00:12:07,550
+Now, let's say the next batch is sending
+by the producer.
+
+652
+00:12:07,550 --> 00:12:07,560
+by the producer.
+ 
+
+653
+00:12:07,560 --> 00:12:09,990
+by the producer.
+Second request. Let's say batch two it
+
+654
+00:12:09,990 --> 00:12:10,000
+Second request. Let's say batch two it
+ 
+
+655
+00:12:10,000 --> 00:12:11,150
+Second request. Let's say batch two it
+is sending.
+
+656
+00:12:11,150 --> 00:12:11,160
+is sending.
+ 
+
+657
+00:12:11,160 --> 00:12:12,470
+is sending.
+Topic A.
+
+658
+00:12:12,470 --> 00:12:12,480
+Topic A.
+ 
+
+659
+00:12:12,480 --> 00:12:15,590
+Topic A.
+Partition P0. PID, base sequence, last
+
+660
+00:12:15,590 --> 00:12:15,600
+Partition P0. PID, base sequence, last
+ 
+
+661
+00:12:15,600 --> 00:12:16,790
+Partition P0. PID, base sequence, last
+sequence. Let's say this is the
+
+662
+00:12:16,790 --> 00:12:16,800
+sequence. Let's say this is the
+ 
+
+663
+00:12:16,800 --> 00:12:18,150
+sequence. Let's say this is the
+scenario.
+
+664
+00:12:18,150 --> 00:12:18,160
+scenario.
+ 
+
+665
+00:12:18,160 --> 00:12:20,190
+scenario.
+What broker will do? It will check in
+
+666
+00:12:20,190 --> 00:12:20,200
+What broker will do? It will check in
+ 
+
+667
+00:12:20,200 --> 00:12:21,270
+What broker will do? It will check in
+memory.
+
+668
+00:12:21,270 --> 00:12:21,280
+memory.
+ 
+
+669
+00:12:21,280 --> 00:12:24,150
+memory.
+Hey, for this process ID
+
+670
+00:12:24,150 --> 00:12:24,160
+Hey, for this process ID
+ 
+
+671
+00:12:24,160 --> 00:12:26,670
+Hey, for this process ID
+1001
+
+672
+00:12:26,670 --> 00:12:26,680
+1001
+ 
+
+673
+00:12:26,680 --> 00:12:29,430
+1001
+for this topic and this partition
+
+674
+00:12:29,430 --> 00:12:29,440
+for this topic and this partition
+ 
+
+675
+00:12:29,440 --> 00:12:31,310
+for this topic and this partition
+topic A
+
+676
+00:12:31,310 --> 00:12:31,320
+topic A
+ 
+
+677
+00:12:31,320 --> 00:12:33,550
+topic A
+partition P0
+
+678
+00:12:33,550 --> 00:12:33,560
+partition P0
+ 
+
+679
+00:12:33,560 --> 00:12:37,150
+partition P0
+what is the next sequence I am
+
+680
+00:12:37,150 --> 00:12:37,160
+what is the next sequence I am
+ 
+
+681
+00:12:37,160 --> 00:12:38,350
+what is the next sequence I am
+expecting?
+
+682
+00:12:38,350 --> 00:12:38,360
+expecting?
+ 
+
+683
+00:12:38,360 --> 00:12:41,470
+expecting?
+Okay? So, it will check its memory map.
+
+684
+00:12:41,470 --> 00:12:41,480
+Okay? So, it will check its memory map.
+ 
+
+685
+00:12:41,480 --> 00:12:42,630
+Okay? So, it will check its memory map.
+So,
+
+686
+00:12:42,630 --> 00:12:42,640
+So,
+ 
+
+687
+00:12:42,640 --> 00:12:44,550
+So,
+in the step one, we have created a map,
+
+688
+00:12:44,550 --> 00:12:44,560
+in the step one, we have created a map,
+ 
+
+689
+00:12:44,560 --> 00:12:45,670
+in the step one, we have created a map,
+right?
+
+690
+00:12:45,670 --> 00:12:45,680
+right?
+ 
+
+691
+00:12:45,680 --> 00:12:48,350
+right?
+Process ID, topic, partition.
+
+692
+00:12:48,350 --> 00:12:48,360
+Process ID, topic, partition.
+ 
+
+693
+00:12:48,360 --> 00:12:50,750
+Process ID, topic, partition.
+Okay? So, process ID, topic, partition,
+
+694
+00:12:50,750 --> 00:12:50,760
+Okay? So, process ID, topic, partition,
+ 
+
+695
+00:12:50,760 --> 00:12:52,110
+Okay? So, process ID, topic, partition,
+it get.
+
+696
+00:12:52,110 --> 00:12:52,120
+it get.
+ 
+
+697
+00:12:52,120 --> 00:12:53,350
+it get.
+Okay?
+
+698
+00:12:53,350 --> 00:12:53,360
+Okay?
+ 
+
+699
+00:12:53,360 --> 00:12:54,190
+Okay?
+Uh
+
+700
+00:12:54,190 --> 00:12:54,200
+Uh
+ 
+
+701
+00:12:54,200 --> 00:12:57,590
+Uh
+producer ID is 1001 1001.
+
+702
+00:12:57,590 --> 00:12:57,600
+producer ID is 1001 1001.
+ 
+
+703
+00:12:57,600 --> 00:12:58,950
+producer ID is 1001 1001.
+Topic A.
+
+704
+00:12:58,950 --> 00:12:58,960
+Topic A.
+ 
+
+705
+00:12:58,960 --> 00:13:02,430
+Topic A.
+Partition P0. Yes, a map found. What is
+
+706
+00:13:02,430 --> 00:13:02,440
+Partition P0. Yes, a map found. What is
+ 
+
+707
+00:13:02,440 --> 00:13:05,230
+Partition P0. Yes, a map found. What is
+the next sequence? Next sequence is last
+
+708
+00:13:05,230 --> 00:13:05,240
+the next sequence? Next sequence is last
+ 
+
+709
+00:13:05,240 --> 00:13:07,470
+the next sequence? Next sequence is last
+sequence till it read is two. Next
+
+710
+00:13:07,470 --> 00:13:07,480
+sequence till it read is two. Next
+ 
+
+711
+00:13:07,480 --> 00:13:09,430
+sequence till it read is two. Next
+sequence is two plus one. Hey, I am
+
+712
+00:13:09,430 --> 00:13:09,440
+sequence is two plus one. Hey, I am
+ 
+
+713
+00:13:09,440 --> 00:13:11,670
+sequence is two plus one. Hey, I am
+expecting the base sequence which you
+
+714
+00:13:11,670 --> 00:13:11,680
+expecting the base sequence which you
+ 
+
+715
+00:13:11,680 --> 00:13:13,470
+expecting the base sequence which you
+are sending, it should be start with
+
+716
+00:13:13,470 --> 00:13:13,480
+are sending, it should be start with
+ 
+
+717
+00:13:13,480 --> 00:13:14,910
+are sending, it should be start with
+three.
+
+718
+00:13:14,910 --> 00:13:14,920
+three.
+ 
+
+719
+00:13:14,920 --> 00:13:17,510
+three.
+So, in the map in this batch header, the
+
+720
+00:13:17,510 --> 00:13:17,520
+So, in the map in this batch header, the
+ 
+
+721
+00:13:17,520 --> 00:13:19,350
+So, in the map in this batch header, the
+base sequence should be start with
+
+722
+00:13:19,350 --> 00:13:19,360
+base sequence should be start with
+ 
+
+723
+00:13:19,360 --> 00:13:20,829
+base sequence should be start with
+three.
+
+724
+00:13:20,829 --> 00:13:20,839
+three.
+ 
+
+725
+00:13:20,839 --> 00:13:23,270
+three.
+If this is the case, this batch will get
+
+726
+00:13:23,270 --> 00:13:23,280
+If this is the case, this batch will get
+ 
+
+727
+00:13:23,280 --> 00:13:25,350
+If this is the case, this batch will get
+accepted. Otherwise,
+
+728
+00:13:25,350 --> 00:13:25,360
+accepted. Otherwise,
+ 
+
+729
+00:13:25,360 --> 00:13:27,870
+accepted. Otherwise,
+this batch will get rejected. And the
+
+730
+00:13:27,870 --> 00:13:27,880
+this batch will get rejected. And the
+ 
+
+731
+00:13:27,880 --> 00:13:30,430
+this batch will get rejected. And the
+producer will have to retry.
+
+732
+00:13:30,430 --> 00:13:30,440
+producer will have to retry.
+ 
+
+733
+00:13:30,440 --> 00:13:32,830
+producer will have to retry.
+And it will update the map.
+
+734
+00:13:32,830 --> 00:13:32,840
+And it will update the map.
+ 
+
+735
+00:13:32,840 --> 00:13:36,310
+And it will update the map.
+Producer ID 1001, topic is A, partition
+
+736
+00:13:36,310 --> 00:13:36,320
+Producer ID 1001, topic is A, partition
+ 
+
+737
+00:13:36,320 --> 00:13:38,350
+Producer ID 1001, topic is A, partition
+P0 till
+
+738
+00:13:38,350 --> 00:13:38,360
+P0 till
+ 
+
+739
+00:13:38,360 --> 00:13:41,150
+P0 till
+what I have successfully last sequence
+
+740
+00:13:41,150 --> 00:13:41,160
+what I have successfully last sequence
+ 
+
+741
+00:13:41,160 --> 00:13:43,110
+what I have successfully last sequence
+read five.
+
+742
+00:13:43,110 --> 00:13:43,120
+read five.
+ 
+
+743
+00:13:43,120 --> 00:13:44,990
+read five.
+So it will update till five.
+
+744
+00:13:44,990 --> 00:13:45,000
+So it will update till five.
+ 
+
+745
+00:13:45,000 --> 00:13:47,390
+So it will update till five.
+I have got it.
+
+746
+00:13:47,390 --> 00:13:47,400
+I have got it.
+ 
+
+747
+00:13:47,400 --> 00:13:49,630
+I have got it.
+Okay, the next time
+
+748
+00:13:49,630 --> 00:13:49,640
+Okay, the next time
+ 
+
+749
+00:13:49,640 --> 00:13:51,910
+Okay, the next time
+the batch will come
+
+750
+00:13:51,910 --> 00:13:51,920
+the batch will come
+ 
+
+751
+00:13:51,920 --> 00:13:54,950
+the batch will come
+it will check the same map.
+
+752
+00:13:54,950 --> 00:13:54,960
+it will check the same map.
+ 
+
+753
+00:13:54,960 --> 00:13:57,030
+it will check the same map.
+Okay, this is the producer ID. This is
+
+754
+00:13:57,030 --> 00:13:57,040
+Okay, this is the producer ID. This is
+ 
+
+755
+00:13:57,040 --> 00:13:58,750
+Okay, this is the producer ID. This is
+the topic. This is the partition it want
+
+756
+00:13:58,750 --> 00:13:58,760
+the topic. This is the partition it want
+ 
+
+757
+00:13:58,760 --> 00:14:01,270
+the topic. This is the partition it want
+to write. The next time expecting is
+
+758
+00:14:01,270 --> 00:14:01,280
+to write. The next time expecting is
+ 
+
+759
+00:14:01,280 --> 00:14:03,030
+to write. The next time expecting is
+five plus one.
+
+760
+00:14:03,030 --> 00:14:03,040
+five plus one.
+ 
+
+761
+00:14:03,040 --> 00:14:04,590
+five plus one.
+The next time expecting the base
+
+762
+00:14:04,590 --> 00:14:04,600
+The next time expecting the base
+ 
+
+763
+00:14:04,600 --> 00:14:06,350
+The next time expecting the base
+sequence should be starting from six
+
+764
+00:14:06,350 --> 00:14:06,360
+sequence should be starting from six
+ 
+
+765
+00:14:06,360 --> 00:14:09,150
+sequence should be starting from six
+only because till five I am done.
+
+766
+00:14:09,150 --> 00:14:09,160
+only because till five I am done.
+ 
+
+767
+00:14:09,160 --> 00:14:10,910
+only because till five I am done.
+Okay.
+
+768
+00:14:10,910 --> 00:14:10,920
+Okay.
+ 
+
+769
+00:14:10,920 --> 00:14:13,830
+Okay.
+Till five I have written the events.
+
+770
+00:14:13,830 --> 00:14:13,840
+Till five I have written the events.
+ 
+
+771
+00:14:13,840 --> 00:14:16,830
+Till five I have written the events.
+The next I should be getting six. So the
+
+772
+00:14:16,830 --> 00:14:16,840
+The next I should be getting six. So the
+ 
+
+773
+00:14:16,840 --> 00:14:19,150
+The next I should be getting six. So the
+next batch whatever it should be base
+
+774
+00:14:19,150 --> 00:14:19,160
+next batch whatever it should be base
+ 
+
+775
+00:14:19,160 --> 00:14:21,470
+next batch whatever it should be base
+sequence should be six.
+
+776
+00:14:21,470 --> 00:14:21,480
+sequence should be six.
+ 
+
+777
+00:14:21,480 --> 00:14:23,630
+sequence should be six.
+Then only it will accept the
+
+778
+00:14:23,630 --> 00:14:23,640
+Then only it will accept the
+ 
+
+779
+00:14:23,640 --> 00:14:26,670
+Then only it will accept the
+batch.
+
+780
+00:14:26,670 --> 00:14:26,680
+
+ 
+
+781
+00:14:26,680 --> 00:14:30,190
+
+Got it?
+
+782
+00:14:30,190 --> 00:14:30,200
+
+ 
+
+783
+00:14:30,200 --> 00:14:32,150
+
+Now with this
+
+784
+00:14:32,150 --> 00:14:32,160
+Now with this
+ 
+
+785
+00:14:32,160 --> 00:14:34,550
+Now with this
+both duplicate and message ordering
+
+786
+00:14:34,550 --> 00:14:34,560
+both duplicate and message ordering
+ 
+
+787
+00:14:34,560 --> 00:14:37,870
+both duplicate and message ordering
+issue is fixed. Okay.
+
+788
+00:14:37,870 --> 00:14:37,880
+issue is fixed. Okay.
+ 
+
+789
+00:14:37,880 --> 00:14:40,310
+issue is fixed. Okay.
+Now let's first try to see the demo of
+
+790
+00:14:40,310 --> 00:14:40,320
+Now let's first try to see the demo of
+ 
+
+791
+00:14:40,320 --> 00:14:42,350
+Now let's first try to see the demo of
+it. Like here
+
+792
+00:14:42,350 --> 00:14:42,360
+it. Like here
+ 
+
+793
+00:14:42,360 --> 00:14:43,790
+it. Like here
+let me
+
+794
+00:14:43,790 --> 00:14:43,800
+let me
+ 
+
+795
+00:14:43,800 --> 00:14:46,070
+let me
+zoom it a bit.
+
+796
+00:14:46,070 --> 00:14:46,080
+zoom it a bit.
+ 
+
+797
+00:14:46,080 --> 00:14:48,110
+zoom it a bit.
+Let me first clean up
+
+798
+00:14:48,110 --> 00:14:48,120
+Let me first clean up
+ 
+
+799
+00:14:48,120 --> 00:14:49,470
+Let me first clean up
+uh
+
+800
+00:14:49,470 --> 00:14:49,480
+uh
+ 
+
+801
+00:14:49,480 --> 00:14:51,590
+uh
+everything controller so that we will
+
+802
+00:14:51,590 --> 00:14:51,600
+everything controller so that we will
+ 
+
+803
+00:14:51,600 --> 00:14:54,750
+everything controller so that we will
+start from controller
+
+804
+00:14:54,750 --> 00:14:54,760
+start from controller
+ 
+
+805
+00:14:54,760 --> 00:14:56,990
+start from controller
+one dot logs removed.
+
+806
+00:14:56,990 --> 00:14:57,000
+one dot logs removed.
+ 
+
+807
+00:14:57,000 --> 00:15:02,510
+one dot logs removed.
+Controller two dot logs removed.
+
+808
+00:15:02,510 --> 00:15:02,520
+
+ 
+
+809
+00:15:02,520 --> 00:15:06,110
+
+Broker one dot logs removed. Broker two
+
+810
+00:15:06,110 --> 00:15:06,120
+Broker one dot logs removed. Broker two
+ 
+
+811
+00:15:06,120 --> 00:15:07,910
+Broker one dot logs removed. Broker two
+logs removed. Everything is removed.
+
+812
+00:15:07,910 --> 00:15:07,920
+logs removed. Everything is removed.
+ 
+
+813
+00:15:07,920 --> 00:15:09,910
+logs removed. Everything is removed.
+What we have to do next is creating a
+
+814
+00:15:09,910 --> 00:15:09,920
+What we have to do next is creating a
+ 
+
+815
+00:15:09,920 --> 00:15:11,630
+What we have to do next is creating a
+unique ID.
+
+816
+00:15:11,630 --> 00:15:11,640
+unique ID.
+ 
+
+817
+00:15:11,640 --> 00:15:14,310
+unique ID.
+So we will create a unique cluster ID.
+
+818
+00:15:14,310 --> 00:15:14,320
+So we will create a unique cluster ID.
+ 
+
+819
+00:15:14,320 --> 00:15:17,430
+So we will create a unique cluster ID.
+So this is the cluster ID new.
+
+820
+00:15:17,430 --> 00:15:17,440
+So this is the cluster ID new.
+ 
+
+821
+00:15:17,440 --> 00:15:19,430
+So this is the cluster ID new.
+Now we have to attach two broker two
+
+822
+00:15:19,430 --> 00:15:19,440
+Now we have to attach two broker two
+ 
+
+823
+00:15:19,440 --> 00:15:22,710
+Now we have to attach two broker two
+controller with this cluster ID.
+
+824
+00:15:22,710 --> 00:15:22,720
+controller with this cluster ID.
+ 
+
+825
+00:15:22,720 --> 00:15:25,190
+controller with this cluster ID.
+Uh so here
+
+826
+00:15:25,190 --> 00:15:25,200
+Uh so here
+ 
+
+827
+00:15:25,200 --> 00:15:26,990
+Uh so here
+controller one
+
+828
+00:15:26,990 --> 00:15:27,000
+controller one
+ 
+
+829
+00:15:27,000 --> 00:15:30,910
+controller one
+I have to just copy this new cluster ID
+
+830
+00:15:30,910 --> 00:15:30,920
+I have to just copy this new cluster ID
+ 
+
+831
+00:15:30,920 --> 00:15:34,910
+I have to just copy this new cluster ID
+and update it.
+
+832
+00:15:34,910 --> 00:15:34,920
+
+ 
+
+833
+00:15:34,920 --> 00:15:38,470
+
+So here with the controller one, I have
+
+834
+00:15:38,470 --> 00:15:38,480
+So here with the controller one, I have
+ 
+
+835
+00:15:38,480 --> 00:15:41,830
+So here with the controller one, I have
+updated with this new cluster ID.
+
+836
+00:15:41,830 --> 00:15:41,840
+updated with this new cluster ID.
+ 
+
+837
+00:15:41,840 --> 00:15:45,030
+updated with this new cluster ID.
+Similarly, controller two also
+
+838
+00:15:45,030 --> 00:15:45,040
+Similarly, controller two also
+ 
+
+839
+00:15:45,040 --> 00:15:47,550
+Similarly, controller two also
+appended with this new cluster ID.
+
+840
+00:15:47,550 --> 00:15:47,560
+appended with this new cluster ID.
+ 
+
+841
+00:15:47,560 --> 00:15:51,990
+appended with this new cluster ID.
+Now broker one
+
+842
+00:15:51,990 --> 00:15:52,000
+
+ 
+
+843
+00:15:52,000 --> 00:15:54,270
+
+broker one also done with this cluster
+
+844
+00:15:54,270 --> 00:15:54,280
+broker one also done with this cluster
+ 
+
+845
+00:15:54,280 --> 00:15:56,990
+broker one also done with this cluster
+ID broker two.
+
+846
+00:15:56,990 --> 00:15:57,000
+ID broker two.
+ 
+
+847
+00:15:57,000 --> 00:15:59,350
+ID broker two.
+So now two broker, two controller are
+
+848
+00:15:59,350 --> 00:15:59,360
+So now two broker, two controller are
+ 
+
+849
+00:15:59,360 --> 00:16:01,550
+So now two broker, two controller are
+now associated with one cluster. So they
+
+850
+00:16:01,550 --> 00:16:01,560
+now associated with one cluster. So they
+ 
+
+851
+00:16:01,560 --> 00:16:04,470
+now associated with one cluster. So they
+all belong to one cluster. That is done.
+
+852
+00:16:04,470 --> 00:16:04,480
+all belong to one cluster. That is done.
+ 
+
+853
+00:16:04,480 --> 00:16:05,750
+all belong to one cluster. That is done.
+Now what we have to do is we have to
+
+854
+00:16:05,750 --> 00:16:05,760
+Now what we have to do is we have to
+ 
+
+855
+00:16:05,760 --> 00:16:09,310
+Now what we have to do is we have to
+start the servers. So now let's start
+
+856
+00:16:09,310 --> 00:16:09,320
+start the servers. So now let's start
+ 
+
+857
+00:16:09,320 --> 00:16:12,021
+start the servers. So now let's start
+the server for
+
+858
+00:16:12,021 --> 00:16:12,031
+the server for
+ 
+
+859
+00:16:12,031 --> 00:16:12,070
+the server for
+>> [snorts]
+
+860
+00:16:12,070 --> 00:16:12,080
+>> [snorts]
+ 
+
+861
+00:16:12,080 --> 00:16:15,430
+>> [snorts]
+>> controller one. So this is Kafka server
+
+862
+00:16:15,430 --> 00:16:15,440
+>> controller one. So this is Kafka server
+ 
+
+863
+00:16:15,440 --> 00:16:18,350
+>> controller one. So this is Kafka server
+start we are starting.
+
+864
+00:16:18,350 --> 00:16:18,360
+start we are starting.
+ 
+
+865
+00:16:18,360 --> 00:16:21,430
+start we are starting.
+And here we will start for controller
+
+866
+00:16:21,430 --> 00:16:21,440
+And here we will start for controller
+ 
+
+867
+00:16:21,440 --> 00:16:25,110
+And here we will start for controller
+two.
+
+868
+00:16:25,110 --> 00:16:25,120
+
+ 
+
+869
+00:16:25,120 --> 00:16:26,390
+
+So
+
+870
+00:16:26,390 --> 00:16:26,400
+So
+ 
+
+871
+00:16:26,400 --> 00:16:28,670
+So
+start here, start here.
+
+872
+00:16:28,670 --> 00:16:28,680
+start here, start here.
+ 
+
+873
+00:16:28,680 --> 00:16:30,670
+start here, start here.
+So I have started both the controllers.
+
+874
+00:16:30,670 --> 00:16:30,680
+So I have started both the controllers.
+ 
+
+875
+00:16:30,680 --> 00:16:33,950
+So I have started both the controllers.
+So controllers are started. Okay? Now we
+
+876
+00:16:33,950 --> 00:16:33,960
+So controllers are started. Okay? Now we
+ 
+
+877
+00:16:33,960 --> 00:16:36,350
+So controllers are started. Okay? Now we
+have to start the broker.
+
+878
+00:16:36,350 --> 00:16:36,360
+have to start the broker.
+ 
+
+879
+00:16:36,360 --> 00:16:40,190
+have to start the broker.
+We have to start the broker here.
+
+880
+00:16:40,190 --> 00:16:40,200
+We have to start the broker here.
+ 
+
+881
+00:16:40,200 --> 00:16:42,070
+We have to start the broker here.
+Let me open a new tab.
+
+882
+00:16:42,070 --> 00:16:42,080
+Let me open a new tab.
+ 
+
+883
+00:16:42,080 --> 00:16:43,950
+Let me open a new tab.
+We have to start the broker. So I am
+
+884
+00:16:43,950 --> 00:16:43,960
+We have to start the broker. So I am
+ 
+
+885
+00:16:43,960 --> 00:16:45,630
+We have to start the broker. So I am
+starting
+
+886
+00:16:45,630 --> 00:16:45,640
+starting
+ 
+
+887
+00:16:45,640 --> 00:16:48,070
+starting
+broker one
+
+888
+00:16:48,070 --> 00:16:48,080
+broker one
+ 
+
+889
+00:16:48,080 --> 00:16:49,430
+broker one
+in this one
+
+890
+00:16:49,430 --> 00:16:49,440
+in this one
+ 
+
+891
+00:16:49,440 --> 00:16:52,190
+in this one
+and I'm starting broker two here.
+
+892
+00:16:52,190 --> 00:16:52,200
+and I'm starting broker two here.
+ 
+
+893
+00:16:52,200 --> 00:16:54,750
+and I'm starting broker two here.
+So both the clusters started
+
+894
+00:16:54,750 --> 00:16:54,760
+So both the clusters started
+ 
+
+895
+00:16:54,760 --> 00:16:57,670
+So both the clusters started
+and both the broker are started. Okay?
+
+896
+00:16:57,670 --> 00:16:57,680
+and both the broker are started. Okay?
+ 
+
+897
+00:16:57,680 --> 00:17:00,390
+and both the broker are started. Okay?
+Now let me start the server application
+
+898
+00:17:00,390 --> 00:17:00,400
+Now let me start the server application
+ 
+
+899
+00:17:00,400 --> 00:17:02,870
+Now let me start the server application
+producer here.
+
+900
+00:17:02,870 --> 00:17:02,880
+producer here.
+ 
+
+901
+00:17:02,880 --> 00:17:05,270
+producer here.
+Now just one see the
+
+902
+00:17:05,270 --> 00:17:05,280
+Now just one see the
+ 
+
+903
+00:17:05,280 --> 00:17:06,470
+Now just one see the
+application.properties. In
+
+904
+00:17:06,470 --> 00:17:06,480
+application.properties. In
+ 
+
+905
+00:17:06,480 --> 00:17:08,030
+application.properties. In
+application.properties, I have put
+
+906
+00:17:08,030 --> 00:17:08,040
+application.properties, I have put
+ 
+
+907
+00:17:08,040 --> 00:17:10,710
+application.properties, I have put
+enable idempotency equals to true.
+
+908
+00:17:10,710 --> 00:17:10,720
+enable idempotency equals to true.
+ 
+
+909
+00:17:10,720 --> 00:17:12,030
+enable idempotency equals to true.
+Okay?
+
+910
+00:17:12,030 --> 00:17:12,040
+Okay?
+ 
+
+911
+00:17:12,040 --> 00:17:13,510
+Okay?
+And here if you see in the producer
+
+912
+00:17:13,510 --> 00:17:13,520
+And here if you see in the producer
+ 
+
+913
+00:17:13,520 --> 00:17:15,829
+And here if you see in the producer
+config
+
+914
+00:17:15,829 --> 00:17:15,839
+config
+ 
+
+915
+00:17:15,839 --> 00:17:18,270
+config
+I I have already created
+
+916
+00:17:18,270 --> 00:17:18,280
+I I have already created
+ 
+
+917
+00:17:18,280 --> 00:17:20,390
+I I have already created
+order events with four partition two
+
+918
+00:17:20,390 --> 00:17:20,400
+order events with four partition two
+ 
+
+919
+00:17:20,400 --> 00:17:22,870
+order events with four partition two
+replicas that we have already seen. So,
+
+920
+00:17:22,870 --> 00:17:22,880
+replicas that we have already seen. So,
+ 
+
+921
+00:17:22,880 --> 00:17:25,030
+replicas that we have already seen. So,
+I'm just starting the
+
+922
+00:17:25,030 --> 00:17:25,040
+I'm just starting the
+ 
+
+923
+00:17:25,040 --> 00:17:26,910
+I'm just starting the
+producer application.
+
+924
+00:17:26,910 --> 00:17:26,920
+producer application.
+ 
+
+925
+00:17:26,920 --> 00:17:29,870
+producer application.
+Now, let's see
+
+926
+00:17:29,870 --> 00:17:29,880
+Now, let's see
+ 
+
+927
+00:17:29,880 --> 00:17:35,830
+Now, let's see
+order hyphen events.
+
+928
+00:17:35,830 --> 00:17:35,840
+
+ 
+
+929
+00:17:35,840 --> 00:17:38,710
+
+So, one uh partition 0 1 2 3 four
+
+930
+00:17:38,710 --> 00:17:38,720
+So, one uh partition 0 1 2 3 four
+ 
+
+931
+00:17:38,720 --> 00:17:41,110
+So, one uh partition 0 1 2 3 four
+partition two replicas each. So, that is
+
+932
+00:17:41,110 --> 00:17:41,120
+partition two replicas each. So, that is
+ 
+
+933
+00:17:41,120 --> 00:17:43,230
+partition two replicas each. So, that is
+also done properly.
+
+934
+00:17:43,230 --> 00:17:43,240
+also done properly.
+ 
+
+935
+00:17:43,240 --> 00:17:45,750
+also done properly.
+Now, what I have done is I have just
+
+936
+00:17:45,750 --> 00:17:45,760
+Now, what I have done is I have just
+ 
+
+937
+00:17:45,760 --> 00:17:48,470
+Now, what I have done is I have just
+written one API for idempotency check,
+
+938
+00:17:48,470 --> 00:17:48,480
+written one API for idempotency check,
+ 
+
+939
+00:17:48,480 --> 00:17:51,550
+written one API for idempotency check,
+very simple. So, here I have just used
+
+940
+00:17:51,550 --> 00:17:51,560
+very simple. So, here I have just used
+ 
+
+941
+00:17:51,560 --> 00:17:53,990
+very simple. So, here I have just used
+same key so that everything goes to the
+
+942
+00:17:53,990 --> 00:17:54,000
+same key so that everything goes to the
+ 
+
+943
+00:17:54,000 --> 00:17:58,790
+same key so that everything goes to the
+same partition. Okay? And here I am just
+
+944
+00:17:58,790 --> 00:17:58,800
+same partition. Okay? And here I am just
+ 
+
+945
+00:17:58,800 --> 00:18:00,990
+same partition. Okay? And here I am just
+iterating for loop.
+
+946
+00:18:00,990 --> 00:18:01,000
+iterating for loop.
+ 
+
+947
+00:18:01,000 --> 00:18:03,070
+iterating for loop.
+Message count is 10. So, 10 times it
+
+948
+00:18:03,070 --> 00:18:03,080
+Message count is 10. So, 10 times it
+ 
+
+949
+00:18:03,080 --> 00:18:05,150
+Message count is 10. So, 10 times it
+just produce a message.
+
+950
+00:18:05,150 --> 00:18:05,160
+just produce a message.
+ 
+
+951
+00:18:05,160 --> 00:18:06,270
+just produce a message.
+Okay?
+
+952
+00:18:06,270 --> 00:18:06,280
+Okay?
+ 
+
+953
+00:18:06,280 --> 00:18:08,510
+Okay?
+So, this is just for testing purpose.
+
+954
+00:18:08,510 --> 00:18:08,520
+So, this is just for testing purpose.
+ 
+
+955
+00:18:08,520 --> 00:18:09,870
+So, this is just for testing purpose.
+Very simple.
+
+956
+00:18:09,870 --> 00:18:09,880
+Very simple.
+ 
+
+957
+00:18:09,880 --> 00:18:12,350
+Very simple.
+This API count equals to 10. So, 10 time
+
+958
+00:18:12,350 --> 00:18:12,360
+This API count equals to 10. So, 10 time
+ 
+
+959
+00:18:12,360 --> 00:18:16,390
+This API count equals to 10. So, 10 time
+means 10 messages it will send.
+
+960
+00:18:16,390 --> 00:18:16,400
+means 10 messages it will send.
+ 
+
+961
+00:18:16,400 --> 00:18:18,510
+means 10 messages it will send.
+So, I just send
+
+962
+00:18:18,510 --> 00:18:18,520
+So, I just send
+ 
+
+963
+00:18:18,520 --> 00:18:22,230
+So, I just send
+send 10 messages with key. Okay?
+
+964
+00:18:22,230 --> 00:18:22,240
+send 10 messages with key. Okay?
+ 
+
+965
+00:18:22,240 --> 00:18:24,510
+send 10 messages with key. Okay?
+Now, here it see the
+
+966
+00:18:24,510 --> 00:18:24,520
+Now, here it see the
+ 
+
+967
+00:18:24,520 --> 00:18:27,870
+Now, here it see the
+which partition it goes? Partition two.
+
+968
+00:18:27,870 --> 00:18:27,880
+which partition it goes? Partition two.
+ 
+
+969
+00:18:27,880 --> 00:18:30,150
+which partition it goes? Partition two.
+It went to the partition two.
+
+970
+00:18:30,150 --> 00:18:30,160
+It went to the partition two.
+ 
+
+971
+00:18:30,160 --> 00:18:33,630
+It went to the partition two.
+And see the offset 0 1 2 3.
+
+972
+00:18:33,630 --> 00:18:33,640
+And see the offset 0 1 2 3.
+ 
+
+973
+00:18:33,640 --> 00:18:36,870
+And see the offset 0 1 2 3.
+Now, partition two, who is the leader?
+
+974
+00:18:36,870 --> 00:18:36,880
+Now, partition two, who is the leader?
+ 
+
+975
+00:18:36,880 --> 00:18:39,670
+Now, partition two, who is the leader?
+Partition two leader is three.
+
+976
+00:18:39,670 --> 00:18:39,680
+Partition two leader is three.
+ 
+
+977
+00:18:39,680 --> 00:18:42,910
+Partition two leader is three.
+So, our one I ID one is controller one,
+
+978
+00:18:42,910 --> 00:18:42,920
+So, our one I ID one is controller one,
+ 
+
+979
+00:18:42,920 --> 00:18:45,310
+So, our one I ID one is controller one,
+ID two is controller two, and ID three
+
+980
+00:18:45,310 --> 00:18:45,320
+ID two is controller two, and ID three
+ 
+
+981
+00:18:45,320 --> 00:18:46,990
+ID two is controller two, and ID three
+is broker one. If you remember, if you
+
+982
+00:18:46,990 --> 00:18:47,000
+is broker one. If you remember, if you
+ 
+
+983
+00:18:47,000 --> 00:18:48,950
+is broker one. If you remember, if you
+are following the series.
+
+984
+00:18:48,950 --> 00:18:48,960
+are following the series.
+ 
+
+985
+00:18:48,960 --> 00:18:50,870
+are following the series.
+Uh so, means partition goes to the
+
+986
+00:18:50,870 --> 00:18:50,880
+Uh so, means partition goes to the
+ 
+
+987
+00:18:50,880 --> 00:18:53,230
+Uh so, means partition goes to the
+leader three means broker one.
+
+988
+00:18:53,230 --> 00:18:53,240
+leader three means broker one.
+ 
+
+989
+00:18:53,240 --> 00:18:57,750
+leader three means broker one.
+So, now let's see.
+
+990
+00:18:57,750 --> 00:18:57,760
+
+ 
+
+991
+00:18:57,760 --> 00:19:01,710
+
+Now, let's see the broker one
+
+992
+00:19:01,710 --> 00:19:01,720
+Now, let's see the broker one
+ 
+
+993
+00:19:01,720 --> 00:19:03,310
+Now, let's see the broker one
+logs.
+
+994
+00:19:03,310 --> 00:19:03,320
+logs.
+ 
+
+995
+00:19:03,320 --> 00:19:05,750
+logs.
+So, here
+
+996
+00:19:05,750 --> 00:19:05,760
+So, here
+ 
+
+997
+00:19:05,760 --> 00:19:09,830
+So, here
+I am just dumping
+
+998
+00:19:09,830 --> 00:19:09,840
+
+ 
+
+999
+00:19:09,840 --> 00:19:13,110
+
+the logs. So, here if you see
+
+1000
+00:19:13,110 --> 00:19:13,120
+the logs. So, here if you see
+ 
+
+1001
+00:19:13,120 --> 00:19:14,950
+the logs. So, here if you see
+broker one logs
+
+1002
+00:19:14,950 --> 00:19:14,960
+broker one logs
+ 
+
+1003
+00:19:14,960 --> 00:19:17,350
+broker one logs
+the path we have already set up temp
+
+1004
+00:19:17,350 --> 00:19:17,360
+the path we have already set up temp
+ 
+
+1005
+00:19:17,360 --> 00:19:18,790
+the path we have already set up temp
+broker one logs
+
+1006
+00:19:18,790 --> 00:19:18,800
+broker one logs
+ 
+
+1007
+00:19:18,800 --> 00:19:20,790
+broker one logs
+partition two order events hyphen two
+
+1008
+00:19:20,790 --> 00:19:20,800
+partition two order events hyphen two
+ 
+
+1009
+00:19:20,800 --> 00:19:22,630
+partition two order events hyphen two
+it's like partition two
+
+1010
+00:19:22,630 --> 00:19:22,640
+it's like partition two
+ 
+
+1011
+00:19:22,640 --> 00:19:25,910
+it's like partition two
+and this is the first
+
+1012
+00:19:25,910 --> 00:19:25,920
+and this is the first
+ 
+
+1013
+00:19:25,920 --> 00:19:27,270
+and this is the first
+log.
+
+1014
+00:19:27,270 --> 00:19:27,280
+log.
+ 
+
+1015
+00:19:27,280 --> 00:19:29,230
+log.
+So, now here if you see what we are
+
+1016
+00:19:29,230 --> 00:19:29,240
+So, now here if you see what we are
+ 
+
+1017
+00:19:29,240 --> 00:19:31,470
+So, now here if you see what we are
+seeing here.
+
+1018
+00:19:31,470 --> 00:19:31,480
+seeing here.
+ 
+
+1019
+00:19:31,480 --> 00:19:32,550
+seeing here.
+So,
+
+1020
+00:19:32,550 --> 00:19:32,560
+So,
+ 
+
+1021
+00:19:32,560 --> 00:19:33,950
+So,
+the header.
+
+1022
+00:19:33,950 --> 00:19:33,960
+the header.
+ 
+
+1023
+00:19:33,960 --> 00:19:35,710
+the header.
+First thing is header.
+
+1024
+00:19:35,710 --> 00:19:35,720
+First thing is header.
+ 
+
+1025
+00:19:35,720 --> 00:19:38,270
+First thing is header.
+In the header what is the base sequence
+
+1026
+00:19:38,270 --> 00:19:38,280
+In the header what is the base sequence
+ 
+
+1027
+00:19:38,280 --> 00:19:40,070
+In the header what is the base sequence
+is zero.
+
+1028
+00:19:40,070 --> 00:19:40,080
+is zero.
+ 
+
+1029
+00:19:40,080 --> 00:19:43,510
+is zero.
+So, total
+
+1030
+00:19:43,510 --> 00:19:43,520
+
+ 
+
+1031
+00:19:43,520 --> 00:19:45,950
+
+10 messages we have sent.
+
+1032
+00:19:45,950 --> 00:19:45,960
+10 messages we have sent.
+ 
+
+1033
+00:19:45,960 --> 00:19:46,910
+10 messages we have sent.
+Okay?
+
+1034
+00:19:46,910 --> 00:19:46,920
+Okay?
+ 
+
+1035
+00:19:46,920 --> 00:19:49,310
+Okay?
+In the 10 messages it let's say it goes
+
+1036
+00:19:49,310 --> 00:19:49,320
+In the 10 messages it let's say it goes
+ 
+
+1037
+00:19:49,320 --> 00:19:51,990
+In the 10 messages it let's say it goes
+into one batch.
+
+1038
+00:19:51,990 --> 00:19:52,000
+into one batch.
+ 
+
+1039
+00:19:52,000 --> 00:19:53,790
+into one batch.
+The what is the header?
+
+1040
+00:19:53,790 --> 00:19:53,800
+The what is the header?
+ 
+
+1041
+00:19:53,800 --> 00:19:55,670
+The what is the header?
+Base is zero.
+
+1042
+00:19:55,670 --> 00:19:55,680
+Base is zero.
+ 
+
+1043
+00:19:55,680 --> 00:19:58,710
+Base is zero.
+And the last base sequence is zero.
+
+1044
+00:19:58,710 --> 00:19:58,720
+And the last base sequence is zero.
+ 
+
+1045
+00:19:58,720 --> 00:20:00,990
+And the last base sequence is zero.
+Last sequence is
+
+1046
+00:20:00,990 --> 00:20:01,000
+Last sequence is
+ 
+
+1047
+00:20:01,000 --> 00:20:02,030
+Last sequence is
+nine.
+
+1048
+00:20:02,030 --> 00:20:02,040
+nine.
+ 
+
+1049
+00:20:02,040 --> 00:20:03,430
+nine.
+Zero to nine.
+
+1050
+00:20:03,430 --> 00:20:03,440
+Zero to nine.
+ 
+
+1051
+00:20:03,440 --> 00:20:04,390
+Zero to nine.
+Okay?
+
+1052
+00:20:04,390 --> 00:20:04,400
+Okay?
+ 
+
+1053
+00:20:04,400 --> 00:20:07,390
+Okay?
+And what is the producer ID is zero. PID
+
+1054
+00:20:07,390 --> 00:20:07,400
+And what is the producer ID is zero. PID
+ 
+
+1055
+00:20:07,400 --> 00:20:09,030
+And what is the producer ID is zero. PID
+is
+
+1056
+00:20:09,030 --> 00:20:09,040
+is
+ 
+
+1057
+00:20:09,040 --> 00:20:10,830
+is
+zero.
+
+1058
+00:20:10,830 --> 00:20:10,840
+zero.
+ 
+
+1059
+00:20:10,840 --> 00:20:13,070
+zero.
+Now here here if you see these are all
+
+1060
+00:20:13,070 --> 00:20:13,080
+Now here here if you see these are all
+ 
+
+1061
+00:20:13,080 --> 00:20:15,550
+Now here here if you see these are all
+the events.
+
+1062
+00:20:15,550 --> 00:20:15,560
+the events.
+ 
+
+1063
+00:20:15,560 --> 00:20:17,710
+the events.
+So, event one
+
+1064
+00:20:17,710 --> 00:20:17,720
+So, event one
+ 
+
+1065
+00:20:17,720 --> 00:20:20,390
+So, event one
+event two event three event four event
+
+1066
+00:20:20,390 --> 00:20:20,400
+event two event three event four event
+ 
+
+1067
+00:20:20,400 --> 00:20:23,230
+event two event three event four event
+five event six event seven event eight
+
+1068
+00:20:23,230 --> 00:20:23,240
+five event six event seven event eight
+ 
+
+1069
+00:20:23,240 --> 00:20:25,270
+five event six event seven event eight
+event nine event 10. So, 10 times I'm
+
+1070
+00:20:25,270 --> 00:20:25,280
+event nine event 10. So, 10 times I'm
+ 
+
+1071
+00:20:25,280 --> 00:20:28,110
+event nine event 10. So, 10 times I'm
+looping, right? So, 10 events. Now each
+
+1072
+00:20:28,110 --> 00:20:28,120
+looping, right? So, 10 events. Now each
+ 
+
+1073
+00:20:28,120 --> 00:20:29,830
+looping, right? So, 10 events. Now each
+event got a unique sequence sequence
+
+1074
+00:20:29,830 --> 00:20:29,840
+event got a unique sequence sequence
+ 
+
+1075
+00:20:29,840 --> 00:20:32,230
+event got a unique sequence sequence
+zero sequence one sequence two sequence
+
+1076
+00:20:32,230 --> 00:20:32,240
+zero sequence one sequence two sequence
+ 
+
+1077
+00:20:32,240 --> 00:20:35,510
+zero sequence one sequence two sequence
+three four five six seven eight nine.
+
+1078
+00:20:35,510 --> 00:20:35,520
+three four five six seven eight nine.
+ 
+
+1079
+00:20:35,520 --> 00:20:36,750
+three four five six seven eight nine.
+And in the header
+
+1080
+00:20:36,750 --> 00:20:36,760
+And in the header
+ 
+
+1081
+00:20:36,760 --> 00:20:39,390
+And in the header
+it just put like base sequence is zero.
+
+1082
+00:20:39,390 --> 00:20:39,400
+it just put like base sequence is zero.
+ 
+
+1083
+00:20:39,400 --> 00:20:41,990
+it just put like base sequence is zero.
+And the last sequence is nine.
+
+1084
+00:20:41,990 --> 00:20:42,000
+And the last sequence is nine.
+ 
+
+1085
+00:20:42,000 --> 00:20:45,510
+And the last sequence is nine.
+That's all.
+
+1086
+00:20:45,510 --> 00:20:45,520
+
+ 
+
+1087
+00:20:45,520 --> 00:20:48,670
+
+Okay? So,
+
+1088
+00:20:48,670 --> 00:20:48,680
+
+ 
+
+1089
+00:20:48,680 --> 00:20:52,190
+
+with this information
+
+1090
+00:20:52,190 --> 00:20:52,200
+with this information
+ 
+
+1091
+00:20:52,200 --> 00:20:55,190
+with this information
+the broker can now identify with this
+
+1092
+00:20:55,190 --> 00:20:55,200
+the broker can now identify with this
+ 
+
+1093
+00:20:55,200 --> 00:20:57,350
+the broker can now identify with this
+flow that
+
+1094
+00:20:57,350 --> 00:20:57,360
+flow that
+ 
+
+1095
+00:20:57,360 --> 00:21:00,790
+flow that
+there is a duplicate or not.
+
+1096
+00:21:00,790 --> 00:21:00,800
+there is a duplicate or not.
+ 
+
+1097
+00:21:00,800 --> 00:21:04,470
+there is a duplicate or not.
+Okay? If let's say retry happen
+
+1098
+00:21:04,470 --> 00:21:04,480
+Okay? If let's say retry happen
+ 
+
+1099
+00:21:04,480 --> 00:21:06,990
+Okay? If let's say retry happen
+Okay? And the same
+
+1100
+00:21:06,990 --> 00:21:07,000
+Okay? And the same
+ 
+
+1101
+00:21:07,000 --> 00:21:09,350
+Okay? And the same
+Now what is the next expected? Now,
+
+1102
+00:21:09,350 --> 00:21:09,360
+Now what is the next expected? Now,
+ 
+
+1103
+00:21:09,360 --> 00:21:11,310
+Now what is the next expected? Now,
+let's say I am hitting it again. I am
+
+1104
+00:21:11,310 --> 00:21:11,320
+let's say I am hitting it again. I am
+ 
+
+1105
+00:21:11,320 --> 00:21:13,510
+let's say I am hitting it again. I am
+hitting it again one more time.
+
+1106
+00:21:13,510 --> 00:21:13,520
+hitting it again one more time.
+ 
+
+1107
+00:21:13,520 --> 00:21:15,750
+hitting it again one more time.
+So, now let's see.
+
+1108
+00:21:15,750 --> 00:21:15,760
+So, now let's see.
+ 
+
+1109
+00:21:15,760 --> 00:21:18,830
+So, now let's see.
+Again, dump the log.
+
+1110
+00:21:18,830 --> 00:21:18,840
+Again, dump the log.
+ 
+
+1111
+00:21:18,840 --> 00:21:20,270
+Again, dump the log.
+Now, see.
+
+1112
+00:21:20,270 --> 00:21:20,280
+Now, see.
+ 
+
+1113
+00:21:20,280 --> 00:21:22,350
+Now, see.
+What happened?
+
+1114
+00:21:22,350 --> 00:21:22,360
+What happened?
+ 
+
+1115
+00:21:22,360 --> 00:21:25,030
+What happened?
+So, total 20.
+
+1116
+00:21:25,030 --> 00:21:25,040
+So, total 20.
+ 
+
+1117
+00:21:25,040 --> 00:21:28,110
+So, total 20.
+So, this is the first time. Earlier,
+
+1118
+00:21:28,110 --> 00:21:28,120
+So, this is the first time. Earlier,
+ 
+
+1119
+00:21:28,120 --> 00:21:29,630
+So, this is the first time. Earlier,
+base zero.
+
+1120
+00:21:29,630 --> 00:21:29,640
+base zero.
+ 
+
+1121
+00:21:29,640 --> 00:21:31,390
+base zero.
+Last sequence is nine. And now, this is
+
+1122
+00:21:31,390 --> 00:21:31,400
+Last sequence is nine. And now, this is
+ 
+
+1123
+00:21:31,400 --> 00:21:33,830
+Last sequence is nine. And now, this is
+the one. Next sequence is base sequence
+
+1124
+00:21:33,830 --> 00:21:33,840
+the one. Next sequence is base sequence
+ 
+
+1125
+00:21:33,840 --> 00:21:36,350
+the one. Next sequence is base sequence
+is 10. Last sequence is 9 10. Producer
+
+1126
+00:21:36,350 --> 00:21:36,360
+is 10. Last sequence is 9 10. Producer
+ 
+
+1127
+00:21:36,360 --> 00:21:37,590
+is 10. Last sequence is 9 10. Producer
+ID zero.
+
+1128
+00:21:37,590 --> 00:21:37,600
+ID zero.
+ 
+
+1129
+00:21:37,600 --> 00:21:40,870
+ID zero.
+So, it keep on incrementing. Okay?
+
+1130
+00:21:40,870 --> 00:21:40,880
+So, it keep on incrementing. Okay?
+ 
+
+1131
+00:21:40,880 --> 00:21:43,390
+So, it keep on incrementing. Okay?
+Because after this one, it's within the
+
+1132
+00:21:43,390 --> 00:21:43,400
+Because after this one, it's within the
+ 
+
+1133
+00:21:43,400 --> 00:21:44,830
+Because after this one, it's within the
+broker
+
+1134
+00:21:44,830 --> 00:21:44,840
+broker
+ 
+
+1135
+00:21:44,840 --> 00:21:47,190
+broker
+it has created a map.
+
+1136
+00:21:47,190 --> 00:21:47,200
+it has created a map.
+ 
+
+1137
+00:21:47,200 --> 00:21:49,230
+it has created a map.
+It has created the map, and in the last
+
+1138
+00:21:49,230 --> 00:21:49,240
+It has created the map, and in the last
+ 
+
+1139
+00:21:49,240 --> 00:21:51,150
+It has created the map, and in the last
+sequence it was written nine.
+
+1140
+00:21:51,150 --> 00:21:51,160
+sequence it was written nine.
+ 
+
+1141
+00:21:51,160 --> 00:21:54,510
+sequence it was written nine.
+Now, the next it was expecting 9 + 1 10.
+
+1142
+00:21:54,510 --> 00:21:54,520
+Now, the next it was expecting 9 + 1 10.
+ 
+
+1143
+00:21:54,520 --> 00:21:58,510
+Now, the next it was expecting 9 + 1 10.
+So, now when I hit again, the batch
+
+1144
+00:21:58,510 --> 00:21:58,520
+So, now when I hit again, the batch
+ 
+
+1145
+00:21:58,520 --> 00:22:00,990
+So, now when I hit again, the batch
+Okay? The batch base sequence is 10. So,
+
+1146
+00:22:00,990 --> 00:22:01,000
+Okay? The batch base sequence is 10. So,
+ 
+
+1147
+00:22:01,000 --> 00:22:02,870
+Okay? The batch base sequence is 10. So,
+it accepted it.
+
+1148
+00:22:02,870 --> 00:22:02,880
+it accepted it.
+ 
+
+1149
+00:22:02,880 --> 00:22:04,710
+it accepted it.
+And the last sequence is 19, so it will
+
+1150
+00:22:04,710 --> 00:22:04,720
+And the last sequence is 19, so it will
+ 
+
+1151
+00:22:04,720 --> 00:22:05,870
+And the last sequence is 19, so it will
+update it.
+
+1152
+00:22:05,870 --> 00:22:05,880
+update it.
+ 
+
+1153
+00:22:05,880 --> 00:22:09,870
+update it.
+9 10. Now, the next time
+
+1154
+00:22:09,870 --> 00:22:09,880
+9 10. Now, the next time
+ 
+
+1155
+00:22:09,880 --> 00:22:11,950
+9 10. Now, the next time
+when the request or the new batch should
+
+1156
+00:22:11,950 --> 00:22:11,960
+when the request or the new batch should
+ 
+
+1157
+00:22:11,960 --> 00:22:14,910
+when the request or the new batch should
+come, it should have the base sequences
+
+1158
+00:22:14,910 --> 00:22:14,920
+come, it should have the base sequences
+ 
+
+1159
+00:22:14,920 --> 00:22:17,430
+come, it should have the base sequences
+should be 20. Then only it will accept
+
+1160
+00:22:17,430 --> 00:22:17,440
+should be 20. Then only it will accept
+ 
+
+1161
+00:22:17,440 --> 00:22:18,910
+should be 20. Then only it will accept
+the batch.
+
+1162
+00:22:18,910 --> 00:22:18,920
+the batch.
+ 
+
+1163
+00:22:18,920 --> 00:22:20,270
+the batch.
+Okay?
+
+1164
+00:22:20,270 --> 00:22:20,280
+Okay?
+ 
+
+1165
+00:22:20,280 --> 00:22:23,390
+Okay?
+So, got it? This is clear?
+
+1166
+00:22:23,390 --> 00:22:23,400
+So, got it? This is clear?
+ 
+
+1167
+00:22:23,400 --> 00:22:26,070
+So, got it? This is clear?
+Now, there is one loophole.
+
+1168
+00:22:26,070 --> 00:22:26,080
+Now, there is one loophole.
+ 
+
+1169
+00:22:26,080 --> 00:22:28,150
+Now, there is one loophole.
+What is that one loophole?
+
+1170
+00:22:28,150 --> 00:22:28,160
+What is that one loophole?
+ 
+
+1171
+00:22:28,160 --> 00:22:31,150
+What is that one loophole?
+If you double-check the step one.
+
+1172
+00:22:31,150 --> 00:22:31,160
+If you double-check the step one.
+ 
+
+1173
+00:22:31,160 --> 00:22:32,710
+If you double-check the step one.
+Okay, what was the step one when
+
+1174
+00:22:32,710 --> 00:22:32,720
+Okay, what was the step one when
+ 
+
+1175
+00:22:32,720 --> 00:22:34,750
+Okay, what was the step one when
+producer application start up?
+
+1176
+00:22:34,750 --> 00:22:34,760
+producer application start up?
+ 
+
+1177
+00:22:34,760 --> 00:22:37,550
+producer application start up?
+It will ask for unique ID. Broker ask
+
+1178
+00:22:37,550 --> 00:22:37,560
+It will ask for unique ID. Broker ask
+ 
+
+1179
+00:22:37,560 --> 00:22:39,630
+It will ask for unique ID. Broker ask
+for controller. Controller generate a
+
+1180
+00:22:39,630 --> 00:22:39,640
+for controller. Controller generate a
+ 
+
+1181
+00:22:39,640 --> 00:22:41,870
+for controller. Controller generate a
+new ID. Return it.
+
+1182
+00:22:41,870 --> 00:22:41,880
+new ID. Return it.
+ 
+
+1183
+00:22:41,880 --> 00:22:45,150
+new ID. Return it.
+But, there nowhere it is stored that
+
+1184
+00:22:45,150 --> 00:22:45,160
+But, there nowhere it is stored that
+ 
+
+1185
+00:22:45,160 --> 00:22:50,630
+But, there nowhere it is stored that
+hey, this producer its ID is 1001.
+
+1186
+00:22:50,630 --> 00:22:50,640
+hey, this producer its ID is 1001.
+ 
+
+1187
+00:22:50,640 --> 00:22:53,390
+hey, this producer its ID is 1001.
+What happen if this producer restart? It
+
+1188
+00:22:53,390 --> 00:22:53,400
+What happen if this producer restart? It
+ 
+
+1189
+00:22:53,400 --> 00:22:56,590
+What happen if this producer restart? It
+will again send the request. It will get
+
+1190
+00:22:56,590 --> 00:22:56,600
+will again send the request. It will get
+ 
+
+1191
+00:22:56,600 --> 00:22:58,870
+will again send the request. It will get
+a new ID.
+
+1192
+00:22:58,870 --> 00:22:58,880
+a new ID.
+ 
+
+1193
+00:22:58,880 --> 00:23:00,870
+a new ID.
+So, understand this flow.
+
+1194
+00:23:00,870 --> 00:23:00,880
+So, understand this flow.
+ 
+
+1195
+00:23:00,880 --> 00:23:03,430
+So, understand this flow.
+Understand the loophole.
+
+1196
+00:23:03,430 --> 00:23:03,440
+Understand the loophole.
+ 
+
+1197
+00:23:03,440 --> 00:23:05,270
+Understand the loophole.
+Producer first time send give me
+
+1198
+00:23:05,270 --> 00:23:05,280
+Producer first time send give me
+ 
+
+1199
+00:23:05,280 --> 00:23:06,750
+Producer first time send give me
+producer ID.
+
+1200
+00:23:06,750 --> 00:23:06,760
+producer ID.
+ 
+
+1201
+00:23:06,760 --> 00:23:09,270
+producer ID.
+It will return 1001.
+
+1202
+00:23:09,270 --> 00:23:09,280
+It will return 1001.
+ 
+
+1203
+00:23:09,280 --> 00:23:11,430
+It will return 1001.
+Now it send the batch.
+
+1204
+00:23:11,430 --> 00:23:11,440
+Now it send the batch.
+ 
+
+1205
+00:23:11,440 --> 00:23:13,950
+Now it send the batch.
+Topic A, partition zero.
+
+1206
+00:23:13,950 --> 00:23:13,960
+Topic A, partition zero.
+ 
+
+1207
+00:23:13,960 --> 00:23:16,470
+Topic A, partition zero.
+Producer ID is 1001. Base sequence is
+
+1208
+00:23:16,470 --> 00:23:16,480
+Producer ID is 1001. Base sequence is
+ 
+
+1209
+00:23:16,480 --> 00:23:17,710
+Producer ID is 1001. Base sequence is
+let's say three.
+
+1210
+00:23:17,710 --> 00:23:17,720
+let's say three.
+ 
+
+1211
+00:23:17,720 --> 00:23:19,390
+let's say three.
+And the last sequence is five. Let's say
+
+1212
+00:23:19,390 --> 00:23:19,400
+And the last sequence is five. Let's say
+ 
+
+1213
+00:23:19,400 --> 00:23:20,950
+And the last sequence is five. Let's say
+it send this.
+
+1214
+00:23:20,950 --> 00:23:20,960
+it send this.
+ 
+
+1215
+00:23:20,960 --> 00:23:22,950
+it send this.
+In the log, broker has written it.
+
+1216
+00:23:22,950 --> 00:23:22,960
+In the log, broker has written it.
+ 
+
+1217
+00:23:22,960 --> 00:23:25,030
+In the log, broker has written it.
+Header. Whatever the header Whatever
+
+1218
+00:23:25,030 --> 00:23:25,040
+Header. Whatever the header Whatever
+ 
+
+1219
+00:23:25,040 --> 00:23:27,390
+Header. Whatever the header Whatever
+See, for broker, it just simply write it
+
+1220
+00:23:27,390 --> 00:23:27,400
+See, for broker, it just simply write it
+ 
+
+1221
+00:23:27,400 --> 00:23:29,150
+See, for broker, it just simply write it
+whatever you will send me.
+
+1222
+00:23:29,150 --> 00:23:29,160
+whatever you will send me.
+ 
+
+1223
+00:23:29,160 --> 00:23:30,230
+whatever you will send me.
+Okay?
+
+1224
+00:23:30,230 --> 00:23:30,240
+Okay?
+ 
+
+1225
+00:23:30,240 --> 00:23:34,550
+Okay?
+So, in the header, base sequence three.
+
+1226
+00:23:34,550 --> 00:23:34,560
+So, in the header, base sequence three.
+ 
+
+1227
+00:23:34,560 --> 00:23:36,870
+So, in the header, base sequence three.
+Last sequence is five and the producer
+
+1228
+00:23:36,870 --> 00:23:36,880
+Last sequence is five and the producer
+ 
+
+1229
+00:23:36,880 --> 00:23:38,910
+Last sequence is five and the producer
+ID 1001 I have written.
+
+1230
+00:23:38,910 --> 00:23:38,920
+ID 1001 I have written.
+ 
+
+1231
+00:23:38,920 --> 00:23:41,070
+ID 1001 I have written.
+And in the batch, whatever the events
+
+1232
+00:23:41,070 --> 00:23:41,080
+And in the batch, whatever the events
+ 
+
+1233
+00:23:41,080 --> 00:23:42,990
+And in the batch, whatever the events
+here I have with event appended with the
+
+1234
+00:23:42,990 --> 00:23:43,000
+here I have with event appended with the
+ 
+
+1235
+00:23:43,000 --> 00:23:45,070
+here I have with event appended with the
+sequence, right? Event one, event two,
+
+1236
+00:23:45,070 --> 00:23:45,080
+sequence, right? Event one, event two,
+ 
+
+1237
+00:23:45,080 --> 00:23:46,110
+sequence, right? Event one, event two,
+event three.
+
+1238
+00:23:46,110 --> 00:23:46,120
+event three.
+ 
+
+1239
+00:23:46,120 --> 00:23:47,430
+event three.
+Each with base sequence three, four,
+
+1240
+00:23:47,430 --> 00:23:47,440
+Each with base sequence three, four,
+ 
+
+1241
+00:23:47,440 --> 00:23:49,470
+Each with base sequence three, four,
+five. I have written this.
+
+1242
+00:23:49,470 --> 00:23:49,480
+five. I have written this.
+ 
+
+1243
+00:23:49,480 --> 00:23:52,830
+five. I have written this.
+And also I have updated the map.
+
+1244
+00:23:52,830 --> 00:23:52,840
+And also I have updated the map.
+ 
+
+1245
+00:23:52,840 --> 00:23:57,030
+And also I have updated the map.
+Producer ID 1001, topic A, partition P0,
+
+1246
+00:23:57,030 --> 00:23:57,040
+Producer ID 1001, topic A, partition P0,
+ 
+
+1247
+00:23:57,040 --> 00:23:59,830
+Producer ID 1001, topic A, partition P0,
+the last sequence I have got is five.
+
+1248
+00:23:59,830 --> 00:23:59,840
+the last sequence I have got is five.
+ 
+
+1249
+00:23:59,840 --> 00:24:02,310
+the last sequence I have got is five.
+Now what is the next it is expecting? 5
+
+1250
+00:24:02,310 --> 00:24:02,320
+Now what is the next it is expecting? 5
+ 
+
+1251
+00:24:02,320 --> 00:24:04,710
+Now what is the next it is expecting? 5
++ 1. So, next base sequence should be
+
+1252
+00:24:04,710 --> 00:24:04,720
++ 1. So, next base sequence should be
+ 
+
+1253
+00:24:04,720 --> 00:24:06,910
++ 1. So, next base sequence should be
+six.
+
+1254
+00:24:06,910 --> 00:24:06,920
+six.
+ 
+
+1255
+00:24:06,920 --> 00:24:10,550
+six.
+But let's say producer crashed.
+
+1256
+00:24:10,550 --> 00:24:10,560
+But let's say producer crashed.
+ 
+
+1257
+00:24:10,560 --> 00:24:12,710
+But let's say producer crashed.
+Let's say producer got crashed.
+
+1258
+00:24:12,710 --> 00:24:12,720
+Let's say producer got crashed.
+ 
+
+1259
+00:24:12,720 --> 00:24:14,790
+Let's say producer got crashed.
+And it restarted.
+
+1260
+00:24:14,790 --> 00:24:14,800
+And it restarted.
+ 
+
+1261
+00:24:14,800 --> 00:24:16,790
+And it restarted.
+When it restarted, it will again send
+
+1262
+00:24:16,790 --> 00:24:16,800
+When it restarted, it will again send
+ 
+
+1263
+00:24:16,800 --> 00:24:19,430
+When it restarted, it will again send
+hey give me a producer ID. And next time
+
+1264
+00:24:19,430 --> 00:24:19,440
+hey give me a producer ID. And next time
+ 
+
+1265
+00:24:19,440 --> 00:24:21,190
+hey give me a producer ID. And next time
+broker will Broker goes to the
+
+1266
+00:24:21,190 --> 00:24:21,200
+broker will Broker goes to the
+ 
+
+1267
+00:24:21,200 --> 00:24:22,710
+broker will Broker goes to the
+controller. Controller will return let's
+
+1268
+00:24:22,710 --> 00:24:22,720
+controller. Controller will return let's
+ 
+
+1269
+00:24:22,720 --> 00:24:25,110
+controller. Controller will return let's
+say 2001.
+
+1270
+00:24:25,110 --> 00:24:25,120
+say 2001.
+ 
+
+1271
+00:24:25,120 --> 00:24:28,270
+say 2001.
+Because Controller doesn't maintain any
+
+1272
+00:24:28,270 --> 00:24:28,280
+Because Controller doesn't maintain any
+ 
+
+1273
+00:24:28,280 --> 00:24:30,750
+Because Controller doesn't maintain any
+information that hey this is a producer.
+
+1274
+00:24:30,750 --> 00:24:30,760
+information that hey this is a producer.
+ 
+
+1275
+00:24:30,760 --> 00:24:33,070
+information that hey this is a producer.
+Earlier I have written 1001.
+
+1276
+00:24:33,070 --> 00:24:33,080
+Earlier I have written 1001.
+ 
+
+1277
+00:24:33,080 --> 00:24:35,230
+Earlier I have written 1001.
+No. With idempotency, this information
+
+1278
+00:24:35,230 --> 00:24:35,240
+No. With idempotency, this information
+ 
+
+1279
+00:24:35,240 --> 00:24:37,030
+No. With idempotency, this information
+is nowhere maintained.
+
+1280
+00:24:37,030 --> 00:24:37,040
+is nowhere maintained.
+ 
+
+1281
+00:24:37,040 --> 00:24:39,790
+is nowhere maintained.
+Every time producer ask a request give
+
+1282
+00:24:39,790 --> 00:24:39,800
+Every time producer ask a request give
+ 
+
+1283
+00:24:39,800 --> 00:24:41,710
+Every time producer ask a request give
+me a producer ID, it will generate a new
+
+1284
+00:24:41,710 --> 00:24:41,720
+me a producer ID, it will generate a new
+ 
+
+1285
+00:24:41,720 --> 00:24:42,950
+me a producer ID, it will generate a new
+one.
+
+1286
+00:24:42,950 --> 00:24:42,960
+one.
+ 
+
+1287
+00:24:42,960 --> 00:24:45,630
+one.
+Now let's say it retry this one. Because
+
+1288
+00:24:45,630 --> 00:24:45,640
+Now let's say it retry this one. Because
+ 
+
+1289
+00:24:45,640 --> 00:24:47,870
+Now let's say it retry this one. Because
+let's say this got crash. It missed the
+
+1290
+00:24:47,870 --> 00:24:47,880
+let's say this got crash. It missed the
+ 
+
+1291
+00:24:47,880 --> 00:24:49,350
+let's say this got crash. It missed the
+acknowledgement.
+
+1292
+00:24:49,350 --> 00:24:49,360
+acknowledgement.
+ 
+
+1293
+00:24:49,360 --> 00:24:51,670
+acknowledgement.
+So, it will retry it.
+
+1294
+00:24:51,670 --> 00:24:51,680
+So, it will retry it.
+ 
+
+1295
+00:24:51,680 --> 00:24:53,470
+So, it will retry it.
+Now let's say that Retry in the sense
+
+1296
+00:24:53,470 --> 00:24:53,480
+Now let's say that Retry in the sense
+ 
+
+1297
+00:24:53,480 --> 00:24:55,630
+Now let's say that Retry in the sense
+because let's say it maintain some DB.
+
+1298
+00:24:55,630 --> 00:24:55,640
+because let's say it maintain some DB.
+ 
+
+1299
+00:24:55,640 --> 00:24:58,390
+because let's say it maintain some DB.
+In that one for this information it is
+
+1300
+00:24:58,390 --> 00:24:58,400
+In that one for this information it is
+ 
+
+1301
+00:24:58,400 --> 00:25:00,270
+In that one for this information it is
+let's say it's
+
+1302
+00:25:00,270 --> 00:25:00,280
+let's say it's
+ 
+
+1303
+00:25:00,280 --> 00:25:02,870
+let's say it's
+in progress. It is not processed fully
+
+1304
+00:25:02,870 --> 00:25:02,880
+in progress. It is not processed fully
+ 
+
+1305
+00:25:02,880 --> 00:25:04,750
+in progress. It is not processed fully
+and again create the request and send
+
+1306
+00:25:04,750 --> 00:25:04,760
+and again create the request and send
+ 
+
+1307
+00:25:04,760 --> 00:25:06,550
+and again create the request and send
+it.
+
+1308
+00:25:06,550 --> 00:25:06,560
+it.
+ 
+
+1309
+00:25:06,560 --> 00:25:09,310
+it.
+So now again batch one again I am
+
+1310
+00:25:09,310 --> 00:25:09,320
+So now again batch one again I am
+ 
+
+1311
+00:25:09,320 --> 00:25:11,590
+So now again batch one again I am
+sending topic A
+
+1312
+00:25:11,590 --> 00:25:11,600
+sending topic A
+ 
+
+1313
+00:25:11,600 --> 00:25:14,510
+sending topic A
+partition P0. Now the process producer
+
+1314
+00:25:14,510 --> 00:25:14,520
+partition P0. Now the process producer
+ 
+
+1315
+00:25:14,520 --> 00:25:18,310
+partition P0. Now the process producer
+ID is 2001. Earlier it was 1001. But the
+
+1316
+00:25:18,310 --> 00:25:18,320
+ID is 2001. Earlier it was 1001. But the
+ 
+
+1317
+00:25:18,320 --> 00:25:20,830
+ID is 2001. Earlier it was 1001. But the
+base sequence is three, last sequence is
+
+1318
+00:25:20,830 --> 00:25:20,840
+base sequence is three, last sequence is
+ 
+
+1319
+00:25:20,840 --> 00:25:23,070
+base sequence is three, last sequence is
+five. The same thing same events I am
+
+1320
+00:25:23,070 --> 00:25:23,080
+five. The same thing same events I am
+ 
+
+1321
+00:25:23,080 --> 00:25:26,030
+five. The same thing same events I am
+sending again. But here now producer ID
+
+1322
+00:25:26,030 --> 00:25:26,040
+sending again. But here now producer ID
+ 
+
+1323
+00:25:26,040 --> 00:25:27,270
+sending again. But here now producer ID
+is different.
+
+1324
+00:25:27,270 --> 00:25:27,280
+is different.
+ 
+
+1325
+00:25:27,280 --> 00:25:28,790
+is different.
+Now if you see the log what would
+
+1326
+00:25:28,790 --> 00:25:28,800
+Now if you see the log what would
+ 
+
+1327
+00:25:28,800 --> 00:25:29,830
+Now if you see the log what would
+happen?
+
+1328
+00:25:29,830 --> 00:25:29,840
+happen?
+ 
+
+1329
+00:25:29,840 --> 00:25:32,830
+happen?
+It will store it because see the map it
+
+1330
+00:25:32,830 --> 00:25:32,840
+It will store it because see the map it
+ 
+
+1331
+00:25:32,840 --> 00:25:35,070
+It will store it because see the map it
+maintain is producer wise.
+
+1332
+00:25:35,070 --> 00:25:35,080
+maintain is producer wise.
+ 
+
+1333
+00:25:35,080 --> 00:25:38,310
+maintain is producer wise.
+Producer ID PID topic partition wise.
+
+1334
+00:25:38,310 --> 00:25:38,320
+Producer ID PID topic partition wise.
+ 
+
+1335
+00:25:38,320 --> 00:25:40,670
+Producer ID PID topic partition wise.
+Now here I am getting different producer
+
+1336
+00:25:40,670 --> 00:25:40,680
+Now here I am getting different producer
+ 
+
+1337
+00:25:40,680 --> 00:25:42,470
+Now here I am getting different producer
+ID 2001.
+
+1338
+00:25:42,470 --> 00:25:42,480
+ID 2001.
+ 
+
+1339
+00:25:42,480 --> 00:25:45,070
+ID 2001.
+Now for 2001 producer ID
+
+1340
+00:25:45,070 --> 00:25:45,080
+Now for 2001 producer ID
+ 
+
+1341
+00:25:45,080 --> 00:25:48,110
+Now for 2001 producer ID
+topic A partition P0 there is no row.
+
+1342
+00:25:48,110 --> 00:25:48,120
+topic A partition P0 there is no row.
+ 
+
+1343
+00:25:48,120 --> 00:25:50,670
+topic A partition P0 there is no row.
+So it will accept it let's say
+
+1344
+00:25:50,670 --> 00:25:50,680
+So it will accept it let's say
+ 
+
+1345
+00:25:50,680 --> 00:25:52,510
+So it will accept it let's say
+and it will say that okay the last
+
+1346
+00:25:52,510 --> 00:25:52,520
+and it will say that okay the last
+ 
+
+1347
+00:25:52,520 --> 00:25:54,790
+and it will say that okay the last
+sequence I'm expecting is
+
+1348
+00:25:54,790 --> 00:25:54,800
+sequence I'm expecting is
+ 
+
+1349
+00:25:54,800 --> 00:25:57,510
+sequence I'm expecting is
+uh I got is five.
+
+1350
+00:25:57,510 --> 00:25:57,520
+uh I got is five.
+ 
+
+1351
+00:25:57,520 --> 00:26:01,270
+uh I got is five.
+So there is a chance of duplicate.
+
+1352
+00:26:01,270 --> 00:26:01,280
+So there is a chance of duplicate.
+ 
+
+1353
+00:26:01,280 --> 00:26:03,150
+So there is a chance of duplicate.
+This is just an example. Uh let's say
+
+1354
+00:26:03,150 --> 00:26:03,160
+This is just an example. Uh let's say
+ 
+
+1355
+00:26:03,160 --> 00:26:04,470
+This is just an example. Uh let's say
+whenever the first time it happened
+
+1356
+00:26:04,470 --> 00:26:04,480
+whenever the first time it happened
+ 
+
+1357
+00:26:04,480 --> 00:26:06,470
+whenever the first time it happened
+always started from base sequence zero.
+
+1358
+00:26:06,470 --> 00:26:06,480
+always started from base sequence zero.
+ 
+
+1359
+00:26:06,480 --> 00:26:08,430
+always started from base sequence zero.
+But this is for understanding.
+
+1360
+00:26:08,430 --> 00:26:08,440
+But this is for understanding.
+ 
+
+1361
+00:26:08,440 --> 00:26:10,870
+But this is for understanding.
+Because now the producer ID is changed
+
+1362
+00:26:10,870 --> 00:26:10,880
+Because now the producer ID is changed
+ 
+
+1363
+00:26:10,880 --> 00:26:14,950
+Because now the producer ID is changed
+it will not be able to identify that hey
+
+1364
+00:26:14,950 --> 00:26:14,960
+it will not be able to identify that hey
+ 
+
+1365
+00:26:14,960 --> 00:26:17,710
+it will not be able to identify that hey
+five till five I have already written.
+
+1366
+00:26:17,710 --> 00:26:17,720
+five till five I have already written.
+ 
+
+1367
+00:26:17,720 --> 00:26:19,990
+five till five I have already written.
+Now I am expecting five plus one six
+
+1368
+00:26:19,990 --> 00:26:20,000
+Now I am expecting five plus one six
+ 
+
+1369
+00:26:20,000 --> 00:26:21,910
+Now I am expecting five plus one six
+base should be six.
+
+1370
+00:26:21,910 --> 00:26:21,920
+base should be six.
+ 
+
+1371
+00:26:21,920 --> 00:26:24,630
+base should be six.
+No because producer ID is now different.
+
+1372
+00:26:24,630 --> 00:26:24,640
+No because producer ID is now different.
+ 
+
+1373
+00:26:24,640 --> 00:26:27,670
+No because producer ID is now different.
+So it will store the duplicate.
+
+1374
+00:26:27,670 --> 00:26:27,680
+So it will store the duplicate.
+ 
+
+1375
+00:26:27,680 --> 00:26:29,710
+So it will store the duplicate.
+Let's see this.
+
+1376
+00:26:29,710 --> 00:26:29,720
+Let's see this.
+ 
+
+1377
+00:26:29,720 --> 00:26:31,710
+Let's see this.
+Okay. See I have for the producer ID
+
+1378
+00:26:31,710 --> 00:26:31,720
+Okay. See I have for the producer ID
+ 
+
+1379
+00:26:31,720 --> 00:26:34,710
+Okay. See I have for the producer ID
+zero I have already this accepted the
+
+1380
+00:26:34,710 --> 00:26:34,720
+zero I have already this accepted the
+ 
+
+1381
+00:26:34,720 --> 00:26:36,710
+zero I have already this accepted the
+last sequence is 910.
+
+1382
+00:26:36,710 --> 00:26:36,720
+last sequence is 910.
+ 
+
+1383
+00:26:36,720 --> 00:26:38,270
+last sequence is 910.
+I am just stopping the producer
+
+1384
+00:26:38,270 --> 00:26:38,280
+I am just stopping the producer
+ 
+
+1385
+00:26:38,280 --> 00:26:41,190
+I am just stopping the producer
+application starting it again.
+
+1386
+00:26:41,190 --> 00:26:41,200
+application starting it again.
+ 
+
+1387
+00:26:41,200 --> 00:26:44,390
+application starting it again.
+I should have gotten new producer ID.
+
+1388
+00:26:44,390 --> 00:26:44,400
+I should have gotten new producer ID.
+ 
+
+1389
+00:26:44,400 --> 00:26:46,950
+I should have gotten new producer ID.
+Now I'm sending the request again.
+
+1390
+00:26:46,950 --> 00:26:46,960
+Now I'm sending the request again.
+ 
+
+1391
+00:26:46,960 --> 00:26:48,790
+Now I'm sending the request again.
+Now let's see
+
+1392
+00:26:48,790 --> 00:26:48,800
+Now let's see
+ 
+
+1393
+00:26:48,800 --> 00:26:51,950
+Now let's see
+see the dump again.
+
+1394
+00:26:51,950 --> 00:26:51,960
+
+ 
+
+1395
+00:26:51,960 --> 00:26:54,030
+
+Okay. So three.
+
+1396
+00:26:54,030 --> 00:26:54,040
+Okay. So three.
+ 
+
+1397
+00:26:54,040 --> 00:26:56,350
+Okay. So three.
+First is producer ID zero,
+
+1398
+00:26:56,350 --> 00:26:56,360
+First is producer ID zero,
+ 
+
+1399
+00:26:56,360 --> 00:26:59,030
+First is producer ID zero,
+base sequence zero, last sequence nine.
+
+1400
+00:26:59,030 --> 00:26:59,040
+base sequence zero, last sequence nine.
+ 
+
+1401
+00:26:59,040 --> 00:27:00,430
+base sequence zero, last sequence nine.
+Correct.
+
+1402
+00:27:00,430 --> 00:27:00,440
+Correct.
+ 
+
+1403
+00:27:00,440 --> 00:27:04,230
+Correct.
+Producer ID zero, base sequence 10, 19.
+
+1404
+00:27:04,230 --> 00:27:04,240
+Producer ID zero, base sequence 10, 19.
+ 
+
+1405
+00:27:04,240 --> 00:27:06,830
+Producer ID zero, base sequence 10, 19.
+Correct. But now here if you see new
+
+1406
+00:27:06,830 --> 00:27:06,840
+Correct. But now here if you see new
+ 
+
+1407
+00:27:06,840 --> 00:27:09,870
+Correct. But now here if you see new
+producer ID I got, producer ID one.
+
+1408
+00:27:09,870 --> 00:27:09,880
+producer ID I got, producer ID one.
+ 
+
+1409
+00:27:09,880 --> 00:27:12,190
+producer ID I got, producer ID one.
+So whenever the you restart the
+
+1410
+00:27:12,190 --> 00:27:12,200
+So whenever the you restart the
+ 
+
+1411
+00:27:12,200 --> 00:27:15,230
+So whenever the you restart the
+producer, you get a new producer ID.
+
+1412
+00:27:15,230 --> 00:27:15,240
+producer, you get a new producer ID.
+ 
+
+1413
+00:27:15,240 --> 00:27:18,390
+producer, you get a new producer ID.
+And let's say if it retried, if it send
+
+1414
+00:27:18,390 --> 00:27:18,400
+And let's say if it retried, if it send
+ 
+
+1415
+00:27:18,400 --> 00:27:20,950
+And let's say if it retried, if it send
+the same batch again, it would be able
+
+1416
+00:27:20,950 --> 00:27:20,960
+the same batch again, it would be able
+ 
+
+1417
+00:27:20,960 --> 00:27:22,510
+the same batch again, it would be able
+to write it again.
+
+1418
+00:27:22,510 --> 00:27:22,520
+to write it again.
+ 
+
+1419
+00:27:22,520 --> 00:27:25,030
+to write it again.
+Because producer ID is different. This
+
+1420
+00:27:25,030 --> 00:27:25,040
+Because producer ID is different. This
+ 
+
+1421
+00:27:25,040 --> 00:27:27,950
+Because producer ID is different. This
+is just an example I wanted to show you
+
+1422
+00:27:27,950 --> 00:27:27,960
+is just an example I wanted to show you
+ 
+
+1423
+00:27:27,960 --> 00:27:30,510
+is just an example I wanted to show you
+that there is a loophole.
+
+1424
+00:27:30,510 --> 00:27:30,520
+that there is a loophole.
+ 
+
+1425
+00:27:30,520 --> 00:27:33,910
+that there is a loophole.
+That when a producer restart, it get a
+
+1426
+00:27:33,910 --> 00:27:33,920
+That when a producer restart, it get a
+ 
+
+1427
+00:27:33,920 --> 00:27:36,550
+That when a producer restart, it get a
+new PID. Why? Because in case of
+
+1428
+00:27:36,550 --> 00:27:36,560
+new PID. Why? Because in case of
+ 
+
+1429
+00:27:36,560 --> 00:27:38,390
+new PID. Why? Because in case of
+idempotency,
+
+1430
+00:27:38,390 --> 00:27:38,400
+idempotency,
+ 
+
+1431
+00:27:38,400 --> 00:27:40,070
+idempotency,
+controller do not maintain that hey,
+
+1432
+00:27:40,070 --> 00:27:40,080
+controller do not maintain that hey,
+ 
+
+1433
+00:27:40,080 --> 00:27:43,190
+controller do not maintain that hey,
+this is the producer ID, this is the
+
+1434
+00:27:43,190 --> 00:27:43,200
+this is the producer ID, this is the
+ 
+
+1435
+00:27:43,200 --> 00:27:45,790
+this is the producer ID, this is the
+producer ID this is the producer, this
+
+1436
+00:27:45,790 --> 00:27:45,800
+producer ID this is the producer, this
+ 
+
+1437
+00:27:45,800 --> 00:27:48,990
+producer ID this is the producer, this
+is the producer ID I generated before.
+
+1438
+00:27:48,990 --> 00:27:49,000
+is the producer ID I generated before.
+ 
+
+1439
+00:27:49,000 --> 00:27:50,430
+is the producer ID I generated before.
+No, it doesn't maintain this
+
+1440
+00:27:50,430 --> 00:27:50,440
+No, it doesn't maintain this
+ 
+
+1441
+00:27:50,440 --> 00:27:53,190
+No, it doesn't maintain this
+information. For that, there is an other
+
+1442
+00:27:53,190 --> 00:27:53,200
+information. For that, there is an other
+ 
+
+1443
+00:27:53,200 --> 00:27:56,310
+information. For that, there is an other
+concept called transaction.
+
+1444
+00:27:56,310 --> 00:27:56,320
+concept called transaction.
+ 
+
+1445
+00:27:56,320 --> 00:27:58,790
+concept called transaction.
+I will tell you about transaction after
+
+1446
+00:27:58,790 --> 00:27:58,800
+I will tell you about transaction after
+ 
+
+1447
+00:27:58,800 --> 00:28:00,710
+I will tell you about transaction after
+I complete consumer and consumer groups
+
+1448
+00:28:00,710 --> 00:28:00,720
+I complete consumer and consumer groups
+ 
+
+1449
+00:28:00,720 --> 00:28:02,110
+I complete consumer and consumer groups
+set up, too.
+
+1450
+00:28:02,110 --> 00:28:02,120
+set up, too.
+ 
+
+1451
+00:28:02,120 --> 00:28:04,350
+set up, too.
+Okay? Because
+
+1452
+00:28:04,350 --> 00:28:04,360
+Okay? Because
+ 
+
+1453
+00:28:04,360 --> 00:28:06,590
+Okay? Because
+there are scenarios where transaction is
+
+1454
+00:28:06,590 --> 00:28:06,600
+there are scenarios where transaction is
+ 
+
+1455
+00:28:06,600 --> 00:28:09,150
+there are scenarios where transaction is
+helpful to avoid duplicate.
+
+1456
+00:28:09,150 --> 00:28:09,160
+helpful to avoid duplicate.
+ 
+
+1457
+00:28:09,160 --> 00:28:11,390
+helpful to avoid duplicate.
+In this scenario, producer restart
+
+1458
+00:28:11,390 --> 00:28:11,400
+In this scenario, producer restart
+ 
+
+1459
+00:28:11,400 --> 00:28:12,590
+In this scenario, producer restart
+scenario,
+
+1460
+00:28:12,590 --> 00:28:12,600
+scenario,
+ 
+
+1461
+00:28:12,600 --> 00:28:15,590
+scenario,
+and also when consumer fails.
+
+1462
+00:28:15,590 --> 00:28:15,600
+and also when consumer fails.
+ 
+
+1463
+00:28:15,600 --> 00:28:18,710
+and also when consumer fails.
+Okay? I will tell you, but
+
+1464
+00:28:18,710 --> 00:28:18,720
+Okay? I will tell you, but
+ 
+
+1465
+00:28:18,720 --> 00:28:21,150
+Okay? I will tell you, but
+idempotency solves
+
+1466
+00:28:21,150 --> 00:28:21,160
+idempotency solves
+ 
+
+1467
+00:28:21,160 --> 00:28:23,790
+idempotency solves
+certain problem, but there is a loophole
+
+1468
+00:28:23,790 --> 00:28:23,800
+certain problem, but there is a loophole
+ 
+
+1469
+00:28:23,800 --> 00:28:27,270
+certain problem, but there is a loophole
+which transaction resolves.
+
+1470
+00:28:27,270 --> 00:28:27,280
+which transaction resolves.
+ 
+
+1471
+00:28:27,280 --> 00:28:29,790
+which transaction resolves.
+So you can say that with transaction,
+
+1472
+00:28:29,790 --> 00:28:29,800
+So you can say that with transaction,
+ 
+
+1473
+00:28:29,800 --> 00:28:32,030
+So you can say that with transaction,
+controller maintains information.
+
+1474
+00:28:32,030 --> 00:28:32,040
+controller maintains information.
+ 
+
+1475
+00:28:32,040 --> 00:28:34,710
+controller maintains information.
+Sorry, that producer let's say
+
+1476
+00:28:34,710 --> 00:28:34,720
+Sorry, that producer let's say
+ 
+
+1477
+00:28:34,720 --> 00:28:37,070
+Sorry, that producer let's say
+this is the producer one.
+
+1478
+00:28:37,070 --> 00:28:37,080
+this is the producer one.
+ 
+
+1479
+00:28:37,080 --> 00:28:39,110
+this is the producer one.
+This is the ID I generated.
+
+1480
+00:28:39,110 --> 00:28:39,120
+This is the ID I generated.
+ 
+
+1481
+00:28:39,120 --> 00:28:41,070
+This is the ID I generated.
+Now if producer restart,
+
+1482
+00:28:41,070 --> 00:28:41,080
+Now if producer restart,
+ 
+
+1483
+00:28:41,080 --> 00:28:44,350
+Now if producer restart,
+it will always get this ID only.
+
+1484
+00:28:44,350 --> 00:28:44,360
+it will always get this ID only.
+ 
+
+1485
+00:28:44,360 --> 00:28:45,790
+it will always get this ID only.
+I will tell you
+
+1486
+00:28:45,790 --> 00:28:45,800
+I will tell you
+ 
+
+1487
+00:28:45,800 --> 00:28:47,590
+I will tell you
+what all problems this transaction
+
+1488
+00:28:47,590 --> 00:28:47,600
+what all problems this transaction
+ 
+
+1489
+00:28:47,600 --> 00:28:49,630
+what all problems this transaction
+resolves? Okay, but
+
+1490
+00:28:49,630 --> 00:28:49,640
+resolves? Okay, but
+ 
+
+1491
+00:28:49,640 --> 00:28:52,030
+resolves? Okay, but
+after consumer and consumer group setup
+
+1492
+00:28:52,030 --> 00:28:52,040
+after consumer and consumer group setup
+ 
+
+1493
+00:28:52,040 --> 00:28:54,550
+after consumer and consumer group setup
+because it solves producer
+
+1494
+00:28:54,550 --> 00:28:54,560
+because it solves producer
+ 
+
+1495
+00:28:54,560 --> 00:28:56,950
+because it solves producer
+restart issue plus consumer restart
+
+1496
+00:28:56,950 --> 00:28:56,960
+restart issue plus consumer restart
+ 
+
+1497
+00:28:56,960 --> 00:28:59,750
+restart issue plus consumer restart
+issue also. What if consumer got failed
+
+1498
+00:28:59,750 --> 00:28:59,760
+issue also. What if consumer got failed
+ 
+
+1499
+00:28:59,760 --> 00:29:01,390
+issue also. What if consumer got failed
+and got restarted?
+
+1500
+00:29:01,390 --> 00:29:01,400
+and got restarted?
+ 
+
+1501
+00:29:01,400 --> 00:29:03,190
+and got restarted?
+Okay, but for that we need to set up the
+
+1502
+00:29:03,190 --> 00:29:03,200
+Okay, but for that we need to set up the
+ 
+
+1503
+00:29:03,200 --> 00:29:05,230
+Okay, but for that we need to set up the
+consumer first.
+
+1504
+00:29:05,230 --> 00:29:05,240
+consumer first.
+ 
+
+1505
+00:29:05,240 --> 00:29:07,550
+consumer first.
+But I do potency is clear, right?
+
+1506
+00:29:07,550 --> 00:29:07,560
+But I do potency is clear, right?
+ 
+
+1507
+00:29:07,560 --> 00:29:09,870
+But I do potency is clear, right?
+Now last but not the least
+
+1508
+00:29:09,870 --> 00:29:09,880
+Now last but not the least
+ 
+
+1509
+00:29:09,880 --> 00:29:14,270
+Now last but not the least
+when we set I do potency equals to true
+
+1510
+00:29:14,270 --> 00:29:14,280
+
+ 
+
+1511
+00:29:14,280 --> 00:29:18,110
+
+acknowledgement should always be all.
+
+1512
+00:29:18,110 --> 00:29:18,120
+acknowledgement should always be all.
+ 
+
+1513
+00:29:18,120 --> 00:29:20,590
+acknowledgement should always be all.
+Okay, you know that acknowledge could be
+
+1514
+00:29:20,590 --> 00:29:20,600
+Okay, you know that acknowledge could be
+ 
+
+1515
+00:29:20,600 --> 00:29:23,190
+Okay, you know that acknowledge could be
+like a zero, could be one and all.
+
+1516
+00:29:23,190 --> 00:29:23,200
+like a zero, could be one and all.
+ 
+
+1517
+00:29:23,200 --> 00:29:25,270
+like a zero, could be one and all.
+It do not like you can say that when I
+
+1518
+00:29:25,270 --> 00:29:25,280
+It do not like you can say that when I
+ 
+
+1519
+00:29:25,280 --> 00:29:27,750
+It do not like you can say that when I
+do potency equals to true, it should
+
+1520
+00:29:27,750 --> 00:29:27,760
+do potency equals to true, it should
+ 
+
+1521
+00:29:27,760 --> 00:29:29,550
+do potency equals to true, it should
+always be all.
+
+1522
+00:29:29,550 --> 00:29:29,560
+always be all.
+ 
+
+1523
+00:29:29,560 --> 00:29:30,990
+always be all.
+Why?
+
+1524
+00:29:30,990 --> 00:29:31,000
+Why?
+ 
+
+1525
+00:29:31,000 --> 00:29:33,670
+Why?
+Because let's say
+
+1526
+00:29:33,670 --> 00:29:33,680
+Because let's say
+ 
+
+1527
+00:29:33,680 --> 00:29:35,630
+Because let's say
+you are using acknowledge equals to one
+
+1528
+00:29:35,630 --> 00:29:35,640
+you are using acknowledge equals to one
+ 
+
+1529
+00:29:35,640 --> 00:29:37,590
+you are using acknowledge equals to one
+means only leader
+
+1530
+00:29:37,590 --> 00:29:37,600
+means only leader
+ 
+
+1531
+00:29:37,600 --> 00:29:39,070
+means only leader
+should get the
+
+1532
+00:29:39,070 --> 00:29:39,080
+should get the
+ 
+
+1533
+00:29:39,080 --> 00:29:40,390
+should get the
+update.
+
+1534
+00:29:40,390 --> 00:29:40,400
+update.
+ 
+
+1535
+00:29:40,400 --> 00:29:44,910
+update.
+Now let's say you send an event
+
+1536
+00:29:44,910 --> 00:29:44,920
+Now let's say you send an event
+ 
+
+1537
+00:29:44,920 --> 00:29:47,070
+Now let's say you send an event
+leader follower
+
+1538
+00:29:47,070 --> 00:29:47,080
+leader follower
+ 
+
+1539
+00:29:47,080 --> 00:29:49,470
+leader follower
+leader got the update, but let's say
+
+1540
+00:29:49,470 --> 00:29:49,480
+leader got the update, but let's say
+ 
+
+1541
+00:29:49,480 --> 00:29:50,990
+leader got the update, but let's say
+follower
+
+1542
+00:29:50,990 --> 00:29:51,000
+follower
+ 
+
+1543
+00:29:51,000 --> 00:29:53,030
+follower
+hasn't pulled it yet
+
+1544
+00:29:53,030 --> 00:29:53,040
+hasn't pulled it yet
+ 
+
+1545
+00:29:53,040 --> 00:29:56,310
+hasn't pulled it yet
+and it got crashed. Leader got crashed.
+
+1546
+00:29:56,310 --> 00:29:56,320
+and it got crashed. Leader got crashed.
+ 
+
+1547
+00:29:56,320 --> 00:29:58,310
+and it got crashed. Leader got crashed.
+Now let's say this follower becomes the
+
+1548
+00:29:58,310 --> 00:29:58,320
+Now let's say this follower becomes the
+ 
+
+1549
+00:29:58,320 --> 00:30:00,110
+Now let's say this follower becomes the
+leader now.
+
+1550
+00:30:00,110 --> 00:30:00,120
+leader now.
+ 
+
+1551
+00:30:00,120 --> 00:30:03,030
+leader now.
+Okay, now this producer will let's say
+
+1552
+00:30:03,030 --> 00:30:03,040
+Okay, now this producer will let's say
+ 
+
+1553
+00:30:03,040 --> 00:30:06,430
+Okay, now this producer will let's say
+send this event again retry because this
+
+1554
+00:30:06,430 --> 00:30:06,440
+send this event again retry because this
+ 
+
+1555
+00:30:06,440 --> 00:30:08,950
+send this event again retry because this
+leader crashed it didn't send the
+
+1556
+00:30:08,950 --> 00:30:08,960
+leader crashed it didn't send the
+ 
+
+1557
+00:30:08,960 --> 00:30:10,630
+leader crashed it didn't send the
+acknowledgement.
+
+1558
+00:30:10,630 --> 00:30:10,640
+acknowledgement.
+ 
+
+1559
+00:30:10,640 --> 00:30:13,510
+acknowledgement.
+Now it will resend this batch. Now it
+
+1560
+00:30:13,510 --> 00:30:13,520
+Now it will resend this batch. Now it
+ 
+
+1561
+00:30:13,520 --> 00:30:15,350
+Now it will resend this batch. Now it
+will reach to this
+
+1562
+00:30:15,350 --> 00:30:15,360
+will reach to this
+ 
+
+1563
+00:30:15,360 --> 00:30:17,270
+will reach to this
+leader different leader.
+
+1564
+00:30:17,270 --> 00:30:17,280
+leader different leader.
+ 
+
+1565
+00:30:17,280 --> 00:30:18,430
+leader different leader.
+Okay,
+
+1566
+00:30:18,430 --> 00:30:18,440
+Okay,
+ 
+
+1567
+00:30:18,440 --> 00:30:21,510
+Okay,
+now but this record is not yet copied to
+
+1568
+00:30:21,510 --> 00:30:21,520
+now but this record is not yet copied to
+ 
+
+1569
+00:30:21,520 --> 00:30:23,790
+now but this record is not yet copied to
+this follower. It doesn't have this
+
+1570
+00:30:23,790 --> 00:30:23,800
+this follower. It doesn't have this
+ 
+
+1571
+00:30:23,800 --> 00:30:25,430
+this follower. It doesn't have this
+information.
+
+1572
+00:30:25,430 --> 00:30:25,440
+information.
+ 
+
+1573
+00:30:25,440 --> 00:30:27,070
+information.
+It doesn't have this information so this
+
+1574
+00:30:27,070 --> 00:30:27,080
+It doesn't have this information so this
+ 
+
+1575
+00:30:27,080 --> 00:30:28,350
+It doesn't have this information so this
+will also
+
+1576
+00:30:28,350 --> 00:30:28,360
+will also
+ 
+
+1577
+00:30:28,360 --> 00:30:30,510
+will also
+get written here.
+
+1578
+00:30:30,510 --> 00:30:30,520
+get written here.
+ 
+
+1579
+00:30:30,520 --> 00:30:32,350
+get written here.
+So that's why we say that when you are
+
+1580
+00:30:32,350 --> 00:30:32,360
+So that's why we say that when you are
+ 
+
+1581
+00:30:32,360 --> 00:30:34,470
+So that's why we say that when you are
+using I do potency the default should be
+
+1582
+00:30:34,470 --> 00:30:34,480
+using I do potency the default should be
+ 
+
+1583
+00:30:34,480 --> 00:30:37,430
+using I do potency the default should be
+acknowledgement equals to all because it
+
+1584
+00:30:37,430 --> 00:30:37,440
+acknowledgement equals to all because it
+ 
+
+1585
+00:30:37,440 --> 00:30:40,150
+acknowledgement equals to all because it
+makes sure that either all leader and
+
+1586
+00:30:40,150 --> 00:30:40,160
+makes sure that either all leader and
+ 
+
+1587
+00:30:40,160 --> 00:30:42,710
+makes sure that either all leader and
+follower has the same information or
+
+1588
+00:30:42,710 --> 00:30:42,720
+follower has the same information or
+ 
+
+1589
+00:30:42,720 --> 00:30:45,350
+follower has the same information or
+none.
+
+1590
+00:30:45,350 --> 00:30:45,360
+
+ 
+
+1591
+00:30:45,360 --> 00:30:49,110
+
+Similarly, the retry is max int. It It
+
+1592
+00:30:49,110 --> 00:30:49,120
+Similarly, the retry is max int. It It
+ 
+
+1593
+00:30:49,120 --> 00:30:51,430
+Similarly, the retry is max int. It It
+cannot be have like 1 2 3.
+
+1594
+00:30:51,430 --> 00:30:51,440
+cannot be have like 1 2 3.
+ 
+
+1595
+00:30:51,440 --> 00:30:55,070
+cannot be have like 1 2 3.
+Because now retries are safe.
+
+1596
+00:30:55,070 --> 00:30:55,080
+Because now retries are safe.
+ 
+
+1597
+00:30:55,080 --> 00:30:57,230
+Because now retries are safe.
+With idempotency, retries are safe. You
+
+1598
+00:30:57,230 --> 00:30:57,240
+With idempotency, retries are safe. You
+ 
+
+1599
+00:30:57,240 --> 00:30:59,550
+With idempotency, retries are safe. You
+can do multiple retries.
+
+1600
+00:30:59,550 --> 00:30:59,560
+can do multiple retries.
+ 
+
+1601
+00:30:59,560 --> 00:31:01,270
+can do multiple retries.
+So,
+
+1602
+00:31:01,270 --> 00:31:01,280
+So,
+ 
+
+1603
+00:31:01,280 --> 00:31:04,150
+So,
+when we do idempotency equals to true,
+
+1604
+00:31:04,150 --> 00:31:04,160
+when we do idempotency equals to true,
+ 
+
+1605
+00:31:04,160 --> 00:31:06,110
+when we do idempotency equals to true,
+by default,
+
+1606
+00:31:06,110 --> 00:31:06,120
+by default,
+ 
+
+1607
+00:31:06,120 --> 00:31:08,950
+by default,
+producer is retries max int.
+
+1608
+00:31:08,950 --> 00:31:08,960
+producer is retries max int.
+ 
+
+1609
+00:31:08,960 --> 00:31:11,590
+producer is retries max int.
+Internally, sender thread will retry as
+
+1610
+00:31:11,590 --> 00:31:11,600
+Internally, sender thread will retry as
+ 
+
+1611
+00:31:11,600 --> 00:31:13,950
+Internally, sender thread will retry as
+much it want. Okay?
+
+1612
+00:31:13,950 --> 00:31:13,960
+much it want. Okay?
+ 
+
+1613
+00:31:13,960 --> 00:31:18,190
+much it want. Okay?
+But the default now set is max int.
+
+1614
+00:31:18,190 --> 00:31:18,200
+
+ 
+
+1615
+00:31:18,200 --> 00:31:20,910
+
+And the third is the max in flight.
+
+1616
+00:31:20,910 --> 00:31:20,920
+And the third is the max in flight.
+ 
+
+1617
+00:31:20,920 --> 00:31:22,750
+And the third is the max in flight.
+It should always be less than equals to
+
+1618
+00:31:22,750 --> 00:31:22,760
+It should always be less than equals to
+ 
+
+1619
+00:31:22,760 --> 00:31:25,510
+It should always be less than equals to
+five. You can't set six or seven.
+
+1620
+00:31:25,510 --> 00:31:25,520
+five. You can't set six or seven.
+ 
+
+1621
+00:31:25,520 --> 00:31:27,630
+five. You can't set six or seven.
+There is one reason if you read the
+
+1622
+00:31:27,630 --> 00:31:27,640
+There is one reason if you read the
+ 
+
+1623
+00:31:27,640 --> 00:31:29,750
+There is one reason if you read the
+Kafka documentation,
+
+1624
+00:31:29,750 --> 00:31:29,760
+Kafka documentation,
+ 
+
+1625
+00:31:29,760 --> 00:31:32,750
+Kafka documentation,
+they specifically mention that
+
+1626
+00:31:32,750 --> 00:31:32,760
+they specifically mention that
+ 
+
+1627
+00:31:32,760 --> 00:31:34,950
+they specifically mention that
+the guarantee,
+
+1628
+00:31:34,950 --> 00:31:34,960
+the guarantee,
+ 
+
+1629
+00:31:34,960 --> 00:31:37,550
+the guarantee,
+okay, of this ordering
+
+1630
+00:31:37,550 --> 00:31:37,560
+okay, of this ordering
+ 
+
+1631
+00:31:37,560 --> 00:31:39,910
+okay, of this ordering
+is only for five sequence.
+
+1632
+00:31:39,910 --> 00:31:39,920
+is only for five sequence.
+ 
+
+1633
+00:31:39,920 --> 00:31:43,350
+is only for five sequence.
+For this topic, this partition, topic
+
+1634
+00:31:43,350 --> 00:31:43,360
+For this topic, this partition, topic
+ 
+
+1635
+00:31:43,360 --> 00:31:45,670
+For this topic, this partition, topic
+partition wise, it maintain a sequence,
+
+1636
+00:31:45,670 --> 00:31:45,680
+partition wise, it maintain a sequence,
+ 
+
+1637
+00:31:45,680 --> 00:31:48,550
+partition wise, it maintain a sequence,
+right? So, it has a buffer only for five
+
+1638
+00:31:48,550 --> 00:31:48,560
+right? So, it has a buffer only for five
+ 
+
+1639
+00:31:48,560 --> 00:31:50,110
+right? So, it has a buffer only for five
+sequences.
+
+1640
+00:31:50,110 --> 00:31:50,120
+sequences.
+ 
+
+1641
+00:31:50,120 --> 00:31:53,030
+sequences.
+Okay? Let's say topic A, partition P0.
+
+1642
+00:31:53,030 --> 00:31:53,040
+Okay? Let's say topic A, partition P0.
+ 
+
+1643
+00:31:53,040 --> 00:31:54,310
+Okay? Let's say topic A, partition P0.
+Topic A,
+
+1644
+00:31:54,310 --> 00:31:54,320
+Topic A,
+ 
+
+1645
+00:31:54,320 --> 00:31:57,870
+Topic A,
+partition P1. It just maintain a
+
+1646
+00:31:57,870 --> 00:31:57,880
+partition P1. It just maintain a
+ 
+
+1647
+00:31:57,880 --> 00:32:00,750
+partition P1. It just maintain a
+buffer of five sequence.
+
+1648
+00:32:00,750 --> 00:32:00,760
+buffer of five sequence.
+ 
+
+1649
+00:32:00,760 --> 00:32:02,030
+buffer of five sequence.
+That's all.
+
+1650
+00:32:02,030 --> 00:32:02,040
+That's all.
+ 
+
+1651
+00:32:02,040 --> 00:32:03,110
+That's all.
+Okay?
+
+1652
+00:32:03,110 --> 00:32:03,120
+Okay?
+ 
+
+1653
+00:32:03,120 --> 00:32:04,310
+Okay?
+Why?
+
+1654
+00:32:04,310 --> 00:32:04,320
+Why?
+ 
+
+1655
+00:32:04,320 --> 00:32:07,350
+Why?
+Maybe while developing the Kafka broker
+
+1656
+00:32:07,350 --> 00:32:07,360
+Maybe while developing the Kafka broker
+ 
+
+1657
+00:32:07,360 --> 00:32:10,390
+Maybe while developing the Kafka broker
+and all, they have went through multiple
+
+1658
+00:32:10,390 --> 00:32:10,400
+and all, they have went through multiple
+ 
+
+1659
+00:32:10,400 --> 00:32:11,950
+and all, they have went through multiple
+iteration
+
+1660
+00:32:11,950 --> 00:32:11,960
+iteration
+ 
+
+1661
+00:32:11,960 --> 00:32:13,990
+iteration
+to determine what could be the best
+
+1662
+00:32:13,990 --> 00:32:14,000
+to determine what could be the best
+ 
+
+1663
+00:32:14,000 --> 00:32:16,070
+to determine what could be the best
+number. Because see,
+
+1664
+00:32:16,070 --> 00:32:16,080
+number. Because see,
+ 
+
+1665
+00:32:16,080 --> 00:32:18,870
+number. Because see,
+the more the buffer, more retry, more
+
+1666
+00:32:18,870 --> 00:32:18,880
+the more the buffer, more retry, more
+ 
+
+1667
+00:32:18,880 --> 00:32:21,430
+the more the buffer, more retry, more
+complexity. Okay? So,
+
+1668
+00:32:21,430 --> 00:32:21,440
+complexity. Okay? So,
+ 
+
+1669
+00:32:21,440 --> 00:32:24,990
+complexity. Okay? So,
+their documentation said that the buffer
+
+1670
+00:32:24,990 --> 00:32:25,000
+their documentation said that the buffer
+ 
+
+1671
+00:32:25,000 --> 00:32:29,430
+their documentation said that the buffer
+they hold is only for the five sequence.
+
+1672
+00:32:29,430 --> 00:32:29,440
+they hold is only for the five sequence.
+ 
+
+1673
+00:32:29,440 --> 00:32:32,430
+they hold is only for the five sequence.
+Okay? Means five in flight
+
+1674
+00:32:32,430 --> 00:32:32,440
+Okay? Means five in flight
+ 
+
+1675
+00:32:32,440 --> 00:32:34,150
+Okay? Means five in flight
+request maximum,
+
+1676
+00:32:34,150 --> 00:32:34,160
+request maximum,
+ 
+
+1677
+00:32:34,160 --> 00:32:38,430
+request maximum,
+you can get guarantee of an ordering.
+
+1678
+00:32:38,430 --> 00:32:38,440
+you can get guarantee of an ordering.
+ 
+
+1679
+00:32:38,440 --> 00:32:41,950
+you can get guarantee of an ordering.
+Okay? if you do six and seven then Kafka
+
+1680
+00:32:41,950 --> 00:32:41,960
+Okay? if you do six and seven then Kafka
+ 
+
+1681
+00:32:41,960 --> 00:32:44,150
+Okay? if you do six and seven then Kafka
+will throw exception here.
+
+1682
+00:32:44,150 --> 00:32:44,160
+will throw exception here.
+ 
+
+1683
+00:32:44,160 --> 00:32:45,790
+will throw exception here.
+If you have set idempotency equals to
+
+1684
+00:32:45,790 --> 00:32:45,800
+If you have set idempotency equals to
+ 
+
+1685
+00:32:45,800 --> 00:32:47,670
+If you have set idempotency equals to
+true. The number should be less than
+
+1686
+00:32:47,670 --> 00:32:47,680
+true. The number should be less than
+ 
+
+1687
+00:32:47,680 --> 00:32:49,550
+true. The number should be less than
+equals to five. It will not allow you to
+
+1688
+00:32:49,550 --> 00:32:49,560
+equals to five. It will not allow you to
+ 
+
+1689
+00:32:49,560 --> 00:32:52,070
+equals to five. It will not allow you to
+have more than this number because after
+
+1690
+00:32:52,070 --> 00:32:52,080
+have more than this number because after
+ 
+
+1691
+00:32:52,080 --> 00:32:59,470
+have more than this number because after
+that the ordering guarantee is lost.
+
+1692
+00:32:59,470 --> 00:32:59,480
+
+ 
+
+1693
+00:32:59,480 --> 00:33:00,750
+
+Okay.
+
+1694
+00:33:00,750 --> 00:33:00,760
+Okay.
+ 
+
+1695
+00:33:00,760 --> 00:33:03,870
+Okay.
+So very important from the point of view
+
+1696
+00:33:03,870 --> 00:33:03,880
+So very important from the point of view
+ 
+
+1697
+00:33:03,880 --> 00:33:07,150
+So very important from the point of view
+interview and also if you are working
+
+1698
+00:33:07,150 --> 00:33:07,160
+interview and also if you are working
+ 
+
+1699
+00:33:07,160 --> 00:33:08,630
+interview and also if you are working
+with the Kafka
+
+1700
+00:33:08,630 --> 00:33:08,640
+with the Kafka
+ 
+
+1701
+00:33:08,640 --> 00:33:10,390
+with the Kafka
+and like if you're working with
+
+1702
+00:33:10,390 --> 00:33:10,400
+and like if you're working with
+ 
+
+1703
+00:33:10,400 --> 00:33:12,710
+and like if you're working with
+idempotency also then you should be
+
+1704
+00:33:12,710 --> 00:33:12,720
+idempotency also then you should be
+ 
+
+1705
+00:33:12,720 --> 00:33:15,590
+idempotency also then you should be
+aware that idempotency is like solves
+
+1706
+00:33:15,590 --> 00:33:15,600
+aware that idempotency is like solves
+ 
+
+1707
+00:33:15,600 --> 00:33:18,350
+aware that idempotency is like solves
+these two problems. How it solves I show
+
+1708
+00:33:18,350 --> 00:33:18,360
+these two problems. How it solves I show
+ 
+
+1709
+00:33:18,360 --> 00:33:19,390
+these two problems. How it solves I show
+you.
+
+1710
+00:33:19,390 --> 00:33:19,400
+you.
+ 
+
+1711
+00:33:19,400 --> 00:33:20,510
+you.
+Okay.
+
+1712
+00:33:20,510 --> 00:33:20,520
+Okay.
+ 
+
+1713
+00:33:20,520 --> 00:33:22,190
+Okay.
+With this base sequence last sequence
+
+1714
+00:33:22,190 --> 00:33:22,200
+With this base sequence last sequence
+ 
+
+1715
+00:33:22,200 --> 00:33:23,310
+With this base sequence last sequence
+and all.
+
+1716
+00:33:23,310 --> 00:33:23,320
+and all.
+ 
+
+1717
+00:33:23,320 --> 00:33:26,270
+and all.
+But it also has a loophole that when the
+
+1718
+00:33:26,270 --> 00:33:26,280
+But it also has a loophole that when the
+ 
+
+1719
+00:33:26,280 --> 00:33:29,750
+But it also has a loophole that when the
+application restart it get a new ID
+
+1720
+00:33:29,750 --> 00:33:29,760
+application restart it get a new ID
+ 
+
+1721
+00:33:29,760 --> 00:33:31,950
+application restart it get a new ID
+and if the old batch is sent again it
+
+1722
+00:33:31,950 --> 00:33:31,960
+and if the old batch is sent again it
+ 
+
+1723
+00:33:31,960 --> 00:33:33,630
+and if the old batch is sent again it
+would be written again.
+
+1724
+00:33:33,630 --> 00:33:33,640
+would be written again.
+ 
+
+1725
+00:33:33,640 --> 00:33:35,830
+would be written again.
+Okay. And for that
+
+1726
+00:33:35,830 --> 00:33:35,840
+Okay. And for that
+ 
+
+1727
+00:33:35,840 --> 00:33:39,070
+Okay. And for that
+we have to make use of transaction.
+
+1728
+00:33:39,070 --> 00:33:39,080
+we have to make use of transaction.
+ 
+
+1729
+00:33:39,080 --> 00:33:41,110
+we have to make use of transaction.
+That we will see later.
+
+1730
+00:33:41,110 --> 00:33:41,120
+That we will see later.
+ 
+
+1731
+00:33:41,120 --> 00:33:42,910
+That we will see later.
+In this any doubt let me know we can
+
+1732
+00:33:42,910 --> 00:33:42,920
+In this any doubt let me know we can
+ 
+
+1733
+00:33:42,920 --> 00:33:44,190
+In this any doubt let me know we can
+discuss further into the comment
+
+1734
+00:33:44,190 --> 00:33:44,200
+discuss further into the comment
+ 
+
+1735
+00:33:44,200 --> 00:33:47,000
+discuss further into the comment
+section. Bye.
+

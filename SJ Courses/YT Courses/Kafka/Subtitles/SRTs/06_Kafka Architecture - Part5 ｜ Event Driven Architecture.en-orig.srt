@@ -1,0 +1,3555 @@
+1
+00:00:00,000 --> 00:00:02,230
+
+Welcome back. So this is the last part
+
+2
+00:00:02,230 --> 00:00:02,240
+Welcome back. So this is the last part
+ 
+
+3
+00:00:02,240 --> 00:00:05,590
+Welcome back. So this is the last part
+of Kafka architecture and if you have
+
+4
+00:00:05,590 --> 00:00:05,600
+of Kafka architecture and if you have
+ 
+
+5
+00:00:05,600 --> 00:00:08,310
+of Kafka architecture and if you have
+already understood till now all these
+
+6
+00:00:08,310 --> 00:00:08,320
+already understood till now all these
+ 
+
+7
+00:00:08,320 --> 00:00:10,310
+already understood till now all these
+edge cases and failure scenarios would
+
+8
+00:00:10,310 --> 00:00:10,320
+edge cases and failure scenarios would
+ 
+
+9
+00:00:10,320 --> 00:00:13,350
+edge cases and failure scenarios would
+be like just uh piece of cake to be
+
+10
+00:00:13,350 --> 00:00:13,360
+be like just uh piece of cake to be
+ 
+
+11
+00:00:13,360 --> 00:00:15,990
+be like just uh piece of cake to be
+honest if interviewer asked this you
+
+12
+00:00:15,990 --> 00:00:16,000
+honest if interviewer asked this you
+ 
+
+13
+00:00:16,000 --> 00:00:18,390
+honest if interviewer asked this you
+would already know the answer for this.
+
+14
+00:00:18,390 --> 00:00:18,400
+would already know the answer for this.
+ 
+
+15
+00:00:18,400 --> 00:00:20,230
+would already know the answer for this.
+So let's start without wasting any much
+
+16
+00:00:20,230 --> 00:00:20,240
+So let's start without wasting any much
+ 
+
+17
+00:00:20,240 --> 00:00:24,150
+So let's start without wasting any much
+time. The first what happen when active
+
+18
+00:00:24,150 --> 00:00:24,160
+time. The first what happen when active
+ 
+
+19
+00:00:24,160 --> 00:00:27,269
+time. The first what happen when active
+controller fails? Kindly pause the video
+
+20
+00:00:27,269 --> 00:00:27,279
+controller fails? Kindly pause the video
+ 
+
+21
+00:00:27,279 --> 00:00:29,269
+controller fails? Kindly pause the video
+think about it. What happened? We have
+
+22
+00:00:29,269 --> 00:00:29,279
+think about it. What happened? We have
+ 
+
+23
+00:00:29,279 --> 00:00:32,229
+think about it. What happened? We have
+already discussed that. So let's say
+
+24
+00:00:32,229 --> 00:00:32,239
+already discussed that. So let's say
+ 
+
+25
+00:00:32,239 --> 00:00:34,709
+already discussed that. So let's say
+initial state is three controllers. One
+
+26
+00:00:34,709 --> 00:00:34,719
+initial state is three controllers. One
+ 
+
+27
+00:00:34,719 --> 00:00:37,190
+initial state is three controllers. One
+controller is leader let's say active
+
+28
+00:00:37,190 --> 00:00:37,200
+controller is leader let's say active
+ 
+
+29
+00:00:37,200 --> 00:00:38,790
+controller is leader let's say active
+and other two are follower which is
+
+30
+00:00:38,790 --> 00:00:38,800
+and other two are follower which is
+ 
+
+31
+00:00:38,800 --> 00:00:41,350
+and other two are follower which is
+nothing but a standby.
+
+32
+00:00:41,350 --> 00:00:41,360
+nothing but a standby.
+ 
+
+33
+00:00:41,360 --> 00:00:44,549
+nothing but a standby.
+So now let's say controller one got
+
+34
+00:00:44,549 --> 00:00:44,559
+So now let's say controller one got
+ 
+
+35
+00:00:44,559 --> 00:00:48,069
+So now let's say controller one got
+crashed. Active controller got crashed.
+
+36
+00:00:48,069 --> 00:00:48,079
+crashed. Active controller got crashed.
+ 
+
+37
+00:00:48,079 --> 00:00:50,389
+crashed. Active controller got crashed.
+Now I told you if you remember the
+
+38
+00:00:50,389 --> 00:00:50,399
+Now I told you if you remember the
+ 
+
+39
+00:00:50,399 --> 00:00:52,150
+Now I told you if you remember the
+active controller always send its
+
+40
+00:00:52,150 --> 00:00:52,160
+active controller always send its
+ 
+
+41
+00:00:52,160 --> 00:00:54,950
+active controller always send its
+heartbeat to the standby controller. So
+
+42
+00:00:54,950 --> 00:00:54,960
+heartbeat to the standby controller. So
+ 
+
+43
+00:00:54,960 --> 00:00:57,350
+heartbeat to the standby controller. So
+they won't get any heartbeat. So what
+
+44
+00:00:57,350 --> 00:00:57,360
+they won't get any heartbeat. So what
+ 
+
+45
+00:00:57,360 --> 00:01:01,590
+they won't get any heartbeat. So what
+happen is election will start raft.
+
+46
+00:01:01,590 --> 00:01:01,600
+happen is election will start raft.
+ 
+
+47
+00:01:01,600 --> 00:01:04,630
+happen is election will start raft.
+Okay. So what happen is the controller
+
+48
+00:01:04,630 --> 00:01:04,640
+Okay. So what happen is the controller
+ 
+
+49
+00:01:04,640 --> 00:01:06,789
+Okay. So what happen is the controller
+two start the election and request
+
+50
+00:01:06,789 --> 00:01:06,799
+two start the election and request
+ 
+
+51
+00:01:06,799 --> 00:01:09,109
+two start the election and request
+votes. Controller 3 vote for controller
+
+52
+00:01:09,109 --> 00:01:09,119
+votes. Controller 3 vote for controller
+ 
+
+53
+00:01:09,119 --> 00:01:11,830
+votes. Controller 3 vote for controller
+2. So controller 2 got two votes. Let's
+
+54
+00:01:11,830 --> 00:01:11,840
+2. So controller 2 got two votes. Let's
+ 
+
+55
+00:01:11,840 --> 00:01:14,469
+2. So controller 2 got two votes. Let's
+say uh itself and controller 3. So it
+
+56
+00:01:14,469 --> 00:01:14,479
+say uh itself and controller 3. So it
+ 
+
+57
+00:01:14,479 --> 00:01:16,390
+say uh itself and controller 3. So it
+got win
+
+58
+00:01:16,390 --> 00:01:16,400
+got win
+ 
+
+59
+00:01:16,400 --> 00:01:18,390
+got win
+because it got two out of three
+
+60
+00:01:18,390 --> 00:01:18,400
+because it got two out of three
+ 
+
+61
+00:01:18,400 --> 00:01:21,590
+because it got two out of three
+majority. Controller one already down.
+
+62
+00:01:21,590 --> 00:01:21,600
+majority. Controller one already down.
+ 
+
+63
+00:01:21,600 --> 00:01:23,590
+majority. Controller one already down.
+That's why two out of three majority it
+
+64
+00:01:23,590 --> 00:01:23,600
+That's why two out of three majority it
+ 
+
+65
+00:01:23,600 --> 00:01:26,870
+That's why two out of three majority it
+got. and uh controller 3 will remain
+
+66
+00:01:26,870 --> 00:01:26,880
+got. and uh controller 3 will remain
+ 
+
+67
+00:01:26,880 --> 00:01:28,630
+got. and uh controller 3 will remain
+follower and now controller 2 becomes
+
+68
+00:01:28,630 --> 00:01:28,640
+follower and now controller 2 becomes
+ 
+
+69
+00:01:28,640 --> 00:01:33,030
+follower and now controller 2 becomes
+your leader or active controller.
+
+70
+00:01:33,030 --> 00:01:33,040
+your leader or active controller.
+ 
+
+71
+00:01:33,040 --> 00:01:35,109
+your leader or active controller.
+So impact you can say that the new
+
+72
+00:01:35,109 --> 00:01:35,119
+So impact you can say that the new
+ 
+
+73
+00:01:35,119 --> 00:01:38,390
+So impact you can say that the new
+leader get elected but cluster continues
+
+74
+00:01:38,390 --> 00:01:38,400
+leader get elected but cluster continues
+ 
+
+75
+00:01:38,400 --> 00:01:40,789
+leader get elected but cluster continues
+working. So there is no such big impact
+
+76
+00:01:40,789 --> 00:01:40,799
+working. So there is no such big impact
+ 
+
+77
+00:01:40,799 --> 00:01:43,830
+working. So there is no such big impact
+happens.
+
+78
+00:01:43,830 --> 00:01:43,840
+
+ 
+
+79
+00:01:43,840 --> 00:01:45,590
+
+Now let's say what if interview what
+
+80
+00:01:45,590 --> 00:01:45,600
+Now let's say what if interview what
+ 
+
+81
+00:01:45,600 --> 00:01:48,789
+Now let's say what if interview what
+happen when leader partition fail. Okay
+
+82
+00:01:48,789 --> 00:01:48,799
+happen when leader partition fail. Okay
+ 
+
+83
+00:01:48,799 --> 00:01:50,550
+happen when leader partition fail. Okay
+you know that right? We have already
+
+84
+00:01:50,550 --> 00:01:50,560
+you know that right? We have already
+ 
+
+85
+00:01:50,560 --> 00:01:52,950
+you know that right? We have already
+seen that
+
+86
+00:01:52,950 --> 00:01:52,960
+seen that
+ 
+
+87
+00:01:52,960 --> 00:01:55,749
+seen that
+every topic we have uh so we have a
+
+88
+00:01:55,749 --> 00:01:55,759
+every topic we have uh so we have a
+ 
+
+89
+00:01:55,759 --> 00:01:59,429
+every topic we have uh so we have a
+broker broker has topic and it maintains
+
+90
+00:01:59,429 --> 00:01:59,439
+broker broker has topic and it maintains
+ 
+
+91
+00:01:59,439 --> 00:02:00,950
+broker broker has topic and it maintains
+partition
+
+92
+00:02:00,950 --> 00:02:00,960
+partition
+ 
+
+93
+00:02:00,960 --> 00:02:05,350
+partition
+leader and another broker have topic
+
+94
+00:02:05,350 --> 00:02:05,360
+leader and another broker have topic
+ 
+
+95
+00:02:05,360 --> 00:02:07,030
+leader and another broker have topic
+same partition zero let's say it has
+
+96
+00:02:07,030 --> 00:02:07,040
+same partition zero let's say it has
+ 
+
+97
+00:02:07,040 --> 00:02:09,910
+same partition zero let's say it has
+this follower what is leader partition
+
+98
+00:02:09,910 --> 00:02:09,920
+this follower what is leader partition
+ 
+
+99
+00:02:09,920 --> 00:02:12,150
+this follower what is leader partition
+fail what happens
+
+100
+00:02:12,150 --> 00:02:12,160
+fail what happens
+ 
+
+101
+00:02:12,160 --> 00:02:14,309
+fail what happens
+okay so this is the setup let's say I
+
+102
+00:02:14,309 --> 00:02:14,319
+okay so this is the setup let's say I
+ 
+
+103
+00:02:14,319 --> 00:02:16,869
+okay so this is the setup let's say I
+have a partition zero which is replica
+
+104
+00:02:16,869 --> 00:02:16,879
+have a partition zero which is replica
+ 
+
+105
+00:02:16,879 --> 00:02:19,910
+have a partition zero which is replica
+factor 3 So
+
+106
+00:02:19,910 --> 00:02:19,920
+factor 3 So
+ 
+
+107
+00:02:19,920 --> 00:02:22,309
+factor 3 So
+replica factor of three means one leader
+
+108
+00:02:22,309 --> 00:02:22,319
+replica factor of three means one leader
+ 
+
+109
+00:02:22,319 --> 00:02:24,150
+replica factor of three means one leader
+two followers.
+
+110
+00:02:24,150 --> 00:02:24,160
+two followers.
+ 
+
+111
+00:02:24,160 --> 00:02:25,670
+two followers.
+Okay.
+
+112
+00:02:25,670 --> 00:02:25,680
+Okay.
+ 
+
+113
+00:02:25,680 --> 00:02:28,390
+Okay.
+So what would happen? Let's say for this
+
+114
+00:02:28,390 --> 00:02:28,400
+So what would happen? Let's say for this
+ 
+
+115
+00:02:28,400 --> 00:02:30,470
+So what would happen? Let's say for this
+partition.
+
+116
+00:02:30,470 --> 00:02:30,480
+partition.
+ 
+
+117
+00:02:30,480 --> 00:02:32,869
+partition.
+Okay. So one is leader and two
+
+118
+00:02:32,869 --> 00:02:32,879
+Okay. So one is leader and two
+ 
+
+119
+00:02:32,879 --> 00:02:35,430
+Okay. So one is leader and two
+followers. So one more broker
+
+120
+00:02:35,430 --> 00:02:35,440
+followers. So one more broker
+ 
+
+121
+00:02:35,440 --> 00:02:37,509
+followers. So one more broker
+and another partition zero another
+
+122
+00:02:37,509 --> 00:02:37,519
+and another partition zero another
+ 
+
+123
+00:02:37,519 --> 00:02:40,070
+and another partition zero another
+follower. Okay. So three replica. Now
+
+124
+00:02:40,070 --> 00:02:40,080
+follower. Okay. So three replica. Now
+ 
+
+125
+00:02:40,080 --> 00:02:43,830
+follower. Okay. So three replica. Now
+what happen is broker one leader fails.
+
+126
+00:02:43,830 --> 00:02:43,840
+what happen is broker one leader fails.
+ 
+
+127
+00:02:43,840 --> 00:02:47,910
+what happen is broker one leader fails.
+So controller who detects the failure of
+
+128
+00:02:47,910 --> 00:02:47,920
+So controller who detects the failure of
+ 
+
+129
+00:02:47,920 --> 00:02:50,390
+So controller who detects the failure of
+this broker controller because all
+
+130
+00:02:50,390 --> 00:02:50,400
+this broker controller because all
+ 
+
+131
+00:02:50,400 --> 00:02:52,390
+this broker controller because all
+broker I told you that send their
+
+132
+00:02:52,390 --> 00:02:52,400
+broker I told you that send their
+ 
+
+133
+00:02:52,400 --> 00:02:55,430
+broker I told you that send their
+heartbeats to controller. So controller
+
+134
+00:02:55,430 --> 00:02:55,440
+heartbeats to controller. So controller
+ 
+
+135
+00:02:55,440 --> 00:02:57,750
+heartbeats to controller. So controller
+detect the leader failure as there is no
+
+136
+00:02:57,750 --> 00:02:57,760
+detect the leader failure as there is no
+ 
+
+137
+00:02:57,760 --> 00:03:00,470
+detect the leader failure as there is no
+heartbeat from the leader. Controller
+
+138
+00:03:00,470 --> 00:03:00,480
+heartbeat from the leader. Controller
+ 
+
+139
+00:03:00,480 --> 00:03:03,750
+heartbeat from the leader. Controller
+trigger leader election the same thing.
+
+140
+00:03:03,750 --> 00:03:03,760
+trigger leader election the same thing.
+ 
+
+141
+00:03:03,760 --> 00:03:08,070
+trigger leader election the same thing.
+Okay. So from the ISR list, ISR list
+
+142
+00:03:08,070 --> 00:03:08,080
+Okay. So from the ISR list, ISR list
+ 
+
+143
+00:03:08,080 --> 00:03:10,390
+Okay. So from the ISR list, ISR list
+earlier was
+
+144
+00:03:10,390 --> 00:03:10,400
+earlier was
+ 
+
+145
+00:03:10,400 --> 00:03:13,910
+earlier was
+broker one, broker two, broker 3 for
+
+146
+00:03:13,910 --> 00:03:13,920
+broker one, broker two, broker 3 for
+ 
+
+147
+00:03:13,920 --> 00:03:16,470
+broker one, broker two, broker 3 for
+this partition zero. Broker one
+
+148
+00:03:16,470 --> 00:03:16,480
+this partition zero. Broker one
+ 
+
+149
+00:03:16,480 --> 00:03:19,190
+this partition zero. Broker one
+considered as down, no heartbeat. So
+
+150
+00:03:19,190 --> 00:03:19,200
+considered as down, no heartbeat. So
+ 
+
+151
+00:03:19,200 --> 00:03:22,790
+considered as down, no heartbeat. So
+controller out of this two in the ISR,
+
+152
+00:03:22,790 --> 00:03:22,800
+controller out of this two in the ISR,
+ 
+
+153
+00:03:22,800 --> 00:03:25,509
+controller out of this two in the ISR,
+it will pick one. Let's say
+
+154
+00:03:25,509 --> 00:03:25,519
+it will pick one. Let's say
+ 
+
+155
+00:03:25,519 --> 00:03:29,030
+it will pick one. Let's say
+broker two. Okay. So now they will do
+
+156
+00:03:29,030 --> 00:03:29,040
+broker two. Okay. So now they will do
+ 
+
+157
+00:03:29,040 --> 00:03:33,830
+broker two. Okay. So now they will do
+internally kind of an election. If all
+
+158
+00:03:33,830 --> 00:03:33,840
+internally kind of an election. If all
+ 
+
+159
+00:03:33,840 --> 00:03:38,630
+internally kind of an election. If all
+agree, if there is a quorum, okay, so
+
+160
+00:03:38,630 --> 00:03:38,640
+agree, if there is a quorum, okay, so
+ 
+
+161
+00:03:38,640 --> 00:03:43,350
+agree, if there is a quorum, okay, so
+broker two will become a leader.
+
+162
+00:03:43,350 --> 00:03:43,360
+
+ 
+
+163
+00:03:43,360 --> 00:03:45,350
+
+Okay.
+
+164
+00:03:45,350 --> 00:03:45,360
+Okay.
+ 
+
+165
+00:03:45,360 --> 00:03:48,149
+Okay.
+So, controller after uh the new leader
+
+166
+00:03:48,149 --> 00:03:48,159
+So, controller after uh the new leader
+ 
+
+167
+00:03:48,159 --> 00:03:50,710
+So, controller after uh the new leader
+is selected, controller updates the
+
+168
+00:03:50,710 --> 00:03:50,720
+is selected, controller updates the
+ 
+
+169
+00:03:50,720 --> 00:03:52,949
+is selected, controller updates the
+metadata
+
+170
+00:03:52,949 --> 00:03:52,959
+metadata
+ 
+
+171
+00:03:52,959 --> 00:03:56,229
+metadata
+that hey from leader broker one it has
+
+172
+00:03:56,229 --> 00:03:56,239
+that hey from leader broker one it has
+ 
+
+173
+00:03:56,239 --> 00:03:58,869
+that hey from leader broker one it has
+become broker two and ISR is updated
+
+174
+00:03:58,869 --> 00:03:58,879
+become broker two and ISR is updated
+ 
+
+175
+00:03:58,879 --> 00:04:02,149
+become broker two and ISR is updated
+that only B2 and B3 is now present.
+
+176
+00:04:02,149 --> 00:04:02,159
+that only B2 and B3 is now present.
+ 
+
+177
+00:04:02,159 --> 00:04:04,710
+that only B2 and B3 is now present.
+and it will publish this information to
+
+178
+00:04:04,710 --> 00:04:04,720
+and it will publish this information to
+ 
+
+179
+00:04:04,720 --> 00:04:08,070
+and it will publish this information to
+all the brokers.
+
+180
+00:04:08,070 --> 00:04:08,080
+all the brokers.
+ 
+
+181
+00:04:08,080 --> 00:04:10,309
+all the brokers.
+Okay.
+
+182
+00:04:10,309 --> 00:04:10,319
+Okay.
+ 
+
+183
+00:04:10,319 --> 00:04:13,589
+Okay.
+And for this partition zero which is
+
+184
+00:04:13,589 --> 00:04:13,599
+And for this partition zero which is
+ 
+
+185
+00:04:13,599 --> 00:04:15,670
+And for this partition zero which is
+earlier leader the producer and consumer
+
+186
+00:04:15,670 --> 00:04:15,680
+earlier leader the producer and consumer
+ 
+
+187
+00:04:15,680 --> 00:04:18,069
+earlier leader the producer and consumer
+will now connect to broker two instead
+
+188
+00:04:18,069 --> 00:04:18,079
+will now connect to broker two instead
+ 
+
+189
+00:04:18,079 --> 00:04:19,830
+will now connect to broker two instead
+of broker one. They will connect to
+
+190
+00:04:19,830 --> 00:04:19,840
+of broker one. They will connect to
+ 
+
+191
+00:04:19,840 --> 00:04:22,870
+of broker one. They will connect to
+broker two because this is now a leader.
+
+192
+00:04:22,870 --> 00:04:22,880
+broker two because this is now a leader.
+ 
+
+193
+00:04:22,880 --> 00:04:24,469
+broker two because this is now a leader.
+So partition is just a way of
+
+194
+00:04:24,469 --> 00:04:24,479
+So partition is just a way of
+ 
+
+195
+00:04:24,479 --> 00:04:27,990
+So partition is just a way of
+distributing the load among brokers. You
+
+196
+00:04:27,990 --> 00:04:28,000
+distributing the load among brokers. You
+ 
+
+197
+00:04:28,000 --> 00:04:30,950
+distributing the load among brokers. You
+can say that.
+
+198
+00:04:30,950 --> 00:04:30,960
+can say that.
+ 
+
+199
+00:04:30,960 --> 00:04:34,469
+can say that.
+So this case is also handled. So there
+
+200
+00:04:34,469 --> 00:04:34,479
+So this case is also handled. So there
+ 
+
+201
+00:04:34,479 --> 00:04:36,790
+So this case is also handled. So there
+is no impact, no data loss, automatic
+
+202
+00:04:36,790 --> 00:04:36,800
+is no impact, no data loss, automatic
+ 
+
+203
+00:04:36,800 --> 00:04:41,749
+is no impact, no data loss, automatic
+recovery happen, everything works fine.
+
+204
+00:04:41,749 --> 00:04:41,759
+recovery happen, everything works fine.
+ 
+
+205
+00:04:41,759 --> 00:04:42,950
+recovery happen, everything works fine.
+Now the question is what happen when
+
+206
+00:04:42,950 --> 00:04:42,960
+Now the question is what happen when
+ 
+
+207
+00:04:42,960 --> 00:04:46,710
+Now the question is what happen when
+follower partition fails. So if you
+
+208
+00:04:46,710 --> 00:04:46,720
+follower partition fails. So if you
+ 
+
+209
+00:04:46,720 --> 00:04:48,550
+follower partition fails. So if you
+remember the ISR, we have already
+
+210
+00:04:48,550 --> 00:04:48,560
+remember the ISR, we have already
+ 
+
+211
+00:04:48,560 --> 00:04:51,350
+remember the ISR, we have already
+discussed this use case. Let's say
+
+212
+00:04:51,350 --> 00:04:51,360
+discussed this use case. Let's say
+ 
+
+213
+00:04:51,360 --> 00:04:54,550
+discussed this use case. Let's say
+partition zero three replication factor
+
+214
+00:04:54,550 --> 00:04:54,560
+partition zero three replication factor
+ 
+
+215
+00:04:54,560 --> 00:04:57,590
+partition zero three replication factor
+leader follower. So currently ISR list
+
+216
+00:04:57,590 --> 00:04:57,600
+leader follower. So currently ISR list
+ 
+
+217
+00:04:57,600 --> 00:05:01,350
+leader follower. So currently ISR list
+is let's say broker one, broker two,
+
+218
+00:05:01,350 --> 00:05:01,360
+is let's say broker one, broker two,
+ 
+
+219
+00:05:01,360 --> 00:05:04,790
+is let's say broker one, broker two,
+broker three, this is leader let's say
+
+220
+00:05:04,790 --> 00:05:04,800
+broker three, this is leader let's say
+ 
+
+221
+00:05:04,800 --> 00:05:07,749
+broker three, this is leader let's say
+this is follower this is also follower
+
+222
+00:05:07,749 --> 00:05:07,759
+this is follower this is also follower
+ 
+
+223
+00:05:07,759 --> 00:05:09,350
+this is follower this is also follower
+okay three replication factor three
+
+224
+00:05:09,350 --> 00:05:09,360
+okay three replication factor three
+ 
+
+225
+00:05:09,360 --> 00:05:11,670
+okay three replication factor three
+replicas now let's say broker three
+
+226
+00:05:11,670 --> 00:05:11,680
+replicas now let's say broker three
+ 
+
+227
+00:05:11,680 --> 00:05:14,310
+replicas now let's say broker three
+crash the follower crashed
+
+228
+00:05:14,310 --> 00:05:14,320
+crash the follower crashed
+ 
+
+229
+00:05:14,320 --> 00:05:17,029
+crash the follower crashed
+what would happen who will identify that
+
+230
+00:05:17,029 --> 00:05:17,039
+what would happen who will identify that
+ 
+
+231
+00:05:17,039 --> 00:05:21,830
+what would happen who will identify that
+broker 3 is uh delayed or failed broker
+
+232
+00:05:21,830 --> 00:05:21,840
+broker 3 is uh delayed or failed broker
+ 
+
+233
+00:05:21,840 --> 00:05:25,029
+broker 3 is uh delayed or failed broker
+one can also get to know so broker one
+
+234
+00:05:25,029 --> 00:05:25,039
+one can also get to know so broker one
+ 
+
+235
+00:05:25,039 --> 00:05:27,830
+one can also get to know so broker one
+keep track of its follower. You can say
+
+236
+00:05:27,830 --> 00:05:27,840
+keep track of its follower. You can say
+ 
+
+237
+00:05:27,840 --> 00:05:30,629
+keep track of its follower. You can say
+that fetch request
+
+238
+00:05:30,629 --> 00:05:30,639
+that fetch request
+ 
+
+239
+00:05:30,639 --> 00:05:32,710
+that fetch request
+because brokers are keep on fetch
+
+240
+00:05:32,710 --> 00:05:32,720
+because brokers are keep on fetch
+ 
+
+241
+00:05:32,720 --> 00:05:34,390
+because brokers are keep on fetch
+followers are keep on fetching from the
+
+242
+00:05:34,390 --> 00:05:34,400
+followers are keep on fetching from the
+ 
+
+243
+00:05:34,400 --> 00:05:36,870
+followers are keep on fetching from the
+leader to keep themselves up to date. So
+
+244
+00:05:36,870 --> 00:05:36,880
+leader to keep themselves up to date. So
+ 
+
+245
+00:05:36,880 --> 00:05:39,510
+leader to keep themselves up to date. So
+now let's say if broker 3 is down there
+
+246
+00:05:39,510 --> 00:05:39,520
+now let's say if broker 3 is down there
+ 
+
+247
+00:05:39,520 --> 00:05:44,070
+now let's say if broker 3 is down there
+is no fetch request from this broker 3
+
+248
+00:05:44,070 --> 00:05:44,080
+is no fetch request from this broker 3
+ 
+
+249
+00:05:44,080 --> 00:05:46,310
+is no fetch request from this broker 3
+to the leader. So this leader get to
+
+250
+00:05:46,310 --> 00:05:46,320
+to the leader. So this leader get to
+ 
+
+251
+00:05:46,320 --> 00:05:48,469
+to the leader. So this leader get to
+know that yes there is something wrong
+
+252
+00:05:48,469 --> 00:05:48,479
+know that yes there is something wrong
+ 
+
+253
+00:05:48,479 --> 00:05:50,870
+know that yes there is something wrong
+with the B3. So what it will do is it
+
+254
+00:05:50,870 --> 00:05:50,880
+with the B3. So what it will do is it
+ 
+
+255
+00:05:50,880 --> 00:05:55,590
+with the B3. So what it will do is it
+will update the ISR. it will remove B3
+
+256
+00:05:55,590 --> 00:05:55,600
+will update the ISR. it will remove B3
+ 
+
+257
+00:05:55,600 --> 00:05:58,950
+will update the ISR. it will remove B3
+and it will up pass it to the controller
+
+258
+00:05:58,950 --> 00:05:58,960
+and it will up pass it to the controller
+ 
+
+259
+00:05:58,960 --> 00:06:03,110
+and it will up pass it to the controller
+and controller will update the metadata.
+
+260
+00:06:03,110 --> 00:06:03,120
+and controller will update the metadata.
+ 
+
+261
+00:06:03,120 --> 00:06:04,950
+and controller will update the metadata.
+Okay, so that's what I have mentioned
+
+262
+00:06:04,950 --> 00:06:04,960
+Okay, so that's what I have mentioned
+ 
+
+263
+00:06:04,960 --> 00:06:07,510
+Okay, so that's what I have mentioned
+here. So leader detect broker 3 is
+
+264
+00:06:07,510 --> 00:06:07,520
+here. So leader detect broker 3 is
+ 
+
+265
+00:06:07,520 --> 00:06:10,790
+here. So leader detect broker 3 is
+unresponsive. No timely fetch call
+
+266
+00:06:10,790 --> 00:06:10,800
+unresponsive. No timely fetch call
+ 
+
+267
+00:06:10,800 --> 00:06:15,189
+unresponsive. No timely fetch call
+controller removes the B3 from the ISR.
+
+268
+00:06:15,189 --> 00:06:15,199
+controller removes the B3 from the ISR.
+ 
+
+269
+00:06:15,199 --> 00:06:18,070
+controller removes the B3 from the ISR.
+Generally here if you see that the
+
+270
+00:06:18,070 --> 00:06:18,080
+Generally here if you see that the
+ 
+
+271
+00:06:18,080 --> 00:06:20,150
+Generally here if you see that the
+broker
+
+272
+00:06:20,150 --> 00:06:20,160
+broker
+ 
+
+273
+00:06:20,160 --> 00:06:22,710
+broker
+this leader broker removes from the ISR
+
+274
+00:06:22,710 --> 00:06:22,720
+this leader broker removes from the ISR
+ 
+
+275
+00:06:22,720 --> 00:06:26,710
+this leader broker removes from the ISR
+and pass this remove request to the
+
+276
+00:06:26,710 --> 00:06:26,720
+and pass this remove request to the
+ 
+
+277
+00:06:26,720 --> 00:06:29,590
+and pass this remove request to the
+controller. Ultimately controller update
+
+278
+00:06:29,590 --> 00:06:29,600
+controller. Ultimately controller update
+ 
+
+279
+00:06:29,600 --> 00:06:33,670
+controller. Ultimately controller update
+its cluster metadata. You can say that.
+
+280
+00:06:33,670 --> 00:06:33,680
+its cluster metadata. You can say that.
+ 
+
+281
+00:06:33,680 --> 00:06:35,670
+its cluster metadata. You can say that.
+And here if you see that uh system
+
+282
+00:06:35,670 --> 00:06:35,680
+And here if you see that uh system
+ 
+
+283
+00:06:35,680 --> 00:06:37,670
+And here if you see that uh system
+continues normally
+
+284
+00:06:37,670 --> 00:06:37,680
+continues normally
+ 
+
+285
+00:06:37,680 --> 00:06:40,070
+continues normally
+no issues producer will still be able to
+
+286
+00:06:40,070 --> 00:06:40,080
+no issues producer will still be able to
+ 
+
+287
+00:06:40,080 --> 00:06:42,629
+no issues producer will still be able to
+write. Okay. Now in the ISR only this
+
+288
+00:06:42,629 --> 00:06:42,639
+write. Okay. Now in the ISR only this
+ 
+
+289
+00:06:42,639 --> 00:06:45,749
+write. Okay. Now in the ISR only this
+two are present into the three. So no
+
+290
+00:06:45,749 --> 00:06:45,759
+two are present into the three. So no
+ 
+
+291
+00:06:45,759 --> 00:06:48,469
+two are present into the three. So no
+issues and when B3 recovers it will
+
+292
+00:06:48,469 --> 00:06:48,479
+issues and when B3 recovers it will
+ 
+
+293
+00:06:48,479 --> 00:06:52,390
+issues and when B3 recovers it will
+again get back added to the ISR. Let's
+
+294
+00:06:52,390 --> 00:06:52,400
+again get back added to the ISR. Let's
+ 
+
+295
+00:06:52,400 --> 00:06:54,790
+again get back added to the ISR. Let's
+say B3 got recovered
+
+296
+00:06:54,790 --> 00:06:54,800
+say B3 got recovered
+ 
+
+297
+00:06:54,800 --> 00:06:57,029
+say B3 got recovered
+and uh
+
+298
+00:06:57,029 --> 00:06:57,039
+and uh
+ 
+
+299
+00:06:57,039 --> 00:07:00,550
+and uh
+what happened is that controller again
+
+300
+00:07:00,550 --> 00:07:00,560
+what happened is that controller again
+ 
+
+301
+00:07:00,560 --> 00:07:02,790
+what happened is that controller again
+added
+
+302
+00:07:02,790 --> 00:07:02,800
+added
+ 
+
+303
+00:07:02,800 --> 00:07:06,150
+added
+and it start sending the fetch calls
+
+304
+00:07:06,150 --> 00:07:06,160
+and it start sending the fetch calls
+ 
+
+305
+00:07:06,160 --> 00:07:11,189
+and it start sending the fetch calls
+then it will again get added to the ISR
+
+306
+00:07:11,189 --> 00:07:11,199
+
+ 
+
+307
+00:07:11,199 --> 00:07:14,230
+
+okay so it's depend upon the broker 3
+
+308
+00:07:14,230 --> 00:07:14,240
+okay so it's depend upon the broker 3
+ 
+
+309
+00:07:14,240 --> 00:07:16,390
+okay so it's depend upon the broker 3
+recovery once it get recovered and it
+
+310
+00:07:16,390 --> 00:07:16,400
+recovery once it get recovered and it
+ 
+
+311
+00:07:16,400 --> 00:07:19,189
+recovery once it get recovered and it
+does a catch up with the leader okay
+
+312
+00:07:19,189 --> 00:07:19,199
+does a catch up with the leader okay
+ 
+
+313
+00:07:19,199 --> 00:07:21,029
+does a catch up with the leader okay
+leader will identify that yes it is
+
+314
+00:07:21,029 --> 00:07:21,039
+leader will identify that yes it is
+ 
+
+315
+00:07:21,039 --> 00:07:23,589
+leader will identify that yes it is
+fetching the data now and it has already
+
+316
+00:07:23,589 --> 00:07:23,599
+fetching the data now and it has already
+ 
+
+317
+00:07:23,599 --> 00:07:25,110
+fetching the data now and it has already
+done the catch up. It will get added
+
+318
+00:07:25,110 --> 00:07:25,120
+done the catch up. It will get added
+ 
+
+319
+00:07:25,120 --> 00:07:27,430
+done the catch up. It will get added
+back to this ISR and it will pass it to
+
+320
+00:07:27,430 --> 00:07:27,440
+back to this ISR and it will pass it to
+ 
+
+321
+00:07:27,440 --> 00:07:29,029
+back to this ISR and it will pass it to
+the controller. Controller update the
+
+322
+00:07:29,029 --> 00:07:29,039
+the controller. Controller update the
+ 
+
+323
+00:07:29,039 --> 00:07:32,710
+the controller. Controller update the
+metadata.
+
+324
+00:07:32,710 --> 00:07:32,720
+
+ 
+
+325
+00:07:32,720 --> 00:07:35,029
+
+What happen when topic fails? This is
+
+326
+00:07:35,029 --> 00:07:35,039
+What happen when topic fails? This is
+ 
+
+327
+00:07:35,039 --> 00:07:37,430
+What happen when topic fails? This is
+tricky question because topic can never
+
+328
+00:07:37,430 --> 00:07:37,440
+tricky question because topic can never
+ 
+
+329
+00:07:37,440 --> 00:07:40,390
+tricky question because topic can never
+fail. I told you that topic is just a
+
+330
+00:07:40,390 --> 00:07:40,400
+fail. I told you that topic is just a
+ 
+
+331
+00:07:40,400 --> 00:07:43,110
+fail. I told you that topic is just a
+category or folder. So if something fail
+
+332
+00:07:43,110 --> 00:07:43,120
+category or folder. So if something fail
+ 
+
+333
+00:07:43,120 --> 00:07:45,749
+category or folder. So if something fail
+partition fails not topic like we have
+
+334
+00:07:45,749 --> 00:07:45,759
+partition fails not topic like we have
+ 
+
+335
+00:07:45,759 --> 00:07:48,629
+partition fails not topic like we have
+already seen above what happened that
+
+336
+00:07:48,629 --> 00:07:48,639
+already seen above what happened that
+ 
+
+337
+00:07:48,639 --> 00:07:50,390
+already seen above what happened that
+leader partition fail. What happen when
+
+338
+00:07:50,390 --> 00:07:50,400
+leader partition fail. What happen when
+ 
+
+339
+00:07:50,400 --> 00:07:53,029
+leader partition fail. What happen when
+follower partition fail? So topic never
+
+340
+00:07:53,029 --> 00:07:53,039
+follower partition fail? So topic never
+ 
+
+341
+00:07:53,039 --> 00:07:55,270
+follower partition fail? So topic never
+fails.
+
+342
+00:07:55,270 --> 00:07:55,280
+fails.
+ 
+
+343
+00:07:55,280 --> 00:07:57,189
+fails.
+What happen when consumer fail? We have
+
+344
+00:07:57,189 --> 00:07:57,199
+What happen when consumer fail? We have
+ 
+
+345
+00:07:57,199 --> 00:08:00,390
+What happen when consumer fail? We have
+also discussed this part. Okay. So if
+
+346
+00:08:00,390 --> 00:08:00,400
+also discussed this part. Okay. So if
+ 
+
+347
+00:08:00,400 --> 00:08:04,309
+also discussed this part. Okay. So if
+any consumer fails
+
+348
+00:08:04,309 --> 00:08:04,319
+any consumer fails
+ 
+
+349
+00:08:04,319 --> 00:08:06,550
+any consumer fails
+scenario one I'm showing you consumer
+
+350
+00:08:06,550 --> 00:08:06,560
+scenario one I'm showing you consumer
+ 
+
+351
+00:08:06,560 --> 00:08:09,670
+scenario one I'm showing you consumer
+crash before committing offset. Okay. So
+
+352
+00:08:09,670 --> 00:08:09,680
+crash before committing offset. Okay. So
+ 
+
+353
+00:08:09,680 --> 00:08:11,589
+crash before committing offset. Okay. So
+now let's say that consumer pull the
+
+354
+00:08:11,589 --> 00:08:11,599
+now let's say that consumer pull the
+ 
+
+355
+00:08:11,599 --> 00:08:14,869
+now let's say that consumer pull the
+event from 100 to 199.
+
+356
+00:08:14,869 --> 00:08:14,879
+event from 100 to 199.
+ 
+
+357
+00:08:14,879 --> 00:08:16,469
+event from 100 to 199.
+Okay.
+
+358
+00:08:16,469 --> 00:08:16,479
+Okay.
+ 
+
+359
+00:08:16,479 --> 00:08:18,790
+Okay.
+Consumer start processing event 100 to
+
+360
+00:08:18,790 --> 00:08:18,800
+Consumer start processing event 100 to
+ 
+
+361
+00:08:18,800 --> 00:08:20,629
+Consumer start processing event 100 to
+150. So it reached till 150 it is
+
+362
+00:08:20,629 --> 00:08:20,639
+150. So it reached till 150 it is
+ 
+
+363
+00:08:20,639 --> 00:08:24,070
+150. So it reached till 150 it is
+processing and it crashed at this point
+
+364
+00:08:24,070 --> 00:08:24,080
+processing and it crashed at this point
+ 
+
+365
+00:08:24,080 --> 00:08:28,390
+processing and it crashed at this point
+of time and it restart come back again.
+
+366
+00:08:28,390 --> 00:08:28,400
+of time and it restart come back again.
+ 
+
+367
+00:08:28,400 --> 00:08:31,350
+of time and it restart come back again.
+So what it will do is it will ask the
+
+368
+00:08:31,350 --> 00:08:31,360
+So what it will do is it will ask the
+ 
+
+369
+00:08:31,360 --> 00:08:33,350
+So what it will do is it will ask the
+group coordinator
+
+370
+00:08:33,350 --> 00:08:33,360
+group coordinator
+ 
+
+371
+00:08:33,360 --> 00:08:35,750
+group coordinator
+when I say that it ask Kafka it means
+
+372
+00:08:35,750 --> 00:08:35,760
+when I say that it ask Kafka it means
+ 
+
+373
+00:08:35,760 --> 00:08:38,310
+when I say that it ask Kafka it means
+Kafka server which is the broker and in
+
+374
+00:08:38,310 --> 00:08:38,320
+Kafka server which is the broker and in
+ 
+
+375
+00:08:38,320 --> 00:08:40,070
+Kafka server which is the broker and in
+case of consumer we call them group
+
+376
+00:08:40,070 --> 00:08:40,080
+case of consumer we call them group
+ 
+
+377
+00:08:40,080 --> 00:08:42,550
+case of consumer we call them group
+coordinator because call goes to one of
+
+378
+00:08:42,550 --> 00:08:42,560
+coordinator because call goes to one of
+ 
+
+379
+00:08:42,560 --> 00:08:45,509
+coordinator because call goes to one of
+the broker only for a particular group
+
+380
+00:08:45,509 --> 00:08:45,519
+the broker only for a particular group
+ 
+
+381
+00:08:45,519 --> 00:08:48,070
+the broker only for a particular group
+uh consumer group. What's my last
+
+382
+00:08:48,070 --> 00:08:48,080
+uh consumer group. What's my last
+ 
+
+383
+00:08:48,080 --> 00:08:50,790
+uh consumer group. What's my last
+offset? The last offset would return
+
+384
+00:08:50,790 --> 00:08:50,800
+offset? The last offset would return
+ 
+
+385
+00:08:50,800 --> 00:08:54,550
+offset? The last offset would return
+that still like 99. You have to start
+
+386
+00:08:54,550 --> 00:08:54,560
+that still like 99. You have to start
+ 
+
+387
+00:08:54,560 --> 00:08:59,269
+that still like 99. You have to start
+from 100. So it has to reprocess this
+
+388
+00:08:59,269 --> 00:08:59,279
+from 100. So it has to reprocess this
+ 
+
+389
+00:08:59,279 --> 00:09:03,670
+from 100. So it has to reprocess this
+again. 100 101. So this is one failure
+
+390
+00:09:03,670 --> 00:09:03,680
+again. 100 101. So this is one failure
+ 
+
+391
+00:09:03,680 --> 00:09:06,870
+again. 100 101. So this is one failure
+scenario.
+
+392
+00:09:06,870 --> 00:09:06,880
+
+ 
+
+393
+00:09:06,880 --> 00:09:08,710
+
+So another scenario is consumer
+
+394
+00:09:08,710 --> 00:09:08,720
+So another scenario is consumer
+ 
+
+395
+00:09:08,720 --> 00:09:10,949
+So another scenario is consumer
+heartbeat timeout. So consumer doesn't
+
+396
+00:09:10,949 --> 00:09:10,959
+heartbeat timeout. So consumer doesn't
+ 
+
+397
+00:09:10,959 --> 00:09:15,350
+heartbeat timeout. So consumer doesn't
+fail but use case is that long
+
+398
+00:09:15,350 --> 00:09:15,360
+fail but use case is that long
+ 
+
+399
+00:09:15,360 --> 00:09:18,470
+fail but use case is that long
+processing time or you can say that if
+
+400
+00:09:18,470 --> 00:09:18,480
+processing time or you can say that if
+ 
+
+401
+00:09:18,480 --> 00:09:20,630
+processing time or you can say that if
+consumer fails also its heartbeat got
+
+402
+00:09:20,630 --> 00:09:20,640
+consumer fails also its heartbeat got
+ 
+
+403
+00:09:20,640 --> 00:09:24,389
+consumer fails also its heartbeat got
+missed. So what is the uh steps consumer
+
+404
+00:09:24,389 --> 00:09:24,399
+missed. So what is the uh steps consumer
+ 
+
+405
+00:09:24,399 --> 00:09:28,470
+missed. So what is the uh steps consumer
+poll events consumer start processing.
+
+406
+00:09:28,470 --> 00:09:28,480
+poll events consumer start processing.
+ 
+
+407
+00:09:28,480 --> 00:09:32,150
+poll events consumer start processing.
+Now let's say that it took 6 minutes.
+
+408
+00:09:32,150 --> 00:09:32,160
+Now let's say that it took 6 minutes.
+ 
+
+409
+00:09:32,160 --> 00:09:34,630
+Now let's say that it took 6 minutes.
+Okay. And it is still processing and we
+
+410
+00:09:34,630 --> 00:09:34,640
+Okay. And it is still processing and we
+ 
+
+411
+00:09:34,640 --> 00:09:36,710
+Okay. And it is still processing and we
+have set this into the configuration.
+
+412
+00:09:36,710 --> 00:09:36,720
+have set this into the configuration.
+ 
+
+413
+00:09:36,720 --> 00:09:39,670
+have set this into the configuration.
+Max pole interval is 5 minutes. What
+
+414
+00:09:39,670 --> 00:09:39,680
+Max pole interval is 5 minutes. What
+ 
+
+415
+00:09:39,680 --> 00:09:43,750
+Max pole interval is 5 minutes. What
+does it mean? Just say that the group
+
+416
+00:09:43,750 --> 00:09:43,760
+does it mean? Just say that the group
+ 
+
+417
+00:09:43,760 --> 00:09:46,870
+does it mean? Just say that the group
+coordinator after 5 minutes should get
+
+418
+00:09:46,870 --> 00:09:46,880
+coordinator after 5 minutes should get
+ 
+
+419
+00:09:46,880 --> 00:09:49,269
+coordinator after 5 minutes should get
+one heartbeat from the consumer. In
+
+420
+00:09:49,269 --> 00:09:49,279
+one heartbeat from the consumer. In
+ 
+
+421
+00:09:49,279 --> 00:09:52,550
+one heartbeat from the consumer. In
+simple term is this. Now since consumer
+
+422
+00:09:52,550 --> 00:09:52,560
+simple term is this. Now since consumer
+ 
+
+423
+00:09:52,560 --> 00:09:54,790
+simple term is this. Now since consumer
+is already busy with processing from
+
+424
+00:09:54,790 --> 00:09:54,800
+is already busy with processing from
+ 
+
+425
+00:09:54,800 --> 00:09:57,670
+is already busy with processing from
+last 6 minute, it forgot to send the
+
+426
+00:09:57,670 --> 00:09:57,680
+last 6 minute, it forgot to send the
+ 
+
+427
+00:09:57,680 --> 00:09:59,990
+last 6 minute, it forgot to send the
+heartbeat to the group coordinator.
+
+428
+00:09:59,990 --> 00:10:00,000
+heartbeat to the group coordinator.
+ 
+
+429
+00:10:00,000 --> 00:10:02,630
+heartbeat to the group coordinator.
+Okay. So what group coordinator will see
+
+430
+00:10:02,630 --> 00:10:02,640
+Okay. So what group coordinator will see
+ 
+
+431
+00:10:02,640 --> 00:10:05,670
+Okay. So what group coordinator will see
+that this consumer is dead
+
+432
+00:10:05,670 --> 00:10:05,680
+that this consumer is dead
+ 
+
+433
+00:10:05,680 --> 00:10:07,750
+that this consumer is dead
+and it will
+
+434
+00:10:07,750 --> 00:10:07,760
+and it will
+ 
+
+435
+00:10:07,760 --> 00:10:09,829
+and it will
+assign what it will do is it will
+
+436
+00:10:09,829 --> 00:10:09,839
+assign what it will do is it will
+ 
+
+437
+00:10:09,839 --> 00:10:12,550
+assign what it will do is it will
+reassign this partition to some other
+
+438
+00:10:12,550 --> 00:10:12,560
+reassign this partition to some other
+ 
+
+439
+00:10:12,560 --> 00:10:15,350
+reassign this partition to some other
+consumer
+
+440
+00:10:15,350 --> 00:10:15,360
+consumer
+ 
+
+441
+00:10:15,360 --> 00:10:17,750
+consumer
+and now what would happen is original
+
+442
+00:10:17,750 --> 00:10:17,760
+and now what would happen is original
+ 
+
+443
+00:10:17,760 --> 00:10:20,150
+and now what would happen is original
+consumer finished processing and it will
+
+444
+00:10:20,150 --> 00:10:20,160
+consumer finished processing and it will
+ 
+
+445
+00:10:20,160 --> 00:10:22,630
+consumer finished processing and it will
+try to commit but group coordinator will
+
+446
+00:10:22,630 --> 00:10:22,640
+try to commit but group coordinator will
+ 
+
+447
+00:10:22,640 --> 00:10:26,310
+try to commit but group coordinator will
+reject it. So understand this use case
+
+448
+00:10:26,310 --> 00:10:26,320
+reject it. So understand this use case
+ 
+
+449
+00:10:26,320 --> 00:10:29,509
+reject it. So understand this use case
+that you have a consumer one you have a
+
+450
+00:10:29,509 --> 00:10:29,519
+that you have a consumer one you have a
+ 
+
+451
+00:10:29,519 --> 00:10:33,110
+that you have a consumer one you have a
+consumer two consumer one is reading
+
+452
+00:10:33,110 --> 00:10:33,120
+consumer two consumer one is reading
+ 
+
+453
+00:10:33,120 --> 00:10:35,509
+consumer two consumer one is reading
+from let's say
+
+454
+00:10:35,509 --> 00:10:35,519
+from let's say
+ 
+
+455
+00:10:35,519 --> 00:10:39,509
+from let's say
+order events partition zero
+
+456
+00:10:39,509 --> 00:10:39,519
+order events partition zero
+ 
+
+457
+00:10:39,519 --> 00:10:43,590
+order events partition zero
+okay so this is in broker one and broker
+
+458
+00:10:43,590 --> 00:10:43,600
+okay so this is in broker one and broker
+ 
+
+459
+00:10:43,600 --> 00:10:45,030
+okay so this is in broker one and broker
+three is there let's say group
+
+460
+00:10:45,030 --> 00:10:45,040
+three is there let's say group
+ 
+
+461
+00:10:45,040 --> 00:10:48,069
+three is there let's say group
+coordinator
+
+462
+00:10:48,069 --> 00:10:48,079
+
+ 
+
+463
+00:10:48,079 --> 00:10:49,509
+
+from previous video you already know
+
+464
+00:10:49,509 --> 00:10:49,519
+from previous video you already know
+ 
+
+465
+00:10:49,519 --> 00:10:51,269
+from previous video you already know
+that what group coordinator in case of
+
+466
+00:10:51,269 --> 00:10:51,279
+that what group coordinator in case of
+ 
+
+467
+00:10:51,279 --> 00:10:56,069
+that what group coordinator in case of
+consumer is that it's part of let's say
+
+468
+00:10:56,069 --> 00:10:56,079
+consumer is that it's part of let's say
+ 
+
+469
+00:10:56,079 --> 00:10:59,110
+consumer is that it's part of let's say
+group consumer group notification.
+
+470
+00:10:59,110 --> 00:10:59,120
+group consumer group notification.
+ 
+
+471
+00:10:59,120 --> 00:11:02,790
+group consumer group notification.
+So for this group notification
+
+472
+00:11:02,790 --> 00:11:02,800
+So for this group notification
+ 
+
+473
+00:11:02,800 --> 00:11:05,030
+So for this group notification
+okay all the offset related information
+
+474
+00:11:05,030 --> 00:11:05,040
+okay all the offset related information
+ 
+
+475
+00:11:05,040 --> 00:11:07,350
+okay all the offset related information
+all the consumer
+
+476
+00:11:07,350 --> 00:11:07,360
+all the consumer
+ 
+
+477
+00:11:07,360 --> 00:11:09,509
+all the consumer
+uh metadata information is present by
+
+478
+00:11:09,509 --> 00:11:09,519
+uh metadata information is present by
+ 
+
+479
+00:11:09,519 --> 00:11:11,990
+uh metadata information is present by
+this broker only
+
+480
+00:11:11,990 --> 00:11:12,000
+this broker only
+ 
+
+481
+00:11:12,000 --> 00:11:15,509
+this broker only
+okay because of hash this group
+
+482
+00:11:15,509 --> 00:11:15,519
+okay because of hash this group
+ 
+
+483
+00:11:15,519 --> 00:11:18,550
+okay because of hash this group
+notification group ID mod 50 it will
+
+484
+00:11:18,550 --> 00:11:18,560
+notification group ID mod 50 it will
+ 
+
+485
+00:11:18,560 --> 00:11:22,150
+notification group ID mod 50 it will
+always return let's say the partition
+
+486
+00:11:22,150 --> 00:11:22,160
+always return let's say the partition
+ 
+
+487
+00:11:22,160 --> 00:11:26,230
+always return let's say the partition
+let's say 23 or something any partition
+
+488
+00:11:26,230 --> 00:11:26,240
+let's say 23 or something any partition
+ 
+
+489
+00:11:26,240 --> 00:11:28,630
+let's say 23 or something any partition
+and this group holds that partition as a
+
+490
+00:11:28,630 --> 00:11:28,640
+and this group holds that partition as a
+ 
+
+491
+00:11:28,640 --> 00:11:30,870
+and this group holds that partition as a
+leader
+
+492
+00:11:30,870 --> 00:11:30,880
+
+ 
+
+493
+00:11:30,880 --> 00:11:33,829
+
+So always for this group the call goes
+
+494
+00:11:33,829 --> 00:11:33,839
+So always for this group the call goes
+ 
+
+495
+00:11:33,839 --> 00:11:35,430
+So always for this group the call goes
+to one of the broker that's why that
+
+496
+00:11:35,430 --> 00:11:35,440
+to one of the broker that's why that
+ 
+
+497
+00:11:35,440 --> 00:11:39,190
+to one of the broker that's why that
+group is known as group coordinator.
+
+498
+00:11:39,190 --> 00:11:39,200
+group is known as group coordinator.
+ 
+
+499
+00:11:39,200 --> 00:11:42,069
+group is known as group coordinator.
+Okay.
+
+500
+00:11:42,069 --> 00:11:42,079
+Okay.
+ 
+
+501
+00:11:42,079 --> 00:11:45,670
+Okay.
+So here what happen is
+
+502
+00:11:45,670 --> 00:11:45,680
+So here what happen is
+ 
+
+503
+00:11:45,680 --> 00:11:48,710
+So here what happen is
+this group coordinator is waiting for
+
+504
+00:11:48,710 --> 00:11:48,720
+this group coordinator is waiting for
+ 
+
+505
+00:11:48,720 --> 00:11:51,269
+this group coordinator is waiting for
+all the consumer which is currently it
+
+506
+00:11:51,269 --> 00:11:51,279
+all the consumer which is currently it
+ 
+
+507
+00:11:51,279 --> 00:11:52,870
+all the consumer which is currently it
+is maintaining for this group. Let's say
+
+508
+00:11:52,870 --> 00:11:52,880
+is maintaining for this group. Let's say
+ 
+
+509
+00:11:52,880 --> 00:11:55,350
+is maintaining for this group. Let's say
+consumer one, consumer two, consumer 3.
+
+510
+00:11:55,350 --> 00:11:55,360
+consumer one, consumer two, consumer 3.
+ 
+
+511
+00:11:55,360 --> 00:11:57,750
+consumer one, consumer two, consumer 3.
+Consumer one is handling let's say
+
+512
+00:11:57,750 --> 00:11:57,760
+Consumer one is handling let's say
+ 
+
+513
+00:11:57,760 --> 00:12:02,230
+Consumer one is handling let's say
+partition zero of order events.
+
+514
+00:12:02,230 --> 00:12:02,240
+partition zero of order events.
+ 
+
+515
+00:12:02,240 --> 00:12:05,350
+partition zero of order events.
+Okay, this is managing partition one of
+
+516
+00:12:05,350 --> 00:12:05,360
+Okay, this is managing partition one of
+ 
+
+517
+00:12:05,360 --> 00:12:08,870
+Okay, this is managing partition one of
+order events. Now till 5 minutes there
+
+518
+00:12:08,870 --> 00:12:08,880
+order events. Now till 5 minutes there
+ 
+
+519
+00:12:08,880 --> 00:12:11,190
+order events. Now till 5 minutes there
+is no heartbeat from this consumer. What
+
+520
+00:12:11,190 --> 00:12:11,200
+is no heartbeat from this consumer. What
+ 
+
+521
+00:12:11,200 --> 00:12:13,430
+is no heartbeat from this consumer. What
+it will this group coordination assume
+
+522
+00:12:13,430 --> 00:12:13,440
+it will this group coordination assume
+ 
+
+523
+00:12:13,440 --> 00:12:16,550
+it will this group coordination assume
+that this consumer one is dead. So what
+
+524
+00:12:16,550 --> 00:12:16,560
+that this consumer one is dead. So what
+ 
+
+525
+00:12:16,560 --> 00:12:18,710
+that this consumer one is dead. So what
+it will do is it will assign this
+
+526
+00:12:18,710 --> 00:12:18,720
+it will do is it will assign this
+ 
+
+527
+00:12:18,720 --> 00:12:21,110
+it will do is it will assign this
+partition zero to some other consumer
+
+528
+00:12:21,110 --> 00:12:21,120
+partition zero to some other consumer
+ 
+
+529
+00:12:21,120 --> 00:12:22,870
+partition zero to some other consumer
+order even and it will remove from the
+
+530
+00:12:22,870 --> 00:12:22,880
+order even and it will remove from the
+ 
+
+531
+00:12:22,880 --> 00:12:24,870
+order even and it will remove from the
+group for now.
+
+532
+00:12:24,870 --> 00:12:24,880
+group for now.
+ 
+
+533
+00:12:24,880 --> 00:12:27,509
+group for now.
+But let's say if once it process and
+
+534
+00:12:27,509 --> 00:12:27,519
+But let's say if once it process and
+ 
+
+535
+00:12:27,519 --> 00:12:31,350
+But let's say if once it process and
+then it say that hey commit this offset
+
+536
+00:12:31,350 --> 00:12:31,360
+then it say that hey commit this offset
+ 
+
+537
+00:12:31,360 --> 00:12:33,990
+then it say that hey commit this offset
+that hey for
+
+538
+00:12:33,990 --> 00:12:34,000
+that hey for
+ 
+
+539
+00:12:34,000 --> 00:12:37,990
+that hey for
+notification group order event top a
+
+540
+00:12:37,990 --> 00:12:38,000
+notification group order event top a
+ 
+
+541
+00:12:38,000 --> 00:12:40,790
+notification group order event top a
+partition zero I have pro processed till
+
+542
+00:12:40,790 --> 00:12:40,800
+partition zero I have pro processed till
+ 
+
+543
+00:12:40,800 --> 00:12:43,509
+partition zero I have pro processed till
+100 and it will try to write update this
+
+544
+00:12:43,509 --> 00:12:43,519
+100 and it will try to write update this
+ 
+
+545
+00:12:43,519 --> 00:12:45,590
+100 and it will try to write update this
+consumer offset.
+
+546
+00:12:45,590 --> 00:12:45,600
+consumer offset.
+ 
+
+547
+00:12:45,600 --> 00:12:47,509
+consumer offset.
+It will not enterain this group
+
+548
+00:12:47,509 --> 00:12:47,519
+It will not enterain this group
+ 
+
+549
+00:12:47,519 --> 00:12:49,030
+It will not enterain this group
+coordinator will not enterain because
+
+550
+00:12:49,030 --> 00:12:49,040
+coordinator will not enterain because
+ 
+
+551
+00:12:49,040 --> 00:12:51,750
+coordinator will not enterain because
+this consumer one is been currently
+
+552
+00:12:51,750 --> 00:12:51,760
+this consumer one is been currently
+ 
+
+553
+00:12:51,760 --> 00:12:54,310
+this consumer one is been currently
+removed from the group. So it has to add
+
+554
+00:12:54,310 --> 00:12:54,320
+removed from the group. So it has to add
+ 
+
+555
+00:12:54,320 --> 00:12:56,310
+removed from the group. So it has to add
+itself again
+
+556
+00:12:56,310 --> 00:12:56,320
+itself again
+ 
+
+557
+00:12:56,320 --> 00:12:57,990
+itself again
+and then this group coordinator will
+
+558
+00:12:57,990 --> 00:12:58,000
+and then this group coordinator will
+ 
+
+559
+00:12:58,000 --> 00:13:01,670
+and then this group coordinator will
+assign some other topic to it.
+
+560
+00:13:01,670 --> 00:13:01,680
+assign some other topic to it.
+ 
+
+561
+00:13:01,680 --> 00:13:04,310
+assign some other topic to it.
+Okay. But till now this consumer 3 which
+
+562
+00:13:04,310 --> 00:13:04,320
+Okay. But till now this consumer 3 which
+ 
+
+563
+00:13:04,320 --> 00:13:07,590
+Okay. But till now this consumer 3 which
+has been reassigned it will again from
+
+564
+00:13:07,590 --> 00:13:07,600
+has been reassigned it will again from
+ 
+
+565
+00:13:07,600 --> 00:13:09,430
+has been reassigned it will again from
+the consumer offset take out that okay
+
+566
+00:13:09,430 --> 00:13:09,440
+the consumer offset take out that okay
+ 
+
+567
+00:13:09,440 --> 00:13:11,430
+the consumer offset take out that okay
+for this partition zero of this order
+
+568
+00:13:11,430 --> 00:13:11,440
+for this partition zero of this order
+ 
+
+569
+00:13:11,440 --> 00:13:13,829
+for this partition zero of this order
+event top a what was the last offset and
+
+570
+00:13:13,829 --> 00:13:13,839
+event top a what was the last offset and
+ 
+
+571
+00:13:13,839 --> 00:13:15,509
+event top a what was the last offset and
+it will start processing again from that
+
+572
+00:13:15,509 --> 00:13:15,519
+it will start processing again from that
+ 
+
+573
+00:13:15,519 --> 00:13:18,230
+it will start processing again from that
+one.
+
+574
+00:13:18,230 --> 00:13:18,240
+one.
+ 
+
+575
+00:13:18,240 --> 00:13:21,670
+one.
+Okay.
+
+576
+00:13:21,670 --> 00:13:21,680
+
+ 
+
+577
+00:13:21,680 --> 00:13:23,910
+
+Now another thing is what happen when
+
+578
+00:13:23,910 --> 00:13:23,920
+Now another thing is what happen when
+ 
+
+579
+00:13:23,920 --> 00:13:27,110
+Now another thing is what happen when
+broker fails
+
+580
+00:13:27,110 --> 00:13:27,120
+broker fails
+ 
+
+581
+00:13:27,120 --> 00:13:31,190
+broker fails
+this also we have already discussed okay
+
+582
+00:13:31,190 --> 00:13:31,200
+this also we have already discussed okay
+ 
+
+583
+00:13:31,200 --> 00:13:34,310
+this also we have already discussed okay
+let's say you have three brokers
+
+584
+00:13:34,310 --> 00:13:34,320
+let's say you have three brokers
+ 
+
+585
+00:13:34,320 --> 00:13:36,870
+let's say you have three brokers
+six partitions and replication factor is
+
+586
+00:13:36,870 --> 00:13:36,880
+six partitions and replication factor is
+ 
+
+587
+00:13:36,880 --> 00:13:38,629
+six partitions and replication factor is
+three
+
+588
+00:13:38,629 --> 00:13:38,639
+three
+ 
+
+589
+00:13:38,639 --> 00:13:40,069
+three
+this is just a setup now let's say
+
+590
+00:13:40,069 --> 00:13:40,079
+this is just a setup now let's say
+ 
+
+591
+00:13:40,079 --> 00:13:44,389
+this is just a setup now let's say
+broker one got failed
+
+592
+00:13:44,389 --> 00:13:44,399
+
+ 
+
+593
+00:13:44,399 --> 00:13:47,350
+
+who will detect the failure
+
+594
+00:13:47,350 --> 00:13:47,360
+who will detect the failure
+ 
+
+595
+00:13:47,360 --> 00:13:50,389
+who will detect the failure
+controller because all the brokers send
+
+596
+00:13:50,389 --> 00:13:50,399
+controller because all the brokers send
+ 
+
+597
+00:13:50,399 --> 00:13:53,509
+controller because all the brokers send
+the heartbeat to active controller.
+
+598
+00:13:53,509 --> 00:13:53,519
+the heartbeat to active controller.
+ 
+
+599
+00:13:53,519 --> 00:13:56,550
+the heartbeat to active controller.
+Okay. Now what would happen is what
+
+600
+00:13:56,550 --> 00:13:56,560
+Okay. Now what would happen is what
+ 
+
+601
+00:13:56,560 --> 00:13:59,670
+Okay. Now what would happen is what
+controller will do for each partition
+
+602
+00:13:59,670 --> 00:13:59,680
+controller will do for each partition
+ 
+
+603
+00:13:59,680 --> 00:14:03,030
+controller will do for each partition
+where broker one was leader a new leader
+
+604
+00:14:03,030 --> 00:14:03,040
+where broker one was leader a new leader
+ 
+
+605
+00:14:03,040 --> 00:14:05,189
+where broker one was leader a new leader
+is elected from ISR. We have already
+
+606
+00:14:05,189 --> 00:14:05,199
+is elected from ISR. We have already
+ 
+
+607
+00:14:05,199 --> 00:14:07,350
+is elected from ISR. We have already
+discussed that and it will update the
+
+608
+00:14:07,350 --> 00:14:07,360
+discussed that and it will update the
+ 
+
+609
+00:14:07,360 --> 00:14:09,509
+discussed that and it will update the
+metadata.
+
+610
+00:14:09,509 --> 00:14:09,519
+metadata.
+ 
+
+611
+00:14:09,519 --> 00:14:12,550
+metadata.
+Okay. And also for each partition where
+
+612
+00:14:12,550 --> 00:14:12,560
+Okay. And also for each partition where
+ 
+
+613
+00:14:12,560 --> 00:14:15,430
+Okay. And also for each partition where
+broker one was follower it will remove
+
+614
+00:14:15,430 --> 00:14:15,440
+broker one was follower it will remove
+ 
+
+615
+00:14:15,440 --> 00:14:18,550
+broker one was follower it will remove
+from the ISR. So generally ISR is
+
+616
+00:14:18,550 --> 00:14:18,560
+from the ISR. So generally ISR is
+ 
+
+617
+00:14:18,560 --> 00:14:21,430
+from the ISR. So generally ISR is
+updated
+
+618
+00:14:21,430 --> 00:14:21,440
+updated
+ 
+
+619
+00:14:21,440 --> 00:14:24,069
+updated
+from this ISR list. Let's say broker
+
+620
+00:14:24,069 --> 00:14:24,079
+from this ISR list. Let's say broker
+ 
+
+621
+00:14:24,079 --> 00:14:26,870
+from this ISR list. Let's say broker
+one, broker two, broker 3. If broker one
+
+622
+00:14:26,870 --> 00:14:26,880
+one, broker two, broker 3. If broker one
+ 
+
+623
+00:14:26,880 --> 00:14:30,230
+one, broker two, broker 3. If broker one
+is crashed, out of this one of the
+
+624
+00:14:30,230 --> 00:14:30,240
+is crashed, out of this one of the
+ 
+
+625
+00:14:30,240 --> 00:14:34,629
+is crashed, out of this one of the
+leader is selected.
+
+626
+00:14:34,629 --> 00:14:34,639
+
+ 
+
+627
+00:14:34,639 --> 00:14:36,150
+
+Okay.
+
+628
+00:14:36,150 --> 00:14:36,160
+Okay.
+ 
+
+629
+00:14:36,160 --> 00:14:39,430
+Okay.
+And wherever the broker one was follower
+
+630
+00:14:39,430 --> 00:14:39,440
+And wherever the broker one was follower
+ 
+
+631
+00:14:39,440 --> 00:14:41,910
+And wherever the broker one was follower
+from that it was removed. Let's say
+
+632
+00:14:41,910 --> 00:14:41,920
+from that it was removed. Let's say
+ 
+
+633
+00:14:41,920 --> 00:14:44,790
+from that it was removed. Let's say
+broker one was for partition two it was
+
+634
+00:14:44,790 --> 00:14:44,800
+broker one was for partition two it was
+ 
+
+635
+00:14:44,800 --> 00:14:49,269
+broker one was for partition two it was
+a follower. So for partition two ISR
+
+636
+00:14:49,269 --> 00:14:49,279
+a follower. So for partition two ISR
+ 
+
+637
+00:14:49,279 --> 00:14:52,470
+a follower. So for partition two ISR
+list it would have broker one, broker
+
+638
+00:14:52,470 --> 00:14:52,480
+list it would have broker one, broker
+ 
+
+639
+00:14:52,480 --> 00:14:55,189
+list it would have broker one, broker
+two, broker three. This is leader, this
+
+640
+00:14:55,189 --> 00:14:55,199
+two, broker three. This is leader, this
+ 
+
+641
+00:14:55,199 --> 00:14:57,590
+two, broker three. This is leader, this
+is follower, this is follower. Since
+
+642
+00:14:57,590 --> 00:14:57,600
+is follower, this is follower. Since
+ 
+
+643
+00:14:57,600 --> 00:14:59,430
+is follower, this is follower. Since
+broker one is down from this it would
+
+644
+00:14:59,430 --> 00:14:59,440
+broker one is down from this it would
+ 
+
+645
+00:14:59,440 --> 00:15:02,230
+broker one is down from this it would
+get removed.
+
+646
+00:15:02,230 --> 00:15:02,240
+get removed.
+ 
+
+647
+00:15:02,240 --> 00:15:04,389
+get removed.
+So this metadata update will happen and
+
+648
+00:15:04,389 --> 00:15:04,399
+So this metadata update will happen and
+ 
+
+649
+00:15:04,399 --> 00:15:06,710
+So this metadata update will happen and
+will pass it to all the brokers. So
+
+650
+00:15:06,710 --> 00:15:06,720
+will pass it to all the brokers. So
+ 
+
+651
+00:15:06,720 --> 00:15:09,590
+will pass it to all the brokers. So
+system continues manually. No data loss
+
+652
+00:15:09,590 --> 00:15:09,600
+system continues manually. No data loss
+ 
+
+653
+00:15:09,600 --> 00:15:11,750
+system continues manually. No data loss
+automatic recovery will happen if any
+
+654
+00:15:11,750 --> 00:15:11,760
+automatic recovery will happen if any
+ 
+
+655
+00:15:11,760 --> 00:15:14,550
+automatic recovery will happen if any
+broker goes down.
+
+656
+00:15:14,550 --> 00:15:14,560
+broker goes down.
+ 
+
+657
+00:15:14,560 --> 00:15:17,350
+broker goes down.
+Okay. So all this we have already
+
+658
+00:15:17,350 --> 00:15:17,360
+Okay. So all this we have already
+ 
+
+659
+00:15:17,360 --> 00:15:20,150
+Okay. So all this we have already
+discussed while we were covering uh
+
+660
+00:15:20,150 --> 00:15:20,160
+discussed while we were covering uh
+ 
+
+661
+00:15:20,160 --> 00:15:22,550
+discussed while we were covering uh
+subtopics of Kafka. It's just like I
+
+662
+00:15:22,550 --> 00:15:22,560
+subtopics of Kafka. It's just like I
+ 
+
+663
+00:15:22,560 --> 00:15:24,949
+subtopics of Kafka. It's just like I
+just want to accumulate all this kind of
+
+664
+00:15:24,949 --> 00:15:24,959
+just want to accumulate all this kind of
+ 
+
+665
+00:15:24,959 --> 00:15:27,269
+just want to accumulate all this kind of
+interview questions which failure
+
+666
+00:15:27,269 --> 00:15:27,279
+interview questions which failure
+ 
+
+667
+00:15:27,279 --> 00:15:30,310
+interview questions which failure
+scenario which interviewer put in the
+
+668
+00:15:30,310 --> 00:15:30,320
+scenario which interviewer put in the
+ 
+
+669
+00:15:30,320 --> 00:15:32,470
+scenario which interviewer put in the
+most of the scenarios.
+
+670
+00:15:32,470 --> 00:15:32,480
+most of the scenarios.
+ 
+
+671
+00:15:32,480 --> 00:15:37,670
+most of the scenarios.
+So with that we have completed the Kafka
+
+672
+00:15:37,670 --> 00:15:37,680
+So with that we have completed the Kafka
+ 
+
+673
+00:15:37,680 --> 00:15:39,350
+So with that we have completed the Kafka
+architecture.
+
+674
+00:15:39,350 --> 00:15:39,360
+architecture.
+ 
+
+675
+00:15:39,360 --> 00:15:41,509
+architecture.
+Now what next I will do is we will try
+
+676
+00:15:41,509 --> 00:15:41,519
+Now what next I will do is we will try
+ 
+
+677
+00:15:41,519 --> 00:15:44,150
+Now what next I will do is we will try
+to now implement it. Now if you
+
+678
+00:15:44,150 --> 00:15:44,160
+to now implement it. Now if you
+ 
+
+679
+00:15:44,160 --> 00:15:47,430
+to now implement it. Now if you
+understand this Kafka architecture fully
+
+680
+00:15:47,430 --> 00:15:47,440
+understand this Kafka architecture fully
+ 
+
+681
+00:15:47,440 --> 00:15:50,389
+understand this Kafka architecture fully
+the implementation part like using it
+
+682
+00:15:50,389 --> 00:15:50,399
+the implementation part like using it
+ 
+
+683
+00:15:50,399 --> 00:15:53,430
+the implementation part like using it
+using the Kafka would be very very easy.
+
+684
+00:15:53,430 --> 00:15:53,440
+using the Kafka would be very very easy.
+ 
+
+685
+00:15:53,440 --> 00:15:55,430
+using the Kafka would be very very easy.
+Okay, it's just like connecting the
+
+686
+00:15:55,430 --> 00:15:55,440
+Okay, it's just like connecting the
+ 
+
+687
+00:15:55,440 --> 00:15:58,310
+Okay, it's just like connecting the
+dots. That's solve. We already know that
+
+688
+00:15:58,310 --> 00:15:58,320
+dots. That's solve. We already know that
+ 
+
+689
+00:15:58,320 --> 00:15:59,990
+dots. That's solve. We already know that
+okay
+
+690
+00:15:59,990 --> 00:16:00,000
+okay
+ 
+
+691
+00:16:00,000 --> 00:16:02,710
+okay
+what is broker, what is topic, what is
+
+692
+00:16:02,710 --> 00:16:02,720
+what is broker, what is topic, what is
+ 
+
+693
+00:16:02,720 --> 00:16:06,550
+what is broker, what is topic, what is
+partition cluster where we can even if
+
+694
+00:16:06,550 --> 00:16:06,560
+partition cluster where we can even if
+ 
+
+695
+00:16:06,560 --> 00:16:09,910
+partition cluster where we can even if
+you know this fully you can even check
+
+696
+00:16:09,910 --> 00:16:09,920
+you know this fully you can even check
+ 
+
+697
+00:16:09,920 --> 00:16:14,629
+you know this fully you can even check
+the locks also the segments index. Okay.
+
+698
+00:16:14,629 --> 00:16:14,639
+the locks also the segments index. Okay.
+ 
+
+699
+00:16:14,639 --> 00:16:17,269
+the locks also the segments index. Okay.
+So things will become pretty clear when
+
+700
+00:16:17,269 --> 00:16:17,279
+So things will become pretty clear when
+ 
+
+701
+00:16:17,279 --> 00:16:20,550
+So things will become pretty clear when
+you work with Kafka if you understand uh
+
+702
+00:16:20,550 --> 00:16:20,560
+you work with Kafka if you understand uh
+ 
+
+703
+00:16:20,560 --> 00:16:22,870
+you work with Kafka if you understand uh
+the whole whatever we have discussed in
+
+704
+00:16:22,870 --> 00:16:22,880
+the whole whatever we have discussed in
+ 
+
+705
+00:16:22,880 --> 00:16:25,829
+the whole whatever we have discussed in
+the architecture videos of the Kafka.
+
+706
+00:16:25,829 --> 00:16:25,839
+the architecture videos of the Kafka.
+ 
+
+707
+00:16:25,839 --> 00:16:28,790
+the architecture videos of the Kafka.
+Okay guys hope uh this is helpful and if
+
+708
+00:16:28,790 --> 00:16:28,800
+Okay guys hope uh this is helpful and if
+ 
+
+709
+00:16:28,800 --> 00:16:30,150
+Okay guys hope uh this is helpful and if
+you have any doubt let me know we can
+
+710
+00:16:30,150 --> 00:16:30,160
+you have any doubt let me know we can
+ 
+
+711
+00:16:30,160 --> 00:16:33,759
+you have any doubt let me know we can
+discuss further. Bye.
+

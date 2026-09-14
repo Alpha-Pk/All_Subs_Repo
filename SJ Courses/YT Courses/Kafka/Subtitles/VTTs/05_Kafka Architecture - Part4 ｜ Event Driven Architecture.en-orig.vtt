@@ -1,0 +1,4608 @@
+WEBVTT
+Kind: captions
+Language: en
+
+00:00:00.800 --> 00:00:03.510 align:start position:0%
+ 
+Hey<00:00:01.040><c> guys,</c><00:00:01.360><c> welcome</c><00:00:01.600><c> back.</c><00:00:02.240><c> So</c><00:00:02.560><c> till</c><00:00:02.879><c> now</c><00:00:03.200><c> we</c>
+
+00:00:03.510 --> 00:00:03.520 align:start position:0%
+Hey guys, welcome back. So till now we
+ 
+
+00:00:03.520 --> 00:00:08.470 align:start position:0%
+Hey guys, welcome back. So till now we
+have<00:00:03.840><c> seen</c><00:00:04.640><c> producer,</c><00:00:05.680><c> topic,</c><00:00:06.879><c> partition,</c>
+
+00:00:08.470 --> 00:00:08.480 align:start position:0%
+have seen producer, topic, partition,
+ 
+
+00:00:08.480 --> 00:00:13.589 align:start position:0%
+have seen producer, topic, partition,
+segments,<00:00:09.920><c> then</c><00:00:10.320><c> broker,</c><00:00:11.280><c> cluster,</c>
+
+00:00:13.589 --> 00:00:13.599 align:start position:0%
+segments, then broker, cluster,
+ 
+
+00:00:13.599 --> 00:00:16.230 align:start position:0%
+segments, then broker, cluster,
+controller,
+
+00:00:16.230 --> 00:00:16.240 align:start position:0%
+controller,
+ 
+
+00:00:16.240 --> 00:00:18.070 align:start position:0%
+controller,
+kft.
+
+00:00:18.070 --> 00:00:18.080 align:start position:0%
+kft.
+ 
+
+00:00:18.080 --> 00:00:23.750 align:start position:0%
+kft.
+Okay.<00:00:19.199><c> And</c><00:00:19.600><c> uh</c><00:00:19.760><c> yeah,</c><00:00:20.320><c> ISR</c><00:00:20.960><c> insync</c><00:00:21.359><c> replicas.</c>
+
+00:00:23.750 --> 00:00:23.760 align:start position:0%
+Okay. And uh yeah, ISR insync replicas.
+ 
+
+00:00:23.760 --> 00:00:29.669 align:start position:0%
+Okay. And uh yeah, ISR insync replicas.
+Now<00:00:24.240><c> let's</c><00:00:25.519><c> again</c><00:00:26.640><c> uh</c><00:00:27.199><c> but</c><00:00:28.160><c> I</c><00:00:28.400><c> will</c><00:00:29.039><c> uh</c><00:00:29.359><c> stitch</c>
+
+00:00:29.669 --> 00:00:29.679 align:start position:0%
+Now let's again uh but I will uh stitch
+ 
+
+00:00:29.679 --> 00:00:32.470 align:start position:0%
+Now let's again uh but I will uh stitch
+all<00:00:29.840><c> the</c><00:00:30.080><c> points.</c><00:00:30.560><c> So</c><00:00:30.880><c> complete</c><00:00:31.279><c> flow.</c><00:00:32.000><c> Okay.</c>
+
+00:00:32.470 --> 00:00:32.480 align:start position:0%
+all the points. So complete flow. Okay.
+ 
+
+00:00:32.480 --> 00:00:34.389 align:start position:0%
+all the points. So complete flow. Okay.
+So<00:00:32.719><c> first</c><00:00:32.960><c> I'm</c><00:00:33.280><c> going</c><00:00:33.440><c> to</c><00:00:33.600><c> show</c><00:00:33.680><c> you</c><00:00:33.920><c> complete</c>
+
+00:00:34.389 --> 00:00:34.399 align:start position:0%
+So first I'm going to show you complete
+ 
+
+00:00:34.399 --> 00:00:36.790 align:start position:0%
+So first I'm going to show you complete
+producer<00:00:34.880><c> right</c><00:00:35.120><c> flow.</c><00:00:35.760><c> Let's</c><00:00:36.000><c> say</c><00:00:36.160><c> topic</c><00:00:36.559><c> is</c>
+
+00:00:36.790 --> 00:00:36.800 align:start position:0%
+producer right flow. Let's say topic is
+ 
+
+00:00:36.800 --> 00:00:40.790 align:start position:0%
+producer right flow. Let's say topic is
+created<00:00:38.239><c> uh</c><00:00:39.120><c> with</c><00:00:39.280><c> the</c><00:00:39.520><c> help</c><00:00:39.600><c> of</c><00:00:39.840><c> controller</c>
+
+00:00:40.790 --> 00:00:40.800 align:start position:0%
+created uh with the help of controller
+ 
+
+00:00:40.800 --> 00:00:44.549 align:start position:0%
+created uh with the help of controller
+and<00:00:41.200><c> metadata</c><00:00:41.920><c> is</c><00:00:42.800><c> present.</c><00:00:43.680><c> Okay.</c><00:00:44.000><c> Metadata</c>
+
+00:00:44.549 --> 00:00:44.559 align:start position:0%
+and metadata is present. Okay. Metadata
+ 
+
+00:00:44.559 --> 00:00:46.310 align:start position:0%
+and metadata is present. Okay. Metadata
+information<00:00:45.040><c> is</c><00:00:45.280><c> present</c><00:00:45.600><c> to</c><00:00:45.840><c> all</c><00:00:46.079><c> the</c>
+
+00:00:46.310 --> 00:00:46.320 align:start position:0%
+information is present to all the
+ 
+
+00:00:46.320 --> 00:00:49.350 align:start position:0%
+information is present to all the
+brokers.<00:00:46.960><c> That</c><00:00:47.200><c> is</c><00:00:47.360><c> done.</c><00:00:48.000><c> Okay.</c><00:00:48.800><c> Now</c><00:00:49.039><c> after</c>
+
+00:00:49.350 --> 00:00:49.360 align:start position:0%
+brokers. That is done. Okay. Now after
+ 
+
+00:00:49.360 --> 00:00:51.670 align:start position:0%
+brokers. That is done. Okay. Now after
+that<00:00:49.920><c> complete</c><00:00:50.320><c> producer</c><00:00:50.800><c> write</c><00:00:51.039><c> flow.</c><00:00:51.440><c> Let's</c>
+
+00:00:51.670 --> 00:00:51.680 align:start position:0%
+that complete producer write flow. Let's
+ 
+
+00:00:51.680 --> 00:00:55.029 align:start position:0%
+that complete producer write flow. Let's
+see<00:00:51.840><c> this</c><00:00:52.000><c> flow</c><00:00:52.320><c> once.</c>
+
+00:00:55.029 --> 00:00:55.039 align:start position:0%
+ 
+ 
+
+00:00:55.039 --> 00:00:58.709 align:start position:0%
+ 
+Okay.<00:00:56.239><c> So</c><00:00:56.800><c> step</c><00:00:57.039><c> one,</c>
+
+00:00:58.709 --> 00:00:58.719 align:start position:0%
+Okay. So step one,
+ 
+
+00:00:58.719 --> 00:01:02.310 align:start position:0%
+Okay. So step one,
+let<00:00:58.879><c> me</c><00:00:59.039><c> zoom</c><00:00:59.280><c> it</c><00:00:59.440><c> a</c><00:00:59.600><c> bit.</c><00:01:00.960><c> Producer</c><00:01:01.760><c> creates</c>
+
+00:01:02.310 --> 00:01:02.320 align:start position:0%
+let me zoom it a bit. Producer creates
+ 
+
+00:01:02.320 --> 00:01:05.910 align:start position:0%
+let me zoom it a bit. Producer creates
+event.<00:01:03.039><c> So</c><00:01:03.280><c> this</c><00:01:03.520><c> is</c><00:01:03.600><c> the</c>
+
+00:01:05.910 --> 00:01:05.920 align:start position:0%
+event. So this is the
+ 
+
+00:01:05.920 --> 00:01:09.030 align:start position:0%
+event. So this is the
+publish<00:01:06.400><c> message</c><00:01:06.720><c> that</c><00:01:07.040><c> hey</c>
+
+00:01:09.030 --> 00:01:09.040 align:start position:0%
+publish message that hey
+ 
+
+00:01:09.040 --> 00:01:11.670 align:start position:0%
+publish message that hey
+topic<00:01:09.680><c> which</c><00:01:09.920><c> I</c><00:01:10.159><c> want</c><00:01:10.320><c> to</c><00:01:10.479><c> publish.</c><00:01:11.360><c> This</c><00:01:11.520><c> is</c>
+
+00:01:11.670 --> 00:01:11.680 align:start position:0%
+topic which I want to publish. This is
+ 
+
+00:01:11.680 --> 00:01:14.310 align:start position:0%
+topic which I want to publish. This is
+the<00:01:12.000><c> key</c><00:01:12.960><c> and</c><00:01:13.280><c> this</c><00:01:13.439><c> is</c><00:01:13.520><c> the</c><00:01:13.680><c> value</c><00:01:13.920><c> which</c><00:01:14.159><c> I</c>
+
+00:01:14.310 --> 00:01:14.320 align:start position:0%
+the key and this is the value which I
+ 
+
+00:01:14.320 --> 00:01:17.190 align:start position:0%
+the key and this is the value which I
+want<00:01:14.400><c> to</c><00:01:14.640><c> store</c><00:01:15.680><c> and</c>
+
+00:01:17.190 --> 00:01:17.200 align:start position:0%
+want to store and
+ 
+
+00:01:17.200 --> 00:01:19.190 align:start position:0%
+want to store and
+acknowledge<00:01:17.680><c> equals</c><00:01:18.000><c> to</c><00:01:18.240><c> all</c><00:01:18.720><c> which</c><00:01:18.960><c> will</c>
+
+00:01:19.190 --> 00:01:19.200 align:start position:0%
+acknowledge equals to all which will
+ 
+
+00:01:19.200 --> 00:01:23.510 align:start position:0%
+acknowledge equals to all which will
+help<00:01:19.360><c> in</c><00:01:20.000><c> determining</c><00:01:20.720><c> ISR.</c><00:01:21.920><c> Okay.</c>
+
+00:01:23.510 --> 00:01:23.520 align:start position:0%
+help in determining ISR. Okay.
+ 
+
+00:01:23.520 --> 00:01:26.789 align:start position:0%
+help in determining ISR. Okay.
+So<00:01:23.759><c> now</c><00:01:24.159><c> what</c><00:01:24.400><c> will</c><00:01:24.640><c> happen?</c><00:01:24.960><c> So</c><00:01:25.600><c> every</c><00:01:26.080><c> step</c><00:01:26.479><c> I</c>
+
+00:01:26.789 --> 00:01:26.799 align:start position:0%
+So now what will happen? So every step I
+ 
+
+00:01:26.799 --> 00:01:28.870 align:start position:0%
+So now what will happen? So every step I
+want<00:01:27.040><c> you</c><00:01:27.280><c> to</c><00:01:27.520><c> pause</c><00:01:27.920><c> and</c><00:01:28.159><c> see</c><00:01:28.400><c> what</c><00:01:28.640><c> will</c>
+
+00:01:28.870 --> 00:01:28.880 align:start position:0%
+want you to pause and see what will
+ 
+
+00:01:28.880 --> 00:01:31.590 align:start position:0%
+want you to pause and see what will
+happen.<00:01:29.360><c> We</c><00:01:29.600><c> just</c><00:01:29.920><c> like</c><00:01:30.400><c> whatever</c><00:01:30.880><c> we</c><00:01:31.119><c> have</c>
+
+00:01:31.590 --> 00:01:31.600 align:start position:0%
+happen. We just like whatever we have
+ 
+
+00:01:31.600 --> 00:01:33.429 align:start position:0%
+happen. We just like whatever we have
+seen<00:01:31.840><c> till</c><00:01:32.159><c> now</c><00:01:32.320><c> we</c><00:01:32.560><c> are</c><00:01:32.720><c> just</c><00:01:32.880><c> clubbing</c><00:01:33.200><c> it</c>
+
+00:01:33.429 --> 00:01:33.439 align:start position:0%
+seen till now we are just clubbing it
+ 
+
+00:01:33.439 --> 00:01:36.469 align:start position:0%
+seen till now we are just clubbing it
+together.<00:01:34.400><c> So</c><00:01:34.560><c> in</c><00:01:34.880><c> step</c><00:01:35.200><c> two</c><00:01:36.000><c> what</c><00:01:36.320><c> would</c>
+
+00:01:36.469 --> 00:01:36.479 align:start position:0%
+together. So in step two what would
+ 
+
+00:01:36.479 --> 00:01:39.030 align:start position:0%
+together. So in step two what would
+happen?<00:01:37.040><c> So</c><00:01:37.280><c> producer</c><00:01:38.000><c> uh</c><00:01:38.159><c> producer</c><00:01:38.720><c> have</c>
+
+00:01:39.030 --> 00:01:39.040 align:start position:0%
+happen? So producer uh producer have
+ 
+
+00:01:39.040 --> 00:01:41.830 align:start position:0%
+happen? So producer uh producer have
+this<00:01:39.600><c> uh</c><00:01:40.000><c> event</c><00:01:40.640><c> which</c><00:01:40.880><c> it</c><00:01:41.119><c> need</c><00:01:41.280><c> to</c><00:01:41.439><c> publish.</c>
+
+00:01:41.830 --> 00:01:41.840 align:start position:0%
+this uh event which it need to publish.
+ 
+
+00:01:41.840 --> 00:01:45.109 align:start position:0%
+this uh event which it need to publish.
+What<00:01:42.079><c> it</c><00:01:42.240><c> will</c><00:01:42.400><c> do?</c><00:01:43.759><c> So</c><00:01:44.079><c> producer</c><00:01:44.640><c> request</c>
+
+00:01:45.109 --> 00:01:45.119 align:start position:0%
+What it will do? So producer request
+ 
+
+00:01:45.119 --> 00:01:49.190 align:start position:0%
+What it will do? So producer request
+metadata<00:01:46.000><c> first</c><00:01:46.320><c> time</c><00:01:47.040><c> or</c><00:01:47.439><c> when</c><00:01:47.680><c> it</c><00:01:48.240><c> refresh</c>
+
+00:01:49.190 --> 00:01:49.200 align:start position:0%
+metadata first time or when it refresh
+ 
+
+00:01:49.200 --> 00:01:51.830 align:start position:0%
+metadata first time or when it refresh
+its<00:01:49.520><c> metadata</c><00:01:50.479><c> because</c><00:01:51.040><c> why</c><00:01:51.360><c> it</c><00:01:51.600><c> need</c>
+
+00:01:51.830 --> 00:01:51.840 align:start position:0%
+its metadata because why it need
+ 
+
+00:01:51.840 --> 00:01:56.230 align:start position:0%
+its metadata because why it need
+metadata.<00:01:53.119><c> See</c><00:01:54.560><c> producer</c><00:01:55.200><c> need</c><00:01:55.520><c> to</c><00:01:55.840><c> invoke</c>
+
+00:01:56.230 --> 00:01:56.240 align:start position:0%
+metadata. See producer need to invoke
+ 
+
+00:01:56.240 --> 00:01:58.149 align:start position:0%
+metadata. See producer need to invoke
+the<00:01:56.479><c> broker</c>
+
+00:01:58.149 --> 00:01:58.159 align:start position:0%
+the broker
+ 
+
+00:01:58.159 --> 00:02:00.950 align:start position:0%
+the broker
+in<00:01:58.399><c> a</c><00:01:58.640><c> cluster</c><00:01:59.439><c> there</c><00:01:59.680><c> are</c><00:01:59.840><c> many</c><00:02:00.079><c> brokers.</c>
+
+00:02:00.950 --> 00:02:00.960 align:start position:0%
+in a cluster there are many brokers.
+ 
+
+00:02:00.960 --> 00:02:03.830 align:start position:0%
+in a cluster there are many brokers.
+Which<00:02:01.200><c> broker</c><00:02:01.600><c> it</c><00:02:01.840><c> need</c><00:02:02.000><c> to</c><00:02:02.159><c> invoke?</c><00:02:03.280><c> It</c><00:02:03.600><c> need</c>
+
+00:02:03.830 --> 00:02:03.840 align:start position:0%
+Which broker it need to invoke? It need
+ 
+
+00:02:03.840 --> 00:02:07.190 align:start position:0%
+Which broker it need to invoke? It need
+to<00:02:04.159><c> invoke</c><00:02:04.640><c> the</c><00:02:05.600><c> broker</c>
+
+00:02:07.190 --> 00:02:07.200 align:start position:0%
+to invoke the broker
+ 
+
+00:02:07.200 --> 00:02:10.630 align:start position:0%
+to invoke the broker
+which<00:02:07.680><c> has</c><00:02:08.720><c> let's</c><00:02:08.959><c> say</c><00:02:09.360><c> particular</c><00:02:10.080><c> partition</c>
+
+00:02:10.630 --> 00:02:10.640 align:start position:0%
+which has let's say particular partition
+ 
+
+00:02:10.640 --> 00:02:12.390 align:start position:0%
+which has let's say particular partition
+leader.
+
+00:02:12.390 --> 00:02:12.400 align:start position:0%
+leader.
+ 
+
+00:02:12.400 --> 00:02:16.070 align:start position:0%
+leader.
+Okay.<00:02:13.200><c> and</c><00:02:13.680><c> how</c><00:02:14.000><c> it</c><00:02:14.319><c> determine</c><00:02:15.760><c> which</c>
+
+00:02:16.070 --> 00:02:16.080 align:start position:0%
+Okay. and how it determine which
+ 
+
+00:02:16.080 --> 00:02:18.390 align:start position:0%
+Okay. and how it determine which
+partition<00:02:16.640><c> through</c><00:02:16.879><c> key.</c>
+
+00:02:18.390 --> 00:02:18.400 align:start position:0%
+partition through key.
+ 
+
+00:02:18.400 --> 00:02:20.949 align:start position:0%
+partition through key.
+Okay.<00:02:18.879><c> So</c><00:02:19.200><c> first</c><00:02:19.440><c> thing</c><00:02:19.760><c> is</c><00:02:20.000><c> that</c><00:02:20.319><c> it</c><00:02:20.640><c> need</c><00:02:20.800><c> to</c>
+
+00:02:20.949 --> 00:02:20.959 align:start position:0%
+Okay. So first thing is that it need to
+ 
+
+00:02:20.959 --> 00:02:23.910 align:start position:0%
+Okay. So first thing is that it need to
+have<00:02:21.200><c> certain</c><00:02:21.520><c> metadata</c><00:02:22.239><c> information</c><00:02:23.680><c> and</c>
+
+00:02:23.910 --> 00:02:23.920 align:start position:0%
+have certain metadata information and
+ 
+
+00:02:23.920 --> 00:02:27.350 align:start position:0%
+have certain metadata information and
+what<00:02:24.160><c> this</c><00:02:24.319><c> metadata</c><00:02:24.959><c> information</c><00:02:25.440><c> is</c><00:02:25.680><c> that</c>
+
+00:02:27.350 --> 00:02:27.360 align:start position:0%
+what this metadata information is that
+ 
+
+00:02:27.360 --> 00:02:31.670 align:start position:0%
+what this metadata information is that
+okay<00:02:28.080><c> this</c><00:02:28.480><c> topic</c><00:02:29.680><c> this</c><00:02:30.080><c> partition</c><00:02:31.280><c> who</c><00:02:31.520><c> is</c>
+
+00:02:31.670 --> 00:02:31.680 align:start position:0%
+okay this topic this partition who is
+ 
+
+00:02:31.680 --> 00:02:34.070 align:start position:0%
+okay this topic this partition who is
+the<00:02:31.920><c> who</c><00:02:32.160><c> has</c><00:02:32.319><c> the</c><00:02:32.480><c> leader</c><00:02:33.280><c> which</c><00:02:33.519><c> broker</c><00:02:33.840><c> has</c>
+
+00:02:34.070 --> 00:02:34.080 align:start position:0%
+the who has the leader which broker has
+ 
+
+00:02:34.080 --> 00:02:35.910 align:start position:0%
+the who has the leader which broker has
+the<00:02:34.400><c> leader</c>
+
+00:02:35.910 --> 00:02:35.920 align:start position:0%
+the leader
+ 
+
+00:02:35.920 --> 00:02:39.750 align:start position:0%
+the leader
+okay<00:02:36.400><c> now</c><00:02:36.720><c> let's</c><00:02:36.959><c> say</c><00:02:37.440><c> in</c><00:02:37.760><c> this</c><00:02:38.000><c> example</c>
+
+00:02:39.750 --> 00:02:39.760 align:start position:0%
+okay now let's say in this example
+ 
+
+00:02:39.760 --> 00:02:42.790 align:start position:0%
+okay now let's say in this example
+what<00:02:40.000><c> it</c><00:02:40.160><c> will</c><00:02:40.319><c> do</c><00:02:40.480><c> is</c><00:02:40.720><c> producer</c><00:02:41.440><c> will</c><00:02:41.920><c> ask</c><00:02:42.400><c> any</c>
+
+00:02:42.790 --> 00:02:42.800 align:start position:0%
+what it will do is producer will ask any
+ 
+
+00:02:42.800 --> 00:02:45.190 align:start position:0%
+what it will do is producer will ask any
+broker<00:02:43.760><c> hey</c><00:02:44.000><c> give</c><00:02:44.239><c> me</c><00:02:44.400><c> the</c><00:02:44.560><c> metadata</c>
+
+00:02:45.190 --> 00:02:45.200 align:start position:0%
+broker hey give me the metadata
+ 
+
+00:02:45.200 --> 00:02:48.869 align:start position:0%
+broker hey give me the metadata
+information<00:02:46.560><c> okay</c><00:02:48.000><c> generally</c>
+
+00:02:48.869 --> 00:02:48.879 align:start position:0%
+information okay generally
+ 
+
+00:02:48.879 --> 00:02:51.509 align:start position:0%
+information okay generally
+broker<00:02:49.599><c> like</c><00:02:49.840><c> I</c><00:02:50.080><c> told</c><00:02:50.239><c> you</c><00:02:50.480><c> right</c><00:02:50.800><c> controller</c>
+
+00:02:51.509 --> 00:02:51.519 align:start position:0%
+broker like I told you right controller
+ 
+
+00:02:51.519 --> 00:02:53.750 align:start position:0%
+broker like I told you right controller
+pass<00:02:51.920><c> the</c><00:02:52.160><c> metadata</c><00:02:52.879><c> information</c><00:02:53.440><c> cluster</c>
+
+00:02:53.750 --> 00:02:53.760 align:start position:0%
+pass the metadata information cluster
+ 
+
+00:02:53.760 --> 00:02:55.830 align:start position:0%
+pass the metadata information cluster
+metadata<00:02:54.400><c> information</c><00:02:54.720><c> to</c><00:02:54.959><c> all</c><00:02:55.120><c> the</c><00:02:55.280><c> brokers</c>
+
+00:02:55.830 --> 00:02:55.840 align:start position:0%
+metadata information to all the brokers
+ 
+
+00:02:55.840 --> 00:02:58.470 align:start position:0%
+metadata information to all the brokers
+so<00:02:56.160><c> broker</c><00:02:56.640><c> save</c><00:02:56.879><c> it</c><00:02:57.519><c> but</c><00:02:57.840><c> many</c><00:02:58.080><c> times</c><00:02:58.239><c> it</c>
+
+00:02:58.470 --> 00:02:58.480 align:start position:0%
+so broker save it but many times it
+ 
+
+00:02:58.480 --> 00:03:00.949 align:start position:0%
+so broker save it but many times it
+happen<00:02:58.720><c> is</c><00:02:58.959><c> that</c><00:02:59.120><c> it</c><00:02:59.360><c> got</c><00:02:59.599><c> expired</c><00:03:00.080><c> and</c><00:03:00.319><c> all</c><00:03:00.560><c> so</c>
+
+00:03:00.949 --> 00:03:00.959 align:start position:0%
+happen is that it got expired and all so
+ 
+
+00:03:00.959 --> 00:03:03.270 align:start position:0%
+happen is that it got expired and all so
+if<00:03:01.200><c> broker</c><00:03:01.599><c> doesn't</c><00:03:01.840><c> have</c><00:03:02.080><c> it</c><00:03:02.560><c> they</c><00:03:02.879><c> pass</c><00:03:03.120><c> the</c>
+
+00:03:03.270 --> 00:03:03.280 align:start position:0%
+if broker doesn't have it they pass the
+ 
+
+00:03:03.280 --> 00:03:05.670 align:start position:0%
+if broker doesn't have it they pass the
+request<00:03:03.519><c> to</c><00:03:03.760><c> active</c><00:03:04.080><c> controller</c><00:03:05.280><c> active</c>
+
+00:03:05.670 --> 00:03:05.680 align:start position:0%
+request to active controller active
+ 
+
+00:03:05.680 --> 00:03:07.509 align:start position:0%
+request to active controller active
+controller<00:03:06.159><c> gives</c><00:03:06.400><c> the</c><00:03:06.560><c> metadata</c><00:03:07.200><c> response</c>
+
+00:03:07.509 --> 00:03:07.519 align:start position:0%
+controller gives the metadata response
+ 
+
+00:03:07.519 --> 00:03:10.229 align:start position:0%
+controller gives the metadata response
+to<00:03:07.680><c> the</c><00:03:07.760><c> broker</c><00:03:08.080><c> and</c><00:03:08.239><c> broker</c><00:03:08.720><c> ultimately</c><00:03:09.200><c> goes</c>
+
+00:03:10.229 --> 00:03:10.239 align:start position:0%
+to the broker and broker ultimately goes
+ 
+
+00:03:10.239 --> 00:03:13.030 align:start position:0%
+to the broker and broker ultimately goes
+give<00:03:10.480><c> the</c><00:03:10.640><c> response</c><00:03:11.040><c> to</c><00:03:11.200><c> the</c><00:03:11.680><c> producer</c><00:03:12.800><c> hey</c>
+
+00:03:13.030 --> 00:03:13.040 align:start position:0%
+give the response to the producer hey
+ 
+
+00:03:13.040 --> 00:03:15.670 align:start position:0%
+give the response to the producer hey
+this<00:03:13.200><c> is</c><00:03:13.360><c> the</c><00:03:13.440><c> metadata</c><00:03:14.239><c> detail</c><00:03:14.800><c> so</c><00:03:15.040><c> metadata</c>
+
+00:03:15.670 --> 00:03:15.680 align:start position:0%
+this is the metadata detail so metadata
+ 
+
+00:03:15.680 --> 00:03:19.350 align:start position:0%
+this is the metadata detail so metadata
+detail<00:03:16.080><c> has</c><00:03:16.400><c> like</c><00:03:16.800><c> okay</c><00:03:17.440><c> for</c><00:03:17.680><c> this</c><00:03:18.080><c> topic</c><00:03:19.040><c> this</c>
+
+00:03:19.350 --> 00:03:19.360 align:start position:0%
+detail has like okay for this topic this
+ 
+
+00:03:19.360 --> 00:03:22.470 align:start position:0%
+detail has like okay for this topic this
+partition<00:03:20.000><c> this</c><00:03:20.239><c> broker</c><00:03:20.640><c> is</c><00:03:20.720><c> the</c><00:03:20.879><c> leader</c><00:03:22.159><c> for</c>
+
+00:03:22.470 --> 00:03:22.480 align:start position:0%
+partition this broker is the leader for
+ 
+
+00:03:22.480 --> 00:03:24.790 align:start position:0%
+partition this broker is the leader for
+this<00:03:22.720><c> partition</c><00:03:23.519><c> this</c><00:03:23.760><c> is</c><00:03:23.920><c> the</c><00:03:24.159><c> this</c><00:03:24.480><c> broker</c>
+
+00:03:24.790 --> 00:03:24.800 align:start position:0%
+this partition this is the this broker
+ 
+
+00:03:24.800 --> 00:03:28.229 align:start position:0%
+this partition this is the this broker
+is<00:03:24.879><c> the</c><00:03:25.040><c> leader</c><00:03:25.680><c> okay</c><00:03:26.959><c> now</c><00:03:27.280><c> this</c><00:03:27.519><c> metadata</c>
+
+00:03:28.229 --> 00:03:28.239 align:start position:0%
+is the leader okay now this metadata
+ 
+
+00:03:28.239 --> 00:03:31.030 align:start position:0%
+is the leader okay now this metadata
+information<00:03:28.640><c> is</c><00:03:28.879><c> present</c><00:03:29.360><c> with</c><00:03:29.599><c> the</c><00:03:29.840><c> producer</c>
+
+00:03:31.030 --> 00:03:31.040 align:start position:0%
+information is present with the producer
+ 
+
+00:03:31.040 --> 00:03:32.789 align:start position:0%
+information is present with the producer
+step<00:03:31.360><c> three</c><00:03:31.680><c> it</c><00:03:31.920><c> will</c><00:03:32.159><c> calculate</c><00:03:32.560><c> the</c>
+
+00:03:32.789 --> 00:03:32.799 align:start position:0%
+step three it will calculate the
+ 
+
+00:03:32.799 --> 00:03:35.190 align:start position:0%
+step three it will calculate the
+partition<00:03:33.680><c> so</c><00:03:34.000><c> partition</c><00:03:34.480><c> it</c><00:03:34.720><c> will</c><00:03:34.799><c> calculate</c>
+
+00:03:35.190 --> 00:03:35.200 align:start position:0%
+partition so partition it will calculate
+ 
+
+00:03:35.200 --> 00:03:38.869 align:start position:0%
+partition so partition it will calculate
+that<00:03:35.680><c> hash</c><00:03:36.080><c> of</c><00:03:36.319><c> this</c><00:03:36.640><c> key</c>
+
+00:03:38.869 --> 00:03:38.879 align:start position:0%
+that hash of this key
+ 
+
+00:03:38.879 --> 00:03:41.830 align:start position:0%
+that hash of this key
+modulo<00:03:39.519><c> the</c><00:03:39.840><c> number</c><00:03:40.080><c> of</c><00:03:40.319><c> partition</c><00:03:41.440><c> within</c>
+
+00:03:41.830 --> 00:03:41.840 align:start position:0%
+modulo the number of partition within
+ 
+
+00:03:41.840 --> 00:03:44.309 align:start position:0%
+modulo the number of partition within
+this<00:03:42.080><c> topic</c><00:03:42.560><c> so</c><00:03:43.200><c> for</c><00:03:43.440><c> now</c><00:03:43.599><c> let's</c><00:03:43.840><c> say</c><00:03:44.000><c> that</c><00:03:44.159><c> we</c>
+
+00:03:44.309 --> 00:03:44.319 align:start position:0%
+this topic so for now let's say that we
+ 
+
+00:03:44.319 --> 00:03:47.270 align:start position:0%
+this topic so for now let's say that we
+have<00:03:44.480><c> three</c><00:03:44.799><c> three</c><00:03:45.120><c> partition</c><00:03:46.400><c> so</c><00:03:46.879><c> what</c><00:03:47.120><c> is</c>
+
+00:03:47.270 --> 00:03:47.280 align:start position:0%
+have three three partition so what is
+ 
+
+00:03:47.280 --> 00:03:49.030 align:start position:0%
+have three three partition so what is
+the<00:03:47.440><c> partition</c><00:03:47.680><c> partition</c><00:03:48.000><c> we</c><00:03:48.159><c> got</c><00:03:48.400><c> one</c>
+
+00:03:49.030 --> 00:03:49.040 align:start position:0%
+the partition partition we got one
+ 
+
+00:03:49.040 --> 00:03:50.869 align:start position:0%
+the partition partition we got one
+partition<00:03:49.519><c> number</c><00:03:49.840><c> one.</c><00:03:50.239><c> So</c><00:03:50.480><c> who</c><00:03:50.640><c> is</c><00:03:50.720><c> the</c>
+
+00:03:50.869 --> 00:03:50.879 align:start position:0%
+partition number one. So who is the
+ 
+
+00:03:50.879 --> 00:03:53.670 align:start position:0%
+partition number one. So who is the
+leader<00:03:51.120><c> of</c><00:03:51.280><c> the</c><00:03:51.360><c> partition</c><00:03:51.760><c> one?</c><00:03:52.080><c> Broker</c><00:03:52.560><c> two.</c>
+
+00:03:53.670 --> 00:03:53.680 align:start position:0%
+leader of the partition one? Broker two.
+ 
+
+00:03:53.680 --> 00:03:56.470 align:start position:0%
+leader of the partition one? Broker two.
+So<00:03:54.239><c> in</c><00:03:54.560><c> step</c><00:03:54.879><c> four</c>
+
+00:03:56.470 --> 00:03:56.480 align:start position:0%
+So in step four
+ 
+
+00:03:56.480 --> 00:03:59.350 align:start position:0%
+So in step four
+okay<00:03:57.519><c> what</c><00:03:57.840><c> it</c><00:03:58.080><c> will</c><00:03:58.319><c> do</c><00:03:58.400><c> is</c><00:03:58.640><c> that</c><00:03:58.879><c> it</c><00:03:59.120><c> will</c>
+
+00:03:59.350 --> 00:03:59.360 align:start position:0%
+okay what it will do is that it will
+ 
+
+00:03:59.360 --> 00:04:03.589 align:start position:0%
+okay what it will do is that it will
+find<00:03:59.519><c> out</c><00:03:59.760><c> that</c><00:04:00.480><c> from</c><00:04:00.799><c> this</c><00:04:01.040><c> metadata</c>
+
+00:04:03.589 --> 00:04:03.599 align:start position:0%
+find out that from this metadata
+ 
+
+00:04:03.599 --> 00:04:06.470 align:start position:0%
+find out that from this metadata
+I<00:04:03.840><c> need</c><00:04:04.000><c> to</c><00:04:04.239><c> publish</c><00:04:04.640><c> this</c><00:04:04.959><c> event</c>
+
+00:04:06.470 --> 00:04:06.480 align:start position:0%
+I need to publish this event
+ 
+
+00:04:06.480 --> 00:04:09.270 align:start position:0%
+I need to publish this event
+to<00:04:06.879><c> this</c><00:04:07.200><c> partition</c>
+
+00:04:09.270 --> 00:04:09.280 align:start position:0%
+to this partition
+ 
+
+00:04:09.280 --> 00:04:11.750 align:start position:0%
+to this partition
+who<00:04:09.599><c> is</c><00:04:09.760><c> the</c><00:04:10.159><c> leader.</c><00:04:10.640><c> So</c><00:04:10.799><c> it</c><00:04:11.040><c> will</c><00:04:11.200><c> find</c><00:04:11.360><c> out</c>
+
+00:04:11.750 --> 00:04:11.760 align:start position:0%
+who is the leader. So it will find out
+ 
+
+00:04:11.760 --> 00:04:14.390 align:start position:0%
+who is the leader. So it will find out
+broker<00:04:12.239><c> two</c><00:04:12.400><c> is</c><00:04:12.560><c> the</c><00:04:12.720><c> leader.</c><00:04:13.280><c> Now</c><00:04:13.519><c> what</c><00:04:13.840><c> will</c>
+
+00:04:14.390 --> 00:04:14.400 align:start position:0%
+broker two is the leader. Now what will
+ 
+
+00:04:14.400 --> 00:04:17.189 align:start position:0%
+broker two is the leader. Now what will
+what<00:04:14.640><c> it</c><00:04:14.799><c> will</c><00:04:14.959><c> do</c><00:04:15.120><c> is</c><00:04:15.920><c> it</c><00:04:16.239><c> will</c><00:04:16.479><c> directly</c>
+
+00:04:17.189 --> 00:04:17.199 align:start position:0%
+what it will do is it will directly
+ 
+
+00:04:17.199 --> 00:04:20.550 align:start position:0%
+what it will do is it will directly
+invoke<00:04:17.680><c> the</c><00:04:17.919><c> broker</c><00:04:18.479><c> to</c>
+
+00:04:20.550 --> 00:04:20.560 align:start position:0%
+invoke the broker to
+ 
+
+00:04:20.560 --> 00:04:24.150 align:start position:0%
+invoke the broker to
+okay<00:04:21.519><c> and</c><00:04:22.000><c> will</c><00:04:22.320><c> ask</c><00:04:22.720><c> it</c><00:04:22.880><c> to</c><00:04:23.120><c> write</c><00:04:23.440><c> this</c>
+
+00:04:24.150 --> 00:04:24.160 align:start position:0%
+okay and will ask it to write this
+ 
+
+00:04:24.160 --> 00:04:27.830 align:start position:0%
+okay and will ask it to write this
+event.<00:04:25.199><c> So</c><00:04:25.360><c> in</c><00:04:25.680><c> step</c><00:04:26.080><c> six</c><00:04:26.560><c> broker</c><00:04:27.120><c> to</c><00:04:27.360><c> write</c>
+
+00:04:27.830 --> 00:04:27.840 align:start position:0%
+event. So in step six broker to write
+ 
+
+00:04:27.840 --> 00:04:30.550 align:start position:0%
+event. So in step six broker to write
+event<00:04:28.240><c> to</c><00:04:28.479><c> its</c><00:04:28.800><c> partition</c><00:04:29.280><c> one</c><00:04:29.600><c> log.</c><00:04:30.160><c> So</c><00:04:30.320><c> you</c>
+
+00:04:30.550 --> 00:04:30.560 align:start position:0%
+event to its partition one log. So you
+ 
+
+00:04:30.560 --> 00:04:33.510 align:start position:0%
+event to its partition one log. So you
+know<00:04:30.720><c> already</c><00:04:31.120><c> right?</c><00:04:31.840><c> So</c><00:04:32.080><c> topic</c><00:04:32.880><c> let's</c><00:04:33.199><c> say</c>
+
+00:04:33.510 --> 00:04:33.520 align:start position:0%
+know already right? So topic let's say
+ 
+
+00:04:33.520 --> 00:04:38.550 align:start position:0%
+know already right? So topic let's say
+order<00:04:34.080><c> -</c><00:04:34.560><c> events</c><00:04:35.680><c> then</c><00:04:35.919><c> you</c><00:04:36.240><c> have</c><00:04:37.360><c> partition</c>
+
+00:04:38.550 --> 00:04:38.560 align:start position:0%
+order - events then you have partition
+ 
+
+00:04:38.560 --> 00:04:40.310 align:start position:0%
+order - events then you have partition
+one<00:04:38.880><c> you</c><00:04:39.040><c> wanted</c><00:04:39.360><c> to</c><00:04:39.440><c> write</c><00:04:39.680><c> right?</c><00:04:39.919><c> Partition</c>
+
+00:04:40.310 --> 00:04:40.320 align:start position:0%
+one you wanted to write right? Partition
+ 
+
+00:04:40.320 --> 00:04:43.430 align:start position:0%
+one you wanted to write right? Partition
+one<00:04:40.560><c> might</c><00:04:40.800><c> have</c><00:04:40.960><c> segment.</c><00:04:42.160><c> In</c><00:04:42.400><c> segment,</c><00:04:43.199><c> it</c>
+
+00:04:43.430 --> 00:04:43.440 align:start position:0%
+one might have segment. In segment, it
+ 
+
+00:04:43.440 --> 00:04:46.070 align:start position:0%
+one might have segment. In segment, it
+will<00:04:43.680><c> write</c><00:04:43.919><c> this</c><00:04:44.240><c> new</c><00:04:44.560><c> event.</c>
+
+00:04:46.070 --> 00:04:46.080 align:start position:0%
+will write this new event.
+ 
+
+00:04:46.080 --> 00:04:50.230 align:start position:0%
+will write this new event.
+New<00:04:46.400><c> event</c><00:04:46.639><c> at</c><00:04:46.880><c> offset</c><00:04:47.440><c> 101.</c><00:04:48.240><c> It</c><00:04:48.560><c> write.</c>
+
+00:04:50.230 --> 00:04:50.240 align:start position:0%
+New event at offset 101. It write.
+ 
+
+00:04:50.240 --> 00:04:54.469 align:start position:0%
+New event at offset 101. It write.
+Now<00:04:50.880><c> when</c><00:04:51.280><c> broker</c><00:04:52.080><c> 2</c><00:04:52.880><c> has</c><00:04:53.199><c> written</c><00:04:53.520><c> it,</c><00:04:54.160><c> it</c>
+
+00:04:54.469 --> 00:04:54.479 align:start position:0%
+Now when broker 2 has written it, it
+ 
+
+00:04:54.479 --> 00:04:57.749 align:start position:0%
+Now when broker 2 has written it, it
+will<00:04:54.639><c> check</c><00:04:55.840><c> hey</c>
+
+00:04:57.749 --> 00:04:57.759 align:start position:0%
+will check hey
+ 
+
+00:04:57.759 --> 00:05:00.469 align:start position:0%
+will check hey
+producer<00:04:58.240><c> has</c><00:04:58.400><c> used</c><00:04:58.720><c> acknowledge</c><00:04:59.199><c> all</c><00:05:00.160><c> means</c>
+
+00:05:00.469 --> 00:05:00.479 align:start position:0%
+producer has used acknowledge all means
+ 
+
+00:05:00.479 --> 00:05:03.990 align:start position:0%
+producer has used acknowledge all means
+it<00:05:00.800><c> will</c><00:05:01.040><c> check</c><00:05:01.440><c> the</c><00:05:01.840><c> ISR</c><00:05:02.479><c> list</c>
+
+00:05:03.990 --> 00:05:04.000 align:start position:0%
+it will check the ISR list
+ 
+
+00:05:04.000 --> 00:05:06.550 align:start position:0%
+it will check the ISR list
+and<00:05:04.240><c> it</c><00:05:04.479><c> will</c><00:05:04.720><c> wait</c><00:05:05.199><c> for</c><00:05:05.520><c> all</c><00:05:05.759><c> the</c><00:05:06.000><c> replicas</c>
+
+00:05:06.550 --> 00:05:06.560 align:start position:0%
+and it will wait for all the replicas
+ 
+
+00:05:06.560 --> 00:05:09.590 align:start position:0%
+and it will wait for all the replicas
+which<00:05:06.800><c> are</c><00:05:07.039><c> there</c><00:05:07.919><c> to</c><00:05:08.320><c> respond</c><00:05:09.120><c> that</c><00:05:09.360><c> they</c>
+
+00:05:09.590 --> 00:05:09.600 align:start position:0%
+which are there to respond that they
+ 
+
+00:05:09.600 --> 00:05:12.710 align:start position:0%
+which are there to respond that they
+have<00:05:09.840><c> successfully</c><00:05:10.639><c> written</c><00:05:10.960><c> also.</c><00:05:12.080><c> So</c><00:05:12.320><c> since</c>
+
+00:05:12.710 --> 00:05:12.720 align:start position:0%
+have successfully written also. So since
+ 
+
+00:05:12.720 --> 00:05:16.310 align:start position:0%
+have successfully written also. So since
+acknowledge<00:05:13.199><c> equals</c><00:05:13.520><c> to</c><00:05:13.759><c> all</c><00:05:15.199><c> broker</c><00:05:15.759><c> 2</c><00:05:16.080><c> will</c>
+
+00:05:16.310 --> 00:05:16.320 align:start position:0%
+acknowledge equals to all broker 2 will
+ 
+
+00:05:16.320 --> 00:05:18.710 align:start position:0%
+acknowledge equals to all broker 2 will
+wait<00:05:16.560><c> for</c><00:05:16.800><c> all</c><00:05:17.039><c> the</c><00:05:17.280><c> ISR</c><00:05:17.919><c> to</c><00:05:18.080><c> update</c><00:05:18.479><c> the</c>
+
+00:05:18.710 --> 00:05:18.720 align:start position:0%
+wait for all the ISR to update the
+ 
+
+00:05:18.720 --> 00:05:23.909 align:start position:0%
+wait for all the ISR to update the
+events.<00:05:19.520><c> So</c><00:05:20.080><c> we</c><00:05:20.320><c> have</c><00:05:20.479><c> let's</c><00:05:20.800><c> say</c><00:05:20.960><c> ISR</c><00:05:21.600><c> has</c>
+
+00:05:23.909 --> 00:05:23.919 align:start position:0%
+events. So we have let's say ISR has
+ 
+
+00:05:23.919 --> 00:05:26.469 align:start position:0%
+events. So we have let's say ISR has
+broker<00:05:24.320><c> one,</c><00:05:24.639><c> broker</c><00:05:25.039><c> two,</c><00:05:25.440><c> broker</c><00:05:25.840><c> three,</c>
+
+00:05:26.469 --> 00:05:26.479 align:start position:0%
+broker one, broker two, broker three,
+ 
+
+00:05:26.479 --> 00:05:28.550 align:start position:0%
+broker one, broker two, broker three,
+broker<00:05:26.960><c> two</c><00:05:27.199><c> has</c><00:05:27.520><c> the</c><00:05:27.840><c> leader</c><00:05:28.160><c> which</c><00:05:28.320><c> has</c>
+
+00:05:28.550 --> 00:05:28.560 align:start position:0%
+broker two has the leader which has
+ 
+
+00:05:28.560 --> 00:05:30.469 align:start position:0%
+broker two has the leader which has
+already<00:05:28.880><c> returned.</c><00:05:29.520><c> Now</c><00:05:29.680><c> it</c><00:05:29.919><c> will</c><00:05:30.080><c> wait</c><00:05:30.320><c> for</c>
+
+00:05:30.469 --> 00:05:30.479 align:start position:0%
+already returned. Now it will wait for
+ 
+
+00:05:30.479 --> 00:05:32.710 align:start position:0%
+already returned. Now it will wait for
+broker<00:05:30.880><c> one</c><00:05:31.039><c> and</c><00:05:31.199><c> broker</c><00:05:31.520><c> three</c><00:05:31.759><c> also</c><00:05:32.479><c> which</c>
+
+00:05:32.710 --> 00:05:32.720 align:start position:0%
+broker one and broker three also which
+ 
+
+00:05:32.720 --> 00:05:36.390 align:start position:0%
+broker one and broker three also which
+are<00:05:32.960><c> followers.</c><00:05:33.919><c> So</c><00:05:34.160><c> once</c><00:05:34.479><c> they</c><00:05:34.720><c> do</c>
+
+00:05:36.390 --> 00:05:36.400 align:start position:0%
+are followers. So once they do
+ 
+
+00:05:36.400 --> 00:05:40.150 align:start position:0%
+are followers. So once they do
+poll<00:05:37.039><c> f</c><00:05:37.360><c> the</c><00:05:37.600><c> latest</c><00:05:38.240><c> update</c><00:05:39.120><c> and</c><00:05:39.440><c> acknowledge</c>
+
+00:05:40.150 --> 00:05:40.160 align:start position:0%
+poll f the latest update and acknowledge
+ 
+
+00:05:40.160 --> 00:05:43.430 align:start position:0%
+poll f the latest update and acknowledge
+it<00:05:40.479><c> after</c><00:05:40.880><c> return</c><00:05:41.199><c> successfully.</c>
+
+00:05:43.430 --> 00:05:43.440 align:start position:0%
+it after return successfully.
+ 
+
+00:05:43.440 --> 00:05:47.590 align:start position:0%
+it after return successfully.
+Okay,<00:05:43.919><c> when</c><00:05:44.400><c> all</c><00:05:44.880><c> the</c><00:05:45.120><c> ISR</c><00:05:45.759><c> acknowledge</c><00:05:47.120><c> that</c>
+
+00:05:47.590 --> 00:05:47.600 align:start position:0%
+Okay, when all the ISR acknowledge that
+ 
+
+00:05:47.600 --> 00:05:50.550 align:start position:0%
+Okay, when all the ISR acknowledge that
+they<00:05:47.919><c> have</c><00:05:48.080><c> done</c><00:05:49.360><c> then</c><00:05:49.600><c> it</c><00:05:49.840><c> will</c><00:05:50.080><c> send</c><00:05:50.320><c> the</c>
+
+00:05:50.550 --> 00:05:50.560 align:start position:0%
+they have done then it will send the
+ 
+
+00:05:50.560 --> 00:05:52.310 align:start position:0%
+they have done then it will send the
+respond<00:05:50.880><c> back</c><00:05:51.039><c> to</c><00:05:51.199><c> the</c><00:05:51.360><c> producer</c><00:05:51.759><c> that</c><00:05:52.000><c> event</c>
+
+00:05:52.310 --> 00:05:52.320 align:start position:0%
+respond back to the producer that event
+ 
+
+00:05:52.320 --> 00:05:56.629 align:start position:0%
+respond back to the producer that event
+is<00:05:52.560><c> published</c><00:05:53.039><c> successfully.</c>
+
+00:05:56.629 --> 00:05:56.639 align:start position:0%
+ 
+ 
+
+00:05:56.639 --> 00:06:00.550 align:start position:0%
+ 
+Okay,
+
+00:06:00.550 --> 00:06:00.560 align:start position:0%
+ 
+ 
+
+00:06:00.560 --> 00:06:02.950 align:start position:0%
+ 
+write<00:06:00.880><c> flow</c><00:06:01.120><c> is</c><00:06:01.280><c> clear.</c>
+
+00:06:02.950 --> 00:06:02.960 align:start position:0%
+write flow is clear.
+ 
+
+00:06:02.960 --> 00:06:07.350 align:start position:0%
+write flow is clear.
+Now<00:06:03.199><c> let's</c><00:06:03.440><c> see</c><00:06:04.000><c> consumer</c><00:06:04.639><c> read</c><00:06:04.960><c> flow.</c>
+
+00:06:07.350 --> 00:06:07.360 align:start position:0%
+Now let's see consumer read flow.
+ 
+
+00:06:07.360 --> 00:06:12.230 align:start position:0%
+Now let's see consumer read flow.
+Okay,<00:06:08.240><c> step</c><00:06:08.560><c> one,</c><00:06:09.840><c> consumer</c><00:06:10.639><c> starts</c><00:06:11.680><c> and</c><00:06:12.000><c> want</c>
+
+00:06:12.230 --> 00:06:12.240 align:start position:0%
+Okay, step one, consumer starts and want
+ 
+
+00:06:12.240 --> 00:06:14.390 align:start position:0%
+Okay, step one, consumer starts and want
+to<00:06:12.400><c> join</c><00:06:12.720><c> a</c><00:06:13.039><c> particular</c><00:06:13.440><c> group.</c><00:06:13.759><c> Let's</c><00:06:13.919><c> say</c><00:06:14.160><c> I</c>
+
+00:06:14.390 --> 00:06:14.400 align:start position:0%
+to join a particular group. Let's say I
+ 
+
+00:06:14.400 --> 00:06:16.150 align:start position:0%
+to join a particular group. Let's say I
+want<00:06:14.479><c> to</c><00:06:14.639><c> join</c><00:06:14.800><c> a</c><00:06:14.960><c> group</c><00:06:15.199><c> ID</c><00:06:15.520><c> notification</c>
+
+00:06:16.150 --> 00:06:16.160 align:start position:0%
+want to join a group ID notification
+ 
+
+00:06:16.160 --> 00:06:17.749 align:start position:0%
+want to join a group ID notification
+service.
+
+00:06:17.749 --> 00:06:17.759 align:start position:0%
+service.
+ 
+
+00:06:17.759 --> 00:06:22.390 align:start position:0%
+service.
+Okay.<00:06:18.720><c> Now</c><00:06:19.600><c> what</c><00:06:19.840><c> it</c><00:06:20.000><c> will</c><00:06:20.160><c> do</c><00:06:20.319><c> is</c><00:06:20.479><c> a</c><00:06:20.639><c> step</c><00:06:20.880><c> two</c>
+
+00:06:22.390 --> 00:06:22.400 align:start position:0%
+Okay. Now what it will do is a step two
+ 
+
+00:06:22.400 --> 00:06:28.870 align:start position:0%
+Okay. Now what it will do is a step two
+find<00:06:22.720><c> the</c><00:06:23.199><c> partition</c><00:06:23.840><c> number</c><00:06:24.240><c> of</c><00:06:24.880><c> topic.</c><00:06:25.840><c> See</c>
+
+00:06:28.870 --> 00:06:28.880 align:start position:0%
+ 
+ 
+
+00:06:28.880 --> 00:06:31.029 align:start position:0%
+ 
+everything<00:06:29.280><c> is</c><00:06:29.520><c> handled</c><00:06:29.919><c> by</c><00:06:30.160><c> broker</c><00:06:30.800><c> the</c>
+
+00:06:31.029 --> 00:06:31.039 align:start position:0%
+everything is handled by broker the
+ 
+
+00:06:31.039 --> 00:06:34.710 align:start position:0%
+everything is handled by broker the
+server<00:06:31.520><c> Kafka</c><00:06:32.000><c> server.</c><00:06:32.639><c> Okay.</c><00:06:33.600><c> Consumer</c><00:06:34.400><c> and</c>
+
+00:06:34.710 --> 00:06:34.720 align:start position:0%
+server Kafka server. Okay. Consumer and
+ 
+
+00:06:34.720 --> 00:06:37.270 align:start position:0%
+server Kafka server. Okay. Consumer and
+producer<00:06:35.280><c> are</c><00:06:35.520><c> just</c><00:06:35.759><c> client.</c>
+
+00:06:37.270 --> 00:06:37.280 align:start position:0%
+producer are just client.
+ 
+
+00:06:37.280 --> 00:06:41.510 align:start position:0%
+producer are just client.
+Now<00:06:37.600><c> if</c><00:06:37.919><c> any</c><00:06:38.319><c> consumer</c><00:06:39.199><c> want</c><00:06:39.440><c> to</c><00:06:39.680><c> join</c><00:06:40.000><c> a</c><00:06:40.319><c> group</c>
+
+00:06:41.510 --> 00:06:41.520 align:start position:0%
+Now if any consumer want to join a group
+ 
+
+00:06:41.520 --> 00:06:44.550 align:start position:0%
+Now if any consumer want to join a group
+who<00:06:41.680><c> will</c><00:06:41.919><c> add</c><00:06:42.160><c> server</c><00:06:42.479><c> will</c><00:06:42.720><c> add</c><00:06:43.039><c> right</c><00:06:43.919><c> but</c><00:06:44.240><c> I</c>
+
+00:06:44.550 --> 00:06:44.560 align:start position:0%
+who will add server will add right but I
+ 
+
+00:06:44.560 --> 00:06:50.390 align:start position:0%
+who will add server will add right but I
+told<00:06:44.720><c> you</c><00:06:45.440><c> if</c><00:06:45.600><c> you</c><00:06:45.840><c> remember</c><00:06:47.120><c> okay</c><00:06:48.240><c> uh</c><00:06:48.560><c> for</c>
+
+00:06:50.390 --> 00:06:50.400 align:start position:0%
+told you if you remember okay uh for
+ 
+
+00:06:50.400 --> 00:06:53.270 align:start position:0%
+told you if you remember okay uh for
+let's<00:06:50.639><c> say</c><00:06:50.880><c> you</c><00:06:51.120><c> have</c><00:06:51.280><c> a</c><00:06:51.840><c> group</c><00:06:52.800><c> consumer</c>
+
+00:06:53.270 --> 00:06:53.280 align:start position:0%
+let's say you have a group consumer
+ 
+
+00:06:53.280 --> 00:06:55.590 align:start position:0%
+let's say you have a group consumer
+group<00:06:53.680><c> let's</c><00:06:53.919><c> say</c><00:06:54.080><c> notification</c><00:06:55.120><c> consumer</c>
+
+00:06:55.590 --> 00:06:55.600 align:start position:0%
+group let's say notification consumer
+ 
+
+00:06:55.600 --> 00:06:59.749 align:start position:0%
+group let's say notification consumer
+group<00:06:56.400><c> analytics</c><00:06:57.600><c> okay</c><00:06:58.479><c> and</c><00:06:58.880><c> you</c><00:06:59.120><c> have</c><00:06:59.360><c> 50</c>
+
+00:06:59.749 --> 00:06:59.759 align:start position:0%
+group analytics okay and you have 50
+ 
+
+00:06:59.759 --> 00:07:01.270 align:start position:0%
+group analytics okay and you have 50
+partitions
+
+00:07:01.270 --> 00:07:01.280 align:start position:0%
+partitions
+ 
+
+00:07:01.280 --> 00:07:05.270 align:start position:0%
+partitions
+of<00:07:01.919><c> consumer</c><00:07:02.960><c> offset</c><00:07:03.759><c> topic</c><00:07:04.639><c> you</c><00:07:04.880><c> have</c><00:07:05.039><c> 50</c>
+
+00:07:05.270 --> 00:07:05.280 align:start position:0%
+of consumer offset topic you have 50
+ 
+
+00:07:05.280 --> 00:07:08.070 align:start position:0%
+of consumer offset topic you have 50
+partition<00:07:05.680><c> we</c><00:07:05.919><c> have</c><00:07:06.000><c> already</c><00:07:06.160><c> seen</c><00:07:06.479><c> that.</c>
+
+00:07:08.070 --> 00:07:08.080 align:start position:0%
+partition we have already seen that.
+ 
+
+00:07:08.080 --> 00:07:11.350 align:start position:0%
+partition we have already seen that.
+So<00:07:08.400><c> this</c><00:07:09.120><c> group</c><00:07:09.919><c> information</c><00:07:10.400><c> is</c><00:07:10.720><c> handled</c><00:07:11.039><c> by</c>
+
+00:07:11.350 --> 00:07:11.360 align:start position:0%
+So this group information is handled by
+ 
+
+00:07:11.360 --> 00:07:14.870 align:start position:0%
+So this group information is handled by
+one<00:07:11.680><c> of</c><00:07:11.840><c> the</c><00:07:12.080><c> partition</c><00:07:13.039><c> out</c><00:07:13.280><c> of</c><00:07:13.440><c> this</c><00:07:13.680><c> 50.</c>
+
+00:07:14.870 --> 00:07:14.880 align:start position:0%
+one of the partition out of this 50.
+ 
+
+00:07:14.880 --> 00:07:17.749 align:start position:0%
+one of the partition out of this 50.
+Okay,<00:07:15.199><c> because</c><00:07:15.440><c> the</c><00:07:15.599><c> formula</c><00:07:16.000><c> was</c><00:07:16.319><c> hash</c><00:07:16.800><c> of</c>
+
+00:07:17.749 --> 00:07:17.759 align:start position:0%
+Okay, because the formula was hash of
+ 
+
+00:07:17.759 --> 00:07:21.990 align:start position:0%
+Okay, because the formula was hash of
+group<00:07:18.160><c> ID</c><00:07:19.039><c> mod</c><00:07:19.520><c> 50.</c><00:07:20.639><c> So</c><00:07:21.039><c> let's</c><00:07:21.280><c> say</c><00:07:21.440><c> you</c><00:07:21.599><c> got</c>
+
+00:07:21.990 --> 00:07:22.000 align:start position:0%
+group ID mod 50. So let's say you got
+ 
+
+00:07:22.000 --> 00:07:25.589 align:start position:0%
+group ID mod 50. So let's say you got
+partition<00:07:22.639><c> 23.</c><00:07:24.000><c> So</c><00:07:24.240><c> partition</c><00:07:24.800><c> 23</c><00:07:25.280><c> will</c>
+
+00:07:25.589 --> 00:07:25.599 align:start position:0%
+partition 23. So partition 23 will
+ 
+
+00:07:25.599 --> 00:07:27.990 align:start position:0%
+partition 23. So partition 23 will
+handle<00:07:26.080><c> all</c><00:07:26.479><c> the</c>
+
+00:07:27.990 --> 00:07:28.000 align:start position:0%
+handle all the
+ 
+
+00:07:28.000 --> 00:07:30.950 align:start position:0%
+handle all the
+requests<00:07:28.479><c> for</c><00:07:28.720><c> this</c><00:07:28.960><c> group.</c><00:07:30.080><c> So</c><00:07:30.240><c> that's</c><00:07:30.560><c> where</c>
+
+00:07:30.950 --> 00:07:30.960 align:start position:0%
+requests for this group. So that's where
+ 
+
+00:07:30.960 --> 00:07:33.189 align:start position:0%
+requests for this group. So that's where
+I<00:07:31.199><c> am</c><00:07:31.360><c> finding</c><00:07:31.680><c> out</c><00:07:31.840><c> that</c><00:07:32.319><c> okay</c><00:07:32.800><c> which</c>
+
+00:07:33.189 --> 00:07:33.199 align:start position:0%
+I am finding out that okay which
+ 
+
+00:07:33.199 --> 00:07:34.870 align:start position:0%
+I am finding out that okay which
+partition
+
+00:07:34.870 --> 00:07:34.880 align:start position:0%
+partition
+ 
+
+00:07:34.880 --> 00:07:37.350 align:start position:0%
+partition
+and<00:07:35.599><c> why</c><00:07:35.919><c> it</c><00:07:36.160><c> has</c><00:07:36.319><c> to</c><00:07:36.479><c> find</c><00:07:36.639><c> out</c><00:07:36.800><c> a</c><00:07:36.960><c> partition</c>
+
+00:07:37.350 --> 00:07:37.360 align:start position:0%
+and why it has to find out a partition
+ 
+
+00:07:37.360 --> 00:07:40.550 align:start position:0%
+and why it has to find out a partition
+number<00:07:37.840><c> because</c><00:07:38.479><c> in</c><00:07:38.800><c> case</c><00:07:39.199><c> of</c><00:07:39.680><c> cluster</c><00:07:40.319><c> we</c>
+
+00:07:40.550 --> 00:07:40.560 align:start position:0%
+number because in case of cluster we
+ 
+
+00:07:40.560 --> 00:07:42.870 align:start position:0%
+number because in case of cluster we
+have<00:07:40.720><c> multiple</c><00:07:41.120><c> brokers.</c>
+
+00:07:42.870 --> 00:07:42.880 align:start position:0%
+have multiple brokers.
+ 
+
+00:07:42.880 --> 00:07:45.909 align:start position:0%
+have multiple brokers.
+Okay.<00:07:43.440><c> So</c><00:07:44.479><c> broker</c><00:07:44.800><c> one,</c><00:07:45.039><c> broker</c><00:07:45.360><c> two,</c><00:07:45.599><c> broker</c>
+
+00:07:45.909 --> 00:07:45.919 align:start position:0%
+Okay. So broker one, broker two, broker
+ 
+
+00:07:45.919 --> 00:07:48.790 align:start position:0%
+Okay. So broker one, broker two, broker
+three,<00:07:46.560><c> one</c><00:07:46.800><c> of</c><00:07:46.960><c> the</c><00:07:47.120><c> broker</c>
+
+00:07:48.790 --> 00:07:48.800 align:start position:0%
+three, one of the broker
+ 
+
+00:07:48.800 --> 00:07:51.029 align:start position:0%
+three, one of the broker
+host<00:07:49.280><c> this</c><00:07:49.599><c> partition</c><00:07:50.000><c> as</c><00:07:50.240><c> a</c><00:07:50.400><c> leader.</c>
+
+00:07:51.029 --> 00:07:51.039 align:start position:0%
+host this partition as a leader.
+ 
+
+00:07:51.039 --> 00:07:53.670 align:start position:0%
+host this partition as a leader.
+Partition<00:07:51.599><c> 23</c><00:07:52.000><c> is</c><00:07:52.240><c> a</c><00:07:52.400><c> leader</c><00:07:52.639><c> here</c><00:07:53.039><c> and</c><00:07:53.280><c> broker</c>
+
+00:07:53.670 --> 00:07:53.680 align:start position:0%
+Partition 23 is a leader here and broker
+ 
+
+00:07:53.680 --> 00:07:56.790 align:start position:0%
+Partition 23 is a leader here and broker
+two.<00:07:54.639><c> So</c><00:07:54.879><c> this</c><00:07:55.120><c> consumer</c><00:07:55.759><c> need</c><00:07:56.000><c> to</c><00:07:56.319><c> invoke</c>
+
+00:07:56.790 --> 00:07:56.800 align:start position:0%
+two. So this consumer need to invoke
+ 
+
+00:07:56.800 --> 00:08:00.309 align:start position:0%
+two. So this consumer need to invoke
+this<00:07:57.120><c> broker.</c><00:07:58.479><c> Right?</c><00:07:59.280><c> So</c><00:07:59.520><c> that's</c><00:07:59.759><c> what</c><00:07:59.919><c> it</c><00:08:00.160><c> is</c>
+
+00:08:00.309 --> 00:08:00.319 align:start position:0%
+this broker. Right? So that's what it is
+ 
+
+00:08:00.319 --> 00:08:01.990 align:start position:0%
+this broker. Right? So that's what it is
+doing.<00:08:00.639><c> First</c><00:08:00.800><c> it</c><00:08:01.039><c> need</c><00:08:01.199><c> to</c><00:08:01.360><c> find</c><00:08:01.520><c> out</c><00:08:01.680><c> like</c>
+
+00:08:01.990 --> 00:08:02.000 align:start position:0%
+doing. First it need to find out like
+ 
+
+00:08:02.000 --> 00:08:04.869 align:start position:0%
+doing. First it need to find out like
+what<00:08:02.240><c> is</c><00:08:02.400><c> the</c><00:08:02.560><c> partition</c><00:08:03.120><c> number</c><00:08:03.520><c> which</c><00:08:04.160><c> uh</c>
+
+00:08:04.869 --> 00:08:04.879 align:start position:0%
+what is the partition number which uh
+ 
+
+00:08:04.879 --> 00:08:06.629 align:start position:0%
+what is the partition number which uh
+and<00:08:05.120><c> then</c><00:08:05.360><c> only</c><00:08:05.599><c> it</c><00:08:05.759><c> would</c><00:08:05.919><c> be</c><00:08:06.080><c> able</c><00:08:06.240><c> to</c><00:08:06.400><c> find</c>
+
+00:08:06.629 --> 00:08:06.639 align:start position:0%
+and then only it would be able to find
+ 
+
+00:08:06.639 --> 00:08:10.070 align:start position:0%
+and then only it would be able to find
+out<00:08:06.800><c> the</c><00:08:07.520><c> specific</c><00:08:08.000><c> broker</c><00:08:08.560><c> which</c><00:08:08.879><c> is</c><00:08:09.840><c> hold</c>
+
+00:08:10.070 --> 00:08:10.080 align:start position:0%
+out the specific broker which is hold
+ 
+
+00:08:10.080 --> 00:08:14.309 align:start position:0%
+out the specific broker which is hold
+the<00:08:10.319><c> leader</c><00:08:11.680><c> replica</c><00:08:12.160><c> of</c><00:08:12.319><c> the</c><00:08:12.479><c> partition</c><00:08:12.960><c> 23.</c>
+
+00:08:14.309 --> 00:08:14.319 align:start position:0%
+the leader replica of the partition 23.
+ 
+
+00:08:14.319 --> 00:08:16.230 align:start position:0%
+the leader replica of the partition 23.
+So<00:08:14.560><c> it</c><00:08:14.800><c> will</c><00:08:14.960><c> find</c><00:08:15.120><c> out</c><00:08:15.280><c> like</c><00:08:15.599><c> hash</c><00:08:15.919><c> of</c>
+
+00:08:16.230 --> 00:08:16.240 align:start position:0%
+So it will find out like hash of
+ 
+
+00:08:16.240 --> 00:08:19.430 align:start position:0%
+So it will find out like hash of
+notification<00:08:16.960><c> service</c><00:08:17.360><c> group</c><00:08:17.680><c> ID</c><00:08:18.879><c> mod</c><00:08:19.199><c> 50.</c>
+
+00:08:19.430 --> 00:08:19.440 align:start position:0%
+notification service group ID mod 50.
+ 
+
+00:08:19.440 --> 00:08:23.110 align:start position:0%
+notification service group ID mod 50.
+Let's<00:08:19.599><c> say</c><00:08:19.759><c> I</c><00:08:19.919><c> got</c><00:08:20.080><c> 23.</c><00:08:21.199><c> So</c><00:08:21.520><c> partition</c><00:08:22.160><c> 23</c><00:08:22.800><c> of</c>
+
+00:08:23.110 --> 00:08:23.120 align:start position:0%
+Let's say I got 23. So partition 23 of
+ 
+
+00:08:23.120 --> 00:08:28.070 align:start position:0%
+Let's say I got 23. So partition 23 of
+topic<00:08:23.599><c> this</c><00:08:24.639><c> is</c><00:08:24.960><c> what</c>
+
+00:08:28.070 --> 00:08:28.080 align:start position:0%
+ 
+ 
+
+00:08:28.080 --> 00:08:30.950 align:start position:0%
+ 
+can<00:08:28.479><c> handle</c><00:08:29.120><c> you</c><00:08:29.360><c> can</c><00:08:29.520><c> say</c><00:08:29.599><c> that</c><00:08:30.160><c> uh</c><00:08:30.560><c> handle</c>
+
+00:08:30.950 --> 00:08:30.960 align:start position:0%
+can handle you can say that uh handle
+ 
+
+00:08:30.960 --> 00:08:33.269 align:start position:0%
+can handle you can say that uh handle
+this<00:08:31.280><c> group</c>
+
+00:08:33.269 --> 00:08:33.279 align:start position:0%
+this group
+ 
+
+00:08:33.279 --> 00:08:35.750 align:start position:0%
+this group
+details.
+
+00:08:35.750 --> 00:08:35.760 align:start position:0%
+details.
+ 
+
+00:08:35.760 --> 00:08:38.870 align:start position:0%
+details.
+Now<00:08:36.000><c> in</c><00:08:36.399><c> step</c><00:08:36.640><c> three</c><00:08:37.120><c> what</c><00:08:37.360><c> would</c><00:08:37.519><c> happen</c><00:08:37.760><c> is</c>
+
+00:08:38.870 --> 00:08:38.880 align:start position:0%
+Now in step three what would happen is
+ 
+
+00:08:38.880 --> 00:08:41.350 align:start position:0%
+Now in step three what would happen is
+consumer<00:08:39.440><c> also</c><00:08:39.839><c> need</c><00:08:40.159><c> metadata</c><00:08:40.800><c> information</c>
+
+00:08:41.350 --> 00:08:41.360 align:start position:0%
+consumer also need metadata information
+ 
+
+00:08:41.360 --> 00:08:44.310 align:start position:0%
+consumer also need metadata information
+like<00:08:41.919><c> how</c><00:08:42.240><c> consumer</c><00:08:42.719><c> will</c><00:08:42.959><c> get</c><00:08:43.120><c> to</c><00:08:43.279><c> know</c><00:08:43.440><c> that</c>
+
+00:08:44.310 --> 00:08:44.320 align:start position:0%
+like how consumer will get to know that
+ 
+
+00:08:44.320 --> 00:08:47.750 align:start position:0%
+like how consumer will get to know that
+okay<00:08:45.200><c> this</c><00:08:45.519><c> broker</c><00:08:46.160><c> holds</c><00:08:46.640><c> this</c><00:08:47.040><c> partition</c><00:08:47.519><c> as</c>
+
+00:08:47.750 --> 00:08:47.760 align:start position:0%
+okay this broker holds this partition as
+ 
+
+00:08:47.760 --> 00:08:51.030 align:start position:0%
+okay this broker holds this partition as
+leader<00:08:48.959><c> and</c><00:08:49.360><c> this</c><00:08:49.600><c> is</c><00:08:49.760><c> as</c><00:08:50.000><c> followers.</c><00:08:50.720><c> So</c><00:08:50.880><c> it</c>
+
+00:08:51.030 --> 00:08:51.040 align:start position:0%
+leader and this is as followers. So it
+ 
+
+00:08:51.040 --> 00:08:53.030 align:start position:0%
+leader and this is as followers. So it
+needs<00:08:51.200><c> certain</c><00:08:51.519><c> metadata</c><00:08:52.320><c> the</c><00:08:52.560><c> same</c><00:08:52.800><c> as</c>
+
+00:08:53.030 --> 00:08:53.040 align:start position:0%
+needs certain metadata the same as
+ 
+
+00:08:53.040 --> 00:08:55.829 align:start position:0%
+needs certain metadata the same as
+producer.<00:08:54.080><c> So</c><00:08:54.240><c> it</c><00:08:54.480><c> will</c><00:08:54.640><c> ask</c><00:08:54.880><c> any</c><00:08:55.120><c> broker</c><00:08:55.600><c> hey</c>
+
+00:08:55.829 --> 00:08:55.839 align:start position:0%
+producer. So it will ask any broker hey
+ 
+
+00:08:55.839 --> 00:08:59.030 align:start position:0%
+producer. So it will ask any broker hey
+return<00:08:56.240><c> me</c><00:08:57.040><c> the</c><00:08:57.279><c> metadata.</c><00:08:58.399><c> If</c><00:08:58.640><c> broker</c>
+
+00:08:59.030 --> 00:08:59.040 align:start position:0%
+return me the metadata. If broker
+ 
+
+00:08:59.040 --> 00:09:00.550 align:start position:0%
+return me the metadata. If broker
+doesn't<00:08:59.200><c> have</c><00:08:59.279><c> it</c><00:08:59.519><c> it</c><00:08:59.680><c> will</c><00:08:59.839><c> ask</c><00:09:00.080><c> controller.</c>
+
+00:09:00.550 --> 00:09:00.560 align:start position:0%
+doesn't have it it will ask controller.
+ 
+
+00:09:00.560 --> 00:09:02.150 align:start position:0%
+doesn't have it it will ask controller.
+Controller<00:09:00.959><c> will</c><00:09:01.200><c> return</c><00:09:01.360><c> the</c><00:09:01.519><c> metadata</c>
+
+00:09:02.150 --> 00:09:02.160 align:start position:0%
+Controller will return the metadata
+ 
+
+00:09:02.160 --> 00:09:04.710 align:start position:0%
+Controller will return the metadata
+response<00:09:03.200><c> because</c><00:09:03.600><c> see</c><00:09:03.920><c> this</c><00:09:04.080><c> is</c><00:09:04.240><c> cluster</c>
+
+00:09:04.710 --> 00:09:04.720 align:start position:0%
+response because see this is cluster
+ 
+
+00:09:04.720 --> 00:09:08.710 align:start position:0%
+response because see this is cluster
+information<00:09:05.360><c> about</c><00:09:05.839><c> topic</c><00:09:06.880><c> about</c><00:09:07.360><c> partition</c>
+
+00:09:08.710 --> 00:09:08.720 align:start position:0%
+information about topic about partition
+ 
+
+00:09:08.720 --> 00:09:10.470 align:start position:0%
+information about topic about partition
+about<00:09:09.040><c> broker.</c><00:09:09.600><c> These</c><00:09:09.839><c> are</c><00:09:10.000><c> cluster</c>
+
+00:09:10.470 --> 00:09:10.480 align:start position:0%
+about broker. These are cluster
+ 
+
+00:09:10.480 --> 00:09:13.990 align:start position:0%
+about broker. These are cluster
+information.<00:09:11.360><c> That's</c><00:09:11.680><c> why</c><00:09:12.959><c> it</c><00:09:13.200><c> is</c><00:09:13.600><c> going</c><00:09:13.839><c> to</c>
+
+00:09:13.990 --> 00:09:14.000 align:start position:0%
+information. That's why it is going to
+ 
+
+00:09:14.000 --> 00:09:18.630 align:start position:0%
+information. That's why it is going to
+the<00:09:14.240><c> controller.</c><00:09:15.360><c> Okay.</c><00:09:16.080><c> So</c><00:09:16.720><c> which</c><00:09:17.120><c> broker</c>
+
+00:09:18.630 --> 00:09:18.640 align:start position:0%
+the controller. Okay. So which broker
+ 
+
+00:09:18.640 --> 00:09:22.790 align:start position:0%
+the controller. Okay. So which broker
+holds<00:09:19.040><c> which</c><00:09:19.360><c> topic</c><00:09:20.560><c> and</c>
+
+00:09:22.790 --> 00:09:22.800 align:start position:0%
+holds which topic and
+ 
+
+00:09:22.800 --> 00:09:24.389 align:start position:0%
+holds which topic and
+which<00:09:23.200><c> partition</c><00:09:23.680><c> as</c><00:09:23.920><c> leader</c><00:09:24.240><c> which</c>
+
+00:09:24.389 --> 00:09:24.399 align:start position:0%
+which partition as leader which
+ 
+
+00:09:24.399 --> 00:09:26.070 align:start position:0%
+which partition as leader which
+partition<00:09:24.800><c> as</c><00:09:24.959><c> follower</c><00:09:25.360><c> this</c><00:09:25.440><c> is</c><00:09:25.600><c> cluster</c>
+
+00:09:26.070 --> 00:09:26.080 align:start position:0%
+partition as follower this is cluster
+ 
+
+00:09:26.080 --> 00:09:28.070 align:start position:0%
+partition as follower this is cluster
+information<00:09:27.120><c> okay</c><00:09:27.440><c> and</c><00:09:27.600><c> that's</c><00:09:27.839><c> why</c>
+
+00:09:28.070 --> 00:09:28.080 align:start position:0%
+information okay and that's why
+ 
+
+00:09:28.080 --> 00:09:29.670 align:start position:0%
+information okay and that's why
+currently<00:09:28.320><c> at</c><00:09:28.560><c> this</c><00:09:28.640><c> point</c><00:09:28.800><c> of</c><00:09:28.959><c> time</c><00:09:29.200><c> consumer</c>
+
+00:09:29.670 --> 00:09:29.680 align:start position:0%
+currently at this point of time consumer
+ 
+
+00:09:29.680 --> 00:09:31.110 align:start position:0%
+currently at this point of time consumer
+is<00:09:29.839><c> interested</c><00:09:30.160><c> in</c><00:09:30.399><c> this</c><00:09:30.720><c> cluster</c>
+
+00:09:31.110 --> 00:09:31.120 align:start position:0%
+is interested in this cluster
+ 
+
+00:09:31.120 --> 00:09:34.710 align:start position:0%
+is interested in this cluster
+information<00:09:31.920><c> that</c><00:09:32.320><c> hey</c><00:09:33.680><c> who</c><00:09:34.000><c> holds</c><00:09:34.320><c> this</c>
+
+00:09:34.710 --> 00:09:34.720 align:start position:0%
+information that hey who holds this
+ 
+
+00:09:34.720 --> 00:09:36.710 align:start position:0%
+information that hey who holds this
+because<00:09:34.959><c> it</c><00:09:35.200><c> need</c><00:09:35.360><c> to</c><00:09:35.519><c> find</c><00:09:35.680><c> out</c><00:09:35.839><c> the</c><00:09:36.080><c> leader</c>
+
+00:09:36.710 --> 00:09:36.720 align:start position:0%
+because it need to find out the leader
+ 
+
+00:09:36.720 --> 00:09:39.190 align:start position:0%
+because it need to find out the leader
+for<00:09:37.040><c> this</c><00:09:37.279><c> partition.</c><00:09:38.399><c> So</c><00:09:38.640><c> first</c><00:09:38.880><c> it</c><00:09:39.120><c> is</c>
+
+00:09:39.190 --> 00:09:39.200 align:start position:0%
+for this partition. So first it is
+ 
+
+00:09:39.200 --> 00:09:42.630 align:start position:0%
+for this partition. So first it is
+fetching<00:09:39.600><c> the</c><00:09:40.320><c> cluster</c><00:09:40.959><c> metadata.</c>
+
+00:09:42.630 --> 00:09:42.640 align:start position:0%
+fetching the cluster metadata.
+ 
+
+00:09:42.640 --> 00:09:44.790 align:start position:0%
+fetching the cluster metadata.
+So<00:09:42.880><c> it</c><00:09:43.120><c> ask</c><00:09:43.360><c> any</c><00:09:43.600><c> broker</c><00:09:44.080><c> any</c><00:09:44.320><c> broker</c><00:09:44.640><c> will</c>
+
+00:09:44.790 --> 00:09:44.800 align:start position:0%
+So it ask any broker any broker will
+ 
+
+00:09:44.800 --> 00:09:46.389 align:start position:0%
+So it ask any broker any broker will
+goes<00:09:45.040><c> to</c><00:09:45.120><c> the</c><00:09:45.279><c> controller</c><00:09:45.760><c> if</c><00:09:46.000><c> it</c><00:09:46.160><c> doesn't</c>
+
+00:09:46.389 --> 00:09:46.399 align:start position:0%
+goes to the controller if it doesn't
+ 
+
+00:09:46.399 --> 00:09:48.870 align:start position:0%
+goes to the controller if it doesn't
+have<00:09:46.720><c> then</c><00:09:47.519><c> uh</c><00:09:47.760><c> it</c><00:09:48.000><c> goes</c><00:09:48.160><c> to</c><00:09:48.320><c> the</c><00:09:48.480><c> controller</c>
+
+00:09:48.870 --> 00:09:48.880 align:start position:0%
+have then uh it goes to the controller
+ 
+
+00:09:48.880 --> 00:09:50.630 align:start position:0%
+have then uh it goes to the controller
+controller<00:09:49.360><c> returns</c><00:09:49.680><c> the</c><00:09:49.920><c> information</c><00:09:50.320><c> and</c>
+
+00:09:50.630 --> 00:09:50.640 align:start position:0%
+controller returns the information and
+ 
+
+00:09:50.640 --> 00:09:53.269 align:start position:0%
+controller returns the information and
+ultimately<00:09:51.519><c> consumer</c><00:09:52.000><c> get</c><00:09:52.160><c> it.</c><00:09:52.560><c> So</c><00:09:52.800><c> consumer</c>
+
+00:09:53.269 --> 00:09:53.279 align:start position:0%
+ultimately consumer get it. So consumer
+ 
+
+00:09:53.279 --> 00:09:55.910 align:start position:0%
+ultimately consumer get it. So consumer
+knows<00:09:53.600><c> that</c><00:09:53.920><c> okay</c><00:09:54.160><c> for</c><00:09:54.480><c> this</c><00:09:54.800><c> topic</c><00:09:55.440><c> consumer</c>
+
+00:09:55.910 --> 00:09:55.920 align:start position:0%
+knows that okay for this topic consumer
+ 
+
+00:09:55.920 --> 00:09:57.990 align:start position:0%
+knows that okay for this topic consumer
+offset<00:09:56.320><c> topic</c>
+
+00:09:57.990 --> 00:09:58.000 align:start position:0%
+offset topic
+ 
+
+00:09:58.000 --> 00:10:00.230 align:start position:0%
+offset topic
+partition<00:09:58.640><c> zero</c>
+
+00:10:00.230 --> 00:10:00.240 align:start position:0%
+partition zero
+ 
+
+00:10:00.240 --> 00:10:04.150 align:start position:0%
+partition zero
+holds<00:10:00.640><c> by</c><00:10:01.120><c> broker</c><00:10:01.519><c> one</c><00:10:02.160><c> partition</c><00:10:02.959><c> two</c><00:10:03.760><c> leader</c>
+
+00:10:04.150 --> 00:10:04.160 align:start position:0%
+holds by broker one partition two leader
+ 
+
+00:10:04.160 --> 00:10:07.350 align:start position:0%
+holds by broker one partition two leader
+is<00:10:04.320><c> broker</c><00:10:04.720><c> two</c><00:10:05.120><c> and</c><00:10:05.360><c> let's</c><00:10:05.519><c> say</c><00:10:05.760><c> partition</c><00:10:06.320><c> 23</c>
+
+00:10:07.350 --> 00:10:07.360 align:start position:0%
+is broker two and let's say partition 23
+ 
+
+00:10:07.360 --> 00:10:10.070 align:start position:0%
+is broker two and let's say partition 23
+broker<00:10:08.240><c> three</c><00:10:08.560><c> contains</c><00:10:08.959><c> the</c><00:10:09.200><c> leader</c>
+
+00:10:10.070 --> 00:10:10.080 align:start position:0%
+broker three contains the leader
+ 
+
+00:10:10.080 --> 00:10:11.829 align:start position:0%
+broker three contains the leader
+replica.
+
+00:10:11.829 --> 00:10:11.839 align:start position:0%
+replica.
+ 
+
+00:10:11.839 --> 00:10:15.030 align:start position:0%
+replica.
+Okay.<00:10:12.560><c> Now</c><00:10:12.800><c> in</c><00:10:13.120><c> step</c><00:10:13.360><c> four</c><00:10:13.680><c> what</c><00:10:13.839><c> it</c><00:10:14.079><c> will</c><00:10:14.240><c> do?</c>
+
+00:10:15.030 --> 00:10:15.040 align:start position:0%
+Okay. Now in step four what it will do?
+ 
+
+00:10:15.040 --> 00:10:17.910 align:start position:0%
+Okay. Now in step four what it will do?
+It<00:10:15.279><c> will</c><00:10:15.519><c> invoke.</c><00:10:16.640><c> See</c><00:10:17.200><c> now</c><00:10:17.440><c> you</c><00:10:17.760><c> are</c>
+
+00:10:17.910 --> 00:10:17.920 align:start position:0%
+It will invoke. See now you are
+ 
+
+00:10:17.920 --> 00:10:21.190 align:start position:0%
+It will invoke. See now you are
+interested<00:10:18.240><c> in</c><00:10:18.480><c> this</c><00:10:18.720><c> 23</c><00:10:19.279><c> right.</c><00:10:20.000><c> I</c><00:10:20.320><c> told</c><00:10:20.480><c> you</c>
+
+00:10:21.190 --> 00:10:21.200 align:start position:0%
+interested in this 23 right. I told you
+ 
+
+00:10:21.200 --> 00:10:26.230 align:start position:0%
+interested in this 23 right. I told you
+that<00:10:22.000><c> only</c><00:10:22.560><c> leader</c><00:10:23.279><c> replica</c><00:10:23.920><c> can</c><00:10:24.480><c> write</c><00:10:25.920><c> and</c>
+
+00:10:26.230 --> 00:10:26.240 align:start position:0%
+that only leader replica can write and
+ 
+
+00:10:26.240 --> 00:10:29.509 align:start position:0%
+that only leader replica can write and
+can<00:10:26.560><c> read.</c><00:10:27.600><c> Okay.</c><00:10:28.160><c> So</c><00:10:28.320><c> it</c><00:10:28.560><c> can't</c><00:10:28.800><c> just</c><00:10:29.040><c> send</c><00:10:29.279><c> to</c>
+
+00:10:29.509 --> 00:10:29.519 align:start position:0%
+can read. Okay. So it can't just send to
+ 
+
+00:10:29.519 --> 00:10:32.949 align:start position:0%
+can read. Okay. So it can't just send to
+any<00:10:29.760><c> broker.</c><00:10:30.959><c> Let's</c><00:10:31.200><c> say</c><00:10:31.600><c> even</c><00:10:32.000><c> broker</c><00:10:32.480><c> 2</c><00:10:32.720><c> has</c>
+
+00:10:32.949 --> 00:10:32.959 align:start position:0%
+any broker. Let's say even broker 2 has
+ 
+
+00:10:32.959 --> 00:10:36.389 align:start position:0%
+any broker. Let's say even broker 2 has
+the<00:10:33.200><c> follower.</c><00:10:34.480><c> Let's</c><00:10:34.720><c> say</c><00:10:35.440><c> follower</c><00:10:35.920><c> of</c>
+
+00:10:36.389 --> 00:10:36.399 align:start position:0%
+the follower. Let's say follower of
+ 
+
+00:10:36.399 --> 00:10:39.110 align:start position:0%
+the follower. Let's say follower of
+partition<00:10:36.959><c> 23.</c><00:10:37.760><c> But</c><00:10:37.839><c> it</c><00:10:38.079><c> can't</c><00:10:38.320><c> invoke</c><00:10:38.720><c> broker</c>
+
+00:10:39.110 --> 00:10:39.120 align:start position:0%
+partition 23. But it can't invoke broker
+ 
+
+00:10:39.120 --> 00:10:41.430 align:start position:0%
+partition 23. But it can't invoke broker
+2.<00:10:39.440><c> It</c><00:10:39.680><c> has</c><00:10:40.000><c> partition</c><00:10:40.480><c> 23</c><00:10:40.959><c> follower.</c>
+
+00:10:41.430 --> 00:10:41.440 align:start position:0%
+2. It has partition 23 follower.
+ 
+
+00:10:41.440 --> 00:10:43.910 align:start position:0%
+2. It has partition 23 follower.
+Follower<00:10:41.920><c> can't</c><00:10:42.240><c> write.</c>
+
+00:10:43.910 --> 00:10:43.920 align:start position:0%
+Follower can't write.
+ 
+
+00:10:43.920 --> 00:10:47.990 align:start position:0%
+Follower can't write.
+Okay.<00:10:45.040><c> So</c><00:10:46.079><c> that's</c><00:10:46.399><c> why</c><00:10:47.040><c> it</c><00:10:47.279><c> need</c><00:10:47.519><c> to</c><00:10:47.680><c> goes</c><00:10:47.839><c> to</c>
+
+00:10:47.990 --> 00:10:48.000 align:start position:0%
+Okay. So that's why it need to goes to
+ 
+
+00:10:48.000 --> 00:10:50.069 align:start position:0%
+Okay. So that's why it need to goes to
+the<00:10:48.240><c> leader</c>
+
+00:10:50.069 --> 00:10:50.079 align:start position:0%
+the leader
+ 
+
+00:10:50.079 --> 00:10:52.710 align:start position:0%
+the leader
+broker.
+
+00:10:52.710 --> 00:10:52.720 align:start position:0%
+broker.
+ 
+
+00:10:52.720 --> 00:10:55.430 align:start position:0%
+broker.
+So<00:10:52.880><c> now</c><00:10:53.120><c> in</c><00:10:53.279><c> the</c><00:10:53.440><c> step</c><00:10:53.760><c> four</c><00:10:54.480><c> it</c><00:10:54.800><c> invokes</c>
+
+00:10:55.430 --> 00:10:55.440 align:start position:0%
+So now in the step four it invokes
+ 
+
+00:10:55.440 --> 00:10:58.470 align:start position:0%
+So now in the step four it invokes
+broker<00:10:55.920><c> three</c><00:10:56.880><c> and</c><00:10:57.120><c> that</c><00:10:57.680><c> generally</c><00:10:58.079><c> broker</c>
+
+00:10:58.470 --> 00:10:58.480 align:start position:0%
+broker three and that generally broker
+ 
+
+00:10:58.480 --> 00:11:00.230 align:start position:0%
+broker three and that generally broker
+no<00:10:58.720><c> in</c><00:10:58.959><c> case</c><00:10:59.040><c> of</c><00:10:59.200><c> consumer</c><00:10:59.680><c> known</c><00:10:59.839><c> as</c><00:11:00.000><c> group</c>
+
+00:11:00.230 --> 00:11:00.240 align:start position:0%
+no in case of consumer known as group
+ 
+
+00:11:00.240 --> 00:11:03.030 align:start position:0%
+no in case of consumer known as group
+coordinator.<00:11:01.120><c> I</c><00:11:01.360><c> told</c><00:11:01.519><c> you</c><00:11:01.760><c> that</c><00:11:02.640><c> why</c><00:11:02.880><c> it</c>
+
+00:11:03.030 --> 00:11:03.040 align:start position:0%
+coordinator. I told you that why it
+ 
+
+00:11:03.040 --> 00:11:05.110 align:start position:0%
+coordinator. I told you that why it
+known<00:11:03.200><c> as</c><00:11:03.360><c> group</c><00:11:03.680><c> coordinator</c><00:11:04.560><c> because</c><00:11:04.880><c> let's</c>
+
+00:11:05.110 --> 00:11:05.120 align:start position:0%
+known as group coordinator because let's
+ 
+
+00:11:05.120 --> 00:11:07.590 align:start position:0%
+known as group coordinator because let's
+say<00:11:05.200><c> if</c><00:11:05.360><c> your</c><00:11:05.600><c> group</c><00:11:05.839><c> is</c><00:11:06.720><c> this</c><00:11:07.040><c> consumer</c><00:11:07.440><c> group</c>
+
+00:11:07.590 --> 00:11:07.600 align:start position:0%
+say if your group is this consumer group
+ 
+
+00:11:07.600 --> 00:11:09.750 align:start position:0%
+say if your group is this consumer group
+is<00:11:07.839><c> notification</c>
+
+00:11:09.750 --> 00:11:09.760 align:start position:0%
+is notification
+ 
+
+00:11:09.760 --> 00:11:14.230 align:start position:0%
+is notification
+it<00:11:10.000><c> will</c><00:11:10.480><c> always</c><00:11:11.040><c> comes</c><00:11:11.440><c> like</c><00:11:12.079><c> same</c><00:11:12.480><c> partition</c>
+
+00:11:14.230 --> 00:11:14.240 align:start position:0%
+it will always comes like same partition
+ 
+
+00:11:14.240 --> 00:11:16.550 align:start position:0%
+it will always comes like same partition
+partition<00:11:14.880><c> 23</c><00:11:15.440><c> because</c><00:11:15.680><c> formula</c><00:11:16.079><c> is</c><00:11:16.320><c> like</c>
+
+00:11:16.550 --> 00:11:16.560 align:start position:0%
+partition 23 because formula is like
+ 
+
+00:11:16.560 --> 00:11:20.550 align:start position:0%
+partition 23 because formula is like
+hash<00:11:16.959><c> of</c><00:11:17.360><c> group</c><00:11:17.680><c> ID</c><00:11:18.240><c> mod</c><00:11:18.560><c> 50</c><00:11:19.360><c> okay</c><00:11:20.079><c> and</c><00:11:20.240><c> let's</c>
+
+00:11:20.550 --> 00:11:20.560 align:start position:0%
+hash of group ID mod 50 okay and let's
+ 
+
+00:11:20.560 --> 00:11:23.829 align:start position:0%
+hash of group ID mod 50 okay and let's
+say<00:11:20.800><c> one</c><00:11:21.120><c> particular</c><00:11:21.920><c> broker</c><00:11:22.880><c> host</c><00:11:23.279><c> this</c><00:11:23.519><c> as</c><00:11:23.680><c> a</c>
+
+00:11:23.829 --> 00:11:23.839 align:start position:0%
+say one particular broker host this as a
+ 
+
+00:11:23.839 --> 00:11:26.230 align:start position:0%
+say one particular broker host this as a
+leader<00:11:24.640><c> so</c><00:11:24.959><c> this</c><00:11:25.120><c> broker</c><00:11:25.519><c> is</c><00:11:25.680><c> known</c><00:11:25.839><c> as</c><00:11:26.000><c> group</c>
+
+00:11:26.230 --> 00:11:26.240 align:start position:0%
+leader so this broker is known as group
+ 
+
+00:11:26.240 --> 00:11:29.590 align:start position:0%
+leader so this broker is known as group
+coordinator<00:11:26.959><c> so</c><00:11:27.279><c> always</c><00:11:27.680><c> for</c><00:11:28.000><c> this</c><00:11:29.120><c> group</c>
+
+00:11:29.590 --> 00:11:29.600 align:start position:0%
+coordinator so always for this group
+ 
+
+00:11:29.600 --> 00:11:32.630 align:start position:0%
+coordinator so always for this group
+request<00:11:30.000><c> come</c><00:11:30.160><c> to</c><00:11:30.399><c> this</c><00:11:30.560><c> broker</c><00:11:31.040><c> only</c><00:11:32.320><c> because</c>
+
+00:11:32.630 --> 00:11:32.640 align:start position:0%
+request come to this broker only because
+ 
+
+00:11:32.640 --> 00:11:36.710 align:start position:0%
+request come to this broker only because
+this<00:11:32.880><c> host</c><00:11:33.200><c> the</c><00:11:33.440><c> leader</c><00:11:33.760><c> for</c><00:11:34.000><c> this</c><00:11:34.160><c> partition.</c>
+
+00:11:36.710 --> 00:11:36.720 align:start position:0%
+this host the leader for this partition.
+ 
+
+00:11:36.720 --> 00:11:39.509 align:start position:0%
+this host the leader for this partition.
+Okay.<00:11:37.839><c> So</c><00:11:38.000><c> you</c><00:11:38.240><c> can</c><00:11:38.399><c> say</c><00:11:38.480><c> that</c><00:11:38.800><c> partition</c><00:11:39.279><c> is</c>
+
+00:11:39.509 --> 00:11:39.519 align:start position:0%
+Okay. So you can say that partition is
+ 
+
+00:11:39.519 --> 00:11:42.630 align:start position:0%
+Okay. So you can say that partition is
+just<00:11:39.760><c> a</c><00:11:40.000><c> way</c><00:11:40.079><c> of</c><00:11:40.399><c> distributing</c><00:11:40.959><c> the</c><00:11:41.200><c> load</c><00:11:42.079><c> to</c>
+
+00:11:42.630 --> 00:11:42.640 align:start position:0%
+just a way of distributing the load to
+ 
+
+00:11:42.640 --> 00:11:47.590 align:start position:0%
+just a way of distributing the load to
+uh<00:11:42.800><c> multiple</c><00:11:43.279><c> servers.</c>
+
+00:11:47.590 --> 00:11:47.600 align:start position:0%
+ 
+ 
+
+00:11:47.600 --> 00:11:53.829 align:start position:0%
+ 
+So<00:11:48.320><c> yes</c><00:11:49.440><c> now</c><00:11:50.399><c> broker</c><00:11:50.959><c> 3</c><00:11:52.160><c> will</c><00:11:53.200><c> got</c><00:11:53.519><c> this</c>
+
+00:11:53.829 --> 00:11:53.839 align:start position:0%
+So yes now broker 3 will got this
+ 
+
+00:11:53.839 --> 00:11:57.430 align:start position:0%
+So yes now broker 3 will got this
+request.<00:11:55.120><c> Okay.</c><00:11:55.920><c> And</c><00:11:56.079><c> the</c><00:11:56.320><c> request</c><00:11:56.640><c> is</c><00:11:57.040><c> that</c>
+
+00:11:57.430 --> 00:11:57.440 align:start position:0%
+request. Okay. And the request is that
+ 
+
+00:11:57.440 --> 00:11:59.030 align:start position:0%
+request. Okay. And the request is that
+this<00:11:57.680><c> consumer</c><00:11:58.160><c> wants</c><00:11:58.399><c> to</c><00:11:58.640><c> join</c><00:11:58.800><c> the</c>
+
+00:11:59.030 --> 00:11:59.040 align:start position:0%
+this consumer wants to join the
+ 
+
+00:11:59.040 --> 00:12:01.430 align:start position:0%
+this consumer wants to join the
+notification<00:11:59.600><c> service</c><00:11:59.920><c> group.</c><00:12:00.720><c> So</c><00:12:00.959><c> what</c><00:12:01.200><c> it</c>
+
+00:12:01.430 --> 00:12:01.440 align:start position:0%
+notification service group. So what it
+ 
+
+00:12:01.440 --> 00:12:04.150 align:start position:0%
+notification service group. So what it
+will<00:12:01.680><c> do,</c><00:12:02.480><c> okay,</c>
+
+00:12:04.150 --> 00:12:04.160 align:start position:0%
+will do, okay,
+ 
+
+00:12:04.160 --> 00:12:08.310 align:start position:0%
+will do, okay,
+in<00:12:04.560><c> step</c><00:12:04.880><c> five,</c><00:12:06.000><c> broker</c><00:12:06.480><c> 3,</c><00:12:07.200><c> it</c><00:12:07.519><c> will</c><00:12:07.760><c> update</c>
+
+00:12:08.310 --> 00:12:08.320 align:start position:0%
+in step five, broker 3, it will update
+ 
+
+00:12:08.320 --> 00:12:11.110 align:start position:0%
+in step five, broker 3, it will update
+its<00:12:08.800><c> metadata.</c>
+
+00:12:11.110 --> 00:12:11.120 align:start position:0%
+its metadata.
+ 
+
+00:12:11.120 --> 00:12:16.870 align:start position:0%
+its metadata.
+Okay,<00:12:11.920><c> and</c><00:12:12.880><c> you</c><00:12:13.200><c> remember</c><00:12:13.839><c> like</c><00:12:14.079><c> for</c><00:12:14.399><c> consumer</c>
+
+00:12:16.870 --> 00:12:16.880 align:start position:0%
+Okay, and you remember like for consumer
+ 
+
+00:12:16.880 --> 00:12:19.590 align:start position:0%
+Okay, and you remember like for consumer
+the<00:12:17.120><c> metadata</c><00:12:17.839><c> information</c><00:12:18.480><c> is</c><00:12:18.880><c> like</c><00:12:19.279><c> where</c>
+
+00:12:19.590 --> 00:12:19.600 align:start position:0%
+the metadata information is like where
+ 
+
+00:12:19.600 --> 00:12:21.990 align:start position:0%
+the metadata information is like where
+it<00:12:19.760><c> is</c><00:12:20.000><c> stored.</c>
+
+00:12:21.990 --> 00:12:22.000 align:start position:0%
+it is stored.
+ 
+
+00:12:22.000 --> 00:12:25.829 align:start position:0%
+it is stored.
+It<00:12:22.240><c> is</c><00:12:22.480><c> stored</c><00:12:22.720><c> under</c><00:12:23.519><c> consumer</c>
+
+00:12:25.829 --> 00:12:25.839 align:start position:0%
+It is stored under consumer
+ 
+
+00:12:25.839 --> 00:12:28.470 align:start position:0%
+It is stored under consumer
+offset.<00:12:26.639><c> All</c><00:12:27.040><c> information</c><00:12:27.839><c> regarding</c>
+
+00:12:28.470 --> 00:12:28.480 align:start position:0%
+offset. All information regarding
+ 
+
+00:12:28.480 --> 00:12:32.310 align:start position:0%
+offset. All information regarding
+consumer<00:12:29.519><c> is</c><00:12:29.920><c> stored</c><00:12:30.160><c> in</c><00:12:30.399><c> this.</c><00:12:31.200><c> See</c><00:12:31.760><c> consumer</c>
+
+00:12:32.310 --> 00:12:32.320 align:start position:0%
+consumer is stored in this. See consumer
+ 
+
+00:12:32.320 --> 00:12:34.310 align:start position:0%
+consumer is stored in this. See consumer
+related<00:12:32.800><c> information</c><00:12:33.200><c> is</c><00:12:33.519><c> not</c><00:12:33.920><c> cluster</c>
+
+00:12:34.310 --> 00:12:34.320 align:start position:0%
+related information is not cluster
+ 
+
+00:12:34.320 --> 00:12:37.670 align:start position:0%
+related information is not cluster
+metadata.<00:12:35.120><c> It</c><00:12:35.440><c> never</c><00:12:35.680><c> goes</c><00:12:36.000><c> till</c><00:12:36.399><c> controller.</c>
+
+00:12:37.670 --> 00:12:37.680 align:start position:0%
+metadata. It never goes till controller.
+ 
+
+00:12:37.680 --> 00:12:40.470 align:start position:0%
+metadata. It never goes till controller.
+Okay.<00:12:38.639><c> This</c><00:12:38.959><c> consumer</c>
+
+00:12:40.470 --> 00:12:40.480 align:start position:0%
+Okay. This consumer
+ 
+
+00:12:40.480 --> 00:12:43.430 align:start position:0%
+Okay. This consumer
+is<00:12:40.800><c> part</c><00:12:41.040><c> of</c><00:12:41.279><c> this</c><00:12:41.600><c> group.</c><00:12:42.240><c> This</c><00:12:42.480><c> consumer</c>
+
+00:12:43.430 --> 00:12:43.440 align:start position:0%
+is part of this group. This consumer
+ 
+
+00:12:43.440 --> 00:12:45.990 align:start position:0%
+is part of this group. This consumer
+takes<00:12:43.760><c> care</c><00:12:44.000><c> of</c><00:12:44.160><c> this</c><00:12:44.399><c> partition.</c><00:12:45.680><c> This</c><00:12:45.839><c> is</c>
+
+00:12:45.990 --> 00:12:46.000 align:start position:0%
+takes care of this partition. This is
+ 
+
+00:12:46.000 --> 00:12:49.269 align:start position:0%
+takes care of this partition. This is
+not<00:12:46.320><c> cluster</c><00:12:47.120><c> information.</c><00:12:48.399><c> Okay.</c><00:12:48.880><c> So</c><00:12:49.120><c> all</c>
+
+00:12:49.269 --> 00:12:49.279 align:start position:0%
+not cluster information. Okay. So all
+ 
+
+00:12:49.279 --> 00:12:51.990 align:start position:0%
+not cluster information. Okay. So all
+this<00:12:49.600><c> information</c><00:12:50.000><c> is</c><00:12:50.399><c> stored</c><00:12:50.720><c> within</c><00:12:51.120><c> this</c>
+
+00:12:51.990 --> 00:12:52.000 align:start position:0%
+this information is stored within this
+ 
+
+00:12:52.000 --> 00:12:54.150 align:start position:0%
+this information is stored within this
+topic<00:12:52.399><c> itself.</c>
+
+00:12:54.150 --> 00:12:54.160 align:start position:0%
+topic itself.
+ 
+
+00:12:54.160 --> 00:12:58.949 align:start position:0%
+topic itself.
+So<00:12:54.320><c> that's</c><00:12:54.560><c> what</c><00:12:54.800><c> it</c><00:12:55.040><c> does.</c><00:12:56.000><c> Okay.</c><00:12:56.959><c> So</c><00:12:57.279><c> it</c><00:12:58.639><c> what</c>
+
+00:12:58.949 --> 00:12:58.959 align:start position:0%
+So that's what it does. Okay. So it what
+ 
+
+00:12:58.959 --> 00:13:01.110 align:start position:0%
+So that's what it does. Okay. So it what
+it<00:12:59.120><c> this</c><00:12:59.440><c> group</c><00:12:59.680><c> coordinator</c><00:13:00.320><c> will</c><00:13:00.480><c> do</c><00:13:00.639><c> is</c><00:13:00.880><c> it</c>
+
+00:13:01.110 --> 00:13:01.120 align:start position:0%
+it this group coordinator will do is it
+ 
+
+00:13:01.120 --> 00:13:03.430 align:start position:0%
+it this group coordinator will do is it
+will<00:13:01.279><c> update</c><00:13:01.760><c> its</c><00:13:02.160><c> consumer</c><00:13:02.639><c> metadata.</c><00:13:03.279><c> You</c>
+
+00:13:03.430 --> 00:13:03.440 align:start position:0%
+will update its consumer metadata. You
+ 
+
+00:13:03.440 --> 00:13:05.350 align:start position:0%
+will update its consumer metadata. You
+can<00:13:03.600><c> say</c><00:13:03.760><c> that</c><00:13:04.240><c> and</c><00:13:04.399><c> it</c><00:13:04.639><c> will</c><00:13:04.720><c> say</c><00:13:04.800><c> that</c><00:13:05.120><c> okay</c>
+
+00:13:05.350 --> 00:13:05.360 align:start position:0%
+can say that and it will say that okay
+ 
+
+00:13:05.360 --> 00:13:07.110 align:start position:0%
+can say that and it will say that okay
+let's<00:13:05.519><c> say</c><00:13:05.680><c> consumer</c><00:13:06.079><c> 3</c><00:13:06.240><c> is</c><00:13:06.399><c> the</c><00:13:06.560><c> new</c><00:13:06.720><c> consumer</c>
+
+00:13:07.110 --> 00:13:07.120 align:start position:0%
+let's say consumer 3 is the new consumer
+ 
+
+00:13:07.120 --> 00:13:09.509 align:start position:0%
+let's say consumer 3 is the new consumer
+which<00:13:07.279><c> it</c><00:13:07.519><c> wanted</c><00:13:07.760><c> to</c><00:13:07.920><c> add.</c><00:13:08.800><c> So</c><00:13:09.040><c> what</c><00:13:09.200><c> it</c><00:13:09.360><c> will</c>
+
+00:13:09.509 --> 00:13:09.519 align:start position:0%
+which it wanted to add. So what it will
+ 
+
+00:13:09.519 --> 00:13:12.470 align:start position:0%
+which it wanted to add. So what it will
+do<00:13:09.600><c> is</c><00:13:09.760><c> it</c><00:13:09.920><c> will</c><00:13:10.079><c> add</c><00:13:10.320><c> into</c><00:13:10.639><c> this</c><00:13:10.880><c> group.</c><00:13:12.000><c> Okay,</c>
+
+00:13:12.470 --> 00:13:12.480 align:start position:0%
+do is it will add into this group. Okay,
+ 
+
+00:13:12.480 --> 00:13:15.190 align:start position:0%
+do is it will add into this group. Okay,
+for<00:13:12.720><c> this</c><00:13:12.959><c> group,</c><00:13:13.519><c> this</c><00:13:13.760><c> topic,</c><00:13:14.480><c> hey</c><00:13:14.959><c> this</c>
+
+00:13:15.190 --> 00:13:15.200 align:start position:0%
+for this group, this topic, hey this
+ 
+
+00:13:15.200 --> 00:13:16.949 align:start position:0%
+for this group, this topic, hey this
+consumer,<00:13:15.760><c> you</c><00:13:16.000><c> take</c><00:13:16.160><c> care</c><00:13:16.320><c> of</c><00:13:16.560><c> partition</c>
+
+00:13:16.949 --> 00:13:16.959 align:start position:0%
+consumer, you take care of partition
+ 
+
+00:13:16.959 --> 00:13:20.870 align:start position:0%
+consumer, you take care of partition
+two.<00:13:17.279><c> It</c><00:13:17.440><c> will</c><00:13:17.600><c> assign</c><00:13:17.920><c> one</c><00:13:18.160><c> partition</c><00:13:18.560><c> to</c><00:13:18.800><c> it.</c>
+
+00:13:20.870 --> 00:13:20.880 align:start position:0%
+two. It will assign one partition to it.
+ 
+
+00:13:20.880 --> 00:13:25.269 align:start position:0%
+two. It will assign one partition to it.
+Okay,<00:13:22.320><c> so</c><00:13:22.639><c> broker</c><00:13:23.120><c> 3</c><00:13:23.680><c> waits</c>
+
+00:13:25.269 --> 00:13:25.279 align:start position:0%
+Okay, so broker 3 waits
+ 
+
+00:13:25.279 --> 00:13:26.870 align:start position:0%
+Okay, so broker 3 waits
+because
+
+00:13:26.870 --> 00:13:26.880 align:start position:0%
+because
+ 
+
+00:13:26.880 --> 00:13:29.990 align:start position:0%
+because
+in<00:13:27.200><c> producer</c><00:13:27.920><c> you</c><00:13:28.160><c> know</c><00:13:28.240><c> that</c><00:13:29.120><c> whenever</c><00:13:29.680><c> the</c>
+
+00:13:29.990 --> 00:13:30.000 align:start position:0%
+in producer you know that whenever the
+ 
+
+00:13:30.000 --> 00:13:32.870 align:start position:0%
+in producer you know that whenever the
+broker<00:13:30.480><c> writes</c><00:13:31.680><c> it</c><00:13:31.920><c> will</c><00:13:32.079><c> check</c><00:13:32.399><c> acknowledge</c>
+
+00:13:32.870 --> 00:13:32.880 align:start position:0%
+broker writes it will check acknowledge
+ 
+
+00:13:32.880 --> 00:13:35.350 align:start position:0%
+broker writes it will check acknowledge
+equals<00:13:33.200><c> to</c><00:13:33.360><c> all</c>
+
+00:13:35.350 --> 00:13:35.360 align:start position:0%
+equals to all
+ 
+
+00:13:35.360 --> 00:13:37.190 align:start position:0%
+equals to all
+or<00:13:35.680><c> acknowledge</c><00:13:36.160><c> equals</c><00:13:36.480><c> to</c><00:13:36.639><c> zero</c><00:13:36.959><c> or</c>
+
+00:13:37.190 --> 00:13:37.200 align:start position:0%
+or acknowledge equals to zero or
+ 
+
+00:13:37.200 --> 00:13:39.910 align:start position:0%
+or acknowledge equals to zero or
+acknowledge<00:13:37.680><c> equals</c><00:13:37.920><c> to</c><00:13:38.000><c> 1.</c><00:13:38.320><c> It</c><00:13:38.560><c> will</c><00:13:38.880><c> wait</c>
+
+00:13:39.910 --> 00:13:39.920 align:start position:0%
+acknowledge equals to 1. It will wait
+ 
+
+00:13:39.920 --> 00:13:42.629 align:start position:0%
+acknowledge equals to 1. It will wait
+for<00:13:40.160><c> replicas</c><00:13:40.720><c> within</c><00:13:41.040><c> ISR.</c>
+
+00:13:42.629 --> 00:13:42.639 align:start position:0%
+for replicas within ISR.
+ 
+
+00:13:42.639 --> 00:13:45.590 align:start position:0%
+for replicas within ISR.
+But<00:13:42.880><c> in</c><00:13:43.120><c> when</c><00:13:43.360><c> the</c><00:13:43.600><c> consumer</c><00:13:44.240><c> does</c><00:13:44.560><c> that</c><00:13:45.360><c> there</c>
+
+00:13:45.590 --> 00:13:45.600 align:start position:0%
+But in when the consumer does that there
+ 
+
+00:13:45.600 --> 00:13:47.190 align:start position:0%
+But in when the consumer does that there
+is<00:13:45.760><c> nothing</c><00:13:46.000><c> like</c><00:13:46.240><c> acknowledge</c><00:13:46.720><c> equals</c><00:13:47.040><c> to</c>
+
+00:13:47.190 --> 00:13:47.200 align:start position:0%
+is nothing like acknowledge equals to
+ 
+
+00:13:47.200 --> 00:13:49.910 align:start position:0%
+is nothing like acknowledge equals to
+all<00:13:47.519><c> or</c><00:13:47.760><c> it</c><00:13:48.000><c> pass</c><00:13:48.720><c> it</c><00:13:48.959><c> do</c><00:13:49.120><c> not</c><00:13:49.279><c> pass</c><00:13:49.519><c> anything.</c>
+
+00:13:49.910 --> 00:13:49.920 align:start position:0%
+all or it pass it do not pass anything.
+ 
+
+00:13:49.920 --> 00:13:52.710 align:start position:0%
+all or it pass it do not pass anything.
+Consumer<00:13:50.320><c> do</c><00:13:50.480><c> not</c><00:13:50.639><c> pass</c><00:13:50.880><c> anything.</c><00:13:52.240><c> So</c><00:13:52.480><c> what</c>
+
+00:13:52.710 --> 00:13:52.720 align:start position:0%
+Consumer do not pass anything. So what
+ 
+
+00:13:52.720 --> 00:13:55.430 align:start position:0%
+Consumer do not pass anything. So what
+happen<00:13:52.959><c> is</c><00:13:53.360><c> by</c><00:13:53.680><c> default</c><00:13:54.079><c> for</c><00:13:54.399><c> consumer</c><00:13:54.959><c> it</c><00:13:55.200><c> act</c>
+
+00:13:55.430 --> 00:13:55.440 align:start position:0%
+happen is by default for consumer it act
+ 
+
+00:13:55.440 --> 00:13:59.350 align:start position:0%
+happen is by default for consumer it act
+as<00:13:55.680><c> an</c><00:13:55.920><c> all.</c><00:13:57.199><c> Okay.</c><00:13:57.839><c> So</c><00:13:58.079><c> what</c><00:13:58.320><c> it</c><00:13:58.560><c> happen</c><00:13:58.720><c> is</c><00:13:59.120><c> it</c>
+
+00:13:59.350 --> 00:13:59.360 align:start position:0%
+as an all. Okay. So what it happen is it
+ 
+
+00:13:59.360 --> 00:14:02.629 align:start position:0%
+as an all. Okay. So what it happen is it
+will<00:13:59.680><c> wait</c><00:14:00.959><c> all</c><00:14:01.279><c> the</c><00:14:01.600><c> rep</c><00:14:02.000><c> like</c><00:14:02.240><c> you</c><00:14:02.399><c> can</c><00:14:02.480><c> say</c>
+
+00:14:02.629 --> 00:14:02.639 align:start position:0%
+will wait all the rep like you can say
+ 
+
+00:14:02.639 --> 00:14:04.470 align:start position:0%
+will wait all the rep like you can say
+that<00:14:02.880><c> all</c><00:14:03.040><c> the</c><00:14:03.279><c> brokers</c><00:14:03.680><c> which</c><00:14:03.920><c> hold</c><00:14:04.240><c> this</c>
+
+00:14:04.470 --> 00:14:04.480 align:start position:0%
+that all the brokers which hold this
+ 
+
+00:14:04.480 --> 00:14:09.269 align:start position:0%
+that all the brokers which hold this
+partition<00:14:05.040><c> 23</c><00:14:05.600><c> replica</c>
+
+00:14:09.269 --> 00:14:09.279 align:start position:0%
+ 
+ 
+
+00:14:09.279 --> 00:14:11.590 align:start position:0%
+ 
+it<00:14:09.519><c> will</c><00:14:09.680><c> wait</c><00:14:09.920><c> for</c><00:14:10.079><c> it</c><00:14:10.320><c> so</c><00:14:10.560><c> that</c><00:14:10.880><c> they</c><00:14:11.199><c> also</c>
+
+00:14:11.590 --> 00:14:11.600 align:start position:0%
+it will wait for it so that they also
+ 
+
+00:14:11.600 --> 00:14:16.150 align:start position:0%
+it will wait for it so that they also
+update<00:14:12.639><c> this</c><00:14:13.519><c> information</c><00:14:14.000><c> that</c><00:14:14.480><c> okay</c><00:14:15.839><c> in</c>
+
+00:14:16.150 --> 00:14:16.160 align:start position:0%
+update this information that okay in
+ 
+
+00:14:16.160 --> 00:14:19.829 align:start position:0%
+update this information that okay in
+this<00:14:16.399><c> group</c><00:14:17.279><c> I</c><00:14:17.519><c> am</c><00:14:17.680><c> adding</c><00:14:18.000><c> this</c><00:14:18.240><c> new</c><00:14:18.560><c> consumer</c>
+
+00:14:19.829 --> 00:14:19.839 align:start position:0%
+this group I am adding this new consumer
+ 
+
+00:14:19.839 --> 00:14:21.910 align:start position:0%
+this group I am adding this new consumer
+and<00:14:20.160><c> this</c><00:14:20.480><c> consumer</c><00:14:20.959><c> will</c><00:14:21.199><c> take</c><00:14:21.360><c> care</c><00:14:21.519><c> of</c><00:14:21.680><c> the</c>
+
+00:14:21.910 --> 00:14:21.920 align:start position:0%
+and this consumer will take care of the
+ 
+
+00:14:21.920 --> 00:14:25.430 align:start position:0%
+and this consumer will take care of the
+partition<00:14:22.560><c> two</c><00:14:22.959><c> of</c><00:14:23.199><c> this</c><00:14:23.519><c> topic.</c><00:14:24.880><c> So</c><00:14:25.120><c> this</c>
+
+00:14:25.430 --> 00:14:25.440 align:start position:0%
+partition two of this topic. So this
+ 
+
+00:14:25.440 --> 00:14:28.790 align:start position:0%
+partition two of this topic. So this
+information<00:14:25.920><c> will</c><00:14:26.320><c> get</c><00:14:26.959><c> stored</c><00:14:27.360><c> into</c><00:14:28.560><c> the</c>
+
+00:14:28.790 --> 00:14:28.800 align:start position:0%
+information will get stored into the
+ 
+
+00:14:28.800 --> 00:14:33.110 align:start position:0%
+information will get stored into the
+leader<00:14:29.839><c> which</c><00:14:30.160><c> is</c><00:14:30.399><c> a</c><00:14:30.639><c> group</c><00:14:30.959><c> coordinator.</c>
+
+00:14:33.110 --> 00:14:33.120 align:start position:0%
+leader which is a group coordinator.
+ 
+
+00:14:33.120 --> 00:14:36.150 align:start position:0%
+leader which is a group coordinator.
+Okay.<00:14:33.839><c> And</c><00:14:34.079><c> also</c><00:14:34.480><c> all</c><00:14:34.800><c> the</c><00:14:35.040><c> followers</c><00:14:35.760><c> of</c><00:14:36.000><c> the</c>
+
+00:14:36.150 --> 00:14:36.160 align:start position:0%
+Okay. And also all the followers of the
+ 
+
+00:14:36.160 --> 00:14:41.430 align:start position:0%
+Okay. And also all the followers of the
+partition<00:14:36.720><c> 23.</c>
+
+00:14:41.430 --> 00:14:41.440 align:start position:0%
+ 
+ 
+
+00:14:41.440 --> 00:14:44.230 align:start position:0%
+ 
+So<00:14:41.680><c> once</c><00:14:42.000><c> that</c><00:14:42.240><c> is</c><00:14:42.399><c> done</c><00:14:42.959><c> like</c><00:14:43.440><c> consumer</c><00:14:44.000><c> is</c>
+
+00:14:44.230 --> 00:14:44.240 align:start position:0%
+So once that is done like consumer is
+ 
+
+00:14:44.240 --> 00:14:48.870 align:start position:0%
+So once that is done like consumer is
+added<00:14:44.480><c> to</c><00:14:44.639><c> the</c><00:14:44.880><c> group</c><00:14:46.160><c> the</c><00:14:46.480><c> next</c><00:14:46.800><c> step</c><00:14:47.120><c> is</c>
+
+00:14:48.870 --> 00:14:48.880 align:start position:0%
+added to the group the next step is
+ 
+
+00:14:48.880 --> 00:14:51.670 align:start position:0%
+added to the group the next step is
+see<00:14:49.199><c> consumer</c><00:14:49.760><c> let's</c><00:14:50.000><c> say</c><00:14:50.160><c> consumer</c><00:14:50.639><c> three</c><00:14:51.440><c> it</c>
+
+00:14:51.670 --> 00:14:51.680 align:start position:0%
+see consumer let's say consumer three it
+ 
+
+00:14:51.680 --> 00:14:53.990 align:start position:0%
+see consumer let's say consumer three it
+is<00:14:51.839><c> assigned</c><00:14:52.240><c> partition</c><00:14:52.800><c> two.</c><00:14:53.360><c> Now</c><00:14:53.519><c> it</c><00:14:53.839><c> need</c>
+
+00:14:53.990 --> 00:14:54.000 align:start position:0%
+is assigned partition two. Now it need
+ 
+
+00:14:54.000 --> 00:14:57.910 align:start position:0%
+is assigned partition two. Now it need
+to<00:14:54.240><c> know</c><00:14:55.519><c> okay</c><00:14:56.000><c> what</c><00:14:56.240><c> is</c><00:14:56.399><c> the</c><00:14:56.720><c> last</c><00:14:57.360><c> fetch</c>
+
+00:14:57.910 --> 00:14:57.920 align:start position:0%
+to know okay what is the last fetch
+ 
+
+00:14:57.920 --> 00:15:00.949 align:start position:0%
+to know okay what is the last fetch
+offset<00:14:58.399><c> for</c><00:14:58.639><c> this</c><00:14:58.800><c> one.</c><00:15:00.000><c> It</c><00:15:00.240><c> is</c><00:15:00.399><c> possible</c><00:15:00.720><c> that</c>
+
+00:15:00.949 --> 00:15:00.959 align:start position:0%
+offset for this one. It is possible that
+ 
+
+00:15:00.959 --> 00:15:03.189 align:start position:0%
+offset for this one. It is possible that
+some<00:15:01.279><c> previous</c><00:15:01.760><c> consumer</c><00:15:02.240><c> was</c><00:15:02.399><c> there</c><00:15:02.720><c> it</c><00:15:02.959><c> got</c>
+
+00:15:03.189 --> 00:15:03.199 align:start position:0%
+some previous consumer was there it got
+ 
+
+00:15:03.199 --> 00:15:05.269 align:start position:0%
+some previous consumer was there it got
+crashed<00:15:03.839><c> and</c><00:15:04.160><c> this</c><00:15:04.480><c> consumer</c><00:15:04.880><c> got</c><00:15:05.040><c> the</c>
+
+00:15:05.269 --> 00:15:05.279 align:start position:0%
+crashed and this consumer got the
+ 
+
+00:15:05.279 --> 00:15:07.590 align:start position:0%
+crashed and this consumer got the
+responsibility.<00:15:06.160><c> So</c><00:15:06.320><c> we</c><00:15:06.560><c> need</c><00:15:06.720><c> to</c><00:15:06.959><c> find</c><00:15:07.120><c> out</c>
+
+00:15:07.590 --> 00:15:07.600 align:start position:0%
+responsibility. So we need to find out
+ 
+
+00:15:07.600 --> 00:15:10.389 align:start position:0%
+responsibility. So we need to find out
+that<00:15:07.839><c> one</c><00:15:08.160><c> right.</c><00:15:08.639><c> What</c><00:15:08.800><c> is</c><00:15:08.959><c> the</c><00:15:09.199><c> last</c><00:15:09.519><c> offset</c>
+
+00:15:10.389 --> 00:15:10.399 align:start position:0%
+that one right. What is the last offset
+ 
+
+00:15:10.399 --> 00:15:12.629 align:start position:0%
+that one right. What is the last offset
+for<00:15:10.720><c> the</c><00:15:10.880><c> partition</c><00:15:11.440><c> two</c><00:15:12.160><c> has</c><00:15:12.480><c> been</c>
+
+00:15:12.629 --> 00:15:12.639 align:start position:0%
+for the partition two has been
+ 
+
+00:15:12.639 --> 00:15:14.710 align:start position:0%
+for the partition two has been
+processed.
+
+00:15:14.710 --> 00:15:14.720 align:start position:0%
+processed.
+ 
+
+00:15:14.720 --> 00:15:17.430 align:start position:0%
+processed.
+So<00:15:15.440><c> again</c>
+
+00:15:17.430 --> 00:15:17.440 align:start position:0%
+So again
+ 
+
+00:15:17.440 --> 00:15:20.790 align:start position:0%
+So again
+it<00:15:17.760><c> will</c><00:15:18.079><c> goes</c><00:15:18.399><c> to</c><00:15:18.560><c> where?</c><00:15:20.000><c> It</c><00:15:20.240><c> will</c><00:15:20.399><c> goes</c><00:15:20.639><c> to</c>
+
+00:15:20.790 --> 00:15:20.800 align:start position:0%
+it will goes to where? It will goes to
+ 
+
+00:15:20.800 --> 00:15:23.750 align:start position:0%
+it will goes to where? It will goes to
+the<00:15:20.959><c> group</c><00:15:21.279><c> coordinator</c><00:15:21.920><c> only.</c><00:15:23.040><c> Okay.</c><00:15:23.600><c> And</c>
+
+00:15:23.750 --> 00:15:23.760 align:start position:0%
+the group coordinator only. Okay. And
+ 
+
+00:15:23.760 --> 00:15:25.990 align:start position:0%
+the group coordinator only. Okay. And
+who<00:15:23.920><c> is</c><00:15:24.079><c> the</c><00:15:24.240><c> group</c><00:15:24.399><c> coordinator?</c><00:15:25.680><c> You</c><00:15:25.920><c> can</c>
+
+00:15:25.990 --> 00:15:26.000 align:start position:0%
+who is the group coordinator? You can
+ 
+
+00:15:26.000 --> 00:15:29.110 align:start position:0%
+who is the group coordinator? You can
+find<00:15:26.160><c> out</c><00:15:26.399><c> like</c><00:15:26.720><c> okay</c><00:15:27.760><c> u</c><00:15:28.079><c> the</c><00:15:28.320><c> same</c><00:15:28.480><c> formula</c><00:15:28.880><c> it</c>
+
+00:15:29.110 --> 00:15:29.120 align:start position:0%
+find out like okay u the same formula it
+ 
+
+00:15:29.120 --> 00:15:31.750 align:start position:0%
+find out like okay u the same formula it
+will<00:15:29.279><c> use</c><00:15:29.600><c> hash</c><00:15:30.000><c> of</c><00:15:30.320><c> group</c><00:15:30.639><c> ID</c><00:15:30.959><c> mod</c><00:15:31.279><c> 50.</c><00:15:31.600><c> You</c>
+
+00:15:31.750 --> 00:15:31.760 align:start position:0%
+will use hash of group ID mod 50. You
+ 
+
+00:15:31.760 --> 00:15:34.230 align:start position:0%
+will use hash of group ID mod 50. You
+will<00:15:31.839><c> get</c><00:15:32.079><c> partition</c><00:15:32.560><c> 23.</c><00:15:33.279><c> From</c><00:15:33.440><c> the</c><00:15:33.600><c> metadata</c>
+
+00:15:34.230 --> 00:15:34.240 align:start position:0%
+will get partition 23. From the metadata
+ 
+
+00:15:34.240 --> 00:15:37.590 align:start position:0%
+will get partition 23. From the metadata
+it<00:15:34.480><c> will</c><00:15:34.639><c> see</c><00:15:34.800><c> that</c><00:15:35.120><c> okay</c><00:15:35.519><c> partition</c><00:15:36.079><c> 23</c><00:15:36.720><c> is</c>
+
+00:15:37.590 --> 00:15:37.600 align:start position:0%
+it will see that okay partition 23 is
+ 
+
+00:15:37.600 --> 00:15:43.030 align:start position:0%
+it will see that okay partition 23 is
+hold<00:15:38.000><c> by</c><00:15:39.360><c> broker</c><00:15:39.839><c> 3.</c><00:15:40.399><c> So</c><00:15:40.639><c> broker</c><00:15:41.120><c> 3</c><00:15:41.440><c> is</c>
+
+00:15:43.030 --> 00:15:43.040 align:start position:0%
+hold by broker 3. So broker 3 is
+ 
+
+00:15:43.040 --> 00:15:45.829 align:start position:0%
+hold by broker 3. So broker 3 is
+ultimately<00:15:43.839><c> get</c><00:15:44.079><c> the</c><00:15:44.320><c> call.</c>
+
+00:15:45.829 --> 00:15:45.839 align:start position:0%
+ultimately get the call.
+ 
+
+00:15:45.839 --> 00:15:48.389 align:start position:0%
+ultimately get the call.
+So<00:15:46.079><c> for</c><00:15:46.399><c> one</c><00:15:46.639><c> group</c><00:15:47.199><c> always</c><00:15:47.600><c> request</c><00:15:47.920><c> goes</c><00:15:48.160><c> to</c>
+
+00:15:48.389 --> 00:15:48.399 align:start position:0%
+So for one group always request goes to
+ 
+
+00:15:48.399 --> 00:15:51.189 align:start position:0%
+So for one group always request goes to
+you<00:15:48.560><c> can</c><00:15:48.639><c> say</c><00:15:48.720><c> that</c><00:15:48.959><c> one</c><00:15:49.199><c> broker</c><00:15:50.160><c> you</c><00:15:50.399><c> can</c><00:15:50.959><c> say</c>
+
+00:15:51.189 --> 00:15:51.199 align:start position:0%
+you can say that one broker you can say
+ 
+
+00:15:51.199 --> 00:15:52.870 align:start position:0%
+you can say that one broker you can say
+that<00:15:51.519><c> one.</c><00:15:52.000><c> So</c><00:15:52.160><c> that's</c><00:15:52.399><c> why</c><00:15:52.480><c> they</c><00:15:52.639><c> are</c><00:15:52.800><c> known</c>
+
+00:15:52.870 --> 00:15:52.880 align:start position:0%
+that one. So that's why they are known
+ 
+
+00:15:52.880 --> 00:15:55.350 align:start position:0%
+that one. So that's why they are known
+as<00:15:53.120><c> group</c><00:15:53.360><c> coordinator.</c><00:15:54.639><c> Now</c><00:15:54.880><c> this</c><00:15:55.120><c> group</c>
+
+00:15:55.350 --> 00:15:55.360 align:start position:0%
+as group coordinator. Now this group
+ 
+
+00:15:55.360 --> 00:15:58.150 align:start position:0%
+as group coordinator. Now this group
+coordinator<00:15:55.920><c> what</c><00:15:56.160><c> it</c><00:15:56.399><c> will</c><00:15:56.560><c> do</c><00:15:56.800><c> is</c><00:15:57.600><c> it</c><00:15:57.920><c> will</c>
+
+00:15:58.150 --> 00:15:58.160 align:start position:0%
+coordinator what it will do is it will
+ 
+
+00:15:58.160 --> 00:16:01.590 align:start position:0%
+coordinator what it will do is it will
+look<00:15:58.480><c> at</c><00:15:58.720><c> the</c><00:15:59.040><c> consumer</c><00:15:59.680><c> offset.</c>
+
+00:16:01.590 --> 00:16:01.600 align:start position:0%
+look at the consumer offset.
+ 
+
+00:16:01.600 --> 00:16:04.310 align:start position:0%
+look at the consumer offset.
+Okay.<00:16:02.320><c> And</c><00:16:02.800><c> internally</c><00:16:03.519><c> it</c><00:16:03.839><c> will</c><00:16:04.000><c> check</c><00:16:04.160><c> for</c>
+
+00:16:04.310 --> 00:16:04.320 align:start position:0%
+Okay. And internally it will check for
+ 
+
+00:16:04.320 --> 00:16:07.910 align:start position:0%
+Okay. And internally it will check for
+the<00:16:04.560><c> key</c><00:16:04.639><c> that</c><00:16:04.959><c> hey</c><00:16:05.440><c> this</c><00:16:05.680><c> is</c><00:16:05.759><c> the</c><00:16:06.000><c> group</c><00:16:06.320><c> ID.</c>
+
+00:16:07.910 --> 00:16:07.920 align:start position:0%
+the key that hey this is the group ID.
+ 
+
+00:16:07.920 --> 00:16:10.310 align:start position:0%
+the key that hey this is the group ID.
+Okay.<00:16:08.240><c> This</c><00:16:08.399><c> is</c><00:16:08.480><c> the</c><00:16:08.720><c> group</c><00:16:08.959><c> ID.</c><00:16:09.759><c> This</c><00:16:10.000><c> is</c><00:16:10.079><c> the</c>
+
+00:16:10.310 --> 00:16:10.320 align:start position:0%
+Okay. This is the group ID. This is the
+ 
+
+00:16:10.320 --> 00:16:12.870 align:start position:0%
+Okay. This is the group ID. This is the
+topic.<00:16:10.880><c> This</c><00:16:11.040><c> is</c><00:16:11.199><c> the</c><00:16:11.360><c> partition.</c>
+
+00:16:12.870 --> 00:16:12.880 align:start position:0%
+topic. This is the partition.
+ 
+
+00:16:12.880 --> 00:16:16.069 align:start position:0%
+topic. This is the partition.
+Okay.<00:16:13.360><c> And</c><00:16:13.600><c> it</c><00:16:14.240><c> find</c><00:16:14.959><c> the</c><00:16:15.279><c> value</c><00:16:15.600><c> the</c><00:16:15.839><c> last</c>
+
+00:16:16.069 --> 00:16:16.079 align:start position:0%
+Okay. And it find the value the last
+ 
+
+00:16:16.079 --> 00:16:18.470 align:start position:0%
+Okay. And it find the value the last
+offset<00:16:16.560><c> read</c>
+
+00:16:18.470 --> 00:16:18.480 align:start position:0%
+offset read
+ 
+
+00:16:18.480 --> 00:16:21.590 align:start position:0%
+offset read
+and<00:16:18.720><c> it</c><00:16:18.959><c> will</c><00:16:19.120><c> return</c><00:16:19.360><c> it.</c>
+
+00:16:21.590 --> 00:16:21.600 align:start position:0%
+and it will return it.
+ 
+
+00:16:21.600 --> 00:16:23.670 align:start position:0%
+and it will return it.
+Now<00:16:21.839><c> what</c><00:16:22.079><c> would</c><00:16:22.320><c> happen</c><00:16:22.480><c> is</c><00:16:22.720><c> now</c><00:16:22.959><c> it</c><00:16:23.199><c> got</c><00:16:23.360><c> that</c>
+
+00:16:23.670 --> 00:16:23.680 align:start position:0%
+Now what would happen is now it got that
+ 
+
+00:16:23.680 --> 00:16:27.990 align:start position:0%
+Now what would happen is now it got that
+okay<00:16:24.639><c> from</c><00:16:24.959><c> 101</c><00:16:25.600><c> I</c><00:16:25.759><c> need</c><00:16:25.920><c> to</c><00:16:26.160><c> start.</c><00:16:27.120><c> Now</c><00:16:27.680><c> next</c>
+
+00:16:27.990 --> 00:16:28.000 align:start position:0%
+okay from 101 I need to start. Now next
+ 
+
+00:16:28.000 --> 00:16:31.749 align:start position:0%
+okay from 101 I need to start. Now next
+step<00:16:28.320><c> what</c><00:16:28.560><c> it</c><00:16:28.720><c> will</c><00:16:28.959><c> do</c><00:16:29.120><c> is</c><00:16:29.440><c> that</c><00:16:30.480><c> it</c><00:16:30.800><c> will</c>
+
+00:16:31.749 --> 00:16:31.759 align:start position:0%
+step what it will do is that it will
+ 
+
+00:16:31.759 --> 00:16:35.509 align:start position:0%
+step what it will do is that it will
+invoke<00:16:32.240><c> the</c><00:16:32.560><c> leader</c><00:16:33.839><c> broker.</c><00:16:34.399><c> So</c><00:16:34.560><c> now</c><00:16:34.800><c> see</c><00:16:35.279><c> it</c>
+
+00:16:35.509 --> 00:16:35.519 align:start position:0%
+invoke the leader broker. So now see it
+ 
+
+00:16:35.519 --> 00:16:40.629 align:start position:0%
+invoke the leader broker. So now see it
+is<00:16:35.680><c> interested</c><00:16:36.000><c> in</c><00:16:36.880><c> topic</c><00:16:37.440><c> order</c><00:16:38.000><c> events</c>
+
+00:16:40.629 --> 00:16:40.639 align:start position:0%
+is interested in topic order events
+ 
+
+00:16:40.639 --> 00:16:43.749 align:start position:0%
+is interested in topic order events
+partition<00:16:41.360><c> two.</c><00:16:42.480><c> Okay,</c><00:16:43.040><c> because</c><00:16:43.360><c> this</c><00:16:43.600><c> is</c>
+
+00:16:43.749 --> 00:16:43.759 align:start position:0%
+partition two. Okay, because this is
+ 
+
+00:16:43.759 --> 00:16:45.110 align:start position:0%
+partition two. Okay, because this is
+this<00:16:44.000><c> is</c><00:16:44.160><c> the</c><00:16:44.320><c> partition</c><00:16:44.639><c> it</c><00:16:44.800><c> has</c><00:16:44.959><c> been</c>
+
+00:16:45.110 --> 00:16:45.120 align:start position:0%
+this is the partition it has been
+ 
+
+00:16:45.120 --> 00:16:47.189 align:start position:0%
+this is the partition it has been
+assigned<00:16:45.360><c> to</c><00:16:45.519><c> is</c><00:16:45.680><c> right</c><00:16:46.240><c> partition</c><00:16:46.720><c> two</c><00:16:47.040><c> for</c>
+
+00:16:47.189 --> 00:16:47.199 align:start position:0%
+assigned to is right partition two for
+ 
+
+00:16:47.199 --> 00:16:49.430 align:start position:0%
+assigned to is right partition two for
+the<00:16:47.440><c> order</c><00:16:47.759><c> events</c>
+
+00:16:49.430 --> 00:16:49.440 align:start position:0%
+the order events
+ 
+
+00:16:49.440 --> 00:16:51.350 align:start position:0%
+the order events
+and<00:16:49.680><c> it</c><00:16:49.920><c> need</c><00:16:50.240><c> to</c><00:16:50.480><c> know</c><00:16:50.639><c> that</c><00:16:50.880><c> it</c><00:16:51.120><c> need</c><00:16:51.199><c> to</c>
+
+00:16:51.350 --> 00:16:51.360 align:start position:0%
+and it need to know that it need to
+ 
+
+00:16:51.360 --> 00:16:53.910 align:start position:0%
+and it need to know that it need to
+fetch<00:16:51.600><c> from</c><00:16:51.839><c> 101.</c>
+
+00:16:53.910 --> 00:16:53.920 align:start position:0%
+fetch from 101.
+ 
+
+00:16:53.920 --> 00:16:57.670 align:start position:0%
+fetch from 101.
+Now<00:16:54.240><c> from</c><00:16:54.560><c> this</c><00:16:54.800><c> metadata</c><00:16:56.240><c> in</c><00:16:56.480><c> this</c><00:16:56.639><c> metadata</c>
+
+00:16:57.670 --> 00:16:57.680 align:start position:0%
+Now from this metadata in this metadata
+ 
+
+00:16:57.680 --> 00:16:59.990 align:start position:0%
+Now from this metadata in this metadata
+it<00:16:57.920><c> also</c><00:16:58.240><c> have</c><00:16:58.560><c> information</c><00:16:59.040><c> about</c><00:16:59.680><c> this</c>
+
+00:16:59.990 --> 00:17:00.000 align:start position:0%
+it also have information about this
+ 
+
+00:17:00.000 --> 00:17:02.389 align:start position:0%
+it also have information about this
+topic<00:17:00.800><c> this</c><00:17:01.040><c> topic</c><00:17:01.519><c> this</c><00:17:01.680><c> partition</c><00:17:02.160><c> who</c><00:17:02.320><c> is</c>
+
+00:17:02.389 --> 00:17:02.399 align:start position:0%
+topic this topic this partition who is
+ 
+
+00:17:02.399 --> 00:17:06.150 align:start position:0%
+topic this topic this partition who is
+the<00:17:02.560><c> leader</c><00:17:03.279><c> let's</c><00:17:03.519><c> say</c><00:17:03.759><c> leader</c><00:17:04.400><c> is</c><00:17:05.679><c> broker</c>
+
+00:17:06.150 --> 00:17:06.160 align:start position:0%
+the leader let's say leader is broker
+ 
+
+00:17:06.160 --> 00:17:10.870 align:start position:0%
+the leader let's say leader is broker
+two<00:17:06.480><c> in</c><00:17:06.720><c> this</c><00:17:06.880><c> case</c><00:17:07.600><c> broker</c><00:17:08.000><c> two</c><00:17:08.240><c> hosts</c><00:17:08.559><c> the</c>
+
+00:17:10.870 --> 00:17:10.880 align:start position:0%
+two in this case broker two hosts the
+ 
+
+00:17:10.880 --> 00:17:14.390 align:start position:0%
+two in this case broker two hosts the
+leader<00:17:11.280><c> replica</c><00:17:12.480><c> of</c><00:17:12.720><c> this</c><00:17:12.959><c> partition</c><00:17:13.439><c> two.</c><00:17:14.240><c> So</c>
+
+00:17:14.390 --> 00:17:14.400 align:start position:0%
+leader replica of this partition two. So
+ 
+
+00:17:14.400 --> 00:17:18.710 align:start position:0%
+leader replica of this partition two. So
+it<00:17:14.640><c> will</c><00:17:14.880><c> call</c><00:17:15.600><c> broker</c><00:17:16.079><c> 2</c><00:17:16.319><c> directly</c>
+
+00:17:18.710 --> 00:17:18.720 align:start position:0%
+it will call broker 2 directly
+ 
+
+00:17:18.720 --> 00:17:21.350 align:start position:0%
+it will call broker 2 directly
+and<00:17:19.360><c> it</c><00:17:19.679><c> will</c><00:17:19.760><c> say</c><00:17:19.919><c> that</c><00:17:20.160><c> hey</c><00:17:20.559><c> fetch</c><00:17:20.959><c> me</c><00:17:21.120><c> from</c>
+
+00:17:21.350 --> 00:17:21.360 align:start position:0%
+and it will say that hey fetch me from
+ 
+
+00:17:21.360 --> 00:17:26.150 align:start position:0%
+and it will say that hey fetch me from
+101<00:17:22.400><c> and</c><00:17:22.880><c> return</c><00:17:23.199><c> me</c><00:17:23.520><c> 200</c><00:17:24.000><c> bytes.</c><00:17:25.439><c> Okay</c><00:17:25.760><c> we</c><00:17:26.000><c> can</c>
+
+00:17:26.150 --> 00:17:26.160 align:start position:0%
+101 and return me 200 bytes. Okay we can
+ 
+
+00:17:26.160 --> 00:17:28.710 align:start position:0%
+101 and return me 200 bytes. Okay we can
+configure<00:17:26.559><c> this</c><00:17:27.120><c> at</c><00:17:27.360><c> a</c><00:17:27.520><c> time</c><00:17:27.839><c> consumer</c><00:17:28.480><c> how</c>
+
+00:17:28.710 --> 00:17:28.720 align:start position:0%
+configure this at a time consumer how
+ 
+
+00:17:28.720 --> 00:17:30.630 align:start position:0%
+configure this at a time consumer how
+many<00:17:28.880><c> data</c><00:17:29.360><c> how</c><00:17:29.600><c> many</c><00:17:29.840><c> record</c><00:17:30.160><c> it</c><00:17:30.320><c> want</c><00:17:30.480><c> to</c>
+
+00:17:30.630 --> 00:17:30.640 align:start position:0%
+many data how many record it want to
+ 
+
+00:17:30.640 --> 00:17:32.870 align:start position:0%
+many data how many record it want to
+pull<00:17:30.880><c> based</c><00:17:31.120><c> on</c><00:17:31.280><c> memory</c><00:17:31.679><c> it</c><00:17:31.919><c> want</c><00:17:32.080><c> to</c><00:17:32.240><c> record</c>
+
+00:17:32.870 --> 00:17:32.880 align:start position:0%
+pull based on memory it want to record
+ 
+
+00:17:32.880 --> 00:17:35.510 align:start position:0%
+pull based on memory it want to record
+200<00:17:33.280><c> byt</c><00:17:33.520><c> in</c><00:17:33.679><c> a</c><00:17:33.840><c> one</c><00:17:34.000><c> shot.</c><00:17:34.799><c> So</c><00:17:35.039><c> what</c><00:17:35.280><c> this</c>
+
+00:17:35.510 --> 00:17:35.520 align:start position:0%
+200 byt in a one shot. So what this
+ 
+
+00:17:35.520 --> 00:17:37.830 align:start position:0%
+200 byt in a one shot. So what this
+broker<00:17:35.919><c> will</c><00:17:36.160><c> do</c><00:17:36.720><c> which</c><00:17:36.960><c> is</c><00:17:37.120><c> the</c><00:17:37.360><c> leader</c><00:17:37.679><c> of</c>
+
+00:17:37.830 --> 00:17:37.840 align:start position:0%
+broker will do which is the leader of
+ 
+
+00:17:37.840 --> 00:17:40.549 align:start position:0%
+broker will do which is the leader of
+this<00:17:38.160><c> partition</c><00:17:38.720><c> two</c><00:17:38.960><c> of</c><00:17:39.200><c> order</c><00:17:39.520><c> event</c><00:17:40.320><c> it</c>
+
+00:17:40.549 --> 00:17:40.559 align:start position:0%
+this partition two of order event it
+ 
+
+00:17:40.559 --> 00:17:43.110 align:start position:0%
+this partition two of order event it
+will<00:17:40.720><c> return</c><00:17:41.039><c> the</c><00:17:41.360><c> offset</c><00:17:41.760><c> in</c><00:17:42.000><c> sequential</c><00:17:42.480><c> way</c>
+
+00:17:43.110 --> 00:17:43.120 align:start position:0%
+will return the offset in sequential way
+ 
+
+00:17:43.120 --> 00:17:46.710 align:start position:0%
+will return the offset in sequential way
+from<00:17:43.440><c> 101</c><00:17:44.400><c> let's</c><00:17:44.640><c> say</c><00:17:44.880><c> till</c><00:17:45.200><c> 501</c><00:17:45.919><c> becomes</c><00:17:46.320><c> 200</c>
+
+00:17:46.710 --> 00:17:46.720 align:start position:0%
+from 101 let's say till 501 becomes 200
+ 
+
+00:17:46.720 --> 00:17:48.549 align:start position:0%
+from 101 let's say till 501 becomes 200
+bytes.<00:17:47.280><c> So</c><00:17:47.440><c> it</c><00:17:47.679><c> will</c><00:17:47.760><c> return</c><00:17:48.080><c> this</c><00:17:48.320><c> many</c>
+
+00:17:48.549 --> 00:17:48.559 align:start position:0%
+bytes. So it will return this many
+ 
+
+00:17:48.559 --> 00:17:51.270 align:start position:0%
+bytes. So it will return this many
+events.
+
+00:17:51.270 --> 00:17:51.280 align:start position:0%
+events.
+ 
+
+00:17:51.280 --> 00:17:53.190 align:start position:0%
+events.
+Now<00:17:51.679><c> what</c><00:17:51.919><c> it</c><00:17:52.080><c> will</c><00:17:52.240><c> do</c><00:17:52.320><c> is</c><00:17:52.480><c> it</c><00:17:52.720><c> will</c><00:17:52.960><c> start</c>
+
+00:17:53.190 --> 00:17:53.200 align:start position:0%
+Now what it will do is it will start
+ 
+
+00:17:53.200 --> 00:17:56.310 align:start position:0%
+Now what it will do is it will start
+processing<00:17:53.679><c> those.</c><00:17:54.960><c> Now</c><00:17:55.200><c> once</c><00:17:55.440><c> it</c><00:17:55.679><c> process</c><00:17:56.080><c> it</c>
+
+00:17:56.310 --> 00:17:56.320 align:start position:0%
+processing those. Now once it process it
+ 
+
+00:17:56.320 --> 00:17:59.669 align:start position:0%
+processing those. Now once it process it
+need<00:17:56.480><c> to</c><00:17:56.640><c> commit</c><00:17:57.120><c> also.</c><00:17:58.559><c> Okay.</c><00:17:59.039><c> So</c><00:17:59.200><c> what</c><00:17:59.440><c> it</c>
+
+00:17:59.669 --> 00:17:59.679 align:start position:0%
+need to commit also. Okay. So what it
+ 
+
+00:17:59.679 --> 00:18:01.750 align:start position:0%
+need to commit also. Okay. So what it
+will<00:17:59.840><c> do</c><00:18:00.080><c> is</c><00:18:00.240><c> that</c><00:18:00.480><c> let's</c><00:18:00.799><c> say</c><00:18:00.880><c> I</c><00:18:01.200><c> am</c><00:18:01.360><c> following</c>
+
+00:18:01.750 --> 00:18:01.760 align:start position:0%
+will do is that let's say I am following
+ 
+
+00:18:01.760 --> 00:18:05.669 align:start position:0%
+will do is that let's say I am following
+manual<00:18:02.960><c> approach</c><00:18:04.000><c> and</c><00:18:04.240><c> batch</c><00:18:05.039><c> like</c><00:18:05.360><c> after</c>
+
+00:18:05.669 --> 00:18:05.679 align:start position:0%
+manual approach and batch like after
+ 
+
+00:18:05.679 --> 00:18:08.549 align:start position:0%
+manual approach and batch like after
+this<00:18:06.160><c> all</c><00:18:07.200><c> one</c><00:18:07.520><c> batch</c><00:18:07.840><c> is</c><00:18:08.000><c> completed</c><00:18:08.320><c> then</c>
+
+00:18:08.549 --> 00:18:08.559 align:start position:0%
+this all one batch is completed then
+ 
+
+00:18:08.559 --> 00:18:10.470 align:start position:0%
+this all one batch is completed then
+only<00:18:08.720><c> I'm</c><00:18:08.880><c> doing</c><00:18:09.120><c> commit.</c><00:18:09.840><c> So</c><00:18:10.000><c> once</c><00:18:10.320><c> I</c>
+
+00:18:10.470 --> 00:18:10.480 align:start position:0%
+only I'm doing commit. So once I
+ 
+
+00:18:10.480 --> 00:18:13.750 align:start position:0%
+only I'm doing commit. So once I
+processed<00:18:11.039><c> all</c><00:18:11.919><c> what</c><00:18:12.160><c> I</c><00:18:12.400><c> am</c><00:18:12.480><c> doing</c><00:18:12.720><c> is</c><00:18:13.039><c> again</c><00:18:13.440><c> I</c>
+
+00:18:13.750 --> 00:18:13.760 align:start position:0%
+processed all what I am doing is again I
+ 
+
+00:18:13.760 --> 00:18:16.630 align:start position:0%
+processed all what I am doing is again I
+need<00:18:13.840><c> to</c><00:18:14.000><c> go</c><00:18:14.080><c> to</c><00:18:14.400><c> coordinator</c><00:18:15.600><c> because</c><00:18:16.160><c> all</c>
+
+00:18:16.630 --> 00:18:16.640 align:start position:0%
+need to go to coordinator because all
+ 
+
+00:18:16.640 --> 00:18:19.430 align:start position:0%
+need to go to coordinator because all
+consumer<00:18:17.280><c> related</c><00:18:17.840><c> information</c><00:18:18.799><c> is</c><00:18:19.200><c> stored</c>
+
+00:18:19.430 --> 00:18:19.440 align:start position:0%
+consumer related information is stored
+ 
+
+00:18:19.440 --> 00:18:23.350 align:start position:0%
+consumer related information is stored
+in<00:18:19.679><c> consumer</c><00:18:20.240><c> offset.</c><00:18:21.600><c> Okay.</c>
+
+00:18:23.350 --> 00:18:23.360 align:start position:0%
+in consumer offset. Okay.
+ 
+
+00:18:23.360 --> 00:18:26.230 align:start position:0%
+in consumer offset. Okay.
+And<00:18:23.919><c> uh</c><00:18:24.160><c> this</c><00:18:24.480><c> consumer</c><00:18:24.960><c> offset</c><00:18:25.520><c> has</c><00:18:25.760><c> multiple</c>
+
+00:18:26.230 --> 00:18:26.240 align:start position:0%
+And uh this consumer offset has multiple
+ 
+
+00:18:26.240 --> 00:18:30.390 align:start position:0%
+And uh this consumer offset has multiple
+partition<00:18:26.799><c> again</c><00:18:28.160><c> and</c><00:18:28.400><c> one</c><00:18:28.640><c> of</c><00:18:28.720><c> the</c><00:18:28.960><c> partition</c>
+
+00:18:30.390 --> 00:18:30.400 align:start position:0%
+partition again and one of the partition
+ 
+
+00:18:30.400 --> 00:18:33.190 align:start position:0%
+partition again and one of the partition
+it<00:18:30.640><c> has</c><00:18:30.799><c> to</c><00:18:31.039><c> store</c><00:18:31.360><c> this</c><00:18:32.240><c> because</c><00:18:32.640><c> partition</c>
+
+00:18:33.190 --> 00:18:33.200 align:start position:0%
+it has to store this because partition
+ 
+
+00:18:33.200 --> 00:18:35.510 align:start position:0%
+it has to store this because partition
+is<00:18:33.360><c> just</c><00:18:33.520><c> a</c><00:18:33.760><c> way</c><00:18:33.840><c> to</c><00:18:34.080><c> distribute</c><00:18:34.480><c> the</c><00:18:34.640><c> load</c>
+
+00:18:35.510 --> 00:18:35.520 align:start position:0%
+is just a way to distribute the load
+ 
+
+00:18:35.520 --> 00:18:37.669 align:start position:0%
+is just a way to distribute the load
+among<00:18:35.919><c> brokers.</c>
+
+00:18:37.669 --> 00:18:37.679 align:start position:0%
+among brokers.
+ 
+
+00:18:37.679 --> 00:18:39.590 align:start position:0%
+among brokers.
+So
+
+00:18:39.590 --> 00:18:39.600 align:start position:0%
+So
+ 
+
+00:18:39.600 --> 00:18:41.270 align:start position:0%
+So
+once<00:18:39.840><c> it</c><00:18:40.080><c> has</c><00:18:40.160><c> to</c><00:18:40.320><c> do</c><00:18:40.400><c> the</c><00:18:40.559><c> commit</c><00:18:40.880><c> what</c><00:18:41.120><c> it</c>
+
+00:18:41.270 --> 00:18:41.280 align:start position:0%
+once it has to do the commit what it
+ 
+
+00:18:41.280 --> 00:18:43.029 align:start position:0%
+once it has to do the commit what it
+will<00:18:41.360><c> do</c><00:18:41.520><c> is</c><00:18:41.679><c> that</c><00:18:41.840><c> it</c><00:18:42.080><c> knows</c><00:18:42.240><c> that</c><00:18:42.480><c> okay</c><00:18:42.720><c> for</c>
+
+00:18:43.029 --> 00:18:43.039 align:start position:0%
+will do is that it knows that okay for
+ 
+
+00:18:43.039 --> 00:18:47.029 align:start position:0%
+will do is that it knows that okay for
+this<00:18:43.600><c> uh</c><00:18:43.760><c> group</c><00:18:44.160><c> notification</c><00:18:45.600><c> group</c><00:18:46.799><c> my</c>
+
+00:18:47.029 --> 00:18:47.039 align:start position:0%
+this uh group notification group my
+ 
+
+00:18:47.039 --> 00:18:49.510 align:start position:0%
+this uh group notification group my
+partition<00:18:47.440><c> is</c><00:18:47.760><c> 23.</c><00:18:48.320><c> From</c><00:18:48.559><c> this</c><00:18:48.720><c> metadata</c><00:18:49.280><c> it</c>
+
+00:18:49.510 --> 00:18:49.520 align:start position:0%
+partition is 23. From this metadata it
+ 
+
+00:18:49.520 --> 00:18:53.750 align:start position:0%
+partition is 23. From this metadata it
+know<00:18:49.679><c> that</c><00:18:50.480><c> broker</c><00:18:50.960><c> 3</c><00:18:51.200><c> is</c><00:18:51.360><c> the</c>
+
+00:18:53.750 --> 00:18:53.760 align:start position:0%
+know that broker 3 is the
+ 
+
+00:18:53.760 --> 00:18:58.070 align:start position:0%
+know that broker 3 is the
+leader<00:18:54.240><c> which</c><00:18:54.720><c> host</c><00:18:55.840><c> partition</c><00:18:56.559><c> 23</c><00:18:57.200><c> of</c>
+
+00:18:58.070 --> 00:18:58.080 align:start position:0%
+leader which host partition 23 of
+ 
+
+00:18:58.080 --> 00:19:01.029 align:start position:0%
+leader which host partition 23 of
+consumer<00:18:58.640><c> offset.</c><00:19:00.000><c> Okay.</c><00:19:00.320><c> So</c><00:19:00.400><c> it</c><00:19:00.640><c> will</c><00:19:00.799><c> reach</c>
+
+00:19:01.029 --> 00:19:01.039 align:start position:0%
+consumer offset. Okay. So it will reach
+ 
+
+00:19:01.039 --> 00:19:03.909 align:start position:0%
+consumer offset. Okay. So it will reach
+to<00:19:01.120><c> the</c><00:19:01.280><c> broker</c><00:19:01.840><c> three</c><00:19:02.799><c> which</c><00:19:03.039><c> act</c><00:19:03.280><c> as</c><00:19:03.440><c> a</c><00:19:03.600><c> group</c>
+
+00:19:03.909 --> 00:19:03.919 align:start position:0%
+to the broker three which act as a group
+ 
+
+00:19:03.919 --> 00:19:06.150 align:start position:0%
+to the broker three which act as a group
+coordinator<00:19:04.400><c> for</c><00:19:04.640><c> this</c><00:19:05.200><c> group</c><00:19:05.520><c> notification</c>
+
+00:19:06.150 --> 00:19:06.160 align:start position:0%
+coordinator for this group notification
+ 
+
+00:19:06.160 --> 00:19:09.110 align:start position:0%
+coordinator for this group notification
+group<00:19:07.440><c> and</c><00:19:07.679><c> it</c><00:19:07.919><c> will</c><00:19:08.080><c> write</c><00:19:08.559><c> into</c><00:19:08.880><c> its</c>
+
+00:19:09.110 --> 00:19:09.120 align:start position:0%
+group and it will write into its
+ 
+
+00:19:09.120 --> 00:19:12.150 align:start position:0%
+group and it will write into its
+consumer<00:19:09.520><c> offset</c><00:19:10.080><c> partition</c><00:19:10.640><c> 23.</c>
+
+00:19:12.150 --> 00:19:12.160 align:start position:0%
+consumer offset partition 23.
+ 
+
+00:19:12.160 --> 00:19:16.150 align:start position:0%
+consumer offset partition 23.
+Okay,<00:19:12.480><c> consumer</c><00:19:12.960><c> offset</c><00:19:14.240><c> partition</c><00:19:14.880><c> 23</c><00:19:15.919><c> it</c>
+
+00:19:16.150 --> 00:19:16.160 align:start position:0%
+Okay, consumer offset partition 23 it
+ 
+
+00:19:16.160 --> 00:19:21.830 align:start position:0%
+Okay, consumer offset partition 23 it
+will<00:19:16.400><c> add</c><00:19:16.640><c> into</c><00:19:16.960><c> it</c><00:19:17.120><c> segment</c><00:19:17.520><c> file</c><00:19:18.000><c> let's</c><00:19:18.320><c> say</c>
+
+00:19:21.830 --> 00:19:21.840 align:start position:0%
+ 
+ 
+
+00:19:21.840 --> 00:19:26.230 align:start position:0%
+ 
+okay<00:19:22.240><c> that</c><00:19:22.480><c> it</c><00:19:22.720><c> process</c><00:19:23.120><c> till</c><00:19:24.559><c> 5001</c>
+
+00:19:26.230 --> 00:19:26.240 align:start position:0%
+okay that it process till 5001
+ 
+
+00:19:26.240 --> 00:19:28.870 align:start position:0%
+okay that it process till 5001
+and<00:19:26.480><c> once</c><00:19:26.799><c> it</c><00:19:26.960><c> is</c><00:19:27.120><c> done</c>
+
+00:19:28.870 --> 00:19:28.880 align:start position:0%
+and once it is done
+ 
+
+00:19:28.880 --> 00:19:32.390 align:start position:0%
+and once it is done
+the<00:19:29.200><c> consumer</c><00:19:29.919><c> continue</c><00:19:31.039><c> do</c><00:19:31.280><c> the</c><00:19:31.520><c> polling</c><00:19:32.160><c> so</c>
+
+00:19:32.390 --> 00:19:32.400 align:start position:0%
+the consumer continue do the polling so
+ 
+
+00:19:32.400 --> 00:19:34.230 align:start position:0%
+the consumer continue do the polling so
+one<00:19:32.640><c> thing</c><00:19:32.720><c> you</c><00:19:32.960><c> get</c><00:19:33.120><c> to</c><00:19:33.280><c> know</c><00:19:33.360><c> that</c><00:19:33.760><c> consumer</c>
+
+00:19:34.230 --> 00:19:34.240 align:start position:0%
+one thing you get to know that consumer
+ 
+
+00:19:34.240 --> 00:19:37.590 align:start position:0%
+one thing you get to know that consumer
+in<00:19:34.400><c> Kafka</c><00:19:34.960><c> consumers</c><00:19:35.360><c> are</c><00:19:35.679><c> poll</c><00:19:36.080><c> based</c><00:19:37.360><c> not</c>
+
+00:19:37.590 --> 00:19:37.600 align:start position:0%
+in Kafka consumers are poll based not
+ 
+
+00:19:37.600 --> 00:19:39.669 align:start position:0%
+in Kafka consumers are poll based not
+pushbased
+
+00:19:39.669 --> 00:19:39.679 align:start position:0%
+pushbased
+ 
+
+00:19:39.679 --> 00:19:42.230 align:start position:0%
+pushbased
+so<00:19:39.919><c> Kafka</c><00:19:40.400><c> is</c><00:19:40.559><c> not</c><00:19:40.720><c> pushbased</c><00:19:41.280><c> it's</c><00:19:41.679><c> was</c><00:19:41.919><c> poll</c>
+
+00:19:42.230 --> 00:19:42.240 align:start position:0%
+so Kafka is not pushbased it's was poll
+ 
+
+00:19:42.240 --> 00:19:43.990 align:start position:0%
+so Kafka is not pushbased it's was poll
+this<00:19:42.559><c> consumer</c><00:19:43.039><c> keep</c><00:19:43.200><c> on</c><00:19:43.360><c> polling</c><00:19:43.679><c> and</c><00:19:43.840><c> it</c>
+
+00:19:43.990 --> 00:19:44.000 align:start position:0%
+this consumer keep on polling and it
+ 
+
+00:19:44.000 --> 00:19:46.870 align:start position:0%
+this consumer keep on polling and it
+will<00:19:44.160><c> goes</c><00:19:44.320><c> to</c><00:19:44.400><c> the</c><00:19:44.640><c> step</c><00:19:44.960><c> eight</c><00:19:45.280><c> again</c>
+
+00:19:46.870 --> 00:19:46.880 align:start position:0%
+will goes to the step eight again
+ 
+
+00:19:46.880 --> 00:19:50.310 align:start position:0%
+will goes to the step eight again
+that<00:19:47.520><c> it</c><00:19:47.760><c> will</c><00:19:48.000><c> again</c><00:19:48.480><c> ask</c><00:19:48.799><c> the</c>
+
+00:19:50.310 --> 00:19:50.320 align:start position:0%
+that it will again ask the
+ 
+
+00:19:50.320 --> 00:19:52.950 align:start position:0%
+that it will again ask the
+order<00:19:50.640><c> events</c><00:19:51.039><c> to</c><00:19:51.679><c> fetch</c><00:19:52.000><c> me</c><00:19:52.240><c> another</c><00:19:52.559><c> 200</c>
+
+00:19:52.950 --> 00:19:52.960 align:start position:0%
+order events to fetch me another 200
+ 
+
+00:19:52.960 --> 00:19:57.029 align:start position:0%
+order events to fetch me another 200
+bytes<00:19:54.160><c> start</c><00:19:54.400><c> from</c><00:19:54.640><c> let's</c><00:19:54.799><c> say</c><00:19:54.960><c> 501</c>
+
+00:19:57.029 --> 00:19:57.039 align:start position:0%
+bytes start from let's say 501
+ 
+
+00:19:57.039 --> 00:19:59.669 align:start position:0%
+bytes start from let's say 501
+okay<00:19:57.600><c> and</c><00:19:57.760><c> once</c><00:19:58.080><c> it</c><00:19:58.240><c> is</c><00:19:58.480><c> uh</c><00:19:58.720><c> start</c><00:19:58.880><c> from</c><00:19:59.120><c> 502</c>
+
+00:19:59.669 --> 00:19:59.679 align:start position:0%
+okay and once it is uh start from 502
+ 
+
+00:19:59.679 --> 00:20:02.789 align:start position:0%
+okay and once it is uh start from 502
+because<00:19:59.919><c> 501</c><00:20:00.480><c> is</c><00:20:00.720><c> already</c><00:20:00.960><c> done</c><00:20:01.520><c> so</c><00:20:01.840><c> from</c><00:20:02.160><c> 502</c>
+
+00:20:02.789 --> 00:20:02.799 align:start position:0%
+because 501 is already done so from 502
+ 
+
+00:20:02.799 --> 00:20:05.350 align:start position:0%
+because 501 is already done so from 502
+give<00:20:02.960><c> me</c><00:20:03.120><c> another</c><00:20:03.520><c> 200</c><00:20:03.919><c> bytes</c><00:20:04.559><c> from</c><00:20:04.799><c> offset</c>
+
+00:20:05.350 --> 00:20:05.360 align:start position:0%
+give me another 200 bytes from offset
+ 
+
+00:20:05.360 --> 00:20:08.150 align:start position:0%
+give me another 200 bytes from offset
+502<00:20:06.160><c> give</c><00:20:06.240><c> me</c><00:20:06.400><c> another</c><00:20:06.720><c> 200</c><00:20:07.039><c> bytes</c><00:20:07.600><c> and</c><00:20:07.840><c> just</c>
+
+00:20:08.150 --> 00:20:08.160 align:start position:0%
+502 give me another 200 bytes and just
+ 
+
+00:20:08.160 --> 00:20:11.909 align:start position:0%
+502 give me another 200 bytes and just
+keep<00:20:08.320><c> on</c><00:20:08.480><c> flowing.</c>
+
+00:20:11.909 --> 00:20:11.919 align:start position:0%
+ 
+ 
+
+00:20:11.919 --> 00:20:14.630 align:start position:0%
+ 
+So<00:20:12.240><c> consumer</c><00:20:12.880><c> read</c><00:20:13.200><c> flow</c><00:20:13.360><c> is</c><00:20:13.520><c> also</c><00:20:13.840><c> clear</c><00:20:14.320><c> like</c>
+
+00:20:14.630 --> 00:20:14.640 align:start position:0%
+So consumer read flow is also clear like
+ 
+
+00:20:14.640 --> 00:20:16.230 align:start position:0%
+So consumer read flow is also clear like
+here
+
+00:20:16.230 --> 00:20:16.240 align:start position:0%
+here
+ 
+
+00:20:16.240 --> 00:20:19.270 align:start position:0%
+here
+we<00:20:16.559><c> have</c><00:20:16.720><c> seen</c><00:20:17.760><c> the</c><00:20:18.080><c> end</c><00:20:18.240><c> to</c><00:20:18.480><c> end</c><00:20:18.640><c> flow</c><00:20:18.960><c> what</c>
+
+00:20:19.270 --> 00:20:19.280 align:start position:0%
+we have seen the end to end flow what
+ 
+
+00:20:19.280 --> 00:20:24.150 align:start position:0%
+we have seen the end to end flow what
+consumer<00:20:19.760><c> will</c><00:20:20.000><c> do.</c>
+
+00:20:24.150 --> 00:20:24.160 align:start position:0%
+ 
+ 
+
+00:20:24.160 --> 00:20:27.590 align:start position:0%
+ 
+Okay.<00:20:25.600><c> Now</c><00:20:25.840><c> one</c><00:20:26.080><c> thing</c>
+
+00:20:27.590 --> 00:20:27.600 align:start position:0%
+Okay. Now one thing
+ 
+
+00:20:27.600 --> 00:20:31.190 align:start position:0%
+Okay. Now one thing
+is<00:20:28.400><c> log</c><00:20:28.799><c> compaction</c><00:20:29.520><c> strategy.</c>
+
+00:20:31.190 --> 00:20:31.200 align:start position:0%
+is log compaction strategy.
+ 
+
+00:20:31.200 --> 00:20:33.590 align:start position:0%
+is log compaction strategy.
+So<00:20:31.440><c> we</c><00:20:31.679><c> know</c><00:20:31.840><c> that</c><00:20:32.080><c> Kafka</c><00:20:32.640><c> is</c><00:20:32.960><c> keep</c><00:20:33.280><c> on</c>
+
+00:20:33.590 --> 00:20:33.600 align:start position:0%
+So we know that Kafka is keep on
+ 
+
+00:20:33.600 --> 00:20:35.830 align:start position:0%
+So we know that Kafka is keep on
+appending
+
+00:20:35.830 --> 00:20:35.840 align:start position:0%
+appending
+ 
+
+00:20:35.840 --> 00:20:39.669 align:start position:0%
+appending
+the<00:20:36.320><c> event</c><00:20:36.640><c> into</c><00:20:37.039><c> its</c><00:20:37.360><c> file.</c>
+
+00:20:39.669 --> 00:20:39.679 align:start position:0%
+the event into its file.
+ 
+
+00:20:39.679 --> 00:20:42.870 align:start position:0%
+the event into its file.
+So<00:20:40.400><c> when</c><00:20:40.720><c> it</c><00:20:40.960><c> deleted</c>
+
+00:20:42.870 --> 00:20:42.880 align:start position:0%
+So when it deleted
+ 
+
+00:20:42.880 --> 00:20:46.470 align:start position:0%
+So when it deleted
+or<00:20:43.200><c> when</c><00:20:43.440><c> it</c><00:20:43.919><c> uh</c><00:20:44.240><c> what's</c><00:20:44.559><c> the</c><00:20:44.799><c> strategy</c>
+
+00:20:46.470 --> 00:20:46.480 align:start position:0%
+or when it uh what's the strategy
+ 
+
+00:20:46.480 --> 00:20:48.710 align:start position:0%
+or when it uh what's the strategy
+to<00:20:46.799><c> remove</c><00:20:47.120><c> it</c><00:20:47.360><c> or</c><00:20:47.679><c> something?</c><00:20:48.080><c> So</c><00:20:48.320><c> there</c><00:20:48.559><c> are</c>
+
+00:20:48.710 --> 00:20:48.720 align:start position:0%
+to remove it or something? So there are
+ 
+
+00:20:48.720 --> 00:20:51.270 align:start position:0%
+to remove it or something? So there are
+two<00:20:48.880><c> policy</c><00:20:49.919><c> one</c><00:20:50.080><c> is</c><00:20:50.400><c> delete</c><00:20:50.799><c> which</c><00:20:51.039><c> is</c>
+
+00:20:51.270 --> 00:20:51.280 align:start position:0%
+two policy one is delete which is
+ 
+
+00:20:51.280 --> 00:20:54.149 align:start position:0%
+two policy one is delete which is
+default.<00:20:52.559><c> So</c><00:20:52.720><c> it</c><00:20:52.960><c> deletes</c><00:20:53.280><c> the</c><00:20:53.520><c> old</c><00:20:53.760><c> segment</c>
+
+00:20:54.149 --> 00:20:54.159 align:start position:0%
+default. So it deletes the old segment
+ 
+
+00:20:54.159 --> 00:20:55.990 align:start position:0%
+default. So it deletes the old segment
+based<00:20:54.400><c> on</c><00:20:54.640><c> time</c><00:20:54.799><c> or</c><00:20:55.039><c> size.</c><00:20:55.360><c> We</c><00:20:55.520><c> can</c><00:20:55.679><c> define</c>
+
+00:20:55.990 --> 00:20:56.000 align:start position:0%
+based on time or size. We can define
+ 
+
+00:20:56.000 --> 00:20:59.830 align:start position:0%
+based on time or size. We can define
+both.<00:20:56.480><c> So</c><00:20:56.640><c> in</c><00:20:56.880><c> configuration</c><00:20:58.240><c> I</c><00:20:58.559><c> can</c><00:20:58.720><c> do</c><00:20:58.880><c> this</c>
+
+00:20:59.830 --> 00:20:59.840 align:start position:0%
+both. So in configuration I can do this
+ 
+
+00:20:59.840 --> 00:21:01.909 align:start position:0%
+both. So in configuration I can do this
+cleanup<00:21:00.320><c> policy</c><00:21:00.640><c> is</c><00:21:00.880><c> delete</c><00:21:01.200><c> which</c><00:21:01.440><c> I</c><00:21:01.679><c> want</c><00:21:01.760><c> to</c>
+
+00:21:01.909 --> 00:21:01.919 align:start position:0%
+cleanup policy is delete which I want to
+ 
+
+00:21:01.919 --> 00:21:05.029 align:start position:0%
+cleanup policy is delete which I want to
+go.<00:21:03.039><c> Retention</c><00:21:03.520><c> is</c><00:21:03.840><c> let's</c><00:21:04.080><c> say</c><00:21:04.320><c> 7</c><00:21:04.559><c> days</c><00:21:04.799><c> I</c><00:21:04.960><c> want</c>
+
+00:21:05.029 --> 00:21:05.039 align:start position:0%
+go. Retention is let's say 7 days I want
+ 
+
+00:21:05.039 --> 00:21:06.630 align:start position:0%
+go. Retention is let's say 7 days I want
+to<00:21:05.200><c> give.</c><00:21:05.440><c> So</c><00:21:05.600><c> you</c><00:21:05.760><c> can</c><00:21:05.840><c> give</c><00:21:06.000><c> in</c><00:21:06.159><c> millisecond</c>
+
+00:21:06.630 --> 00:21:06.640 align:start position:0%
+to give. So you can give in millisecond
+ 
+
+00:21:06.640 --> 00:21:09.270 align:start position:0%
+to give. So you can give in millisecond
+that<00:21:06.880><c> this</c><00:21:07.039><c> is</c><00:21:07.120><c> the</c><00:21:07.280><c> retention</c><00:21:07.760><c> time</c><00:21:08.880><c> and</c><00:21:09.120><c> you</c>
+
+00:21:09.270 --> 00:21:09.280 align:start position:0%
+that this is the retention time and you
+ 
+
+00:21:09.280 --> 00:21:12.630 align:start position:0%
+that this is the retention time and you
+can<00:21:09.440><c> also</c><00:21:09.679><c> give</c><00:21:09.840><c> the</c><00:21:10.080><c> bytes</c><00:21:10.720><c> 1</c><00:21:11.039><c> GB</c><00:21:12.000><c> I</c><00:21:12.240><c> want</c><00:21:12.400><c> to</c>
+
+00:21:12.630 --> 00:21:12.640 align:start position:0%
+can also give the bytes 1 GB I want to
+ 
+
+00:21:12.640 --> 00:21:15.669 align:start position:0%
+can also give the bytes 1 GB I want to
+have<00:21:12.799><c> the</c><00:21:13.039><c> maximum</c><00:21:13.520><c> size.</c><00:21:14.960><c> So</c><00:21:15.120><c> what</c><00:21:15.280><c> would</c><00:21:15.520><c> be</c>
+
+00:21:15.669 --> 00:21:15.679 align:start position:0%
+have the maximum size. So what would be
+ 
+
+00:21:15.679 --> 00:21:17.590 align:start position:0%
+have the maximum size. So what would be
+the<00:21:16.159><c> behavior?</c><00:21:16.720><c> Let's</c><00:21:16.880><c> say</c><00:21:17.039><c> you</c><00:21:17.280><c> know</c><00:21:17.360><c> that</c>
+
+00:21:17.590 --> 00:21:17.600 align:start position:0%
+the behavior? Let's say you know that
+ 
+
+00:21:17.600 --> 00:21:20.070 align:start position:0%
+the behavior? Let's say you know that
+everything<00:21:17.919><c> is</c><00:21:18.320><c> stored</c><00:21:18.480><c> within</c><00:21:18.720><c> a</c><00:21:18.960><c> segments.</c>
+
+00:21:20.070 --> 00:21:20.080 align:start position:0%
+everything is stored within a segments.
+ 
+
+00:21:20.080 --> 00:21:22.870 align:start position:0%
+everything is stored within a segments.
+So<00:21:20.240><c> it's</c><00:21:21.200><c> this</c><00:21:21.520><c> rules</c><00:21:21.919><c> applies</c><00:21:22.240><c> on</c><00:21:22.480><c> segments</c>
+
+00:21:22.870 --> 00:21:22.880 align:start position:0%
+So it's this rules applies on segments
+ 
+
+00:21:22.880 --> 00:21:25.750 align:start position:0%
+So it's this rules applies on segments
+you<00:21:23.120><c> can</c><00:21:23.200><c> say</c><00:21:23.520><c> partition</c><00:21:24.080><c> segment.</c><00:21:25.120><c> So</c><00:21:25.280><c> when</c><00:21:25.520><c> a</c>
+
+00:21:25.750 --> 00:21:25.760 align:start position:0%
+you can say partition segment. So when a
+ 
+
+00:21:25.760 --> 00:21:27.750 align:start position:0%
+you can say partition segment. So when a
+particular<00:21:26.240><c> segments</c><00:21:26.799><c> is</c><00:21:27.039><c> created</c><00:21:27.360><c> let's</c><00:21:27.600><c> say</c>
+
+00:21:27.750 --> 00:21:27.760 align:start position:0%
+particular segments is created let's say
+ 
+
+00:21:27.760 --> 00:21:30.310 align:start position:0%
+particular segments is created let's say
+8<00:21:28.000><c> days</c><00:21:28.240><c> ago</c><00:21:28.799><c> it</c><00:21:29.039><c> would</c><00:21:29.200><c> get</c><00:21:29.360><c> deleted</c><00:21:29.840><c> because</c>
+
+00:21:30.310 --> 00:21:30.320 align:start position:0%
+8 days ago it would get deleted because
+ 
+
+00:21:30.320 --> 00:21:31.909 align:start position:0%
+8 days ago it would get deleted because
+the<00:21:30.640><c> maximum</c><00:21:30.960><c> retention</c><00:21:31.440><c> time</c><00:21:31.600><c> you</c><00:21:31.840><c> have</c>
+
+00:21:31.909 --> 00:21:31.919 align:start position:0%
+the maximum retention time you have
+ 
+
+00:21:31.919 --> 00:21:34.230 align:start position:0%
+the maximum retention time you have
+given<00:21:32.240><c> 7</c><00:21:32.480><c> days.</c><00:21:33.120><c> So</c><00:21:33.280><c> it</c><00:21:33.520><c> always</c><00:21:33.840><c> works</c><00:21:34.080><c> on</c>
+
+00:21:34.230 --> 00:21:34.240 align:start position:0%
+given 7 days. So it always works on
+ 
+
+00:21:34.240 --> 00:21:36.310 align:start position:0%
+given 7 days. So it always works on
+segments.
+
+00:21:36.310 --> 00:21:36.320 align:start position:0%
+segments.
+ 
+
+00:21:36.320 --> 00:21:38.070 align:start position:0%
+segments.
+Okay.<00:21:36.720><c> Let's</c><00:21:36.960><c> say</c><00:21:37.039><c> if</c><00:21:37.200><c> any</c><00:21:37.440><c> segment</c><00:21:37.760><c> is</c><00:21:37.919><c> just</c>
+
+00:21:38.070 --> 00:21:38.080 align:start position:0%
+Okay. Let's say if any segment is just
+ 
+
+00:21:38.080 --> 00:21:40.070 align:start position:0%
+Okay. Let's say if any segment is just
+created<00:21:38.400><c> 6</c><00:21:38.640><c> days</c><00:21:38.799><c> ago,</c><00:21:39.120><c> it</c><00:21:39.280><c> would</c><00:21:39.440><c> be</c><00:21:39.520><c> kept.</c><00:21:39.840><c> It</c>
+
+00:21:40.070 --> 00:21:40.080 align:start position:0%
+created 6 days ago, it would be kept. It
+ 
+
+00:21:40.080 --> 00:21:42.149 align:start position:0%
+created 6 days ago, it would be kept. It
+won't<00:21:40.240><c> get</c><00:21:40.400><c> deleted.</c>
+
+00:21:42.149 --> 00:21:42.159 align:start position:0%
+won't get deleted.
+ 
+
+00:21:42.159 --> 00:21:44.310 align:start position:0%
+won't get deleted.
+Similarly,<00:21:42.640><c> the</c><00:21:42.880><c> size</c><00:21:43.120><c> based</c><00:21:43.520><c> like</c><00:21:43.919><c> uh</c><00:21:44.080><c> you</c>
+
+00:21:44.310 --> 00:21:44.320 align:start position:0%
+Similarly, the size based like uh you
+ 
+
+00:21:44.320 --> 00:21:46.710 align:start position:0%
+Similarly, the size based like uh you
+have<00:21:44.480><c> defined</c><00:21:44.880><c> 1</c><00:21:45.120><c> GB.</c><00:21:45.760><c> So</c><00:21:45.919><c> now</c><00:21:46.159><c> let's</c><00:21:46.400><c> say</c><00:21:46.480><c> that</c>
+
+00:21:46.710 --> 00:21:46.720 align:start position:0%
+have defined 1 GB. So now let's say that
+ 
+
+00:21:46.720 --> 00:21:49.029 align:start position:0%
+have defined 1 GB. So now let's say that
+segment<00:21:47.039><c> one</c><00:21:47.280><c> is</c><00:21:47.440><c> 1</c><00:21:47.600><c> GB,</c><00:21:48.000><c> segment</c><00:21:48.320><c> 2</c><00:21:48.480><c> is</c><00:21:48.640><c> 200</c>
+
+00:21:49.029 --> 00:21:49.039 align:start position:0%
+segment one is 1 GB, segment 2 is 200
+ 
+
+00:21:49.039 --> 00:21:51.830 align:start position:0%
+segment one is 1 GB, segment 2 is 200
+GB.<00:21:49.360><c> Total</c><00:21:49.679><c> is</c><00:21:49.840><c> 1.2GB.</c><00:21:51.039><c> So</c><00:21:51.200><c> it</c><00:21:51.360><c> is</c><00:21:51.600><c> greater</c>
+
+00:21:51.830 --> 00:21:51.840 align:start position:0%
+GB. Total is 1.2GB. So it is greater
+ 
+
+00:21:51.840 --> 00:21:55.430 align:start position:0%
+GB. Total is 1.2GB. So it is greater
+than<00:21:52.000><c> 1</c><00:21:52.320><c> GB.</c><00:21:53.280><c> Okay.</c><00:21:54.080><c> Uh</c><00:21:54.400><c> for</c><00:21:54.640><c> a</c><00:21:54.880><c> particular</c>
+
+00:21:55.430 --> 00:21:55.440 align:start position:0%
+than 1 GB. Okay. Uh for a particular
+ 
+
+00:21:55.440 --> 00:21:57.430 align:start position:0%
+than 1 GB. Okay. Uh for a particular
+partition,<00:21:56.240><c> what</c><00:21:56.400><c> would</c><00:21:56.640><c> happen</c><00:21:56.799><c> is</c><00:21:56.960><c> it</c><00:21:57.200><c> will</c>
+
+00:21:57.430 --> 00:21:57.440 align:start position:0%
+partition, what would happen is it will
+ 
+
+00:21:57.440 --> 00:21:59.669 align:start position:0%
+partition, what would happen is it will
+delete<00:21:58.080><c> the</c><00:21:58.480><c> old</c><00:21:58.880><c> segment.</c><00:21:59.280><c> So</c><00:21:59.360><c> it</c><00:21:59.600><c> will</c>
+
+00:21:59.669 --> 00:21:59.679 align:start position:0%
+delete the old segment. So it will
+ 
+
+00:21:59.679 --> 00:22:01.750 align:start position:0%
+delete the old segment. So it will
+delete<00:21:59.919><c> the</c><00:22:00.080><c> older</c><00:22:00.480><c> segment.</c><00:22:00.880><c> 1</c><00:22:01.120><c> GB</c><00:22:01.440><c> it</c><00:22:01.600><c> will</c>
+
+00:22:01.750 --> 00:22:01.760 align:start position:0%
+delete the older segment. 1 GB it will
+ 
+
+00:22:01.760 --> 00:22:03.909 align:start position:0%
+delete the older segment. 1 GB it will
+delete<00:22:02.000><c> it.</c>
+
+00:22:03.909 --> 00:22:03.919 align:start position:0%
+delete it.
+ 
+
+00:22:03.919 --> 00:22:06.870 align:start position:0%
+delete it.
+Okay.<00:22:04.480><c> So</c><00:22:04.640><c> it</c><00:22:05.280><c> remember</c><00:22:06.000><c> always</c><00:22:06.400><c> this</c><00:22:06.640><c> works</c>
+
+00:22:06.870 --> 00:22:06.880 align:start position:0%
+Okay. So it remember always this works
+ 
+
+00:22:06.880 --> 00:22:10.630 align:start position:0%
+Okay. So it remember always this works
+on<00:22:07.039><c> segment</c><00:22:07.440><c> level</c><00:22:07.679><c> of</c><00:22:07.840><c> a</c><00:22:08.080><c> partition.</c>
+
+00:22:10.630 --> 00:22:10.640 align:start position:0%
+on segment level of a partition.
+ 
+
+00:22:10.640 --> 00:22:14.390 align:start position:0%
+on segment level of a partition.
+Another<00:22:11.039><c> policy</c><00:22:11.440><c> is</c><00:22:11.679><c> compact</c>
+
+00:22:14.390 --> 00:22:14.400 align:start position:0%
+Another policy is compact
+ 
+
+00:22:14.400 --> 00:22:16.630 align:start position:0%
+Another policy is compact
+and<00:22:14.720><c> again</c><00:22:15.039><c> it</c><00:22:15.200><c> is</c><00:22:15.360><c> an</c><00:22:15.520><c> async</c><00:22:15.840><c> job.</c><00:22:16.080><c> It</c><00:22:16.240><c> do</c><00:22:16.480><c> not</c>
+
+00:22:16.630 --> 00:22:16.640 align:start position:0%
+and again it is an async job. It do not
+ 
+
+00:22:16.640 --> 00:22:19.830 align:start position:0%
+and again it is an async job. It do not
+happen<00:22:16.799><c> in</c><00:22:16.960><c> a</c><00:22:17.200><c> synchronous</c><00:22:18.159><c> manner.</c><00:22:19.600><c> The</c>
+
+00:22:19.830 --> 00:22:19.840 align:start position:0%
+happen in a synchronous manner. The
+ 
+
+00:22:19.840 --> 00:22:21.830 align:start position:0%
+happen in a synchronous manner. The
+compact.<00:22:20.480><c> So</c><00:22:20.640><c> compact</c><00:22:21.039><c> is</c><00:22:21.200><c> like</c><00:22:21.360><c> you</c><00:22:21.520><c> can</c><00:22:21.679><c> do</c>
+
+00:22:21.830 --> 00:22:21.840 align:start position:0%
+compact. So compact is like you can do
+ 
+
+00:22:21.840 --> 00:22:24.870 align:start position:0%
+compact. So compact is like you can do
+cleanup.<00:22:22.559><c> Policy</c><00:22:22.880><c> equals</c><00:22:23.120><c> to</c><00:22:23.280><c> compact.</c><00:22:24.320><c> Now</c>
+
+00:22:24.870 --> 00:22:24.880 align:start position:0%
+cleanup. Policy equals to compact. Now
+ 
+
+00:22:24.880 --> 00:22:27.909 align:start position:0%
+cleanup. Policy equals to compact. Now
+understand<00:22:25.280><c> this.</c><00:22:25.600><c> Let's</c><00:22:25.760><c> say</c><00:22:25.840><c> in</c><00:22:26.000><c> a</c><00:22:26.159><c> segment.</c>
+
+00:22:27.909 --> 00:22:27.919 align:start position:0%
+understand this. Let's say in a segment.
+ 
+
+00:22:27.919 --> 00:22:30.630 align:start position:0%
+understand this. Let's say in a segment.
+So<00:22:28.400><c> whenever</c><00:22:28.880><c> we</c><00:22:29.120><c> publish</c>
+
+00:22:30.630 --> 00:22:30.640 align:start position:0%
+So whenever we publish
+ 
+
+00:22:30.640 --> 00:22:34.149 align:start position:0%
+So whenever we publish
+an<00:22:30.960><c> event</c><00:22:32.400><c> okay</c><00:22:32.640><c> so</c><00:22:32.880><c> you</c><00:22:33.120><c> know</c><00:22:33.280><c> that</c><00:22:33.520><c> we</c><00:22:33.840><c> have</c>
+
+00:22:34.149 --> 00:22:34.159 align:start position:0%
+an event okay so you know that we have
+ 
+
+00:22:34.159 --> 00:22:36.710 align:start position:0%
+an event okay so you know that we have
+let's<00:22:34.400><c> say</c><00:22:35.200><c> topic</c>
+
+00:22:36.710 --> 00:22:36.720 align:start position:0%
+let's say topic
+ 
+
+00:22:36.720 --> 00:22:38.870 align:start position:0%
+let's say topic
+and<00:22:37.039><c> key</c>
+
+00:22:38.870 --> 00:22:38.880 align:start position:0%
+and key
+ 
+
+00:22:38.880 --> 00:22:42.870 align:start position:0%
+and key
+okay<00:22:39.360><c> and</c><00:22:39.840><c> the</c><00:22:40.159><c> JSON</c><00:22:40.559><c> record</c><00:22:41.840><c> so</c><00:22:42.080><c> the</c><00:22:42.320><c> key</c><00:22:42.640><c> is</c>
+
+00:22:42.870 --> 00:22:42.880 align:start position:0%
+okay and the JSON record so the key is
+ 
+
+00:22:42.880 --> 00:22:46.950 align:start position:0%
+okay and the JSON record so the key is
+something<00:22:43.919><c> if</c><00:22:44.159><c> you</c><00:22:44.400><c> have</c><00:22:44.559><c> provided</c><00:22:45.039><c> the</c><00:22:45.280><c> key</c>
+
+00:22:46.950 --> 00:22:46.960 align:start position:0%
+something if you have provided the key
+ 
+
+00:22:46.960 --> 00:22:50.710 align:start position:0%
+something if you have provided the key
+then<00:22:48.080><c> this</c><00:22:48.400><c> compact</c><00:22:48.880><c> can</c><00:22:49.039><c> be</c><00:22:49.280><c> an</c><00:22:49.440><c> h</c><00:22:49.760><c> for</c><00:22:50.400><c> so</c>
+
+00:22:50.710 --> 00:22:50.720 align:start position:0%
+then this compact can be an h for so
+ 
+
+00:22:50.720 --> 00:22:52.710 align:start position:0%
+then this compact can be an h for so
+generally<00:22:51.600><c> let's</c><00:22:51.840><c> say</c><00:22:52.000><c> in</c><00:22:52.159><c> the</c><00:22:52.320><c> segment</c>
+
+00:22:52.710 --> 00:22:52.720 align:start position:0%
+generally let's say in the segment
+ 
+
+00:22:52.720 --> 00:22:56.950 align:start position:0%
+generally let's say in the segment
+record<00:22:53.039><c> is</c><00:22:53.280><c> like</c><00:22:53.520><c> hey</c><00:22:54.320><c> offset</c><00:22:54.799><c> 100</c><00:22:56.080><c> the</c><00:22:56.400><c> key</c><00:22:56.720><c> is</c>
+
+00:22:56.950 --> 00:22:56.960 align:start position:0%
+record is like hey offset 100 the key is
+ 
+
+00:22:56.960 --> 00:22:59.510 align:start position:0%
+record is like hey offset 100 the key is
+your<00:22:57.200><c> let's</c><00:22:57.520><c> Say</c><00:22:57.679><c> user</c><00:22:58.000><c> one</c><00:22:58.799><c> and</c><00:22:59.039><c> the</c><00:22:59.200><c> record</c>
+
+00:22:59.510 --> 00:22:59.520 align:start position:0%
+your let's Say user one and the record
+ 
+
+00:22:59.520 --> 00:23:03.110 align:start position:0%
+your let's Say user one and the record
+is<00:22:59.679><c> your</c><00:22:59.919><c> let's</c><00:23:00.080><c> say</c><00:23:00.240><c> version</c><00:23:00.559><c> one</c>
+
+00:23:03.110 --> 00:23:03.120 align:start position:0%
+is your let's say version one
+ 
+
+00:23:03.120 --> 00:23:08.149 align:start position:0%
+is your let's say version one
+next<00:23:03.440><c> event</c><00:23:03.760><c> comes</c><00:23:05.120><c> offset</c><00:23:05.520><c> is</c><00:23:05.679><c> 101</c><00:23:06.480><c> user</c><00:23:06.960><c> two</c>
+
+00:23:08.149 --> 00:23:08.159 align:start position:0%
+next event comes offset is 101 user two
+ 
+
+00:23:08.159 --> 00:23:10.630 align:start position:0%
+next event comes offset is 101 user two
+which<00:23:08.400><c> is</c><00:23:08.480><c> a</c><00:23:08.720><c> key</c><00:23:09.039><c> here</c><00:23:09.679><c> and</c><00:23:09.919><c> the</c><00:23:10.080><c> record</c><00:23:10.400><c> is</c>
+
+00:23:10.630 --> 00:23:10.640 align:start position:0%
+which is a key here and the record is
+ 
+
+00:23:10.640 --> 00:23:12.149 align:start position:0%
+which is a key here and the record is
+let's<00:23:10.960><c> say</c><00:23:11.120><c> whatever</c><00:23:11.440><c> the</c><00:23:11.600><c> JSON</c><00:23:11.840><c> let's</c><00:23:12.080><c> say</c>
+
+00:23:12.149 --> 00:23:12.159 align:start position:0%
+let's say whatever the JSON let's say
+ 
+
+00:23:12.159 --> 00:23:15.190 align:start position:0%
+let's say whatever the JSON let's say
+version<00:23:12.400><c> one</c><00:23:13.120><c> like</c><00:23:13.360><c> this</c><00:23:13.600><c> you</c><00:23:13.840><c> have</c><00:23:14.640><c> so</c><00:23:14.880><c> what</c>
+
+00:23:15.190 --> 00:23:15.200 align:start position:0%
+version one like this you have so what
+ 
+
+00:23:15.200 --> 00:23:19.669 align:start position:0%
+version one like this you have so what
+happen<00:23:15.440><c> is</c><00:23:16.000><c> there</c><00:23:16.400><c> is</c><00:23:16.799><c> a</c><00:23:17.200><c> you</c><00:23:17.520><c> can</c><00:23:17.679><c> say</c><00:23:17.840><c> that</c><00:23:19.200><c> a</c>
+
+00:23:19.669 --> 00:23:19.679 align:start position:0%
+happen is there is a you can say that a
+ 
+
+00:23:19.679 --> 00:23:21.830 align:start position:0%
+happen is there is a you can say that a
+background<00:23:20.240><c> job</c><00:23:20.559><c> which</c><00:23:20.880><c> keep</c><00:23:21.039><c> on</c><00:23:21.280><c> running</c><00:23:21.520><c> on</c>
+
+00:23:21.830 --> 00:23:21.840 align:start position:0%
+background job which keep on running on
+ 
+
+00:23:21.840 --> 00:23:24.710 align:start position:0%
+background job which keep on running on
+this<00:23:22.080><c> segments</c><00:23:22.960><c> and</c><00:23:23.200><c> try</c><00:23:23.440><c> to</c><00:23:23.600><c> do</c><00:23:23.679><c> a</c><00:23:23.840><c> compaction</c>
+
+00:23:24.710 --> 00:23:24.720 align:start position:0%
+this segments and try to do a compaction
+ 
+
+00:23:24.720 --> 00:23:28.710 align:start position:0%
+this segments and try to do a compaction
+what<00:23:24.960><c> compaction</c><00:23:25.440><c> means</c><00:23:25.679><c> is</c><00:23:26.080><c> keep</c><00:23:27.120><c> the</c>
+
+00:23:28.710 --> 00:23:28.720 align:start position:0%
+what compaction means is keep the
+ 
+
+00:23:28.720 --> 00:23:31.270 align:start position:0%
+what compaction means is keep the
+latest
+
+00:23:31.270 --> 00:23:31.280 align:start position:0%
+latest
+ 
+
+00:23:31.280 --> 00:23:35.110 align:start position:0%
+latest
+value<00:23:32.000><c> of</c>
+
+00:23:35.110 --> 00:23:35.120 align:start position:0%
+ 
+ 
+
+00:23:35.120 --> 00:23:37.750 align:start position:0%
+ 
+a<00:23:35.360><c> particular</c><00:23:35.840><c> key.</c><00:23:36.799><c> So</c><00:23:36.960><c> now</c><00:23:37.200><c> let's</c><00:23:37.360><c> say</c><00:23:37.520><c> key</c>
+
+00:23:37.750 --> 00:23:37.760 align:start position:0%
+a particular key. So now let's say key
+ 
+
+00:23:37.760 --> 00:23:41.430 align:start position:0%
+a particular key. So now let's say key
+is<00:23:37.919><c> user</c><00:23:38.320><c> one.</c><00:23:39.360><c> So</c><00:23:39.600><c> user</c><00:23:40.000><c> one</c><00:23:40.240><c> has</c><00:23:40.559><c> yes</c><00:23:40.960><c> one</c><00:23:41.200><c> two</c>
+
+00:23:41.430 --> 00:23:41.440 align:start position:0%
+is user one. So user one has yes one two
+ 
+
+00:23:41.440 --> 00:23:43.750 align:start position:0%
+is user one. So user one has yes one two
+times.<00:23:42.080><c> So</c><00:23:42.240><c> it</c><00:23:42.400><c> will</c><00:23:42.559><c> keep</c><00:23:42.720><c> the</c><00:23:42.960><c> latest</c><00:23:43.280><c> value</c>
+
+00:23:43.750 --> 00:23:43.760 align:start position:0%
+times. So it will keep the latest value
+ 
+
+00:23:43.760 --> 00:23:47.190 align:start position:0%
+times. So it will keep the latest value
+102.<00:23:44.480><c> User</c><00:23:44.880><c> 1</c><00:23:45.440><c> v2</c><00:23:46.080><c> the</c><00:23:46.400><c> older</c><00:23:46.720><c> one</c><00:23:46.960><c> get</c>
+
+00:23:47.190 --> 00:23:47.200 align:start position:0%
+102. User 1 v2 the older one get
+ 
+
+00:23:47.200 --> 00:23:50.390 align:start position:0%
+102. User 1 v2 the older one get
+removed.<00:23:48.559><c> Similarly</c><00:23:49.120><c> user</c><00:23:49.440><c> two</c><00:23:49.840><c> does</c><00:23:50.000><c> it</c><00:23:50.159><c> has</c>
+
+00:23:50.390 --> 00:23:50.400 align:start position:0%
+removed. Similarly user two does it has
+ 
+
+00:23:50.400 --> 00:23:52.789 align:start position:0%
+removed. Similarly user two does it has
+duplicate?<00:23:51.039><c> Yes.</c><00:23:51.360><c> User</c><00:23:51.760><c> two</c><00:23:52.240><c> it</c><00:23:52.480><c> will</c><00:23:52.640><c> keep</c>
+
+00:23:52.789 --> 00:23:52.799 align:start position:0%
+duplicate? Yes. User two it will keep
+ 
+
+00:23:52.799 --> 00:23:57.190 align:start position:0%
+duplicate? Yes. User two it will keep
+the<00:23:52.960><c> latest</c><00:23:53.200><c> one</c><00:23:53.520><c> 101</c><00:23:54.080><c> only</c><00:23:54.480><c> 104</c><00:23:55.360><c> version</c><00:23:55.679><c> two.</c>
+
+00:23:57.190 --> 00:23:57.200 align:start position:0%
+the latest one 101 only 104 version two.
+ 
+
+00:23:57.200 --> 00:24:00.549 align:start position:0%
+the latest one 101 only 104 version two.
+User<00:23:57.600><c> three</c><00:23:57.840><c> has</c><00:23:58.080><c> only</c><00:23:58.240><c> one</c><00:23:59.520><c> entry.</c><00:24:00.159><c> So</c><00:24:00.320><c> that</c>
+
+00:24:00.549 --> 00:24:00.559 align:start position:0%
+User three has only one entry. So that
+ 
+
+00:24:00.559 --> 00:24:03.669 align:start position:0%
+User three has only one entry. So that
+will<00:24:00.799><c> cap.</c><00:24:01.120><c> So</c><00:24:01.200><c> it</c><00:24:01.440><c> compacted.</c><00:24:02.880><c> So</c><00:24:03.039><c> it</c><00:24:03.280><c> again</c>
+
+00:24:03.669 --> 00:24:03.679 align:start position:0%
+will cap. So it compacted. So it again
+ 
+
+00:24:03.679 --> 00:24:05.110 align:start position:0%
+will cap. So it compacted. So it again
+happen<00:24:03.919><c> at</c><00:24:04.159><c> segment</c><00:24:04.480><c> level.</c><00:24:04.799><c> For</c><00:24:04.960><c> each</c>
+
+00:24:05.110 --> 00:24:05.120 align:start position:0%
+happen at segment level. For each
+ 
+
+00:24:05.120 --> 00:24:07.510 align:start position:0%
+happen at segment level. For each
+segment<00:24:05.440><c> it</c><00:24:05.679><c> does</c><00:24:06.080><c> happen</c><00:24:06.240><c> in</c><00:24:06.480><c> unsynchronous.</c>
+
+00:24:07.510 --> 00:24:07.520 align:start position:0%
+segment it does happen in unsynchronous.
+ 
+
+00:24:07.520 --> 00:24:10.789 align:start position:0%
+segment it does happen in unsynchronous.
+Do<00:24:07.679><c> not</c><00:24:07.919><c> block</c><00:24:08.240><c> rightes.</c><00:24:09.520><c> Okay.</c><00:24:10.000><c> And</c><00:24:10.320><c> yes</c>
+
+00:24:10.789 --> 00:24:10.799 align:start position:0%
+Do not block rightes. Okay. And yes
+ 
+
+00:24:10.799 --> 00:24:12.470 align:start position:0%
+Do not block rightes. Okay. And yes
+since<00:24:11.120><c> it</c><00:24:11.279><c> is</c><00:24:11.440><c> happening</c><00:24:11.760><c> as</c><00:24:11.919><c> synchronous</c>
+
+00:24:12.470 --> 00:24:12.480 align:start position:0%
+since it is happening as synchronous
+ 
+
+00:24:12.480 --> 00:24:19.190 align:start position:0%
+since it is happening as synchronous
+immediate<00:24:12.880><c> cleanup</c><00:24:13.279><c> doesn't</c><00:24:13.679><c> happen.</c>
+
+00:24:19.190 --> 00:24:19.200 align:start position:0%
+ 
+ 
+
+00:24:19.200 --> 00:24:23.590 align:start position:0%
+ 
+Okay.<00:24:20.159><c> So</c><00:24:21.120><c> that</c><00:24:21.440><c> is</c><00:24:21.679><c> done.</c>
+
+00:24:23.590 --> 00:24:23.600 align:start position:0%
+Okay. So that is done.
+ 
+
+00:24:23.600 --> 00:24:27.190 align:start position:0%
+Okay. So that is done.
+Now<00:24:24.000><c> one</c><00:24:24.240><c> more</c><00:24:24.480><c> very</c><00:24:24.799><c> important</c><00:24:25.200><c> question.</c>
+
+00:24:27.190 --> 00:24:27.200 align:start position:0%
+Now one more very important question.
+ 
+
+00:24:27.200 --> 00:24:29.190 align:start position:0%
+Now one more very important question.
+And<00:24:27.520><c> one</c><00:24:27.840><c> doubt</c><00:24:28.159><c> which</c><00:24:28.559><c> definitely</c><00:24:28.960><c> might</c>
+
+00:24:29.190 --> 00:24:29.200 align:start position:0%
+And one doubt which definitely might
+ 
+
+00:24:29.200 --> 00:24:32.230 align:start position:0%
+And one doubt which definitely might
+have<00:24:29.440><c> comes</c><00:24:29.679><c> to</c><00:24:29.840><c> your</c><00:24:30.000><c> mind.</c><00:24:30.960><c> Hey,</c><00:24:31.440><c> Kafka</c><00:24:32.080><c> is</c>
+
+00:24:32.230 --> 00:24:32.240 align:start position:0%
+have comes to your mind. Hey, Kafka is
+ 
+
+00:24:32.240 --> 00:24:36.549 align:start position:0%
+have comes to your mind. Hey, Kafka is
+reading<00:24:32.640><c> and</c><00:24:33.039><c> writing</c><00:24:34.480><c> from</c><00:24:34.799><c> disk.</c><00:24:36.080><c> Isn't</c>
+
+00:24:36.549 --> 00:24:36.559 align:start position:0%
+reading and writing from disk. Isn't
+ 
+
+00:24:36.559 --> 00:24:40.070 align:start position:0%
+reading and writing from disk. Isn't
+disk<00:24:37.039><c> read</c><00:24:37.279><c> and</c><00:24:37.520><c> writes</c><00:24:37.840><c> are</c><00:24:38.080><c> slow?</c><00:24:39.200><c> How</c><00:24:39.440><c> Kafka</c>
+
+00:24:40.070 --> 00:24:40.080 align:start position:0%
+disk read and writes are slow? How Kafka
+ 
+
+00:24:40.080 --> 00:24:43.750 align:start position:0%
+disk read and writes are slow? How Kafka
+is<00:24:40.240><c> so</c><00:24:40.480><c> fast?</c><00:24:41.760><c> So</c><00:24:42.080><c> generally</c><00:24:42.720><c> there</c><00:24:42.960><c> are</c><00:24:43.520><c> two</c>
+
+00:24:43.750 --> 00:24:43.760 align:start position:0%
+is so fast? So generally there are two
+ 
+
+00:24:43.760 --> 00:24:48.310 align:start position:0%
+is so fast? So generally there are two
+ways<00:24:44.480><c> it</c><00:24:44.720><c> makes</c><00:24:45.039><c> itself</c><00:24:45.440><c> fast.</c><00:24:46.240><c> One</c><00:24:46.480><c> is</c><00:24:47.840><c> at</c><00:24:48.080><c> the</c>
+
+00:24:48.310 --> 00:24:48.320 align:start position:0%
+ways it makes itself fast. One is at the
+ 
+
+00:24:48.320 --> 00:24:50.710 align:start position:0%
+ways it makes itself fast. One is at the
+time<00:24:48.480><c> of</c><00:24:48.720><c> write</c><00:24:49.440><c> and</c><00:24:49.679><c> one</c><00:24:49.840><c> is</c><00:24:50.000><c> at</c><00:24:50.159><c> the</c><00:24:50.320><c> time</c><00:24:50.480><c> of</c>
+
+00:24:50.710 --> 00:24:50.720 align:start position:0%
+time of write and one is at the time of
+ 
+
+00:24:50.720 --> 00:24:53.830 align:start position:0%
+time of write and one is at the time of
+read.<00:24:51.919><c> So</c><00:24:52.159><c> at</c><00:24:52.400><c> the</c><00:24:52.640><c> time</c><00:24:52.799><c> of</c><00:24:52.960><c> write</c><00:24:53.279><c> it</c><00:24:53.520><c> follow</c>
+
+00:24:53.830 --> 00:24:53.840 align:start position:0%
+read. So at the time of write it follow
+ 
+
+00:24:53.840 --> 00:24:56.789 align:start position:0%
+read. So at the time of write it follow
+page<00:24:54.159><c> cache</c><00:24:54.480><c> optimization.</c>
+
+00:24:56.789 --> 00:24:56.799 align:start position:0%
+page cache optimization.
+ 
+
+00:24:56.799 --> 00:24:59.909 align:start position:0%
+page cache optimization.
+Okay.<00:24:57.279><c> So</c><00:24:57.760><c> just</c><00:24:58.000><c> say</c><00:24:58.159><c> that</c><00:24:58.320><c> Kafka</c><00:24:58.880><c> trust</c><00:24:59.360><c> OS</c>
+
+00:24:59.909 --> 00:24:59.919 align:start position:0%
+Okay. So just say that Kafka trust OS
+ 
+
+00:24:59.919 --> 00:25:03.990 align:start position:0%
+Okay. So just say that Kafka trust OS
+caching<00:25:00.480><c> strategy.</c><00:25:01.840><c> Okay.</c><00:25:02.320><c> To</c><00:25:02.720><c> keep</c><00:25:03.679><c> the</c>
+
+00:25:03.990 --> 00:25:04.000 align:start position:0%
+caching strategy. Okay. To keep the
+ 
+
+00:25:04.000 --> 00:25:07.430 align:start position:0%
+caching strategy. Okay. To keep the
+caching<00:25:04.559><c> effectively</c><00:25:05.200><c> for</c><00:25:05.520><c> the</c><00:25:05.679><c> files.</c>
+
+00:25:07.430 --> 00:25:07.440 align:start position:0%
+caching effectively for the files.
+ 
+
+00:25:07.440 --> 00:25:09.669 align:start position:0%
+caching effectively for the files.
+So<00:25:07.600><c> now</c><00:25:07.840><c> let's</c><00:25:08.080><c> say</c><00:25:08.559><c> leader</c><00:25:09.200><c> particular</c>
+
+00:25:09.669 --> 00:25:09.679 align:start position:0%
+So now let's say leader particular
+ 
+
+00:25:09.679 --> 00:25:12.950 align:start position:0%
+So now let's say leader particular
+leader<00:25:10.080><c> broker</c><00:25:10.400><c> is</c><00:25:10.559><c> writing</c><00:25:10.880><c> to</c><00:25:11.120><c> a</c><00:25:11.279><c> disk.</c>
+
+00:25:12.950 --> 00:25:12.960 align:start position:0%
+leader broker is writing to a disk.
+ 
+
+00:25:12.960 --> 00:25:16.470 align:start position:0%
+leader broker is writing to a disk.
+What<00:25:13.200><c> it</c><00:25:13.360><c> will</c><00:25:13.600><c> do</c><00:25:13.760><c> is</c><00:25:14.159><c> it</c><00:25:14.400><c> will</c><00:25:14.720><c> first</c><00:25:15.600><c> store</c>
+
+00:25:16.470 --> 00:25:16.480 align:start position:0%
+What it will do is it will first store
+ 
+
+00:25:16.480 --> 00:25:19.669 align:start position:0%
+What it will do is it will first store
+into<00:25:16.799><c> a</c><00:25:16.960><c> RAM</c><00:25:17.840><c> OS</c><00:25:18.240><c> page</c><00:25:18.559><c> cache.</c><00:25:19.279><c> In</c><00:25:19.520><c> the</c>
+
+00:25:19.669 --> 00:25:19.679 align:start position:0%
+into a RAM OS page cache. In the
+ 
+
+00:25:19.679 --> 00:25:21.830 align:start position:0%
+into a RAM OS page cache. In the
+operating<00:25:20.080><c> system</c><00:25:20.320><c> you</c><00:25:20.559><c> might</c><00:25:20.720><c> have</c><00:25:20.880><c> read</c><00:25:21.200><c> it</c>
+
+00:25:21.830 --> 00:25:21.840 align:start position:0%
+operating system you might have read it
+ 
+
+00:25:21.840 --> 00:25:27.750 align:start position:0%
+operating system you might have read it
+OS<00:25:22.240><c> page</c><00:25:22.559><c> cache</c><00:25:23.760><c> okay</c><00:25:24.960><c> and</c><00:25:26.159><c> asynchronally</c><00:25:27.360><c> it</c>
+
+00:25:27.750 --> 00:25:27.760 align:start position:0%
+OS page cache okay and asynchronally it
+ 
+
+00:25:27.760 --> 00:25:32.630 align:start position:0%
+OS page cache okay and asynchronally it
+flush<00:25:28.159><c> the</c><00:25:28.320><c> data</c><00:25:28.559><c> to</c><00:25:28.720><c> the</c><00:25:28.960><c> disk</c>
+
+00:25:32.630 --> 00:25:32.640 align:start position:0%
+ 
+ 
+
+00:25:32.640 --> 00:25:34.630 align:start position:0%
+ 
+okay<00:25:32.880><c> so</c><00:25:33.039><c> it</c><00:25:33.360><c> don't</c><00:25:33.600><c> directly</c><00:25:34.080><c> write</c><00:25:34.320><c> to</c><00:25:34.480><c> the</c>
+
+00:25:34.630 --> 00:25:34.640 align:start position:0%
+okay so it don't directly write to the
+ 
+
+00:25:34.640 --> 00:25:36.870 align:start position:0%
+okay so it don't directly write to the
+disk<00:25:34.960><c> it</c><00:25:35.200><c> first</c><00:25:35.440><c> write</c><00:25:35.760><c> into</c><00:25:36.080><c> the</c><00:25:36.240><c> RAM</c><00:25:36.559><c> and</c>
+
+00:25:36.870 --> 00:25:36.880 align:start position:0%
+disk it first write into the RAM and
+ 
+
+00:25:36.880 --> 00:25:39.190 align:start position:0%
+disk it first write into the RAM and
+asynchronously<00:25:37.600><c> it</c><00:25:37.840><c> write</c><00:25:38.000><c> to</c><00:25:38.159><c> the</c><00:25:38.240><c> disk</c><00:25:38.880><c> so</c>
+
+00:25:39.190 --> 00:25:39.200 align:start position:0%
+asynchronously it write to the disk so
+ 
+
+00:25:39.200 --> 00:25:43.029 align:start position:0%
+asynchronously it write to the disk so
+no<00:25:39.600><c> blocking</c><00:25:40.000><c> disk</c><00:25:40.320><c> weight</c><00:25:41.760><c> and</c><00:25:42.480><c> sequential</c>
+
+00:25:43.029 --> 00:25:43.039 align:start position:0%
+no blocking disk weight and sequential
+ 
+
+00:25:43.039 --> 00:25:46.149 align:start position:0%
+no blocking disk weight and sequential
+while<00:25:44.400><c> so</c><00:25:44.799><c> whenever</c><00:25:45.200><c> you</c><00:25:45.360><c> are</c><00:25:45.520><c> writing</c><00:25:45.840><c> to</c><00:25:46.000><c> a</c>
+
+00:25:46.149 --> 00:25:46.159 align:start position:0%
+while so whenever you are writing to a
+ 
+
+00:25:46.159 --> 00:25:47.909 align:start position:0%
+while so whenever you are writing to a
+disk<00:25:46.480><c> right</c><00:25:46.720><c> you</c><00:25:46.960><c> can</c><00:25:47.039><c> say</c><00:25:47.120><c> that</c><00:25:47.360><c> it</c><00:25:47.600><c> always</c>
+
+00:25:47.909 --> 00:25:47.919 align:start position:0%
+disk right you can say that it always
+ 
+
+00:25:47.919 --> 00:25:49.990 align:start position:0%
+disk right you can say that it always
+happen<00:25:48.159><c> in</c><00:25:48.400><c> sequential</c><00:25:48.960><c> In</c><00:25:49.200><c> case</c><00:25:49.360><c> of</c><00:25:49.440><c> Kafka</c>
+
+00:25:49.990 --> 00:25:50.000 align:start position:0%
+happen in sequential In case of Kafka
+ 
+
+00:25:50.000 --> 00:25:52.070 align:start position:0%
+happen in sequential In case of Kafka
+which<00:25:50.240><c> is</c><00:25:50.320><c> very</c><00:25:50.559><c> very</c><00:25:50.880><c> important</c><00:25:51.600><c> and</c><00:25:51.840><c> this</c><00:25:52.000><c> is</c>
+
+00:25:52.070 --> 00:25:52.080 align:start position:0%
+which is very very important and this is
+ 
+
+00:25:52.080 --> 00:25:55.430 align:start position:0%
+which is very very important and this is
+the<00:25:52.240><c> best</c><00:25:52.480><c> case</c><00:25:52.720><c> for</c><00:25:53.039><c> disk</c><00:25:54.080><c> and</c><00:25:54.320><c> why</c><00:25:54.559><c> for</c><00:25:54.799><c> Kafka</c>
+
+00:25:55.430 --> 00:25:55.440 align:start position:0%
+the best case for disk and why for Kafka
+ 
+
+00:25:55.440 --> 00:25:57.830 align:start position:0%
+the best case for disk and why for Kafka
+sequential<00:25:55.919><c> write</c><00:25:56.240><c> happen</c><00:25:56.720><c> because</c><00:25:57.120><c> Kafka</c><00:25:57.679><c> is</c>
+
+00:25:57.830 --> 00:25:57.840 align:start position:0%
+sequential write happen because Kafka is
+ 
+
+00:25:57.840 --> 00:26:00.149 align:start position:0%
+sequential write happen because Kafka is
+append<00:25:58.240><c> only</c><00:25:58.880><c> I</c><00:25:59.120><c> told</c><00:25:59.279><c> you</c><00:25:59.440><c> Kafka</c><00:25:59.760><c> is</c><00:25:59.840><c> append</c>
+
+00:26:00.149 --> 00:26:00.159 align:start position:0%
+append only I told you Kafka is append
+ 
+
+00:26:00.159 --> 00:26:03.269 align:start position:0%
+append only I told you Kafka is append
+only<00:26:00.720><c> no</c><00:26:00.960><c> insertion</c><00:26:01.440><c> in</c><00:26:01.679><c> mid</c><00:26:02.480><c> never</c><00:26:02.799><c> modify</c>
+
+00:26:03.269 --> 00:26:03.279 align:start position:0%
+only no insertion in mid never modify
+ 
+
+00:26:03.279 --> 00:26:06.470 align:start position:0%
+only no insertion in mid never modify
+old<00:26:03.520><c> data</c><00:26:04.320><c> never</c><00:26:04.640><c> update</c><00:26:05.039><c> record</c><00:26:05.360><c> in</c><00:26:05.600><c> place</c><00:26:06.240><c> it</c>
+
+00:26:06.470 --> 00:26:06.480 align:start position:0%
+old data never update record in place it
+ 
+
+00:26:06.480 --> 00:26:09.190 align:start position:0%
+old data never update record in place it
+only<00:26:06.720><c> writes</c><00:26:07.039><c> at</c><00:26:07.279><c> end</c><00:26:08.159><c> whenever</c><00:26:08.640><c> any</c><00:26:08.960><c> event</c>
+
+00:26:09.190 --> 00:26:09.200 align:start position:0%
+only writes at end whenever any event
+ 
+
+00:26:09.200 --> 00:26:11.750 align:start position:0%
+only writes at end whenever any event
+new<00:26:09.360><c> event</c><00:26:09.600><c> come</c><00:26:10.000><c> it</c><00:26:10.240><c> create</c><00:26:10.480><c> a</c><00:26:10.720><c> new</c><00:26:10.880><c> offset</c>
+
+00:26:11.750 --> 00:26:11.760 align:start position:0%
+new event come it create a new offset
+ 
+
+00:26:11.760 --> 00:26:15.350 align:start position:0%
+new event come it create a new offset
+incremental<00:26:12.480><c> let's</c><00:26:12.720><c> say</c><00:26:12.960><c> 32</c><00:26:14.080><c> write</c><00:26:14.400><c> it</c><00:26:14.880><c> offset</c>
+
+00:26:15.350 --> 00:26:15.360 align:start position:0%
+incremental let's say 32 write it offset
+ 
+
+00:26:15.360 --> 00:26:18.470 align:start position:0%
+incremental let's say 32 write it offset
+33<00:26:15.840><c> write</c><00:26:16.000><c> it</c><00:26:16.240><c> so</c><00:26:16.400><c> always</c><00:26:16.720><c> sequential</c>
+
+00:26:18.470 --> 00:26:18.480 align:start position:0%
+33 write it so always sequential
+ 
+
+00:26:18.480 --> 00:26:21.350 align:start position:0%
+33 write it so always sequential
+Okay.<00:26:18.960><c> So</c><00:26:19.360><c> d</c><00:26:19.840><c> keep</c><00:26:20.080><c> moving</c><00:26:20.400><c> forward.</c><00:26:21.120><c> So</c>
+
+00:26:21.350 --> 00:26:21.360 align:start position:0%
+Okay. So d keep moving forward. So
+ 
+
+00:26:21.360 --> 00:26:24.310 align:start position:0%
+Okay. So d keep moving forward. So
+always<00:26:21.760><c> sequential</c><00:26:22.240><c> write</c><00:26:22.559><c> it</c><00:26:22.720><c> support.</c>
+
+00:26:24.310 --> 00:26:24.320 align:start position:0%
+always sequential write it support.
+ 
+
+00:26:24.320 --> 00:26:27.110 align:start position:0%
+always sequential write it support.
+So<00:26:24.480><c> that's</c><00:26:24.880><c> one</c><00:26:25.120><c> way</c><00:26:25.360><c> of</c><00:26:25.600><c> optimization</c>
+
+00:26:27.110 --> 00:26:27.120 align:start position:0%
+So that's one way of optimization
+ 
+
+00:26:27.120 --> 00:26:30.789 align:start position:0%
+So that's one way of optimization
+during<00:26:27.600><c> write.</c><00:26:28.559><c> Okay.</c><00:26:29.600><c> So</c><00:26:29.919><c> disk</c><00:26:30.240><c> right</c><00:26:30.559><c> happen</c>
+
+00:26:30.789 --> 00:26:30.799 align:start position:0%
+during write. Okay. So disk right happen
+ 
+
+00:26:30.799 --> 00:26:32.630 align:start position:0%
+during write. Okay. So disk right happen
+in<00:26:30.960><c> a</c><00:26:31.200><c> synchronous</c><00:26:31.600><c> manner.</c><00:26:32.000><c> First</c><00:26:32.240><c> it</c><00:26:32.400><c> write</c>
+
+00:26:32.630 --> 00:26:32.640 align:start position:0%
+in a synchronous manner. First it write
+ 
+
+00:26:32.640 --> 00:26:36.149 align:start position:0%
+in a synchronous manner. First it write
+to<00:26:32.799><c> the</c><00:26:32.880><c> RAM</c><00:26:33.360><c> in</c><00:26:33.600><c> the</c><00:26:33.760><c> OS</c><00:26:34.159><c> page</c><00:26:34.400><c> cache.</c>
+
+00:26:36.149 --> 00:26:36.159 align:start position:0%
+to the RAM in the OS page cache.
+ 
+
+00:26:36.159 --> 00:26:41.510 align:start position:0%
+to the RAM in the OS page cache.
+Now<00:26:36.480><c> during</c><00:26:36.880><c> read</c>
+
+00:26:41.510 --> 00:26:41.520 align:start position:0%
+ 
+ 
+
+00:26:41.520 --> 00:26:44.950 align:start position:0%
+ 
+it<00:26:41.840><c> follow</c><00:26:42.159><c> zero</c><00:26:42.640><c> copy</c><00:26:42.960><c> optimization.</c>
+
+00:26:44.950 --> 00:26:44.960 align:start position:0%
+it follow zero copy optimization.
+ 
+
+00:26:44.960 --> 00:26:46.549 align:start position:0%
+it follow zero copy optimization.
+So<00:26:45.200><c> generally</c><00:26:45.679><c> let's</c><00:26:45.919><c> say</c><00:26:46.000><c> if</c><00:26:46.159><c> you</c><00:26:46.320><c> are</c><00:26:46.400><c> not</c>
+
+00:26:46.549 --> 00:26:46.559 align:start position:0%
+So generally let's say if you are not
+ 
+
+00:26:46.559 --> 00:26:48.390 align:start position:0%
+So generally let's say if you are not
+following<00:26:46.960><c> zero</c><00:26:47.279><c> copy</c><00:26:47.600><c> optimization</c><00:26:48.159><c> what</c>
+
+00:26:48.390 --> 00:26:48.400 align:start position:0%
+following zero copy optimization what
+ 
+
+00:26:48.400 --> 00:26:50.950 align:start position:0%
+following zero copy optimization what
+happen<00:26:48.640><c> is</c><00:26:49.279><c> let's</c><00:26:49.520><c> say</c><00:26:49.679><c> your</c><00:26:50.159><c> file</c><00:26:50.480><c> is</c><00:26:50.640><c> present</c>
+
+00:26:50.950 --> 00:26:50.960 align:start position:0%
+happen is let's say your file is present
+ 
+
+00:26:50.960 --> 00:26:54.230 align:start position:0%
+happen is let's say your file is present
+into<00:26:51.360><c> disk</c><00:26:52.480><c> and</c><00:26:52.720><c> when</c><00:26:52.960><c> you</c><00:26:53.120><c> load</c><00:26:53.360><c> it</c><00:26:53.600><c> it</c><00:26:53.919><c> first</c>
+
+00:26:54.230 --> 00:26:54.240 align:start position:0%
+into disk and when you load it it first
+ 
+
+00:26:54.240 --> 00:26:58.230 align:start position:0%
+into disk and when you load it it first
+load<00:26:54.559><c> into</c><00:26:54.880><c> RAM</c><00:26:55.679><c> OS</c><00:26:56.080><c> page</c><00:26:56.480><c> cache</c><00:26:57.600><c> from</c><00:26:57.919><c> there</c>
+
+00:26:58.230 --> 00:26:58.240 align:start position:0%
+load into RAM OS page cache from there
+ 
+
+00:26:58.240 --> 00:27:01.269 align:start position:0%
+load into RAM OS page cache from there
+it<00:26:58.480><c> loads</c><00:26:58.960><c> into</c><00:26:59.360><c> your</c><00:26:59.760><c> application</c><00:27:00.320><c> JVM</c><00:27:00.880><c> user</c>
+
+00:27:01.269 --> 00:27:01.279 align:start position:0%
+it loads into your application JVM user
+ 
+
+00:27:01.279 --> 00:27:04.870 align:start position:0%
+it loads into your application JVM user
+space<00:27:02.240><c> and</c><00:27:03.360><c> might</c><00:27:03.760><c> there</c><00:27:04.159><c> it</c><00:27:04.400><c> goes</c><00:27:04.559><c> to</c><00:27:04.720><c> the</c>
+
+00:27:04.870 --> 00:27:04.880 align:start position:0%
+space and might there it goes to the
+ 
+
+00:27:04.880 --> 00:27:08.630 align:start position:0%
+space and might there it goes to the
+network<00:27:06.240><c> okay</c><00:27:07.120><c> but</c><00:27:07.440><c> Kafka</c><00:27:08.000><c> make</c><00:27:08.159><c> use</c><00:27:08.400><c> of</c>
+
+00:27:08.630 --> 00:27:08.640 align:start position:0%
+network okay but Kafka make use of
+ 
+
+00:27:08.640 --> 00:27:11.669 align:start position:0%
+network okay but Kafka make use of
+system<00:27:09.039><c> call</c><00:27:09.760><c> send</c><00:27:10.080><c> file</c><00:27:10.400><c> it</c><00:27:10.720><c> do</c><00:27:10.960><c> not</c><00:27:11.279><c> even</c>
+
+00:27:11.669 --> 00:27:11.679 align:start position:0%
+system call send file it do not even
+ 
+
+00:27:11.679 --> 00:27:14.950 align:start position:0%
+system call send file it do not even
+load<00:27:12.000><c> into</c><00:27:12.400><c> your</c><00:27:13.200><c> user</c><00:27:13.600><c> space</c><00:27:13.919><c> So</c><00:27:14.080><c> Kafka</c>
+
+00:27:14.950 --> 00:27:14.960 align:start position:0%
+load into your user space So Kafka
+ 
+
+00:27:14.960 --> 00:27:18.149 align:start position:0%
+load into your user space So Kafka
+servers<00:27:15.520><c> might</c><00:27:15.760><c> be</c><00:27:15.919><c> running.</c><00:27:17.279><c> So</c><00:27:17.600><c> let's</c><00:27:17.840><c> say</c>
+
+00:27:18.149 --> 00:27:18.159 align:start position:0%
+servers might be running. So let's say
+ 
+
+00:27:18.159 --> 00:27:20.549 align:start position:0%
+servers might be running. So let's say
+Kafka<00:27:18.640><c> JVM</c><00:27:19.120><c> space</c><00:27:19.440><c> you</c><00:27:19.600><c> can</c><00:27:19.679><c> say</c><00:27:19.919><c> it</c><00:27:20.080><c> do</c><00:27:20.320><c> not</c>
+
+00:27:20.549 --> 00:27:20.559 align:start position:0%
+Kafka JVM space you can say it do not
+ 
+
+00:27:20.559 --> 00:27:25.430 align:start position:0%
+Kafka JVM space you can say it do not
+even<00:27:20.880><c> load</c><00:27:22.080><c> or</c><00:27:22.400><c> copy</c><00:27:22.799><c> the</c><00:27:23.039><c> data</c>
+
+00:27:25.430 --> 00:27:25.440 align:start position:0%
+even load or copy the data
+ 
+
+00:27:25.440 --> 00:27:29.909 align:start position:0%
+even load or copy the data
+to<00:27:25.919><c> its</c><00:27:26.240><c> user</c><00:27:26.720><c> space.</c><00:27:27.840><c> So</c><00:27:28.000><c> it</c><00:27:28.240><c> say</c><00:27:28.400><c> that</c><00:27:28.640><c> hey</c><00:27:29.679><c> it</c>
+
+00:27:29.909 --> 00:27:29.919 align:start position:0%
+to its user space. So it say that hey it
+ 
+
+00:27:29.919 --> 00:27:31.909 align:start position:0%
+to its user space. So it say that hey it
+directly<00:27:30.320><c> make</c><00:27:30.480><c> a</c><00:27:30.640><c> system</c><00:27:30.880><c> called</c><00:27:31.120><c> send</c><00:27:31.360><c> file.</c>
+
+00:27:31.909 --> 00:27:31.919 align:start position:0%
+directly make a system called send file.
+ 
+
+00:27:31.919 --> 00:27:34.230 align:start position:0%
+directly make a system called send file.
+So<00:27:32.159><c> from</c><00:27:32.400><c> disk</c><00:27:32.880><c> it</c><00:27:33.120><c> goes</c><00:27:33.279><c> to</c><00:27:33.440><c> the</c><00:27:33.600><c> OS</c><00:27:33.919><c> page</c>
+
+00:27:34.230 --> 00:27:34.240 align:start position:0%
+So from disk it goes to the OS page
+ 
+
+00:27:34.240 --> 00:27:37.430 align:start position:0%
+So from disk it goes to the OS page
+cache<00:27:34.720><c> and</c><00:27:34.960><c> directly</c><00:27:35.279><c> goes</c><00:27:35.520><c> to</c><00:27:35.679><c> the</c><00:27:35.840><c> network.</c>
+
+00:27:37.430 --> 00:27:37.440 align:start position:0%
+cache and directly goes to the network.
+ 
+
+00:27:37.440 --> 00:27:40.870 align:start position:0%
+cache and directly goes to the network.
+No<00:27:37.679><c> copies</c><00:27:38.159><c> maintained</c><00:27:38.400><c> in</c><00:27:38.559><c> Kafka</c><00:27:38.960><c> JVM.</c>
+
+00:27:40.870 --> 00:27:40.880 align:start position:0%
+No copies maintained in Kafka JVM.
+ 
+
+00:27:40.880 --> 00:27:44.390 align:start position:0%
+No copies maintained in Kafka JVM.
+Okay.<00:27:41.200><c> So</c><00:27:41.440><c> it</c><00:27:41.679><c> saves</c><00:27:42.320><c> one</c><00:27:42.720><c> hop</c><00:27:43.840><c> during</c><00:27:44.159><c> the</c>
+
+00:27:44.390 --> 00:27:44.400 align:start position:0%
+Okay. So it saves one hop during the
+ 
+
+00:27:44.400 --> 00:27:48.870 align:start position:0%
+Okay. So it saves one hop during the
+read.<00:27:45.440><c> So</c><00:27:45.520><c> it</c><00:27:45.840><c> not</c><00:27:46.080><c> only</c><00:27:47.039><c> uh</c><00:27:47.600><c> save</c><00:27:47.919><c> hop</c><00:27:48.559><c> you</c><00:27:48.720><c> can</c>
+
+00:27:48.870 --> 00:27:48.880 align:start position:0%
+read. So it not only uh save hop you can
+ 
+
+00:27:48.880 --> 00:27:52.070 align:start position:0%
+read. So it not only uh save hop you can
+say<00:27:49.039><c> that</c><00:27:49.919><c> data</c><00:27:50.320><c> copy</c><00:27:50.640><c> time</c><00:27:51.039><c> from</c><00:27:51.360><c> this</c><00:27:51.679><c> to</c>
+
+00:27:52.070 --> 00:27:52.080 align:start position:0%
+say that data copy time from this to
+ 
+
+00:27:52.080 --> 00:27:55.269 align:start position:0%
+say that data copy time from this to
+user<00:27:52.559><c> space</c><00:27:53.520><c> not</c><00:27:53.760><c> only</c><00:27:54.000><c> save</c><00:27:54.399><c> speed</c><00:27:54.720><c> but</c><00:27:54.960><c> also</c>
+
+00:27:55.269 --> 00:27:55.279 align:start position:0%
+user space not only save speed but also
+ 
+
+00:27:55.279 --> 00:27:58.389 align:start position:0%
+user space not only save speed but also
+memory<00:27:56.399><c> CPU</c><00:27:56.880><c> cycles</c><00:27:57.279><c> are</c><00:27:57.440><c> also</c><00:27:57.679><c> saved</c><00:27:57.919><c> and</c><00:27:58.159><c> got</c>
+
+00:27:58.389 --> 00:27:58.399 align:start position:0%
+memory CPU cycles are also saved and got
+ 
+
+00:27:58.399 --> 00:28:00.789 align:start position:0%
+memory CPU cycles are also saved and got
+high<00:27:58.640><c> throughput.</c><00:27:59.600><c> So</c><00:27:59.919><c> during</c><00:28:00.240><c> read</c><00:28:00.559><c> and</c>
+
+00:28:00.789 --> 00:28:00.799 align:start position:0%
+high throughput. So during read and
+ 
+
+00:28:00.799 --> 00:28:03.750 align:start position:0%
+high throughput. So during read and
+write<00:28:01.200><c> both</c><00:28:02.320><c> Kafka</c><00:28:02.960><c> perform</c><00:28:03.360><c> certain</c>
+
+00:28:03.750 --> 00:28:03.760 align:start position:0%
+write both Kafka perform certain
+ 
+
+00:28:03.760 --> 00:28:07.350 align:start position:0%
+write both Kafka perform certain
+optimization.
+
+00:28:07.350 --> 00:28:07.360 align:start position:0%
+ 
+ 
+
+00:28:07.360 --> 00:28:09.510 align:start position:0%
+ 
+Okay.
+
+00:28:09.510 --> 00:28:09.520 align:start position:0%
+Okay.
+ 
+
+00:28:09.520 --> 00:28:11.750 align:start position:0%
+Okay.
+So<00:28:09.760><c> in</c><00:28:09.919><c> next</c><00:28:10.159><c> part</c><00:28:10.399><c> I</c><00:28:10.720><c> will</c><00:28:10.960><c> show</c><00:28:11.200><c> some</c><00:28:11.440><c> failure</c>
+
+00:28:11.750 --> 00:28:11.760 align:start position:0%
+So in next part I will show some failure
+ 
+
+00:28:11.760 --> 00:28:14.070 align:start position:0%
+So in next part I will show some failure
+scenarios<00:28:12.320><c> and</c><00:28:12.559><c> how</c><00:28:12.799><c> it</c><00:28:13.039><c> would</c><00:28:13.200><c> be</c><00:28:13.360><c> handled</c>
+
+00:28:14.070 --> 00:28:14.080 align:start position:0%
+scenarios and how it would be handled
+ 
+
+00:28:14.080 --> 00:28:17.029 align:start position:0%
+scenarios and how it would be handled
+but<00:28:14.480><c> I</c><00:28:14.799><c> hope</c><00:28:15.200><c> I</c><00:28:15.520><c> am</c><00:28:15.679><c> not</c><00:28:16.000><c> rushing</c><00:28:16.399><c> and</c><00:28:16.720><c> going</c>
+
+00:28:17.029 --> 00:28:17.039 align:start position:0%
+but I hope I am not rushing and going
+ 
+
+00:28:17.039 --> 00:28:22.310 align:start position:0%
+but I hope I am not rushing and going
+slowly<00:28:18.080><c> and</c><00:28:18.640><c> uh</c><00:28:19.200><c> this</c><00:28:19.600><c> flows</c><00:28:20.799><c> now</c><00:28:21.200><c> makes</c><00:28:21.440><c> sense</c>
+
+00:28:22.310 --> 00:28:22.320 align:start position:0%
+slowly and uh this flows now makes sense
+ 
+
+00:28:22.320 --> 00:28:25.110 align:start position:0%
+slowly and uh this flows now makes sense
+to<00:28:22.799><c> pictureize</c><00:28:23.360><c> end</c><00:28:23.520><c> to</c><00:28:23.760><c> end</c><00:28:23.919><c> flow.</c><00:28:24.880><c> What</c>
+
+00:28:25.110 --> 00:28:25.120 align:start position:0%
+to pictureize end to end flow. What
+ 
+
+00:28:25.120 --> 00:28:27.990 align:start position:0%
+to pictureize end to end flow. What
+happened<00:28:25.360><c> during</c><00:28:26.799><c> when</c><00:28:27.120><c> producer</c><00:28:27.600><c> write</c><00:28:27.840><c> the</c>
+
+00:28:27.990 --> 00:28:28.000 align:start position:0%
+happened during when producer write the
+ 
+
+00:28:28.000 --> 00:28:30.470 align:start position:0%
+happened during when producer write the
+event?<00:28:28.559><c> What</c><00:28:28.799><c> happened</c><00:28:29.039><c> when</c><00:28:29.360><c> consumer</c><00:28:30.159><c> read</c>
+
+00:28:30.470 --> 00:28:30.480 align:start position:0%
+event? What happened when consumer read
+ 
+
+00:28:30.480 --> 00:28:33.750 align:start position:0%
+event? What happened when consumer read
+the<00:28:30.720><c> event?</c><00:28:31.679><c> Okay</c><00:28:32.480><c> pause</c><00:28:32.799><c> it</c><00:28:33.200><c> go</c><00:28:33.440><c> through</c><00:28:33.600><c> it</c>
+
+00:28:33.750 --> 00:28:33.760 align:start position:0%
+the event? Okay pause it go through it
+ 
+
+00:28:33.760 --> 00:28:36.870 align:start position:0%
+the event? Okay pause it go through it
+again<00:28:34.559><c> things</c><00:28:34.880><c> will</c><00:28:35.200><c> start</c><00:28:35.440><c> making</c><00:28:35.760><c> sense</c><00:28:36.559><c> and</c>
+
+00:28:36.870 --> 00:28:36.880 align:start position:0%
+again things will start making sense and
+ 
+
+00:28:36.880 --> 00:28:38.389 align:start position:0%
+again things will start making sense and
+any<00:28:37.120><c> doubt</c><00:28:37.360><c> let</c><00:28:37.520><c> me</c><00:28:37.600><c> know</c><00:28:37.840><c> we</c><00:28:38.000><c> can</c><00:28:38.159><c> discuss</c>
+
+00:28:38.389 --> 00:28:38.399 align:start position:0%
+any doubt let me know we can discuss
+ 
+
+00:28:38.399 --> 00:28:42.080 align:start position:0%
+any doubt let me know we can discuss
+further.<00:28:39.360><c> Bye.</c>
+

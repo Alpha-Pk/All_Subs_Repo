@@ -1,0 +1,11685 @@
+1
+00:00:00,000 --> 00:00:02,590
+
+And in the previous video of producer
+
+2
+00:00:02,590 --> 00:00:02,600
+And in the previous video of producer
+ 
+
+3
+00:00:02,600 --> 00:00:05,510
+And in the previous video of producer
+transaction part, we have already seen
+
+4
+00:00:05,510 --> 00:00:05,520
+transaction part, we have already seen
+ 
+
+5
+00:00:05,520 --> 00:00:06,710
+transaction part, we have already seen
+how
+
+6
+00:00:06,710 --> 00:00:06,720
+how
+ 
+
+7
+00:00:06,720 --> 00:00:10,350
+how
+transaction is handled at producer side.
+
+8
+00:00:10,350 --> 00:00:10,360
+transaction is handled at producer side.
+ 
+
+9
+00:00:10,360 --> 00:00:13,110
+transaction is handled at producer side.
+Now, how transaction or the records
+
+10
+00:00:13,110 --> 00:00:13,120
+Now, how transaction or the records
+ 
+
+11
+00:00:13,120 --> 00:00:15,310
+Now, how transaction or the records
+which are part of the transaction
+
+12
+00:00:15,310 --> 00:00:15,320
+which are part of the transaction
+ 
+
+13
+00:00:15,320 --> 00:00:17,350
+which are part of the transaction
+are handled by consumer that we will see
+
+14
+00:00:17,350 --> 00:00:17,360
+are handled by consumer that we will see
+ 
+
+15
+00:00:17,360 --> 00:00:19,030
+are handled by consumer that we will see
+today.
+
+16
+00:00:19,030 --> 00:00:19,040
+today.
+ 
+
+17
+00:00:19,040 --> 00:00:20,110
+today.
+So,
+
+18
+00:00:20,110 --> 00:00:20,120
+So,
+ 
+
+19
+00:00:20,120 --> 00:00:21,910
+So,
+the records
+
+20
+00:00:21,910 --> 00:00:21,920
+the records
+ 
+
+21
+00:00:21,920 --> 00:00:24,470
+the records
+can be only in three state. One is open,
+
+22
+00:00:24,470 --> 00:00:24,480
+can be only in three state. One is open,
+ 
+
+23
+00:00:24,480 --> 00:00:26,830
+can be only in three state. One is open,
+like ongoing.
+
+24
+00:00:26,830 --> 00:00:26,840
+like ongoing.
+ 
+
+25
+00:00:26,840 --> 00:00:28,910
+like ongoing.
+One is committed
+
+26
+00:00:28,910 --> 00:00:28,920
+One is committed
+ 
+
+27
+00:00:28,920 --> 00:00:31,550
+One is committed
+and aborted. So, records can be a part
+
+28
+00:00:31,550 --> 00:00:31,560
+and aborted. So, records can be a part
+ 
+
+29
+00:00:31,560 --> 00:00:33,190
+and aborted. So, records can be a part
+of transaction which is aborted or
+
+30
+00:00:33,190 --> 00:00:33,200
+of transaction which is aborted or
+ 
+
+31
+00:00:33,200 --> 00:00:34,990
+of transaction which is aborted or
+committed or this transaction is still
+
+32
+00:00:34,990 --> 00:00:35,000
+committed or this transaction is still
+ 
+
+33
+00:00:35,000 --> 00:00:36,270
+committed or this transaction is still
+open.
+
+34
+00:00:36,270 --> 00:00:36,280
+open.
+ 
+
+35
+00:00:36,280 --> 00:00:37,670
+open.
+So, how do you know a transaction is
+
+36
+00:00:37,670 --> 00:00:37,680
+So, how do you know a transaction is
+ 
+
+37
+00:00:37,680 --> 00:00:40,230
+So, how do you know a transaction is
+still open? Generally, let's say this is
+
+38
+00:00:40,230 --> 00:00:40,240
+still open? Generally, let's say this is
+ 
+
+39
+00:00:40,240 --> 00:00:41,790
+still open? Generally, let's say this is
+a record.
+
+40
+00:00:41,790 --> 00:00:41,800
+a record.
+ 
+
+41
+00:00:41,800 --> 00:00:44,710
+a record.
+Okay. So, this is a part of this
+
+42
+00:00:44,710 --> 00:00:44,720
+Okay. So, this is a part of this
+ 
+
+43
+00:00:44,720 --> 00:00:47,030
+Okay. So, this is a part of this
+producer ID and epoch. So, this is
+
+44
+00:00:47,030 --> 00:00:47,040
+producer ID and epoch. So, this is
+ 
+
+45
+00:00:47,040 --> 00:00:51,070
+producer ID and epoch. So, this is
+producer ID and epoch.
+
+46
+00:00:51,070 --> 00:00:51,080
+producer ID and epoch.
+ 
+
+47
+00:00:51,080 --> 00:00:53,110
+producer ID and epoch.
+And this is is transaction true. Okay.
+
+48
+00:00:53,110 --> 00:00:53,120
+And this is is transaction true. Okay.
+ 
+
+49
+00:00:53,120 --> 00:00:54,790
+And this is is transaction true. Okay.
+So, this is part of a transaction, this
+
+50
+00:00:54,790 --> 00:00:54,800
+So, this is part of a transaction, this
+ 
+
+51
+00:00:54,800 --> 00:00:56,870
+So, this is part of a transaction, this
+transaction.
+
+52
+00:00:56,870 --> 00:00:56,880
+transaction.
+ 
+
+53
+00:00:56,880 --> 00:00:58,630
+transaction.
+But there is no control record. So,
+
+54
+00:00:58,630 --> 00:00:58,640
+But there is no control record. So,
+ 
+
+55
+00:00:58,640 --> 00:01:00,950
+But there is no control record. So,
+means this is still open. No no yet
+
+56
+00:01:00,950 --> 00:01:00,960
+means this is still open. No no yet
+ 
+
+57
+00:01:00,960 --> 00:01:03,310
+means this is still open. No no yet
+control record for commit or abort it.
+
+58
+00:01:03,310 --> 00:01:03,320
+control record for commit or abort it.
+ 
+
+59
+00:01:03,320 --> 00:01:05,710
+control record for commit or abort it.
+For committed, you will have a record
+
+60
+00:01:05,710 --> 00:01:05,720
+For committed, you will have a record
+ 
+
+61
+00:01:05,720 --> 00:01:08,030
+For committed, you will have a record
+and then for this record, producer ID
+
+62
+00:01:08,030 --> 00:01:08,040
+and then for this record, producer ID
+ 
+
+63
+00:01:08,040 --> 00:01:10,310
+and then for this record, producer ID
+and epoch, you have a control record.
+
+64
+00:01:10,310 --> 00:01:10,320
+and epoch, you have a control record.
+ 
+
+65
+00:01:10,320 --> 00:01:11,550
+and epoch, you have a control record.
+Commit.
+
+66
+00:01:11,550 --> 00:01:11,560
+Commit.
+ 
+
+67
+00:01:11,560 --> 00:01:13,470
+Commit.
+Similarly, for abort, similarly, you
+
+68
+00:01:13,470 --> 00:01:13,480
+Similarly, for abort, similarly, you
+ 
+
+69
+00:01:13,480 --> 00:01:16,350
+Similarly, for abort, similarly, you
+have producer ID epoch.
+
+70
+00:01:16,350 --> 00:01:16,360
+have producer ID epoch.
+ 
+
+71
+00:01:16,360 --> 00:01:18,070
+have producer ID epoch.
+PID and epoch.
+
+72
+00:01:18,070 --> 00:01:18,080
+PID and epoch.
+ 
+
+73
+00:01:18,080 --> 00:01:20,190
+PID and epoch.
+This is is transaction true, control
+
+74
+00:01:20,190 --> 00:01:20,200
+This is is transaction true, control
+ 
+
+75
+00:01:20,200 --> 00:01:22,110
+This is is transaction true, control
+false. So, this is a record. And for
+
+76
+00:01:22,110 --> 00:01:22,120
+false. So, this is a record. And for
+ 
+
+77
+00:01:22,120 --> 00:01:24,510
+false. So, this is a record. And for
+this record, there is a control record
+
+78
+00:01:24,510 --> 00:01:24,520
+this record, there is a control record
+ 
+
+79
+00:01:24,520 --> 00:01:25,790
+this record, there is a control record
+true.
+
+80
+00:01:25,790 --> 00:01:25,800
+true.
+ 
+
+81
+00:01:25,800 --> 00:01:29,670
+true.
+Same producer ID epoch, but with abort.
+
+82
+00:01:29,670 --> 00:01:29,680
+Same producer ID epoch, but with abort.
+ 
+
+83
+00:01:29,680 --> 00:01:31,630
+Same producer ID epoch, but with abort.
+Okay. So, this is the only three
+
+84
+00:01:31,630 --> 00:01:31,640
+Okay. So, this is the only three
+ 
+
+85
+00:01:31,640 --> 00:01:33,550
+Okay. So, this is the only three
+possible state. And also in the
+
+86
+00:01:33,550 --> 00:01:33,560
+possible state. And also in the
+ 
+
+87
+00:01:33,560 --> 00:01:36,270
+possible state. And also in the
+producer, I told you that
+
+88
+00:01:36,270 --> 00:01:36,280
+producer, I told you that
+ 
+
+89
+00:01:36,280 --> 00:01:38,990
+producer, I told you that
+transaction
+
+90
+00:01:38,990 --> 00:01:39,000
+transaction
+ 
+
+91
+00:01:39,000 --> 00:01:40,870
+transaction
+transaction
+
+92
+00:01:40,870 --> 00:01:40,880
+transaction
+ 
+
+93
+00:01:40,880 --> 00:01:43,430
+transaction
+in producer is single-threaded.
+
+94
+00:01:43,430 --> 00:01:43,440
+in producer is single-threaded.
+ 
+
+95
+00:01:43,440 --> 00:01:45,590
+in producer is single-threaded.
+Okay. Single-threaded means, let's say
+
+96
+00:01:45,590 --> 00:01:45,600
+Okay. Single-threaded means, let's say
+ 
+
+97
+00:01:45,600 --> 00:01:47,750
+Okay. Single-threaded means, let's say
+transaction one.
+
+98
+00:01:47,750 --> 00:01:47,760
+transaction one.
+ 
+
+99
+00:01:47,760 --> 00:01:49,990
+transaction one.
+When the transaction one is open, you
+
+100
+00:01:49,990 --> 00:01:50,000
+When the transaction one is open, you
+ 
+
+101
+00:01:50,000 --> 00:01:53,790
+When the transaction one is open, you
+cannot have another transaction open.
+
+102
+00:01:53,790 --> 00:01:53,800
+cannot have another transaction open.
+ 
+
+103
+00:01:53,800 --> 00:01:56,110
+cannot have another transaction open.
+Okay. So, at a time, you can have one
+
+104
+00:01:56,110 --> 00:01:56,120
+Okay. So, at a time, you can have one
+ 
+
+105
+00:01:56,120 --> 00:01:57,990
+Okay. So, at a time, you can have one
+transaction.
+
+106
+00:01:57,990 --> 00:01:58,000
+transaction.
+ 
+
+107
+00:01:58,000 --> 00:02:01,070
+transaction.
+So, this producer ID and epoch is
+
+108
+00:02:01,070 --> 00:02:01,080
+So, this producer ID and epoch is
+ 
+
+109
+00:02:01,080 --> 00:02:03,150
+So, this producer ID and epoch is
+sufficient to uniquely identify the
+
+110
+00:02:03,150 --> 00:02:03,160
+sufficient to uniquely identify the
+ 
+
+111
+00:02:03,160 --> 00:02:04,470
+sufficient to uniquely identify the
+transaction.
+
+112
+00:02:04,470 --> 00:02:04,480
+transaction.
+ 
+
+113
+00:02:04,480 --> 00:02:06,230
+transaction.
+Okay. So, let's say this is
+
+114
+00:02:06,230 --> 00:02:06,240
+Okay. So, let's say this is
+ 
+
+115
+00:02:06,240 --> 00:02:07,990
+Okay. So, let's say this is
+For example, you are starting a new
+
+116
+00:02:07,990 --> 00:02:08,000
+For example, you are starting a new
+ 
+
+117
+00:02:08,000 --> 00:02:10,590
+For example, you are starting a new
+transaction, begin transaction.
+
+118
+00:02:10,590 --> 00:02:10,600
+transaction, begin transaction.
+ 
+
+119
+00:02:10,600 --> 00:02:13,070
+transaction, begin transaction.
+So, you have PID
+
+120
+00:02:13,070 --> 00:02:13,080
+So, you have PID
+ 
+
+121
+00:02:13,080 --> 00:02:14,310
+So, you have PID
+one.
+
+122
+00:02:14,310 --> 00:02:14,320
+one.
+ 
+
+123
+00:02:14,320 --> 00:02:17,190
+one.
+Epoch, let's say zero.
+
+124
+00:02:17,190 --> 00:02:17,200
+Epoch, let's say zero.
+ 
+
+125
+00:02:17,200 --> 00:02:20,350
+Epoch, let's say zero.
+One, epoch is zero. You have its record.
+
+126
+00:02:20,350 --> 00:02:20,360
+One, epoch is zero. You have its record.
+ 
+
+127
+00:02:20,360 --> 00:02:22,910
+One, epoch is zero. You have its record.
+And then you have a control record.
+
+128
+00:02:22,910 --> 00:02:22,920
+And then you have a control record.
+ 
+
+129
+00:02:22,920 --> 00:02:24,870
+And then you have a control record.
+Okay. After this control record only,
+
+130
+00:02:24,870 --> 00:02:24,880
+Okay. After this control record only,
+ 
+
+131
+00:02:24,880 --> 00:02:27,150
+Okay. After this control record only,
+whether commit or abort, you can another
+
+132
+00:02:27,150 --> 00:02:27,160
+whether commit or abort, you can another
+ 
+
+133
+00:02:27,160 --> 00:02:29,070
+whether commit or abort, you can another
+have another transaction.
+
+134
+00:02:29,070 --> 00:02:29,080
+have another transaction.
+ 
+
+135
+00:02:29,080 --> 00:02:31,590
+have another transaction.
+Okay. The same PID, same producer ID,
+
+136
+00:02:31,590 --> 00:02:31,600
+Okay. The same PID, same producer ID,
+ 
+
+137
+00:02:31,600 --> 00:02:33,070
+Okay. The same PID, same producer ID,
+same epoch.
+
+138
+00:02:33,070 --> 00:02:33,080
+same epoch.
+ 
+
+139
+00:02:33,080 --> 00:02:35,150
+same epoch.
+Okay. And its record. So, after that,
+
+140
+00:02:35,150 --> 00:02:35,160
+Okay. And its record. So, after that,
+ 
+
+141
+00:02:35,160 --> 00:02:37,590
+Okay. And its record. So, after that,
+you can still have same producer ID
+
+142
+00:02:37,590 --> 00:02:37,600
+you can still have same producer ID
+ 
+
+143
+00:02:37,600 --> 00:02:38,910
+you can still have same producer ID
+zero.
+
+144
+00:02:38,910 --> 00:02:38,920
+zero.
+ 
+
+145
+00:02:38,920 --> 00:02:41,470
+zero.
+Epoch is still zero. Its record.
+
+146
+00:02:41,470 --> 00:02:41,480
+Epoch is still zero. Its record.
+ 
+
+147
+00:02:41,480 --> 00:02:43,030
+Epoch is still zero. Its record.
+And then its control record, whether
+
+148
+00:02:43,030 --> 00:02:43,040
+And then its control record, whether
+ 
+
+149
+00:02:43,040 --> 00:02:44,830
+And then its control record, whether
+commit or abort.
+
+150
+00:02:44,830 --> 00:02:44,840
+commit or abort.
+ 
+
+151
+00:02:44,840 --> 00:02:46,190
+commit or abort.
+So,
+
+152
+00:02:46,190 --> 00:02:46,200
+So,
+ 
+
+153
+00:02:46,200 --> 00:02:49,510
+So,
+it is easily understandable that once
+
+154
+00:02:49,510 --> 00:02:49,520
+it is easily understandable that once
+ 
+
+155
+00:02:49,520 --> 00:02:51,270
+it is easily understandable that once
+you have a record,
+
+156
+00:02:51,270 --> 00:02:51,280
+you have a record,
+ 
+
+157
+00:02:51,280 --> 00:02:53,150
+you have a record,
+you can have so many
+
+158
+00:02:53,150 --> 00:02:53,160
+you can have so many
+ 
+
+159
+00:02:53,160 --> 00:02:56,470
+you can have so many
+send events. You can have so many
+
+160
+00:02:56,470 --> 00:02:56,480
+send events. You can have so many
+ 
+
+161
+00:02:56,480 --> 00:02:58,510
+send events. You can have so many
+events. Let's say send.
+
+162
+00:02:58,510 --> 00:02:58,520
+events. Let's say send.
+ 
+
+163
+00:02:58,520 --> 00:02:59,870
+events. Let's say send.
+Send.
+
+164
+00:02:59,870 --> 00:02:59,880
+Send.
+ 
+
+165
+00:02:59,880 --> 00:03:01,870
+Send.
+Order events again.
+
+166
+00:03:01,870 --> 00:03:01,880
+Order events again.
+ 
+
+167
+00:03:01,880 --> 00:03:03,230
+Order events again.
+Partition P2. Let's say this is
+
+168
+00:03:03,230 --> 00:03:03,240
+Partition P2. Let's say this is
+ 
+
+169
+00:03:03,240 --> 00:03:05,630
+Partition P2. Let's say this is
+partition P2 of order hyphen events
+
+170
+00:03:05,630 --> 00:03:05,640
+partition P2 of order hyphen events
+ 
+
+171
+00:03:05,640 --> 00:03:06,990
+partition P2 of order hyphen events
+only.
+
+172
+00:03:06,990 --> 00:03:07,000
+only.
+ 
+
+173
+00:03:07,000 --> 00:03:09,830
+only.
+You can send multiple send records.
+
+174
+00:03:09,830 --> 00:03:09,840
+You can send multiple send records.
+ 
+
+175
+00:03:09,840 --> 00:03:11,750
+You can send multiple send records.
+Order hyphen events, partition P2. You
+
+176
+00:03:11,750 --> 00:03:11,760
+Order hyphen events, partition P2. You
+ 
+
+177
+00:03:11,760 --> 00:03:13,430
+Order hyphen events, partition P2. You
+can have multiple events.
+
+178
+00:03:13,430 --> 00:03:13,440
+can have multiple events.
+ 
+
+179
+00:03:13,440 --> 00:03:15,590
+can have multiple events.
+Okay. Possible. Okay.
+
+180
+00:03:15,590 --> 00:03:15,600
+Okay. Possible. Okay.
+ 
+
+181
+00:03:15,600 --> 00:03:16,550
+Okay. Possible. Okay.
+But
+
+182
+00:03:16,550 --> 00:03:16,560
+But
+ 
+
+183
+00:03:16,560 --> 00:03:18,950
+But
+till the one transaction,
+
+184
+00:03:18,950 --> 00:03:18,960
+till the one transaction,
+ 
+
+185
+00:03:18,960 --> 00:03:21,230
+till the one transaction,
+after that, you will do commit or abort,
+
+186
+00:03:21,230 --> 00:03:21,240
+after that, you will do commit or abort,
+ 
+
+187
+00:03:21,240 --> 00:03:22,110
+after that, you will do commit or abort,
+right?
+
+188
+00:03:22,110 --> 00:03:22,120
+right?
+ 
+
+189
+00:03:22,120 --> 00:03:24,830
+right?
+So, after this control record only,
+
+190
+00:03:24,830 --> 00:03:24,840
+So, after this control record only,
+ 
+
+191
+00:03:24,840 --> 00:03:27,510
+So, after this control record only,
+you can have another
+
+192
+00:03:27,510 --> 00:03:27,520
+you can have another
+ 
+
+193
+00:03:27,520 --> 00:03:30,230
+you can have another
+is transaction equals to true.
+
+194
+00:03:30,230 --> 00:03:30,240
+is transaction equals to true.
+ 
+
+195
+00:03:30,240 --> 00:03:33,030
+is transaction equals to true.
+Okay. With the same producer ID epoch
+
+196
+00:03:33,030 --> 00:03:33,040
+Okay. With the same producer ID epoch
+ 
+
+197
+00:03:33,040 --> 00:03:38,630
+Okay. With the same producer ID epoch
+and then its control.
+
+198
+00:03:38,630 --> 00:03:38,640
+
+ 
+
+199
+00:03:38,640 --> 00:03:40,510
+
+Okay. So, things will get more clear,
+
+200
+00:03:40,510 --> 00:03:40,520
+Okay. So, things will get more clear,
+ 
+
+201
+00:03:40,520 --> 00:03:43,390
+Okay. So, things will get more clear,
+but at this point of time, all I want is
+
+202
+00:03:43,390 --> 00:03:43,400
+but at this point of time, all I want is
+ 
+
+203
+00:03:43,400 --> 00:03:45,270
+but at this point of time, all I want is
+that
+
+204
+00:03:45,270 --> 00:03:45,280
+that
+ 
+
+205
+00:03:45,280 --> 00:03:47,110
+that
+our record can be in three state,
+
+206
+00:03:47,110 --> 00:03:47,120
+our record can be in three state,
+ 
+
+207
+00:03:47,120 --> 00:03:49,390
+our record can be in three state,
+ongoing, commit, abort.
+
+208
+00:03:49,390 --> 00:03:49,400
+ongoing, commit, abort.
+ 
+
+209
+00:03:49,400 --> 00:03:51,990
+ongoing, commit, abort.
+And this producer ID and epoch is
+
+210
+00:03:51,990 --> 00:03:52,000
+And this producer ID and epoch is
+ 
+
+211
+00:03:52,000 --> 00:03:54,270
+And this producer ID and epoch is
+sufficient to uniquely identify the
+
+212
+00:03:54,270 --> 00:03:54,280
+sufficient to uniquely identify the
+ 
+
+213
+00:03:54,280 --> 00:03:55,390
+sufficient to uniquely identify the
+transaction.
+
+214
+00:03:55,390 --> 00:03:55,400
+transaction.
+ 
+
+215
+00:03:55,400 --> 00:03:56,550
+transaction.
+And
+
+216
+00:03:56,550 --> 00:03:56,560
+And
+ 
+
+217
+00:03:56,560 --> 00:03:58,390
+And
+as we proceed further, things will get
+
+218
+00:03:58,390 --> 00:03:58,400
+as we proceed further, things will get
+ 
+
+219
+00:03:58,400 --> 00:04:00,390
+as we proceed further, things will get
+more clear.
+
+220
+00:04:00,390 --> 00:04:00,400
+more clear.
+ 
+
+221
+00:04:00,400 --> 00:04:01,950
+more clear.
+Now, the question might comes that,
+
+222
+00:04:01,950 --> 00:04:01,960
+Now, the question might comes that,
+ 
+
+223
+00:04:01,960 --> 00:04:03,310
+Now, the question might comes that,
+okay,
+
+224
+00:04:03,310 --> 00:04:03,320
+okay,
+ 
+
+225
+00:04:03,320 --> 00:04:06,990
+okay,
+how consumer
+
+226
+00:04:06,990 --> 00:04:07,000
+
+ 
+
+227
+00:04:07,000 --> 00:04:10,150
+
+knows that what to do with open
+
+228
+00:04:10,150 --> 00:04:10,160
+knows that what to do with open
+ 
+
+229
+00:04:10,160 --> 00:04:12,550
+knows that what to do with open
+transaction,
+
+230
+00:04:12,550 --> 00:04:12,560
+transaction,
+ 
+
+231
+00:04:12,560 --> 00:04:14,230
+transaction,
+committed transaction,
+
+232
+00:04:14,230 --> 00:04:14,240
+committed transaction,
+ 
+
+233
+00:04:14,240 --> 00:04:18,349
+committed transaction,
+or aborted transaction? What to do?
+
+234
+00:04:18,349 --> 00:04:18,359
+or aborted transaction? What to do?
+ 
+
+235
+00:04:18,359 --> 00:04:20,190
+or aborted transaction? What to do?
+So, there is a one important concept,
+
+236
+00:04:20,190 --> 00:04:20,200
+So, there is a one important concept,
+ 
+
+237
+00:04:20,200 --> 00:04:22,870
+So, there is a one important concept,
+LSO, last stable offset comes into the
+
+238
+00:04:22,870 --> 00:04:22,880
+LSO, last stable offset comes into the
+ 
+
+239
+00:04:22,880 --> 00:04:24,550
+LSO, last stable offset comes into the
+picture.
+
+240
+00:04:24,550 --> 00:04:24,560
+picture.
+ 
+
+241
+00:04:24,560 --> 00:04:26,350
+picture.
+So, last stable offset, you can consider
+
+242
+00:04:26,350 --> 00:04:26,360
+So, last stable offset, you can consider
+ 
+
+243
+00:04:26,360 --> 00:04:27,990
+So, last stable offset, you can consider
+it as a pointer.
+
+244
+00:04:27,990 --> 00:04:28,000
+it as a pointer.
+ 
+
+245
+00:04:28,000 --> 00:04:30,830
+it as a pointer.
+This LSO points to the first message
+
+246
+00:04:30,830 --> 00:04:30,840
+This LSO points to the first message
+ 
+
+247
+00:04:30,840 --> 00:04:33,350
+This LSO points to the first message
+that is open.
+
+248
+00:04:33,350 --> 00:04:33,360
+that is open.
+ 
+
+249
+00:04:33,360 --> 00:04:34,910
+that is open.
+Okay.
+
+250
+00:04:34,910 --> 00:04:34,920
+Okay.
+ 
+
+251
+00:04:34,920 --> 00:04:36,310
+Okay.
+Or you can say that first message that
+
+252
+00:04:36,310 --> 00:04:36,320
+Or you can say that first message that
+ 
+
+253
+00:04:36,320 --> 00:04:39,430
+Or you can say that first message that
+belongs to an open transaction.
+
+254
+00:04:39,430 --> 00:04:39,440
+belongs to an open transaction.
+ 
+
+255
+00:04:39,440 --> 00:04:41,470
+belongs to an open transaction.
+For example,
+
+256
+00:04:41,470 --> 00:04:41,480
+For example,
+ 
+
+257
+00:04:41,480 --> 00:04:45,910
+For example,
+you have begin transaction.
+
+258
+00:04:45,910 --> 00:04:45,920
+
+ 
+
+259
+00:04:45,920 --> 00:04:49,390
+
+Send event, send event, send event, send
+
+260
+00:04:49,390 --> 00:04:49,400
+Send event, send event, send event, send
+ 
+
+261
+00:04:49,400 --> 00:04:50,910
+Send event, send event, send event, send
+event. You have multiple, but currently
+
+262
+00:04:50,910 --> 00:04:50,920
+event. You have multiple, but currently
+ 
+
+263
+00:04:50,920 --> 00:04:53,710
+event. You have multiple, but currently
+commit or aborted not yet happen.
+
+264
+00:04:53,710 --> 00:04:53,720
+commit or aborted not yet happen.
+ 
+
+265
+00:04:53,720 --> 00:04:56,030
+commit or aborted not yet happen.
+So, you have And all goes to the same
+
+266
+00:04:56,030 --> 00:04:56,040
+So, you have And all goes to the same
+ 
+
+267
+00:04:56,040 --> 00:04:59,270
+So, you have And all goes to the same
+topic and same partition. For example,
+
+268
+00:04:59,270 --> 00:04:59,280
+topic and same partition. For example,
+ 
+
+269
+00:04:59,280 --> 00:05:02,270
+topic and same partition. For example,
+so you have multiple
+
+270
+00:05:02,270 --> 00:05:02,280
+so you have multiple
+ 
+
+271
+00:05:02,280 --> 00:05:03,910
+so you have multiple
+offset zero,
+
+272
+00:05:03,910 --> 00:05:03,920
+offset zero,
+ 
+
+273
+00:05:03,920 --> 00:05:06,430
+offset zero,
+offset one, offset two.
+
+274
+00:05:06,430 --> 00:05:06,440
+offset one, offset two.
+ 
+
+275
+00:05:06,440 --> 00:05:08,070
+offset one, offset two.
+Okay. So, this record goes at offset
+
+276
+00:05:08,070 --> 00:05:08,080
+Okay. So, this record goes at offset
+ 
+
+277
+00:05:08,080 --> 00:05:12,110
+Okay. So, this record goes at offset
+zero. This got offset one, offset two.
+
+278
+00:05:12,110 --> 00:05:12,120
+zero. This got offset one, offset two.
+ 
+
+279
+00:05:12,120 --> 00:05:13,230
+zero. This got offset one, offset two.
+But
+
+280
+00:05:13,230 --> 00:05:13,240
+But
+ 
+
+281
+00:05:13,240 --> 00:05:16,550
+But
+commit and abort not yet happen.
+
+282
+00:05:16,550 --> 00:05:16,560
+commit and abort not yet happen.
+ 
+
+283
+00:05:16,560 --> 00:05:17,430
+commit and abort not yet happen.
+Okay.
+
+284
+00:05:17,430 --> 00:05:17,440
+Okay.
+ 
+
+285
+00:05:17,440 --> 00:05:18,790
+Okay.
+So,
+
+286
+00:05:18,790 --> 00:05:18,800
+So,
+ 
+
+287
+00:05:18,800 --> 00:05:22,230
+So,
+LSO points to the first message that
+
+288
+00:05:22,230 --> 00:05:22,240
+LSO points to the first message that
+ 
+
+289
+00:05:22,240 --> 00:05:24,430
+LSO points to the first message that
+belongs to open transaction.
+
+290
+00:05:24,430 --> 00:05:24,440
+belongs to open transaction.
+ 
+
+291
+00:05:24,440 --> 00:05:28,270
+belongs to open transaction.
+So, LSO points to offset zero.
+
+292
+00:05:28,270 --> 00:05:28,280
+So, LSO points to offset zero.
+ 
+
+293
+00:05:28,280 --> 00:05:31,710
+So, LSO points to offset zero.
+So, means this is still open.
+
+294
+00:05:31,710 --> 00:05:31,720
+So, means this is still open.
+ 
+
+295
+00:05:31,720 --> 00:05:33,510
+So, means this is still open.
+Okay. First message of the open
+
+296
+00:05:33,510 --> 00:05:33,520
+Okay. First message of the open
+ 
+
+297
+00:05:33,520 --> 00:05:35,710
+Okay. First message of the open
+transaction.
+
+298
+00:05:35,710 --> 00:05:35,720
+transaction.
+ 
+
+299
+00:05:35,720 --> 00:05:37,310
+transaction.
+Understand with this an example.
+
+300
+00:05:37,310 --> 00:05:37,320
+Understand with this an example.
+ 
+
+301
+00:05:37,320 --> 00:05:39,430
+Understand with this an example.
+Everything get clear.
+
+302
+00:05:39,430 --> 00:05:39,440
+Everything get clear.
+ 
+
+303
+00:05:39,440 --> 00:05:40,590
+Everything get clear.
+Let's say
+
+304
+00:05:40,590 --> 00:05:40,600
+Let's say
+ 
+
+305
+00:05:40,600 --> 00:05:42,270
+Let's say
+this is a topic order hyphen event,
+
+306
+00:05:42,270 --> 00:05:42,280
+this is a topic order hyphen event,
+ 
+
+307
+00:05:42,280 --> 00:05:45,430
+this is a topic order hyphen event,
+partition P2 and its log file.
+
+308
+00:05:45,430 --> 00:05:45,440
+partition P2 and its log file.
+ 
+
+309
+00:05:45,440 --> 00:05:46,950
+partition P2 and its log file.
+In this all log file, I have five
+
+310
+00:05:46,950 --> 00:05:46,960
+In this all log file, I have five
+ 
+
+311
+00:05:46,960 --> 00:05:49,350
+In this all log file, I have five
+offset. The first offset,
+
+312
+00:05:49,350 --> 00:05:49,360
+offset. The first offset,
+ 
+
+313
+00:05:49,360 --> 00:05:50,750
+offset. The first offset,
+zero.
+
+314
+00:05:50,750 --> 00:05:50,760
+zero.
+ 
+
+315
+00:05:50,760 --> 00:05:53,790
+zero.
+PID five, epoch zero, is transaction
+
+316
+00:05:53,790 --> 00:05:53,800
+PID five, epoch zero, is transaction
+ 
+
+317
+00:05:53,800 --> 00:05:56,150
+PID five, epoch zero, is transaction
+true, record one. So, consider that it
+
+318
+00:05:56,150 --> 00:05:56,160
+true, record one. So, consider that it
+ 
+
+319
+00:05:56,160 --> 00:05:58,510
+true, record one. So, consider that it
+is a transaction one. So, you have one
+
+320
+00:05:58,510 --> 00:05:58,520
+is a transaction one. So, you have one
+ 
+
+321
+00:05:58,520 --> 00:06:01,470
+is a transaction one. So, you have one
+producer.
+
+322
+00:06:01,470 --> 00:06:01,480
+
+ 
+
+323
+00:06:01,480 --> 00:06:04,710
+
+Okay. Let's say producer one.
+
+324
+00:06:04,710 --> 00:06:04,720
+Okay. Let's say producer one.
+ 
+
+325
+00:06:04,720 --> 00:06:06,390
+Okay. Let's say producer one.
+So, it
+
+326
+00:06:06,390 --> 00:06:06,400
+So, it
+ 
+
+327
+00:06:06,400 --> 00:06:08,030
+So, it
+transaction is going on.
+
+328
+00:06:08,030 --> 00:06:08,040
+transaction is going on.
+ 
+
+329
+00:06:08,040 --> 00:06:11,350
+transaction is going on.
+Its transaction is going on. It has PID
+
+330
+00:06:11,350 --> 00:06:11,360
+Its transaction is going on. It has PID
+ 
+
+331
+00:06:11,360 --> 00:06:13,110
+Its transaction is going on. It has PID
+five.
+
+332
+00:06:13,110 --> 00:06:13,120
+five.
+ 
+
+333
+00:06:13,120 --> 00:06:16,590
+five.
+Epoch is zero. Okay. And it has put one
+
+334
+00:06:16,590 --> 00:06:16,600
+Epoch is zero. Okay. And it has put one
+ 
+
+335
+00:06:16,600 --> 00:06:20,070
+Epoch is zero. Okay. And it has put one
+record, send.
+
+336
+00:06:20,070 --> 00:06:20,080
+
+ 
+
+337
+00:06:20,080 --> 00:06:22,430
+
+So, this is its record.
+
+338
+00:06:22,430 --> 00:06:22,440
+So, this is its record.
+ 
+
+339
+00:06:22,440 --> 00:06:23,910
+So, this is its record.
+Then I have another offset, another
+
+340
+00:06:23,910 --> 00:06:23,920
+Then I have another offset, another
+ 
+
+341
+00:06:23,920 --> 00:06:26,470
+Then I have another offset, another
+record, PID five, epoch zero. So, again,
+
+342
+00:06:26,470 --> 00:06:26,480
+record, PID five, epoch zero. So, again,
+ 
+
+343
+00:06:26,480 --> 00:06:29,550
+record, PID five, epoch zero. So, again,
+the same part of a same transaction. PID
+
+344
+00:06:29,550 --> 00:06:29,560
+the same part of a same transaction. PID
+ 
+
+345
+00:06:29,560 --> 00:06:31,390
+the same part of a same transaction. PID
+five, epoch zero.
+
+346
+00:06:31,390 --> 00:06:31,400
+five, epoch zero.
+ 
+
+347
+00:06:31,400 --> 00:06:33,670
+five, epoch zero.
+And another send it might have done. So,
+
+348
+00:06:33,670 --> 00:06:33,680
+And another send it might have done. So,
+ 
+
+349
+00:06:33,680 --> 00:06:35,190
+And another send it might have done. So,
+which goes to
+
+350
+00:06:35,190 --> 00:06:35,200
+which goes to
+ 
+
+351
+00:06:35,200 --> 00:06:37,830
+which goes to
+offset one.
+
+352
+00:06:37,830 --> 00:06:37,840
+offset one.
+ 
+
+353
+00:06:37,840 --> 00:06:40,590
+offset one.
+Currently, it is open. No commit, no
+
+354
+00:06:40,590 --> 00:06:40,600
+Currently, it is open. No commit, no
+ 
+
+355
+00:06:40,600 --> 00:06:42,990
+Currently, it is open. No commit, no
+offset yet done.
+
+356
+00:06:42,990 --> 00:06:43,000
+offset yet done.
+ 
+
+357
+00:06:43,000 --> 00:06:44,230
+offset yet done.
+Now,
+
+358
+00:06:44,230 --> 00:06:44,240
+Now,
+ 
+
+359
+00:06:44,240 --> 00:06:46,790
+Now,
+offset two, PID eight. Some different
+
+360
+00:06:46,790 --> 00:06:46,800
+offset two, PID eight. Some different
+ 
+
+361
+00:06:46,800 --> 00:06:48,710
+offset two, PID eight. Some different
+producer ID, epoch one. So, some
+
+362
+00:06:48,710 --> 00:06:48,720
+producer ID, epoch one. So, some
+ 
+
+363
+00:06:48,720 --> 00:06:50,390
+producer ID, epoch one. So, some
+different producer. Let's say producer
+
+364
+00:06:50,390 --> 00:06:50,400
+different producer. Let's say producer
+ 
+
+365
+00:06:50,400 --> 00:06:52,630
+different producer. Let's say producer
+two.
+
+366
+00:06:52,630 --> 00:06:52,640
+two.
+ 
+
+367
+00:06:52,640 --> 00:06:56,110
+two.
+And its transaction, begin transaction.
+
+368
+00:06:56,110 --> 00:06:56,120
+And its transaction, begin transaction.
+ 
+
+369
+00:06:56,120 --> 00:06:58,150
+And its transaction, begin transaction.
+It has PID
+
+370
+00:06:58,150 --> 00:06:58,160
+It has PID
+ 
+
+371
+00:06:58,160 --> 00:07:00,590
+It has PID
+eight. Epoch one.
+
+372
+00:07:00,590 --> 00:07:00,600
+eight. Epoch one.
+ 
+
+373
+00:07:00,600 --> 00:07:02,870
+eight. Epoch one.
+Okay. And is transaction true, just
+
+374
+00:07:02,870 --> 00:07:02,880
+Okay. And is transaction true, just
+ 
+
+375
+00:07:02,880 --> 00:07:04,270
+Okay. And is transaction true, just
+begin transaction. So, record one. So,
+
+376
+00:07:04,270 --> 00:07:04,280
+begin transaction. So, record one. So,
+ 
+
+377
+00:07:04,280 --> 00:07:06,870
+begin transaction. So, record one. So,
+it has make one send.
+
+378
+00:07:06,870 --> 00:07:06,880
+it has make one send.
+ 
+
+379
+00:07:06,880 --> 00:07:09,830
+it has make one send.
+So, this is its record.
+
+380
+00:07:09,830 --> 00:07:09,840
+So, this is its record.
+ 
+
+381
+00:07:09,840 --> 00:07:13,270
+So, this is its record.
+Similarly, I have PID five, epoch zero.
+
+382
+00:07:13,270 --> 00:07:13,280
+Similarly, I have PID five, epoch zero.
+ 
+
+383
+00:07:13,280 --> 00:07:14,870
+Similarly, I have PID five, epoch zero.
+PID five, epoch zero. So, this is the
+
+384
+00:07:14,870 --> 00:07:14,880
+PID five, epoch zero. So, this is the
+ 
+
+385
+00:07:14,880 --> 00:07:16,270
+PID five, epoch zero. So, this is the
+one, this transaction. We are talking
+
+386
+00:07:16,270 --> 00:07:16,280
+one, this transaction. We are talking
+ 
+
+387
+00:07:16,280 --> 00:07:17,910
+one, this transaction. We are talking
+about this transaction. I already told
+
+388
+00:07:17,910 --> 00:07:17,920
+about this transaction. I already told
+ 
+
+389
+00:07:17,920 --> 00:07:19,350
+about this transaction. I already told
+you in
+
+390
+00:07:19,350 --> 00:07:19,360
+you in
+ 
+
+391
+00:07:19,360 --> 00:07:21,190
+you in
+transaction in a particular producer,
+
+392
+00:07:21,190 --> 00:07:21,200
+transaction in a particular producer,
+ 
+
+393
+00:07:21,200 --> 00:07:23,390
+transaction in a particular producer,
+it's single-threaded. So, till this
+
+394
+00:07:23,390 --> 00:07:23,400
+it's single-threaded. So, till this
+ 
+
+395
+00:07:23,400 --> 00:07:25,750
+it's single-threaded. So, till this
+transaction is not yet committed or
+
+396
+00:07:25,750 --> 00:07:25,760
+transaction is not yet committed or
+ 
+
+397
+00:07:25,760 --> 00:07:29,350
+transaction is not yet committed or
+aborted, no other transaction can start.
+
+398
+00:07:29,350 --> 00:07:29,360
+aborted, no other transaction can start.
+ 
+
+399
+00:07:29,360 --> 00:07:30,310
+aborted, no other transaction can start.
+Okay.
+
+400
+00:07:30,310 --> 00:07:30,320
+Okay.
+ 
+
+401
+00:07:30,320 --> 00:07:32,910
+Okay.
+So, now, PID five, epoch zero. So, means
+
+402
+00:07:32,910 --> 00:07:32,920
+So, now, PID five, epoch zero. So, means
+ 
+
+403
+00:07:32,920 --> 00:07:36,390
+So, now, PID five, epoch zero. So, means
+I am talking about this transaction.
+
+404
+00:07:36,390 --> 00:07:36,400
+I am talking about this transaction.
+ 
+
+405
+00:07:36,400 --> 00:07:37,910
+I am talking about this transaction.
+Its control equals to true. So, this is
+
+406
+00:07:37,910 --> 00:07:37,920
+Its control equals to true. So, this is
+ 
+
+407
+00:07:37,920 --> 00:07:40,310
+Its control equals to true. So, this is
+a control record. And it is committed.
+
+408
+00:07:40,310 --> 00:07:40,320
+a control record. And it is committed.
+ 
+
+409
+00:07:40,320 --> 00:07:43,310
+a control record. And it is committed.
+So, means it is doing commit here.
+
+410
+00:07:43,310 --> 00:07:43,320
+So, means it is doing commit here.
+ 
+
+411
+00:07:43,320 --> 00:07:45,790
+So, means it is doing commit here.
+Okay. And it is committed.
+
+412
+00:07:45,790 --> 00:07:45,800
+Okay. And it is committed.
+ 
+
+413
+00:07:45,800 --> 00:07:47,630
+Okay. And it is committed.
+So, means this record transaction one,
+
+414
+00:07:47,630 --> 00:07:47,640
+So, means this record transaction one,
+ 
+
+415
+00:07:47,640 --> 00:07:50,430
+So, means this record transaction one,
+this two.
+
+416
+00:07:50,430 --> 00:07:50,440
+
+ 
+
+417
+00:07:50,440 --> 00:07:52,990
+
+PID five, epoch zero.
+
+418
+00:07:52,990 --> 00:07:53,000
+PID five, epoch zero.
+ 
+
+419
+00:07:53,000 --> 00:07:55,870
+PID five, epoch zero.
+This is committed here.
+
+420
+00:07:55,870 --> 00:07:55,880
+This is committed here.
+ 
+
+421
+00:07:55,880 --> 00:07:59,630
+This is committed here.
+Okay. It has a control record.
+
+422
+00:07:59,630 --> 00:07:59,640
+Okay. It has a control record.
+ 
+
+423
+00:07:59,640 --> 00:08:02,070
+Okay. It has a control record.
+Now, at offset four, PID nine, epoch
+
+424
+00:08:02,070 --> 00:08:02,080
+Now, at offset four, PID nine, epoch
+ 
+
+425
+00:08:02,080 --> 00:08:03,950
+Now, at offset four, PID nine, epoch
+zero. So, here we are talking about,
+
+426
+00:08:03,950 --> 00:08:03,960
+zero. So, here we are talking about,
+ 
+
+427
+00:08:03,960 --> 00:08:06,830
+zero. So, here we are talking about,
+let's say producer three.
+
+428
+00:08:06,830 --> 00:08:06,840
+let's say producer three.
+ 
+
+429
+00:08:06,840 --> 00:08:09,510
+let's say producer three.
+It has a begin transaction.
+
+430
+00:08:09,510 --> 00:08:09,520
+It has a begin transaction.
+ 
+
+431
+00:08:09,520 --> 00:08:12,030
+It has a begin transaction.
+PID nine.
+
+432
+00:08:12,030 --> 00:08:12,040
+PID nine.
+ 
+
+433
+00:08:12,040 --> 00:08:13,110
+PID nine.
+Epoch
+
+434
+00:08:13,110 --> 00:08:13,120
+Epoch
+ 
+
+435
+00:08:13,120 --> 00:08:14,310
+Epoch
+zero.
+
+436
+00:08:14,310 --> 00:08:14,320
+zero.
+ 
+
+437
+00:08:14,320 --> 00:08:17,710
+zero.
+It made its first send.
+
+438
+00:08:17,710 --> 00:08:17,720
+It made its first send.
+ 
+
+439
+00:08:17,720 --> 00:08:20,070
+It made its first send.
+Record comes.
+
+440
+00:08:20,070 --> 00:08:20,080
+Record comes.
+ 
+
+441
+00:08:20,080 --> 00:08:22,470
+Record comes.
+After that, offset five, PID nine, epoch
+
+442
+00:08:22,470 --> 00:08:22,480
+After that, offset five, PID nine, epoch
+ 
+
+443
+00:08:22,480 --> 00:08:24,390
+After that, offset five, PID nine, epoch
+zero. So, this transaction, this
+
+444
+00:08:24,390 --> 00:08:24,400
+zero. So, this transaction, this
+ 
+
+445
+00:08:24,400 --> 00:08:26,470
+zero. So, this transaction, this
+transaction we are talking about, it has
+
+446
+00:08:26,470 --> 00:08:26,480
+transaction we are talking about, it has
+ 
+
+447
+00:08:26,480 --> 00:08:28,270
+transaction we are talking about, it has
+a control record true, commit. So, it
+
+448
+00:08:28,270 --> 00:08:28,280
+a control record true, commit. So, it
+ 
+
+449
+00:08:28,280 --> 00:08:30,470
+a control record true, commit. So, it
+made a commit.
+
+450
+00:08:30,470 --> 00:08:30,480
+made a commit.
+ 
+
+451
+00:08:30,480 --> 00:08:34,550
+made a commit.
+So, this is also committed.
+
+452
+00:08:34,550 --> 00:08:34,560
+
+ 
+
+453
+00:08:34,560 --> 00:08:36,589
+
+But here, if you see,
+
+454
+00:08:36,589 --> 00:08:36,599
+But here, if you see,
+ 
+
+455
+00:08:36,599 --> 00:08:39,430
+But here, if you see,
+this transaction, this transaction is
+
+456
+00:08:39,430 --> 00:08:39,440
+this transaction, this transaction is
+ 
+
+457
+00:08:39,440 --> 00:08:42,230
+this transaction, this transaction is
+still open. It is not yet committed or
+
+458
+00:08:42,230 --> 00:08:42,240
+still open. It is not yet committed or
+ 
+
+459
+00:08:42,240 --> 00:08:43,670
+still open. It is not yet committed or
+aborted.
+
+460
+00:08:43,670 --> 00:08:43,680
+aborted.
+ 
+
+461
+00:08:43,680 --> 00:08:46,390
+aborted.
+This is still open.
+
+462
+00:08:46,390 --> 00:08:46,400
+This is still open.
+ 
+
+463
+00:08:46,400 --> 00:08:48,310
+This is still open.
+So, what how
+
+464
+00:08:48,310 --> 00:08:48,320
+So, what how
+ 
+
+465
+00:08:48,320 --> 00:08:51,590
+So, what how
+how consumer read this
+
+466
+00:08:51,590 --> 00:08:51,600
+how consumer read this
+ 
+
+467
+00:08:51,600 --> 00:08:52,910
+how consumer read this
+events?
+
+468
+00:08:52,910 --> 00:08:52,920
+events?
+ 
+
+469
+00:08:52,920 --> 00:08:55,470
+events?
+Okay. So, for first thing first, I told
+
+470
+00:08:55,470 --> 00:08:55,480
+Okay. So, for first thing first, I told
+ 
+
+471
+00:08:55,480 --> 00:08:57,910
+Okay. So, for first thing first, I told
+you that LSO plays a major role. LSO is
+
+472
+00:08:57,910 --> 00:08:57,920
+you that LSO plays a major role. LSO is
+ 
+
+473
+00:08:57,920 --> 00:08:58,950
+you that LSO plays a major role. LSO is
+that
+
+474
+00:08:58,950 --> 00:08:58,960
+that
+ 
+
+475
+00:08:58,960 --> 00:09:00,790
+that
+first message that belongs to open
+
+476
+00:09:00,790 --> 00:09:00,800
+first message that belongs to open
+ 
+
+477
+00:09:00,800 --> 00:09:01,910
+first message that belongs to open
+transaction.
+
+478
+00:09:01,910 --> 00:09:01,920
+transaction.
+ 
+
+479
+00:09:01,920 --> 00:09:04,030
+transaction.
+So, it goes from the sequential offset
+
+480
+00:09:04,030 --> 00:09:04,040
+So, it goes from the sequential offset
+ 
+
+481
+00:09:04,040 --> 00:09:06,590
+So, it goes from the sequential offset
+zero one. What is the first
+
+482
+00:09:06,590 --> 00:09:06,600
+zero one. What is the first
+ 
+
+483
+00:09:06,600 --> 00:09:09,310
+zero one. What is the first
+you can say that record which is open?
+
+484
+00:09:09,310 --> 00:09:09,320
+you can say that record which is open?
+ 
+
+485
+00:09:09,320 --> 00:09:10,630
+you can say that record which is open?
+Offset two.
+
+486
+00:09:10,630 --> 00:09:10,640
+Offset two.
+ 
+
+487
+00:09:10,640 --> 00:09:13,190
+Offset two.
+This is open. It is not yet closed.
+
+488
+00:09:13,190 --> 00:09:13,200
+This is open. It is not yet closed.
+ 
+
+489
+00:09:13,200 --> 00:09:15,230
+This is open. It is not yet closed.
+Transaction two.
+
+490
+00:09:15,230 --> 00:09:15,240
+Transaction two.
+ 
+
+491
+00:09:15,240 --> 00:09:17,670
+Transaction two.
+Uh PID eight, epoch one. It is not yet
+
+492
+00:09:17,670 --> 00:09:17,680
+Uh PID eight, epoch one. It is not yet
+ 
+
+493
+00:09:17,680 --> 00:09:19,350
+Uh PID eight, epoch one. It is not yet
+open. Okay.
+
+494
+00:09:19,350 --> 00:09:19,360
+open. Okay.
+ 
+
+495
+00:09:19,360 --> 00:09:21,070
+open. Okay.
+So, LSO
+
+496
+00:09:21,070 --> 00:09:21,080
+So, LSO
+ 
+
+497
+00:09:21,080 --> 00:09:22,950
+So, LSO
+equals to two.
+
+498
+00:09:22,950 --> 00:09:22,960
+equals to two.
+ 
+
+499
+00:09:22,960 --> 00:09:24,670
+equals to two.
+So, it's a pointer.
+
+500
+00:09:24,670 --> 00:09:24,680
+So, it's a pointer.
+ 
+
+501
+00:09:24,680 --> 00:09:26,350
+So, it's a pointer.
+After that, no matter you have offset
+
+502
+00:09:26,350 --> 00:09:26,360
+After that, no matter you have offset
+ 
+
+503
+00:09:26,360 --> 00:09:29,150
+After that, no matter you have offset
+six, offset 10, these are also open,
+
+504
+00:09:29,150 --> 00:09:29,160
+six, offset 10, these are also open,
+ 
+
+505
+00:09:29,160 --> 00:09:31,430
+six, offset 10, these are also open,
+doesn't matter. LSO only points to the
+
+506
+00:09:31,430 --> 00:09:31,440
+doesn't matter. LSO only points to the
+ 
+
+507
+00:09:31,440 --> 00:09:34,990
+doesn't matter. LSO only points to the
+first record which is open.
+
+508
+00:09:34,990 --> 00:09:35,000
+first record which is open.
+ 
+
+509
+00:09:35,000 --> 00:09:36,870
+first record which is open.
+Okay.
+
+510
+00:09:36,870 --> 00:09:36,880
+Okay.
+ 
+
+511
+00:09:36,880 --> 00:09:37,990
+Okay.
+Now,
+
+512
+00:09:37,990 --> 00:09:38,000
+Now,
+ 
+
+513
+00:09:38,000 --> 00:09:40,590
+Now,
+how consumer get benefited with this LSO
+
+514
+00:09:40,590 --> 00:09:40,600
+how consumer get benefited with this LSO
+ 
+
+515
+00:09:40,600 --> 00:09:41,950
+how consumer get benefited with this LSO
+information?
+
+516
+00:09:41,950 --> 00:09:41,960
+information?
+ 
+
+517
+00:09:41,960 --> 00:09:44,990
+information?
+So, consumer, remember that
+
+518
+00:09:44,990 --> 00:09:45,000
+So, consumer, remember that
+ 
+
+519
+00:09:45,000 --> 00:09:46,230
+So, consumer, remember that
+whenever
+
+520
+00:09:46,230 --> 00:09:46,240
+whenever
+ 
+
+521
+00:09:46,240 --> 00:09:48,510
+whenever
+the consumer read from broker, broker
+
+522
+00:09:48,510 --> 00:09:48,520
+the consumer read from broker, broker
+ 
+
+523
+00:09:48,520 --> 00:09:52,870
+the consumer read from broker, broker
+always delivered the data in order
+
+524
+00:09:52,870 --> 00:09:52,880
+always delivered the data in order
+ 
+
+525
+00:09:52,880 --> 00:09:54,590
+always delivered the data in order
+from the partition. So, in this
+
+526
+00:09:54,590 --> 00:09:54,600
+from the partition. So, in this
+ 
+
+527
+00:09:54,600 --> 00:09:56,270
+from the partition. So, in this
+partition two,
+
+528
+00:09:56,270 --> 00:09:56,280
+partition two,
+ 
+
+529
+00:09:56,280 --> 00:09:58,150
+partition two,
+so whatever the consumer will read, it
+
+530
+00:09:58,150 --> 00:09:58,160
+so whatever the consumer will read, it
+ 
+
+531
+00:09:58,160 --> 00:09:59,630
+so whatever the consumer will read, it
+will read in order.
+
+532
+00:09:59,630 --> 00:09:59,640
+will read in order.
+ 
+
+533
+00:09:59,640 --> 00:10:02,230
+will read in order.
+Offset zero, then one, then two, then
+
+534
+00:10:02,230 --> 00:10:02,240
+Offset zero, then one, then two, then
+ 
+
+535
+00:10:02,240 --> 00:10:04,230
+Offset zero, then one, then two, then
+three, whatever. Okay? So, it should be
+
+536
+00:10:04,230 --> 00:10:04,240
+three, whatever. Okay? So, it should be
+ 
+
+537
+00:10:04,240 --> 00:10:05,630
+three, whatever. Okay? So, it should be
+ordering.
+
+538
+00:10:05,630 --> 00:10:05,640
+ordering.
+ 
+
+539
+00:10:05,640 --> 00:10:07,910
+ordering.
+So, how consumer
+
+540
+00:10:07,910 --> 00:10:07,920
+So, how consumer
+ 
+
+541
+00:10:07,920 --> 00:10:11,030
+So, how consumer
+benefited with this LSO information?
+
+542
+00:10:11,030 --> 00:10:11,040
+benefited with this LSO information?
+ 
+
+543
+00:10:11,040 --> 00:10:13,350
+benefited with this LSO information?
+So, consumer first we have to add a
+
+544
+00:10:13,350 --> 00:10:13,360
+So, consumer first we have to add a
+ 
+
+545
+00:10:13,360 --> 00:10:17,630
+So, consumer first we have to add a
+spring.kafka.consumer.properties.isolation.level.
+
+546
+00:10:17,630 --> 00:10:17,640
+
+ 
+
+547
+00:10:17,640 --> 00:10:20,670
+
+So, read uncommitted is the default.
+
+548
+00:10:20,670 --> 00:10:20,680
+So, read uncommitted is the default.
+ 
+
+549
+00:10:20,680 --> 00:10:22,990
+So, read uncommitted is the default.
+Even if you don't write it, the default
+
+550
+00:10:22,990 --> 00:10:23,000
+Even if you don't write it, the default
+ 
+
+551
+00:10:23,000 --> 00:10:25,230
+Even if you don't write it, the default
+is read uncommitted.
+
+552
+00:10:25,230 --> 00:10:25,240
+is read uncommitted.
+ 
+
+553
+00:10:25,240 --> 00:10:28,870
+is read uncommitted.
+Uncommitted means that read everything.
+
+554
+00:10:28,870 --> 00:10:28,880
+Uncommitted means that read everything.
+ 
+
+555
+00:10:28,880 --> 00:10:31,150
+Uncommitted means that read everything.
+And remember that the broker never
+
+556
+00:10:31,150 --> 00:10:31,160
+And remember that the broker never
+ 
+
+557
+00:10:31,160 --> 00:10:33,270
+And remember that the broker never
+return control records. Is control
+
+558
+00:10:33,270 --> 00:10:33,280
+return control records. Is control
+ 
+
+559
+00:10:33,280 --> 00:10:35,430
+return control records. Is control
+equals to true? Broker never return it.
+
+560
+00:10:35,430 --> 00:10:35,440
+equals to true? Broker never return it.
+ 
+
+561
+00:10:35,440 --> 00:10:37,990
+equals to true? Broker never return it.
+So, it is filtered
+
+562
+00:10:37,990 --> 00:10:38,000
+So, it is filtered
+ 
+
+563
+00:10:38,000 --> 00:10:40,830
+So, it is filtered
+at broker layer itself.
+
+564
+00:10:40,830 --> 00:10:40,840
+at broker layer itself.
+ 
+
+565
+00:10:40,840 --> 00:10:43,590
+at broker layer itself.
+Filtered at broker layer itself.
+
+566
+00:10:43,590 --> 00:10:43,600
+Filtered at broker layer itself.
+ 
+
+567
+00:10:43,600 --> 00:10:44,590
+Filtered at broker layer itself.
+So,
+
+568
+00:10:44,590 --> 00:10:44,600
+So,
+ 
+
+569
+00:10:44,600 --> 00:10:46,630
+So,
+when you have isolation level read
+
+570
+00:10:46,630 --> 00:10:46,640
+when you have isolation level read
+ 
+
+571
+00:10:46,640 --> 00:10:49,270
+when you have isolation level read
+uncommitted, which is default,
+
+572
+00:10:49,270 --> 00:10:49,280
+uncommitted, which is default,
+ 
+
+573
+00:10:49,280 --> 00:10:50,710
+uncommitted, which is default,
+even if you don't write it, it is
+
+574
+00:10:50,710 --> 00:10:50,720
+even if you don't write it, it is
+ 
+
+575
+00:10:50,720 --> 00:10:52,230
+even if you don't write it, it is
+uncommitted only,
+
+576
+00:10:52,230 --> 00:10:52,240
+uncommitted only,
+ 
+
+577
+00:10:52,240 --> 00:10:54,750
+uncommitted only,
+you will get all the records.
+
+578
+00:10:54,750 --> 00:10:54,760
+you will get all the records.
+ 
+
+579
+00:10:54,760 --> 00:10:57,630
+you will get all the records.
+You will get offset zero,
+
+580
+00:10:57,630 --> 00:10:57,640
+You will get offset zero,
+ 
+
+581
+00:10:57,640 --> 00:10:59,230
+You will get offset zero,
+offset one,
+
+582
+00:10:59,230 --> 00:10:59,240
+offset one,
+ 
+
+583
+00:10:59,240 --> 00:11:02,150
+offset one,
+offset two, this is a control record, so
+
+584
+00:11:02,150 --> 00:11:02,160
+offset two, this is a control record, so
+ 
+
+585
+00:11:02,160 --> 00:11:03,990
+offset two, this is a control record, so
+this will get a skip,
+
+586
+00:11:03,990 --> 00:11:04,000
+this will get a skip,
+ 
+
+587
+00:11:04,000 --> 00:11:05,990
+this will get a skip,
+offset four,
+
+588
+00:11:05,990 --> 00:11:06,000
+offset four,
+ 
+
+589
+00:11:06,000 --> 00:11:07,790
+offset four,
+this is offset five is control record,
+
+590
+00:11:07,790 --> 00:11:07,800
+this is offset five is control record,
+ 
+
+591
+00:11:07,800 --> 00:11:09,430
+this is offset five is control record,
+so this will be skipped. So, you will
+
+592
+00:11:09,430 --> 00:11:09,440
+so this will be skipped. So, you will
+ 
+
+593
+00:11:09,440 --> 00:11:13,750
+so this will be skipped. So, you will
+get zero, one, two, and four.
+
+594
+00:11:13,750 --> 00:11:13,760
+get zero, one, two, and four.
+ 
+
+595
+00:11:13,760 --> 00:11:16,110
+get zero, one, two, and four.
+You will get zero, one, two, and four.
+
+596
+00:11:16,110 --> 00:11:16,120
+You will get zero, one, two, and four.
+ 
+
+597
+00:11:16,120 --> 00:11:18,430
+You will get zero, one, two, and four.
+Only skip is control record, which is
+
+598
+00:11:18,430 --> 00:11:18,440
+Only skip is control record, which is
+ 
+
+599
+00:11:18,440 --> 00:11:20,670
+Only skip is control record, which is
+filtered by broker itself.
+
+600
+00:11:20,670 --> 00:11:20,680
+filtered by broker itself.
+ 
+
+601
+00:11:20,680 --> 00:11:22,590
+filtered by broker itself.
+So, no matter
+
+602
+00:11:22,590 --> 00:11:22,600
+So, no matter
+ 
+
+603
+00:11:22,600 --> 00:11:24,990
+So, no matter
+whether it's a transaction record part
+
+604
+00:11:24,990 --> 00:11:25,000
+whether it's a transaction record part
+ 
+
+605
+00:11:25,000 --> 00:11:26,910
+whether it's a transaction record part
+of a transaction which is committed or
+
+606
+00:11:26,910 --> 00:11:26,920
+of a transaction which is committed or
+ 
+
+607
+00:11:26,920 --> 00:11:30,430
+of a transaction which is committed or
+aborted or open, doesn't matter. When
+
+608
+00:11:30,430 --> 00:11:30,440
+aborted or open, doesn't matter. When
+ 
+
+609
+00:11:30,440 --> 00:11:32,550
+aborted or open, doesn't matter. When
+you have read uncommitted, you are able
+
+610
+00:11:32,550 --> 00:11:32,560
+you have read uncommitted, you are able
+ 
+
+611
+00:11:32,560 --> 00:11:36,350
+you have read uncommitted, you are able
+to see everything.
+
+612
+00:11:36,350 --> 00:11:36,360
+
+ 
+
+613
+00:11:36,360 --> 00:11:37,670
+
+But,
+
+614
+00:11:37,670 --> 00:11:37,680
+But,
+ 
+
+615
+00:11:37,680 --> 00:11:40,070
+But,
+when you choose isolation level read
+
+616
+00:11:40,070 --> 00:11:40,080
+when you choose isolation level read
+ 
+
+617
+00:11:40,080 --> 00:11:42,110
+when you choose isolation level read
+committed,
+
+618
+00:11:42,110 --> 00:11:42,120
+committed,
+ 
+
+619
+00:11:42,120 --> 00:11:44,350
+committed,
+means
+
+620
+00:11:44,350 --> 00:11:44,360
+means
+ 
+
+621
+00:11:44,360 --> 00:11:45,590
+means
+what all
+
+622
+00:11:45,590 --> 00:11:45,600
+what all
+ 
+
+623
+00:11:45,600 --> 00:11:47,470
+what all
+records would be visible to you? You
+
+624
+00:11:47,470 --> 00:11:47,480
+records would be visible to you? You
+ 
+
+625
+00:11:47,480 --> 00:11:49,350
+records would be visible to you? You
+will all the records which are marked as
+
+626
+00:11:49,350 --> 00:11:49,360
+will all the records which are marked as
+ 
+
+627
+00:11:49,360 --> 00:11:52,230
+will all the records which are marked as
+committed would be visible.
+
+628
+00:11:52,230 --> 00:11:52,240
+committed would be visible.
+ 
+
+629
+00:11:52,240 --> 00:11:54,390
+committed would be visible.
+Non-transactional would be visible. The
+
+630
+00:11:54,390 --> 00:11:54,400
+Non-transactional would be visible. The
+ 
+
+631
+00:11:54,400 --> 00:11:55,790
+Non-transactional would be visible. The
+records which are not part of any
+
+632
+00:11:55,790 --> 00:11:55,800
+records which are not part of any
+ 
+
+633
+00:11:55,800 --> 00:11:58,870
+records which are not part of any
+transaction, that would be visible.
+
+634
+00:11:58,870 --> 00:11:58,880
+transaction, that would be visible.
+ 
+
+635
+00:11:58,880 --> 00:12:01,710
+transaction, that would be visible.
+But, aborted records, the records which
+
+636
+00:12:01,710 --> 00:12:01,720
+But, aborted records, the records which
+ 
+
+637
+00:12:01,720 --> 00:12:03,390
+But, aborted records, the records which
+are part of aborted transaction, that
+
+638
+00:12:03,390 --> 00:12:03,400
+are part of aborted transaction, that
+ 
+
+639
+00:12:03,400 --> 00:12:05,030
+are part of aborted transaction, that
+won't be visible.
+
+640
+00:12:05,030 --> 00:12:05,040
+won't be visible.
+ 
+
+641
+00:12:05,040 --> 00:12:06,350
+won't be visible.
+And also,
+
+642
+00:12:06,350 --> 00:12:06,360
+And also,
+ 
+
+643
+00:12:06,360 --> 00:12:09,590
+And also,
+the open transactions,
+
+644
+00:12:09,590 --> 00:12:09,600
+the open transactions,
+ 
+
+645
+00:12:09,600 --> 00:12:11,110
+the open transactions,
+which are not either committed or
+
+646
+00:12:11,110 --> 00:12:11,120
+which are not either committed or
+ 
+
+647
+00:12:11,120 --> 00:12:14,670
+which are not either committed or
+aborted, that won't be visible, too.
+
+648
+00:12:14,670 --> 00:12:14,680
+aborted, that won't be visible, too.
+ 
+
+649
+00:12:14,680 --> 00:12:16,870
+aborted, that won't be visible, too.
+Okay? And similarly, control records,
+
+650
+00:12:16,870 --> 00:12:16,880
+Okay? And similarly, control records,
+ 
+
+651
+00:12:16,880 --> 00:12:19,230
+Okay? And similarly, control records,
+which is not even sent by broker, so
+
+652
+00:12:19,230 --> 00:12:19,240
+which is not even sent by broker, so
+ 
+
+653
+00:12:19,240 --> 00:12:21,070
+which is not even sent by broker, so
+control records are also not visible.
+
+654
+00:12:21,070 --> 00:12:21,080
+control records are also not visible.
+ 
+
+655
+00:12:21,080 --> 00:12:22,710
+control records are also not visible.
+So, in short,
+
+656
+00:12:22,710 --> 00:12:22,720
+So, in short,
+ 
+
+657
+00:12:22,720 --> 00:12:24,030
+So, in short,
+you would be seeing only
+
+658
+00:12:24,030 --> 00:12:24,040
+you would be seeing only
+ 
+
+659
+00:12:24,040 --> 00:12:26,670
+you would be seeing only
+non-transactional records, the records
+
+660
+00:12:26,670 --> 00:12:26,680
+non-transactional records, the records
+ 
+
+661
+00:12:26,680 --> 00:12:28,350
+non-transactional records, the records
+which are not part of any transaction,
+
+662
+00:12:28,350 --> 00:12:28,360
+which are not part of any transaction,
+ 
+
+663
+00:12:28,360 --> 00:12:30,070
+which are not part of any transaction,
+those would be visible, and only
+
+664
+00:12:30,070 --> 00:12:30,080
+those would be visible, and only
+ 
+
+665
+00:12:30,080 --> 00:12:31,829
+those would be visible, and only
+committed one.
+
+666
+00:12:31,829 --> 00:12:31,839
+committed one.
+ 
+
+667
+00:12:31,839 --> 00:12:33,870
+committed one.
+And only committed one.
+
+668
+00:12:33,870 --> 00:12:33,880
+And only committed one.
+ 
+
+669
+00:12:33,880 --> 00:12:35,390
+And only committed one.
+So, in this example, what would be
+
+670
+00:12:35,390 --> 00:12:35,400
+So, in this example, what would be
+ 
+
+671
+00:12:35,400 --> 00:12:36,590
+So, in this example, what would be
+visible?
+
+672
+00:12:36,590 --> 00:12:36,600
+visible?
+ 
+
+673
+00:12:36,600 --> 00:12:38,350
+visible?
+Offset zero, offset one, part of
+
+674
+00:12:38,350 --> 00:12:38,360
+Offset zero, offset one, part of
+ 
+
+675
+00:12:38,360 --> 00:12:40,510
+Offset zero, offset one, part of
+committed, so yes, you would be able to
+
+676
+00:12:40,510 --> 00:12:40,520
+committed, so yes, you would be able to
+ 
+
+677
+00:12:40,520 --> 00:12:42,150
+committed, so yes, you would be able to
+see offset zero, you would be able to
+
+678
+00:12:42,150 --> 00:12:42,160
+see offset zero, you would be able to
+ 
+
+679
+00:12:42,160 --> 00:12:44,350
+see offset zero, you would be able to
+see offset one.
+
+680
+00:12:44,350 --> 00:12:44,360
+see offset one.
+ 
+
+681
+00:12:44,360 --> 00:12:47,670
+see offset one.
+But here, if you see offset two is open.
+
+682
+00:12:47,670 --> 00:12:47,680
+But here, if you see offset two is open.
+ 
+
+683
+00:12:47,680 --> 00:12:50,870
+But here, if you see offset two is open.
+Okay? So, that won't be visible.
+
+684
+00:12:50,870 --> 00:12:50,880
+Okay? So, that won't be visible.
+ 
+
+685
+00:12:50,880 --> 00:12:52,670
+Okay? So, that won't be visible.
+And after that,
+
+686
+00:12:52,670 --> 00:12:52,680
+And after that,
+ 
+
+687
+00:12:52,680 --> 00:12:54,670
+And after that,
+you can't even if you see the offset
+
+688
+00:12:54,670 --> 00:12:54,680
+you can't even if you see the offset
+ 
+
+689
+00:12:54,680 --> 00:12:56,230
+you can't even if you see the offset
+four is committed.
+
+690
+00:12:56,230 --> 00:12:56,240
+four is committed.
+ 
+
+691
+00:12:56,240 --> 00:12:58,750
+four is committed.
+So, as per you, hey, Shreyansh, you said
+
+692
+00:12:58,750 --> 00:12:58,760
+So, as per you, hey, Shreyansh, you said
+ 
+
+693
+00:12:58,760 --> 00:13:00,510
+So, as per you, hey, Shreyansh, you said
+that all the committed transaction
+
+694
+00:13:00,510 --> 00:13:00,520
+that all the committed transaction
+ 
+
+695
+00:13:00,520 --> 00:13:02,990
+that all the committed transaction
+should be visible. So, offset four,
+
+696
+00:13:02,990 --> 00:13:03,000
+should be visible. So, offset four,
+ 
+
+697
+00:13:03,000 --> 00:13:04,710
+should be visible. So, offset four,
+which is see, this is control record
+
+698
+00:13:04,710 --> 00:13:04,720
+which is see, this is control record
+ 
+
+699
+00:13:04,720 --> 00:13:06,190
+which is see, this is control record
+committed. So, this should be visible
+
+700
+00:13:06,190 --> 00:13:06,200
+committed. So, this should be visible
+ 
+
+701
+00:13:06,200 --> 00:13:08,710
+committed. So, this should be visible
+now. But, no.
+
+702
+00:13:08,710 --> 00:13:08,720
+now. But, no.
+ 
+
+703
+00:13:08,720 --> 00:13:11,070
+now. But, no.
+That is not visible. So, only zero and
+
+704
+00:13:11,070 --> 00:13:11,080
+That is not visible. So, only zero and
+ 
+
+705
+00:13:11,080 --> 00:13:13,950
+That is not visible. So, only zero and
+one would be visible.
+
+706
+00:13:13,950 --> 00:13:13,960
+one would be visible.
+ 
+
+707
+00:13:13,960 --> 00:13:16,230
+one would be visible.
+Now, the question can come, why? Why not
+
+708
+00:13:16,230 --> 00:13:16,240
+Now, the question can come, why? Why not
+ 
+
+709
+00:13:16,240 --> 00:13:18,110
+Now, the question can come, why? Why not
+offset four?
+
+710
+00:13:18,110 --> 00:13:18,120
+offset four?
+ 
+
+711
+00:13:18,120 --> 00:13:20,230
+offset four?
+See, that's where LSO comes into the
+
+712
+00:13:20,230 --> 00:13:20,240
+See, that's where LSO comes into the
+ 
+
+713
+00:13:20,240 --> 00:13:22,350
+See, that's where LSO comes into the
+picture.
+
+714
+00:13:22,350 --> 00:13:22,360
+picture.
+ 
+
+715
+00:13:22,360 --> 00:13:24,950
+picture.
+I told you that broker
+
+716
+00:13:24,950 --> 00:13:24,960
+I told you that broker
+ 
+
+717
+00:13:24,960 --> 00:13:26,670
+I told you that broker
+guarantee that when you are reading from
+
+718
+00:13:26,670 --> 00:13:26,680
+guarantee that when you are reading from
+ 
+
+719
+00:13:26,680 --> 00:13:29,070
+guarantee that when you are reading from
+a particular partition, you would read
+
+720
+00:13:29,070 --> 00:13:29,080
+a particular partition, you would read
+ 
+
+721
+00:13:29,080 --> 00:13:31,710
+a particular partition, you would read
+in order. Zero, one, two, three, four,
+
+722
+00:13:31,710 --> 00:13:31,720
+in order. Zero, one, two, three, four,
+ 
+
+723
+00:13:31,720 --> 00:13:32,710
+in order. Zero, one, two, three, four,
+like this.
+
+724
+00:13:32,710 --> 00:13:32,720
+like this.
+ 
+
+725
+00:13:32,720 --> 00:13:33,750
+like this.
+Okay?
+
+726
+00:13:33,750 --> 00:13:33,760
+Okay?
+ 
+
+727
+00:13:33,760 --> 00:13:35,630
+Okay?
+Now, here,
+
+728
+00:13:35,630 --> 00:13:35,640
+Now, here,
+ 
+
+729
+00:13:35,640 --> 00:13:37,550
+Now, here,
+and whatever we are saying that
+
+730
+00:13:37,550 --> 00:13:37,560
+and whatever we are saying that
+ 
+
+731
+00:13:37,560 --> 00:13:40,150
+and whatever we are saying that
+the open transaction should not be
+
+732
+00:13:40,150 --> 00:13:40,160
+the open transaction should not be
+ 
+
+733
+00:13:40,160 --> 00:13:41,910
+the open transaction should not be
+visible when we are following the read
+
+734
+00:13:41,910 --> 00:13:41,920
+visible when we are following the read
+ 
+
+735
+00:13:41,920 --> 00:13:44,630
+visible when we are following the read
+committed isolation level.
+
+736
+00:13:44,630 --> 00:13:44,640
+committed isolation level.
+ 
+
+737
+00:13:44,640 --> 00:13:47,030
+committed isolation level.
+So, how to skip? The first question is,
+
+738
+00:13:47,030 --> 00:13:47,040
+So, how to skip? The first question is,
+ 
+
+739
+00:13:47,040 --> 00:13:48,950
+So, how to skip? The first question is,
+how
+
+740
+00:13:48,950 --> 00:13:48,960
+how
+ 
+
+741
+00:13:48,960 --> 00:13:50,630
+how
+to
+
+742
+00:13:50,630 --> 00:13:50,640
+to
+ 
+
+743
+00:13:50,640 --> 00:13:51,790
+to
+skip
+
+744
+00:13:51,790 --> 00:13:51,800
+skip
+ 
+
+745
+00:13:51,800 --> 00:13:55,310
+skip
+open transaction?
+
+746
+00:13:55,310 --> 00:13:55,320
+open transaction?
+ 
+
+747
+00:13:55,320 --> 00:13:58,350
+open transaction?
+So, that's where LSO help us. So, we
+
+748
+00:13:58,350 --> 00:13:58,360
+So, that's where LSO help us. So, we
+ 
+
+749
+00:13:58,360 --> 00:14:02,590
+So, that's where LSO help us. So, we
+know that LSO points to the record,
+
+750
+00:14:02,590 --> 00:14:02,600
+know that LSO points to the record,
+ 
+
+751
+00:14:02,600 --> 00:14:05,230
+know that LSO points to the record,
+first record, which is open.
+
+752
+00:14:05,230 --> 00:14:05,240
+first record, which is open.
+ 
+
+753
+00:14:05,240 --> 00:14:06,470
+first record, which is open.
+Okay?
+
+754
+00:14:06,470 --> 00:14:06,480
+Okay?
+ 
+
+755
+00:14:06,480 --> 00:14:07,950
+Okay?
+So, now,
+
+756
+00:14:07,950 --> 00:14:07,960
+So, now,
+ 
+
+757
+00:14:07,960 --> 00:14:10,870
+So, now,
+when consumer is start reading,
+
+758
+00:14:10,870 --> 00:14:10,880
+when consumer is start reading,
+ 
+
+759
+00:14:10,880 --> 00:14:14,350
+when consumer is start reading,
+so it will read offset zero. Yes. Okay?
+
+760
+00:14:14,350 --> 00:14:14,360
+so it will read offset zero. Yes. Okay?
+ 
+
+761
+00:14:14,360 --> 00:14:15,949
+so it will read offset zero. Yes. Okay?
+It doesn't know whether it it is
+
+762
+00:14:15,949 --> 00:14:15,959
+It doesn't know whether it it is
+ 
+
+763
+00:14:15,959 --> 00:14:17,190
+It doesn't know whether it it is
+committed.
+
+764
+00:14:17,190 --> 00:14:17,200
+committed.
+ 
+
+765
+00:14:17,200 --> 00:14:18,110
+committed.
+Okay?
+
+766
+00:14:18,110 --> 00:14:18,120
+Okay?
+ 
+
+767
+00:14:18,120 --> 00:14:19,550
+Okay?
+So, it will read it. I will tell you
+
+768
+00:14:19,550 --> 00:14:19,560
+So, it will read it. I will tell you
+ 
+
+769
+00:14:19,560 --> 00:14:22,110
+So, it will read it. I will tell you
+forget about aborted one. Okay? First,
+
+770
+00:14:22,110 --> 00:14:22,120
+forget about aborted one. Okay? First,
+ 
+
+771
+00:14:22,120 --> 00:14:23,710
+forget about aborted one. Okay? First,
+let's discuss
+
+772
+00:14:23,710 --> 00:14:23,720
+let's discuss
+ 
+
+773
+00:14:23,720 --> 00:14:28,069
+let's discuss
+on open and commit. Open and commit.
+
+774
+00:14:28,069 --> 00:14:28,079
+on open and commit. Open and commit.
+ 
+
+775
+00:14:28,079 --> 00:14:29,910
+on open and commit. Open and commit.
+Aborted one, let's keep it aside. I will
+
+776
+00:14:29,910 --> 00:14:29,920
+Aborted one, let's keep it aside. I will
+ 
+
+777
+00:14:29,920 --> 00:14:31,390
+Aborted one, let's keep it aside. I will
+come again.
+
+778
+00:14:31,390 --> 00:14:31,400
+come again.
+ 
+
+779
+00:14:31,400 --> 00:14:33,790
+come again.
+First, assume that we had only have uh
+
+780
+00:14:33,790 --> 00:14:33,800
+First, assume that we had only have uh
+ 
+
+781
+00:14:33,800 --> 00:14:35,750
+First, assume that we had only have uh
+records which are either open or
+
+782
+00:14:35,750 --> 00:14:35,760
+records which are either open or
+ 
+
+783
+00:14:35,760 --> 00:14:37,470
+records which are either open or
+committed.
+
+784
+00:14:37,470 --> 00:14:37,480
+committed.
+ 
+
+785
+00:14:37,480 --> 00:14:38,949
+committed.
+So, now let's see.
+
+786
+00:14:38,949 --> 00:14:38,959
+So, now let's see.
+ 
+
+787
+00:14:38,959 --> 00:14:41,390
+So, now let's see.
+Consumer is start reading it.
+
+788
+00:14:41,390 --> 00:14:41,400
+Consumer is start reading it.
+ 
+
+789
+00:14:41,400 --> 00:14:45,030
+Consumer is start reading it.
+Okay? So, here, LSO is two.
+
+790
+00:14:45,030 --> 00:14:45,040
+Okay? So, here, LSO is two.
+ 
+
+791
+00:14:45,040 --> 00:14:48,069
+Okay? So, here, LSO is two.
+So, first offset zero. Zero is less than
+
+792
+00:14:48,069 --> 00:14:48,079
+So, first offset zero. Zero is less than
+ 
+
+793
+00:14:48,079 --> 00:14:50,310
+So, first offset zero. Zero is less than
+two? Yes, read it.
+
+794
+00:14:50,310 --> 00:14:50,320
+two? Yes, read it.
+ 
+
+795
+00:14:50,320 --> 00:14:51,829
+two? Yes, read it.
+Then comes one.
+
+796
+00:14:51,829 --> 00:14:51,839
+Then comes one.
+ 
+
+797
+00:14:51,839 --> 00:14:54,310
+Then comes one.
+One is less than two? Yes, read it. So,
+
+798
+00:14:54,310 --> 00:14:54,320
+One is less than two? Yes, read it. So,
+ 
+
+799
+00:14:54,320 --> 00:14:56,430
+One is less than two? Yes, read it. So,
+zero is read, one is read.
+
+800
+00:14:56,430 --> 00:14:56,440
+zero is read, one is read.
+ 
+
+801
+00:14:56,440 --> 00:14:59,110
+zero is read, one is read.
+Then comes offset two. Two is less than
+
+802
+00:14:59,110 --> 00:14:59,120
+Then comes offset two. Two is less than
+ 
+
+803
+00:14:59,120 --> 00:15:00,910
+Then comes offset two. Two is less than
+LSO, LSO is two. So, two is less than
+
+804
+00:15:00,910 --> 00:15:00,920
+LSO, LSO is two. So, two is less than
+ 
+
+805
+00:15:00,920 --> 00:15:03,350
+LSO, LSO is two. So, two is less than
+two, false. Uh stop.
+
+806
+00:15:03,350 --> 00:15:03,360
+two, false. Uh stop.
+ 
+
+807
+00:15:03,360 --> 00:15:05,829
+two, false. Uh stop.
+Consumer will not read
+
+808
+00:15:05,829 --> 00:15:05,839
+Consumer will not read
+ 
+
+809
+00:15:05,839 --> 00:15:10,230
+Consumer will not read
+from this point because this is open.
+
+810
+00:15:10,230 --> 00:15:10,240
+from this point because this is open.
+ 
+
+811
+00:15:10,240 --> 00:15:11,910
+from this point because this is open.
+Not yet closed, not yet committed or
+
+812
+00:15:11,910 --> 00:15:11,920
+Not yet closed, not yet committed or
+ 
+
+813
+00:15:11,920 --> 00:15:14,270
+Not yet closed, not yet committed or
+aborted, so this is open.
+
+814
+00:15:14,270 --> 00:15:14,280
+aborted, so this is open.
+ 
+
+815
+00:15:14,280 --> 00:15:16,870
+aborted, so this is open.
+So, consumer will stop.
+
+816
+00:15:16,870 --> 00:15:16,880
+So, consumer will stop.
+ 
+
+817
+00:15:16,880 --> 00:15:18,790
+So, consumer will stop.
+Now, you can say that why consumer
+
+818
+00:15:18,790 --> 00:15:18,800
+Now, you can say that why consumer
+ 
+
+819
+00:15:18,800 --> 00:15:21,870
+Now, you can say that why consumer
+cannot skip and read this four? Because
+
+820
+00:15:21,870 --> 00:15:21,880
+cannot skip and read this four? Because
+ 
+
+821
+00:15:21,880 --> 00:15:23,230
+cannot skip and read this four? Because
+I told you
+
+822
+00:15:23,230 --> 00:15:23,240
+I told you
+ 
+
+823
+00:15:23,240 --> 00:15:25,150
+I told you
+that
+
+824
+00:15:25,150 --> 00:15:25,160
+that
+ 
+
+825
+00:15:25,160 --> 00:15:27,710
+that
+broker guarantees that in a particular
+
+826
+00:15:27,710 --> 00:15:27,720
+broker guarantees that in a particular
+ 
+
+827
+00:15:27,720 --> 00:15:30,750
+broker guarantees that in a particular
+partition, order is guaranteed. So,
+
+828
+00:15:30,750 --> 00:15:30,760
+partition, order is guaranteed. So,
+ 
+
+829
+00:15:30,760 --> 00:15:33,270
+partition, order is guaranteed. So,
+it is possible that after a specific uh
+
+830
+00:15:33,270 --> 00:15:33,280
+it is possible that after a specific uh
+ 
+
+831
+00:15:33,280 --> 00:15:35,949
+it is possible that after a specific uh
+sometime time out, this might get uh
+
+832
+00:15:35,949 --> 00:15:35,959
+sometime time out, this might get uh
+ 
+
+833
+00:15:35,959 --> 00:15:37,550
+sometime time out, this might get uh
+committed, for example. This might get
+
+834
+00:15:37,550 --> 00:15:37,560
+committed, for example. This might get
+ 
+
+835
+00:15:37,560 --> 00:15:38,670
+committed, for example. This might get
+committed.
+
+836
+00:15:38,670 --> 00:15:38,680
+committed.
+ 
+
+837
+00:15:38,680 --> 00:15:41,550
+committed.
+So, zero, one, but if you skip at this
+
+838
+00:15:41,550 --> 00:15:41,560
+So, zero, one, but if you skip at this
+ 
+
+839
+00:15:41,560 --> 00:15:43,670
+So, zero, one, but if you skip at this
+point of time,
+
+840
+00:15:43,670 --> 00:15:43,680
+point of time,
+ 
+
+841
+00:15:43,680 --> 00:15:45,630
+point of time,
+and you read four, then you are breaking
+
+842
+00:15:45,630 --> 00:15:45,640
+and you read four, then you are breaking
+ 
+
+843
+00:15:45,640 --> 00:15:48,110
+and you read four, then you are breaking
+this guarantee, ordering guarantee.
+
+844
+00:15:48,110 --> 00:15:48,120
+this guarantee, ordering guarantee.
+ 
+
+845
+00:15:48,120 --> 00:15:49,670
+this guarantee, ordering guarantee.
+Okay? So, we should not break this
+
+846
+00:15:49,670 --> 00:15:49,680
+Okay? So, we should not break this
+ 
+
+847
+00:15:49,680 --> 00:15:50,910
+Okay? So, we should not break this
+guarantee.
+
+848
+00:15:50,910 --> 00:15:50,920
+guarantee.
+ 
+
+849
+00:15:50,920 --> 00:15:52,670
+guarantee.
+So, that's where LSO helps that, hey,
+
+850
+00:15:52,670 --> 00:15:52,680
+So, that's where LSO helps that, hey,
+ 
+
+851
+00:15:52,680 --> 00:15:54,829
+So, that's where LSO helps that, hey,
+this is the first open transaction, you
+
+852
+00:15:54,829 --> 00:15:54,839
+this is the first open transaction, you
+ 
+
+853
+00:15:54,839 --> 00:15:58,230
+this is the first open transaction, you
+should not read beyond this point.
+
+854
+00:15:58,230 --> 00:15:58,240
+should not read beyond this point.
+ 
+
+855
+00:15:58,240 --> 00:16:02,910
+should not read beyond this point.
+Okay? Wait for it to get complete.
+
+856
+00:16:02,910 --> 00:16:02,920
+
+ 
+
+857
+00:16:02,920 --> 00:16:05,150
+
+Okay? So,
+
+858
+00:16:05,150 --> 00:16:05,160
+Okay? So,
+ 
+
+859
+00:16:05,160 --> 00:16:07,190
+Okay? So,
+when we have open and commit
+
+860
+00:16:07,190 --> 00:16:07,200
+when we have open and commit
+ 
+
+861
+00:16:07,200 --> 00:16:09,190
+when we have open and commit
+transaction, that is properly handled.
+
+862
+00:16:09,190 --> 00:16:09,200
+transaction, that is properly handled.
+ 
+
+863
+00:16:09,200 --> 00:16:12,390
+transaction, that is properly handled.
+So, it just simply read blindly.
+
+864
+00:16:12,390 --> 00:16:12,400
+So, it just simply read blindly.
+ 
+
+865
+00:16:12,400 --> 00:16:14,990
+So, it just simply read blindly.
+Read all the offset less than LSO. So,
+
+866
+00:16:14,990 --> 00:16:15,000
+Read all the offset less than LSO. So,
+ 
+
+867
+00:16:15,000 --> 00:16:16,790
+Read all the offset less than LSO. So,
+keep on reading, reading, reading, and
+
+868
+00:16:16,790 --> 00:16:16,800
+keep on reading, reading, reading, and
+ 
+
+869
+00:16:16,800 --> 00:16:18,829
+keep on reading, reading, reading, and
+as soon as the LSO point comes, it will
+
+870
+00:16:18,829 --> 00:16:18,839
+as soon as the LSO point comes, it will
+ 
+
+871
+00:16:18,839 --> 00:16:20,030
+as soon as the LSO point comes, it will
+stop, means there is an open
+
+872
+00:16:20,030 --> 00:16:20,040
+stop, means there is an open
+ 
+
+873
+00:16:20,040 --> 00:16:25,190
+stop, means there is an open
+transaction. Don't read this and beyond.
+
+874
+00:16:25,190 --> 00:16:25,200
+
+ 
+
+875
+00:16:25,200 --> 00:16:26,190
+
+Okay?
+
+876
+00:16:26,190 --> 00:16:26,200
+Okay?
+ 
+
+877
+00:16:26,200 --> 00:16:28,030
+Okay?
+Now, you can say that, hey, if you are
+
+878
+00:16:28,030 --> 00:16:28,040
+Now, you can say that, hey, if you are
+ 
+
+879
+00:16:28,040 --> 00:16:30,110
+Now, you can say that, hey, if you are
+saying that read blindly, there could be
+
+880
+00:16:30,110 --> 00:16:30,120
+saying that read blindly, there could be
+ 
+
+881
+00:16:30,120 --> 00:16:32,150
+saying that read blindly, there could be
+possible that records
+
+882
+00:16:32,150 --> 00:16:32,160
+possible that records
+ 
+
+883
+00:16:32,160 --> 00:16:34,829
+possible that records
+are part of aborted transaction.
+
+884
+00:16:34,829 --> 00:16:34,839
+are part of aborted transaction.
+ 
+
+885
+00:16:34,839 --> 00:16:36,470
+are part of aborted transaction.
+Then how to skip it? For example, in
+
+886
+00:16:36,470 --> 00:16:36,480
+Then how to skip it? For example, in
+ 
+
+887
+00:16:36,480 --> 00:16:39,190
+Then how to skip it? For example, in
+this case itself, what if this PID epoch
+
+888
+00:16:39,190 --> 00:16:39,200
+this case itself, what if this PID epoch
+ 
+
+889
+00:16:39,200 --> 00:16:40,670
+this case itself, what if this PID epoch
+zero,
+
+890
+00:16:40,670 --> 00:16:40,680
+zero,
+ 
+
+891
+00:16:40,680 --> 00:16:43,470
+zero,
+instead of this commit, there is abort?
+
+892
+00:16:43,470 --> 00:16:43,480
+instead of this commit, there is abort?
+ 
+
+893
+00:16:43,480 --> 00:16:46,069
+instead of this commit, there is abort?
+Then how you will skip this?
+
+894
+00:16:46,069 --> 00:16:46,079
+Then how you will skip this?
+ 
+
+895
+00:16:46,079 --> 00:16:48,430
+Then how you will skip this?
+That's the next thing.
+
+896
+00:16:48,430 --> 00:16:48,440
+That's the next thing.
+ 
+
+897
+00:16:48,440 --> 00:16:51,030
+That's the next thing.
+How we will skip aborted record?
+
+898
+00:16:51,030 --> 00:16:51,040
+How we will skip aborted record?
+ 
+
+899
+00:16:51,040 --> 00:16:54,949
+How we will skip aborted record?
+So, see this one very important part is
+
+900
+00:16:54,949 --> 00:16:54,959
+So, see this one very important part is
+ 
+
+901
+00:16:54,959 --> 00:16:57,270
+So, see this one very important part is
+broker consumer.
+
+902
+00:16:57,270 --> 00:16:57,280
+broker consumer.
+ 
+
+903
+00:16:57,280 --> 00:17:00,510
+broker consumer.
+When the consumer do poll,
+
+904
+00:17:00,510 --> 00:17:00,520
+When the consumer do poll,
+ 
+
+905
+00:17:00,520 --> 00:17:03,949
+When the consumer do poll,
+broker only filtered, it only filter
+
+906
+00:17:03,949 --> 00:17:03,959
+broker only filtered, it only filter
+ 
+
+907
+00:17:03,959 --> 00:17:06,069
+broker only filtered, it only filter
+control records.
+
+908
+00:17:06,069 --> 00:17:06,079
+control records.
+ 
+
+909
+00:17:06,079 --> 00:17:07,829
+control records.
+Control records. It don't send control
+
+910
+00:17:07,829 --> 00:17:07,839
+Control records. It don't send control
+ 
+
+911
+00:17:07,839 --> 00:17:09,829
+Control records. It don't send control
+records. Fine.
+
+912
+00:17:09,829 --> 00:17:09,839
+records. Fine.
+ 
+
+913
+00:17:09,839 --> 00:17:12,230
+records. Fine.
+But, it do send records which are
+
+914
+00:17:12,230 --> 00:17:12,240
+But, it do send records which are
+ 
+
+915
+00:17:12,240 --> 00:17:14,069
+But, it do send records which are
+aborted.
+
+916
+00:17:14,069 --> 00:17:14,079
+aborted.
+ 
+
+917
+00:17:14,079 --> 00:17:16,310
+aborted.
+Uh with records
+
+918
+00:17:16,310 --> 00:17:16,320
+Uh with records
+ 
+
+919
+00:17:16,320 --> 00:17:19,189
+Uh with records
+which are aborted.
+
+920
+00:17:19,189 --> 00:17:19,199
+which are aborted.
+ 
+
+921
+00:17:19,199 --> 00:17:22,350
+which are aborted.
+So, if consumer read blindly
+
+922
+00:17:22,350 --> 00:17:22,360
+So, if consumer read blindly
+ 
+
+923
+00:17:22,360 --> 00:17:25,110
+So, if consumer read blindly
+with this simple logic that LSO read
+
+924
+00:17:25,110 --> 00:17:25,120
+with this simple logic that LSO read
+ 
+
+925
+00:17:25,120 --> 00:17:26,550
+with this simple logic that LSO read
+everything,
+
+926
+00:17:26,550 --> 00:17:26,560
+everything,
+ 
+
+927
+00:17:26,560 --> 00:17:29,470
+everything,
+read every offset which is less than
+
+928
+00:17:29,470 --> 00:17:29,480
+read every offset which is less than
+ 
+
+929
+00:17:29,480 --> 00:17:31,470
+read every offset which is less than
+LSO, then it is possible that it will
+
+930
+00:17:31,470 --> 00:17:31,480
+LSO, then it is possible that it will
+ 
+
+931
+00:17:31,480 --> 00:17:33,070
+LSO, then it is possible that it will
+read the records which are part of
+
+932
+00:17:33,070 --> 00:17:33,080
+read the records which are part of
+ 
+
+933
+00:17:33,080 --> 00:17:34,870
+read the records which are part of
+aborted transaction.
+
+934
+00:17:34,870 --> 00:17:34,880
+aborted transaction.
+ 
+
+935
+00:17:34,880 --> 00:17:35,710
+aborted transaction.
+So,
+
+936
+00:17:35,710 --> 00:17:35,720
+So,
+ 
+
+937
+00:17:35,720 --> 00:17:39,390
+So,
+alone LSO is not sufficient.
+
+938
+00:17:39,390 --> 00:17:39,400
+alone LSO is not sufficient.
+ 
+
+939
+00:17:39,400 --> 00:17:42,110
+alone LSO is not sufficient.
+So, how consumer get to know what all
+
+940
+00:17:42,110 --> 00:17:42,120
+So, how consumer get to know what all
+ 
+
+941
+00:17:42,120 --> 00:17:44,510
+So, how consumer get to know what all
+records I need to skip which are part of
+
+942
+00:17:44,510 --> 00:17:44,520
+records I need to skip which are part of
+ 
+
+943
+00:17:44,520 --> 00:17:46,030
+records I need to skip which are part of
+aborted?
+
+944
+00:17:46,030 --> 00:17:46,040
+aborted?
+ 
+
+945
+00:17:46,040 --> 00:17:47,430
+aborted?
+That's where broker comes into the
+
+946
+00:17:47,430 --> 00:17:47,440
+That's where broker comes into the
+ 
+
+947
+00:17:47,440 --> 00:17:49,230
+That's where broker comes into the
+picture. Broker provide one more
+
+948
+00:17:49,230 --> 00:17:49,240
+picture. Broker provide one more
+ 
+
+949
+00:17:49,240 --> 00:17:53,150
+picture. Broker provide one more
+information to consumer, a file.
+
+950
+00:17:53,150 --> 00:17:53,160
+information to consumer, a file.
+ 
+
+951
+00:17:53,160 --> 00:17:55,270
+information to consumer, a file.
+You can say that it's a aborted file
+
+952
+00:17:55,270 --> 00:17:55,280
+You can say that it's a aborted file
+ 
+
+953
+00:17:55,280 --> 00:17:56,430
+You can say that it's a aborted file
+transaction.
+
+954
+00:17:56,430 --> 00:17:56,440
+transaction.
+ 
+
+955
+00:17:56,440 --> 00:17:59,350
+transaction.
+So, whenever any record which is or
+
+956
+00:17:59,350 --> 00:17:59,360
+So, whenever any record which is or
+ 
+
+957
+00:17:59,360 --> 00:18:01,270
+So, whenever any record which is or
+transaction which is aborted,
+
+958
+00:18:01,270 --> 00:18:01,280
+transaction which is aborted,
+ 
+
+959
+00:18:01,280 --> 00:18:03,070
+transaction which is aborted,
+broker is store
+
+960
+00:18:03,070 --> 00:18:03,080
+broker is store
+ 
+
+961
+00:18:03,080 --> 00:18:06,150
+broker is store
+some information in the separate file.
+
+962
+00:18:06,150 --> 00:18:06,160
+some information in the separate file.
+ 
+
+963
+00:18:06,160 --> 00:18:08,550
+some information in the separate file.
+And that file is given to the consumer.
+
+964
+00:18:08,550 --> 00:18:08,560
+And that file is given to the consumer.
+ 
+
+965
+00:18:08,560 --> 00:18:11,390
+And that file is given to the consumer.
+I will show you with an example.
+
+966
+00:18:11,390 --> 00:18:11,400
+I will show you with an example.
+ 
+
+967
+00:18:11,400 --> 00:18:13,350
+I will show you with an example.
+Understand this one.
+
+968
+00:18:13,350 --> 00:18:13,360
+Understand this one.
+ 
+
+969
+00:18:13,360 --> 00:18:16,590
+Understand this one.
+Okay? So, now here, if you see
+
+970
+00:18:16,590 --> 00:18:16,600
+Okay? So, now here, if you see
+ 
+
+971
+00:18:16,600 --> 00:18:19,790
+Okay? So, now here, if you see
+PID five epoch zero, this is part of one
+
+972
+00:18:19,790 --> 00:18:19,800
+PID five epoch zero, this is part of one
+ 
+
+973
+00:18:19,800 --> 00:18:22,550
+PID five epoch zero, this is part of one
+transaction, PID five epoch zero,
+
+974
+00:18:22,550 --> 00:18:22,560
+transaction, PID five epoch zero,
+ 
+
+975
+00:18:22,560 --> 00:18:26,910
+transaction, PID five epoch zero,
+and this is their commit. So, this is
+
+976
+00:18:26,910 --> 00:18:26,920
+and this is their commit. So, this is
+ 
+
+977
+00:18:26,920 --> 00:18:28,550
+and this is their commit. So, this is
+committed.
+
+978
+00:18:28,550 --> 00:18:28,560
+committed.
+ 
+
+979
+00:18:28,560 --> 00:18:31,909
+committed.
+Offset two, PID eight epoch one, this is
+
+980
+00:18:31,909 --> 00:18:31,919
+Offset two, PID eight epoch one, this is
+ 
+
+981
+00:18:31,919 --> 00:18:33,390
+Offset two, PID eight epoch one, this is
+aborted.
+
+982
+00:18:33,390 --> 00:18:33,400
+aborted.
+ 
+
+983
+00:18:33,400 --> 00:18:34,870
+aborted.
+This is
+
+984
+00:18:34,870 --> 00:18:34,880
+This is
+ 
+
+985
+00:18:34,880 --> 00:18:37,750
+This is
+aborted. This is
+
+986
+00:18:37,750 --> 00:18:37,760
+aborted. This is
+ 
+
+987
+00:18:37,760 --> 00:18:38,909
+aborted. This is
+committed.
+
+988
+00:18:38,909 --> 00:18:38,919
+committed.
+ 
+
+989
+00:18:38,919 --> 00:18:39,950
+committed.
+Okay?
+
+990
+00:18:39,950 --> 00:18:39,960
+Okay?
+ 
+
+991
+00:18:39,960 --> 00:18:42,990
+Okay?
+Similarly, PID nine epoch zero, this is
+
+992
+00:18:42,990 --> 00:18:43,000
+Similarly, PID nine epoch zero, this is
+ 
+
+993
+00:18:43,000 --> 00:18:46,430
+Similarly, PID nine epoch zero, this is
+committed.
+
+994
+00:18:46,430 --> 00:18:46,440
+
+ 
+
+995
+00:18:46,440 --> 00:18:50,310
+
+Okay? And PID eight
+
+996
+00:18:50,310 --> 00:18:50,320
+Okay? And PID eight
+ 
+
+997
+00:18:50,320 --> 00:18:52,669
+Okay? And PID eight
+epoch one, transactional true. So, see,
+
+998
+00:18:52,669 --> 00:18:52,679
+epoch one, transactional true. So, see,
+ 
+
+999
+00:18:52,679 --> 00:18:55,110
+epoch one, transactional true. So, see,
+now one very interesting point. I told
+
+1000
+00:18:55,110 --> 00:18:55,120
+now one very interesting point. I told
+ 
+
+1001
+00:18:55,120 --> 00:18:58,030
+now one very interesting point. I told
+you that producer is single-threaded
+
+1002
+00:18:58,030 --> 00:18:58,040
+you that producer is single-threaded
+ 
+
+1003
+00:18:58,040 --> 00:18:59,790
+you that producer is single-threaded
+transaction. Okay?
+
+1004
+00:18:59,790 --> 00:18:59,800
+transaction. Okay?
+ 
+
+1005
+00:18:59,800 --> 00:19:03,630
+transaction. Okay?
+So, when one transaction is going on,
+
+1006
+00:19:03,630 --> 00:19:03,640
+So, when one transaction is going on,
+ 
+
+1007
+00:19:03,640 --> 00:19:06,190
+So, when one transaction is going on,
+till it is not committed or aborted, you
+
+1008
+00:19:06,190 --> 00:19:06,200
+till it is not committed or aborted, you
+ 
+
+1009
+00:19:06,200 --> 00:19:08,270
+till it is not committed or aborted, you
+can you cannot initiate another
+
+1010
+00:19:08,270 --> 00:19:08,280
+can you cannot initiate another
+ 
+
+1011
+00:19:08,280 --> 00:19:10,070
+can you cannot initiate another
+transaction. Okay? So, that's where I
+
+1012
+00:19:10,070 --> 00:19:10,080
+transaction. Okay? So, that's where I
+ 
+
+1013
+00:19:10,080 --> 00:19:14,030
+transaction. Okay? So, that's where I
+showed you that here, if you see
+
+1014
+00:19:14,030 --> 00:19:14,040
+showed you that here, if you see
+ 
+
+1015
+00:19:14,040 --> 00:19:17,030
+showed you that here, if you see
+PID eight epoch one. So,
+
+1016
+00:19:17,030 --> 00:19:17,040
+PID eight epoch one. So,
+ 
+
+1017
+00:19:17,040 --> 00:19:19,870
+PID eight epoch one. So,
+this is PID eight epoch one. So, this is
+
+1018
+00:19:19,870 --> 00:19:19,880
+this is PID eight epoch one. So, this is
+ 
+
+1019
+00:19:19,880 --> 00:19:23,550
+this is PID eight epoch one. So, this is
+one transaction with PID eight
+
+1020
+00:19:23,550 --> 00:19:23,560
+one transaction with PID eight
+ 
+
+1021
+00:19:23,560 --> 00:19:25,470
+one transaction with PID eight
+epoch one.
+
+1022
+00:19:25,470 --> 00:19:25,480
+epoch one.
+ 
+
+1023
+00:19:25,480 --> 00:19:26,350
+epoch one.
+Okay?
+
+1024
+00:19:26,350 --> 00:19:26,360
+Okay?
+ 
+
+1025
+00:19:26,360 --> 00:19:28,149
+Okay?
+This is one transaction going on. So,
+
+1026
+00:19:28,149 --> 00:19:28,159
+This is one transaction going on. So,
+ 
+
+1027
+00:19:28,159 --> 00:19:30,149
+This is one transaction going on. So,
+first this transaction got committed or
+
+1028
+00:19:30,149 --> 00:19:30,159
+first this transaction got committed or
+ 
+
+1029
+00:19:30,159 --> 00:19:31,990
+first this transaction got committed or
+aborted. So, this got aborted. So, means
+
+1030
+00:19:31,990 --> 00:19:32,000
+aborted. So, this got aborted. So, means
+ 
+
+1031
+00:19:32,000 --> 00:19:33,350
+aborted. So, this got aborted. So, means
+this
+
+1032
+00:19:33,350 --> 00:19:33,360
+this
+ 
+
+1033
+00:19:33,360 --> 00:19:35,030
+this
+got completed. So, this transaction got
+
+1034
+00:19:35,030 --> 00:19:35,040
+got completed. So, this transaction got
+ 
+
+1035
+00:19:35,040 --> 00:19:36,149
+got completed. So, this transaction got
+completed.
+
+1036
+00:19:36,149 --> 00:19:36,159
+completed.
+ 
+
+1037
+00:19:36,159 --> 00:19:37,909
+completed.
+So, now here, if you see again, PID
+
+1038
+00:19:37,909 --> 00:19:37,919
+So, now here, if you see again, PID
+ 
+
+1039
+00:19:37,919 --> 00:19:39,669
+So, now here, if you see again, PID
+epoch one.
+
+1040
+00:19:39,669 --> 00:19:39,679
+epoch one.
+ 
+
+1041
+00:19:39,679 --> 00:19:42,470
+epoch one.
+Another transaction. PID
+
+1042
+00:19:42,470 --> 00:19:42,480
+Another transaction. PID
+ 
+
+1043
+00:19:42,480 --> 00:19:44,710
+Another transaction. PID
+epoch one, with same.
+
+1044
+00:19:44,710 --> 00:19:44,720
+epoch one, with same.
+ 
+
+1045
+00:19:44,720 --> 00:19:47,430
+epoch one, with same.
+Because your producer can be same. And I
+
+1046
+00:19:47,430 --> 00:19:47,440
+Because your producer can be same. And I
+ 
+
+1047
+00:19:47,440 --> 00:19:49,350
+Because your producer can be same. And I
+in the producer video, you got to know
+
+1048
+00:19:49,350 --> 00:19:49,360
+in the producer video, you got to know
+ 
+
+1049
+00:19:49,360 --> 00:19:50,909
+in the producer video, you got to know
+that producer transaction video, you
+
+1050
+00:19:50,909 --> 00:19:50,919
+that producer transaction video, you
+ 
+
+1051
+00:19:50,919 --> 00:19:52,550
+that producer transaction video, you
+know that it is just a
+
+1052
+00:19:52,550 --> 00:19:52,560
+know that it is just a
+ 
+
+1053
+00:19:52,560 --> 00:19:54,550
+know that it is just a
+uh version of a producer.
+
+1054
+00:19:54,550 --> 00:19:54,560
+uh version of a producer.
+ 
+
+1055
+00:19:54,560 --> 00:19:57,470
+uh version of a producer.
+So, it's possible that same producer
+
+1056
+00:19:57,470 --> 00:19:57,480
+So, it's possible that same producer
+ 
+
+1057
+00:19:57,480 --> 00:19:59,390
+So, it's possible that same producer
+Okay, same version. It is starting
+
+1058
+00:19:59,390 --> 00:19:59,400
+Okay, same version. It is starting
+ 
+
+1059
+00:19:59,400 --> 00:20:01,510
+Okay, same version. It is starting
+multiple transaction.
+
+1060
+00:20:01,510 --> 00:20:01,520
+multiple transaction.
+ 
+
+1061
+00:20:01,520 --> 00:20:04,390
+multiple transaction.
+Okay, but only if you see that the first
+
+1062
+00:20:04,390 --> 00:20:04,400
+Okay, but only if you see that the first
+ 
+
+1063
+00:20:04,400 --> 00:20:06,670
+Okay, but only if you see that the first
+PID and epoch one once we have a control
+
+1064
+00:20:06,670 --> 00:20:06,680
+PID and epoch one once we have a control
+ 
+
+1065
+00:20:06,680 --> 00:20:09,310
+PID and epoch one once we have a control
+record, after that you have another
+
+1066
+00:20:09,310 --> 00:20:09,320
+record, after that you have another
+ 
+
+1067
+00:20:09,320 --> 00:20:11,830
+record, after that you have another
+record with transaction true and then
+
+1068
+00:20:11,830 --> 00:20:11,840
+record with transaction true and then
+ 
+
+1069
+00:20:11,840 --> 00:20:13,990
+record with transaction true and then
+recorded.
+
+1070
+00:20:13,990 --> 00:20:14,000
+recorded.
+ 
+
+1071
+00:20:14,000 --> 00:20:16,470
+recorded.
+Okay, and here if you see it's control
+
+1072
+00:20:16,470 --> 00:20:16,480
+Okay, and here if you see it's control
+ 
+
+1073
+00:20:16,480 --> 00:20:18,830
+Okay, and here if you see it's control
+record here.
+
+1074
+00:20:18,830 --> 00:20:18,840
+record here.
+ 
+
+1075
+00:20:18,840 --> 00:20:21,390
+record here.
+Okay, it's control record committed.
+
+1076
+00:20:21,390 --> 00:20:21,400
+Okay, it's control record committed.
+ 
+
+1077
+00:20:21,400 --> 00:20:23,110
+Okay, it's control record committed.
+Now, you have to consumer has to read
+
+1078
+00:20:23,110 --> 00:20:23,120
+Now, you have to consumer has to read
+ 
+
+1079
+00:20:23,120 --> 00:20:24,710
+Now, you have to consumer has to read
+this.
+
+1080
+00:20:24,710 --> 00:20:24,720
+this.
+ 
+
+1081
+00:20:24,720 --> 00:20:26,910
+this.
+Now, let's say consumer is following
+
+1082
+00:20:26,910 --> 00:20:26,920
+Now, let's say consumer is following
+ 
+
+1083
+00:20:26,920 --> 00:20:29,550
+Now, let's say consumer is following
+read committed.
+
+1084
+00:20:29,550 --> 00:20:29,560
+read committed.
+ 
+
+1085
+00:20:29,560 --> 00:20:32,990
+read committed.
+Means consumer has to read all the
+
+1086
+00:20:32,990 --> 00:20:33,000
+Means consumer has to read all the
+ 
+
+1087
+00:20:33,000 --> 00:20:34,710
+Means consumer has to read all the
+commit transaction
+
+1088
+00:20:34,710 --> 00:20:34,720
+commit transaction
+ 
+
+1089
+00:20:34,720 --> 00:20:38,590
+commit transaction
+all non-transactional records
+
+1090
+00:20:38,590 --> 00:20:38,600
+all non-transactional records
+ 
+
+1091
+00:20:38,600 --> 00:20:41,710
+all non-transactional records
+and has to skip aborted
+
+1092
+00:20:41,710 --> 00:20:41,720
+and has to skip aborted
+ 
+
+1093
+00:20:41,720 --> 00:20:43,790
+and has to skip aborted
+and open transaction.
+
+1094
+00:20:43,790 --> 00:20:43,800
+and open transaction.
+ 
+
+1095
+00:20:43,800 --> 00:20:46,630
+and open transaction.
+So, that's the requirement.
+
+1096
+00:20:46,630 --> 00:20:46,640
+So, that's the requirement.
+ 
+
+1097
+00:20:46,640 --> 00:20:50,270
+So, that's the requirement.
+So, what all things it will read?
+
+1098
+00:20:50,270 --> 00:20:50,280
+So, what all things it will read?
+ 
+
+1099
+00:20:50,280 --> 00:20:51,990
+So, what all things it will read?
+So, first of all what broker will
+
+1100
+00:20:51,990 --> 00:20:52,000
+So, first of all what broker will
+ 
+
+1101
+00:20:52,000 --> 00:20:54,870
+So, first of all what broker will
+return? Broker will return
+
+1102
+00:20:54,870 --> 00:20:54,880
+return? Broker will return
+ 
+
+1103
+00:20:54,880 --> 00:20:56,230
+return? Broker will return
+offset zero
+
+1104
+00:20:56,230 --> 00:20:56,240
+offset zero
+ 
+
+1105
+00:20:56,240 --> 00:20:59,390
+offset zero
+offset one
+
+1106
+00:20:59,390 --> 00:20:59,400
+
+ 
+
+1107
+00:20:59,400 --> 00:21:02,310
+
+offset two
+
+1108
+00:21:02,310 --> 00:21:02,320
+offset two
+ 
+
+1109
+00:21:02,320 --> 00:21:04,150
+offset two
+offset three it's a control, so it will
+
+1110
+00:21:04,150 --> 00:21:04,160
+offset three it's a control, so it will
+ 
+
+1111
+00:21:04,160 --> 00:21:05,830
+offset three it's a control, so it will
+be skipped.
+
+1112
+00:21:05,830 --> 00:21:05,840
+be skipped.
+ 
+
+1113
+00:21:05,840 --> 00:21:08,190
+be skipped.
+Offset four
+
+1114
+00:21:08,190 --> 00:21:08,200
+Offset four
+ 
+
+1115
+00:21:08,200 --> 00:21:10,150
+Offset four
+offset five is control this will be
+
+1116
+00:21:10,150 --> 00:21:10,160
+offset five is control this will be
+ 
+
+1117
+00:21:10,160 --> 00:21:12,670
+offset five is control this will be
+skipped. Offset six is control record
+
+1118
+00:21:12,670 --> 00:21:12,680
+skipped. Offset six is control record
+ 
+
+1119
+00:21:12,680 --> 00:21:15,750
+skipped. Offset six is control record
+that would be skipped. Offset seven
+
+1120
+00:21:15,750 --> 00:21:15,760
+that would be skipped. Offset seven
+ 
+
+1121
+00:21:15,760 --> 00:21:17,630
+that would be skipped. Offset seven
+offset eight is control and that would
+
+1122
+00:21:17,630 --> 00:21:17,640
+offset eight is control and that would
+ 
+
+1123
+00:21:17,640 --> 00:21:18,710
+offset eight is control and that would
+be skipped.
+
+1124
+00:21:18,710 --> 00:21:18,720
+be skipped.
+ 
+
+1125
+00:21:18,720 --> 00:21:22,230
+be skipped.
+So, this all would be returned by broker
+
+1126
+00:21:22,230 --> 00:21:22,240
+So, this all would be returned by broker
+ 
+
+1127
+00:21:22,240 --> 00:21:25,550
+So, this all would be returned by broker
+to consumer. But here notice that
+
+1128
+00:21:25,550 --> 00:21:25,560
+to consumer. But here notice that
+ 
+
+1129
+00:21:25,560 --> 00:21:28,710
+to consumer. But here notice that
+this producer ID epoch one offset two
+
+1130
+00:21:28,710 --> 00:21:28,720
+this producer ID epoch one offset two
+ 
+
+1131
+00:21:28,720 --> 00:21:31,670
+this producer ID epoch one offset two
+one is aborted.
+
+1132
+00:21:31,670 --> 00:21:31,680
+one is aborted.
+ 
+
+1133
+00:21:31,680 --> 00:21:33,790
+one is aborted.
+This need to be skipped.
+
+1134
+00:21:33,790 --> 00:21:33,800
+This need to be skipped.
+ 
+
+1135
+00:21:33,800 --> 00:21:35,870
+This need to be skipped.
+But not this one. This producer ID epoch
+
+1136
+00:21:35,870 --> 00:21:35,880
+But not this one. This producer ID epoch
+ 
+
+1137
+00:21:35,880 --> 00:21:37,470
+But not this one. This producer ID epoch
+one the same.
+
+1138
+00:21:37,470 --> 00:21:37,480
+one the same.
+ 
+
+1139
+00:21:37,480 --> 00:21:40,390
+one the same.
+Offset two has producer ID epoch one.
+
+1140
+00:21:40,390 --> 00:21:40,400
+Offset two has producer ID epoch one.
+ 
+
+1141
+00:21:40,400 --> 00:21:42,550
+Offset two has producer ID epoch one.
+Offset seven also has producer ID epoch
+
+1142
+00:21:42,550 --> 00:21:42,560
+Offset seven also has producer ID epoch
+ 
+
+1143
+00:21:42,560 --> 00:21:43,750
+Offset seven also has producer ID epoch
+one same.
+
+1144
+00:21:43,750 --> 00:21:43,760
+one same.
+ 
+
+1145
+00:21:43,760 --> 00:21:45,110
+one same.
+But this one is committed this one is
+
+1146
+00:21:45,110 --> 00:21:45,120
+But this one is committed this one is
+ 
+
+1147
+00:21:45,120 --> 00:21:46,710
+But this one is committed this one is
+aborted.
+
+1148
+00:21:46,710 --> 00:21:46,720
+aborted.
+ 
+
+1149
+00:21:46,720 --> 00:21:48,750
+aborted.
+So, while reading
+
+1150
+00:21:48,750 --> 00:21:48,760
+So, while reading
+ 
+
+1151
+00:21:48,760 --> 00:21:51,750
+So, while reading
+consumer should only skip this offset
+
+1152
+00:21:51,750 --> 00:21:51,760
+consumer should only skip this offset
+ 
+
+1153
+00:21:51,760 --> 00:21:52,670
+consumer should only skip this offset
+two.
+
+1154
+00:21:52,670 --> 00:21:52,680
+two.
+ 
+
+1155
+00:21:52,680 --> 00:21:56,030
+two.
+How it will get to know that?
+
+1156
+00:21:56,030 --> 00:21:56,040
+How it will get to know that?
+ 
+
+1157
+00:21:56,040 --> 00:21:57,870
+How it will get to know that?
+Okay.
+
+1158
+00:21:57,870 --> 00:21:57,880
+Okay.
+ 
+
+1159
+00:21:57,880 --> 00:22:00,070
+Okay.
+So
+
+1160
+00:22:00,070 --> 00:22:00,080
+So
+ 
+
+1161
+00:22:00,080 --> 00:22:01,669
+So
+this one I already told you that we only
+
+1162
+00:22:01,669 --> 00:22:01,679
+this one I already told you that we only
+ 
+
+1163
+00:22:01,679 --> 00:22:03,550
+this one I already told you that we only
+need to skip offset two not offset seven
+
+1164
+00:22:03,550 --> 00:22:03,560
+need to skip offset two not offset seven
+ 
+
+1165
+00:22:03,560 --> 00:22:04,710
+need to skip offset two not offset seven
+even though they attached the same
+
+1166
+00:22:04,710 --> 00:22:04,720
+even though they attached the same
+ 
+
+1167
+00:22:04,720 --> 00:22:07,070
+even though they attached the same
+producer ID epoch one.
+
+1168
+00:22:07,070 --> 00:22:07,080
+producer ID epoch one.
+ 
+
+1169
+00:22:07,080 --> 00:22:10,110
+producer ID epoch one.
+So, answer is broker itself. Broker
+
+1170
+00:22:10,110 --> 00:22:10,120
+So, answer is broker itself. Broker
+ 
+
+1171
+00:22:10,120 --> 00:22:14,390
+So, answer is broker itself. Broker
+provide store maintain this file.
+
+1172
+00:22:14,390 --> 00:22:14,400
+provide store maintain this file.
+ 
+
+1173
+00:22:14,400 --> 00:22:15,790
+provide store maintain this file.
+Abort file.
+
+1174
+00:22:15,790 --> 00:22:15,800
+Abort file.
+ 
+
+1175
+00:22:15,800 --> 00:22:16,950
+Abort file.
+You can say that.
+
+1176
+00:22:16,950 --> 00:22:16,960
+You can say that.
+ 
+
+1177
+00:22:16,960 --> 00:22:19,110
+You can say that.
+.txn index
+
+1178
+00:22:19,110 --> 00:22:19,120
+.txn index
+ 
+
+1179
+00:22:19,120 --> 00:22:20,550
+.txn index
+whenever
+
+1180
+00:22:20,550 --> 00:22:20,560
+whenever
+ 
+
+1181
+00:22:20,560 --> 00:22:23,790
+whenever
+any transaction is aborted it is stored
+
+1182
+00:22:23,790 --> 00:22:23,800
+any transaction is aborted it is stored
+ 
+
+1183
+00:22:23,800 --> 00:22:25,150
+any transaction is aborted it is stored
+information like
+
+1184
+00:22:25,150 --> 00:22:25,160
+information like
+ 
+
+1185
+00:22:25,160 --> 00:22:28,550
+information like
+hey, this is the PID eight epoch is one
+
+1186
+00:22:28,550 --> 00:22:28,560
+hey, this is the PID eight epoch is one
+ 
+
+1187
+00:22:28,560 --> 00:22:31,270
+hey, this is the PID eight epoch is one
+first index is two and the control last
+
+1188
+00:22:31,270 --> 00:22:31,280
+first index is two and the control last
+ 
+
+1189
+00:22:31,280 --> 00:22:34,350
+first index is two and the control last
+it's control index last is six.
+
+1190
+00:22:34,350 --> 00:22:34,360
+it's control index last is six.
+ 
+
+1191
+00:22:34,360 --> 00:22:38,750
+it's control index last is six.
+So, here if you see
+
+1192
+00:22:38,750 --> 00:22:38,760
+
+ 
+
+1193
+00:22:38,760 --> 00:22:41,790
+
+whenever this abort come
+
+1194
+00:22:41,790 --> 00:22:41,800
+whenever this abort come
+ 
+
+1195
+00:22:41,800 --> 00:22:43,270
+whenever this abort come
+so, it has that hey, this is the
+
+1196
+00:22:43,270 --> 00:22:43,280
+so, it has that hey, this is the
+ 
+
+1197
+00:22:43,280 --> 00:22:45,630
+so, it has that hey, this is the
+producer ID PID eight
+
+1198
+00:22:45,630 --> 00:22:45,640
+producer ID PID eight
+ 
+
+1199
+00:22:45,640 --> 00:22:47,710
+producer ID PID eight
+epoch one
+
+1200
+00:22:47,710 --> 00:22:47,720
+epoch one
+ 
+
+1201
+00:22:47,720 --> 00:22:49,990
+epoch one
+so, it's first record it's first record
+
+1202
+00:22:49,990 --> 00:22:50,000
+so, it's first record it's first record
+ 
+
+1203
+00:22:50,000 --> 00:22:52,630
+so, it's first record it's first record
+comes at offset two
+
+1204
+00:22:52,630 --> 00:22:52,640
+comes at offset two
+ 
+
+1205
+00:22:52,640 --> 00:22:55,030
+comes at offset two
+and the control record it's come at this
+
+1206
+00:22:55,030 --> 00:22:55,040
+and the control record it's come at this
+ 
+
+1207
+00:22:55,040 --> 00:22:56,830
+and the control record it's come at this
+offset six.
+
+1208
+00:22:56,830 --> 00:22:56,840
+offset six.
+ 
+
+1209
+00:22:56,840 --> 00:22:58,830
+offset six.
+So, it is stored this information and it
+
+1210
+00:22:58,830 --> 00:22:58,840
+So, it is stored this information and it
+ 
+
+1211
+00:22:58,840 --> 00:23:01,390
+So, it is stored this information and it
+send this to consumer also.
+
+1212
+00:23:01,390 --> 00:23:01,400
+send this to consumer also.
+ 
+
+1213
+00:23:01,400 --> 00:23:03,430
+send this to consumer also.
+Now, it send this to consumer also. So,
+
+1214
+00:23:03,430 --> 00:23:03,440
+Now, it send this to consumer also. So,
+ 
+
+1215
+00:23:03,440 --> 00:23:05,710
+Now, it send this to consumer also. So,
+how consumer
+
+1216
+00:23:05,710 --> 00:23:05,720
+how consumer
+ 
+
+1217
+00:23:05,720 --> 00:23:07,870
+how consumer
+use this?
+
+1218
+00:23:07,870 --> 00:23:07,880
+use this?
+ 
+
+1219
+00:23:07,880 --> 00:23:10,230
+use this?
+So, consumer will say that okay, offset
+
+1220
+00:23:10,230 --> 00:23:10,240
+So, consumer will say that okay, offset
+ 
+
+1221
+00:23:10,240 --> 00:23:11,710
+So, consumer will say that okay, offset
+zero
+
+1222
+00:23:11,710 --> 00:23:11,720
+zero
+ 
+
+1223
+00:23:11,720 --> 00:23:14,470
+zero
+should I have to skip it or not?
+
+1224
+00:23:14,470 --> 00:23:14,480
+should I have to skip it or not?
+ 
+
+1225
+00:23:14,480 --> 00:23:17,110
+should I have to skip it or not?
+Now, let's say that LSO is
+
+1226
+00:23:17,110 --> 00:23:17,120
+Now, let's say that LSO is
+ 
+
+1227
+00:23:17,120 --> 00:23:19,790
+Now, let's say that LSO is
+there is no open transaction. So, LSO is
+
+1228
+00:23:19,790 --> 00:23:19,800
+there is no open transaction. So, LSO is
+ 
+
+1229
+00:23:19,800 --> 00:23:22,870
+there is no open transaction. So, LSO is
+pointing to let's say till offset eight
+
+1230
+00:23:22,870 --> 00:23:22,880
+pointing to let's say till offset eight
+ 
+
+1231
+00:23:22,880 --> 00:23:24,710
+pointing to let's say till offset eight
+now, so LSO is pointing to nine on
+
+1232
+00:23:24,710 --> 00:23:24,720
+now, so LSO is pointing to nine on
+ 
+
+1233
+00:23:24,720 --> 00:23:26,550
+now, so LSO is pointing to nine on
+itself.
+
+1234
+00:23:26,550 --> 00:23:26,560
+itself.
+ 
+
+1235
+00:23:26,560 --> 00:23:29,910
+itself.
+LSO equals to nine. Okay, let's say.
+
+1236
+00:23:29,910 --> 00:23:29,920
+LSO equals to nine. Okay, let's say.
+ 
+
+1237
+00:23:29,920 --> 00:23:33,390
+LSO equals to nine. Okay, let's say.
+So, the consumer will read less than LSO
+
+1238
+00:23:33,390 --> 00:23:33,400
+So, the consumer will read less than LSO
+ 
+
+1239
+00:23:33,400 --> 00:23:34,790
+So, the consumer will read less than LSO
+which is nine.
+
+1240
+00:23:34,790 --> 00:23:34,800
+which is nine.
+ 
+
+1241
+00:23:34,800 --> 00:23:37,750
+which is nine.
+Okay, so offset zero less than LSO yes,
+
+1242
+00:23:37,750 --> 00:23:37,760
+Okay, so offset zero less than LSO yes,
+ 
+
+1243
+00:23:37,760 --> 00:23:41,230
+Okay, so offset zero less than LSO yes,
+good. But do I still could be a part of
+
+1244
+00:23:41,230 --> 00:23:41,240
+good. But do I still could be a part of
+ 
+
+1245
+00:23:41,240 --> 00:23:43,350
+good. But do I still could be a part of
+aborted? I need to check. So, it will
+
+1246
+00:23:43,350 --> 00:23:43,360
+aborted? I need to check. So, it will
+ 
+
+1247
+00:23:43,360 --> 00:23:44,470
+aborted? I need to check. So, it will
+use this.
+
+1248
+00:23:44,470 --> 00:23:44,480
+use this.
+ 
+
+1249
+00:23:44,480 --> 00:23:45,270
+use this.
+Hey
+
+1250
+00:23:45,270 --> 00:23:45,280
+Hey
+ 
+
+1251
+00:23:45,280 --> 00:23:48,270
+Hey
+PID one in the aborted one
+
+1252
+00:23:48,270 --> 00:23:48,280
+PID one in the aborted one
+ 
+
+1253
+00:23:48,280 --> 00:23:50,950
+PID one in the aborted one
+PID eight epoch one. This is PID five
+
+1254
+00:23:50,950 --> 00:23:50,960
+PID eight epoch one. This is PID five
+ 
+
+1255
+00:23:50,960 --> 00:23:53,350
+PID eight epoch one. This is PID five
+different. Read it.
+
+1256
+00:23:53,350 --> 00:23:53,360
+different. Read it.
+ 
+
+1257
+00:23:53,360 --> 00:23:55,150
+different. Read it.
+So, it will properly accept this and
+
+1258
+00:23:55,150 --> 00:23:55,160
+So, it will properly accept this and
+ 
+
+1259
+00:23:55,160 --> 00:23:56,669
+So, it will properly accept this and
+read it.
+
+1260
+00:23:56,669 --> 00:23:56,679
+read it.
+ 
+
+1261
+00:23:56,679 --> 00:24:00,190
+read it.
+Next offset PID five epoch one
+
+1262
+00:24:00,190 --> 00:24:00,200
+Next offset PID five epoch one
+ 
+
+1263
+00:24:00,200 --> 00:24:02,950
+Next offset PID five epoch one
+offset one is less than nine yes, read
+
+1264
+00:24:02,950 --> 00:24:02,960
+offset one is less than nine yes, read
+ 
+
+1265
+00:24:02,960 --> 00:24:04,430
+offset one is less than nine yes, read
+one filter
+
+1266
+00:24:04,430 --> 00:24:04,440
+one filter
+ 
+
+1267
+00:24:04,440 --> 00:24:05,350
+one filter
+passed.
+
+1268
+00:24:05,350 --> 00:24:05,360
+passed.
+ 
+
+1269
+00:24:05,360 --> 00:24:07,630
+passed.
+Second filter is is it aborted or not?
+
+1270
+00:24:07,630 --> 00:24:07,640
+Second filter is is it aborted or not?
+ 
+
+1271
+00:24:07,640 --> 00:24:09,590
+Second filter is is it aborted or not?
+PID eight epoch one this is PID five
+
+1272
+00:24:09,590 --> 00:24:09,600
+PID eight epoch one this is PID five
+ 
+
+1273
+00:24:09,600 --> 00:24:12,110
+PID eight epoch one this is PID five
+epoch zero different.
+
+1274
+00:24:12,110 --> 00:24:12,120
+epoch zero different.
+ 
+
+1275
+00:24:12,120 --> 00:24:14,350
+epoch zero different.
+Read it properly.
+
+1276
+00:24:14,350 --> 00:24:14,360
+Read it properly.
+ 
+
+1277
+00:24:14,360 --> 00:24:16,750
+Read it properly.
+Then offset two offset two is less than
+
+1278
+00:24:16,750 --> 00:24:16,760
+Then offset two offset two is less than
+ 
+
+1279
+00:24:16,760 --> 00:24:20,270
+Then offset two offset two is less than
+LSO nine yes, one filter is passed.
+
+1280
+00:24:20,270 --> 00:24:20,280
+LSO nine yes, one filter is passed.
+ 
+
+1281
+00:24:20,280 --> 00:24:21,790
+LSO nine yes, one filter is passed.
+Then I need to check whether it's a part
+
+1282
+00:24:21,790 --> 00:24:21,800
+Then I need to check whether it's a part
+ 
+
+1283
+00:24:21,800 --> 00:24:24,870
+Then I need to check whether it's a part
+of aborted or not. PID eight epoch one
+
+1284
+00:24:24,870 --> 00:24:24,880
+of aborted or not. PID eight epoch one
+ 
+
+1285
+00:24:24,880 --> 00:24:28,030
+of aborted or not. PID eight epoch one
+PID eight epoch one yes, same.
+
+1286
+00:24:28,030 --> 00:24:28,040
+PID eight epoch one yes, same.
+ 
+
+1287
+00:24:28,040 --> 00:24:30,190
+PID eight epoch one yes, same.
+First offset two
+
+1288
+00:24:30,190 --> 00:24:30,200
+First offset two
+ 
+
+1289
+00:24:30,200 --> 00:24:32,230
+First offset two
+and the last record control comes at
+
+1290
+00:24:32,230 --> 00:24:32,240
+and the last record control comes at
+ 
+
+1291
+00:24:32,240 --> 00:24:35,070
+and the last record control comes at
+six. So, is it the offset between this
+
+1292
+00:24:35,070 --> 00:24:35,080
+six. So, is it the offset between this
+ 
+
+1293
+00:24:35,080 --> 00:24:36,030
+six. So, is it the offset between this
+two?
+
+1294
+00:24:36,030 --> 00:24:36,040
+two?
+ 
+
+1295
+00:24:36,040 --> 00:24:38,230
+two?
+It is offset two yes.
+
+1296
+00:24:38,230 --> 00:24:38,240
+It is offset two yes.
+ 
+
+1297
+00:24:38,240 --> 00:24:39,590
+It is offset two yes.
+So, means it's a part of aborted
+
+1298
+00:24:39,590 --> 00:24:39,600
+So, means it's a part of aborted
+ 
+
+1299
+00:24:39,600 --> 00:24:43,750
+So, means it's a part of aborted
+transaction so, skip it.
+
+1300
+00:24:43,750 --> 00:24:43,760
+
+ 
+
+1301
+00:24:43,760 --> 00:24:46,350
+
+Similarly, offset four offset four less
+
+1302
+00:24:46,350 --> 00:24:46,360
+Similarly, offset four offset four less
+ 
+
+1303
+00:24:46,360 --> 00:24:48,630
+Similarly, offset four offset four less
+than LSO nine yes
+
+1304
+00:24:48,630 --> 00:24:48,640
+than LSO nine yes
+ 
+
+1305
+00:24:48,640 --> 00:24:51,990
+than LSO nine yes
+and PID nine epoch zero different. So,
+
+1306
+00:24:51,990 --> 00:24:52,000
+and PID nine epoch zero different. So,
+ 
+
+1307
+00:24:52,000 --> 00:24:53,990
+and PID nine epoch zero different. So,
+read it.
+
+1308
+00:24:53,990 --> 00:24:54,000
+read it.
+ 
+
+1309
+00:24:54,000 --> 00:24:58,270
+read it.
+Now, offset seven seven is less than LSO
+
+1310
+00:24:58,270 --> 00:24:58,280
+Now, offset seven seven is less than LSO
+ 
+
+1311
+00:24:58,280 --> 00:25:00,030
+Now, offset seven seven is less than LSO
+yes, filter passed.
+
+1312
+00:25:00,030 --> 00:25:00,040
+yes, filter passed.
+ 
+
+1313
+00:25:00,040 --> 00:25:02,390
+yes, filter passed.
+Now, whether it's an aborted? PID eight
+
+1314
+00:25:02,390 --> 00:25:02,400
+Now, whether it's an aborted? PID eight
+ 
+
+1315
+00:25:02,400 --> 00:25:04,669
+Now, whether it's an aborted? PID eight
+epoch one yes
+
+1316
+00:25:04,669 --> 00:25:04,679
+epoch one yes
+ 
+
+1317
+00:25:04,679 --> 00:25:07,510
+epoch one yes
+but the first offset is two
+
+1318
+00:25:07,510 --> 00:25:07,520
+but the first offset is two
+ 
+
+1319
+00:25:07,520 --> 00:25:10,510
+but the first offset is two
+and the control it's come at six.
+
+1320
+00:25:10,510 --> 00:25:10,520
+and the control it's come at six.
+ 
+
+1321
+00:25:10,520 --> 00:25:13,110
+and the control it's come at six.
+So, it's range is seven after this. So,
+
+1322
+00:25:13,110 --> 00:25:13,120
+So, it's range is seven after this. So,
+ 
+
+1323
+00:25:13,120 --> 00:25:15,270
+So, it's range is seven after this. So,
+means it's a second transaction not the
+
+1324
+00:25:15,270 --> 00:25:15,280
+means it's a second transaction not the
+ 
+
+1325
+00:25:15,280 --> 00:25:17,270
+means it's a second transaction not the
+one which was aborted. So, this would be
+
+1326
+00:25:17,270 --> 00:25:17,280
+one which was aborted. So, this would be
+ 
+
+1327
+00:25:17,280 --> 00:25:18,950
+one which was aborted. So, this would be
+accepted.
+
+1328
+00:25:18,950 --> 00:25:18,960
+accepted.
+ 
+
+1329
+00:25:18,960 --> 00:25:22,310
+accepted.
+So, this is how consumer handle
+
+1330
+00:25:22,310 --> 00:25:22,320
+So, this is how consumer handle
+ 
+
+1331
+00:25:22,320 --> 00:25:25,350
+So, this is how consumer handle
+ongoing transaction with the help of LSO
+
+1332
+00:25:25,350 --> 00:25:25,360
+ongoing transaction with the help of LSO
+ 
+
+1333
+00:25:25,360 --> 00:25:29,070
+ongoing transaction with the help of LSO
+commit generally it simply you can say
+
+1334
+00:25:29,070 --> 00:25:29,080
+commit generally it simply you can say
+ 
+
+1335
+00:25:29,080 --> 00:25:31,350
+commit generally it simply you can say
+that do not handle it.
+
+1336
+00:25:31,350 --> 00:25:31,360
+that do not handle it.
+ 
+
+1337
+00:25:31,360 --> 00:25:33,870
+that do not handle it.
+Only thing is it handle aborted.
+
+1338
+00:25:33,870 --> 00:25:33,880
+Only thing is it handle aborted.
+ 
+
+1339
+00:25:33,880 --> 00:25:38,350
+Only thing is it handle aborted.
+Okay, through this file .txn index file.
+
+1340
+00:25:38,350 --> 00:25:38,360
+Okay, through this file .txn index file.
+ 
+
+1341
+00:25:38,360 --> 00:25:39,790
+Okay, through this file .txn index file.
+Okay, so it
+
+1342
+00:25:39,790 --> 00:25:39,800
+Okay, so it
+ 
+
+1343
+00:25:39,800 --> 00:25:42,270
+Okay, so it
+it skip ongoing open transaction it is
+
+1344
+00:25:42,270 --> 00:25:42,280
+it skip ongoing open transaction it is
+ 
+
+1345
+00:25:42,280 --> 00:25:47,910
+it skip ongoing open transaction it is
+skip aborted ultimately read rest all.
+
+1346
+00:25:47,910 --> 00:25:47,920
+
+ 
+
+1347
+00:25:47,920 --> 00:25:51,030
+
+Clear? So, this is how the transaction
+
+1348
+00:25:51,030 --> 00:25:51,040
+Clear? So, this is how the transaction
+ 
+
+1349
+00:25:51,040 --> 00:25:52,710
+Clear? So, this is how the transaction
+index looks like whenever there is an
+
+1350
+00:25:52,710 --> 00:25:52,720
+index looks like whenever there is an
+ 
+
+1351
+00:25:52,720 --> 00:25:53,870
+index looks like whenever there is an
+aborted
+
+1352
+00:25:53,870 --> 00:25:53,880
+aborted
+ 
+
+1353
+00:25:53,880 --> 00:25:55,430
+aborted
+and this is the information it passed.
+
+1354
+00:25:55,430 --> 00:25:55,440
+and this is the information it passed.
+ 
+
+1355
+00:25:55,440 --> 00:25:58,630
+and this is the information it passed.
+If you see that transaction index dump
+
+1356
+00:25:58,630 --> 00:25:58,640
+If you see that transaction index dump
+ 
+
+1357
+00:25:58,640 --> 00:26:00,230
+If you see that transaction index dump
+producer ID
+
+1358
+00:26:00,230 --> 00:26:00,240
+producer ID
+ 
+
+1359
+00:26:00,240 --> 00:26:01,870
+producer ID
+epoch version
+
+1360
+00:26:01,870 --> 00:26:01,880
+epoch version
+ 
+
+1361
+00:26:01,880 --> 00:26:03,910
+epoch version
+first offset last offset. Last offset is
+
+1362
+00:26:03,910 --> 00:26:03,920
+first offset last offset. Last offset is
+ 
+
+1363
+00:26:03,920 --> 00:26:05,590
+first offset last offset. Last offset is
+nothing but a
+
+1364
+00:26:05,590 --> 00:26:05,600
+nothing but a
+ 
+
+1365
+00:26:05,600 --> 00:26:07,630
+nothing but a
+your control
+
+1366
+00:26:07,630 --> 00:26:07,640
+your control
+ 
+
+1367
+00:26:07,640 --> 00:26:09,630
+your control
+a statement for this one.
+
+1368
+00:26:09,630 --> 00:26:09,640
+a statement for this one.
+ 
+
+1369
+00:26:09,640 --> 00:26:10,430
+a statement for this one.
+Okay.
+
+1370
+00:26:10,430 --> 00:26:10,440
+Okay.
+ 
+
+1371
+00:26:10,440 --> 00:26:12,430
+Okay.
+And LSO last stable offset it just
+
+1372
+00:26:12,430 --> 00:26:12,440
+And LSO last stable offset it just
+ 
+
+1373
+00:26:12,440 --> 00:26:14,550
+And LSO last stable offset it just
+recorded. But also it
+
+1374
+00:26:14,550 --> 00:26:14,560
+recorded. But also it
+ 
+
+1375
+00:26:14,560 --> 00:26:17,470
+recorded. But also it
+stored in in memory also.
+
+1376
+00:26:17,470 --> 00:26:17,480
+stored in in memory also.
+ 
+
+1377
+00:26:17,480 --> 00:26:18,950
+stored in in memory also.
+So, let's see a demo.
+
+1378
+00:26:18,950 --> 00:26:18,960
+So, let's see a demo.
+ 
+
+1379
+00:26:18,960 --> 00:26:21,390
+So, let's see a demo.
+But I hope this thing is clear.
+
+1380
+00:26:21,390 --> 00:26:21,400
+But I hope this thing is clear.
+ 
+
+1381
+00:26:21,400 --> 00:26:22,190
+But I hope this thing is clear.
+Okay.
+
+1382
+00:26:22,190 --> 00:26:22,200
+Okay.
+ 
+
+1383
+00:26:22,200 --> 00:26:26,030
+Okay.
+So, my servers controllers are running
+
+1384
+00:26:26,030 --> 00:26:26,040
+So, my servers controllers are running
+ 
+
+1385
+00:26:26,040 --> 00:26:29,070
+So, my servers controllers are running
+brokers are all running.
+
+1386
+00:26:29,070 --> 00:26:29,080
+brokers are all running.
+ 
+
+1387
+00:26:29,080 --> 00:26:31,669
+brokers are all running.
+Okay, so
+
+1388
+00:26:31,669 --> 00:26:31,679
+Okay, so
+ 
+
+1389
+00:26:31,679 --> 00:26:34,030
+Okay, so
+let me start
+
+1390
+00:26:34,030 --> 00:26:34,040
+let me start
+ 
+
+1391
+00:26:34,040 --> 00:26:37,310
+let me start
+producer is running.
+
+1392
+00:26:37,310 --> 00:26:37,320
+
+ 
+
+1393
+00:26:37,320 --> 00:26:40,390
+
+So, consumer
+
+1394
+00:26:40,390 --> 00:26:40,400
+So, consumer
+ 
+
+1395
+00:26:40,400 --> 00:26:42,070
+So, consumer
+So, first thing
+
+1396
+00:26:42,070 --> 00:26:42,080
+So, first thing
+ 
+
+1397
+00:26:42,080 --> 00:26:49,470
+So, first thing
+in the consumer
+
+1398
+00:26:49,470 --> 00:26:49,480
+
+ 
+
+1399
+00:26:49,480 --> 00:26:51,669
+
+application.properties
+
+1400
+00:26:51,669 --> 00:26:51,679
+application.properties
+ 
+
+1401
+00:26:51,679 --> 00:26:54,870
+application.properties
+I have set read committed.
+
+1402
+00:26:54,870 --> 00:26:54,880
+I have set read committed.
+ 
+
+1403
+00:26:54,880 --> 00:26:56,630
+I have set read committed.
+That's all.
+
+1404
+00:26:56,630 --> 00:26:56,640
+That's all.
+ 
+
+1405
+00:26:56,640 --> 00:26:59,390
+That's all.
+Okay.
+
+1406
+00:26:59,390 --> 00:26:59,400
+
+ 
+
+1407
+00:26:59,400 --> 00:27:01,550
+
+And now, let's see this one.
+
+1408
+00:27:01,550 --> 00:27:01,560
+And now, let's see this one.
+ 
+
+1409
+00:27:01,560 --> 00:27:04,070
+And now, let's see this one.
+What happens? I just set this one.
+
+1410
+00:27:04,070 --> 00:27:04,080
+What happens? I just set this one.
+ 
+
+1411
+00:27:04,080 --> 00:27:05,830
+What happens? I just set this one.
+And let me start the
+
+1412
+00:27:05,830 --> 00:27:05,840
+And let me start the
+ 
+
+1413
+00:27:05,840 --> 00:27:10,630
+And let me start the
+consumer application.
+
+1414
+00:27:10,630 --> 00:27:10,640
+
+ 
+
+1415
+00:27:10,640 --> 00:27:14,390
+
+So, consumer is up.
+
+1416
+00:27:14,390 --> 00:27:14,400
+
+ 
+
+1417
+00:27:14,400 --> 00:27:18,870
+
+Okay, let me first
+
+1418
+00:27:18,870 --> 00:27:18,880
+
+ 
+
+1419
+00:27:18,880 --> 00:27:20,669
+
+send the commit.
+
+1420
+00:27:20,669 --> 00:27:20,679
+send the commit.
+ 
+
+1421
+00:27:20,679 --> 00:27:22,270
+send the commit.
+Okay, if you have already followed the
+
+1422
+00:27:22,270 --> 00:27:22,280
+Okay, if you have already followed the
+ 
+
+1423
+00:27:22,280 --> 00:27:24,710
+Okay, if you have already followed the
+producer transaction you have already
+
+1424
+00:27:24,710 --> 00:27:24,720
+producer transaction you have already
+ 
+
+1425
+00:27:24,720 --> 00:27:26,750
+producer transaction you have already
+seen this API first.
+
+1426
+00:27:26,750 --> 00:27:26,760
+seen this API first.
+ 
+
+1427
+00:27:26,760 --> 00:27:27,990
+seen this API first.
+So
+
+1428
+00:27:27,990 --> 00:27:28,000
+So
+ 
+
+1429
+00:27:28,000 --> 00:27:29,910
+So
+order three
+
+1430
+00:27:29,910 --> 00:27:29,920
+order three
+ 
+
+1431
+00:27:29,920 --> 00:27:31,669
+order three
+I am hitting
+
+1432
+00:27:31,669 --> 00:27:31,679
+I am hitting
+ 
+
+1433
+00:27:31,679 --> 00:27:34,590
+I am hitting
+so, it read consumer read it properly.
+
+1434
+00:27:34,590 --> 00:27:34,600
+so, it read consumer read it properly.
+ 
+
+1435
+00:27:34,600 --> 00:27:37,470
+so, it read consumer read it properly.
+And also if we see
+
+1436
+00:27:37,470 --> 00:27:37,480
+And also if we see
+ 
+
+1437
+00:27:37,480 --> 00:27:40,030
+And also if we see
+uh let me see in which partition it
+
+1438
+00:27:40,030 --> 00:27:40,040
+uh let me see in which partition it
+ 
+
+1439
+00:27:40,040 --> 00:27:41,830
+uh let me see in which partition it
+goes.
+
+1440
+00:27:41,830 --> 00:27:41,840
+goes.
+ 
+
+1441
+00:27:41,840 --> 00:27:44,230
+goes.
+It goes into
+
+1442
+00:27:44,230 --> 00:27:44,240
+It goes into
+ 
+
+1443
+00:27:44,240 --> 00:27:46,950
+It goes into
+order goes into partition one.
+
+1444
+00:27:46,950 --> 00:27:46,960
+order goes into partition one.
+ 
+
+1445
+00:27:46,960 --> 00:27:49,550
+order goes into partition one.
+Goes into partition one.
+
+1446
+00:27:49,550 --> 00:27:49,560
+Goes into partition one.
+ 
+
+1447
+00:27:49,560 --> 00:27:52,430
+Goes into partition one.
+Partition one who is the owner of
+
+1448
+00:27:52,430 --> 00:27:52,440
+Partition one who is the owner of
+ 
+
+1449
+00:27:52,440 --> 00:27:58,119
+Partition one who is the owner of
+partition one? Let me see.
+
+1450
+00:27:58,119 --> 00:27:58,129
+
+ 
+
+1451
+00:27:58,129 --> 00:28:00,110
+
+>> [clears throat]
+
+1452
+00:28:00,110 --> 00:28:00,120
+>> [clears throat]
+ 
+
+1453
+00:28:00,120 --> 00:28:04,710
+>> [clears throat]
+>> Just a sec.
+
+1454
+00:28:04,710 --> 00:28:04,720
+
+ 
+
+1455
+00:28:04,720 --> 00:28:07,110
+
+So, we have three brokers, right?
+
+1456
+00:28:07,110 --> 00:28:07,120
+So, we have three brokers, right?
+ 
+
+1457
+00:28:07,120 --> 00:28:12,030
+So, we have three brokers, right?
+So, partition order even partition one
+
+1458
+00:28:12,030 --> 00:28:12,040
+So, partition order even partition one
+ 
+
+1459
+00:28:12,040 --> 00:28:13,790
+So, partition order even partition one
+and uh
+
+1460
+00:28:13,790 --> 00:28:13,800
+and uh
+ 
+
+1461
+00:28:13,800 --> 00:28:15,150
+and uh
+let me check
+
+1462
+00:28:15,150 --> 00:28:15,160
+let me check
+ 
+
+1463
+00:28:15,160 --> 00:28:18,830
+let me check
+first broker one is the leader.
+
+1464
+00:28:18,830 --> 00:28:18,840
+first broker one is the leader.
+ 
+
+1465
+00:28:18,840 --> 00:28:21,470
+first broker one is the leader.
+Okay, so order three goes yeah.
+
+1466
+00:28:21,470 --> 00:28:21,480
+Okay, so order three goes yeah.
+ 
+
+1467
+00:28:21,480 --> 00:28:24,750
+Okay, so order three goes yeah.
+So, it goes to the broker one itself. So
+
+1468
+00:28:24,750 --> 00:28:24,760
+So, it goes to the broker one itself. So
+ 
+
+1469
+00:28:24,760 --> 00:28:26,990
+So, it goes to the broker one itself. So
+o-3 so, if you see
+
+1470
+00:28:26,990 --> 00:28:27,000
+o-3 so, if you see
+ 
+
+1471
+00:28:27,000 --> 00:28:28,590
+o-3 so, if you see
+transaction true
+
+1472
+00:28:28,590 --> 00:28:28,600
+transaction true
+ 
+
+1473
+00:28:28,600 --> 00:28:31,390
+transaction true
+producer ID zero epoch zero transaction
+
+1474
+00:28:31,390 --> 00:28:31,400
+producer ID zero epoch zero transaction
+ 
+
+1475
+00:28:31,400 --> 00:28:33,470
+producer ID zero epoch zero transaction
+true this is the record.
+
+1476
+00:28:33,470 --> 00:28:33,480
+true this is the record.
+ 
+
+1477
+00:28:33,480 --> 00:28:36,190
+true this is the record.
+And this is the control record for this
+
+1478
+00:28:36,190 --> 00:28:36,200
+And this is the control record for this
+ 
+
+1479
+00:28:36,200 --> 00:28:38,710
+And this is the control record for this
+producer ID epoch commit.
+
+1480
+00:28:38,710 --> 00:28:38,720
+producer ID epoch commit.
+ 
+
+1481
+00:28:38,720 --> 00:28:40,909
+producer ID epoch commit.
+And our consumer
+
+1482
+00:28:40,909 --> 00:28:40,919
+And our consumer
+ 
+
+1483
+00:28:40,919 --> 00:28:45,510
+And our consumer
+able to read it properly.
+
+1484
+00:28:45,510 --> 00:28:45,520
+
+ 
+
+1485
+00:28:45,520 --> 00:28:47,390
+
+Okay.
+
+1486
+00:28:47,390 --> 00:28:47,400
+Okay.
+ 
+
+1487
+00:28:47,400 --> 00:28:48,750
+Okay.
+So, see this one.
+
+1488
+00:28:48,750 --> 00:28:48,760
+So, see this one.
+ 
+
+1489
+00:28:48,760 --> 00:28:51,470
+So, see this one.
+Partition one leader was three
+
+1490
+00:28:51,470 --> 00:28:51,480
+Partition one leader was three
+ 
+
+1491
+00:28:51,480 --> 00:28:53,070
+Partition one leader was three
+which is broker one.
+
+1492
+00:28:53,070 --> 00:28:53,080
+which is broker one.
+ 
+
+1493
+00:28:53,080 --> 00:28:54,190
+which is broker one.
+Okay.
+
+1494
+00:28:54,190 --> 00:28:54,200
+Okay.
+ 
+
+1495
+00:28:54,200 --> 00:28:56,270
+Okay.
+Now
+
+1496
+00:28:56,270 --> 00:28:56,280
+Now
+ 
+
+1497
+00:28:56,280 --> 00:29:01,030
+Now
+I am testing the abort scenario.
+
+1498
+00:29:01,030 --> 00:29:01,040
+
+ 
+
+1499
+00:29:01,040 --> 00:29:02,470
+
+Abort scenario
+
+1500
+00:29:02,470 --> 00:29:02,480
+Abort scenario
+ 
+
+1501
+00:29:02,480 --> 00:29:04,190
+Abort scenario
+o-4
+
+1502
+00:29:04,190 --> 00:29:04,200
+o-4
+ 
+
+1503
+00:29:04,200 --> 00:29:05,390
+o-4
+let's send it.
+
+1504
+00:29:05,390 --> 00:29:05,400
+let's send it.
+ 
+
+1505
+00:29:05,400 --> 00:29:06,790
+let's send it.
+Aborted.
+
+1506
+00:29:06,790 --> 00:29:06,800
+Aborted.
+ 
+
+1507
+00:29:06,800 --> 00:29:08,990
+Aborted.
+Does our consumer read it? No, o-4
+
+1508
+00:29:08,990 --> 00:29:09,000
+Does our consumer read it? No, o-4
+ 
+
+1509
+00:29:09,000 --> 00:29:12,230
+Does our consumer read it? No, o-4
+doesn't come. It is skip it. But let's
+
+1510
+00:29:12,230 --> 00:29:12,240
+doesn't come. It is skip it. But let's
+ 
+
+1511
+00:29:12,240 --> 00:29:14,710
+doesn't come. It is skip it. But let's
+validate our understanding.
+
+1512
+00:29:14,710 --> 00:29:14,720
+validate our understanding.
+ 
+
+1513
+00:29:14,720 --> 00:29:16,550
+validate our understanding.
+So, we first need to see at which
+
+1514
+00:29:16,550 --> 00:29:16,560
+So, we first need to see at which
+ 
+
+1515
+00:29:16,560 --> 00:29:19,550
+So, we first need to see at which
+partition it goes in the producer
+
+1516
+00:29:19,550 --> 00:29:19,560
+partition it goes in the producer
+ 
+
+1517
+00:29:19,560 --> 00:29:22,830
+partition it goes in the producer
+it goes to the partition two offset two.
+
+1518
+00:29:22,830 --> 00:29:22,840
+it goes to the partition two offset two.
+ 
+
+1519
+00:29:22,840 --> 00:29:24,950
+it goes to the partition two offset two.
+Partition two
+
+1520
+00:29:24,950 --> 00:29:24,960
+Partition two
+ 
+
+1521
+00:29:24,960 --> 00:29:28,310
+Partition two
+leader is four which is your
+
+1522
+00:29:28,310 --> 00:29:28,320
+leader is four which is your
+ 
+
+1523
+00:29:28,320 --> 00:29:30,270
+leader is four which is your
+uh broker two.
+
+1524
+00:29:30,270 --> 00:29:30,280
+uh broker two.
+ 
+
+1525
+00:29:30,280 --> 00:29:33,830
+uh broker two.
+Okay, broker two is your
+
+1526
+00:29:33,830 --> 00:29:33,840
+Okay, broker two is your
+ 
+
+1527
+00:29:33,840 --> 00:29:36,149
+Okay, broker two is your
+four because controller one is ID one
+
+1528
+00:29:36,149 --> 00:29:36,159
+four because controller one is ID one
+ 
+
+1529
+00:29:36,159 --> 00:29:38,590
+four because controller one is ID one
+controller two is ID two controller
+
+1530
+00:29:38,590 --> 00:29:38,600
+controller two is ID two controller
+ 
+
+1531
+00:29:38,600 --> 00:29:42,149
+controller two is ID two controller
+three is your broker one and controller
+
+1532
+00:29:42,149 --> 00:29:42,159
+three is your broker one and controller
+ 
+
+1533
+00:29:42,159 --> 00:29:43,470
+three is your broker one and controller
+uh broker
+
+1534
+00:29:43,470 --> 00:29:43,480
+uh broker
+ 
+
+1535
+00:29:43,480 --> 00:29:44,590
+uh broker
+four
+
+1536
+00:29:44,590 --> 00:29:44,600
+four
+ 
+
+1537
+00:29:44,600 --> 00:29:46,230
+four
+is your
+
+1538
+00:29:46,230 --> 00:29:46,240
+is your
+ 
+
+1539
+00:29:46,240 --> 00:29:47,669
+is your
+ID four.
+
+1540
+00:29:47,669 --> 00:29:47,679
+ID four.
+ 
+
+1541
+00:29:47,679 --> 00:29:49,910
+ID four.
+Broker two is ID4. So, we need to check
+
+1542
+00:29:49,910 --> 00:29:49,920
+Broker two is ID4. So, we need to check
+ 
+
+1543
+00:29:49,920 --> 00:29:53,350
+Broker two is ID4. So, we need to check
+the broker two logs.
+
+1544
+00:29:53,350 --> 00:29:53,360
+
+ 
+
+1545
+00:29:53,360 --> 00:29:58,510
+
+So, here
+
+1546
+00:29:58,510 --> 00:29:58,520
+
+ 
+
+1547
+00:29:58,520 --> 00:30:04,830
+
+let's see broker two.
+
+1548
+00:30:04,830 --> 00:30:04,840
+
+ 
+
+1549
+00:30:04,840 --> 00:30:07,110
+
+Partition
+
+1550
+00:30:07,110 --> 00:30:07,120
+Partition
+ 
+
+1551
+00:30:07,120 --> 00:30:08,870
+Partition
+two, right? So, it goes into partition
+
+1552
+00:30:08,870 --> 00:30:08,880
+two, right? So, it goes into partition
+ 
+
+1553
+00:30:08,880 --> 00:30:10,670
+two, right? So, it goes into partition
+two. Okay.
+
+1554
+00:30:10,670 --> 00:30:10,680
+two. Okay.
+ 
+
+1555
+00:30:10,680 --> 00:30:11,710
+two. Okay.
+Yes.
+
+1556
+00:30:11,710 --> 00:30:11,720
+Yes.
+ 
+
+1557
+00:30:11,720 --> 00:30:13,430
+Yes.
+So, let me
+
+1558
+00:30:13,430 --> 00:30:13,440
+So, let me
+ 
+
+1559
+00:30:13,440 --> 00:30:15,710
+So, let me
+hit it. So, here if you see
+
+1560
+00:30:15,710 --> 00:30:15,720
+hit it. So, here if you see
+ 
+
+1561
+00:30:15,720 --> 00:30:17,710
+hit it. So, here if you see
+O-4.
+
+1562
+00:30:17,710 --> 00:30:17,720
+O-4.
+ 
+
+1563
+00:30:17,720 --> 00:30:19,750
+O-4.
+So, this is first.
+
+1564
+00:30:19,750 --> 00:30:19,760
+So, this is first.
+ 
+
+1565
+00:30:19,760 --> 00:30:21,750
+So, this is first.
+Is transactional true?
+
+1566
+00:30:21,750 --> 00:30:21,760
+Is transactional true?
+ 
+
+1567
+00:30:21,760 --> 00:30:24,670
+Is transactional true?
+Okay. O-4.
+
+1568
+00:30:24,670 --> 00:30:24,680
+Okay. O-4.
+ 
+
+1569
+00:30:24,680 --> 00:30:26,550
+Okay. O-4.
+And here if you see
+
+1570
+00:30:26,550 --> 00:30:26,560
+And here if you see
+ 
+
+1571
+00:30:26,560 --> 00:30:30,430
+And here if you see
+the same producer ID epoch.
+
+1572
+00:30:30,430 --> 00:30:30,440
+
+ 
+
+1573
+00:30:30,440 --> 00:30:32,830
+
+Is transactional true? Control true and
+
+1574
+00:30:32,830 --> 00:30:32,840
+Is transactional true? Control true and
+ 
+
+1575
+00:30:32,840 --> 00:30:35,470
+Is transactional true? Control true and
+this is aborted.
+
+1576
+00:30:35,470 --> 00:30:35,480
+this is aborted.
+ 
+
+1577
+00:30:35,480 --> 00:30:37,110
+this is aborted.
+So, don't worry about the this one
+
+1578
+00:30:37,110 --> 00:30:37,120
+So, don't worry about the this one
+ 
+
+1579
+00:30:37,120 --> 00:30:39,070
+So, don't worry about the this one
+because see I'm making this video in
+
+1580
+00:30:39,070 --> 00:30:39,080
+because see I'm making this video in
+ 
+
+1581
+00:30:39,080 --> 00:30:41,830
+because see I'm making this video in
+continuity of producer transaction. So,
+
+1582
+00:30:41,830 --> 00:30:41,840
+continuity of producer transaction. So,
+ 
+
+1583
+00:30:41,840 --> 00:30:43,830
+continuity of producer transaction. So,
+that's why my application was on
+
+1584
+00:30:43,830 --> 00:30:43,840
+that's why my application was on
+ 
+
+1585
+00:30:43,840 --> 00:30:45,950
+that's why my application was on
+controller and broker was all running.
+
+1586
+00:30:45,950 --> 00:30:45,960
+controller and broker was all running.
+ 
+
+1587
+00:30:45,960 --> 00:30:47,670
+controller and broker was all running.
+And in the producer transaction, I have
+
+1588
+00:30:47,670 --> 00:30:47,680
+And in the producer transaction, I have
+ 
+
+1589
+00:30:47,680 --> 00:30:51,270
+And in the producer transaction, I have
+also demoed the aborted scenario. Okay.
+
+1590
+00:30:51,270 --> 00:30:51,280
+also demoed the aborted scenario. Okay.
+ 
+
+1591
+00:30:51,280 --> 00:30:54,110
+also demoed the aborted scenario. Okay.
+How aborted get appended to the logs.
+
+1592
+00:30:54,110 --> 00:30:54,120
+How aborted get appended to the logs.
+ 
+
+1593
+00:30:54,120 --> 00:30:56,590
+How aborted get appended to the logs.
+So, this is from that one. Okay. So, I'm
+
+1594
+00:30:56,590 --> 00:30:56,600
+So, this is from that one. Okay. So, I'm
+ 
+
+1595
+00:30:56,600 --> 00:30:57,990
+So, this is from that one. Okay. So, I'm
+making the video in continuation. So,
+
+1596
+00:30:57,990 --> 00:30:58,000
+making the video in continuation. So,
+ 
+
+1597
+00:30:58,000 --> 00:30:59,430
+making the video in continuation. So,
+that's why these records are from the
+
+1598
+00:30:59,430 --> 00:30:59,440
+that's why these records are from the
+ 
+
+1599
+00:30:59,440 --> 00:31:00,990
+that's why these records are from the
+previous part.
+
+1600
+00:31:00,990 --> 00:31:01,000
+previous part.
+ 
+
+1601
+00:31:01,000 --> 00:31:03,390
+previous part.
+But this is O-4 is something which we
+
+1602
+00:31:03,390 --> 00:31:03,400
+But this is O-4 is something which we
+ 
+
+1603
+00:31:03,400 --> 00:31:06,790
+But this is O-4 is something which we
+have just done now. So, this
+
+1604
+00:31:06,790 --> 00:31:06,800
+have just done now. So, this
+ 
+
+1605
+00:31:06,800 --> 00:31:08,830
+have just done now. So, this
+when the producer has done
+
+1606
+00:31:08,830 --> 00:31:08,840
+when the producer has done
+ 
+
+1607
+00:31:08,840 --> 00:31:11,470
+when the producer has done
+So, first it got a record here which is
+
+1608
+00:31:11,470 --> 00:31:11,480
+So, first it got a record here which is
+ 
+
+1609
+00:31:11,480 --> 00:31:13,470
+So, first it got a record here which is
+is transactional and this is the
+
+1610
+00:31:13,470 --> 00:31:13,480
+is transactional and this is the
+ 
+
+1611
+00:31:13,480 --> 00:31:15,550
+is transactional and this is the
+producer ID and epoch.
+
+1612
+00:31:15,550 --> 00:31:15,560
+producer ID and epoch.
+ 
+
+1613
+00:31:15,560 --> 00:31:16,670
+producer ID and epoch.
+And
+
+1614
+00:31:16,670 --> 00:31:16,680
+And
+ 
+
+1615
+00:31:16,680 --> 00:31:19,030
+And
+since it is aborted
+
+1616
+00:31:19,030 --> 00:31:19,040
+since it is aborted
+ 
+
+1617
+00:31:19,040 --> 00:31:21,510
+since it is aborted
+then we have a control record and abort.
+
+1618
+00:31:21,510 --> 00:31:21,520
+then we have a control record and abort.
+ 
+
+1619
+00:31:21,520 --> 00:31:25,150
+then we have a control record and abort.
+But here if you see our consumer haven't
+
+1620
+00:31:25,150 --> 00:31:25,160
+But here if you see our consumer haven't
+ 
+
+1621
+00:31:25,160 --> 00:31:27,870
+But here if you see our consumer haven't
+read it O-4. How?
+
+1622
+00:31:27,870 --> 00:31:27,880
+read it O-4. How?
+ 
+
+1623
+00:31:27,880 --> 00:31:31,790
+read it O-4. How?
+Now, if you see the broker two and
+
+1624
+00:31:31,790 --> 00:31:31,800
+Now, if you see the broker two and
+ 
+
+1625
+00:31:31,800 --> 00:31:34,470
+Now, if you see the broker two and
+partition two, right? So, this is
+
+1626
+00:31:34,470 --> 00:31:34,480
+partition two, right? So, this is
+ 
+
+1627
+00:31:34,480 --> 00:31:36,590
+partition two, right? So, this is
+order-event-2. So, this is the partition
+
+1628
+00:31:36,590 --> 00:31:36,600
+order-event-2. So, this is the partition
+ 
+
+1629
+00:31:36,600 --> 00:31:37,550
+order-event-2. So, this is the partition
+two.
+
+1630
+00:31:37,550 --> 00:31:37,560
+two.
+ 
+
+1631
+00:31:37,560 --> 00:31:39,510
+two.
+So, here if you see
+
+1632
+00:31:39,510 --> 00:31:39,520
+So, here if you see
+ 
+
+1633
+00:31:39,520 --> 00:31:43,070
+So, here if you see
+it maintain \{{}dot} txn index.
+
+1634
+00:31:43,070 --> 00:31:43,080
+it maintain \{{}dot} txn index.
+ 
+
+1635
+00:31:43,080 --> 00:31:44,390
+it maintain \{{}dot} txn index.
+So, currently we are seeing the log
+
+1636
+00:31:44,390 --> 00:31:44,400
+So, currently we are seeing the log
+ 
+
+1637
+00:31:44,400 --> 00:31:45,790
+So, currently we are seeing the log
+file.
+
+1638
+00:31:45,790 --> 00:31:45,800
+file.
+ 
+
+1639
+00:31:45,800 --> 00:31:48,190
+file.
+So, this is our log file we are seeing.
+
+1640
+00:31:48,190 --> 00:31:48,200
+So, this is our log file we are seeing.
+ 
+
+1641
+00:31:48,200 --> 00:31:50,310
+So, this is our log file we are seeing.
+Now, if we just see
+
+1642
+00:31:50,310 --> 00:31:50,320
+Now, if we just see
+ 
+
+1643
+00:31:50,320 --> 00:31:51,830
+Now, if we just see
+txn
+
+1644
+00:31:51,830 --> 00:31:51,840
+txn
+ 
+
+1645
+00:31:51,840 --> 00:31:53,470
+txn
+What was that?
+
+1646
+00:31:53,470 --> 00:31:53,480
+What was that?
+ 
+
+1647
+00:31:53,480 --> 00:31:57,470
+What was that?
+txn index.
+
+1648
+00:31:57,470 --> 00:31:57,480
+
+ 
+
+1649
+00:31:57,480 --> 00:32:00,990
+
+So, if you see this, what it maintains?
+
+1650
+00:32:00,990 --> 00:32:01,000
+So, if you see this, what it maintains?
+ 
+
+1651
+00:32:01,000 --> 00:32:04,750
+So, if you see this, what it maintains?
+Producer ID, version, first offset two
+
+1652
+00:32:04,750 --> 00:32:04,760
+Producer ID, version, first offset two
+ 
+
+1653
+00:32:04,760 --> 00:32:09,590
+Producer ID, version, first offset two
+last offset three. So, here if you see
+
+1654
+00:32:09,590 --> 00:32:09,600
+
+ 
+
+1655
+00:32:09,600 --> 00:32:11,150
+
+offset two.
+
+1656
+00:32:11,150 --> 00:32:11,160
+offset two.
+ 
+
+1657
+00:32:11,160 --> 00:32:13,910
+offset two.
+O-4. Last offset which is the control
+
+1658
+00:32:13,910 --> 00:32:13,920
+O-4. Last offset which is the control
+ 
+
+1659
+00:32:13,920 --> 00:32:15,550
+O-4. Last offset which is the control
+one. So,
+
+1660
+00:32:15,550 --> 00:32:15,560
+one. So,
+ 
+
+1661
+00:32:15,560 --> 00:32:17,750
+one. So,
+offset three is the one which is control
+
+1662
+00:32:17,750 --> 00:32:17,760
+offset three is the one which is control
+ 
+
+1663
+00:32:17,760 --> 00:32:19,630
+offset three is the one which is control
+record abort.
+
+1664
+00:32:19,630 --> 00:32:19,640
+record abort.
+ 
+
+1665
+00:32:19,640 --> 00:32:21,790
+record abort.
+So, that information is stored and this
+
+1666
+00:32:21,790 --> 00:32:21,800
+So, that information is stored and this
+ 
+
+1667
+00:32:21,800 --> 00:32:24,990
+So, that information is stored and this
+file only help consumer to know which
+
+1668
+00:32:24,990 --> 00:32:25,000
+file only help consumer to know which
+ 
+
+1669
+00:32:25,000 --> 00:32:27,110
+file only help consumer to know which
+transactions to
+
+1670
+00:32:27,110 --> 00:32:27,120
+transactions to
+ 
+
+1671
+00:32:27,120 --> 00:32:34,070
+transactions to
+skip because they are aborted.
+
+1672
+00:32:34,070 --> 00:32:34,080
+
+ 
+
+1673
+00:32:34,080 --> 00:32:36,390
+
+Got it?
+
+1674
+00:32:36,390 --> 00:32:36,400
+Got it?
+ 
+
+1675
+00:32:36,400 --> 00:32:37,630
+Got it?
+Clear?
+
+1676
+00:32:37,630 --> 00:32:37,640
+Clear?
+ 
+
+1677
+00:32:37,640 --> 00:32:40,750
+Clear?
+Very important LSO.
+
+1678
+00:32:40,750 --> 00:32:40,760
+Very important LSO.
+ 
+
+1679
+00:32:40,760 --> 00:32:43,350
+Very important LSO.
+Which is used
+
+1680
+00:32:43,350 --> 00:32:43,360
+Which is used
+ 
+
+1681
+00:32:43,360 --> 00:32:45,030
+Which is used
+to skip
+
+1682
+00:32:45,030 --> 00:32:45,040
+to skip
+ 
+
+1683
+00:32:45,040 --> 00:32:46,790
+to skip
+open transaction.
+
+1684
+00:32:46,790 --> 00:32:46,800
+open transaction.
+ 
+
+1685
+00:32:46,800 --> 00:32:49,510
+open transaction.
+And uh
+
+1686
+00:32:49,510 --> 00:32:49,520
+And uh
+ 
+
+1687
+00:32:49,520 --> 00:32:52,150
+And uh
+the transaction index abort file. You
+
+1688
+00:32:52,150 --> 00:32:52,160
+the transaction index abort file. You
+ 
+
+1689
+00:32:52,160 --> 00:32:53,990
+the transaction index abort file. You
+can say that abort file.
+
+1690
+00:32:53,990 --> 00:32:54,000
+can say that abort file.
+ 
+
+1691
+00:32:54,000 --> 00:32:56,070
+can say that abort file.
+Which tell consumer that these all
+
+1692
+00:32:56,070 --> 00:32:56,080
+Which tell consumer that these all
+ 
+
+1693
+00:32:56,080 --> 00:32:58,830
+Which tell consumer that these all
+records
+
+1694
+00:32:58,830 --> 00:32:58,840
+records
+ 
+
+1695
+00:32:58,840 --> 00:33:00,750
+records
+belongs to a abort transaction. So, you
+
+1696
+00:33:00,750 --> 00:33:00,760
+belongs to a abort transaction. So, you
+ 
+
+1697
+00:33:00,760 --> 00:33:01,790
+belongs to a abort transaction. So, you
+skip it.
+
+1698
+00:33:01,790 --> 00:33:01,800
+skip it.
+ 
+
+1699
+00:33:01,800 --> 00:33:04,669
+skip it.
+Rest all trans Rest all records consumer
+
+1700
+00:33:04,669 --> 00:33:04,679
+Rest all trans Rest all records consumer
+ 
+
+1701
+00:33:04,679 --> 00:33:07,350
+Rest all trans Rest all records consumer
+read it.
+
+1702
+00:33:07,350 --> 00:33:07,360
+
+ 
+
+1703
+00:33:07,360 --> 00:33:08,750
+
+Now,
+
+1704
+00:33:08,750 --> 00:33:08,760
+Now,
+ 
+
+1705
+00:33:08,760 --> 00:33:11,910
+Now,
+if you remember the producer transaction
+
+1706
+00:33:11,910 --> 00:33:11,920
+if you remember the producer transaction
+ 
+
+1707
+00:33:11,920 --> 00:33:13,590
+if you remember the producer transaction
+while we discuss that what all problem
+
+1708
+00:33:13,590 --> 00:33:13,600
+while we discuss that what all problem
+ 
+
+1709
+00:33:13,600 --> 00:33:15,790
+while we discuss that what all problem
+exist, I told that there is one problem.
+
+1710
+00:33:15,790 --> 00:33:15,800
+exist, I told that there is one problem.
+ 
+
+1711
+00:33:15,800 --> 00:33:18,110
+exist, I told that there is one problem.
+Read, process, write problem which exist
+
+1712
+00:33:18,110 --> 00:33:18,120
+Read, process, write problem which exist
+ 
+
+1713
+00:33:18,120 --> 00:33:20,390
+Read, process, write problem which exist
+at consumer side problem.
+
+1714
+00:33:20,390 --> 00:33:20,400
+at consumer side problem.
+ 
+
+1715
+00:33:20,400 --> 00:33:22,310
+at consumer side problem.
+So, the problem is that
+
+1716
+00:33:22,310 --> 00:33:22,320
+So, the problem is that
+ 
+
+1717
+00:33:22,320 --> 00:33:24,790
+So, the problem is that
+consumer first do the read.
+
+1718
+00:33:24,790 --> 00:33:24,800
+consumer first do the read.
+ 
+
+1719
+00:33:24,800 --> 00:33:26,950
+consumer first do the read.
+Okay, let's say when it read the record
+
+1720
+00:33:26,950 --> 00:33:26,960
+Okay, let's say when it read the record
+ 
+
+1721
+00:33:26,960 --> 00:33:28,510
+Okay, let's say when it read the record
+50 comes.
+
+1722
+00:33:28,510 --> 00:33:28,520
+50 comes.
+ 
+
+1723
+00:33:28,520 --> 00:33:30,790
+50 comes.
+Okay. A record with offset 50. One
+
+1724
+00:33:30,790 --> 00:33:30,800
+Okay. A record with offset 50. One
+ 
+
+1725
+00:33:30,800 --> 00:33:32,910
+Okay. A record with offset 50. One
+record with offset 50 comes.
+
+1726
+00:33:32,910 --> 00:33:32,920
+record with offset 50 comes.
+ 
+
+1727
+00:33:32,920 --> 00:33:34,790
+record with offset 50 comes.
+It processes it.
+
+1728
+00:33:34,790 --> 00:33:34,800
+It processes it.
+ 
+
+1729
+00:33:34,800 --> 00:33:37,110
+It processes it.
+Read, process and then it try to write
+
+1730
+00:33:37,110 --> 00:33:37,120
+Read, process and then it try to write
+ 
+
+1731
+00:33:37,120 --> 00:33:38,950
+Read, process and then it try to write
+or publish
+
+1732
+00:33:38,950 --> 00:33:38,960
+or publish
+ 
+
+1733
+00:33:38,960 --> 00:33:41,190
+or publish
+to another topic, let's say. It
+
+1734
+00:33:41,190 --> 00:33:41,200
+to another topic, let's say. It
+ 
+
+1735
+00:33:41,200 --> 00:33:43,390
+to another topic, let's say. It
+publishing an event again.
+
+1736
+00:33:43,390 --> 00:33:43,400
+publishing an event again.
+ 
+
+1737
+00:33:43,400 --> 00:33:45,270
+publishing an event again.
+And it does that. And after that it
+
+1738
+00:33:45,270 --> 00:33:45,280
+And it does that. And after that it
+ 
+
+1739
+00:33:45,280 --> 00:33:47,150
+And it does that. And after that it
+trying to commit the offset, but that
+
+1740
+00:33:47,150 --> 00:33:47,160
+trying to commit the offset, but that
+ 
+
+1741
+00:33:47,160 --> 00:33:48,510
+trying to commit the offset, but that
+got failed.
+
+1742
+00:33:48,510 --> 00:33:48,520
+got failed.
+ 
+
+1743
+00:33:48,520 --> 00:33:50,350
+got failed.
+So, when the consumer try to do poll
+
+1744
+00:33:50,350 --> 00:33:50,360
+So, when the consumer try to do poll
+ 
+
+1745
+00:33:50,360 --> 00:33:52,950
+So, when the consumer try to do poll
+again, it will again get this record
+
+1746
+00:33:52,950 --> 00:33:52,960
+again, it will again get this record
+ 
+
+1747
+00:33:52,960 --> 00:33:55,470
+again, it will again get this record
+with offset 50 because it is not yet
+
+1748
+00:33:55,470 --> 00:33:55,480
+with offset 50 because it is not yet
+ 
+
+1749
+00:33:55,480 --> 00:33:57,590
+with offset 50 because it is not yet
+committed. Offset is not yet committed.
+
+1750
+00:33:57,590 --> 00:33:57,600
+committed. Offset is not yet committed.
+ 
+
+1751
+00:33:57,600 --> 00:33:59,950
+committed. Offset is not yet committed.
+So, it will get the same offset.
+
+1752
+00:33:59,950 --> 00:33:59,960
+So, it will get the same offset.
+ 
+
+1753
+00:33:59,960 --> 00:34:02,110
+So, it will get the same offset.
+It will do the same processing and it
+
+1754
+00:34:02,110 --> 00:34:02,120
+It will do the same processing and it
+ 
+
+1755
+00:34:02,120 --> 00:34:04,070
+It will do the same processing and it
+will publish the event again.
+
+1756
+00:34:04,070 --> 00:34:04,080
+will publish the event again.
+ 
+
+1757
+00:34:04,080 --> 00:34:05,630
+will publish the event again.
+So, there is a process There is a
+
+1758
+00:34:05,630 --> 00:34:05,640
+So, there is a process There is a
+ 
+
+1759
+00:34:05,640 --> 00:34:08,669
+So, there is a process There is a
+possibility that you publish the same
+
+1760
+00:34:08,669 --> 00:34:08,679
+possibility that you publish the same
+ 
+
+1761
+00:34:08,679 --> 00:34:12,750
+possibility that you publish the same
+event again.
+
+1762
+00:34:12,750 --> 00:34:12,760
+
+ 
+
+1763
+00:34:12,760 --> 00:34:14,790
+
+How to
+
+1764
+00:34:14,790 --> 00:34:14,800
+How to
+ 
+
+1765
+00:34:14,800 --> 00:34:17,389
+How to
+You can say that how to
+
+1766
+00:34:17,389 --> 00:34:17,399
+You can say that how to
+ 
+
+1767
+00:34:17,399 --> 00:34:20,830
+You can say that how to
+uh remove this problem?
+
+1768
+00:34:20,830 --> 00:34:20,840
+uh remove this problem?
+ 
+
+1769
+00:34:20,840 --> 00:34:21,790
+uh remove this problem?
+See,
+
+1770
+00:34:21,790 --> 00:34:21,800
+See,
+ 
+
+1771
+00:34:21,800 --> 00:34:24,310
+See,
+one thing is which transaction cannot
+
+1772
+00:34:24,310 --> 00:34:24,320
+one thing is which transaction cannot
+ 
+
+1773
+00:34:24,320 --> 00:34:26,590
+one thing is which transaction cannot
+help is that if you are not publishing
+
+1774
+00:34:26,590 --> 00:34:26,600
+help is that if you are not publishing
+ 
+
+1775
+00:34:26,600 --> 00:34:28,389
+help is that if you are not publishing
+to another event, only this. Then you
+
+1776
+00:34:28,389 --> 00:34:28,399
+to another event, only this. Then you
+ 
+
+1777
+00:34:28,399 --> 00:34:30,230
+to another event, only this. Then you
+can say that also, hey
+
+1778
+00:34:30,230 --> 00:34:30,240
+can say that also, hey
+ 
+
+1779
+00:34:30,240 --> 00:34:32,590
+can say that also, hey
+this is also duplicate. It is processing
+
+1780
+00:34:32,590 --> 00:34:32,600
+this is also duplicate. It is processing
+ 
+
+1781
+00:34:32,600 --> 00:34:34,389
+this is also duplicate. It is processing
+the record duplicate.
+
+1782
+00:34:34,389 --> 00:34:34,399
+the record duplicate.
+ 
+
+1783
+00:34:34,399 --> 00:34:36,110
+the record duplicate.
+But this is not what transaction can
+
+1784
+00:34:36,110 --> 00:34:36,120
+But this is not what transaction can
+ 
+
+1785
+00:34:36,120 --> 00:34:37,830
+But this is not what transaction can
+help you with. What if you are
+
+1786
+00:34:37,830 --> 00:34:37,840
+help you with. What if you are
+ 
+
+1787
+00:34:37,840 --> 00:34:40,950
+help you with. What if you are
+processing record is like sending email?
+
+1788
+00:34:40,950 --> 00:34:40,960
+processing record is like sending email?
+ 
+
+1789
+00:34:40,960 --> 00:34:42,869
+processing record is like sending email?
+Sending email.
+
+1790
+00:34:42,869 --> 00:34:42,879
+Sending email.
+ 
+
+1791
+00:34:42,879 --> 00:34:45,190
+Sending email.
+So, you you got this
+
+1792
+00:34:45,190 --> 00:34:45,200
+So, you you got this
+ 
+
+1793
+00:34:45,200 --> 00:34:48,590
+So, you you got this
+record. You send an email.
+
+1794
+00:34:48,590 --> 00:34:48,600
+record. You send an email.
+ 
+
+1795
+00:34:48,600 --> 00:34:50,110
+record. You send an email.
+And while committing the offset it got
+
+1796
+00:34:50,110 --> 00:34:50,120
+And while committing the offset it got
+ 
+
+1797
+00:34:50,120 --> 00:34:51,630
+And while committing the offset it got
+failed.
+
+1798
+00:34:51,630 --> 00:34:51,640
+failed.
+ 
+
+1799
+00:34:51,640 --> 00:34:53,349
+failed.
+While again reading you got the same
+
+1800
+00:34:53,349 --> 00:34:53,359
+While again reading you got the same
+ 
+
+1801
+00:34:53,359 --> 00:34:55,830
+While again reading you got the same
+offset. You again send mail.
+
+1802
+00:34:55,830 --> 00:34:55,840
+offset. You again send mail.
+ 
+
+1803
+00:34:55,840 --> 00:34:57,070
+offset. You again send mail.
+You can't
+
+1804
+00:34:57,070 --> 00:34:57,080
+You can't
+ 
+
+1805
+00:34:57,080 --> 00:34:58,830
+You can't
+undo that one, right? Even though it's a
+
+1806
+00:34:58,830 --> 00:34:58,840
+undo that one, right? Even though it's a
+ 
+
+1807
+00:34:58,840 --> 00:35:00,790
+undo that one, right? Even though it's a
+duplicate, it's an external system. You
+
+1808
+00:35:00,790 --> 00:35:00,800
+duplicate, it's an external system. You
+ 
+
+1809
+00:35:00,800 --> 00:35:03,230
+duplicate, it's an external system. You
+can't undo that. So, transaction do not
+
+1810
+00:35:03,230 --> 00:35:03,240
+can't undo that. So, transaction do not
+ 
+
+1811
+00:35:03,240 --> 00:35:05,070
+can't undo that. So, transaction do not
+help in this one.
+
+1812
+00:35:05,070 --> 00:35:05,080
+help in this one.
+ 
+
+1813
+00:35:05,080 --> 00:35:07,150
+help in this one.
+What transaction help saying that, hey
+
+1814
+00:35:07,150 --> 00:35:07,160
+What transaction help saying that, hey
+ 
+
+1815
+00:35:07,160 --> 00:35:09,150
+What transaction help saying that, hey
+if you have this scenario
+
+1816
+00:35:09,150 --> 00:35:09,160
+if you have this scenario
+ 
+
+1817
+00:35:09,160 --> 00:35:12,150
+if you have this scenario
+when you read this
+
+1818
+00:35:12,150 --> 00:35:12,160
+when you read this
+ 
+
+1819
+00:35:12,160 --> 00:35:13,870
+when you read this
+maybe whatever the processing after you
+
+1820
+00:35:13,870 --> 00:35:13,880
+maybe whatever the processing after you
+ 
+
+1821
+00:35:13,880 --> 00:35:17,070
+maybe whatever the processing after you
+are writing to an another event.
+
+1822
+00:35:17,070 --> 00:35:17,080
+are writing to an another event.
+ 
+
+1823
+00:35:17,080 --> 00:35:19,349
+are writing to an another event.
+Okay. So, if
+
+1824
+00:35:19,349 --> 00:35:19,359
+Okay. So, if
+ 
+
+1825
+00:35:19,359 --> 00:35:20,910
+Okay. So, if
+commit is
+
+1826
+00:35:20,910 --> 00:35:20,920
+commit is
+ 
+
+1827
+00:35:20,920 --> 00:35:22,630
+commit is
+offset commit is lost, then it is
+
+1828
+00:35:22,630 --> 00:35:22,640
+offset commit is lost, then it is
+ 
+
+1829
+00:35:22,640 --> 00:35:25,470
+offset commit is lost, then it is
+possibility that you will write again.
+
+1830
+00:35:25,470 --> 00:35:25,480
+possibility that you will write again.
+ 
+
+1831
+00:35:25,480 --> 00:35:27,070
+possibility that you will write again.
+So, that can be solved through
+
+1832
+00:35:27,070 --> 00:35:27,080
+So, that can be solved through
+ 
+
+1833
+00:35:27,080 --> 00:35:28,310
+So, that can be solved through
+transaction.
+
+1834
+00:35:28,310 --> 00:35:28,320
+transaction.
+ 
+
+1835
+00:35:28,320 --> 00:35:31,150
+transaction.
+Because now we are internal to Kafka.
+
+1836
+00:35:31,150 --> 00:35:31,160
+Because now we are internal to Kafka.
+ 
+
+1837
+00:35:31,160 --> 00:35:33,070
+Because now we are internal to Kafka.
+Reading is internal.
+
+1838
+00:35:33,070 --> 00:35:33,080
+Reading is internal.
+ 
+
+1839
+00:35:33,080 --> 00:35:35,790
+Reading is internal.
+Publishing to an event is internal and
+
+1840
+00:35:35,790 --> 00:35:35,800
+Publishing to an event is internal and
+ 
+
+1841
+00:35:35,800 --> 00:35:37,150
+Publishing to an event is internal and
+committing
+
+1842
+00:35:37,150 --> 00:35:37,160
+committing
+ 
+
+1843
+00:35:37,160 --> 00:35:39,630
+committing
+offset is internal. That if it is
+
+1844
+00:35:39,630 --> 00:35:39,640
+offset is internal. That if it is
+ 
+
+1845
+00:35:39,640 --> 00:35:41,110
+offset is internal. That if it is
+internal to Kafka, that can be
+
+1846
+00:35:41,110 --> 00:35:41,120
+internal to Kafka, that can be
+ 
+
+1847
+00:35:41,120 --> 00:35:43,950
+internal to Kafka, that can be
+controlled.
+
+1848
+00:35:43,950 --> 00:35:43,960
+
+ 
+
+1849
+00:35:43,960 --> 00:35:46,990
+
+And this is what EOS. Very frequently
+
+1850
+00:35:46,990 --> 00:35:47,000
+And this is what EOS. Very frequently
+ 
+
+1851
+00:35:47,000 --> 00:35:50,510
+And this is what EOS. Very frequently
+asked, what is EOS in Kafka? Exactly one
+
+1852
+00:35:50,510 --> 00:35:50,520
+asked, what is EOS in Kafka? Exactly one
+ 
+
+1853
+00:35:50,520 --> 00:35:54,750
+asked, what is EOS in Kafka? Exactly one
+semantic problem. And this is exact EOS
+
+1854
+00:35:54,750 --> 00:35:54,760
+semantic problem. And this is exact EOS
+ 
+
+1855
+00:35:54,760 --> 00:35:57,150
+semantic problem. And this is exact EOS
+problem. You can say that.
+
+1856
+00:35:57,150 --> 00:35:57,160
+problem. You can say that.
+ 
+
+1857
+00:35:57,160 --> 00:36:00,830
+problem. You can say that.
+Read, process, write problem.
+
+1858
+00:36:00,830 --> 00:36:00,840
+Read, process, write problem.
+ 
+
+1859
+00:36:00,840 --> 00:36:03,630
+Read, process, write problem.
+Okay. So, above problem happened because
+
+1860
+00:36:03,630 --> 00:36:03,640
+Okay. So, above problem happened because
+ 
+
+1861
+00:36:03,640 --> 00:36:06,030
+Okay. So, above problem happened because
+write and commit offset is a separate
+
+1862
+00:36:06,030 --> 00:36:06,040
+write and commit offset is a separate
+ 
+
+1863
+00:36:06,040 --> 00:36:10,590
+write and commit offset is a separate
+step. So, you first write into an event.
+
+1864
+00:36:10,590 --> 00:36:10,600
+step. So, you first write into an event.
+ 
+
+1865
+00:36:10,600 --> 00:36:12,550
+step. So, you first write into an event.
+You are write an event and after you
+
+1866
+00:36:12,550 --> 00:36:12,560
+You are write an event and after you
+ 
+
+1867
+00:36:12,560 --> 00:36:14,390
+You are write an event and after you
+trying to commit the offset.
+
+1868
+00:36:14,390 --> 00:36:14,400
+trying to commit the offset.
+ 
+
+1869
+00:36:14,400 --> 00:36:17,349
+trying to commit the offset.
+Now, offset commit fail.
+
+1870
+00:36:17,349 --> 00:36:17,359
+Now, offset commit fail.
+ 
+
+1871
+00:36:17,359 --> 00:36:20,030
+Now, offset commit fail.
+That's why you are reading it again.
+
+1872
+00:36:20,030 --> 00:36:20,040
+That's why you are reading it again.
+ 
+
+1873
+00:36:20,040 --> 00:36:21,590
+That's why you are reading it again.
+You are processing it and you are
+
+1874
+00:36:21,590 --> 00:36:21,600
+You are processing it and you are
+ 
+
+1875
+00:36:21,600 --> 00:36:23,349
+You are processing it and you are
+publishing to an another
+
+1876
+00:36:23,349 --> 00:36:23,359
+publishing to an another
+ 
+
+1877
+00:36:23,359 --> 00:36:24,910
+publishing to an another
+again.
+
+1878
+00:36:24,910 --> 00:36:24,920
+again.
+ 
+
+1879
+00:36:24,920 --> 00:36:27,070
+again.
+Because this is separate step. Step one,
+
+1880
+00:36:27,070 --> 00:36:27,080
+Because this is separate step. Step one,
+ 
+
+1881
+00:36:27,080 --> 00:36:29,110
+Because this is separate step. Step one,
+step two.
+
+1882
+00:36:29,110 --> 00:36:29,120
+step two.
+ 
+
+1883
+00:36:29,120 --> 00:36:32,349
+step two.
+So, what it does is in EOS
+
+1884
+00:36:32,349 --> 00:36:32,359
+So, what it does is in EOS
+ 
+
+1885
+00:36:32,359 --> 00:36:34,310
+So, what it does is in EOS
+guarantee that there should not be any
+
+1886
+00:36:34,310 --> 00:36:34,320
+guarantee that there should not be any
+ 
+
+1887
+00:36:34,320 --> 00:36:37,510
+guarantee that there should not be any
+duplicate in consumer when consumer is
+
+1888
+00:36:37,510 --> 00:36:37,520
+duplicate in consumer when consumer is
+ 
+
+1889
+00:36:37,520 --> 00:36:40,110
+duplicate in consumer when consumer is
+doing reading the offset
+
+1890
+00:36:40,110 --> 00:36:40,120
+doing reading the offset
+ 
+
+1891
+00:36:40,120 --> 00:36:43,750
+doing reading the offset
+and then publishing it to another event.
+
+1892
+00:36:43,750 --> 00:36:43,760
+and then publishing it to another event.
+ 
+
+1893
+00:36:43,760 --> 00:36:46,349
+and then publishing it to another event.
+In that scenario
+
+1894
+00:36:46,349 --> 00:36:46,359
+In that scenario
+ 
+
+1895
+00:36:46,359 --> 00:36:49,510
+In that scenario
+the EOS says that exactly one semantic,
+
+1896
+00:36:49,510 --> 00:36:49,520
+the EOS says that exactly one semantic,
+ 
+
+1897
+00:36:49,520 --> 00:36:51,390
+the EOS says that exactly one semantic,
+no duplicate.
+
+1898
+00:36:51,390 --> 00:36:51,400
+no duplicate.
+ 
+
+1899
+00:36:51,400 --> 00:36:54,910
+no duplicate.
+Okay. And how it will do? It will group
+
+1900
+00:36:54,910 --> 00:36:54,920
+Okay. And how it will do? It will group
+ 
+
+1901
+00:36:54,920 --> 00:36:57,790
+Okay. And how it will do? It will group
+into one atomic
+
+1902
+00:36:57,790 --> 00:36:57,800
+into one atomic
+ 
+
+1903
+00:36:57,800 --> 00:36:59,430
+into one atomic
+transaction.
+
+1904
+00:36:59,430 --> 00:36:59,440
+transaction.
+ 
+
+1905
+00:36:59,440 --> 00:37:01,550
+transaction.
+Publish to
+
+1906
+00:37:01,550 --> 00:37:01,560
+Publish to
+ 
+
+1907
+00:37:01,560 --> 00:37:04,710
+Publish to
+topic and offset commit tied together
+
+1908
+00:37:04,710 --> 00:37:04,720
+topic and offset commit tied together
+ 
+
+1909
+00:37:04,720 --> 00:37:08,910
+topic and offset commit tied together
+into one transaction. If one fails
+
+1910
+00:37:08,910 --> 00:37:08,920
+into one transaction. If one fails
+ 
+
+1911
+00:37:08,920 --> 00:37:10,030
+into one transaction. If one fails
+like
+
+1912
+00:37:10,030 --> 00:37:10,040
+like
+ 
+
+1913
+00:37:10,040 --> 00:37:15,750
+like
+both will fail. You can say that.
+
+1914
+00:37:15,750 --> 00:37:15,760
+
+ 
+
+1915
+00:37:15,760 --> 00:37:18,430
+
+So, in this use case
+
+1916
+00:37:18,430 --> 00:37:18,440
+So, in this use case
+ 
+
+1917
+00:37:18,440 --> 00:37:21,910
+So, in this use case
+read, process, write and then commit
+
+1918
+00:37:21,910 --> 00:37:21,920
+read, process, write and then commit
+ 
+
+1919
+00:37:21,920 --> 00:37:24,349
+read, process, write and then commit
+offset. EOS achieve through read
+
+1920
+00:37:24,349 --> 00:37:24,359
+offset. EOS achieve through read
+ 
+
+1921
+00:37:24,359 --> 00:37:27,710
+offset. EOS achieve through read
+committed. So, your consumer should be
+
+1922
+00:37:27,710 --> 00:37:27,720
+committed. So, your consumer should be
+ 
+
+1923
+00:37:27,720 --> 00:37:30,110
+committed. So, your consumer should be
+isolation level read committed.
+
+1924
+00:37:30,110 --> 00:37:30,120
+isolation level read committed.
+ 
+
+1925
+00:37:30,120 --> 00:37:31,030
+isolation level read committed.
+Okay.
+
+1926
+00:37:31,030 --> 00:37:31,040
+Okay.
+ 
+
+1927
+00:37:31,040 --> 00:37:34,550
+Okay.
+And since consumer also has to publish
+
+1928
+00:37:34,550 --> 00:37:34,560
+And since consumer also has to publish
+ 
+
+1929
+00:37:34,560 --> 00:37:36,470
+And since consumer also has to publish
+also has to publish
+
+1930
+00:37:36,470 --> 00:37:36,480
+also has to publish
+ 
+
+1931
+00:37:36,480 --> 00:37:38,190
+also has to publish
+an event, right?
+
+1932
+00:37:38,190 --> 00:37:38,200
+an event, right?
+ 
+
+1933
+00:37:38,200 --> 00:37:40,590
+an event, right?
+So, idempotency
+
+1934
+00:37:40,590 --> 00:37:40,600
+So, idempotency
+ 
+
+1935
+00:37:40,600 --> 00:37:43,990
+So, idempotency
+and transaction should be enabled.
+
+1936
+00:37:43,990 --> 00:37:44,000
+and transaction should be enabled.
+ 
+
+1937
+00:37:44,000 --> 00:37:45,870
+and transaction should be enabled.
+So, EOS achieve through
+
+1938
+00:37:45,870 --> 00:37:45,880
+So, EOS achieve through
+ 
+
+1939
+00:37:45,880 --> 00:37:47,790
+So, EOS achieve through
+See, I'm talking at consumer side. Don't
+
+1940
+00:37:47,790 --> 00:37:47,800
+See, I'm talking at consumer side. Don't
+ 
+
+1941
+00:37:47,800 --> 00:37:49,670
+See, I'm talking at consumer side. Don't
+get mixed it with producer. So, consumer
+
+1942
+00:37:49,670 --> 00:37:49,680
+get mixed it with producer. So, consumer
+ 
+
+1943
+00:37:49,680 --> 00:37:53,190
+get mixed it with producer. So, consumer
+is doing both. So, it is reading
+
+1944
+00:37:53,190 --> 00:37:53,200
+is doing both. So, it is reading
+ 
+
+1945
+00:37:53,200 --> 00:37:55,150
+is doing both. So, it is reading
+and then publishing to an offset
+
+1946
+00:37:55,150 --> 00:37:55,160
+and then publishing to an offset
+ 
+
+1947
+00:37:55,160 --> 00:37:57,870
+and then publishing to an offset
+publishing to a particular topic.
+
+1948
+00:37:57,870 --> 00:37:57,880
+publishing to a particular topic.
+ 
+
+1949
+00:37:57,880 --> 00:38:00,910
+publishing to a particular topic.
+And then doing offset commit.
+
+1950
+00:38:00,910 --> 00:38:00,920
+And then doing offset commit.
+ 
+
+1951
+00:38:00,920 --> 00:38:03,190
+And then doing offset commit.
+Okay. So, consumer is doing both.
+
+1952
+00:38:03,190 --> 00:38:03,200
+Okay. So, consumer is doing both.
+ 
+
+1953
+00:38:03,200 --> 00:38:05,830
+Okay. So, consumer is doing both.
+Reading part and publishing also. So,
+
+1954
+00:38:05,830 --> 00:38:05,840
+Reading part and publishing also. So,
+ 
+
+1955
+00:38:05,840 --> 00:38:07,790
+Reading part and publishing also. So,
+that's why EOS says that it can be only
+
+1956
+00:38:07,790 --> 00:38:07,800
+that's why EOS says that it can be only
+ 
+
+1957
+00:38:07,800 --> 00:38:09,670
+that's why EOS says that it can be only
+achieved when consumer is following read
+
+1958
+00:38:09,670 --> 00:38:09,680
+achieved when consumer is following read
+ 
+
+1959
+00:38:09,680 --> 00:38:11,150
+achieved when consumer is following read
+committed
+
+1960
+00:38:11,150 --> 00:38:11,160
+committed
+ 
+
+1961
+00:38:11,160 --> 00:38:13,070
+committed
+plus since it is also performing
+
+1962
+00:38:13,070 --> 00:38:13,080
+plus since it is also performing
+ 
+
+1963
+00:38:13,080 --> 00:38:14,990
+plus since it is also performing
+producer role, it should be idempotency
+
+1964
+00:38:14,990 --> 00:38:15,000
+producer role, it should be idempotency
+ 
+
+1965
+00:38:15,000 --> 00:38:16,470
+producer role, it should be idempotency
+and transaction. Generally, if you are
+
+1966
+00:38:16,470 --> 00:38:16,480
+and transaction. Generally, if you are
+ 
+
+1967
+00:38:16,480 --> 00:38:18,390
+and transaction. Generally, if you are
+doing transaction, idempotency is
+
+1968
+00:38:18,390 --> 00:38:18,400
+doing transaction, idempotency is
+ 
+
+1969
+00:38:18,400 --> 00:38:21,110
+doing transaction, idempotency is
+already enabled. But it's still
+
+1970
+00:38:21,110 --> 00:38:21,120
+already enabled. But it's still
+ 
+
+1971
+00:38:21,120 --> 00:38:22,630
+already enabled. But it's still
+specifically in the definition it's
+
+1972
+00:38:22,630 --> 00:38:22,640
+specifically in the definition it's
+ 
+
+1973
+00:38:22,640 --> 00:38:26,550
+specifically in the definition it's
+mentioned like this.
+
+1974
+00:38:26,550 --> 00:38:26,560
+
+ 
+
+1975
+00:38:26,560 --> 00:38:29,349
+
+Okay. And what does it does is it
+
+1976
+00:38:29,349 --> 00:38:29,359
+Okay. And what does it does is it
+ 
+
+1977
+00:38:29,359 --> 00:38:33,750
+Okay. And what does it does is it
+combine into one atomicity of this part.
+
+1978
+00:38:33,750 --> 00:38:33,760
+combine into one atomicity of this part.
+ 
+
+1979
+00:38:33,760 --> 00:38:35,870
+combine into one atomicity of this part.
+Write or commit offset.
+
+1980
+00:38:35,870 --> 00:38:35,880
+Write or commit offset.
+ 
+
+1981
+00:38:35,880 --> 00:38:38,110
+Write or commit offset.
+Okay. If commit offset fail, this write
+
+1982
+00:38:38,110 --> 00:38:38,120
+Okay. If commit offset fail, this write
+ 
+
+1983
+00:38:38,120 --> 00:38:39,830
+Okay. If commit offset fail, this write
+will also fail.
+
+1984
+00:38:39,830 --> 00:38:39,840
+will also fail.
+ 
+
+1985
+00:38:39,840 --> 00:38:42,270
+will also fail.
+When this commit get properly done, then
+
+1986
+00:38:42,270 --> 00:38:42,280
+When this commit get properly done, then
+ 
+
+1987
+00:38:42,280 --> 00:38:47,070
+When this commit get properly done, then
+only this write is properly singed up.
+
+1988
+00:38:47,070 --> 00:38:47,080
+only this write is properly singed up.
+ 
+
+1989
+00:38:47,080 --> 00:38:48,230
+only this write is properly singed up.
+And how?
+
+1990
+00:38:48,230 --> 00:38:48,240
+And how?
+ 
+
+1991
+00:38:48,240 --> 00:38:50,110
+And how?
+Very simple.
+
+1992
+00:38:50,110 --> 00:38:50,120
+Very simple.
+ 
+
+1993
+00:38:50,120 --> 00:38:53,030
+Very simple.
+Okay. Everything we have seen.
+
+1994
+00:38:53,030 --> 00:38:53,040
+Okay. Everything we have seen.
+ 
+
+1995
+00:38:53,040 --> 00:38:55,110
+Okay. Everything we have seen.
+So, now application.properties,
+
+1996
+00:38:55,110 --> 00:38:55,120
+So, now application.properties,
+ 
+
+1997
+00:38:55,120 --> 00:38:56,790
+So, now application.properties,
+you know that consumer has lot of
+
+1998
+00:38:56,790 --> 00:38:56,800
+you know that consumer has lot of
+ 
+
+1999
+00:38:56,800 --> 00:38:59,590
+you know that consumer has lot of
+properties added. Okay. So, one thing
+
+2000
+00:38:59,590 --> 00:38:59,600
+properties added. Okay. So, one thing
+ 
+
+2001
+00:38:59,600 --> 00:39:01,190
+properties added. Okay. So, one thing
+isolation level we want is read
+
+2002
+00:39:01,190 --> 00:39:01,200
+isolation level we want is read
+ 
+
+2003
+00:39:01,200 --> 00:39:02,470
+isolation level we want is read
+committed.
+
+2004
+00:39:02,470 --> 00:39:02,480
+committed.
+ 
+
+2005
+00:39:02,480 --> 00:39:04,270
+committed.
+Auto commit is false. We don't want to
+
+2006
+00:39:04,270 --> 00:39:04,280
+Auto commit is false. We don't want to
+ 
+
+2007
+00:39:04,280 --> 00:39:05,950
+Auto commit is false. We don't want to
+enable the auto commit. So, one thing we
+
+2008
+00:39:05,950 --> 00:39:05,960
+enable the auto commit. So, one thing we
+ 
+
+2009
+00:39:05,960 --> 00:39:08,710
+enable the auto commit. So, one thing we
+have to just make it false.
+
+2010
+00:39:08,710 --> 00:39:08,720
+have to just make it false.
+ 
+
+2011
+00:39:08,720 --> 00:39:11,310
+have to just make it false.
+And since we are also has to do the
+
+2012
+00:39:11,310 --> 00:39:11,320
+And since we are also has to do the
+ 
+
+2013
+00:39:11,320 --> 00:39:14,190
+And since we are also has to do the
+producer level task of transaction, so
+
+2014
+00:39:14,190 --> 00:39:14,200
+producer level task of transaction, so
+ 
+
+2015
+00:39:14,200 --> 00:39:15,790
+producer level task of transaction, so
+you just simply add transaction ID
+
+2016
+00:39:15,790 --> 00:39:15,800
+you just simply add transaction ID
+ 
+
+2017
+00:39:15,800 --> 00:39:18,750
+you just simply add transaction ID
+prefix. Give some transaction ID.
+
+2018
+00:39:18,750 --> 00:39:18,760
+prefix. Give some transaction ID.
+ 
+
+2019
+00:39:18,760 --> 00:39:21,190
+prefix. Give some transaction ID.
+And this two you don't have to do it
+
+2020
+00:39:21,190 --> 00:39:21,200
+And this two you don't have to do it
+ 
+
+2021
+00:39:21,200 --> 00:39:22,390
+And this two you don't have to do it
+because
+
+2022
+00:39:22,390 --> 00:39:22,400
+because
+ 
+
+2023
+00:39:22,400 --> 00:39:24,670
+because
+by default when transaction is enabled,
+
+2024
+00:39:24,670 --> 00:39:24,680
+by default when transaction is enabled,
+ 
+
+2025
+00:39:24,680 --> 00:39:26,910
+by default when transaction is enabled,
+idempotency set to true and acknowledges
+
+2026
+00:39:26,910 --> 00:39:26,920
+idempotency set to true and acknowledges
+ 
+
+2027
+00:39:26,920 --> 00:39:29,670
+idempotency set to true and acknowledges
+all. But just for
+
+2028
+00:39:29,670 --> 00:39:29,680
+all. But just for
+ 
+
+2029
+00:39:29,680 --> 00:39:31,630
+all. But just for
+specific, I am adding it that
+
+2030
+00:39:31,630 --> 00:39:31,640
+specific, I am adding it that
+ 
+
+2031
+00:39:31,640 --> 00:39:33,470
+specific, I am adding it that
+idempotency should be true and
+
+2032
+00:39:33,470 --> 00:39:33,480
+idempotency should be true and
+ 
+
+2033
+00:39:33,480 --> 00:39:35,510
+idempotency should be true and
+acknowledgement should be all.
+
+2034
+00:39:35,510 --> 00:39:35,520
+acknowledgement should be all.
+ 
+
+2035
+00:39:35,520 --> 00:39:36,470
+acknowledgement should be all.
+But
+
+2036
+00:39:36,470 --> 00:39:36,480
+But
+ 
+
+2037
+00:39:36,480 --> 00:39:38,470
+But
+by default it will get enabled only when
+
+2038
+00:39:38,470 --> 00:39:38,480
+by default it will get enabled only when
+ 
+
+2039
+00:39:38,480 --> 00:39:41,030
+by default it will get enabled only when
+you have added the transaction.
+
+2040
+00:39:41,030 --> 00:39:41,040
+you have added the transaction.
+ 
+
+2041
+00:39:41,040 --> 00:39:42,710
+you have added the transaction.
+So, this is the property you have to
+
+2042
+00:39:42,710 --> 00:39:42,720
+So, this is the property you have to
+ 
+
+2043
+00:39:42,720 --> 00:39:44,270
+So, this is the property you have to
+add.
+
+2044
+00:39:44,270 --> 00:39:44,280
+add.
+ 
+
+2045
+00:39:44,280 --> 00:39:45,390
+add.
+Now
+
+2046
+00:39:45,390 --> 00:39:45,400
+Now
+ 
+
+2047
+00:39:45,400 --> 00:39:47,870
+Now
+how the code changes would look like
+
+2048
+00:39:47,870 --> 00:39:47,880
+how the code changes would look like
+ 
+
+2049
+00:39:47,880 --> 00:39:50,950
+how the code changes would look like
+for the read, write, read process,
+
+2050
+00:39:50,950 --> 00:39:50,960
+for the read, write, read process,
+ 
+
+2051
+00:39:50,960 --> 00:39:53,190
+for the read, write, read process,
+write.
+
+2052
+00:39:53,190 --> 00:39:53,200
+write.
+ 
+
+2053
+00:39:53,200 --> 00:39:54,150
+write.
+So
+
+2054
+00:39:54,150 --> 00:39:54,160
+So
+ 
+
+2055
+00:39:54,160 --> 00:39:55,270
+So
+one thing
+
+2056
+00:39:55,270 --> 00:39:55,280
+one thing
+ 
+
+2057
+00:39:55,280 --> 00:39:57,350
+one thing
+is that
+
+2058
+00:39:57,350 --> 00:39:57,360
+is that
+ 
+
+2059
+00:39:57,360 --> 00:39:59,630
+is that
+very simple. So here if you see I have a
+
+2060
+00:39:59,630 --> 00:39:59,640
+very simple. So here if you see I have a
+ 
+
+2061
+00:39:59,640 --> 00:40:00,990
+very simple. So here if you see I have a
+Kafka listener.
+
+2062
+00:40:00,990 --> 00:40:01,000
+Kafka listener.
+ 
+
+2063
+00:40:01,000 --> 00:40:03,630
+Kafka listener.
+So you know that
+
+2064
+00:40:03,630 --> 00:40:03,640
+So you know that
+ 
+
+2065
+00:40:03,640 --> 00:40:05,470
+So you know that
+in consumer
+
+2066
+00:40:05,470 --> 00:40:05,480
+in consumer
+ 
+
+2067
+00:40:05,480 --> 00:40:08,470
+in consumer
+what happened is that for each record
+
+2068
+00:40:08,470 --> 00:40:08,480
+what happened is that for each record
+ 
+
+2069
+00:40:08,480 --> 00:40:10,910
+what happened is that for each record
+this listener will get invoked.
+
+2070
+00:40:10,910 --> 00:40:10,920
+this listener will get invoked.
+ 
+
+2071
+00:40:10,920 --> 00:40:11,910
+this listener will get invoked.
+Correct?
+
+2072
+00:40:11,910 --> 00:40:11,920
+Correct?
+ 
+
+2073
+00:40:11,920 --> 00:40:15,190
+Correct?
+So means read is happened.
+
+2074
+00:40:15,190 --> 00:40:15,200
+So means read is happened.
+ 
+
+2075
+00:40:15,200 --> 00:40:17,190
+So means read is happened.
+Now
+
+2076
+00:40:17,190 --> 00:40:17,200
+Now
+ 
+
+2077
+00:40:17,200 --> 00:40:20,350
+Now
+I have started a transaction producer.
+
+2078
+00:40:20,350 --> 00:40:20,360
+I have started a transaction producer.
+ 
+
+2079
+00:40:20,360 --> 00:40:22,190
+I have started a transaction producer.
+Now I'm doing producing part. Kafka
+
+2080
+00:40:22,190 --> 00:40:22,200
+Now I'm doing producing part. Kafka
+ 
+
+2081
+00:40:22,200 --> 00:40:24,990
+Now I'm doing producing part. Kafka
+template. execute in transaction. In the
+
+2082
+00:40:24,990 --> 00:40:25,000
+template. execute in transaction. In the
+ 
+
+2083
+00:40:25,000 --> 00:40:26,350
+template. execute in transaction. In the
+producer transaction part I have told
+
+2084
+00:40:26,350 --> 00:40:26,360
+producer transaction part I have told
+ 
+
+2085
+00:40:26,360 --> 00:40:28,670
+producer transaction part I have told
+you that it internally it just begin the
+
+2086
+00:40:28,670 --> 00:40:28,680
+you that it internally it just begin the
+ 
+
+2087
+00:40:28,680 --> 00:40:30,030
+you that it internally it just begin the
+transaction
+
+2088
+00:40:30,030 --> 00:40:30,040
+transaction
+ 
+
+2089
+00:40:30,040 --> 00:40:32,430
+transaction
+then invoke this lambda
+
+2090
+00:40:32,430 --> 00:40:32,440
+then invoke this lambda
+ 
+
+2091
+00:40:32,440 --> 00:40:34,790
+then invoke this lambda
+and then commit or abort if there is any
+
+2092
+00:40:34,790 --> 00:40:34,800
+and then commit or abort if there is any
+ 
+
+2093
+00:40:34,800 --> 00:40:36,990
+and then commit or abort if there is any
+exception.
+
+2094
+00:40:36,990 --> 00:40:37,000
+exception.
+ 
+
+2095
+00:40:37,000 --> 00:40:39,990
+exception.
+So read is already happened here.
+
+2096
+00:40:39,990 --> 00:40:40,000
+So read is already happened here.
+ 
+
+2097
+00:40:40,000 --> 00:40:42,150
+So read is already happened here.
+Okay, any process you have to do, do it.
+
+2098
+00:40:42,150 --> 00:40:42,160
+Okay, any process you have to do, do it.
+ 
+
+2099
+00:40:42,160 --> 00:40:44,110
+Okay, any process you have to do, do it.
+If you don't have to do it, don't do it.
+
+2100
+00:40:44,110 --> 00:40:44,120
+If you don't have to do it, don't do it.
+ 
+
+2101
+00:40:44,120 --> 00:40:47,030
+If you don't have to do it, don't do it.
+Okay, so step two is optional process.
+
+2102
+00:40:47,030 --> 00:40:47,040
+Okay, so step two is optional process.
+ 
+
+2103
+00:40:47,040 --> 00:40:48,150
+Okay, so step two is optional process.
+Okay?
+
+2104
+00:40:48,150 --> 00:40:48,160
+Okay?
+ 
+
+2105
+00:40:48,160 --> 00:40:50,430
+Okay?
+So read is happened. Now is that we have
+
+2106
+00:40:50,430 --> 00:40:50,440
+So read is happened. Now is that we have
+ 
+
+2107
+00:40:50,440 --> 00:40:54,670
+So read is happened. Now is that we have
+to write to particular topic.
+
+2108
+00:40:54,670 --> 00:40:54,680
+to write to particular topic.
+ 
+
+2109
+00:40:54,680 --> 00:40:56,870
+to write to particular topic.
+So I'm writing.
+
+2110
+00:40:56,870 --> 00:40:56,880
+So I'm writing.
+ 
+
+2111
+00:40:56,880 --> 00:40:59,670
+So I'm writing.
+Payment event key and result. Okay, this
+
+2112
+00:40:59,670 --> 00:40:59,680
+Payment event key and result. Okay, this
+ 
+
+2113
+00:40:59,680 --> 00:41:01,670
+Payment event key and result. Okay, this
+is your object. This is key and this is
+
+2114
+00:41:01,670 --> 00:41:01,680
+is your object. This is key and this is
+ 
+
+2115
+00:41:01,680 --> 00:41:03,750
+is your object. This is key and this is
+topic.
+
+2116
+00:41:03,750 --> 00:41:03,760
+topic.
+ 
+
+2117
+00:41:03,760 --> 00:41:06,510
+topic.
+Okay? So now here if you see
+
+2118
+00:41:06,510 --> 00:41:06,520
+Okay? So now here if you see
+ 
+
+2119
+00:41:06,520 --> 00:41:08,670
+Okay? So now here if you see
+what we are doing is we have to in the
+
+2120
+00:41:08,670 --> 00:41:08,680
+what we are doing is we have to in the
+ 
+
+2121
+00:41:08,680 --> 00:41:12,190
+what we are doing is we have to in the
+one transaction we are trying to tie up
+
+2122
+00:41:12,190 --> 00:41:12,200
+one transaction we are trying to tie up
+ 
+
+2123
+00:41:12,200 --> 00:41:16,750
+one transaction we are trying to tie up
+right and offset commit part.
+
+2124
+00:41:16,750 --> 00:41:16,760
+right and offset commit part.
+ 
+
+2125
+00:41:16,760 --> 00:41:18,950
+right and offset commit part.
+So right I have added.
+
+2126
+00:41:18,950 --> 00:41:18,960
+So right I have added.
+ 
+
+2127
+00:41:18,960 --> 00:41:20,790
+So right I have added.
+Now offset commit part.
+
+2128
+00:41:20,790 --> 00:41:20,800
+Now offset commit part.
+ 
+
+2129
+00:41:20,800 --> 00:41:22,550
+Now offset commit part.
+So on offset commit part I am just
+
+2130
+00:41:22,550 --> 00:41:22,560
+So on offset commit part I am just
+ 
+
+2131
+00:41:22,560 --> 00:41:24,950
+So on offset commit part I am just
+saying I am not committing here at this
+
+2132
+00:41:24,950 --> 00:41:24,960
+saying I am not committing here at this
+ 
+
+2133
+00:41:24,960 --> 00:41:27,390
+saying I am not committing here at this
+point of time. I am just adding into the
+
+2134
+00:41:27,390 --> 00:41:27,400
+point of time. I am just adding into the
+ 
+
+2135
+00:41:27,400 --> 00:41:28,430
+point of time. I am just adding into the
+buffer
+
+2136
+00:41:28,430 --> 00:41:28,440
+buffer
+ 
+
+2137
+00:41:28,440 --> 00:41:30,870
+buffer
+that okay.
+
+2138
+00:41:30,870 --> 00:41:30,880
+that okay.
+ 
+
+2139
+00:41:30,880 --> 00:41:33,310
+that okay.
+See offset.put.
+
+2140
+00:41:33,310 --> 00:41:33,320
+See offset.put.
+ 
+
+2141
+00:41:33,320 --> 00:41:35,590
+See offset.put.
+Okay, for this record, for this topic,
+
+2142
+00:41:35,590 --> 00:41:35,600
+Okay, for this record, for this topic,
+ 
+
+2143
+00:41:35,600 --> 00:41:38,230
+Okay, for this record, for this topic,
+this partition
+
+2144
+00:41:38,230 --> 00:41:38,240
+this partition
+ 
+
+2145
+00:41:38,240 --> 00:41:42,030
+this partition
+this topic and whatever the partition
+
+2146
+00:41:42,030 --> 00:41:42,040
+this topic and whatever the partition
+ 
+
+2147
+00:41:42,040 --> 00:41:43,030
+this topic and whatever the partition
+okay?
+
+2148
+00:41:43,030 --> 00:41:43,040
+okay?
+ 
+
+2149
+00:41:43,040 --> 00:41:46,190
+okay?
+We have to increase the offset.
+
+2150
+00:41:46,190 --> 00:41:46,200
+We have to increase the offset.
+ 
+
+2151
+00:41:46,200 --> 00:41:49,150
+We have to increase the offset.
+Plus one. So manually what I am doing is
+
+2152
+00:41:49,150 --> 00:41:49,160
+Plus one. So manually what I am doing is
+ 
+
+2153
+00:41:49,160 --> 00:41:51,150
+Plus one. So manually what I am doing is
+I am just
+
+2154
+00:41:51,150 --> 00:41:51,160
+I am just
+ 
+
+2155
+00:41:51,160 --> 00:41:53,590
+I am just
+increasing the counter of the offset for
+
+2156
+00:41:53,590 --> 00:41:53,600
+increasing the counter of the offset for
+ 
+
+2157
+00:41:53,600 --> 00:41:56,350
+increasing the counter of the offset for
+this topic, this partition and just put
+
+2158
+00:41:56,350 --> 00:41:56,360
+this topic, this partition and just put
+ 
+
+2159
+00:41:56,360 --> 00:41:57,830
+this topic, this partition and just put
+into a buffer.
+
+2160
+00:41:57,830 --> 00:41:57,840
+into a buffer.
+ 
+
+2161
+00:41:57,840 --> 00:41:59,830
+into a buffer.
+So this is important. Send offset to
+
+2162
+00:41:59,830 --> 00:41:59,840
+So this is important. Send offset to
+ 
+
+2163
+00:41:59,840 --> 00:42:01,430
+So this is important. Send offset to
+transaction.
+
+2164
+00:42:01,430 --> 00:42:01,440
+transaction.
+ 
+
+2165
+00:42:01,440 --> 00:42:03,590
+transaction.
+It is not here sending.
+
+2166
+00:42:03,590 --> 00:42:03,600
+It is not here sending.
+ 
+
+2167
+00:42:03,600 --> 00:42:06,070
+It is not here sending.
+It is not invoking broker.
+
+2168
+00:42:06,070 --> 00:42:06,080
+It is not invoking broker.
+ 
+
+2169
+00:42:06,080 --> 00:42:08,150
+It is not invoking broker.
+Commit offset. No.
+
+2170
+00:42:08,150 --> 00:42:08,160
+Commit offset. No.
+ 
+
+2171
+00:42:08,160 --> 00:42:09,390
+Commit offset. No.
+You can say that it just put into
+
+2172
+00:42:09,390 --> 00:42:09,400
+You can say that it just put into
+ 
+
+2173
+00:42:09,400 --> 00:42:11,350
+You can say that it just put into
+buffer.
+
+2174
+00:42:11,350 --> 00:42:11,360
+buffer.
+ 
+
+2175
+00:42:11,360 --> 00:42:13,910
+buffer.
+Okay? It just put into buffer that for
+
+2176
+00:42:13,910 --> 00:42:13,920
+Okay? It just put into buffer that for
+ 
+
+2177
+00:42:13,920 --> 00:42:16,070
+Okay? It just put into buffer that for
+this topic, this partition, this is the
+
+2178
+00:42:16,070 --> 00:42:16,080
+this topic, this partition, this is the
+ 
+
+2179
+00:42:16,080 --> 00:42:18,630
+this topic, this partition, this is the
+offset we have to commit.
+
+2180
+00:42:18,630 --> 00:42:18,640
+offset we have to commit.
+ 
+
+2181
+00:42:18,640 --> 00:42:19,670
+offset we have to commit.
+Now
+
+2182
+00:42:19,670 --> 00:42:19,680
+Now
+ 
+
+2183
+00:42:19,680 --> 00:42:20,990
+Now
+after
+
+2184
+00:42:20,990 --> 00:42:21,000
+after
+ 
+
+2185
+00:42:21,000 --> 00:42:24,030
+after
+either commit or abort
+
+2186
+00:42:24,030 --> 00:42:24,040
+either commit or abort
+ 
+
+2187
+00:42:24,040 --> 00:42:27,030
+either commit or abort
+that would be the point when it is
+
+2188
+00:42:27,030 --> 00:42:27,040
+that would be the point when it is
+ 
+
+2189
+00:42:27,040 --> 00:42:28,190
+that would be the point when it is
+commit
+
+2190
+00:42:28,190 --> 00:42:28,200
+commit
+ 
+
+2191
+00:42:28,200 --> 00:42:31,150
+commit
+ultimately it will also send offset
+
+2192
+00:42:31,150 --> 00:42:31,160
+ultimately it will also send offset
+ 
+
+2193
+00:42:31,160 --> 00:42:33,990
+ultimately it will also send offset
+commit
+
+2194
+00:42:33,990 --> 00:42:34,000
+
+ 
+
+2195
+00:42:34,000 --> 00:42:35,590
+
+to the broker.
+
+2196
+00:42:35,590 --> 00:42:35,600
+to the broker.
+ 
+
+2197
+00:42:35,600 --> 00:42:37,910
+to the broker.
+So here from this buffer it will read
+
+2198
+00:42:37,910 --> 00:42:37,920
+So here from this buffer it will read
+ 
+
+2199
+00:42:37,920 --> 00:42:40,990
+So here from this buffer it will read
+and send the command to the broker.
+
+2200
+00:42:40,990 --> 00:42:41,000
+and send the command to the broker.
+ 
+
+2201
+00:42:41,000 --> 00:42:43,550
+and send the command to the broker.
+That for this topic, this partition,
+
+2202
+00:42:43,550 --> 00:42:43,560
+That for this topic, this partition,
+ 
+
+2203
+00:42:43,560 --> 00:42:45,350
+That for this topic, this partition,
+this is the offset need to need to
+
+2204
+00:42:45,350 --> 00:42:45,360
+this is the offset need to need to
+ 
+
+2205
+00:42:45,360 --> 00:42:47,350
+this is the offset need to need to
+update.
+
+2206
+00:42:47,350 --> 00:42:47,360
+update.
+ 
+
+2207
+00:42:47,360 --> 00:42:49,390
+update.
+Okay, but if there is an abort, it do
+
+2208
+00:42:49,390 --> 00:42:49,400
+Okay, but if there is an abort, it do
+ 
+
+2209
+00:42:49,400 --> 00:42:51,590
+Okay, but if there is an abort, it do
+not even send it.
+
+2210
+00:42:51,590 --> 00:42:51,600
+not even send it.
+ 
+
+2211
+00:42:51,600 --> 00:42:55,470
+not even send it.
+It do not even send it.
+
+2212
+00:42:55,470 --> 00:42:55,480
+
+ 
+
+2213
+00:42:55,480 --> 00:42:59,710
+
+Okay? So that's what it So see EOS is no
+
+2214
+00:42:59,710 --> 00:42:59,720
+Okay? So that's what it So see EOS is no
+ 
+
+2215
+00:42:59,720 --> 00:43:02,190
+Okay? So that's what it So see EOS is no
+just the you can say that
+
+2216
+00:43:02,190 --> 00:43:02,200
+just the you can say that
+ 
+
+2217
+00:43:02,200 --> 00:43:04,070
+just the you can say that
+a term
+
+2218
+00:43:04,070 --> 00:43:04,080
+a term
+ 
+
+2219
+00:43:04,080 --> 00:43:07,190
+a term
+exactly once semantic. Okay? But only
+
+2220
+00:43:07,190 --> 00:43:07,200
+exactly once semantic. Okay? But only
+ 
+
+2221
+00:43:07,200 --> 00:43:09,150
+exactly once semantic. Okay? But only
+thing is
+
+2222
+00:43:09,150 --> 00:43:09,160
+thing is
+ 
+
+2223
+00:43:09,160 --> 00:43:11,350
+thing is
+this is just one problem.
+
+2224
+00:43:11,350 --> 00:43:11,360
+this is just one problem.
+ 
+
+2225
+00:43:11,360 --> 00:43:14,550
+this is just one problem.
+When consumer is reading the
+
+2226
+00:43:14,550 --> 00:43:14,560
+When consumer is reading the
+ 
+
+2227
+00:43:14,560 --> 00:43:16,150
+When consumer is reading the
+record
+
+2228
+00:43:16,150 --> 00:43:16,160
+record
+ 
+
+2229
+00:43:16,160 --> 00:43:19,910
+record
+plus writing the record.
+
+2230
+00:43:19,910 --> 00:43:19,920
+plus writing the record.
+ 
+
+2231
+00:43:19,920 --> 00:43:22,350
+plus writing the record.
+So this problem can come
+
+2232
+00:43:22,350 --> 00:43:22,360
+So this problem can come
+ 
+
+2233
+00:43:22,360 --> 00:43:24,750
+So this problem can come
+when there is an offset commit. Because
+
+2234
+00:43:24,750 --> 00:43:24,760
+when there is an offset commit. Because
+ 
+
+2235
+00:43:24,760 --> 00:43:27,990
+when there is an offset commit. Because
+see one is said read it write it but it
+
+2236
+00:43:27,990 --> 00:43:28,000
+see one is said read it write it but it
+ 
+
+2237
+00:43:28,000 --> 00:43:29,950
+see one is said read it write it but it
+offset commit failed.
+
+2238
+00:43:29,950 --> 00:43:29,960
+offset commit failed.
+ 
+
+2239
+00:43:29,960 --> 00:43:31,670
+offset commit failed.
+Then it again during the next read it
+
+2240
+00:43:31,670 --> 00:43:31,680
+Then it again during the next read it
+ 
+
+2241
+00:43:31,680 --> 00:43:33,350
+Then it again during the next read it
+will again read it, again write the same
+
+2242
+00:43:33,350 --> 00:43:33,360
+will again read it, again write the same
+ 
+
+2243
+00:43:33,360 --> 00:43:34,550
+will again read it, again write the same
+thing.
+
+2244
+00:43:34,550 --> 00:43:34,560
+thing.
+ 
+
+2245
+00:43:34,560 --> 00:43:36,310
+thing.
+So that is one problem and that problem
+
+2246
+00:43:36,310 --> 00:43:36,320
+So that is one problem and that problem
+ 
+
+2247
+00:43:36,320 --> 00:43:39,190
+So that is one problem and that problem
+name is given EOS. How to solve this
+
+2248
+00:43:39,190 --> 00:43:39,200
+name is given EOS. How to solve this
+ 
+
+2249
+00:43:39,200 --> 00:43:41,710
+name is given EOS. How to solve this
+problem through EOS.
+
+2250
+00:43:41,710 --> 00:43:41,720
+problem through EOS.
+ 
+
+2251
+00:43:41,720 --> 00:43:43,590
+problem through EOS.
+Exactly once semantic.
+
+2252
+00:43:43,590 --> 00:43:43,600
+Exactly once semantic.
+ 
+
+2253
+00:43:43,600 --> 00:43:45,550
+Exactly once semantic.
+So since it is reading it, the consumer
+
+2254
+00:43:45,550 --> 00:43:45,560
+So since it is reading it, the consumer
+ 
+
+2255
+00:43:45,560 --> 00:43:47,310
+So since it is reading it, the consumer
+should follow
+
+2256
+00:43:47,310 --> 00:43:47,320
+should follow
+ 
+
+2257
+00:43:47,320 --> 00:43:49,470
+should follow
+read commit it and since it's also
+
+2258
+00:43:49,470 --> 00:43:49,480
+read commit it and since it's also
+ 
+
+2259
+00:43:49,480 --> 00:43:51,390
+read commit it and since it's also
+producing it, so it should also have a
+
+2260
+00:43:51,390 --> 00:43:51,400
+producing it, so it should also have a
+ 
+
+2261
+00:43:51,400 --> 00:43:55,350
+producing it, so it should also have a
+proper transaction and item potency.
+
+2262
+00:43:55,350 --> 00:43:55,360
+proper transaction and item potency.
+ 
+
+2263
+00:43:55,360 --> 00:43:57,390
+proper transaction and item potency.
+And a very simple part I have told you
+
+2264
+00:43:57,390 --> 00:43:57,400
+And a very simple part I have told you
+ 
+
+2265
+00:43:57,400 --> 00:44:00,110
+And a very simple part I have told you
+that the main goal here is to group
+
+2266
+00:44:00,110 --> 00:44:00,120
+that the main goal here is to group
+ 
+
+2267
+00:44:00,120 --> 00:44:02,670
+that the main goal here is to group
+together in one atomic operation
+
+2268
+00:44:02,670 --> 00:44:02,680
+together in one atomic operation
+ 
+
+2269
+00:44:02,680 --> 00:44:05,030
+together in one atomic operation
+this right part
+
+2270
+00:44:05,030 --> 00:44:05,040
+this right part
+ 
+
+2271
+00:44:05,040 --> 00:44:06,710
+this right part
+this right part
+
+2272
+00:44:06,710 --> 00:44:06,720
+this right part
+ 
+
+2273
+00:44:06,720 --> 00:44:09,310
+this right part
+and this offset part.
+
+2274
+00:44:09,310 --> 00:44:09,320
+and this offset part.
+ 
+
+2275
+00:44:09,320 --> 00:44:10,830
+and this offset part.
+So this are the two rights which are
+
+2276
+00:44:10,830 --> 00:44:10,840
+So this are the two rights which are
+ 
+
+2277
+00:44:10,840 --> 00:44:12,230
+So this are the two rights which are
+happening, right?
+
+2278
+00:44:12,230 --> 00:44:12,240
+happening, right?
+ 
+
+2279
+00:44:12,240 --> 00:44:13,870
+happening, right?
+So just club together into one
+
+2280
+00:44:13,870 --> 00:44:13,880
+So just club together into one
+ 
+
+2281
+00:44:13,880 --> 00:44:15,510
+So just club together into one
+transaction.
+
+2282
+00:44:15,510 --> 00:44:15,520
+transaction.
+ 
+
+2283
+00:44:15,520 --> 00:44:18,190
+transaction.
+Okay, so it read it properly. Okay? Now
+
+2284
+00:44:18,190 --> 00:44:18,200
+Okay, so it read it properly. Okay? Now
+ 
+
+2285
+00:44:18,200 --> 00:44:19,990
+Okay, so it read it properly. Okay? Now
+in one transaction
+
+2286
+00:44:19,990 --> 00:44:20,000
+in one transaction
+ 
+
+2287
+00:44:20,000 --> 00:44:21,590
+in one transaction
+the right part
+
+2288
+00:44:21,590 --> 00:44:21,600
+the right part
+ 
+
+2289
+00:44:21,600 --> 00:44:24,030
+the right part
+and this This is the only part which we
+
+2290
+00:44:24,030 --> 00:44:24,040
+and this This is the only part which we
+ 
+
+2291
+00:44:24,040 --> 00:44:25,870
+and this This is the only part which we
+have to see that send offset to
+
+2292
+00:44:25,870 --> 00:44:25,880
+have to see that send offset to
+ 
+
+2293
+00:44:25,880 --> 00:44:27,430
+have to see that send offset to
+transaction.
+
+2294
+00:44:27,430 --> 00:44:27,440
+transaction.
+ 
+
+2295
+00:44:27,440 --> 00:44:29,950
+transaction.
+Okay? This is used to just buffer.
+
+2296
+00:44:29,950 --> 00:44:29,960
+Okay? This is used to just buffer.
+ 
+
+2297
+00:44:29,960 --> 00:44:32,470
+Okay? This is used to just buffer.
+That for this topic, this partition,
+
+2298
+00:44:32,470 --> 00:44:32,480
+That for this topic, this partition,
+ 
+
+2299
+00:44:32,480 --> 00:44:33,950
+That for this topic, this partition,
+this is the
+
+2300
+00:44:33,950 --> 00:44:33,960
+this is the
+ 
+
+2301
+00:44:33,960 --> 00:44:36,310
+this is the
+counter we have to This is the offset
+
+2302
+00:44:36,310 --> 00:44:36,320
+counter we have to This is the offset
+ 
+
+2303
+00:44:36,320 --> 00:44:38,310
+counter we have to This is the offset
+we have to update. But it will not
+
+2304
+00:44:38,310 --> 00:44:38,320
+we have to update. But it will not
+ 
+
+2305
+00:44:38,320 --> 00:44:39,550
+we have to update. But it will not
+update now.
+
+2306
+00:44:39,550 --> 00:44:39,560
+update now.
+ 
+
+2307
+00:44:39,560 --> 00:44:41,870
+update now.
+It will be done into
+
+2308
+00:44:41,870 --> 00:44:41,880
+It will be done into
+ 
+
+2309
+00:44:41,880 --> 00:44:43,670
+It will be done into
+commit.
+
+2310
+00:44:43,670 --> 00:44:43,680
+commit.
+ 
+
+2311
+00:44:43,680 --> 00:44:46,590
+commit.
+And during abort case
+
+2312
+00:44:46,590 --> 00:44:46,600
+And during abort case
+ 
+
+2313
+00:44:46,600 --> 00:44:48,110
+And during abort case
+when we have an abort case, exception
+
+2314
+00:44:48,110 --> 00:44:48,120
+when we have an abort case, exception
+ 
+
+2315
+00:44:48,120 --> 00:44:49,470
+when we have an abort case, exception
+case, this will
+
+2316
+00:44:49,470 --> 00:44:49,480
+case, this will
+ 
+
+2317
+00:44:49,480 --> 00:44:51,590
+case, this will
+command would not be sent to a broker to
+
+2318
+00:44:51,590 --> 00:44:51,600
+command would not be sent to a broker to
+ 
+
+2319
+00:44:51,600 --> 00:44:53,790
+command would not be sent to a broker to
+update it.
+
+2320
+00:44:53,790 --> 00:44:53,800
+update it.
+ 
+
+2321
+00:44:53,800 --> 00:44:56,310
+update it.
+Clear?
+
+2322
+00:44:56,310 --> 00:44:56,320
+
+ 
+
+2323
+00:44:56,320 --> 00:44:59,270
+
+So this is very critical like very
+
+2324
+00:44:59,270 --> 00:44:59,280
+So this is very critical like very
+ 
+
+2325
+00:44:59,280 --> 00:45:02,190
+So this is very critical like very
+frequently used LSO, last stable offset,
+
+2326
+00:45:02,190 --> 00:45:02,200
+frequently used LSO, last stable offset,
+ 
+
+2327
+00:45:02,200 --> 00:45:06,110
+frequently used LSO, last stable offset,
+EOS. So this concept of the consumer. I
+
+2328
+00:45:06,110 --> 00:45:06,120
+EOS. So this concept of the consumer. I
+ 
+
+2329
+00:45:06,120 --> 00:45:08,110
+EOS. So this concept of the consumer. I
+hope I think transaction should be super
+
+2330
+00:45:08,110 --> 00:45:08,120
+hope I think transaction should be super
+ 
+
+2331
+00:45:08,120 --> 00:45:09,310
+hope I think transaction should be super
+clear now.
+
+2332
+00:45:09,310 --> 00:45:09,320
+clear now.
+ 
+
+2333
+00:45:09,320 --> 00:45:12,390
+clear now.
+Okay? I tried to cover everything. But
+
+2334
+00:45:12,390 --> 00:45:12,400
+Okay? I tried to cover everything. But
+ 
+
+2335
+00:45:12,400 --> 00:45:14,950
+Okay? I tried to cover everything. But
+if anything is missed or any doubt, let
+
+2336
+00:45:14,950 --> 00:45:14,960
+if anything is missed or any doubt, let
+ 
+
+2337
+00:45:14,960 --> 00:45:18,520
+if anything is missed or any doubt, let
+me know in the comment section. Bye.
+

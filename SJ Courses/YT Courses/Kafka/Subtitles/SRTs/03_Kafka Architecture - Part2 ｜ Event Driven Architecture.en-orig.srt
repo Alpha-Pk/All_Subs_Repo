@@ -1,0 +1,6445 @@
+1
+00:00:00,080 --> 00:00:03,510
+
+Hey guys, Shandai welcome back and in
+
+2
+00:00:03,510 --> 00:00:03,520
+Hey guys, Shandai welcome back and in
+ 
+
+3
+00:00:03,520 --> 00:00:05,190
+Hey guys, Shandai welcome back and in
+part two we are going to start with
+
+4
+00:00:05,190 --> 00:00:05,200
+part two we are going to start with
+ 
+
+5
+00:00:05,200 --> 00:00:07,829
+part two we are going to start with
+consumer and consumer group and if you
+
+6
+00:00:07,829 --> 00:00:07,839
+consumer and consumer group and if you
+ 
+
+7
+00:00:07,839 --> 00:00:09,589
+consumer and consumer group and if you
+have not seen the part one in the part
+
+8
+00:00:09,589 --> 00:00:09,599
+have not seen the part one in the part
+ 
+
+9
+00:00:09,599 --> 00:00:12,470
+have not seen the part one in the part
+one we have already covered
+
+10
+00:00:12,470 --> 00:00:12,480
+one we have already covered
+ 
+
+11
+00:00:12,480 --> 00:00:14,230
+one we have already covered
+producer
+
+12
+00:00:14,230 --> 00:00:14,240
+producer
+ 
+
+13
+00:00:14,240 --> 00:00:16,630
+producer
+topic
+
+14
+00:00:16,630 --> 00:00:16,640
+topic
+ 
+
+15
+00:00:16,640 --> 00:00:21,269
+topic
+partition and about segment and index
+
+16
+00:00:21,269 --> 00:00:21,279
+partition and about segment and index
+ 
+
+17
+00:00:21,279 --> 00:00:23,349
+partition and about segment and index
+and broker.
+
+18
+00:00:23,349 --> 00:00:23,359
+and broker.
+ 
+
+19
+00:00:23,359 --> 00:00:27,349
+and broker.
+Okay now let's uncover another important
+
+20
+00:00:27,349 --> 00:00:27,359
+Okay now let's uncover another important
+ 
+
+21
+00:00:27,359 --> 00:00:29,429
+Okay now let's uncover another important
+part consumer and consumer groups. So
+
+22
+00:00:29,429 --> 00:00:29,439
+part consumer and consumer groups. So
+ 
+
+23
+00:00:29,439 --> 00:00:32,310
+part consumer and consumer groups. So
+there are two different things. So
+
+24
+00:00:32,310 --> 00:00:32,320
+there are two different things. So
+ 
+
+25
+00:00:32,320 --> 00:00:34,389
+there are two different things. So
+producer already done. Kafka broker
+
+26
+00:00:34,389 --> 00:00:34,399
+producer already done. Kafka broker
+ 
+
+27
+00:00:34,399 --> 00:00:37,990
+producer already done. Kafka broker
+which is also known as server also done
+
+28
+00:00:37,990 --> 00:00:38,000
+which is also known as server also done
+ 
+
+29
+00:00:38,000 --> 00:00:40,150
+which is also known as server also done
+topic we also know about it and
+
+30
+00:00:40,150 --> 00:00:40,160
+topic we also know about it and
+ 
+
+31
+00:00:40,160 --> 00:00:43,350
+topic we also know about it and
+partitions. So now here if you see we
+
+32
+00:00:43,350 --> 00:00:43,360
+partitions. So now here if you see we
+ 
+
+33
+00:00:43,360 --> 00:00:46,069
+partitions. So now here if you see we
+have consumer group and consumers within
+
+34
+00:00:46,069 --> 00:00:46,079
+have consumer group and consumers within
+ 
+
+35
+00:00:46,079 --> 00:00:48,229
+have consumer group and consumers within
+the group.
+
+36
+00:00:48,229 --> 00:00:48,239
+the group.
+ 
+
+37
+00:00:48,239 --> 00:00:51,830
+the group.
+So we can have multiple
+
+38
+00:00:51,830 --> 00:00:51,840
+So we can have multiple
+ 
+
+39
+00:00:51,840 --> 00:00:53,590
+So we can have multiple
+groups. So let's say I have created one
+
+40
+00:00:53,590 --> 00:00:53,600
+groups. So let's say I have created one
+ 
+
+41
+00:00:53,600 --> 00:00:56,709
+groups. So let's say I have created one
+group notification. Another group I have
+
+42
+00:00:56,709 --> 00:00:56,719
+group notification. Another group I have
+ 
+
+43
+00:00:56,719 --> 00:00:59,270
+group notification. Another group I have
+created analytics
+
+44
+00:00:59,270 --> 00:00:59,280
+created analytics
+ 
+
+45
+00:00:59,280 --> 00:01:02,389
+created analytics
+and you can join any one of the group
+
+46
+00:01:02,389 --> 00:01:02,399
+and you can join any one of the group
+ 
+
+47
+00:01:02,399 --> 00:01:05,109
+and you can join any one of the group
+which you want. Okay. So let's say I
+
+48
+00:01:05,109 --> 00:01:05,119
+which you want. Okay. So let's say I
+ 
+
+49
+00:01:05,119 --> 00:01:07,910
+which you want. Okay. So let's say I
+have joined consumer group uh
+
+50
+00:01:07,910 --> 00:01:07,920
+have joined consumer group uh
+ 
+
+51
+00:01:07,920 --> 00:01:09,910
+have joined consumer group uh
+notification group. I can also join
+
+52
+00:01:09,910 --> 00:01:09,920
+notification group. I can also join
+ 
+
+53
+00:01:09,920 --> 00:01:12,870
+notification group. I can also join
+analytics group. Okay. So that is
+
+54
+00:01:12,870 --> 00:01:12,880
+analytics group. Okay. So that is
+ 
+
+55
+00:01:12,880 --> 00:01:15,270
+analytics group. Okay. So that is
+possible but you have to be part of one
+
+56
+00:01:15,270 --> 00:01:15,280
+possible but you have to be part of one
+ 
+
+57
+00:01:15,280 --> 00:01:20,630
+possible but you have to be part of one
+of the group and it has one rule. One
+
+58
+00:01:20,630 --> 00:01:20,640
+of the group and it has one rule. One
+ 
+
+59
+00:01:20,640 --> 00:01:23,429
+of the group and it has one rule. One
+important rule is that
+
+60
+00:01:23,429 --> 00:01:23,439
+important rule is that
+ 
+
+61
+00:01:23,439 --> 00:01:26,070
+important rule is that
+consumer in one group different
+
+62
+00:01:26,070 --> 00:01:26,080
+consumer in one group different
+ 
+
+63
+00:01:26,080 --> 00:01:29,429
+consumer in one group different
+consumers in one group can only read
+
+64
+00:01:29,429 --> 00:01:29,439
+consumers in one group can only read
+ 
+
+65
+00:01:29,439 --> 00:01:31,749
+consumers in one group can only read
+different partition.
+
+66
+00:01:31,749 --> 00:01:31,759
+different partition.
+ 
+
+67
+00:01:31,759 --> 00:01:35,030
+different partition.
+Okay. So multiple consumer in a same
+
+68
+00:01:35,030 --> 00:01:35,040
+Okay. So multiple consumer in a same
+ 
+
+69
+00:01:35,040 --> 00:01:38,469
+Okay. So multiple consumer in a same
+group cannot read same partition.
+
+70
+00:01:38,469 --> 00:01:38,479
+group cannot read same partition.
+ 
+
+71
+00:01:38,479 --> 00:01:42,390
+group cannot read same partition.
+Okay. And the rule number two is that
+
+72
+00:01:42,390 --> 00:01:42,400
+Okay. And the rule number two is that
+ 
+
+73
+00:01:42,400 --> 00:01:45,590
+Okay. And the rule number two is that
+different consumer in different group
+
+74
+00:01:45,590 --> 00:01:45,600
+different consumer in different group
+ 
+
+75
+00:01:45,600 --> 00:01:47,670
+different consumer in different group
+can read same partition. So now here in
+
+76
+00:01:47,670 --> 00:01:47,680
+can read same partition. So now here in
+ 
+
+77
+00:01:47,680 --> 00:01:49,749
+can read same partition. So now here in
+this case let's say that so this
+
+78
+00:01:49,749 --> 00:01:49,759
+this case let's say that so this
+ 
+
+79
+00:01:49,759 --> 00:01:51,910
+this case let's say that so this
+consumer is part of notification group
+
+80
+00:01:51,910 --> 00:01:51,920
+consumer is part of notification group
+ 
+
+81
+00:01:51,920 --> 00:01:54,710
+consumer is part of notification group
+so it is reading this partition one
+
+82
+00:01:54,710 --> 00:01:54,720
+so it is reading this partition one
+ 
+
+83
+00:01:54,720 --> 00:01:57,429
+so it is reading this partition one
+similarly this consumer is part of
+
+84
+00:01:57,429 --> 00:01:57,439
+similarly this consumer is part of
+ 
+
+85
+00:01:57,439 --> 00:01:59,350
+similarly this consumer is part of
+analytics group it can also read the
+
+86
+00:01:59,350 --> 00:01:59,360
+analytics group it can also read the
+ 
+
+87
+00:01:59,360 --> 00:02:02,149
+analytics group it can also read the
+same partition that is possible but this
+
+88
+00:02:02,149 --> 00:02:02,159
+same partition that is possible but this
+ 
+
+89
+00:02:02,159 --> 00:02:04,069
+same partition that is possible but this
+is not possible that in the notification
+
+90
+00:02:04,069 --> 00:02:04,079
+is not possible that in the notification
+ 
+
+91
+00:02:04,079 --> 00:02:06,469
+is not possible that in the notification
+these two consumer is reading the same
+
+92
+00:02:06,469 --> 00:02:06,479
+these two consumer is reading the same
+ 
+
+93
+00:02:06,479 --> 00:02:09,589
+these two consumer is reading the same
+partition that is not possible
+
+94
+00:02:09,589 --> 00:02:09,599
+partition that is not possible
+ 
+
+95
+00:02:09,599 --> 00:02:11,110
+partition that is not possible
+okay
+
+96
+00:02:11,110 --> 00:02:11,120
+okay
+ 
+
+97
+00:02:11,120 --> 00:02:13,430
+okay
+and like you have very multiple
+
+98
+00:02:13,430 --> 00:02:13,440
+and like you have very multiple
+ 
+
+99
+00:02:13,440 --> 00:02:15,350
+and like you have very multiple
+scenarios like very simple is like you
+
+100
+00:02:15,350 --> 00:02:15,360
+scenarios like very simple is like you
+ 
+
+101
+00:02:15,360 --> 00:02:17,670
+scenarios like very simple is like you
+have three partitions Three consumers
+
+102
+00:02:17,670 --> 00:02:17,680
+have three partitions Three consumers
+ 
+
+103
+00:02:17,680 --> 00:02:20,309
+have three partitions Three consumers
+all reading different partitions one to
+
+104
+00:02:20,309 --> 00:02:20,319
+all reading different partitions one to
+ 
+
+105
+00:02:20,319 --> 00:02:23,990
+all reading different partitions one to
+one consumers are less than partitions.
+
+106
+00:02:23,990 --> 00:02:24,000
+one consumers are less than partitions.
+ 
+
+107
+00:02:24,000 --> 00:02:26,630
+one consumers are less than partitions.
+So consumers can take care of more than
+
+108
+00:02:26,630 --> 00:02:26,640
+So consumers can take care of more than
+ 
+
+109
+00:02:26,640 --> 00:02:29,750
+So consumers can take care of more than
+one partition. Okay. But here if you see
+
+110
+00:02:29,750 --> 00:02:29,760
+one partition. Okay. But here if you see
+ 
+
+111
+00:02:29,760 --> 00:02:33,670
+one partition. Okay. But here if you see
+that no two consumer in a same group
+
+112
+00:02:33,670 --> 00:02:33,680
+that no two consumer in a same group
+ 
+
+113
+00:02:33,680 --> 00:02:35,750
+that no two consumer in a same group
+notification let's say the all part of
+
+114
+00:02:35,750 --> 00:02:35,760
+notification let's say the all part of
+ 
+
+115
+00:02:35,760 --> 00:02:39,430
+notification let's say the all part of
+notification group. No two consumer of
+
+116
+00:02:39,430 --> 00:02:39,440
+notification group. No two consumer of
+ 
+
+117
+00:02:39,440 --> 00:02:41,509
+notification group. No two consumer of
+same group reading the same partition.
+
+118
+00:02:41,509 --> 00:02:41,519
+same group reading the same partition.
+ 
+
+119
+00:02:41,519 --> 00:02:42,949
+same group reading the same partition.
+for they are taking care of different
+
+120
+00:02:42,949 --> 00:02:42,959
+for they are taking care of different
+ 
+
+121
+00:02:42,959 --> 00:02:45,030
+for they are taking care of different
+different partitions but they can take
+
+122
+00:02:45,030 --> 00:02:45,040
+different partitions but they can take
+ 
+
+123
+00:02:45,040 --> 00:02:47,750
+different partitions but they can take
+multiple partitions.
+
+124
+00:02:47,750 --> 00:02:47,760
+multiple partitions.
+ 
+
+125
+00:02:47,760 --> 00:02:49,910
+multiple partitions.
+If consumers are greater than partition
+
+126
+00:02:49,910 --> 00:02:49,920
+If consumers are greater than partition
+ 
+
+127
+00:02:49,920 --> 00:02:52,229
+If consumers are greater than partition
+it is possible that some consumer might
+
+128
+00:02:52,229 --> 00:02:52,239
+it is possible that some consumer might
+ 
+
+129
+00:02:52,239 --> 00:02:54,949
+it is possible that some consumer might
+be idle. Okay
+
+130
+00:02:54,949 --> 00:02:54,959
+be idle. Okay
+ 
+
+131
+00:02:54,959 --> 00:02:56,309
+be idle. Okay
+this two I have already told you
+
+132
+00:02:56,309 --> 00:02:56,319
+this two I have already told you
+ 
+
+133
+00:02:56,319 --> 00:02:58,470
+this two I have already told you
+multiple consumers
+
+134
+00:02:58,470 --> 00:02:58,480
+multiple consumers
+ 
+
+135
+00:02:58,480 --> 00:03:00,550
+multiple consumers
+can read
+
+136
+00:03:00,550 --> 00:03:00,560
+can read
+ 
+
+137
+00:03:00,560 --> 00:03:02,710
+can read
+same partition if there are part of
+
+138
+00:03:02,710 --> 00:03:02,720
+same partition if there are part of
+ 
+
+139
+00:03:02,720 --> 00:03:04,710
+same partition if there are part of
+different groups.
+
+140
+00:03:04,710 --> 00:03:04,720
+different groups.
+ 
+
+141
+00:03:04,720 --> 00:03:07,589
+different groups.
+Okay.
+
+142
+00:03:07,589 --> 00:03:07,599
+Okay.
+ 
+
+143
+00:03:07,599 --> 00:03:11,110
+Okay.
+Now this is important that each consumer
+
+144
+00:03:11,110 --> 00:03:11,120
+Now this is important that each consumer
+ 
+
+145
+00:03:11,120 --> 00:03:13,509
+Now this is important that each consumer
+group maintain partition wise offset
+
+146
+00:03:13,509 --> 00:03:13,519
+group maintain partition wise offset
+ 
+
+147
+00:03:13,519 --> 00:03:15,030
+group maintain partition wise offset
+independently.
+
+148
+00:03:15,030 --> 00:03:15,040
+independently.
+ 
+
+149
+00:03:15,040 --> 00:03:19,350
+independently.
+What does that mean? So here if you see
+
+150
+00:03:19,350 --> 00:03:19,360
+What does that mean? So here if you see
+ 
+
+151
+00:03:19,360 --> 00:03:22,229
+What does that mean? So here if you see
+that in a consumer group let's say
+
+152
+00:03:22,229 --> 00:03:22,239
+that in a consumer group let's say
+ 
+
+153
+00:03:22,239 --> 00:03:25,589
+that in a consumer group let's say
+notification
+
+154
+00:03:25,589 --> 00:03:25,599
+
+ 
+
+155
+00:03:25,599 --> 00:03:27,670
+
+you have consumer one, consumer two,
+
+156
+00:03:27,670 --> 00:03:27,680
+you have consumer one, consumer two,
+ 
+
+157
+00:03:27,680 --> 00:03:30,309
+you have consumer one, consumer two,
+consumer three. Now let's say consumer
+
+158
+00:03:30,309 --> 00:03:30,319
+consumer three. Now let's say consumer
+ 
+
+159
+00:03:30,319 --> 00:03:33,750
+consumer three. Now let's say consumer
+is reading
+
+160
+00:03:33,750 --> 00:03:33,760
+
+ 
+
+161
+00:03:33,760 --> 00:03:39,830
+
+partition zero of topic order. Let's say
+
+162
+00:03:39,830 --> 00:03:39,840
+partition zero of topic order. Let's say
+ 
+
+163
+00:03:39,840 --> 00:03:43,190
+partition zero of topic order. Let's say
+consumer three is reading let's say
+
+164
+00:03:43,190 --> 00:03:43,200
+consumer three is reading let's say
+ 
+
+165
+00:03:43,200 --> 00:03:48,149
+consumer three is reading let's say
+partition one of order topic.
+
+166
+00:03:48,149 --> 00:03:48,159
+partition one of order topic.
+ 
+
+167
+00:03:48,159 --> 00:03:50,229
+partition one of order topic.
+So after reading let's say it has read
+
+168
+00:03:50,229 --> 00:03:50,239
+So after reading let's say it has read
+ 
+
+169
+00:03:50,239 --> 00:03:53,030
+So after reading let's say it has read
+till offset 500. It has read till offset
+
+170
+00:03:53,030 --> 00:03:53,040
+till offset 500. It has read till offset
+ 
+
+171
+00:03:53,040 --> 00:03:55,270
+till offset 500. It has read till offset
+300.
+
+172
+00:03:55,270 --> 00:03:55,280
+300.
+ 
+
+173
+00:03:55,280 --> 00:03:59,350
+300.
+Now it need to store this information.
+
+174
+00:03:59,350 --> 00:03:59,360
+Now it need to store this information.
+ 
+
+175
+00:03:59,360 --> 00:04:02,229
+Now it need to store this information.
+So that's what I mentioned each consumer
+
+176
+00:04:02,229 --> 00:04:02,239
+So that's what I mentioned each consumer
+ 
+
+177
+00:04:02,239 --> 00:04:05,670
+So that's what I mentioned each consumer
+group maintains partition wise offset
+
+178
+00:04:05,670 --> 00:04:05,680
+group maintains partition wise offset
+ 
+
+179
+00:04:05,680 --> 00:04:08,149
+group maintains partition wise offset
+independently. So now let's say that
+
+180
+00:04:08,149 --> 00:04:08,159
+independently. So now let's say that
+ 
+
+181
+00:04:08,159 --> 00:04:11,990
+independently. So now let's say that
+this group notification
+
+182
+00:04:11,990 --> 00:04:12,000
+
+ 
+
+183
+00:04:12,000 --> 00:04:15,589
+
+for this topic this partition
+
+184
+00:04:15,589 --> 00:04:15,599
+for this topic this partition
+ 
+
+185
+00:04:15,599 --> 00:04:17,990
+for this topic this partition
+this many offsets are processed
+
+186
+00:04:17,990 --> 00:04:18,000
+this many offsets are processed
+ 
+
+187
+00:04:18,000 --> 00:04:20,229
+this many offsets are processed
+successfully.
+
+188
+00:04:20,229 --> 00:04:20,239
+successfully.
+ 
+
+189
+00:04:20,239 --> 00:04:22,230
+successfully.
+this group let's say notification within
+
+190
+00:04:22,230 --> 00:04:22,240
+this group let's say notification within
+ 
+
+191
+00:04:22,240 --> 00:04:24,310
+this group let's say notification within
+a notification
+
+192
+00:04:24,310 --> 00:04:24,320
+a notification
+ 
+
+193
+00:04:24,320 --> 00:04:28,070
+a notification
+this topic for this topic this partition
+
+194
+00:04:28,070 --> 00:04:28,080
+this topic for this topic this partition
+ 
+
+195
+00:04:28,080 --> 00:04:30,469
+this topic for this topic this partition
+let's say partition one this many events
+
+196
+00:04:30,469 --> 00:04:30,479
+let's say partition one this many events
+ 
+
+197
+00:04:30,479 --> 00:04:32,950
+let's say partition one this many events
+are processed successfully
+
+198
+00:04:32,950 --> 00:04:32,960
+are processed successfully
+ 
+
+199
+00:04:32,960 --> 00:04:34,950
+are processed successfully
+so here if you have noticed that we are
+
+200
+00:04:34,950 --> 00:04:34,960
+so here if you have noticed that we are
+ 
+
+201
+00:04:34,960 --> 00:04:37,830
+so here if you have noticed that we are
+maintaining group wise information
+
+202
+00:04:37,830 --> 00:04:37,840
+maintaining group wise information
+ 
+
+203
+00:04:37,840 --> 00:04:41,590
+maintaining group wise information
+not consumer let's say consumer one
+
+204
+00:04:41,590 --> 00:04:41,600
+not consumer let's say consumer one
+ 
+
+205
+00:04:41,600 --> 00:04:45,270
+not consumer let's say consumer one
+of group notification
+
+206
+00:04:45,270 --> 00:04:45,280
+of group notification
+ 
+
+207
+00:04:45,280 --> 00:04:48,390
+of group notification
+this topic order topic
+
+208
+00:04:48,390 --> 00:04:48,400
+this topic order topic
+ 
+
+209
+00:04:48,400 --> 00:04:50,150
+this topic order topic
+this partition
+
+210
+00:04:50,150 --> 00:04:50,160
+this partition
+ 
+
+211
+00:04:50,160 --> 00:04:53,510
+this partition
+has retail offset let's say 500.
+
+212
+00:04:53,510 --> 00:04:53,520
+has retail offset let's say 500.
+ 
+
+213
+00:04:53,520 --> 00:04:55,830
+has retail offset let's say 500.
+So we are not storing consumer wise we
+
+214
+00:04:55,830 --> 00:04:55,840
+So we are not storing consumer wise we
+ 
+
+215
+00:04:55,840 --> 00:04:59,270
+So we are not storing consumer wise we
+are storing group wise itself. Why?
+
+216
+00:04:59,270 --> 00:04:59,280
+are storing group wise itself. Why?
+ 
+
+217
+00:04:59,280 --> 00:05:01,909
+are storing group wise itself. Why?
+Because let's say in future
+
+218
+00:05:01,909 --> 00:05:01,919
+Because let's say in future
+ 
+
+219
+00:05:01,919 --> 00:05:05,749
+Because let's say in future
+this consumer went down. Okay. And if
+
+220
+00:05:05,749 --> 00:05:05,759
+this consumer went down. Okay. And if
+ 
+
+221
+00:05:05,759 --> 00:05:07,749
+this consumer went down. Okay. And if
+new consumer comes up let's say this
+
+222
+00:05:07,749 --> 00:05:07,759
+new consumer comes up let's say this
+ 
+
+223
+00:05:07,759 --> 00:05:10,310
+new consumer comes up let's say this
+consumer need to consumer two now need
+
+224
+00:05:10,310 --> 00:05:10,320
+consumer need to consumer two now need
+ 
+
+225
+00:05:10,320 --> 00:05:12,710
+consumer need to consumer two now need
+to take over. What it can do is it can
+
+226
+00:05:12,710 --> 00:05:12,720
+to take over. What it can do is it can
+ 
+
+227
+00:05:12,720 --> 00:05:15,590
+to take over. What it can do is it can
+simply ask hey
+
+228
+00:05:15,590 --> 00:05:15,600
+simply ask hey
+ 
+
+229
+00:05:15,600 --> 00:05:18,790
+simply ask hey
+I am belongs to this notification group
+
+230
+00:05:18,790 --> 00:05:18,800
+I am belongs to this notification group
+ 
+
+231
+00:05:18,800 --> 00:05:22,390
+I am belongs to this notification group
+tell me that this event this topic order
+
+232
+00:05:22,390 --> 00:05:22,400
+tell me that this event this topic order
+ 
+
+233
+00:05:22,400 --> 00:05:24,469
+tell me that this event this topic order
+and this partition
+
+234
+00:05:24,469 --> 00:05:24,479
+and this partition
+ 
+
+235
+00:05:24,479 --> 00:05:26,310
+and this partition
+till how many events are processed. So
+
+236
+00:05:26,310 --> 00:05:26,320
+till how many events are processed. So
+ 
+
+237
+00:05:26,320 --> 00:05:28,070
+till how many events are processed. So
+it can simply find out from this
+
+238
+00:05:28,070 --> 00:05:28,080
+it can simply find out from this
+ 
+
+239
+00:05:28,080 --> 00:05:30,230
+it can simply find out from this
+information that okay for this group
+
+240
+00:05:30,230 --> 00:05:30,240
+information that okay for this group
+ 
+
+241
+00:05:30,240 --> 00:05:33,350
+information that okay for this group
+notification this topic this partition
+
+242
+00:05:33,350 --> 00:05:33,360
+notification this topic this partition
+ 
+
+243
+00:05:33,360 --> 00:05:35,590
+notification this topic this partition
+till 500 it is process you can start
+
+244
+00:05:35,590 --> 00:05:35,600
+till 500 it is process you can start
+ 
+
+245
+00:05:35,600 --> 00:05:37,430
+till 500 it is process you can start
+from 501
+
+246
+00:05:37,430 --> 00:05:37,440
+from 501
+ 
+
+247
+00:05:37,440 --> 00:05:40,390
+from 501
+okay
+
+248
+00:05:40,390 --> 00:05:40,400
+okay
+ 
+
+249
+00:05:40,400 --> 00:05:43,350
+okay
+so this information is maintained.
+
+250
+00:05:43,350 --> 00:05:43,360
+so this information is maintained.
+ 
+
+251
+00:05:43,360 --> 00:05:45,590
+so this information is maintained.
+Now another important question is that
+
+252
+00:05:45,590 --> 00:05:45,600
+Now another important question is that
+ 
+
+253
+00:05:45,600 --> 00:05:49,749
+Now another important question is that
+where does this information is stored.
+
+254
+00:05:49,749 --> 00:05:49,759
+where does this information is stored.
+ 
+
+255
+00:05:49,759 --> 00:05:53,270
+where does this information is stored.
+So very very important and basic part I
+
+256
+00:05:53,270 --> 00:05:53,280
+So very very important and basic part I
+ 
+
+257
+00:05:53,280 --> 00:05:55,909
+So very very important and basic part I
+would say that always have that Kafka
+
+258
+00:05:55,909 --> 00:05:55,919
+would say that always have that Kafka
+ 
+
+259
+00:05:55,919 --> 00:05:59,590
+would say that always have that Kafka
+major strength is is partition
+
+260
+00:05:59,590 --> 00:05:59,600
+major strength is is partition
+ 
+
+261
+00:05:59,600 --> 00:06:01,270
+major strength is is partition
+topic
+
+262
+00:06:01,270 --> 00:06:01,280
+topic
+ 
+
+263
+00:06:01,280 --> 00:06:05,430
+topic
+plus partition. Okay and partition is
+
+264
+00:06:05,430 --> 00:06:05,440
+plus partition. Okay and partition is
+ 
+
+265
+00:06:05,440 --> 00:06:08,550
+plus partition. Okay and partition is
+something where actually data is stored.
+
+266
+00:06:08,550 --> 00:06:08,560
+something where actually data is stored.
+ 
+
+267
+00:06:08,560 --> 00:06:11,990
+something where actually data is stored.
+So if anything has to be stored in Kafka
+
+268
+00:06:11,990 --> 00:06:12,000
+So if anything has to be stored in Kafka
+ 
+
+269
+00:06:12,000 --> 00:06:14,390
+So if anything has to be stored in Kafka
+it make use of topic and partition its
+
+270
+00:06:14,390 --> 00:06:14,400
+it make use of topic and partition its
+ 
+
+271
+00:06:14,400 --> 00:06:17,990
+it make use of topic and partition its
+core strength. So this information is
+
+272
+00:06:17,990 --> 00:06:18,000
+core strength. So this information is
+ 
+
+273
+00:06:18,000 --> 00:06:21,110
+core strength. So this information is
+also stored in topic
+
+274
+00:06:21,110 --> 00:06:21,120
+also stored in topic
+ 
+
+275
+00:06:21,120 --> 00:06:23,270
+also stored in topic
+partition
+
+276
+00:06:23,270 --> 00:06:23,280
+partition
+ 
+
+277
+00:06:23,280 --> 00:06:26,790
+partition
+only. Okay, no difference.
+
+278
+00:06:26,790 --> 00:06:26,800
+only. Okay, no difference.
+ 
+
+279
+00:06:26,800 --> 00:06:29,110
+only. Okay, no difference.
+So which topic
+
+280
+00:06:29,110 --> 00:06:29,120
+So which topic
+ 
+
+281
+00:06:29,120 --> 00:06:31,510
+So which topic
+there is a topic internally Kafka will
+
+282
+00:06:31,510 --> 00:06:31,520
+there is a topic internally Kafka will
+ 
+
+283
+00:06:31,520 --> 00:06:35,350
+there is a topic internally Kafka will
+create for us is consumer offset. So see
+
+284
+00:06:35,350 --> 00:06:35,360
+create for us is consumer offset. So see
+ 
+
+285
+00:06:35,360 --> 00:06:38,710
+create for us is consumer offset. So see
+this that this is the Kafka UI.
+
+286
+00:06:38,710 --> 00:06:38,720
+this that this is the Kafka UI.
+ 
+
+287
+00:06:38,720 --> 00:06:40,309
+this that this is the Kafka UI.
+uh when I started the server in my
+
+288
+00:06:40,309 --> 00:06:40,319
+uh when I started the server in my
+ 
+
+289
+00:06:40,319 --> 00:06:44,950
+uh when I started the server in my
+system I uh opened the UI after starting
+
+290
+00:06:44,950 --> 00:06:44,960
+system I uh opened the UI after starting
+ 
+
+291
+00:06:44,960 --> 00:06:47,350
+system I uh opened the UI after starting
+the server and here if you see I haven't
+
+292
+00:06:47,350 --> 00:06:47,360
+the server and here if you see I haven't
+ 
+
+293
+00:06:47,360 --> 00:06:50,550
+the server and here if you see I haven't
+created any topic yet but if you see in
+
+294
+00:06:50,550 --> 00:06:50,560
+created any topic yet but if you see in
+ 
+
+295
+00:06:50,560 --> 00:06:52,710
+created any topic yet but if you see in
+internally it is created not created by
+
+296
+00:06:52,710 --> 00:06:52,720
+internally it is created not created by
+ 
+
+297
+00:06:52,720 --> 00:06:56,550
+internally it is created not created by
+me so it created this offset_consumer
+
+298
+00:06:56,550 --> 00:06:56,560
+me so it created this offset_consumer
+ 
+
+299
+00:06:56,560 --> 00:06:59,029
+me so it created this offset_consumer
+offset and how many partition by default
+
+300
+00:06:59,029 --> 00:06:59,039
+offset and how many partition by default
+ 
+
+301
+00:06:59,039 --> 00:07:01,589
+offset and how many partition by default
+it created 50 for us
+
+302
+00:07:01,589 --> 00:07:01,599
+it created 50 for us
+ 
+
+303
+00:07:01,599 --> 00:07:04,950
+it created 50 for us
+okay so all this information is stored
+
+304
+00:07:04,950 --> 00:07:04,960
+okay so all this information is stored
+ 
+
+305
+00:07:04,960 --> 00:07:07,909
+okay so all this information is stored
+in this topic
+
+306
+00:07:07,909 --> 00:07:07,919
+in this topic
+ 
+
+307
+00:07:07,919 --> 00:07:10,710
+in this topic
+Okay, no matter how many consumer groups
+
+308
+00:07:10,710 --> 00:07:10,720
+Okay, no matter how many consumer groups
+ 
+
+309
+00:07:10,720 --> 00:07:15,749
+Okay, no matter how many consumer groups
+you have, okay, all everybody stores
+
+310
+00:07:15,749 --> 00:07:15,759
+you have, okay, all everybody stores
+ 
+
+311
+00:07:15,759 --> 00:07:17,830
+you have, okay, all everybody stores
+maintain this information offset related
+
+312
+00:07:17,830 --> 00:07:17,840
+maintain this information offset related
+ 
+
+313
+00:07:17,840 --> 00:07:19,350
+maintain this information offset related
+information
+
+314
+00:07:19,350 --> 00:07:19,360
+information
+ 
+
+315
+00:07:19,360 --> 00:07:21,670
+information
+they are stored here in this consumer
+
+316
+00:07:21,670 --> 00:07:21,680
+they are stored here in this consumer
+ 
+
+317
+00:07:21,680 --> 00:07:25,589
+they are stored here in this consumer
+offset like which topic which partition
+
+318
+00:07:25,589 --> 00:07:25,599
+offset like which topic which partition
+ 
+
+319
+00:07:25,599 --> 00:07:28,469
+offset like which topic which partition
+till what point has been processed
+
+320
+00:07:28,469 --> 00:07:28,479
+till what point has been processed
+ 
+
+321
+00:07:28,479 --> 00:07:30,309
+till what point has been processed
+successfully.
+
+322
+00:07:30,309 --> 00:07:30,319
+successfully.
+ 
+
+323
+00:07:30,319 --> 00:07:32,710
+successfully.
+Okay. So now understand with this
+
+324
+00:07:32,710 --> 00:07:32,720
+Okay. So now understand with this
+ 
+
+325
+00:07:32,720 --> 00:07:34,469
+Okay. So now understand with this
+example
+
+326
+00:07:34,469 --> 00:07:34,479
+example
+ 
+
+327
+00:07:34,479 --> 00:07:37,110
+example
+I have a producer I have only for this
+
+328
+00:07:37,110 --> 00:07:37,120
+I have a producer I have only for this
+ 
+
+329
+00:07:37,120 --> 00:07:39,510
+I have a producer I have only for this
+example let's say I have only one broker
+
+330
+00:07:39,510 --> 00:07:39,520
+example let's say I have only one broker
+ 
+
+331
+00:07:39,520 --> 00:07:42,309
+example let's say I have only one broker
+Kafka broker one okay and this Kafka
+
+332
+00:07:42,309 --> 00:07:42,319
+Kafka broker one okay and this Kafka
+ 
+
+333
+00:07:42,319 --> 00:07:45,430
+Kafka broker one okay and this Kafka
+broker I have one event uh one topic
+
+334
+00:07:45,430 --> 00:07:45,440
+broker I have one event uh one topic
+ 
+
+335
+00:07:45,440 --> 00:07:47,670
+broker I have one event uh one topic
+order events and I have created three
+
+336
+00:07:47,670 --> 00:07:47,680
+order events and I have created three
+ 
+
+337
+00:07:47,680 --> 00:07:49,670
+order events and I have created three
+partitions partition zero partition one
+
+338
+00:07:49,670 --> 00:07:49,680
+partitions partition zero partition one
+ 
+
+339
+00:07:49,680 --> 00:07:52,870
+partitions partition zero partition one
+partition two and this is the internal
+
+340
+00:07:52,870 --> 00:07:52,880
+partition two and this is the internal
+ 
+
+341
+00:07:52,880 --> 00:07:57,670
+partition two and this is the internal
+topic which has been created uh by Kafka
+
+342
+00:07:57,670 --> 00:07:57,680
+topic which has been created uh by Kafka
+ 
+
+343
+00:07:57,680 --> 00:08:00,550
+topic which has been created uh by Kafka
+okay this one_consumer
+
+344
+00:08:00,550 --> 00:08:00,560
+okay this one_consumer
+ 
+
+345
+00:08:00,560 --> 00:08:04,390
+okay this one_consumer
+offset and 50 partition it has created.
+
+346
+00:08:04,390 --> 00:08:04,400
+offset and 50 partition it has created.
+ 
+
+347
+00:08:04,400 --> 00:08:08,230
+offset and 50 partition it has created.
+Okay. Now let's say consumer one is
+
+348
+00:08:08,230 --> 00:08:08,240
+Okay. Now let's say consumer one is
+ 
+
+349
+00:08:08,240 --> 00:08:10,150
+Okay. Now let's say consumer one is
+taking care
+
+350
+00:08:10,150 --> 00:08:10,160
+taking care
+ 
+
+351
+00:08:10,160 --> 00:08:12,950
+taking care
+to read this order events topic and
+
+352
+00:08:12,950 --> 00:08:12,960
+to read this order events topic and
+ 
+
+353
+00:08:12,960 --> 00:08:16,309
+to read this order events topic and
+partition zero and let's say it has read
+
+354
+00:08:16,309 --> 00:08:16,319
+partition zero and let's say it has read
+ 
+
+355
+00:08:16,319 --> 00:08:18,950
+partition zero and let's say it has read
+till 500
+
+356
+00:08:18,950 --> 00:08:18,960
+till 500
+ 
+
+357
+00:08:18,960 --> 00:08:21,350
+till 500
+offset.
+
+358
+00:08:21,350 --> 00:08:21,360
+offset.
+ 
+
+359
+00:08:21,360 --> 00:08:23,510
+offset.
+Now it want to store this information.
+
+360
+00:08:23,510 --> 00:08:23,520
+Now it want to store this information.
+ 
+
+361
+00:08:23,520 --> 00:08:27,270
+Now it want to store this information.
+What information it need to store? Hey
+
+362
+00:08:27,270 --> 00:08:27,280
+What information it need to store? Hey
+ 
+
+363
+00:08:27,280 --> 00:08:30,869
+What information it need to store? Hey
+this group notification
+
+364
+00:08:30,869 --> 00:08:30,879
+this group notification
+ 
+
+365
+00:08:30,879 --> 00:08:34,949
+this group notification
+this offset order events
+
+366
+00:08:34,949 --> 00:08:34,959
+this offset order events
+ 
+
+367
+00:08:34,959 --> 00:08:39,029
+this offset order events
+this topic partition zero till 500 are
+
+368
+00:08:39,029 --> 00:08:39,039
+this topic partition zero till 500 are
+ 
+
+369
+00:08:39,039 --> 00:08:40,469
+this topic partition zero till 500 are
+processed events are processed
+
+370
+00:08:40,469 --> 00:08:40,479
+processed events are processed
+ 
+
+371
+00:08:40,479 --> 00:08:42,870
+processed events are processed
+successfully it need to store this
+
+372
+00:08:42,870 --> 00:08:42,880
+successfully it need to store this
+ 
+
+373
+00:08:42,880 --> 00:08:47,190
+successfully it need to store this
+capture this snapshot let's say okay so
+
+374
+00:08:47,190 --> 00:08:47,200
+capture this snapshot let's say okay so
+ 
+
+375
+00:08:47,200 --> 00:08:50,230
+capture this snapshot let's say okay so
+now what it will do is it has to where
+
+376
+00:08:50,230 --> 00:08:50,240
+now what it will do is it has to where
+ 
+
+377
+00:08:50,240 --> 00:08:52,310
+now what it will do is it has to where
+where this information will store it
+
+378
+00:08:52,310 --> 00:08:52,320
+where this information will store it
+ 
+
+379
+00:08:52,320 --> 00:08:54,949
+where this information will store it
+will store in this topic_consumer
+
+380
+00:08:54,949 --> 00:08:54,959
+will store in this topic_consumer
+ 
+
+381
+00:08:54,959 --> 00:08:56,870
+will store in this topic_consumer
+offset
+
+382
+00:08:56,870 --> 00:08:56,880
+offset
+ 
+
+383
+00:08:56,880 --> 00:09:01,430
+offset
+Okay. So this is the message it will
+
+384
+00:09:01,430 --> 00:09:01,440
+Okay. So this is the message it will
+ 
+
+385
+00:09:01,440 --> 00:09:04,470
+Okay. So this is the message it will
+publish to the broker.
+
+386
+00:09:04,470 --> 00:09:04,480
+publish to the broker.
+ 
+
+387
+00:09:04,480 --> 00:09:06,790
+publish to the broker.
+Okay. Hey
+
+388
+00:09:06,790 --> 00:09:06,800
+Okay. Hey
+ 
+
+389
+00:09:06,800 --> 00:09:09,990
+Okay. Hey
+this topic I want to store
+
+390
+00:09:09,990 --> 00:09:10,000
+this topic I want to store
+ 
+
+391
+00:09:10,000 --> 00:09:12,150
+this topic I want to store
+this information
+
+392
+00:09:12,150 --> 00:09:12,160
+this information
+ 
+
+393
+00:09:12,160 --> 00:09:15,110
+this information
+notification group ID notification
+
+394
+00:09:15,110 --> 00:09:15,120
+notification group ID notification
+ 
+
+395
+00:09:15,120 --> 00:09:16,870
+notification group ID notification
+information
+
+396
+00:09:16,870 --> 00:09:16,880
+information
+ 
+
+397
+00:09:16,880 --> 00:09:18,949
+information
+topic
+
+398
+00:09:18,949 --> 00:09:18,959
+topic
+ 
+
+399
+00:09:18,959 --> 00:09:21,829
+topic
+partition and the committed offset till
+
+400
+00:09:21,829 --> 00:09:21,839
+partition and the committed offset till
+ 
+
+401
+00:09:21,839 --> 00:09:24,150
+partition and the committed offset till
+where I have process. it will store this
+
+402
+00:09:24,150 --> 00:09:24,160
+where I have process. it will store this
+ 
+
+403
+00:09:24,160 --> 00:09:26,230
+where I have process. it will store this
+information.
+
+404
+00:09:26,230 --> 00:09:26,240
+information.
+ 
+
+405
+00:09:26,240 --> 00:09:31,430
+information.
+Okay. So here if you see that
+
+406
+00:09:31,430 --> 00:09:31,440
+Okay. So here if you see that
+ 
+
+407
+00:09:31,440 --> 00:09:34,310
+Okay. So here if you see that
+I am doing computing the partition like
+
+408
+00:09:34,310 --> 00:09:34,320
+I am doing computing the partition like
+ 
+
+409
+00:09:34,320 --> 00:09:37,910
+I am doing computing the partition like
+in which partition because see you have
+
+410
+00:09:37,910 --> 00:09:37,920
+in which partition because see you have
+ 
+
+411
+00:09:37,920 --> 00:09:41,430
+in which partition because see you have
+50 partition out of this 50 partition
+
+412
+00:09:41,430 --> 00:09:41,440
+50 partition out of this 50 partition
+ 
+
+413
+00:09:41,440 --> 00:09:43,430
+50 partition out of this 50 partition
+one partition would take care of this
+
+414
+00:09:43,430 --> 00:09:43,440
+one partition would take care of this
+ 
+
+415
+00:09:43,440 --> 00:09:45,509
+one partition would take care of this
+group.
+
+416
+00:09:45,509 --> 00:09:45,519
+group.
+ 
+
+417
+00:09:45,519 --> 00:09:48,470
+group.
+Okay. So which group
+
+418
+00:09:48,470 --> 00:09:48,480
+Okay. So which group
+ 
+
+419
+00:09:48,480 --> 00:09:51,110
+Okay. So which group
+we can compute it also like which group
+
+420
+00:09:51,110 --> 00:09:51,120
+we can compute it also like which group
+ 
+
+421
+00:09:51,120 --> 00:09:54,310
+we can compute it also like which group
+is ultimately going to or which uh this
+
+422
+00:09:54,310 --> 00:09:54,320
+is ultimately going to or which uh this
+ 
+
+423
+00:09:54,320 --> 00:09:55,990
+is ultimately going to or which uh this
+group
+
+424
+00:09:55,990 --> 00:09:56,000
+group
+ 
+
+425
+00:09:56,000 --> 00:09:57,670
+group
+data ultimately going to which
+
+426
+00:09:57,670 --> 00:09:57,680
+data ultimately going to which
+ 
+
+427
+00:09:57,680 --> 00:10:00,550
+data ultimately going to which
+partition. So generally logic is that
+
+428
+00:10:00,550 --> 00:10:00,560
+partition. So generally logic is that
+ 
+
+429
+00:10:00,560 --> 00:10:03,269
+partition. So generally logic is that
+hash of notification group ID this group
+
+430
+00:10:03,269 --> 00:10:03,279
+hash of notification group ID this group
+ 
+
+431
+00:10:03,279 --> 00:10:06,790
+hash of notification group ID this group
+ID whatever the group you have that ID
+
+432
+00:10:06,790 --> 00:10:06,800
+ID whatever the group you have that ID
+ 
+
+433
+00:10:06,800 --> 00:10:09,590
+ID whatever the group you have that ID
+mod number of partition you have in this
+
+434
+00:10:09,590 --> 00:10:09,600
+mod number of partition you have in this
+ 
+
+435
+00:10:09,600 --> 00:10:11,910
+mod number of partition you have in this
+topic consumer offset. So we have 50. So
+
+436
+00:10:11,910 --> 00:10:11,920
+topic consumer offset. So we have 50. So
+ 
+
+437
+00:10:11,920 --> 00:10:14,550
+topic consumer offset. So we have 50. So
+now let's say you got 23. So means
+
+438
+00:10:14,550 --> 00:10:14,560
+now let's say you got 23. So means
+ 
+
+439
+00:10:14,560 --> 00:10:17,750
+now let's say you got 23. So means
+partition 23 will hold
+
+440
+00:10:17,750 --> 00:10:17,760
+partition 23 will hold
+ 
+
+441
+00:10:17,760 --> 00:10:20,230
+partition 23 will hold
+all the offset related information for
+
+442
+00:10:20,230 --> 00:10:20,240
+all the offset related information for
+ 
+
+443
+00:10:20,240 --> 00:10:22,470
+all the offset related information for
+this group.
+
+444
+00:10:22,470 --> 00:10:22,480
+this group.
+ 
+
+445
+00:10:22,480 --> 00:10:24,310
+this group.
+Okay.
+
+446
+00:10:24,310 --> 00:10:24,320
+Okay.
+ 
+
+447
+00:10:24,320 --> 00:10:26,310
+Okay.
+So you might be thinking that hey why
+
+448
+00:10:26,310 --> 00:10:26,320
+So you might be thinking that hey why
+ 
+
+449
+00:10:26,320 --> 00:10:29,110
+So you might be thinking that hey why
+you need to compute this partition uh
+
+450
+00:10:29,110 --> 00:10:29,120
+you need to compute this partition uh
+ 
+
+451
+00:10:29,120 --> 00:10:32,150
+you need to compute this partition uh
+information because if you can recall
+
+452
+00:10:32,150 --> 00:10:32,160
+information because if you can recall
+ 
+
+453
+00:10:32,160 --> 00:10:34,389
+information because if you can recall
+from the broker
+
+454
+00:10:34,389 --> 00:10:34,399
+from the broker
+ 
+
+455
+00:10:34,399 --> 00:10:39,509
+from the broker
+okay I told you that broker do not store
+
+456
+00:10:39,509 --> 00:10:39,519
+okay I told you that broker do not store
+ 
+
+457
+00:10:39,519 --> 00:10:41,990
+okay I told you that broker do not store
+all topic
+
+458
+00:10:41,990 --> 00:10:42,000
+all topic
+ 
+
+459
+00:10:42,000 --> 00:10:44,710
+all topic
+and all of its
+
+460
+00:10:44,710 --> 00:10:44,720
+and all of its
+ 
+
+461
+00:10:44,720 --> 00:10:46,790
+and all of its
+partition.
+
+462
+00:10:46,790 --> 00:10:46,800
+partition.
+ 
+
+463
+00:10:46,800 --> 00:10:52,230
+partition.
+No broker store only some topic
+
+464
+00:10:52,230 --> 00:10:52,240
+No broker store only some topic
+ 
+
+465
+00:10:52,240 --> 00:10:54,710
+No broker store only some topic
+and some of its
+
+466
+00:10:54,710 --> 00:10:54,720
+and some of its
+ 
+
+467
+00:10:54,720 --> 00:10:57,590
+and some of its
+partition
+
+468
+00:10:57,590 --> 00:10:57,600
+partition
+ 
+
+469
+00:10:57,600 --> 00:10:59,590
+partition
+okay only some topic some of its
+
+470
+00:10:59,590 --> 00:10:59,600
+okay only some topic some of its
+ 
+
+471
+00:10:59,600 --> 00:11:04,310
+okay only some topic some of its
+partition so in when we have multiple
+
+472
+00:11:04,310 --> 00:11:04,320
+partition so in when we have multiple
+ 
+
+473
+00:11:04,320 --> 00:11:06,630
+partition so in when we have multiple
+brokers let's say broker one broker two
+
+474
+00:11:06,630 --> 00:11:06,640
+brokers let's say broker one broker two
+ 
+
+475
+00:11:06,640 --> 00:11:10,470
+brokers let's say broker one broker two
+I I don't want to have multiple broker
+
+476
+00:11:10,470 --> 00:11:10,480
+I I don't want to have multiple broker
+ 
+
+477
+00:11:10,480 --> 00:11:13,269
+I I don't want to have multiple broker
+scenarios now but I think it's critical
+
+478
+00:11:13,269 --> 00:11:13,279
+scenarios now but I think it's critical
+ 
+
+479
+00:11:13,279 --> 00:11:16,150
+scenarios now but I think it's critical
+to clear this part why we are computing
+
+480
+00:11:16,150 --> 00:11:16,160
+to clear this part why we are computing
+ 
+
+481
+00:11:16,160 --> 00:11:19,190
+to clear this part why we are computing
+this partition where which partition
+
+482
+00:11:19,190 --> 00:11:19,200
+this partition where which partition
+ 
+
+483
+00:11:19,200 --> 00:11:22,069
+this partition where which partition
+this message should go. So now let's say
+
+484
+00:11:22,069 --> 00:11:22,079
+this message should go. So now let's say
+ 
+
+485
+00:11:22,079 --> 00:11:23,910
+this message should go. So now let's say
+we have broker one, broker two, broker
+
+486
+00:11:23,910 --> 00:11:23,920
+we have broker one, broker two, broker
+ 
+
+487
+00:11:23,920 --> 00:11:26,389
+we have broker one, broker two, broker
+three. I told you that each broker
+
+488
+00:11:26,389 --> 00:11:26,399
+three. I told you that each broker
+ 
+
+489
+00:11:26,399 --> 00:11:28,790
+three. I told you that each broker
+stores some topic some partition. Now
+
+490
+00:11:28,790 --> 00:11:28,800
+stores some topic some partition. Now
+ 
+
+491
+00:11:28,800 --> 00:11:31,110
+stores some topic some partition. Now
+let's say broker two is the one which
+
+492
+00:11:31,110 --> 00:11:31,120
+let's say broker two is the one which
+ 
+
+493
+00:11:31,120 --> 00:11:32,790
+let's say broker two is the one which
+stores
+
+494
+00:11:32,790 --> 00:11:32,800
+stores
+ 
+
+495
+00:11:32,800 --> 00:11:35,269
+stores
+consumer offset and let's say it hold
+
+496
+00:11:35,269 --> 00:11:35,279
+consumer offset and let's say it hold
+ 
+
+497
+00:11:35,279 --> 00:11:39,990
+consumer offset and let's say it hold
+partition one to partition 20. Broker 3
+
+498
+00:11:39,990 --> 00:11:40,000
+partition one to partition 20. Broker 3
+ 
+
+499
+00:11:40,000 --> 00:11:42,470
+partition one to partition 20. Broker 3
+is one which have consumer
+
+500
+00:11:42,470 --> 00:11:42,480
+is one which have consumer
+ 
+
+501
+00:11:42,480 --> 00:11:45,350
+is one which have consumer
+offset which hold let's say partition 21
+
+502
+00:11:45,350 --> 00:11:45,360
+offset which hold let's say partition 21
+ 
+
+503
+00:11:45,360 --> 00:11:50,069
+offset which hold let's say partition 21
+to partition 50 like this. Let's say
+
+504
+00:11:50,069 --> 00:11:50,079
+to partition 50 like this. Let's say
+ 
+
+505
+00:11:50,079 --> 00:11:52,949
+to partition 50 like this. Let's say
+this is distributed across multiple
+
+506
+00:11:52,949 --> 00:11:52,959
+this is distributed across multiple
+ 
+
+507
+00:11:52,959 --> 00:11:54,630
+this is distributed across multiple
+brokers.
+
+508
+00:11:54,630 --> 00:11:54,640
+brokers.
+ 
+
+509
+00:11:54,640 --> 00:11:58,069
+brokers.
+So when you know that okay partition 23
+
+510
+00:11:58,069 --> 00:11:58,079
+So when you know that okay partition 23
+ 
+
+511
+00:11:58,079 --> 00:12:00,230
+So when you know that okay partition 23
+is the one where my information should
+
+512
+00:12:00,230 --> 00:12:00,240
+is the one where my information should
+ 
+
+513
+00:12:00,240 --> 00:12:01,750
+is the one where my information should
+go
+
+514
+00:12:01,750 --> 00:12:01,760
+go
+ 
+
+515
+00:12:01,760 --> 00:12:04,230
+go
+should go why I'm saying that because of
+
+516
+00:12:04,230 --> 00:12:04,240
+should go why I'm saying that because of
+ 
+
+517
+00:12:04,240 --> 00:12:06,870
+should go why I'm saying that because of
+this formula you compute the hash of
+
+518
+00:12:06,870 --> 00:12:06,880
+this formula you compute the hash of
+ 
+
+519
+00:12:06,880 --> 00:12:10,230
+this formula you compute the hash of
+group ID mod 50. So you will always get
+
+520
+00:12:10,230 --> 00:12:10,240
+group ID mod 50. So you will always get
+ 
+
+521
+00:12:10,240 --> 00:12:14,710
+group ID mod 50. So you will always get
+get same partition. So whenever you have
+
+522
+00:12:14,710 --> 00:12:14,720
+get same partition. So whenever you have
+ 
+
+523
+00:12:14,720 --> 00:12:17,430
+get same partition. So whenever you have
+to store your offset details, it always
+
+524
+00:12:17,430 --> 00:12:17,440
+to store your offset details, it always
+ 
+
+525
+00:12:17,440 --> 00:12:19,750
+to store your offset details, it always
+goes to same partition. So now you need
+
+526
+00:12:19,750 --> 00:12:19,760
+goes to same partition. So now you need
+ 
+
+527
+00:12:19,760 --> 00:12:23,430
+goes to same partition. So now you need
+to know that hey who holds this topic
+
+528
+00:12:23,430 --> 00:12:23,440
+to know that hey who holds this topic
+ 
+
+529
+00:12:23,440 --> 00:12:25,590
+to know that hey who holds this topic
+and this partition because in case of
+
+530
+00:12:25,590 --> 00:12:25,600
+and this partition because in case of
+ 
+
+531
+00:12:25,600 --> 00:12:27,829
+and this partition because in case of
+multiple brokers.
+
+532
+00:12:27,829 --> 00:12:27,839
+multiple brokers.
+ 
+
+533
+00:12:27,839 --> 00:12:33,750
+multiple brokers.
+Okay. So this partition 23 who hosted.
+
+534
+00:12:33,750 --> 00:12:33,760
+Okay. So this partition 23 who hosted.
+ 
+
+535
+00:12:33,760 --> 00:12:36,550
+Okay. So this partition 23 who hosted.
+So here in this case that I'll tell you
+
+536
+00:12:36,550 --> 00:12:36,560
+So here in this case that I'll tell you
+ 
+
+537
+00:12:36,560 --> 00:12:38,949
+So here in this case that I'll tell you
+I'll come to that like how it determine
+
+538
+00:12:38,949 --> 00:12:38,959
+I'll come to that like how it determine
+ 
+
+539
+00:12:38,959 --> 00:12:44,150
+I'll come to that like how it determine
+that B3 is the one that host partition
+
+540
+00:12:44,150 --> 00:12:44,160
+that B3 is the one that host partition
+ 
+
+541
+00:12:44,160 --> 00:12:47,110
+that B3 is the one that host partition
+23 because B3 has from partition 21 to
+
+542
+00:12:47,110 --> 00:12:47,120
+23 because B3 has from partition 21 to
+ 
+
+543
+00:12:47,120 --> 00:12:50,230
+23 because B3 has from partition 21 to
+partition 50. So it need to connect to
+
+544
+00:12:50,230 --> 00:12:50,240
+partition 50. So it need to connect to
+ 
+
+545
+00:12:50,240 --> 00:12:52,870
+partition 50. So it need to connect to
+broker 3.
+
+546
+00:12:52,870 --> 00:12:52,880
+broker 3.
+ 
+
+547
+00:12:52,880 --> 00:12:54,230
+broker 3.
+Don't worry about this. We'll come to
+
+548
+00:12:54,230 --> 00:12:54,240
+Don't worry about this. We'll come to
+ 
+
+549
+00:12:54,240 --> 00:12:55,750
+Don't worry about this. We'll come to
+that later when we will discuss about
+
+550
+00:12:55,750 --> 00:12:55,760
+that later when we will discuss about
+ 
+
+551
+00:12:55,760 --> 00:12:58,790
+that later when we will discuss about
+cluster. But here I just wanted to tell
+
+552
+00:12:58,790 --> 00:12:58,800
+cluster. But here I just wanted to tell
+ 
+
+553
+00:12:58,800 --> 00:13:03,110
+cluster. But here I just wanted to tell
+you that why it determine this partition
+
+554
+00:13:03,110 --> 00:13:03,120
+you that why it determine this partition
+ 
+
+555
+00:13:03,120 --> 00:13:04,949
+you that why it determine this partition
+because it need to determine which
+
+556
+00:13:04,949 --> 00:13:04,959
+because it need to determine which
+ 
+
+557
+00:13:04,959 --> 00:13:06,710
+because it need to determine which
+broker it need to connect to which
+
+558
+00:13:06,710 --> 00:13:06,720
+broker it need to connect to which
+ 
+
+559
+00:13:06,720 --> 00:13:10,550
+broker it need to connect to which
+broker host this partition. Okay. So
+
+560
+00:13:10,550 --> 00:13:10,560
+broker host this partition. Okay. So
+ 
+
+561
+00:13:10,560 --> 00:13:13,590
+broker host this partition. Okay. So
+once it determine that okay this is the
+
+562
+00:13:13,590 --> 00:13:13,600
+once it determine that okay this is the
+ 
+
+563
+00:13:13,600 --> 00:13:15,670
+once it determine that okay this is the
+broker which host this partition this
+
+564
+00:13:15,670 --> 00:13:15,680
+broker which host this partition this
+ 
+
+565
+00:13:15,680 --> 00:13:18,150
+broker which host this partition this
+topic partition it will connect to that
+
+566
+00:13:18,150 --> 00:13:18,160
+topic partition it will connect to that
+ 
+
+567
+00:13:18,160 --> 00:13:19,670
+topic partition it will connect to that
+broker. This broker is nothing but a
+
+568
+00:13:19,670 --> 00:13:19,680
+broker. This broker is nothing but a
+ 
+
+569
+00:13:19,680 --> 00:13:21,269
+broker. This broker is nothing but a
+server. So it will connect to that
+
+570
+00:13:21,269 --> 00:13:21,279
+server. So it will connect to that
+ 
+
+571
+00:13:21,279 --> 00:13:24,069
+server. So it will connect to that
+server and say that hey store this
+
+572
+00:13:24,069 --> 00:13:24,079
+server and say that hey store this
+ 
+
+573
+00:13:24,079 --> 00:13:32,470
+server and say that hey store this
+information in your logs.
+
+574
+00:13:32,470 --> 00:13:32,480
+
+ 
+
+575
+00:13:32,480 --> 00:13:34,629
+
+Okay.
+
+576
+00:13:34,629 --> 00:13:34,639
+Okay.
+ 
+
+577
+00:13:34,639 --> 00:13:37,509
+Okay.
+So why this information is stored? I
+
+578
+00:13:37,509 --> 00:13:37,519
+So why this information is stored? I
+ 
+
+579
+00:13:37,519 --> 00:13:39,670
+So why this information is stored? I
+told you that when this consumer got
+
+580
+00:13:39,670 --> 00:13:39,680
+told you that when this consumer got
+ 
+
+581
+00:13:39,680 --> 00:13:43,910
+told you that when this consumer got
+crash and say new consumer comes up they
+
+582
+00:13:43,910 --> 00:13:43,920
+crash and say new consumer comes up they
+ 
+
+583
+00:13:43,920 --> 00:13:46,470
+crash and say new consumer comes up they
+can make use of this consumer offset to
+
+584
+00:13:46,470 --> 00:13:46,480
+can make use of this consumer offset to
+ 
+
+585
+00:13:46,480 --> 00:13:49,509
+can make use of this consumer offset to
+determine from where they have to start
+
+586
+00:13:49,509 --> 00:13:49,519
+determine from where they have to start
+ 
+
+587
+00:13:49,519 --> 00:13:53,990
+determine from where they have to start
+again. So what they will do is first
+
+588
+00:13:53,990 --> 00:13:54,000
+again. So what they will do is first
+ 
+
+589
+00:13:54,000 --> 00:13:56,949
+again. So what they will do is first
+let's say notification group. Okay. So
+
+590
+00:13:56,949 --> 00:13:56,959
+let's say notification group. Okay. So
+ 
+
+591
+00:13:56,959 --> 00:13:58,949
+let's say notification group. Okay. So
+what it will do is let's say server uh
+
+592
+00:13:58,949 --> 00:13:58,959
+what it will do is let's say server uh
+ 
+
+593
+00:13:58,959 --> 00:14:01,750
+what it will do is let's say server uh
+consumer one got crashed and consumer
+
+594
+00:14:01,750 --> 00:14:01,760
+consumer one got crashed and consumer
+ 
+
+595
+00:14:01,760 --> 00:14:04,230
+consumer one got crashed and consumer
+two comes up and it has been assigned
+
+596
+00:14:04,230 --> 00:14:04,240
+two comes up and it has been assigned
+ 
+
+597
+00:14:04,240 --> 00:14:06,790
+two comes up and it has been assigned
+that hey you have the responsibility of
+
+598
+00:14:06,790 --> 00:14:06,800
+that hey you have the responsibility of
+ 
+
+599
+00:14:06,800 --> 00:14:09,509
+that hey you have the responsibility of
+partition zero which earlier consumer
+
+600
+00:14:09,509 --> 00:14:09,519
+partition zero which earlier consumer
+ 
+
+601
+00:14:09,519 --> 00:14:12,230
+partition zero which earlier consumer
+one was taken care of. Now how consumer
+
+602
+00:14:12,230 --> 00:14:12,240
+one was taken care of. Now how consumer
+ 
+
+603
+00:14:12,240 --> 00:14:14,310
+one was taken care of. Now how consumer
+2 will know from where I need to start.
+
+604
+00:14:14,310 --> 00:14:14,320
+2 will know from where I need to start.
+ 
+
+605
+00:14:14,320 --> 00:14:15,910
+2 will know from where I need to start.
+What it will do is it will first find
+
+606
+00:14:15,910 --> 00:14:15,920
+What it will do is it will first find
+ 
+
+607
+00:14:15,920 --> 00:14:19,269
+What it will do is it will first find
+out the partition that hey hash of group
+
+608
+00:14:19,269 --> 00:14:19,279
+out the partition that hey hash of group
+ 
+
+609
+00:14:19,279 --> 00:14:22,710
+out the partition that hey hash of group
+ID mod 50 this partition. Now it will
+
+610
+00:14:22,710 --> 00:14:22,720
+ID mod 50 this partition. Now it will
+ 
+
+611
+00:14:22,720 --> 00:14:24,710
+ID mod 50 this partition. Now it will
+find out that hey who holds this
+
+612
+00:14:24,710 --> 00:14:24,720
+find out that hey who holds this
+ 
+
+613
+00:14:24,720 --> 00:14:27,590
+find out that hey who holds this
+partition this topic this partition who
+
+614
+00:14:27,590 --> 00:14:27,600
+partition this topic this partition who
+ 
+
+615
+00:14:27,600 --> 00:14:29,829
+partition this topic this partition who
+which broker host it. So let's say it
+
+616
+00:14:29,829 --> 00:14:29,839
+which broker host it. So let's say it
+ 
+
+617
+00:14:29,839 --> 00:14:33,670
+which broker host it. So let's say it
+find out that okay broker three. So this
+
+618
+00:14:33,670 --> 00:14:33,680
+find out that okay broker three. So this
+ 
+
+619
+00:14:33,680 --> 00:14:35,990
+find out that okay broker three. So this
+consumer connects with broker 3 and say
+
+620
+00:14:35,990 --> 00:14:36,000
+consumer connects with broker 3 and say
+ 
+
+621
+00:14:36,000 --> 00:14:40,870
+consumer connects with broker 3 and say
+that hey give me for this topic let's
+
+622
+00:14:40,870 --> 00:14:40,880
+that hey give me for this topic let's
+ 
+
+623
+00:14:40,880 --> 00:14:43,670
+that hey give me for this topic let's
+say this topic this partition till where
+
+624
+00:14:43,670 --> 00:14:43,680
+say this topic this partition till where
+ 
+
+625
+00:14:43,680 --> 00:14:45,350
+say this topic this partition till where
+the data has been processed. Let's say
+
+626
+00:14:45,350 --> 00:14:45,360
+the data has been processed. Let's say
+ 
+
+627
+00:14:45,360 --> 00:14:47,509
+the data has been processed. Let's say
+partition zero in this example partition
+
+628
+00:14:47,509 --> 00:14:47,519
+partition zero in this example partition
+ 
+
+629
+00:14:47,519 --> 00:14:51,110
+partition zero in this example partition
+zero. Tell me for this topic let's say
+
+630
+00:14:51,110 --> 00:14:51,120
+zero. Tell me for this topic let's say
+ 
+
+631
+00:14:51,120 --> 00:14:53,670
+zero. Tell me for this topic let's say
+order even topic partition zero till
+
+632
+00:14:53,670 --> 00:14:53,680
+order even topic partition zero till
+ 
+
+633
+00:14:53,680 --> 00:14:56,150
+order even topic partition zero till
+where it has been processed.
+
+634
+00:14:56,150 --> 00:14:56,160
+where it has been processed.
+ 
+
+635
+00:14:56,160 --> 00:14:59,670
+where it has been processed.
+Now this broker can check its log for
+
+636
+00:14:59,670 --> 00:14:59,680
+Now this broker can check its log for
+ 
+
+637
+00:14:59,680 --> 00:15:03,670
+Now this broker can check its log for
+this topic for this topic.
+
+638
+00:15:03,670 --> 00:15:03,680
+this topic for this topic.
+ 
+
+639
+00:15:03,680 --> 00:15:06,470
+this topic for this topic.
+Okay, it can check the logs for this
+
+640
+00:15:06,470 --> 00:15:06,480
+Okay, it can check the logs for this
+ 
+
+641
+00:15:06,480 --> 00:15:07,990
+Okay, it can check the logs for this
+partition
+
+642
+00:15:07,990 --> 00:15:08,000
+partition
+ 
+
+643
+00:15:08,000 --> 00:15:14,389
+partition
+and return the information.
+
+644
+00:15:14,389 --> 00:15:14,399
+
+ 
+
+645
+00:15:14,399 --> 00:15:16,629
+
+At this point of time you might have
+
+646
+00:15:16,629 --> 00:15:16,639
+At this point of time you might have
+ 
+
+647
+00:15:16,639 --> 00:15:18,710
+At this point of time you might have
+confusion about this multiple brokers
+
+648
+00:15:18,710 --> 00:15:18,720
+confusion about this multiple brokers
+ 
+
+649
+00:15:18,720 --> 00:15:21,350
+confusion about this multiple brokers
+and all that's totally fine because
+
+650
+00:15:21,350 --> 00:15:21,360
+and all that's totally fine because
+ 
+
+651
+00:15:21,360 --> 00:15:23,189
+and all that's totally fine because
+those things will get clear when we jump
+
+652
+00:15:23,189 --> 00:15:23,199
+those things will get clear when we jump
+ 
+
+653
+00:15:23,199 --> 00:15:26,870
+those things will get clear when we jump
+to cluster but at this point all I want
+
+654
+00:15:26,870 --> 00:15:26,880
+to cluster but at this point all I want
+ 
+
+655
+00:15:26,880 --> 00:15:29,829
+to cluster but at this point all I want
+you to have understand is that what is
+
+656
+00:15:29,829 --> 00:15:29,839
+you to have understand is that what is
+ 
+
+657
+00:15:29,839 --> 00:15:34,069
+you to have understand is that what is
+consumer group what is consumer
+
+658
+00:15:34,069 --> 00:15:34,079
+consumer group what is consumer
+ 
+
+659
+00:15:34,079 --> 00:15:37,509
+consumer group what is consumer
+okay and they store offset related
+
+660
+00:15:37,509 --> 00:15:37,519
+okay and they store offset related
+ 
+
+661
+00:15:37,519 --> 00:15:40,949
+okay and they store offset related
+information that's all I wanted that you
+
+662
+00:15:40,949 --> 00:15:40,959
+information that's all I wanted that you
+ 
+
+663
+00:15:40,959 --> 00:15:44,629
+information that's all I wanted that you
+clear this part so they store the offset
+
+664
+00:15:44,629 --> 00:15:44,639
+clear this part so they store the offset
+ 
+
+665
+00:15:44,639 --> 00:15:47,030
+clear this part so they store the offset
+that okay
+
+666
+00:15:47,030 --> 00:15:47,040
+that okay
+ 
+
+667
+00:15:47,040 --> 00:15:50,069
+that okay
+this group this topic this partition
+
+668
+00:15:50,069 --> 00:15:50,079
+this group this topic this partition
+ 
+
+669
+00:15:50,079 --> 00:15:52,389
+this group this topic this partition
+till this it is processed. So it is
+
+670
+00:15:52,389 --> 00:15:52,399
+till this it is processed. So it is
+ 
+
+671
+00:15:52,399 --> 00:15:55,590
+till this it is processed. So it is
+stored in one of the topic. Okay. And
+
+672
+00:15:55,590 --> 00:15:55,600
+stored in one of the topic. Okay. And
+ 
+
+673
+00:15:55,600 --> 00:15:59,350
+stored in one of the topic. Okay. And
+whenever any server consumer got crashed
+
+674
+00:15:59,350 --> 00:15:59,360
+whenever any server consumer got crashed
+ 
+
+675
+00:15:59,360 --> 00:16:01,829
+whenever any server consumer got crashed
+they can fetch the details from the
+
+676
+00:16:01,829 --> 00:16:01,839
+they can fetch the details from the
+ 
+
+677
+00:16:01,839 --> 00:16:04,790
+they can fetch the details from the
+topic. Okay.
+
+678
+00:16:04,790 --> 00:16:04,800
+topic. Okay.
+ 
+
+679
+00:16:04,800 --> 00:16:07,910
+topic. Okay.
+And uh whatever the different brokers
+
+680
+00:16:07,910 --> 00:16:07,920
+And uh whatever the different brokers
+ 
+
+681
+00:16:07,920 --> 00:16:09,910
+And uh whatever the different brokers
+and all those things that things will
+
+682
+00:16:09,910 --> 00:16:09,920
+and all those things that things will
+ 
+
+683
+00:16:09,920 --> 00:16:11,670
+and all those things that things will
+get clear.
+
+684
+00:16:11,670 --> 00:16:11,680
+get clear.
+ 
+
+685
+00:16:11,680 --> 00:16:13,509
+get clear.
+Okay.
+
+686
+00:16:13,509 --> 00:16:13,519
+Okay.
+ 
+
+687
+00:16:13,519 --> 00:16:15,509
+Okay.
+Now we have is like offset commit
+
+688
+00:16:15,509 --> 00:16:15,519
+Now we have is like offset commit
+ 
+
+689
+00:16:15,519 --> 00:16:17,189
+Now we have is like offset commit
+strategies. One thing might be coming
+
+690
+00:16:17,189 --> 00:16:17,199
+strategies. One thing might be coming
+ 
+
+691
+00:16:17,199 --> 00:16:19,829
+strategies. One thing might be coming
+that okay what are the different
+
+692
+00:16:19,829 --> 00:16:19,839
+that okay what are the different
+ 
+
+693
+00:16:19,839 --> 00:16:22,069
+that okay what are the different
+strategy let's say I have told that
+
+694
+00:16:22,069 --> 00:16:22,079
+strategy let's say I have told that
+ 
+
+695
+00:16:22,079 --> 00:16:27,590
+strategy let's say I have told that
+consumer one has read partition zero of
+
+696
+00:16:27,590 --> 00:16:27,600
+consumer one has read partition zero of
+ 
+
+697
+00:16:27,600 --> 00:16:29,590
+consumer one has read partition zero of
+let's say topic
+
+698
+00:16:29,590 --> 00:16:29,600
+let's say topic
+ 
+
+699
+00:16:29,600 --> 00:16:33,990
+let's say topic
+uh order events after 500 it decided
+
+700
+00:16:33,990 --> 00:16:34,000
+uh order events after 500 it decided
+ 
+
+701
+00:16:34,000 --> 00:16:36,470
+uh order events after 500 it decided
+that okay I need to commit but what is
+
+702
+00:16:36,470 --> 00:16:36,480
+that okay I need to commit but what is
+ 
+
+703
+00:16:36,480 --> 00:16:39,110
+that okay I need to commit but what is
+the strategy why after 500 or what are
+
+704
+00:16:39,110 --> 00:16:39,120
+the strategy why after 500 or what are
+ 
+
+705
+00:16:39,120 --> 00:16:41,509
+the strategy why after 500 or what are
+the different strategies so one is auto
+
+706
+00:16:41,509 --> 00:16:41,519
+the different strategies so one is auto
+ 
+
+707
+00:16:41,519 --> 00:16:46,150
+the different strategies so one is auto
+commit. So you can uh tell the time auto
+
+708
+00:16:46,150 --> 00:16:46,160
+commit. So you can uh tell the time auto
+ 
+
+709
+00:16:46,160 --> 00:16:49,670
+commit. So you can uh tell the time auto
+doit interval dot milliseconds that
+
+710
+00:16:49,670 --> 00:16:49,680
+doit interval dot milliseconds that
+ 
+
+711
+00:16:49,680 --> 00:16:51,749
+doit interval dot milliseconds that
+after every 5 seconds you have to
+
+712
+00:16:51,749 --> 00:16:51,759
+after every 5 seconds you have to
+ 
+
+713
+00:16:51,759 --> 00:16:55,910
+after every 5 seconds you have to
+commit. Okay. So let's say time zero
+
+714
+00:16:55,910 --> 00:16:55,920
+commit. Okay. So let's say time zero
+ 
+
+715
+00:16:55,920 --> 00:16:57,910
+commit. Okay. So let's say time zero
+consumer polls [snorts]
+
+716
+00:16:57,910 --> 00:16:57,920
+consumer polls [snorts]
+ 
+
+717
+00:16:57,920 --> 00:17:01,110
+consumer polls [snorts]
+get even from 0 to 99.
+
+718
+00:17:01,110 --> 00:17:01,120
+get even from 0 to 99.
+ 
+
+719
+00:17:01,120 --> 00:17:03,030
+get even from 0 to 99.
+At time one consumer processing the
+
+720
+00:17:03,030 --> 00:17:03,040
+At time one consumer processing the
+ 
+
+721
+00:17:03,040 --> 00:17:07,270
+At time one consumer processing the
+events. Okay. And after 5 seconds it
+
+722
+00:17:07,270 --> 00:17:07,280
+events. Okay. And after 5 seconds it
+ 
+
+723
+00:17:07,280 --> 00:17:10,309
+events. Okay. And after 5 seconds it
+will autocommit the trigger. But there
+
+724
+00:17:10,309 --> 00:17:10,319
+will autocommit the trigger. But there
+ 
+
+725
+00:17:10,319 --> 00:17:13,270
+will autocommit the trigger. But there
+is a problem that what if consumer
+
+726
+00:17:13,270 --> 00:17:13,280
+is a problem that what if consumer
+ 
+
+727
+00:17:13,280 --> 00:17:15,429
+is a problem that what if consumer
+crashes
+
+728
+00:17:15,429 --> 00:17:15,439
+crashes
+ 
+
+729
+00:17:15,439 --> 00:17:17,590
+crashes
+at 50.
+
+730
+00:17:17,590 --> 00:17:17,600
+at 50.
+ 
+
+731
+00:17:17,600 --> 00:17:20,230
+at 50.
+Since autocommit has already happened
+
+732
+00:17:20,230 --> 00:17:20,240
+Since autocommit has already happened
+ 
+
+733
+00:17:20,240 --> 00:17:24,230
+Since autocommit has already happened
+means a detail has been gone into this
+
+734
+00:17:24,230 --> 00:17:24,240
+means a detail has been gone into this
+ 
+
+735
+00:17:24,240 --> 00:17:25,990
+means a detail has been gone into this
+consumer
+
+736
+00:17:25,990 --> 00:17:26,000
+consumer
+ 
+
+737
+00:17:26,000 --> 00:17:27,669
+consumer
+offsets
+
+738
+00:17:27,669 --> 00:17:27,679
+offsets
+ 
+
+739
+00:17:27,679 --> 00:17:29,270
+offsets
+topic
+
+740
+00:17:29,270 --> 00:17:29,280
+topic
+ 
+
+741
+00:17:29,280 --> 00:17:33,590
+topic
+that hey this group notification group
+
+742
+00:17:33,590 --> 00:17:33,600
+that hey this group notification group
+ 
+
+743
+00:17:33,600 --> 00:17:36,789
+that hey this group notification group
+for this topic let's say order event
+
+744
+00:17:36,789 --> 00:17:36,799
+for this topic let's say order event
+ 
+
+745
+00:17:36,799 --> 00:17:40,950
+for this topic let's say order event
+topic this partition partition zero 99
+
+746
+00:17:40,950 --> 00:17:40,960
+topic this partition partition zero 99
+ 
+
+747
+00:17:40,960 --> 00:17:44,630
+topic this partition partition zero 99
+till it is processed now
+
+748
+00:17:44,630 --> 00:17:44,640
+till it is processed now
+ 
+
+749
+00:17:44,640 --> 00:17:46,789
+till it is processed now
+because it is auto commit happen right
+
+750
+00:17:46,789 --> 00:17:46,799
+because it is auto commit happen right
+ 
+
+751
+00:17:46,799 --> 00:17:49,590
+because it is auto commit happen right
+so it is already added into this
+
+752
+00:17:49,590 --> 00:17:49,600
+so it is already added into this
+ 
+
+753
+00:17:49,600 --> 00:17:53,190
+so it is already added into this
+consumer offset topic. Now if consumer
+
+754
+00:17:53,190 --> 00:17:53,200
+consumer offset topic. Now if consumer
+ 
+
+755
+00:17:53,200 --> 00:17:56,630
+consumer offset topic. Now if consumer
+crash at 50th and it will restart and it
+
+756
+00:17:56,630 --> 00:17:56,640
+crash at 50th and it will restart and it
+ 
+
+757
+00:17:56,640 --> 00:18:01,270
+crash at 50th and it will restart and it
+will fetch from this topic. Hey till
+
+758
+00:18:01,270 --> 00:18:01,280
+will fetch from this topic. Hey till
+ 
+
+759
+00:18:01,280 --> 00:18:03,750
+will fetch from this topic. Hey till
+where I have done it will give that hey
+
+760
+00:18:03,750 --> 00:18:03,760
+where I have done it will give that hey
+ 
+
+761
+00:18:03,760 --> 00:18:06,150
+where I have done it will give that hey
+99 you have done you have to start from
+
+762
+00:18:06,150 --> 00:18:06,160
+99 you have done you have to start from
+ 
+
+763
+00:18:06,160 --> 00:18:07,909
+99 you have done you have to start from
+100.
+
+764
+00:18:07,909 --> 00:18:07,919
+100.
+ 
+
+765
+00:18:07,919 --> 00:18:11,110
+100.
+So you have lost certain information. So
+
+766
+00:18:11,110 --> 00:18:11,120
+So you have lost certain information. So
+ 
+
+767
+00:18:11,120 --> 00:18:13,110
+So you have lost certain information. So
+this is risky. Auto commit is always
+
+768
+00:18:13,110 --> 00:18:13,120
+this is risky. Auto commit is always
+ 
+
+769
+00:18:13,120 --> 00:18:16,710
+this is risky. Auto commit is always
+risky. So best strategy is that manual
+
+770
+00:18:16,710 --> 00:18:16,720
+risky. So best strategy is that manual
+ 
+
+771
+00:18:16,720 --> 00:18:20,230
+risky. So best strategy is that manual
+command you decide when you want. So one
+
+772
+00:18:20,230 --> 00:18:20,240
+command you decide when you want. So one
+ 
+
+773
+00:18:20,240 --> 00:18:23,430
+command you decide when you want. So one
+way is that in a batch let's say you
+
+774
+00:18:23,430 --> 00:18:23,440
+way is that in a batch let's say you
+ 
+
+775
+00:18:23,440 --> 00:18:25,909
+way is that in a batch let's say you
+done the polling you got 100 events at a
+
+776
+00:18:25,909 --> 00:18:25,919
+done the polling you got 100 events at a
+ 
+
+777
+00:18:25,919 --> 00:18:30,150
+done the polling you got 100 events at a
+time okay you process all event and uh
+
+778
+00:18:30,150 --> 00:18:30,160
+time okay you process all event and uh
+ 
+
+779
+00:18:30,160 --> 00:18:32,789
+time okay you process all event and uh
+once you completed then
+
+780
+00:18:32,789 --> 00:18:32,799
+once you completed then
+ 
+
+781
+00:18:32,799 --> 00:18:37,430
+once you completed then
+you push okay once all done then you
+
+782
+00:18:37,430 --> 00:18:37,440
+you push okay once all done then you
+ 
+
+783
+00:18:37,440 --> 00:18:39,270
+you push okay once all done then you
+push and then continue with the next
+
+784
+00:18:39,270 --> 00:18:39,280
+push and then continue with the next
+ 
+
+785
+00:18:39,280 --> 00:18:41,909
+push and then continue with the next
+batch. So what happen is that even if
+
+786
+00:18:41,909 --> 00:18:41,919
+batch. So what happen is that even if
+ 
+
+787
+00:18:41,919 --> 00:18:45,590
+batch. So what happen is that even if
+you crash okay let's say you crashed at
+
+788
+00:18:45,590 --> 00:18:45,600
+you crash okay let's say you crashed at
+ 
+
+789
+00:18:45,600 --> 00:18:48,630
+you crash okay let's say you crashed at
+70 so you will still previous
+
+790
+00:18:48,630 --> 00:18:48,640
+70 so you will still previous
+ 
+
+791
+00:18:48,640 --> 00:18:51,590
+70 so you will still previous
+information is let's say zero
+
+792
+00:18:51,590 --> 00:18:51,600
+information is let's say zero
+ 
+
+793
+00:18:51,600 --> 00:18:55,990
+information is let's say zero
+and you got like 0 to 99 badge but after
+
+794
+00:18:55,990 --> 00:18:56,000
+and you got like 0 to 99 badge but after
+ 
+
+795
+00:18:56,000 --> 00:18:58,390
+and you got like 0 to 99 badge but after
+with while you are processing the 70 you
+
+796
+00:18:58,390 --> 00:18:58,400
+with while you are processing the 70 you
+ 
+
+797
+00:18:58,400 --> 00:19:00,870
+with while you are processing the 70 you
+got crash and when you restart and you
+
+798
+00:19:00,870 --> 00:19:00,880
+got crash and when you restart and you
+ 
+
+799
+00:19:00,880 --> 00:19:03,830
+got crash and when you restart and you
+again fetch hey what was the last I have
+
+800
+00:19:03,830 --> 00:19:03,840
+again fetch hey what was the last I have
+ 
+
+801
+00:19:03,840 --> 00:19:05,430
+again fetch hey what was the last I have
+processed you can say that zero you have
+
+802
+00:19:05,430 --> 00:19:05,440
+processed you can say that zero you have
+ 
+
+803
+00:19:05,440 --> 00:19:07,350
+processed you can say that zero you have
+to start again
+
+804
+00:19:07,350 --> 00:19:07,360
+to start again
+ 
+
+805
+00:19:07,360 --> 00:19:09,110
+to start again
+so it's only possible that you might
+
+806
+00:19:09,110 --> 00:19:09,120
+so it's only possible that you might
+ 
+
+807
+00:19:09,120 --> 00:19:12,950
+so it's only possible that you might
+have to uh duplicate processing.
+
+808
+00:19:12,950 --> 00:19:12,960
+have to uh duplicate processing.
+ 
+
+809
+00:19:12,960 --> 00:19:15,830
+have to uh duplicate processing.
+Okay. So in the manual commit apart from
+
+810
+00:19:15,830 --> 00:19:15,840
+Okay. So in the manual commit apart from
+ 
+
+811
+00:19:15,840 --> 00:19:19,270
+Okay. So in the manual commit apart from
+batch there is also is that every
+
+812
+00:19:19,270 --> 00:19:19,280
+batch there is also is that every
+ 
+
+813
+00:19:19,280 --> 00:19:21,669
+batch there is also is that every
+instead of let's say you complete the
+
+814
+00:19:21,669 --> 00:19:21,679
+instead of let's say you complete the
+ 
+
+815
+00:19:21,679 --> 00:19:25,029
+instead of let's say you complete the
+full batch after that you do a commit
+
+816
+00:19:25,029 --> 00:19:25,039
+full batch after that you do a commit
+ 
+
+817
+00:19:25,039 --> 00:19:28,310
+full batch after that you do a commit
+after every event process you try to do
+
+818
+00:19:28,310 --> 00:19:28,320
+after every event process you try to do
+ 
+
+819
+00:19:28,320 --> 00:19:31,110
+after every event process you try to do
+commit but
+
+820
+00:19:31,110 --> 00:19:31,120
+commit but
+ 
+
+821
+00:19:31,120 --> 00:19:34,470
+commit but
+that is not recommended because
+
+822
+00:19:34,470 --> 00:19:34,480
+that is not recommended because
+ 
+
+823
+00:19:34,480 --> 00:19:36,789
+that is not recommended because
+generally Kafka is used when there are
+
+824
+00:19:36,789 --> 00:19:36,799
+generally Kafka is used when there are
+ 
+
+825
+00:19:36,799 --> 00:19:40,549
+generally Kafka is used when there are
+lot of events. Okay. So with every
+
+826
+00:19:40,549 --> 00:19:40,559
+lot of events. Okay. So with every
+ 
+
+827
+00:19:40,559 --> 00:19:43,430
+lot of events. Okay. So with every
+events it's not recommended that you
+
+828
+00:19:43,430 --> 00:19:43,440
+events it's not recommended that you
+ 
+
+829
+00:19:43,440 --> 00:19:46,150
+events it's not recommended that you
+have to make a call to the server.
+
+830
+00:19:46,150 --> 00:19:46,160
+have to make a call to the server.
+ 
+
+831
+00:19:46,160 --> 00:19:49,110
+have to make a call to the server.
+Okay. So appropriate batch size we have
+
+832
+00:19:49,110 --> 00:19:49,120
+Okay. So appropriate batch size we have
+ 
+
+833
+00:19:49,120 --> 00:19:51,830
+Okay. So appropriate batch size we have
+to find out like uh based upon our
+
+834
+00:19:51,830 --> 00:19:51,840
+to find out like uh based upon our
+ 
+
+835
+00:19:51,840 --> 00:19:54,549
+to find out like uh based upon our
+business and this is the recommended
+
+836
+00:19:54,549 --> 00:19:54,559
+business and this is the recommended
+ 
+
+837
+00:19:54,559 --> 00:19:58,549
+business and this is the recommended
+approach.
+
+838
+00:19:58,549 --> 00:19:58,559
+
+ 
+
+839
+00:19:58,559 --> 00:20:03,750
+
+Okay. So we know about little bit about
+
+840
+00:20:03,750 --> 00:20:03,760
+Okay. So we know about little bit about
+ 
+
+841
+00:20:03,760 --> 00:20:05,270
+Okay. So we know about little bit about
+consumer
+
+842
+00:20:05,270 --> 00:20:05,280
+consumer
+ 
+
+843
+00:20:05,280 --> 00:20:07,909
+consumer
+and consumer group.
+
+844
+00:20:07,909 --> 00:20:07,919
+and consumer group.
+ 
+
+845
+00:20:07,919 --> 00:20:10,470
+and consumer group.
+Don't worry the part where we have
+
+846
+00:20:10,470 --> 00:20:10,480
+Don't worry the part where we have
+ 
+
+847
+00:20:10,480 --> 00:20:12,150
+Don't worry the part where we have
+discussed about multiple broker because
+
+848
+00:20:12,150 --> 00:20:12,160
+discussed about multiple broker because
+ 
+
+849
+00:20:12,160 --> 00:20:14,230
+discussed about multiple broker because
+now we are slowly going into the
+
+850
+00:20:14,230 --> 00:20:14,240
+now we are slowly going into the
+ 
+
+851
+00:20:14,240 --> 00:20:16,549
+now we are slowly going into the
+advanced level of the cluster. That's
+
+852
+00:20:16,549 --> 00:20:16,559
+advanced level of the cluster. That's
+ 
+
+853
+00:20:16,559 --> 00:20:18,470
+advanced level of the cluster. That's
+where the multiple broker comes into the
+
+854
+00:20:18,470 --> 00:20:18,480
+where the multiple broker comes into the
+ 
+
+855
+00:20:18,480 --> 00:20:20,950
+where the multiple broker comes into the
+picture.
+
+856
+00:20:20,950 --> 00:20:20,960
+picture.
+ 
+
+857
+00:20:20,960 --> 00:20:23,909
+picture.
+At this point of time my expectation is
+
+858
+00:20:23,909 --> 00:20:23,919
+At this point of time my expectation is
+ 
+
+859
+00:20:23,919 --> 00:20:27,590
+At this point of time my expectation is
+that I am able to
+
+860
+00:20:27,590 --> 00:20:27,600
+that I am able to
+ 
+
+861
+00:20:27,600 --> 00:20:29,909
+that I am able to
+actually the definition should be clear
+
+862
+00:20:29,909 --> 00:20:29,919
+actually the definition should be clear
+ 
+
+863
+00:20:29,919 --> 00:20:33,029
+actually the definition should be clear
+for producer topic partition broker
+
+864
+00:20:33,029 --> 00:20:33,039
+for producer topic partition broker
+ 
+
+865
+00:20:33,039 --> 00:20:35,750
+for producer topic partition broker
+consumer and consumer group.
+
+866
+00:20:35,750 --> 00:20:35,760
+consumer and consumer group.
+ 
+
+867
+00:20:35,760 --> 00:20:38,950
+consumer and consumer group.
+Now you can say that the real Kafka
+
+868
+00:20:38,950 --> 00:20:38,960
+Now you can say that the real Kafka
+ 
+
+869
+00:20:38,960 --> 00:20:41,590
+Now you can say that the real Kafka
+comes into the picture the advance.
+
+870
+00:20:41,590 --> 00:20:41,600
+comes into the picture the advance.
+ 
+
+871
+00:20:41,600 --> 00:20:45,669
+comes into the picture the advance.
+Okay. What is Kafka cluster? Kafka
+
+872
+00:20:45,669 --> 00:20:45,679
+Okay. What is Kafka cluster? Kafka
+ 
+
+873
+00:20:45,679 --> 00:20:47,669
+Okay. What is Kafka cluster? Kafka
+cluster is nothing but a group of
+
+874
+00:20:47,669 --> 00:20:47,679
+cluster is nothing but a group of
+ 
+
+875
+00:20:47,679 --> 00:20:50,950
+cluster is nothing but a group of
+brokers working together to provide
+
+876
+00:20:50,950 --> 00:20:50,960
+brokers working together to provide
+ 
+
+877
+00:20:50,960 --> 00:20:53,270
+brokers working together to provide
+scalability, fall tolerant and high
+
+878
+00:20:53,270 --> 00:20:53,280
+scalability, fall tolerant and high
+ 
+
+879
+00:20:53,280 --> 00:20:55,270
+scalability, fall tolerant and high
+availability.
+
+880
+00:20:55,270 --> 00:20:55,280
+availability.
+ 
+
+881
+00:20:55,280 --> 00:20:57,510
+availability.
+Very very important. Scalability means
+
+882
+00:20:57,510 --> 00:20:57,520
+Very very important. Scalability means
+ 
+
+883
+00:20:57,520 --> 00:21:00,470
+Very very important. Scalability means
+distribute load across multiple servers.
+
+884
+00:21:00,470 --> 00:21:00,480
+distribute load across multiple servers.
+ 
+
+885
+00:21:00,480 --> 00:21:02,310
+distribute load across multiple servers.
+Fall tolerance means continue operate
+
+886
+00:21:02,310 --> 00:21:02,320
+Fall tolerance means continue operate
+ 
+
+887
+00:21:02,320 --> 00:21:04,789
+Fall tolerance means continue operate
+even if broker fails. High availability
+
+888
+00:21:04,789 --> 00:21:04,799
+even if broker fails. High availability
+ 
+
+889
+00:21:04,799 --> 00:21:07,029
+even if broker fails. High availability
+means no single point of failure. Kafka
+
+890
+00:21:07,029 --> 00:21:07,039
+means no single point of failure. Kafka
+ 
+
+891
+00:21:07,039 --> 00:21:09,669
+means no single point of failure. Kafka
+do not have a single point of failure.
+
+892
+00:21:09,669 --> 00:21:09,679
+do not have a single point of failure.
+ 
+
+893
+00:21:09,679 --> 00:21:12,390
+do not have a single point of failure.
+So in this example now see KL clavka
+
+894
+00:21:12,390 --> 00:21:12,400
+So in this example now see KL clavka
+ 
+
+895
+00:21:12,400 --> 00:21:15,110
+So in this example now see KL clavka
+cluster is has it has multiple broker.
+
+896
+00:21:15,110 --> 00:21:15,120
+cluster is has it has multiple broker.
+ 
+
+897
+00:21:15,120 --> 00:21:18,070
+cluster is has it has multiple broker.
+So one broker what does one broker has
+
+898
+00:21:18,070 --> 00:21:18,080
+So one broker what does one broker has
+ 
+
+899
+00:21:18,080 --> 00:21:21,350
+So one broker what does one broker has
+is one broker can have
+
+900
+00:21:21,350 --> 00:21:21,360
+is one broker can have
+ 
+
+901
+00:21:21,360 --> 00:21:24,549
+is one broker can have
+some topics and of some topic it can
+
+902
+00:21:24,549 --> 00:21:24,559
+some topics and of some topic it can
+ 
+
+903
+00:21:24,559 --> 00:21:27,990
+some topics and of some topic it can
+have some of their partition.
+
+904
+00:21:27,990 --> 00:21:28,000
+have some of their partition.
+ 
+
+905
+00:21:28,000 --> 00:21:31,510
+have some of their partition.
+Okay and Kafka custer we have multiple
+
+906
+00:21:31,510 --> 00:21:31,520
+Okay and Kafka custer we have multiple
+ 
+
+907
+00:21:31,520 --> 00:21:33,830
+Okay and Kafka custer we have multiple
+such brokers.
+
+908
+00:21:33,830 --> 00:21:33,840
+such brokers.
+ 
+
+909
+00:21:33,840 --> 00:21:35,590
+such brokers.
+We have multiple search brokers which
+
+910
+00:21:35,590 --> 00:21:35,600
+We have multiple search brokers which
+ 
+
+911
+00:21:35,600 --> 00:21:39,510
+We have multiple search brokers which
+has c some topics and of those topics
+
+912
+00:21:39,510 --> 00:21:39,520
+has c some topics and of those topics
+ 
+
+913
+00:21:39,520 --> 00:21:41,909
+has c some topics and of those topics
+some partitions. [snorts]
+
+914
+00:21:41,909 --> 00:21:41,919
+some partitions. [snorts]
+ 
+
+915
+00:21:41,919 --> 00:21:45,190
+some partitions. [snorts]
+Now everything need to be coordinated.
+
+916
+00:21:45,190 --> 00:21:45,200
+Now everything need to be coordinated.
+ 
+
+917
+00:21:45,200 --> 00:21:46,789
+Now everything need to be coordinated.
+Okay.
+
+918
+00:21:46,789 --> 00:21:46,799
+Okay.
+ 
+
+919
+00:21:46,799 --> 00:21:49,110
+Okay.
+It takes care of certain requests. It
+
+920
+00:21:49,110 --> 00:21:49,120
+It takes care of certain requests. It
+ 
+
+921
+00:21:49,120 --> 00:21:50,710
+It takes care of certain requests. It
+take care of certain requests. It takes
+
+922
+00:21:50,710 --> 00:21:50,720
+take care of certain requests. It takes
+ 
+
+923
+00:21:50,720 --> 00:21:52,710
+take care of certain requests. It takes
+care of certain request. That's why
+
+924
+00:21:52,710 --> 00:21:52,720
+care of certain request. That's why
+ 
+
+925
+00:21:52,720 --> 00:21:54,710
+care of certain request. That's why
+scalability distributed load across
+
+926
+00:21:54,710 --> 00:21:54,720
+scalability distributed load across
+ 
+
+927
+00:21:54,720 --> 00:21:57,190
+scalability distributed load across
+multiple server. These are all servers.
+
+928
+00:21:57,190 --> 00:21:57,200
+multiple server. These are all servers.
+ 
+
+929
+00:21:57,200 --> 00:22:00,070
+multiple server. These are all servers.
+Fault tolerance. Even if one broker
+
+930
+00:22:00,070 --> 00:22:00,080
+Fault tolerance. Even if one broker
+ 
+
+931
+00:22:00,080 --> 00:22:03,510
+Fault tolerance. Even if one broker
+fails, even if one partition fails, even
+
+932
+00:22:03,510 --> 00:22:03,520
+fails, even if one partition fails, even
+ 
+
+933
+00:22:03,520 --> 00:22:06,390
+fails, even if one partition fails, even
+if one topic fails,
+
+934
+00:22:06,390 --> 00:22:06,400
+if one topic fails,
+ 
+
+935
+00:22:06,400 --> 00:22:10,470
+if one topic fails,
+the Kafka is up and running.
+
+936
+00:22:10,470 --> 00:22:10,480
+the Kafka is up and running.
+ 
+
+937
+00:22:10,480 --> 00:22:12,310
+the Kafka is up and running.
+No single point of failure at any point
+
+938
+00:22:12,310 --> 00:22:12,320
+No single point of failure at any point
+ 
+
+939
+00:22:12,320 --> 00:22:13,909
+No single point of failure at any point
+of time. Whether broker fails, whether
+
+940
+00:22:13,909 --> 00:22:13,919
+of time. Whether broker fails, whether
+ 
+
+941
+00:22:13,919 --> 00:22:15,990
+of time. Whether broker fails, whether
+partition fails, whether topic fails,
+
+942
+00:22:15,990 --> 00:22:16,000
+partition fails, whether topic fails,
+ 
+
+943
+00:22:16,000 --> 00:22:18,630
+partition fails, whether topic fails,
+it's up and running. How? I will show
+
+944
+00:22:18,630 --> 00:22:18,640
+it's up and running. How? I will show
+ 
+
+945
+00:22:18,640 --> 00:22:20,710
+it's up and running. How? I will show
+you.
+
+946
+00:22:20,710 --> 00:22:20,720
+you.
+ 
+
+947
+00:22:20,720 --> 00:22:24,310
+you.
+Okay. Now the question is how?
+
+948
+00:22:24,310 --> 00:22:24,320
+Okay. Now the question is how?
+ 
+
+949
+00:22:24,320 --> 00:22:27,270
+Okay. Now the question is how?
+How this multi-broker architecture where
+
+950
+00:22:27,270 --> 00:22:27,280
+How this multi-broker architecture where
+ 
+
+951
+00:22:27,280 --> 00:22:29,669
+How this multi-broker architecture where
+we have multiple broker able to achieve
+
+952
+00:22:29,669 --> 00:22:29,679
+we have multiple broker able to achieve
+ 
+
+953
+00:22:29,679 --> 00:22:32,549
+we have multiple broker able to achieve
+this three things
+
+954
+00:22:32,549 --> 00:22:32,559
+this three things
+ 
+
+955
+00:22:32,559 --> 00:22:35,990
+this three things
+very important part the leader follower
+
+956
+00:22:35,990 --> 00:22:36,000
+very important part the leader follower
+ 
+
+957
+00:22:36,000 --> 00:22:37,990
+very important part the leader follower
+partition
+
+958
+00:22:37,990 --> 00:22:38,000
+partition
+ 
+
+959
+00:22:38,000 --> 00:22:40,470
+partition
+okay
+
+960
+00:22:40,470 --> 00:22:40,480
+okay
+ 
+
+961
+00:22:40,480 --> 00:22:43,029
+okay
+for each partition
+
+962
+00:22:43,029 --> 00:22:43,039
+for each partition
+ 
+
+963
+00:22:43,039 --> 00:22:46,230
+for each partition
+for each partition I'm talking about one
+
+964
+00:22:46,230 --> 00:22:46,240
+for each partition I'm talking about one
+ 
+
+965
+00:22:46,240 --> 00:22:48,549
+for each partition I'm talking about one
+broker is leader and others are
+
+966
+00:22:48,549 --> 00:22:48,559
+broker is leader and others are
+ 
+
+967
+00:22:48,559 --> 00:22:50,070
+broker is leader and others are
+followers
+
+968
+00:22:50,070 --> 00:22:50,080
+followers
+ 
+
+969
+00:22:50,080 --> 00:22:51,909
+followers
+example understand this with all
+
+970
+00:22:51,909 --> 00:22:51,919
+example understand this with all
+ 
+
+971
+00:22:51,919 --> 00:22:53,990
+example understand this with all
+everything with an example let's say You
+
+972
+00:22:53,990 --> 00:22:54,000
+everything with an example let's say You
+ 
+
+973
+00:22:54,000 --> 00:22:57,110
+everything with an example let's say You
+have created a topic order events
+
+974
+00:22:57,110 --> 00:22:57,120
+have created a topic order events
+ 
+
+975
+00:22:57,120 --> 00:23:00,789
+have created a topic order events
+and you have a partition three partition
+
+976
+00:23:00,789 --> 00:23:00,799
+and you have a partition three partition
+ 
+
+977
+00:23:00,799 --> 00:23:03,430
+and you have a partition three partition
+zero partition one partition two. Now
+
+978
+00:23:03,430 --> 00:23:03,440
+zero partition one partition two. Now
+ 
+
+979
+00:23:03,440 --> 00:23:05,190
+zero partition one partition two. Now
+there is something you also tell the
+
+980
+00:23:05,190 --> 00:23:05,200
+there is something you also tell the
+ 
+
+981
+00:23:05,200 --> 00:23:08,230
+there is something you also tell the
+replication factor how many replicas you
+
+982
+00:23:08,230 --> 00:23:08,240
+replication factor how many replicas you
+ 
+
+983
+00:23:08,240 --> 00:23:09,990
+replication factor how many replicas you
+want.
+
+984
+00:23:09,990 --> 00:23:10,000
+want.
+ 
+
+985
+00:23:10,000 --> 00:23:13,669
+want.
+Okay. So
+
+986
+00:23:13,669 --> 00:23:13,679
+Okay. So
+ 
+
+987
+00:23:13,679 --> 00:23:16,149
+Okay. So
+three partition of topics order events
+
+988
+00:23:16,149 --> 00:23:16,159
+three partition of topics order events
+ 
+
+989
+00:23:16,159 --> 00:23:18,870
+three partition of topics order events
+will be created like we have tell order
+
+990
+00:23:18,870 --> 00:23:18,880
+will be created like we have tell order
+ 
+
+991
+00:23:18,880 --> 00:23:21,110
+will be created like we have tell order
+events I want three topics uh three
+
+992
+00:23:21,110 --> 00:23:21,120
+events I want three topics uh three
+ 
+
+993
+00:23:21,120 --> 00:23:22,950
+events I want three topics uh three
+partition partition zero partition one
+
+994
+00:23:22,950 --> 00:23:22,960
+partition partition zero partition one
+ 
+
+995
+00:23:22,960 --> 00:23:27,110
+partition partition zero partition one
+partition two. Now for each partition I
+
+996
+00:23:27,110 --> 00:23:27,120
+partition two. Now for each partition I
+ 
+
+997
+00:23:27,120 --> 00:23:29,750
+partition two. Now for each partition I
+have said two replica means there should
+
+998
+00:23:29,750 --> 00:23:29,760
+have said two replica means there should
+ 
+
+999
+00:23:29,760 --> 00:23:31,750
+have said two replica means there should
+be two copy.
+
+1000
+00:23:31,750 --> 00:23:31,760
+be two copy.
+ 
+
+1001
+00:23:31,760 --> 00:23:33,909
+be two copy.
+So partition zero has two replica is
+
+1002
+00:23:33,909 --> 00:23:33,919
+So partition zero has two replica is
+ 
+
+1003
+00:23:33,919 --> 00:23:36,470
+So partition zero has two replica is
+like one leader and one follower.
+
+1004
+00:23:36,470 --> 00:23:36,480
+like one leader and one follower.
+ 
+
+1005
+00:23:36,480 --> 00:23:40,390
+like one leader and one follower.
+Partition one, two replica. One leader,
+
+1006
+00:23:40,390 --> 00:23:40,400
+Partition one, two replica. One leader,
+ 
+
+1007
+00:23:40,400 --> 00:23:42,230
+Partition one, two replica. One leader,
+one follower.
+
+1008
+00:23:42,230 --> 00:23:42,240
+one follower.
+ 
+
+1009
+00:23:42,240 --> 00:23:44,950
+one follower.
+Okay. Partition two, one leader, one
+
+1010
+00:23:44,950 --> 00:23:44,960
+Okay. Partition two, one leader, one
+ 
+
+1011
+00:23:44,960 --> 00:23:47,510
+Okay. Partition two, one leader, one
+follower. Two replica.
+
+1012
+00:23:47,510 --> 00:23:47,520
+follower. Two replica.
+ 
+
+1013
+00:23:47,520 --> 00:23:49,750
+follower. Two replica.
+And all these, so total how many
+
+1014
+00:23:49,750 --> 00:23:49,760
+And all these, so total how many
+ 
+
+1015
+00:23:49,760 --> 00:23:53,750
+And all these, so total how many
+partitions? Six partitions.
+
+1016
+00:23:53,750 --> 00:23:53,760
+
+ 
+
+1017
+00:23:53,760 --> 00:23:56,870
+
+Okay. Out of the six,
+
+1018
+00:23:56,870 --> 00:23:56,880
+Okay. Out of the six,
+ 
+
+1019
+00:23:56,880 --> 00:23:59,909
+Okay. Out of the six,
+three are leader,
+
+1020
+00:23:59,909 --> 00:23:59,919
+three are leader,
+ 
+
+1021
+00:23:59,919 --> 00:24:03,029
+three are leader,
+three are follower.
+
+1022
+00:24:03,029 --> 00:24:03,039
+three are follower.
+ 
+
+1023
+00:24:03,039 --> 00:24:07,669
+three are follower.
+Okay. So all these six partitions are
+
+1024
+00:24:07,669 --> 00:24:07,679
+Okay. So all these six partitions are
+ 
+
+1025
+00:24:07,679 --> 00:24:10,390
+Okay. So all these six partitions are
+distributed among the brokers.
+
+1026
+00:24:10,390 --> 00:24:10,400
+distributed among the brokers.
+ 
+
+1027
+00:24:10,400 --> 00:24:13,029
+distributed among the brokers.
+So now here if you see in the Kafka
+
+1028
+00:24:13,029 --> 00:24:13,039
+So now here if you see in the Kafka
+ 
+
+1029
+00:24:13,039 --> 00:24:16,549
+So now here if you see in the Kafka
+cluster we have three brokers. Broker
+
+1030
+00:24:16,549 --> 00:24:16,559
+cluster we have three brokers. Broker
+ 
+
+1031
+00:24:16,559 --> 00:24:19,909
+cluster we have three brokers. Broker
+one, broker two, broker three. Now let's
+
+1032
+00:24:19,909 --> 00:24:19,919
+one, broker two, broker three. Now let's
+ 
+
+1033
+00:24:19,919 --> 00:24:23,750
+one, broker two, broker three. Now let's
+say that broker one has this topic order
+
+1034
+00:24:23,750 --> 00:24:23,760
+say that broker one has this topic order
+ 
+
+1035
+00:24:23,760 --> 00:24:26,630
+say that broker one has this topic order
+events. It has this topic order events
+
+1036
+00:24:26,630 --> 00:24:26,640
+events. It has this topic order events
+ 
+
+1037
+00:24:26,640 --> 00:24:29,350
+events. It has this topic order events
+and it host
+
+1038
+00:24:29,350 --> 00:24:29,360
+and it host
+ 
+
+1039
+00:24:29,360 --> 00:24:32,070
+and it host
+only partition zero.
+
+1040
+00:24:32,070 --> 00:24:32,080
+only partition zero.
+ 
+
+1041
+00:24:32,080 --> 00:24:35,029
+only partition zero.
+Okay. So
+
+1042
+00:24:35,029 --> 00:24:35,039
+Okay. So
+ 
+
+1043
+00:24:35,039 --> 00:24:39,750
+Okay. So
+this topic this broker this topic it
+
+1044
+00:24:39,750 --> 00:24:39,760
+this topic this broker this topic it
+ 
+
+1045
+00:24:39,760 --> 00:24:42,710
+this topic this broker this topic it
+host one leader only partition zero is
+
+1046
+00:24:42,710 --> 00:24:42,720
+host one leader only partition zero is
+ 
+
+1047
+00:24:42,720 --> 00:24:45,110
+host one leader only partition zero is
+the leader here.
+
+1048
+00:24:45,110 --> 00:24:45,120
+the leader here.
+ 
+
+1049
+00:24:45,120 --> 00:24:48,390
+the leader here.
+Okay and partition zero leader here. So
+
+1050
+00:24:48,390 --> 00:24:48,400
+Okay and partition zero leader here. So
+ 
+
+1051
+00:24:48,400 --> 00:24:49,990
+Okay and partition zero leader here. So
+it has one follower right. So one
+
+1052
+00:24:49,990 --> 00:24:50,000
+it has one follower right. So one
+ 
+
+1053
+00:24:50,000 --> 00:24:52,789
+it has one follower right. So one
+follower would be into different broker.
+
+1054
+00:24:52,789 --> 00:24:52,799
+follower would be into different broker.
+ 
+
+1055
+00:24:52,799 --> 00:24:56,630
+follower would be into different broker.
+Okay. So partition zero for this event
+
+1056
+00:24:56,630 --> 00:24:56,640
+Okay. So partition zero for this event
+ 
+
+1057
+00:24:56,640 --> 00:24:59,510
+Okay. So partition zero for this event
+for this topic. So order events topic
+
+1058
+00:24:59,510 --> 00:24:59,520
+for this topic. So order events topic
+ 
+
+1059
+00:24:59,520 --> 00:25:01,830
+for this topic. So order events topic
+partition zero follower is present into
+
+1060
+00:25:01,830 --> 00:25:01,840
+partition zero follower is present into
+ 
+
+1061
+00:25:01,840 --> 00:25:04,710
+partition zero follower is present into
+broker three. Okay. And its leader is
+
+1062
+00:25:04,710 --> 00:25:04,720
+broker three. Okay. And its leader is
+ 
+
+1063
+00:25:04,720 --> 00:25:06,549
+broker three. Okay. And its leader is
+present into
+
+1064
+00:25:06,549 --> 00:25:06,559
+present into
+ 
+
+1065
+00:25:06,559 --> 00:25:08,470
+present into
+broker one.
+
+1066
+00:25:08,470 --> 00:25:08,480
+broker one.
+ 
+
+1067
+00:25:08,480 --> 00:25:12,149
+broker one.
+Similarly partition one of topic order
+
+1068
+00:25:12,149 --> 00:25:12,159
+Similarly partition one of topic order
+ 
+
+1069
+00:25:12,159 --> 00:25:14,390
+Similarly partition one of topic order
+events.
+
+1070
+00:25:14,390 --> 00:25:14,400
+events.
+ 
+
+1071
+00:25:14,400 --> 00:25:17,669
+events.
+So partition one. Huh. So here if you
+
+1072
+00:25:17,669 --> 00:25:17,679
+So partition one. Huh. So here if you
+ 
+
+1073
+00:25:17,679 --> 00:25:20,549
+So partition one. Huh. So here if you
+see partition one leader is
+
+1074
+00:25:20,549 --> 00:25:20,559
+see partition one leader is
+ 
+
+1075
+00:25:20,559 --> 00:25:23,990
+see partition one leader is
+present into broker two. Broker two has
+
+1076
+00:25:23,990 --> 00:25:24,000
+present into broker two. Broker two has
+ 
+
+1077
+00:25:24,000 --> 00:25:27,430
+present into broker two. Broker two has
+this topic order event. It hosts the
+
+1078
+00:25:27,430 --> 00:25:27,440
+this topic order event. It hosts the
+ 
+
+1079
+00:25:27,440 --> 00:25:29,990
+this topic order event. It hosts the
+leader partition one.
+
+1080
+00:25:29,990 --> 00:25:30,000
+leader partition one.
+ 
+
+1081
+00:25:30,000 --> 00:25:33,110
+leader partition one.
+Okay. And it has a follower, right? One
+
+1082
+00:25:33,110 --> 00:25:33,120
+Okay. And it has a follower, right? One
+ 
+
+1083
+00:25:33,120 --> 00:25:35,430
+Okay. And it has a follower, right? One
+follower. So it would be into different
+
+1084
+00:25:35,430 --> 00:25:35,440
+follower. So it would be into different
+ 
+
+1085
+00:25:35,440 --> 00:25:39,029
+follower. So it would be into different
+broker. So let's say broker one has this
+
+1086
+00:25:39,029 --> 00:25:39,039
+broker. So let's say broker one has this
+ 
+
+1087
+00:25:39,039 --> 00:25:41,750
+broker. So let's say broker one has this
+follower. Similarly, partition two, one
+
+1088
+00:25:41,750 --> 00:25:41,760
+follower. Similarly, partition two, one
+ 
+
+1089
+00:25:41,760 --> 00:25:44,710
+follower. Similarly, partition two, one
+leader, one follower. So partition two
+
+1090
+00:25:44,710 --> 00:25:44,720
+leader, one follower. So partition two
+ 
+
+1091
+00:25:44,720 --> 00:25:46,870
+leader, one follower. So partition two
+leader is present into this broker three
+
+1092
+00:25:46,870 --> 00:25:46,880
+leader is present into this broker three
+ 
+
+1093
+00:25:46,880 --> 00:25:49,990
+leader is present into this broker three
+and it is follower into different broker
+
+1094
+00:25:49,990 --> 00:25:50,000
+and it is follower into different broker
+ 
+
+1095
+00:25:50,000 --> 00:25:52,149
+and it is follower into different broker
+it is present here.
+
+1096
+00:25:52,149 --> 00:25:52,159
+it is present here.
+ 
+
+1097
+00:25:52,159 --> 00:25:55,830
+it is present here.
+So now here if you see that
+
+1098
+00:25:55,830 --> 00:25:55,840
+So now here if you see that
+ 
+
+1099
+00:25:55,840 --> 00:26:01,590
+So now here if you see that
+no broker holds all the information.
+
+1100
+00:26:01,590 --> 00:26:01,600
+
+ 
+
+1101
+00:26:01,600 --> 00:26:05,350
+
+So broker one has partition zero leader
+
+1102
+00:26:05,350 --> 00:26:05,360
+So broker one has partition zero leader
+ 
+
+1103
+00:26:05,360 --> 00:26:07,669
+So broker one has partition zero leader
+information and this is just a follower
+
+1104
+00:26:07,669 --> 00:26:07,679
+information and this is just a follower
+ 
+
+1105
+00:26:07,679 --> 00:26:11,510
+information and this is just a follower
+backup of the partition one.
+
+1106
+00:26:11,510 --> 00:26:11,520
+backup of the partition one.
+ 
+
+1107
+00:26:11,520 --> 00:26:13,590
+backup of the partition one.
+Okay. And but partition one leader is
+
+1108
+00:26:13,590 --> 00:26:13,600
+Okay. And but partition one leader is
+ 
+
+1109
+00:26:13,600 --> 00:26:16,950
+Okay. And but partition one leader is
+present into broker two.
+
+1110
+00:26:16,950 --> 00:26:16,960
+present into broker two.
+ 
+
+1111
+00:26:16,960 --> 00:26:19,510
+present into broker two.
+So this leader is the one which actually
+
+1112
+00:26:19,510 --> 00:26:19,520
+So this leader is the one which actually
+ 
+
+1113
+00:26:19,520 --> 00:26:22,149
+So this leader is the one which actually
+responsible for read and write into a
+
+1114
+00:26:22,149 --> 00:26:22,159
+responsible for read and write into a
+ 
+
+1115
+00:26:22,159 --> 00:26:24,630
+responsible for read and write into a
+particular partition. For example, you
+
+1116
+00:26:24,630 --> 00:26:24,640
+particular partition. For example, you
+ 
+
+1117
+00:26:24,640 --> 00:26:29,590
+particular partition. For example, you
+are interested into order events and you
+
+1118
+00:26:29,590 --> 00:26:29,600
+are interested into order events and you
+ 
+
+1119
+00:26:29,600 --> 00:26:32,230
+are interested into order events and you
+want to write into partition zero. This
+
+1120
+00:26:32,230 --> 00:26:32,240
+want to write into partition zero. This
+ 
+
+1121
+00:26:32,240 --> 00:26:33,990
+want to write into partition zero. This
+producer want to write into partition
+
+1122
+00:26:33,990 --> 00:26:34,000
+producer want to write into partition
+ 
+
+1123
+00:26:34,000 --> 00:26:35,830
+producer want to write into partition
+zero.
+
+1124
+00:26:35,830 --> 00:26:35,840
+zero.
+ 
+
+1125
+00:26:35,840 --> 00:26:37,830
+zero.
+Now who will write it? Partition zero
+
+1126
+00:26:37,830 --> 00:26:37,840
+Now who will write it? Partition zero
+ 
+
+1127
+00:26:37,840 --> 00:26:39,909
+Now who will write it? Partition zero
+follower is there. Partition zero leader
+
+1128
+00:26:39,909 --> 00:26:39,919
+follower is there. Partition zero leader
+ 
+
+1129
+00:26:39,919 --> 00:26:43,909
+follower is there. Partition zero leader
+is there. Always leader is the one which
+
+1130
+00:26:43,909 --> 00:26:43,919
+is there. Always leader is the one which
+ 
+
+1131
+00:26:43,919 --> 00:26:46,710
+is there. Always leader is the one which
+is responsible for read and write. Only
+
+1132
+00:26:46,710 --> 00:26:46,720
+is responsible for read and write. Only
+ 
+
+1133
+00:26:46,720 --> 00:26:48,870
+is responsible for read and write. Only
+when leader fails then only followers
+
+1134
+00:26:48,870 --> 00:26:48,880
+when leader fails then only followers
+ 
+
+1135
+00:26:48,880 --> 00:26:50,470
+when leader fails then only followers
+comes into the picture. They become a
+
+1136
+00:26:50,470 --> 00:26:50,480
+comes into the picture. They become a
+ 
+
+1137
+00:26:50,480 --> 00:26:53,190
+comes into the picture. They become a
+leader. But till then you can say that
+
+1138
+00:26:53,190 --> 00:26:53,200
+leader. But till then you can say that
+ 
+
+1139
+00:26:53,200 --> 00:26:55,269
+leader. But till then you can say that
+followers are nothing but a standby
+
+1140
+00:26:55,269 --> 00:26:55,279
+followers are nothing but a standby
+ 
+
+1141
+00:26:55,279 --> 00:26:57,430
+followers are nothing but a standby
+which only task is to stay up to date
+
+1142
+00:26:57,430 --> 00:26:57,440
+which only task is to stay up to date
+ 
+
+1143
+00:26:57,440 --> 00:27:00,630
+which only task is to stay up to date
+with the leader. That's all.
+
+1144
+00:27:00,630 --> 00:27:00,640
+with the leader. That's all.
+ 
+
+1145
+00:27:00,640 --> 00:27:03,110
+with the leader. That's all.
+Okay. So now if you remember from the
+
+1146
+00:27:03,110 --> 00:27:03,120
+Okay. So now if you remember from the
+ 
+
+1147
+00:27:03,120 --> 00:27:08,390
+Okay. So now if you remember from the
+producer okay so what uh it has a topic
+
+1148
+00:27:08,390 --> 00:27:08,400
+producer okay so what uh it has a topic
+ 
+
+1149
+00:27:08,400 --> 00:27:11,350
+producer okay so what uh it has a topic
+when it publish an event it has a topic
+
+1150
+00:27:11,350 --> 00:27:11,360
+when it publish an event it has a topic
+ 
+
+1151
+00:27:11,360 --> 00:27:13,510
+when it publish an event it has a topic
+let's say order
+
+1152
+00:27:13,510 --> 00:27:13,520
+let's say order
+ 
+
+1153
+00:27:13,520 --> 00:27:15,029
+let's say order
+events
+
+1154
+00:27:15,029 --> 00:27:15,039
+events
+ 
+
+1155
+00:27:15,039 --> 00:27:17,430
+events
+and let's say key
+
+1156
+00:27:17,430 --> 00:27:17,440
+and let's say key
+ 
+
+1157
+00:27:17,440 --> 00:27:21,750
+and let's say key
+let's say order id and then your uh
+
+1158
+00:27:21,750 --> 00:27:21,760
+let's say order id and then your uh
+ 
+
+1159
+00:27:21,760 --> 00:27:25,430
+let's say order id and then your uh
+record some JSON record and if you
+
+1160
+00:27:25,430 --> 00:27:25,440
+record some JSON record and if you
+ 
+
+1161
+00:27:25,440 --> 00:27:28,789
+record some JSON record and if you
+remember we were doing hash of this
+
+1162
+00:27:28,789 --> 00:27:28,799
+remember we were doing hash of this
+ 
+
+1163
+00:27:28,799 --> 00:27:30,950
+remember we were doing hash of this
+order ID
+
+1164
+00:27:30,950 --> 00:27:30,960
+order ID
+ 
+
+1165
+00:27:30,960 --> 00:27:33,029
+order ID
+and how many partition are there in this
+
+1166
+00:27:33,029 --> 00:27:33,039
+and how many partition are there in this
+ 
+
+1167
+00:27:33,039 --> 00:27:35,029
+and how many partition are there in this
+topic order event let's say currently
+
+1168
+00:27:35,029 --> 00:27:35,039
+topic order event let's say currently
+ 
+
+1169
+00:27:35,039 --> 00:27:38,390
+topic order event let's say currently
+three and it got let's say partition one
+
+1170
+00:27:38,390 --> 00:27:38,400
+three and it got let's say partition one
+ 
+
+1171
+00:27:38,400 --> 00:27:41,990
+three and it got let's say partition one
+so now this producer need to know that
+
+1172
+00:27:41,990 --> 00:27:42,000
+so now this producer need to know that
+ 
+
+1173
+00:27:42,000 --> 00:27:44,789
+so now this producer need to know that
+which broker host this partition one for
+
+1174
+00:27:44,789 --> 00:27:44,799
+which broker host this partition one for
+ 
+
+1175
+00:27:44,799 --> 00:27:48,390
+which broker host this partition one for
+this topic so order events okay
+
+1176
+00:27:48,390 --> 00:27:48,400
+this topic so order events okay
+ 
+
+1177
+00:27:48,400 --> 00:27:50,950
+this topic so order events okay
+partition one leader it need to find out
+
+1178
+00:27:50,950 --> 00:27:50,960
+partition one leader it need to find out
+ 
+
+1179
+00:27:50,960 --> 00:27:53,750
+partition one leader it need to find out
+the leader which broker host the leader
+
+1180
+00:27:53,750 --> 00:27:53,760
+the leader which broker host the leader
+ 
+
+1181
+00:27:53,760 --> 00:27:56,470
+the leader which broker host the leader
+of partition one okay because then it
+
+1182
+00:27:56,470 --> 00:27:56,480
+of partition one okay because then it
+ 
+
+1183
+00:27:56,480 --> 00:27:58,710
+of partition one okay because then it
+has to pass the request to that broker
+
+1184
+00:27:58,710 --> 00:27:58,720
+has to pass the request to that broker
+ 
+
+1185
+00:27:58,720 --> 00:28:01,990
+has to pass the request to that broker
+only okay the same thing I told you in
+
+1186
+00:28:01,990 --> 00:28:02,000
+only okay the same thing I told you in
+ 
+
+1187
+00:28:02,000 --> 00:28:03,909
+only okay the same thing I told you in
+previous video about consumer consumer
+
+1188
+00:28:03,909 --> 00:28:03,919
+previous video about consumer consumer
+ 
+
+1189
+00:28:03,919 --> 00:28:06,549
+previous video about consumer consumer
+need to publish an event to consumer
+
+1190
+00:28:06,549 --> 00:28:06,559
+need to publish an event to consumer
+ 
+
+1191
+00:28:06,559 --> 00:28:09,830
+need to publish an event to consumer
+offsets topic okay and that consumer
+
+1192
+00:28:09,830 --> 00:28:09,840
+offsets topic okay and that consumer
+ 
+
+1193
+00:28:09,840 --> 00:28:12,950
+offsets topic okay and that consumer
+offset topic has 50 partition so that's
+
+1194
+00:28:12,950 --> 00:28:12,960
+offset topic has 50 partition so that's
+ 
+
+1195
+00:28:12,960 --> 00:28:17,669
+offset topic has 50 partition so that's
+why they were doing hash of group ID
+
+1196
+00:28:17,669 --> 00:28:17,679
+why they were doing hash of group ID
+ 
+
+1197
+00:28:17,679 --> 00:28:19,909
+why they were doing hash of group ID
+mod 50 and if they find out that okay
+
+1198
+00:28:19,909 --> 00:28:19,919
+mod 50 and if they find out that okay
+ 
+
+1199
+00:28:19,919 --> 00:28:24,310
+mod 50 and if they find out that okay
+partition 23 which broker host the
+
+1200
+00:28:24,310 --> 00:28:24,320
+partition 23 which broker host the
+ 
+
+1201
+00:28:24,320 --> 00:28:26,630
+partition 23 which broker host the
+partition 23 leader because leader can
+
+1202
+00:28:26,630 --> 00:28:26,640
+partition 23 leader because leader can
+ 
+
+1203
+00:28:26,640 --> 00:28:29,269
+partition 23 leader because leader can
+only take care of right
+
+1204
+00:28:29,269 --> 00:28:29,279
+only take care of right
+ 
+
+1205
+00:28:29,279 --> 00:28:31,750
+only take care of right
+And that's where they have to connect to
+
+1206
+00:28:31,750 --> 00:28:31,760
+And that's where they have to connect to
+ 
+
+1207
+00:28:31,760 --> 00:28:34,549
+And that's where they have to connect to
+that particular server.
+
+1208
+00:28:34,549 --> 00:28:34,559
+that particular server.
+ 
+
+1209
+00:28:34,559 --> 00:28:36,310
+that particular server.
+So what is the leader responsibility?
+
+1210
+00:28:36,310 --> 00:28:36,320
+So what is the leader responsibility?
+ 
+
+1211
+00:28:36,320 --> 00:28:38,230
+So what is the leader responsibility?
+Leader responsibility handle all
+
+1212
+00:28:38,230 --> 00:28:38,240
+Leader responsibility handle all
+ 
+
+1213
+00:28:38,240 --> 00:28:41,029
+Leader responsibility handle all
+producer rights, handle all consumer
+
+1214
+00:28:41,029 --> 00:28:41,039
+producer rights, handle all consumer
+ 
+
+1215
+00:28:41,039 --> 00:28:44,789
+producer rights, handle all consumer
+reads, maintain the partition logs.
+
+1216
+00:28:44,789 --> 00:28:44,799
+reads, maintain the partition logs.
+ 
+
+1217
+00:28:44,799 --> 00:28:50,549
+reads, maintain the partition logs.
+Okay. And coordinate with follower.
+
+1218
+00:28:50,549 --> 00:28:50,559
+
+ 
+
+1219
+00:28:50,559 --> 00:28:52,389
+
+Follower responsibilities. Replicate
+
+1220
+00:28:52,389 --> 00:28:52,399
+Follower responsibilities. Replicate
+ 
+
+1221
+00:28:52,399 --> 00:28:55,269
+Follower responsibilities. Replicate
+data from leader. Stay in sync with
+
+1222
+00:28:55,269 --> 00:28:55,279
+data from leader. Stay in sync with
+ 
+
+1223
+00:28:55,279 --> 00:28:57,669
+data from leader. Stay in sync with
+leader. Ready to become a leader. If
+
+1224
+00:28:57,669 --> 00:28:57,679
+leader. Ready to become a leader. If
+ 
+
+1225
+00:28:57,679 --> 00:28:59,830
+leader. Ready to become a leader. If
+current leader fails, do not serve
+
+1226
+00:28:59,830 --> 00:28:59,840
+current leader fails, do not serve
+ 
+
+1227
+00:28:59,840 --> 00:29:02,870
+current leader fails, do not serve
+client. Followers never serve clients.
+
+1228
+00:29:02,870 --> 00:29:02,880
+client. Followers never serve clients.
+ 
+
+1229
+00:29:02,880 --> 00:29:05,430
+client. Followers never serve clients.
+Only leader does.
+
+1230
+00:29:05,430 --> 00:29:05,440
+Only leader does.
+ 
+
+1231
+00:29:05,440 --> 00:29:08,860
+Only leader does.
+Okay.
+
+1232
+00:29:08,860 --> 00:29:08,870
+
+ 
+
+1233
+00:29:08,870 --> 00:29:11,110
+
+[snorts]
+
+1234
+00:29:11,110 --> 00:29:11,120
+
+ 
+
+1235
+00:29:11,120 --> 00:29:13,909
+
+So this is clear. Now one question might
+
+1236
+00:29:13,909 --> 00:29:13,919
+So this is clear. Now one question might
+ 
+
+1237
+00:29:13,919 --> 00:29:16,630
+So this is clear. Now one question might
+have comes to your mind.
+
+1238
+00:29:16,630 --> 00:29:16,640
+have comes to your mind.
+ 
+
+1239
+00:29:16,640 --> 00:29:19,669
+have comes to your mind.
+Who decide which broker host which
+
+1240
+00:29:19,669 --> 00:29:19,679
+Who decide which broker host which
+ 
+
+1241
+00:29:19,679 --> 00:29:21,830
+Who decide which broker host which
+partition replica?
+
+1242
+00:29:21,830 --> 00:29:21,840
+partition replica?
+ 
+
+1243
+00:29:21,840 --> 00:29:24,230
+partition replica?
+Which partition replica become leader?
+
+1244
+00:29:24,230 --> 00:29:24,240
+Which partition replica become leader?
+ 
+
+1245
+00:29:24,240 --> 00:29:26,389
+Which partition replica become leader?
+Which partition replica stay have
+
+1246
+00:29:26,389 --> 00:29:26,399
+Which partition replica stay have
+ 
+
+1247
+00:29:26,399 --> 00:29:29,430
+Which partition replica stay have
+follower? So we have done this right.
+
+1248
+00:29:29,430 --> 00:29:29,440
+follower? So we have done this right.
+ 
+
+1249
+00:29:29,440 --> 00:29:32,950
+follower? So we have done this right.
+Okay. Broker one contains partition zero
+
+1250
+00:29:32,950 --> 00:29:32,960
+Okay. Broker one contains partition zero
+ 
+
+1251
+00:29:32,960 --> 00:29:35,909
+Okay. Broker one contains partition zero
+as leader and partition one follower.
+
+1252
+00:29:35,909 --> 00:29:35,919
+as leader and partition one follower.
+ 
+
+1253
+00:29:35,919 --> 00:29:39,590
+as leader and partition one follower.
+Broker two has partition one as leader,
+
+1254
+00:29:39,590 --> 00:29:39,600
+Broker two has partition one as leader,
+ 
+
+1255
+00:29:39,600 --> 00:29:41,110
+Broker two has partition one as leader,
+partition two follower. It is stored
+
+1256
+00:29:41,110 --> 00:29:41,120
+partition two follower. It is stored
+ 
+
+1257
+00:29:41,120 --> 00:29:44,710
+partition two follower. It is stored
+this. But who decides that?
+
+1258
+00:29:44,710 --> 00:29:44,720
+this. But who decides that?
+ 
+
+1259
+00:29:44,720 --> 00:29:46,630
+this. But who decides that?
+Okay. Because see they are different
+
+1260
+00:29:46,630 --> 00:29:46,640
+Okay. Because see they are different
+ 
+
+1261
+00:29:46,640 --> 00:29:49,110
+Okay. Because see they are different
+servers.
+
+1262
+00:29:49,110 --> 00:29:49,120
+servers.
+ 
+
+1263
+00:29:49,120 --> 00:29:51,510
+servers.
+But who decides
+
+1264
+00:29:51,510 --> 00:29:51,520
+But who decides
+ 
+
+1265
+00:29:51,520 --> 00:29:55,990
+But who decides
+which broker host which topic and out of
+
+1266
+00:29:55,990 --> 00:29:56,000
+which broker host which topic and out of
+ 
+
+1267
+00:29:56,000 --> 00:29:59,990
+which broker host which topic and out of
+this topic which partition it will host
+
+1268
+00:29:59,990 --> 00:30:00,000
+this topic which partition it will host
+ 
+
+1269
+00:30:00,000 --> 00:30:02,470
+this topic which partition it will host
+as a leader and which partition it will
+
+1270
+00:30:02,470 --> 00:30:02,480
+as a leader and which partition it will
+ 
+
+1271
+00:30:02,480 --> 00:30:07,430
+as a leader and which partition it will
+host as a follower who decide this.
+
+1272
+00:30:07,430 --> 00:30:07,440
+host as a follower who decide this.
+ 
+
+1273
+00:30:07,440 --> 00:30:10,070
+host as a follower who decide this.
+That's where our controller comes into
+
+1274
+00:30:10,070 --> 00:30:10,080
+That's where our controller comes into
+ 
+
+1275
+00:30:10,080 --> 00:30:13,110
+That's where our controller comes into
+the picture. So which I will cover in
+
+1276
+00:30:13,110 --> 00:30:13,120
+the picture. So which I will cover in
+ 
+
+1277
+00:30:13,120 --> 00:30:15,750
+the picture. So which I will cover in
+the next part. Okay. I don't want to go
+
+1278
+00:30:15,750 --> 00:30:15,760
+the next part. Okay. I don't want to go
+ 
+
+1279
+00:30:15,760 --> 00:30:19,669
+the next part. Okay. I don't want to go
+fast but if you have any doubt till here
+
+1280
+00:30:19,669 --> 00:30:19,679
+fast but if you have any doubt till here
+ 
+
+1281
+00:30:19,679 --> 00:30:21,029
+fast but if you have any doubt till here
+let me know in the comment section we
+
+1282
+00:30:21,029 --> 00:30:21,039
+let me know in the comment section we
+ 
+
+1283
+00:30:21,039 --> 00:30:23,430
+let me know in the comment section we
+can discuss further but at this point of
+
+1284
+00:30:23,430 --> 00:30:23,440
+can discuss further but at this point of
+ 
+
+1285
+00:30:23,440 --> 00:30:26,870
+can discuss further but at this point of
+time the leader follower partition
+
+1286
+00:30:26,870 --> 00:30:26,880
+time the leader follower partition
+ 
+
+1287
+00:30:26,880 --> 00:30:28,870
+time the leader follower partition
+should be clear
+
+1288
+00:30:28,870 --> 00:30:28,880
+should be clear
+ 
+
+1289
+00:30:28,880 --> 00:30:32,640
+should be clear
+okay see you in the next
+
